@@ -1,0 +1,39 @@
+# last modified 09 July 2008 by J. Fox
+
+import(tcltk)
+
+export(activateMenus, activeDataSet, ActiveDataSet, activeDataSetP, activeModel,
+ActiveModel, activeModelP, assignCluster, bin.var, buttonRcmdr,
+checkActiveDataSet,
+checkActiveModel, checkBoxes, checkClass, checkFactors, checkMethod, 
+checkNumeric, checkReplace,
+checkTwoLevelFactors, checkVariables, closeCommander,
+closeDialog, colPercents, Commander,
+commanderPosition, CommanderWindow, Confint, dataSetsP, defmacro,
+dialogSuffix, doItAndPrint, errorCondition, exists.method,
+Factors, factorsP, getFrame, getRcmdr, getSelection, gettextRcmdr,
+glmP, GrabFocus, groupsBox, groupsLabel, hclustSolutionsP, Hist, 
+identify3d, initializeDialog, 
+is.valid.name, is.SciViews, justDoIt, KMeans, labelRcmdr,
+listAllModels, listDataSets, listFactors, listGeneralizedLinearModels, 
+listLinearModels, listMultinomialLogitModels, listNumeric, listPlugins, 
+listProportionalOddsModels, listTwoLevelFactors, listVariables, 
+lmP, logger, LogWindow,
+Message, MessagesWindow, modelFormula, modelsP, nobs, Numeric,
+numericP, numSummary, OKCancelHelp, OutputWindow, packageAvailable, partial.cor,
+plotMeans, popOutput, putRcmdr, radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet, 
+RcmdrTkmessageBox,
+reliability, rowPercents, scatter3d, subOKCancelHelp,
+subsetBox, totPercents, trim.blanks, ttkentry, ttkframe, ttkradiobutton,
+ttkscrollbar, TwoLevelFactors, twoLevelFactorsP, 
+UpdateModelNumber, variableListBox, Variables)
+
+S3method(Confint, glm)
+S3method(Confint, default)
+S3method(confint, multinom)
+S3method(confint, polr)
+S3method(print, numSummary)
+S3method(print, reliability)
+S3method(getFrame, listbox)
+S3method(getSelection, listbox)
+
