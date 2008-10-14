@@ -730,3 +730,9 @@ Version 1.4-2
    
    o  Improved error checking and protection in distributions dialogs.
    
+Version 1.4-3
+
+   o  Fixed a bug in the scroll-bar for the RHS of model formulas (reported by Ulrich Halekoh).
+   
+   o  Fixed problem with some legends in plotMeans() (reported by Rich Heiberger).
+   
