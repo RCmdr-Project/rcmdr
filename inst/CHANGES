@@ -736,3 +736,5 @@ Version 1.4-3
    
    o  Fixed problem with some legends in plotMeans() (reported by Rich Heiberger).
    
+   o  Updated Spanish translation (courtesy Rcmdr Spanish translation team).
+   
