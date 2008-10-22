@@ -1,4 +1,4 @@
-# last modified 14 October 2008 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 22 October 2008 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -505,25 +505,26 @@ print.numSummary <- function(x, ...){
 
     # wrapper function for histograms
 
-Hist <- function(x, scale=c("frequency", "percent", "density"), ...){
-    xlab <- deparse(substitute(x))
-    x <- na.omit(x)
-    scale <- match.arg(scale)
-    if (scale == "frequency") hist(x, xlab=xlab, main="",  ...)
-    else if (scale == "density") hist(x, freq=FALSE, xlab=xlab, main="", ...)
-    else {
-        n <- length(x)
-        hist(x, axes=FALSE, xlab=xlab, ylab="Percent", main="", ...)
-        axis(1)
-        max <- ceiling(10*par("usr")[4]/n)
-        at <- if (max <= 3) (0:(2*max))/20
-                else (0:max)/10
-        axis(2, at=at*n, labels=at*100)
-        }
-    box()
-    abline(h=0, col="gray")
-    invisible(NULL)
-    }
+Hist <- function(x, scale=c("frequency", "percent", "density"), xlab=deparse(substitute(x)), 
+	ylab=scale, main="", ...){
+	xlab # evaluate
+	x <- na.omit(x)
+	scale <- match.arg(scale)
+	if (scale == "frequency") hist(x, xlab=xlab, ylab=ylab, main=main, ...)
+	else if (scale == "density") hist(x, freq=FALSE, xlab=xlab, ylab=ylab, main=main, ...)
+	else {
+		n <- length(x)
+		hist(x, axes=FALSE, xlab=xlab, ylab=ylab, main=main, ...)
+		axis(1)
+		max <- ceiling(10*par("usr")[4]/n)
+		at <- if (max <= 3) (0:(2*max))/20
+			else (0:max)/10
+		axis(2, at=at*n, labels=at*100)
+	}
+	box()
+	abline(h=0)
+	invisible(NULL)
+}
 
 	plotMeans <- function(response, factor1, factor2, error.bars = c("se", "sd", "conf.int", "none"),
 		level=0.95, xlab=deparse(substitute(factor1)), ylab=paste("mean of", deparse(substitute(response))),
