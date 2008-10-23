@@ -738,5 +738,7 @@ Version 1.4-3
    
    o  Updated Spanish translation (courtesy Rcmdr Spanish translation team).
    
+Version 1.4-4
+   
    o  Small changes to Hist() to make it more flexible (suggested by Gilles Marcou).
    

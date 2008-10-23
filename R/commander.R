@@ -1,11 +1,11 @@
 # The R Commander and command logger
 
-# last modified 14 October 2008 by J. Fox
+# last modified 23 October 2008 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 
 Commander <- function(){
-    RcmdrVersion <- "1.4-3"
+    RcmdrVersion <- "1.4-4"
 ##    DESCRIPTION <- readLines(file.path(.find.package("Rcmdr"), "DESCRIPTION")[1])
 ##    RcmdrVersion <- trim.blanks(sub("^Version:", "",
 ##        grep("^Version:", D, value=TRUE)))
