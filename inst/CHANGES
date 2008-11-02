@@ -742,3 +742,7 @@ Version 1.4-4
    
    o  Small changes to Hist() to make it more flexible (suggested by Gilles Marcou).
    
+Version 1.4-5
+
+   o  Inserted 0.01 second delay in posting of messages to the Message window to prevent the window from freezing in (some) Windows systems under R 2.8.0 (problem reported by Rich Heiberger).
+   
