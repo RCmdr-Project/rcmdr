@@ -1,6 +1,6 @@
 # The R Commander and command logger
 
-# last modified 2 November 2008 by J. Fox
+# last modified 3 November 2008 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 
@@ -757,7 +757,9 @@ pause <- function(seconds = 1){
 	
 Message <- function(message, type=c("note", "error", "warning")){
     if (is.SciViews()) return(svMessage(message, type))    # +PhG
-	Sys.sleep(0.01)
+	tcl("update","idletasks")
+#	tcl("update") 
+# 	Sys.sleep(0.01)
     .message <- MessagesWindow()
     type <- match.arg(type)
     if (type != "note") tkbell()
