@@ -149,7 +149,7 @@ effectPlots <- function(){
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("effect", .activeModel)) return()
     doItAndPrint('trellis.device(theme="col.whitebg")')
-    command <- paste("plot(all.effects(", .activeModel, "), ask=FALSE)", sep="")
+    command <- paste("plot(allEffects(", .activeModel, "), ask=FALSE)", sep="")
     justDoIt(command)
     logger(command)
     activateMenus()

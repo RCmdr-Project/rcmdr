@@ -1,6 +1,6 @@
 # Distributions menu dialogs
 
-# last modified 17 September 2008 by J. Fox
+# last modified 3 December 2008 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic (20 July 06)
 

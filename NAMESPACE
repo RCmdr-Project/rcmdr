@@ -1,4 +1,4 @@
-# last modified 09 July 2008 by J. Fox
+# last modified 4 December 2008 by J. Fox
 
 import(tcltk)
 
@@ -15,16 +15,16 @@ Factors, factorsP, getFrame, getRcmdr, getSelection, gettextRcmdr,
 glmP, GrabFocus, groupsBox, groupsLabel, hclustSolutionsP, Hist, 
 identify3d, initializeDialog, 
 is.valid.name, is.SciViews, justDoIt, KMeans, labelRcmdr,
-listAllModels, listDataSets, listFactors, listGeneralizedLinearModels, 
+listAllModels, listAOVModels, listDataSets, listFactors, listGeneralizedLinearModels, 
 listLinearModels, listMultinomialLogitModels, listNumeric, listPlugins, 
 listProportionalOddsModels, listTwoLevelFactors, listVariables, 
 lmP, logger, LogWindow,
-Message, MessagesWindow, modelFormula, modelsP, nobs, Numeric,
+Message, MessagesWindow, modelFormula, modelsP, multinomP, nobs, Numeric,
 numericP, numSummary, OKCancelHelp, OutputWindow, packageAvailable, partial.cor,
-plotMeans, popOutput, putRcmdr, radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet, 
+plotMeans, polrP, popOutput, putRcmdr, radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet, 
 RcmdrTkmessageBox,
 reliability, rowPercents, scatter3d, subOKCancelHelp,
-subsetBox, totPercents, trim.blanks, ttkentry, ttkframe, ttkradiobutton,
+subsetBox, tclvalue, totPercents, trim.blanks, ttkentry, ttkframe, ttkradiobutton,
 ttkscrollbar, TwoLevelFactors, twoLevelFactorsP, 
 UpdateModelNumber, variableListBox, Variables)
 

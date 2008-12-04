@@ -1,11 +1,11 @@
 # The R Commander and command logger
 
-# last modified 7 November 2008 by J. Fox
+# last modified 3 December 2008 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 
 Commander <- function(){
-    RcmdrVersion <- "1.4-5"
+    RcmdrVersion <- "1.4-6"
 ##    DESCRIPTION <- readLines(file.path(.find.package("Rcmdr"), "DESCRIPTION")[1])
 ##    RcmdrVersion <- trim.blanks(sub("^Version:", "",
 ##        grep("^Version:", D, value=TRUE)))
@@ -322,8 +322,8 @@ Commander <- function(){
         else paste("View(", ActiveDataSet(), ")", sep="")
         logger(command)
         justDoIt(command)
-        tkwm.deiconify(CommanderWindow())
-        tkfocus(CommanderWindow())
+#        tkwm.deiconify(CommanderWindow())
+#        tkfocus(CommanderWindow())
         }
     # the following function modified 14 July 07 by Erich Neuwirth
     onSubmit <- function(){
@@ -596,11 +596,13 @@ Commander <- function(){
 
 # the following function modified 24 July 07 by Richard Heiberger
 #  and subsequently by J. Fox 26 July 07
+# last modified 3 December 08 by J. Fox
 
 logger <- function(command){
    if (is.SciViews()) return(svlogger(command))    # +PhG
    .log <- LogWindow()
    .output <- OutputWindow()
+   command <- splitCmd(command)
    if (getRcmdr("log.commands")) {
        tkinsert(.log, "end", paste(command,"\n", sep=""))
        tkyview.moveto(.log, 1)

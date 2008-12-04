@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 30 July 2008 by J. Fox
+# last modified 4 December 2008 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -87,7 +87,7 @@
     item    meansMenu       command         "Single-sample t-test..."                       singleSampleTTest           "numericP()"          ""
     item    meansMenu       command         "Independent samples t-test..."                 independentSamplesTTest     "numericP() && twoLevelFactorsP()"          ""
     item    meansMenu       command         "Paired t-test..."                              pairedTTest                 "numericP(2)"          ""
-    item    meansMenu       command         "One-way ANOVA..."                              oneWayAnova                 "numericP() && factorsP()" "packageAvailable('multcomp')"
+    item    meansMenu       command         "One-way ANOVA..."                              oneWayAnova                 "numericP() && factorsP()" "packageAvailable('multcomp') && packageAvailable('abind')"
     item    meansMenu       command         "Multi-way ANOVA..."                            multiWayAnova               "numericP() && factorsP()"          ""
     menu    proportionsMenu statisticsMenu  ""                                              ""                          ""          ""
     item    proportionsMenu command         "Single-sample proportion test..."              singleProportionTest        "twoLevelFactorsP()"                ""
@@ -178,7 +178,7 @@
     item    modelsGraphsMenu      command         "Component+residual plots"                      CRPlots                     "(lmP() || glmP())" "packageAvailable('car')"
     item    modelsGraphsMenu      command         "Added-variable plots"                          AVPlots                     "(lmP() || glmP())" "packageAvailable('car')"
     item    modelsGraphsMenu      command         "Influence plot"                                InfluencePlot               "(lmP() || glmP())" "packageAvailable('car')"
-    item    modelsGraphsMenu      command         "Effect plots"                                  effectPlots                 "(lmP() || glmP())" "packageAvailable('effects')"
+    item    modelsGraphsMenu      command         "Effect plots"                                  effectPlots                 "(lmP() || glmP()) || polrP() || multinomP()" "packageAvailable('effects')"
     item    topMenu         cascade         "Models"                                        modelsMenu                  ""          ""
 
     # Distributions

@@ -748,3 +748,14 @@ Version 1.4-5
    
    o  Updated Indonesian translation (thanks to I. Made Tirta).
    
+Version 1.4-6
+
+   o  Added polr and multinom models to effect-plots, consistent with latest version of effects package.
+   
+   o  ttkentry() redefined to trim leading and trailing blanks (to avoid potential problems when user introduces a leading or trailing blank in a text field, as reported by Rich Heiberger).
+   
+   o  An attempt is made to break commands at blanks and commas to fit them in the script and output windows.
+   
+   o  Improvements to the one-way and multi-way ANOVA dialogs, including saving the models that are produced (suggested by Rich Heiberger).
+   
+   o  Small changes.

@@ -44,6 +44,7 @@
 \alias{is.valid.name}
 \alias{justDoIt}
 \alias{listAllModels}
+\alias{listAOVModels}
 \alias{listDataSets}
 \alias{listGeneralizedLinearModels}
 \alias{listFactors}
@@ -61,12 +62,14 @@
 \alias{MessagesWindow}
 \alias{modelFormula}
 \alias{modelsP}
+\alias{multinomP}
 \alias{nobs}
 \alias{Numeric}
 \alias{numericP}
 \alias{OKCancelHelp}
 \alias{OutputWindow}
 \alias{packageAvailable}
+\alias{polrP}
 \alias{popOutput}
 \alias{putRcmdr}
 \alias{radioButtons}
@@ -75,6 +78,7 @@
 \alias{rglLoaded}
 \alias{subOKCancelHelp}
 \alias{subsetBox}
+\alias{tclvalue}
 \alias{trim.blanks}
 \alias{TwoLevelFactors}
 \alias{twoLevelFactorsP}
@@ -144,6 +148,7 @@ initializeDialog(window=top, title="", offset=10, preventCrisp=FALSE)  # macro
 is.valid.name(x)
 justDoIt(command)
 listAllModels(envir=.GlobalEnv, ...)
+listAOVModels(envir=.GlobalEnv, ...)
 listDataSets(envir=.GlobalEnv, ...)
 listFactors(dataSet=ActiveDataSet())
 listGeneralizedLinearModels(envir=.GlobalEnv, ...)
@@ -161,12 +166,14 @@ Message(message, type=c("note", "error", "warning"))
 MessagesWindow()
 modelFormula(frame=top, hasLhs=TRUE)  # macro
 modelsP(n=1)
+multinomP()
 nobs(model)
 Numeric(names)
 numericP(n=1)
 OKCancelHelp(window=top, helpSubject=NULL, model=FALSE)  # macro
 OutputWindow()
 packageAvailable(name)
+polrP()
 popOutput()
 putRcmdr(x, value)
 radioButtons(window=top, name, buttons, values=NULL, initialValue=..values[1], 
@@ -177,6 +184,7 @@ RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
 rglLoaded()
 subOKCancelHelp(window=subdialog, helpSubject=NULL)  # macro
 subsetBox(window=top, model=FALSE)  # macro
+tclvalue(x)
 trim.blanks(text)
 TwoLevelFactors(names)
 twoLevelFactorsP(n=1)
@@ -263,7 +271,7 @@ commanderPosition()
   \item{value}{an object to be stored.}
   \item{variableList}{a vector of variable names.}
   \item{window, parentWindow}{a Tk window.}
-  \item{x}{an R object name, as a character string.}
+  \item{x}{an R object name, as a character string, or a tcl variable or object.}
   \item{\dots}{For \code{gettextRcmdr}, text string or vector of text strings
     to translate; for \code{defmacro}, arguments for the macro; otherwise disregard.}
 }
@@ -299,7 +307,7 @@ commanderPosition()
   
   \emph{Information: }
   Several functions return vectors of object names: \code{listAllModels}, \cr
-  \code{listDataSets}, \code{listGeneralizedLinearModels},
+  \code{listAOVModels}, \code{listDataSets}, \code{listGeneralizedLinearModels},
   \code{listFactors}, \code{listLinearModels}, \code{listMultinomialLogitModels},
   \code{listNumeric}, \code{listProportionalOddsModels},
   \code{listTwoLevelFactors},
@@ -340,7 +348,7 @@ commanderPosition()
    \code{\link[base]{gettext}}, adding the argument \code{domain="R-Rcmdr"}.
    
   \emph{Miscellaneous:}
-  The function \code{trim.blanks} removes spaces from the beginning and end of a character string. The function 
+  The function \code{trim.blanks} removes spaces from the beginning and end of a character string. The function
   \code{installPlugin} installs an Rcmdr plug-in from a ZIP file or directory; this function may be used to
   create self-installing plug-ins in the form of packages. The function \code{nobs} returns the number of 
   observations on which a statistical model is based.
