@@ -1,6 +1,6 @@
 # The R Commander and command logger
 
-# last modified 3 December 2008 by J. Fox
+# last modified 4 December 2008 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 
@@ -604,6 +604,8 @@ logger <- function(command){
    .output <- OutputWindow()
    command <- splitCmd(command)
    if (getRcmdr("log.commands")) {
+	   last2 <- tclvalue(tkget(.log, "end -2 chars", "end"))
+	   if (last2 != "\n\n") tkinsert(.log, "end", "\n")
        tkinsert(.log, "end", paste(command,"\n", sep=""))
        tkyview.moveto(.log, 1)
        }
