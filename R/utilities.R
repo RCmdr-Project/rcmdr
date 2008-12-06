@@ -1,4 +1,4 @@
-# last modified 3 December 2008 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 6 December 2008 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -2058,7 +2058,7 @@ nobs <- function(model){
 	
 # the following function slips a character string at blanks and commas according to width
 
-splitCmd <- function(cmd, width=getOption("width") - 2, at="[ ,]"){
+splitCmd <- function(cmd, width=getOption("width") - 4, at="[ ,]"){
 	if (nchar(cmd) <= width) return(cmd)
 	where <- gregexpr(at, cmd)[[1]]
 	if (where[1] < 0) return(cmd)
@@ -2089,6 +2089,6 @@ splitCmd <- function(cmd, width=getOption("width") - 2, at="[ ,]"){
 	where2 <- where[where <= width]
 	where2 <- if (length(where2) == 0) where[1]
 		else where2[length(where2)]
-	paste(substr(cmd, 1, where2), "\n", 
+	paste(substr(cmd, 1, where2), "\n  ", 
 		Recall(substr(cmd, where2 + 1, nchar(cmd)), width, at), sep="")
 } 

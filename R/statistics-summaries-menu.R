@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 27 July 2008 by J. Fox
+# last modified 6 December 08 by J. Fox
 
     # Summaries menu
     
@@ -26,7 +26,7 @@ numericalSummaries <- function(){
     quantilesVariable <- tclVar("1")
     quantilesFrame <- tkframe(top)
     quantilesCheckBox <- tkcheckbutton(quantilesFrame, variable=quantilesVariable)
-    quantiles <- tclVar("0,.25,.5,.75,1")
+    quantiles <- tclVar("0, .25, .5, .75, 1")
     quantilesEntry <- ttkentry(quantilesFrame, width="20", textvariable=quantiles)
     groupsBox(recall=numericalSummaries, label=gettextRcmdr("Summarize by:"), initialLabel=gettextRcmdr("Summarize by groups"))
     onOK <- function(){
@@ -36,7 +36,7 @@ numericalSummaries <- function(){
             return()
             }
         closeDialog()
-        quants <- paste("c(", gsub(" ", ",", tclvalue(quantiles)), ")")
+        quants <- paste("c(", gsub(",+", ",", gsub(" ", ",", tclvalue(quantiles))), ")", sep="")
         .activeDataSet <- ActiveDataSet()
         vars <- if (length(x) == 1) paste('"', x, '"', sep="") 
             else paste("c(", paste('"', x, '"', collapse=", ", sep=""), ")", sep="")
