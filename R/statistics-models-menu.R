@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 26 March 08 by J. Fox
+# last modified 7 December 08 by J. Fox
 
     # Models menu
 
@@ -446,22 +446,27 @@ multinomialLogitModel <- function(){
     dialogSuffix(rows=6, columns=1, focus=lhsEntry, preventDoubleClick=TRUE)
     }
 
-formulaFields <- function(model, glm=FALSE){
-    formula <- as.character(model$call$formula)
-    lhs <- formula[2]
-    rhs <- formula[3]
-    data <- as.character(model$call$data)
-    which.subset <- which("subset" == names(model$call))
-    subset <- if (0 == length(which.subset)) ""
-        else as.character(model$call)[[which.subset]]
-    if (glm) {
-        fam <- as.character(model$call$family)
-        family <- fam[1]
-        link <- fam[2]
-        }
-    else {
-        family <- NULL
-        link <- NULL
-        }
-    list(lhs=lhs, rhs=rhs, data=data, subset=subset, family=family, link=link)
-    }
+formulaFields <- function(model, hasLhs=TRUE, glm=FALSE){
+	formula <- as.character(model$call$formula)
+	if (hasLhs){
+		lhs <- formula[2]
+		rhs <- formula[3]
+	} else {
+		lhs <- NULL
+		rhs <- formula[2]
+	}
+	data <- as.character(model$call$data)
+	which.subset <- which("subset" == names(model$call))
+	subset <- if (0 == length(which.subset)) ""
+		else as.character(model$call)[[which.subset]]
+	if (glm) {
+		fam <- as.character(model$call$family)
+		family <- fam[1]
+		link <- fam[2]
+	}
+	else {
+		family <- NULL
+		link <- NULL
+	}
+	list(lhs=lhs, rhs=rhs, data=data, subset=subset, family=family, link=link)
+}

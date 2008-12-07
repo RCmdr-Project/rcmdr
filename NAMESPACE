@@ -1,4 +1,4 @@
-# last modified 4 December 2008 by J. Fox
+# last modified 7 December 2008 by J. Fox
 
 import(tcltk)
 
@@ -11,7 +11,7 @@ checkTwoLevelFactors, checkVariables, closeCommander,
 closeDialog, colPercents, Commander,
 commanderPosition, CommanderWindow, Confint, dataSetsP, defmacro,
 dialogSuffix, doItAndPrint, errorCondition, exists.method,
-Factors, factorsP, getFrame, getRcmdr, getSelection, gettextRcmdr,
+Factors, factorsP, formulaFields, getFrame, getRcmdr, getSelection, gettextRcmdr,
 glmP, GrabFocus, groupsBox, groupsLabel, hclustSolutionsP, Hist, 
 identify3d, initializeDialog, 
 is.valid.name, is.SciViews, justDoIt, KMeans, labelRcmdr,

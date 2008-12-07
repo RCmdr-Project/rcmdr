@@ -1,4 +1,4 @@
-# last modified 6 December 2008 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 7 December 2008 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -1613,7 +1613,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
         tkgrid.configure(lhsScroll, sticky="ew")
         }
     else{
-        rhsVariable <- tclVar("")
+        rhsVariable <- if (currentModel) tclVar(currentFields$rhs) else tclVar("")
         rhsEntry <- ttkentry(formulaFrame, width="50", textvariable=rhsVariable)
         rhsXscroll <- ttkscrollbar(formulaFrame,
             orient="horizontal", command=function(...) tkxview(rhs, ...))

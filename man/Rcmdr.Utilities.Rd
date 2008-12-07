@@ -29,6 +29,7 @@
 \alias{exists.method}
 \alias{Factors}
 \alias{factorsP}
+\alias{formulaFields}
 \alias{getFrame}
 \alias{getFrame.listbox}
 \alias{getRcmdr}
@@ -132,6 +133,7 @@ errorCondition(window=top, recall=NULL, message, model=FALSE)  # macro
 exists.method(generic, object, default=TRUE, strict=FALSE)
 Factors(names)
 factorsP(n=1)
+formulaFields(model, hasLhs=TRUE, glm=FALSE)
 \method{getFrame}{listbox}(object)
 \method{getSelection}{listbox}(object)
 getRcmdr(x, mode="any")
@@ -222,6 +224,7 @@ commanderPosition()
   \item{focus}{Tk window to get the focus.}
   \item{frame}{frame or quoted name for frame depending upon the function.}
   \item{generic}{quoted name of generic function.}
+  \item{glm}{\code{TRUE} if the model is a \code{glm} object, \code{FALSE} otherwise.}
   \item{groupsBox}{listbox object for selecting groups variable.}
   \item{hasLhs}{does the model formula have a left-hand side?}
   \item{helpSubject}{the quoted name of a help subject, to be called as \code{help(helpSubject)}
@@ -240,8 +243,8 @@ commanderPosition()
   \item{log}{echo command to the log window, as well as executing it and printing its output.}
   \item{message}{error (or other) message.}
   \item{mode}{mode of object to retrieve.}
-  \item{model}{the name of a model, as a character string, or \code{TRUE} or \code{FALSE}, depending
-    upon the function.}
+  \item{model}{the name of a model, as a character string, or a model object, 
+  	or \code{TRUE} or \code{FALSE}, depending upon the function.}
   \item{name}{quoted name.}
   \item{names}{optional names to be stored.}
   \item{n}{number of items to check for.}
@@ -351,7 +354,8 @@ commanderPosition()
   The function \code{trim.blanks} removes spaces from the beginning and end of a character string. The function
   \code{installPlugin} installs an Rcmdr plug-in from a ZIP file or directory; this function may be used to
   create self-installing plug-ins in the form of packages. The function \code{nobs} returns the number of 
-  observations on which a statistical model is based.
+  observations on which a statistical model is based. The function \code{formulaFields} returns information
+  about the left-hand side, right-hand side, data, subject, and (for GLMs) family and link, of a model object.
   
   Some of these functions, marked \code{# macro} under \emph{Usage}, are "macro-like" in their behaviour, in that they 
   execute in the environment from which they are called. These were defined with an adaptation (used with permission) of
