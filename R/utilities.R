@@ -1,4 +1,4 @@
-# last modified 7 December 2008 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 8 December 2008 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -1246,67 +1246,67 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, rows=1, columns=1, focus=top,
         }
     )
 
-variableListBox <- function(parentWindow, variableList=Variables(), bg="white",
-    selectmode="single", export="FALSE", initialSelection=NULL, listHeight=getRcmdr("variable.list.height"), title){
-    if (selectmode == "multiple") selectmode <- getRcmdr("multiple.select.mode")
-    if (length(variableList) == 1 && is.null(initialSelection)) initialSelection <- 0
-    frame <- tkframe(parentWindow)
-    listbox <- tklistbox(frame, height=min(listHeight, length(variableList)),
-        selectmode=selectmode, background=bg, exportselection=export, width=max(20, nchar(variableList)))
-    scrollbar <- ttkscrollbar(frame, command=function(...) tkyview(listbox, ...))
-    tkconfigure(listbox, yscrollcommand=function(...) tkset(scrollbar, ...))
-    for (var in variableList) tkinsert(listbox, "end", var)
-    if (is.numeric(initialSelection)) tkselection.set(listbox, initialSelection)
-    firstChar <- tolower(substr(variableList, 1, 1))
-    len <- length(variableList)
-    onLetter <- function(letter){
-        letter <- tolower(letter)
-        current <- 1 + round(as.numeric(unlist(strsplit(tclvalue(tkyview(listbox) ), " "))[1])*len)
-        mat <- match(letter, firstChar[-(1:current)])
-        if (is.na(mat)) return()
-        tkyview.scroll(listbox, mat, "units")
-        }
-    onA <- function() onLetter("a")
-    onB <- function() onLetter("b")
-    onC <- function() onLetter("c")
-    onD <- function() onLetter("d")
-    onE <- function() onLetter("e")
-    onF <- function() onLetter("f")
-    onG <- function() onLetter("g")
-    onH <- function() onLetter("h")
-    onI <- function() onLetter("i")
-    onJ <- function() onLetter("j")
-    onK <- function() onLetter("k")
-    onL <- function() onLetter("l")
-    onM <- function() onLetter("m")
-    onN <- function() onLetter("n")
-    onO <- function() onLetter("o")
-    onP <- function() onLetter("p")
-    onQ <- function() onLetter("q")
-    onR <- function() onLetter("r")
-    onS <- function() onLetter("s")
-    onT <- function() onLetter("t")
-    onU <- function() onLetter("u")
-    onV <- function() onLetter("v")
-    onW <- function() onLetter("w")
-    onX <- function() onLetter("x")
-    onY <- function() onLetter("y")
-    onZ <- function() onLetter("z")
-    for (letter in c(letters, LETTERS)){
-        tkbind(listbox, paste("<", letter, ">", sep=""),
-            get(paste("on", toupper(letter), sep="")))
-        }
-    onClick <- function() tkfocus(listbox)
-    tkbind(listbox, "<ButtonPress-1>", onClick)
-    tkgrid(labelRcmdr(frame, text=title, foreground="blue"), columnspan=2, sticky="w")
-    tkgrid(listbox, scrollbar, sticky="nw")
-    tkgrid.configure(scrollbar, sticky="wns")
-    tkgrid.configure(listbox, sticky="ew")
-    result <- list(frame=frame, listbox=listbox, scrollbar=scrollbar,
-        selectmode=selectmode, varlist=variableList)
-    class(result) <- "listbox"
-    result
-    }
+	variableListBox <- function(parentWindow, variableList=Variables(), bg="white",
+		selectmode="single", export="FALSE", initialSelection=NULL, listHeight=getRcmdr("variable.list.height"), title){
+		if (selectmode == "multiple") selectmode <- getRcmdr("multiple.select.mode")
+		if (length(variableList) == 1 && is.null(initialSelection)) initialSelection <- 0
+		frame <- tkframe(parentWindow)
+		listbox <- tklistbox(frame, height=min(listHeight, length(variableList)),
+			selectmode=selectmode, background=bg, exportselection=export, width=max(20, nchar(variableList)))
+		scrollbar <- ttkscrollbar(frame, command=function(...) tkyview(listbox, ...))
+		tkconfigure(listbox, yscrollcommand=function(...) tkset(scrollbar, ...))
+		for (var in variableList) tkinsert(listbox, "end", var)
+		if (is.numeric(initialSelection)) for (sel in initialSelection) tkselection.set(listbox, sel)
+		firstChar <- tolower(substr(variableList, 1, 1))
+		len <- length(variableList)
+		onLetter <- function(letter){
+			letter <- tolower(letter)
+			current <- 1 + round(as.numeric(unlist(strsplit(tclvalue(tkyview(listbox) ), " "))[1])*len)
+			mat <- match(letter, firstChar[-(1:current)])
+			if (is.na(mat)) return()
+			tkyview.scroll(listbox, mat, "units")
+		}
+		onA <- function() onLetter("a")
+		onB <- function() onLetter("b")
+		onC <- function() onLetter("c")
+		onD <- function() onLetter("d")
+		onE <- function() onLetter("e")
+		onF <- function() onLetter("f")
+		onG <- function() onLetter("g")
+		onH <- function() onLetter("h")
+		onI <- function() onLetter("i")
+		onJ <- function() onLetter("j")
+		onK <- function() onLetter("k")
+		onL <- function() onLetter("l")
+		onM <- function() onLetter("m")
+		onN <- function() onLetter("n")
+		onO <- function() onLetter("o")
+		onP <- function() onLetter("p")
+		onQ <- function() onLetter("q")
+		onR <- function() onLetter("r")
+		onS <- function() onLetter("s")
+		onT <- function() onLetter("t")
+		onU <- function() onLetter("u")
+		onV <- function() onLetter("v")
+		onW <- function() onLetter("w")
+		onX <- function() onLetter("x")
+		onY <- function() onLetter("y")
+		onZ <- function() onLetter("z")
+		for (letter in c(letters, LETTERS)){
+			tkbind(listbox, paste("<", letter, ">", sep=""),
+				get(paste("on", toupper(letter), sep="")))
+		}
+		onClick <- function() tkfocus(listbox)
+		tkbind(listbox, "<ButtonPress-1>", onClick)
+		tkgrid(labelRcmdr(frame, text=title, foreground="blue"), columnspan=2, sticky="w")
+		tkgrid(listbox, scrollbar, sticky="nw")
+		tkgrid.configure(scrollbar, sticky="wns")
+		tkgrid.configure(listbox, sticky="ew")
+		result <- list(frame=frame, listbox=listbox, scrollbar=scrollbar,
+			selectmode=selectmode, varlist=variableList)
+		class(result) <- "listbox"
+		result
+	}
 
 getSelection <- function(object) UseMethod("getSelection")
 
