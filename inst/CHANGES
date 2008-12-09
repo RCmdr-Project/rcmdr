@@ -758,4 +758,6 @@ Version 1.4-6
    
    o  Improvements to the one-way and multi-way ANOVA dialogs, including saving the models that are produced (suggested by Rich Heiberger).
    
+   o  Improvements and bug fixes to handling of plug-in menu installation.
+   
    o  Small changes.
