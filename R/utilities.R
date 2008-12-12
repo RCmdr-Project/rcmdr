@@ -1,4 +1,4 @@
-# last modified 8 December 2008 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 12 December 2008 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -1812,6 +1812,11 @@ polrP <- function() activeModelP() && class(get(ActiveModel()))[1] == 'polr'
 multinomP <- function() activeModelP() && class(get(ActiveModel()))[1] == 'multinom'
 
 hclustSolutionsP <- function() length(listHclustSolutions()) > 0
+
+MacOSXP <- function() {
+	sys <- Sys.info()
+	!is.null(sys) && length(grep("[Dd]arwin", sys["sysname"]) > 0)
+}
 
 packageAvailable <- function(name) 0 != length(.find.package(name, quiet=TRUE))
 

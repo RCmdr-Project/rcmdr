@@ -1,4 +1,4 @@
-# last modified 17 July 2008 by J. Fox
+# last modified 12 December 2008 by J. Fox
 
 # Data menu dialogs
 
@@ -26,6 +26,7 @@ newDataSet <- function() {
             }
         command <- "edit(as.data.frame(NULL))"
 		result <- justDoIt(command)
+		result <- as.data.frame(lapply(result, function(x) if (is.character(x)) factor(x) else x))
 		if (class(result)[1] !=  "try-error"){ 
         	assign(dsnameValue, result, envir=.GlobalEnv)
         	logger(paste(dsnameValue, "<-", command))

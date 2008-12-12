@@ -760,4 +760,8 @@ Version 1.4-6
    
    o  Improvements and bug fixes to handling of plug-in menu installation.
    
+   o  New function MacOSXP() to test for Mac OS X; used to suppress "Data -> New data set" menu, since the Mac data editor causes R to hang when called with an empty data frame (reported by Rob Goedman and Tracy Lightcap).
+   
+   o  When character values are entered in the data editor after "Data -> New data set", the corresponding variable is converted to a factor.
+   
    o  Small changes.

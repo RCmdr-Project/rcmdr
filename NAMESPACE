@@ -1,4 +1,4 @@
-# last modified 7 December 2008 by J. Fox
+# last modified 12 December 2008 by J. Fox
 
 import(tcltk)
 
@@ -18,7 +18,7 @@ is.valid.name, is.SciViews, justDoIt, KMeans, labelRcmdr,
 listAllModels, listAOVModels, listDataSets, listFactors, listGeneralizedLinearModels, 
 listLinearModels, listMultinomialLogitModels, listNumeric, listPlugins, 
 listProportionalOddsModels, listTwoLevelFactors, listVariables, 
-lmP, logger, LogWindow,
+lmP, logger, LogWindow, MacOSXP,
 Message, MessagesWindow, modelFormula, modelsP, multinomP, nobs, Numeric,
 numericP, numSummary, OKCancelHelp, OutputWindow, packageAvailable, partial.cor,
 plotMeans, polrP, popOutput, putRcmdr, radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet, 

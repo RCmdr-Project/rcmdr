@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 4 December 2008 by J. Fox
+# last modified 12 December 2008 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -30,7 +30,7 @@
     item	editMenu		command			"Redo"											onRedo						""						""
     item    topMenu         cascade         "Edit"                                          editMenu                    ""          ""
     menu    dataMenu        topMenu         ""                                              ""                          ""          ""
-    item    dataMenu        command         "New data set..."                               newDataSet                  ""          ""
+    item    dataMenu        command         "New data set..."                               newDataSet                  ""          "!MacOSXP()"
     item    dataMenu        command         "Load data set..."                              loadDataSet                 ""      ""
     menu    importMenu      dataMenu        ""                                              ""                          ""          ""
     item    importMenu      command         "from text file, clipboard, or URL..."          readDataSet                 ""          ""

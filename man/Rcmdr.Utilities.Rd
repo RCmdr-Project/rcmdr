@@ -59,6 +59,7 @@
 \alias{lmP}
 \alias{logger}
 \alias{LogWindow}
+\alias{MacOSXP}
 \alias{Message}
 \alias{MessagesWindow}
 \alias{modelFormula}
@@ -164,6 +165,7 @@ listVariables(dataSet=ActiveDataSet())
 lmP()
 logger(command)
 LogWindow()
+MacOSXP()
 Message(message, type=c("note", "error", "warning"))
 MessagesWindow()
 modelFormula(frame=top, hasLhs=TRUE)  # macro
