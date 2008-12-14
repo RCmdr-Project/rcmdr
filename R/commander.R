@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 9 December 2008 by J. Fox
+# last modified 14 December 2008 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 
@@ -378,7 +378,6 @@ Commander <- function(){
 	contextMenuLog <- function(){
 		.log <- LogWindow()
 		contextMenu <- tkmenu(tkmenu(.log), tearoff=FALSE)
-		tkadd(contextMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
 		tkadd(contextMenu, "command", label=gettextRcmdr("Submit"), command=onSubmit)
 		tkadd(contextMenu, "command", label=gettextRcmdr("Cut"), command=onCut)
 		tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)
@@ -388,12 +387,12 @@ Commander <- function(){
 		tkadd(contextMenu, "command", label=gettextRcmdr("Select all"), command=onSelectAll)
 		tkadd(contextMenu, "command", label=gettextRcmdr("Undo"), command=onUndo)
 		tkadd(contextMenu, "command", label=gettextRcmdr("Redo"), command=onRedo)
+		tkadd(contextMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
 		tkpopup(contextMenu, tkwinfo("pointerx", .log), tkwinfo("pointery", .log))
 	}
 	contextMenuOutput <- function(){
 		.output <- OutputWindow()
 		contextMenu <- tkmenu(tkmenu(.output), tearoff=FALSE)
-		tkadd(contextMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
 		tkadd(contextMenu, "command", label=gettextRcmdr("Cut"), command=onCut)
 		tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)
 		tkadd(contextMenu, "command", label=gettextRcmdr("Paste"), command=onPaste)
@@ -402,6 +401,7 @@ Commander <- function(){
 		tkadd(contextMenu, "command", label=gettextRcmdr("Select all"), command=onSelectAll)
 		tkadd(contextMenu, "command", label=gettextRcmdr("Undo"), command=onUndo)
 		tkadd(contextMenu, "command", label=gettextRcmdr("Redo"), command=onRedo)
+		tkadd(contextMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
 		tkpopup(contextMenu, tkwinfo("pointerx", .output), tkwinfo("pointery", .output))
 	}
 	if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
