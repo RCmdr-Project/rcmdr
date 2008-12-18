@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 17 December 2008 by J. Fox
+# last modified 18 December 2008 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 # last modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -810,6 +810,7 @@ Message <- function(message, type=c("note", "error", "warning")){
 	console.messages <- options()$Rcmdr$console.messages           ##rmh
 	if (is.null(console.messages)) console.messages <- FALSE       ##rmh
 	if (console.messages) {                                        ##rmh
+		if (sink.number() != 0) sink()							## fixed by J. Fox
 		for (jline in seq(along=lines)) {                            ##rmh
 			Header <- if (jline==1) "RcmdrMsg: " else "RcmdrMsg+ "     ##rmh
 			cat(paste(Header, lines[jline], "\n", sep=""))             ##rmh
