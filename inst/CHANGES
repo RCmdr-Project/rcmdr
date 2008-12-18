@@ -764,4 +764,6 @@ Version 1.4-6
    
    o  When character values are entered in the data editor after "Data -> New data set", the corresponding variable is converted to a factor.
    
+   o  Modifications to handling of output to R console and new Rcmdr options to iconify the Commander window and to send messages to the R console (all contributed by Richard Heiberger).
+   
    o  Small changes.

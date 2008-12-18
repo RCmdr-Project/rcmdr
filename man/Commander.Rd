@@ -128,6 +128,9 @@ set none, one, several, or all options. The available options are as follows:
 
     \item{\code{command.text.color}}{Color for commands in the output window; the default is \code{"red"}.}
     
+    \item{\code{console.messages}}{If \code{TRUE}, messages are directed to the \emph{R Console}, and
+    the \emph{R Commander} output window is not displayed. The default is \code{FALSE}.}
+    
     \item{\code{console.output}}{If \code{TRUE}, output is directed to the \emph{R Console}, and the 
     \emph{R Commander} output window is not displayed. The default is \code{FALSE}.}
     
@@ -161,6 +164,9 @@ set none, one, several, or all options. The available options are as follows:
     "grab" the focus --- that is, to prevent the focus from being changed to another Tk window.
     On some systems, grabbing the focus in this manner apparently causes problems. The default is \code{TRUE}. 
     If you experience focus problems, try setting this option to \code{FALSE}.}
+    
+    \item{\code{iconify.commander}}{If \code{TRUE}, the \emph{Commander} window is minimized on startup;
+    the default is \code{FALSE}.}
     
     \item{\code{length.output.stack}}{The R Commander maintains a list of output objects, by default including the last
     several outputs; the default length of the output stack is 10. \code{popOutput()} ``pops'' (i.e., returns and removes) the first entry
