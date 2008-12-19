@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 18 December 2008 by J. Fox
+# last modified 19 December 2008 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 # last modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -151,8 +151,6 @@ Commander <- function(){
 	else setOption("default.contrasts", c("contr.treatment", "contr.poly"))
 	setOption("log.commands", TRUE)
 	setOption("console.output", FALSE)
-	setOption("console.messages", FALSE)  ##rmh
-	setOption("iconify.commander", FALSE) ##rmh
 	log.height <- as.character(setOption("log.height", if (!getRcmdr("log.commands")) 0 else 10, global=FALSE))
 	log.width <- as.character(setOption("log.width", 80, global=FALSE))
 	output.height <- as.character(setOption("output.height",
@@ -520,8 +518,6 @@ Commander <- function(){
 	}
 	.log.commands <-  getRcmdr("log.commands")
 	.console.output <- getRcmdr("console.output")
-	.console.messages <- getRcmdr("console.messages")   ##rmh
-	.iconify.commander <- getRcmdr("iconify.commander") ##rmh
 	if (.log.commands) tkgrid(labelRcmdr(logFrame, text=gettextRcmdr("Script Window"), foreground="blue"),
 			if (.log.commands && .console.output) submitButton, sticky="w")
 	tkgrid(.log, logYscroll, sticky="news", columnspan=2)
@@ -535,7 +531,7 @@ Commander <- function(){
 	tkgrid(labelRcmdr(messagesFrame, text=gettextRcmdr("Messages"), foreground=getRcmdr("error.text.color")), sticky="w")
 	tkgrid(.messages, messagesYscroll, sticky="news", columnspan=2)
 	tkgrid(messagesXscroll)
-	if (!.console.messages) tkgrid(messagesFrame, sticky="news", padx=10, pady=0, columnspan=2) ##rmh
+	if (!.console.output) tkgrid(messagesFrame, sticky="news", padx=10, pady=0, columnspan=2) ##rmh & J. Fox
 	tkgrid.configure(logYscroll, sticky="ns")
 	tkgrid.configure(logXscroll, sticky="ew")
 	tkgrid.configure(outputYscroll, sticky="ns")
@@ -589,11 +585,8 @@ Commander <- function(){
 	tkbind(.commander, "<Control-W>", onRedo)
 	tkbind(.log, "<ButtonPress-3>", contextMenuLog)
 	tkbind(.output, "<ButtonPress-3>", contextMenuOutput)
-	if (.iconify.commander) tkwm.iconify(.commander)   ##rmh
-	else {                                             ##rmh
-		tkwm.deiconify(.commander)
-		tkfocus(.commander)
-	}                                                  ##rmh
+	tkwm.deiconify(.commander)
+	tkfocus(.commander)
 	if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
 	tkwait <- options("Rcmdr")[[1]]$tkwait  # to address problem in Debian Linux
 	if ((!is.null(tkwait)) && tkwait) {
@@ -807,9 +800,7 @@ Message <- function(message, type=c("note", "error", "warning")){
 	lines <- strsplit(message, "\n")[[1]]
 	
 	######### added by rmh #####################                   ##rmh
-	console.messages <- options()$Rcmdr$console.messages           ##rmh
-	if (is.null(console.messages)) console.messages <- FALSE       ##rmh
-	if (console.messages) {                                        ##rmh
+	if (console.output) {                                        ##rmh & J. Fox
 		if (sink.number() != 0) sink()							## fixed by J. Fox
 		for (jline in seq(along=lines)) {                            ##rmh
 			Header <- if (jline==1) "RcmdrMsg: " else "RcmdrMsg+ "     ##rmh
