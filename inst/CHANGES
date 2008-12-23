@@ -767,3 +767,9 @@ Version 1.4-6
    o  When console.output is TRUE, messages as well as output now go to the R Console and the Commander Messages window (as well as the Output window) is suppressed (with code contributed by Richard Heiberger).
    
    o  Small changes.
+   
+Version 1.4-7
+  
+   o  Improved Brazilian Portuguese translation, contributed by Adriano Azevedo-Filho and Marilia Sa Carvalho.
+   
+   o  Added function sortVarNames(), which sorts variable names including numerals into a more "natural" order than does sort(); used in variable lists when the Rcmdr option "sort.names" is TRUE, which is the default.

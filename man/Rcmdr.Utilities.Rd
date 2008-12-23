@@ -78,6 +78,7 @@
 \alias{RcmdrTclSet}
 \alias{RcmdrTkmessageBox}
 \alias{rglLoaded}
+\alias{sortVarNames}
 \alias{subOKCancelHelp}
 \alias{subsetBox}
 \alias{tclvalue}
@@ -186,6 +187,7 @@ RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
 rglLoaded()
+sortVarNames(x)
 subOKCancelHelp(window=subdialog, helpSubject=NULL)  # macro
 subsetBox(window=top, model=FALSE)  # macro
 tclvalue(x)
@@ -276,7 +278,8 @@ commanderPosition()
   \item{value}{an object to be stored.}
   \item{variableList}{a vector of variable names.}
   \item{window, parentWindow}{a Tk window.}
-  \item{x}{an R object name, as a character string, or a tcl variable or object.}
+  \item{x}{an R object name, as a character string, or a tcl variable or object, or a vector of
+    variable names to be sorted.}
   \item{\dots}{For \code{gettextRcmdr}, text string or vector of text strings
     to translate; for \code{defmacro}, arguments for the macro; otherwise disregard.}
 }
@@ -358,6 +361,8 @@ commanderPosition()
   create self-installing plug-ins in the form of packages. The function \code{nobs} returns the number of 
   observations on which a statistical model is based. The function \code{formulaFields} returns information
   about the left-hand side, right-hand side, data, subject, and (for GLMs) family and link, of a model object.
+  The function \code{sortVarNames} sorts variable names, including those containing numerals, into a more
+  "natural" order than does the standard \code{sort} function.
   
   Some of these functions, marked \code{# macro} under \emph{Usage}, are "macro-like" in their behaviour, in that they 
   execute in the environment from which they are called. These were defined with an adaptation (used with permission) of

@@ -1,4 +1,4 @@
-# last modified 12 December 2008 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 23 December 2008 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -145,7 +145,7 @@ activeModel <- function(model){
 listVariables <- function(dataSet=ActiveDataSet()) {
 #    vars <- eval(parse(text=paste("names(", dataSet,")")), envir=.GlobalEnv)
     vars <- names(get(dataSet, envir=.GlobalEnv))
-    if (getRcmdr("sort.names")) sort(vars) else vars
+    if (getRcmdr("sort.names")) sortVarNames(vars) else vars
     }
 
 listFactors <- function(dataSet=ActiveDataSet()) {
@@ -2061,7 +2061,7 @@ nobs <- function(model){
 	if (is.matrix(fitted)) nrow(fitted) else length(fitted)
 	}
 	
-# the following function slips a character string at blanks and commas according to width
+# the following function splits a character string at blanks and commas according to width
 
 splitCmd <- function(cmd, width=getOption("width") - 4, at="[ ,]"){
 	if (nchar(cmd) <= width) return(cmd)
@@ -2097,3 +2097,22 @@ splitCmd <- function(cmd, width=getOption("width") - 4, at="[ ,]"){
 	paste(substr(cmd, 1, where2), "\n  ", 
 		Recall(substr(cmd, where2 + 1, nchar(cmd)), width, at), sep="")
 } 
+
+# the following function sorts names containing numerals "more naturally" than does sort()
+
+sortVarNames <- function(x){
+	sort.helper <- function(x){
+		prefix <- strsplit(x, "[0-9]+")
+		prefix <- sapply(prefix, "[", 1)
+		prefix[is.na(prefix)] <- ""
+		suffix <- strsplit(x, "[^0-9]+")
+		suffix <- as.numeric(sapply(suffix, "[", 2))
+		suffix[is.na(suffix)] <- -Inf
+		remainder <- sub("[^0-9]+", "", x)
+		remainder <- sub("[0-9]+", "", remainder)
+		if (all (remainder == "")) list(prefix, suffix)
+		else c(list(prefix, suffix), Recall(remainder))
+	}
+	ord <- do.call("order", sort.helper(x))
+	x[ord]
+}  
