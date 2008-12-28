@@ -773,3 +773,5 @@ Version 1.4-7
    o  Improved Brazilian Portuguese translation, contributed by Adriano Azevedo-Filho and Marilia Sa Carvalho.
    
    o  Added function sortVarNames(), which sorts variable names including numerals into a more "natural" order than does sort(); used in variable lists when the Rcmdr option "sort.names" is TRUE, which is the default.
+   
+   o  Small changes.

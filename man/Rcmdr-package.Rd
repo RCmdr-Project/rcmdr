@@ -13,7 +13,7 @@ user interface) for R, based on the tcltk package.
 \tabular{ll}{
 Package: \tab Rcmdr\cr
 Version: \tab 1.4-7\cr
-Date: \tab 2008/12/23\cr
+Date: \tab 2008/12/28\cr
 Depends: \tab R (>= 2.1.0), tcltk, grDevices, utils\cr
 Suggests: \tab abind, aplpack, car (>= 1.1-1), effects (>= 1.0-7), foreign, grid, 
   lattice, lmtest, MASS, mgcv, multcomp, nlme, nnet, relimp, rgl, RODBC\cr
@@ -23,35 +23,35 @@ URL: \tab http://www.r-project.org,
 http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/\cr
 }
 
-Index:
-\preformatted{
-Commander               R Commander
-Compute                 Rcmdr Compute Dialog
-Confint                 Confidence Intervals for Model Coefficients
-Hist                    Plot a Histogram
-KMeans                  K-Means Clustering Using Multiple Random Seeds
-Rcmdr.Utilities         Rcmdr Utility Functions
-Rcmdr.sciviews-specific
-                        Rcmdr SciViews-specific Functions
-RcmdrPager              Pager for Text Files
-Recode                  Rcmdr Recode Dialog
-Scatter3DDialog         Rcmdr 3D Scatterplot Dialog
-aboutRcmdr              About the Rcmdr Package
-assignCluster           Append a Cluster Membership Variable to a
-                        Dataframe
-bin.var                 Bin a Numeric Varisible
-colPercents             Row, Column, and Total Percentage Tables
-generalizedLinearModel
-                        Rcmdr Generalized Linear Model Dialog
-hierarchicalCluster     Rcmdr Hierarchical Clustering Dialog
-linearModel             Rcmdr Linear Model Dialog
-partial.cor             Partial Correlations
-plotMeans               Plot Means for One or Two-Way Layout
-reliability             Reliability of a Composite Scale
-scatter3d               Three-Dimensional Scatterplots and Point
-                        Identification
-stem.leaf               Stem-and-Leaf Display
-}
+%Index:
+%\preformatted{
+%Commander               R Commander
+%Compute                 Rcmdr Compute Dialog
+%Confint                 Confidence Intervals for Model Coefficients
+%Hist                    Plot a Histogram
+%KMeans                  K-Means Clustering Using Multiple Random Seeds
+%Rcmdr.Utilities         Rcmdr Utility Functions
+%Rcmdr.sciviews-specific
+%                        Rcmdr SciViews-specific Functions
+%RcmdrPager              Pager for Text Files
+%Recode                  Rcmdr Recode Dialog
+%Scatter3DDialog         Rcmdr 3D Scatterplot Dialog
+%aboutRcmdr              About the Rcmdr Package
+%assignCluster           Append a Cluster Membership Variable to a
+%                        Dataframe
+%bin.var                 Bin a Numeric Varisible
+%colPercents             Row, Column, and Total Percentage Tables
+%generalizedLinearModel
+%                        Rcmdr Generalized Linear Model Dialog
+%hierarchicalCluster     Rcmdr Hierarchical Clustering Dialog
+%linearModel             Rcmdr Linear Model Dialog
+%partial.cor             Partial Correlations
+%plotMeans               Plot Means for One or Two-Way Layout
+%reliability             Reliability of a Composite Scale
+%scatter3d               Three-Dimensional Scatterplots and Point
+%                        Identification
+%stem.leaf               Stem-and-Leaf Display
+%}
 }
 
 \section{Translations}{

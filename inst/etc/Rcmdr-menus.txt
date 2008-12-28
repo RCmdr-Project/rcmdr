@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 14 December 2008 by J. Fox
+# last modified 28 December 2008 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -163,7 +163,7 @@
     item    modelsMenu      cascade         "Hypothesis tests"                              hypothesisMenu              ""          ""
     item    hypothesisMenu  command         "ANOVA table..."                                anovaTable                  "activeModelP()" "packageAvailable('car')"
     item    hypothesisMenu  command         "Compare two models..."                         compareModels               "modelsP(2)"          ""
-    item    hypothesisMenu  command         "Linear hypothesis..."                          testLinearHypothesis        "(lmP() || glmP())" "packageAvailable('car')"
+    item    hypothesisMenu  command         "Linear hypothesis..."                          testLinearHypothesis        "activeModelP()" "packageAvailable('car')"
     menu    diagnosticsMenu modelsMenu      ""                                              ""                          ""          ""
     item    modelsMenu      cascade         "Numerical diagnostics"                         diagnosticsMenu             ""          ""
     item    diagnosticsMenu command         "Variance-inflation factors"                    VIF                         "(lmP() || glmP())" "packageAvailable('car')"

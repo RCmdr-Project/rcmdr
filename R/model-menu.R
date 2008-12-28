@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 31 July 2008 by J. Fox
+# last modified 28 December 2008 by J. Fox
 
 selectActiveModel <- function(){
     models <- listAllModels()
@@ -246,7 +246,7 @@ residualQQPlot <- function(){
 testLinearHypothesis <- function(){
     require("car")
     .activeModel <- ActiveModel()
-    if (is.null(.activeModel) || !checkMethod("linear.hypothesis", .activeModel)) return()
+    if (is.null(.activeModel) || !checkMethod("linear.hypothesis", .activeModel, default=TRUE)) return()
     env <- environment()
     initializeDialog(title=gettextRcmdr("Test Linear Hypothesis"))
     outerTableFrame <- tkframe(top)
