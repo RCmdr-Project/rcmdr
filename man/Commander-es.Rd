@@ -24,14 +24,14 @@ La mayor parte de las \enc{órdenes}{ordenes} requiere un conjunto de datos acti
 
 Por defecto, las \enc{órdenes}{ordenes} son registradas en la ventana de instrucciones (la ventana de texto \enc{vacía}{vacia} inmediatamente \enc{después}{despues} de la barra de herramientas); las \enc{órdenes}{ordenes} y las salidas aparecen en la ventana de resultados (la ventana de texto \enc{vacía}{vacia} \enc{después}{despues} de la ventana de instrucciones) y el conjunto de datos activos es adjuntado a la ruta de \enc{búsqueda}{busqueda}. Para alterar \enc{éstos}{estos} y otros \enc{parámetros}{parametros} por defecto, puede consultar la \enc{información}{informacion} pertinente en \enc{configuración}{configuracion}. 
 
-Algunos \enc{diálogos}{dialogos} de \code{Rcmdr} (\enc{éstos}{estos} en \code{\enc{Estadísticos}{Estadisticos}} $\to$ \code{Ajuste de modelos}) generan el modelo lineal, modelo lineal generalizado y otros modelos. Cuando un modelo es ajustado, se convierte en el modelo activo, indicado en el campo de \enc{información}{informacion} de la barra de herramientas de R Commander. Los items del \enc{menú}{menu} \code{Modelos} se aplican al modelo activo. Inicialmente, no hay modelo activo. Si hay varios modelos en memoria, puede elegir el modelo activo de entre ellos. 
+Algunos \enc{diálogos}{dialogos} de \code{Rcmdr} (\enc{éstos}{estos} en \code{Estadisticos -> Ajuste de modelos}) generan el modelo lineal, modelo lineal generalizado y otros modelos. Cuando un modelo es ajustado, se convierte en el modelo activo, indicado en el campo de \enc{información}{informacion} de la barra de herramientas de R Commander. Los items del \enc{menú}{menu} \code{Modelos} se aplican al modelo activo. Inicialmente, no hay modelo activo. Si hay varios modelos en memoria, puede elegir el modelo activo de entre ellos. 
 
 Si el registro de instrucciones \enc{está}{esta} activo, las \enc{órdenes}{ordenes} de R generadas desde los \enc{menús}{menus} y los cuadros de \enc{diálogos}{dialogos}, son introducidas en la ventana de instrucciones de R Comander. Se pueden editar estas \enc{órdenes}{ordenes} de manera normal y se pueden escribir otras nuevas en la ventana de instrucciones. Las \enc{órdenes}{ordenes} individuales pueden ser continuadas en \enc{más}{mas} de una \enc{línea}{linea}, 
 pero cada \enc{línea}{linea} \enc{después}{despues} de la primera debe ser identada con uno o \enc{más}{mas} espacios o tabuladores. El contenido de la ventana de instrucciones puede ser almacenado durante o al final de la \enc{sesión}{sesion} y un conjunto de instrucciones guardado puede ser cargado en la ventana de instrucciones. El contenido de la ventana de resultados puede ser editado o guardado en un archivo de texto. 
 
 Para volver a ejecutar una orden o un conjunto de ellas, se seleccionan las \enc{líneas}{lineas} que se desean ejecutar usando el \enc{ratón}{raton} y se presiona el \enc{botón}{boton} \code{Ejecutar}, situado a la derecha de la barra de herramientas (o \code{Control-R}, para ejecutarlos). Si no hay texto seleccionado el \enc{botón}{boton} \code{Ejecutar} (o \code{Control-R}) \enc{envía}{envia} el contenido de la \enc{línea}{linea} que contiene el cursor de \enc{insercción}{inserccion}. Observar que se \enc{generará}{generara} un error si la orden o las \enc{órdenes}{ordenes} enviadas son incompletas. 
 
-Presionando \code{Control-F} se abre un cuadro de \enc{diálogo}{dialogo} de \enc{búsqueda}{busqueda} de texto (\enc{también}{tambien} es accesible \enc{vía}{via} \code{Editar $\to$ Buscar}) para buscar el texto en la ventana de instrucciones o la ventana de resultados. Las \enc{búsqueda}{busqueda}s son realizadas en la ventana de instrucciones a menos que primero pulse en la ventana de resultados para activarla. 
+Presionando \code{Control-F} se abre un cuadro de \enc{diálogo}{dialogo} de \enc{búsqueda}{busqueda} de texto (\enc{también}{tambien} es accesible \enc{vía}{via} \code{Editar -> Buscar}) para buscar el texto en la ventana de instrucciones o la ventana de resultados. Las \enc{búsqueda}{busqueda}s son realizadas en la ventana de instrucciones a menos que primero pulse en la ventana de resultados para activarla. 
 
 Presionando \code{Control-S} se \enc{guardará}{guardara} el conjunto de instrucciones o la ventana de resultados. 
 
@@ -43,7 +43,7 @@ Cuando ejecute \enc{órdenes}{ordenes} en la ventana de R Commander, debe asegur
 
 Presionando una letra (ej. "a") en un cuadro con una lista se \enc{recorrerá}{recorrera} \enc{ésta}{esta} hasta la siguiente entrada que comience con esa letra desde el principio del cuadro. 
 
-Salir de R Commander se realiza mediante \code{Fichero $\to$ Salir} o cerrando la ventana de R Commander. 
+Salir de R Commander se realiza mediante \code{Fichero -> Salir} o cerrando la ventana de R Commander. 
 
 \bold{\enc{Personalización}{Personalizacion} y \enc{configuración}{configuracion}} 
 
@@ -130,7 +130,7 @@ Algunas funciones son proporcionadas para ayudar a escribir \enc{diálogo}{dialo
 
 \item{\code{placement}}{Emplazamiento de la ventana de R Commander, en píxeles; por defecto es \code{"$-40+20$"}, lo que pone la ventana cerca de la esquina superior derecha de la pantalla.}
 
-\item{\code{plugins}}{Vector de caracteres con los nombres de paquetes de plugins de Rcmdr a cargar cuando Commander arranque. Los paquetes plugins \enc{también}{tambien} pueden ser cargados desde el \enc{menú}{menu} \code{Herramientas $\to$ Cargar paquete(s)}.} 
+\item{\code{plugins}}{Vector de caracteres con los nombres de paquetes de plugins de Rcmdr a cargar cuando Commander arranque. Los paquetes plugins \enc{también}{tambien} pueden ser cargados desde el \enc{menú}{menu} \code{Herramientas -> Cargar paquete(s)}.} 
 
 \item{\code{suppress.menus}}{Si es \code{TRUE}, la barra de \enc{menús}{menus} y de herramientas de R Commander son suprimidas, permitiendo que otro programa (como Excel) asuma esas funciones. Por defecto (por supuesto) es \code{FALSE}.} 
 

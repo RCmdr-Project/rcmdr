@@ -37,7 +37,7 @@ refreshStatus()
   The functions \code{is.SciViews} tests if R is running under SciViews. If not, most of the other SciViews-specific functions do nothing. \code{is.SciViews.TclTk} test if the SciViews client communicates with R through Tcl/Tk (otherwise, it probably uses SciViews plugs).
   The function \code{svlogger} is similar to \code{logger}, but it records Rcmdr commands in the specific SciViews R script window
   and in the SciViews command history, instead of the log window and the default R command history. 
-  \code{optionLogCommand}, \code{optionAttachDataSet} and {optionSortVariables} allow to change the command logging, automatic attachment of the active
+  \code{optionLogCommand}, \code{optionAttachDataSet} and \code{optionSortVariables} allow to change the command logging, automatic attachment of the active
   data set and sorting of variable names (equivalent options than those accessible by check boxes in the 'R Commander' window of Rcmdr outside of SciViews, or in the Options dialog box). In SciViews
   insider, the state of these options, as well as the names of the active data set and model are displayed in the status bar.
   \code{refreshStatus} make sure that this information in the status bar is updated according to the current internal state of Rcmdr.
