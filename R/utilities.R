@@ -1,4 +1,4 @@
-# last modified 23 December 2008 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 17 January 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -1297,7 +1297,13 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, rows=1, columns=1, focus=top,
 				get(paste("on", toupper(letter), sep="")))
 		}
 		onClick <- function() tkfocus(listbox)
+		toggleSelection <- function(){
+			active <- tclvalue(tkindex(listbox, "active"))
+			selected <- tclvalue(tkcurselection(listbox))
+			if (selected == active) tkselection.clear(listbox, "active") else tkselection.set(listbox, "active")
+		}
 		tkbind(listbox, "<ButtonPress-1>", onClick)
+		if (selectmode == "single") tkbind(listbox, "<Control-ButtonPress-1>", toggleSelection)
 		tkgrid(labelRcmdr(frame, text=title, foreground="blue"), columnspan=2, sticky="w")
 		tkgrid(listbox, scrollbar, sticky="nw")
 		tkgrid.configure(scrollbar, sticky="wns")
