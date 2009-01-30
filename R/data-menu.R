@@ -1,4 +1,4 @@
-# last modified 12 December 2008 by J. Fox
+# last modified 29 January 2009 by J. Fox
 
 # Data menu dialogs
 
@@ -1228,45 +1228,51 @@ variablesDataSet <- function(){
     }
 
 exportDataSet <- function() {
-    dsname <- activeDataSet()
-    initializeDialog(title=gettextRcmdr("Export Active Data Set"))
-    checkBoxes(frame="optionsFrame", boxes=c("colnames", "rownames", "quotes"),
-        initialValues=rep(1,3), labels=gettextRcmdr(c("Write variable names:", "Write row names:", "Quotes around character values:")))
-    missingVariable <- tclVar("NA")
-    missingEntry <- ttkentry(optionsFrame, width="8", textvariable=missingVariable)
-    radioButtons(name="delimiter", buttons=c("spaces", "tabs", "commas"), labels=gettextRcmdr(c("Spaces", "Tabs", "Commas")),
-        title=gettextRcmdr("Field Separator"))
-    onOK <- function(){
-        closeDialog()
-        col <- tclvalue(colnamesVariable) == 1
-        row <- tclvalue(rownamesVariable) == 1
-        quote <- tclvalue(quotesVariable) == 1
-        delim <- tclvalue(delimiterVariable)
-        missing <- tclvalue(missingVariable)
-        sep <- if (delim == "tabs") "\\t"
-            else if (delim == "spaces") " "
-            else ","
-        saveFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"Text Files" {".txt" ".TXT" ".dat" ".DAT" ".csv" ".CSV"}} {"All Files" {"*"}}'),
-            defaultextension="txt", initialfile=paste(dsname, ".txt", sep="")))
-        if (saveFile == "") {
-            tkfocus(CommanderWindow())
-            return()
-            }
-        command <- paste("write.table(", dsname, ', "', saveFile, '", sep="', sep,
-            '", col.names=', col, ", row.names=", row, ", quote=", quote,
-            ', na="', missing, '")', sep="")
-        justDoIt(command)
-        logger(command)
-        Message(paste(gettextRcmdr("Active dataset exported to file"), saveFile), type="note")
-        tkfocus(CommanderWindow())
-        }
-    OKCancelHelp(helpSubject="write.table")
-    tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Missing values:")), missingEntry, sticky="w")
-    tkgrid(optionsFrame, sticky="w")
-    tkgrid(delimiterFrame, stick="w")
-    tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=3, columns=1)
-    }
+	dsname <- activeDataSet()
+	initializeDialog(title=gettextRcmdr("Export Active Data Set"))
+	checkBoxes(frame="optionsFrame", boxes=c("colnames", "rownames", "quotes"),
+		initialValues=rep(1,3), labels=gettextRcmdr(c("Write variable names:", "Write row names:", "Quotes around character values:")))
+	missingVariable <- tclVar("NA")
+	missingEntry <- ttkentry(optionsFrame, width="8", textvariable=missingVariable)
+	radioButtons(name="delimiter", buttons=c("spaces", "tabs", "commas"), labels=gettextRcmdr(c("Spaces", "Tabs", "Commas")),
+		title=gettextRcmdr("Field Separator"))
+	otherButton <- ttkradiobutton(delimiterFrame, variable=delimiterVariable, value="other")
+	otherVariable <- tclVar("")
+	otherEntry <- ttkentry(delimiterFrame, width="4", textvariable=otherVariable)
+	onOK <- function(){
+		closeDialog()
+		col <- tclvalue(colnamesVariable) == 1
+		row <- tclvalue(rownamesVariable) == 1
+		quote <- tclvalue(quotesVariable) == 1
+		delim <- tclvalue(delimiterVariable)
+		missing <- tclvalue(missingVariable)
+		sep <- if (delim == "tabs") "\\t"
+			else if (delim == "spaces") " "
+			else if (delim == "commas") ","
+			else trim.blanks(tclvalue(otherVariable))
+		saveFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"Text Files" {".txt" ".TXT" ".dat" ".DAT" ".csv" ".CSV"}} {"All Files" {"*"}}'),
+				defaultextension="txt", initialfile=paste(dsname, ".txt", sep="")))
+		if (saveFile == "") {
+			tkfocus(CommanderWindow())
+			return()
+		}
+		command <- paste("write.table(", dsname, ', "', saveFile, '", sep="', sep,
+			'", col.names=', col, ", row.names=", row, ", quote=", quote,
+			', na="', missing, '")', sep="")
+		justDoIt(command)
+		logger(command)
+		Message(paste(gettextRcmdr("Active dataset exported to file"), saveFile), type="note")
+		tkfocus(CommanderWindow())
+	}
+	OKCancelHelp(helpSubject="write.table")
+	tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Missing values:")), missingEntry, sticky="w")
+	tkgrid(optionsFrame, sticky="w")
+	tkgrid(labelRcmdr(delimiterFrame, text=gettextRcmdr("Other")), otherButton,
+		labelRcmdr(delimiterFrame, text=gettextRcmdr("  Specify:")), otherEntry, sticky="w")
+	tkgrid(delimiterFrame, stick="w")
+	tkgrid(buttonsFrame, sticky="w")
+	dialogSuffix(rows=3, columns=1)
+}
 
 filterNA <- function(){
     dataSet <- activeDataSet()

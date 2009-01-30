@@ -1,4 +1,4 @@
-# last modified 17 January 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 29 January 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -1780,7 +1780,9 @@ GrabFocus <- function(value){
 
 UpdateModelNumber <- function(increment=1){
     modelNumber <- getRcmdr("modelNumber")
-    putRcmdr("modelNumber", modelNumber + increment)
+	modelNumber <- modelNumber + increment
+	if (modelNumber < 1) modelNumber <- 1 # sanity check
+    putRcmdr("modelNumber", modelNumber)
     }
 
 CommanderWindow <- function() getRcmdr("commanderWindow")

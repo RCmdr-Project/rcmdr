@@ -777,5 +777,7 @@ Version 1.4-7
    o  Small changes.
    
 Version 1.4-8
+
+   o  Export data set now allows an arbitrary field separator (suggested by Marilia Sa Carvalho).
 	
    o  Small changes.
