@@ -171,7 +171,8 @@ Commander <- function(){
 	setOption("warning.text.color", "darkgreen")
 	setOption("multiple.select.mode", "extended")
 	setOption("suppress.X11.warnings",
-		interactive() && .Platform$GUI == "X11" && getRversion() < "2.4.0") # to address problem in Linux
+		interactive() && .Platform$GUI == "X11") # to address problem in X11 (Linux or Mac OS X)
+#		interactive() && .Platform$GUI == "X11" && getRversion() < "2.4.0")
 	setOption("showData.threshold", 100)
 	setOption("retain.messages", TRUE)
 	setOption("crisp.dialogs",  TRUE)
