@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 17 January 2009 by J. Fox
+# last modified 24 February 2009 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 # last modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -430,12 +430,12 @@ Commander <- function(){
 				if (Menus[m, 3] == "command"){
 					position[Menus[m, 2]] <- position[Menus[m, 2]] + 1
 					if (Menus[m, 6] == "")
-						tkadd(get(Menus[m, 2]), "command", label=gettextRcmdr(Menus[m, 4]),
+						tkadd(get(Menus[m, 2]), "command", label=gettextMenus(Menus[m, 4]),
 							command=get(Menus[m, 5]))
 #                        tkadd(eval(parse(text=Menus[m, 2])),"command", label=gettextRcmdr(Menus[m, 4]),
 #                            command=eval(parse(text=Menus[m, 5])))
 					else {
-						tkadd(get(Menus[m, 2]), "command", label=gettextRcmdr(Menus[m, 4]),
+						tkadd(get(Menus[m, 2]), "command", label=gettextMenus(Menus[m, 4]),
 							command=get(Menus[m, 5]), state="disabled")
 #                        tkadd(eval(parse(text=Menus[m, 2])),"command", label=gettextRcmdr(Menus[m, 4]),
 #                            command=eval(parse(text=Menus[m, 5])),  state="disabled")
@@ -446,7 +446,7 @@ Commander <- function(){
 					}
 				}
 				else if (Menus[m, 3] == "cascade")
-					tkadd(get(Menus[m, 2]), "cascade", label=gettextRcmdr(Menus[m, 4]),
+					tkadd(get(Menus[m, 2]), "cascade", label=gettextMenus(Menus[m, 4]),
 						menu=get(Menus[m, 5]))
 #                    tkadd(eval(parse(text=Menus[m, 2])),"cascade", label=gettextRcmdr(Menus[m, 4]),
 #                        menu=eval(parse(text=Menus[m, 5])))

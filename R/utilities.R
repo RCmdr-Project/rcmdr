@@ -1,4 +1,4 @@
-# last modified 29 January 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 24 February 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -1842,6 +1842,17 @@ activateMenus <- function(){
 # for internationalization
 
 gettextRcmdr <- function(...) gettext(..., domain="R-Rcmdr")
+
+gettextMenus <- function(...){
+	text <- gettextRcmdr(...)
+	plugins <- getOption("Rcmdr")$plugins
+	if (is.null(plugins)) return(text)
+	plugins <- paste("R-", plugins, sep="")
+	for (plugin in plugins){
+		text <- gettext(text, domain=plugin)
+	}
+	text
+}
 
 English <- function() {
     env <- Sys.getenv()
