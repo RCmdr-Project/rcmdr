@@ -781,5 +781,7 @@ Version 1.4-8
    o  Export data set now allows an arbitrary field separator (suggested by Marilia Sa Carvalho).
    
    o  Menus can now use translation files supplied by plug-ins.
+   
+   o  Path names with apostrophes should no longer produce an "unbalanced parentheses" error.
 	
    o  Small changes.
