@@ -783,5 +783,7 @@ Version 1.4-8
    o  Menus can now use translation files supplied by plug-ins.
    
    o  Path names with apostrophes should no longer produce an "unbalanced parentheses" error.
+   
+   o  Added files for Debian Linux (from Pietro Battiston and Dirk Eddelbuettel).
 	
    o  Small changes.

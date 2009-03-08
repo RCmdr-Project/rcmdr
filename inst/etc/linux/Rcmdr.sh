@@ -1,0 +1,2 @@
+#!/bin/sh
+R_DEFAULT_PACKAGES="$R_DEFAULT_PACKAGES Rcmdr" R "$@"
