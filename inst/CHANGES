@@ -791,3 +791,5 @@ Version 1.4-8
 Version 1.4-9
 
    o  Upated Russian translation (courtesy of Alexey Shipunov).
+   
+   o  Fixed bug in BreuschPaganTest() that prevented dialog from functioning (reported by Michel Pouchain).

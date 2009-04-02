@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 28 December 2008 by J. Fox
+# last modified 02 April 2009 by J. Fox
 
 selectActiveModel <- function(){
     models <- listAllModels()
@@ -392,6 +392,7 @@ compareModels <- function(){
 BreuschPaganTest <- function(){
     if (is.null(.activeModel)) return()
     require("lmtest")
+	currentModel <- FALSE
     initializeDialog(title=gettextRcmdr("Breusch-Pagan Test"))
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Score Test for Nonconstant Error Variance"), fg="blue"), sticky="w")
     optionsFrame <- tkframe(top)
