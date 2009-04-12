@@ -793,3 +793,7 @@ Version 1.4-9
    o  Upated Russian translation (courtesy of Alexey Shipunov).
    
    o  Fixed bug in BreuschPaganTest() that prevented dialog from functioning (reported by Michel Pouchain).
+   
+Version 1.4-10
+
+   o  Corrected problem in paste in Command window in non-Windows systems (reported by Liviu Andronic).
