@@ -1092,8 +1092,12 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL, model=FALSE,
             borderwidth=3)
         onCancel <- function() {
 			if (getRcmdr("suppress.X11.warnings")){
-				opt <- options(warn=-1)
-				on.exit(options(opt))
+				con <- file(open = "w+")
+				sink(con, type="message")
+				on.exit({
+						sink(type="message")
+						close(con)
+					})
 			}
             if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
             if (GrabFocus()) tkgrab.release(window)
