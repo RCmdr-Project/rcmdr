@@ -733,7 +733,7 @@ checkWarnings <- function(messages){
 	if (getRcmdr("suppress.X11.warnings")){
 #		X11.warning <- grep("^Warning\\: X11 protocol error\\: BadWindow \\(invalid Window parameter\\)",
 #			messages)
-		X11.warning <- grep("Warning\\: X11 protocol error)", messages)
+		X11.warning <- grep("X11 protocol error", messages)
 		if (length(X11.warning) > 0){
 			messages <- messages[-X11.warning]
 		}
