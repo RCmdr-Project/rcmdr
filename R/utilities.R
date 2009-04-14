@@ -1,4 +1,4 @@
-# last modified 6 March 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 14 April 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -1091,6 +1091,10 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL, model=FALSE,
         OKbutton <- buttonRcmdr(buttonsFrame, text=gettextRcmdr("OK"), foreground="darkgreen", width="12", command=onOK, default="active",
             borderwidth=3)
         onCancel <- function() {
+			if (getRcmdr("suppress.X11.warnings")){
+				opt <- options(warn=-1)
+				on.exit(options(opt))
+			}
             if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
             if (GrabFocus()) tkgrab.release(window)
             tkdestroy(window)
