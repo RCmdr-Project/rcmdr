@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 12 April 2009 by J. Fox
+# last modified 22 April 2009 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 # last modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -310,17 +310,18 @@ Commander <- function(){
 		tkfocus(CommanderWindow())
 	}
 	onView <- function(){
+		if (packageAvailable("relimp")) require("relimp")
 		if (activeDataSet() == FALSE) {
 			tkfocus(CommanderWindow())
 			return()
 		}
+		suppress <- if(getRcmdr("suppress.X11.warnings")) ", suppress.X11.warnings=FALSE" else ""
 		view.height <- max(as.numeric(output.height) + as.numeric(log.height), 10)
 		ncols <- ncol(get(ActiveDataSet()))
 #        ncols <- eval(parse(text=paste("ncol(", ActiveDataSet(), ")")))
 		command <- if (packageAvailable("relimp") && ncols <= getRcmdr("showData.threshold")){
-				require("relimp")
 				paste("showData(", ActiveDataSet(), ", placement='-20+200', font=getRcmdr('logFont'), maxwidth=",
-					log.width, ", maxheight=", view.height, ")", sep="")
+					log.width, ", maxheight=", view.height, suppress, ")", sep="")
 			}
 			else paste("View(", ActiveDataSet(), ")", sep="")
 		logger(command)

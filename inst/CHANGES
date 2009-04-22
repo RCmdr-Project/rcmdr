@@ -798,4 +798,4 @@ Version 1.4-10
 
    o  Corrected problem in paste in Command window in non-Windows systems (reported by Liviu Andronic).
    
-   o  Arranged to intercept more X11 warnings (reported by Liviu Andronic).
+   o  Fixed handling of X11 warnings which was disrupted by showData() (problem reported by Liviu Andronic).
