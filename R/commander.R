@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 22 April 2009 by J. Fox
+# last modified 26 April 2009 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 # last modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -169,6 +169,7 @@ Commander <- function(){
 	setOption("output.text.color", "darkblue")
 	setOption("error.text.color", "red")
 	setOption("warning.text.color", "darkgreen")
+	setOption("prefixes", c("Rcmdr> ", "Rcmdr+ ", "RcmdrMsg: ", "RcmdrMsg+ "))
 	setOption("multiple.select.mode", "extended")
 	setOption("suppress.X11.warnings",
 		interactive() && .Platform$GUI == "X11") # to address problem in X11 (Linux or Mac OS X)
@@ -354,7 +355,7 @@ Commander <- function(){
 			while (nchar(lines[iline])==0) iline <- iline + 1
 			if (iline > nlines) break
 			current.line <- lines[iline]
-			if (.console.output) cat(paste("\nRcmdr> ", current.line,"\n", sep=""))
+			if (.console.output) cat(paste("\n", getRcmdr("prefixes")[1], current.line,"\n", sep=""))
 			else{
 				tkinsert(.output, "end", paste("\n> ", current.line,"\n", sep="")) ### end of changed
 				tktag.add(.output, "currentLine", "end - 2 lines linestart", "end - 2 lines lineend")
@@ -363,7 +364,7 @@ Commander <- function(){
 			jline <- iline + 1
 			while (jline <= nlines){
 				if (class(try(parse(text=current.line),silent=TRUE))!="try-error") break
-				if (.console.output)cat(paste("Rcmdr+ ", lines[jline],"\n", sep=""))
+				if (.console.output)cat(paste(getRcmdr("prefixes")[2], lines[jline],"\n", sep=""))
 				else{
 					tkinsert(.output, "end", paste("+ ", lines[jline],"\n", sep=""))
 					tktag.add(.output, "currentLine", "end - 2 lines linestart", "end - 2 lines lineend")
@@ -619,7 +620,7 @@ logger <- function(command){
 	tkinsert(.output, "end", "\n")
 	if (getRcmdr("console.output")) {
 		for (line in seq(along=lines)) {
-			prompt <- ifelse (line==1, "\nRcmdr>", "\nRcmdr+")
+			prompt <- ifelse (line==1, paste("\n", getRcmdr("prefixes")[1], sep=""), paste("\n", getRcmdr("prefixes")[2], sep=""))
 			cat(paste(prompt, lines[line]))  ##rmh
 		}
 		cat("\n")                          ##rmh
@@ -734,7 +735,7 @@ checkWarnings <- function(messages){
 	if (getRcmdr("suppress.X11.warnings")){
 #		X11.warning <- grep("^Warning\\: X11 protocol error\\: BadWindow \\(invalid Window parameter\\)",
 #			messages)
-		X11.warning <- grep("X11 protocol error", messages)
+		X11.warning <- grep("X11 protocol error|Warning in structure", messages)
 		if (length(X11.warning) > 0){
 			messages <- messages[-X11.warning]
 		}
@@ -806,7 +807,7 @@ Message <- function(message, type=c("note", "error", "warning")){
 	if (console.output) {                                        ##rmh & J. Fox
 		if (sink.number() != 0) sink()							## fixed by J. Fox
 		for (jline in seq(along=lines)) {                            ##rmh
-			Header <- if (jline==1) "RcmdrMsg: " else "RcmdrMsg+ "     ##rmh
+			Header <- if (jline==1) getRcmdr("prefixes")[3] else getRcmdr("prefixes")[4]     ##rmh
 			cat(paste(Header, lines[jline], "\n", sep=""))             ##rmh
 		}                                                            ##rmh
 	}                                                              ##rmh

@@ -213,6 +213,9 @@ set none, one, several, or all options. The available options are as follows:
     Commander starts up. Plug-in packages can also be loaded from the \emph{Tools -> Load Rcmdr plug-in(s)} menu.
     See \link{Plugins}.}
     
+    \item{\code{prefixes}}{A four-item character vector to specify the prefixes used when output is directed
+    to the R console; the default is \code{c("Rcmdr> ", "Rcmdr+ ", "RcmdrMsg: ", "RcmdrMsg+ ")}.}
+    
     \item{\code{suppress.menus}}{if \code{TRUE}, the Commander menu bar and tool bar are suppressed, allowing another
     program (such as Excel) to take over these functions. The default (of course) is \code{FALSE}.}
             
