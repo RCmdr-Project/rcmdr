@@ -801,3 +801,8 @@ Version 1.4-10
    o  Fixed handling of X11 warnings which was disrupted by showData(), and added check for "Warning in structure" (problems reported by Liviu Andronic).
    
    o  Prefixes used when output is directed to the R console are no longer hard-coded, but can be set by the "prefixes" Rcmdr option (to satisfy a request by Liviu Andronic).
+
+Version 1.4-11
+
+   o  Correction to .mo file for Brazilian Portuguese translation (supplied by Adriano Azevedo-Filho following report by Donald Pianto).
+   
