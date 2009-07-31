@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 26 March 2008 by J. Fox
+# last modified 7 June 2009 by J. Fox
 
     # Dimensional-analysis menu
     
@@ -53,6 +53,7 @@ principalComponents <- function(){
         logger(paste(".PC <- ", command, sep=""))
         doItAndPrint("unclass(loadings(.PC))  # component loadings")
         doItAndPrint(".PC$sd^2  # component variances")
+		doItAndPrint("summary(.PC) # proportions of variance")
         if (screeplot == "1") {
             justDoIt("screeplot(.PC)")
             logger("screeplot(.PC)")

@@ -806,6 +806,8 @@ Version 1.4-11
 
    o  Correction to .mo file for Brazilian Portuguese translation (supplied by Adriano Azevedo-Filho following report by Donald Pianto).
    
+   o  Added summary() output to principal components (suggested by Liviu Andronic).
+   
 Version 1.5-0
 
    o  Added model-selection dialogs, stepwise and subset (several requests).

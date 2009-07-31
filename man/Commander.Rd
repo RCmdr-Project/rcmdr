@@ -127,10 +127,7 @@ set none, one, several, or all options. The available options are as follows:
     recommended packages will be checked, and if any are absent, the \code{Rcmdr} will offer to install them.}
 
     \item{\code{command.text.color}}{Color for commands in the output window; the default is \code{"red"}.}
-    
-    \item{\code{console.messages}}{If \code{TRUE}, messages are directed to the \emph{R Console}, and
-    the \emph{R Commander} output window is not displayed. The default is \code{FALSE}.}
-    
+       
     \item{\code{console.output}}{If \code{TRUE}, output is directed to the \emph{R Console}, and the 
     \emph{R Commander} output window is not displayed. The default is \code{FALSE}.}
     
