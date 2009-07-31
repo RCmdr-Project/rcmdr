@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 02 April 2009 by J. Fox
+# last modified 31 July 2009 by J. Fox
 
 selectActiveModel <- function(){
     models <- listAllModels()
@@ -561,3 +561,66 @@ bic <- function(){
 	doItAndPrint(paste("AIC(", .activeModel, ", k = log(nobs(", .activeModel, "))) # BIC", sep=""))
 }
 
+stepwiseRegression <- function(){
+	initializeDialog(title=gettextRcmdr("Stepwise Model Selection"))
+	onOK <- function(){
+		direction <- as.character(tclvalue(directionVariable))
+		criterion <- as.character(tclvalue(criterionVariable))
+		closeDialog()
+		doItAndPrint(paste("stepwise(", ActiveModel(),
+						", direction='", direction, "', criterion='", criterion,
+						"')", sep=""))
+		tkdestroy(top)
+		tkfocus(CommanderWindow())
+	}
+	OKCancelHelp(helpSubject="stepwise")
+	radioButtons(top, name="direction", buttons=c("bf", "fb", "b", "f"), 
+			values=c("backward/forward", "forward/backward", "backward", "forward"),
+			labels=gettextRcmdr(c("backward/forward", "forward/backward", "backward", "forward")),
+			title=gettextRcmdr("Direction"))
+	radioButtons(top, name="criterion", buttons=c("bic", "aic"), 
+			values=c("BIC", "AIC"),
+			labels=gettextRcmdr(c("BIC", "AIC")),
+			title=gettextRcmdr("Criterion"))
+	tkgrid(directionFrame, criterionFrame, sticky="nw")
+	tkgrid(buttonsFrame, columnspan=2, sticky="w")
+	dialogSuffix(rows=2, columns=2)
+}
+
+subsetRegression <- function(){
+	require(leaps)
+	initializeDialog(title=gettextRcmdr("Subset Model Selection"))
+	onOK <- function(){
+		formula <- paste(sub("^[ ]*", "", deparse(formula(get(ActiveModel())))), collapse="")
+		criterion <- as.character(tclvalue(criterionVariable))
+		nbest <- as.numeric(tclvalue(nbestValue))
+		nvmax <- as.numeric(tclvalue(nvmaxValue))
+		really.big <- if (nvmax > 50) "TRUE" else "FALSE"
+		closeDialog()
+		doItAndPrint(paste("plot(regsubsets(", formula, ", data=", ActiveDataSet(),
+						", nbest=", nbest, ", nvmax=", nvmax, "), scale='", criterion,
+						"')", sep=""))
+		tkdestroy(top)
+		tkfocus(CommanderWindow())
+	}
+	OKCancelHelp(helpSubject="regsubsets")
+	radioButtons(top, name="criterion", buttons=c("bic", "Cp", "adjr2", "r2"), 
+			labels=gettextRcmdr(c("BIC", "Mallows Cp", "Adjusted R-sq.", "R-squared")),
+			title=gettextRcmdr("Criterion for Model Plot"))
+	nvar <- ncol(model.matrix(get(ActiveModel())))
+	nbestValue <- tclVar("1")
+	nvmaxValue <- tclVar(as.character(min(25, nvar)))
+	slidersFrame <- tkframe(top)
+	nbestSlider <- tkscale(slidersFrame, from=1, to=10, showvalue=TRUE, variable=nbestValue,
+			resolution=1, orient="horizontal")
+	nvmaxSlider <- tkscale(slidersFrame, from=1, to=nvar, 
+			showvalue=TRUE, variable=nvmaxValue, resolution=1, orient="horizontal")
+	tkgrid(tklabel(slidersFrame, text="     "),
+		tklabel(slidersFrame, text=gettextRcmdr("Number of best models\nof each size:"), fg="blue"), 
+			nbestSlider, sticky="w")
+	tkgrid(tklabel(slidersFrame, text="     "),
+		tklabel(slidersFrame, text=gettextRcmdr("Maximum size:"), fg="blue"),nvmaxSlider, sticky="e")
+	tkgrid(criterionFrame, slidersFrame, sticky="nw")
+	tkgrid(buttonsFrame, columnspan=2, sticky="w")
+	dialogSuffix(rows=2, columns=2)
+}

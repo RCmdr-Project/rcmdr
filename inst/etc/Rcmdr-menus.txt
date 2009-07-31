@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 04 Februrary 2009 by J. Fox
+# last modified 31 July 2009 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -159,6 +159,8 @@
     item    modelsMenu      command         "Confidence intervals..."                       confidenceIntervals         "activeModelP()" "packageAvailable('MASS')"
     item	modelsMenu		command			"Akaike Information Criterion (AIC)"			aic							"activeModelP()"		  ""
     item	modelsMenu		command			"Bayesian Information Criterion (BIC)"			bic							"activeModelP()"		  ""
+    item	modelsMenu		command			"Stepwise model selection"						stepwiseRegression			"aicP()" 		 "packageAvailable('MASS')"
+    item	modelsMenu		command			"Subset model selection"						subsetRegression			"lmP()"			 "packageAvailable('leaps')"
     menu    hypothesisMenu  modelsMenu      ""                                              ""                          ""          ""
     item    modelsMenu      cascade         "Hypothesis tests"                              hypothesisMenu              ""          ""
     item    hypothesisMenu  command         "ANOVA table..."                                anovaTable                  "activeModelP()" "packageAvailable('car')"

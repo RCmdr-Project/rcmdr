@@ -1,4 +1,4 @@
-# last modified 14 April 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 31 July 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -509,6 +509,24 @@ print.numSummary <- function(x, ...){
         )
     invisible(x)
     }
+	
+stepwise <- function(mod, 
+			direction=c("backward/forward", "forward/backward", "backward", "forward"), 
+			criterion=c("BIC", "AIC"), ...){
+		if (!require(MASS)) stop("MASS package not available")
+		criterion <- match.arg(criterion)
+		cat("\nDirection: ", direction)
+		cat("\nCriterion: ", criterion, "\n\n")
+		k <- if (criterion == "BIC") log(length(na.omit(residuals(mod)))) else 2
+		rhs <- paste(c("~", deparse(formula(mod)[[3]])), collapse="")
+		rhs <- gsub(" ", "", rhs)
+		if (direction == "forward" || direction == "forward/backward")
+			mod <- update(mod, . ~ 1)
+		if (direction == "backward/forward" || direction == "forward/backward") direction <- "both"
+		lower <- ~ 1
+		upper <- eval(parse(text=rhs))   
+		stepAIC(mod, scope=list(lower=lower, upper=upper), direction=direction, k=k, ...)
+	}
 
     # wrapper function for histograms
 
@@ -1814,6 +1832,8 @@ lmP <- function() activeModelP() && any(class(get(ActiveModel()))[1] == c('lm', 
 
 #glmP <- function() activeModelP() && eval(parse(text=paste("class(", ActiveModel(), ")[1] == 'glm'")))
 glmP <- function() activeModelP() && class(get(ActiveModel()))[1] == 'glm'
+
+aicP <- function() activeModelP() && exists.method("extractAIC", get(ActiveModel()))
 
 polrP <- function() activeModelP() && class(get(ActiveModel()))[1] == 'polr'
 

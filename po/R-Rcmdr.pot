@@ -1,6 +1,6 @@
-"Project-Id-Version: Rcmdr 1.4-2\n"
+"Project-Id-Version: Rcmdr 1.5-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2008-09-17 10:00\n"
+"POT-Creation-Date: 2009-07-31 13:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3501,4 +3501,64 @@ msgstr ""
 # messages added to version 1.4-2
 
 msgid "Location not specified."
+msgstr ""
+
+# messages added to version 1.5-0
+
+#     "Models -> Stepwise model selection" dialog and menu item
+
+msgid "Stepwise model selection"
+msgstr ""
+
+msgid "Stepwise Model Selection"
+msgstr ""
+
+msgid "Direction"
+msgstr ""
+
+msgid "backward/forward"
+msgstr ""
+
+msgid "forward/backward"
+msgstr ""
+
+msgid "backward"
+msgstr ""
+
+msgid "forward"
+msgstr ""
+
+msgid "Criterion"
+msgstr ""
+
+msgid "BIC"
+msgstr ""
+
+msgid "AIC"
+msgstr ""
+
+#      "Models -> Subset model selection" dialog and menu item
+
+msgid Subset model selection"
+msgstr ""
+
+msgid "Subset Model Selection"
+msgstr ""
+
+msgid "Criterion for Model Plot"
+msgstr ""
+
+msgid "Mallows Cp"
+msgstr ""
+
+msgid "Adjusted R-sq."
+msgstr ""
+
+msgid "R-squared"
+msgstr ""
+
+msgid "Number of best models\nof each size:"
+msgstr ""
+
+msgid "Maximum size:"
 msgstr ""
