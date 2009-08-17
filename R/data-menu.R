@@ -1,4 +1,4 @@
-# last modified 29 January 2009 by J. Fox
+# last modified 17 August 2009 by J. Fox
 
 # Data menu dialogs
 
@@ -384,191 +384,200 @@ readDataSet <- function() {
     dialogSuffix(rows=5, columns=1)
     }
 
-readDataFromPackage <- function() {
-    env <- environment()
-    initializeDialog(title=gettextRcmdr("Read Data From Package"))
-    dsname <- tclVar("")
-    package <- NULL
-    enterFrame <- tkframe(top)
-    entryDsname <- ttkentry(enterFrame, width="20", textvariable=dsname)
-    packages <- sort(.packages())
-    packages <- packages[! packages %in% c("base", "stats")]
-    packages <- packages[sapply(packages, function(package) nrow(data(package=package)$results) > 0)]
-    packageDatasetFrame <- tkframe(top)
-    packageFrame <- tkframe(packageDatasetFrame)
-    packageBox <- tklistbox(packageFrame, height="4", exportselection="FALSE",
-        selectmode="single", background="white")
-    packageScroll <- ttkscrollbar(packageFrame,
-        command=function(...) tkyview(packageBox, ...))
-    tkconfigure(packageBox, yscrollcommand=function(...) tkset(packageScroll, ...))
-    for (p in packages) tkinsert(packageBox, "end", p)
-    datasetFrame <- tkframe(packageDatasetFrame)
-    datasetBox <- tklistbox(datasetFrame, height="4", exportselection="FALSE",
-        selectmode="single", background="white")
-    datasetScroll <- ttkscrollbar(datasetFrame,
-        command=function(...) tkyview(datasetBox, ...))
-    tkconfigure(datasetBox, yscrollcommand=function(...) tkset(datasetScroll, ...))
-    onPackageSelect <- function(){
-        assign("package", packages[as.numeric(tkcurselection(packageBox)) + 1], envir=env)
-        datasets <- data(package=package)$results[,3]
-        tkdelete(datasetBox, "0", "end")
-        for (dataset in datasets) tkinsert(datasetBox, "end", dataset)
-        tkconfigure(datasetBox, height=min(4, length(datasets)))
-        firstChar <- tolower(substr(datasets, 1, 1))
-        len <- length(datasets)
-        onLetter <- function(letter){
-            letter <- tolower(letter)
-            current <- 1 + round(as.numeric(unlist(strsplit(tclvalue(tkyview(datasetBox) ), " "))[1])*len)
-            mat <- match(letter, firstChar[-(1:current)])
-            if (is.na(mat)) return()
-            tkyview.scroll(datasetBox, mat, "units")
-            }
-        onA <- function() onLetter("a")
-        onB <- function() onLetter("b")
-        onC <- function() onLetter("c")
-        onD <- function() onLetter("d")
-        onE <- function() onLetter("e")
-        onF <- function() onLetter("f")
-        onG <- function() onLetter("g")
-        onH <- function() onLetter("h")
-        onI <- function() onLetter("i")
-        onJ <- function() onLetter("j")
-        onK <- function() onLetter("k")
-        onL <- function() onLetter("l")
-        onM <- function() onLetter("m")
-        onN <- function() onLetter("n")
-        onO <- function() onLetter("o")
-        onP <- function() onLetter("p")
-        onQ <- function() onLetter("q")
-        onR <- function() onLetter("r")
-        onS <- function() onLetter("s")
-        onT <- function() onLetter("t")
-        onU <- function() onLetter("u")
-        onV <- function() onLetter("v")
-        onW <- function() onLetter("w")
-        onX <- function() onLetter("x")
-        onY <- function() onLetter("y")
-        onZ <- function() onLetter("z")
-        for (letter in c(letters, LETTERS)){
-            tkbind(datasetBox, paste("<", letter, ">", sep=""),
-                get(paste("on", toupper(letter), sep="")))
-            }
-        onClick <- function() tkfocus(datasetBox)
-        tkbind(datasetBox, "<ButtonPress-1>", onClick)
-        }
-    onDatasetSelect <- function(){
-        tclvalue(dsname) <- data(package=package)$results[as.numeric(tkcurselection(datasetBox)) + 1,3]
-        }
-    firstChar <- tolower(substr(packages, 1, 1))
-    len <- length(packages)
-    onLetter <- function(letter){
-        letter <- tolower(letter)
-        current <- 1 + round(as.numeric(unlist(strsplit(tclvalue(tkyview(packageBox) ), " "))[1])*len)
-        mat <- match(letter, firstChar[-(1:current)])
-        if (is.na(mat)) return()
-        tkyview.scroll(packageBox, mat, "units")
-        }
-    onA <- function() onLetter("a")
-    onB <- function() onLetter("b")
-    onC <- function() onLetter("c")
-    onD <- function() onLetter("d")
-    onE <- function() onLetter("e")
-    onF <- function() onLetter("f")
-    onG <- function() onLetter("g")
-    onH <- function() onLetter("h")
-    onI <- function() onLetter("i")
-    onJ <- function() onLetter("j")
-    onK <- function() onLetter("k")
-    onL <- function() onLetter("l")
-    onM <- function() onLetter("m")
-    onN <- function() onLetter("n")
-    onO <- function() onLetter("o")
-    onP <- function() onLetter("p")
-    onQ <- function() onLetter("q")
-    onR <- function() onLetter("r")
-    onS <- function() onLetter("s")
-    onT <- function() onLetter("t")
-    onU <- function() onLetter("u")
-    onV <- function() onLetter("v")
-    onW <- function() onLetter("w")
-    onX <- function() onLetter("x")
-    onY <- function() onLetter("y")
-    onZ <- function() onLetter("z")
-    for (letter in c(letters, LETTERS)){
-        tkbind(packageBox, paste("<", letter, ">", sep=""),
-            get(paste("on", toupper(letter), sep="")))
-        }
-    onClick <- function() tkfocus(packageBox)
-    tkbind(packageBox, "<ButtonPress-1>", onClick)
-    onOK <- function(){
-        datasetName <- data(package=package)$results[as.numeric(tkcurselection(datasetBox)) + 1,3]
-        dsnameValue <- tclvalue(dsname)
-        if (dsnameValue != "" && is.null(package)){
-            closeDialog()
-            if (is.element(dsnameValue, listDataSets())) {
-                if ("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
-                    if (GrabFocus()) tkgrab.release(top)
-                    tkdestroy(top)
-                    readDataFromPackage()
-                    return()
-                    }
-                }
-            save.options <- options(warn=2)
-            check <- try(eval(parse(text=logger(paste("data(", dsnameValue, ")", sep=""))),
-                envir=.GlobalEnv), silent=TRUE)
-            options(save.options)
-            if (class(check) == "try-error"){
-                errorCondition(recall=readDataFromPackage,
-                    message=sprintf(gettextRcmdr("Data set %s does not exit"), dsnameValue))
-                return()
-                }
-            activeDataSet(dsnameValue)
-            tkfocus(CommanderWindow())
-            }
-        else{
-            if (is.null(package)) {
-                errorCondition(recall=readDataFromPackage, message=gettextRcmdr("You must select a package."))
-                return()
-                }
-            if (length(datasetName) == 0) {
-                errorCondition(recall=readDataFromPackage, message=gettextRcmdr("You must select a data set.")    )
-                return()
-                }
-            if (is.element(datasetName, listDataSets())) {
-                if ("no" == tclvalue(checkReplace(datasetName, gettextRcmdr("Data set")))){
-                    if (GrabFocus()) tkgrab.release(top)
-                    tkdestroy(top)
-                    readDataFromPackage()
-                    return()
-                    }
-                }
-            closeDialog()
-            command <- paste("data(", datasetName, ', package="', package, '")', sep="")
-            result <- justDoIt(command)
-            logger(command)
-			if (class(result)[1] !=  "try-error") activeDataSet(datasetName)
-            tkfocus(CommanderWindow())
-            }
-        }
-    OKCancelHelp(helpSubject="data")
-    tkgrid(labelRcmdr(packageDatasetFrame, text=gettextRcmdr("Package (Double-click to select)"), fg="blue"),
-    labelRcmdr(packageDatasetFrame, text="   "), labelRcmdr(packageDatasetFrame, text=gettextRcmdr("Data set (Double-click to select)"),
-        fg="blue"), sticky="w")
-    tkgrid(packageBox, packageScroll, sticky="nw")
-    tkgrid(datasetBox, datasetScroll, sticky="nw")
-    tkgrid(packageFrame, labelRcmdr(packageDatasetFrame, text="   "), datasetFrame, sticky="nw")
-    tkgrid(packageDatasetFrame, sticky="w")
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("OR"), fg="red"), sticky="w")
-    tkgrid(labelRcmdr(enterFrame, text=gettextRcmdr("Enter name of data set:  "), fg="blue"), entryDsname, sticky="w")
-    tkgrid(enterFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky="w")
-    tkgrid.configure(packageScroll, sticky="ns")
-    tkgrid.configure(datasetScroll, sticky="ns")
-    tkbind(packageBox, "<Double-ButtonPress-1>", onPackageSelect)
-    tkbind(datasetBox, "<Double-ButtonPress-1>", onDatasetSelect)
-    tkgrid(buttonsFrame, columnspan="2", sticky="w")
-    dialogSuffix(rows=4, columns=1, focus=entryDsname)
-    }
+	readDataFromPackage <- function() {
+		env <- environment()
+		initializeDialog(title=gettextRcmdr("Read Data From Package"))
+		dsname <- tclVar("")
+		package <- NULL
+		enterFrame <- tkframe(top)
+		entryDsname <- ttkentry(enterFrame, width="20", textvariable=dsname)
+		packages <- sort(.packages())
+		packages <- packages[! packages %in% c("base", "stats")]
+		packages <- packages[sapply(packages, function(package) nrow(data(package=package)$results) > 0)]
+		packageDatasetFrame <- tkframe(top)
+		packageFrame <- tkframe(packageDatasetFrame)
+		packageBox <- tklistbox(packageFrame, height="4", exportselection="FALSE",
+			selectmode="single", background="white")
+		packageScroll <- ttkscrollbar(packageFrame,
+			command=function(...) tkyview(packageBox, ...))
+		tkconfigure(packageBox, yscrollcommand=function(...) tkset(packageScroll, ...))
+		for (p in packages) tkinsert(packageBox, "end", p)
+		datasetFrame <- tkframe(packageDatasetFrame)
+		datasetBox <- tklistbox(datasetFrame, height="4", exportselection="FALSE",
+			selectmode="single", background="white")
+		datasetScroll <- ttkscrollbar(datasetFrame,
+			command=function(...) tkyview(datasetBox, ...))
+		tkconfigure(datasetBox, yscrollcommand=function(...) tkset(datasetScroll, ...))
+		onPackageSelect <- function(){
+			assign("package", packages[as.numeric(tkcurselection(packageBox)) + 1], envir=env)
+			datasets <- data(package=package)$results[,3]
+			tkdelete(datasetBox, "0", "end")
+			for (dataset in datasets) tkinsert(datasetBox, "end", dataset)
+			tkconfigure(datasetBox, height=min(4, length(datasets)))
+			firstChar <- tolower(substr(datasets, 1, 1))
+			len <- length(datasets)
+			onLetter <- function(letter){
+				letter <- tolower(letter)
+				current <- 1 + round(as.numeric(unlist(strsplit(tclvalue(tkyview(datasetBox) ), " "))[1])*len)
+				mat <- match(letter, firstChar[-(1:current)])
+				if (is.na(mat)) return()
+				tkyview.scroll(datasetBox, mat, "units")
+			}
+			onA <- function() onLetter("a")
+			onB <- function() onLetter("b")
+			onC <- function() onLetter("c")
+			onD <- function() onLetter("d")
+			onE <- function() onLetter("e")
+			onF <- function() onLetter("f")
+			onG <- function() onLetter("g")
+			onH <- function() onLetter("h")
+			onI <- function() onLetter("i")
+			onJ <- function() onLetter("j")
+			onK <- function() onLetter("k")
+			onL <- function() onLetter("l")
+			onM <- function() onLetter("m")
+			onN <- function() onLetter("n")
+			onO <- function() onLetter("o")
+			onP <- function() onLetter("p")
+			onQ <- function() onLetter("q")
+			onR <- function() onLetter("r")
+			onS <- function() onLetter("s")
+			onT <- function() onLetter("t")
+			onU <- function() onLetter("u")
+			onV <- function() onLetter("v")
+			onW <- function() onLetter("w")
+			onX <- function() onLetter("x")
+			onY <- function() onLetter("y")
+			onZ <- function() onLetter("z")
+			for (letter in c(letters, LETTERS)){
+				tkbind(datasetBox, paste("<", letter, ">", sep=""),
+					get(paste("on", toupper(letter), sep="")))
+			}
+			onClick <- function() tkfocus(datasetBox)
+			tkbind(datasetBox, "<ButtonPress-1>", onClick)
+		}
+		onDatasetSelect <- function(){
+			tclvalue(dsname) <- data(package=package)$results[as.numeric(tkcurselection(datasetBox)) + 1,3]
+		}
+		firstChar <- tolower(substr(packages, 1, 1))
+		len <- length(packages)
+		onLetter <- function(letter){
+			letter <- tolower(letter)
+			current <- 1 + round(as.numeric(unlist(strsplit(tclvalue(tkyview(packageBox) ), " "))[1])*len)
+			mat <- match(letter, firstChar[-(1:current)])
+			if (is.na(mat)) return()
+			tkyview.scroll(packageBox, mat, "units")
+		}
+		onA <- function() onLetter("a")
+		onB <- function() onLetter("b")
+		onC <- function() onLetter("c")
+		onD <- function() onLetter("d")
+		onE <- function() onLetter("e")
+		onF <- function() onLetter("f")
+		onG <- function() onLetter("g")
+		onH <- function() onLetter("h")
+		onI <- function() onLetter("i")
+		onJ <- function() onLetter("j")
+		onK <- function() onLetter("k")
+		onL <- function() onLetter("l")
+		onM <- function() onLetter("m")
+		onN <- function() onLetter("n")
+		onO <- function() onLetter("o")
+		onP <- function() onLetter("p")
+		onQ <- function() onLetter("q")
+		onR <- function() onLetter("r")
+		onS <- function() onLetter("s")
+		onT <- function() onLetter("t")
+		onU <- function() onLetter("u")
+		onV <- function() onLetter("v")
+		onW <- function() onLetter("w")
+		onX <- function() onLetter("x")
+		onY <- function() onLetter("y")
+		onZ <- function() onLetter("z")
+		for (letter in c(letters, LETTERS)){
+			tkbind(packageBox, paste("<", letter, ">", sep=""),
+				get(paste("on", toupper(letter), sep="")))
+		}
+		onClick <- function() tkfocus(packageBox)
+		tkbind(packageBox, "<ButtonPress-1>", onClick)
+		onOK <- function(){
+			datasetName <- data(package=package)$results[as.numeric(tkcurselection(datasetBox)) + 1,3]
+			dsnameValue <- tclvalue(dsname)
+			if (dsnameValue != "" && is.null(package)){
+				closeDialog()
+				if (is.element(dsnameValue, listDataSets())) {
+					if ("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
+						if (GrabFocus()) tkgrab.release(top)
+						tkdestroy(top)
+						readDataFromPackage()
+						return()
+					}
+				}
+				save.options <- options(warn=2)
+				check <- try(eval(parse(text=logger(paste("data(", dsnameValue, ")", sep=""))),
+						envir=.GlobalEnv), silent=TRUE)
+				options(save.options)
+				if (class(check) == "try-error"){
+					errorCondition(recall=readDataFromPackage,
+						message=sprintf(gettextRcmdr("Data set %s does not exit"), dsnameValue))
+					return()
+				}
+				activeDataSet(dsnameValue)
+				tkfocus(CommanderWindow())
+			}
+			else{
+				if (is.null(package)) {
+					errorCondition(recall=readDataFromPackage, message=gettextRcmdr("You must select a package."))
+					return()
+				}
+				if (length(datasetName) == 0) {
+					errorCondition(recall=readDataFromPackage, message=gettextRcmdr("You must select a data set.")    )
+					return()
+				}
+				if (is.element(datasetName, listDataSets())) {
+					if ("no" == tclvalue(checkReplace(datasetName, gettextRcmdr("Data set")))){
+						if (GrabFocus()) tkgrab.release(top)
+						tkdestroy(top)
+						readDataFromPackage()
+						return()
+					}
+				}
+				closeDialog()
+				command <- paste("data(", datasetName, ', package="', package, '")', sep="")
+				result <- justDoIt(command)
+				logger(command)
+				if (class(result)[1] !=  "try-error") activeDataSet(datasetName)
+				tkfocus(CommanderWindow())
+			}
+		}
+		onDataHelp <- function(){
+			datasetName <- data(package=package)$results[as.numeric(tkcurselection(datasetBox)) + 1,3]
+			dsnameValue <- tclvalue(dsname)
+			if (dsnameValue == "") dsnameValue <- datasetName
+			if (length(dsnameValue) == 0) Message("No data set selected.", type="warning")
+			else if (is.null(package)) doItAndPrint(paste('help("', dsnameValue, '")', sep=""))
+			else doItAndPrint(paste('help("', dsnameValue, '", package="', package, '")', sep=""))
+		}
+		OKCancelHelp(helpSubject="data")
+		dataHelpButton <- buttonRcmdr(top, text="Help on selected data set", command=onDataHelp)
+		tkgrid(labelRcmdr(packageDatasetFrame, text=gettextRcmdr("Package (Double-click to select)"), fg="blue"),
+			labelRcmdr(packageDatasetFrame, text="   "), labelRcmdr(packageDatasetFrame, text=gettextRcmdr("Data set (Double-click to select)"),
+				fg="blue"), sticky="w")
+		tkgrid(packageBox, packageScroll, sticky="nw")
+		tkgrid(datasetBox, datasetScroll, sticky="nw")
+		tkgrid(packageFrame, labelRcmdr(packageDatasetFrame, text="   "), datasetFrame, sticky="nw")
+		tkgrid(packageDatasetFrame, sticky="w")
+		tkgrid(labelRcmdr(top, text=gettextRcmdr("OR"), fg="red"), sticky="w")
+		tkgrid(labelRcmdr(enterFrame, text=gettextRcmdr("Enter name of data set:  "), fg="blue"), entryDsname, sticky="w")
+		tkgrid(enterFrame, sticky="w")
+		tkgrid(dataHelpButton, sticky="w")
+		tkgrid(buttonsFrame, sticky="w")
+		tkgrid.configure(packageScroll, sticky="ns")
+		tkgrid.configure(datasetScroll, sticky="ns")
+		tkbind(packageBox, "<Double-ButtonPress-1>", onPackageSelect)
+		tkbind(datasetBox, "<Double-ButtonPress-1>", onDatasetSelect)
+		dialogSuffix(rows=5, columns=1, focus=entryDsname)
+	}
 
 importSPSS <- function() {
     require("foreign")
@@ -1707,7 +1716,7 @@ Stack <- function(){
 
 loadDataSet <- function() {
     file <- tclvalue(tkgetOpenFile(filetypes=
-        gettextRcmdr('{"R Data Files" {".rda" ".Rda" ".RDA"}} {"All Files" {"*"}}')))
+        gettextRcmdr('{"R Data Files" {".rda" ".Rda" ".RDA" ".RData"}} {"All Files" {"*"}}')))
     if (file == "") return()
     command <- paste('load("', file,'")', sep="")
     dsname <- justDoIt(command)
@@ -1718,7 +1727,7 @@ loadDataSet <- function() {
 
 saveDataSet <- function() {
     file <- tclvalue(tkgetSaveFile(filetypes=
-        gettextRcmdr('{"R Data Files" {".rda" ".Rda" ".RDA"}} {"All Files" {"*"}}'),
+        gettextRcmdr('{"R Data Files" {".rda" ".Rda" ".RDA" ".RData"}} {"All Files" {"*"}}'),
         defaultextension="rda", initialfile=paste(activeDataSet(), "rda", sep=".")))
     if (file == "") return()
     command <- paste('save("', activeDataSet(), '", file="', file, '")', sep="")

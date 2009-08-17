@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 31 July 2009 by J. Fox
+# last modified 17 August 2009 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -140,7 +140,7 @@
     item    graphsMenu      command         "Plot of means..."                              PlotMeans                   "numericP() && factorsP()"          ""
     item	graphsMenu		command			"Strip chart..."								stripChart					"numericP()"										""
     item    graphsMenu      command         "Bar graph..."                                  barGraph                    "factorsP()"          ""
-    item    graphsMenu      command         "Pie chart..."                                  pieChart                    "factorsP()"          ""
+    item    graphsMenu      command         "Pie chart..."                                  pieChart                    "factorsP()"  "packageAvailable('colorspace')"
     menu    ThreeDPlotMenu  graphsMenu      ""                                              ""                          ""            "packageAvailable('rgl')"
     item    ThreeDPlotMenu  command         "3D scatterplot..."                             Scatter3D                   "numericP(3)" "packageAvailable('rgl')"
     item    ThreeDPlotMenu  command         "Identify observations with mouse"              Identify3D                  "rglLoaded() && 0 != rgl.cur() && !is.null(getRcmdr('Identify3d'))"  "packageAvailable('rgl')"

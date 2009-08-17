@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 29 July 2008 by J. Fox
+# last modified 17 August 2009 by J. Fox
 
 indexPlot <- function(){
     initializeDialog(title=gettextRcmdr("Index Plot"))
@@ -424,6 +424,7 @@ barGraph <- function(){
     }
 
 pieChart <- function(){
+	require(colorspace)
     initializeDialog(title=gettextRcmdr("Pie Chart"))
     variableBox <- variableListBox(top, Factors(), title=gettextRcmdr("Variable (pick one)"))
     onOK <- function(){
@@ -435,7 +436,7 @@ pieChart <- function(){
             }
         .activeDataSet <- ActiveDataSet()
         command <- (paste("pie(table(", .activeDataSet, "$", variable, "), labels=levels(",
-            .activeDataSet, "$", variable, '), main="', variable, '", col=rainbow(length(levels(',
+            .activeDataSet, "$", variable, '), main="', variable, '", col=rainbow_hcl(length(levels(',
             .activeDataSet, "$", variable, "))))", sep=""))
         logger(command)
         justDoIt(command)

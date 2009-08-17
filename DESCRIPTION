@@ -1,11 +1,10 @@
 Package: Rcmdr
 Version: 1.5-0
-Date: 2009/08/16
+Date: 2009/08/17
 Title: R Commander
 Author: John Fox <jfox@mcmaster.ca>, with contributions from Michael Ash, Theophilius Boye, Stefano Calza, Andy Chang, Philippe Grosjean, Richard Heiberger, G. Jay Kerns, Renaud Lancelot, Matthieu Lesnoff, Samir Messad, Martin Maechler, Duncan Murdoch, Erich Neuwirth, Dan Putler, Brian Ripley, Miroslav Ristic, and Peter Wolf.
 Maintainer: John Fox <jfox@mcmaster.ca>
-Depends: R (>= 2.6.0), tcltk, grDevices, utils
-Suggests: abind, aplpack, car (>= 1.2-1), effects (>= 1.0-7), foreign, grid, lattice, leaps, lmtest, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, relimp, rgl, RODBC
+Depends: R (>= 2.6.0), tcltk, grDevices, utils, abind, aplpack, car (>= 1.2-1), colorspace, effects (>= 1.0-7), foreign, grid, lattice, leaps, lmtest, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, relimp, rgl, RODBC
 LazyLoad: no
 Description:
   A platform-independent basic-statistics GUI (graphical user interface) for R, based on the tcltk package.
