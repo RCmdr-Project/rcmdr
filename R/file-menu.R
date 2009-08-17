@@ -231,19 +231,27 @@ Options <- function(){
         Commander()
         }
     OKCancelHelp(helpSubject="Commander")
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("Log commands to script window")), logCommandsCheckBox, sticky="e")
-    tkgrid.configure(logCommandsCheckBox, sticky="w")
+	if (.Platform$OS.type == "windows"){
+		tkgrid(labelRcmdr(top, text=gettextRcmdr("Scale factor for Tk elements")), scaleFactorSlider, sticky="se")
+		tkgrid.configure(scaleFactorSlider, sticky="w")
+	}
+	else {
+		tkgrid(labelRcmdr(top, text=gettextRcmdr("Default font")), defaultFontEntry, sticky="e")
+		tkgrid.configure(defaultFontEntry, sticky="w")
+	}
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Log-font size (points)")), logFontSizeSlider, sticky="se")
     tkgrid.configure(logFontSizeSlider, sticky="w")
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Log width (characters)")), logWidthSlider, sticky="se")
     tkgrid.configure(logWidthSlider, sticky="w")
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Log height (lines)")), logHeightSlider, sticky="se")
     tkgrid.configure(logHeightSlider, sticky="w")
-    tkgrid(labelRcmdr(top, text=" "), sticky="w")
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Output height (lines)")), outputHeightSlider, sticky="se")
+	tkgrid.configure(outputHeightSlider, sticky="w")
+    tkgrid(labelRcmdr(top, text=" "), sticky="w")	
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Log commands to script window")), logCommandsCheckBox, sticky="e")
+	tkgrid.configure(logCommandsCheckBox, sticky="w")
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Send output to R Console")), consoleOutputCheckBox, sticky="e")
     tkgrid.configure(consoleOutputCheckBox, sticky="w")
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("Output height (lines)")), outputHeightSlider, sticky="se")
-    tkgrid.configure(outputHeightSlider, sticky="w")
     tkgrid(labelRcmdr(contrastsFrame, text=gettextRcmdr("Unordered factors")), labelRcmdr(contrastsFrame, text="   "),
         labelRcmdr(contrastsFrame, text=gettextRcmdr("Ordered factors")), sticky="w")
     tkgrid(contrasts1Entry, labelRcmdr(contrastsFrame, text="   "), contrasts2Entry, sticky="w")
@@ -258,14 +266,6 @@ Options <- function(){
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Show edit button")), showEditButtonCheckBox, sticky="e")
     tkgrid.configure(showEditButtonCheckBox, sticky="w")
     tkconfigure(OKbutton, text=gettextRcmdr("Exit and Restart\nR Commander"), width=18)
-    if (.Platform$OS.type == "windows"){
-        tkgrid(labelRcmdr(top, text=gettextRcmdr("Scale factor for Tk elements")), scaleFactorSlider, sticky="se")
-        tkgrid.configure(scaleFactorSlider, sticky="w")
-        }
-    else {
-        tkgrid(labelRcmdr(top, text=gettextRcmdr("Default font")), defaultFontEntry, sticky="e")
-        tkgrid.configure(defaultFontEntry, sticky="w")
-        }
     tkgrid(buttonsFrame, columnspan=2, sticky="w")
     dialogSuffix(rows=11, columns=2)
     }

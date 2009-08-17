@@ -17,7 +17,8 @@ See \code{\link[stats]{lm}} for details.
 You can type directly in the model formula boxes. Alternatively, double-clicking the left mouse
 button on a variable in the variable-list transfers it to the left-hand side of the model (if
 it is empty) or to the right-hand side. You can also enter operators and parentheses using the buttons
-above the formula.
+above the formula. If you select several variables in the variable-list box, clicking on the
+\code{+}, \code{*}, or \code{:} button will enter them into the model formula.
 
 Specifying a subset expression allows you to fit the model to a subset of observations
 in the active data set. For example, assuming that \code{gender} is a variable in the
