@@ -1,4 +1,4 @@
-# last modified 17 August 2009 by J. Fox
+# last modified 18 August 2009 by J. Fox
 
 # Data menu dialogs
 
@@ -554,12 +554,12 @@ readDataSet <- function() {
 			datasetName <- data(package=package)$results[as.numeric(tkcurselection(datasetBox)) + 1,3]
 			dsnameValue <- tclvalue(dsname)
 			if (dsnameValue == "") dsnameValue <- datasetName
-			if (length(dsnameValue) == 0) Message("No data set selected.", type="warning")
+			if (length(dsnameValue) == 0) Message(gettextRcmdr("No data set selected."), type="warning")
 			else if (is.null(package)) doItAndPrint(paste('help("', dsnameValue, '")', sep=""))
 			else doItAndPrint(paste('help("', dsnameValue, '", package="', package, '")', sep=""))
 		}
 		OKCancelHelp(helpSubject="data")
-		dataHelpButton <- buttonRcmdr(top, text="Help on selected data set", command=onDataHelp)
+		dataHelpButton <- buttonRcmdr(top, text=gettextRcmdr("Help on selected data set"), command=onDataHelp)
 		tkgrid(labelRcmdr(packageDatasetFrame, text=gettextRcmdr("Package (Double-click to select)"), fg="blue"),
 			labelRcmdr(packageDatasetFrame, text="   "), labelRcmdr(packageDatasetFrame, text=gettextRcmdr("Data set (Double-click to select)"),
 				fg="blue"), sticky="w")

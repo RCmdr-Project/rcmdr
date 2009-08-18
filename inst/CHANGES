@@ -818,5 +818,7 @@ Version 1.5-0
    
    o  Packages generally attached in position 4, to avoid masking objects in Rcmdr and car.
    
+   o  Added optional pairwise p-values to correlations dialog (several requests).
+   
    o  Small changes.
    

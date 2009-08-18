@@ -3563,7 +3563,7 @@ msgstr ""
 msgid "Maximum size:"
 msgstr ""
 
-#     miscelaneous 
+#     miscellaneous 
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
@@ -3581,4 +3581,7 @@ msgid "Population proportion != p0"
 msgstr ""
 
 msgid "Models do not have the same family."
+msgstr ""
+
+msgid "Pairwise p-values\nfor Pearson or Spearman correlations"
 msgstr ""
