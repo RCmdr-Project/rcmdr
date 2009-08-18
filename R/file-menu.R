@@ -1,4 +1,4 @@
-# last modified 31 July 2008 by J. Fox
+# last modified 18 August 2009 by J. Fox
 
 # File menu dialogs
 
@@ -287,7 +287,7 @@ loadPackages <- function(){
             return()
             }
         for (package in packages) {
-            command <- paste('library("', package, '", character.only=TRUE)', sep="")
+            command <- paste('library("', package, '", pos = 4, character.only=TRUE)', sep="")
             justDoIt(command)
             }
         Message(paste(gettextRcmdr("Packages loaded:"), paste(packages, collapse=", ")), type="note")

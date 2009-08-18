@@ -816,5 +816,7 @@ Version 1.5-0
    
    o  The compare-models and Anova-table code for GLMs now uses F-tests when the dispersion parameter is estimated (after a suggstion by Ulrich Halekoh).
    
+   o  Packages generally attached in position 4, to avoid masking objects in Rcmdr and car.
+   
    o  Small changes.
    

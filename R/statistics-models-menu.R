@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 7 December 08 by J. Fox
+# last modified 18 August 2009 by J. Fox
 
     # Models menu
 
@@ -282,7 +282,7 @@ generalizedLinearModel <- function(){
     }
 
 ordinalRegressionModel <- function(){
-    require("MASS")
+    library("MASS", pos=4)
     initializeDialog(title=gettextRcmdr("Ordinal Regression Model"))
     .activeModel <- ActiveModel()
     .activeDataSet <- ActiveDataSet()
@@ -367,7 +367,7 @@ ordinalRegressionModel <- function(){
     }
 
 multinomialLogitModel <- function(){
-    require("nnet")
+    library("nnet", pos=4)
     initializeDialog(title=gettextRcmdr("Multinomial Logit Model"))
     .activeModel <- ActiveModel()
     .activeDataSet <- ActiveDataSet()

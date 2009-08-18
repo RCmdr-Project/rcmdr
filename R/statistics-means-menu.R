@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 17 August 2009 by J. Fox
+# last modified 18 August 2009 by J. Fox
 
     # Means menu
 
@@ -134,8 +134,8 @@ singleSampleTTest <- function(){
     }
 
 	oneWayAnova <- function(){
-		require("multcomp")
-		require("abind")
+		library("multcomp", pos=4)
+		library("abind", pos=4)
 		initializeDialog(title=gettextRcmdr("One-Way Analysis of Variance"))
 		UpdateModelNumber()
 		modelName <- tclVar(paste("AnovaModel.", getRcmdr("modelNumber"), sep=""))

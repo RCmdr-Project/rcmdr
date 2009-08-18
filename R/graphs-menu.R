@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 17 August 2009 by J. Fox
+# last modified 18 August 2009 by J. Fox
 
 indexPlot <- function(){
     initializeDialog(title=gettextRcmdr("Index Plot"))
@@ -83,7 +83,7 @@ Histogram <- function(){
     }
 
 stemAndLeaf <- function(){
-	require("aplpack")
+	library("aplpack", pos=4)
     initializeDialog(title=gettextRcmdr("Stem and Leaf Display"), preventCrisp=TRUE)
     xBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variable (pick one)"))
     displayDigits <- tclVar("1")
@@ -424,7 +424,7 @@ barGraph <- function(){
     }
 
 pieChart <- function(){
-	require(colorspace)
+	library(colorspace, pos=4)
     initializeDialog(title=gettextRcmdr("Pie Chart"))
     variableBox <- variableListBox(top, Factors(), title=gettextRcmdr("Variable (pick one)"))
     onOK <- function(){
@@ -729,8 +729,8 @@ PlotMeans <- function(){
 Scatter3D <- function(){
     use.rgl <- options("Rcmdr")[[1]]$use.rgl
     if (length(use.rgl) == 0 || use.rgl) {
-        require(rgl)
-        require(mgcv)
+        library(rgl, pos=4)
+        library(mgcv, pos=4)
         }
     initializeDialog(title=gettextRcmdr("3D Scatterplot"))
     variablesFrame <- tkframe(top)
@@ -995,7 +995,7 @@ saveRglGraph <- function(){
 ## with more modifications by Richard Heiberger.
 ## 2008-01-03 added conditions, layout, and multiple colors
 Xyplot <- function() {
-	require("lattice")
+	library("lattice", pos=4)
 	initializeDialog(title=gettextRcmdr("XY Conditioning Plot"))
 	predictorFrame <- tkframe(top)
 	predictorBox <- variableListBox(predictorFrame, Numeric(), title=gettextRcmdr("Explanatory variables (pick one or more)"), selectmode="multiple")

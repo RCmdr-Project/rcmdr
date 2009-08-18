@@ -1,6 +1,7 @@
 # SciViews specific R Commander code
 
-# last modified 19 April 2005 by Ph. Grosjean
+# Supplied by Ph. Grosjean
+# last modified 18 August 2009 by J. Fox
 #  small fix to call to list.files() by J. Fox 17 Jan 05
 #  modifications 18 Feb 06 by J. Fox
 #  small change 20 Mar 08 by J. Fox
@@ -209,7 +210,7 @@ activeDataSetView <- function() {
     view.height <- 30 #max(as.numeric(output.height) + as.numeric(log.height), 10)
     ncols <- eval(parse(text=paste("ncol(", ActiveDataSet(), ")")))
     command <- if (packageAvailable("relimp") && ncols <= getRcmdr("showData.threshold")){
-        require("relimp")
+        library("relimp", pos=4)
         paste("showData(", ActiveDataSet(), ", placement='-20+200', font=getRcmdr('logFont'), maxwidth=",
         80, ", maxheight=", view.height, ")", sep="")
         }

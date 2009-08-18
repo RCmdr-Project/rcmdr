@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 6 December 08 by J. Fox
+# last modified 18 August 2009 by J. Fox
 
     # Summaries menu
     
@@ -19,7 +19,7 @@ summarizeDataSet <- function(){
     }
 
 numericalSummaries <- function(){
-    require(abind)
+    library(abind, pos=4)
     initializeDialog(title=gettextRcmdr("Numerical Summaries"))
     xBox <- variableListBox(top, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick one or more)"))
     checkBoxes(frame="checkBoxFrame", boxes=c("mean", "sd"), initialValues=c("1", "1"), labels=gettextRcmdr(c("Mean", "Standard Deviation")))

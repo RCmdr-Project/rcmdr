@@ -158,7 +158,7 @@ InfluencePlot <- function(){
     }  
     
 effectPlots <- function(){
-    require("effects")
+    library("effects", pos=4)
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("effect", .activeModel)) return()
     doItAndPrint('trellis.device(theme="col.whitebg")')
@@ -417,7 +417,7 @@ compareModels <- function(){
     
 BreuschPaganTest <- function(){
     if (is.null(.activeModel)) return()
-    require("lmtest")
+    library("lmtest", pos=4)
 	currentModel <- FALSE
     initializeDialog(title=gettextRcmdr("Breusch-Pagan Test"))
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Score Test for Nonconstant Error Variance"), fg="blue"), sticky="w")
@@ -460,7 +460,7 @@ BreuschPaganTest <- function(){
 
 DurbinWatsonTest <- function(){
     if (is.null(.activeModel)) return()
-    require("lmtest")
+    library("lmtest", pos=4)
     initializeDialog(title=gettextRcmdr("Durbin-Waton Test"))
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Test for First-Order Error Autocorrelation"), fg="blue"), sticky="w")
     onOK <- function(){
@@ -484,7 +484,7 @@ DurbinWatsonTest <- function(){
 
 RESETtest <- function(){
     if (is.null(.activeModel)) return()
-    require("lmtest")
+    library("lmtest", pos=4)
     initializeDialog(title=gettextRcmdr("RESET Test"))
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Test for Nonlinearity"), fg="blue"), sticky="w")
     onOK <- function(){
@@ -539,7 +539,7 @@ outlierTest <- function(){
     
 confidenceIntervals <- function(){
     if (is.null(.activeModel)) return()
-    require(MASS)
+    library(MASS, pos=4)
     initializeDialog(title=gettextRcmdr("Confidence Intervals"))
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Confidence Intervals for Individual Coefficients"), fg="blue"), sticky="w")
     onOK <- function(){
@@ -614,7 +614,7 @@ stepwiseRegression <- function(){
 }
 
 subsetRegression <- function(){
-	require(leaps)
+	library(leaps, pos=4)
 	initializeDialog(title=gettextRcmdr("Subset Model Selection"))
 	onOK <- function(){
 		formula <- paste(sub("^[ ]*", "", deparse(formula(get(ActiveModel())))), collapse="")

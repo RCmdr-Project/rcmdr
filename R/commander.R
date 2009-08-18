@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 31 July 2009 by J. Fox
+# last modified 18 August 2009 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 # last modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -311,7 +311,7 @@ Commander <- function(){
 		tkfocus(CommanderWindow())
 	}
 	onView <- function(){
-		if (packageAvailable("relimp")) require("relimp")
+		if (packageAvailable("relimp")) library("relimp", pos=4)
 		if (activeDataSet() == FALSE) {
 			tkfocus(CommanderWindow())
 			return()
