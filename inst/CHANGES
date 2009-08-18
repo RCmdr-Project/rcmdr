@@ -814,5 +814,7 @@ Version 1.5-0
    
    o  Modifications to model-definition dialogs (suggested by Ulrike Gromping).
    
+   o  The compare-models and Anova-table code for GLMs now uses F-tests when the dispersion parameter is estimated (after a suggstion by Ulrich Halekoh).
+   
    o  Small changes.
    

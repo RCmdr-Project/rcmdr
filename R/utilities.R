@@ -1,4 +1,4 @@
-# last modified 16 August 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 18 August 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -1715,7 +1715,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
 			tkselection.clear(xBox$listbox, "0", "end")										
 			if ((check <- !checkAddOperator(rhs)) && length(var) == 0) return()
 			if (length(var) > 1){
-				if (any(length(grep(word, var)) == 1)) var <- sub(word, "",  var)
+				if (length(grep(word, var)) > 0) var <- sub(word, "",  var)
 				if (length(var) > 1) var <- paste(var, collapse=" + ")
 			}
 			tclvalue(rhsVariable) <- paste(rhs, if (!check) " + ", var, sep="")
@@ -1728,7 +1728,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
 			tkselection.clear(xBox$listbox, "0", "end")						
 			if ((check <- !checkAddOperator(rhs)) && length(var) == 0) return()
 			if (length(var) > 1){
-				if (any(length(grep(word, var)) == 1)) var <- sub(word, "",  var)
+				if (length(grep(word, var)) > 0) var <- sub(word, "",  var)
 				var <- trim.blanks(var)
 				if (length(var) > 1) var <- paste(var, collapse="*")
 				tclvalue(rhsVariable) <- paste(rhs, if (!check) " + ", var, sep="")
@@ -1743,7 +1743,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
 			tkselection.clear(xBox$listbox, "0", "end")						
 			if ((check <- !checkAddOperator(rhs)) && length(var) == 0) return()
 			if (length(var) > 1){
-				if (any(length(grep(word, var)) == 1)) var <- sub(word, "",  var)
+				if (length(grep(word, var)) > 0) var <- sub(word, "",  var)
 				var <- trim.blanks(var)
 				if (length(var) > 1) var <- paste(var, collapse=":")
 				tclvalue(rhsVariable) <- paste(rhs, if (!check) " + ", var, sep="")

@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 31 July 2009 by J. Fox
+# last modified 18 August 2009 by J. Fox
 
 selectActiveModel <- function(){
     models <- listAllModels()
@@ -104,19 +104,32 @@ anovaTable <- function(){
 	onOK <- function(){
 		type <- as.character(tclvalue(typeVariable))
 		closeDialog()
+		if (is.glm <- glmP()){
+			family <- eval(parse(text=paste(.activeModel, "$family$family", sep="")))
+		}
 		if (type == "I"){
 			if (!checkMethod("anova", .activeModel)) {
 				errorCondition(message=gettextRcmdr("There is no appropriate anova method for a model of this class."))
 				return()
 				}
-			doItAndPrint(paste("anova(", .activeModel, ")", sep=""))
+			if (is.glm){
+				test <- if (family %in% c("binomial", "poisson")) "Chisq"
+					else "F"
+				doItAndPrint(paste("anova(", .activeModel, ', test="',  test, '")', sep=""))
+			}
+			else doItAndPrint(paste("anova(", .activeModel, ")", sep=""))
 			}
 		else {
 			if (!checkMethod("Anova", .activeModel)) {
 				errorCondition(message=gettextRcmdr("There is no appropriate Anova method for a model of this class."))
 				return()
 				}
-			doItAndPrint(paste("Anova(", .activeModel, ', type="', type, '")', sep=""))
+			if (is.glm){
+				test <- if (family %in% c("binomial", "poisson")) "LR"
+					else "F"
+				doItAndPrint(paste("Anova(", .activeModel, ', type="', type, '", test="', test, '")', sep=""))
+			}
+			else doItAndPrint(paste("Anova(", .activeModel, ', type="', type, '")', sep=""))
 			if (type == "III") Message(message=gettextRcmdr("Type III tests require careful attention to contrast coding."),
 				type="warning")
 			}
@@ -380,7 +393,20 @@ compareModels <- function(){
                 compareModels()
                 return()
                 }
-        doItAndPrint(paste("anova(", model1, ",", model2, ")", sep=""))
+		if (glmP()){
+			family1 <- eval(parse(text=paste(model1, "$family$family", sep="")))
+			family2 <- eval(parse(text=paste(model2, "$family$family", sep="")))
+			if (family1 != family2){
+				Message(message=gettextRcmdr("Models do not have the same family."),
+					type="error")
+				compareModels()
+				return()
+			}
+			test <- if (family1 %in% c("binomial", "poisson")) "Chisq"
+				else "F"
+			doItAndPrint(paste("anova(", model1, ", ", model2, ', test="', test, '")', sep=""))
+		}
+        else doItAndPrint(paste("anova(", model1, ", ", model2, ")", sep=""))
         tkfocus(CommanderWindow())
         }
     OKCancelHelp(helpSubject="anova")
