@@ -1,4 +1,4 @@
-# last modified 18 August 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 19 August 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -2382,8 +2382,23 @@ Library <- function(package, pos=4){
 	loaded <- search()
 	loaded <- loaded[grep("^package:", loaded)]
 	loaded <- sub("^package:", "", loaded)
+	if (!getRcmdr("suppress.X11.warnings")){
+		messages.connection <- file(open="w+")
+		sink(messages.connection, type="message")
+		on.exit({
+				sink(type="message")
+				close(messages.connection)
+			})
+	}
 	if (!(package %in% loaded)){
-		doItAndPrint(paste("library(", package, ", pos=", pos, ")", sep=""))
+		command <- paste("library(", package, ", pos=", pos, ")", sep="")
+		logger(command)
+		result <- try(eval(parse(text=command), envir=.GlobalEnv), silent=TRUE)
+		if (class(result)[1] ==  "try-error"){
+			Message(message=paste(strsplit(result, ":")[[1]][2]), type="error")
+			tkfocus(CommanderWindow())
+			return("error")
+		}
 		return(package)
 	}
 	else return(invisible(NULL))
