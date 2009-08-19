@@ -822,5 +822,7 @@ Version 1.5-0
    
    o  New Library() command for loading packages.
    
+   o  Messages in the Messages window are now numbered, according to the Rcmdr number.messages option (suggested by Liviu Andronic).
+   
    o  Small changes.
    

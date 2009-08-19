@@ -197,6 +197,8 @@ set none, one, several, or all options. The available options are as follows:
     to \code{"multiple"}, left-clicking toggles the selection of a variable and may be used to select more than one
     variable. This is the behaviour in the \code{Rcmdr} prior to version 1.9-10.}
     
+    \item{\code{number.messages}}{If \code{TRUE}, the default, messages in the messages window are numbered.}
+    
     \item{\code{output.height}}{The height of the output window, in lines. The default is twice the height
     of the script window, or 20 if the script window is suppressed. Setting \code{output.height}
     to 0 has the same effect as setting \code{console.output} to \code{TRUE}.}
@@ -224,7 +226,7 @@ set none, one, several, or all options. The available options are as follows:
     in the Commander Messages window after the next \code{Rcmdr}-generated command.
     Some X11 warnings may be printed when you exit from the Commander.}
     
-    \item{\code{retain.messages}}{If \code{TRUE} (the default is \code{FALSE}), the contents of the message window
+    \item{\code{retain.messages}}{If \code{TRUE} (the default), the contents of the message window
     are not erased between messages. In any event, a "NOTE" message will not erase a preceding "WARNING" or "ERROR".}
     
     \item{\code{RExcelSupport}}{If \code{TRUE} (the default is \code{FALSE}), menus and output are handled by Excel.}

@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 18 August 2009 by J. Fox
+# last modified 19 August 2009 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 # last modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -12,6 +12,7 @@ Commander <- function(){
 	##    RcmdrVersion <- trim.blanks(sub("^Version:", "",
 	##        grep("^Version:", D, value=TRUE)))
 	putRcmdr("quotes", options(useFancyQuotes=FALSE))
+	putRcmdr("messageNumber", 0)
 	# the following test suggested by Richard Heiberger
 	if ("RcmdrEnv" %in% search() &&
 		exists("commanderWindow", "RcmdrEnv") &&
@@ -26,6 +27,7 @@ Commander <- function(){
 		else opt
 	}
 	current <- options("Rcmdr")[[1]]
+	setOption("number.messages", TRUE)
 	etc <- setOption("etc", file.path(.path.package(package="Rcmdr")[1], "etc"))
 	etcMenus <- setOption("etcMenus", etc)
 	putRcmdr("etcMenus", etcMenus)
@@ -776,9 +778,10 @@ Message <- function(message, type=c("note", "error", "warning")){
 	type <- match.arg(type)
 	if (type != "note") tkbell()
 	if (getRcmdr("retain.messages")) {
-		if (!missing(message)) tkinsert(.message, "end", "\n")
-		else if (!is.null(getRcmdr("last.message"))) {
-			tkinsert(.message, "end", "\n\n")
+#		if (!missing(message)) tkinsert(.message, "end", "\n")
+#		else if (!is.null(getRcmdr("last.message"))) {
+		if (missing(message) && !is.null(getRcmdr("last.message"))) {
+#			tkinsert(.message, "end", "\n\n")
 			putRcmdr("last.message", NULL)
 			tkyview.moveto(.message, 1.0)
 		}
@@ -798,6 +801,11 @@ Message <- function(message, type=c("note", "error", "warning")){
 	}
 	putRcmdr("last.message", type)
 	message <- paste(prefix, ": ", message, sep="")
+	if (getRcmdr("retain.messages") && getRcmdr("number.messages")) {
+		messageNumber <- getRcmdr("messageNumber") + 1
+		putRcmdr("messageNumber", messageNumber)
+		message <- paste("[", messageNumber, "] ", message, sep="")
+	}
 	######### added by EN #####################
 	if (RExcelSupported())
 		putRExcel(".rexcel.last.message",message)
