@@ -1,4 +1,4 @@
-# last modified 31 July 2009 by J. Fox
+# last modified 19 August 2009 by J. Fox
 
 import(tcltk)
 
@@ -22,7 +22,7 @@ lmP, logger, LogWindow, MacOSXP,
 Message, MessagesWindow, modelFormula, modelsP, multinomP, nobs, Numeric,
 numericP, numSummary, OKCancelHelp, OutputWindow, packageAvailable, partial.cor,
 plotMeans, polrP, popOutput, putRcmdr, radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet, 
-RcmdrTkmessageBox,
+RcmdrTkmessageBox, rcorr.adjust,
 reliability, rowPercents, scatter3d, sortVarNames, stepwise, subOKCancelHelp,
 subsetBox, tclvalue, totPercents, trim.blanks, ttkentry, ttkframe, ttkradiobutton,
 ttkscrollbar, TwoLevelFactors, twoLevelFactorsP, 

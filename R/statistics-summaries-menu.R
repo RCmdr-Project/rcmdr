@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 18 August 2009 by J. Fox
+# last modified 19 August 2009 by J. Fox
 
     # Summaries menu
     
@@ -250,8 +250,8 @@ correlationMatrix <- function(){
 			}
 			else{
 				Library("Hmisc")
-				doItAndPrint(paste("rcorr(as.matrix(na.omit(", .activeDataSet, "[,c(", paste(x, collapse=","),
-						')])), type="pearson")', sep=""))
+				doItAndPrint(paste("rcorr.adjust(", .activeDataSet, "[,c(", paste(x, collapse=","),
+						')], type="pearson")', sep=""))
 			}
 		}
 		else if (correlations == "Spearman"){
@@ -262,15 +262,15 @@ correlationMatrix <- function(){
 			}
 			else{
 				Library("Hmisc")
-				doItAndPrint(paste("rcorr(as.matrix(na.omit(", .activeDataSet, "[,c(", paste(x, collapse=","),
-						')])), type="spearman")', sep=""))				
+				doItAndPrint(paste("rcorr.adjust(", .activeDataSet, "[,c(", paste(x, collapse=","),
+						')], type="spearman")', sep=""))				
 			}
 		}
 		else doItAndPrint(paste("partial.cor(", .activeDataSet, "[,c(", paste(x, collapse=","),
 					')], use="complete.obs")', sep=""))    
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject="cor")
+	OKCancelHelp(helpSubject="rcorr.adjust")
 	tkgrid(getFrame(xBox), sticky="nw")
 	tkgrid(correlationsFrame, sticky="w")
 	tkgrid(labelRcmdr(pvaluesFrame, 
