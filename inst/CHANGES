@@ -820,5 +820,7 @@ Version 1.5-0
    
    o  Added optional pairwise p-values to correlations dialog (several requests).
    
+   o  New Library() command for loading packages.
+   
    o  Small changes.
    

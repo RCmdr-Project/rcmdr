@@ -73,7 +73,7 @@ plotModel <- function(){
     }
 
 CRPlots <- function(){
-    require("car")
+    Library("car")
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("cr.plot", .activeModel)) return()
     doItAndPrint(paste("cr.plots(", .activeModel, ", ask=FALSE)", sep=""))
@@ -81,7 +81,7 @@ CRPlots <- function(){
     }
 
 AVPlots <- function(){
-    require("car")
+    Library("car")
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("av.plot", .activeModel)) return()
     response <- tclvalue(RcmdrTkmessageBox(message=gettextRcmdr("Identify points with mouse?"), 
@@ -92,7 +92,7 @@ AVPlots <- function(){
     }
 
 anovaTable <- function(){
-    require("car")
+    Library("car")
     .activeModel <- ActiveModel()
     if (is.null(.activeModel)) return()
 	initializeDialog(title=gettextRcmdr("ANOVA Table"))
@@ -141,14 +141,14 @@ anovaTable <- function(){
     }
 
 VIF <- function(){
-    require("car")
+    Library("car")
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("vif", .activeModel)) return()
     doItAndPrint(paste("vif(", .activeModel, ")", sep=""))
     }
             
 InfluencePlot <- function(){
-    require("car")
+    Library("car")
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("influencePlot", .activeModel)) return()
     response <- tclvalue(RcmdrTkmessageBox(message=gettextRcmdr("Identify points with mouse?"), 
@@ -158,7 +158,7 @@ InfluencePlot <- function(){
     }  
     
 effectPlots <- function(){
-    library("effects", pos=4)
+    Library("effects")
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("effect", .activeModel)) return()
     doItAndPrint('trellis.device(theme="col.whitebg")')
@@ -228,7 +228,7 @@ addObservationStatistics <- function(){
     }
 
 residualQQPlot <- function(){
-    require("car")
+    Library("car")
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("qq.plot", .activeModel)) return()
     initializeDialog(title=gettextRcmdr("Residual Quantile-Comparison Plot"))
@@ -257,7 +257,7 @@ residualQQPlot <- function(){
     }
 
 testLinearHypothesis <- function(){
-    require("car")
+    Library("car")
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("linear.hypothesis", .activeModel, default=TRUE)) return()
     env <- environment()
@@ -417,7 +417,7 @@ compareModels <- function(){
     
 BreuschPaganTest <- function(){
     if (is.null(.activeModel)) return()
-    library("lmtest", pos=4)
+    Library("lmtest")
 	currentModel <- FALSE
     initializeDialog(title=gettextRcmdr("Breusch-Pagan Test"))
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Score Test for Nonconstant Error Variance"), fg="blue"), sticky="w")
@@ -460,7 +460,7 @@ BreuschPaganTest <- function(){
 
 DurbinWatsonTest <- function(){
     if (is.null(.activeModel)) return()
-    library("lmtest", pos=4)
+    Library("lmtest")
     initializeDialog(title=gettextRcmdr("Durbin-Waton Test"))
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Test for First-Order Error Autocorrelation"), fg="blue"), sticky="w")
     onOK <- function(){
@@ -484,7 +484,7 @@ DurbinWatsonTest <- function(){
 
 RESETtest <- function(){
     if (is.null(.activeModel)) return()
-    library("lmtest", pos=4)
+    Library("lmtest")
     initializeDialog(title=gettextRcmdr("RESET Test"))
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Test for Nonlinearity"), fg="blue"), sticky="w")
     onOK <- function(){
@@ -528,7 +528,7 @@ RESETtest <- function(){
 
 outlierTest <- function(){
     if (is.null(.activeModel)) return()
-    require("car")
+    Library("car")
     .activeModel <- ActiveModel()
     if (!checkMethod("outlier.test", .activeModel)) {
         errorCondition(gettextRcmdr("There is no appropriate outlier.test method for a model of this class."))
@@ -539,7 +539,7 @@ outlierTest <- function(){
     
 confidenceIntervals <- function(){
     if (is.null(.activeModel)) return()
-    library(MASS, pos=4)
+    Library("MASS")
     initializeDialog(title=gettextRcmdr("Confidence Intervals"))
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Confidence Intervals for Individual Coefficients"), fg="blue"), sticky="w")
     onOK <- function(){
@@ -614,7 +614,7 @@ stepwiseRegression <- function(){
 }
 
 subsetRegression <- function(){
-	library(leaps, pos=4)
+	Library("leaps")
 	initializeDialog(title=gettextRcmdr("Subset Model Selection"))
 	onOK <- function(){
 		formula <- paste(sub("^[ ]*", "", deparse(formula(get(ActiveModel())))), collapse="")

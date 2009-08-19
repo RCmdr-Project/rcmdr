@@ -287,8 +287,9 @@ loadPackages <- function(){
             return()
             }
         for (package in packages) {
-            command <- paste('library("', package, '", pos = 4, character.only=TRUE)', sep="")
-            justDoIt(command)
+			Library(package)
+#            command <- paste('library("', package, '", pos = 4, character.only=TRUE)', sep="")
+#            justDoIt(command)
             }
         Message(paste(gettextRcmdr("Packages loaded:"), paste(packages, collapse=", ")), type="note")
         }

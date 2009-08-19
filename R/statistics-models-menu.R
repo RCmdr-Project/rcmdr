@@ -282,7 +282,7 @@ generalizedLinearModel <- function(){
     }
 
 ordinalRegressionModel <- function(){
-    library("MASS", pos=4)
+    Library("MASS")
     initializeDialog(title=gettextRcmdr("Ordinal Regression Model"))
     .activeModel <- ActiveModel()
     .activeDataSet <- ActiveDataSet()
@@ -367,7 +367,7 @@ ordinalRegressionModel <- function(){
     }
 
 multinomialLogitModel <- function(){
-    library("nnet", pos=4)
+    Library("nnet")
     initializeDialog(title=gettextRcmdr("Multinomial Logit Model"))
     .activeModel <- ActiveModel()
     .activeDataSet <- ActiveDataSet()

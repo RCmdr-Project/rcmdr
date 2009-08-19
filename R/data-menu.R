@@ -580,7 +580,7 @@ readDataSet <- function() {
 	}
 
 importSPSS <- function() {
-    library("foreign", pos=4)
+    Library("foreign")
     initializeDialog(title=gettextRcmdr("Import SPSS Data Set"))
     dsname <- tclVar(gettextRcmdr("Dataset"))
     entryDsname <- ttkentry(top, width="20", textvariable=dsname)
@@ -639,7 +639,7 @@ importSPSS <- function() {
     }
 
 importMinitab <- function() {
-    library("foreign", pos=4)
+    Library("foreign")
     initializeDialog(title=gettextRcmdr("Import Minitab Data Set"))
     dsname <- tclVar(gettextRcmdr("Dataset"))
     entryDsname <- ttkentry(top, width="20", textvariable=dsname)
@@ -696,7 +696,7 @@ importMinitab <- function() {
 # the following function was contributed by Michael Ash (modified by J. Fox 2 Feb 05)
 
 importSTATA <- function() {
-    library("foreign", pos=4)
+    Library("foreign")
     initializeDialog(title=gettextRcmdr("Import STATA Data Set"))
     dsname <- tclVar(gettextRcmdr("Dataset"))
     entryDsname <- ttkentry(top, width="20", textvariable=dsname)

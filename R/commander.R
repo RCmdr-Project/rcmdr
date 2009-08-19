@@ -311,7 +311,7 @@ Commander <- function(){
 		tkfocus(CommanderWindow())
 	}
 	onView <- function(){
-		if (packageAvailable("relimp")) library("relimp", pos=4)
+		if (packageAvailable("relimp")) Library("relimp")
 		if (activeDataSet() == FALSE) {
 			tkfocus(CommanderWindow())
 			return()

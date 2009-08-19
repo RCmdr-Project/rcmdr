@@ -134,8 +134,8 @@ singleSampleTTest <- function(){
     }
 
 	oneWayAnova <- function(){
-		library("multcomp", pos=4)
-		library("abind", pos=4)
+		Library("multcomp")
+		Library("abind")
 		initializeDialog(title=gettextRcmdr("One-Way Analysis of Variance"))
 		UpdateModelNumber()
 		modelName <- tclVar(paste("AnovaModel.", getRcmdr("modelNumber"), sep=""))

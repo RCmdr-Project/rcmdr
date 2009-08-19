@@ -5,7 +5,7 @@
     # Tables menu
 
 twoWayTable <- function(){
-    library("abind", pos=4)
+    Library("abind")
     initializeDialog(title=gettextRcmdr("Two-Way Table"))
     variablesFrame <- tkframe(top)
     .factors <- Factors()
@@ -84,7 +84,7 @@ twoWayTable <- function(){
     }
 
 multiWayTable <- function(){
-    library("abind", pos=4)
+    Library("abind")
     initializeDialog(title=gettextRcmdr("Multi-Way Table"))
     variablesFrame <- tkframe(top)
     .factors <- Factors()
@@ -134,7 +134,7 @@ multiWayTable <- function(){
     }
 
 enterTable <- function(){
-    library("abind", pos=4)
+    Library("abind")
     env <- environment()
     initializeDialog(title=gettextRcmdr("Enter Two-Way Table"))
     outerTableFrame <- tkframe(top)

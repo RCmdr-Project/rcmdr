@@ -210,7 +210,7 @@ activeDataSetView <- function() {
     view.height <- 30 #max(as.numeric(output.height) + as.numeric(log.height), 10)
     ncols <- eval(parse(text=paste("ncol(", ActiveDataSet(), ")")))
     command <- if (packageAvailable("relimp") && ncols <= getRcmdr("showData.threshold")){
-        library("relimp", pos=4)
+        Library("relimp")
         paste("showData(", ActiveDataSet(), ", placement='-20+200', font=getRcmdr('logFont'), maxwidth=",
         80, ", maxheight=", view.height, ")", sep="")
         }

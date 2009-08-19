@@ -83,7 +83,7 @@ Histogram <- function(){
     }
 
 stemAndLeaf <- function(){
-	library("aplpack", pos=4)
+	Library("aplpack")
     initializeDialog(title=gettextRcmdr("Stem and Leaf Display"), preventCrisp=TRUE)
     xBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variable (pick one)"))
     displayDigits <- tclVar("1")
@@ -424,7 +424,7 @@ barGraph <- function(){
     }
 
 pieChart <- function(){
-	library(colorspace, pos=4)
+	Library(colorspace)
     initializeDialog(title=gettextRcmdr("Pie Chart"))
     variableBox <- variableListBox(top, Factors(), title=gettextRcmdr("Variable (pick one)"))
     onOK <- function(){
@@ -729,8 +729,8 @@ PlotMeans <- function(){
 Scatter3D <- function(){
     use.rgl <- options("Rcmdr")[[1]]$use.rgl
     if (length(use.rgl) == 0 || use.rgl) {
-        library(rgl, pos=4)
-        library(mgcv, pos=4)
+        Library("rgl")
+        Library("mgcv")
         }
     initializeDialog(title=gettextRcmdr("3D Scatterplot"))
     variablesFrame <- tkframe(top)
@@ -995,7 +995,7 @@ saveRglGraph <- function(){
 ## with more modifications by Richard Heiberger.
 ## 2008-01-03 added conditions, layout, and multiple colors
 Xyplot <- function() {
-	library("lattice", pos=4)
+	Library("lattice")
 	initializeDialog(title=gettextRcmdr("XY Conditioning Plot"))
 	predictorFrame <- tkframe(top)
 	predictorBox <- variableListBox(predictorFrame, Numeric(), title=gettextRcmdr("Explanatory variables (pick one or more)"), selectmode="multiple")

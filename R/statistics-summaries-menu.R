@@ -19,7 +19,7 @@ summarizeDataSet <- function(){
     }
 
 numericalSummaries <- function(){
-    library(abind, pos=4)
+    Library("abind")
     initializeDialog(title=gettextRcmdr("Numerical Summaries"))
     xBox <- variableListBox(top, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick one or more)"))
     checkBoxes(frame="checkBoxFrame", boxes=c("mean", "sd"), initialValues=c("1", "1"), labels=gettextRcmdr(c("Mean", "Standard Deviation")))
@@ -249,7 +249,7 @@ correlationMatrix <- function(){
 						')], use="complete.obs")', sep=""))
 			}
 			else{
-				library(Hmisc, pos=4)
+				Library("Hmisc")
 				doItAndPrint(paste("rcorr(as.matrix(na.omit(", .activeDataSet, "[,c(", paste(x, collapse=","),
 						')])), type="pearson")', sep=""))
 			}
@@ -261,7 +261,7 @@ correlationMatrix <- function(){
 						')], use="complete.obs", method="spearman")', sep=""))
 			}
 			else{
-				library(Hmisc, pos=4)
+				Library("Hmisc")
 				doItAndPrint(paste("rcorr(as.matrix(na.omit(", .activeDataSet, "[,c(", paste(x, collapse=","),
 						')])), type="spearman")', sep=""))				
 			}

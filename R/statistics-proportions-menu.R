@@ -57,7 +57,7 @@ singleProportionTest <- function(){
     }
 
 twoSampleProportionsTest <- function(){
-    library("abind", pos=4)
+    Library("abind")
     initializeDialog(title=gettextRcmdr("Two-Sample Proportions Test"))
     .twoLevelFactors <- TwoLevelFactors()
     groupsBox <- variableListBox(top, .twoLevelFactors, title=gettextRcmdr("Groups (pick one)"))

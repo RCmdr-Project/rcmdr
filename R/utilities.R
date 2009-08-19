@@ -2374,4 +2374,17 @@ sortVarNames <- function(x){
 	}
 	ord <- do.call("order", sort.helper(x))
 	x[ord]
-}  
+}
+
+# to load packages
+
+Library <- function(package, pos=4){
+	loaded <- search()
+	loaded <- loaded[grep("^package:", loaded)]
+	loaded <- sub("^package:", "", loaded)
+	if (!(package %in% loaded)){
+		doItAndPrint(paste("library(", package, ", pos=", pos, ")", sep=""))
+		return(package)
+	}
+	else return(invisible(NULL))
+}
