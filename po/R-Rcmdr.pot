@@ -3595,6 +3595,35 @@ msgstr ""
 msgid "Merge only common\nrows or columns"
 msgstr ""
 
+#  	"Data -> Active data set -> Aggregate variables in active data set" menu item and dialog
+
+msgid "Aggregate variables in active data set..."
+msgstr ""
+
+msgid "Aggregate Observations"
+msgstr ""
+
+msgid "Variables to aggregate\n(pick one or more)"
+msgstr ""
+
+msgid "Aggregate by\n(pick one or more)"
+msgstr ""
+
+msgid "Sum"
+msgstr ""
+
+msgid "You must select at least one variable to aggregate."
+msgstr ""
+
+msgid "You must select at least one variable to aggregate by."
+msgstr ""
+
+msgid "Variables to aggregate and those to aggregate by must be different."
+msgstr ""
+
+msgid "Name for aggregated data set:"
+msgstr ""
+
 #     miscellaneous 
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"

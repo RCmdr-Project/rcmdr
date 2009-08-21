@@ -824,5 +824,7 @@ Version 1.5-0
    
    o  Added dialog box to merge rows and columns, along with mergeRows() function (after a suggestion by Stephen Shamblen).
    
+   o  Added aggregate dialog box to aggregate variables by factor(s) (after a suggestion by Stephen Shamblen).
+   
    o  Small changes.
    

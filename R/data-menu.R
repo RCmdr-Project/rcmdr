@@ -1,4 +1,4 @@
-# last modified 20 August 2009 by J. Fox
+# last modified 21 August 2009 by J. Fox
 
 # Data menu dialogs
 
@@ -1803,13 +1803,12 @@ mergeDataSets <- function(){
 	dataSets <- listDataSets()
 	.activeDataSet <- ActiveDataSet()
 	initializeDialog(title=gettextRcmdr("Merge Data Sets"))
-	dsname <- tclVar(gettextRcmdr("MergedDataset"))
+	dsname <- tclVar("MergedDataset")
 	dsnameFrame <- tkframe(top)
 	entryDsname <- ttkentry(dsnameFrame, width="20", textvariable=dsname)
 	dataSet1Box <- variableListBox(top, dataSets, title=gettextRcmdr("First Data Set (pick one)"),
 		initialSelection=if (is.null(.activeDataSet)) NULL else which(.activeDataSet == dataSets) - 1)
-	dataSet2Box <- variableListBox(top, dataSets, title=gettextRcmdr("Second Data Set (pick one)"),
-		initialSelection=NULL)
+	dataSet2Box <- variableListBox(top, dataSets, title=gettextRcmdr("Second Data Set (pick one)"))
 	commonVar <- tclVar("0")
 	commonFrame <- tkframe(top)
 	commonButton <- tkcheckbutton(commonFrame, variable=commonVar)	
@@ -1838,17 +1837,17 @@ mergeDataSets <- function(){
 		name2 <- getSelection(dataSet2Box)
 		if (length(name1) == 0){
 			errorCondition(recall=mergeDataSets,
-				message="You must select a data set.")
+				message=gettextRcmdr("You must select a data set."))
 			return()
 		}
 		if (length(name2) == 0){
 			errorCondition(recall=mergeDataSets,
-				message="You must select a data set.")
+				message=gettextRcmdr("You must select a data set."))
 			return()
 		}
 		if (name1 == name2){
 			errorCondition(recall=mergeDataSets,
-				message="You cannot merge a data set with itself.")
+				message=gettextRcmdr("You cannot merge a data set with itself."))
 			return()
 		}
 		common <- if (tclvalue(commonVar) == "1") TRUE else FALSE
@@ -1878,6 +1877,80 @@ mergeDataSets <- function(){
 	tkgrid(labelRcmdr(commonFrame, text=gettextRcmdr("Merge only common\nrows or columns")), 
 		commonButton, sticky="nw")
 	tkgrid(directionFrame, commonFrame, sticky="sw")
+	tkgrid(buttonsFrame, sticky="w", columnspan=2)
+	dialogSuffix(rows=5, columns=2)
+}
+
+Aggregate <- function(){
+	.activeDataSet <- ActiveDataSet()
+	initializeDialog(title=gettextRcmdr("Aggregate Observations"))
+	dsname <- tclVar("AggregatedData")
+	dsnameFrame <- tkframe(top)
+	entryDsname <- ttkentry(dsnameFrame, width="20", textvariable=dsname)
+	variablesBox <- variableListBox(top, Variables(), 
+		title=gettextRcmdr("Variables to aggregate\n(pick one or more)"),
+		selectmode="multiple")
+	byBox <- variableListBox(top, Factors(), 
+		title=gettextRcmdr("Aggregate by\n(pick one or more)"),
+		selectmode="multiple")
+	radioButtons(name="statistic", buttons=c("mean", "sum"), labels=gettextRcmdr(c("Mean", "Sum")), 
+		title=gettextRcmdr("Statistic"))
+	otherVariable <- tclVar("")
+	otherButton <- ttkradiobutton(statisticFrame, variable=statisticVariable, value="other")
+	otherEntry <- ttkentry(statisticFrame, width="20", textvariable=otherVariable)   
+	tkgrid(labelRcmdr(statisticFrame, text=gettextRcmdr("Other (specify)")), otherButton, otherEntry, sticky="w")
+	onOK <- function(){
+		dsnameValue <- trim.blanks(tclvalue(dsname))
+		if (dsnameValue == "") {
+			errorCondition(recall=Aggregate,
+				message=gettextRcmdr("You must enter the name of a data set."))
+			return()
+		}
+		if (!is.valid.name(dsnameValue)) {
+			errorCondition(recall=Aggregate,
+				message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
+			return()
+		}
+		if (is.element(dsnameValue, listDataSets())) {
+			if ("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
+				Aggregate()
+				return()
+			}
+		}
+		variables <- getSelection(variablesBox)
+		byVariables <- getSelection(byBox)
+		if (length(variables) == 0){
+			errorCondition(recall=Aggregate,
+				message=gettextRcmdr("You must select at least one variable to aggregate."))
+			return()
+		}
+		if (length(byVariables) == 0){
+			errorCondition(recall=Aggregate,
+				message=gettextRcmdr("You must select at least one variable to aggregate by."))
+			return()
+		}
+		if (any(byVariables %in% variables)){
+			errorCondition(recall=Aggregate,
+				message=gettextRcmdr("Variables to aggregate and those to aggregate by must be different."))
+			return()
+		}
+		statistic <- tclvalue(statisticVariable)
+		if (statistic == "other") statistic <- tclvalue(otherVariable)
+		vars <- paste(paste('"', variables, '"', sep=""), collapse=",")
+		by <-paste("list(", paste(paste(byVariables, "=", .activeDataSet, "$", byVariables, sep=""), 
+				collapse=", "), ")", sep="")
+		command <- paste(dsnameValue, " <- aggregate(", .activeDataSet, "[,c(", vars, "), drop=FALSE], by=", by,
+			", FUN=", statistic, ")", sep="")
+		doItAndPrint(command)
+		activeDataSet(dsnameValue)
+		closeDialog()
+		tkfocus(CommanderWindow())
+	}
+	OKCancelHelp(help="aggregate")
+	tkgrid(labelRcmdr(dsnameFrame, text=gettextRcmdr("Name for aggregated data set:  ")), entryDsname)
+	tkgrid(dsnameFrame, sticky="w", columnspan=2)
+	tkgrid(getFrame(variablesBox), getFrame(byBox), sticky="nw")
+	tkgrid(statisticFrame, sticky="w", columnspan=2)
 	tkgrid(buttonsFrame, sticky="w", columnspan=2)
 	dialogSuffix(rows=5, columns=2)
 }

@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 20 August 2009 by J. Fox
+# last modified 21 August 2009 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -51,6 +51,7 @@
     item    activeMenu      command         "Variables in active data set"                  variablesDataSet            "activeDataSetP()"          ""
     item    activeMenu      command         "Set case names..."                             setCaseNames                "activeDataSetP()"          ""
     item    activeMenu      command         "Subset active data set..."                     subsetDataSet               "activeDataSetP()"          ""
+    item	activeMenu		command			"Aggregate variables in active data set..."		Aggregate					"activeDataSetP() && factorsP()"  ""
     item	activeMenu		command			"Remove row(s) from active data set..."			RemoveRows					"activeDataSetP()"          ""
     item    activeMenu      command         "Stack variables in active data set..."         Stack                       "activeDataSetP() && numericP(2)"          ""
     item    activeMenu      command         "Remove cases with missing data..."             filterNA                    "activeDataSetP()"          ""
