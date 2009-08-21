@@ -1,4 +1,4 @@
-# last modified 19 August 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 20 August 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -2028,7 +2028,10 @@ MessagesWindow <- function() getRcmdr("messagesWindow")
 
 activeDataSetP <- function() !is.null(ActiveDataSet())
 
-dataSetsP <- function() !is.null(listDataSets())
+dataSetsP <- function(n=1){
+	datasets <- listDataSets()
+	(!is.null(datasets)) && length(datasets) >= n
+}
 
 numericP <- function(n=1) activeDataSetP() && length(listNumeric()) >= n
 
@@ -2426,4 +2429,27 @@ Library <- function(package, pos=4){
 		return(package)
 	}
 	else return(invisible(NULL))
+}
+
+# to merge data frames by rows
+
+mergeRows <- function(X, Y, common.only=FALSE, ...){
+	UseMethod("mergeRows")
+}
+
+mergeRows.data.frame <- function(X, Y, common.only=FALSE, ...){
+	cols1 <- names(X)
+	cols2 <- names(Y)
+	if (common.only){
+		common <- intersect(cols1, cols2)
+		rbind(X[, common], Y[, common])
+	}
+	else {
+		all <- union(cols1, cols2)
+		miss1 <- setdiff(all, cols1)
+		miss2 <- setdiff(all, cols2)
+		X[, miss1] <- NA
+		Y[, miss2] <- NA
+		rbind(X, Y)
+	}
 }

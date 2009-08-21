@@ -127,7 +127,7 @@ checkVariables(n=1)
 closeCommander(ask=TRUE, ask.save=ask)
 closeDialog(window, release=TRUE)  # macro
 CommanderWindow()
-dataSetsP()
+dataSetsP(n=1)
 defmacro(..., expr)
 dialogSuffix(window=top, onOK=onOK, rows=1, columns=1, focus=top, bindReturn=TRUE, 
     preventGrabFocus=FALSE, preventDoubleClick=FALSE, preventCrisp=FALSE)  # macro

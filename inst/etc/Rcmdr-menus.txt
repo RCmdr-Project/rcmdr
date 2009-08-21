@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 17 August 2009 by J. Fox
+# last modified 20 August 2009 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -32,6 +32,7 @@
     menu    dataMenu        topMenu         ""                                              ""                          ""          ""
     item    dataMenu        command         "New data set..."                               newDataSet                  ""          "!MacOSXP()"
     item    dataMenu        command         "Load data set..."                              loadDataSet                 ""      ""
+    item	dataMenu		command			"Merge data sets..."							mergeDataSets				"dataSetsP(2)"	"packageAvailable('car')"
     menu    importMenu      dataMenu        ""                                              ""                          ""          ""
     item    importMenu      command         "from text file, clipboard, or URL..."          readDataSet                 ""          ""
     item    importMenu      command         "from SPSS data set..."                         importSPSS                  ""          "packageAvailable('foreign')"
@@ -159,8 +160,8 @@
     item    modelsMenu      command         "Confidence intervals..."                       confidenceIntervals         "activeModelP()" "packageAvailable('MASS')"
     item	modelsMenu		command			"Akaike Information Criterion (AIC)"			aic							"activeModelP()"		  ""
     item	modelsMenu		command			"Bayesian Information Criterion (BIC)"			bic							"activeModelP()"		  ""
-    item	modelsMenu		command			"Stepwise model selection"						stepwiseRegression			"aicP()" 		 "packageAvailable('MASS')"
-    item	modelsMenu		command			"Subset model selection"						subsetRegression			"lmP()"			 "packageAvailable('leaps')"
+    item	modelsMenu		command			"Stepwise model selection..."						stepwiseRegression			"aicP()" 		 "packageAvailable('MASS')"
+    item	modelsMenu		command			"Subset model selection..."						subsetRegression			"lmP()"			 "packageAvailable('leaps')"
     menu    hypothesisMenu  modelsMenu      ""                                              ""                          ""          ""
     item    modelsMenu      cascade         "Hypothesis tests"                              hypothesisMenu              ""          ""
     item    hypothesisMenu  command         "ANOVA table..."                                anovaTable                  "activeModelP()" "packageAvailable('car')"

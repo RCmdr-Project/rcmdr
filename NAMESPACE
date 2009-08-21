@@ -1,4 +1,4 @@
-# last modified 19 August 2009 by J. Fox
+# last modified 20 August 2009 by J. Fox
 
 import(tcltk)
 
@@ -18,7 +18,7 @@ is.valid.name, is.SciViews, justDoIt, KMeans, labelRcmdr, Library,
 listAllModels, listAOVModels, listDataSets, listFactors, listGeneralizedLinearModels, 
 listLinearModels, listMultinomialLogitModels, listNumeric, listPlugins, 
 listProportionalOddsModels, listTwoLevelFactors, listVariables, 
-lmP, logger, LogWindow, MacOSXP,
+lmP, logger, LogWindow, MacOSXP, mergeRows,
 Message, MessagesWindow, modelFormula, modelsP, multinomP, nobs, Numeric,
 numericP, numSummary, OKCancelHelp, OutputWindow, packageAvailable, partial.cor,
 plotMeans, polrP, popOutput, putRcmdr, radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet, 
@@ -32,6 +32,7 @@ S3method(Confint, glm)
 S3method(Confint, default)
 S3method(confint, multinom)
 S3method(confint, polr)
+S3method(mergeRows, data.frame)
 S3method(print, numSummary)
 S3method(print, reliability)
 S3method(getFrame, listbox)

@@ -25,7 +25,7 @@ rcorr.adjust(x, type = c("pearson", "spearman"))
 }
 
 \value{
-Return an object of class \code{"rcorr"} with an additional \code{adj.P} element.
+Returns an object of class \code{"rcorr"} with an additional \code{adj.P} element.
 }
 
 \author{
