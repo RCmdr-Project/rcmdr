@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 19 August 2009 by J. Fox
+# last modified 22 August 2009 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 # last modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -182,6 +182,7 @@ Commander <- function(){
 	setOption("length.output.stack", 10)
 	putRcmdr("outputStack", as.list(rep(NA, getRcmdr("length.output.stack"))))
 	setOption("variable.list.height", 4)
+	setOption("variable.list.width", c(20, Inf))
 	if (getRcmdr("suppress.X11.warnings")) {
 		putRcmdr("messages.connection", file(open = "w+"))
 		sink(getRcmdr("messages.connection"), type="message")

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 18 August 2009 by J. Fox
+# last modified 22 August 2009 by J. Fox
 
     # Means menu
 
@@ -204,11 +204,11 @@ singleSampleTTest <- function(){
 			tkfocus(CommanderWindow())
 		}
 		OKCancelHelp(helpSubject="anova", model=TRUE)
-		tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model:")), model, sticky="w")
-		tkgrid(modelFrame, sticky="w")
+		tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model: ")), model, sticky="w")
+		tkgrid(modelFrame, sticky="w", columnspan=2)
 		tkgrid(getFrame(groupBox), getFrame(responseBox), sticky="nw")
 		tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Pairwise comparisons of means")), pairwiseCheckBox, sticky="w")
-		tkgrid(optionsFrame, sticky="w")
+		tkgrid(optionsFrame, sticky="w", columnspan=2)
 		tkgrid(buttonsFrame, columnspan=2, sticky="w")
 		dialogSuffix(rows=4, columns=2)
 	}
@@ -262,8 +262,8 @@ singleSampleTTest <- function(){
 			tkfocus(CommanderWindow())
 		}
 		OKCancelHelp(helpSubject="Anova", model=TRUE)
-		tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model:")), model, sticky="w")
-		tkgrid(modelFrame, sticky="w")
+		tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model: ")), model, sticky="w")
+		tkgrid(modelFrame, sticky="w", columnspan=2)
 		tkgrid(getFrame(groupBox), getFrame(responseBox), sticky="nw")
 		tkgrid(buttonsFrame, columnspan=2, sticky="w")
 		dialogSuffix(rows=4, columns=2)

@@ -7,6 +7,7 @@
 \alias{activeModel}
 \alias{ActiveModel}
 \alias{activeModelP}
+\alias{aicP}
 \alias{checkActiveDataSet}
 \alias{checkActiveModel}
 \alias{checkBoxes}
@@ -113,6 +114,7 @@ activeDataSetP()
 activeModel(model)
 ActiveModel(name)
 activeModelP()
+aicP()
 checkActiveDataSet()
 checkActiveModel()
 checkBoxes(window=top, frame, boxes, initialValues=NULL, labels, title=NULL)  # macro
@@ -354,6 +356,12 @@ commanderPosition()
   to access either \code{\link[tcltk]{ttkradiobutton}} or \code{\link[tcltk]{tkradiobutton}}; and \code{ttkscrollbar}, 
   to access either \code{\link[tcltk]{ttkscrollbar}} or \code{\link[tcltk]{tkscrollbar}}. 
   Note that the last four functions mask functions of the same names in the \pkg{tcltk} package.
+  
+  \emph{`Predicate' functions:}
+  A number of functions of the form \emph{name}\code{P} are `predicate' functions, which return
+  \code{TRUE} or \code{FALSE} depending upon whether some condition obtains. For example, \code{lmP()} 
+  returns \code{TRUE} if there is an active model that is a linear model; and \code{factorsP(2)}
+  returns \code{TRUE} if there are at least two factors in the active data set.
   
   \emph{Translating text:}
   The \code{gettextRcmdr} function simply passes its argument(s) to

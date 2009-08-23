@@ -261,8 +261,12 @@ set none, one, several, or all options. The available options are as follows:
     accessible library; if \code{FALSE}, the \code{rgl} package will be ignored even if it is available. 
     The \code{rgl} package can sometimes cause problems when running R under X11.}
     
-    \item{\code{variable.list.height}}{the number of variables to display in variable-list boxes; longer lists may be viewed by scrolling. 
+    \item{\code{variable.list.height}}{the number of items (typically variables) to display in list boxes; longer lists may be viewed by scrolling. 
     The default is 4.} 
+    
+    \item{\code{variable.list.width}}{a two-item vector controlling the width of list boxes, in characters, giving the minimum and maximum
+    width to display; the default is \code{c(20, Inf)}. If the widest item name falls in this range, then its number of characters
+    determines the width of the box. \emph{Note:} This specification works only approximately.}
     
     \item{\code{warning.text.color}}{Color for warning messages; the default is \code{"darkgreen"}.}
     }

@@ -826,5 +826,7 @@ Version 1.5-0
    
    o  Added aggregate dialog box to aggregate variables by factor(s) (after a suggestion by Stephen Shamblen).
    
+   o  Added variable.list.width option (suggested by Liviu Andronic).
+   
    o  Small changes.
    

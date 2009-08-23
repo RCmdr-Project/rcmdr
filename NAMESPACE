@@ -1,9 +1,9 @@
-# last modified 20 August 2009 by J. Fox
+# last modified 23 August 2009 by J. Fox
 
 import(tcltk)
 
 export(activateMenus, activeDataSet, ActiveDataSet, activeDataSetP, activeModel,
-ActiveModel, activeModelP, assignCluster, bin.var, buttonRcmdr,
+ActiveModel, activeModelP, aicP, assignCluster, bin.var, buttonRcmdr,
 checkActiveDataSet,
 checkActiveModel, checkBoxes, checkClass, checkFactors, checkMethod, 
 checkNumeric, checkReplace,

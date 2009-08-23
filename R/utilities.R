@@ -1,4 +1,4 @@
-# last modified 20 August 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 22 August 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -1293,8 +1293,10 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, rows=1, columns=1, focus=top,
 		if (selectmode == "multiple") selectmode <- getRcmdr("multiple.select.mode")
 		if (length(variableList) == 1 && is.null(initialSelection)) initialSelection <- 0
 		frame <- tkframe(parentWindow)
+		minmax <- getRcmdr("variable.list.width")
 		listbox <- tklistbox(frame, height=min(listHeight, length(variableList)),
-			selectmode=selectmode, background=bg, exportselection=export, width=max(20, nchar(variableList)))
+			selectmode=selectmode, background=bg, exportselection=export, 
+			width=min(max(minmax[1], nchar(variableList)), minmax[2]))
 		scrollbar <- ttkscrollbar(frame, command=function(...) tkyview(listbox, ...))
 		tkconfigure(listbox, yscrollcommand=function(...) tkset(scrollbar, ...))
 		for (var in variableList) tkinsert(listbox, "end", var)
