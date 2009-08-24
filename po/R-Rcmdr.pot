@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 1.5-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2009-08-20 20:30\n"
+"POT-Creation-Date: 2009-08-23 18:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3645,4 +3645,7 @@ msgid "Models do not have the same family."
 msgstr ""
 
 msgid "Pairwise p-values\nfor Pearson or Spearman correlations"
+msgstr ""
+
+msgid "The Windows version of the R Commander works best under RGui with the single-document interface (SDI)\nSee ?Commander"
 msgstr ""

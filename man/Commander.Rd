@@ -304,9 +304,12 @@ For more information about R initialization, see \code{?Startup}.
 \note{
   This version may be compatible with SciViews, which currently runs only under Windows systems:
    \url{http://www.sciviews.org/SciViews-R}; see \code{\link{Rcmdr.sciviews-specific}}.
-  Under Windows, the \code{Rcmdr} package can also be run under the Rgui in SDI (single-document
-  interface) mode, or under \code{rterm.exe}; you might experience problems running the \code{Rcmdr} under
-  \code{ESS} withNTEmacs or XEmacs.
+  This version should be compatiable with the \pkg{RExcel} package, which can use the R Commander
+  menus.
+  
+  Under Windows, the \code{Rcmdr} package can be run under the \emph{Rgui} in the SDI (single-document
+  interface) mode, or under \code{rterm.exe}. You might experience problems running the \code{Rcmdr} under
+  \code{ESS} with NTEmacs or XEmacs; under other R consoles; or under the Rgui in the MDI (multiple-document interface) mode.
 }
 
 \author{John Fox \email{jfox@mcmaster.ca}}
