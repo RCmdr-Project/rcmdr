@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 24 August 2009 by J. Fox
+# last modified 25 August 2009 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 # last modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -602,6 +602,9 @@ Commander <- function(){
 	}
 	##    if (!packageAvailable("rgl")) Message(gettextRcmdr("The rgl package is absent; 3D plots are unavailable."), type="warning")
 	Message(paste(gettextRcmdr("R Commander Version "), getRcmdr("RcmdrVersion"), ": ", date(), sep=""))
+	if (.Platform$GUI == "Rgui"  && ismdi()) Message(gettextRcmdr(
+		"The Windows version of the R Commander works best under RGui\nwith the single-document interface (SDI); see ?Commander."),
+		type="warning")
 }
 
 

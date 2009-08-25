@@ -1,3 +1,5 @@
+/* this code adapted with permission from Uwe Ligges */
+
 void ismodemdi(int *a)
 {
 #ifdef WIN32
