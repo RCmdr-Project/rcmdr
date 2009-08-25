@@ -829,5 +829,7 @@ Version 1.5-0
    
    o  Added variable.list.width option (suggested by Liviu Andronic).
    
+   o Updated Commander.Rd.
+   
    o  Small changes.
    
