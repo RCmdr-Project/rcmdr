@@ -122,7 +122,7 @@ Algunas funciones son proporcionadas para ayudar a escribir \enc{diálogo}{dialo
 
 \item{\code{log.width} }{La anchura de la ventana de instrucciones y la de salida, en caracteres. Por defecto es 80.} 
 
-\item{\code{multiple.select.mode}}{Afecta a la forma en la que múltiples variables son seleccionadas en una caja de listas de variables. Si se establece a \code{"extended"} (por defecto), el \enc{botón}{boton} izquierdo en una variable selecciona \enc{ésta}{esta} y deselecciona cualquier otra variable que estuviera seleccionada; \code{Control+botón izquierdo} acciona la selección (y puede ser usado para seleccionar variables adicionales); \code{Mayúsculas+botón izquierdo} extiende la selección. \enc{éste}{este} es el convenio \enc{está}{esta}ndar de Windows. Si lo establece a \code{"multiple"}, el \enc{botón}{boton} izquierdo acciona la selección de una variable y puede ser usado para seleccionar \enc{más}{mas} de una variable. \enc{éste}{este} es el comportamiento de Rcmdr antes de la versión 1.9-10. 
+\item{\code{multiple.select.mode}}{Afecta a la forma en la que múltiples variables son seleccionadas en una caja de listas de variables. Si se establece a \code{"extended"} (por defecto), el \enc{botón}{boton} izquierdo en una variable selecciona \enc{ésta}{esta} y deselecciona cualquier otra variable que estuviera seleccionada; \code{Control+botón izquierdo} acciona la selección (y puede ser usado para seleccionar variables adicionales); \code{Mayúsculas+botón izquierdo} extiende la selección. \enc{éste}{este} es el convenio \enc{está}{esta}ndar de Windows. Si lo establece a \code{"multiple"}, el \enc{botón}{boton} izquierdo acciona la selección de una variable y puede ser usado para seleccionar \enc{más}{mas} de una variable. \enc{éste}{este} es el comportamiento de Rcmdr antes de la versión 1.9-10.} 
 
 \item{\code{output.height}}{Altura de la ventana de resultados, en \enc{líneas}{lineas}. Por defecto es dos veces la altura de la ventana de instrucciones o 20 si la ventana de instrucciones es suprimida. Establecer \code{output.height} a 0 tiene el mismo efecto que \code{console.output} a \code{TRUE}.} 
 
@@ -167,7 +167,6 @@ Uno sin embargo \enc{todavía}{todavia} puede introducir \enc{órdenes}{ordenes}
 
 \item{\code{warning.text.color}}{Color de los mensajes de advertencia;
   por defecto es \code{"darkgreen"}.}
-}
 }
 
 Muchas opciones pueden \enc{también}{tambien} ser establecidas mediante el \enc{menú}{menu} \emph{Archivo -> Opciones}, que \enc{reiniciará}{reiniciara} R Commander \enc{después}{despues} de que las opciones sean establecidas.

@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 22 August 2009 by J. Fox
+# last modified 24 August 2009 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 # last modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -574,11 +574,11 @@ Commander <- function(){
 	tkbind(.commander, "<Control-X>", onCut)
 	tkbind(.commander, "<Control-c>", onCopy)
 	tkbind(.commander, "<Control-C>", onCopy)
-	if (.Platform$OS.type != "windows"){
+#	if (.Platform$OS.type != "windows"){
 #		tkbind(.commander, "<Control-v>", onPaste)
 #		tkbind(.commander, "<Control-V>", onPaste)
 #		tkbind(.commander, "<Alt-BackSpace>", onUndo)
-	}
+#	}
 	tkbind(.commander, "<Control-r>", onSubmit)
 	tkbind(.commander, "<Control-R>", onSubmit)
 	tkbind(.commander, "<Control-Tab>", onSubmit)

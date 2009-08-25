@@ -812,7 +812,8 @@ Version 1.5-0
 
    o  Added model-selection dialogs, stepwise and subset (several requests).
    
-   o  Modifications to model-definition dialogs (suggested by Ulrike Gromping).
+   o  Modifications to model-definition dialogs (suggested by Ulrike Gromping): If you select several variables in the variable-list box, clicking on the
++, *, or : button will enter them into the model formula.
    
    o  The compare-models and Anova-table code for GLMs now uses F-tests when the dispersion parameter is estimated (after a suggstion by Ulrich Halekoh).
    
