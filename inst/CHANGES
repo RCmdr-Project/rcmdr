@@ -829,7 +829,9 @@ Version 1.5-0
    
    o  Added variable.list.width option (suggested by Liviu Andronic).
    
-   o Updated Commander.Rd.
+   o  Under Windows, a check is made for the mdi and a warning message printed, if it's detected (courtesy of code from Uwe Ligges).
+   
+   o  Updated Commander.Rd.
    
    o  Small changes.
    

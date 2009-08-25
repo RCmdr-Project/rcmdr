@@ -1,4 +1,4 @@
-# last modified 23 August by J. Fox
+# last modified 25 August by J. Fox
 
 .onAttach <- function(...){
     if(interactive()) Commander()
@@ -9,7 +9,7 @@
         }
     packageStartupMessage(gettext("\nRcmdr Version", domain="R-Rcmdr"), " ",
         getRcmdr("RcmdrVersion"), "\n")
-	if (.Platform$OS.type == "windows") packageStartupMessage(paste(gettextRcmdr("NOTE"), ": ",
+	if (.Platform$GUI == "Rgui"  && ismdi()) packageStartupMessage(paste(gettextRcmdr("NOTE"), ": ",
 		gettextRcmdr(
 		"The Windows version of the R Commander works best under RGui with the single-document interface (SDI)\nSee ?Commander"),
 		sep=""))

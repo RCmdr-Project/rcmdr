@@ -1,5 +1,7 @@
 # last modified 23 August 2009 by J. Fox
 
+useDynLib(Rcmdr)
+
 import(tcltk)
 
 export(activateMenus, activeDataSet, ActiveDataSet, activeDataSetP, activeModel,
