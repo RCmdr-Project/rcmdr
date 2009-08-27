@@ -835,3 +835,7 @@ Version 1.5-0
    
    o  Small changes.
    
+Version 1.5-1
+
+   o  Fixes to links in docs (pointed out by Brian Ripley).
+   

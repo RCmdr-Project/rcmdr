@@ -3,7 +3,7 @@
 
 \title{Rcmdr Hierarchical Clustering Dialog}
 \description{This dialog is used to specify a hierarchical cluster analysis 
-solution using \code{\link[stat]{hclust}}, with the distance matrix calculated using
+solution using \code{\link{hclust}}, with the distance matrix calculated using
 \code{\link[stats]{dist}}.}
 
 \details{

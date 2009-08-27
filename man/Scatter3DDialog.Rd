@@ -50,6 +50,6 @@ rotate the display, and click and drag the right (or centre) button to identify 
 \author{John Fox \email{jfox@mcmaster.ca}}
 
 \seealso{\code{\link{scatter3d}}, \code{\link{identify3d}},  
-  \code{\link[rgl]{rgl.open}}, \code{\link[mgcv]{gam}}}
+  \code{\link[rgl]{rgl-package}}, \code{\link[mgcv]{gam}}}
 
 \keyword{hplot}

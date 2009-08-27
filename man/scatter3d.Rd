@@ -118,7 +118,7 @@ You have to install the \code{rgl} and \code{mgcv} packages to produce 3D plots.
 
 \author{John Fox \email{jfox@mcmaster.ca}}
 
-\seealso{\code{\link[rgl]{rgl.open}}, \code{\link[mgcv]{gam}}}
+\seealso{\code{\link[rgl]{rgl-package}}, \code{\link[mgcv]{gam}}}
 
 \examples{
     \dontrun{

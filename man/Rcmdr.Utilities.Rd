@@ -349,12 +349,12 @@ commanderPosition()
   Tk 8.5 introduced so-called ``themed'' widgets, which look better than the traditional Tk widgets. 
   Several functions, contributed by Brian Ripley, are written to access the new widgets by switching automatically 
   between the new and old widget sets depending upon the availability of the former: \code{buttonRcmdr}, 
-  to access either \code{\link[tcltk]{ttkbutton}} or \code{\link[tcltk]{tkbutton}}; \code{labelRcmdr}, 
-  to access either \code{\link[tcltk]{ttklabel}} or \code{\link[tcltk]{tklabel}}; \code{ttkentry}, 
-  to access either \code{\link[tcltk]{ttkentry}} or \code{\link[tcltk]{tkentry}}; \code{ttkframe}, 
-  to access either \code{\link[tcltk]{ttkframe}} or \code{\link[tcltk]{tkframe}}; \code{ttkradiobutton}, 
-  to access either \code{\link[tcltk]{ttkradiobutton}} or \code{\link[tcltk]{tkradiobutton}}; and \code{ttkscrollbar}, 
-  to access either \code{\link[tcltk]{ttkscrollbar}} or \code{\link[tcltk]{tkscrollbar}}. 
+  to access either \code{\link{ttkbutton}} or \code{\link{tkbutton}}; \code{labelRcmdr}, 
+  to access either \code{\link{ttklabel}} or \code{\link{tklabel}}; \code{ttkentry}, 
+  to access either \code{\link{ttkentry}} or \code{\link{tkentry}}; \code{ttkframe}, 
+  to access either \code{\link{ttkframe}} or \code{\link{tkframe}}; \code{ttkradiobutton}, 
+  to access either \code{\link{ttkradiobutton}} or \code{\link{tkradiobutton}}; and \code{ttkscrollbar}, 
+  to access either \code{\link{ttkscrollbar}} or \code{\link{tkscrollbar}}. 
   Note that the last four functions mask functions of the same names in the \pkg{tcltk} package.
   
   \emph{`Predicate' functions:}

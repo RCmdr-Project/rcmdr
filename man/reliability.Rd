@@ -36,7 +36,7 @@ reliability(S)
 
 \author{John Fox \email{jfox@mcmaster.ca}}
 
-\seealso{\code{\link[stats]{cov}}}
+\seealso{\code{\link{cov}}}
 
 \examples{
 library(car)
