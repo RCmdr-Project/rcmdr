@@ -1,13 +1,13 @@
 
 # The R Commander and command logger
 
-# last modified 27 August 2009 by J. Fox
+# last modified 1 September 2009 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 # last modified 17 December 2008 by Richard Heiberger  ##rmh
 
 Commander <- function(){
-	RcmdrVersion <- "1.5-1"
+	RcmdrVersion <- "1.5-2"
 	##    DESCRIPTION <- readLines(file.path(.find.package("Rcmdr"), "DESCRIPTION")[1])
 	##    RcmdrVersion <- trim.blanks(sub("^Version:", "",
 	##        grep("^Version:", D, value=TRUE)))
@@ -626,14 +626,14 @@ logger <- function(command){
 	lines <- strsplit(command, "\n")[[1]]
 	tkinsert(.output, "end", "\n")
 	if (getRcmdr("console.output")) {
-		for (line in seq(along=lines)) {
+		for (line in seq(along.with=lines)) {
 			prompt <- ifelse (line==1, paste("\n", getRcmdr("prefixes")[1], sep=""), paste("\n", getRcmdr("prefixes")[2], sep=""))
 			cat(paste(prompt, lines[line]))  ##rmh
 		}
 		cat("\n")                          ##rmh
 	}
 	else {
-		for (line in  seq(along=lines)) {
+		for (line in  seq(along.with=lines)) {
 			prompt <- ifelse(line==1, "> ", "+ ")
 			tkinsert(.output, "end", paste(prompt, lines[line], "\n", sep=""))
 			tktag.add(.output, "currentLine", "end - 2 lines linestart", "end - 2 lines lineend")
@@ -819,7 +819,7 @@ Message <- function(message, type=c("note", "error", "warning")){
 	######### added by rmh #####################                   ##rmh
 	if (console.output) {                                        ##rmh & J. Fox
 		if (sink.number() != 0) sink()							## fixed by J. Fox
-		for (jline in seq(along=lines)) {                            ##rmh
+		for (jline in seq(along.with=lines)) {                            ##rmh
 			Header <- if (jline==1) getRcmdr("prefixes")[3] else getRcmdr("prefixes")[4]     ##rmh
 			cat(paste(Header, lines[jline], "\n", sep=""))             ##rmh
 		}                                                            ##rmh

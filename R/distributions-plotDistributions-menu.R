@@ -1,6 +1,6 @@
 # Distributions menu dialogs for plots
 
-# last modified 17 September 2008 by J. Fox
+# last modified 30 August 2009 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic  (20 July 06)
 
@@ -31,7 +31,7 @@ normalDistributionPlot <- function(){
         fn <- if (fun == "Density") "dnorm" else "pnorm"
         min <- round(qnorm(.0005, mean=mu, sd=sigma), 3)
         max <- round(qnorm(.9995, mean=mu, sd=sigma), 3)
-        command <- paste("seq(", min, ", ", max, ", length=100)", sep="")
+        command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
         logger(paste(".x <- ", command, sep=""))
         assign(".x", justDoIt(command), envir=.GlobalEnv)
         doItAndPrint(paste("plot(.x, ", fn, "(.x, mean=", mu, 
@@ -80,7 +80,7 @@ tDistributionPlot <- function(){
         fn <- if (fun == "Density") "dt" else "pt"
         min <- round(qt(.0005, df=df), 3)
         max <- round(qt(.9995, df=df), 3)
-        command <- paste("seq(", min, ", ", max, ", length=100)", sep="")
+        command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
         logger(paste(".x <- ", command, sep=""))
         assign(".x", justDoIt(command), envir=.GlobalEnv)
         doItAndPrint(paste("plot(.x, ", fn, "(.x, df=", df, 
@@ -126,7 +126,7 @@ chisquareDistributionPlot <- function(){
         fn <- if (fun == "Density") "dchisq" else "pchisq"
         min <- round(qchisq(.0005, df=df), 3)
         max <- round(qchisq(.9995, df=df), 3)
-        command <- paste("seq(", min, ", ", max, ", length=100)", sep="")
+        command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
         logger(paste(".x <- ", command, sep=""))
         assign(".x", justDoIt(command), envir=.GlobalEnv)
         doItAndPrint(paste("plot(.x, ", fn, "(.x, df=", df, 
@@ -183,7 +183,7 @@ FDistributionPlot <- function(){
         fn <- if (fun == "Density") "df" else "pf"
         min <- round(qf(.0005, df1=df1, df2=df2), 3)
         max <- round(qf(.9995, df1=df1, df2=df2), 3)
-        command <- paste("seq(", min, ", ", max, ", length=100)", sep="")
+        command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
         logger(paste(".x <- ", command, sep=""))
         assign(".x", justDoIt(command), envir=.GlobalEnv)
         doItAndPrint(paste("plot(.x, ", fn, "(.x, df1=", df1, ", df2=", df2,
@@ -228,7 +228,7 @@ exponentialDistributionPlot <- function() {
         fn <- if (fun == "Density") "dexp" else "pexp"
         min <- round(qexp(.0005, rate=rate), 3)
         max <- round(qexp(.9995, rate=rate), 3)
-        command <- paste("seq(", min, ", ", max, ", length=100)", sep="")
+        command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
         logger(paste(".x <- ", command, sep=""))
         assign(".x", justDoIt(command), envir=.GlobalEnv)
         doItAndPrint(paste("plot(.x, ", fn, "(.x, rate=", rate, 
@@ -273,7 +273,7 @@ uniformDistributionPlot <- function() {
         fn <- if (fun == "Density") "dunif" else "punif"
         min <- round(qunif(.0005, min=minValue, max=maxValue), 3)
         max <- round(qunif(.9995, min=minValue, max=maxValue), 3)
-        command <- paste("seq(", min, ", ", max, ", length=100)", sep="")
+        command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
         logger(paste(".x <- ", command, sep=""))
         assign(".x", justDoIt(command), envir=.GlobalEnv)
         doItAndPrint(paste("plot(.x, ", fn, "(.x, min=", minValue, ", max=", maxValue,
@@ -324,7 +324,7 @@ betaDistributionPlot <- function(){
         fn <- if (fun == "Density") "dbeta" else "pbeta"
         min <- round(qbeta(.0005, shape1=shape1, shape2=shape2), 3)
         max <- round(qbeta(.9995, shape1=shape1, shape2=shape2), 3)
-        command <- paste("seq(", min, ", ", max, ", length=100)", sep="")
+        command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
         logger(paste(".x <- ", command, sep=""))
         assign(".x", justDoIt(command), envir=.GlobalEnv)
         doItAndPrint(paste("plot(.x, ", fn, "(.x, shape1=", shape1, ", shape2=", shape2,
@@ -372,7 +372,7 @@ CauchyDistributionPlot <- function(){
         fn <- if (fun == "Density") "dcauchy" else "pcauchy"
         min <- round(qcauchy(.01, location=location, scale=s), 3)
         max <- round(qcauchy(.99, location=location, scale=s), 3)
-        command <- paste("seq(", min, ", ", max, ", length=100)", sep="")
+        command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
         logger(paste(".x <- ", command, sep=""))
         assign(".x", justDoIt(command), envir=.GlobalEnv)
         doItAndPrint(paste("plot(.x, ", fn, "(.x, location=", location, 
@@ -420,7 +420,7 @@ logisticDistributionPlot <- function(){
         fn <- if (fun == "Density") "dlogis" else "plogis"
         min <- round(qlogis(.0005, location=location, scale=s), 3)
         max <- round(qlogis(.9995, location=location, scale=s), 3)
-        command <- paste("seq(", min, ", ", max, ", length=100)", sep="")
+        command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
         logger(paste(".x <- ", command, sep=""))
         assign(".x", justDoIt(command), envir=.GlobalEnv)
         doItAndPrint(paste("plot(.x, ", fn, "(.x, location=", location, 
@@ -468,7 +468,7 @@ lognormalDistributionPlot <- function(){
         fn <- if (fun == "Density") "dlnorm" else "plnorm"
         min <- round(qlnorm(.0005, meanlog=meanlog, sdlog=sdlog), 3)
         max <- round(qlnorm(.9995, meanlog=meanlog, sdlog=sdlog), 3)
-        command <- paste("seq(", min, ", ", max, ", length=100)", sep="")
+        command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
         logger(paste(".x <- ", command, sep=""))
         assign(".x", justDoIt(command), envir=.GlobalEnv)
         doItAndPrint(paste("plot(.x, ", fn, "(.x, meanlog=", meanlog, 
@@ -524,7 +524,7 @@ gammaDistributionPlot <- function(){
         fn <- if (fun == "Density") "dgamma" else "pgamma"
         min <- round(qgamma(.0005, shape=shape, scale=s), 3)
         max <- round(qgamma(.9995, shape=shape, scale=s), 3)
-        command <- paste("seq(", min, ", ", max, ", length=100)", sep="")
+        command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
         logger(paste(".x <- ", command, sep=""))
         assign(".x", justDoIt(command), envir=.GlobalEnv)
         doItAndPrint(paste("plot(.x, ", fn, "(.x, shape=", shape, 
@@ -580,7 +580,7 @@ WeibullDistributionPlot <- function(){
         fn <- if (fun == "Density") "dweibull" else "pweibull"
         min <- round(qweibull(.0005, shape=shape, scale=s), 3)
         max <- round(qweibull(.9995, shape=shape, scale=s), 3)
-        command <- paste("seq(", min, ", ", max, ", length=100)", sep="")
+        command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
         logger(paste(".x <- ", command, sep=""))
         assign(".x", justDoIt(command), envir=.GlobalEnv)
         doItAndPrint(paste("plot(.x, ", fn, "(.x, shape=", shape, 
@@ -636,7 +636,7 @@ GumbelDistributionPlot <- function(){
         fn <- if (fun == "Density") "dweibull" else "pweibull"
         min <- round(log(qweibull(.0005, shape=shape, scale=s)), 3)
         max <- round(log(qweibull(.9995, shape=shape, scale=s)), 3)
-        command <- paste("exp(seq(", min, ", ", max, ", length=100))", sep="")
+        command <- paste("exp(seq(", min, ", ", max, ", length.out=100))", sep="")
         logger(paste(".x <- ", command, sep=""))
         assign(".x", justDoIt(command), envir=.GlobalEnv)
         doItAndPrint(paste("plot(log(.x), ", fn, "(.x, shape=", shape, 

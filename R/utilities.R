@@ -1,4 +1,4 @@
-# last modified 22 August 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 30 August 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -665,7 +665,7 @@ rcorr.adjust <- function(x, type=c("pearson", "spearman")){
 
 ellipsoid <- function(center=c(0, 0, 0), radius=1, shape=diag(3), n=30){
 # adapted from the shapes3d demo in the rgl package
-  degvec <- seq(0, 2*pi, length=n)
+  degvec <- seq(0, 2*pi, length.out=n)
   ecoord2 <- function(p) c(cos(p[1])*sin(p[2]), sin(p[1])*sin(p[2]), cos(p[2]))
   v <- t(apply(expand.grid(degvec,degvec), 1, ecoord2))
   v <- center + radius * t(v %*% chol(shape))
@@ -807,7 +807,7 @@ scatter3d <- function(x, y, z,
             }
         }
     if (surface){
-        vals <- seq(0, 1, length=grid.lines)
+        vals <- seq(0, 1, length.out=grid.lines)
         dat <- expand.grid(x=vals, z=vals)
         for (i in 1:length(fit)){
             f <- match.arg(fit[i], c("linear", "quadratic", "smooth", "additive"))
@@ -926,7 +926,7 @@ scatter3d <- function(x, y, z,
         }
     if (revolutions > 0) {
         for (i in 1:revolutions){
-            for (angle in seq(1, 360, length=360/speed)) rgl.viewpoint(-angle, fov=fov)
+            for (angle in seq(1, 360, length.out=360/speed)) rgl.viewpoint(-angle, fov=fov)
             }
         }
     if (model.summary) return(summaries) else return(invisible(NULL))
@@ -1100,7 +1100,7 @@ defmacro <- function(..., expr){
     ## process the argument list
     nn <- names(a)
     if (is.null(nn)) nn <- rep("", length(a))
-    for (i in seq(length=length(a))){
+    for (i in seq(length.out=length(a))){
         if (nn[i] == "") {
             nn[i] <- paste(a[[i]])
             msg <- paste(a[[i]], gettext("not supplied", domain="R-Rcmdr"))
