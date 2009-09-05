@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 30 August 2009 by J. Fox
+# last modified 5 September 2009 by J. Fox
 
 indexPlot <- function(){
     initializeDialog(title=gettextRcmdr("Index Plot"))
@@ -424,7 +424,7 @@ barGraph <- function(){
     }
 
 pieChart <- function(){
-	Library(colorspace)
+	Library("colorspace")
     initializeDialog(title=gettextRcmdr("Pie Chart"))
     variableBox <- variableListBox(top, Factors(), title=gettextRcmdr("Variable (pick one)"))
     onOK <- function(){

@@ -843,3 +843,6 @@ Version 1.5-2
 
    o  Updated Spanish translation (courtesy of Manuel Munoz Marquez).
    
+   o  Updated Russian translation (courtesy of Alexey Shipunov).
+   
+   o  Fixed bug in pie chart dialog causing the colorspace package not to load properly (reported by Massimiliano Amati).

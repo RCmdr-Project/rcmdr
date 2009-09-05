@@ -3,15 +3,14 @@
 #
 # Copyright (C) 2005 The R Foundation
 # This file is distributed under the same license as the R package.
-# Alexey Shipunov <iit512@yandex.ru> 2005
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 1.2-0\n"
 "Report-Msgid-Bugs-To: bugs@R-project.org\n"
 "POT-Creation-Date: 2005-06-02 13:06+0100\n"
-"PO-Revision-Date: 2009-03-28 23:44-0500\n"
-"Last-Translator: Alexey Shipunov <dactylorhiza@gmail.com>\n"
+"PO-Revision-Date: 2009-09-03 14:53-0500\n"
+"Last-Translator: Alexey Shipunov <dactylorhiza at gmail>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=KOI8-R\n"
@@ -3593,4 +3592,173 @@ msgstr "Вернуть"
 
 msgid "ANOVA table..."
 msgstr "Таблица ANOVA..."
+
+# messages added to version 1.4-2
+msgid "Location not specified."
+msgstr "Местоположение не определено."
+
+# messages added to version 1.5-0
+#     "Models -> Stepwise model selection" dialog and menu item
+msgid "Stepwise model selection..."
+msgstr "Ступенчатый выбор модели..."
+
+msgid "Stepwise Model Selection"
+msgstr "Ступенчатый выбор модели"
+
+msgid "Direction"
+msgstr "Направление"
+
+msgid "backward/forward"
+msgstr "назад/вперед"
+
+msgid "forward/backward"
+msgstr "вперед/назад"
+
+msgid "backward"
+msgstr "назад"
+
+msgid "forward"
+msgstr "вперед"
+
+msgid "Criterion"
+msgstr "Критерий"
+
+msgid "BIC"
+msgstr "BIC"
+
+msgid "AIC"
+msgstr "AIC"
+
+#      "Models -> Subset model selection" dialog and menu item
+msgid "Subset model selection..."
+msgstr "Выбор модели ограничением..."
+
+msgid "Subset Model Selection"
+msgstr "Выбор модели ограничением"
+
+msgid "Criterion for Model Plot"
+msgstr "Критерий для графика моделей"
+
+msgid "Mallows Cp"
+msgstr "Mallows Cp"
+
+msgid "Adjusted R-sq."
+msgstr "Adjusted R-sq."
+
+msgid "R-squared"
+msgstr "R-squared"
+
+msgid ""
+"Number of best models\n"
+"of each size:"
+msgstr ""
+"Количество лучших моделей\n"
+"каждого размера:"
+
+msgid "Maximum size:"
+msgstr "Максимальный размер:"
+
+#       "Data -> Merge data sets" menu item and dialog
+msgid "Merge data sets..."
+msgstr "Соединить данные..."
+
+msgid "Merge Data Sets"
+msgstr "Соединить данные"
+
+msgid "First Data Set (pick one)"
+msgstr "Первый набор данных (выберите один)"
+
+msgid "Second Data Set (pick one)"
+msgstr "Второй набор данных (выберите один)"
+
+msgid "Merge rows"
+msgstr "Соединить строки"
+
+msgid "Merge columns"
+msgstr "Соединить колонки"
+
+msgid "Direction of Merge"
+msgstr "Направление соединения"
+
+msgid "You cannot merge a data set with itself."
+msgstr "Нельзя соединить данные сами с собой."
+
+msgid "Name for merged data set:"
+msgstr "Имя соединяемых данных:"
+
+msgid ""
+"Merge only common\n"
+"rows or columns"
+msgstr ""
+"Соединить только общие\n"
+"строки или колонки"
+
+#       "Data -> Active data set -> Aggregate variables in active data set"
+msgid "Aggregate variables in active data set..."
+msgstr "Переменные активных данных для группировки..."
+
+msgid "Aggregate Observations"
+msgstr "Группировать наблюдения"
+
+msgid ""
+"Variables to aggregate\n"
+"(pick one or more)"
+msgstr ""
+"Переменные для группировки\n"
+"(выберите одну или больше)"
+
+msgid ""
+"Aggregate by\n"
+"(pick one or more)"
+msgstr ""
+"Группировать по\n"
+"(выберите одну или больше)"
+
+msgid "Sum"
+msgstr "Сумма"
+
+msgid "You must select at least one variable to aggregate."
+msgstr "Для группировки надо выбрать по крайней мере одну переменную."
+
+msgid "You must select at least one variable to aggregate by."
+msgstr "Надо выбрать по крайней мере одну переменную, чтобы по ней группировать."
+
+msgid "Variables to aggregate and those to aggregate by must be different."
+msgstr "Переменные, которые будут группироваться, и переменные, по которым надо группировать, должны быть разными."
+
+msgid "Name for aggregated data set:"
+msgstr "Название данных для группировки:"
+
+#     miscellaneous
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Al"
+msgstr "{\"Файлы данных R\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Al"
+
+msgid "No data set selected."
+msgstr "Не выбраны данные."
+
+msgid "Help on selected data set"
+msgstr "Помощь по выбору данных"
+
+msgid "Population mean != mu0"
+msgstr "Среднее в популяции != mu0"
+
+msgid "Population proportion != p0"
+msgstr "Пропорция популяции != p0"
+
+msgid "Models do not have the same family."
+msgstr "У моделей разные семейства."
+
+msgid ""
+"Pairwise p-values\n"
+"for Pearson or Spearman correlations"
+msgstr ""
+"Парные p-values\n"
+"для корреляций по Пирсону или Спирмену"
+
+msgid ""
+"The Windows version of the R Commander works best under RGui\n"
+"with the single-document interface (SDI); see ?Commander."
+msgstr ""
+"Версия R Commander для Windows лучше всего работает через RGui\n"
+"с интерфейсом \"отдельные окна\" (SDI); см. ?Commander."
 
