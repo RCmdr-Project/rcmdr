@@ -846,3 +846,7 @@ Version 1.5-2
    o  Updated Russian translation (courtesy of Alexey Shipunov).
    
    o  Fixed bug in pie chart dialog causing the colorspace package not to load properly (reported by Massimiliano Amati).
+
+Version 1.5-3
+
+   o  Updated Japanese translation (courtesty of Takaharu Araki).
