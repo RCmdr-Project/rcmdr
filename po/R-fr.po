@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Rcmdr 1.3-0\n"
 "Report-Msgid-Bugs-To: bugs@r-project.org\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2008-08-21 13:46+0100\n"
+"PO-Revision-Date: 2009-09-11 21:57+0100\n"
 "Last-Translator: Philippe Grosjean <phgrosjean@sciviews.org>\n"
 "Language-Team: French <R-core@r-project.org>\n"
 "MIME-Version: 1.0\n"
@@ -3580,4 +3580,168 @@ msgstr "Refaire"
 
 msgid "ANOVA table..."
 msgstr "Table de l'ANOVA..."
+
+msgid "Location not specified."
+msgstr "Position non spécifiée."
+
+# messages added to version 1.5-0
+#     "Models -> Stepwise model selection" dialog and menu item
+msgid "Stepwise model selection..."
+msgstr "Sélection de modèle par étapes..."
+
+msgid "Stepwise Model Selection"
+msgstr "Sélection de modèle par étapes"
+
+msgid "Direction"
+msgstr "Direction"
+
+msgid "backward/forward"
+msgstr "arrière/avant"
+
+msgid "forward/backward"
+msgstr "avant/arrière"
+
+msgid "backward"
+msgstr "Arrière"
+
+msgid "forward"
+msgstr "Avant"
+
+msgid "Criterion"
+msgstr "Critère"
+
+msgid "BIC"
+msgstr "BIC"
+
+msgid "AIC"
+msgstr "AIC"
+
+msgid "Subset model selection..."
+msgstr "Sous-ensemble..."
+
+msgid "Subset Model Selection"
+msgstr "Expression de sélection"
+
+msgid "Criterion for Model Plot"
+msgstr "Critère pour le graphe du modèle"
+
+msgid "Mallows Cp"
+msgstr "Mallows Cp"
+
+msgid "Adjusted R-sq."
+msgstr "R-carré ajusté"
+
+msgid "R-squared"
+msgstr "R-carré"
+
+msgid ""
+"Number of best models\n"
+"of each size:"
+msgstr ""
+"Nombre de meilleurs modèles\n"
+"de chaque taille :"
+
+msgid "Maximum size:"
+msgstr "Taille maximale :"
+
+msgid "Merge data sets..."
+msgstr "Fusionner des jeux de données..."
+
+msgid "Merge Data Sets"
+msgstr "Fusion de jeux de données"
+
+msgid "First Data Set (pick one)"
+msgstr "Premier jeu (en choisir un)"
+
+msgid "Second Data Set (pick one)"
+msgstr "Second jeu (en choisir un)"
+
+msgid "Merge rows"
+msgstr "Fusion des lignes"
+
+msgid "Merge columns"
+msgstr "Fusion des colonnes"
+
+msgid "Direction of Merge"
+msgstr "Direction de la fusion"
+
+msgid "You cannot merge a data set with itself."
+msgstr "Vous ne pouvez pas fusionner un jeu de données avec lui-même."
+
+msgid "Name for merged data set:"
+msgstr "Nom du tableau de données fusionné"
+
+msgid ""
+"Merge only common\n"
+"rows or columns"
+msgstr ""
+"Fusion uniquement des lignes\n"
+"et colonnes communes"
+
+msgid "Aggregate variables in active data set..."
+msgstr "Aggréger les variables dans le jeu de données actif..."
+
+msgid "Aggregate Observations"
+msgstr "Aggrégation des observations"
+
+msgid ""
+"Variables to aggregate\n"
+"(pick one or more)"
+msgstr ""
+"Variables à aggréger\n"
+"(une ou plus)"
+
+msgid ""
+"Aggregate by\n"
+"(pick one or more)"
+msgstr ""
+"Aggrégation par\n"
+"(une ou plusieurs)"
+
+msgid "Sum"
+msgstr "Somme"
+
+msgid "You must select at least one variable to aggregate."
+msgstr "Vous devez sélectionner au moins une variable à aggréger."
+
+msgid "You must select at least one variable to aggregate by."
+msgstr "Vous devez sélectionner au moins une variable d'aggrégation."
+
+msgid "Variables to aggregate and those to aggregate by must be different."
+msgstr "Les variables à aggréger et d'aggrégation doivent être différentes."
+
+msgid "Name for aggregated data set:"
+msgstr "Nom pour le jeu de données aggrégé :"
+
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Fichiers R Data\" {\".rda\" \".Rda\" \".RDA\"}} {\"Tous les fichiers\" {\"*\"}}"
+
+msgid "No data set selected."
+msgstr "Aucun tableau n'est sélectionné."
+
+msgid "Help on selected data set"
+msgstr "Aide sur le jeu de données sélectionné"
+
+msgid "Population mean != mu0"
+msgstr "Moyenne de la population != mu0"
+
+msgid "Population proportion != p0"
+msgstr "Proportion de la population != p0"
+
+msgid "Models do not have the same family."
+msgstr "Les modèles ne sont pas de même famille."
+
+msgid ""
+"Pairwise p-values\n"
+"for Pearson or Spearman correlations"
+msgstr ""
+"Valeurs critiques p pour\n"
+"des corrélations de Pearson ou de Spearman"
+
+msgid ""
+"The Windows version of the R Commander works best under RGui\n"
+"with the single-document interface (SDI); see ?Commander."
+msgstr ""
+"La version Windows de R Commander fonctionne mieux sous RGui\n"
+"avec l'interface de document unique (SDI); see ?Commander"
 
