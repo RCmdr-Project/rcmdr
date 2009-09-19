@@ -1,8 +1,8 @@
 # Romanian translations for the Rcmdr package
-# Traducerea în limba română a pachetului Rcmdr
+# Traducerea �n limba rom�na a pachetului Rcmdr
 # Copyright (C) 2005 John Fox
 # This file is distributed under the same license as the Rcmdr package
-# Duşa Adrian <dusa.adrian@gmail.com>, 2008
+# Dusa Adrian <dusa.adrian@gmail.com>, 2008
 msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 1.2-0\n"
@@ -23,127 +23,127 @@ msgid "Variables (pick one or more)"
 msgstr "Variabile (una sau mai multe)"
 
 msgid "No variables selected."
-msgstr "Nici o variabilă selectată."
+msgstr "Nici o variabila selectata."
 
 msgid "<all valid cases>"
 msgstr "<toate cazurile valide>"
 
 msgid "Number of clusters:"
-msgstr "Număr de grupuri (clustere):"
+msgstr "Numar de grupuri (clustere):"
 
 msgid "Number of starting seeds:"
-msgstr "Număr puncte de plecare:"
+msgstr "Numar puncte de plecare:"
 
 msgid "Maximum iterations:"
-msgstr "Număr maxim de iteraţii:"
+msgstr "Numar maxim de iteratii:"
 
 msgid "Print cluster summary"
-msgstr "Afişare sumar clasificare"
+msgstr "Afisare sumar clasificare"
 
 msgid "Bi-plot of clusters"
 msgstr "Bi-plot de grupuri (clustere)"
 
 msgid "Assign clusters to\nthe data set"
-msgstr "Adăugare grupuri\nla setul de date"
+msgstr "Adaugare grupuri\nla setul de date"
 
 msgid "Assignment variable:"
-msgstr "Variabilă de atribuire:"
+msgstr "Variabila de atribuire:"
 
 msgid "Hierarchical Clustering"
-msgstr "Clasificare ierarhică"
+msgstr "Clasificare ierarhica"
 
 msgid "Ward's Method"
 msgstr "Metoda Ward"
 
 msgid "Single Linkage"
-msgstr "Legături simple"
+msgstr "Legaturi simple"
 
 msgid "Complete Linkage"
-msgstr "Legături complete"
+msgstr "Legaturi complete"
 
 msgid "Average Linkage"
-msgstr "Legături medii"
+msgstr "Legaturi medii"
 
 msgid "McQuitty's Method"
 msgstr "Metoda McQuitty"
 
 msgid "Median Linkage"
-msgstr "Legături mediane"
+msgstr "Legaturi mediane"
 
 msgid "Centroid Linkage"
-msgstr "Legături centroide"
+msgstr "Legaturi centroide"
 
 msgid "Clustering Method"
 msgstr "Metoda de clasificare"
 
 msgid "Euclidean"
-msgstr "Euclidiană"
+msgstr "Euclidiana"
 
 msgid "Squared-Euclidian"
-msgstr "Euclidiană la pătrat"
+msgstr "Euclidiana la patrat"
 
 msgid "Manhattan (City Block)"
 msgstr "Manhattan (City Block)"
 
 msgid "No Transformation"
-msgstr "Fără transformare"
+msgstr "Fara transformare"
 
 msgid "Distance Measure"
-msgstr "Masură a distanţei"
+msgstr "Masura a distantei"
 
 msgid "Clustering solution name:"
-msgstr "Nume pentru rezultatul clasificării"
+msgstr "Nume pentru rezultatul clasificarii"
 
 msgid "Plot Dendrogram"
-msgstr "Desenează dendrograma"
+msgstr "Deseneaza dendrograma"
 
 msgid "Hierarchical Cluster Summary"
 msgstr "Rezumat al clasificarii ierarhice"
 
 msgid "Select One Clustering Solution"
-msgstr "Selectaţi un rezultat de clasificare"
+msgstr "Selectati un rezultat de clasificare"
 
 msgid "There are no hierachical clustering solutions"
-msgstr "Nu există soluţii de clasificare ierarhică"
+msgstr "Nu exista solutii de clasificare ierarhica"
 
 msgid "No hierachical clustering solutions are associated with this data set."
-msgstr "Nici o soluţie de clasificare ierarhică asociată cu acest set de date."
+msgstr "Nici o solutie de clasificare ierarhica asociata cu acest set de date."
 
 msgid "A clustering solution has not been selected."
-msgstr "Nu a fost selectată nici o soluţie de clasificare."
+msgstr "Nu a fost selectata nici o solutie de clasificare."
 
 msgid "Append Cluster Groups to the Active Data Set"
-msgstr "Adăugare grupuri la setul de date activ"
+msgstr "Adaugare grupuri la setul de date activ"
 
 msgid "Assigned cluster label:"
 msgstr "Eticheta grupului atribuit:"
 
 msgid "Find"
-msgstr "Caută"
+msgstr "Cauta"
 
 msgid "Regular-expression search"
-msgstr "Căutare cu expresie regulată"
+msgstr "Cautare cu expresie regulata"
 
 msgid "Case sensitive"
 msgstr "Sensibil la majuscule"
 
 msgid "Forward"
-msgstr "Înainte"
+msgstr "�nainte"
 
 msgid "Backward"
-msgstr "Înapoi"
+msgstr "�napoi"
 
 msgid "Search Direction"
-msgstr "Direcţia de căutare"
+msgstr "Directia de cautare"
 
 msgid "No search text specified."
-msgstr "Nu a fost specificat un text pentru căutare"
+msgstr "Nu a fost specificat un text pentru cautare"
 
 msgid "Text not found."
-msgstr "Textul nu a fost găsit."
+msgstr "Textul nu a fost gasit."
 
 msgid "Search for:"
-msgstr "Caută pentru:"
+msgstr "Cauta pentru:"
 
 msgid "R Commander"
 msgstr "R Commander"
@@ -152,13 +152,13 @@ msgid "Sourced:"
 msgstr "Sursat:"
 
 msgid "menu definition error:"
-msgstr "eroare definiţie de meniu:"
+msgstr "eroare definitie de meniu:"
 
 msgid "Nothing is selected."
 msgstr "Nu e selectat nimic."
 
 msgid "Clear window"
-msgstr "Curăţă fereastra de script"
+msgstr "Curata fereastra de script"
 
 msgid "Submit"
 msgstr "Trimite"
@@ -167,19 +167,19 @@ msgid "Cut"
 msgstr "Taie"
 
 msgid "Copy"
-msgstr "Copiază"
+msgstr "Copiaza"
 
 msgid "Paste"
-msgstr "Lipeşte"
+msgstr "Lipeste"
 
 msgid "Delete"
-msgstr "Şterge"
+msgstr "Sterge"
 
 msgid "Find..."
-msgstr "Caută..."
+msgstr "Cauta..."
 
 msgid "Select all"
-msgstr "Selectează totul"
+msgstr "Selecteaza totul"
 
 msgid "Edit data set"
 msgstr "Editare date"
@@ -200,10 +200,10 @@ msgid "Model:"
 msgstr "Model:"
 
 msgid "Script Window"
-msgstr "Fereastră de script"
+msgstr "Fereastra de script"
 
 msgid "Output Window"
-msgstr "Fereastră de output"
+msgstr "Fereastra de output"
 
 msgid "Messages"
 msgstr "Mesaje"
@@ -215,7 +215,7 @@ msgid "R Commander Version"
 msgstr "Versiune R Commander"
 
 msgid "First and last 5 warnings:"
-msgstr "Primele şi ultimele 5 avertismente:"
+msgstr "Primele si ultimele 5 avertismente:"
 
 msgid "ERROR:"
 msgstr "EROARE:"
@@ -230,7 +230,7 @@ msgid "WARNING"
 msgstr "AVERTIZARE"
 
 msgid "NOTE"
-msgstr "NOTĂ"
+msgstr "NOTA"
 
 msgid "New Data Set"
 msgstr "Set de date nou"
@@ -254,19 +254,19 @@ msgid "Enter name for data set:"
 msgstr "Nume pentru setul de date:"
 
 msgid "There is only one dataset in memory."
-msgstr "Nu este decât un set de date în memorie."
+msgstr "Nu este dec�t un set de date �n memorie."
 
 msgid "There are no data sets from which to choose."
-msgstr "Nu avem seturi de date de unde să alegem."
+msgstr "Nu avem seturi de date de unde sa alegem."
 
 msgid "Select Data Set"
 msgstr "Selectare set de date"
 
 msgid "Data Sets (pick one)"
-msgstr "Seturi de date încărcate"
+msgstr "Seturi de date �ncarcate"
 
 msgid "Recode Variable"
-msgstr "Recodificare variabilă"
+msgstr "Recodificare variabila"
 
 msgid "Variable to recode (pick one)"
 msgstr "Variabila de recodificat"
@@ -275,25 +275,25 @@ msgid "variable"
 msgstr "VAR9"
 
 msgid "You must select a variable."
-msgstr "Trebuie selectată o variabilă."
+msgstr "Trebuie selectata o variabila."
 
 msgid "No recode directives specified."
 msgstr "Nu s-au specificat reguli de recodificare."
 
 msgid "Use only double-quotes (\" \") in recode directives"
-msgstr "Foloseşte doar ghilimele duble (\" \") în regulile de recodificare"
+msgstr "Foloseste doar ghilimele duble (\" \") �n regulile de recodificare"
 
 msgid "New variable name"
-msgstr "Nume variabilă nouă"
+msgstr "Nume variabila noua"
 
 msgid "Enter recode directives"
 msgstr "Reguli de recodificare\nDe exemplu:\n1:5=1\n6:10=2\n11=3"
 
 msgid "Make new variable a factor"
-msgstr "Variabila nouă de tip factor"
+msgstr "Variabila noua de tip factor"
 
 msgid "Compute New Variable"
-msgstr "Calcul variabilă nouă"
+msgstr "Calcul variabila noua"
 
 msgid "[factor]"
 msgstr "[factor]"
@@ -302,49 +302,49 @@ msgid "Current variables (double-click to expression)"
 msgstr "Variabile existente (dublu-clic spre expresie)"
 
 msgid "No expression specified."
-msgstr "Nici o expresie specificată."
+msgstr "Nici o expresie specificata."
 
 msgid "Variable"
-msgstr "Variabilă"
+msgstr "Variabila"
 
 msgid "Expression to compute"
 msgstr "Expresie de calcul"
 
 msgid "Delete Variables"
-msgstr "Ştergere variabile"
+msgstr "Stergere variabile"
 
 msgid "Variable(s) to delete (pick one or more)"
-msgstr "Variabile de şters (una sau mai multe)"
+msgstr "Variabile de sters (una sau mai multe)"
 
 msgid "You must select one or more variables."
-msgstr "Trebuie selectată una sau mai multe variabile."
+msgstr "Trebuie selectata una sau mai multe variabile."
 
 msgid "Delete %s?\nPlease confirm."
-msgstr "Ştergere %s?\nConfirmare."
+msgstr "Stergere %s?\nConfirmare."
 
 msgid "Delete %d variables?\nPlease confirm."
-msgstr "Ştergere %d variabile?\nConfirmare."
+msgstr "Stergere %d variabile?\nConfirmare."
 
 msgid "Read Data From Text File"
-msgstr "Citeşte date dintr-un fişier text"
+msgstr "Citeste date dintr-un fisier text"
 
 msgid "White space"
-msgstr "Spaţiu"
+msgstr "Spatiu"
 
 msgid "Commas"
-msgstr "Virgulă"
+msgstr "Virgula"
 
 msgid "Tabs"
 msgstr "Tab"
 
 msgid "Field Separator"
-msgstr "Separator de câmp"
+msgstr "Separator de c�mp"
 
 msgid "Period [.]"
 msgstr "Punct [.]"
 
 msgid "Comma [,]"
-msgstr "Virgulă [,]"
+msgstr "Virgula [,]"
 
 msgid "Decimal-Point Character"
 msgstr "Separator de zecimale"
@@ -353,13 +353,13 @@ msgid "You must enter a name for the data set."
 msgstr "Trebuie introdus un nume pentru setul de date."
 
 msgid "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişiere text\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Fisiere text\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"Toate fisierele\" {\"*\"}}"
 
 msgid "Variable names in file:"
-msgstr "Nume variabile în fişier:"
+msgstr "Nume variabile �n fisier:"
 
 msgid "Missing data indicator:"
-msgstr "Indicator date lipsă (missing):"
+msgstr "Indicator date lipsa (missing):"
 
 msgid "Other"
 msgstr "Altul"
@@ -374,7 +374,7 @@ msgid "Select package:"
 msgstr "Selectare pachet:"
 
 msgid "Data set %s does not exit"
-msgstr "Setul de date %s nu există"
+msgstr "Setul de date %s nu exista"
 
 msgid "You must select a package."
 msgstr "Trebuie selectat un pachet."
@@ -398,46 +398,46 @@ msgid "Import SPSS Data Set"
 msgstr "Importare set de date SPSS"
 
 msgid "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişiere SPSS sav\" {\".sav\" \".SAV\"}} {\"Fişiere SPSS portabile\" {\".por\" \".POR\"}} {\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Fisiere SPSS sav\" {\".sav\" \".SAV\"}} {\"Fisiere SPSS portabile\" {\".por\" \".POR\"}} {\"Toate fisierele\" {\"*\"}}"
 
 msgid "Convert value labels\nto factor levels"
-msgstr "Convertire etichete valori\nîn categorii"
+msgstr "Convertire etichete valori\n�n categorii"
 
 msgid "Maximum number\nof value labels\nfor factor conversion"
-msgstr "Număr maxim\nde etichete de valori\npentru convertire"
+msgstr "Numar maxim\nde etichete de valori\npentru convertire"
 
 msgid "Import Minitab Data Set"
 msgstr "Importare set de date Minitab"
 
 msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişiere portabile Minitab\" {\".mtp\" \".MTP\"}} {\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Fisiere portabile Minitab\" {\".mtp\" \".MTP\"}} {\"Toate fisierele\" {\"*\"}}"
 
 msgid "Minitab data set contains elements of unequal length.\nData set cannot be converted."
-msgstr "Setul de date Minitab conţine elemente de lungime inegală.\nSetul de date nu poate fi convertit."
+msgstr "Setul de date Minitab contine elemente de lungime inegala.\nSetul de date nu poate fi convertit."
 
 msgid "Import STATA Data Set"
 msgstr "Importare set de date STATA"
 
 msgid "{\"STATA datasets\" {\".dta\" \".DTA\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişiere STATA\" {\".dta\" \".DTA\"}} {\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Fisiere STATA\" {\".dta\" \".DTA\"}} {\"Toate fisierele\" {\"*\"}}"
 
 msgid "Convert dates to R format"
-msgstr "Convertire date (ZZ.LL.AAAA) în format R"
+msgstr "Convertire date (ZZ.LL.AAAA) �n format R"
 
 msgid "Multiple missing types (>=Stata 8)"
-msgstr "Tipuri de date lipsă multiple (>=Stata 8)"
+msgstr "Tipuri de date lipsa multiple (>=Stata 8)"
 
 msgid "Convert underscore to period"
-msgstr "Convertire \" _ \" în \" . \""
+msgstr "Convertire \" _ \" �n \" . \""
 
 msgid "Warn on missing labels"
-msgstr "Avertizare pentru etichete lipsă"
+msgstr "Avertizare pentru etichete lipsa"
 
 msgid "Convert Numeric Variable to Factor"
-msgstr "Convertire variabile numerice în factor"
+msgstr "Convertire variabile numerice �n factor"
 
 msgid "Variable (pick one)"
-msgstr "Variabilă"
+msgstr "Variabila"
 
 msgid "Supply level names"
 msgstr "Nume categorii"
@@ -452,7 +452,7 @@ msgid "<same as variable>"
 msgstr "<la fel ca variabila>"
 
 msgid "Number of levels (%d) too large."
-msgstr "Număr de categorii (%d) prea mare."
+msgstr "Numar de categorii (%d) prea mare."
 
 msgid "Level Names"
 msgstr "Nume categorii"
@@ -464,7 +464,7 @@ msgid "A level name is empty."
 msgstr "Un nume de categorie este gol."
 
 msgid "Numeric value"
-msgstr "Valoare numerică"
+msgstr "Valoare numerica"
 
 msgid "Level name"
 msgstr "Nume categorie"
@@ -473,10 +473,10 @@ msgid "Name for factor"
 msgstr "Nume factor"
 
 msgid "Bin a Numeric Variable"
-msgstr "Impartire variabila numerică în clase"
+msgstr "Impartire variabila numerica �n clase"
 
 msgid "Variable to bin (pick one)"
-msgstr "Variabila de împărţit"
+msgstr "Variabila de �mpartit"
 
 msgid "Specify names"
 msgstr "Specificare nume"
@@ -485,34 +485,34 @@ msgid "Numbers"
 msgstr "Numere"
 
 msgid "Ranges"
-msgstr "Laţimi"
+msgstr "Latimi"
 
 msgid "Equal-width bins"
-msgstr "Clase de lăţime egală"
+msgstr "Clase de latime egala"
 
 msgid "Equal-count bins"
 msgstr "Clase cu efectiv egal"
 
 msgid "Natural breaks\n(from K-means clustering)"
-msgstr "Împărţire naturală\n(cu clasificare K-means)"
+msgstr "�mpartire naturala\n(cu clasificare K-means)"
 
 msgid "Binning Method"
-msgstr "Metoda de împărţire"
+msgstr "Metoda de �mpartire"
 
 msgid "Bin Names"
 msgstr "Nume clase"
 
 msgid "Level names must be unique."
-msgstr "Numele categoriilor trebuie să fie unice."
+msgstr "Numele categoriilor trebuie sa fie unice."
 
 msgid "Bin"
-msgstr "Clasă"
+msgstr "Clasa"
 
 msgid "Name"
 msgstr "Nume"
 
 msgid "Number of bins:"
-msgstr "Număr de clase:"
+msgstr "Numar de clase:"
 
 msgid "Reorder Factor Levels"
 msgstr "Reordonare categorii"
@@ -527,7 +527,7 @@ msgid "Reorder Levels"
 msgstr "Reordonare categorii"
 
 msgid "Order of levels must include all integers from 1 to"
-msgstr "Ordinea categoriilor trebuie să contină numere întregi de la 1 la"
+msgstr "Ordinea categoriilor trebuie sa contina numere �ntregi de la 1 la"
 
 msgid "Old Levels"
 msgstr "Categorii vechi"
@@ -548,22 +548,22 @@ msgid "Write variable names:"
 msgstr "Scrie numele variabilelor (coloanelor):"
 
 msgid "Write row names:"
-msgstr "Scrie numele cazurilor (rândurilor):"
+msgstr "Scrie numele cazurilor (r�ndurilor):"
 
 msgid "Quotes around character values:"
-msgstr "Ghilimele în jurul valorilor caracter (string):"
+msgstr "Ghilimele �n jurul valorilor caracter (string):"
 
 msgid "Spaces"
-msgstr "Spaţiu"
+msgstr "Spatiu"
 
 msgid "Active dataset exported to file"
-msgstr "Set de date activ exportat în fişier"
+msgstr "Set de date activ exportat �n fisier"
 
 msgid "Missing values:"
-msgstr "Cod valori lipsă (missing):"
+msgstr "Cod valori lipsa (missing):"
 
 msgid "Remove Missing Data"
-msgstr "Şterge datele lipsă"
+msgstr "Sterge datele lipsa"
 
 msgid "Variables (select one or more)"
 msgstr "Variabile (una sau mai multe)"
@@ -572,7 +572,7 @@ msgid "<same as active data set>"
 msgstr "<la fel ca setul de date>"
 
 msgid "No variables were selected."
-msgstr "Nu a fost selectată nici o variabilă."
+msgstr "Nu a fost selectata nici o variabila."
 
 msgid "Include all variables"
 msgstr "Include toate variabilele"
@@ -596,7 +596,7 @@ msgid "Set Case Names"
 msgstr "Numele liniilor (cazurilor)"
 
 msgid "Select variable containing row names"
-msgstr "Variabila care conţine numele de cazuri (rânduri)"
+msgstr "Variabila care contine numele de cazuri (r�nduri)"
 
 msgid "Case names must be unique."
 msgstr "Numele liniilor trebuie sa fie unice"
@@ -608,10 +608,10 @@ msgid "Variable Names"
 msgstr "Nume de variabile"
 
 msgid "A variable name is empty."
-msgstr "Un nume de variabilă este gol"
+msgstr "Un nume de variabila este gol"
 
 msgid "The following variable names are not valid:"
-msgstr "Următoarele nume de variabile nu sunt valide:"
+msgstr "Urmatoarele nume de variabile nu sunt valide:"
 
 msgid "Variable names are not unique"
 msgstr "Numele variabilelor nu sunt unice"
@@ -629,7 +629,7 @@ msgid "Treatment (dummy) contrasts"
 msgstr "Contraste de tratament (\"dummy\")"
 
 msgid "Sum (deviation) contrasts"
-msgstr "Sumă de contraste"
+msgstr "Suma de contraste"
 
 msgid "Helmert contrasts"
 msgstr "Contraste Helmert"
@@ -647,16 +647,16 @@ msgid "Specify Contrasts"
 msgstr "Specificare contraste"
 
 msgid "Enter Contrast Coefficients"
-msgstr "Introducere coeficienţi de contrast"
+msgstr "Introducere coeficienti de contrast"
 
 msgid "Contrast Name:"
 msgstr "Nume contrast:"
 
 msgid "Number of valid entries in contrast matrix(%d)\nnot equal to number of levels (%d) * number of contrasts (%d)."
-msgstr "Numărul contrastelor valide în matricea de contraste(%d)\nnu este egal cu numărul de niveluri (%d) * numărul de contraste (%d)."
+msgstr "Numarul contrastelor valide �n matricea de contraste(%d)\nnu este egal cu numarul de niveluri (%d) * numarul de contraste (%d)."
 
 msgid "Contrast matrix is not of full column rank"
-msgstr "Matricea de contraste nu are o coloană de ranguri întreagă"
+msgstr "Matricea de contraste nu are o coloana de ranguri �ntreaga"
 
 msgid "Contrast names must be unique"
 msgstr "Numele contrastelor nu sunt unice"
@@ -665,31 +665,31 @@ msgid "Normal Quantiles"
 msgstr "Quantile normale"
 
 msgid "No probabilities specified."
-msgstr "Nu au fost specificate probabilităţile"
+msgstr "Nu au fost specificate probabilitatile"
 
 msgid "Probabilities"
-msgstr "Probabilităţi"
+msgstr "Probabilitati"
 
 msgid "mu (mean)"
 msgstr "mu (medie)"
 
 msgid "sigma (standard deviation)"
-msgstr "sigma (deviaţie standard)"
+msgstr "sigma (deviatie standard)"
 
 msgid "Lower tail"
-msgstr "Coada din stânga"
+msgstr "Coada din st�nga"
 
 msgid "Upper tail"
 msgstr "Coada din dreapta"
 
 msgid "Normal Probabilities"
-msgstr "Probabilităţi normale"
+msgstr "Probabilitati normale"
 
 msgid "No values specified."
-msgstr "Nici o valoare specificată"
+msgstr "Nici o valoare specificata"
 
 msgid "Variable value(s)"
-msgstr "Valori de variabilă"
+msgstr "Valori de variabila"
 
 msgid "t Quantiles"
 msgstr "Quantile t"
@@ -701,28 +701,28 @@ msgid "Degrees of freedom"
 msgstr "Grade de libertate"
 
 msgid "t Probabilities"
-msgstr "Probabilităţi t"
+msgstr "Probabilitati t"
 
 msgid "Chi-Squared Quantiles"
-msgstr "Quantile chi-pătrat"
+msgstr "Quantile chi-patrat"
 
 msgid "Chi-Squared Probabilities"
-msgstr "Probabilităţi chi-pătrat"
+msgstr "Probabilitati chi-patrat"
 
 msgid "F Quantiles"
 msgstr "Quantile F"
 
 msgid "Probabilities not specified"
-msgstr "Probabilităţile nu au fost specificate"
+msgstr "Probabilitatile nu au fost specificate"
 
 msgid "Numerator degrees of freedom"
-msgstr "Grade de libertate numărător"
+msgstr "Grade de libertate numarator"
 
 msgid "Denominator degrees of freedom"
 msgstr "Grade de libertate numitor"
 
 msgid "F Probabilities"
-msgstr "Probabilităţi F"
+msgstr "Probabilitati F"
 
 msgid "Values not specified."
 msgstr "Valorile nu au fost specificate"
@@ -731,214 +731,214 @@ msgid "Binomial Quantiles"
 msgstr "Quantile binomiale"
 
 msgid "Probabilities not specified."
-msgstr "Probabilităţile nu au fost specificate"
+msgstr "Probabilitatile nu au fost specificate"
 
 msgid "Binomial trials not specified."
-msgstr "Numărul de încercări nu a fost specificat"
+msgstr "Numarul de �ncercari nu a fost specificat"
 
 msgid "Probability of success not specified."
-msgstr "Probabilitatea de succes nu a fost specificată"
+msgstr "Probabilitatea de succes nu a fost specificata"
 
 msgid "Binomial trials"
-msgstr "Încercări binomiale"
+msgstr "�ncercari binomiale"
 
 msgid "Probability of success"
 msgstr "Probabilitate de succes"
 
 msgid "Cumulative Binomial Probabilities"
-msgstr "Probabilităţi binomiale cumulative"
+msgstr "Probabilitati binomiale cumulative"
 
 msgid "Number of trials, %d, is large.\nCreate long output?"
-msgstr "Numărul de încercari, %d, este mare.\nCreare output lung?"
+msgstr "Numarul de �ncercari, %d, este mare.\nCreare output lung?"
 
 msgid "Binomial Probabilities"
-msgstr "Probabilităţi binomiale"
+msgstr "Probabilitati binomiale"
 
 msgid "Range of values over which to plot, %d, is large.\nCreate long output?"
-msgstr "Amplitudinea valorilor de reprezentat în grafic, %d, este mare.\nCreare output lung?"
+msgstr "Amplitudinea valorilor de reprezentat �n grafic, %d, este mare.\nCreare output lung?"
 
 msgid "Poisson Probabilities"
-msgstr "Probabilităţi Poisson"
+msgstr "Probabilitati Poisson"
 
 msgid "Poisson mean not specified."
-msgstr "Media Poisson nu a fost specificată"
+msgstr "Media Poisson nu a fost specificata"
 
 msgid "Mean"
 msgstr "Medie"
 
 msgid "Normal Distribution"
-msgstr "Distribuţia normală"
+msgstr "Distributia normala"
 
 msgid "Plot density function"
-msgstr "Desenează distribuţia"
+msgstr "Deseneaza distributia"
 
 msgid "Plot distribution function"
-msgstr "Desenează funcţia cumulată"
+msgstr "Deseneaza functia cumulata"
 
 msgid "t Distribution"
-msgstr "Distribuţia t"
+msgstr "Distributia t"
 
 msgid "Chi-squared Distribution"
-msgstr "Distribuţia chi-pătrat"
+msgstr "Distributia chi-patrat"
 
 msgid "F Distribution"
-msgstr "Distribuţia F"
+msgstr "Distributia F"
 
 msgid "Numerator degrees of freedom not specified."
-msgstr "Numărul de grade de libertate de la numărător nu a fost specificat"
+msgstr "Numarul de grade de libertate de la numarator nu a fost specificat"
 
 msgid "Denominator degrees of freedom not specified."
-msgstr "Numărul de grade de libertate de la numitor nu a fost specificat"
+msgstr "Numarul de grade de libertate de la numitor nu a fost specificat"
 
 msgid "Binomial Distribution"
-msgstr "Distribuţia binomială"
+msgstr "Distributia binomiala"
 
 msgid "Plot probability mass function"
-msgstr "Desenează funcţia de probabilitate"
+msgstr "Deseneaza functia de probabilitate"
 
 msgid "Poisson Distribution"
-msgstr "Distribuţia Poisson"
+msgstr "Distributia Poisson"
 
 msgid "Mean not specified."
-msgstr "Media nu a fost specificată"
+msgstr "Media nu a fost specificata"
 
 msgid "mean"
 msgstr "medie"
 
 msgid "{\"Script Files\" {\".R\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişiere script\" {\".R\"}} {\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Fisiere script\" {\".R\"}} {\"Toate fisierele\" {\"*\"}}"
 
 msgid "Save current log file?"
-msgstr "Salvare fişier de script?"
+msgstr "Salvare fisier de script?"
 
 msgid "Script saved to"
-msgstr "Script salvat în"
+msgstr "Script salvat �n"
 
 msgid "Output saved to"
-msgstr "Output salvat în"
+msgstr "Output salvat �n"
 
 msgid "{\"Output Files\" {\".txt\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişiere output\" {\".txt\"}} {\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Fisiere output\" {\".txt\"}} {\"Toate fisierele\" {\"*\"}}"
 
 msgid "{\"All Files\" {\"*\"}}"
-msgstr "{\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}}"
 
 msgid "R workspace saved to"
-msgstr "Spaţiul de lucru R salvat în"
+msgstr "Spatiul de lucru R salvat �n"
 
 msgid "Exit?"
-msgstr "Ieşire?"
+msgstr "Iesire?"
 
 msgid "Save script file?"
-msgstr "Salvare fişier de script?"
+msgstr "Salvare fisier de script?"
 
 msgid "Save output file?"
-msgstr "Salvare fişier output?"
+msgstr "Salvare fisier output?"
 
 msgid "Commander Options"
-msgstr "Opţiuni Commander"
+msgstr "Optiuni Commander"
 
 msgid "Log commands to script window"
-msgstr "Înregistrare comenzi în fereastra de script"
+msgstr "�nregistrare comenzi �n fereastra de script"
 
 msgid "Log-font size (points)"
-msgstr "Mărime caractere (puncte)"
+msgstr "Marime caractere (puncte)"
 
 msgid "Log width (characters)"
-msgstr "Lăţime ferestră de script (caractere)"
+msgstr "Latime ferestra de script (caractere)"
 
 msgid "Log height (lines)"
-msgstr "Înălţime fereastă de script (linii)"
+msgstr "�naltime fereasta de script (linii)"
 
 msgid "Send output to R Console"
-msgstr "Trimitere output către consola R"
+msgstr "Trimitere output catre consola R"
 
 msgid "Output height (lines)"
-msgstr "Înălţime fereastă output (linii)"
+msgstr "�naltime fereasta output (linii)"
 
 msgid "Unordered factors"
-msgstr "Factori neordonaţi"
+msgstr "Factori neordonati"
 
 msgid "Ordered factors"
-msgstr "Factori ordonaţi"
+msgstr "Factori ordonati"
 
 msgid "Active window grabs focus"
-msgstr "Fereastra activă primeşte focus"
+msgstr "Fereastra activa primeste focus"
 
 msgid "Double-click presses OK button"
-msgstr "Dublu-clic apasă butonul de OK"
+msgstr "Dublu-clic apasa butonul de OK"
 
 msgid "Sort variable names alphabetically"
-msgstr "Sortare alfabetică a numelor de variabile"
+msgstr "Sortare alfabetica a numelor de variabile"
 
 msgid "Show edit button"
-msgstr "Afişare buton de edit"
+msgstr "Afisare buton de edit"
 
 msgid "Exit and Restart\nR Commander"
-msgstr "Ieşire şi restart\nR Commander"
+msgstr "Iesire si restart\nR Commander"
 
 msgid "Scale factor for Tk elements"
-msgstr "Factor de scală pentru elementele Tk"
+msgstr "Factor de scala pentru elementele Tk"
 
 msgid "Default font"
 msgstr "Font predefinit"
 
 msgid "No packages available to load."
-msgstr "Nici un pachet disponibil pentru încărcare"
+msgstr "Nici un pachet disponibil pentru �ncarcare"
 
 msgid "Load Packages"
-msgstr "Încărcare pachete"
+msgstr "�ncarcare pachete"
 
 msgid "Packages (pick one or more)"
 msgstr "Pachete (unul sau mai multe)"
 
 msgid "You must select at least one package."
-msgstr "Trebuie selectat cel puţin un pachet"
+msgstr "Trebuie selectat cel putin un pachet"
 
 msgid "Packages loaded:"
-msgstr "Pachete încarcate:"
+msgstr "Pachete �ncarcate:"
 
 msgid "Index Plot"
 msgstr "Indexare grafic"
 
 msgid "You must select a variable"
-msgstr "Trebuie selectată o variabilă"
+msgstr "Trebuie selectata o variabila"
 
 msgid "Identify observations\nwith mouse"
-msgstr "Identificare observaţii\ncu mouse-ul"
+msgstr "Identificare observatii\ncu mouse-ul"
 
 msgid "Spikes"
-msgstr "Proiecţii verticale"
+msgstr "Proiectii verticale"
 
 msgid "Points"
 msgstr "Puncte"
 
 msgid "Histogram"
-msgstr "Histogramă"
+msgstr "Histograma"
 
 msgid "<auto>"
 msgstr "<auto>"
 
 msgid "Frequency counts"
-msgstr "Frecvenţe"
+msgstr "Frecvente"
 
 msgid "Percentages"
 msgstr "Procente"
 
 msgid "Densities"
-msgstr "Densităţi"
+msgstr "Densitati"
 
 msgid "Axis Scaling"
 msgstr "Scalare axe"
 
 msgid "Stem and Leaf Display"
-msgstr "Diagrama ramuri-şi-frunze"
+msgstr "Diagrama ramuri-si-frunze"
 
 msgid "Automatic"
 msgstr "Automatic"
 
 msgid "Parts Per Stem"
-msgstr "Părti per frunze"
+msgstr "Parti per frunze"
 
 msgid "Tukey"
 msgstr "Tukey"
@@ -953,19 +953,19 @@ msgid "Trim outliers"
 msgstr "Eliminare valori extreme"
 
 msgid "Show depths"
-msgstr "Afişare nivelur"
+msgstr "Afisare nivelur"
 
 msgid "Reverse negative leaves"
 msgstr "Reversare cifre negative de frunze"
 
 msgid "Leafs Digit:"
-msgstr "Număr de frunze:"
+msgstr "Numar de frunze:"
 
 msgid "or set:"
 msgstr "ori definire:"
 
 msgid "Options"
-msgstr "Opţiuni"
+msgstr "Optiuni"
 
 msgid "Boxplot"
 msgstr "Boxplot"
@@ -977,34 +977,34 @@ msgid "Scatterplot"
 msgstr "Nor de puncte"
 
 msgid "x-variable (pick one)"
-msgstr "Variabilă pe axa 0x"
+msgstr "Variabila pe axa 0x"
 
 msgid "y-variable (pick one)"
-msgstr "Variabilă pe axa 0y"
+msgstr "Variabila pe axa 0y"
 
 msgid "Identify points"
 msgstr "Identificare puncte"
 
 msgid "Jitter x-variable"
-msgstr "Decalaj aleator pe orizontală"
+msgstr "Decalaj aleator pe orizontala"
 
 msgid "Jitter y-variable"
-msgstr "Decalaj aleator pe verticală"
+msgstr "Decalaj aleator pe verticala"
 
 msgid "Marginal boxplots"
 msgstr "Boxplot-uri marginale"
 
 msgid "Least-squares line"
-msgstr "Linia celor mai mici pătrate"
+msgstr "Linia celor mai mici patrate"
 
 msgid "Smooth Line"
-msgstr "Linie de aproximare fină (smooth)"
+msgstr "Linie de aproximare fina (smooth)"
 
 msgid "You must select two variables"
-msgstr "Trebuie selectate două variabile"
+msgstr "Trebuie selectate doua variabile"
 
 msgid "x and y variables must be different"
-msgstr "Variabilele pe x şi pe y trebuie să fie diferite"
+msgstr "Variabilele pe x si pe y trebuie sa fie diferite"
 
 msgid "Span for smooth"
 msgstr "Grad de aproximare"
@@ -1016,13 +1016,13 @@ msgid "Select variables (three or more)"
 msgstr "Selectare variabile (trei sau mai multe)"
 
 msgid "Least-squares lines"
-msgstr "Linia celor mai mici pătrate"
+msgstr "Linia celor mai mici patrate"
 
 msgid "Smooth lines"
-msgstr "Linii de aproximare fină"
+msgstr "Linii de aproximare fina"
 
 msgid "Density plots"
-msgstr "Grafice de densităţi"
+msgstr "Grafice de densitati"
 
 msgid "Histograms"
 msgstr "Histograme"
@@ -1037,73 +1037,73 @@ msgid "Nothing (empty)"
 msgstr "Nimic (gol)"
 
 msgid "On Diagonal"
-msgstr "Pe diagonală"
+msgstr "Pe diagonala"
 
 msgid "Fewer than 3 variable selected."
 msgstr "Au fost selectate mai putin de 3 variabile"
 
 msgid "Bar Graph"
-msgstr "Diagramă bară"
+msgstr "Diagrama bara"
 
 msgid "Pie Chart"
-msgstr "Diagramă circulară"
+msgstr "Diagrama circulara"
 
 msgid "Line Plot"
-msgstr "Diagramă linie"
+msgstr "Diagrama linie"
 
 msgid "x variable (pick one)"
-msgstr "Variabilă pe axa 0x"
+msgstr "Variabila pe axa 0x"
 
 msgid "y variables (pick one or more)"
-msgstr "Variabilă pe axa 0y"
+msgstr "Variabila pe axa 0y"
 
 msgid "<use y-variable names>"
 msgstr "Utilizare nume variabile pe y"
 
 msgid "No x variable selected."
-msgstr "Nici o variabilă pe x selectată"
+msgstr "Nici o variabila pe x selectata"
 
 msgid "No y variables selected."
-msgstr "Nici o variabilă pe y selectată"
+msgstr "Nici o variabila pe y selectata"
 
 msgid "x and y variables must be different."
-msgstr "Variabilele pe x şi pe y trebuie să fie diferite"
+msgstr "Variabilele pe x si pe y trebuie sa fie diferite"
 
 msgid "x-values are not in order.\nContinue?"
 msgstr "Valorile pe x nu sunt ordonate.\nContinuare?"
 
 msgid "Label for y-axis"
-msgstr "Etichetă pentru axa y"
+msgstr "Eticheta pentru axa y"
 
 msgid "Plot legend (position with mouse click)"
-msgstr "Afişare legendă (poziţionare cu clic de mouse)"
+msgstr "Afisare legenda (pozitionare cu clic de mouse)"
 
 msgid "Quantile-Comparison (QQ) Plot"
 msgstr "Grafic QQ"
 
 msgid "df for t must be a positive number."
-msgstr "gl pentru t trebuie să fie un număr pozitiv"
+msgstr "gl pentru t trebuie sa fie un numar pozitiv"
 
 msgid "df for chi-square must be a positive number."
-msgstr "gl pentru chi-pătrat trebuie să fie un număr pozitiv"
+msgstr "gl pentru chi-patrat trebuie sa fie un numar pozitiv"
 
 msgid "numerator and denominator \ndf for F must be positive numbers."
-msgstr "gl de la numărător şi numitor\npentru F trebuie să fie numere pozitive"
+msgstr "gl de la numarator si numitor\npentru F trebuie sa fie numere pozitive"
 
 msgid "Identify observations with mouse"
-msgstr "Identificare observaţii cu mouse-ul"
+msgstr "Identificare observatii cu mouse-ul"
 
 msgid "Distribution"
-msgstr "Distribuţie"
+msgstr "Distributie"
 
 msgid "Normal"
-msgstr "Normală"
+msgstr "Normala"
 
 msgid "Chi-square"
-msgstr "Chi-pătrat"
+msgstr "Chi-patrat"
 
 msgid "Numerator df ="
-msgstr "gl pentru numărător ="
+msgstr "gl pentru numarator ="
 
 msgid "Denominator df ="
 msgstr "gl pentru numitor ="
@@ -1118,16 +1118,16 @@ msgid "Factors (pick one or two)"
 msgstr "Factori (unul sau doi)"
 
 msgid "Response Variable (pick one)"
-msgstr "Variabilă răspuns"
+msgstr "Variabila raspuns"
 
 msgid "No factors selected."
 msgstr "Nici un factor selectat."
 
 msgid "More than two factors selected."
-msgstr "Au fost selectaţi mai mult de doi factori."
+msgstr "Au fost selectati mai mult de doi factori."
 
 msgid "No response variable selected."
-msgstr "Nici o variabilă răspuns selectată."
+msgstr "Nici o variabila raspuns selectata."
 
 msgid "Error Bars"
 msgstr "Bare de erori"
@@ -1139,55 +1139,55 @@ msgid "Standard errors"
 msgstr "Erori standard"
 
 msgid "Standard deviations"
-msgstr "Deviaţii standard"
+msgstr "Deviatii standard"
 
 msgid "Confidence intervals"
-msgstr "Intervale de încredere"
+msgstr "Intervale de �ncredere"
 
 msgid "Level of confidence:"
-msgstr "Nivel de încredere"
+msgstr "Nivel de �ncredere"
 
 msgid "No error bars"
-msgstr "Fără bare de erori"
+msgstr "Fara bare de erori"
 
 msgid "3D Scatterplot"
 msgstr "Nor de puncte 3D"
 
 msgid "Explanatory variables (pick two)"
-msgstr "Variabile explicative (două)"
+msgstr "Variabile explicative (doua)"
 
 msgid "Response variable (pick one)"
-msgstr "Variabila răspuns\n(dependentă)"
+msgstr "Variabila raspuns\n(dependenta)"
 
 msgid "You must select a response variable."
-msgstr "Trebuie selectată o variailă răspuns."
+msgstr "Trebuie selectata o variaila raspuns."
 
 msgid "You must select 2 explanatory variables."
-msgstr "Trebuie selectate două variabile explicative."
+msgstr "Trebuie selectate doua variabile explicative."
 
 msgid "Response and explanatory variables must be different."
-msgstr "Variabila răspuns trebuie să fie diferită de cele explicative."
+msgstr "Variabila raspuns trebuie sa fie diferita de cele explicative."
 
 msgid "Parallel regression surfaces"
-msgstr "Suprafeţe de regresie paralele"
+msgstr "Suprafete de regresie paralele"
 
 msgid "Show surface grid lines"
-msgstr "Trasare grilă pe suprafaţa de regresie"
+msgstr "Trasare grila pe suprafata de regresie"
 
 msgid "Surfaces to Fit"
-msgstr "Suprafeţe de adecvare"
+msgstr "Suprafete de adecvare"
 
 msgid "Linear least-squares"
-msgstr "Cele mai mici pătrate liniare"
+msgstr "Cele mai mici patrate liniare"
 
 msgid "Quadratic least-squares"
-msgstr "Cele mai mici pătrate cvadratice"
+msgstr "Cele mai mici patrate cvadratice"
 
 msgid "Smooth regression"
-msgstr "Regresie cu aproximare fină"
+msgstr "Regresie cu aproximare fina"
 
 msgid "Additive regression"
-msgstr "Regresie aditivă"
+msgstr "Regresie aditiva"
 
 msgid "df(each term) ="
 msgstr "gl (fiecare termen) ="
@@ -1208,25 +1208,25 @@ msgid "There is no current graphics device to save."
 msgstr "Nu este nici un periferic grafic activ pentru a salva."
 
 msgid "Graphics File Type"
-msgstr "Tip de fiăier grafic"
+msgstr "Tip de fiaier grafic"
 
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişiere PNG\" {\".png\" \".PNG\"}} {\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Fisiere PNG\" {\".png\" \".PNG\"}} {\"Toate fisierele\" {\"*\"}}"
 
 msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişiere JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Fisiere JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Toate fisierele\" {\"*\"}}"
 
 msgid "Graph saved to file"
-msgstr "Grafic salvat în fişierul"
+msgstr "Grafic salvat �n fisierul"
 
 msgid "Width (pixels)"
-msgstr "Lăţime (pixeli)"
+msgstr "Latime (pixeli)"
 
 msgid "Height (pixels)"
-msgstr "Înălţime (pixeli)"
+msgstr "�naltime (pixeli)"
 
 msgid "Save Graph as PDF/Postscript"
-msgstr "Salvare grafic în format PDF/Postscript"
+msgstr "Salvare grafic �n format PDF/Postscript"
 
 msgid "PDF"
 msgstr "PDF"
@@ -1235,37 +1235,37 @@ msgid "Postscript"
 msgstr "Postscript"
 
 msgid "Encapsulated Postscript"
-msgstr "Postscript încapsulat (EPS)"
+msgstr "Postscript �ncapsulat (EPS)"
 
 msgid "{\"PDF Files\" {\".pdf\" \".PDF\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişiere PDF\" {\".pdf\" \".PDF\"}} {\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Fisiere PDF\" {\".pdf\" \".PDF\"}} {\"Toate fisierele\" {\"*\"}}"
 
 msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişiere Postscript\" {\".ps\" \".PS\"}} {\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Fisiere Postscript\" {\".ps\" \".PS\"}} {\"Toate fisierele\" {\"*\"}}"
 
 msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişiere Postscript incapsulat\" {\".eps\" \".EPS\"}} {\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Fisiere Postscript incapsulat\" {\".eps\" \".EPS\"}} {\"Toate fisierele\" {\"*\"}}"
 
 msgid "Width (inches)"
-msgstr "Lăţime (inch)"
+msgstr "Latime (inch)"
 
 msgid "Height (inches)"
-msgstr "Înălţime (inch)"
+msgstr "�naltime (inch)"
 
 msgid "Text size (points)"
-msgstr "Mărime text (puncte)"
+msgstr "Marime text (puncte)"
 
 msgid "There is no current RGL graphics device to save."
-msgstr "Nu există nici un periferic grafic RGL activ pentru a salva"
+msgstr "Nu exista nici un periferic grafic RGL activ pentru a salva"
 
 msgid "{\"PNG Bitmap Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişiere PNG Bitmap\" {\".png\" \".PNG\"}} {\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Fisiere PNG Bitmap\" {\".png\" \".PNG\"}} {\"Toate fisierele\" {\"*\"}}"
 
 msgid "There is only one model in memory."
-msgstr "Nu este decât un singur model în memorie"
+msgstr "Nu este dec�t un singur model �n memorie"
 
 msgid "There are no models from which to choose."
-msgstr "Nu există modele de selectat."
+msgstr "Nu exista modele de selectat."
 
 msgid "Select Model"
 msgstr "Selectare model"
@@ -1277,7 +1277,7 @@ msgid "There is no dataset associated with this model."
 msgstr "Nici un set de date nu este asociat cu acest model"
 
 msgid "The dataset associated with this model, %s, is not in memory."
-msgstr "Setul de date asociat cu acest model ,%s, nu este în memorie."
+msgstr "Setul de date asociat cu acest model ,%s, nu este �n memorie."
 
 msgid "Current Model:"
 msgstr "Model activ:"
@@ -1286,13 +1286,13 @@ msgid "Identify points with mouse?"
 msgstr "Identificare puncte cu mouse-ul?"
 
 msgid "There is no appropriate Anova method for a model of this class."
-msgstr "Nici o metodă ANOVA nu este potrivită pentru un model din această clasă."
+msgstr "Nici o metoda ANOVA nu este potrivita pentru un model din aceasta clasa."
 
 msgid "Observation statistics not available\nfor a model fit to a subset of the data."
-msgstr "Statisticile pentru observaţii nu sunt disponibile\npentru o adecvare de model cu un subset de date."
+msgstr "Statisticile pentru observatii nu sunt disponibile\npentru o adecvare de model cu un subset de date."
 
 msgid "Add Observation Statistics to Data"
-msgstr "Adaugare statistici de observaţii la date"
+msgstr "Adaugare statistici de observatii la date"
 
 msgid "Fitted values"
 msgstr "Valori calculate (fitted)"
@@ -1304,43 +1304,43 @@ msgid "Studentized residuals"
 msgstr "Reziduuri standardizate"
 
 msgid "Hat-values"
-msgstr "Valori estimate (cu căciuliţă)"
+msgstr "Valori estimate (cu caciulita)"
 
 msgid "Cook's distances"
-msgstr "Distanţe Cook"
+msgstr "Distante Cook"
 
 msgid "Observation indices"
-msgstr "Indici de observaţii"
+msgstr "Indici de observatii"
 
 msgid "Residual Quantile-Comparison Plot"
 msgstr "Grafic QQ pentru reziduuri"
 
 msgid "Simulated confidence envelope"
-msgstr "Curba de încredere simulată"
+msgstr "Curba de �ncredere simulata"
 
 msgid "Identify points with mouse"
 msgstr "Identificare puncte cu mouse-ul"
 
 msgid "Test Linear Hypothesis"
-msgstr "Testare asumpţie de liniaritate"
+msgstr "Testare asumptie de liniaritate"
 
 msgid "Number of valid entries in hypothesis matrix(%d)\nnot equal to number of rows (%d) * number of columns (%d)."
-msgstr "Numărul de intrări corecte în matricea de ipoteze (%d)\nnu este egal cu numărul de rânduri (%d) * numărul de coloane (%d)."
+msgstr "Numarul de intrari corecte �n matricea de ipoteze (%d)\nnu este egal cu numarul de r�nduri (%d) * numarul de coloane (%d)."
 
 msgid "Hypothesis matrix is not of full row rank."
-msgstr "Matricea de ipoteze nu are o linie de ranguri întreagă"
+msgstr "Matricea de ipoteze nu are o linie de ranguri �ntreaga"
 
 msgid "Number of valid entries in rhs vector (%d)\nis not equal to number of rows (%d)."
-msgstr "Numărul de intrări corecte în vectorul din partea dreaptă (%d)\nnu este egal cu numărul de rânduri (%d)."
+msgstr "Numarul de intrari corecte �n vectorul din partea dreapta (%d)\nnu este egal cu numarul de r�nduri (%d)."
 
 msgid "Number of Rows:"
-msgstr "Număr de rânduri:"
+msgstr "Numar de r�nduri:"
 
 msgid "Enter hypothesis matrix and right-hand side vector:"
-msgstr "Introducere matrice de ipoteze şi vector din partea dreaptă"
+msgstr "Introducere matrice de ipoteze si vector din partea dreapta"
 
 msgid "There are fewer than two models."
-msgstr "Mai puţin de două modele"
+msgstr "Mai putin de doua modele"
 
 msgid "Compare Models"
 msgstr "Comparare modele"
@@ -1352,16 +1352,16 @@ msgid "Second model (pick one)"
 msgstr "Al doilea model (unul)"
 
 msgid "You must select two models."
-msgstr "Trebuie selectate două modele"
+msgstr "Trebuie selectate doua modele"
 
 msgid "Models are not of the same class."
-msgstr "Modelele nu sunt din aceeaşi clasă."
+msgstr "Modelele nu sunt din aceeasi clasa."
 
 msgid "Breusch-Pagan Test"
 msgstr "Testul Breusch-Pagan"
 
 msgid "Score Test for Nonconstant Error Variance"
-msgstr "Test de scor pentru varianţa erorii nonconstante"
+msgstr "Test de scor pentru varianta erorii nonconstante"
 
 msgid "Studentized test statistic"
 msgstr "Test de statistici standardizate"
@@ -1370,16 +1370,16 @@ msgid "Explanatory variables"
 msgstr "Variabile explicative"
 
 msgid "Variance Formula"
-msgstr "Formula varianţei"
+msgstr "Formula variantei"
 
 msgid "Durbin-Waton Test"
 msgstr "Testul Durbin-Watson"
 
 msgid "Test for First-Order Error Autocorrelation"
-msgstr "Test de autocorelaţie de ordinul unu"
+msgstr "Test de autocorelatie de ordinul unu"
 
 msgid "Alternative Hypothesis"
-msgstr "Ipoteza alternativă"
+msgstr "Ipoteza alternativa"
 
 msgid "RESET Test"
 msgstr "Testul RESET"
@@ -1388,10 +1388,10 @@ msgid "Test for Nonlinearity"
 msgstr "Test de nonliniaritate"
 
 msgid "No powers are checked."
-msgstr "Nici o putere nu este verificată"
+msgstr "Nici o putere nu este verificata"
 
 msgid "First principal component"
-msgstr "Prima componentă principală"
+msgstr "Prima componenta principala"
 
 msgid "Type of Test"
 msgstr "Tip de test"
@@ -1400,25 +1400,25 @@ msgid "Powers to Include"
 msgstr "Puteri de inclus"
 
 msgid "2 (squares)"
-msgstr "2 (pătrat)"
+msgstr "2 (patrat)"
 
 msgid "3 (cubes)"
 msgstr "3 (cub)"
 
 msgid "There is no appropriate outlier.test method for a model of this class."
-msgstr "Nu există nici un 'outlier.test' potrivit pentru un model din această clasă."
+msgstr "Nu exista nici un 'outlier.test' potrivit pentru un model din aceasta clasa."
 
 msgid "Confidence Intervals"
-msgstr "Intervale de încredere"
+msgstr "Intervale de �ncredere"
 
 msgid "Confidence Intervals for Individual Coefficients"
-msgstr "Intervale de încredere pentru coeficienţi"
+msgstr "Intervale de �ncredere pentru coeficienti"
 
 msgid "Confidence level must be a number between 0 and 1."
-msgstr "Nivelul de încredere trebuie să fie un număr între 0 şi 1."
+msgstr "Nivelul de �ncredere trebuie sa fie un numar �ntre 0 si 1."
 
 msgid "Likelihood-ratio statistic"
-msgstr "Statistica raportului de verosimilităţi"
+msgstr "Statistica raportului de verosimilitati"
 
 msgid "Wald statistic"
 msgstr "Statistica Wald"
@@ -1427,28 +1427,28 @@ msgid "Test Based On"
 msgstr "Test bazat pe"
 
 msgid "Confidence Level:"
-msgstr "Nivel de încredere:"
+msgstr "Nivel de �ncredere:"
 
 msgid "Rcmdr Version"
 msgstr "Versiune Rcmdr"
 
 msgid "The tcltk package is absent. The R Commander cannot function."
-msgstr "Pachetul tcltk lipseşte. R Commander nu poate funcţiona."
+msgstr "Pachetul tcltk lipseste. R Commander nu poate functiona."
 
 msgid "R-Rcmdr"
 msgstr "R-Rcmdr"
 
 msgid "The following packages used by Rcmdr are missing:"
-msgstr "Următoarele pachete utilizate de Rcmdr lipsesc:"
+msgstr "Urmatoarele pachete utilizate de Rcmdr lipsesc:"
 
 msgid "Without these packages, some features will not be available."
-msgstr "Fără aceste pachete, anumite funcţii nu vor fi disponibile."
+msgstr "Fara aceste pachete, anumite functii nu vor fi disponibile."
 
 msgid "Install these packages?"
-msgstr "Instalăm aceste pachete?"
+msgstr "Instalam aceste pachete?"
 
 msgid "Install Missing Packages"
-msgstr "Instalare pachete lipsă"
+msgstr "Instalare pachete lipsa"
 
 msgid "Browse..."
 msgstr "Navigare..."
@@ -1460,10 +1460,10 @@ msgid "Specify package  \ndirectory:"
 msgstr "Specificare director\npachete"
 
 msgid "Local package directory\n(must include PACKAGES index file)"
-msgstr "Director local\n(trebuie să includă un fişier index)"
+msgstr "Director local\n(trebuie sa includa un fisier index)"
 
 msgid "The following packages were not found at the specified location:"
-msgstr "Următoarele pachete nu au fost găsite în locul specificat:"
+msgstr "Urmatoarele pachete nu au fost gasite �n locul specificat:"
 
 msgid "Cancel"
 msgstr "Anulare"
@@ -1472,43 +1472,43 @@ msgid "Help"
 msgstr "Ajutor"
 
 msgid "Scale Reliability"
-msgstr "Fidelitate de scală"
+msgstr "Fidelitate de scala"
 
 msgid "Variables (pick three or more)"
 msgstr "Variabile (trei sau mai multe)"
 
 msgid "Fewer than 3 variables selected."
-msgstr "Mai puţin de 3 variabile selectate"
+msgstr "Mai putin de 3 variabile selectate"
 
 msgid "Principal Components Analysis"
-msgstr "Analiza în componente principale"
+msgstr "Analiza �n componente principale"
 
 msgid "Variables (pick two or more)"
-msgstr "Variabile (două sau mai multe)"
+msgstr "Variabile (doua sau mai multe)"
 
 msgid "Analyze correlation matrix"
-msgstr "Analizare matrice de corelaţii"
+msgstr "Analizare matrice de corelatii"
 
 msgid "Screeplot"
-msgstr "Testul grohotişului (Screeplot)"
+msgstr "Testul grohotisului (Screeplot)"
 
 msgid "Add principal components to data set"
-msgstr "Adăugare C.P. la setul de date"
+msgstr "Adaugare C.P. la setul de date"
 
 msgid "Fewer than 2 variables selected."
-msgstr "Mai puţin de 2 variabile selectate"
+msgstr "Mai putin de 2 variabile selectate"
 
 msgid "Number of Components"
-msgstr "Număr de componente"
+msgstr "Numar de componente"
 
 msgid "Number of components to retain:"
-msgstr "Număr de componente de reţinut:"
+msgstr "Numar de componente de retinut:"
 
 msgid "Factor Analysis"
-msgstr "Analiza factorială"
+msgstr "Analiza factoriala"
 
 msgid "None"
-msgstr "Fără"
+msgstr "Fara"
 
 msgid "Varimax"
 msgstr "Varimax"
@@ -1529,13 +1529,13 @@ msgid "Factor Scores"
 msgstr "Scoruri factori"
 
 msgid "Number of Factors"
-msgstr "Număr de factori"
+msgstr "Numar de factori"
 
 msgid "Number of factors to extract:"
-msgstr "Număr de factori de extras:"
+msgstr "Numar de factori de extras:"
 
 msgid "Independent Samples t-Test"
-msgstr "Testul t pentru eşantioane independente"
+msgstr "Testul t pentru esantioane independente"
 
 msgid "Groups (pick one)"
 msgstr "Factor de grupare"
@@ -1544,13 +1544,13 @@ msgid "You must select a groups variable."
 msgstr "Trebuie selectat un factor de grupare."
 
 msgid "Two-sided"
-msgstr "Diferenţa != 0"
+msgstr "Diferenta != 0"
 
 msgid "Difference < 0"
-msgstr "Diferenţa < 0"
+msgstr "Diferenta < 0"
 
 msgid "Difference > 0"
-msgstr "Diferenţa > 0"
+msgstr "Diferenta > 0"
 
 msgid "Yes"
 msgstr "Da"
@@ -1559,70 +1559,70 @@ msgid "No"
 msgstr "Nu"
 
 msgid "Assume equal variances?"
-msgstr "Asumare egalitate varianţe?"
+msgstr "Asumare egalitate variante?"
 
 msgid "Confidence Level"
-msgstr "Nivel de încredere"
+msgstr "Nivel de �ncredere"
 
 msgid "Paired t-Test"
-msgstr "Testul t pentru eşantioane perechi"
+msgstr "Testul t pentru esantioane perechi"
 
 msgid "First variable (pick one)"
-msgstr "Prima variabilă"
+msgstr "Prima variabila"
 
 msgid "Second variable (pick one)"
-msgstr "A doua variabilă"
+msgstr "A doua variabila"
 
 msgid "You must select two variables."
-msgstr "Trebuie selectate două variabile"
+msgstr "Trebuie selectate doua variabile"
 
 msgid "Variables must be different."
-msgstr "Variabilele trebuie să fie diferite"
+msgstr "Variabilele trebuie sa fie diferite"
 
 msgid "Single-Sample t-Test"
-msgstr "Testul t pentru un singur eşantion"
+msgstr "Testul t pentru un singur esantion"
 
 msgid "Population mean = mu0"
-msgstr "Media în populaţie = mu0"
+msgstr "Media �n populatie = mu0"
 
 msgid "Population mean < mu0"
-msgstr "Media în populaţie < mu0"
+msgstr "Media �n populatie < mu0"
 
 msgid "Population mean > mu0"
-msgstr "Media în populaţie > mu0"
+msgstr "Media �n populatie > mu0"
 
 msgid "Null hypothesis: mu ="
 msgstr "Ipoteza de nul: mu="
 
 msgid "One-Way Analysis of Variance"
-msgstr "ANOVA uni-factorială"
+msgstr "ANOVA uni-factoriala"
 
 msgid "You must select a groups factor."
 msgstr "Trebuie selectat un factor de grupare"
 
 msgid "Factor has fewer than 3 levels; pairwise comparisons omitted."
-msgstr "Factorul are mai puţin de 3 grupuri; comparaţiile pe perechi vor fi omise"
+msgstr "Factorul are mai putin de 3 grupuri; comparatiile pe perechi vor fi omise"
 
 msgid "Pairwise comparisons of means"
-msgstr "Comparaţii pe perechi a mediilor"
+msgstr "Comparatii pe perechi a mediilor"
 
 msgid "Multi-Way Analysis of Variance"
-msgstr "ANOVA multi-factorială"
+msgstr "ANOVA multi-factoriala"
 
 msgid "Factors (pick one or more)"
-msgstr "Factori (unul sau mai mulţi)"
+msgstr "Factori (unul sau mai multi)"
 
 msgid "You must select at least one factor."
-msgstr "Trebuie selectat cel puţin un factor"
+msgstr "Trebuie selectat cel putin un factor"
 
 msgid "Linear Regression"
-msgstr "Regresie liniară"
+msgstr "Regresie liniara"
 
 msgid "Explanatory variables (pick one or more)"
 msgstr "Variabile explicative\n(independente)"
 
 msgid "No explanatory variables selected."
-msgstr "Nici o variabila explicativă selectată"
+msgstr "Nici o variabila explicativa selectata"
 
 msgid "\"%s\" is not a valid name."
 msgstr "\"%s\" nu este un nume corect."
@@ -1637,10 +1637,10 @@ msgid "Linear Model"
 msgstr "Model liniar"
 
 msgid "Left-hand side of model empty."
-msgstr "Partea din stânga a modelului este goală"
+msgstr "Partea din st�nga a modelului este goala"
 
 msgid "Right-hand side of model empty."
-msgstr "Partea din dreapta a modelului este goală"
+msgstr "Partea din dreapta a modelului este goala"
 
 msgid "Generalized Linear Model"
 msgstr "Model liniar generalizat"
@@ -1649,19 +1649,19 @@ msgid "Family (double-click to select)"
 msgstr "Familie (dublu-clic pentru selectare)"
 
 msgid "Link function"
-msgstr "Funcţie de legătură"
+msgstr "Functie de legatura"
 
 msgid "Proportional-Odds Logit Model"
 msgstr "Model logit"
 
 msgid "Response variable must be a factor"
-msgstr "Variabila dependentă trebuie să fie un factor"
+msgstr "Variabila dependenta trebuie sa fie un factor"
 
 msgid "Multinomial Logit Model"
 msgstr "Model logit multinomial"
 
 msgid "Two-Sample Wilcoxon Test"
-msgstr "Testul Wilcoxon pentru două eşantioane"
+msgstr "Testul Wilcoxon pentru doua esantioane"
 
 msgid "Default"
 msgstr "Predefinit"
@@ -1670,31 +1670,31 @@ msgid "Exact"
 msgstr "Exact"
 
 msgid "Normal approximation"
-msgstr "Aproximare normală"
+msgstr "Aproximare normala"
 
 msgid "Normal approximation with\ncontinuity correction"
-msgstr "Aproximare normală cu\ncorecţie de continuitate"
+msgstr "Aproximare normala cu\ncorectie de continuitate"
 
 msgid "Paired Wilcoxon Test"
-msgstr "Testul Wilcoxon pentru eşantioane perechi"
+msgstr "Testul Wilcoxon pentru esantioane perechi"
 
 msgid "The two variables must be different."
-msgstr "Cele două variabile trebuie să fie diferite."
+msgstr "Cele doua variabile trebuie sa fie diferite."
 
 msgid "Kruskal-Wallis Rank Sum Test"
 msgstr "Testul Kruskal-Wallis"
 
 msgid "Single-Sample Proportion Test"
-msgstr "Testul de proporţii univariat"
+msgstr "Testul de proportii univariat"
 
 msgid "Population proportion = p0"
-msgstr "Proporţia în populaţie = p0"
+msgstr "Proportia �n populatie = p0"
 
 msgid "Population proportion < p0"
-msgstr "Proporţia în populaţie < p0"
+msgstr "Proportia �n populatie < p0"
 
 msgid "Population proportion > p0"
-msgstr "Proporţia în populaţie > p0"
+msgstr "Proportia �n populatie > p0"
 
 msgid "Exact binomial"
 msgstr "Testul binomial exact"
@@ -1703,19 +1703,19 @@ msgid "Null hypothesis: p ="
 msgstr "Ipoteza de nul: p ="
 
 msgid "Two-Sample Proportions Test"
-msgstr "Testul de proporţii bivariat"
+msgstr "Testul de proportii bivariat"
 
 msgid "Groups and response variables must be different."
-msgstr "Factorul de grupare şi variabila răspuns trebuie să fie diferite."
+msgstr "Factorul de grupare si variabila raspuns trebuie sa fie diferite."
 
 msgid "There are %d variables in the data set %s.\nDo you want to proceed?"
-msgstr "Există %d variabile în setul de date %s.\nContinuare?"
+msgstr "Exista %d variabile �n setul de date %s.\nContinuare?"
 
 msgid "Numerical Summaries"
 msgstr "Descriptive"
 
 msgid "Standard Deviation"
-msgstr "Deviaţie standard"
+msgstr "Deviatie standard"
 
 msgid "Summarize by:"
 msgstr "Sumarizare prin:"
@@ -1730,43 +1730,43 @@ msgid "quantiles:"
 msgstr "quantile:"
 
 msgid "Frequency Distribution"
-msgstr "Distribuţie de frecvenţe"
+msgstr "Distributie de frecvente"
 
 msgid "Goodness-of-Fit Test"
 msgstr "Test de adecvare"
 
 msgid "Invalid entry."
-msgstr "Intrare incorectă."
+msgstr "Intrare incorecta."
 
 msgid "Missing entry."
-msgstr "Intrare lipsă."
+msgstr "Intrare lipsa."
 
 msgid "Number of valid entries (%d)\nnot equal to number levels (%d)."
-msgstr "Numărul de intrări corecte (%d)\nnu este egal cu numărul de grupuri (%d)."
+msgstr "Numarul de intrari corecte (%d)\nnu este egal cu numarul de grupuri (%d)."
 
 msgid "Negative probabilities not allowed."
-msgstr "Probabilităţile negative nu au sens."
+msgstr "Probabilitatile negative nu au sens."
 
 msgid "Probabilities rescaled to sum to 1."
-msgstr "Probabilităţile au fost rescalate pentru a totaliza 1"
+msgstr "Probabilitatile au fost rescalate pentru a totaliza 1"
 
 msgid "Chi-square goodness-of-fit test"
-msgstr "Testul chi-pătrat de adecvare"
+msgstr "Testul chi-patrat de adecvare"
 
 msgid "Table of Statistics"
 msgstr "Tabel de statistici"
 
 msgid "Median"
-msgstr "Mediană"
+msgstr "Mediana"
 
 msgid "Standard deviation"
-msgstr "Deviaţie standard"
+msgstr "Deviatie standard"
 
 msgid "Statistic"
-msgstr "Statistică"
+msgstr "Statistica"
 
 msgid "Correlation Matrix"
-msgstr "Matrice de corelaţii"
+msgstr "Matrice de corelatii"
 
 msgid "Pearson product-moment"
 msgstr "Pearson"
@@ -1775,31 +1775,31 @@ msgid "Spearman rank-order"
 msgstr "Spearman"
 
 msgid "Partial"
-msgstr "Parţială"
+msgstr "Partiala"
 
 msgid "Type of Correlations"
-msgstr "Tip de corelaţie"
+msgstr "Tip de corelatie"
 
 msgid "Fewer than 3 variables selected\nfor partial correlations."
-msgstr "Mai putin de 3 variabile selectate\npentru corelaţii parţiale"
+msgstr "Mai putin de 3 variabile selectate\npentru corelatii partiale"
 
 msgid "Two-Way Table"
-msgstr "Tabel de contingenţă cu dublă intrare"
+msgstr "Tabel de contingenta cu dubla intrare"
 
 msgid "Row variable (pick one)"
-msgstr "Pe rânduri:"
+msgstr "Pe r�nduri:"
 
 msgid "Column variable (pick one)"
 msgstr "Pe coloane:"
 
 msgid "Row and column variables are the same."
-msgstr "Variabila de pe rânduri e aceeaşi cu cea de pe coloane."
+msgstr "Variabila de pe r�nduri e aceeasi cu cea de pe coloane."
 
 msgid "expected frequencies are less than 1"
-msgstr "frecvenţele aşteptate sunt mai mici decât 1"
+msgstr "frecventele asteptate sunt mai mici dec�t 1"
 
 msgid "expected frequencies are less than 5"
-msgstr "frecvenţele aşteptate sunt mai mici decât 5"
+msgstr "frecventele asteptate sunt mai mici dec�t 5"
 
 msgid "Row percentages"
 msgstr "Procente pe linii"
@@ -1808,16 +1808,16 @@ msgid "Column percentages"
 msgstr "Procente pe coloane"
 
 msgid "No percentages"
-msgstr "Fără procente"
+msgstr "Fara procente"
 
 msgid "Compute Percentages"
 msgstr "Calculare procente"
 
 msgid "Chi-square test of independence"
-msgstr "Testul chi-pătrat de independenţă"
+msgstr "Testul chi-patrat de independenta"
 
 msgid "Print expected frequencies"
-msgstr "Afişare frecvenţe aşteptate"
+msgstr "Afisare frecvente asteptate"
 
 msgid "Fisher's exact test"
 msgstr "Testul exact al lui Fisher"
@@ -1826,37 +1826,37 @@ msgid "Hypothesis Tests"
 msgstr "Testare ipoteze"
 
 msgid "Multi-Way Table"
-msgstr "Tabel de contingenţă cu intrări multiple"
+msgstr "Tabel de contingenta cu intrari multiple"
 
 msgid "Control variable(s) (pick one or more)"
 msgstr "Variabile de control (una sau mai multe)"
 
 msgid "You must select row, column, and control variables"
-msgstr "Trebuie selectate variabilele pe rânduri, coloane şi de control."
+msgstr "Trebuie selectate variabilele pe r�nduri, coloane si de control."
 
 msgid "Row, column, and control variables must be different."
-msgstr "Variabilele pe rânduri, coloane şi de control trebuie să fie diferite."
+msgstr "Variabilele pe r�nduri, coloane si de control trebuie sa fie diferite."
 
 msgid "Enter Two-Way Table"
-msgstr "Umplere tabel cu dublă intrare"
+msgstr "Umplere tabel cu dubla intrare"
 
 msgid "Number of valid entries (%d)\nnot equal to number of rows (%d) * number of columns (%d)."
-msgstr "Numărul de intrări corecte (%d)\nnu este egal cu numărul de rânduri (%d) * numărul de coloane (%d)."
+msgstr "Numarul de intrari corecte (%d)\nnu este egal cu numarul de r�nduri (%d) * numarul de coloane (%d)."
 
 msgid "Row names are not unique."
-msgstr "Numele rândurilor nu sunt unice."
+msgstr "Numele r�ndurilor nu sunt unice."
 
 msgid "Column names are not unique."
 msgstr "Numele coloanelor nu sunt unice"
 
 msgid "Number of Columns:"
-msgstr "Număr de coloane"
+msgstr "Numar de coloane"
 
 msgid "Enter counts:"
 msgstr "Introducere numere:"
 
 msgid "Two Variances F-Test"
-msgstr "Testul F pentru două varianţe"
+msgstr "Testul F pentru doua variante"
 
 msgid "Bartlett's Test"
 msgstr "Testul Bartlett"
@@ -1865,46 +1865,46 @@ msgid "Levene's Test"
 msgstr "Testul Levene"
 
 msgid "There is no active data set."
-msgstr "Nu există nici un set de date activ."
+msgstr "Nu exista nici un set de date activ."
 
 msgid "is not a data frame and cannot be attached."
-msgstr "nu este un set de date deci nu poate fi ataşat."
+msgstr "nu este un set de date deci nu poate fi atasat."
 
 msgid "The dataset %s has %d rows and %d columns."
-msgstr "Setul de date %s are %d rânduri şi %d coloane."
+msgstr "Setul de date %s are %d r�nduri si %d coloane."
 
 msgid "There is no active model."
-msgstr "Nu există nici un model activ."
+msgstr "Nu exista nici un model activ."
 
 msgid "argument must be a square, symmetric, numeric covariance matrix"
-msgstr "argumentul trebuie să fie o matrice de covariatie pătrată şi simetrică"
+msgstr "argumentul trebuie sa fie o matrice de covariatie patrata si simetrica"
 
 msgid "there are fewer than 3 items in the scale"
-msgstr "mai putin de 3 itemi în scală"
+msgstr "mai putin de 3 itemi �n scala"
 
 msgid "Argument response must be numeric."
-msgstr "Argumentul 'răspuns' trebuie să fie numeric."
+msgstr "Argumentul 'raspuns' trebuie sa fie numeric."
 
 msgid "Argument factor1 must be a factor."
-msgstr "Argumentul 'factor1' trebuie să fie un factor."
+msgstr "Argumentul 'factor1' trebuie sa fie un factor."
 
 msgid "Arguments factor1 and factor2 must be factors."
-msgstr "Argumentele 'factor1' şi 'factor2' trebuie să fie factori."
+msgstr "Argumentele 'factor1' si 'factor2' trebuie sa fie factori."
 
 msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
-msgstr "Numărul de grupuri pentru factor2, %d, depăşeşte numărul de culori distincte, %d."
+msgstr "Numarul de grupuri pentru factor2, %d, depaseste numarul de culori distincte, %d."
 
 msgid "The number of bins exceeds the number of data values"
-msgstr "Numărul de grupuri depăşeşte numărul de valori din date"
+msgstr "Numarul de grupuri depaseste numarul de valori din date"
 
 msgid "Number of groups (%d) exceeds number of colors (%d)."
-msgstr "Numărul de grupuri (%d) depăşeşte numărul de culori (%d)."
+msgstr "Numarul de grupuri (%d) depaseste numarul de culori (%d)."
 
 msgid "groups variable must be a factor."
-msgstr "Variabila de grupare trebuie să fie un factor."
+msgstr "Variabila de grupare trebuie sa fie un factor."
 
 msgid "cannot plot both multiple surfaces and residuals"
-msgstr "nu se pot trasa suprafeţe multiple şi reziduuri în acelaşi timp"
+msgstr "nu se pot trasa suprafete multiple si reziduuri �n acelasi timp"
 
 msgid "not supplied"
 msgstr "nu este furnizat"
@@ -1913,31 +1913,31 @@ msgid "OK"
 msgstr "OK"
 
 msgid "There fewer than %d factors in the active data set."
-msgstr "Mai puţin de %d factori în setul de date activ."
+msgstr "Mai putin de %d factori �n setul de date activ."
 
 msgid "There are no factors in the active data set."
-msgstr "Nu există factori în setul de date activ"
+msgstr "Nu exista factori �n setul de date activ"
 
 msgid "There fewer than %d two-level factors in the active data set."
-msgstr "Mai puţin de %d factori cu două grupuri în setul de date activ."
+msgstr "Mai putin de %d factori cu doua grupuri �n setul de date activ."
 
 msgid "There are no two-level factors in the active data set."
-msgstr "Nu există factori cu două niveluri în setul de date activ."
+msgstr "Nu exista factori cu doua niveluri �n setul de date activ."
 
 msgid "There fewer than %d numeric variables in the active data set."
-msgstr "Mai puţin de %d variabile numerice în setul de date activ."
+msgstr "Mai putin de %d variabile numerice �n setul de date activ."
 
 msgid "There are no numeric variables in the active data set."
-msgstr "Nu există variabile numerice în setul de date activ."
+msgstr "Nu exista variabile numerice �n setul de date activ."
 
 msgid "There fewer than %d variables in the active data set."
-msgstr "Mai puţin de %d variabile în setul de date activ."
+msgstr "Mai putin de %d variabile �n setul de date activ."
 
 msgid "There are no variables in the active data set."
-msgstr "Nu există variabile în setul de date activ."
+msgstr "Nu exista variabile �n setul de date activ."
 
 msgid "%s %s already exists.\nOverwrite %s?"
-msgstr "%s %s există deja.\nÎnlocuire %s?"
+msgstr "%s %s exista deja.\n�nlocuire %s?"
 
 msgid "Plot by:"
 msgstr "Grafic prin:"
@@ -1949,31 +1949,31 @@ msgid "Plot lines by group"
 msgstr "Linii pe grup"
 
 msgid "There no factors in the active data set."
-msgstr "Nu există factori în setul de date activ."
+msgstr "Nu exista factori �n setul de date activ."
 
 msgid "Groups"
 msgstr "Grupuri"
 
 msgid "Groups variable (pick one)"
-msgstr "Variabilă de grupare"
+msgstr "Variabila de grupare"
 
 msgid "Position legend with mouse click"
-msgstr "Poziţionare legendă cu clic de mouse."
+msgstr "Pozitionare legenda cu clic de mouse."
 
 msgid "<No groups selected>"
 msgstr "<Nici un grup selectat>"
 
 msgid "Difference:"
-msgstr "Diferenţă:"
+msgstr "Diferenta:"
 
 msgid "Variables (double-click to formula)"
-msgstr "Variabile (dublu-clic către formulă)"
+msgstr "Variabile (dublu-clic catre formula)"
 
 msgid "Model Formula:"
-msgstr "Formulă model:"
+msgstr "Formula model:"
 
 msgid "No appropriate %s method exists\nfor a model of this class."
-msgstr "Nu există nici o metodă %s potrivită\npentru un model din această clasă."
+msgstr "Nu exista nici o metoda %s potrivita\npentru un model din aceasta clasa."
 
 msgid "The model is not of class \"%s\"."
 msgstr "Modelul nu face parte din clasa \"%s\"."
@@ -1994,22 +1994,22 @@ msgid "Save output as..."
 msgstr "Salvare output ca..."
 
 msgid "Save R workspace..."
-msgstr "Salvare spaţiu de lucru R..."
+msgstr "Salvare spatiu de lucru R..."
 
 msgid "Save R workspace as..."
-msgstr "Salvare spaţiu de lucru R ca..."
+msgstr "Salvare spatiu de lucru R ca..."
 
 msgid "From Commander"
 msgstr "Din Commander"
 
 msgid "From Commander and R"
-msgstr "Din Commander şi din R"
+msgstr "Din Commander si din R"
 
 msgid "Exit"
-msgstr "Ieşire"
+msgstr "Iesire"
 
 msgid "File"
-msgstr "Fişier"
+msgstr "Fisier"
 
 msgid "Edit"
 msgstr "Editare"
@@ -2018,7 +2018,7 @@ msgid "New data set..."
 msgstr "Set de date nou..."
 
 msgid "from text file..."
-msgstr "din fişier text..."
+msgstr "din fisier text..."
 
 msgid "from SPSS data set..."
 msgstr "din set de date SPSS..."
@@ -2033,25 +2033,25 @@ msgid "Import data"
 msgstr "Importare date"
 
 msgid "List data sets in packages"
-msgstr "Afişare seturi de date din pachete"
+msgstr "Afisare seturi de date din pachete"
 
 msgid "Read data set from an attached package..."
-msgstr "Citire date dintr-un pachet ataşat..."
+msgstr "Citire date dintr-un pachet atasat..."
 
 msgid "Data in packages"
-msgstr "Date în pachete"
+msgstr "Date �n pachete"
 
 msgid "Select active data set..."
 msgstr "Selectare set de date activ..."
 
 msgid "Help on active data set (if available)"
-msgstr "Ajutor la setul de date activ (dacă există)"
+msgstr "Ajutor la setul de date activ (daca exista)"
 
 msgid "Variables in active data set"
-msgstr "Variabile în setul de date activ"
+msgstr "Variabile �n setul de date activ"
 
 msgid "Set case names..."
-msgstr "Nume de cazuri (rânduri)..."
+msgstr "Nume de cazuri (r�nduri)..."
 
 msgid "Subset active data set..."
 msgstr "Extragere subset de date..."
@@ -2066,19 +2066,19 @@ msgid "Active data set"
 msgstr "Set de date activ"
 
 msgid "Recode variable..."
-msgstr "Recodificare variabilă..."
+msgstr "Recodificare variabila..."
 
 msgid "Compute new variable..."
-msgstr "Calcul variabilă nouă..."
+msgstr "Calcul variabila noua..."
 
 msgid "Standardize variables..."
-msgstr "Standardizare variabilă..."
+msgstr "Standardizare variabila..."
 
 msgid "Convert numeric variable to factor..."
-msgstr "Transformare variabilă numerică în factor..."
+msgstr "Transformare variabila numerica �n factor..."
 
 msgid "Bin numeric variable..."
-msgstr "Împărţire variabilă numerică în clase..."
+msgstr "�mpartire variabila numerica �n clase..."
 
 msgid "Reorder factor levels..."
 msgstr "Reordonare categorii..."
@@ -2090,10 +2090,10 @@ msgid "Rename variables..."
 msgstr "Redenumire variabile..."
 
 msgid "Delete variables from data set ..."
-msgstr "Ştergere variabile din setul de date..."
+msgstr "Stergere variabile din setul de date..."
 
 msgid "Manage variables in active data set"
-msgstr "Operaţiuni variabile"
+msgstr "Operatiuni variabile"
 
 msgid "Data"
 msgstr "Date"
@@ -2102,46 +2102,46 @@ msgid "Numerical summaries..."
 msgstr "Descriptive..."
 
 msgid "Frequency distribution..."
-msgstr "Frecvenţe şi proporţii..."
+msgstr "Frecvente si proportii..."
 
 msgid "Table of statistics..."
 msgstr "Tabel de statistici..."
 
 msgid "Correlation matrix..."
-msgstr "Matrice de corelaţii..."
+msgstr "Matrice de corelatii..."
 
 msgid "Two-way table..."
-msgstr "Tabel cu dublă intrare..."
+msgstr "Tabel cu dubla intrare..."
 
 msgid "Multi-way table..."
-msgstr "Tabel cu intrare multiplă..."
+msgstr "Tabel cu intrare multipla..."
 
 msgid "Enter and analyze two-way table..."
-msgstr "Umplere şi analizare tabel cu dublă intrare..."
+msgstr "Umplere si analizare tabel cu dubla intrare..."
 
 msgid "Single-sample t-test..."
-msgstr "Testul t pentru un singur eşantion..."
+msgstr "Testul t pentru un singur esantion..."
 
 msgid "Independent samples t-test..."
-msgstr "Testul t pentru eşantioane independente..."
+msgstr "Testul t pentru esantioane independente..."
 
 msgid "Paired t-test..."
-msgstr "Testul t pentru eşantioane perechi..."
+msgstr "Testul t pentru esantioane perechi..."
 
 msgid "One-way ANOVA..."
-msgstr "ANOVA uni-factorială..."
+msgstr "ANOVA uni-factoriala..."
 
 msgid "Multi-way ANOVA..."
-msgstr "ANOVA multi-factorială..."
+msgstr "ANOVA multi-factoriala..."
 
 msgid "Single-sample proportion test..."
-msgstr "Test de proporţii univariat..."
+msgstr "Test de proportii univariat..."
 
 msgid "Two-sample proportions test..."
-msgstr "Test de proporţii bivariat..."
+msgstr "Test de proportii bivariat..."
 
 msgid "Two-variances F-test..."
-msgstr "Testul F pentru două varianţe..."
+msgstr "Testul F pentru doua variante..."
 
 msgid "Bartlett's test..."
 msgstr "Testul Bartlett..."
@@ -2153,37 +2153,37 @@ msgid "Two-sample Wilcoxon test..."
 msgstr "Testul Wilcoxon..."
 
 msgid "Paired-samples Wilcoxon test..."
-msgstr "Testul Wilcoxon pentru eşantioane perechi..."
+msgstr "Testul Wilcoxon pentru esantioane perechi..."
 
 msgid "Kruskal-Wallis test..."
 msgstr "Testul Kruskal-Wallis"
 
 msgid "Scale reliability..."
-msgstr "Fidelitate de scală..."
+msgstr "Fidelitate de scala..."
 
 msgid "Principal-components analysis..."
-msgstr "Analiza în componente principale..."
+msgstr "Analiza �n componente principale..."
 
 msgid "Factor analysis..."
-msgstr "Analiza factorială..."
+msgstr "Analiza factoriala..."
 
 msgid "k-means cluster analysis..."
 msgstr "Clasificare k-means (analiza cluster)"
 
 msgid "Hierarchical cluster analysis..."
-msgstr "Clasificare ierarhică..."
+msgstr "Clasificare ierarhica..."
 
 msgid "Summarize hierarchical clustering..."
-msgstr "Sumarizare clasificare ierarhică..."
+msgstr "Sumarizare clasificare ierarhica..."
 
 msgid "Add hierarchical clustering to data set..."
-msgstr "Adaugare clasificare ierarhică la setul de date..."
+msgstr "Adaugare clasificare ierarhica la setul de date..."
 
 msgid "Cluster analysis"
 msgstr "Analiza de clasificare (cluster)"
 
 msgid "Linear regression..."
-msgstr "Regresie liniară..."
+msgstr "Regresie liniara..."
 
 msgid "Linear model..."
 msgstr "Model liniar..."
@@ -2201,25 +2201,25 @@ msgid "Statistics"
 msgstr "Statistici"
 
 msgid "Summaries"
-msgstr "Sumarizări"
+msgstr "Sumarizari"
 
 msgid "Contingency tables"
-msgstr "Tabele de contingenţă"
+msgstr "Tabele de contingenta"
 
 msgid "Means"
 msgstr "Medii"
 
 msgid "Proportions"
-msgstr "Proporţii"
+msgstr "Proportii"
 
 msgid "Variances"
-msgstr "Varianţe"
+msgstr "Variante"
 
 msgid "Nonparametric tests"
 msgstr "Teste nonparametrice"
 
 msgid "Dimensional analysis"
-msgstr "Analiza dimensională"
+msgstr "Analiza dimensionala"
 
 msgid "Fit models"
 msgstr "Adecvare (fit) modele"
@@ -2228,16 +2228,16 @@ msgid "Index plot..."
 msgstr "Grafic index..."
 
 msgid "Histogram..."
-msgstr "Histogramă..."
+msgstr "Histograma..."
 
 msgid "Stem-and-leaf display..."
-msgstr "Diagramă ramură-şi-frunze..."
+msgstr "Diagrama ramura-si-frunze..."
 
 msgid "Boxplot..."
 msgstr "Boxplot..."
 
 msgid "Quantile-comparison plot..."
-msgstr "Grafic quantilă-quantilă (QQ)..."
+msgstr "Grafic quantila-quantila (QQ)..."
 
 msgid "Scatterplot..."
 msgstr "Nor de puncte..."
@@ -2255,10 +2255,10 @@ msgid "Plot of means..."
 msgstr "Grafic de medii"
 
 msgid "Bar graph..."
-msgstr "Diagramă bară..."
+msgstr "Diagrama bara..."
 
 msgid "Pie chart..."
-msgstr "Diagramă circulară..."
+msgstr "Diagrama circulara..."
 
 msgid "as bitmap..."
 msgstr "ca bitmap..."
@@ -2270,7 +2270,7 @@ msgid "3D RGL graph..."
 msgstr "Grafic 3D RGL..."
 
 msgid "Save graph to file"
-msgstr "Salvare grafic în fişier"
+msgstr "Salvare grafic �n fisier"
 
 msgid "Graphs"
 msgstr "Grafice"
@@ -2282,10 +2282,10 @@ msgid "Summarize model"
 msgstr "Sumarizare model"
 
 msgid "Add observation statistics to data..."
-msgstr "Adăugare statistici de observaţii la date..."
+msgstr "Adaugare statistici de observatii la date..."
 
 msgid "Confidence intervals..."
-msgstr "Intervale de încredere..."
+msgstr "Intervale de �ncredere..."
 
 msgid "Hypothesis tests"
 msgstr "Teste de ipoteze"
@@ -2294,22 +2294,22 @@ msgid "ANOVA table"
 msgstr "Tabel ANOVA"
 
 msgid "Compare two models..."
-msgstr "Comparare două modele..."
+msgstr "Comparare doua modele..."
 
 msgid "Linear hypothesis..."
-msgstr "Ipoteză liniară..."
+msgstr "Ipoteza liniara..."
 
 msgid "Numerical diagnostics"
 msgstr "Diagnoze numerice"
 
 msgid "Variance-inflation factors"
-msgstr "Factori de inflaţie a varianţei (VIF)"
+msgstr "Factori de inflatie a variantei (VIF)"
 
 msgid "Breusch-Pagan test for heteroscedasticity..."
 msgstr "Testul Breusch-Pagan pentru heteroscedasticitate..."
 
 msgid "Durbin-Watson test for autocorrelation..."
-msgstr "Testul Durbin-Watson pentru autocorelaţie..."
+msgstr "Testul Durbin-Watson pentru autocorelatie..."
 
 msgid "RESET test for nonlinearity..."
 msgstr "Testul RESET pentru nonliniaritate..."
@@ -2318,19 +2318,19 @@ msgid "Bonferroni outlier test"
 msgstr "Testul Bonferroni pentru valori extreme"
 
 msgid "Basic diagnostic plots"
-msgstr "Grafice diagnostic de bază"
+msgstr "Grafice diagnostic de baza"
 
 msgid "Residual quantile-comparison plot..."
 msgstr "Grafic QQ pentru reziduuri..."
 
 msgid "Component+residual plots"
-msgstr "Grafic componentă+reziduu"
+msgstr "Grafic componenta+reziduu"
 
 msgid "Added-variable plots"
 msgstr "Grafic de aditivitate a variabilelor"
 
 msgid "Influence plot"
-msgstr "Grafic al punctelor de influenţă"
+msgstr "Grafic al punctelor de influenta"
 
 msgid "Effect plots"
 msgstr "Grafic de efecte"
@@ -2339,85 +2339,85 @@ msgid "Models"
 msgstr "Modele"
 
 msgid "Normal distribution"
-msgstr "Distribuţia normală"
+msgstr "Distributia normala"
 
 msgid "Normal quantiles..."
 msgstr "Quantile normale..."
 
 msgid "Normal probabilities..."
-msgstr "Probabilităţi normale..."
+msgstr "Probabilitati normale..."
 
 msgid "Plot normal distribution..."
-msgstr "Grafic distribuţie normală..."
+msgstr "Grafic distributie normala..."
 
 msgid "t distribution"
-msgstr "Distribuţia t"
+msgstr "Distributia t"
 
 msgid "t quantiles..."
 msgstr "Quantile t..."
 
 msgid "t probabilities..."
-msgstr "Probabilităţi t..."
+msgstr "Probabilitati t..."
 
 msgid "Plot t distribution..."
-msgstr "Grafic distribuţie t..."
+msgstr "Grafic distributie t..."
 
 msgid "Chi-squared distribution"
-msgstr "Distribuţia chi-pătrat"
+msgstr "Distributia chi-patrat"
 
 msgid "Chi-squared quantiles..."
-msgstr "Quantile chi-pătrat..."
+msgstr "Quantile chi-patrat..."
 
 msgid "Chi-squared probabilities..."
-msgstr "Probabilităţi chi-pătrat..."
+msgstr "Probabilitati chi-patrat..."
 
 msgid "Plot chi-squared distribution..."
-msgstr "Grafic distribuţie chi-pătrat..."
+msgstr "Grafic distributie chi-patrat..."
 
 msgid "F distribution"
-msgstr "Distribuţia F"
+msgstr "Distributia F"
 
 msgid "F quantiles..."
 msgstr "Quantile F..."
 
 msgid "F probabilities..."
-msgstr "Probabilităţi F..."
+msgstr "Probabilitati F..."
 
 msgid "Plot F distribution..."
-msgstr "Grafic distribuţie F..."
+msgstr "Grafic distributie F..."
 
 msgid "Binomial distribution"
-msgstr "Distribuţia binomială"
+msgstr "Distributia binomiala"
 
 msgid "Binomial quantiles..."
 msgstr "Quantile binomiale..."
 
 msgid "Binomial tail probabilities..."
-msgstr "Probabilităţi binomiale cumulate..."
+msgstr "Probabilitati binomiale cumulate..."
 
 msgid "Binomial probabilities..."
-msgstr "Probabilităţi binomiale..."
+msgstr "Probabilitati binomiale..."
 
 msgid "Plot binomial distribution..."
-msgstr "Grafic distribuţie binomială..."
+msgstr "Grafic distributie binomiala..."
 
 msgid "Poisson distribution"
-msgstr "Distribuţia Poisson"
+msgstr "Distributia Poisson"
 
 msgid "Poisson probabilities..."
-msgstr "Probabilităţi Poisson..."
+msgstr "Probabilitati Poisson..."
 
 msgid "Plot Poisson distribution..."
-msgstr "Grafic distribuţie Poisson..."
+msgstr "Grafic distributie Poisson..."
 
 msgid "Distributions"
-msgstr "Distribuţii"
+msgstr "Distributii"
 
 msgid "Load package(s)..."
-msgstr "Încarcă pachet(e)..."
+msgstr "�ncarca pachet(e)..."
 
 msgid "Options..."
-msgstr "Opţiuni..."
+msgstr "Optiuni..."
 
 msgid "Tools"
 msgstr "Unelte"
@@ -2426,7 +2426,7 @@ msgid "Commander help"
 msgstr "Ajutor Commander"
 
 msgid "Introduction to the R Commander"
-msgstr "Introducere în R Commander"
+msgstr "Introducere �n R Commander"
 
 msgid "About Rcmdr"
 msgstr "Despre Rcmdr"
@@ -2437,7 +2437,7 @@ msgstr "gl ="
 ## messages added to Rcmdr version 1.1-1
 
 msgid "There is no current RGL graphics device."
-msgstr "Nu există nici un periferic RGL activ."
+msgstr "Nu exista nici un periferic RGL activ."
 
 msgid "3D graph"
 msgstr "Grafic 3D"
@@ -2461,7 +2461,7 @@ msgid "Import from Excel, Access or dBase data set"
 msgstr "Import din Excel, Access sau dBase"
 
 msgid "{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişier MS Excel\" {*.xls \".XLS\"}} {\"Bază de date MS Access\" {*.mdb \".MDB\"}} {\"Fişier tip dBase\" {*.dbf \".DBF\"}} {\"Toate fişierele\" {\"*.*\"}}"
+msgstr "{\"Fisier MS Excel\" {*.xls \".XLS\"}} {\"Baza de date MS Access\" {*.mdb \".MDB\"}} {\"Fisier tip dBase\" {*.dbf \".DBF\"}} {\"Toate fisierele\" {\"*.*\"}}"
 
 msgid "Select one table"
 msgstr "Selectare tabel"
@@ -2475,31 +2475,31 @@ msgstr "din Excel, Access sau dBase..."
     # probability distributions
 
 msgid "Standard deviation must be positive."
-msgstr "Deviaţia standard trebuie să fie pozitivă."
+msgstr "Deviatia standard trebuie sa fie pozitiva."
 
 msgid "Degrees of freedom must be positive."
-msgstr "Gradele de libertate trebuie să fie pozitive."
+msgstr "Gradele de libertate trebuie sa fie pozitive."
 
 msgid "Numerator degrees of freedom must be positive."
-msgstr "Gradele de libertate de la numărător trebuie să fie pozitive."
+msgstr "Gradele de libertate de la numarator trebuie sa fie pozitive."
 
 msgid "Denominator degrees of freedom must be positive."
-msgstr "Gradele de libertate de la numitor trebuie să fie pozitive."
+msgstr "Gradele de libertate de la numitor trebuie sa fie pozitive."
 
 msgid "Exponential Distribution"
-msgstr "Distribuţie exponenţială"
+msgstr "Distributie exponentiala"
 
 msgid "Rate must be positive."
-msgstr "Rata trebuie să fie pozitivă."
+msgstr "Rata trebuie sa fie pozitiva."
 
 msgid "Rate"
-msgstr "Rată"
+msgstr "Rata"
 
 msgid "Uniform Distribution"
-msgstr "Distribuţia uniformă"
+msgstr "Distributia uniforma"
 
 msgid "Lower limit must be less than upper limit."
-msgstr "Limita de jos trebuie să fie mai mică decât limita de sus."
+msgstr "Limita de jos trebuie sa fie mai mica dec�t limita de sus."
 
 msgid "Minimum"
 msgstr "Minimum"
@@ -2508,115 +2508,115 @@ msgid "Maximum"
 msgstr "Maximum"
 
 msgid "Beta Distribution"
-msgstr "Distribuţia beta"
+msgstr "Distributia beta"
 
 msgid "Shapes not specified."
 msgstr "Formele nu au fost specificate."
 
 msgid "Shapes must be positive."
-msgstr "Formele trebuie să fie pozitive."
+msgstr "Formele trebuie sa fie pozitive."
 
 msgid "Shape"
-msgstr "Formă"
+msgstr "Forma"
 
 msgid "Cauchy Distribution"
-msgstr "Distribuţia Cauchy"
+msgstr "Distributia Cauchy"
 
 msgid "Scale must be positive."
-msgstr "Scala trebuie să fie pozitivă"
+msgstr "Scala trebuie sa fie pozitiva"
 
 msgid "Location"
-msgstr "Locaţie"
+msgstr "Locatie"
 
 msgid "Scale"
-msgstr "Scală"
+msgstr "Scala"
 
 msgid "Logistic Distribution"
-msgstr "Distribuţia logistică"
+msgstr "Distributia logistica"
 
 msgid "Lognormal Distribution"
-msgstr "Distribuţia lognormală"
+msgstr "Distributia lognormala"
 
 msgid "Mean (log scale)"
-msgstr "Medie (scală logaritmică)"
+msgstr "Medie (scala logaritmica)"
 
 msgid "Standard deviation (log scale)"
-msgstr "Deviaţie standard (scală logaritmică)"
+msgstr "Deviatie standard (scala logaritmica)"
 
 msgid "Gamma Distribution"
-msgstr "Distribuţia gama"
+msgstr "Distributia gama"
 
 msgid "Shape not specified."
-msgstr "Forma nu a fost specificată."
+msgstr "Forma nu a fost specificata."
 
 msgid "Shape must be positive."
-msgstr "Forma trebuie să fie pozitivă"
+msgstr "Forma trebuie sa fie pozitiva"
 
 msgid "Weibull Distribution"
-msgstr "Distribuţia Weibull"
+msgstr "Distributia Weibull"
 
 msgid "Exponential Quantiles"
-msgstr "Quantile exponenţiale"
+msgstr "Quantile exponentiale"
 
 msgid "Exponential Probabilities"
-msgstr "Probabilităţi exponenţiale"
+msgstr "Probabilitati exponentiale"
 
 msgid "Uniform Quantiles"
 msgstr "Quantile uniforme"
 
 msgid "Uniform Probabilities"
-msgstr "Probabilităţi uniforme"
+msgstr "Probabilitati uniforme"
 
 msgid "Beta Quantiles"
 msgstr "Quantile beta"
 
 msgid "Beta Probabilities"
-msgstr "Probabilităţi beta"
+msgstr "Probabilitati beta"
 
 msgid "Cauchy Quantiles"
 msgstr "Quantile Cauchy"
 
 msgid "Cauchy Probabilities"
-msgstr "Probabilităţi Cauchy"
+msgstr "Probabilitati Cauchy"
 
 msgid "Logistic Quantiles"
 msgstr "Quantile logistice"
 
 msgid "Logistic Probabilities"
-msgstr "Probabilităţi logistice"
+msgstr "Probabilitati logistice"
 
 msgid "Lognormal Quantiles"
 msgstr "Quantile lognormale"
 
 msgid "Lognormal Probabilities"
-msgstr "Probabilităţi lognormale"
+msgstr "Probabilitati lognormale"
 
 msgid "Gamma Quantiles"
 msgstr "Quantile gama"
 
 msgid "Gamma Probabilities"
-msgstr "Probabilităţi gama"
+msgstr "Probabilitati gama"
 
 msgid "Weibull Quantiles"
 msgstr "Quantile Weibull"
 
 msgid "Weibull Probabilities"
-msgstr "Probabilităţi Weibull"
+msgstr "Probabilitati Weibull"
 
 msgid "Gumbel Distribution"
-msgstr "Distribuţia Gumbel"
+msgstr "Distributia Gumbel"
 
 msgid "Shape (log shape)"
-msgstr "Formă (formă logaritmică)"
+msgstr "Forma (forma logaritmica)"
 
 msgid "Scale (log scale)"
-msgstr "Scală (scală logaritmică)"
+msgstr "Scala (scala logaritmica)"
 
 msgid "Gumbel Probabilities"
-msgstr "Probabilităţi Gumbel"
+msgstr "Probabilitati Gumbel"
 
 msgid "Probability of success must be between 0 and 1."
-msgstr "Probabilitatea de succes trebuie să fie între 0 şi 1"
+msgstr "Probabilitatea de succes trebuie sa fie �ntre 0 si 1"
 
 msgid "Poisson Quantiles"
 msgstr "Quantile Poisson"
@@ -2625,7 +2625,7 @@ msgid "Geometric Quantiles"
 msgstr "Quantile geometrice"
 
 msgid "Geometric Probabilities"
-msgstr "Probabilităţi geometrice"
+msgstr "Probabilitati geometrice"
 
 msgid "Hypergeometric Quantiles"
 msgstr "Quantile hipergeometrice"
@@ -2646,408 +2646,408 @@ msgid "The k parameter was not specified."
 msgstr "Parametrul k nu a fost specificat."
 
 msgid "The k parameter cannot be greater than m + n."
-msgstr "Parametrul k nu poate fi mai mare decât m + n"
+msgstr "Parametrul k nu poate fi mai mare dec�t m + n"
 
 msgid "The k parameter cannot be negative."
 msgstr "Parametrul k nu poate fi negativ."
 
 msgid "m (number of white balls in the urn)"
-msgstr "m (numărul de bile albe din urnă)"
+msgstr "m (numarul de bile albe din urna)"
 
 msgid "n (number of black balls in the urn)"
-msgstr "n (numărul de bile negre din urnă)"
+msgstr "n (numarul de bile negre din urna)"
 
 msgid "k (number of balls drawn from the urn)"
-msgstr "k (numărul de bile extrase din urnă)"
+msgstr "k (numarul de bile extrase din urna)"
 
 msgid "Hypergeometric Probabilities"
-msgstr "Probabilităţi hipergeometrice"
+msgstr "Probabilitati hipergeometrice"
 
 msgid "Negative Binomial Quantiles"
 msgstr "Quantile binomiale negative"
 
 msgid "Target number of successes not specified."
-msgstr "Numărul de succese dorit nu a fost specificat."
+msgstr "Numarul de succese dorit nu a fost specificat."
 
 msgid "Target number of successes cannot be negative."
-msgstr "Numărul de succese dorit nu poate fi negativ."
+msgstr "Numarul de succese dorit nu poate fi negativ."
 
 msgid "Target number of successes"
-msgstr "Numărul de succese dorit"
+msgstr "Numarul de succese dorit"
 
 msgid "Negative Binomial Probabilities"
-msgstr "Probabilităţi binomiale negative"
+msgstr "Probabilitati binomiale negative"
 
 msgid "Geometric Distribution"
-msgstr "Distribuţia geometrică"
+msgstr "Distributia geometrica"
 
 msgid "Hypergeometric Distribution"
-msgstr "Distribuţia hipergeometrică"
+msgstr "Distributia hipergeometrica"
 
 msgid "Negative Binomial Distribution"
-msgstr "Distribuţia binomială negativă"
+msgstr "Distributia binomiala negativa"
 
 msgid "Sample from Normal Distribution"
-msgstr "Eşantionare din distribuţia normală"
+msgstr "Esantionare din distributia normala"
 
 msgid "NormalSamples"
-msgstr "Eşantioane normale"
+msgstr "Esantioane normale"
 
 msgid "Sample means"
-msgstr "Medii eşantioane"
+msgstr "Medii esantioane"
 
 msgid "Sample sums"
-msgstr "Sume eşantioane"
+msgstr "Sume esantioane"
 
 msgid "Sample standard deviations"
-msgstr "Deviaţii standard eşantioane"
+msgstr "Deviatii standard esantioane"
 
 msgid "Sample size must be positive."
-msgstr "Mărimea eşantionului trebuie să fie pozitivă."
+msgstr "Marimea esantionului trebuie sa fie pozitiva."
 
 msgid "Number of samples must be positive."
-msgstr "Numărul de eşantioane trebuie să fie pozitiv."
+msgstr "Numarul de esantioane trebuie sa fie pozitiv."
 
 msgid "Number of samples (rows)"
-msgstr "Număr de eşantioane (rânduri)"
+msgstr "Numar de esantioane (r�nduri)"
 
 msgid "Number of observations (columns)"
-msgstr "Număr de observaţii (coloane)"
+msgstr "Numar de observatii (coloane)"
 
 msgid "Add to Data Set:"
-msgstr "Adăugare la set de date:"
+msgstr "Adaugare la set de date:"
 
 msgid "Sample from t Distribution"
-msgstr "Eşantionare din distribuţia t"
+msgstr "Esantionare din distributia t"
 
 msgid "tSamples"
 msgstr "EsantioaneT"
 
 msgid "Sample from Chi-squared Distribution"
-msgstr "Eşantionare din distribuţia chi-pătrat"
+msgstr "Esantionare din distributia chi-patrat"
 
 msgid "ChisquareSamples"
 msgstr "EsantioaneChi2"
 
 msgid "Sample from F Distribution"
-msgstr "Eşantionare din distribuţia F"
+msgstr "Esantionare din distributia F"
 
 msgid "FSamples"
 msgstr "EsantioaneF"
 
 msgid "Sample from Exponential Distribution"
-msgstr "Eşantionare din distribuţia exponenţială"
+msgstr "Esantionare din distributia exponentiala"
 
 msgid "ExponentialSamples"
 msgstr "EsantioaneExponentiale"
 
 msgid "Sample from Uniform Distribution"
-msgstr "Eşantionare din distribuţia uniformă"
+msgstr "Esantionare din distributia uniforma"
 
 msgid "UniformSamples"
 msgstr "EsantioaneUniforme"
 
 msgid "Sample from Beta Distribution"
-msgstr "Eşantionare din distribuţia beta"
+msgstr "Esantionare din distributia beta"
 
 msgid "BetaSamples"
 msgstr "EsantioaneBeta"
 
 msgid "Sample from Cauchy Distribution"
-msgstr "Eşantionare din distribuţia Cauchy"
+msgstr "Esantionare din distributia Cauchy"
 
 msgid "CauchySamples"
 msgstr "EsantioaneCauchy"
 
 msgid "Sample from Logistic Distribution"
-msgstr "Eşantionare din distribuţia logistică"
+msgstr "Esantionare din distributia logistica"
 
 msgid "LogisticSamples"
 msgstr "EsantioaneLogistice"
 
 msgid "Sample from Log-Normal Distribution"
-msgstr "Eşantionare din distribuţia log-normală"
+msgstr "Esantionare din distributia log-normala"
 
 msgid "LogNormalSamples"
 msgstr "EsantioaneLogNormale"
 
 msgid "Sample from Gamma Distribution"
-msgstr "Eşantionare din distribuţia gama"
+msgstr "Esantionare din distributia gama"
 
 msgid "GammaSamples"
 msgstr "EsantioaneGama"
 
 msgid "Sample from Weibull Distribution"
-msgstr "Eşantionare din distribuţia Weibull"
+msgstr "Esantionare din distributia Weibull"
 
 msgid "WeibullSamples"
 msgstr "EsantioaneWeibull"
 
 msgid "Sample from Gumbel Distribution"
-msgstr "Eşantionare din distribuţia Gumbel"
+msgstr "Esantionare din distributia Gumbel"
 
 msgid "GumbelSamples"
 msgstr "EsantioaneGumbel"
 
 msgid "Sample from Binomial Distribution"
-msgstr "Eşantionare din distribuţia binomială"
+msgstr "Esantionare din distributia binomiala"
 
 msgid "BinomialSamples"
 msgstr "EsantioaneBinomiale"
 
 msgid "Poisson mean cannot be negative."
-msgstr "Media Poisson nu poate fi negativă."
+msgstr "Media Poisson nu poate fi negativa."
 
 msgid "Sample from Poisson Distribution"
-msgstr "Eşantionare din distribuţia Poisson"
+msgstr "Esantionare din distributia Poisson"
 
 msgid "PoissonSamples"
 msgstr "EsantioanePoisson"
 
 msgid "Sample from Geometric Distribution"
-msgstr "Eşantionare din distribuţia geometrică"
+msgstr "Esantionare din distributia geometrica"
 
 msgid "GeometricSamples"
 msgstr "EsantioaneGeometrice"
 
 msgid "Sample from Hypergeometric Distribution"
-msgstr "Eşantionare din distribuţia hipergeometrică"
+msgstr "Esantionare din distributia hipergeometrica"
 
 msgid "HypergeometricSamples"
 msgstr "EsantioaneHipergeometrice"
 
 msgid "Sample from Negative Binomial Distribution"
-msgstr "Eşantionare din distribuţia binomială negativă"
+msgstr "Esantionare din distributia binomiala negativa"
 
 msgid "NegativeBinomialSamples"
 msgstr "EsantioaneBinomialeNegative"
 
 msgid "Sample from normal distribution..."
-msgstr "Eşantionare din distribuţia normală..."
+msgstr "Esantionare din distributia normala..."
 
 msgid "Sample from t distribution..."
-msgstr "Eşantionare din distribuţia t..."
+msgstr "Esantionare din distributia t..."
 
 msgid "Sample from chi-squared distribution..."
-msgstr "Eşantionare din distribuţia chi-pătrat..."
+msgstr "Esantionare din distributia chi-patrat..."
 
 msgid "Sample from F distribution..."
-msgstr "Eşantionare din distribuţia F..."
+msgstr "Esantionare din distributia F..."
 
 msgid "Exponential distribution"
-msgstr "Distribuţie exponenţială"
+msgstr "Distributie exponentiala"
 
 msgid "Exponential quantiles..."
-msgstr "Quantile exponenţiale..."
+msgstr "Quantile exponentiale..."
 
 msgid "Exponential probabilities..."
-msgstr "Probabilităţi exponenţiale..."
+msgstr "Probabilitati exponentiale..."
 
 msgid "Plot exponential distribution..."
-msgstr "Grafic distribuţie exponenţială..."
+msgstr "Grafic distributie exponentiala..."
 
 msgid "Sample from exponential distribution..."
-msgstr "Eşantionare din distribuţia exponenţială..."
+msgstr "Esantionare din distributia exponentiala..."
 
 msgid "Uniform distribution"
-msgstr "Distribuţia uniformă"
+msgstr "Distributia uniforma"
 
 msgid "Uniform quantiles..."
 msgstr "Quantile uniforme..."
 
 msgid "Uniform probabilities..."
-msgstr "Probabilităţi uniforme..."
+msgstr "Probabilitati uniforme..."
 
 msgid "Plot uniform distribution..."
-msgstr "Grafic distribuţie uniformă..."
+msgstr "Grafic distributie uniforma..."
 
 msgid "Sample from uniform distribution..."
-msgstr "Eşantionare din distribuţia uniformă..."
+msgstr "Esantionare din distributia uniforma..."
 
 msgid "Beta distribution"
-msgstr "Distribuţia beta"
+msgstr "Distributia beta"
 
 msgid "Beta quantiles..."
 msgstr "Quantile beta..."
 
 msgid "Beta probabilities..."
-msgstr "Probabilităţi beta..."
+msgstr "Probabilitati beta..."
 
 msgid "Plot beta distribution..."
-msgstr "Grafic distribuţie beta..."
+msgstr "Grafic distributie beta..."
 
 msgid "Sample from beta distribution..."
-msgstr "Eşantionare din distribuţia beta..."
+msgstr "Esantionare din distributia beta..."
 
 msgid "Cauchy distribution"
-msgstr "Distribuţia Cauchy"
+msgstr "Distributia Cauchy"
 
 msgid "Cauchy quantiles..."
 msgstr "Quantile Cauchy..."
 
 msgid "Cauchy probabilities..."
-msgstr "Probabilităţi Cauchy..."
+msgstr "Probabilitati Cauchy..."
 
 msgid "Plot Cauchy distribution..."
-msgstr "Grafic distribuţie Cauchy..."
+msgstr "Grafic distributie Cauchy..."
 
 msgid "Sample from Cauchy distribution..."
-msgstr "Eşantionare din distribuţia Cauchy"
+msgstr "Esantionare din distributia Cauchy"
 
 msgid "Logistic distribution"
-msgstr "Distribuţia logistică"
+msgstr "Distributia logistica"
 
 msgid "Logistic quantiles..."
 msgstr "Quantile logistice..."
 
 msgid "Logistic probabilities..."
-msgstr "Probabilităţi logistice..."
+msgstr "Probabilitati logistice..."
 
 msgid "Plot logistic distribution..."
-msgstr "Grafic distribuţie logistică..."
+msgstr "Grafic distributie logistica..."
 
 msgid "Sample from logistic distribution..."
-msgstr "Eşantionare din distribuţia logistică..."
+msgstr "Esantionare din distributia logistica..."
 
 msgid "Lognormal distribution"
-msgstr "Distribuţia lognormală"
+msgstr "Distributia lognormala"
 
 msgid "Lognormal quantiles..."
 msgstr "Quantile lognormale..."
 
 msgid "Lognormal probabilities..."
-msgstr "Probabilităţi lognormale..."
+msgstr "Probabilitati lognormale..."
 
 msgid "Plot lognormal distribution..."
-msgstr "Grafic distribuţie lognormală..."
+msgstr "Grafic distributie lognormala..."
 
 msgid "Sample from lognormal distribution..."
-msgstr "Eşantionare din distribuţia lognormală..."
+msgstr "Esantionare din distributia lognormala..."
 
 msgid "Gamma distribution"
-msgstr "Distribuţia gama"
+msgstr "Distributia gama"
 
 msgid "Gamma quantiles..."
 msgstr "Quantile gama..."
 
 msgid "Gamma probabilities..."
-msgstr "Probabilităţi gama..."
+msgstr "Probabilitati gama..."
 
 msgid "Plot gamma distribution..."
-msgstr "Grafic distribuţie gama..."
+msgstr "Grafic distributie gama..."
 
 msgid "Sample from gamma distribution..."
-msgstr "Eşantionare din distribuţia gama..."
+msgstr "Esantionare din distributia gama..."
 
 msgid "Weibull distribution"
-msgstr "Distribuţia Weibull"
+msgstr "Distributia Weibull"
 
 msgid "Weibull quantiles..."
 msgstr "Quantile Weibull..."
 
 msgid "Weibull probabilities..."
-msgstr "Probabilităţi Weibull..."
+msgstr "Probabilitati Weibull..."
 
 msgid "Plot Weibull distribution..."
-msgstr "Grafic distribuţie Weibull..."
+msgstr "Grafic distributie Weibull..."
 
 msgid "Sample from Weibull distribution..."
-msgstr "Eşantionare din distribuţia Weibull..."
+msgstr "Esantionare din distributia Weibull..."
 
 msgid "Gumbel distribution"
-msgstr "Distribuţia Gumbel"
+msgstr "Distributia Gumbel"
 
 msgid "Gumbel quantiles..."
 msgstr "Quantile Gumbel..."
 
 msgid "Gumbel probabilities..."
-msgstr "Probabilităţi Gumbel..."
+msgstr "Probabilitati Gumbel..."
 
 msgid "Plot Gumbel distribution..."
-msgstr "Grafic distribuţie Gumbel..."
+msgstr "Grafic distributie Gumbel..."
 
 msgid "Sample from Gumbel distribution..."
-msgstr "Eşantionare din distribuţia Gumbel..."
+msgstr "Esantionare din distributia Gumbel..."
 
 msgid "Sample from binomial distribution..."
-msgstr "Eşantionare din distribuţia binomială..."
+msgstr "Esantionare din distributia binomiala..."
 
 msgid "Poisson quantiles..."
 msgstr "Quantile Poisson..."
 
 msgid "Poisson tail probabilities..."
-msgstr "Probabilităţi Poisson cumulate..."
+msgstr "Probabilitati Poisson cumulate..."
 
 msgid "Sample from Poisson distribution..."
-msgstr "Eşantionare din distribuţia Poisson..."
+msgstr "Esantionare din distributia Poisson..."
 
 msgid "Geometric distribution"
-msgstr "Distribuţia geometrică"
+msgstr "Distributia geometrica"
 
 msgid "Geometric quantiles..."
 msgstr "Quantile geometrice..."
 
 msgid "Geometric tail probabilities..."
-msgstr "Probabilităţi geometrică cumulate..."
+msgstr "Probabilitati geometrica cumulate..."
 
 msgid "Geometric probabilities..."
-msgstr "Probabilităţi geometrice..."
+msgstr "Probabilitati geometrice..."
 
 msgid "Plot geometric distribution..."
-msgstr "Grafic distribuţie geometrică..."
+msgstr "Grafic distributie geometrica..."
 
 msgid "Sample from geometric distribution..."
-msgstr "Eşantionare din distribuţia geometrică..."
+msgstr "Esantionare din distributia geometrica..."
 
 msgid "Hypergeometric distribution"
-msgstr "Distribuţia hipergeometrică"
+msgstr "Distributia hipergeometrica"
 
 msgid "Hypergeometric quantiles..."
 msgstr "Quantile hipergeometrice..."
 
 msgid "Hypergeometric tail probabilities..."
-msgstr "Probabilităţi hipergeometrice cumulate..."
+msgstr "Probabilitati hipergeometrice cumulate..."
 
 msgid "Hypergeometric probabilities..."
-msgstr "Probabilităţi hipergeometrice..."
+msgstr "Probabilitati hipergeometrice..."
 
 msgid "Plot hypergeometric distribution..."
-msgstr "Grafic distribuţie hipergeometrică..."
+msgstr "Grafic distributie hipergeometrica..."
 
 msgid "Sample from hypergeometric distribution..."
-msgstr "Eşantionare din distribuţia hipergeometrică..."
+msgstr "Esantionare din distributia hipergeometrica..."
 
 msgid "Negative binomial distribution"
-msgstr "Distribuţia binomială negativă"
+msgstr "Distributia binomiala negativa"
 
 msgid "Negative binomial quantiles..."
 msgstr "Quantile binomiale negative..."
 
 msgid "Negative binomial tail probabilities..."
-msgstr "Probabilităţi binomiale negative cumulate..."
+msgstr "Probabilitati binomiale negative cumulate..."
 
 msgid "Negative binomial probabilities..."
-msgstr "Probabilităţi binomiale negative..."
+msgstr "Probabilitati binomiale negative..."
 
 msgid "Plot negative binomial distribution..."
-msgstr "Grafic distribuţie binomială negativă..."
+msgstr "Grafic distributie binomiala negativa..."
 
 msgid "Sample from negative binomial distribution..."
-msgstr "Eşantionare din distribuţia binomială..."
+msgstr "Esantionare din distributia binomiala..."
 
 msgid "Continuous distributions"
-msgstr "Distribuţii continue"
+msgstr "Distributii continue"
 
 msgid "Discrete distributions"
-msgstr "Distribuţii discrete"
+msgstr "Distributii discrete"
 
     # Xyplot dialog
 
 msgid "XY Conditioning Plot"
-msgstr "Plot condiţional XY"
+msgstr "Plot conditional XY"
 
 msgid "Response variables (pick one or more)"
-msgstr "Variabilă răspuns (una sau mai multe)"
+msgstr "Variabila raspuns (una sau mai multe)"
 
 msgid "Groups (pick zero or more)"
 msgstr "Grupuri (zero sau mai multe"
@@ -3056,7 +3056,7 @@ msgid "Automatically draw key"
 msgstr "Alege cheia automat"
 
 msgid "Different panels for different responses"
-msgstr "Paneluri diferite pentru răspunsuri diferite"
+msgstr "Paneluri diferite pentru raspunsuri diferite"
 
 msgid "Identical"
 msgstr "Identice"
@@ -3065,22 +3065,22 @@ msgid "Free"
 msgstr "Liber"
 
 msgid "Same range"
-msgstr "Aceeaşi amplitudine"
+msgstr "Aceeasi amplitudine"
 
 msgid "X-Axis Scales in Different Panels"
-msgstr "Scale pe axa-X în paneluri diferite"
+msgstr "Scale pe axa-X �n paneluri diferite"
 
 msgid "Y-Axis Scales in Different Panels"
-msgstr "Scale pe axa-Y în paneluri diferite"
+msgstr "Scale pe axa-Y �n paneluri diferite"
 
 msgid "At least one response variable must be selected."
-msgstr "Trebuie selectată cel puţin o variabilă răspuns."
+msgstr "Trebuie selectata cel putin o variabila raspuns."
 
 msgid "At least one explanatory variable must be selected."
-msgstr "Trebuie selectată cel puţin o variabilă independentă."
+msgstr "Trebuie selectata cel putin o variabila independenta."
 
 msgid "XY conditioning plot..."
-msgstr "Plot condiţional XY..."
+msgstr "Plot conditional XY..."
 
     # contingency tables dialog
 
@@ -3088,18 +3088,18 @@ msgid "Percentages of total"
 msgstr "Procente pe total"
 
 msgid "Components of chi-square statistic"
-msgstr "Componente ale statisticii chi-pătrat"
+msgstr "Componente ale statisticii chi-patrat"
 
     # 3D scatterplots dialog
 
 msgid "Show squared residuals"
-msgstr "Arată pătratele reziduurilor"
+msgstr "Arata patratele reziduurilor"
 
 msgid "Show axis scales"
-msgstr "Arată scale pe axe"
+msgstr "Arata scale pe axe"
 
 msgid "Plot 50% concentration ellipsoid"
-msgstr "Plot elipsoid cu concentraţie 50%"
+msgstr "Plot elipsoid cu concentratie 50%"
 
     # scatterplot matrices dialog
 
@@ -3109,33 +3109,33 @@ msgstr "Scatterplot-uri unidimensionale"
     # count NAs (menu item)
 
 msgid "Count missing observations"
-msgstr "Numără missing-uri"
+msgstr "Numara missing-uri"
 
     # Correlation test dialog
 
 msgid "Correlation Test"
-msgstr "Test de corelaţie"
+msgstr "Test de corelatie"
 
 msgid "Variables (pick two)"
-msgstr "Variabile (două)"
+msgstr "Variabile (doua)"
 
 msgid "Kendall's tau"
 msgstr "Tau al lui Kendall"
 
 msgid "Type of Correlation"
-msgstr "Tip de corelaţie"
+msgstr "Tip de corelatie"
 
 msgid "Correlation < 0"
-msgstr "Corelaţie < 0"
+msgstr "Corelatie < 0"
 
 msgid "Correlation > 0"
-msgstr "Corelaţie > 0"
+msgstr "Corelatie > 0"
 
 msgid "More than 2 variables selected."
 msgstr "Au fost selectate mai mult de 2 varaibile."
 
 msgid "Correlation test..."
-msgstr "Test de corelaţie..."
+msgstr "Test de corelatie..."
 
     # Recode dialog
 
@@ -3146,10 +3146,10 @@ msgid "Variables to recode (pick one or more)"
 msgstr "Variabile de recodificat (una sau mai multe)"
 
 msgid "New variable name or prefix for multiple recodes:"
-msgstr "Nume variabilă nouă ori prefix pentru recodificări multiple:"
+msgstr "Nume variabila noua ori prefix pentru recodificari multiple:"
 
 msgid "Make (each) new variable a factor"
-msgstr "Transformă (fiecare) nouă variabilă în factor"
+msgstr "Transforma (fiecare) noua variabila �n factor"
 
 msgid "Recode variables..."
 msgstr "Recodificare variabile..."
@@ -3157,21 +3157,21 @@ msgstr "Recodificare variabile..."
     # Frequency distributions dialog
 
 msgid "Frequency Distributions"
-msgstr "Distribuţii de frecvenţe"
+msgstr "Distributii de frecvente"
 
 msgid "Chi-square goodness-of-fit test (for one variable only)"
-msgstr "Testul chi-pătrat de adecvare (pentru o singură variabilă)"
+msgstr "Testul chi-patrat de adecvare (pentru o singura variabila)"
 
 msgid "Goodness-of-fit test not available when more than one variable is selected."
-msgstr "Testul de adecvare nu este disponibil dacă sunt selectate mai mult de o variabilă."
+msgstr "Testul de adecvare nu este disponibil daca sunt selectate mai mult de o variabila."
 
 msgid "Frequency distributions..."
-msgstr "Distribuţii de frecvenţe..."
+msgstr "Distributii de frecvente..."
 
     # Numeric to factor dialog
     
 msgid "Convert Numeric Variables to Factors"
-msgstr "Convertire variabile numerice în factori"
+msgstr "Convertire variabile numerice �n factori"
 
 msgid "<same as variables>"
 msgstr "<la fel ca variabilele>"
@@ -3183,10 +3183,10 @@ msgid "Factors"
 msgstr "Factori"
 
 msgid "New variable name or prefix for multiple variables:"
-msgstr "Nume variabilă nouă ori prefix pentru variabile multiple:"
+msgstr "Nume variabila noua ori prefix pentru variabile multiple:"
 
 msgid "Convert numeric variables to factors..."
-msgstr "Convertire variabile numerice în factori..."
+msgstr "Convertire variabile numerice �n factori..."
 
     # Stack dialog
     
@@ -3200,7 +3200,7 @@ msgid "StackedData"
 msgstr "Date stivuite"
 
 msgid "You must select at least two variables."
-msgstr "Trebuie selectate cel puţin două variabile."
+msgstr "Trebuie selectate cel putin doua variabile."
 
 msgid "Name for stacked data set:"
 msgstr "Nume pentru set de date stivuit:"
@@ -3212,7 +3212,7 @@ msgid "Name for factor:"
 msgstr "Nume pentru factor:"
 
 msgid "Stack variables in active data set..."
-msgstr "Variabile stivuite în setul de date activ..."
+msgstr "Variabile stivuite �n setul de date activ..."
 
     # miscelaneous
 
@@ -3220,79 +3220,79 @@ msgid "Identify Points"
 msgstr "Identificare puncte"
 
 msgid "Use left mouse button to identify points,\nright button to exit."
-msgstr "Utilizare butonul stâng mouse pentru identificare puncte,\nbuton dreapta pentru ieşire"
+msgstr "Utilizare butonul st�ng mouse pentru identificare puncte,\nbuton dreapta pentru iesire"
 
 msgid "Drag right mouse button to identify points,\nclick right button to exit."
-msgstr "Drag buton dreapta mouse pentru identificare puncte,\nclic pe buton dreapta pentru ieşire"
+msgstr "Drag buton dreapta mouse pentru identificare puncte,\nclic pe buton dreapta pentru iesire"
 
 msgid "Read Data From Text File or Clipboard"
-msgstr "Citire date din fişier text ori clipboard"
+msgstr "Citire date din fisier text ori clipboard"
 
 msgid "Read data from clipboard:"
 msgstr "Citire date din clipboard:"
 
 msgid "from text file or clipboard..."
-msgstr "din fişier text ori clipboard..."
+msgstr "din fisier text ori clipboard..."
 
 msgid "Add observation numbers to data set"
-msgstr "Adăugare numere observaţii la setul de date"
+msgstr "Adaugare numere observatii la setul de date"
 
 msgid "Refresh active data set"
-msgstr "Reîmprospătare set de date activ"
+msgstr "Re�mprospatare set de date activ"
 
 msgid "No statistics selected."
-msgstr "Nu a fost selectată nici o statistică."
+msgstr "Nu a fost selectata nici o statistica."
 
 msgid "Right-hand side"
-msgstr "Partea dreaptă"
+msgstr "Partea dreapta"
 
 ## messages added to Rcmdr version 1.3-0
 
     # handling plug-ins
     
 msgid "Load Plugins"
-msgstr "Încarcă plugin-uri"
+msgstr "�ncarca plugin-uri"
 
 msgid "Plug-ins (pick one or more)"
 msgstr "Plugin (unul sau mai multe)"
 
 msgid "You must select at least one plug-in."
-msgstr "Trebuie selectat cel puţin un plugin."
+msgstr "Trebuie selectat cel putin un plugin."
 
 msgid "Plug-ins loaded:"
-msgstr "Plugin-uri încărcate:"
+msgstr "Plugin-uri �ncarcate:"
 
 msgid "The plug-in(s) will not be available until the Commander is restarted.\nRestart now?"
-msgstr "Plugin-urile vor fi disponibile numai după ce Commander va fi restartat. Restartăm acum?"
+msgstr "Plugin-urile vor fi disponibile numai dupa ce Commander va fi restartat. Restartam acum?"
 
 msgid "objects have different numbers of columns"
-msgstr "obiectele au număr diferit de coloane"
+msgstr "obiectele au numar diferit de coloane"
 
 msgid "objects have different column names"
 msgstr "obiectele au nume diferite de coloane"
 
 msgid "Load Rcmdr plug-in(s)..." 
-msgstr "Încarcă plugin-uri Rcmdr..."
+msgstr "�ncarca plugin-uri Rcmdr..."
 
 msgid "the plug-in package %s is missing"
-msgstr "pachetul plugin %s lipseşte"
+msgstr "pachetul plugin %s lipseste"
 
 msgid "the package %s is not an Rcmdr plug-in"
 msgstr "pachetul %s nu este un plugin Rcmdr"
 
 msgid "unrecognized operation, \"%s\", in plugin menu line %i"
-msgstr "operaţie nerecunoscută,  \"%s\", în meniul plugin linia %i"
+msgstr "operatie nerecunoscuta,  \"%s\", �n meniul plugin linia %i"
 
 msgid "unrecognized type, \"%s\", in plugin menu line %i"
-msgstr "tip nerecunoscut,  \"%s\", în meniul plugin linia %i"
+msgstr "tip nerecunoscut,  \"%s\", �n meniul plugin linia %i"
 
     # miscelaneous additions
     
 msgid "Color palette..."
-msgstr "Paletă de culori..."
+msgstr "Paleta de culori..."
 
 msgid "Set Color Palette"
-msgstr "Setare paletă de culori"
+msgstr "Setare paleta de culori"
 
 msgid "Color palette reset."
 msgstr "Resetare paleta"
@@ -3301,10 +3301,10 @@ msgid "Save active data set..."
 msgstr "Salvare set de date activ..."
 
 msgid "Load data set..." 
-msgstr "Încarcă set de date..."
+msgstr "�ncarca set de date..."
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fişiere de date R\" {\".rda\" \".Rda\" \".RDA\"}} {\"Toate fişierele\" {\"*\"}}"
+msgstr "{\"Fisiere de date R\" {\".rda\" \".Rda\" \".RDA\"}} {\"Toate fisierele\" {\"*\"}}"
 
 msgid "Shapiro-Wilk test of normality..." 
 msgstr "Testul de normalitate Shapiro-Wilk..."
@@ -3313,13 +3313,13 @@ msgid "Shapiro-Wilk Test of Normality"
 msgstr "Testul de normalitate Shapiro-Wilk"
 
 msgid "Ordinal regression model..."
-msgstr "Model de regresie ordinală..."
+msgstr "Model de regresie ordinala..."
 
 msgid "Ordinal Regression Model"
-msgstr "Model de regresie ordinală"
+msgstr "Model de regresie ordinala"
 
 msgid "Proportional-odds logit"
-msgstr "Logit proporţional cu şansele"
+msgstr "Logit proportional cu sansele"
 
 msgid "Ordered probit"
 msgstr "Probit ordonat"
@@ -3334,7 +3334,7 @@ msgid "y-axis label"
 msgstr "eticheta pentru axa-y"
 
 msgid "No plotting characters."
-msgstr "Fără caractere de plot"
+msgstr "Fara caractere de plot"
 
 msgid "Plotting Parameters"
 msgstr "Parametri de plot"
@@ -3354,12 +3354,12 @@ msgstr "Marimea caracterelor pentru etichetele axelor"
 # message added to version 1.3-3 (because of inadvertent omission)
 
 msgid "Scale (inverse rate)"
-msgstr "Scală (rată inversată)"
+msgstr "Scala (rata inversata)"
 
 # messages added to version 1.3-5
 
 msgid " has been coerced to a data frame"
-msgstr " a fost transformat intr-un set de date"
+msgstr " a fost transformat �ntr-un set de date"
 
 msgid "the dataset %s is no longer available"
 msgstr " setul de date %s nu mai este disponibil"
@@ -3370,7 +3370,7 @@ msgstr "modelul %s nu mai este disponibil"
 # message added to version 1.3-10
 
 msgid "The Commander GUI is launched only in interactive sessions"
-msgstr "Interfata grafica este lansată numai în sesiuni interactive"
+msgstr "Interfata grafica este lansata numai �n sesiuni interactive"
 
 # messages added to version 1.3-15
 
@@ -3400,19 +3400,19 @@ msgid "Type of Tests"
 msgstr "Tipuri de teste"
 
 msgid "Sequential (\"Type I\")"
-msgstr "Secvenţial (\"Type I\")"
+msgstr "Secvential (\"Type I\")"
 
 msgid "Partial obeying marginality (\"Type II\")"
-msgstr "Parţial respectând marginalitatea (\"Type II\")"
+msgstr "Partial respect�nd marginalitatea (\"Type II\")"
 
 msgid "Partial ignoring marginality (\"Type III\")"
-msgstr "Parţial ignorând marginalitatea (\"Type III\")"
+msgstr "Partial ignor�nd marginalitatea (\"Type III\")"
 
 msgid "Type III tests require careful attention to contrast coding."
-msgstr "Testele de tipul III cer o atenţie deosebită în codarea contrastelor"
+msgstr "Testele de tipul III cer o atentie deosebita �n codarea contrastelor"
 
 msgid "There is no appropriate anova method for a model of this class."
-msgstr "Nu există nici o metodă anova potrivită cu un model din această clasă"
+msgstr "Nu exista nici o metoda anova potrivita cu un model din aceasta clasa"
 
 msgid "Duplicate menu names:"
 msgstr "Nume de meniu duplicate:"
@@ -3424,28 +3424,28 @@ msgid "Strip Chart"
 msgstr "Strip Chart"
 
 msgid "Factors (pick zero or more)"
-msgstr "Factori (unul sau mai mulţi)"
+msgstr "Factori (unul sau mai multi)"
 
 msgid "Duplicate Values"
 msgstr "Valori duplicate"
 
 msgid "Stack"
-msgstr "Stivă"
+msgstr "Stiva"
 
 msgid "Jitter"
 msgstr "Zgomot"
 
 msgid "Remove Rows from Active Data Set"
-msgstr "Elimină rînduri din setul de date activ"
+msgstr "Elimina r�nduri din setul de date activ"
 
 msgid "Remove row(s) from active data set..."
-msgstr "Elimină rînd(uri) din setul de date activ..."
+msgstr "Elimina r�nd(uri) din setul de date activ..."
 
 msgid "No rows to remove"
-msgstr "Nici un rând pentru a fi şters"
+msgstr "Nici un r�nd pentru a fi sters"
 
 msgid "Indices or quoted names of row(s) to remove"
-msgstr "Indici sau nume de rânduri pentru a fi şterse"
+msgstr "Indici sau nume de r�nduri pentru a fi sterse"
 
 msgid "Akaike Information Criterion (AIC)"
 msgstr "Akaike Information Criterion (AIC)"
@@ -3463,16 +3463,16 @@ msgid "Log y-axis"
 msgstr "Log pentru axa y"
 
 msgid "from text file, clipboard, or URL..."
-msgstr "din fişier text, clipboard sau URL..."
+msgstr "din fisier text, clipboard sau URL..."
 
 msgid "Read Text Data From File, Clipboard, or URL"
-msgstr "Citeşte date text din fişier, clipboard sau URL."
+msgstr "Citeste date text din fisier, clipboard sau URL."
 
 msgid "Location of Data File"
 msgstr "Locul setului de date"
 
 msgid "Local file system"
-msgstr "Sistem de fişiere local"
+msgstr "Sistem de fisiere local"
 
 msgid "Clipboard"
 msgstr "Clipboard"
@@ -3487,7 +3487,7 @@ msgid "Friedman Rank Sum Test"
 msgstr "Testul Friedman rank-sum"
 
 msgid "Repeated-Measures Variables (pick two or more)"
-msgstr "Variabile cu măsuri repetate (una sau mai multe)"
+msgstr "Variabile cu masuri repetate (una sau mai multe)"
 
 msgid "Undo"
 msgstr "Undo"
@@ -3497,4 +3497,156 @@ msgstr "Redo"
 
 msgid "ANOVA table..."
 msgstr "Tabel ANOVA..."
+
+# messages added to version 1.4-2
+
+msgid "Location not specified."
+msgstr "Locatie nespecificata"
+
+# messages added to version 1.5-0
+
+#     "Models -> Stepwise model selection" dialog and menu item
+
+msgid "Stepwise model selection..."
+msgstr "Selectie model stepwise..."
+
+msgid "Stepwise Model Selection"
+msgstr "Selectie Model Stepwise..."
+
+msgid "Direction"
+msgstr "Directie"
+
+msgid "backward/forward"
+msgstr "�napoi/�nainte"
+
+msgid "forward/backward"
+msgstr "�nainte/�napoi"
+
+msgid "backward"
+msgstr "�napoi"
+
+msgid "forward"
+msgstr "�nainte"
+
+msgid "Criterion"
+msgstr "Criteriu"
+
+msgid "BIC"
+msgstr "BIC"
+
+msgid "AIC"
+msgstr "AIC"
+
+#      "Models -> Subset model selection" dialog and menu item
+
+msgid "Subset model selection..."
+msgstr "Selectie model subset..."
+
+msgid "Subset Model Selection"
+msgstr "Selectie Model Subset"
+
+msgid "Criterion for Model Plot"
+msgstr "Criteriu pentru Plotul Model"
+
+msgid "Mallows Cp"
+msgstr "Mallows Cp"
+
+msgid "Adjusted R-sq."
+msgstr "R-patrat ajustat"
+
+msgid "R-squared"
+msgstr "R-patrat"
+
+msgid "Number of best models\nof each size:"
+msgstr "Numar de cele mai bune modele\nde fiecare marime"
+
+msgid "Maximum size:"
+msgstr "Marime maxima:"
+
+#       "Data -> Merge data sets" menu item and dialog
+
+msgid "Merge data sets..."
+msgstr "Lipire seturi de date"
+
+msgid "Merge Data Sets"
+msgstr "Lipire Seturi de Date"
+
+msgid "First Data Set (pick one)"
+msgstr "Primul set de date (alege unul)"
+
+msgid "Second Data Set (pick one)"
+msgstr "Al doilea set de date (alege unul)"
+
+msgid "Merge rows"
+msgstr "Lipire linii"
+
+msgid "Merge columns"
+msgstr "Lipire coloane"
+
+msgid "Direction of Merge"
+msgstr "Directie lipire"
+
+msgid "You cannot merge a data set with itself."
+msgstr "Nu se poate lipi un set de date cu el �nsusi"
+
+msgid "Name for merged data set:"
+msgstr "Numele setului de date lipit:"
+
+msgid "Merge only common\nrows or columns"
+msgstr "Lipeste numai liniile sau\ncoloanele comune"
+
+#       "Data -> Active data set -> Aggregate variables in active data set" menu item and dialog
+
+msgid "Aggregate variables in active data set..."
+msgstr "Agregare variabile �n setul de ate activ..."
+
+msgid "Aggregate Observations"
+msgstr "Agregare Observatii"
+
+msgid "Variables to aggregate\n(pick one or more)"
+msgstr "Variabile de agregat\n(una sau mai multe)"
+
+msgid "Aggregate by\n(pick one or more)"
+msgstr "Agregare dupa\n(una sau mai multe)"
+
+msgid "Sum"
+msgstr "Suma"
+
+msgid "You must select at least one variable to aggregate."
+msgstr "Trebuie selectata cel putin o variabila pentru agregare."
+
+msgid "You must select at least one variable to aggregate by."
+msgstr "Trebuie selectata cel putin o variabila dupa care sa se agrege."
+
+msgid "Variables to aggregate and those to aggregate by must be different."
+msgstr "Variabilele de agregat si cele dupa care se agrega trebuie sa fie diferite."
+
+msgid "Name for aggregated data set:"
+msgstr "Numele setului de date agregat:"
+
+#     miscellaneous 
+
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Seturi de date R\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Toate fisierele\" {\"*\"}}"
+
+msgid "No data set selected."
+msgstr "Nici un set de date selectat."
+
+msgid "Help on selected data set"
+msgstr "Ajutor asupra setului de date selectat"
+
+msgid "Population mean != mu0"
+msgstr "Media �n populatie != mu0"
+
+msgid "Population proportion != p0"
+msgstr "Proportia �n populatie != p0"
+
+msgid "Models do not have the same family."
+msgstr "Modelele nu au aceeasi familie"
+
+msgid "Pairwise p-values\nfor Pearson or Spearman correlations"
+msgstr "Valori p pairwise\npentru corelatii Pearson sau Spearman"
+
+msgid "The Windows version of the R Commander works best under RGui\nwith the single-document interface (SDI); see ?Commander."
+msgstr "Versiunea Windows a lui R Commander functioneaza cel mai bine �n RGui\ncu interfata SDI - Single Document Interface; vezi ?Commander."
 
