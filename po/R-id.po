@@ -1,18 +1,19 @@
-"Project-Id-Version: Rcmdr 1.4-0\n"
-"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2008-07-30 19:00\n"
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: I MADE TIRTA <itirta@fmipa.unej.ac.id>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 # Indonesian translations for the Rcmdr package
 # Terjemahan Bahasa Indonesia Paket Rcmdr
 # Copyright (C) 2007 John Fox
 # This file is distributed under the same license as the Rcmdr package
 # I Made Tirta <itirta@unej.ac.id>, 2007
-"PO-Revision-Date: 2008-08-03\n"
-"Last-Translator: I MADE TIRTA <itirta@unej.ac.id>\n"
-"Language-Team: Indonesian <itirta@unej.ac.id>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
-"Content-Transfer-Encoding: 8bit\n"
-
 msgid "KMeans Clustering"
 msgstr "Pengugusan KMeans"
 
@@ -26,7 +27,7 @@ msgid "<all valid cases>"
 msgstr "<semua kasus yang valid>"
 
 msgid "Number of clusters:"
-msgstr "Banyaknya gugus"
+msgstr "Banyaknya gugus:"
 
 msgid "Number of starting seeds:"
 msgstr "Banyaknya benih awal:"
@@ -40,8 +41,12 @@ msgstr "Cetak ringkasan gugus"
 msgid "Bi-plot of clusters"
 msgstr "Bi-plot dari gugus"
 
-msgid "Assign clusters to\nthe data set"
-msgstr "Tetapkan gugus pada \ndata set"
+msgid ""
+"Assign clusters to\n"
+"the data set"
+msgstr ""
+"Tetapkan gugus pada \n"
+"data set"
 
 msgid "Assignment variable:"
 msgstr "Peubah yang ditetapkan:"
@@ -149,7 +154,7 @@ msgid "Sourced:"
 msgstr "Sumber:"
 
 msgid "menu definition error:"
-msgstr "kesalahan definisi menu"
+msgstr "kesalahan definisi menu:"
 
 msgid "Nothing is selected."
 msgstr "Tidak ada yang dipilih."
@@ -212,7 +217,7 @@ msgid "R Commander Version"
 msgstr "Versi R Commander"
 
 msgid "First and last 5 warnings:"
-msgstr "Peringatan pertama dan 5  terakhir"
+msgstr "Lima peringatan pertama dan   terakhir"
 
 msgid "ERROR:"
 msgstr "KESALAHAN:"
@@ -254,7 +259,7 @@ msgid "There is only one dataset in memory."
 msgstr "Hanya ada satu dataset di memori."
 
 msgid "There are no data sets from which to choose."
-msgstr "Tidak ada dataset untuk dipilih."
+msgstr "Tidak ada data set untuk dipilih."
 
 msgid "Select Data Set"
 msgstr "Pilih Data set"
@@ -299,7 +304,7 @@ msgid "Current variables (double-click to expression)"
 msgstr "Peubah terkini (klik dobel untuk ekspresi)"
 
 msgid "No expression specified."
-msgstr "Tidak ada ekspresi tersfesifikasi."
+msgstr "Tidak ada ekspresi terspesifikasi."
 
 msgid "Variable"
 msgstr "Peubah"
@@ -316,11 +321,19 @@ msgstr "Peubah untuk dihapus (pilih satu atau lebih)"
 msgid "You must select one or more variables."
 msgstr "Anda harus pilih satu atau lebih peubah."
 
-msgid "Delete %s?\nPlease confirm."
-msgstr "Hapus %s?\nSilakan konfirmasi."
+msgid ""
+"Delete %s?\n"
+"Please confirm."
+msgstr ""
+"Hapus %s?\n"
+"Silakan konfirmasi."
 
-msgid "Delete %d variables?\nPlease confirm."
-msgstr "Hapus peubah %d \n Silakan konfirmasi"
+msgid ""
+"Delete %d variables?\n"
+"Please confirm."
+msgstr ""
+"Hapus peubah %d \n"
+" Silakan konfirmasi"
 
 msgid "Read Data From Text File"
 msgstr "Baca data dari File Teks"
@@ -389,7 +402,7 @@ msgid "OR"
 msgstr "Atau"
 
 msgid "Enter name of data set:"
-msgstr "Tulis nama dataset:"
+msgstr "Tulis nama data set:"
 
 msgid "Import SPSS Data Set"
 msgstr "Impor Data Set SPSS"
@@ -397,11 +410,21 @@ msgstr "Impor Data Set SPSS"
 msgid "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"simpan file SPSS\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"Semua File\" {\"*\"}}"
 
-msgid "Convert value labels\nto factor levels"
-msgstr "Konversi nilai label \n ke level faktor"
+msgid ""
+"Convert value labels\n"
+"to factor levels"
+msgstr ""
+"Konversi nilai label \n"
+" ke level faktor"
 
-msgid "Maximum number\nof value labels\nfor factor conversion"
-msgstr "Banyaknya maksimum \n nilai label\n untuk konversi faktor"
+msgid ""
+"Maximum number\n"
+"of value labels\n"
+"for factor conversion"
+msgstr ""
+"Banyaknya maksimum \n"
+" nilai label\n"
+" untuk konversi faktor"
 
 msgid "Import Minitab Data Set"
 msgstr "Impor Data Set Minitab"
@@ -409,8 +432,12 @@ msgstr "Impor Data Set Minitab"
 msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"File portabel\" {\".mtp\" \".MTP\"}} {\"Semua File\" {\"*\"}}"
 
-msgid "Minitab data set contains elements of unequal length.\nData set cannot be converted."
-msgstr "Data set minitab mengandung unsur dengan panjang tak sama.\n Dataset tidak bisa dikonfersi."
+msgid ""
+"Minitab data set contains elements of unequal length.\n"
+"Data set cannot be converted."
+msgstr ""
+"Data set minitab mengandung unsur dengan panjang tak sama.\n"
+" Dataset tidak bisa dikonfersi."
 
 msgid "Import STATA Data Set"
 msgstr "Impor Data Set STATA"
@@ -490,8 +517,12 @@ msgstr "Bin dengan lebar sama"
 msgid "Equal-count bins"
 msgstr "Bin dengan jumlah sama"
 
-msgid "Natural breaks\n(from K-means clustering)"
-msgstr "Pemotongan alami\n(dari pengugusan K-mean)"
+msgid ""
+"Natural breaks\n"
+"(from K-means clustering)"
+msgstr ""
+"Pemotongan alami\n"
+"(dari pengugusan K-mean)"
 
 msgid "Binning Method"
 msgstr "Metode Binning"
@@ -545,7 +576,7 @@ msgid "Write variable names:"
 msgstr "Tulis nama peubah:"
 
 msgid "Write row names:"
-msgstr "Tulis nama baris"
+msgstr "Tulis nama baris:"
 
 msgid "Quotes around character values:"
 msgstr "Kutip sekitar nilai karakter:"
@@ -557,7 +588,7 @@ msgid "Active dataset exported to file"
 msgstr "Dataset aktif diekspor ke file"
 
 msgid "Missing values:"
-msgstr "Nilai hilang"
+msgstr "Nilai hilang:"
 
 msgid "Remove Missing Data"
 msgstr "Hapus data hilang"
@@ -649,8 +680,12 @@ msgstr "Masukkan koefisien kontras"
 msgid "Contrast Name:"
 msgstr "Nama kontras:"
 
-msgid "Number of valid entries in contrast matrix(%d)\nnot equal to number of levels (%d) * number of contrasts (%d)."
-msgstr "Banyaknya masukan valid pada matriks kontras (%d)\n tidak sama dengan banyaknya level (%d) * banyaknya kontras (%d)."
+msgid ""
+"Number of valid entries in contrast matrix(%d)\n"
+"not equal to number of levels (%d) * number of contrasts (%d)."
+msgstr ""
+"Banyaknya masukan valid pada matriks kontras (%d)\n"
+" tidak sama dengan banyaknya level (%d) * banyaknya kontras (%d)."
 
 msgid "Contrast matrix is not of full column rank"
 msgstr "Matriks kontras bukan merupakan rank kolom penuh"
@@ -745,14 +780,22 @@ msgstr "Peluang sukses"
 msgid "Cumulative Binomial Probabilities"
 msgstr "Peluang Binomial Kumulatif"
 
-msgid "Number of trials, %d, is large.\nCreate long output?"
-msgstr "Banyaknya trial, %d, besar.\nBuat keluaran panjang?"
+msgid ""
+"Number of trials, %d, is large.\n"
+"Create long output?"
+msgstr ""
+"Banyaknya trial, %d, besar.\n"
+"Buat keluaran panjang?"
 
 msgid "Binomial Probabilities"
 msgstr "Peluang Binomial"
 
-msgid "Range of values over which to plot, %d, is large.\nCreate long output?"
-msgstr "Rentang nilai yang akan diplot, %d, besar.\nBuat keluaran panjang?"
+msgid ""
+"Range of values over which to plot, %d, is large.\n"
+"Create long output?"
+msgstr ""
+"Rentang nilai yang akan diplot, %d, besar.\n"
+"Buat keluaran panjang?"
 
 msgid "Poisson Probabilities"
 msgstr "Peluang Poisson"
@@ -871,8 +914,12 @@ msgstr "Urut nama peubah menurut abjad?"
 msgid "Show edit button"
 msgstr "Tunjukkan tombol edit"
 
-msgid "Exit and Restart\nR Commander"
-msgstr "Keluar dan Mulai lagi \nR Commander"
+msgid ""
+"Exit and Restart\n"
+"R Commander"
+msgstr ""
+"Keluar dan Mulai lagi \n"
+"R Commander"
 
 msgid "Scale factor for Tk elements"
 msgstr "Faktor skala untuk unsur Tk"
@@ -901,8 +948,12 @@ msgstr "Plot Indeks"
 msgid "You must select a variable"
 msgstr "Anda harus pilih peubah"
 
-msgid "Identify observations\nwith mouse"
-msgstr "Identifikasi pengamatan\ndengan maus"
+msgid ""
+"Identify observations\n"
+"with mouse"
+msgstr ""
+"Identifikasi pengamatan\n"
+"dengan maus"
 
 msgid "Spikes"
 msgstr "Paku"
@@ -1066,8 +1117,12 @@ msgstr "Tidak ada peubah y terpilih."
 msgid "x and y variables must be different."
 msgstr "Peubah x dan y harus beda"
 
-msgid "x-values are not in order.\nContinue?"
-msgstr "Peubah x tidak terurut.\nLanjutkan"
+msgid ""
+"x-values are not in order.\n"
+"Continue?"
+msgstr ""
+"Peubah x tidak terurut.\n"
+"Lanjutkan"
 
 msgid "Label for y-axis"
 msgstr "Label untuk sumbu-y"
@@ -1084,8 +1139,12 @@ msgstr "db untuk t harus bilangan positif."
 msgid "df for chi-square must be a positive number."
 msgstr "db untuk chi-kuadrat harus bilangan positif."
 
-msgid "numerator and denominator \ndf for F must be positive numbers."
-msgstr "db numerator dan denominator \n F harus bilangan positif."
+msgid ""
+"numerator and denominator \n"
+"df for F must be positive numbers."
+msgstr ""
+"db numerator dan denominator \n"
+" F harus bilangan positif."
 
 msgid "Identify observations with mouse"
 msgstr "Identifikasi pengamatan dengan maus"
@@ -1285,8 +1344,12 @@ msgstr "Identifikasi poin dengan mouse?"
 msgid "There is no appropriate Anova method for a model of this class."
 msgstr "Tidak ada metode Anava yang sesuai dengan model ini."
 
-msgid "Observation statistics not available\nfor a model fit to a subset of the data."
-msgstr "Statistik observasi tidak tersedia\nbagi model model pas untuk sebagaian data"
+msgid ""
+"Observation statistics not available\n"
+"for a model fit to a subset of the data."
+msgstr ""
+"Statistik observasi tidak tersedia\n"
+"bagi model model pas untuk sebagaian data"
 
 msgid "Add Observation Statistics to Data"
 msgstr "Tambahkan statistik pegamatan untuk data"
@@ -1321,14 +1384,22 @@ msgstr "Identifikasi titik dengan mouse"
 msgid "Test Linear Hypothesis"
 msgstr "Uji Hipotesis Linier"
 
-msgid "Number of valid entries in hypothesis matrix(%d)\nnot equal to number of rows (%d) * number of columns (%d)."
-msgstr "Banyaknya masukan valid pada matriks hipotesis (%d)\ntidak sama dengan banyaknya baris (%d) * banyaknya kolom (%d)."
+msgid ""
+"Number of valid entries in hypothesis matrix(%d)\n"
+"not equal to number of rows (%d) * number of columns (%d)."
+msgstr ""
+"Banyaknya masukan valid pada matriks hipotesis (%d)\n"
+"tidak sama dengan banyaknya baris (%d) * banyaknya kolom (%d)."
 
 msgid "Hypothesis matrix is not of full row rank."
 msgstr "Matriks hipotesis tidak memiliki rank  penuh."
 
-msgid "Number of valid entries in rhs vector (%d)\nis not equal to number of rows (%d)."
-msgstr "Banyaknya masukan valid pada ruas kanan vektor (%d)\ntidak sama dengan banyaknya baris (%d)."
+msgid ""
+"Number of valid entries in rhs vector (%d)\n"
+"is not equal to number of rows (%d)."
+msgstr ""
+"Banyaknya masukan valid pada ruas kanan vektor (%d)\n"
+"tidak sama dengan banyaknya baris (%d)."
 
 msgid "Number of Rows:"
 msgstr "Banyaknya baris"
@@ -1453,11 +1524,17 @@ msgstr "Cari ..."
 msgid "Install Packages From:"
 msgstr "Instal Paket dari:"
 
-msgid "Specify package  \ndirectory:"
+msgid ""
+"Specify package  \n"
+"directory:"
 msgstr "Tentukan direktori paket:"
 
-msgid "Local package directory\n(must include PACKAGES index file)"
-msgstr "Direktori lokal \n(harus memuat file indeks dari PAKET)"
+msgid ""
+"Local package directory\n"
+"(must include PACKAGES index file)"
+msgstr ""
+"Direktori lokal \n"
+"(harus memuat file indeks dari PAKET)"
 
 msgid "The following packages were not found at the specified location:"
 msgstr "Paket berikut tidak ditemukan pada lokasi yang ditentukan:"
@@ -1669,8 +1746,12 @@ msgstr "Eksak"
 msgid "Normal approximation"
 msgstr "Pendekatan Normal"
 
-msgid "Normal approximation with\ncontinuity correction"
-msgstr "Pendekatan normal dengan \nkoreksi kontinuitas"
+msgid ""
+"Normal approximation with\n"
+"continuity correction"
+msgstr ""
+"Pendekatan normal dengan \n"
+"koreksi kontinuitas"
 
 msgid "Paired Wilcoxon Test"
 msgstr "Uji Wilcoxon Berpasangan"
@@ -1705,8 +1786,12 @@ msgstr "Uji Proporsi dua-sampel"
 msgid "Groups and response variables must be different."
 msgstr "Peubah kelompok dan respon harus beda."
 
-msgid "There are %d variables in the data set %s.\nDo you want to proceed?"
-msgstr "Ada %d peubah pada dataset %s. \nMau teruskan?"
+msgid ""
+"There are %d variables in the data set %s.\n"
+"Do you want to proceed?"
+msgstr ""
+"Ada %d peubah pada dataset %s. \n"
+"Mau teruskan?"
 
 msgid "Numerical Summaries"
 msgstr "Ringkasan Numerik"
@@ -1738,8 +1823,12 @@ msgstr "Masukan tidak valid."
 msgid "Missing entry."
 msgstr "Masukan hilang."
 
-msgid "Number of valid entries (%d)\nnot equal to number levels (%d)."
-msgstr "Banyaknya masukan valid (%d)\ntidak sama dengan banyaknya level (%d)."
+msgid ""
+"Number of valid entries (%d)\n"
+"not equal to number levels (%d)."
+msgstr ""
+"Banyaknya masukan valid (%d)\n"
+"tidak sama dengan banyaknya level (%d)."
 
 msgid "Negative probabilities not allowed."
 msgstr "Peluang negatif tidak diijinkan."
@@ -1777,8 +1866,12 @@ msgstr "Parsial"
 msgid "Type of Correlations"
 msgstr "Jenis korelasi"
 
-msgid "Fewer than 3 variables selected\nfor partial correlations."
-msgstr "Kurang dari 3 peubah dipilih\nuntuk korelasi parsial."
+msgid ""
+"Fewer than 3 variables selected\n"
+"for partial correlations."
+msgstr ""
+"Kurang dari 3 peubah dipilih\n"
+"untuk korelasi parsial."
 
 msgid "Two-Way Table"
 msgstr "Tabel Dua-Arah"
@@ -1837,8 +1930,12 @@ msgstr "Peubah baris, kolom dan kontrol harus beda."
 msgid "Enter Two-Way Table"
 msgstr "Masukkan Tabel Dua-Arah"
 
-msgid "Number of valid entries (%d)\nnot equal to number of rows (%d) * number of columns (%d)."
-msgstr "Banyaknya masukan valid (%d)\ntidak sama dengan banyaknya baris (%d) * banyaknya kolom (%d)."
+msgid ""
+"Number of valid entries (%d)\n"
+"not equal to number of rows (%d) * number of columns (%d)."
+msgstr ""
+"Banyaknya masukan valid (%d)\n"
+"tidak sama dengan banyaknya baris (%d) * banyaknya kolom (%d)."
 
 msgid "Row names are not unique."
 msgstr "Nama baris tidak unik."
@@ -1933,8 +2030,12 @@ msgstr "Ada kurang dari %d peubah pada dataset aktif."
 msgid "There are no variables in the active data set."
 msgstr "Tidak ada peubah pada dataset aktif."
 
-msgid "%s %s already exists.\nOverwrite %s?"
-msgstr "%s %s sudah ada.\nTindas %s?"
+msgid ""
+"%s %s already exists.\n"
+"Overwrite %s?"
+msgstr ""
+"%s %s sudah ada.\n"
+"Tindas %s?"
 
 msgid "Plot by:"
 msgstr "Plot dengan:"
@@ -1969,8 +2070,12 @@ msgstr "Peubah (klik dobel untuk formula)"
 msgid "Model Formula:"
 msgstr "Formula Model:"
 
-msgid "No appropriate %s method exists\nfor a model of this class."
-msgstr "Tidak ada %s metode yang sesuai \nuntuk model pada kelas ini."
+msgid ""
+"No appropriate %s method exists\n"
+"for a model of this class."
+msgstr ""
+"Tidak ada %s metode yang sesuai \n"
+"untuk model pada kelas ini."
 
 msgid "The model is not of class \"%s\"."
 msgstr "Model ini bukan pada kelas \"%s\"."
@@ -2432,7 +2537,6 @@ msgid "df ="
 msgstr "db ="
 
 ## messages added to Rcmdr version 1.1-1
-
 msgid "There is no current RGL graphics device."
 msgstr "Tidak ada alat grafik RGL."
 
@@ -2440,16 +2544,18 @@ msgid "3D graph"
 msgstr "Grafik 3D"
 
 ## messages added to Rcmdr version 1.1-6
-
 msgid " contains non-standard variable names:\n"
 msgstr "mengandung nama peubah tak-baku:\n"
 
-msgid "\nThese have been changed to:\n"
-msgstr "\nIni telah diubah menjadi:\n"
+msgid ""
+"\n"
+"These have been changed to:\n"
+msgstr ""
+"\n"
+"Ini telah diubah menjadi:\n"
 
 ## messages added to Rcmdr version 1.2-0
 # importRODBCtable dialog
-
 msgid "This function requires the RODBC package.\n"
 msgstr "Fungsi ini memerlukan paket RODBC.\n"
 
@@ -2468,8 +2574,7 @@ msgstr "Tidak ada tabel terpilih"
 msgid "from Excel, Access or dBase data set..."
 msgstr "Data set dari Excel, Access atau dBase ..."
 
-    # probability distributions
-
+# probability distributions
 msgid "Standard deviation must be positive."
 msgstr "Deviasi baku harus positif."
 
@@ -2757,7 +2862,7 @@ msgstr "Sampel Cauchy"
 
 msgid "Sample from Logistic Distribution"
 msgstr "Sampel dari Distribusi Logistik"
- 
+
 msgid "LogisticSamples"
 msgstr "Sampel Logistik"
 
@@ -2791,8 +2896,8 @@ msgstr "Sampel dari Distribusi Binomial"
 msgid "BinomialSamples"
 msgstr ""
 
-msgid "Poisson mean cannot be negative." 
-msgstr ""
+msgid "Poisson mean cannot be negative."
+msgstr "Nilai tengah/rerata Poisson tidak bisa negatif"
 
 msgid "Sample from Poisson Distribution"
 msgstr "Sampel dari Distribusi Piosson"
@@ -2818,233 +2923,232 @@ msgstr "Sampel dari Distribusi Binomial Negatif"
 msgid "NegativeBinomialSamples"
 msgstr ""
 
-msgid "Sample from normal distribution..." 
+msgid "Sample from normal distribution..."
 msgstr "Sampel dari Distribusi Normal..."
-             
-msgid "Sample from t distribution..."    
+
+msgid "Sample from t distribution..."
 msgstr "Sampel dari Distribusi t..."
-            
-msgid "Sample from chi-squared distribution..."  
+
+msgid "Sample from chi-squared distribution..."
 msgstr "Sampel dari Distribusi Chi-kuadrat..."
-                                  
-msgid "Sample from F distribution..."        
+
+msgid "Sample from F distribution..."
 msgstr "Sampel dari Distribusi F..."
-                                                      
-msgid "Exponential distribution"             
+
+msgid "Exponential distribution"
 msgstr "Distribusi Eksponensial"
-         
-msgid "Exponential quantiles..."              
+
+msgid "Exponential quantiles..."
 msgstr "Kuantil Eksponensial..."
-        
-msgid "Exponential probabilities..."          
+
+msgid "Exponential probabilities..."
 msgstr "Peluang Eksponensial..."
-        
-msgid "Plot exponential distribution..."           
+
+msgid "Plot exponential distribution..."
 msgstr "Plot Distribusi Eksponensial..."
-   
-msgid "Sample from exponential distribution..."       
+
+msgid "Sample from exponential distribution..."
 msgstr "Sampel dari Distribusi Eksponensial..."
-                                           
-msgid "Uniform distribution"                         
+
+msgid "Uniform distribution"
 msgstr "Distribusi Seragam"
 
-msgid "Uniform quantiles..."                         
+msgid "Uniform quantiles..."
 msgstr "Kuantil Seragam"
 
-msgid "Uniform probabilities..."                     
+msgid "Uniform probabilities..."
 msgstr "Peluang Seragam..."
 
-msgid "Plot uniform distribution..."                 
+msgid "Plot uniform distribution..."
 msgstr "Plot Distribusi Seragam..."
 
-msgid "Sample from uniform distribution..."            
+msgid "Sample from uniform distribution..."
 msgstr "Sampel dari Distribusi Seragam..."
-                                               
-msgid "Beta distribution"            
+
+msgid "Beta distribution"
 msgstr "Distribusi Beta"
-               
-msgid "Beta quantiles..."             
+
+msgid "Beta quantiles..."
 msgstr "Kuantil Beta..."
-                                                              
-msgid "Beta probabilities..."           
+
+msgid "Beta probabilities..."
 msgstr "Peluang Beta..."
-                              
-msgid "Plot beta distribution..."                 
+
+msgid "Plot beta distribution..."
 msgstr "Plot Distribusi Beta..."
-                    
-msgid "Sample from beta distribution..."     
+
+msgid "Sample from beta distribution..."
 msgstr "Sampel dari Distribusi Beta..."
-                                                
-msgid "Cauchy distribution"               
+
+msgid "Cauchy distribution"
 msgstr "Distribusi Cauchy"
-          
-msgid "Cauchy quantiles..."                 
+
+msgid "Cauchy quantiles..."
 msgstr "Kuantil Cauchy..."
-        
-msgid "Cauchy probabilities..."             
+
+msgid "Cauchy probabilities..."
 msgstr "Peluang Cauchy..."
-        
-msgid "Plot Cauchy distribution..."            
+
+msgid "Plot Cauchy distribution..."
 msgstr "Plot Distribusi Cauchy..."
-     
-msgid "Sample from Cauchy distribution..."      
+
+msgid "Sample from Cauchy distribution..."
 msgstr "Sampel dari Distribusi Cauchy ..."
-                                             
-msgid "Logistic distribution"             
+
+msgid "Logistic distribution"
 msgstr "Distribusi Logistik"
-         
-msgid "Logistic quantiles..."                      
+
+msgid "Logistic quantiles..."
 msgstr "Kuantil Logistik..."
 
-msgid "Logistic probabilities..."                  
+msgid "Logistic probabilities..."
 msgstr "Peluang Logistik..."
 
-msgid "Plot logistic distribution..."             
+msgid "Plot logistic distribution..."
 msgstr "Plot Distribusi Logistik..."
- 
-msgid "Sample from logistic distribution..."         
+
+msgid "Sample from logistic distribution..."
 msgstr "Sampel dari Distribusi Logistik..."
-                                      
-msgid "Lognormal distribution"                     
+
+msgid "Lognormal distribution"
 msgstr "Distribusi Log-Normal"
 
-msgid "Lognormal quantiles..."                    
+msgid "Lognormal quantiles..."
 msgstr "Kuantil Log-Normal..."
- 
-msgid "Lognormal probabilities..."                 
+
+msgid "Lognormal probabilities..."
 msgstr "Peluang Log-Normal..."
 
-msgid "Plot lognormal distribution..."             
+msgid "Plot lognormal distribution..."
 msgstr "Plot Distribusi Log-Normal..."
 
-msgid "Sample from lognormal distribution..."          
+msgid "Sample from lognormal distribution..."
 msgstr "Sampel dari Distribusi Log-Normal..."
-                                    
-msgid "Gamma distribution"                
+
+msgid "Gamma distribution"
 msgstr "Distribusi Gamma"
-         
-msgid "Gamma quantiles..."               
+
+msgid "Gamma quantiles..."
 msgstr "Kuantil Gamma..."
-          
-msgid "Gamma probabilities..."               
+
+msgid "Gamma probabilities..."
 msgstr "Peluang  Gamma..."
-      
-msgid "Plot gamma distribution..."              
+
+msgid "Plot gamma distribution..."
 msgstr "Plot Distribusi Gamma..."
-   
-msgid "Sample from gamma distribution..."          
+
+msgid "Sample from gamma distribution..."
 msgstr "Sampel dari Distribusi Gamma..."
-                                        
-msgid "Weibull distribution"                     
+
+msgid "Weibull distribution"
 msgstr "Distribusi Weibull..."
-  
-msgid "Weibull quantiles..."                       
+
+msgid "Weibull quantiles..."
 msgstr "Kuantil Weibull..."
 
-msgid "Weibull probabilities..."                   
+msgid "Weibull probabilities..."
 msgstr "Peluang Weibull..."
 
-msgid "Plot Weibull distribution..."               
+msgid "Plot Weibull distribution..."
 msgstr "Plot Distribusi Weibull..."
 
-msgid "Sample from Weibull distribution..."                
+msgid "Sample from Weibull distribution..."
 msgstr "Sampel dari Distribusi Weibull..."
-                               
-msgid "Gumbel distribution"                        
+
+msgid "Gumbel distribution"
 msgstr "Distribusi Gumbel..."
 
-msgid "Gumbel quantiles..."                
+msgid "Gumbel quantiles..."
 msgstr "Kuantil Gumbel..."
-        
-msgid "Gumbel probabilities..."      
+
+msgid "Gumbel probabilities..."
 msgstr "Peluang Gumbel..."
-              
-msgid "Plot Gumbel distribution..."      
+
+msgid "Plot Gumbel distribution..."
 msgstr "Plot Distribusi Gumbel..."
-          
-msgid "Sample from Gumbel distribution..."  
+
+msgid "Sample from Gumbel distribution..."
 msgstr "Sampel dari Distribusi Gumbel..."
-                             
-msgid "Sample from binomial distribution..." 
+
+msgid "Sample from binomial distribution..."
 msgstr "Sampel dari Distribusi Binomial..."
-                                                       
-msgid "Poisson quantiles..."         
+
+msgid "Poisson quantiles..."
 msgstr "Kuantil Poisson..."
-                 
-msgid "Poisson tail probabilities..."  
+
+msgid "Poisson tail probabilities..."
 msgstr "Peluang ujung Poissson..."
-               
-msgid "Sample from Poisson distribution..."   
+
+msgid "Sample from Poisson distribution..."
 msgstr "Sampel dari Distribusi Poisson..."
-                                                      
-msgid "Geometric distribution"   
+
+msgid "Geometric distribution"
 msgstr "Distribusi Geometrik"
-                     
-msgid "Geometric quantiles..."  
+
+msgid "Geometric quantiles..."
 msgstr "Kuantil Geometrik..."
-                      
-msgid "Geometric tail probabilities..."   
+
+msgid "Geometric tail probabilities..."
 msgstr "Peluang ujung Geometrik..."
-            
-msgid "Geometric probabilities..."  
+
+msgid "Geometric probabilities..."
 msgstr "Peluang Geometrik..."
-                  
-msgid "Plot geometric distribution..."  
+
+msgid "Plot geometric distribution..."
 msgstr "Plot istribusi Geometrik..."
-              
-msgid "Sample from geometric distribution..."   
+
+msgid "Sample from geometric distribution..."
 msgstr "Sampel dari Distribusi Geometrik ..."
-                                                  
-msgid "Hypergeometric distribution" 
+
+msgid "Hypergeometric distribution"
 msgstr "Distribusi Hipergeometrik"
-                  
-msgid "Hypergeometric quantiles..."  
+
+msgid "Hypergeometric quantiles..."
 msgstr "Kuantil Hipergeometrik..."
-                 
-msgid "Hypergeometric tail probabilities..."   
+
+msgid "Hypergeometric tail probabilities..."
 msgstr "Peluang ujung Hipergeometrik..."
-       
-msgid "Hypergeometric probabilities..."     
+
+msgid "Hypergeometric probabilities..."
 msgstr "Peluang Hipergeometrik..."
-          
-msgid "Plot hypergeometric distribution..."   
+
+msgid "Plot hypergeometric distribution..."
 msgstr "Plot Distribusi Hipergeometrik..."
-        
-msgid "Sample from hypergeometric distribution..."   
+
+msgid "Sample from hypergeometric distribution..."
 msgstr "Sampel dari Distribusi Hypergeometik..."
-                                            
-msgid "Negative binomial distribution"      
+
+msgid "Negative binomial distribution"
 msgstr "Distribusi Binomial Negatif"
-         
-msgid "Negative binomial quantiles..."           
+
+msgid "Negative binomial quantiles..."
 msgstr "Kuantil Binomial Negatif..."
-    
-msgid "Negative binomial tail probabilities..."   
+
+msgid "Negative binomial tail probabilities..."
 msgstr "Peluang ujung Binomial Negatif..."
-   
-msgid "Negative binomial probabilities..."    
+
+msgid "Negative binomial probabilities..."
 msgstr "Peluang Binomial Negatif..."
-       
-msgid "Plot negative binomial distribution..."      
+
+msgid "Plot negative binomial distribution..."
 msgstr "Plot Distribusi Binomial Negatif..."
- 
+
 msgid "Sample from negative binomial distribution..."
 msgstr "Sampel dari Distribusi Binomial Negatif..."
 
-msgid "Continuous distributions"             
+msgid "Continuous distributions"
 msgstr "Distribusi Kontinu"
-                                     
+
 msgid "Discrete distributions"
 msgstr "Distribusi Diskrit"
 
-    # Xyplot dialog
-
+# Xyplot dialog
 msgid "XY Conditioning Plot"
 msgstr "Plot Pengkondisian XY"
 
-msgid "Response variables (pick one or more)"     
+msgid "Response variables (pick one or more)"
 msgstr "Peubah respon (pilih satu atau lebih)"
-                              
+
 msgid "Groups (pick zero or more)"
 msgstr "Kelompok (ambil nol atau lebih)"
 
@@ -3060,7 +3164,7 @@ msgstr "Identik"
 msgid "Free"
 msgstr "Bebas"
 
-msgid "Same range" 
+msgid "Same range"
 msgstr "Rentang sama"
 
 msgid "X-Axis Scales in Different Panels"
@@ -3078,16 +3182,14 @@ msgstr "Setidaknya satu peubah eksplanatori harus dipilih."
 msgid "XY conditioning plot..."
 msgstr "Plot Pengkondisian XY..."
 
-    # contingency tables dialog
-
+# contingency tables dialog
 msgid "Percentages of total"
 msgstr "Persentase keseluruhan"
 
 msgid "Components of chi-square statistic"
 msgstr "Komponen statristik chi-kuadrat"
 
-    # 3D scatterplots dialog
-
+# 3D scatterplots dialog
 msgid "Show squared residuals"
 msgstr "Tunjukkan kuadrat residual"
 
@@ -3097,18 +3199,15 @@ msgstr "Tunjukkan skala sumbu"
 msgid "Plot 50% concentration ellipsoid"
 msgstr "Plot 50% konsentrasi elipsoida"
 
-    # scatterplot matrices dialog
-
+# scatterplot matrices dialog
 msgid "One-dimensional scatterplots"
 msgstr "Diagram pencar satu-dimensi"
 
-    # count NAs (menu item)
-
+# count NAs (menu item)
 msgid "Count missing observations"
 msgstr "Hitung observasi hilang"
 
-    # Correlation test dialog
-
+# Correlation test dialog
 msgid "Correlation Test"
 msgstr "Uji Korelasi"
 
@@ -3133,8 +3232,7 @@ msgstr "Lebih dari dua peubah terpilih."
 msgid "Correlation test..."
 msgstr "Uji korelasi..."
 
-    # Recode dialog
-
+# Recode dialog
 msgid "Recode Variables"
 msgstr "Kode ulang Peubah"
 
@@ -3147,11 +3245,10 @@ msgstr "Nama peubah baru atau prefix untuk kode ganda:"
 msgid "Make (each) new variable a factor"
 msgstr "Jadikan (setiap) peubah baru sebagai faktor"
 
-msgid "Recode variables..." 
+msgid "Recode variables..."
 msgstr "Kode ulang peubah..."
 
-    # Frequency distributions dialog
-
+# Frequency distributions dialog
 msgid "Frequency Distributions"
 msgstr "Distribusi frekuensi"
 
@@ -3164,8 +3261,7 @@ msgstr "Uji kecocokan tidak tersedia jika lebih dari satu peubah terpilih."
 msgid "Frequency distributions..."
 msgstr "Distribusi frekuensi..."
 
-    # Numeric to factor dialog
-    
+# Numeric to factor dialog
 msgid "Convert Numeric Variables to Factors"
 msgstr "Konversi Peubah Numerik ke Faktor"
 
@@ -3184,8 +3280,7 @@ msgstr "Nama peubah baru atau prefik untuk peubah ganda:"
 msgid "Convert numeric variables to factors..."
 msgstr "Konversi peubah numerik ke faktor..."
 
-    # Stack dialog
-    
+# Stack dialog
 msgid "Stack Variables"
 msgstr "Peubah Stack"
 
@@ -3204,22 +3299,29 @@ msgstr "Nama untuk data set stack:"
 msgid "Name for variable:"
 msgstr "Nama untuk peubah:"
 
-msgid "Name for factor:"    
+msgid "Name for factor:"
 msgstr "Nama untuk faktor:"
-    
+
 msgid "Stack variables in active data set..."
 msgstr "Peubah stack dalam data set aktif..."
 
-    # miscelaneous
-
+# miscelaneous
 msgid "Identify Points"
 msgstr "Identifikasi Titik"
 
-msgid "Use left mouse button to identify points,\nright button to exit."
-msgstr "Gunakan maus kiri untuk identitikasi titik,\ntombol kanan untuk keluar."
+msgid ""
+"Use left mouse button to identify points,\n"
+"right button to exit."
+msgstr ""
+"Gunakan maus kiri untuk identitikasi titik,\n"
+"tombol kanan untuk keluar."
 
-msgid "Drag right mouse button to identify points,\nclick right button to exit."
-msgstr "Drag maus kanan untuk identifikasi titik,\nklik tombol kanan untuk keluar."
+msgid ""
+"Drag right mouse button to identify points,\n"
+"click right button to exit."
+msgstr ""
+"Drag maus kanan untuk identifikasi titik,\n"
+"klik tombol kanan untuk keluar."
 
 msgid "Read Data From Text File or Clipboard"
 msgstr "Baca Data Dari File Teks atau Clipboard"
@@ -3243,9 +3345,7 @@ msgid "Right-hand side"
 msgstr "Bagian  kanan"
 
 ## messages added to Rcmdr version 1.3-0
-
 # handling plug-ins
-    
 msgid "Load Plugins"
 msgstr "Aktifkan Plug-in"
 
@@ -3258,8 +3358,12 @@ msgstr "Anda harus pilih paling tidak satu plug-in."
 msgid "Plug-ins loaded:"
 msgstr "Plug-in diaktifkan:"
 
-msgid "The plug-in(s) will not be available until the Commander is restarted.\nRestart now?"
-msgstr "Plug-in tidak akan tersedia sampai Commander dimulai ulang.\n Mulai ulang (restart) sekarang?"
+msgid ""
+"The plug-in(s) will not be available until the Commander is restarted.\n"
+"Restart now?"
+msgstr ""
+"Plug-in tidak akan tersedia sampai Commander dimulai ulang.\n"
+" Mulai ulang (restart) sekarang?"
 
 msgid "objects have different numbers of columns"
 msgstr "objek memiliki banyak kolom berbeda"
@@ -3267,7 +3371,7 @@ msgstr "objek memiliki banyak kolom berbeda"
 msgid "objects have different column names"
 msgstr "objek memiliki nama kolom berbeda"
 
-msgid "Load Rcmdr plug-in(s)..." 
+msgid "Load Rcmdr plug-in(s)..."
 msgstr "Aktifkan Plug-in Rcmdr..."
 
 msgid "the plug-in package %s is missing"
@@ -3282,8 +3386,7 @@ msgstr "operasi tak dikenal,\"%s\", pada plug-in baris menu %i"
 msgid "unrecognized type, \"%s\", in plugin menu line %i"
 msgstr "jenis tak dikenal, \"%s\", pada plug-in baris menu %i"
 
-    # miscelaneous additions
-    
+# miscelaneous additions
 msgid "Color palette..."
 msgstr "Warna..."
 
@@ -3292,17 +3395,17 @@ msgstr "Atur Warna"
 
 msgid "Color palette reset."
 msgstr "Kembalikan warna."
-    
+
 msgid "Save active data set..."
 msgstr "Simpan data set aktif..."
 
-msgid "Load data set..." 
+msgid "Load data set..."
 msgstr "Aktifkan data set ..."
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"File Data R\" {\".rda\" \".Rda\" \".RDA\"}} {\"Semua File\" {\"*\"}}"
 
-msgid "Shapiro-Wilk test of normality..." 
+msgid "Shapiro-Wilk test of normality..."
 msgstr "Uji kenormalan Shapiro-Wilk..."
 
 msgid "Shapiro-Wilk Test of Normality"
@@ -3347,39 +3450,29 @@ msgstr "Ukuran teks sumbu"
 msgid "Axis-labels text size"
 msgstr "Ukuran teks label sumbu"
 
-
 # message added to version 1.3-3 (because of inadvertent omission)
-
 msgid "Scale (inverse rate)"
 msgstr "Skala (laju inversi"
 
 # messages added to version 1.3-5
-
 msgid " has been coerced to a data frame"
 msgstr "telah dipaksakan ke bingkai data"
 
 msgid "the dataset %s is no longer available"
 msgstr "dataset %s tidak lagi tersedia"
 
-msgid "the model %s is no longer available"
-msgid "model %s tidak lagi tersedia"
-
 # message added to version 1.3-10
-
 msgid "The Commander GUI is launched only in interactive sessions"
 msgstr "GUI Commander dikeluarkan hanya dalamsesi interaktif"
 
 # messages added to version 1.3-15
-
 # Note: translate these messages only if the corresponding
 #  translated documents are supplied
-
 # For the following, you must supply a file named Commander-xx.Rd containing
 # a translation of the file Commander.Rd, where xx is the code for your
 # language. The \name{} and \alias{} fields in the .Rd file should both be
 # Commander-xx, where again xx is the language code.
 # Example: "Commander-es"
-
 msgid "Commander"
 msgstr "Commander"
 
@@ -3387,12 +3480,10 @@ msgstr "Commander"
 # of "Getting-Started-with-the-Rcmdr.pdf". I suggest using a translation
 # including -xx, where xx is the code for your language.
 # Example: "Empezando-con-Rcmdr-es"
-
 msgid "Getting-Started-with-the-Rcmdr"
 msgstr "Memulai dengan Rcmdr"
 
 # messages added to version 1.4-0
-
 msgid "Type of Tests"
 msgstr "Tipe Uji"
 
@@ -3494,3 +3585,173 @@ msgstr "Ulangi"
 
 msgid "ANOVA table..."
 msgstr "Tabel anava..."
+
+# messages added to version 1.4-2
+msgid "Location not specified."
+msgstr "Lokasi tidak dispesifikasi"
+
+# messages added to version 1.5-0
+#     "Models -> Stepwise model selection" dialog and menu item
+msgid "Stepwise model selection..."
+msgstr "Seleksi model bertatar..."
+
+msgid "Stepwise Model Selection"
+msgstr "Seleksi Model Bertatar"
+
+msgid "Direction"
+msgstr "Arah"
+
+msgid "backward/forward"
+msgstr "mundur/maju"
+
+msgid "forward/backward"
+msgstr "maju/mundur"
+
+msgid "backward"
+msgstr "mundur"
+
+msgid "forward"
+msgstr "maju"
+
+msgid "Criterion"
+msgstr "Kriteria"
+
+msgid "BIC"
+msgstr "BIC"
+
+msgid "AIC"
+msgstr "AIC"
+
+#      "Models -> Subset model selection" dialog and menu item
+msgid "Subset model selection..."
+msgstr "Seleksi model subbagian"
+
+msgid "Subset Model Selection"
+msgstr "Seleksi Model Subbagian"
+
+msgid "Criterion for Model Plot"
+msgstr "Kriteria untuk Plot Model"
+
+msgid "Mallows Cp"
+msgstr "Cp Mallows"
+
+msgid "Adjusted R-sq."
+msgstr "R-kuadrat tersesuaikan"
+
+msgid "R-squared"
+msgstr "R-kuadrat"
+
+msgid ""
+"Number of best models\n"
+"of each size:"
+msgstr ""
+"Jumlah model terbaik \n"
+"untuk tiap ukuran:"
+
+msgid "Maximum size:"
+msgstr "Ukuran maksimum"
+
+#          "Data -> Merge data sets" menu item and dialog
+msgid "Merge data sets..."
+msgstr "Menggabungkan data sets..."
+
+msgid "Merge Data Sets"
+msgstr "Menggabungkan Data Sets"
+
+msgid "First Data Set (pick one)"
+msgstr "Data Set Pertama (ambil satu)"
+
+msgid "Second Data Set (pick one)"
+msgstr "Data Set Kedua (ambil satu)"
+
+msgid "Merge rows"
+msgstr "Gabungkan baris"
+
+msgid "Merge columns"
+msgstr "Gabungkan kolom"
+
+msgid "Direction of Merge"
+msgstr "Arah Penggabungan"
+
+msgid "You cannot merge a data set with itself."
+msgstr "Anda tidak dapat menggabungkan data dengan dirinya sendiri"
+
+msgid "Name for merged data set:"
+msgstr "Nama untuk data set gabungan:"
+
+msgid ""
+"Merge only common\n"
+"rows or columns"
+msgstr ""
+"Gabungkan hyanya baris atau kolom \n"
+" yang sesuai"
+
+#          "Data -> Active data set -> Aggregate variables in active data set"
+msgid "Aggregate variables in active data set..."
+msgstr "Agregat peubah pada data set aktif"
+
+msgid "Aggregate Observations"
+msgstr "Agregat Pengamatan"
+
+msgid ""
+"Variables to aggregate\n"
+"(pick one or more)"
+msgstr ""
+"Peubah untuk diagregat\n"
+"(ambil satu atau lebih)"
+
+msgid ""
+"Aggregate by\n"
+"(pick one or more)"
+msgstr ""
+"Agregat dengan\n"
+"(ambil satu atau lebih)"
+
+msgid "Sum"
+msgstr "Jumlah"
+
+msgid "You must select at least one variable to aggregate."
+msgstr "Anda harus memilih paling tidak satu peubah."
+
+msgid "You must select at least one variable to aggregate by."
+msgstr "Anda harus memilih paling tidak satu peubah"
+
+msgid "Variables to aggregate and those to aggregate by must be different."
+msgstr "Peubah agregat dan yang teragregat harus beda."
+
+msgid "Name for aggregated data set:"
+msgstr "Nama untuk data set teragregat:"
+
+#     miscellaneous
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Al"
+msgstr "{\"File  Data R\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Al"
+
+msgid "No data set selected."
+msgstr "Tidak ada data yang dipilih."
+
+msgid "Help on selected data set"
+msgstr "Bantuan pada data set terpilih"
+
+msgid "Population mean != mu0"
+msgstr "Nilai tengah populasi !=mu0"
+
+msgid "Population proportion != p0"
+msgstr "Proporsi populasi !=p0"
+
+msgid "Models do not have the same family."
+msgstr "Model tidak memiliki famili/distribusi yang sama"
+
+msgid ""
+"Pairwise p-values\n"
+"for Pearson or Spearman correlations"
+msgstr ""
+"Nilai-p berpasangan\n"
+"untuk ko9relasi Pearson atau Spearman"
+
+msgid ""
+"The Windows version of the R Commander works best under RGui\n"
+"wit"
+msgstr ""
+"Versi Window dari R Commander bekerja terbaik pada RGUI\n"
+"wit"
+
