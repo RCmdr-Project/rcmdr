@@ -1,4 +1,4 @@
-# last modified 30 August 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 8 November 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -639,6 +639,27 @@ bin.var <- function (x, bins=4, method=c("intervals", "proportions", "natural"),
 
 # the following function is adapted from a suggestion by Robert Muenchen
 
+#rcorr.adjust <- function(x, type=c("pearson", "spearman")){
+#	require("Hmisc")
+#	type <- match.arg(type)
+#	x <- as.matrix(na.omit(x))
+#	R <- rcorr(x, type=type)
+#	P <- R$P
+#	p <- P[lower.tri(P)]
+#	adj.p <- p.adjust(p, method="holm")
+#	P[lower.tri(P)] <- adj.p
+#	P[upper.tri(P)] <- 0
+#	P <- P + t(P)
+#	P <- ifelse(P < 1e-04, 0, P)
+#	P <- format(round(P, 4))
+#	P[grep("NA", P)] <- ""
+#	print(R)
+#	cat("\n Adjusted p-values (Holm's method)\n")
+#	print(P, quote = FALSE)
+#	R$adj.P <- P
+#	return(invisible(R))
+#}
+
 rcorr.adjust <- function(x, type=c("pearson", "spearman")){
 	require("Hmisc")
 	type <- match.arg(type)
@@ -653,11 +674,15 @@ rcorr.adjust <- function(x, type=c("pearson", "spearman")){
 	P <- ifelse(P < 1e-04, 0, P)
 	P <- format(round(P, 4))
 	P[grep("NA", P)] <- ""
-	print(R)
+	res <- list(R=R, P=P)
+	class(res) <- "rcorr.adjust"
+	res
+}
+
+print.rcorr.adjust <- function(x, ...){
+	print(x$R)
 	cat("\n Adjusted p-values (Holm's method)\n")
-	print(P, quote = FALSE)
-	R$adj.P <- P
-	return(invisible(R))
+	print(x$P, quote = FALSE)
 }
 
 

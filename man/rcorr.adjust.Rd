@@ -1,6 +1,7 @@
 \name{rcorr.adjust}
 \Rdversion{1.1}
 \alias{rcorr.adjust}
+\alias{print.rcorr.adjust}
 
 \title{
 Compute Pearson or Spearman Correlations with p-Values
@@ -16,16 +17,19 @@ Observations are filtered for missing data, and only complete observations are u
 
 \usage{
 rcorr.adjust(x, type = c("pearson", "spearman"))
+
+\method{print}{rcorr.adjust}(x, ...)
 }
 
 \arguments{
-  \item{x}{a numeric matrix or data frame}
+  \item{x}{a numeric matrix or data frame, or an object of class \code{"rcorr.adjust"} to be printed.}
   \item{type}{\code{"pearson"} or \code{"spearman"}, depending upon the type of
   	correlations desired; the default is \code{"pearson"}.}
+  \item{...}{not used.}
 }
 
 \value{
-Returns an object of class \code{"rcorr"} with an additional \code{adj.P} element.
+Returns an object of class \code{"rcorr.adjust"}, which is normally just printed.
 }
 
 \author{

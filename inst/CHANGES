@@ -858,3 +858,8 @@ Version 1.5-3
    o  Updated Indonesian translation (coutersy of I Made Tirta).
    
    o  Small changes.
+   
+Version 1.5-4
+
+   o  rcorr.adjust() now returns an object of class "rcorr.adjust" (to satisfy a request by Liviu Andronic).
+

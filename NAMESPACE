@@ -1,4 +1,4 @@
-# last modified 23 August 2009 by J. Fox
+# last modified 08 November 2009 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -37,6 +37,7 @@ S3method(confint, polr)
 S3method(mergeRows, data.frame)
 S3method(print, numSummary)
 S3method(print, reliability)
+S3method(print, rcorr.adjust)
 S3method(getFrame, listbox)
 S3method(getSelection, listbox)
 
