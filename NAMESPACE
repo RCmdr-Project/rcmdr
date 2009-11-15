@@ -1,4 +1,4 @@
-# last modified 08 November 2009 by J. Fox
+# last modified 15 November 2009 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -32,6 +32,7 @@ UpdateModelNumber, variableListBox, Variables)
 
 S3method(Confint, glm)
 S3method(Confint, default)
+S3method(Confint, multinom)
 S3method(confint, multinom)
 S3method(confint, polr)
 S3method(mergeRows, data.frame)

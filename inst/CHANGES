@@ -862,4 +862,5 @@ Version 1.5-3
 Version 1.5-4
 
    o  rcorr.adjust() now returns an object of class "rcorr.adjust" (to satisfy a request by Liviu Andronic).
-
+   
+   o  Confint() modified to include coefficient estimates, and to include exponentiated coefficients for binomial logit models (suggested by  Ricardo Ocana-Riola). Small fix to method for multinom models.
