@@ -29,8 +29,8 @@ Several recode specifications are supported:
     \item{a single value}{For example, \code{"missing" = NA}.}
     \item{several values separated by commas}{For example, \code{7,8,9 = "high"}.}
     \item{a range of values indicated by a colon}{For example, \code{7:9 = "high"}. The
-        special values \code{low} and \code{high} may appear in a range. For example,
-        \code{low:10=1}. Note that these values are unquoted.}
+        special values \code{lo} and \code{hi} may appear in a range. For example,
+        \code{lo:10=1}. Note that these values are unquoted.}
     \item{the special value \code{else}}{everything that does not fit a previous
         specification. For example, \code{else=NA}. Note that \code{else} matches \emph{all}    
         otherwise unspecified values on input, including \code{NA}.}
