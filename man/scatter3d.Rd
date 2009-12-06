@@ -111,8 +111,8 @@ You have to install the \code{rgl} and \code{mgcv} packages to produce 3D plots.
 }
 
 \value{
-  \code{scatter3d} not return a useful value; it is used for its side-effect of
-  creating a 3D scatterplot. \code{indentify3d} returns the labels of the
+  \code{scatter3d} does not return a useful value; it is used for its side-effect of
+  creating a 3D scatterplot. \code{identify3d} returns the labels of the
   identified points.
 }
 
