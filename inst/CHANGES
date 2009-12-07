@@ -867,4 +867,4 @@ Version 1.5-4
    
    o  Added cld() display to pairwise comparisons in one-way ANOVA (suggested by Marcin Kozak).
    
-   o  Small fixes to docs.
+   o  Small fixes to code and docs.

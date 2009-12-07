@@ -1,4 +1,4 @@
-# last modified 15 November 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 7 December 2009 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -1209,7 +1209,7 @@ subOKCancelHelp <- defmacro(window=subdialog, helpSubject=NULL,
             borderwidth=3)
         if (!is.null(helpSubject)){
             onHelpSub <- function(){
-                if (GradFocus() && .Platform$OS.type != "windows") tkgrab.release(window)
+                if (GrabFocus() && .Platform$OS.type != "windows") tkgrab.release(window)
                 if (as.numeric(R.Version()$major) >= 2) print(help(helpSubject))
                 else help(helpSubject)
                 }
