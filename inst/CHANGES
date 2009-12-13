@@ -867,4 +867,6 @@ Version 1.5-4
    
    o  Added cld() display to pairwise comparisons in one-way ANOVA (suggested by Marcin Kozak).
    
+   o  Added options to radioButtons() (based on code contributed by Liviu Andronic).
+   
    o  Small fixes to code and docs.

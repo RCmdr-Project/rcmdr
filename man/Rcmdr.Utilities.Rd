@@ -185,8 +185,9 @@ packageAvailable(name)
 polrP()
 popOutput()
 putRcmdr(x, value)
-radioButtons(window=top, name, buttons, values=NULL, initialValue=..values[1], 
-    labels, title)  # macro
+radioButtons(window=top, name, buttons, values=NULL, 
+	initialValue=..values[1], labels, 
+	title="", title.color="blue", right.buttons=TRUE)  # macro
 RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
@@ -273,12 +274,14 @@ commanderPosition()
   \item{recall}{function to call after error --- usually the function that initiates the dialog.}
   \item{release}{release the focus if the grab.focus option has been set.}
   \item{reportError}{if \code{TRUE}, report an error message.}
+  \item{right.buttons}{radio button placed to right of button-labels; defaults to \code{TRUE}.}
   \item{rows, columns}{numbers of rows and columns of widgets in the dialog box.}
   \item{values}{vector of quoted values associated with radio buttons or check boxes.}
   \item{selectmode}{\code{"single"} or \code{"multiple"}.}
   \item{strict}{if \code{TRUE}, only use first element of class vector.}
   \item{text}{a text string.}
   \item{title}{Window or dialog-box-element title.}
+  \item{title.color}{color for title above radio buttons; defaults to \code{"blue"}.} 
   \item{type}{quoted type of object to check; used to generate check-replace dialog box;
     or type of message to print in Message window.}
   \item{value}{an object to be stored.}
