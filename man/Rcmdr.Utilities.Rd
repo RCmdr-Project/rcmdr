@@ -74,6 +74,7 @@
 \alias{OutputWindow}
 \alias{packageAvailable}
 \alias{polrP}
+\alias{popCommand}
 \alias{popOutput}
 \alias{putRcmdr}
 \alias{radioButtons}
@@ -183,6 +184,7 @@ OKCancelHelp(window=top, helpSubject=NULL, model=FALSE)  # macro
 OutputWindow()
 packageAvailable(name)
 polrP()
+popCommand()
 popOutput()
 putRcmdr(x, value)
 radioButtons(window=top, name, buttons, values=NULL, 
@@ -308,6 +310,7 @@ commanderPosition()
   The R Commander maintains a list of output objects, by default including the last
   10 outputs. \code{popOutput()} ``pops'' (i.e., returns and removes) the first entry
   of the output stack. Note that, as a stack, the queue is LIFO (``last in, first out'').
+  There is also a stack of commands, which is accessed similarly by \code{popCommand()}.
   
   \emph{Checking for errors: }
   The function \code{is.valid.name} checks whether a character string specifies a valid name

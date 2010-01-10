@@ -1,13 +1,13 @@
 
 # The R Commander and command logger
 
-# last modified 08 November 2009 by J. Fox
+# last modified 10 January 2010 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
-# last modified 17 December 2008 by Richard Heiberger  ##rmh
+#   modified 17 December 2008 by Richard Heiberger  ##rmh
 
 Commander <- function(){
-	RcmdrVersion <- "1.5-4"
+	RcmdrVersion <- "1.5-5"
 	##    DESCRIPTION <- readLines(file.path(.find.package("Rcmdr"), "DESCRIPTION")[1])
 	##    RcmdrVersion <- trim.blanks(sub("^Version:", "",
 	##        grep("^Version:", D, value=TRUE)))
@@ -161,6 +161,7 @@ Commander <- function(){
 				else 20, global=FALSE))
 	putRcmdr("saveOptions", options(warn=1, contrasts=getRcmdr("default.contrasts"), width=as.numeric(log.width),
 			na.action="na.exclude", graphics.record=TRUE))
+	setOption("ask.to.exit", TRUE)
 	setOption("ask.on.exit", TRUE)
 	setOption("double.click", FALSE)
 	setOption("sort.names", TRUE)
@@ -180,7 +181,9 @@ Commander <- function(){
 	setOption("retain.messages", TRUE)
 	setOption("crisp.dialogs",  TRUE)
 	setOption("length.output.stack", 10)
+	setOption("length.command.stack", 10)
 	putRcmdr("outputStack", as.list(rep(NA, getRcmdr("length.output.stack"))))
+	putRcmdr("commandStack", as.list(rep(NA, getRcmdr("length.command.stack"))))
 	setOption("variable.list.height", 4)
 	setOption("variable.list.width", c(20, Inf))
 	if (getRcmdr("suppress.X11.warnings")) {
@@ -610,9 +613,10 @@ Commander <- function(){
 
 # the following function modified 24 July 07 by Richard Heiberger
 #  and subsequently by J. Fox 26 July 07
-# last modified 3 December 08 by J. Fox
+# last modified 10 January 2010 by J. Fox
 
 logger <- function(command){
+	pushCommand(command)
 	if (is.SciViews()) return(svlogger(command))    # +PhG
 	.log <- LogWindow()
 	.output <- OutputWindow()
@@ -857,4 +861,17 @@ popOutput <- function(){
 	lastOutput <- stack[[1]]
 	putRcmdr("outputStack", c(stack[-1], NA))
 	lastOutput
+}
+
+pushCommand <- function(element) {
+	stack <- getRcmdr("commandStack")
+	stack <- c(list(element), stack[-getRcmdr("length.command.stack")])
+	putRcmdr("commandStack", stack)
+}
+
+popCommand <- function(){
+	stack <- getRcmdr("commandStack")
+	lastCommand <- stack[[1]]
+	putRcmdr("commandStack", c(stack[-1], NA))
+	lastCommand
 }

@@ -870,3 +870,9 @@ Version 1.5-4
    o  Added options to radioButtons() (based on code contributed by Liviu Andronic).
    
    o  Small fixes to code and docs.
+   
+ Version 1.5-5
+ 
+   o  Added a command stack accessed by popCommand() of length controlled by the length.command.stack option (suggested by Liviu Andronic).
+   
+   o  Added \code{ask.to.exit} option (suggested by Liviu Andronic).

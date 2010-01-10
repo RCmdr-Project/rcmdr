@@ -1,4 +1,4 @@
-# last modified 18 August 2009 by J. Fox
+# last modified 10 January 2010 by J. Fox
 
 # File menu dialogs
 
@@ -90,7 +90,7 @@ saveWorkspace <- function() {
     Message(paste(gettextRcmdr("R workspace saved to"), .saveFileName), type="note")
     }
 
-CloseCommander <- function() closeCommander(ask.save=getRcmdr("ask.on.exit"))
+CloseCommander <- function() closeCommander(ask=getRcmdr("ask.to.exit"), ask.save=getRcmdr("ask.on.exit"))
 
 closeCommander <- function(ask=TRUE, ask.save=ask){
     if (ask){
@@ -98,6 +98,10 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
             icon="question", type="okcancel", default="cancel"))
         if (response == "cancel") return(invisible(response))
         }
+	else {
+		ask.save=FALSE
+		response <- "ok"
+	}
     sink(type="message")
     if (rglLoaded()) rgl.quit()
     if (!is.null(ActiveDataSet()) && getRcmdr("attach.data.set"))

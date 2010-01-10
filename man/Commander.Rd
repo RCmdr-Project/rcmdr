@@ -117,6 +117,9 @@ the usual situation, defaults are used. Specify options as a list of \emph{name=
 set none, one, several, or all options. The available options are as follows:
 
 \describe{
+	\item{\code{ask.to.exit}}{if \code{TRUE} (the default), then the user is asked whether he or she wants to exit the \code{Rcmdr};
+	if this option is set to \code{FALSE}, then the subsequent option is also set to \code{FALSE}.}
+	
     \item{\code{ask.on.exit}}{if \code{TRUE} (the default), then the user is asked whether to save
     the script file and the output file when the \code{Rcmdr} exits.}
 
@@ -168,6 +171,9 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{length.output.stack}}{The R Commander maintains a list of output objects, by default including the last
     several outputs; the default length of the output stack is 10. \code{popOutput()} ``pops'' (i.e., returns and removes) the first entry
     of the output stack. Note that, as a stack, the queue is LIFO (``last in, first out'').}
+    
+    \item{\code{length.command.stack}}{The R Commander also maintains a list of commands that is managed similarly; the default length
+    of this stack is also 10.}
     
     \item{\code{load.at.startup}}{A character vector of names of packages to be loaded 
     when the \code{Rcmdr} package is loaded; the default is to load only the \code{car} package. 
