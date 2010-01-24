@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 10 January 2010 by J. Fox
+# last modified 24 January 2010 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 #   modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -694,7 +694,7 @@ doItAndPrint <- function(command, log=TRUE) {
 			if (!.console.output) sink(type="output") # if .console.output, output connection already closed
 			close(output.connection)
 		}, add=TRUE)
-	if (log) logger(command)
+	if (log) logger(command) else pushCommand(command)
 	result <- try(parse(text=paste(command)), silent=TRUE)
 	if (class(result)[1] == "try-error"){
 		Message(message=paste(strsplit(result, ":")[[1]][2]), type="error")
