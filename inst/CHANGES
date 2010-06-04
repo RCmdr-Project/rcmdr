@@ -878,3 +878,6 @@ Version 1.5-4
    o  Added \code{ask.to.exit} option (suggested by Liviu Andronic).
    
    o  Removed Rcmdr.sh from inst/etc/linux and modified Rcmdr.desktop (according to Dirk Eddelbuettel's instructions).
+   
+   o  Fixed bug in QQPlot() that surfaced in R. 2.11.0. 
+   

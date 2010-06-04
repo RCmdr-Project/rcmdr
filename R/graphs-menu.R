@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 5 September 2009 by J. Fox
+# last modified 5 June 2010 by J. Fox
 
 indexPlot <- function(){
     initializeDialog(title=gettextRcmdr("Index Plot"))
@@ -560,7 +560,7 @@ QQPlot <- function()
             }
         dist <- tclvalue(distVariable)
         save <- options(warn=-1)
-        on.exit(options=save)
+        on.exit(save)
         retryMe <- function(msg) {
             Message(message= msg, type="error")
             QQPlot()
