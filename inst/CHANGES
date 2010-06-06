@@ -879,5 +879,6 @@ Version 1.5-4
    
    o  Removed Rcmdr.sh from inst/etc/linux and modified Rcmdr.desktop (according to Dirk Eddelbuettel's instructions).
    
-   o  Fixed bug in QQPlot() that surfaced in R. 2.11.0. 
+   o  Fixed bug in QQPlot() that surfaced in R. 2.11.0 (reported by Howard Edwards). 
    
+   o  rgl package no longer unloaded when the Commander is closed.

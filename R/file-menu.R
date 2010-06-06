@@ -103,7 +103,7 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
 		response <- "ok"
 	}
     sink(type="message")
-    if (rglLoaded()) rgl.quit()
+#    if (rglLoaded()) rgl.quit()
     if (!is.null(ActiveDataSet()) && getRcmdr("attach.data.set"))
         justDoIt(logger(paste("detach(", ActiveDataSet(), ")", sep="")))
     putRcmdr(".activeDataSet", NULL)
