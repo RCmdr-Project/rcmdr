@@ -1,16 +1,11 @@
-# Italian translations for the Rcmdr package
-# Traduzione Italiana del pacchetto Rcmdr
-# Copyright (C) 2005 John Fox
-# This file is distributed under the same license as the Rcmdr package
-# Stefano Calza <calza@med.unibs.it>, 2005
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 1.4-0\n"
+"Project-Id-Version: Rcmdr 1.5-0\n"
 "Report-Msgid-Bugs-To: bugs@r-project.org\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2008-08-01 18:59+0100\n"
-"Last-Translator: Stefano <calza@med.unibs.it>\n"
-"Language-Team: Italiano <calza@med.unibs.it>\n"
+"PO-Revision-Date: 2010-06-19 11:58+0100\n"
+"Last-Translator: Stefano Calza <stefano.calza@med.unibs.it>\n"
+"Language-Team: Italiano <stefano.calza@med.unibs.it>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3477,7 +3472,7 @@ msgstr "Commander"
 # including -xx, where xx is the code for your language.
 # Example: "Empezando-con-Rcmdr-es"
 msgid "Getting-Started-with-the-Rcmdr"
-msgstr ""
+msgstr "Getting-Started-with-the-Rcmdr"
 
 msgid "Type of Tests"
 msgstr "Tipo di Test"
@@ -3580,4 +3575,168 @@ msgstr "Ripeti"
 
 msgid "ANOVA table..."
 msgstr "Tabella dell'ANOVA..."
+
+msgid "Location not specified."
+msgstr "Median non specificata"
+
+# messages added to version 1.5-0
+#     "Models -> Stepwise model selection" dialog and menu item
+msgid "Stepwise model selection..."
+msgstr "Selezione del modello mediante \"stepwise\""
+
+msgid "Stepwise Model Selection"
+msgstr "Selezione del modello mediante \"stepwise\""
+
+msgid "Direction"
+msgstr "Direzione di ricerca"
+
+msgid "backward/forward"
+msgstr "backward/forward"
+
+msgid "forward/backward"
+msgstr "forward/backward"
+
+msgid "backward"
+msgstr "backward (indietro)"
+
+msgid "forward"
+msgstr "Forward (avanti)"
+
+msgid "Criterion"
+msgstr "Criterio"
+
+msgid "BIC"
+msgstr "BIC"
+
+msgid "AIC"
+msgstr "AIC"
+
+msgid "Subset model selection..."
+msgstr "Selezione di un sottoinsieme del modello..."
+
+msgid "Subset Model Selection"
+msgstr "Selezione di un sottoinsieme del modello"
+
+msgid "Criterion for Model Plot"
+msgstr "Criterio per disegno del modello"
+
+msgid "Mallows Cp"
+msgstr "Mallows Cp"
+
+msgid "Adjusted R-sq."
+msgstr "R quadro aggiustato"
+
+msgid "R-squared"
+msgstr "R-quadro"
+
+msgid ""
+"Number of best models\n"
+"of each size:"
+msgstr ""
+"Numero di modelli migliori\n"
+"di ciascuna dimensione:"
+
+msgid "Maximum size:"
+msgstr "Dimensione massima:"
+
+msgid "Merge data sets..."
+msgstr "Unisci i set di dati..."
+
+msgid "Merge Data Sets"
+msgstr "Unisci i set di dati"
+
+msgid "First Data Set (pick one)"
+msgstr "Seleziona Set di dati (uno solo)"
+
+msgid "Second Data Set (pick one)"
+msgstr "Secondo set di dati (uno solo)"
+
+msgid "Merge rows"
+msgstr "Unisci righe"
+
+msgid "Merge columns"
+msgstr "Unisci le colonne"
+
+msgid "Direction of Merge"
+msgstr "Direzione dell'unione"
+
+msgid "You cannot merge a data set with itself."
+msgstr "Non puoi unire i dati con se stessi"
+
+msgid "Name for merged data set:"
+msgstr "Nome per il set di dati unito"
+
+msgid ""
+"Merge only common\n"
+"rows or columns"
+msgstr ""
+"Unisci solo le righe\n"
+"o colonne comuni"
+
+msgid "Aggregate variables in active data set..."
+msgstr "Aggrega le variabili nel set di dati attivo..."
+
+msgid "Aggregate Observations"
+msgstr "Aggrega osservazioni"
+
+msgid ""
+"Variables to aggregate\n"
+" (pick one or more)"
+msgstr ""
+"Variabili da aggregare\n"
+" (una o più)"
+
+msgid ""
+"Aggregate by\n"
+"(pick one or more)"
+msgstr ""
+"Aggrega in base a\n"
+"(una o più)"
+
+msgid "Sum"
+msgstr "Somma"
+
+msgid "You must select at least one variable to aggregate."
+msgstr "Selezionare almeno una variabile da aggregare."
+
+msgid "You must select at least one variable to aggregate by."
+msgstr "Selezionare almeno una variabile in base alla quale aggregare."
+
+msgid "Variables to aggregate and those to aggregate by must be different."
+msgstr "Le variabili da aggregate e quelle in base alle quali aggregare devono essere diverse."
+
+msgid "Name for aggregated data set:"
+msgstr "Nome per il set di dati aggregato:"
+
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Files dati di R\" {\".rda\" \".Rda\" \".RDA\"}} {\"Tutti i files\" {\"*\"}}"
+
+msgid "No data set selected."
+msgstr "Nessun set di dati selezionato"
+
+msgid "Help on selected data set"
+msgstr "Nome per il set di dati concatenato:"
+
+msgid "Population mean != mu0"
+msgstr "Media della popolazione mu = 0"
+
+msgid "Population proportion != p0"
+msgstr "Proporzione della popolazione = p0"
+
+msgid "Models do not have the same family."
+msgstr "I modelli non sono della stessa classe."
+
+msgid ""
+"Pairwise p-values\n"
+"for Pearson or Spearman correlations"
+msgstr ""
+"P-valaues a coppie\n"
+"per correlazione di Pearson o Spearman"
+
+msgid ""
+"The Windows version of the R Commander works best under RGui\n"
+"with the single-document interface (SDI); see ?Commander."
+msgstr ""
+"La versione di R Commander per Windows funziona meglio nella RGui\n"
+"con \"single-document interface\" (SDI); si veda ?Commander."
 
