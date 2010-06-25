@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 18 August 2009 by J. Fox
+# last modified 25 June 2010 by J. Fox
 
 selectActiveModel <- function(){
     models <- listAllModels()
@@ -75,21 +75,22 @@ plotModel <- function(){
 CRPlots <- function(){
     Library("car")
     .activeModel <- ActiveModel()
-    if (is.null(.activeModel) || !checkMethod("cr.plot", .activeModel)) return()
-    doItAndPrint(paste("cr.plots(", .activeModel, ", ask=FALSE)", sep=""))
+    if (is.null(.activeModel) || !checkMethod("crPlot", .activeModel)) return()
+    doItAndPrint(paste("crPlots(", .activeModel, ")", sep=""))
     activateMenus()
     }
 
-AVPlots <- function(){
-    Library("car")
-    .activeModel <- ActiveModel()
-    if (is.null(.activeModel) || !checkMethod("av.plot", .activeModel)) return()
-    response <- tclvalue(RcmdrTkmessageBox(message=gettextRcmdr("Identify points with mouse?"), 
-        icon="question", type="yesno", default="no"))
-    doItAndPrint(paste("av.plots(", .activeModel, ", ask=FALSE, identify.points=",
-        response=="yes", ")", sep=""))
-    activateMenus()
-    }
+	AVPlots <- function(){
+		Library("car")
+		.activeModel <- ActiveModel()
+		if (is.null(.activeModel) || !checkMethod("avPlot", .activeModel)) return()
+		response <- tclvalue(RcmdrTkmessageBox(
+						message=gettextRcmdr("Identify points with mouse?\nRight-click to exit."), 
+						icon="question", type="yesno", default="no"))
+		idmethod <- if (response == "yes") ', id.method="identify"' else ""
+		doItAndPrint(paste("avPlots(", .activeModel, idmethod, ")", sep=""))
+		activateMenus()
+	}
 
 anovaTable <- function(){
     Library("car")
@@ -148,14 +149,15 @@ VIF <- function(){
     }
             
 InfluencePlot <- function(){
-    Library("car")
-    .activeModel <- ActiveModel()
-    if (is.null(.activeModel) || !checkMethod("influencePlot", .activeModel)) return()
-    response <- tclvalue(RcmdrTkmessageBox(message=gettextRcmdr("Identify points with mouse?"), 
-        icon="question", type="yesno", default="no"))
-    labels <- if (response == "no") ", labels=FALSE" else ""
-    doItAndPrint(paste("influencePlot(", .activeModel, labels, ")", sep=""))
-    }  
+	Library("car")
+	.activeModel <- ActiveModel()
+	if (is.null(.activeModel) || !checkMethod("influencePlot", .activeModel)) return()
+	response <- tclvalue(RcmdrTkmessageBox(
+					message=gettextRcmdr("Identify points with mouse?\nRight-click to exit."), 
+					icon="question", type="yesno", default="no"))
+	idmethod <- if (response == "yes") ', id.method="identify"' else ""
+	doItAndPrint(paste("influencePlot(", .activeModel, idmethod, ")", sep=""))
+}  
     
 effectPlots <- function(){
     Library("effects")
@@ -230,7 +232,7 @@ addObservationStatistics <- function(){
 residualQQPlot <- function(){
     Library("car")
     .activeModel <- ActiveModel()
-    if (is.null(.activeModel) || !checkMethod("qq.plot", .activeModel)) return()
+    if (is.null(.activeModel) || !checkMethod("qqPlot", .activeModel)) return()
     initializeDialog(title=gettextRcmdr("Residual Quantile-Comparison Plot"))
     selectFrame <- tkframe(top)
     simulateVar <- tclVar("1")
@@ -240,9 +242,14 @@ residualQQPlot <- function(){
     onOK <- function(){
         closeDialog()
         simulate <- tclvalue(simulateVar) == 1
-        identify <- if (tclvalue(identifyVar) == 1) paste("names(residuals(", .activeModel, "))",
-            sep="") else "FALSE"
-        command <- paste("qq.plot(", .activeModel, ", simulate=", simulate, ", labels=", identify,
+        if (tclvalue(identifyVar) == 1){
+			identify <- ', id.method="identify"'
+			RcmdrTkmessageBox(title="Identify Points",
+					message=gettextRcmdr("Use left mouse button to identify points,\nright button to exit."),
+					icon="info", type="ok")
+		}
+		else identify <- ""
+        command <- paste("qqPlot(", .activeModel, ", simulate=", simulate, identify,
             ")", sep="")
         doItAndPrint(command)
         activateMenus()
@@ -259,7 +266,7 @@ residualQQPlot <- function(){
 testLinearHypothesis <- function(){
     Library("car")
     .activeModel <- ActiveModel()
-    if (is.null(.activeModel) || !checkMethod("linear.hypothesis", .activeModel, default=TRUE)) return()
+    if (is.null(.activeModel) || !checkMethod("linearHypothesis", .activeModel, default=TRUE)) return()
     env <- environment()
     initializeDialog(title=gettextRcmdr("Test Linear Hypothesis"))
     outerTableFrame <- tkframe(top)
@@ -347,13 +354,13 @@ testLinearHypothesis <- function(){
         command <- paste("c(", paste(rhs, collapse=","), ")", sep="")
         assign(".RHS", justDoIt(command), envir=.GlobalEnv)
         logger(paste(".RHS <- ", command, sep=""))
-        command <- paste("linear.hypothesis(", .activeModel, ", .Hypothesis, rhs=.RHS)", sep="")
+        command <- paste("linearHypothesis(", .activeModel, ", .Hypothesis, rhs=.RHS)", sep="")
         doItAndPrint(command)
         justDoIt("remove(.Hypothesis, .RHS, envir=.GlobalEnv)") 
         logger("remove(.Hypothesis, .RHS)")                                              
         tkfocus(CommanderWindow())
         }
-    OKCancelHelp(helpSubject="linear.hypothesis")
+    OKCancelHelp(helpSubject="linearHypothesis")
     tkgrid(labelRcmdr(rowsFrame, text=gettextRcmdr("Number of Rows:")), rowsSlider, rowsShow, sticky="w")
     tkgrid(rowsFrame, sticky="w")
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter hypothesis matrix and right-hand side vector:"), fg="blue"), sticky="w")
@@ -526,15 +533,15 @@ RESETtest <- function(){
     dialogSuffix(rows=3, columns=1)
     }
 
-outlierTest <- function(){
+OutlierTest <- function(){
     if (is.null(.activeModel)) return()
     Library("car")
     .activeModel <- ActiveModel()
-    if (!checkMethod("outlier.test", .activeModel)) {
-        errorCondition(gettextRcmdr("There is no appropriate outlier.test method for a model of this class."))
+    if (!checkMethod("outlierTest", .activeModel)) {
+        errorCondition(gettextRcmdr("There is no appropriate outlierTest method for a model of this class."))
         return()
         }
-    doItAndPrint(paste("outlier.test(", .activeModel, ")", sep=""))
+    doItAndPrint(paste("outlierTest(", .activeModel, ")", sep=""))
     }
     
 confidenceIntervals <- function(){

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 26 March 2008 by J. Fox
+# last modified 25 June 2010 by J. Fox
 
     # Variances menu
     
@@ -85,8 +85,11 @@ LeveneTest <- function(){
     variableFrame <- tkframe(top)
     groupBox <- variableListBox(variableFrame, Factors(), title=gettextRcmdr("Groups (pick one)"))
     responseBox <- variableListBox(variableFrame, Numeric(), title=gettextRcmdr("Response Variable (pick one)"))
+	radioButtons(name="center", buttons=c("median", "mean"), 
+			labels=c(gettextRcmdr("median"), gettextRcmdr("mean")), title=gettextRcmdr("Center"))
     onOK <- function(){
         group <- getSelection(groupBox)
+		center <- as.character(tclvalue(centerVariable))
         if (length(group) == 0) {
             errorCondition(recall=LeveneTest, message=gettextRcmdr("You must select a groups variable."))
             return()
@@ -100,13 +103,14 @@ LeveneTest <- function(){
         .activeDataSet <- ActiveDataSet()
         doItAndPrint(paste("tapply(", paste(.activeDataSet, "$", response, sep=""),
             ", ", paste(.activeDataSet, "$", group, sep=""), ", var, na.rm=TRUE)", sep=""))
-        doItAndPrint(paste("levene.test(", paste(.activeDataSet, "$", response, sep=""), 
-            ", ", paste(.activeDataSet, "$", group, sep=""), ")", sep=""))
+        doItAndPrint(paste("leveneTest(", paste(.activeDataSet, "$", response, sep=""), 
+            ", ", paste(.activeDataSet, "$", group, sep=""), ", center=", center, ")", sep=""))
         tkfocus(CommanderWindow())
         }
-    OKCancelHelp(helpSubject="levene.test")
+    OKCancelHelp(helpSubject="leveneTest")
     tkgrid(getFrame(groupBox), labelRcmdr(variableFrame, text="    "), getFrame(responseBox), sticky="nw")
     tkgrid(variableFrame, sticky="w")
+	tkgrid(centerFrame, sticky="nw")
     tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=2, columns=1)
+    dialogSuffix(rows=3, columns=1)
     }

@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 21 August 2009 by J. Fox
+# last modified 25 June 2010 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -174,7 +174,7 @@
     item    diagnosticsMenu command         "Breusch-Pagan test for heteroscedasticity..."  BreuschPaganTest            "lmP()" "packageAvailable('lmtest')"
     item    diagnosticsMenu command         "Durbin-Watson test for autocorrelation..."     DurbinWatsonTest            "lmP()" "packageAvailable('lmtest')"
     item    diagnosticsMenu command         "RESET test for nonlinearity..."                RESETtest                   "lmP()" "packageAvailable('lmtest')"
-    item    diagnosticsMenu command         "Bonferroni outlier test"                       outlierTest                 "(lmP() || glmP())" "packageAvailable('car')"
+    item    diagnosticsMenu command         "Bonferroni outlier test"                       OutlierTest                 "(lmP() || glmP())" "packageAvailable('car')"
     menu    modelsGraphsMenu      modelsMenu      ""                                              ""                          ""          ""
     item    modelsMenu      cascade         "Graphs"                                        modelsGraphsMenu                  ""          ""
     item    modelsGraphsMenu      command         "Basic diagnostic plots"                        plotModel                   "lmP() || glmP()"          ""
