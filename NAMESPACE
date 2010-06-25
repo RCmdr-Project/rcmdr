@@ -1,4 +1,4 @@
-# last modified 15 November 2009 by J. Fox
+# last modified 25 June 2010 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -14,8 +14,7 @@ closeDialog, colPercents, Commander,
 commanderPosition, CommanderWindow, Confint, dataSetsP, defmacro,
 dialogSuffix, doItAndPrint, errorCondition, exists.method,
 Factors, factorsP, formulaFields, getFrame, getRcmdr, getSelection, gettextRcmdr,
-glmP, GrabFocus, groupsBox, groupsLabel, hclustSolutionsP, Hist, 
-identify3d, initializeDialog, 
+glmP, GrabFocus, groupsBox, groupsLabel, hclustSolutionsP, Hist, initializeDialog, 
 is.valid.name, is.SciViews, justDoIt, KMeans, labelRcmdr, Library,
 listAllModels, listAOVModels, listDataSets, listFactors, listGeneralizedLinearModels, 
 listLinearModels, listMultinomialLogitModels, listNumeric, listPlugins, 
@@ -25,7 +24,7 @@ Message, MessagesWindow, modelFormula, modelsP, multinomP, nobs, Numeric,
 numericP, numSummary, OKCancelHelp, OutputWindow, packageAvailable, partial.cor,
 plotMeans, polrP, popCommand, popOutput, putRcmdr, radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet, 
 RcmdrTkmessageBox, rcorr.adjust,
-reliability, rowPercents, scatter3d, sortVarNames, stepwise, subOKCancelHelp,
+reliability, rowPercents, sortVarNames, stepwise, subOKCancelHelp,
 subsetBox, tclvalue, totPercents, trim.blanks, ttkentry, ttkframe, ttkradiobutton,
 ttkscrollbar, TwoLevelFactors, twoLevelFactorsP, 
 UpdateModelNumber, variableListBox, Variables)

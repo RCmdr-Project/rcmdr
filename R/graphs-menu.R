@@ -732,6 +732,7 @@ PlotMeans <- function(){
 Scatter3D <- function(){
     use.rgl <- options("Rcmdr")[[1]]$use.rgl
     if (length(use.rgl) == 0 || use.rgl) {
+		Library("car")
         Library("rgl")
         Library("mgcv")
         }
