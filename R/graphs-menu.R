@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 25 June 2010 by J. Fox
+# last modified 28 June 2010 by J. Fox
 
 indexPlot <- function(){
     initializeDialog(title=gettextRcmdr("Index Plot"))
@@ -20,7 +20,8 @@ indexPlot <- function(){
         if (par("usr")[3] <= 0) doItAndPrint('abline(h=0, col="gray")')
         if (identify) {
             RcmdrTkmessageBox(title="Identify Points",
-                message=gettextRcmdr("Use left mouse button to identify points,\nright button to exit."),
+                message=paste(gettextRcmdr("Use left mouse button to identify points,\n"),
+						gettextRcmdr(if (MacOSXP()) "esc key to exit." else "right button to exit."), sep=""),
                 icon="info", type="ok")
             command <- paste("identify(", .activeDataSet, "$", x,
                 ", labels=rownames(", .activeDataSet, "))", sep="")
@@ -168,7 +169,8 @@ boxPlot <- function(){
             justDoIt(command)
             if (identifyPoints) {
                 RcmdrTkmessageBox(title="Identify Points",
-                    message=gettextRcmdr("Use left mouse button to identify points,\nright button to exit."),
+						message=paste(gettextRcmdr("Use left mouse button to identify points,\n"),
+							gettextRcmdr(if (MacOSXP()) "esc key to exit." else "right button to exit."), sep=""),
                     icon="info", type="ok")
                 doItAndPrint(paste("identify(rep(1, length(", var,
                     ")), ", var, ", rownames(", .activeDataSet,"))", sep=""))
@@ -182,7 +184,8 @@ boxPlot <- function(){
             justDoIt(command)
             if (identifyPoints) {
                 RcmdrTkmessageBox(title="Identify Points",
-                    message=gettextRcmdr("Use left mouse button to identify points,\nright button to exit."),
+						message=paste(gettextRcmdr("Use left mouse button to identify points,\n"),
+							gettextRcmdr(if (MacOSXP()) "esc key to exit." else "right button to exit."), sep=""),
                     icon="info", type="ok")
                 doItAndPrint(paste("identify(", .activeDataSet, "$", .groups, ", ", var,
                     ", rownames(", .activeDataSet,"))", sep=""))
@@ -274,7 +277,8 @@ scatterPlot <- function(){
 		log <- if(logstring != "") paste(', log="', logstring, '"', sep="") else ""
 		if("1" == tclvalue(identifyVariable)){
 			RcmdrTkmessageBox(title="Identify Points",
-					message=gettextRcmdr("Use left mouse button to identify points,\nright button to exit."),
+					message=paste(gettextRcmdr("Use left mouse button to identify points,\n"),
+						gettextRcmdr(if (MacOSXP()) "esc key to exit." else "right button to exit."), sep=""),
 					icon="info", type="ok")
 			idtext <- ', id.method="identify"'
 		}
@@ -609,7 +613,8 @@ QQPlot <- function()
         .activeDataSet <- ActiveDataSet()
         if ("1" == tclvalue(identifyVariable)){
             RcmdrTkmessageBox(title="Identify Points",
-                message=gettextRcmdr("Use left mouse button to identify points,\nright button to exit."),
+					message=paste(gettextRcmdr("Use left mouse button to identify points,\n"),
+						gettextRcmdr(if (MacOSXP()) "esc key to exit." else "right button to exit."), sep=""),
                 icon="info", type="ok")
             idtext <- paste(", labels=rownames(", .activeDataSet, '), id.method="identify"', sep="")
             }
@@ -826,7 +831,8 @@ Scatter3D <- function(){
         .Tcl("update")
         if (tclvalue(identifyPoints) == 1){
             RcmdrTkmessageBox(title="Identify Points",
-                message=gettextRcmdr("Drag right mouse button to identify points,\nclick right button to exit."),
+					message=paste(gettextRcmdr("Use left mouse button to identify points,\n"),
+						gettextRcmdr(if (MacOSXP()) "esc key to exit." else "right button to exit."), sep=""),
                 icon="info", type="ok")
             doItAndPrint(command)
             }

@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 25 June 2010 by J. Fox
+# last modified 28 June 2010 by J. Fox
 
 selectActiveModel <- function(){
     models <- listAllModels()
@@ -85,7 +85,8 @@ CRPlots <- function(){
 		.activeModel <- ActiveModel()
 		if (is.null(.activeModel) || !checkMethod("avPlot", .activeModel)) return()
 		response <- tclvalue(RcmdrTkmessageBox(
-						message=gettextRcmdr("Identify points with mouse?\nRight-click to exit."), 
+						message=paste(gettextRcmdr("Identify points with mouse?\n"),
+							gettextRcmdr(if (MacOSXP()) "esc key to exit." else "right button to exit."), sep=""),
 						icon="question", type="yesno", default="no"))
 		idmethod <- if (response == "yes") ', id.method="identify"' else ""
 		doItAndPrint(paste("avPlots(", .activeModel, idmethod, ")", sep=""))
@@ -153,7 +154,8 @@ InfluencePlot <- function(){
 	.activeModel <- ActiveModel()
 	if (is.null(.activeModel) || !checkMethod("influencePlot", .activeModel)) return()
 	response <- tclvalue(RcmdrTkmessageBox(
-					message=gettextRcmdr("Identify points with mouse?\nRight-click to exit."), 
+					message=paste(gettextRcmdr("Identify points with mouse?\n"),
+							gettextRcmdr(if (MacOSXP()) "esc key to exit." else "right button to exit."), sep=""),
 					icon="question", type="yesno", default="no"))
 	idmethod <- if (response == "yes") ', id.method="identify"' else ""
 	doItAndPrint(paste("influencePlot(", .activeModel, idmethod, ")", sep=""))
@@ -245,7 +247,8 @@ residualQQPlot <- function(){
         if (tclvalue(identifyVar) == 1){
 			identify <- ', id.method="identify"'
 			RcmdrTkmessageBox(title="Identify Points",
-					message=gettextRcmdr("Use left mouse button to identify points,\nright button to exit."),
+					message=paste(gettextRcmdr("Use left mouse button to identify points,\n"),
+						gettextRcmdr(if (MacOSXP()) "esc key to exit." else "right button to exit."), sep=""),
 					icon="info", type="ok")
 		}
 		else identify <- ""
