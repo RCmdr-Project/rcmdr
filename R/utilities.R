@@ -1,4 +1,4 @@
-# last modified 25 June 2010 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 9 July 2010 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -536,7 +536,7 @@ stepwise <- function(mod,
 	criterion <- match.arg(criterion)
 	cat("\nDirection: ", direction)
 	cat("\nCriterion: ", criterion, "\n\n")
-	k <- if (criterion == "BIC") log(length(na.omit(residuals(mod)))) else 2
+	k <- if (criterion == "BIC") log(nrow(model.matrix(mod))) else 2
 	rhs <- paste(c("~", deparse(formula(mod)[[3]])), collapse="")
 	rhs <- gsub(" ", "", rhs)
 	if (direction == "forward" || direction == "forward/backward")
