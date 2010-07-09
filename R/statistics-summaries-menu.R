@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 19 August 2009 by J. Fox
+# last modified 8 July 2010 by J. Fox
 
     # Summaries menu
     
@@ -96,7 +96,7 @@ frequencyDistribution <- function(){
             logger(paste(".Table <-", command))
             assign(".Table", justDoIt(command), envir=.GlobalEnv)
             doItAndPrint(paste(".Table  # counts for", variable))
-            doItAndPrint(paste("100*.Table/sum(.Table)  # percentages for", variable))
+            doItAndPrint(paste("round(100*.Table/sum(.Table), 2)  # percentages for", variable))
             }
         env <- environment()
         if (goodnessOfFit == 1){

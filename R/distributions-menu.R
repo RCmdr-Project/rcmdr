@@ -1,6 +1,6 @@
 # Distributions menu dialogs
 
-# last modified 3 December 2008 by J. Fox
+# last modified 8 July 2010 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic (20 July 06)
 
@@ -17,7 +17,7 @@ normalQuantiles <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <- gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=normalQuantiles, message=gettextRcmdr("No probabilities specified."))
             return()
@@ -67,7 +67,7 @@ normalProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
         if ("" == probabilities) {
             errorCondition(recall=normalProbabilities, message=gettextRcmdr("No values specified."))
             return()
@@ -115,7 +115,7 @@ tQuantiles <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=tQuantiles, message=gettextRcmdr("No probabilities specified.")) 
             return()
@@ -160,7 +160,7 @@ tProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
 		warn <- options(warn=-1)
         df <- as.numeric(tclvalue(dfVar))
 		options(warn)
@@ -205,7 +205,7 @@ chisqQuantiles <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=chisqQuantiles, message=gettextRcmdr("No probabilities specified."))
             return()
@@ -250,7 +250,7 @@ chisqProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
         if ("" == probabilities) {
             errorCondition(recall=chisqProbabilities, message=gettextRcmdr("No values specified."))
             return()
@@ -298,7 +298,7 @@ FQuantiles <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=FQuantiles, message=gettextRcmdr("Probabilities not specified"))
             return()
@@ -348,7 +348,7 @@ FProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
         if ("" == probabilities) {
             errorCondition(recall=FProbabilities, message=gettextRcmdr("Values not specified."))
             return()
@@ -396,7 +396,7 @@ exponentialQuantiles<-function() {
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=exponentialQuantiles, message=gettextRcmdr("Probabilities not specified."))
             return()
@@ -436,7 +436,7 @@ exponentialProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
         if ("" == probabilities) {
             errorCondition(recall=exponentialProbabilities, message=gettextRcmdr("No values specified."))
             return()
@@ -478,7 +478,7 @@ uniformQuantiles<-function() {
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=uniformQuantiles, message=gettextRcmdr("Probabilities not specified."))
             return()
@@ -523,7 +523,7 @@ uniformProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
 		warn <- options(warn=-1)
         min <- as.numeric(tclvalue(minVar))
         max <- as.numeric(tclvalue(maxVar))
@@ -568,7 +568,7 @@ betaQuantiles <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=betaQuantiles, message=gettextRcmdr("Probabilities not specified"))
             return()
@@ -618,7 +618,7 @@ betaProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
         if ("" == probabilities) {
             errorCondition(recall=betaProbabilities, message=gettextRcmdr("Values not specified."))
             return()
@@ -668,7 +668,7 @@ CauchyQuantiles <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=CauchyQuantiles, message=gettextRcmdr("No probabilities specified."))
             return()
@@ -714,7 +714,7 @@ CauchyProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
         if ("" == probabilities) {
             errorCondition(recall=CauchyProbabilities, message=gettextRcmdr("No values specified."))
             return()
@@ -760,7 +760,7 @@ logisticQuantiles <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=logisticQuantiles, message=gettextRcmdr("No probabilities specified."))
             return()
@@ -806,7 +806,7 @@ logisticProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
         if ("" == probabilities) {
             errorCondition(recall=logisticProbabilities, message=gettextRcmdr("No values specified."))
             return()
@@ -852,7 +852,7 @@ lognormalQuantiles <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=lognormalQuantiles, message=gettextRcmdr("No probabilities specified."))
             return()
@@ -902,7 +902,7 @@ lognormalProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
         if ("" == probabilities) {
             errorCondition(recall=lognormalProbabilities, message=gettextRcmdr("No values specified."))
             return()
@@ -952,7 +952,7 @@ gammaQuantiles <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=gammaQuantiles, message=gettextRcmdr("No probabilities specified."))
             return()
@@ -1006,7 +1006,7 @@ gammaProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
         if ("" == probabilities) {
             errorCondition(recall=gammaProbabilities, message=gettextRcmdr("No values specified."))
             return()
@@ -1060,7 +1060,7 @@ WeibullQuantiles <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=WeibullQuantiles, message=gettextRcmdr("No probabilities specified."))
             return()
@@ -1114,7 +1114,7 @@ WeibullProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
         if ("" == probabilities) {
             errorCondition(recall=WeibullProbabilities, message=gettextRcmdr("No values specified."))
             return()
@@ -1168,7 +1168,7 @@ GumbelQuantiles <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=GumbelQuantiles, message=gettextRcmdr("No probabilities specified."))
             return()
@@ -1222,7 +1222,7 @@ GumbelProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
         if ("" == probabilities) {
             errorCondition(recall=GumbelProbabilities, message=gettextRcmdr("No values specified."))
             return()
@@ -1277,7 +1277,7 @@ binomialQuantiles <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
 		warn <- options(warn=-1)
         trials <- round(as.numeric(tclvalue(trialsVar)))
         prob <- as.numeric(tclvalue(probVar))
@@ -1331,7 +1331,7 @@ binomialProbabilities <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
 		warn <- options(warn=-1)
         trials <- round(as.numeric(tclvalue(trialsVar)))
         prob <- as.numeric(tclvalue(probVar))
@@ -1483,7 +1483,7 @@ PoissonQuantiles  <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
             errorCondition(recall=PoissonQuantiles, message=gettextRcmdr("No probabilities specified."))
             return()
@@ -1526,7 +1526,7 @@ PoissonProbabilities  <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
         if ("" == probabilities) {
             errorCondition(recall=PoissonProbabilities, message=gettextRcmdr("No values specified."))
             return()
@@ -1569,7 +1569,7 @@ geomQuantiles  <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
               errorCondition(recall=geomQuantiles, message=gettextRcmdr("No probabilities specified."))
               return()
@@ -1612,7 +1612,7 @@ geomProbabilities  <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(probabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
         if ("" == probabilities) {
               errorCondition(recall=geomProbabilities, message=gettextRcmdr("No values specified."))
               return()
@@ -1708,7 +1708,7 @@ hyperQuantiles  <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
               errorCondition(recall=hyperQuantiles, message=gettextRcmdr("No probabilities specified."))
               return()
@@ -1789,7 +1789,7 @@ hyperProbabilities  <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        probabilities <- gsub(" ", ",", tclvalue(ProbabilitiesVar))
+        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(ProbabilitiesVar)))
         if ("" == probabilities) {
               errorCondition(recall=hyperProbabilities.ipsr, message=gettextRcmdr("No values specified."))
               return()
@@ -1953,7 +1953,7 @@ hyperMass  <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(quantilesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
         if ("" == quantiles) {
               errorCondition(recall=negbinomialQuantiles, 
                 message=gettextRcmdr("No probabilities specified."))
@@ -2018,7 +2018,7 @@ negbinomialProbabilities  <- function(){
     upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
     onOK <- function(){
         closeDialog()
-        quantiles <- gsub(" ", ",", tclvalue(ProbabilitiesVar))
+        quantiles <-  gsub(" +", ",", gsub(",", " ", tclvalue(ProbabilitiesVar)))
         if ("" == quantiles) {
               errorCondition(recall=negbinomialProbabilities, 
                 message=gettextRcmdr("No values specified."))
