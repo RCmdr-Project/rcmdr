@@ -195,6 +195,8 @@ set none, one, several, or all options. The available options are as follows:
         
     \item{\code{log.width}}{The width of the script and output windows, in characters. The default is 80.}
     
+    \item{\code{messages.height}}{The height of the messages window, in lines. The default is 3.} 
+    
     \item{\code{multiple.select.mode}}{Affects the way multiple variables are selected in variable-list boxes.
     If set to \code{"extended"} (the default), left-clicking on a variable selects it and deselects any other
     variables that are selected; Control-left-click toggles

@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 24 January 2010 by J. Fox
+# last modified 9 July 2010 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 #   modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -33,7 +33,7 @@ Commander <- function(){
 	putRcmdr("etcMenus", etcMenus)
 	onCopy <- function(){
 		focused <- tkfocus()
-		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID))
+		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID) && (tclvalue(focused) != MessagesWindow()$ID))
 			focused <- LogWindow()
 		selection <- strsplit(tclvalue(tktag.ranges(focused, "sel")), " ")[[1]]
 		if (is.na(selection[1])) return()
@@ -43,7 +43,7 @@ Commander <- function(){
 	}
 	onDelete <- function(){
 		focused <- tkfocus()
-		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID))
+		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID) && (tclvalue(focused) != MessagesWindow()$ID))
 			focused <- LogWindow()
 		selection <- strsplit(tclvalue(tktag.ranges(focused, "sel")), " ")[[1]]
 		if (is.na(selection[1])) return()
@@ -55,7 +55,7 @@ Commander <- function(){
 	}
 	onPaste <- function(){
 		focused <- tkfocus()
-		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID))
+		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID)  && (tclvalue(focused) != MessagesWindow()$ID))
 			focused <- LogWindow()
 		text <- tclvalue(.Tcl("selection get -selection CLIPBOARD"))
 		if (length(text) == 0) return()
@@ -63,7 +63,7 @@ Commander <- function(){
 	}
 	onFind <- function(){
 		focused <- tkfocus()
-		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID))
+		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID)  && (tclvalue(focused) != MessagesWindow()$ID))
 			focused <- LogWindow()
 		initializeDialog(title=gettextRcmdr("Find"))
 		textFrame <- tkframe(top)
@@ -110,7 +110,7 @@ Commander <- function(){
 	}
 	onSelectAll <- function() {
 		focused <- tkfocus()
-		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID))
+		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID) && (tclvalue(focused) != MessagesWindow()$ID))
 			focused <- LogWindow()
 		tktag.add(focused, "sel", "1.0", "end")
 		tkfocus(focused)
@@ -121,13 +121,13 @@ Commander <- function(){
 	}
 	onUndo <- function(){
 		focused <- tkfocus()
-		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID))
+		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID) && (tclvalue(focused) != MessagesWindow()$ID))
 			focused <- LogWindow()
 		tcl(focused, "edit", "undo")
 	}
 	onRedo <- function(){
 		focused <- tkfocus()
-		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID))
+		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID) && (tclvalue(focused) != MessagesWindow()$ID))
 			focused <- LogWindow()
 		tcl(focused, "edit", "redo")
 	}
@@ -159,6 +159,7 @@ Commander <- function(){
 			if (getRcmdr("console.output")) 0
 				else if ((as.numeric(log.height) != 0) || (!getRcmdr("log.commands"))) 2*as.numeric(log.height)
 				else 20, global=FALSE))
+	messages.height <- as.character(setOption("messages.height", 3))
 	putRcmdr("saveOptions", options(warn=1, contrasts=getRcmdr("default.contrasts"), width=as.numeric(log.width),
 			na.action="na.exclude", graphics.record=TRUE))
 	setOption("ask.to.exit", TRUE)
@@ -414,6 +415,20 @@ Commander <- function(){
 		tkadd(contextMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
 		tkpopup(contextMenu, tkwinfo("pointerx", .output), tkwinfo("pointery", .output))
 	}
+	contextMenuMessages <- function(){
+		.messages <- MessagesWindow()
+		contextMenu <- tkmenu(tkmenu(.messages), tearoff=FALSE)
+		tkadd(contextMenu, "command", label=gettextRcmdr("Cut"), command=onCut)
+		tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)
+		tkadd(contextMenu, "command", label=gettextRcmdr("Paste"), command=onPaste)
+		tkadd(contextMenu, "command", label=gettextRcmdr("Delete"), command=onDelete)
+		tkadd(contextMenu, "command", label=gettextRcmdr("Find..."), command=onFind)
+		tkadd(contextMenu, "command", label=gettextRcmdr("Select all"), command=onSelectAll)
+		tkadd(contextMenu, "command", label=gettextRcmdr("Undo"), command=onUndo)
+		tkadd(contextMenu, "command", label=gettextRcmdr("Redo"), command=onRedo)
+		tkadd(contextMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
+		tkpopup(contextMenu, tkwinfo("pointerx", .messages), tkwinfo("pointery", .messages))
+	}
 	if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
 	putRcmdr("commanderWindow", tktoplevel())
 	.commander <- CommanderWindow()
@@ -504,7 +519,7 @@ Commander <- function(){
 	tkconfigure(.output, yscrollcommand=function(...) tkset(outputYscroll, ...))
 	messagesFrame <- tkframe(.commander)
 	putRcmdr("messagesWindow", tktext(messagesFrame, bg="lightgray",
-			font=getRcmdr("logFont"), height=3, width=log.width, wrap="none"))
+			font=getRcmdr("logFont"), height=messages.height, width=log.width, wrap="none", undo=TRUE))
 	.messages <- MessagesWindow()
 	messagesXscroll <- ttkscrollbar(messagesFrame, orient="horizontal",
 		command=function(...) tkxview(.messages, ...))
@@ -595,6 +610,7 @@ Commander <- function(){
 	tkbind(.commander, "<Control-W>", onRedo)
 	tkbind(.log, "<ButtonPress-3>", contextMenuLog)
 	tkbind(.output, "<ButtonPress-3>", contextMenuOutput)
+	tkbind(.messages, "<ButtonPress-3>", contextMenuMessages)
 	tkwm.deiconify(.commander)
 	tkfocus(.commander)
 	if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
