@@ -301,7 +301,7 @@ For more information about R initialization, see \code{?Startup}.
     Script window, however, I'd appreciate it if you brought them to my attention.
     }
 
-\section{Known Problem}{
+\section{Known Problems}{
   Occasionally, under Windows, after typing some text into a dialog box (e.g., a subsetting expression in the Subset  Data Set dialog), 
   buttons in the dialog (e.g., the OK button) will have no effect when they are pressed. Clicking anywhere inside or outside of the dialog 
   box should restore the function of the buttons. As far as I have been able to ascertain, this is a problem with Tcl/Tk for Windows.

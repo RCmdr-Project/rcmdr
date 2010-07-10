@@ -1,4 +1,4 @@
-"Project-Id-Version: Rcmdr 1.5-0\n"
+"Project-Id-Version: Rcmdr 1.6-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: 2010-06-28 10:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -3686,3 +3686,6 @@ msgstr ""
 
 msgid "esc key to exit."
 msgstr ""
+
+	
+	

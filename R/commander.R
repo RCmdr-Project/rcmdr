@@ -622,8 +622,8 @@ Commander <- function(){
 	##    if (!packageAvailable("rgl")) Message(gettextRcmdr("The rgl package is absent; 3D plots are unavailable."), type="warning")
 	Message(paste(gettextRcmdr("R Commander Version "), getRcmdr("RcmdrVersion"), ": ", date(), sep=""))
 	if (.Platform$GUI == "Rgui"  && ismdi()) Message(gettextRcmdr(
-		"The Windows version of the R Commander works best under RGui\nwith the single-document interface (SDI); see ?Commander."),
-		type="warning")
+				"The Windows version of the R Commander works best under RGui\nwith the single-document interface (SDI); see ?Commander."),
+			type="warning")
 }
 
 
@@ -773,7 +773,11 @@ checkWarnings <- function(messages){
 				head(messages,5), ". . .", tail(messages, 5))
 			Message(message=paste(messages, collapse="\n"), type="warning")
 		}
-		else Message(message=paste(messages, collapse="\n"), type="warning")
+		else {
+			if (length(grep("warning", messages, ignore.case=TRUE)) > 0)
+				Message(message=paste(messages, collapse="\n"), type="warning")
+			else Message(message=paste(messages, collapse="\n"), type="note")
+		}
 	}
 	else{
 		if (length(messages) == 0) Message()
@@ -783,7 +787,11 @@ checkWarnings <- function(messages){
 				head(messages, 5), ". . .", tail(messages, 5))
 			Message(message=paste(messages, collapse="\n"), type="warning")
 		}
-		else Message(message=paste(messages, collapse="\n"), type="warning")
+		else {
+			if (length(grep("warning", messages, ignore.case=TRUE)) > 0)
+				Message(message=paste(messages, collapse="\n"), type="warning")
+			else Message(message=paste(messages, collapse="\n"), type="note")
+		}
 	}
 	tkfocus(CommanderWindow())
 }
