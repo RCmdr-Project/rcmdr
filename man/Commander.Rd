@@ -56,7 +56,8 @@ can be continued over more than one line, the several lines of a multi-line comm
 must be submitted simultaneously. (It is not necessary, as in earlier versions of the
 R Commander, to begin continuation lines with white space.) The contents of the script
 window can be saved during or at the end of the session, and a saved script can be loaded into the
-script window. The contents of the output window can also be edited or saved to a text file.
+script window. The contents of the output window can also be edited or saved to a text file. Finally,
+editing operations also work in the messages window.
 
 To re-execute a command or set of commands, select the lines to be executed using
 the mouse and press the \emph{Submit} button at the right of the toolbar
@@ -66,16 +67,16 @@ submits the line containing the text-insertion cursor. Note that an error will b
 command or commands are incomplete.
 
 Pressing \emph{Control-F} brings up a find-text dialog box (which can also be accessed via 
-\emph{Edit -> Find}) to search for text in the script window or the output window. Edit functions such as
-search are performed in the script window unless you first click in the output window to make it the active
+\emph{Edit -> Find}) to search for text in the script, output, or messages window. Edit functions such as
+search are performed in the script window unless you first click in the output or messages window to make it the active
 window.
 
 Pressing \emph{Control-S} will save the script or output window.
 
-Pressing \emph{Control-A} selects all of the text in the script or output window.
+Pressing \emph{Control-A} selects all of the text in the script, output, or messages window.
 
-In addition, the following Control-key combinations work in the script and output windows: \emph{Control-X}, cut;
-\emph{Control-C}, copy; \emph{Control-V}, insert; \emph{Control-Z}, undo; and \emph{Control-W}, redo.
+In addition, the following Control-key combinations work in the script, output, and messages windows: \emph{Control-X}, cut;
+\emph{Control-C}, copy; \emph{Control-V}, insert; \emph{Control-Z} or \emph{Alt-Backspace}, undo; and \emph{Control-W}, redo.
 
 Right-clicking the mouse (clicking button 3 on a three-button mouse) in the script or output window brings up
 a "context" menu with the \emph{Edit}-menu items, plus (in the script window) a \emph{Submit} item.
@@ -87,6 +88,8 @@ not been read into memory.
 
 Pressing a letter key (e.g., "a") in a list box will scroll the list box to bring the next entry 
 starting with that letter to the top of the box. 
+
+You can cancel an R Commander dialog box by pressing the \emph{Esc} key.
 
 Exit from the Commander via the \emph{File -> Exit} menu or by closing the \emph{Commander} window.
 

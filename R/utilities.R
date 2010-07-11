@@ -1,4 +1,4 @@
-# last modified 9 July 2010 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 10 July 2010 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -952,7 +952,7 @@ closeDialog <- defmacro(window=top, release=TRUE,
 	}
 )
 
-dialogSuffix <- defmacro(window=top, onOK=onOK, rows=1, columns=1, focus=top,
+dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows=1, columns=1, focus=top,
 	bindReturn=TRUE, preventGrabFocus=FALSE, preventDoubleClick=FALSE,
 	preventCrisp=FALSE,
 	expr={
@@ -961,6 +961,7 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, rows=1, columns=1, focus=top,
 		.Tcl("update idletasks")
 		tkwm.resizable(window, 0, 0)
 		if (bindReturn) tkbind(window, "<Return>", onOK)
+		tkbind(window, "<Escape>", onCancel)
 		if (getRcmdr("double.click") && (!preventDoubleClick)) tkbind(window, "<Double-ButtonPress-1>", onOK)
 		tkwm.deiconify(window)
 		# focus grabs appear to cause problems for some dialogs
@@ -2160,4 +2161,11 @@ mergeRows.data.frame <- function(X, Y, common.only=FALSE, ...){
 		Y[, miss2] <- NA
 		rbind(X, Y)
 	}
+}
+
+# start help system
+
+startHelp <- function(){
+	Sys.sleep(2)
+	help.start()
 }

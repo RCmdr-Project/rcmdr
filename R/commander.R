@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 9 July 2010 by J. Fox
+# last modified 10 July 2010 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 #   modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -54,6 +54,7 @@ Commander <- function(){
 		onDelete()
 	}
 	onPaste <- function(){
+		onDelete()
 		focused <- tkfocus()
 		if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID)  && (tclvalue(focused) != MessagesWindow()$ID))
 			focused <- LogWindow()
@@ -384,6 +385,7 @@ Commander <- function(){
 			if (!(is.null(current.line) || is.na(current.line))) doItAndPrint(current.line, log=FALSE)
 			iline <- iline + 1
 			tkyview.moveto(.output, 1)
+			tkfocus(.log)
 		}
 	}
 	contextMenuLog <- function(){
@@ -608,6 +610,7 @@ Commander <- function(){
 	tkbind(.commander, "<Control-A>", onSelectAll)
 	tkbind(.commander, "<Control-w>", onRedo)
 	tkbind(.commander, "<Control-W>", onRedo)
+	tkbind(.commander, "<Alt-BackSpace>", onUndo)
 	tkbind(.log, "<ButtonPress-3>", contextMenuLog)
 	tkbind(.output, "<ButtonPress-3>", contextMenuOutput)
 	tkbind(.messages, "<ButtonPress-3>", contextMenuMessages)

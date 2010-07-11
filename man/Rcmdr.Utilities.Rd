@@ -132,7 +132,8 @@ closeDialog(window, release=TRUE)  # macro
 CommanderWindow()
 dataSetsP(n=1)
 defmacro(..., expr)
-dialogSuffix(window=top, onOK=onOK, rows=1, columns=1, focus=top, bindReturn=TRUE, 
+dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows=1, columns=1, 
+	focus=top, bindReturn=TRUE, 
     preventGrabFocus=FALSE, preventDoubleClick=FALSE, preventCrisp=FALSE)  # macro
 doItAndPrint(command, log=TRUE)
 errorCondition(window=top, recall=NULL, message, model=FALSE)  # macro
@@ -262,6 +263,7 @@ commanderPosition()
   \item{object}{an object (depends on context).}
   \item{offset}{in pixels, from top-left of Commander window.}
   \item{onOK}{function to execute when the \emph{OK} button is pressed.}
+  \item{onCancel}{function to execute when the \emph{Cancel} button or \emph{Esc} key is pressed.}
   \item{package}{quoted name of package to load.}
   \item{plotLinesByGroup}{include a check box for plotting lines by group?}
   \item{plotLinesByGroupsText}{the label for the plot-lines-by-group check box.}

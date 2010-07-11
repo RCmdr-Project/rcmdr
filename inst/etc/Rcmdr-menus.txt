@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 25 June 2010 by J. Fox
+# last modified 10 July 2010 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -353,4 +353,5 @@
     item    helpMenu        command         "Introduction to the R Commander"               browseManual                ""          ""
     item    helpMenu        command         "Help on active data set (if available)"        helpDataSet                 "activeDataSetP()"          ""
     item    helpMenu        command         "About Rcmdr"                                   helpAboutCommander          ""          ""
+    item	helpMenu		command			"Start R help system"							startHelp					""			""
     item    topMenu         cascade         "Help"                                          helpMenu                    ""          ""
