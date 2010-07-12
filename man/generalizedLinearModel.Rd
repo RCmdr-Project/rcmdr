@@ -17,7 +17,7 @@ See \code{\link[stats]{glm}} for details.
 
 You can type directly in the model formula boxes. Alternatively, double-clicking the left mouse
 button on a variable in the variable-list transfers it to the left-hand side of the model (if
-it is empty) or to the right-hand side. 
+it is empty or selected) or to the right-hand side. 
 Factors are indicated in the variable list; all other variables are numeric.
 You can also enter operators and parentheses using the buttons
 above the formula. If you select several variables in the variable-list box, clicking on the

@@ -1,4 +1,4 @@
-# last modified 10 July 2010 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 12 July 2010 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -1422,7 +1422,11 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
 					tkselection.clear(xBox$listbox, "0", "end")
 					if (length(grep(word, var)) == 1) var <- sub(word, "",  var)
 					lhs <- tclvalue(lhsVariable)
-					if (lhs == "") tclvalue(lhsVariable) <- var
+					if (lhs == "" || tclvalue(tkselection.present(lhsEntry)) == "1"){
+						tclvalue(lhsVariable) <- var
+						tkselection.clear(lhsEntry)
+						tkfocus(rhsEntry)
+					}
 					else {
 						tkfocus(rhsEntry)
 						rhs <- tclvalue(rhsVariable)
