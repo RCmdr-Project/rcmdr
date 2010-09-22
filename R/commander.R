@@ -7,7 +7,7 @@
 #   modified 17 December 2008 by Richard Heiberger  ##rmh
 
 Commander <- function(){
-	RcmdrVersion <- "1.6-0"
+	RcmdrVersion <- "1.6-1"
 	##    DESCRIPTION <- readLines(file.path(.find.package("Rcmdr"), "DESCRIPTION")[1])
 	##    RcmdrVersion <- trim.blanks(sub("^Version:", "",
 	##        grep("^Version:", D, value=TRUE)))

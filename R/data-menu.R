@@ -1,4 +1,4 @@
-# last modified 21 August 2009 by J. Fox
+# last modified 21 September 2010 by J. Fox
 
 # Data menu dialogs
 
@@ -393,7 +393,13 @@ readDataFromPackage <- function() {
 	entryDsname <- ttkentry(enterFrame, width="20", textvariable=dsname)
 	packages <- sort(.packages())
 	packages <- packages[! packages %in% c("base", "stats")]
-	packages <- packages[sapply(packages, function(package) nrow(data(package=package)$results) > 0)]
+	packages <- packages[sapply(packages, function(package){
+				ds <- data(package=package)$results
+				if (nrow(ds) == 0) return(FALSE)
+				ds <- ds[, "Item"]
+				valid <- sapply(ds, is.valid.name)
+				length(ds[valid]) > 0
+			})]
 	packageDatasetFrame <- tkframe(top)
 	packageFrame <- tkframe(packageDatasetFrame)
 	packageBox <- tklistbox(packageFrame, height="4", exportselection="FALSE",
@@ -411,6 +417,8 @@ readDataFromPackage <- function() {
 	onPackageSelect <- function(){
 		assign("package", packages[as.numeric(tkcurselection(packageBox)) + 1], envir=env)
 		datasets <- data(package=package)$results[,3]
+		valid <- sapply(datasets, is.valid.name)
+		datasets <- datasets[valid]
 		tkdelete(datasetBox, "0", "end")
 		for (dataset in datasets) tkinsert(datasetBox, "end", dataset)
 		tkconfigure(datasetBox, height=min(4, length(datasets)))

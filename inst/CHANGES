@@ -896,3 +896,9 @@ Version 1.6-0
    o  Small interface improvements.
    
    o  Small fixes.
+   
+Version 1.6-1
+
+   o  Datasets with invalid names reported by packages no longer listed in "Data > Data in Packages > Select data set from an attached package" dialog (problem reported by Gabor Grothendieck).
+   
+   o  Fixed bug in changing contrasts option in "Tools > Options" dialog (reported by Kristian Hovde Liland).

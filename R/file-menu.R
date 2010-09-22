@@ -1,4 +1,4 @@
-# last modified 10 January 2010 by J. Fox
+# last modified 21 September 2010 by J. Fox
 
 # File menu dialogs
 
@@ -156,7 +156,7 @@ Options <- function(){
                     else if (!log.commands) 0 else 10
     output.height <- if (!is.null(current$output.height)) current$output.height
         else if (console.output) 0 else 2*log.height
-    contrasts <- setOption("contrasts", c("contr.Treatment", "contr.poly"))
+    contrasts <- setOption("default.contrasts", c("contr.Treatment", "contr.poly"))
     grab.focus <- setOption("grab.focus", TRUE)
     double.click <- setOption("double.click", FALSE)
     sort.names <- setOption("sort.names", TRUE)
@@ -223,7 +223,7 @@ Options <- function(){
 		options$log.commands <- log.commands
 		options$output.height <- output.height
 		options$console.output <- console.output
-		options$contrasts <- contrasts
+		options$default.contrasts <- contrasts
 		options$grab.focus <- grab.focus
 		options$double.click <- double.click
 		options$sort.names <- sort.names
