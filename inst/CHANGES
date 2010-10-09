@@ -902,3 +902,5 @@ Version 1.6-1
    o  Datasets with invalid names reported by packages no longer listed in "Data > Data in Packages > Select data set from an attached package" dialog (problem reported by Gabor Grothendieck).
    
    o  Fixed bug in changing contrasts option in "Tools > Options" dialog (reported by Kristian Hovde Liland).
+   
+   o  Updated French, Japanese, Russian, and Spanish translations (thanks to Philippe Grosjean, Takaharu Araki, Alexey Shipunov, and Manuel Munoz Marquez).
