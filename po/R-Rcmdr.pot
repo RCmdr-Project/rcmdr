@@ -1,6 +1,6 @@
-"Project-Id-Version: Rcmdr 1.6-0\n"
+"Project-Id-Version: Rcmdr 1.6-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2010-07-10 19:00\n"
+"POT-Creation-Date: 2010-10-13 09:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3677,9 +3677,6 @@ msgstr ""
 	
 msgid "Use left mouse button to identify points,\n"
 msgstr ""
-
-msgid "Identify points with mouse?
-msgstr""
 
 msgid "right button to exit."
 msgstr ""
