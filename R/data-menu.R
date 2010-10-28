@@ -386,6 +386,7 @@ readDataSet <- function() {
 
 readDataFromPackage <- function() {
 	env <- environment()
+	datasets <- NULL
 	initializeDialog(title=gettextRcmdr("Read Data From Package"))
 	dsname <- tclVar("")
 	package <- NULL
@@ -416,9 +417,9 @@ readDataFromPackage <- function() {
 	tkconfigure(datasetBox, yscrollcommand=function(...) tkset(datasetScroll, ...))
 	onPackageSelect <- function(){
 		assign("package", packages[as.numeric(tkcurselection(packageBox)) + 1], envir=env)
-		datasets <- data(package=package)$results[,3]
+		datasets <<- data(package=package)$results[,3]
 		valid <- sapply(datasets, is.valid.name)
-		datasets <- datasets[valid]
+		datasets <<- datasets[valid]
 		tkdelete(datasetBox, "0", "end")
 		for (dataset in datasets) tkinsert(datasetBox, "end", dataset)
 		tkconfigure(datasetBox, height=min(4, length(datasets)))
@@ -465,7 +466,7 @@ readDataFromPackage <- function() {
 		tkbind(datasetBox, "<ButtonPress-1>", onClick)
 	}
 	onDatasetSelect <- function(){
-		tclvalue(dsname) <- data(package=package)$results[as.numeric(tkcurselection(datasetBox)) + 1,3]
+		tclvalue(dsname) <- datasets[as.numeric(tkcurselection(datasetBox)) + 1]
 	}
 	firstChar <- tolower(substr(packages, 1, 1))
 	len <- length(packages)
@@ -509,7 +510,7 @@ readDataFromPackage <- function() {
 	onClick <- function() tkfocus(packageBox)
 	tkbind(packageBox, "<ButtonPress-1>", onClick)
 	onOK <- function(){
-		datasetName <- data(package=package)$results[as.numeric(tkcurselection(datasetBox)) + 1,3]
+		datasetName <- datasets[as.numeric(tkcurselection(datasetBox)) + 1]
 		dsnameValue <- tclvalue(dsname)
 		if (dsnameValue != "" && is.null(package)){
 			closeDialog()

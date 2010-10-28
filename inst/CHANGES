@@ -908,3 +908,5 @@ Version 1.6-1
 Version 1.6-2
 
    o  Updated Brazilian Portuguese and Italian translations (thanks to Adriano Azevedo-Filho and Stefano Calza).
+   
+   o  Fixed bug in read data set from package dialog (reported by Erich Neuwirth).
