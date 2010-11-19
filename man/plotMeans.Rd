@@ -14,7 +14,7 @@ plotMeans(response, factor1, factor2,
     xlab = deparse(substitute(factor1)),
     ylab = paste("mean of", deparse(substitute(response))), 
     legend.lab = deparse(substitute(factor2)), main = "Plot of Means", 
-    pch = 1:n.levs.2, lty = 1:n.levs.2, col = palette())
+    pch = 1:n.levs.2, lty = 1:n.levs.2, col = palette(), ...)
 }
 
 \arguments{
@@ -34,10 +34,15 @@ plotMeans(response, factor1, factor2,
   \item{pch}{Plotting characters for profiles of means.}
   \item{lty}{Line types for profiles of means.}
   \item{col}{Colours for profiles of means}
+  \item{\ldots}{arguments to be passed to \code{plot}.}
 }
 
 \value{
   The function invisibly returns \code{NULL}.
+}
+
+\examples{
+with(Moore, plotMeans(conformity, fcategory, partner.status, ylim=c(0, 25)))
 }
 
 \author{John Fox \email{jfox@mcmaster.ca}}

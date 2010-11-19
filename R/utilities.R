@@ -1,4 +1,4 @@
-# last modified 12 July 2010 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 19 November 2010 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -573,7 +573,7 @@ Hist <- function(x, scale=c("frequency", "percent", "density"), xlab=deparse(sub
 plotMeans <- function(response, factor1, factor2, error.bars = c("se", "sd", "conf.int", "none"),
 	level=0.95, xlab=deparse(substitute(factor1)), ylab=paste("mean of", deparse(substitute(response))),
 	legend.lab=deparse(substitute(factor2)), main="Plot of Means",
-	pch=1:n.levs.2, lty=1:n.levs.2, col=palette()){
+	pch=1:n.levs.2, lty=1:n.levs.2, col=palette(), ...){
 	if (!is.numeric(response)) stop(gettextRcmdr("Argument response must be numeric."))
 	xlab # force evaluation
 	ylab
@@ -593,7 +593,7 @@ plotMeans <- function(response, factor1, factor2, error.bars = c("se", "sd", "co
 		yrange <-  if (error.bars != "none") c( min(means - sds, na.rm=TRUE), max(means + sds, na.rm=TRUE)) else range(means, na.rm=TRUE)
 		levs <- levels(factor1)
 		n.levs <- length(levs)
-		plot(c(1, n.levs), yrange, type="n", xlab=xlab, ylab=ylab, axes=FALSE, main=main)
+		plot(c(1, n.levs), yrange, type="n", xlab=xlab, ylab=ylab, axes=FALSE, main=main, ...)
 		points(1:n.levs, means, type="b", pch=16, cex=2)
 		box()
 		axis(2)
@@ -622,7 +622,7 @@ plotMeans <- function(response, factor1, factor2, error.bars = c("se", "sd", "co
 		if (length(col) == 1) col <- rep(col, n.levs.2)
 		if (length(lty) == 1) lty <- rep(lty, n.levs.2)
 		if (n.levs.2 > length(col)) stop(sprintf(gettextRcmdr("Number of groups for factor2, %d, exceeds number of distinct colours, %d."), n.levs.2, length(col)))		
-		plot(c(1, n.levs.1 * 1.4), yrange, type="n", xlab=xlab, ylab=ylab, axes=FALSE, main=main)
+		plot(c(1, n.levs.1 * 1.4), yrange, type="n", xlab=xlab, ylab=ylab, axes=FALSE, main=main, ...)
 		box()
 		axis(2)
 		axis(1, at=1:n.levs.1, labels=levs.1)
