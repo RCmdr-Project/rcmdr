@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 6 Decmeber 2009 by J. Fox
+# last modified 20 November 2010 by J. Fox
 
     # Means menu
 
@@ -190,6 +190,7 @@ singleSampleTTest <- function(){
 					command <- paste(".Pairs <- glht(", modelValue, ", linfct = mcp(", group, ' = "Tukey"))', sep="")
 					justDoIt(command)
 					logger(command)
+					doItAndPrint("summary(.Pairs) # pairwise tests")
 					doItAndPrint("confint(.Pairs) # confidence intervals")
 					doItAndPrint("cld(.Pairs) # compact letter display")
 					justDoIt("old.oma <- par(oma=c(0,5,0,0))")
