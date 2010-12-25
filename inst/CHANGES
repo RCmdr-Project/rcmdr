@@ -916,3 +916,5 @@ Version 1.6-3
    o  Modified plotMeans to allow arguments to be passed through to plot (following question by Marylin Bejarano).
    
    o  Added output of pairwise tests to one-way ANOVA (suggested by Bruce McCulllough).
+   
+   o  Fixed bug in model-formula scrollbar for models with no left-hand-side.

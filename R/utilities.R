@@ -1566,7 +1566,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
 			rhsVariable <- if (currentModel) tclVar(currentFields$rhs) else tclVar("")
 			rhsEntry <- ttkentry(formulaFrame, width="50", textvariable=rhsVariable)
 			rhsXscroll <- ttkscrollbar(formulaFrame,
-				orient="horizontal", command=function(...) tkxview(rhs, ...))
+				orient="horizontal", command=function(...) tkxview(rhsEntry, ...))
 			tkconfigure(rhsEntry, xscrollcommand=function(...) tkset(rhsXscroll, ...))
 			tkgrid(labelRcmdr(formulaFrame, text="   ~ "), rhsEntry, sticky="w")
 			tkgrid(labelRcmdr(formulaFrame, text=""), rhsXscroll, sticky="w")
