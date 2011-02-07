@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 10 July 2010 by J. Fox
+# last modified 11 Feb 2011 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -211,8 +211,8 @@
     item    continuousMenu  cascade         "Chi-squared distribution"                      chisqMenu                   ""          ""
     item    chisqMenu       command         "Chi-squared quantiles..."                      chisqQuantiles              ""          ""
     item    chisqMenu       command         "Chi-squared probabilities..."                  chisqProbabilities          ""          ""
-    item    chisqMenu       command         "Plot chi-squared distribution..."              chisquareDistributionPlot   ""          ""
-    item    chisqMenu       command         "Sample from chi-squared distribution..."       chisquareDistributionSamples ""         ""
+    item    chisqMenu       command         "Plot chi-squared distribution..."              chisqDistributionPlot   ""          ""
+    item    chisqMenu       command         "Sample from chi-squared distribution..."       chisqDistributionSamples ""         ""
     
     # F distribution
     menu    FMenu           continuousMenu  ""                                              ""                          ""          ""
