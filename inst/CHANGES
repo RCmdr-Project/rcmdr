@@ -922,3 +922,5 @@ Version 1.6-3
 Version 1.6-4
 
    o Improvements to probability distribution dialogs (contributed by Miroslav Ristic).
+   
+   o Control-left-mouse-button now brings up context edit menu, for use with one-button mice (after a question by Erich Neuwirth). 

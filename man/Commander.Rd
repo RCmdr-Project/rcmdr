@@ -78,7 +78,7 @@ Pressing \emph{Control-A} selects all of the text in the script, output, or mess
 In addition, the following Control-key combinations work in the script, output, and messages windows: \emph{Control-X}, cut;
 \emph{Control-C}, copy; \emph{Control-V}, insert; \emph{Control-Z} or \emph{Alt-Backspace}, undo; and \emph{Control-W}, redo.
 
-Right-clicking the mouse (clicking button 3 on a three-button mouse) in the script or output window brings up
+Right-clicking the mouse (clicking button 3 on a three-button mouse, or \emph{Control}-left-clicking) in the script, output, or message window brings up
 a "context" menu with the \emph{Edit}-menu items, plus (in the script window) a \emph{Submit} item.
 
 When you
