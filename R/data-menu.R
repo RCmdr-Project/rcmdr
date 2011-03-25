@@ -1737,7 +1737,7 @@ loadDataSet <- function() {
 saveDataSet <- function() {
 	file <- tclvalue(tkgetSaveFile(filetypes=
 				gettextRcmdr('{"All Files" {"*"}} {"R Data Files" {".RData" ".rda" ".Rda" ".RDA"}}'),
-			defaultextension=".RData", initialfile=paste(activeDataSet(), ".RData", sep=".")))
+			defaultextension=".RData", initialfile=paste(activeDataSet(), ".RData", sep="")))
 	if (file == "") return()
 	command <- paste('save("', activeDataSet(), '", file="', file, '")', sep="")
 	justDoIt(command)
