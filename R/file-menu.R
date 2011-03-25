@@ -1,9 +1,9 @@
-# last modified 21 September 2010 by J. Fox
+# last modified 25 March 2011 by J. Fox
 
 # File menu dialogs
 
 loadLog <- function(){
-    logFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"Script Files" {".R"}} {"All Files" {"*"}}'),
+    logFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Script Files" {".R"}}'),
         defaultextension="log"))
     if (logFile == "") return()
     fileCon <- file(logFile, "r")
@@ -35,7 +35,7 @@ saveLog <- function() {
     }
 
 saveLogAs <- function() {
-    logFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"Script Files" {".R"}} {"All Files" {"*"}}'),
+    logFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Script Files" {".R"}}'),
         defaultextension="R", initialfile="RCommander.R"))
     if (logFile == "") return()
     log <- tclvalue(tkget(LogWindow(), "1.0", "end"))
@@ -60,7 +60,7 @@ saveOutput <- function() {
     }
 
 saveOutputAs <- function() {
-    outputFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"Output Files" {".txt"}} {"All Files" {"*"}}'),
+    outputFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Output Files" {".txt"}}'),
         defaultextension="txt", initialfile="RCommander.txt"))
     if (outputFile == "") return()
     output <- tclvalue(tkget(OutputWindow(), "1.0", "end"))
@@ -72,7 +72,7 @@ saveOutputAs <- function() {
     }
 
 saveWorkspaceAs <- function(){
-    saveFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}}'),
+    saveFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"R Data Files" {".RData" ".rda" ".Rda" ".RDA"}}'),
         defaultextension="", initialfile=".RData"))
     if (saveFile == "") return()
     save(list=ls(envir=.GlobalEnv), file=saveFile)

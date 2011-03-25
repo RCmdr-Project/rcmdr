@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 28 June 2010 by J. Fox
+# last modified 25 March 2011 by J. Fox
 
 indexPlot <- function(){
     initializeDialog(title=gettextRcmdr("Index Plot"))
@@ -902,12 +902,12 @@ saveBitmap <- function(){
         type <- tclvalue(filetypeVariable)
         if (type == "png"){
             ext <- "png"
-            filetypes <- gettextRcmdr('{"PNG Files" {".png" ".PNG"}} {"All Files" {"*"}}')
+            filetypes <- gettextRcmdr('{"All Files" {"*"}} {"PNG Files" {".png" ".PNG"}}')
             initial <- "RGraph.png"
             }
         else{
             ext <- "jpg"
-            filetypes <- gettextRcmdr('{"JPEG Files" {".jpg" ".JPG" ".jpeg" ".JPEG"}} {"All Files" {"*"}}')
+            filetypes <- gettextRcmdr('{"All Files" {"*"}} {"JPEG Files" {".jpg" ".JPG" ".jpeg" ".JPEG"}}')
             initial <- "RGraph.jpg"
             }
         filename <- tclvalue(tkgetSaveFile(filetypes=filetypes, defaultextension=ext, initialfile=initial))
@@ -951,17 +951,17 @@ savePDF <- function(){
         pointsize <- tclvalue(pointSizeVariable)
         if (type == "pdf"){
             ext <- "pdf"
-            filetypes <- gettextRcmdr('{"PDF Files" {".pdf" ".PDF"}} {"All Files" {"*"}}')
+            filetypes <- gettextRcmdr('{"All Files" {"*"}} {"PDF Files" {".pdf" ".PDF"}}')
             initial <- "RGraph.pdf"
             }
         else if (type == "postscript") {
             ext <- "ps"
-            filetypes <- gettextRcmdr('{"Postscript Files" {".ps" ".PS"}} {"All Files" {"*"}}')
+            filetypes <- gettextRcmdr('{"All Files" {"*"}} {"Postscript Files" {".ps" ".PS"}}')
             initial <- "RGraph.ps"
             }
         else {
             ext <- "eps"
-            filetypes <- gettextRcmdr('{"Encapsulated Postscript Files" {".eps" ".EPS"}} {"All Files" {"*"}}')
+            filetypes <- gettextRcmdr('{"All Files" {"*"}} {"Encapsulated Postscript Files" {".eps" ".EPS"}}')
             initial <- "RGraph.eps"
             }
         filename <- tclvalue(tkgetSaveFile(filetypes=filetypes, defaultextension=ext, initialfile=initial))
@@ -990,7 +990,7 @@ saveRglGraph <- function(){
         return()
         }
     ext <- "png"
-    filetypes <- gettextRcmdr('{"PNG Bitmap Files" {".png" ".PNG"}} {"All Files" {"*"}}')
+    filetypes <- gettextRcmdr('{"All Files" {"*"}} {"PNG Files" {".png" ".PNG"}}')
     initial <- "RGLGraph.png"
     filename <- tclvalue(tkgetSaveFile(filetypes=filetypes, defaultextension=ext, initialfile=initial))
     if (filename == "") return()

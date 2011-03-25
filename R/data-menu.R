@@ -1,4 +1,4 @@
-# last modified 21 September 2010 by J. Fox
+# last modified 25 March 2011 by J. Fox
 
 # Data menu dialogs
 
@@ -326,7 +326,7 @@ readDataSet <- function() {
 		location <- tclvalue(locationVariable)
 		file <- if (location == "clipboard") "clipboard" 
 			else if (location == "local") tclvalue(tkgetOpenFile(filetypes=
-							gettextRcmdr('{"Text Files" {".txt" ".TXT" ".dat" ".DAT" ".csv" ".CSV"}} {"All Files" {"*"}}')))
+							gettextRcmdr('{"All Files" {"*"}} {"Text Files" {".txt" ".TXT" ".dat" ".DAT" ".csv" ".CSV"}}')))
 			else {
 				initializeDialog(subdialog, title=gettextRcmdr("Internet URL"))
 				onOKsub <- function(){
@@ -617,7 +617,7 @@ importSPSS <- function() {
 			}
 		}
 		file <- tclvalue(tkgetOpenFile(
-				filetypes=gettextRcmdr('{"SPSS save files" {".sav" ".SAV"}} {"SPSS portable files" {".por" ".POR"}} {"All Files" {"*"}}')))
+				filetypes=gettextRcmdr('{"All Files" {"*"}} {"SPSS portable files" {".por" ".POR"}} {"SPSS save files" {".sav" ".SAV"}}')))
 		if (file == "") {
 			tkfocus(CommanderWindow())
 			return()
@@ -672,7 +672,7 @@ importMinitab <- function() {
 			}
 		}
 		file <- tclvalue(tkgetOpenFile(
-				filetypes=gettextRcmdr('{"Minitab portable files" {".mtp" ".MTP"}} {"All Files" {"*"}}')))
+				filetypes=gettextRcmdr('{"All Files" {"*"}} {"Minitab portable files" {".mtp" ".MTP"}}')))
 		if (file == "") {
 			tkfocus(CommanderWindow())
 			return()
@@ -739,7 +739,7 @@ importSTATA <- function() {
 			}
 		}
 		file <- tclvalue(tkgetOpenFile(
-				filetypes=gettextRcmdr('{"STATA datasets" {".dta" ".DTA"}} {"All Files" {"*"}}')))
+				filetypes=gettextRcmdr('{"All Files" {"*"}} {"STATA datasets" {".dta" ".DTA"}}')))
 		if (file == "") {
 			tkfocus(CommanderWindow())
 			return()
@@ -815,7 +815,7 @@ importRODBCtable <- function(){
 			}
 		}
 		File <- tclvalue(tkgetOpenFile(filetypes = gettextRcmdr(
-					'{"MS Excel file" {*.xls ".XLS"}} {"MS Excel 2007 file" {*.xlsx ".XLSX"}} {"MS Access database" {*.mdb ".MDB"}} {"MS Access 2007 database" {*.accdb ".ACCDB"}} {"dBase-like file" {*.dbf ".DBF"}} {"All Files" {"*"}}'
+					'{"All Files" {"*"}} {"MS Access database" {".mdb" ".MDB"}} {"MS Access 2007 database" {".accdb" ".ACCDB"}} {"dBase-like file" {".dbf" ".DBF"}} {"MS Excel 2007 file" {".xlsx" ".XLSX"}} {"MS Excel file" {".xls" ".XLS"}}'
 				)))
 		if(File == ""){
 			tkfocus(CommanderWindow())
@@ -1268,7 +1268,7 @@ exportDataSet <- function() {
 			else if (delim == "spaces") " "
 			else if (delim == "commas") ","
 			else trim.blanks(tclvalue(otherVariable))
-		saveFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"Text Files" {".txt" ".TXT" ".dat" ".DAT" ".csv" ".CSV"}} {"All Files" {"*"}}'),
+		saveFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Text Files" {".txt" ".TXT" ".dat" ".DAT" ".csv" ".CSV"}}'),
 				defaultextension="txt", initialfile=paste(dsname, ".txt", sep="")))
 		if (saveFile == "") {
 			tkfocus(CommanderWindow())
@@ -1725,7 +1725,7 @@ Stack <- function(){
 
 loadDataSet <- function() {
 	file <- tclvalue(tkgetOpenFile(filetypes=
-				gettextRcmdr('{"R Data Files" {".rda" ".Rda" ".RDA" ".RData"}} {"All Files" {"*"}}')))
+				gettextRcmdr('{"All Files" {"*"}} {"R Data Files" {".RData" ".rda" ".Rda" ".RDA"}}')))
 	if (file == "") return()
 	command <- paste('load("', file,'")', sep="")
 	dsname <- justDoIt(command)
@@ -1736,8 +1736,8 @@ loadDataSet <- function() {
 
 saveDataSet <- function() {
 	file <- tclvalue(tkgetSaveFile(filetypes=
-				gettextRcmdr('{"R Data Files" {".rda" ".Rda" ".RDA" ".RData"}} {"All Files" {"*"}}'),
-			defaultextension="rda", initialfile=paste(activeDataSet(), "rda", sep=".")))
+				gettextRcmdr('{"All Files" {"*"}} {"R Data Files" {".RData" ".rda" ".Rda" ".RDA"}}'),
+			defaultextension=".RData", initialfile=paste(activeDataSet(), ".RData", sep=".")))
 	if (file == "") return()
 	command <- paste('save("', activeDataSet(), '", file="', file, '")', sep="")
 	justDoIt(command)
