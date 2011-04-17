@@ -67,7 +67,6 @@
 \alias{modelFormula}
 \alias{modelsP}
 \alias{multinomP}
-\alias{nobs}
 \alias{Numeric}
 \alias{numericP}
 \alias{OKCancelHelp}
@@ -178,7 +177,6 @@ MessagesWindow()
 modelFormula(frame=top, hasLhs=TRUE)  # macro
 modelsP(n=1)
 multinomP()
-nobs(model)
 Numeric(names)
 numericP(n=1)
 OKCancelHelp(window=top, helpSubject=NULL, model=FALSE)  # macro

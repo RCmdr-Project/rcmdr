@@ -1,4 +1,4 @@
-# last modified 25 June 2010 by J. Fox
+# last modified 17 April 2011 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -20,7 +20,7 @@ listAllModels, listAOVModels, listDataSets, listFactors, listGeneralizedLinearMo
 listLinearModels, listMultinomialLogitModels, listNumeric, listPlugins, 
 listProportionalOddsModels, listTwoLevelFactors, listVariables, 
 lmP, logger, LogWindow, MacOSXP, mergeRows,
-Message, MessagesWindow, modelFormula, modelsP, multinomP, nobs, Numeric,
+Message, MessagesWindow, modelFormula, modelsP, multinomP, Numeric,
 numericP, numSummary, OKCancelHelp, OutputWindow, packageAvailable, partial.cor,
 plotMeans, polrP, popCommand, popOutput, putRcmdr, radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet, 
 RcmdrTkmessageBox, rcorr.adjust,

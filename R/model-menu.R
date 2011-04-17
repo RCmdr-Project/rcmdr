@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 28 June 2010 by J. Fox
+# last modified 17 April 2011 by J. Fox
 
 selectActiveModel <- function(){
     models <- listAllModels()
@@ -594,7 +594,8 @@ aic <- function(){
 bic <- function(){
 	.activeModel <- ActiveModel()
 	if (is.null(.activeModel)) return()
-	doItAndPrint(paste("AIC(", .activeModel, ", k = log(nobs(", .activeModel, "))) # BIC", sep=""))
+#	doItAndPrint(paste("AIC(", .activeModel, ", k = log(nobs(", .activeModel, "))) # BIC", sep=""))
+	doItAndPrint(paste("BIC(", .activeModel, ")", sep=""))
 }
 
 stepwiseRegression <- function(){

@@ -1,4 +1,4 @@
-# last modified 19 November 2010 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 17 April 2011 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -2022,12 +2022,12 @@ if (!(as.character(tcl("info", "tclversion")) >= "8.5" && getRversion() >= "2.7.
 
 tclvalue <- function(x) trim.blanks(tcltk::tclvalue(x))
 
-# the following function returns the number of observations for a statistical model
+# the following function returns the number of observations for a statistical model (removed in preference to nobs() in R 2.13.0)
 
-nobs <- function(model){
-	fitted <- na.omit(fitted(model))
-	if (is.matrix(fitted)) nrow(fitted) else length(fitted)
-}
+#nobs <- function(model){
+#	fitted <- na.omit(fitted(model))
+#	if (is.matrix(fitted)) nrow(fitted) else length(fitted)
+#}
 
 # the following function splits a character string at blanks and commas according to width
 
