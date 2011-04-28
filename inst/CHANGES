@@ -928,3 +928,7 @@ Version 1.6-4
    o Corrected order of file extensions in file dialogs.
    
    o The new BIC() function in R 2.13.0 is used in preference to AIC() to compute the BIC. nobs() is no longer needed, and is removed so as not to conflict with nobs() in R 2.13.0.
+
+Version 1.6-5
+
+   o Nothing yet!
