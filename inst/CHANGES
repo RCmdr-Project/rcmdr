@@ -931,4 +931,5 @@ Version 1.6-4
 
 Version 1.6-5
 
-   o Nothing yet!
+   o Modified data set edit so that character variables are converted to factors, as for a new data set (responding to problem reported by Konrad Halupka).
+   
