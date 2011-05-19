@@ -933,3 +933,5 @@ Version 1.6-5
 
    o Modified data set edit so that character variables are converted to factors, as for a new data set (responding to problem reported by Konrad Halupka).
    
+   o Added Chinese translation (contributed by Frank C. S. Liu).
+   
