@@ -13,7 +13,7 @@ user interface) for R, based on the tcltk package.
 \tabular{ll}{
 Package: \tab Rcmdr\cr
 Version: \tab 1.6-5\cr
-Date: \tab 2011/05/19\cr
+Date: \tab 2011/05/20\cr
 Depends: \tab R (>= 2.1.0), tcltk, grDevices, utils\cr
 Suggests: \tab abind, aplpack, car (>= 1.1-1), effects (>= 1.0-7), foreign, grid, 
   lattice, lmtest, MASS, mgcv, multcomp, nlme, nnet, relimp, rgl, RODBC\cr
@@ -58,12 +58,13 @@ http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/\cr
 The R Commander comes with translations from English into several other languages. I am grateful to the following individuals and groups for preparing these translations:
 Brazilian Portuguese, Adriano Azevedo-Filho and Marilia Sa Carvalho;
 Catalan, Manel Salamero;
+Chinese, Frank C. S. Liu and Cheng-shun Lee;
 French, Philippe Grosjean;
 German: Gerhard Schoen;
 Indonesian, I Made Tirta;
 Italian, Stefano Calza;
 Japanese, Takaharu Araki;
-Korean, Dae-Heung Jang;
+Korean, Chel Hee Lee and Dae-Heung Jang;
 Polish, Marcin Kozak;
 Romanian, Adrian Dusa;
 Russian, Alexey Shipunov;
