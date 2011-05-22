@@ -1,4 +1,4 @@
-# last modified 22 September 2009 by J. Fox
+# last modified 21 May 2011 by J. Fox
 
 .onAttach <- function(...){
     if(interactive()) Commander()
@@ -27,7 +27,7 @@
     if (!tcltk) stop(gettext("The tcltk package is absent. The R Commander cannot function.", domain="R-Rcmdr"))
     required.packages <- rev(c("abind", "aplpack", "car", "colorspace", 
 		"effects", "foreign", "grid", "Hmisc", "lattice", "leaps", "lmtest",
-        "MASS", "mgcv", "multcomp", "nlme", "nnet", "relimp", "rgl"))
+        "MASS", "mgcv", "multcomp", "nlme", "nnet", "relimp", "rgl", "RODBC"))
     if (.Platform$OS.type == "windows") required.packages <- c(required.packages, "RODBC")
     packages.to.load <- options("Rcmdr")[[1]]$load.at.startup
     if (is.null(packages.to.load)) packages.to.load <- "car"
@@ -88,7 +88,8 @@
                     present <- missing.packages %in% packages
                     if (!all(present)) errorMessage()
                     if (!any(present)) return()
-                    utils:::install.packages(missing.packages[present], dependencies=TRUE, lib=.libPaths()[1])
+#                    utils:::install.packages(missing.packages[present], dependencies=TRUE, lib=.libPaths()[1])
+					utils:::install.packages(missing.packages[present], lib=.libPaths()[1])		
                     }
 #                else if (location == "Bioconductor") {
 #                    packages <- CRAN.packages(CRAN=getOption("BIOC"))[,1]
