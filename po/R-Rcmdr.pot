@@ -1,6 +1,6 @@
-"Project-Id-Version: Rcmdr 1.6-4\n"
+"Project-Id-Version: Rcmdr 1.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2011-03-25 11:00\n"
+"POT-Creation-Date: 2011-06-27 11:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3729,4 +3729,9 @@ msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 msgstr ""
 
 msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgstr ""
+
+# messages added to version 1.7-0
+
+msgid "Reset"
 msgstr ""

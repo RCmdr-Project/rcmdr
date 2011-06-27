@@ -1,4 +1,4 @@
-# last modified 21 May 2011 by J. Fox
+# last modified 27 June 2011 by J. Fox
 
 .onAttach <- function(...){
     if(interactive()) Commander()
@@ -104,8 +104,10 @@
                     present <- missing.packages %in% packages
                     if (!all(present)) errorMessage()
                     if (!any(present)) return()
-                    utils:::install.packages(missing.packages[present], contriburl=directory,
-                        dependencies=TRUE, lib=.libPaths()[1])
+#                    utils:::install.packages(missing.packages[present], contriburl=directory,
+#                        dependencies=TRUE, lib=.libPaths()[1])
+					utils:::install.packages(missing.packages[present], contriburl=directory,
+					lib=.libPaths()[1])
                     }
                 }
             onCancel <- function(){

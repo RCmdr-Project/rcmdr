@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 8 July 2010 by J. Fox
+# last modified 27 June 2011 by J. Fox
 
     # Summaries menu
     
@@ -18,57 +18,125 @@ summarizeDataSet <- function(){
     doItAndPrint(paste("summary(", .activeDataSet, ")", sep=""))
     }
 
-numericalSummaries <- function(){
-    Library("abind")
-    initializeDialog(title=gettextRcmdr("Numerical Summaries"))
-    xBox <- variableListBox(top, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick one or more)"))
-    checkBoxes(frame="checkBoxFrame", boxes=c("mean", "sd"), initialValues=c("1", "1"), labels=gettextRcmdr(c("Mean", "Standard Deviation")))
-    quantilesVariable <- tclVar("1")
-    quantilesFrame <- tkframe(top)
-    quantilesCheckBox <- tkcheckbutton(quantilesFrame, variable=quantilesVariable)
-    quantiles <- tclVar("0, .25, .5, .75, 1")
-    quantilesEntry <- ttkentry(quantilesFrame, width="20", textvariable=quantiles)
-    groupsBox(recall=numericalSummaries, label=gettextRcmdr("Summarize by:"), initialLabel=gettextRcmdr("Summarize by groups"))
-    onOK <- function(){
-        x <- getSelection(xBox)
-        if (length(x) == 0){
-            errorCondition(recall=numericalSummaries, message=gettextRcmdr("You must select a variable."))
-            return()
-            }
-        closeDialog()
-        quants <- paste("c(", gsub(",+", ",", gsub(" ", ",", tclvalue(quantiles))), ")", sep="")
-        .activeDataSet <- ActiveDataSet()
-        vars <- if (length(x) == 1) paste('"', x, '"', sep="") 
-            else paste("c(", paste('"', x, '"', collapse=", ", sep=""), ")", sep="")
-        vars <- paste(.activeDataSet, "[,", vars, "]", sep="")
-        stats <- paste("c(",
-            paste(c('"mean"', '"sd"', '"quantiles"')
-                [c(tclvalue(meanVariable), tclvalue(sdVariable), tclvalue(quantilesVariable)) == 1], 
-                collapse=", "), ")", sep="")
-        if (stats == "c()"){
-             errorCondition(recall=numericalSummaries, message=gettextRcmdr("No statistics selected."))
-            return()
-            }               
-        command <- if (.groups != FALSE) {
-            grps <- paste(.activeDataSet, "$", .groups, sep="")
-            paste("numSummary(", vars, ", groups=", grps, ", statistics=", stats, 
-				", quantiles=", quants, ")", sep="")
-            }
-        else  paste("numSummary(", vars, ", statistics=", stats, 
-			", quantiles=", quants, ")", sep="")
-        doItAndPrint(command) 
-        tkfocus(CommanderWindow())
-        }
-    OKCancelHelp(helpSubject="numSummary")
-    tkgrid(getFrame(xBox), sticky="nw")    
-    tkgrid(checkBoxFrame, sticky="w")
-    tkgrid(labelRcmdr(quantilesFrame, text=gettextRcmdr("Quantiles")), quantilesCheckBox,
-        labelRcmdr(quantilesFrame, text=gettextRcmdr(" quantiles:")), quantilesEntry, sticky="w")
-    tkgrid(quantilesFrame, sticky="w")
-    tkgrid(groupsFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=6, columns=1)
-    }
+#numericalSummaries <- function(){
+#    Library("abind")
+#    initializeDialog(title=gettextRcmdr("Numerical Summaries"))
+#    xBox <- variableListBox(top, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick one or more)"))
+#    checkBoxes(frame="checkBoxFrame", boxes=c("mean", "sd"), initialValues=c("1", "1"), labels=gettextRcmdr(c("Mean", "Standard Deviation")))
+#    quantilesVariable <- tclVar("1")
+#    quantilesFrame <- tkframe(top)
+#    quantilesCheckBox <- tkcheckbutton(quantilesFrame, variable=quantilesVariable)
+#    quantiles <- tclVar("0, .25, .5, .75, 1")
+#    quantilesEntry <- ttkentry(quantilesFrame, width="20", textvariable=quantiles)
+#    groupsBox(recall=numericalSummaries, label=gettextRcmdr("Summarize by:"), initialLabel=gettextRcmdr("Summarize by groups"))
+#    onOK <- function(){
+#        x <- getSelection(xBox)
+#        if (length(x) == 0){
+#            errorCondition(recall=numericalSummaries, message=gettextRcmdr("You must select a variable."))
+#            return()
+#            }
+#        closeDialog()
+#        quants <- paste("c(", gsub(",+", ",", gsub(" ", ",", tclvalue(quantiles))), ")", sep="")
+#        .activeDataSet <- ActiveDataSet()
+#        vars <- if (length(x) == 1) paste('"', x, '"', sep="") 
+#            else paste("c(", paste('"', x, '"', collapse=", ", sep=""), ")", sep="")
+#        vars <- paste(.activeDataSet, "[,", vars, "]", sep="")
+#        stats <- paste("c(",
+#            paste(c('"mean"', '"sd"', '"quantiles"')
+#                [c(tclvalue(meanVariable), tclvalue(sdVariable), tclvalue(quantilesVariable)) == 1], 
+#                collapse=", "), ")", sep="")
+#        if (stats == "c()"){
+#             errorCondition(recall=numericalSummaries, message=gettextRcmdr("No statistics selected."))
+#            return()
+#            }               
+#        command <- if (.groups != FALSE) {
+#            grps <- paste(.activeDataSet, "$", .groups, sep="")
+#            paste("numSummary(", vars, ", groups=", grps, ", statistics=", stats, 
+#				", quantiles=", quants, ")", sep="")
+#            }
+#        else  paste("numSummary(", vars, ", statistics=", stats, 
+#			", quantiles=", quants, ")", sep="")
+#        doItAndPrint(command) 
+#        tkfocus(CommanderWindow())
+#        }
+#    OKCancelHelp(helpSubject="numSummary")
+#    tkgrid(getFrame(xBox), sticky="nw")    
+#    tkgrid(checkBoxFrame, sticky="w")
+#    tkgrid(labelRcmdr(quantilesFrame, text=gettextRcmdr("Quantiles")), quantilesCheckBox,
+#        labelRcmdr(quantilesFrame, text=gettextRcmdr(" quantiles:")), quantilesEntry, sticky="w")
+#    tkgrid(quantilesFrame, sticky="w")
+#    tkgrid(groupsFrame, sticky="w")
+#    tkgrid(buttonsFrame, sticky="w")
+#    dialogSuffix(rows=6, columns=1)
+#    }
+
+numericalSummaries <- function(){ # dialog memory 2011-06-27  J. Fox
+	Library("abind")
+	defaults <- list(initial.x=NULL, initial.mean="1", initial.sd="1", initial.quantiles.variable="1", 
+			initial.quantiles="0, .25, .5, .75, 1", initial.group=NULL)
+	dialog.values <- getDialog("numericalSummaries", defaults)
+	initializeDialog(title=gettextRcmdr("Numerical Summaries"))
+	xBox <- variableListBox(top, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick one or more)"),
+			initialSelection=dialog.values$initial.x)
+	checkBoxes(frame="checkBoxFrame", boxes=c("mean", "sd"), 
+			initialValues=c(dialog.values$initial.mean, dialog.values$initial.sd), 
+			labels=gettextRcmdr(c("Mean", "Standard Deviation")))
+	quantilesVariable <- tclVar(dialog.values$initial.quantiles.variable)
+	quantilesFrame <- tkframe(top)
+	quantilesCheckBox <- tkcheckbutton(quantilesFrame, variable=quantilesVariable)
+	quantiles <- tclVar(dialog.values$initial.quantiles)
+	quantilesEntry <- ttkentry(quantilesFrame, width="20", textvariable=quantiles)
+	groupsBox(recall=numericalSummaries, label=gettextRcmdr("Summarize by:"), 
+			initialLabel=gettextRcmdr("Summarize by groups"), initialGroup=dialog.values$initial.group)
+	onOK <- function(){
+		x <- getSelection(xBox)
+		quants <- tclvalue(quantiles)
+		meanVar <- tclvalue(meanVariable)
+		sdVar <- tclvalue(sdVariable)
+		quantsVar <- tclvalue(quantilesVariable)
+		putDialog("numericalSummaries", list(
+						initial.x=varPosn(x, "numeric"), initial.mean=meanVar, initial.sd=sdVar, 
+						initial.quantiles.variable=quantsVar, initial.quantiles=quants, 
+						initial.group=if (.groups != FALSE) varPosn(.groups, "factor") else NULL
+				))		
+		if (length(x) == 0){
+			errorCondition(recall=numericalSummaries, message=gettextRcmdr("You must select a variable."))
+			return()
+		}
+		closeDialog()
+		quants <- paste("c(", gsub(",+", ",", gsub(" ", ",", quants)), ")", sep="")
+		.activeDataSet <- ActiveDataSet()
+		vars <- if (length(x) == 1) paste('"', x, '"', sep="") 
+				else paste("c(", paste('"', x, '"', collapse=", ", sep=""), ")", sep="")
+		vars <- paste(.activeDataSet, "[,", vars, "]", sep="")
+		stats <- paste("c(",
+				paste(c('"mean"', '"sd"', '"quantiles"')
+								[c(meanVar, sdVar, quantsVar) == 1], 
+						collapse=", "), ")", sep="")
+		if (stats == "c()"){
+			errorCondition(recall=numericalSummaries, message=gettextRcmdr("No statistics selected."))
+			return()
+		}               
+		command <- if (.groups != FALSE) {
+					grps <- paste(.activeDataSet, "$", .groups, sep="")
+					paste("numSummary(", vars, ", groups=", grps, ", statistics=", stats, 
+							", quantiles=", quants, ")", sep="")
+				}
+				else  paste("numSummary(", vars, ", statistics=", stats, 
+							", quantiles=", quants, ")", sep="")
+		doItAndPrint(command) 
+		tkfocus(CommanderWindow())
+	}
+	OKCancelHelp(helpSubject="numSummary", reset="numericalSummaries")
+	tkgrid(getFrame(xBox), sticky="nw")    
+	tkgrid(checkBoxFrame, sticky="w")
+	tkgrid(labelRcmdr(quantilesFrame, text=gettextRcmdr("Quantiles")), quantilesCheckBox,
+			labelRcmdr(quantilesFrame, text=gettextRcmdr(" quantiles:")), quantilesEntry, sticky="w")
+	tkgrid(quantilesFrame, sticky="w")
+	tkgrid(groupsFrame, sticky="w")
+	tkgrid(buttonsFrame, sticky="w")
+	dialogSuffix(rows=6, columns=1)
+}
 
 frequencyDistribution <- function(){
     initializeDialog(title=gettextRcmdr("Frequency Distributions"))

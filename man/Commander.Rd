@@ -137,14 +137,14 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{console.output}}{If \code{TRUE}, output is directed to the \emph{R Console}, and the 
     \emph{R Commander} output window is not displayed. The default is \code{FALSE}.}
     
-    \item{\code{default.contrasts}}{Serves the same function as the general \code{contrasts} option; the default is\cr
-    \code{c("contr.Treatment", "contr.poly")}. When the Commander exits, the \code{contrasts}
-    option is returned to its pre-existing value. Note that \code{contr.Treatment} is from the \code{car} package.}
-    
     \item{\code{crisp.dialogs}}{If \code{TRUE}, dialogs should appear on the screen fully drawn, rather than built up
     widget by widget. Prior to R 2.6.1, this option only works on the Windows version of R, but should in any event be harmless.
     The default is \code{TRUE}. If you encounter stability problems, try setting this option to
     \code{FALSE}.}
+    
+    \item{\code{default.contrasts}}{Serves the same function as the general \code{contrasts} option; the default is\cr
+    \code{c("contr.Treatment", "contr.poly")}. When the Commander exits, the \code{contrasts}
+    option is returned to its pre-existing value. Note that \code{contr.Treatment} is from the \code{car} package.}
     
     \item{\code{default.font}}{The default font, as an X11 font specification, given in a character string. 
     If specified, this value takes precedence
@@ -154,6 +154,9 @@ set none, one, several, or all options. The available options are as follows:
     and 12 for other systems Unless otherwise
     specified (see the previous item), the default font for non-Windows systems is 
     \code{"*helvetica-medium-r-normal-*-xx*"}, where \code{xx} is the default font size.}
+    
+    \item{\code{dialog.memory}}{If \code{TRUE}, dialogs remember their previous state, as long as the data set isn't changed.
+    For the present, the default is \code{FALSE}, while dialogs are converted to make use of this feature.}
     
     \item{\code{double.click}}{Set to \code{TRUE} if you want a double-click of the left mouse
     button to press the default button in all dialogs. The default is \code{FALSE}.}

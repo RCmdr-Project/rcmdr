@@ -1,13 +1,13 @@
 
 # The R Commander and command logger
 
-# last modified 18 May 2011 by J. Fox
+# last modified 27 June 2011 by J. Fox
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 #   modified 17 December 2008 by Richard Heiberger  ##rmh
 
 Commander <- function(){
-	RcmdrVersion <- "1.6-5"
+	RcmdrVersion <- "1.7-0"
 	##    DESCRIPTION <- readLines(file.path(.find.package("Rcmdr"), "DESCRIPTION")[1])
 	##    RcmdrVersion <- trim.blanks(sub("^Version:", "",
 	##        grep("^Version:", D, value=TRUE)))
@@ -154,6 +154,8 @@ Commander <- function(){
 	else setOption("default.contrasts", c("contr.treatment", "contr.poly"))
 	setOption("log.commands", TRUE)
 	setOption("console.output", FALSE)
+	setOption("dialog.memory", FALSE)
+	putRcmdr("dialog.values", list())
 	log.height <- as.character(setOption("log.height", if (!getRcmdr("log.commands")) 0 else 10, global=FALSE))
 	log.width <- as.character(setOption("log.width", 80, global=FALSE))
 	output.height <- as.character(setOption("output.height",

@@ -1,4 +1,4 @@
-# last modified 17 April 2011 by J. Fox
+# last modified 27 June 2011 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -13,7 +13,7 @@ checkTwoLevelFactors, checkVariables, closeCommander,
 closeDialog, colPercents, Commander,
 commanderPosition, CommanderWindow, Confint, dataSetsP, defmacro,
 dialogSuffix, doItAndPrint, errorCondition, exists.method,
-Factors, factorsP, formulaFields, getFrame, getRcmdr, getSelection, gettextRcmdr,
+Factors, factorsP, formulaFields, getDialog, getFrame, getRcmdr, getSelection, gettextRcmdr,
 glmP, GrabFocus, groupsBox, groupsLabel, hclustSolutionsP, Hist, initializeDialog, 
 is.valid.name, is.SciViews, justDoIt, KMeans, labelRcmdr, Library,
 listAllModels, listAOVModels, listDataSets, listFactors, listGeneralizedLinearModels, 
@@ -22,12 +22,13 @@ listProportionalOddsModels, listTwoLevelFactors, listVariables,
 lmP, logger, LogWindow, MacOSXP, mergeRows,
 Message, MessagesWindow, modelFormula, modelsP, multinomP, Numeric,
 numericP, numSummary, OKCancelHelp, OutputWindow, packageAvailable, partial.cor,
-plotMeans, polrP, popCommand, popOutput, putRcmdr, radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet, 
+plotMeans, polrP, popCommand, popOutput, putDialog, putRcmdr, 
+radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet, 
 RcmdrTkmessageBox, rcorr.adjust,
 reliability, rowPercents, sortVarNames, stepwise, subOKCancelHelp,
 subsetBox, tclvalue, totPercents, trim.blanks, ttkentry, ttkframe, ttkradiobutton,
 ttkscrollbar, TwoLevelFactors, twoLevelFactorsP, 
-UpdateModelNumber, variableListBox, Variables)
+UpdateModelNumber, variableListBox, Variables, varPosn)
 
 S3method(Confint, glm)
 S3method(Confint, default)

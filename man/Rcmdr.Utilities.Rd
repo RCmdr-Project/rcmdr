@@ -31,6 +31,7 @@
 \alias{Factors}
 \alias{factorsP}
 \alias{formulaFields}
+\alias{getDialog}
 \alias{getFrame}
 \alias{getFrame.listbox}
 \alias{getRcmdr}
@@ -75,6 +76,7 @@
 \alias{polrP}
 \alias{popCommand}
 \alias{popOutput}
+\alias{putDialog}
 \alias{putRcmdr}
 \alias{radioButtons}
 \alias{RcmdrTclSet}
@@ -90,6 +92,7 @@
 \alias{UpdateModelNumber}
 \alias{variableListBox}
 \alias{Variables}
+\alias{varPosn}
 
 \alias{buttonRcmdr}
 \alias{labelRcmdr}
@@ -108,7 +111,7 @@
 
 \usage{
 activateMenus()
-activeDataSet(dsname, flushModel=TRUE)
+activeDataSet(dsname, flushModel=TRUE, flushDialogMemory=TRUE)
 ActiveDataSet(name)
 activeDataSetP()
 activeModel(model)
@@ -140,6 +143,7 @@ exists.method(generic, object, default=TRUE, strict=FALSE)
 Factors(names)
 factorsP(n=1)
 formulaFields(model, hasLhs=TRUE, glm=FALSE)
+getDialog(dialog, defaults=NULL)
 \method{getFrame}{listbox}(object)
 \method{getSelection}{listbox}(object)
 getRcmdr(x, mode="any")
@@ -149,7 +153,8 @@ GrabFocus(value)
 groupsBox(recall=NULL, label=gettextRcmdr("Plot by:"), 
     initialLabel=gettextRcmdr("Plot by groups"),
     plotLinesByGroup=FALSE, positionLegend=FALSE, 
-    plotLinesByGroupsText=gettextRcmdr("Plot lines by group"))  # macro
+    plotLinesByGroupsText=gettextRcmdr("Plot lines by group"), 
+    initialGroup=NULL)  # macro
 groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1)  # macro
 hclustSolutionsP()
 initializeDialog(window=top, title="", offset=10, preventCrisp=FALSE)  # macro
@@ -179,12 +184,13 @@ modelsP(n=1)
 multinomP()
 Numeric(names)
 numericP(n=1)
-OKCancelHelp(window=top, helpSubject=NULL, model=FALSE)  # macro
+OKCancelHelp(window=top, helpSubject=NULL, model=FALSE, reset=NULL)  # macro
 OutputWindow()
 packageAvailable(name)
 polrP()
 popCommand()
 popOutput()
+putDialog(dialog, values=NULL)
 putRcmdr(x, value)
 radioButtons(window=top, name, buttons, values=NULL, 
 	initialValue=..values[1], labels, 
@@ -195,7 +201,7 @@ RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
 rglLoaded()
 sortVarNames(x)
 subOKCancelHelp(window=subdialog, helpSubject=NULL)  # macro
-subsetBox(window=top, model=FALSE)  # macro
+subsetBox(window = top, subset.expression = NULL, model = FALSE)  # macro
 tclvalue(x)
 trim.blanks(text)
 TwoLevelFactors(names)
@@ -205,6 +211,7 @@ variableListBox(parentWindow, variableList=Variables(), bg="white",
     selectmode="single", export="FALSE", initialSelection=NULL, 
     listHeight=getRcmdr("variable.list.height"), title)
 Variables(names)
+varPosn(variables, type=c("all", "factor", "numeric"))
 
 # the following function is exported for technical reasons,
 # but is not meant to be called directly
@@ -224,7 +231,9 @@ commanderPosition()
   \item{command}{a character string that evaluates to an R command.}
   \item{dataSet, dsname}{the quoted name of a data frame in memory.}
   \item{default}{default button: if not specified, "ok" for "okcancel", "yes" for "yesno", and "ok" for "ok";
-    or look for a default method.}
+    or look for a default method; for \code{putDialog}, a list of defaults for the dialog box if there are no
+    stored previous values.}
+  \item{dialog}{the quoted name of a dialog box under which previous selections are stored.}
   \item{envir}{the environment to be searched; should generally be left at the default.}
   \item{export}{export selection?}
   \item{expr}{expression constituting the body of the macro; typically a compound expression.}
@@ -275,19 +284,23 @@ commanderPosition()
     problems with some dialogs.}
   \item{recall}{function to call after error --- usually the function that initiates the dialog.}
   \item{release}{release the focus if the grab.focus option has been set.}
+  \item{reset}{quoted name of dialog function, to be invoked with all defaults by Reset button.}
   \item{reportError}{if \code{TRUE}, report an error message.}
   \item{right.buttons}{radio button placed to right of button-labels; defaults to \code{TRUE}.}
   \item{rows, columns}{numbers of rows and columns of widgets in the dialog box.}
-  \item{values}{vector of quoted values associated with radio buttons or check boxes.}
   \item{selectmode}{\code{"single"} or \code{"multiple"}.}
   \item{strict}{if \code{TRUE}, only use first element of class vector.}
+  \item{subset.expression}{a quoted expression to subset the data set.}
   \item{text}{a text string.}
   \item{title}{Window or dialog-box-element title.}
   \item{title.color}{color for title above radio buttons; defaults to \code{"blue"}.} 
   \item{type}{quoted type of object to check; used to generate check-replace dialog box;
-    or type of message to print in Message window.}
+    or type of message to print in Message window. For \code{varPosn}, type of variable list.}
   \item{value}{an object to be stored.}
+  \item{values}{vector of quoted values associated with radio buttons or check boxes; for \code{putDialog},
+  	a list of current selections to be stored in support of dialog memory.}
   \item{variableList}{a vector of variable names.}
+  \item{variables}{a vector of one or more variable names.}
   \item{window, parentWindow}{a Tk window.}
   \item{x}{an R object name, as a character string, or a tcl variable or object, or a vector of
     variable names to be sorted.}
@@ -350,6 +363,8 @@ commanderPosition()
   a dialog-box structure for entering a model formula, \code{modelFormula};
   a text box for entering a subsetting expression, \code{subsetBox};
   \emph{OK}, \emph{Cancel}, and \emph{Help} buttons for dialogs, \code{OKCancelHelp}, and subdialogs, \code{subOKCancelHelp}.
+  The functions \code{putDialog}, \code{getDialog}, and \code{varPosn} support dialog-box memory---i.e., retaining
+  selections across invocations of a dialog.
   
   \emph{``Themed'' Tk widgets:}
   Tk 8.5 introduced so-called ``themed'' widgets, which look better than the traditional Tk widgets. 

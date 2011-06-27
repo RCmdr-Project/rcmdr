@@ -937,3 +937,7 @@ Version 1.6-5
    
    o Startup sequence now offers to install missing packages but without dependencies=TRUE in call to install.packages().
    
+Version 1.7-0
+
+   o Added "dialog-memory" mchanism.
+   
