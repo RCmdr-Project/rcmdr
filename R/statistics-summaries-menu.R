@@ -77,7 +77,7 @@ numericalSummaries <- function(){ # dialog memory 2011-06-27  J. Fox
 	dialog.values <- getDialog("numericalSummaries", defaults)
 	initializeDialog(title=gettextRcmdr("Numerical Summaries"))
 	xBox <- variableListBox(top, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick one or more)"),
-			initialSelection=dialog.values$initial.x)
+			initialSelection=varPosn(dialog.values$initial.x, "numeric"))
 	checkBoxes(frame="checkBoxFrame", boxes=c("mean", "sd"), 
 			initialValues=c(dialog.values$initial.mean, dialog.values$initial.sd), 
 			labels=gettextRcmdr(c("Mean", "Standard Deviation")))
@@ -87,7 +87,8 @@ numericalSummaries <- function(){ # dialog memory 2011-06-27  J. Fox
 	quantiles <- tclVar(dialog.values$initial.quantiles)
 	quantilesEntry <- ttkentry(quantilesFrame, width="20", textvariable=quantiles)
 	groupsBox(recall=numericalSummaries, label=gettextRcmdr("Summarize by:"), 
-			initialLabel=gettextRcmdr("Summarize by groups"), initialGroup=dialog.values$initial.group)
+			initialLabel=gettextRcmdr("Summarize by groups"), 
+			initialGroup=dialog.values$initial.group)
 	onOK <- function(){
 		x <- getSelection(xBox)
 		quants <- tclvalue(quantiles)
@@ -95,9 +96,9 @@ numericalSummaries <- function(){ # dialog memory 2011-06-27  J. Fox
 		sdVar <- tclvalue(sdVariable)
 		quantsVar <- tclvalue(quantilesVariable)
 		putDialog("numericalSummaries", list(
-						initial.x=varPosn(x, "numeric"), initial.mean=meanVar, initial.sd=sdVar, 
+						initial.x=x, initial.mean=meanVar, initial.sd=sdVar, 
 						initial.quantiles.variable=quantsVar, initial.quantiles=quants, 
-						initial.group=if (.groups != FALSE) varPosn(.groups, "factor") else NULL
+						initial.group=if (.groups != FALSE) .groups else NULL
 				))		
 		if (length(x) == 0){
 			errorCondition(recall=numericalSummaries, message=gettextRcmdr("You must select a variable."))
@@ -137,7 +138,7 @@ numericalSummaries <- function(){ # dialog memory 2011-06-27  J. Fox
 	tkgrid(buttonsFrame, sticky="w")
 	dialogSuffix(rows=6, columns=1)
 }
-
+	
 frequencyDistribution <- function(){
     initializeDialog(title=gettextRcmdr("Frequency Distributions"))
     xBox <- variableListBox(top, Factors(), selectmode="multiple",

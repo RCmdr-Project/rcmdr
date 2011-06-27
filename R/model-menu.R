@@ -222,7 +222,7 @@ addObservationStatistics <- function(){
                 logger(command)
                 }
             }
-        activeDataSet(.activeDataSet, flushModel=FALSE)
+        activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
         tkfocus(CommanderWindow())
         }
     OKCancelHelp(helpSubject="influence.measures")

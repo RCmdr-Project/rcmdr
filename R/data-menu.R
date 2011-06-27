@@ -146,7 +146,7 @@ Recode <- function(){
 				"', as.factor.result=", asFactor, ")", sep="")
 			logger(paste(dataSet,"$",newVar, " <- ", cmd, sep=""))
 			result <- justDoIt(paste(dataSet,"$",newVar, " <- ", cmd, sep=""))
-			if (class(result)[1] !=  "try-error") activeDataSet(dataSet, flushModel=FALSE)
+			if (class(result)[1] !=  "try-error") activeDataSet(dataSet, flushModel=FALSE, flushDialogMemory=FALSE)
 			tkfocus(CommanderWindow())
 		}
 	}
@@ -226,7 +226,7 @@ Compute <- function(){
 			", ", express, ")", sep="")
 		logger(command)
 		result <- justDoIt(command)
-		if (class(result)[1] !=  "try-error") activeDataSet(dataSet, flushModel=FALSE)
+		if (class(result)[1] !=  "try-error") activeDataSet(dataSet, flushModel=FALSE, flushDialogMemory=FALSE)
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject="Compute")
@@ -274,7 +274,7 @@ deleteVariable <- function(){
 			eval(parse(text=paste(dataSet, "$", variable, "<- NULL", sep="")), envir=.GlobalEnv)
 			logger(paste(dataSet, "$", variable, " <- NULL", sep=""))
 		}
-		activeDataSet(dataSet, flushModel=FALSE)
+		activeDataSet(dataSet, flushModel=FALSE, flushDialogMemory=FALSE)
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject="NULL")
@@ -983,7 +983,7 @@ numericToFactor <- function(){
 				command <- paste("as.factor(", .activeDataSet, "$", name, ")", sep="")
 				result <- justDoIt(paste(.activeDataSet, "$", fname, " <- ", command, sep=""))
 				logger(paste(.activeDataSet, "$", fname," <- ", command, sep=""))
-				if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE)
+				if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
 				tkfocus(CommanderWindow())
 			}
 		}
@@ -1088,7 +1088,7 @@ binVariable <- function(){
 			", method=", "'", method, "', labels=", labels, ")", sep="")
 		logger(command)
 		result <- justDoIt(command)
-		if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE)
+		if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject="bin.var")
@@ -1163,7 +1163,7 @@ reorderFactor <- function(){
 				ordered, ")", sep="")
 			result <- justDoIt(paste(.activeDataSet, "$", name, " <- ", command, sep=""))
 			logger(paste(.activeDataSet,"$", name," <- ", command, sep=""))
-			if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE)
+			if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
 		}
 		subOKCancelHelp()
 		tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Old Levels"), fg="blue"),
@@ -1222,7 +1222,7 @@ standardize <- function(X){
 		}
 		remove(.Z, envir=.GlobalEnv)
 		logger("remove(.Z)")
-		if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE)
+		if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject="scale")
@@ -1451,7 +1451,7 @@ setCaseNames <- function(){
 		logger(command)
 		eval(parse(text=paste(dataSet, "$", variable, "<- NULL", sep="")), envir=.GlobalEnv)
 		logger(paste(dataSet, "$", variable, " <- NULL", sep=""))
-		if (class(result)[1] !=  "try-error") activeDataSet(dataSet, flushModel=FALSE)
+		if (class(result)[1] !=  "try-error") activeDataSet(dataSet, flushModel=FALSE, flushDialogMemory=FALSE)
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject="row.names")
@@ -1505,7 +1505,7 @@ renameVariables <- function(){
 				")] <- c(", paste('"', newnames, '"', collapse=",", sep=""), ")", sep="")
 			result <- justDoIt(command)
 			logger(command)
-			if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE)
+			if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
 			tkfocus(CommanderWindow())
 		}
 		subOKCancelHelp()
@@ -1623,7 +1623,7 @@ setContrasts <- function(){
 				logger(command)
 				justDoIt("remove(.Contrasts, envir=.GlobalEnv)")
 				logger("remove(.Contrasts)")
-				if (class(result)[1] !=  "try-error") activeDataSet(ActiveDataSet(), flushModel=FALSE)
+				if (class(result)[1] !=  "try-error") activeDataSet(ActiveDataSet(), flushModel=FALSE, flushDialogMemory=FALSE)
 				tkfocus(CommanderWindow())
 			}
 			subOKCancelHelp(helpSubject="contrasts")
@@ -1654,7 +1654,7 @@ addObsNumbers <- function(){
 	command <- paste(dsname, "$ObsNumber <- 1:", nrows, sep="")
 	logger(command)
 	result <- justDoIt(command)
-	if (class(result)[1] !=  "try-error") activeDataSet(dsname, flushModel=FALSE)
+	if (class(result)[1] !=  "try-error") activeDataSet(dsname, flushModel=FALSE, flushDialogMemory=FALSE)
 }
 
 Stack <- function(){

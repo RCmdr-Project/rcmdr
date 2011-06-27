@@ -93,9 +93,9 @@ twoWayTable <- function(){ # dialog memory 2011-06-27 J. Fox
 	variablesFrame <- tkframe(top)
 	.factors <- Factors()
 	rowBox <- variableListBox(variablesFrame, .factors, title=gettextRcmdr("Row variable (pick one)"),
-			initialSelection=dialog.values$initial.row)
+			initialSelection=varPosn(dialog.values$initial.row, "factor"))
 	columnBox <- variableListBox(variablesFrame, .factors, title=gettextRcmdr("Column variable (pick one)"),
-			initialSelection=dialog.values$initial.column)
+			initialSelection=varPosn(dialog.values$initial.column, "factor"))
 	subsetBox(subset.expression=dialog.values$initial.subset)
 	onOK <- function(){
 		row <- getSelection(rowBox)
@@ -109,8 +109,8 @@ twoWayTable <- function(){ # dialog memory 2011-06-27 J. Fox
 		subset <- if (trim.blanks(subset) == gettextRcmdr("<all valid cases>")) ""
 				else paste(", subset=", subset, sep="")
 		putDialog("twoWayTable", list(
-						initial.row=varPosn(row, "factor"), 
-						initial.column=varPosn(column, "factor"), 
+						initial.row=row, 
+						initial.column=column, 
 						initial.percents=percents, initial.chisq=chisq, initial.chisqComp=chisqComp, 
 						initial.expected=expected, initial.fisher=fisher, initial.subset=initial.subset
 				))

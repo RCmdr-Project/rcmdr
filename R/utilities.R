@@ -1170,7 +1170,7 @@ groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=
 				}
 				initializeDialog(subdialog, title=gettextRcmdr("Groups"))
 				groupsBox <- variableListBox(subdialog, .factors, title=gettextRcmdr("Groups variable (pick one)"),
-						initialSelection=initialGroup)
+						initialSelection=varPosn(initialGroup, "factor"))
 				if (plotLinesByGroup){
 					linesByGroupFrame <- tkframe(subdialog)
 					linesByGroup <- tclVar("1")
@@ -2203,10 +2203,12 @@ getDialog <- function(dialog, defaults=NULL){
 }
 
 varPosn <- function(variables, type=c("all", "factor", "numeric")){
+	if (is.null(variables)) return(NULL)
 	type <- match.arg(type)
 	vars <- switch(type,
 			all = Variables(),
 			factor = Factors(),
 			numeric = Numeric())
-	apply(outer(variables, vars, "=="), 1, which) - 1
+	if (any(!variables %in% vars)) NULL
+	else apply(outer(variables, vars, "=="), 1, which) - 1
 }
