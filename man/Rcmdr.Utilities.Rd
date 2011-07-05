@@ -233,10 +233,12 @@ commanderPosition()
   \item{default}{default button: if not specified, "ok" for "okcancel", "yes" for "yesno", and "ok" for "ok";
     or look for a default method; for \code{putDialog}, a list of defaults for the dialog box if there are no
     stored previous values.}
+  \item{defaults}{a list of named default values for options in a dialog if no previous selections are stored.}
   \item{dialog}{the quoted name of a dialog box under which previous selections are stored.}
   \item{envir}{the environment to be searched; should generally be left at the default.}
   \item{export}{export selection?}
   \item{expr}{expression constituting the body of the macro; typically a compound expression.}
+  \item{flushDialogMemory}{remove saved values of dialog options so that \code{getDialog} returns \code{NULL} for all dialogs.}
   \item{flushModel}{set (or reset) the active model to NULL? Should normally be \code{TRUE} when the active 
     data set is changed; an exception is when variables are simply added to, deleted from, or modified in 
     the data set set.}
@@ -250,6 +252,8 @@ commanderPosition()
     when the dialog \emph{Help} button is pressed.}
   \item{icon}{Message-box icon.}
   \item{increment}{increment to model number; -1 to set back after error.}
+  \item{initialGroup}{quoted name of variable to define groups, set as initial selection in Groups variable list; 
+  	\code{NULL} (the default) for no initial selection.}
   \item{initialLabel}{label for groups button before a selection is made.}
   \item{initialSelection}{index of item initially selected, 0-base indexing.}
   \item{initialValue}{for a set of related radio buttons.}
