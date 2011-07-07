@@ -1,4 +1,4 @@
-# last modified 27 June 2011 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 2011-07-05 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -2202,13 +2202,15 @@ getDialog <- function(dialog, defaults=NULL){
 	else return (values)
 }
 
-varPosn <- function(variables, type=c("all", "factor", "numeric")){
+varPosn <- function(variables, type=c("all", "factor", "numeric", "nonfactor")){
 	if (is.null(variables)) return(NULL)
 	type <- match.arg(type)
 	vars <- switch(type,
 			all = Variables(),
 			factor = Factors(),
-			numeric = Numeric())
+			numeric = Numeric(),
+			nonfactor = setdiff(Variables(), Factors())
+	)
 	if (any(!variables %in% vars)) NULL
 	else apply(outer(variables, vars, "=="), 1, which) - 1
 }

@@ -211,7 +211,7 @@ variableListBox(parentWindow, variableList=Variables(), bg="white",
     selectmode="single", export="FALSE", initialSelection=NULL, 
     listHeight=getRcmdr("variable.list.height"), title)
 Variables(names)
-varPosn(variables, type=c("all", "factor", "numeric"))
+varPosn(variables, type=c("all", "factor", "numeric", "nonfactor"))
 
 # the following function is exported for technical reasons,
 # but is not meant to be called directly
