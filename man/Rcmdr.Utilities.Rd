@@ -31,6 +31,7 @@
 \alias{Factors}
 \alias{factorsP}
 \alias{formulaFields}
+\alias{flushDialogMemory}
 \alias{getDialog}
 \alias{getFrame}
 \alias{getFrame.listbox}
@@ -143,6 +144,7 @@ exists.method(generic, object, default=TRUE, strict=FALSE)
 Factors(names)
 factorsP(n=1)
 formulaFields(model, hasLhs=TRUE, glm=FALSE)
+flushDialogMemory(what)
 getDialog(dialog, defaults=NULL)
 \method{getFrame}{listbox}(object)
 \method{getSelection}{listbox}(object)
@@ -305,6 +307,8 @@ commanderPosition()
   	a list of current selections to be stored in support of dialog memory.}
   \item{variableList}{a vector of variable names.}
   \item{variables}{a vector of one or more variable names.}
+  \item{what}{optional character vector of one or more dialog names for which the memory is to be flushed; if not 
+    specified, all dialog memory will be flushed.}
   \item{window, parentWindow}{a Tk window.}
   \item{x}{an R object name, as a character string, or a tcl variable or object, or a vector of
     variable names to be sorted.}

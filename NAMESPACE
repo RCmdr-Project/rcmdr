@@ -1,4 +1,4 @@
-# last modified 27 June 2011 by J. Fox
+# last modified 17 July 2011 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -13,7 +13,8 @@ checkTwoLevelFactors, checkVariables, closeCommander,
 closeDialog, colPercents, Commander,
 commanderPosition, CommanderWindow, Confint, dataSetsP, defmacro,
 dialogSuffix, doItAndPrint, errorCondition, exists.method,
-Factors, factorsP, formulaFields, getDialog, getFrame, getRcmdr, getSelection, gettextRcmdr,
+Factors, factorsP, formulaFields, flushDialogMemory, 
+getDialog, getFrame, getRcmdr, getSelection, gettextRcmdr,
 glmP, GrabFocus, groupsBox, groupsLabel, hclustSolutionsP, Hist, initializeDialog, 
 is.valid.name, is.SciViews, justDoIt, KMeans, labelRcmdr, Library,
 listAllModels, listAOVModels, listDataSets, listFactors, listGeneralizedLinearModels, 

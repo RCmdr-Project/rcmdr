@@ -1,4 +1,4 @@
-# last modified 2011-07-05 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 2011-07-17 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -2213,4 +2213,15 @@ varPosn <- function(variables, type=c("all", "factor", "numeric", "nonfactor")){
 	)
 	if (any(!variables %in% vars)) NULL
 	else apply(outer(variables, vars, "=="), 1, which) - 1
+}
+
+flushDialogMemory <- function(what){
+	if (missing(what)) putRcmdr("dialog.values", list())
+	else{
+		dialog.values <- getRcmdr("dialog.values")
+		for (dialog in what){
+			dialog.values[dialog] <- NULL
+		}
+		putRcmdr("dialog.values", dialog.values)
+	}
 }
