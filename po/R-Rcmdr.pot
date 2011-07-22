@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 1.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2011-06-27 11:00\n"
+"POT-Creation-Date: 2011-07-22 11:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3735,3 +3735,22 @@ msgstr ""
 
 msgid "Reset"
 msgstr ""
+
+msgid "Coefficient of Variation"
+msgstr ""
+
+msgid "Skewness"
+msgstr ""
+
+msgid "Kurtosis"
+msgstr ""
+
+msgid "Type 1"
+msgstr ""
+
+msgid "Type 2"
+msgstr ""
+
+msgid "Type 3"
+msgstr ""
+

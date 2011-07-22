@@ -1,4 +1,4 @@
-# last modified 2011-07-17 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 2011-07-21 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -365,20 +365,45 @@ confint.multinom <- function (object, parm, level=0.95, ...){
 
 Confint.multinom <- function(object, parm, level = 0.95, ...) confint (object, parm=parm, level=0.95, ...)
 
-numSummary <- function(data, statistics=c("mean", "sd", "quantiles"),
-	quantiles=c(0, .25, .5, .75, 1), groups){
+numSummary <- function(data, 
+		statistics=c("mean", "sd", "quantiles", "cv", "skewness", "kurtosis"),
+		type=c("1", "2", "3"),
+		quantiles=c(0, .25, .5, .75, 1), groups){
+	sd <- function(x, type, ...){
+		stats::sd(x, ...)
+	}
+	cv <- function(x, ...){
+		mean <- mean(x, na.rm=TRUE)
+		sd <- sd(x, na.rm=TRUE)
+		if (any(x <= 0, na.rm=TRUE)) warning("not all values are positive")
+		cv <- sd/mean
+		cv[mean <= 0] <- NA
+		cv
+	}
+	skewness <- function(x, type, ...){
+		if (is.vector(x)) return(e1071::skewness(x, type=type, na.rm=TRUE))
+		apply(x, 2, skewness, type=type)
+	}
+	kurtosis <- function(x, type, ...){
+		if (is.vector(x)) return(e1071::kurtosis(x, type=type, na.rm=TRUE))
+		apply(x, 2, kurtosis, type=type)
+	}
 	if(!require(abind)) stop("abind package missing")
+	if(!require(e1071)) stop("e1071 package missing")
 	data <- as.data.frame(data)
 	if (!missing(groups)) groups <- as.factor(groups)
 	variables <- names(data)
-	statistics <- match.arg(statistics, c("mean", "sd", "quantiles"),
-		several.ok=TRUE)
+	if (missing(statistics)) statistics <- c("mean", "sd", "quantiles")
+	statistics <- match.arg(statistics, c("mean", "sd", "quantiles", "cv", "skewness", "kurtosis"),
+			several.ok=TRUE)
+	type <- match.arg(type)
+	type <- as.numeric(type)
 	ngroups <- if(missing(groups)) 1 else length(grps <- levels(groups))
 	quantiles <- if ("quantiles" %in% statistics) quantiles else NULL
 	quants <- if (length(quantiles) > 1) paste(100*quantiles, "%", sep="")
-		else NULL
+			else NULL
 	nquants <- length(quants)
-	stats <- c(c("mean", "sd")[c("mean", "sd") %in% statistics], quants)
+	stats <- c(c("mean", "sd", "cv", "skewness", "kurtosis")[c("mean", "sd", "cv", "skewness", "kurtosis") %in% statistics], quants)
 	nstats <- length(stats)
 	nvars <- length(variables)
 	result <- list()
@@ -386,7 +411,7 @@ numSummary <- function(data, statistics=c("mean", "sd", "quantiles"),
 		if (statistics == "quantiles")
 			table <- quantile(data[,variables], probs=quantiles, na.rm=TRUE)
 		else {
-			table <- do.call(statistics, list(x=data[,variables], na.rm=TRUE))
+			table <- do.call(statistics, list(x=data[,variables], na.rm=TRUE, type=type))
 			names(table) <- statistics
 		}
 		NAs <- sum(is.na(data[,variables]))
@@ -396,15 +421,15 @@ numSummary <- function(data, statistics=c("mean", "sd", "quantiles"),
 	else if ((ngroups > 1)  && (nvars == 1) && (length(statistics) == 1)){
 		if (statistics == "quantiles"){
 			table <- matrix(unlist(tapply(data[, variables], groups,
-						quantile, probs=quantiles, na.rm=TRUE)), ngroups, nquants,
-				byrow=TRUE)
+									quantile, probs=quantiles, na.rm=TRUE)), ngroups, nquants,
+					byrow=TRUE)
 			rownames(table) <- grps
 			colnames(table) <- quants
 		}
 		else table <- tapply(data[,variables], groups, statistics,
-				na.rm=TRUE)
+					na.rm=TRUE, type=type)
 		NAs <- tapply(data[, variables], groups, function(x)
-				sum(is.na(x)))
+					sum(is.na(x)))
 		n <- table(groups) - NAs
 		result$type <- 2
 	}
@@ -413,11 +438,14 @@ numSummary <- function(data, statistics=c("mean", "sd", "quantiles"),
 		rownames(table) <- if (length(variables) > 1) variables else ""
 		colnames(table) <- stats
 		if ("mean" %in% stats) table[,"mean"] <- mean(data[, variables],
-				na.rm=TRUE)
+					na.rm=TRUE)
 		if ("sd" %in% stats) table[,"sd"] <- sd(data[, variables], na.rm=TRUE)
+		if ("cv" %in% stats) table[,"cv"] <- cv(data[, variables])
+		if ("skewness" %in% statistics) table[, "skewness"] <- skewness(data[, variables], type=type)
+		if ("kurtosis" %in% statistics) table[, "kurtosis"] <- kurtosis(data[, variables], type=type)
 		if ("quantiles" %in% statistics){
 			table[,quants] <- t(apply(data[, variables, drop=FALSE], 2, quantile,
-					probs=quantiles, na.rm=TRUE))
+							probs=quantiles, na.rm=TRUE))
 		}
 		NAs <- colSums(is.na(data[,variables, drop=FALSE]))
 		n <- nrow(data) - NAs
@@ -425,25 +453,34 @@ numSummary <- function(data, statistics=c("mean", "sd", "quantiles"),
 	}
 	else {
 		table <- array(0, c(ngroups, nstats, nvars),
-			dimnames=list(Group=grps, Statistic=stats, Variable=variables))
+				dimnames=list(Group=grps, Statistic=stats, Variable=variables))
 		NAs <- matrix(0, nvars, ngroups)
 		rownames(NAs) <- variables
 		colnames(NAs) <- grps
 		for (variable in variables){
 			if ("mean" %in% stats)
 				table[, "mean", variable] <- tapply(data[, variable],
-					groups, mean, na.rm=TRUE)
+						groups, mean, na.rm=TRUE)
 			if ("sd" %in% stats)
 				table[, "sd", variable] <- tapply(data[, variable],
-					groups, sd, na.rm=TRUE)
+						groups, sd, na.rm=TRUE)
+			if ("cv" %in% stats)
+				table[, "cv", variable] <- tapply(data[, variable],
+						groups, cv)
+			if ("skewness" %in% stats)
+				table[, "skewness", variable] <- tapply(data[, variable],
+						groups, skewness, type=type)
+			if ("kurtosis" %in% stats)
+				table[, "kurtosis", variable] <- tapply(data[, variable],
+						groups, kurtosis, type=type)
 			if ("quantiles" %in% statistics) {
 				res <- matrix(unlist(tapply(data[, variable], groups,
-							quantile, probs=quantiles, na.rm=TRUE)), ngroups, nquants,
-					byrow=TRUE)
+										quantile, probs=quantiles, na.rm=TRUE)), ngroups, nquants,
+						byrow=TRUE)
 				table[, quants, variable] <- res
 			}
 			NAs[variable,] <- tapply(data[, variable], groups, function(x)
-					sum(is.na(x)))
+						sum(is.na(x)))
 		}
 		if (nstats == 1) table <- table[,1,]
 		if (nvars == 1) table <- table[,,1]
@@ -466,66 +503,70 @@ print.numSummary <- function(x, ...){
 	n <- x$n
 	statistics <- x$statistics
 	switch(x$type,
-		"1" = {
-			if (!is.null(NAs)) {
-				table <- c(table, n, NAs)
-				names(table)[length(table) - 1:0] <- c("n", "NA")
-			}
-			print(table)
-		},
-		"2" = {
-			if (statistics == "quantiles") {
+			"1" = {
+				if (!is.null(NAs)) {
+					table <- c(table, n, NAs)
+					names(table)[length(table) - 1:0] <- c("n", "NA")
+				}
+				print(table)
+			},
+			"2" = {
+				if (statistics == "quantiles") {
+					table <- cbind(table, n)
+					colnames(table)[ncol(table)] <- "n"
+					if (!is.null(NAs)) {
+						table <- cbind(table, NAs)
+						colnames(table)[ncol(table)] <- "NA"
+					}
+				}
+				else {
+					table <- rbind(table, n)
+					rownames(table)[c(1, nrow(table))] <- c(statistics, "n")
+					if (!is.null(NAs)) {
+						table <- rbind(table, NAs)
+						rownames(table)[nrow(table)] <- "NA"
+					}
+					table <- t(table)
+				}
+				print(table)
+			},
+			"3" = {
 				table <- cbind(table, n)
 				colnames(table)[ncol(table)] <- "n"
 				if (!is.null(NAs)) {
 					table <- cbind(table, NAs)
 					colnames(table)[ncol(table)] <- "NA"
 				}
-			}
-			else {
-				table <- rbind(table, n)
-				rownames(table)[c(1, nrow(table))] <- c(statistics, "n")
-				if (!is.null(NAs)) {
-					table <- rbind(table, NAs)
-					rownames(table)[nrow(table)] <- "NA"
-				}
-				table <- t(table)
-			}
-			print(table)
-		},
-		"3" = {
-			table <- cbind(table, n)
-			colnames(table)[ncol(table)] <- "n"
-			if (!is.null(NAs)) {
-				table <- cbind(table, NAs)
-				colnames(table)[ncol(table)] <- "NA"
-			}
-			print(table)
-		},
-		"4" = {
-			if (length(dim(table)) == 2){
-				table <- cbind(table, t(n))
-				colnames(table)[ncol(table)] <- "n"
-				if (!is.null(NAs)) {
-					table <- cbind(table, t(NAs))
-					colnames(table)[ncol(table)] <- "NA"
-				}
 				print(table)
-			}
-			else {
-				table <- abind(table, t(n), along=2)
-				dimnames(table)[[2]][dim(table)[2]] <- "n"
-				if (!is.null(NAs)) {
-					table <- abind(table, t(NAs), along=2)
-					dimnames(table)[[2]][dim(table)[2]] <- "NA"
+			},
+			"4" = {
+				if (length(dim(table)) == 2){
+					n <- t(n)
+					nms <- colnames(n)
+					colnames(n) <- paste(nms, ":n", sep="")
+					table <- cbind(table, n)
+					if (!is.null(NAs)) {
+						NAs <- t(NAs)
+						nms <- colnames(NAs)
+						colnames(NAs) <- paste(nms, ":NA", sep="")
+						table <- cbind(table, NAs)
+					}
+					print(table)
 				}
-				nms <- dimnames(table)[[3]]
-				for (name in nms){
-					cat("\nVariable:", name, "\n")
-					print(table[,,name])
+				else {
+					table <- abind(table, t(n), along=2)
+					dimnames(table)[[2]][dim(table)[2]] <- "n"
+					if (!is.null(NAs)) {
+						table <- abind(table, t(NAs), along=2)
+						dimnames(table)[[2]][dim(table)[2]] <- "NA"
+					}
+					nms <- dimnames(table)[[3]]
+					for (name in nms){
+						cat("\nVariable:", name, "\n")
+						print(table[,,name])
+					}
 				}
 			}
-		}
 	)
 	invisible(x)
 }

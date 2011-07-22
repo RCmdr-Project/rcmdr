@@ -941,3 +941,5 @@ Version 1.7-0
 
    o Added "dialog-memory" mchanism.
    
+   o Added cv, skewness, and kurtosis to numerical summaries dialog (suggestion of Manuel Munoz Marquez).
+   
