@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 1.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2011-07-22 11:00\n"
+"POT-Creation-Date: 2011-07-25 16:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3754,3 +3754,11 @@ msgstr ""
 msgid "Type 3"
 msgstr ""
 
+msgid "Missing Data"
+msgstr ""
+
+msgid "Use complete cases"
+msgstr ""
+
+msgid "Use pairwise-complete cases"
+msgstr ""

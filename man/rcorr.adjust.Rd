@@ -16,7 +16,8 @@ Observations are filtered for missing data, and only complete observations are u
 }
 
 \usage{
-rcorr.adjust(x, type = c("pearson", "spearman"))
+rcorr.adjust(x, type = c("pearson", "spearman"), 
+	use=c("complete.obs", "pairwise.complete.obs"))
 
 \method{print}{rcorr.adjust}(x, ...)
 }
@@ -25,6 +26,8 @@ rcorr.adjust(x, type = c("pearson", "spearman"))
   \item{x}{a numeric matrix or data frame, or an object of class \code{"rcorr.adjust"} to be printed.}
   \item{type}{\code{"pearson"} or \code{"spearman"}, depending upon the type of
   	correlations desired; the default is \code{"pearson"}.}
+  \item{use}{how to handle missing data: \code{"complete.obs"}, the default, use only complete cases;
+  	\code{"pairwise.complete.obs"}, use all cases with valid data for each pair.}
   \item{...}{not used.}
 }
 

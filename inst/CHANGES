@@ -943,3 +943,5 @@ Version 1.7-0
    
    o Added cv, skewness, and kurtosis to numerical summaries dialog (suggestion of Manuel Munoz Marquez).
    
+   o Correlation-matrix dialog now supports pairwise-complete and well as complete cases (suggestion of Bob Muenchen).
+   

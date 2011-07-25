@@ -1,4 +1,4 @@
-# last modified 2011-07-21 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 2011-07-25 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -721,10 +721,12 @@ bin.var <- function (x, bins=4, method=c("intervals", "proportions", "natural"),
 #	return(invisible(R))
 #}
 
-rcorr.adjust <- function(x, type=c("pearson", "spearman")){
+rcorr.adjust <- function(x, type=c("pearson", "spearman"), 
+		use=c("complete.obs", "pairwise.complete.obs")){
 	require("Hmisc")
 	type <- match.arg(type)
-	x <- as.matrix(na.omit(x))
+	use <- match.arg(use)
+	x <- if (use == "complete.obs") as.matrix(na.omit(x)) else as.matrix(x)
 	R <- rcorr(x, type=type)
 	P <- R$P
 	p <- P[lower.tri(P)]
