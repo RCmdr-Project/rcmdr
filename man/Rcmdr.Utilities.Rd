@@ -82,6 +82,7 @@
 \alias{radioButtons}
 \alias{RcmdrTclSet}
 \alias{RcmdrTkmessageBox}
+\alias{RExcelSupported}
 \alias{rglLoaded}
 \alias{sortVarNames}
 \alias{subOKCancelHelp}
@@ -200,6 +201,7 @@ radioButtons(window=top, name, buttons, values=NULL,
 RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
+RExcelSupported()
 rglLoaded()
 sortVarNames(x)
 subOKCancelHelp(window=subdialog, helpSubject=NULL)  # macro
@@ -406,6 +408,8 @@ commanderPosition()
   "natural" order than does the standard \code{sort} function. The function \code{Library} may be used to
   load packages; it checks whether a package is already loaded, and if not by default puts it in position
   4 on the search path.
+  
+  The function \code{RExcelSupported} is used for the RExcel interface.
   
   Some of these functions, marked \code{# macro} under \emph{Usage}, are "macro-like" in their behaviour, in that they 
   execute in the environment from which they are called. These were defined with an adaptation (used with permission) of
