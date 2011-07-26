@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 25 March 2011 by J. Fox
+# last modified 25 July 2011 by J. Fox
 
 indexPlot <- function(){
     initializeDialog(title=gettextRcmdr("Index Plot"))
@@ -73,7 +73,7 @@ Histogram <- function(){
         labels=gettextRcmdr(c("Frequency counts", "Percentages", "Densities")), title=gettextRcmdr("Axis Scaling"))
     binsFrame <- tkframe(top)
     binsVariable <- tclVar(gettextRcmdr("<auto>"))
-    binsField <- ttkentry(binsFrame, width="6", textvariable=binsVariable)
+    binsField <- ttkentry(binsFrame, width="8", textvariable=binsVariable)
     tkgrid(getFrame(xBox), sticky="nw")
     tkgrid(labelRcmdr(binsFrame, text=gettextRcmdr("Number of bins: ")), binsField, sticky="w")
     tkgrid(binsFrame, sticky="w")
