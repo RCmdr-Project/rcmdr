@@ -947,3 +947,7 @@ Version 1.7-0
    
    o Small changes.
    
+Version 1.7-1
+
+   o Menus for plug-ins now subject to translation (as suggested by Milan Bouchet-Valat).
+   
