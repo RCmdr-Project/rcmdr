@@ -951,3 +951,5 @@ Version 1.7-1
 
    o Menus for plug-ins now subject to translation (as suggested by Milan Bouchet-Valat).
    
+   o Improved window behaviour with patches supplied by Milan Bouchet-Valat.
+   

@@ -1,7 +1,8 @@
 
 # The R Commander and command logger
 
-# last modified 2011-09-10 by J. Fox
+# last modified 2011-09-22 by J. Fox
+#  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 #   modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -445,7 +446,7 @@ Commander <- function(){
 		tkpopup(contextMenu, tkwinfo("pointerx", .messages), tkwinfo("pointery", .messages))
 	}
 	if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
-	putRcmdr("commanderWindow", tktoplevel())
+        putRcmdr("commanderWindow", tktoplevel(class="Rcommander"))
 	.commander <- CommanderWindow()
 #    tkwm.withdraw(.commander)
 	tkwm.geometry(.commander, placement)

@@ -1,4 +1,6 @@
-# last modified 2011-07-25 by J. Fox + slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 2011-09-22 by J. Fox
+#  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
+#  slight changes 12 Aug 04 by Ph. Grosjean
 
 # utility functions
 
@@ -992,6 +994,7 @@ initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp=FALSE
 		window <- tktoplevel(borderwidth=10)
 #        tkwm.withdraw(window)
 		tkwm.title(window, title)
+		tkwm.transient(top, CommanderWindow())
 		position <- if (is.SciViews()) -1 else commanderPosition() # +PhG
 		position <- if (any(position < 0)) "-50+50"
 			else paste("+", paste(offset + position, collapse="+"), sep="")

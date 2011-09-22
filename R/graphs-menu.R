@@ -1,6 +1,7 @@
 # Graphs menu dialogs
 
-# last modified 25 July 2011 by J. Fox
+# last modified 2011-09-22 by J. Fox
+#  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function(){
     initializeDialog(title=gettextRcmdr("Index Plot"))
@@ -910,7 +911,10 @@ saveBitmap <- function(){
             filetypes <- gettextRcmdr('{"All Files" {"*"}} {"JPEG Files" {".jpg" ".JPG" ".jpeg" ".JPEG"}}')
             initial <- "RGraph.jpg"
             }
-        filename <- tclvalue(tkgetSaveFile(filetypes=filetypes, defaultextension=ext, initialfile=initial))
+        filename <- tclvalue(tkgetSaveFile(filetypes=filetypes,
+                                           defaultextension=ext,
+                                           initialfile=initial,
+                                           parent=CommanderWindow()))
         if (filename == "") return()
         command <- paste('dev.print(', type, ', filename="', filename, '", width=', width, ', height=', height, ')', sep="")
         doItAndPrint(command)
@@ -964,7 +968,10 @@ savePDF <- function(){
             filetypes <- gettextRcmdr('{"All Files" {"*"}} {"Encapsulated Postscript Files" {".eps" ".EPS"}}')
             initial <- "RGraph.eps"
             }
-        filename <- tclvalue(tkgetSaveFile(filetypes=filetypes, defaultextension=ext, initialfile=initial))
+        filename <- tclvalue(tkgetSaveFile(filetypes=filetypes,
+                                           defaultextension=ext,
+                                           initialfile=initial,
+                                           parent=CommanderWindow()))
         if (filename == "") return()
         command <- if (type == "eps") paste('dev.copy2eps(file="', filename, '", width=', width, ', height=', height,
                 ', pointsize=', pointsize, ')', sep="")
@@ -992,7 +999,10 @@ saveRglGraph <- function(){
     ext <- "png"
     filetypes <- gettextRcmdr('{"All Files" {"*"}} {"PNG Files" {".png" ".PNG"}}')
     initial <- "RGLGraph.png"
-    filename <- tclvalue(tkgetSaveFile(filetypes=filetypes, defaultextension=ext, initialfile=initial))
+    filename <- tclvalue(tkgetSaveFile(filetypes=filetypes,
+                                       defaultextension=ext,
+                                       initialfile=initial,
+                                       parent=CommanderWindow()))
     if (filename == "") return()
     command <- paste('rgl.snapshot("', filename, '")', sep="")
     doItAndPrint(command)

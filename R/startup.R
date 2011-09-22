@@ -1,4 +1,5 @@
-# last modified 22 July 2011 by J. Fox
+# last modified 2011-09-22 by J. Fox
+#  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 .onAttach <- function(...){
     if(interactive()) Commander()
@@ -58,7 +59,7 @@
             directoryVariable <- tclVar("")
             directoryFrame <- tkframe(locationFrame)
             onBrowse <- function(){
-                tclvalue(directoryVariable) <- tclvalue(tkchooseDirectory())
+                tclvalue(directoryVariable) <- tclvalue(tkchooseDirectory(parent=top))
                 }
             browseButton <- buttonRcmdr(directoryFrame, text=gettext("Browse...", domain="R-Rcmdr"), width="12", command=onBrowse, borderwidth=3)
             locationField <- ttkentry(directoryFrame, width="20", textvariable=directoryVariable)

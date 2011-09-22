@@ -1,10 +1,12 @@
-# last modified 25 March 2011 by J. Fox
+# last modified 2011-09-22 by J. Fox
+#  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
 
 loadLog <- function(){
     logFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Script Files" {".R"}}'),
-        defaultextension="log"))
+        defaultextension="log",
+        parent=CommanderWindow()))
     if (logFile == "") return()
     fileCon <- file(logFile, "r")
     contents <- readLines(fileCon)
@@ -36,7 +38,9 @@ saveLog <- function() {
 
 saveLogAs <- function() {
     logFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Script Files" {".R"}}'),
-        defaultextension="R", initialfile="RCommander.R"))
+                                      defaultextension="R",
+                                      initialfile="RCommander.R",
+                                      parent=CommanderWindow()))
     if (logFile == "") return()
     log <- tclvalue(tkget(LogWindow(), "1.0", "end"))
     fileCon <- file(logFile, "w")
@@ -61,7 +65,9 @@ saveOutput <- function() {
 
 saveOutputAs <- function() {
     outputFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Output Files" {".txt"}}'),
-        defaultextension="txt", initialfile="RCommander.txt"))
+                                         defaultextension="txt",
+                                         initialfile="RCommander.txt",
+                                         parent=CommanderWindow()))
     if (outputFile == "") return()
     output <- tclvalue(tkget(OutputWindow(), "1.0", "end"))
     fileCon <- file(outputFile, "w")
@@ -73,7 +79,9 @@ saveOutputAs <- function() {
 
 saveWorkspaceAs <- function(){
     saveFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"R Data Files" {".RData" ".rda" ".Rda" ".RDA"}}'),
-        defaultextension="", initialfile=".RData"))
+                                       defaultextension="",
+                                       initialfile=".RData",
+                                       parent=CommanderWindow()))
     if (saveFile == "") return()
     save(list=ls(envir=.GlobalEnv), file=saveFile)
     putRcmdr("saveFileName", saveFile)
@@ -304,7 +312,7 @@ loadPackages <- function(){
     }
 	
 Setwd <- function(){
-	wd <- tclvalue(tkchooseDirectory(initialdir=getwd()))
+	wd <- tclvalue(tkchooseDirectory(initialdir=getwd(), parent=CommanderWindow()))
 	if (wd != "") doItAndPrint(paste('setwd("', wd, '")', sep=""))
 	}
 

@@ -1,4 +1,5 @@
-# last modified 25 March 2011 by J. Fox
+# last modified 2011-09-22 by J. Fox
+#  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
 
@@ -816,7 +817,7 @@ importRODBCtable <- function(){
 		}
 		File <- tclvalue(tkgetOpenFile(filetypes = gettextRcmdr(
 					'{"All Files" {"*"}} {"MS Access database" {".mdb" ".MDB"}} {"MS Access 2007 database" {".accdb" ".ACCDB"}} {"dBase-like file" {".dbf" ".DBF"}} {"MS Excel 2007 file" {".xlsx" ".XLSX"}} {"MS Excel file" {".xls" ".XLS"}}'
-				)))
+				), parent=CommanderWindow()))
 		if(File == ""){
 			tkfocus(CommanderWindow())
 			return()
@@ -1269,7 +1270,9 @@ exportDataSet <- function() {
 			else if (delim == "commas") ","
 			else trim.blanks(tclvalue(otherVariable))
 		saveFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Text Files" {".txt" ".TXT" ".dat" ".DAT" ".csv" ".CSV"}}'),
-				defaultextension="txt", initialfile=paste(dsname, ".txt", sep="")))
+				defaultextension="txt",
+                                initialfile=paste(dsname, ".txt", sep=""),
+                                parent=CommanderWindow()))
 		if (saveFile == "") {
 			tkfocus(CommanderWindow())
 			return()
