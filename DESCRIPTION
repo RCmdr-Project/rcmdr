@@ -1,8 +1,8 @@
 Package: Rcmdr
 Version: 1.7-1
-Date: 2011/09/22
+Date: 2011/09/25
 Title: R Commander
-Author: John Fox <jfox@mcmaster.ca>, with contributions from Liviu Andronic, Michael Ash, Theophilius Boye, Stefano Calza, Andy Chang, Philippe Grosjean, Richard Heiberger, G. Jay Kerns, Renaud Lancelot, Matthieu Lesnoff, Uwe Ligges, Samir Messad, Martin Maechler, Robert Muenchen, Duncan Murdoch, Erich Neuwirth, Dan Putler, Brian Ripley, Miroslav Ristic, and Peter Wolf.
+Author: John Fox <jfox@mcmaster.ca>, with contributions from Liviu Andronic, Michael Ash, Milan Bouchet-Valat, Theophilius Boye, Stefano Calza, Andy Chang, Philippe Grosjean, Richard Heiberger, G. Jay Kerns, Renaud Lancelot, Matthieu Lesnoff, Uwe Ligges, Samir Messad, Martin Maechler, Robert Muenchen, Duncan Murdoch, Erich Neuwirth, Dan Putler, Brian Ripley, Miroslav Ristic, and Peter Wolf.
 Maintainer: John Fox <jfox@mcmaster.ca>
 Depends: R (>= 2.13.0), tcltk, grDevices, utils, car (>= 2.0-0)
 Suggests: abind, aplpack, colorspace, effects (>= 1.0-7), e1071, foreign, grid, Hmisc, lattice, leaps, lmtest, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, relimp, rgl, RODBC
