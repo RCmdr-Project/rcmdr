@@ -1,4 +1,4 @@
-# last modified 2011-09-22 by J. Fox
+# last modified 2011-09-28 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
@@ -11,12 +11,12 @@ newDataSet <- function() {
 		dsnameValue <- trim.blanks(tclvalue(dsname))
 		if (dsnameValue == "") {
 			errorCondition(recall=newDataSet,
-				message=gettextRcmdr("You must enter the name of a data set."))
+					message=gettextRcmdr("You must enter the name of a data set."))
 			return()
 		}
 		if (!is.valid.name(dsnameValue)) {
 			errorCondition(recall=newDataSet,
-				message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
+					message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
 			return()
 		}
 		if (is.element(dsnameValue, listDataSets())) {
@@ -25,6 +25,7 @@ newDataSet <- function() {
 				return()
 			}
 		}
+		closeDialog()
 		command <- "edit(as.data.frame(NULL))"
 		result <- justDoIt(command)
 		result <- as.data.frame(lapply(result, function(x) if (is.character(x)) factor(x) else x))
@@ -38,7 +39,6 @@ newDataSet <- function() {
 			}
 			activeDataSet(dsnameValue)
 		}
-		closeDialog()
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject="edit.data.frame")
