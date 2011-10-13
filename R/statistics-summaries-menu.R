@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 27 June 2011 by J. Fox
+# last modified 2011-10-13 by J. Fox
 
     # Summaries menu
     
@@ -264,113 +264,248 @@ frequencyDistribution <- function(){
     dialogSuffix(rows=3, columns=2)
     }
 
-statisticsTable <- function(){
-	initializeDialog(title=gettextRcmdr("Table of Statistics"))
+#statisticsTable <- function(){
+#	initializeDialog(title=gettextRcmdr("Table of Statistics"))
+#	variablesFrame <- tkframe(top)
+#	groupBox <- variableListBox(variablesFrame, Factors(), selectmode="multiple", 
+#		title=gettextRcmdr("Factors (pick one or more)"))
+#	responseBox <- variableListBox(variablesFrame, Numeric(), selectmode="multiple", 
+#		title=gettextRcmdr("Response variables (pick one or more)"))
+#	radioButtons(name="statistic", buttons=c("mean", "median", "sd"), labels=gettextRcmdr(c("Mean", "Median", "Standard deviation")), title=gettextRcmdr("Statistic"))
+#	otherVariable <- tclVar("")
+#	otherButton <- ttkradiobutton(statisticFrame, variable=statisticVariable, value="other")
+#	otherEntry <- ttkentry(statisticFrame, width="20", textvariable=otherVariable)   
+#	tkgrid(labelRcmdr(statisticFrame, text=gettextRcmdr("Other (specify)")), otherButton, otherEntry, sticky="w")
+#	onOK <- function(){
+#		groups <- getSelection(groupBox)
+#		if (0 == length(groups)) {
+#			errorCondition(recall=statisticsTable, message=gettextRcmdr("No factors selected."))
+#			return()
+#		}
+#		responses <- getSelection(responseBox)
+#		if (0 == length(responses)) {
+#			errorCondition(recall=statisticsTable, message=gettextRcmdr("You must select a response variable."))
+#			return()
+#		}
+#		statistic <- tclvalue(statisticVariable)
+#		if (statistic == "other") statistic <- tclvalue(otherVariable)
+#		closeDialog()
+#		.activeDataSet <- ActiveDataSet()
+#		groups.list <- paste(paste(groups, "=", .activeDataSet, "$", groups, sep=""), collapse=", ")
+#		for (response in responses){
+#			if (length(responses) > 1) 
+#				doItAndPrint(paste("# Table for ", response, ":", sep=""))                
+#			doItAndPrint(paste("tapply(", .activeDataSet, "$", response, 
+#					", list(", groups.list, "), ", statistic, ", na.rm=TRUE)", sep=""))
+#		}
+#		tkfocus(CommanderWindow())
+#	}
+#	OKCancelHelp(helpSubject="tapply")
+#	tkgrid(getFrame(groupBox), labelRcmdr(variablesFrame, text="    "),getFrame(responseBox), sticky="nw")
+#	tkgrid(variablesFrame, sticky="w")
+#	tkgrid(statisticFrame, sticky="w")
+#	tkgrid(buttonsFrame, sticky="w")
+#	dialogSuffix(rows=3, columns=1, focus=otherEntry)
+#}
+
+statisticsTable <- function () {
+	defaults <- list (initial.group=NULL, initial.response=NULL, initial.statistic="mean", initial.other = "")
+	dialog.values <- getDialog ("statisticsTable", defaults)
+	initializeDialog(title = gettextRcmdr("Table of Statistics"))
 	variablesFrame <- tkframe(top)
-	groupBox <- variableListBox(variablesFrame, Factors(), selectmode="multiple", 
-		title=gettextRcmdr("Factors (pick one or more)"))
-	responseBox <- variableListBox(variablesFrame, Numeric(), selectmode="multiple", 
-		title=gettextRcmdr("Response variables (pick one or more)"))
-	radioButtons(name="statistic", buttons=c("mean", "median", "sd"), labels=gettextRcmdr(c("Mean", "Median", "Standard deviation")), title=gettextRcmdr("Statistic"))
-	otherVariable <- tclVar("")
-	otherButton <- ttkradiobutton(statisticFrame, variable=statisticVariable, value="other")
-	otherEntry <- ttkentry(statisticFrame, width="20", textvariable=otherVariable)   
-	tkgrid(labelRcmdr(statisticFrame, text=gettextRcmdr("Other (specify)")), otherButton, otherEntry, sticky="w")
-	onOK <- function(){
+	groupBox <- variableListBox(variablesFrame, Factors(), selectmode = "multiple", 
+			title = gettextRcmdr("Factors (pick one or more)"), 
+			initialSelection = varPosn(dialog.values$initial.group,"factor"))
+	responseBox <- variableListBox(variablesFrame, Numeric(), selectmode = "multiple", 
+			initialSelection = varPosn(dialog.values$initial.response, "numeric"),
+			title = gettextRcmdr("Response variables (pick one or more)"))
+	radioButtons(name = "statistic", buttons = c("mean", "median", 
+					"sd"), labels = gettextRcmdr(c("Mean", "Median", "Standard deviation")), 
+			initialValue = dialog.values$initial.statistic, 
+			title = gettextRcmdr("Statistic"))
+	otherVariable <- tclVar(dialog.values$initial.other)
+	if (!(dialog.values$initial.statistic %in% c("mean", "median", "sd"))) statisticVariable <- tclVar("other")
+	otherButton <- ttkradiobutton(statisticFrame, variable = statisticVariable, 
+			value = "other")
+	otherEntry <- ttkentry(statisticFrame, width = "20", textvariable = otherVariable)
+	tkgrid(labelRcmdr(statisticFrame, text = gettextRcmdr("Other (specify)")), 
+			otherButton, otherEntry, sticky = "w")
+	onOK <- function() {
 		groups <- getSelection(groupBox)
 		if (0 == length(groups)) {
-			errorCondition(recall=statisticsTable, message=gettextRcmdr("No factors selected."))
+			errorCondition(recall = statisticsTable, message = gettextRcmdr("No factors selected."))
 			return()
 		}
 		responses <- getSelection(responseBox)
 		if (0 == length(responses)) {
-			errorCondition(recall=statisticsTable, message=gettextRcmdr("You must select a response variable."))
+			errorCondition(recall = statisticsTable, message = gettextRcmdr("You must select a response variable."))
 			return()
 		}
-		statistic <- tclvalue(statisticVariable)
-		if (statistic == "other") statistic <- tclvalue(otherVariable)
+		stat <- statistic <- tclvalue(statisticVariable)
+		if (statistic == "other") 
+			statistic <- tclvalue(otherVariable)
+		putDialog ("statisticsTable", list(initial.group=groups, initial.response=responses, 
+						initial.statistic=statistic, initial.other = if(stat == "other") statistic else ""))  
 		closeDialog()
 		.activeDataSet <- ActiveDataSet()
-		groups.list <- paste(paste(groups, "=", .activeDataSet, "$", groups, sep=""), collapse=", ")
-		for (response in responses){
+		groups.list <- paste(paste(groups, "=", .activeDataSet, 
+						"$", groups, sep = ""), collapse = ", ")
+		for (response in responses) {
 			if (length(responses) > 1) 
-				doItAndPrint(paste("# Table for ", response, ":", sep=""))                
-			doItAndPrint(paste("tapply(", .activeDataSet, "$", response, 
-					", list(", groups.list, "), ", statistic, ", na.rm=TRUE)", sep=""))
+				doItAndPrint(paste("# Table for ", response, 
+								":", sep = ""))
+			doItAndPrint(paste("tapply(", .activeDataSet, "$", 
+							response, ", list(", groups.list, "), ", statistic, 
+							", na.rm=TRUE)", sep = ""))
 		}
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject="tapply")
-	tkgrid(getFrame(groupBox), labelRcmdr(variablesFrame, text="    "),getFrame(responseBox), sticky="nw")
-	tkgrid(variablesFrame, sticky="w")
-	tkgrid(statisticFrame, sticky="w")
-	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=3, columns=1, focus=otherEntry)
+	OKCancelHelp(helpSubject = "tapply", reset="statisticsTable")
+	tkgrid(getFrame(groupBox), labelRcmdr(variablesFrame, text = "    "), 
+			getFrame(responseBox), sticky = "nw")
+	tkgrid(variablesFrame, sticky = "w")
+	tkgrid(statisticFrame, sticky = "w")
+	tkgrid(buttonsFrame, sticky = "w")
+	dialogSuffix(rows = 3, columns = 1, focus = otherEntry)
 }
     
-correlationMatrix <- function(){
-	initializeDialog(title=gettextRcmdr("Correlation Matrix"))
-	xBox <- variableListBox(top, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick two or more)"))
-	radioButtons(name="correlations", buttons=c("pearson", "spearman", "partial"), values=c("Pearson", "Spearman", "partial"),
-			labels=gettextRcmdr(c("Pearson product-moment", "Spearman rank-order", "Partial")), title=gettextRcmdr("Type of Correlations"))
-	radioButtons(name="missing", buttons=c("complete", "pairwise"),
-			labels=gettextRcmdr(c("Use complete cases", "Use pairwise-complete cases")), title=gettextRcmdr("Missing Data"))
+#correlationMatrix <- function(){
+#	initializeDialog(title=gettextRcmdr("Correlation Matrix"))
+#	xBox <- variableListBox(top, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick two or more)"))
+#	radioButtons(name="correlations", buttons=c("pearson", "spearman", "partial"), values=c("Pearson", "Spearman", "partial"),
+#			labels=gettextRcmdr(c("Pearson product-moment", "Spearman rank-order", "Partial")), title=gettextRcmdr("Type of Correlations"))
+#	radioButtons(name="missing", buttons=c("complete", "pairwise"),
+#			labels=gettextRcmdr(c("Use complete cases", "Use pairwise-complete cases")), title=gettextRcmdr("Missing Data"))
+#	pvaluesFrame <- tkframe(top)
+#	pvaluesVar <- tclVar("0")
+#	pvaluesCheckbox <- tkcheckbutton(pvaluesFrame, variable=pvaluesVar)
+#	onOK <- function(){
+#		correlations <- tclvalue(correlationsVariable)
+#		missing <- tclvalue(missingVariable)
+#		x <- getSelection(xBox)
+#		if (2 > length(x)) {
+#			errorCondition(recall=correlationMatrix, message=gettextRcmdr("Fewer than 2 variables selected."))
+#			return()
+#		}
+#		if ((correlations == "partial") && (3 > length(x))) {
+#			errorCondition(recall=correlationMatrix, message=gettextRcmdr("Fewer than 3 variables selected\nfor partial correlations."))
+#			return()
+#		}
+#		closeDialog()
+#		x <- paste('"', x, '"', sep="")
+#		.activeDataSet <- ActiveDataSet()
+#		pvalues <- tclvalue(pvaluesVar)
+#		if (correlations == "Pearson"){
+#			if (pvalues == 0){
+#				doItAndPrint(paste("cor(", .activeDataSet, "[,c(", paste(x, collapse=","),
+#								')], use="', missing, '")', sep=""))
+#			}
+#			else{
+#				Library("Hmisc")
+#				doItAndPrint(paste("rcorr.adjust(", .activeDataSet, "[,c(", paste(x, collapse=","),
+#								')], type="pearson", use="', missing, '")', sep=""))
+#			}
+#		}
+#		else if (correlations == "Spearman"){
+#			logger("# Spearman rank-order correlations")
+#			if (pvalues == 0){
+#				doItAndPrint(paste("cor(", .activeDataSet, "[,c(", paste(x, collapse=","),
+#								')], use="', missing,'", method="spearman")', sep=""))
+#			}
+#			else{
+#				Library("Hmisc")
+#				doItAndPrint(paste("rcorr.adjust(", .activeDataSet, "[,c(", paste(x, collapse=","),
+#								')], type="spearman", use="', missing, '")', sep=""))				
+#			}
+#		}
+#		else doItAndPrint(paste("partial.cor(", .activeDataSet, "[,c(", paste(x, collapse=","),
+#							')], use="', missing, '")', sep=""))    
+#		tkfocus(CommanderWindow())
+#	}
+#	OKCancelHelp(helpSubject="rcorr.adjust")
+#	tkgrid(getFrame(xBox), sticky="nw")
+#	tkgrid(correlationsFrame, sticky="w")
+#	tkgrid(missingFrame, sticky="w")
+#	tkgrid(labelRcmdr(pvaluesFrame, 
+#					text=gettextRcmdr("Pairwise p-values\nfor Pearson or Spearman correlations")), 
+#			pvaluesCheckbox, sticky="w")
+#	tkgrid(pvaluesFrame, sticky="w")
+#	tkgrid(buttonsFrame, sticky="w")
+#	dialogSuffix(rows=5, columns=1)
+#}
+
+correlationMatrix <- function (){
+	defaults <- list (initial.x = NULL, initial.correlations = "Pearson", initial.pvaluesVar="0")  
+	dialog.values <- getDialog ("correlationMatrix", defaults)
+	initializeDialog(title = gettextRcmdr("Correlation Matrix"))
+	xBox <- variableListBox(top, Numeric(), selectmode = "multiple", 
+			title = gettextRcmdr("Variables (pick two or more)"),
+			initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+	radioButtons(name = "correlations", buttons = c("pearson", 
+					"spearman", "partial"), values = c("Pearson", "Spearman", 
+					"partial"), labels = gettextRcmdr(c("Pearson product-moment", 
+							"Spearman rank-order", "Partial")), title = gettextRcmdr("Type of Correlations"),
+			initialValue = dialog.values$initial.correlations)
 	pvaluesFrame <- tkframe(top)
-	pvaluesVar <- tclVar("0")
-	pvaluesCheckbox <- tkcheckbutton(pvaluesFrame, variable=pvaluesVar)
-	onOK <- function(){
+	pvaluesVar <- tclVar(dialog.values$initial.pvaluesVar)
+	pvaluesCheckbox <- tkcheckbutton(pvaluesFrame, variable = pvaluesVar)
+	onOK <- function() {
 		correlations <- tclvalue(correlationsVariable)
-		missing <- tclvalue(missingVariable)
 		x <- getSelection(xBox)
+		pvalues <- tclvalue(pvaluesVar)
 		if (2 > length(x)) {
-			errorCondition(recall=correlationMatrix, message=gettextRcmdr("Fewer than 2 variables selected."))
+			errorCondition(recall = correlationMatrix, message = gettextRcmdr("Fewer than 2 variables selected."))
 			return()
 		}
 		if ((correlations == "partial") && (3 > length(x))) {
-			errorCondition(recall=correlationMatrix, message=gettextRcmdr("Fewer than 3 variables selected\nfor partial correlations."))
+			errorCondition(recall = correlationMatrix, message = gettextRcmdr("Fewer than 3 variables selected\nfor partial correlations."))
 			return()
 		}
 		closeDialog()
-		x <- paste('"', x, '"', sep="")
+		putDialog ("correlationMatrix", list (initial.x=x, initial.correlations=correlations, 
+						initial.pvaluesVar=pvalues))
+		x <- paste("\"", x, "\"", sep = "")
 		.activeDataSet <- ActiveDataSet()
-		pvalues <- tclvalue(pvaluesVar)
-		if (correlations == "Pearson"){
-			if (pvalues == 0){
-				doItAndPrint(paste("cor(", .activeDataSet, "[,c(", paste(x, collapse=","),
-								')], use="', missing, '")', sep=""))
+		if (correlations == "Pearson") {
+			if (pvalues == 0) {
+				doItAndPrint(paste("cor(", .activeDataSet, "[,c(", 
+								paste(x, collapse = ","), ")], use=\"complete.obs\")", 
+								sep = ""))
 			}
-			else{
+			else {
 				Library("Hmisc")
-				doItAndPrint(paste("rcorr.adjust(", .activeDataSet, "[,c(", paste(x, collapse=","),
-								')], type="pearson", use="', missing, '")', sep=""))
+				doItAndPrint(paste("rcorr.adjust(", .activeDataSet, 
+								"[,c(", paste(x, collapse = ","), ")], type=\"pearson\")", 
+								sep = ""))
 			}
 		}
-		else if (correlations == "Spearman"){
+		else if (correlations == "Spearman") {
 			logger("# Spearman rank-order correlations")
-			if (pvalues == 0){
-				doItAndPrint(paste("cor(", .activeDataSet, "[,c(", paste(x, collapse=","),
-								')], use="', missing,'", method="spearman")', sep=""))
+			if (pvalues == 0) {
+				doItAndPrint(paste("cor(", .activeDataSet, "[,c(", 
+								paste(x, collapse = ","), ")], use=\"complete.obs\", method=\"spearman\")", 
+								sep = ""))
 			}
-			else{
+			else {
 				Library("Hmisc")
-				doItAndPrint(paste("rcorr.adjust(", .activeDataSet, "[,c(", paste(x, collapse=","),
-								')], type="spearman", use="', missing, '")', sep=""))				
+				doItAndPrint(paste("rcorr.adjust(", .activeDataSet, 
+								"[,c(", paste(x, collapse = ","), ")], type=\"spearman\")", 
+								sep = ""))
 			}
 		}
-		else doItAndPrint(paste("partial.cor(", .activeDataSet, "[,c(", paste(x, collapse=","),
-							')], use="', missing, '")', sep=""))    
+		else doItAndPrint(paste("partial.cor(", .activeDataSet, 
+							"[,c(", paste(x, collapse = ","), ")], use=\"complete.obs\")", 
+							sep = ""))
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject="rcorr.adjust")
-	tkgrid(getFrame(xBox), sticky="nw")
-	tkgrid(correlationsFrame, sticky="w")
-	tkgrid(missingFrame, sticky="w")
-	tkgrid(labelRcmdr(pvaluesFrame, 
-					text=gettextRcmdr("Pairwise p-values\nfor Pearson or Spearman correlations")), 
-			pvaluesCheckbox, sticky="w")
-	tkgrid(pvaluesFrame, sticky="w")
-	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=5, columns=1)
+	OKCancelHelp(helpSubject = "rcorr.adjust", reset="correlationMatrix")
+	tkgrid(getFrame(xBox), sticky = "nw")
+	tkgrid(correlationsFrame, sticky = "w")
+	tkgrid(labelRcmdr(pvaluesFrame, text = gettextRcmdr("Pairwise p-values\nfor Pearson or Spearman correlations")), 
+			pvaluesCheckbox, sticky = "w")
+	tkgrid(pvaluesFrame, sticky = "w")
+	tkgrid(buttonsFrame, sticky = "w")
+	dialogSuffix(rows = 4, columns = 1)
 }
 	
 # the following dialog contributed by Stefano Calza, modified by J. Fox
@@ -419,21 +554,45 @@ countMissing <- function(){
   invisible(NULL)
   }
   
-ShapiroTest <- function(){
-    initializeDialog(title=gettextRcmdr("Shapiro-Wilk Test for Normality"))
-    variableBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variable (pick one)"))
-    onOK <- function(){
-        var <- getSelection(variableBox)
-        if (length(var) == 0) {
-            errorCondition(recall=ShapiroTest, message=gettextRcmdr("You must select a variable."))
-            return()
-            }
-        closeDialog()
-        doItAndPrint(paste("shapiro.test(",ActiveDataSet(), "$", var, ")", sep=""))
-        tkfocus(CommanderWindow())
-        }
-    OKCancelHelp(helpSubject="shapiro.test")
-    tkgrid(getFrame(variableBox), sticky="nw")
-    tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=2, columns=1)
-    }
+#ShapiroTest <- function(){
+#    initializeDialog(title=gettextRcmdr("Shapiro-Wilk Test for Normality"))
+#    variableBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variable (pick one)"))
+#    onOK <- function(){
+#        var <- getSelection(variableBox)
+#        if (length(var) == 0) {
+#            errorCondition(recall=ShapiroTest, message=gettextRcmdr("You must select a variable."))
+#            return()
+#            }
+#        closeDialog()
+#        doItAndPrint(paste("shapiro.test(",ActiveDataSet(), "$", var, ")", sep=""))
+#        tkfocus(CommanderWindow())
+#        }
+#    OKCancelHelp(helpSubject="shapiro.test")
+#    tkgrid(getFrame(variableBox), sticky="nw")
+#    tkgrid(buttonsFrame, sticky="w")
+#    dialogSuffix(rows=2, columns=1)
+#    }
+
+ShapiroTest <- function () {
+	defaults <- list (initial.var = NULL)
+	dialog.values <- getDialog ("ShapiroTest", defaults)
+	initializeDialog(title = gettextRcmdr("Shapiro-Wilk Test for Normality"))
+	variableBox <- variableListBox(top, Numeric(), title = gettextRcmdr("Variable (pick one)"),
+			initialSelection = varPosn (dialog.values$initial.var, "numeric"))
+	onOK <- function() {
+		var <- getSelection(variableBox)
+		putDialog ("ShapiroTest", list (initial.var = var))
+		if (length(var) == 0) {
+			errorCondition(recall = ShapiroTest, message = gettextRcmdr("You must select a variable."))
+			return()
+		}
+		closeDialog()
+		doItAndPrint(paste("shapiro.test(", ActiveDataSet(), 
+						"$", var, ")", sep = ""))
+		tkfocus(CommanderWindow())
+	}
+	OKCancelHelp(helpSubject = "shapiro.test", reset = "ShapiroTest")
+	tkgrid(getFrame(variableBox), sticky = "nw")
+	tkgrid(buttonsFrame, sticky = "w")
+	dialogSuffix(rows = 2, columns = 1)
+}

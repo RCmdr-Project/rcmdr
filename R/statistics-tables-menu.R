@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 27 June 2011 by J. Fox
+# last modified 2011-10-13 by J. Fox
 
     # Tables menu
 
@@ -176,55 +176,122 @@ twoWayTable <- function(){ # dialog memory 2011-06-27 J. Fox
 	dialogSuffix(rows=6, columns=1)
 }
 
-multiWayTable <- function(){
-    Library("abind")
-    initializeDialog(title=gettextRcmdr("Multi-Way Table"))
-    variablesFrame <- tkframe(top)
-    .factors <- Factors()
-    rowBox <- variableListBox(variablesFrame, .factors, title=gettextRcmdr("Row variable (pick one)"))
-    columnBox <- variableListBox(variablesFrame, .factors, title=gettextRcmdr("Column variable (pick one)"))
-    controlBox <- variableListBox(variablesFrame, .factors, selectmode="multiple",
-        title=gettextRcmdr("Control variable(s) (pick one or more)"))
-    subsetBox()
-    onOK <- function(){
-        row <- getSelection(rowBox)
-        column <- getSelection(columnBox)
-        controls <- getSelection(controlBox)
-        if (length(row) == 0 || length(column) == 0 || length(controls) == 0) {
-            errorCondition(recall=multiWayTable, message=gettextRcmdr("You must select row, column, and control variables"))
-            return()
-            }
-        if ((row == column) || is.element(row, controls) || is.element(column, controls)) {
-            errorCondition(recall=multiWayTable, message=gettextRcmdr("Row, column, and control variables must be different."))
-            return()
-            }
-        percents <- as.character(tclvalue(percentsVariable))
-        subset <- tclvalue(subsetVariable)
-        subset <- if (trim.blanks(subset) == gettextRcmdr("<all valid cases>")) ""
-            else paste(", subset=", subset, sep="")
-        closeDialog()
-        command <- paste("xtabs(~", row, "+", column, "+", paste(controls, collapse="+"),
-            ", data=", ActiveDataSet(), subset, ")", sep="")
-        logger(paste(".Table <- ", command, sep=""))
-        assign(".Table", justDoIt(command), envir=.GlobalEnv)
-        doItAndPrint(".Table")
-        if (percents == "row") doItAndPrint("rowPercents(.Table) # Row Percentages")
-        if (percents == "column") doItAndPrint("colPercents(.Table) # Column Percentages")
-        logger("remove(.Table)")
-        remove(.Table, envir=.GlobalEnv)
-        tkfocus(CommanderWindow())
-        }
-    OKCancelHelp(helpSubject="xtabs")
-    radioButtons(name="percents", buttons=c("rowPercents", "columnPercents", "nonePercents"), values=c("row", "column", "none"),
-        initialValue="none", labels=gettextRcmdr(c("Row percentages", "Column percentages", "No percentages")), title=gettextRcmdr("Compute Percentages"))
-    tkgrid(getFrame(rowBox), labelRcmdr(variablesFrame, text="    "), getFrame(columnBox), labelRcmdr(variablesFrame, text="    "),
-        getFrame(controlBox), sticky="nw")
-    tkgrid(variablesFrame, sticky="w")
-    tkgrid(percentsFrame, sticky="w")
-    tkgrid(subsetFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=4, columns=1)
-    }
+#multiWayTable <- function(){
+#    Library("abind")
+#    initializeDialog(title=gettextRcmdr("Multi-Way Table"))
+#    variablesFrame <- tkframe(top)
+#    .factors <- Factors()
+#    rowBox <- variableListBox(variablesFrame, .factors, title=gettextRcmdr("Row variable (pick one)"))
+#    columnBox <- variableListBox(variablesFrame, .factors, title=gettextRcmdr("Column variable (pick one)"))
+#    controlBox <- variableListBox(variablesFrame, .factors, selectmode="multiple",
+#        title=gettextRcmdr("Control variable(s) (pick one or more)"))
+#    subsetBox()
+#    onOK <- function(){
+#        row <- getSelection(rowBox)
+#        column <- getSelection(columnBox)
+#        controls <- getSelection(controlBox)
+#        if (length(row) == 0 || length(column) == 0 || length(controls) == 0) {
+#            errorCondition(recall=multiWayTable, message=gettextRcmdr("You must select row, column, and control variables"))
+#            return()
+#            }
+#        if ((row == column) || is.element(row, controls) || is.element(column, controls)) {
+#            errorCondition(recall=multiWayTable, message=gettextRcmdr("Row, column, and control variables must be different."))
+#            return()
+#            }
+#        percents <- as.character(tclvalue(percentsVariable))
+#        subset <- tclvalue(subsetVariable)
+#        subset <- if (trim.blanks(subset) == gettextRcmdr("<all valid cases>")) ""
+#            else paste(", subset=", subset, sep="")
+#        closeDialog()
+#        command <- paste("xtabs(~", row, "+", column, "+", paste(controls, collapse="+"),
+#            ", data=", ActiveDataSet(), subset, ")", sep="")
+#        logger(paste(".Table <- ", command, sep=""))
+#        assign(".Table", justDoIt(command), envir=.GlobalEnv)
+#        doItAndPrint(".Table")
+#        if (percents == "row") doItAndPrint("rowPercents(.Table) # Row Percentages")
+#        if (percents == "column") doItAndPrint("colPercents(.Table) # Column Percentages")
+#        logger("remove(.Table)")
+#        remove(.Table, envir=.GlobalEnv)
+#        tkfocus(CommanderWindow())
+#        }
+#    OKCancelHelp(helpSubject="xtabs")
+#    radioButtons(name="percents", buttons=c("rowPercents", "columnPercents", "nonePercents"), values=c("row", "column", "none"),
+#        initialValue="none", labels=gettextRcmdr(c("Row percentages", "Column percentages", "No percentages")), title=gettextRcmdr("Compute Percentages"))
+#    tkgrid(getFrame(rowBox), labelRcmdr(variablesFrame, text="    "), getFrame(columnBox), labelRcmdr(variablesFrame, text="    "),
+#        getFrame(controlBox), sticky="nw")
+#    tkgrid(variablesFrame, sticky="w")
+#    tkgrid(percentsFrame, sticky="w")
+#    tkgrid(subsetFrame, sticky="w")
+#    tkgrid(buttonsFrame, sticky="w")
+#    dialogSuffix(rows=4, columns=1)
+#    }
+
+multiWayTable <- function (){
+	Library("abind")
+	defaults <- list (initial.row = NULL, initial.column = NULL, initial.control = NULL, 
+			initial.percents = "none", initial.subset=gettextRcmdr("<all valid cases>"))
+	dialog.values <- getDialog ("multiWayTable", defaults)
+	initializeDialog(title = gettextRcmdr("Multi-Way Table"))
+	variablesFrame <- tkframe(top)
+	.factors <- Factors()
+	rowBox <- variableListBox(variablesFrame, .factors, title = gettextRcmdr("Row variable (pick one)"),
+			initialSelection = varPosn (dialog.values$initial.row, "factor"))
+	columnBox <- variableListBox(variablesFrame, .factors, title = gettextRcmdr("Column variable (pick one)"),
+			initialSelection = varPosn (dialog.values$initial.column, "factor"))
+	controlBox <- variableListBox(variablesFrame, .factors, selectmode = "multiple", 
+			title = gettextRcmdr("Control variable(s) (pick one or more)"), 
+			initialSelection = varPosn (dialog.values$initial.control, "factor"))
+	subsetBox(subset.expression = dialog.values$initial.subset)
+	onOK <- function() {
+		row <- getSelection(rowBox)
+		column <- getSelection(columnBox)
+		controls <- getSelection(controlBox)
+		if (length(row) == 0 || length(column) == 0 || length(controls) == 
+				0) {
+			errorCondition(recall = multiWayTable, message = gettextRcmdr("You must select row, column, and control variables"))
+			return()
+		}
+		if ((row == column) || is.element(row, controls) || is.element(column, 
+				controls)) {
+			errorCondition(recall = multiWayTable, message = gettextRcmdr("Row, column, and control variables must be different."))
+			return()
+		}
+		percents <- as.character(tclvalue(percentsVariable))
+		initial.subset <- subset <- tclvalue(subsetVariable)
+		subset <- if (trim.blanks(subset) == gettextRcmdr("<all valid cases>")) 
+					""
+				else paste(", subset=", subset, sep = "")
+		putDialog ("multiWayTable", list (initial.row = row, initial.column = column, initial.control = controls, initial.percents = percents, initial.subset=initial.subset))
+		closeDialog()
+		command <- paste("xtabs(~", row, "+", column, "+", paste(controls, 
+						collapse = "+"), ", data=", ActiveDataSet(), subset, 
+				")", sep = "")
+		logger(paste(".Table <- ", command, sep = ""))
+		assign(".Table", justDoIt(command), envir = .GlobalEnv)
+		doItAndPrint(".Table")
+		if (percents == "row") 
+			doItAndPrint("rowPercents(.Table) # Row Percentages")
+		if (percents == "column") 
+			doItAndPrint("colPercents(.Table) # Column Percentages")
+		logger("remove(.Table)")
+		remove(.Table, envir = .GlobalEnv)
+		tkfocus(CommanderWindow())
+	}
+	OKCancelHelp(helpSubject = "xtabs", reset = "multiWayTable")
+	radioButtons(name = "percents", buttons = c("rowPercents", 
+					"columnPercents", "nonePercents"), values = c("row", 
+					"column", "none"),  labels = gettextRcmdr(c("Row percentages", 
+							"Column percentages", "No percentages")), title = gettextRcmdr("Compute Percentages"),
+			initialValue = dialog.values$initial.percents)
+	tkgrid(getFrame(rowBox), labelRcmdr(variablesFrame, text = "    "), 
+			getFrame(columnBox), labelRcmdr(variablesFrame, text = "    "), 
+			getFrame(controlBox), sticky = "nw")
+	tkgrid(variablesFrame, sticky = "w")
+	tkgrid(percentsFrame, sticky = "w")
+	tkgrid(subsetFrame, sticky = "w")
+	tkgrid(buttonsFrame, sticky = "w")
+	dialogSuffix(rows = 4, columns = 1)
+}
 
 enterTable <- function(){
     Library("abind")

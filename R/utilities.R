@@ -1,4 +1,4 @@
-# last modified 2011-10-05 by J. Fox
+# last modified 2011-10-13 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -879,6 +879,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
 			}
 			if (!is.null(reset) && memory){
 				onReset <- function(){
+					if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
 					putDialog(reset, NULL)
 					closeDialog()
 					eval(parse(text=paste(reset, "()")))
@@ -2248,14 +2249,15 @@ getDialog <- function(dialog, defaults=NULL){
 	else return (values)
 }
 
-varPosn <- function(variables, type=c("all", "factor", "numeric", "nonfactor")){
+varPosn <- function(variables, type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor")){
 	if (is.null(variables)) return(NULL)
 	type <- match.arg(type)
 	vars <- switch(type,
 			all = Variables(),
 			factor = Factors(),
 			numeric = Numeric(),
-			nonfactor = setdiff(Variables(), Factors())
+			nonfactor = setdiff(Variables(), Factors()),
+			twoLevelFactor = TwoLevelFactors()
 	)
 	if (any(!variables %in% vars)) NULL
 	else apply(outer(variables, vars, "=="), 1, which) - 1
