@@ -1,4 +1,4 @@
-# last modified 2011-10-13 by J. Fox
+# last modified 2011-10-16 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -436,15 +436,15 @@ numSummary <- function(data,
 		result$type <- 2
 	}
 	else if ((ngroups == 1) ){
+		X <- as.matrix(data[, variables])
 		table <- matrix(0, nvars, nstats)
 		rownames(table) <- if (length(variables) > 1) variables else ""
 		colnames(table) <- stats
-		if ("mean" %in% stats) table[,"mean"] <- mean(data[, variables],
-					na.rm=TRUE)
-		if ("sd" %in% stats) table[,"sd"] <- sd(data[, variables], na.rm=TRUE)
-		if ("cv" %in% stats) table[,"cv"] <- cv(data[, variables])
-		if ("skewness" %in% statistics) table[, "skewness"] <- skewness(data[, variables], type=type)
-		if ("kurtosis" %in% statistics) table[, "kurtosis"] <- kurtosis(data[, variables], type=type)
+		if ("mean" %in% stats) table[,"mean"] <- mean(X, na.rm=TRUE)
+		if ("sd" %in% stats) table[,"sd"] <- sd(X, na.rm=TRUE)
+		if ("cv" %in% stats) table[,"cv"] <- cv(X)
+		if ("skewness" %in% statistics) table[, "skewness"] <- skewness(X, type=type)
+		if ("kurtosis" %in% statistics) table[, "kurtosis"] <- kurtosis(X, type=type)
 		if ("quantiles" %in% statistics){
 			table[,quants] <- t(apply(data[, variables, drop=FALSE], 2, quantile,
 							probs=quantiles, na.rm=TRUE))
