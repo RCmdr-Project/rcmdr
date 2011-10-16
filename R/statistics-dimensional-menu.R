@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 7 June 2009 by J. Fox
+# last modified 2011-10-16 by J. Fox
 
     # Dimensional-analysis menu
     
@@ -99,75 +99,81 @@ principalComponents <- function(){
     dialogSuffix(rows=4, columns=1)
     }
 
-factorAnalysis <- function(){
-    initializeDialog(title=gettextRcmdr("Factor Analysis"))
-    xBox <- variableListBox(top, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick three or more)"))
-    subsetBox()
-    optionsFrame <- tkframe(top)
-    checkFrame <- tkframe(top)
-    radioButtons(checkFrame, name="rotation", buttons=c("noRotate", "varimax", "promax"), 
-        values=c("none", "varimax", "promax"), initialValue="varimax", labels=gettextRcmdr(c("None", "Varimax", "Promax")),
-        title=gettextRcmdr("Factor Rotation"))
-    radioButtons(checkFrame, name="scores", buttons=c("noScores", "bartlett", "regression"),
-        values=c("none", "Bartlett", "regression"), labels=gettextRcmdr(c("None", "Bartlett's method", "Regression method")),
-        title=gettextRcmdr("Factor Scores"))
-    onOK <- function(){
-        x <- getSelection(xBox)
-        nvar <- length(x)
-        subset <- tclvalue(subsetVariable)
-        rotation <- tclvalue(rotationVariable)
-        scores <- tclvalue(scoresVariable)
-        closeDialog()
-        if (3 > length(x)) {
-            errorCondition(recall=factorAnalysis, message=gettextRcmdr("Fewer than 3 variables selected."))
-            return()
-            }
-        f <- function(k, p) ((p - k)^2 - p - k)^2
-        max.factors <- floor(optimize(f, c(0, nvar), tol=.0001, p=nvar)$minimum)
-        initializeDialog(subdialog, title=gettextRcmdr("Number of Factors"))
-        tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Number of factors to extract:"), fg="blue"), sticky="w")    
-        sliderFrame <- tkframe(subdialog)
-        sliderValue <- tclVar("1")
-        componentsSlider <- tkscale(sliderFrame, from=1, to=max.factors, showvalue=FALSE, variable=sliderValue,
-            resolution=1, orient="horizontal")
-        componentsShow <- labelRcmdr(sliderFrame, textvariable=sliderValue, width=2, justify="right")
-        onOKsub <- function() {
-            closeDialog(subdialog)
-            putRcmdr("nfactors", as.numeric(tclvalue(sliderValue)))
-                }
-        subOKCancelHelp()
-        tkgrid(componentsSlider, componentsShow, sticky="nw")
-        tkgrid(sliderFrame, sticky="w")
-        tkgrid(subButtonsFrame, sticky="w")
-        dialogSuffix(subdialog, onOK=onOKsub, rows=2, columns=1, focus=subdialog)
-        subset <- if (trim.blanks(subset) == gettextRcmdr("<all valid cases>")) "" else paste(", subset=", subset, sep="")
-        .activeDataSet <- ActiveDataSet()
-        command <- paste("factanal(~", paste(x, collapse="+"), ", factors=", getRcmdr("nfactors"), ', rotation="', rotation,
-            '", scores="', scores, '", data=', .activeDataSet, subset, ")", sep="")
-        assign(".FA", justDoIt(command), envir=.GlobalEnv)
-        logger(paste(".FA <- ", command, sep=""))
-        doItAndPrint(".FA")
-        if (scores != "none") {
-            for(i in 1:getRcmdr("nfactors")){
-                var <- paste("F", i, sep="")
-                if (is.element(var, Variables())) {
-                    if ("no" == tclvalue(checkReplace(var))) next
-                    }
-                justDoIt(paste(.activeDataSet, "$F", i, " <- .FA$scores[,", i, "]", sep=""))
-                logger(paste(.activeDataSet, "$F", i, " <- .FA$scores[,", i, "]", sep=""))
-                }
-            activeDataSet(.activeDataSet)
-            }
-        logger("remove(.FA)")
-        remove(.FA, envir=.GlobalEnv)
-        tkfocus(CommanderWindow())
-        }
-    OKCancelHelp(helpSubject="factanal")
-    tkgrid(getFrame(xBox), sticky="nw")
-    tkgrid(subsetFrame, sticky="w")
-    tkgrid(optionsFrame, sticky="w")
-    tkgrid(rotationFrame, labelRcmdr(checkFrame, text="    "), scoresFrame, sticky="w")
-    tkgrid(checkFrame, sticky="w")
-    tkgrid(buttonsFrame,  sticky="w")
-    dialogSuffix(rows=5, columns=1)
-    }
+	factorAnalysis <- function(){
+		initializeDialog(title=gettextRcmdr("Factor Analysis"))
+		xBox <- variableListBox(top, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick three or more)"))
+		subsetBox()
+		optionsFrame <- tkframe(top)
+		checkFrame <- tkframe(top)
+		radioButtons(checkFrame, name="rotation", buttons=c("noRotate", "varimax", "promax"), 
+				values=c("none", "varimax", "promax"), initialValue="varimax", labels=gettextRcmdr(c("None", "Varimax", "Promax")),
+				title=gettextRcmdr("Factor Rotation"))
+		radioButtons(checkFrame, name="scores", buttons=c("noScores", "bartlett", "regression"),
+				values=c("none", "Bartlett", "regression"), labels=gettextRcmdr(c("None", "Bartlett's method", "Regression method")),
+				title=gettextRcmdr("Factor Scores"))
+		onOK <- function(){
+			x <- getSelection(xBox)
+			nvar <- length(x)
+			subset <- tclvalue(subsetVariable)
+			rotation <- tclvalue(rotationVariable)
+			scores <- tclvalue(scoresVariable)
+			closeDialog()
+			if (3 > length(x)) {
+				errorCondition(recall=factorAnalysis, message=gettextRcmdr("Fewer than 3 variables selected."))
+				return()
+			}
+			f <- function(k, p) ((p - k)^2 - p - k)^2
+			max.factors <- floor(optimize(f, c(0, nvar), tol=.0001, p=nvar)$minimum)
+			if (max.factors == 1){
+				putRcmdr("nfactors", 1)
+			}
+			else{
+				initializeDialog(subdialog, title=gettextRcmdr("Number of Factors"))
+				tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Number of factors to extract:"), fg="blue"), sticky="w")    
+				sliderFrame <- tkframe(subdialog)
+				sliderValue <- tclVar("1")
+				componentsSlider <- tkscale(sliderFrame, from=1, to=max.factors, showvalue=FALSE, variable=sliderValue,
+						resolution=1, orient="horizontal")
+				componentsShow <- labelRcmdr(sliderFrame, textvariable=sliderValue, width=2, justify="right")
+				onOKsub <- function() {
+					closeDialog(subdialog)
+					putRcmdr("nfactors", as.numeric(tclvalue(sliderValue)))
+				}
+				subOKCancelHelp()
+				tkgrid(componentsSlider, componentsShow, sticky="nw")
+				tkgrid(sliderFrame, sticky="w")
+				tkgrid(subButtonsFrame, sticky="w")
+				dialogSuffix(subdialog, onOK=onOKsub, rows=2, columns=1, focus=subdialog)
+			}
+			subset <- if (trim.blanks(subset) == gettextRcmdr("<all valid cases>")) "" else paste(", subset=", subset, sep="")
+			.activeDataSet <- ActiveDataSet()
+			command <- paste("factanal(~", paste(x, collapse="+"), ", factors=", getRcmdr("nfactors"), ', rotation="', rotation,
+					'", scores="', scores, '", data=', .activeDataSet, subset, ")", sep="")
+			assign(".FA", justDoIt(command), envir=.GlobalEnv)
+			logger(paste(".FA <- ", command, sep=""))
+			doItAndPrint(".FA")
+			if (scores != "none") {
+				for(i in 1:getRcmdr("nfactors")){
+					var <- paste("F", i, sep="")
+					if (is.element(var, Variables())) {
+						if ("no" == tclvalue(checkReplace(var))) next
+					}
+					justDoIt(paste(.activeDataSet, "$F", i, " <- .FA$scores[,", i, "]", sep=""))
+					logger(paste(.activeDataSet, "$F", i, " <- .FA$scores[,", i, "]", sep=""))
+				}
+				activeDataSet(.activeDataSet)
+			}
+			logger("remove(.FA)")
+			remove(.FA, envir=.GlobalEnv)
+			tkfocus(CommanderWindow())
+		}
+		OKCancelHelp(helpSubject="factanal")
+		tkgrid(getFrame(xBox), sticky="nw")
+		tkgrid(subsetFrame, sticky="w")
+		tkgrid(optionsFrame, sticky="w")
+		tkgrid(rotationFrame, labelRcmdr(checkFrame, text="    "), scoresFrame, sticky="w")
+		tkgrid(checkFrame, sticky="w")
+		tkgrid(buttonsFrame,  sticky="w")
+		dialogSuffix(rows=5, columns=1)
+	}
+	
