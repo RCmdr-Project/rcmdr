@@ -326,6 +326,16 @@ For more information about R initialization, see \code{?Startup}.
   \code{ESS} with NTEmacs or XEmacs; under other R consoles; or under the Rgui in the MDI (multiple-document interface) mode.
 }
 
+\references{
+Fox, J. (2005) 
+The R Commander: A Basic Statistics Graphical User Interface to R. 
+\emph{Journal of Statistical Software}, \bold{14(9)}: 1--42.
+
+Fox, J. (2007)
+Extending the R Commander by "plug in" packages. 
+\emph{R News}, \bold{7(3)}: 46--52.
+}
+
 \author{John Fox \email{jfox@mcmaster.ca}}
 
 \seealso{\link{Plugins}, \link{Rcmdr.Utilities}}
