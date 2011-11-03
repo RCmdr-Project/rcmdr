@@ -181,10 +181,10 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{length.command.stack}}{The R Commander also maintains a list of commands that is managed similarly; the default length
     of this stack is also 10.}
     
-    \item{\code{load.at.startup}}{A character vector of names of packages to be loaded 
-    when the \code{Rcmdr} package is loaded; the default is to load only the \code{car} package. 
-    Other required packages will be loaded as needed. If it is available, the 
-    \code{car} package will be loaded at when the Commander starts in any event.}
+%%    \item{\code{load.at.startup}}{A character vector of names of packages to be loaded 
+%%    when the \code{Rcmdr} package is loaded; the default is to load only the \code{car} package. 
+%%    Other required packages will be loaded as needed. If it is available, the 
+%%    \code{car} package will be loaded at when the Commander starts in any event.}
       
     \item{\code{log.commands}}{If \code{TRUE} (the default), commands are echoed to the script window;
     if \code{FALSE}, the script window is not displayed.}

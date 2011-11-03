@@ -1,4 +1,4 @@
-# last modified 2011-10-16 by J. Fox
+# last modified 2011-11-02 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -372,11 +372,11 @@ numSummary <- function(data,
 		type=c("1", "2", "3"),
 		quantiles=c(0, .25, .5, .75, 1), groups){
 	sd <- function(x, type, ...){
-		stats::sd(x, ...)
+		apply(as.matrix(x), 2, stats::sd, na.rm=TRUE)
 	}
 	cv <- function(x, ...){
 		mean <- mean(x, na.rm=TRUE)
-		sd <- sd(x, na.rm=TRUE)
+		sd <- sd(x)
 		if (any(x <= 0, na.rm=TRUE)) warning("not all values are positive")
 		cv <- sd/mean
 		cv[mean <= 0] <- NA
@@ -441,7 +441,7 @@ numSummary <- function(data,
 		rownames(table) <- if (length(variables) > 1) variables else ""
 		colnames(table) <- stats
 		if ("mean" %in% stats) table[,"mean"] <- mean(X, na.rm=TRUE)
-		if ("sd" %in% stats) table[,"sd"] <- sd(X, na.rm=TRUE)
+		if ("sd" %in% stats) table[,"sd"] <- sd(X)
 		if ("cv" %in% stats) table[,"cv"] <- cv(X)
 		if ("skewness" %in% statistics) table[, "skewness"] <- skewness(X, type=type)
 		if ("kurtosis" %in% statistics) table[, "kurtosis"] <- kurtosis(X, type=type)

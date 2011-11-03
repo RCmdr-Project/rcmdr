@@ -1,10 +1,10 @@
-# last modified 2011-09-22 by J. Fox
+# last modified 2011-11-02 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 .onAttach <- function(...){
     if(interactive()) Commander()
     else {
-        message("The Commander GUI is launched only in interactive sessions",
+		packageStartupMessage("The Commander GUI is launched only in interactive sessions",
             domain="R-Rcmdr")
         return()
         }
@@ -24,21 +24,22 @@
     if (!interactive()) return()
     save.options <- options(warn=-1)
     on.exit(options(save.options))
-    tcltk <- require(tcltk)
-    if (!tcltk) stop(gettext("The tcltk package is absent. The R Commander cannot function.", domain="R-Rcmdr"))
+#    tcltk <- require(tcltk)
+#    if (!tcltk) stop(gettext("The tcltk package is absent. The R Commander cannot function.", domain="R-Rcmdr"))
     required.packages <- rev(c("abind", "aplpack", "car", "colorspace", 
 		"effects", "e1071", "foreign", "grid", "Hmisc", "lattice", "leaps", "lmtest",
         "MASS", "mgcv", "multcomp", "nlme", "nnet", "relimp", "rgl"))
     if (.Platform$OS.type == "windows") required.packages <- c(required.packages, "RODBC")
-    packages.to.load <- options("Rcmdr")[[1]]$load.at.startup
-    if (is.null(packages.to.load)) packages.to.load <- "car"
-    for (package in packages.to.load){
-        if (length(.find.package(package, quiet=TRUE)) != 0)
-            require(package, character.only=TRUE)
-        }
+#    packages.to.load <- options("Rcmdr")[[1]]$load.at.startup
+#    if (is.null(packages.to.load)) packages.to.load <- "car"
+#    for (package in packages.to.load){
+#        if (length(.find.package(package, quiet=TRUE)) != 0)
+#            require(package, character.only=TRUE)
+#        }
     check <- options("Rcmdr")[[1]]$check.packages
     if (length(check) > 0 && !check) return()
-    packages.to.check <- union(required.packages, packages.to.load)
+#    packages.to.check <- union(required.packages, packages.to.load)
+	packages.to.check <- required.packages
     available.packages <- packagesAvailable(packages.to.check)
     missing.packages <- packages.to.check[!available.packages]
     if (any(!available.packages)) {
