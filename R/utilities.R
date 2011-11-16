@@ -1,4 +1,4 @@
-# last modified 2011-11-02 by J. Fox
+# last modified 2011-11-16 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -440,7 +440,7 @@ numSummary <- function(data,
 		table <- matrix(0, nvars, nstats)
 		rownames(table) <- if (length(variables) > 1) variables else ""
 		colnames(table) <- stats
-		if ("mean" %in% stats) table[,"mean"] <- mean(X, na.rm=TRUE)
+		if ("mean" %in% stats) table[,"mean"] <- colMeans(X, na.rm=TRUE)
 		if ("sd" %in% stats) table[,"sd"] <- sd(X)
 		if ("cv" %in% stats) table[,"cv"] <- cv(X)
 		if ("skewness" %in% statistics) table[, "skewness"] <- skewness(X, type=type)
