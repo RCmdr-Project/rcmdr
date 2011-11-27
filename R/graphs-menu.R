@@ -1,151 +1,354 @@
 # Graphs menu dialogs
 
-# last modified 2011-09-22 by J. Fox
+# last modified 2011-11-27 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
-indexPlot <- function(){
-    initializeDialog(title=gettextRcmdr("Index Plot"))
-    xBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variable (pick one)"))
-    onOK <- function(){
-        x <- getSelection(xBox)
-        closeDialog()
-        if (length(x) == 0){
-            errorCondition(recall=indexPlot, message=gettextRcmdr("You must select a variable"))
-            return()
-            }
-        type <- if (tclvalue(typeVariable) == "spikes") "h" else "p"
-        identify <- tclvalue(identifyVariable) == "1"
-        .activeDataSet <- ActiveDataSet()
-        command <- paste("plot(", .activeDataSet, "$", x, ', type="', type, '")', sep="")
-        doItAndPrint(command)
-        if (par("usr")[3] <= 0) doItAndPrint('abline(h=0, col="gray")')
-        if (identify) {
-            RcmdrTkmessageBox(title="Identify Points",
-                message=paste(gettextRcmdr("Use left mouse button to identify points,\n"),
-						gettextRcmdr(if (MacOSXP()) "esc key to exit." else "right button to exit."), sep=""),
-                icon="info", type="ok")
-            command <- paste("identify(", .activeDataSet, "$", x,
-                ", labels=rownames(", .activeDataSet, "))", sep="")
-            doItAndPrint(command)
-            }
-        activateMenus()
-        tkfocus(CommanderWindow())
-        }
-    OKCancelHelp(helpSubject="plot")
-    optionsFrame <- tkframe(top)
-    typeVariable <- tclVar("spikes")
-    spikesButton <- ttkradiobutton(optionsFrame, variable=typeVariable, value="spikes")
-    pointsButton <- ttkradiobutton(optionsFrame, variable=typeVariable, value="points")
-    identifyVariable <- tclVar("0")
-    identifyCheckBox <- tkcheckbutton(optionsFrame, variable=identifyVariable)
-    tkgrid(getFrame(xBox), sticky="nw")
-    tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Identify observations\nwith mouse"), justify="left"),
-        identifyCheckBox, sticky="w")
-    tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Spikes")), spikesButton, sticky="w")
-    tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Points")), pointsButton, sticky="w")
-    tkgrid(optionsFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=2, columns=1)
-    }
+#indexPlot <- function(){
+#    initializeDialog(title=gettextRcmdr("Index Plot"))
+#    xBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variable (pick one)"))
+#    onOK <- function(){
+#        x <- getSelection(xBox)
+#        closeDialog()
+#        if (length(x) == 0){
+#            errorCondition(recall=indexPlot, message=gettextRcmdr("You must select a variable"))
+#            return()
+#            }
+#        type <- if (tclvalue(typeVariable) == "spikes") "h" else "p"
+#        identify <- tclvalue(identifyVariable) == "1"
+#        .activeDataSet <- ActiveDataSet()
+#        command <- paste("plot(", .activeDataSet, "$", x, ', type="', type, '")', sep="")
+#        doItAndPrint(command)
+#        if (par("usr")[3] <= 0) doItAndPrint('abline(h=0, col="gray")')
+#        if (identify) {
+#            RcmdrTkmessageBox(title="Identify Points",
+#                message=paste(gettextRcmdr("Use left mouse button to identify points,\n"),
+#						gettextRcmdr(if (MacOSXP()) "esc key to exit." else "right button to exit."), sep=""),
+#                icon="info", type="ok")
+#            command <- paste("identify(", .activeDataSet, "$", x,
+#                ", labels=rownames(", .activeDataSet, "))", sep="")
+#            doItAndPrint(command)
+#            }
+#        activateMenus()
+#        tkfocus(CommanderWindow())
+#        }
+#    OKCancelHelp(helpSubject="plot")
+#    optionsFrame <- tkframe(top)
+#    typeVariable <- tclVar("spikes")
+#    spikesButton <- ttkradiobutton(optionsFrame, variable=typeVariable, value="spikes")
+#    pointsButton <- ttkradiobutton(optionsFrame, variable=typeVariable, value="points")
+#    identifyVariable <- tclVar("0")
+#    identifyCheckBox <- tkcheckbutton(optionsFrame, variable=identifyVariable)
+#    tkgrid(getFrame(xBox), sticky="nw")
+#    tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Identify observations\nwith mouse"), justify="left"),
+#        identifyCheckBox, sticky="w")
+#    tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Spikes")), spikesButton, sticky="w")
+#    tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Points")), pointsButton, sticky="w")
+#    tkgrid(optionsFrame, sticky="w")
+#    tkgrid(buttonsFrame, sticky="w")
+#    dialogSuffix(rows=2, columns=1)
+#    }
 
-Histogram <- function(){
-    initializeDialog(title=gettextRcmdr("Histogram"))
-    xBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variable (pick one)"))
-    onOK <- function(){
-        x <- getSelection(xBox)
-        closeDialog()
-        if (length(x) == 0){
-            errorCondition(recall=Histogram, message=gettextRcmdr("You must select a variable"))
-            return()
-            }
-        bins <- tclvalue(binsVariable)
-        opts <- options(warn=-1)
-        bins <- if (bins == gettextRcmdr("<auto>")) '"Sturges"' else as.numeric(bins)
-        options(opts)
-        scale <- tclvalue(scaleVariable)
-        command <- paste("Hist(", ActiveDataSet(), "$", x, ', scale="',
-            scale, '", breaks=', bins, ', col="darkgray")', sep="")
-        doItAndPrint(command)
-        activateMenus()
-        tkfocus(CommanderWindow())
-        }
-    OKCancelHelp(helpSubject="Hist")
-    radioButtons(name="scale", buttons=c("frequency", "percent", "density"),
-        labels=gettextRcmdr(c("Frequency counts", "Percentages", "Densities")), title=gettextRcmdr("Axis Scaling"))
-    binsFrame <- tkframe(top)
-    binsVariable <- tclVar(gettextRcmdr("<auto>"))
-    binsField <- ttkentry(binsFrame, width="8", textvariable=binsVariable)
-    tkgrid(getFrame(xBox), sticky="nw")
-    tkgrid(labelRcmdr(binsFrame, text=gettextRcmdr("Number of bins: ")), binsField, sticky="w")
-    tkgrid(binsFrame, sticky="w")
-    tkgrid(scaleFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky="w")
-    tkgrid.configure(binsField, sticky="e")
-    dialogSuffix(rows=4, columns=1)
-    }
+indexPlot <- function () {
+	defaults <- list(initial.x = NULL, initial.type = "spikes", initial.identify = 0) 
+	dialog.values <- getDialog("indexPlot", defaults)
+	initializeDialog(title = gettextRcmdr("Index Plot"))
+	xBox <- variableListBox(top, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
+			initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+	onOK <- function() {
+		x <- getSelection(xBox)
+		initial.type <- type <- tclvalue(typeVariable)
+		identify <- tclvalue(identifyVariable) == "1"
+		putDialog ("indexPlot", list(initial.x = x, initial.type = type, initial.identify = identify))
+		closeDialog()
+		if (length(x) == 0) {
+			errorCondition(recall = indexPlot, message = gettextRcmdr("You must select a variable"))
+			return()
+		}
+		type <- if (tclvalue(typeVariable) == "spikes") 
+					"h"
+				else "p"
+		.activeDataSet <- ActiveDataSet()
+		command <- paste("plot(", .activeDataSet, "$", x, ", type=\"", 
+				type, "\")", sep = "")
+		doItAndPrint(command)
+		if (par("usr")[3] <= 0) 
+			doItAndPrint("abline(h=0, col=\"gray\")")
+		if (identify) {
+			RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
+							gettextRcmdr(if (MacOSXP()) 
+												"esc key to exit."
+											else "right button to exit."), sep = ""), icon = "info", 
+					type = "ok")
+			command <- paste("identify(", .activeDataSet, "$", 
+					x, ", labels=rownames(", .activeDataSet, "))", 
+					sep = "")
+			doItAndPrint(command)
+		}
+		activateMenus()
+		tkfocus(CommanderWindow())
+	}
+	OKCancelHelp(helpSubject = "plot", reset = "indexPlot")
+	optionsFrame <- tkframe(top)
+	typeVariable <- tclVar(dialog.values$initial.type)
+	spikesButton <- ttkradiobutton(optionsFrame, variable = typeVariable, 
+			value = "spikes")
+	pointsButton <- ttkradiobutton(optionsFrame, variable = typeVariable, 
+			value = "points")
+	identifyVariable <- tclVar(dialog.values$initial.identify)
+	identifyCheckBox <- tkcheckbutton(optionsFrame, variable = identifyVariable)
+	tkgrid(getFrame(xBox), sticky = "nw")
+	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Identify observations\nwith mouse"), 
+					justify = "left"), identifyCheckBox, sticky = "w")
+	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Spikes")), 
+			spikesButton, sticky = "w")
+	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Points")), 
+			pointsButton, sticky = "w")
+	tkgrid(optionsFrame, sticky = "w")
+	tkgrid(buttonsFrame, sticky = "w")
+	dialogSuffix(rows = 2, columns = 1)
+}
 
-stemAndLeaf <- function(){
+#Histogram <- function(){
+#    initializeDialog(title=gettextRcmdr("Histogram"))
+#    xBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variable (pick one)"))
+#    onOK <- function(){
+#        x <- getSelection(xBox)
+#        closeDialog()
+#        if (length(x) == 0){
+#            errorCondition(recall=Histogram, message=gettextRcmdr("You must select a variable"))
+#            return()
+#            }
+#        bins <- tclvalue(binsVariable)
+#        opts <- options(warn=-1)
+#        bins <- if (bins == gettextRcmdr("<auto>")) '"Sturges"' else as.numeric(bins)
+#        options(opts)
+#        scale <- tclvalue(scaleVariable)
+#        command <- paste("Hist(", ActiveDataSet(), "$", x, ', scale="',
+#            scale, '", breaks=', bins, ', col="darkgray")', sep="")
+#        doItAndPrint(command)
+#        activateMenus()
+#        tkfocus(CommanderWindow())
+#        }
+#    OKCancelHelp(helpSubject="Hist")
+#    radioButtons(name="scale", buttons=c("frequency", "percent", "density"),
+#        labels=gettextRcmdr(c("Frequency counts", "Percentages", "Densities")), title=gettextRcmdr("Axis Scaling"))
+#    binsFrame <- tkframe(top)
+#    binsVariable <- tclVar(gettextRcmdr("<auto>"))
+#    binsField <- ttkentry(binsFrame, width="8", textvariable=binsVariable)
+#    tkgrid(getFrame(xBox), sticky="nw")
+#    tkgrid(labelRcmdr(binsFrame, text=gettextRcmdr("Number of bins: ")), binsField, sticky="w")
+#    tkgrid(binsFrame, sticky="w")
+#    tkgrid(scaleFrame, sticky="w")
+#    tkgrid(buttonsFrame, sticky="w")
+#    tkgrid.configure(binsField, sticky="e")
+#    dialogSuffix(rows=4, columns=1)
+#    }
+
+Histogram <- function () {
+	defaults <- list(initial.x = NULL, initial.scale = "frequency", 
+			initial.bins = gettextRcmdr ("<auto>")) 
+	dialog.values <- getDialog("Histogram", defaults)
+	initializeDialog(title = gettextRcmdr("Histogram"))
+	xBox <- variableListBox(top, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
+			initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+	onOK <- function() {
+		x <- getSelection(xBox)
+		closeDialog()
+		if (length(x) == 0) {
+			errorCondition(recall = Histogram, message = gettextRcmdr("You must select a variable"))
+			return()
+		}
+		bins <- tclvalue(binsVariable)
+		opts <- options(warn = -1)
+		binstext <- if (bins == gettextRcmdr("<auto>")) 
+					"\"Sturges\""
+				else as.numeric(bins)
+		options(opts)
+		scale <- tclvalue(scaleVariable)
+		putDialog ("Histogram", list (initial.x = x, initial.bins = bins, initial.scale = scale))
+		command <- paste("Hist(", ActiveDataSet(), "$", x, ", scale=\"", 
+				scale, "\", breaks=", binstext, ", col=\"darkgray\")", 
+				sep = "")
+		doItAndPrint(command)
+		activateMenus()
+		tkfocus(CommanderWindow())
+	}
+	OKCancelHelp(helpSubject = "Hist", reset = "Histogram")
+	radioButtons(name = "scale", buttons = c("frequency", "percent", 
+					"density"), labels = gettextRcmdr(c("Frequency counts", 
+							"Percentages", "Densities")), title = gettextRcmdr("Axis Scaling"), 
+			initialValue = dialog.values$initial.scale)
+	binsFrame <- tkframe(top)
+	binsVariable <- tclVar(dialog.values$initial.bins)
+	binsField <- ttkentry(binsFrame, width = "8", textvariable = binsVariable)
+	tkgrid(getFrame(xBox), sticky = "nw")
+	tkgrid(labelRcmdr(binsFrame, text = gettextRcmdr("Number of bins: ")), 
+			binsField, sticky = "w")
+	tkgrid(binsFrame, sticky = "w")
+	tkgrid(scaleFrame, sticky = "w")
+	tkgrid(buttonsFrame, sticky = "w")
+	tkgrid.configure(binsField, sticky = "e")
+	dialogSuffix(rows = 4, columns = 1)
+}
+
+#stemAndLeaf <- function(){
+#	Library("aplpack")
+#    initializeDialog(title=gettextRcmdr("Stem and Leaf Display"), preventCrisp=TRUE)
+#    xBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variable (pick one)"))
+#    displayDigits <- tclVar("1")
+#    onDigits <- function(...){
+#        tclvalue(displayDigits) <- formatC(10^as.numeric(tclvalue(leafsDigitValue)),
+#            format="fg", big.mark=",")
+#        tclvalue(leafsAutoVariable) <- "0"
+#        }
+#    radioButtons(name="parts", buttons=c("auto", "one", "two", "five"),
+#        values=c("auto", "1", "2", "5"), labels=c(gettextRcmdr("Automatic"), "   1", "   2", "   5"),
+#        title=gettextRcmdr("Parts Per Stem"))
+#    radioButtons(name="style", buttons=c("Tukey", "bare"), labels=gettextRcmdr(c("Tukey", "Repeated stem digits")),
+#        title=gettextRcmdr("Style of Divided Stems"))
+#    checkBoxes(frame="optionsFrame", boxes=c("trimOutliers", "showDepths", "reverseNegative"),
+#        initialValues=rep(1, 3), labels=gettextRcmdr(c("Trim outliers", "Show depths", "Reverse negative leaves")))
+#    leafsFrame <- tkframe(top)
+#    leafsDigitValue <- tclVar("0")
+#    leafsDigitSlider <- tkscale(leafsFrame, from=-6, to=6, showvalue=FALSE, variable=leafsDigitValue,
+#        resolution=1, orient="horizontal", command=onDigits)
+#    leafsDigitShow <- labelRcmdr(leafsFrame, textvariable=displayDigits, width=8, justify="right")
+#    leafsAutoVariable <- tclVar("1")
+#    leafsDigitCheckBox <- tkcheckbutton(leafsFrame, variable=leafsAutoVariable)
+#    onOK <- function(){
+#        x <- getSelection(xBox)
+#        closeDialog()
+#        if (length(x) == 0){
+#            errorCondition(recall=stemAndLeaf, message=gettextRcmdr("You must select a variable"))
+#            return()
+#            }
+#        unit <- if (tclvalue(leafsAutoVariable) == "1") ""
+#            else paste(", unit=", 10^as.numeric(tclvalue(leafsDigitValue)), sep="")
+#        m <- if (tclvalue(partsVariable) == "auto") ""
+#            else paste(", m=", tclvalue(partsVariable), sep="")
+#        trim <- if (tclvalue(trimOutliersVariable) == "1") ""
+#            else ", trim.outliers=FALSE"
+#        depths <- if (tclvalue(showDepthsVariable) == "1") ""
+#            else ", depths=FALSE"
+#        reverse <- if (tclvalue(reverseNegativeVariable) == "1") ""
+#            else ", reverse.negative.leaves=FALSE"
+#        style <- if (tclvalue(styleVariable) == "Tukey") ""
+#            else ', style="bare"'
+#        command <- paste("stem.leaf(", ActiveDataSet(), "$", x, style, unit, m, trim,
+#            depths, reverse, ", na.rm=TRUE)", sep="")
+#        doItAndPrint(command)
+#        tkfocus(CommanderWindow())
+#        }
+#    OKCancelHelp(helpSubject="stem.leaf")
+#    tkgrid(getFrame(xBox), sticky="nw")
+#    tkgrid(labelRcmdr(leafsFrame, text=gettextRcmdr("Leafs Digit:  "), fg="blue"),
+#        labelRcmdr(leafsFrame, text=gettextRcmdr("Automatic")), leafsDigitCheckBox,
+#        labelRcmdr(leafsFrame, text=gettextRcmdr("  or set:"), fg="red"), leafsDigitShow, leafsDigitSlider, sticky="w")
+#    tkgrid(leafsFrame, sticky="w")
+#    tkgrid(partsFrame, sticky="w")
+#    tkgrid(styleFrame, sticky="w")
+#    tkgrid(labelRcmdr(top, text=gettextRcmdr("Options"), fg="blue"), sticky="w")
+#    tkgrid(optionsFrame, sticky="w")
+#    tkgrid(buttonsFrame, sticky="w")
+#    tclvalue(leafsAutoVariable) <- "1"
+#    dialogSuffix(rows=7, columns=1, preventCrisp=TRUE)
+#    }
+
+stemAndLeaf <- function () {
 	Library("aplpack")
-    initializeDialog(title=gettextRcmdr("Stem and Leaf Display"), preventCrisp=TRUE)
-    xBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variable (pick one)"))
-    displayDigits <- tclVar("1")
-    onDigits <- function(...){
-        tclvalue(displayDigits) <- formatC(10^as.numeric(tclvalue(leafsDigitValue)),
-            format="fg", big.mark=",")
-        tclvalue(leafsAutoVariable) <- "0"
-        }
-    radioButtons(name="parts", buttons=c("auto", "one", "two", "five"),
-        values=c("auto", "1", "2", "5"), labels=c(gettextRcmdr("Automatic"), "   1", "   2", "   5"),
-        title=gettextRcmdr("Parts Per Stem"))
-    radioButtons(name="style", buttons=c("Tukey", "bare"), labels=gettextRcmdr(c("Tukey", "Repeated stem digits")),
-        title=gettextRcmdr("Style of Divided Stems"))
-    checkBoxes(frame="optionsFrame", boxes=c("trimOutliers", "showDepths", "reverseNegative"),
-        initialValues=rep(1, 3), labels=gettextRcmdr(c("Trim outliers", "Show depths", "Reverse negative leaves")))
-    leafsFrame <- tkframe(top)
-    leafsDigitValue <- tclVar("0")
-    leafsDigitSlider <- tkscale(leafsFrame, from=-6, to=6, showvalue=FALSE, variable=leafsDigitValue,
-        resolution=1, orient="horizontal", command=onDigits)
-    leafsDigitShow <- labelRcmdr(leafsFrame, textvariable=displayDigits, width=8, justify="right")
-    leafsAutoVariable <- tclVar("1")
-    leafsDigitCheckBox <- tkcheckbutton(leafsFrame, variable=leafsAutoVariable)
-    onOK <- function(){
-        x <- getSelection(xBox)
-        closeDialog()
-        if (length(x) == 0){
-            errorCondition(recall=stemAndLeaf, message=gettextRcmdr("You must select a variable"))
-            return()
-            }
-        unit <- if (tclvalue(leafsAutoVariable) == "1") ""
-            else paste(", unit=", 10^as.numeric(tclvalue(leafsDigitValue)), sep="")
-        m <- if (tclvalue(partsVariable) == "auto") ""
-            else paste(", m=", tclvalue(partsVariable), sep="")
-        trim <- if (tclvalue(trimOutliersVariable) == "1") ""
-            else ", trim.outliers=FALSE"
-        depths <- if (tclvalue(showDepthsVariable) == "1") ""
-            else ", depths=FALSE"
-        reverse <- if (tclvalue(reverseNegativeVariable) == "1") ""
-            else ", reverse.negative.leaves=FALSE"
-        style <- if (tclvalue(styleVariable) == "Tukey") ""
-            else ', style="bare"'
-        command <- paste("stem.leaf(", ActiveDataSet(), "$", x, style, unit, m, trim,
-            depths, reverse, ", na.rm=TRUE)", sep="")
-        doItAndPrint(command)
-        tkfocus(CommanderWindow())
-        }
-    OKCancelHelp(helpSubject="stem.leaf")
-    tkgrid(getFrame(xBox), sticky="nw")
-    tkgrid(labelRcmdr(leafsFrame, text=gettextRcmdr("Leafs Digit:  "), fg="blue"),
-        labelRcmdr(leafsFrame, text=gettextRcmdr("Automatic")), leafsDigitCheckBox,
-        labelRcmdr(leafsFrame, text=gettextRcmdr("  or set:"), fg="red"), leafsDigitShow, leafsDigitSlider, sticky="w")
-    tkgrid(leafsFrame, sticky="w")
-    tkgrid(partsFrame, sticky="w")
-    tkgrid(styleFrame, sticky="w")
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("Options"), fg="blue"), sticky="w")
-    tkgrid(optionsFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky="w")
-    tclvalue(leafsAutoVariable) <- "1"
-    dialogSuffix(rows=7, columns=1, preventCrisp=TRUE)
-    }
+	defaults <- list(initial.x = NULL, initial.leafs.auto="1", initial.unit = 0,  initial.m = "auto", 
+			initial.trim = 1, initial.depths = 1, initial.reverse = 1, initial.style = "Tukey") 
+	dialog.values <- getDialog("stemAndLeaf", defaults)
+	initializeDialog(title = gettextRcmdr("Stem and Leaf Display"), 
+			preventCrisp = TRUE)
+	xBox <- variableListBox(top, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
+			initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+	displayDigits <- tclVar(formatC(10^dialog.values$initial.unit))
+	leafsDigitValue <- tclVar(dialog.values$initial.unit)
+	onDigits <- function(...) {
+		tclvalue(displayDigits) <- formatC(10^as.numeric(tclvalue(leafsDigitValue)), 
+				format = "fg", big.mark = ",")
+		tclvalue(leafsAutoVariable) <- "0"
+	}
+	radioButtons(name = "parts", buttons = c("auto", "one", "two", 
+					"five"), values = c("auto", "1", "2", "5"), labels = c(gettextRcmdr("Automatic"), 
+					"   1", "   2", "   5"), title = gettextRcmdr("Parts Per Stem"), 
+			initialValue = dialog.values$initial.m)
+	radioButtons(name = "style", buttons = c("Tukey", "bare"), 
+			labels = gettextRcmdr(c("Tukey", "Repeated stem digits")), 
+			title = gettextRcmdr("Style of Divided Stems"), 
+			initialValue = dialog.values$initial.style)
+	checkBoxes(frame = "optionsFrame", boxes = c("trimOutliers", 
+					"showDepths", "reverseNegative"), initialValues = c(dialog.values$initial.trim,
+					dialog.values$initial.depths, dialog.values$initial.reverse),
+			labels = gettextRcmdr(c("Trim outliers", "Show depths", 
+							"Reverse negative leaves")))
+	leafsFrame <- tkframe(top)
+	leafsDigitValue <- tclVar(dialog.values$initial.unit) #tclVar("0")
+	leafsDigitSlider <- tkscale(leafsFrame, from = -6, to = 6, 
+			showvalue = FALSE, variable = leafsDigitValue, resolution = 1, 
+			orient = "horizontal", command = onDigits)
+	leafsDigitShow <- labelRcmdr(leafsFrame, textvariable = displayDigits, 
+			width = 8, justify = "right")
+	leafsAutoVariable <- tclVar("1") # tclVar(dialog.values$initial.leafs.auto)
+	leafsDigitCheckBox <- tkcheckbutton(leafsFrame, variable = leafsAutoVariable)
+	onOK <- function() {
+		x <- getSelection(xBox)
+		m <- tclvalue(partsVariable)
+		style <- tclvalue (styleVariable)
+		trim <- tclvalue (trimOutliersVariable)
+		depths <- tclvalue (showDepthsVariable)
+		reverse <- tclvalue (reverseNegativeVariable)
+		unit <- if (tclvalue(leafsAutoVariable) == "1") 
+					""
+				else paste(", unit=", 10^as.numeric(tclvalue(leafsDigitValue)), 
+							sep = "")
+		putDialog ("stemAndLeaf", list(initial.x = x, initial.leafs.auto=tclvalue(leafsAutoVariable),
+						initial.unit = as.numeric(tclvalue(leafsDigitValue)),  initial.m = m, 
+						initial.trim = trim, initial.depths = depths, initial.reverse = reverse, 
+						initial.style = style))
+		closeDialog()
+		if (length(x) == 0) {
+			errorCondition(recall = stemAndLeaf, message = gettextRcmdr("You must select a variable"))
+			return()
+		}
+		trim <- if (tclvalue(trimOutliersVariable) == "1") 
+					""
+				else ", trim.outliers=FALSE"
+		depths <- if (tclvalue(showDepthsVariable) == "1") 
+					""
+				else ", depths=FALSE"
+		reverse <- if (tclvalue(reverseNegativeVariable) == "1") 
+					""
+				else ", reverse.negative.leaves=FALSE"
+		m <- if (tclvalue(partsVariable) == "auto") 
+					""
+				else paste(", m=", tclvalue(partsVariable), sep = "")
+		style <- if (tclvalue(styleVariable) == "Tukey") 
+					""
+				else ", style=\"bare\""
+		command <- paste("stem.leaf(", ActiveDataSet(), "$", 
+				x, style, unit, m, trim, depths, reverse, ", na.rm=TRUE)", 
+				sep = "")
+		doItAndPrint(command)
+		tkfocus(CommanderWindow())
+	}
+	OKCancelHelp(helpSubject = "stem.leaf", reset = "stemAndLeaf")
+	tkgrid(getFrame(xBox), sticky = "nw")
+	tkgrid(labelRcmdr(leafsFrame, text = gettextRcmdr("Leafs Digit:  "), 
+					fg = "blue"), labelRcmdr(leafsFrame, text = gettextRcmdr("Automatic")), 
+			leafsDigitCheckBox, labelRcmdr(leafsFrame, text = gettextRcmdr("  or set:"), 
+					fg = "red"), leafsDigitShow, leafsDigitSlider, sticky = "w")
+	tkgrid(leafsFrame, sticky = "w")
+	tkgrid(partsFrame, sticky = "w")
+	tkgrid(styleFrame, sticky = "w")
+	tkgrid(labelRcmdr(top, text = gettextRcmdr("Options"), fg = "blue"), 
+			sticky = "w")
+	tkgrid(optionsFrame, sticky = "w")
+	tkgrid(buttonsFrame, sticky = "w")
+	tclvalue(leafsAutoVariable) <- dialog.values$initial.leafs.auto
+	dialogSuffix(rows = 7, columns = 1, preventCrisp = TRUE)
+}
 
 boxPlot <- function(){
     initializeDialog(title=gettextRcmdr("Boxplot"))

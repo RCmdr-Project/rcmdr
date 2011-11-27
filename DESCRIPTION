@@ -1,6 +1,6 @@
 Package: Rcmdr
-Version: 1.7-3
-Date: 2011/11/16
+Version: 1.7-4
+Date: 2011/11/27
 Title: R Commander
 Author: John Fox <jfox@mcmaster.ca>, with contributions from Liviu Andronic, Michael Ash, Milan Bouchet-Valat, Theophilius Boye, Stefano Calza, Andy Chang, Philippe Grosjean, Richard Heiberger, Kosar Karimi Pour, G. Jay Kerns, Renaud Lancelot, Matthieu Lesnoff, Uwe Ligges, Samir Messad, Martin Maechler, Robert Muenchen, Duncan Murdoch, Erich Neuwirth, Dan Putler, Brian Ripley, Miroslav Ristic, and Peter Wolf.
 Maintainer: John Fox <jfox@mcmaster.ca>
