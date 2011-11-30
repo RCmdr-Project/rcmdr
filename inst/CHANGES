@@ -973,4 +973,6 @@ Version 1.7-4
 
    o More dialogs use dialog-memory mechanism (edits with assistance of Kosar Karimi Pour).
    
+   o Fixed another bug in numSummary() due to change in R 2.14.0 (also reported by Garrett DaBell).
+   
 

@@ -1,4 +1,4 @@
-# last modified 2011-11-16 by J. Fox
+# last modified 2011-11-30 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -375,7 +375,7 @@ numSummary <- function(data,
 		apply(as.matrix(x), 2, stats::sd, na.rm=TRUE)
 	}
 	cv <- function(x, ...){
-		mean <- mean(x, na.rm=TRUE)
+		mean <- colMeans(x, na.rm=TRUE)
 		sd <- sd(x)
 		if (any(x <= 0, na.rm=TRUE)) warning("not all values are positive")
 		cv <- sd/mean
