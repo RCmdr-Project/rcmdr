@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr Japanese Translation\n"
 "POT-Creation-Date: 2010-07-10 19:00\n"
-"PO-Revision-Date: 2010-10-07 10:21+0900\n"
+"PO-Revision-Date: 2011-11-29 14:51+0900\n"
 "Last-Translator: Takaharu Araki <arakit@kansai-u.ac.jp>\n"
 "Language-Team: Rcmdr Japanese Translation <arakit@kansai-u.ac.jp>\n"
 "MIME-Version: 1.0\n"
@@ -963,7 +963,7 @@ msgid "<auto>"
 msgstr "<auto>"
 
 msgid "Frequency counts"
-msgstr "頻度の計算"
+msgstr "頻度"
 
 msgid "Percentages"
 msgstr "パーセント"
@@ -2525,13 +2525,13 @@ msgid "Tools"
 msgstr "ツール"
 
 msgid "Commander help"
-msgstr "Commander のヘルプ"
+msgstr "Rコマンダーのヘルプ"
 
 msgid "Introduction to the R Commander"
 msgstr "R コマンダー入門"
 
 msgid "About Rcmdr"
-msgstr "Rcmdr について"
+msgstr "Rコマンダーについて"
 
 msgid "df ="
 msgstr "df ="
@@ -2705,7 +2705,7 @@ msgid "Weibull Probabilities"
 msgstr "ワイブル分布の確率"
 
 msgid "Gumbel Distribution"
-msgstr "ガンベル分布"
+msgstr "グンベル分布"
 
 msgid "Shape (log shape)"
 msgstr "形状パラメータ（対数）"
@@ -2714,7 +2714,7 @@ msgid "Scale (log scale)"
 msgstr "尺度パラメータ（対数）"
 
 msgid "Gumbel Probabilities"
-msgstr "ガンベル分布の確率"
+msgstr "グンベル分布の確率"
 
 msgid "Probability of success must be between 0 and 1."
 msgstr "成功の確率は０から１の範囲にしてください．"
@@ -2885,7 +2885,7 @@ msgid "WeibullSamples"
 msgstr "WeibullSamples"
 
 msgid "Sample from Gumbel Distribution"
-msgstr "ガンベル分布からのサンプル"
+msgstr "グンベル分布からのサンプル"
 
 msgid "GumbelSamples"
 msgstr "GumbelSamples"
@@ -3056,19 +3056,19 @@ msgid "Sample from Weibull distribution..."
 msgstr "ワイブル分布からのサンプル..."
 
 msgid "Gumbel distribution"
-msgstr "ガンベル分布"
+msgstr "グンベル分布"
 
 msgid "Gumbel quantiles..."
-msgstr "ガンベル分布の分位点..."
+msgstr "グンベル分布の分位点..."
 
 msgid "Gumbel probabilities..."
-msgstr "ガンベル分布の確率..."
+msgstr "グンベル分布の確率..."
 
 msgid "Plot Gumbel distribution..."
-msgstr "ガンベル分布を描く..."
+msgstr "グンベル分布を描く..."
 
 msgid "Sample from Gumbel distribution..."
-msgstr "ガンベル分布からのサンプル..."
+msgstr "グンベル分布からのサンプル..."
 
 msgid "Sample from binomial distribution..."
 msgstr "２項分布からのサンプル..."
@@ -3808,11 +3808,83 @@ msgid "Groups 'groups=' (pick zero or more)"
 msgstr "グループ 'groups=' (０個以上選択)"
 
 msgid "Different panels for different y~x combinations"
-msgstr "異なる y~x の組み合わせに対して異なるパネルを利用"
+msgstr "異なる y~x の組合せに対して異なるパネルを利用"
 
 msgid "number of columns:"
 msgstr "列数："
 
 msgid "number of rows:"
 msgstr "行数："
+
+# messages added to version 1.6-4
+#  to correct order of file extensions
+msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
+msgstr "{\"全てのファイル\" {\"*\"}} {\"Script Files\" {\".R\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
+msgstr "{\"全てのファイル\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+msgstr "{\"全てのファイル\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgstr "{\"全てのファイル\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr "{\"全てのファイル\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+msgstr "{\"全てのファイル\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"全てのファイル\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgstr "{\"全てのファイル\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
+msgstr "{\"全てのファイル\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgstr "{\"全てのファイル\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
+msgstr "{\"全てのファイル\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
+msgstr "{\"全てのファイル\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgstr "{\"全てのファイル\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+
+# messages added to version 1.7-0
+msgid "Reset"
+msgstr "リセット"
+
+msgid "Coefficient of Variation"
+msgstr "変動係数"
+
+msgid "Skewness"
+msgstr "歪度"
+
+msgid "Kurtosis"
+msgstr "尖度"
+
+msgid "Type 1"
+msgstr "タイプ１"
+
+msgid "Type 2"
+msgstr "タイプ２"
+
+msgid "Type 3"
+msgstr "タイプ３"
+
+msgid "Missing Data"
+msgstr "欠測値"
+
+msgid "Use complete cases"
+msgstr "完全なケースの利用"
+
+msgid "Use pairwise-complete cases"
+msgstr "対での完全なケースの利用"
 

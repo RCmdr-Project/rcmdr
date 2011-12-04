@@ -975,4 +975,6 @@ Version 1.7-4
    
    o Fixed another bug in numSummary() due to change in R 2.14.0 (also reported by Garrett DaBell).
    
+   o Updates Japanese translation and getting-started document (courtesy of Takaharu Araki).
+   
 
