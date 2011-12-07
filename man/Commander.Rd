@@ -155,8 +155,8 @@ set none, one, several, or all options. The available options are as follows:
     specified (see the previous item), the default font for non-Windows systems is 
     \code{"*helvetica-medium-r-normal-*-xx*"}, where \code{xx} is the default font size.}
     
-    \item{\code{dialog.memory}}{If \code{TRUE}, dialogs remember their previous state, as long as the data set isn't changed.
-    For the present, the default is \code{FALSE}, while dialogs are converted to make use of this feature.}
+    \item{\code{dialog.memory}}{If \code{TRUE} (the default), dialogs remember their previous state, where appropriate,
+     as long as the data set isn't changed.}
     
     \item{\code{double.click}}{Set to \code{TRUE} if you want a double-click of the left mouse
     button to press the default button in all dialogs. The default is \code{FALSE}.}
