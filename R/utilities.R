@@ -1,4 +1,4 @@
-# last modified 2011-11-30 by J. Fox
+# last modified 2011-12-08 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -858,7 +858,7 @@ defmacro <- function(..., expr){
 
 OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
 		expr={
-			memory <- getRcmdr("dialog.memory")
+			memory <- getRcmdr("retain.selections")
 			buttonsFrame <- tkframe(window, borderwidth=5)
 			OKbutton <- buttonRcmdr(buttonsFrame, text=gettextRcmdr("OK"), foreground="darkgreen", width="12", command=onOK, default="active",
 					borderwidth=3)
@@ -2245,7 +2245,7 @@ putDialog <- function (dialog, values=NULL){
 
 getDialog <- function(dialog, defaults=NULL){
 	values <- getRcmdr("dialog.values")[[dialog]]
-	if (!getRcmdr("dialog.memory") || is.null(values)) return(defaults)
+	if (!getRcmdr("retain.selections") || is.null(values)) return(defaults)
 	else return (values)
 }
 

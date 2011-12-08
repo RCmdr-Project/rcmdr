@@ -155,7 +155,7 @@ set none, one, several, or all options. The available options are as follows:
     specified (see the previous item), the default font for non-Windows systems is 
     \code{"*helvetica-medium-r-normal-*-xx*"}, where \code{xx} is the default font size.}
     
-    \item{\code{dialog.memory}}{If \code{TRUE} (the default), dialogs remember their previous state, where appropriate,
+    \item{\code{retain.selections}}{If \code{TRUE} (the default), dialogs remember their previous state, where appropriate,
      as long as the data set isn't changed.}
     
     \item{\code{double.click}}{Set to \code{TRUE} if you want a double-click of the left mouse
