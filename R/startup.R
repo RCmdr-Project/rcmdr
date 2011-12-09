@@ -28,7 +28,7 @@
 #    if (!tcltk) stop(gettext("The tcltk package is absent. The R Commander cannot function.", domain="R-Rcmdr"))
     required.packages <- rev(c("abind", "aplpack", "car", "colorspace", 
 		"effects", "e1071", "foreign", "grid", "Hmisc", "lattice", "leaps", "lmtest",
-        "MASS", "mgcv", "multcomp", "nlme", "nnet", "relimp", "rgl"))
+        "MASS", "mgcv", "multcomp", "nlme", "nnet", "relimp", "rgl", "sem"))
     if (.Platform$OS.type == "windows") required.packages <- c(required.packages, "RODBC")
 #    packages.to.load <- options("Rcmdr")[[1]]$load.at.startup
 #    if (is.null(packages.to.load)) packages.to.load <- "car"

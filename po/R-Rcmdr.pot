@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 1.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2011-12-08 12:00\n"
+"POT-Creation-Date: 2011-12-08 19:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3769,4 +3769,48 @@ msgid "Component scores are not available when subset is specified."
 msgstr ""
 
 msgid "Factor scores are not available when subset is specified."
+msgstr ""
+
+# messages added to version 1.8-0
+
+msgid "Confirmatory Factor Analysis"
+msgstr ""
+
+msgid "Fewer than 2 variables selected to load on factor."
+msgstr ""
+
+msgid "Define factor"
+msgstr ""
+
+msgid "Select variables\nloading on factor"
+msgstr ""
+
+msgid "Covariance"
+msgstr ""
+
+msgid "Correlation"
+msgstr ""
+
+msgid "Matrix to Analyze"
+msgstr ""
+
+msgid "Correlated"
+msgstr ""
+
+msgid "Orthogonal"
+msgstr ""
+
+msgid "Factor Correlations"
+msgstr ""
+
+msgid "Define factor
+msgstr ""
+
+msgid "There are too many factors."
+msgstr ""
+
+msgid "Name for factor:"
+msgstr ""
+
+msgid "Confirmatory factor analysis..."
 msgstr ""

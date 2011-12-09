@@ -977,4 +977,9 @@ Version 1.7-4
    
    o Updates Japanese translation and getting-started document (courtesy of Takaharu Araki).
    
+Version 1.8-0
 
+   o Concluded dialog-memory updates (with help of Kosar Karimi Pour).
+   
+   o Added confirmatory factor analysis.
+   

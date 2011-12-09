@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 11 Feb 2011 by J. Fox
+# last modified 2011-12-08 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -107,6 +107,7 @@
     item    dimensionalMenu command         "Scale reliability..."                          Reliability                 "numericP(3)"          ""
     item    dimensionalMenu command         "Principal-components analysis..."              principalComponents         "numericP(2)"          ""
     item    dimensionalMenu command         "Factor analysis..."                            factorAnalysis              "numericP(3)"          ""
+	item	dimensionalMenu command			"Confirmatory factor analysis..."				CFA							"numericP(3)"		   "packageAvailable('sem')"
     menu    clusterMenu     dimensionalMenu ""                                              ""                          ""          ""
     item    clusterMenu     command         "k-means cluster analysis..."                   kmeansClustering            "numericP()"          ""
     item    clusterMenu     command         "Hierarchical cluster analysis..."              hierarchicalCluster         "numericP()"          ""

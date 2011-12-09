@@ -404,5 +404,90 @@ factorAnalysis <- function () {
 			scoresFrame, sticky = "w")
 	tkgrid(checkFrame, sticky = "w")
 	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 5, columns = 1)
+	dialogSuffix(rows = 5, columns = 2)
 }
+
+CFA <- function(){
+	Library("sem")
+	defaults <- list(initial.matrix="covariance", initial.factorCor="correlated", initial.robust=0)
+	dialog.values <- getDialog("CFA", defaults)
+	initializeDialog(title=gettextRcmdr("Confirmatory Factor Analysis"))
+	onFactor <- function(){
+		vars <- getSelection(xBox)
+		if (length(vars) < 2) {
+			errorCondition(recall=CFA,  message=gettextRcmdr("Fewer than 2 variables selected to load on factor."))
+			return()
+		}
+		fac.name <- tclvalue(factorName)
+		if (!is.valid.name(fac.name)) {
+			errorCondition(recall=CFA,  message=paste(fac.name, gettextRcmdr("is not a valid name.")))
+			return()
+		}
+		variables[[getRcmdr("factorNumber")]] <<- vars
+		factors <- factors[getRcmdr("factorNumber")] <<- fac.name
+		putRcmdr("factorNumber", getRcmdr("factorNumber") + 1)
+		tclvalue(factorName) <- paste("Factor.", getRcmdr("factorNumber"), sep = "")
+		tkselection.clear(xBox$listbox, "0", "end")
+		tclvalue(buttonText) <- paste(gettextRcmdr("Define factor"), getRcmdr("factorNumber"))
+	}
+	xBox <- variableListBox(top, Numeric(), selectmode = "multiple", 
+			title = gettextRcmdr("Select variables\nloading on factor"))
+	optionsFrame <- tkframe(top)
+	radioButtons(optionsFrame, name = "matrix", buttons = c("covariance", "correlation"),
+			initialValue = dialog.values$initial.matrix, 
+			labels = gettextRcmdr(c("Covariance", "Correlation")), title = gettextRcmdr("Matrix to Analyze"))
+	radioButtons(optionsFrame, name = "factorCor", buttons = c("correlated", "orthogonal"),
+			initialValue = dialog.values$initial.factorCor, 
+			labels = gettextRcmdr(c("Correlated", "Orthogonal")), title = gettextRcmdr("Factor Correlations"))
+	checkBoxes(window=optionsFrame, frame = "robustFrame", boxes = "robust", initialValues = dialog.values$initial.robust, 
+			labels = gettextRcmdr("Robust standard errors"), title=" ")
+	putRcmdr("factorNumber", 1)
+	buttonText <- tclVar(paste(gettextRcmdr("Define factor"), getRcmdr("factorNumber")))
+	factorFrame <- tkframe(top)
+	factorButton <- buttonRcmdr(factorFrame, textvariable=buttonText, width="15", 
+			command=onFactor, default="active", borderwidth=3)
+	factorName <- tclVar(paste("Factor.", getRcmdr("factorNumber"), sep = ""))
+	factorEntry <- ttkentry(factorFrame, width="20", textvariable=factorName)
+	variables <- list()
+	factors <- vector()
+	onOK <- function(){
+		matrix <- tclvalue(matrixVariable)
+		correlations <- tclvalue(factorCorVariable)
+		robust <- tclvalue(robustVariable)
+		closeDialog()
+		putDialog("CFA", list(initial.matrix=matrix, initial.factorCor=correlations, initial.robust=robust))
+		putRcmdr("factorNumber", NULL)
+		modelText <- vector(length(factors), mode="character")
+		for (i in 1:length(factors)){
+			modelText[i] <- paste(factors[i], ": ", paste(variables[[i]], collapse=", "), sep="")
+		}
+		allvars <- unique(unlist(variables))
+		if ((length(allvars)/length(factors)) < 2) {
+			errorCondition(recall=CFA,  
+					message=gettextRcmdr("There are too many factors."))
+			return()
+		}
+		doItAndPrint(paste(".model <- c(", paste(paste("'", modelText, "'", sep=""), collapse=", "), ")", sep=""))
+		doItAndPrint(paste(".model <- cfa(file=textConnection(.model)", if(correlations == "correlated") "" else ", covs=NULL",
+						")", sep=""))
+		doItAndPrint(paste(".Data <- ", activeDataSet(),
+						"[, c(", paste(paste("'", allvars, "'", sep=""), collapse=", "),  ")]", sep=""))
+		if (matrix == "correlation") doItAndPrint(".Data <- as.data.frame(scale(.Data))")
+		doItAndPrint(paste("summary(sem(.model, data=.Data), robust=", if (robust == 1) "TRUE" else "FALSE", ")", sep=""))
+		justDoIt("remove('.model', '.Data', envir=.GlobalEnv)")
+		logger("remove('.model', '.Data')")
+	}
+	OKCancelHelp(helpSubject="CFA", reset="CFA")
+	tkgrid(matrixFrame, labelRcmdr(optionsFrame, text="    "), factorCorFrame, labelRcmdr(optionsFrame, text="    "), 
+			robustFrame, sticky="nw")
+	tkgrid(optionsFrame, sticky="w")
+	tkgrid(labelRcmdr(top, text=""))
+	tkgrid(getFrame(xBox), sticky="w")
+	tkgrid(labelRcmdr(top, text=""))
+	tkgrid(factorButton, labelRcmdr(factorFrame, text=paste("   ", gettextRcmdr("Name for factor:"))), factorEntry, sticky="nw")
+	tkgrid(factorFrame, sticky="w")
+	tkgrid(labelRcmdr(top, text=""))
+	tkgrid(buttonsFrame)
+	dialogSuffix(rows=7, columns=1)
+}
+
