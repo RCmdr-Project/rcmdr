@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 1.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2011-12-08 19:00\n"
+"POT-Creation-Date: 2011-12-11 12:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3810,6 +3810,15 @@ msgid "There are too many factors."
 msgstr ""
 
 msgid "Name for factor:"
+msgstr ""
+
+msgid "Identifying Constraints"
+msgstr ""
+
+msgid "Factor variances set to 1"
+msgstr ""
+
+msgid "First loading on each factor set to 1"
 msgstr ""
 
 msgid "Confirmatory factor analysis..."
