@@ -409,7 +409,7 @@ factorAnalysis <- function () {
 
 CFA <- function(){
 	Library("sem")
-	defaults <- list(initial.matrix="covariance", initial.factorCor="correlated", initial.robust=0)
+	defaults <- list(initial.matrix="covariance", initial.factorCor="correlated", initial.identify="factors", initial.robust=0)
 	dialog.values <- getDialog("CFA", defaults)
 	initializeDialog(title=gettextRcmdr("Confirmatory Factor Analysis"))
 	onFactor <- function(){
@@ -439,6 +439,10 @@ CFA <- function(){
 	radioButtons(optionsFrame, name = "factorCor", buttons = c("correlated", "orthogonal"),
 			initialValue = dialog.values$initial.factorCor, 
 			labels = gettextRcmdr(c("Correlated", "Orthogonal")), title = gettextRcmdr("Factor Correlations"))
+	radioButtons(optionsFrame, name = "identify", buttons = c("factors", "loadings"),
+			initialValue = dialog.values$initial.identify, 
+			labels = gettextRcmdr(c("Factor variances set to 1", "First loading on each factor set to 1")), 
+			title = gettextRcmdr("Identifying Constraints"))
 	checkBoxes(window=optionsFrame, frame = "robustFrame", boxes = "robust", initialValues = dialog.values$initial.robust, 
 			labels = gettextRcmdr("Robust standard errors"), title=" ")
 	putRcmdr("factorNumber", 1)
@@ -453,9 +457,11 @@ CFA <- function(){
 	onOK <- function(){
 		matrix <- tclvalue(matrixVariable)
 		correlations <- tclvalue(factorCorVariable)
+		identify <- tclvalue(identifyVariable)
 		robust <- tclvalue(robustVariable)
 		closeDialog()
-		putDialog("CFA", list(initial.matrix=matrix, initial.factorCor=correlations, initial.robust=robust))
+		putDialog("CFA", list(initial.matrix=matrix, initial.factorCor=correlations, 
+						initial.identify=identify, initial.robust=robust))
 		putRcmdr("factorNumber", NULL)
 		modelText <- vector(length(factors), mode="character")
 		for (i in 1:length(factors)){
@@ -468,18 +474,19 @@ CFA <- function(){
 			return()
 		}
 		doItAndPrint(paste(".model <- c(", paste(paste("'", modelText, "'", sep=""), collapse=", "), ")", sep=""))
-		doItAndPrint(paste(".model <- cfa(file=textConnection(.model)", if(correlations == "correlated") "" else ", covs=NULL",
-						")", sep=""))
+		doItAndPrint(paste(".model <- cfa(file=textConnection(.model)", if(correlations == "correlated") ", " else ", covs=NULL, ",
+						"reference.indicators=", if (identify == "factors") "FALSE" else "TRUE", ")", sep=""))
 		doItAndPrint(paste(".Data <- ", activeDataSet(),
 						"[, c(", paste(paste("'", allvars, "'", sep=""), collapse=", "),  ")]", sep=""))
 		if (matrix == "correlation") doItAndPrint(".Data <- as.data.frame(scale(.Data))")
-		doItAndPrint(paste("summary(sem(.model, data=.Data), robust=", if (robust == 1) "TRUE" else "FALSE", ")", sep=""))
+		doItAndPrint(paste("summary(sem(.model, data=.Data), robust=", if (robust == 1) "TRUE" else "FALSE", 
+						 ")", sep=""))
 		justDoIt("remove('.model', '.Data', envir=.GlobalEnv)")
 		logger("remove('.model', '.Data')")
 	}
 	OKCancelHelp(helpSubject="CFA", reset="CFA")
-	tkgrid(matrixFrame, labelRcmdr(optionsFrame, text="    "), factorCorFrame, labelRcmdr(optionsFrame, text="    "), 
-			robustFrame, sticky="nw")
+	tkgrid(matrixFrame, labelRcmdr(optionsFrame, text="    "), factorCorFrame, sticky="nw")
+	tkgrid(identifyFrame, labelRcmdr(optionsFrame, text="    "),  robustFrame, sticky="w")
 	tkgrid(optionsFrame, sticky="w")
 	tkgrid(labelRcmdr(top, text=""))
 	tkgrid(getFrame(xBox), sticky="w")
