@@ -1,4 +1,4 @@
-"Project-Id-Version: Rcmdr 1.7-0\n"
+"Project-Id-Version: Rcmdr 1.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: 2011-12-11 12:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
