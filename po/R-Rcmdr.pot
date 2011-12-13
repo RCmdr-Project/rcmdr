@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 1.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2011-12-11 12:00\n"
+"POT-Creation-Date: 2011-12-13 13:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3803,13 +3803,7 @@ msgstr ""
 msgid "Factor Correlations"
 msgstr ""
 
-msgid "Define factor
-msgstr ""
-
 msgid "There are too many factors."
-msgstr ""
-
-msgid "Name for factor:"
 msgstr ""
 
 msgid "Identifying Constraints"
