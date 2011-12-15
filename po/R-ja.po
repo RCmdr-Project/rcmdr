@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr Japanese Translation\n"
 "POT-Creation-Date: 2010-07-10 19:00\n"
-"PO-Revision-Date: 2011-11-29 14:51+0900\n"
+"PO-Revision-Date: 2011-12-15 14:25+0900\n"
 "Last-Translator: Takaharu Araki <arakit@kansai-u.ac.jp>\n"
 "Language-Team: Rcmdr Japanese Translation <arakit@kansai-u.ac.jp>\n"
 "MIME-Version: 1.0\n"
@@ -3887,4 +3887,64 @@ msgstr "完全なケースの利用"
 
 msgid "Use pairwise-complete cases"
 msgstr "対での完全なケースの利用"
+
+# messages added to version 1.7-4
+msgid "Component scores are not available when subset is specified."
+msgstr "部分集合を指定した場合，主成分得点を利用できない．"
+
+msgid "Factor scores are not available when subset is specified."
+msgstr "部分集合を指定した場合，因子得点を利用できない．"
+
+# messages added to version 1.8-0
+msgid "Confirmatory Factor Analysis"
+msgstr "検証的因子分析"
+
+msgid "Fewer than 2 variables selected to load on factor."
+msgstr "因子に付加する変数の数が2より少ない．"
+
+msgid "Define factor"
+msgstr "因子の定義"
+
+msgid ""
+"Select variables\n"
+"loading on factor"
+msgstr ""
+"因子が負荷する\n"
+"変数の選択"
+
+msgid "Covariance"
+msgstr "共分散"
+
+msgid "Correlation"
+msgstr "相関"
+
+msgid "Matrix to Analyze"
+msgstr "分析する行列"
+
+msgid "Correlated"
+msgstr "斜交"
+
+msgid "Orthogonal"
+msgstr "直交"
+
+msgid "Factor Correlations"
+msgstr "因子の相関"
+
+msgid "There are too many factors."
+msgstr "因子数が多い．"
+
+msgid "Identifying Constraints"
+msgstr "一意性のための制約"
+
+msgid "Factor variances set to 1"
+msgstr "因子分散を1に設定"
+
+msgid "First loading on each factor set to 1"
+msgstr "各因子の最初の負荷量を1に設定"
+
+msgid "Confirmatory factor analysis..."
+msgstr "検証的因子分析..."
+
+msgid "Robust standard errors"
+msgstr "ロバスト標準誤差"
 
