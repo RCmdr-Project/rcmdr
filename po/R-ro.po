@@ -2,13 +2,13 @@
 # Traducerea in limba romana a pachetului Rcmdr
 # Copyright (C) 2005 John Fox
 # This file is distributed under the same license as the Rcmdr package
-# Dusa Adrian <dusa.adrian@gmail.com>, 2008
+# Dusa Adrian <dusa.adrian@gmail.com>, 2011
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 1.2-0\n"
-"Report-Msgid-Bugs-To: bugs@r-project.org\n"
-"POT-Creation-Date: 2006-08-20 10:35\n"
-"PO-Revision-Date: 2006-08-30 12:30+0200\n"
+"Project-Id-Version: Rcmdr 1.8-0\n"
+"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
+"POT-Creation-Date: 2011-12-11 12:00\n"
+"PO-Revision-Date: 2011-12-13 17:00+0200\n"
 "Last-Translator: Adrian Dusa <dusa.adrian@gmail.com>\n"
 "Language-Team: Romanian <dusa.adrian@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -3689,3 +3689,133 @@ msgstr "tasta Esc pentru iesire."
 	
 msgid "Start R help system"
 msgstr "Porneste sistemul de help al lui R"
+
+
+# messages added to version 1.6-4 
+#  to correct order of file extensions
+
+msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisiere script\" {\".R\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisiere output\" {\".txt\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisiere text\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisiere SPSS portabile\" {\".por\" \".POR\"}} {\"Fisiere SPSS\" {\".sav\" \".SAV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisiere Minitab portabile\" {\".mtp\" \".MTP\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Seturi de date STATA\" {\".dta\" \".DTA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Baze de date MS Access\" {\".mdb\" \".MDB\"}} {\"Baze de date MS Access 2007\" {\".accdb\" \".ACCDB\"}} {\"Fisiere dBase\" {\".dbf\" \".DBF\"}} {\"Fisiere MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"Fisiere MS Excel\" {\".xls\" \".XLS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisiere de date R\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisiere PNG\" {\".png\" \".PNG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisiere JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisierer PDF\" {\".pdf\" \".PDF\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisiere Postscript\" {\".ps\" \".PS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisiere Encapsulated Postscript\" {\".eps\" \".EPS\"}}"
+
+# messages added to version 1.7-0
+
+msgid "Reset"
+msgstr "Reset"
+
+msgid "Coefficient of Variation"
+msgstr "Coeficient de variatie"
+
+msgid "Skewness"
+msgstr "Alungire"
+
+msgid "Kurtosis"
+msgstr "Aplatizare"
+
+msgid "Type 1"
+msgstr "Tip 1"
+
+msgid "Type 2"
+msgstr "Tip 2"
+
+msgid "Type 3"
+msgstr "Tip 3"
+
+msgid "Missing Data"
+msgstr "Date missing"
+
+msgid "Use complete cases"
+msgstr "Utilizare cazuri complete"
+
+msgid "Use pairwise-complete cases"
+msgstr "Utilizare cazuri complete in perechi"
+
+# messages added to version 1.7-4
+
+msgid "Component scores are not available when subset is specified."
+msgstr "Scorurile componentelor nu sunt disponibile pentru subseturi de date"
+
+msgid "Factor scores are not available when subset is specified."
+msgstr "Scorurile factoriale nu sunt disponibile pentru subseturi de date"
+
+# messages added to version 1.8-0
+
+msgid "Confirmatory Factor Analysis"
+msgstr "Analiza Factoriala Confirmatorie"
+
+msgid "Fewer than 2 variables selected to load on factor."
+msgstr "Mai putin de 2 variabile selectare pentru incarcarea unui factor"
+
+msgid "Define factor"
+msgstr "Definire factor"
+
+msgid "Select variables\nloading on factor"
+msgstr "Selectare variabile\nincarcaturi pentru un factor"
+
+msgid "Covariance"
+msgstr "Covarianta"
+
+msgid "Correlation"
+msgstr "Corelatie"
+
+msgid "Matrix to Analyze"
+msgstr "Matricea de analizat"
+
+msgid "Correlated"
+msgstr "Corelata"
+
+msgid "Orthogonal"
+msgstr "Ortogonal"
+
+msgid "Factor Correlations"
+msgstr "Corelatii intre factori"
+
+msgid "There are too many factors."
+msgstr "Sunt prea multi factori."
+
+msgid "Identifying Constraints"
+msgstr "Identificare contrangeri"
+
+msgid "Factor variances set to 1"
+msgstr "Variantele factorilor setate la 1"
+
+msgid "First loading on each factor set to 1"
+msgstr "Prima incarcaturia a fiecarui factor setata la 1"
+
+msgid "Confirmatory factor analysis..."
+msgstr "Analiza factoriala confirmatorie..."

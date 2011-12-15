@@ -975,11 +975,13 @@ Version 1.7-4
    
    o Fixed another bug in numSummary() due to change in R 2.14.0 (also reported by Garrett DaBell).
    
-   o Updates Japanese translation and getting-started document (courtesy of Takaharu Araki).
+   o Updated Japanese translation and getting-started document (courtesy of Takaharu Araki).
    
 Version 1.8-0
 
    o Concluded dialog-memory updates (with help of Kosar Karimi Pour).
    
    o Added confirmatory factor analysis.
+   
+   o Updated Romanian, Russian, and Spanish translations (thanks respectively to Adrian Dusa, Alexey Shipunov, and Manuel Munoz Marquez).
    

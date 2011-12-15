@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Rcmdr 1.2-0\n"
 "Report-Msgid-Bugs-To: bugs@R-project.org\n"
 "POT-Creation-Date: 2005-06-02 13:06+0100\n"
-"PO-Revision-Date: 2010-10-07 23:17-0600\n"
+"PO-Revision-Date: 2011-12-13 01:44-0600\n"
 "Last-Translator: Alexey Shipunov <dactylorhiza@gmail.com>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -3798,4 +3798,136 @@ msgstr "Esc для выхода."
 # menus
 msgid "Start R help system"
 msgstr "Запустить систему помощи R"
+
+# messages added to version 1.6-4
+#  to correct order of file extensions
+msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы скриптов\" {\".R\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы вывода\" {\".txt\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"текстовые файлы\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Переносимые файлы SPSS\" {\".por\" \".POR\"}} {\"Сохраняемые файлы SPSS\" {\".sav\" \".SAV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Переносимые файлы Minitab\" {\".mtp\" \".MTP\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Данные STATA\" {\".dta\" \".DTA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"База данных MS Access\" {\".mdb\" \".MDB\"}} {\"База данных MS Access 2007\" {\".accdb\" \".ACCDB\"}} {\"Файл dBase\" {\".dbf\" \".DBF\"}} {\"Файл MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"Файл MS Excel\" {\".xls\" \".XLS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы R Data\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы PNG\" {\".png\" \".PNG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы PDF\" {\".pdf\" \".PDF\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы Postscript\" {\".ps\" \".PS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"EPS-файлы\" {\".eps\" \".EPS\"}}"
+
+# messages added to version 1.7-0
+msgid "Reset"
+msgstr "Перезагрузить"
+
+msgid "Coefficient of Variation"
+msgstr "Коэффициент вариации"
+
+msgid "Skewness"
+msgstr "Асимметрия"
+
+msgid "Kurtosis"
+msgstr "Эксцесс"
+
+msgid "Type 1"
+msgstr "Тип 1"
+
+msgid "Type 2"
+msgstr "Тип 2"
+
+msgid "Type 3"
+msgstr "Тип 3"
+
+msgid "Missing Data"
+msgstr "Пропущенные данные"
+
+msgid "Use complete cases"
+msgstr "Использовать полные строки"
+
+msgid "Use pairwise-complete cases"
+msgstr "Использовать попарно полные строки"
+
+# messages added to version 1.7-4
+msgid "Component scores are not available when subset is specified."
+msgstr "Значения компонентов недоступны, когда указано подмножество."
+
+msgid "Factor scores are not available when subset is specified."
+msgstr "Значения факторов недоступны, когда указано подмножество."
+
+# messages added to version 1.8-0
+msgid "Confirmatory Factor Analysis"
+msgstr "Подтверждающий факторный анализ"
+
+msgid "Fewer than 2 variables selected to load on factor."
+msgstr "Выбрано меньше фвух переменных на фактор."
+
+msgid "Define factor"
+msgstr "Определить фактор"
+
+msgid ""
+"Select variables\n"
+"loading on factor"
+msgstr ""
+"Выбрать переменные\n"
+"нагрузки фактора"
+
+msgid "Covariance"
+msgstr "Ковариация"
+
+msgid "Correlation"
+msgstr "Корреляция"
+
+msgid "Matrix to Analyze"
+msgstr "Матрица для анализа"
+
+msgid "Correlated"
+msgstr "Коррелировано"
+
+msgid "Orthogonal"
+msgstr "Ортогональный"
+
+msgid "Factor Correlations"
+msgstr "Корреляции факторов"
+
+msgid "Define facto"
+msgstr "Определить фактор"
+
+msgid "There are too many factors."
+msgstr "Слишком много факторов"
+
+msgid "Identifying Constraints"
+msgstr "Требования к идентификации"
+
+msgid "Factor variances set to 1"
+msgstr "Факторные дисперсии установлены в 1"
+
+msgid "First loading on each factor set to 1"
+msgstr "Первая нагрузка для каждого фактора установлена в 1"
+
+msgid "Confirmatory factor analysis..."
+msgstr "Подтверждающий факторный анализ..."
 
