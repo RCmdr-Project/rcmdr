@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Rcmdr 1.5-0\n"
 "Report-Msgid-Bugs-To: bugs@r-project.org\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2010-10-20 16:22+0100\n"
+"PO-Revision-Date: 2011-12-16 10:48+0100\n"
 "Last-Translator: Stefano Calza <stefano.calza@med.unibs.it>\n"
 "Language-Team: Italiano <stefano.calza@med.unibs.it>\n"
 "Language: \n"
@@ -3772,4 +3772,134 @@ msgstr "pulsante esc per uscire."
 # menus
 msgid "Start R help system"
 msgstr "Avvia l'help di R"
+
+msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
+msgstr "{\"Tutti i files\" {\"*\"}}{\"Files di comandi\" {\".R\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
+msgstr "{\"Tutti i files\" {\"*\"}}{\"Files di comandi\" {\".R\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+msgstr "{\"Tutti i files\" {\"*\"}}{\"File di testo\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgstr "{\"Tutti i files\" {\"*\"}}{\"SPSS portable \" {\".por\" \".POR\"}} {\"File di salvataggio SPSS\" {\".sav\" \".SAV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr "{\"Tutti i files\" {\"*\"}}{\"Minitab portable\" {\".mtp\" \".MTP\"}} "
+
+msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+msgstr "{\"Tutti i file\" {\"*\"}}{\"STATA\" {\".dta\" \".DTA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr " {\"Tutti i file\" {\"*\"}}{\"MS Access\" {\".mdb\" \".MDB\"}} {\"MS Access 2007\" {\".accdb\" \".ACCDB\"}} {\"dBase\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"MS Excel\" {\".xls\" \".XLS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgstr "{\"Tutti i files\" {\"*\"}}{\"Files dati di R\" {\".rda\" \".Rda\" \".RDA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
+msgstr "{\"Tutti i files\" {\"*\"}}{\"PNG\" {\".png\" \".PNG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgstr "{\"Tutti i files\" {\"*\"}}{\"JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} "
+
+msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
+msgstr "{\"Tutti i files\" {\"*\"}}{\"PDF\" {\".pdf\" \".PDF\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
+msgstr "{\"Tutti i files\" {\"*\"}} {\"Postscript\" {\".ps\" \".PS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgstr "{\"Tutti i files\" {\"*\"}}{\"Encapsulated Postscript\" {\".eps\" \".EPS\"}}"
+
+# messages added to version 1.7-0
+msgid "Reset"
+msgstr "Risetta"
+
+msgid "Coefficient of Variation"
+msgstr "Coefficiente di Variazione"
+
+msgid "Skewness"
+msgstr "Asimmetria"
+
+msgid "Kurtosis"
+msgstr "Curtosi"
+
+msgid "Type 1"
+msgstr "Tipo 1"
+
+msgid "Type 2"
+msgstr "Tipo 2"
+
+msgid "Type 3"
+msgstr "Tipo 3"
+
+msgid "Missing Data"
+msgstr "Dati mancanti"
+
+msgid "Use complete cases"
+msgstr "Utilizza i casi completi"
+
+msgid "Use pairwise-complete cases"
+msgstr "Utilizza i casi completi a coppie"
+
+# messages added to version 1.7-4
+msgid "Component scores are not available when subset is specified."
+msgstr "Gli score del componente non sono disponibili quando si specifica un sottoinsieme"
+
+msgid "Factor scores are not available when subset is specified."
+msgstr "Gli score del fattore non sono disponibili quando si specifica un sottoinsieme."
+
+msgid "Confirmatory Factor Analysis"
+msgstr "Analisi dei Fattori confermatoria."
+
+msgid "Fewer than 2 variables selected to load on factor."
+msgstr "Si sono selezionate meno di 2 variabili afferenti ad un fattore."
+
+msgid "Define factor"
+msgstr "Definire il fattore"
+
+msgid ""
+"Select variables\n"
+"loading on factor"
+msgstr ""
+"Selezionare la variabili\n"
+"che afferiscono al fattore"
+
+msgid "Covariance"
+msgstr "Covarianza"
+
+msgid "Correlation"
+msgstr "Correlazione"
+
+msgid "Matrix to Analyze"
+msgstr "Matrice da analizzare"
+
+# Correlation test dialog
+msgid "Correlated"
+msgstr "Correlato"
+
+msgid "Orthogonal"
+msgstr "Ortogonale"
+
+msgid "Factor Correlations"
+msgstr "Correlazioni tra i fattori"
+
+msgid "There are too many factors."
+msgstr "Ci sono troppi fattori."
+
+msgid "Identifying Constraints"
+msgstr "Identifica i vincoli"
+
+msgid "Factor variances set to 1"
+msgstr "Varianze dei fattori impostate su 1"
+
+msgid "First loading on each factor set to 1"
+msgstr "Il primo coefficiente di ciascun fattore impostato su 1"
+
+msgid "Confirmatory factor analysis..."
+msgstr "Analisi dei fattori confermativa..."
+
+msgid "Robust standard errors"
+msgstr "Errori standard robusti"
 
