@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2011-12-10 by J. Fox
+# last modified 2011-12-17 by J. Fox
 
 selectActiveModel <- function(){
     models <- listAllModels()
@@ -684,100 +684,221 @@ testLinearHypothesis <- function(){
 	dialogSuffix(rows=4, columns=1)       
 } 
 
-compareModels <- function(){
-    models <- listAllModels()
-    if (length(models) < 2){
-        Message(message=gettextRcmdr("There are fewer than two models."),
-                type="error")
-        tkfocus(CommanderWindow())
-        return()
-        }
-    initializeDialog(title=gettextRcmdr("Compare Models"))
-    modelsBox1 <- variableListBox(top, models, title=gettextRcmdr("First model (pick one)"))
-    modelsBox2 <- variableListBox(top, models, title=gettextRcmdr("Second model (pick one)"))
-    onOK <- function(){
-        model1 <- getSelection(modelsBox1)
-        model2 <- getSelection(modelsBox2)
-        closeDialog()
-        if (length(model1) == 0 || length(model2) == 0) {
-            errorCondition(recall=compareModels, message=gettextRcmdr("You must select two models."))
-            return()
-            }
-        if (!checkMethod("anova", model1)) {
-            return()
-            }
-        if (!class(get(model1, envir=.GlobalEnv))[1] == class(get(model2, envir=.GlobalEnv))[1]){
-#        if (!eval(parse(text=paste("class(", model1, ")[1] == class(", model2, ")[1]",
-#            sep="")), envir=.GlobalEnv)){
-                Message(message=gettextRcmdr("Models are not of the same class."),
-                    type="error")
-                compareModels()
-                return()
-                }
-		if (glmP()){
-			family1 <- eval(parse(text=paste(model1, "$family$family", sep="")))
-			family2 <- eval(parse(text=paste(model2, "$family$family", sep="")))
-			if (family1 != family2){
-				Message(message=gettextRcmdr("Models do not have the same family."),
-					type="error")
+#compareModels <- function(){
+#    models <- listAllModels()
+#    if (length(models) < 2){
+#        Message(message=gettextRcmdr("There are fewer than two models."),
+#                type="error")
+#        tkfocus(CommanderWindow())
+#        return()
+#        }
+#    initializeDialog(title=gettextRcmdr("Compare Models"))
+#    modelsBox1 <- variableListBox(top, models, title=gettextRcmdr("First model (pick one)"))
+#    modelsBox2 <- variableListBox(top, models, title=gettextRcmdr("Second model (pick one)"))
+#    onOK <- function(){
+#        model1 <- getSelection(modelsBox1)
+#        model2 <- getSelection(modelsBox2)
+#        closeDialog()
+#        if (length(model1) == 0 || length(model2) == 0) {
+#            errorCondition(recall=compareModels, message=gettextRcmdr("You must select two models."))
+#            return()
+#            }
+#        if (!checkMethod("anova", model1)) {
+#            return()
+#            }
+#        if (!class(get(model1, envir=.GlobalEnv))[1] == class(get(model2, envir=.GlobalEnv))[1]){
+##        if (!eval(parse(text=paste("class(", model1, ")[1] == class(", model2, ")[1]",
+##            sep="")), envir=.GlobalEnv)){
+#                Message(message=gettextRcmdr("Models are not of the same class."),
+#                    type="error")
+#                compareModels()
+#                return()
+#                }
+#		if (glmP()){
+#			family1 <- eval(parse(text=paste(model1, "$family$family", sep="")))
+#			family2 <- eval(parse(text=paste(model2, "$family$family", sep="")))
+#			if (family1 != family2){
+#				Message(message=gettextRcmdr("Models do not have the same family."),
+#					type="error")
+#				compareModels()
+#				return()
+#			}
+#			test <- if (family1 %in% c("binomial", "poisson")) "Chisq"
+#				else "F"
+#			doItAndPrint(paste("anova(", model1, ", ", model2, ', test="', test, '")', sep=""))
+#		}
+#        else doItAndPrint(paste("anova(", model1, ", ", model2, ")", sep=""))
+#        tkfocus(CommanderWindow())
+#        }
+#    OKCancelHelp(helpSubject="anova")
+#    tkgrid(getFrame(modelsBox1), getFrame(modelsBox2), sticky="nw")
+#    tkgrid(buttonsFrame, columnspan=2, sticky="w")
+#    dialogSuffix(rows=2, columns=2)
+#    }
+
+compareModels <- function () {
+	modelPosn <- function(model){
+		if (is.null(model)) return(NULL)
+		if (!(model %in% models)) NULL
+		else which(model == models) - 1
+	}
+	defaults <- list (initial.model1 = NULL, initial.model2 = NULL)
+	dialog.values <- getDialog ("compareModels", defaults)  
+	models <- listAllModels()
+	if (length(models) < 2) {
+		Message(message = gettextRcmdr("There are fewer than two models."), 
+				type = "error")
+		tkfocus(CommanderWindow())
+		return()
+	}
+	initializeDialog(title = gettextRcmdr("Compare Models"))
+	modelsBox1 <- variableListBox(top, models, title = gettextRcmdr("First model (pick one)"),
+			initialSelection = modelPosn(dialog.values$initial.model1))
+	modelsBox2 <- variableListBox(top, models, title = gettextRcmdr("Second model (pick one)"),
+			initialSelection = modelPosn(dialog.values$initial.model2))
+	onOK <- function() {
+		model1 <- getSelection(modelsBox1)
+		model2 <- getSelection(modelsBox2)
+		closeDialog()
+		putDialog ("compareModels", list (initial.model1 = model1, initial.model2 = model2))
+		if (length(model1) == 0 || length(model2) == 0) {
+			errorCondition(recall = compareModels, message = gettextRcmdr("You must select two models."))
+			return()
+		}
+		if (!checkMethod("anova", model1)) {
+			return()
+		}
+		if (!class(get(model1, envir = .GlobalEnv))[1] == class(get(model2, 
+						envir = .GlobalEnv))[1]) {
+			Message(message = gettextRcmdr("Models are not of the same class."), 
+					type = "error")
+			compareModels()
+			return()
+		}
+		if (glmP()) {
+			family1 <- eval(parse(text = paste(model1, "$family$family", 
+									sep = "")))
+			family2 <- eval(parse(text = paste(model2, "$family$family", 
+									sep = "")))
+			if (family1 != family2) {
+				Message(message = gettextRcmdr("Models do not have the same family."), 
+						type = "error")
 				compareModels()
 				return()
 			}
-			test <- if (family1 %in% c("binomial", "poisson")) "Chisq"
-				else "F"
-			doItAndPrint(paste("anova(", model1, ", ", model2, ', test="', test, '")', sep=""))
+			test <- if (family1 %in% c("binomial", "poisson")) 
+						"Chisq"
+					else "F"
+			doItAndPrint(paste("anova(", model1, ", ", model2, 
+							", test=\"", test, "\")", sep = ""))
 		}
-        else doItAndPrint(paste("anova(", model1, ", ", model2, ")", sep=""))
-        tkfocus(CommanderWindow())
-        }
-    OKCancelHelp(helpSubject="anova")
-    tkgrid(getFrame(modelsBox1), getFrame(modelsBox2), sticky="nw")
-    tkgrid(buttonsFrame, columnspan=2, sticky="w")
-    dialogSuffix(rows=2, columns=2)
-    }
-    
-BreuschPaganTest <- function(){
-    if (is.null(.activeModel)) return()
-    Library("lmtest")
+		else doItAndPrint(paste("anova(", model1, ", ", model2, 
+							")", sep = ""))
+		tkfocus(CommanderWindow())
+	}
+	OKCancelHelp(helpSubject = "anova", reset = "compareModels")
+	tkgrid(getFrame(modelsBox1), getFrame(modelsBox2), sticky = "nw")
+	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
+	dialogSuffix(rows = 2, columns = 2)
+}
+
+#BreuschPaganTest <- function(){
+#    if (is.null(.activeModel)) return()
+#    Library("lmtest")
+#	currentModel <- FALSE
+#    initializeDialog(title=gettextRcmdr("Breusch-Pagan Test"))
+#    tkgrid(labelRcmdr(top, text=gettextRcmdr("Score Test for Nonconstant Error Variance"), fg="blue"), sticky="w")
+#    optionsFrame <- tkframe(top)
+#    onOK <- function(){
+#        .activeModel <- ActiveModel()
+#        var <- tclvalue(varVariable)
+#        closeDialog()
+#        type <- if (var == "fitted") paste(", varformula = ~ fitted.values(",
+#                    .activeModel, ")", sep="") 
+#                else if (var == "predictors") ""
+#                else paste(", varformula = ~", tclvalue(rhsVariable), sep="")
+#        student <- if (tclvalue(studentVariable) == 1) "TRUE" else "FALSE"
+#        model.formula <- as.character(formula(get(.activeModel)))
+##        model.formula <- as.character(eval(parse(text=paste("formula(", .activeModel, ")", sep=""))))
+#        model.formula <- paste(model.formula[2], "~", model.formula[3])
+#        command <- paste("bptest(", model.formula, type, ", studentize=", student,
+#            ", data=", ActiveDataSet(), ")", sep="")
+#        doItAndPrint(command)  
+#        tkfocus(CommanderWindow())
+#        }
+#    OKCancelHelp(helpSubject="bptest")
+#    studentVariable <- tclVar("0")
+#    studentFrame <- tkframe(optionsFrame)
+#    studentCheckBox <- tkcheckbutton(studentFrame, variable=studentVariable)
+#    tkgrid(labelRcmdr(studentFrame, text=gettextRcmdr("Studentized test statistic"), justify="left"),
+#        studentCheckBox, sticky="w")
+#    tkgrid(studentFrame, sticky="w")
+#    radioButtons(optionsFrame, name="var", buttons=c("fitted", "predictors", "other"), 
+#        labels=gettextRcmdr(c("Fitted values", "Explanatory variables", "Other (specify)")), title=gettextRcmdr("Variance Formula"))
+#    tkgrid(varFrame, sticky="w")
+#    modelFormula(optionsFrame, hasLhs=FALSE)
+#    tkgrid(formulaFrame, sticky="w")
+#    tkgrid(outerOperatorsFrame)
+#    tkgrid(getFrame(xBox), sticky="w")
+#    tkgrid(optionsFrame, sticky="w")
+#    tkgrid(buttonsFrame, sticky="w")
+#    dialogSuffix(rows=4, columns=1)
+#    }
+
+BreuschPaganTest <- function () {
+	if (is.null(.activeModel)) 
+		return()
+	Library("lmtest")
 	currentModel <- FALSE
-    initializeDialog(title=gettextRcmdr("Breusch-Pagan Test"))
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("Score Test for Nonconstant Error Variance"), fg="blue"), sticky="w")
-    optionsFrame <- tkframe(top)
-    onOK <- function(){
-        .activeModel <- ActiveModel()
-        var <- tclvalue(varVariable)
-        closeDialog()
-        type <- if (var == "fitted") paste(", varformula = ~ fitted.values(",
-                    .activeModel, ")", sep="") 
-                else if (var == "predictors") ""
-                else paste(", varformula = ~", tclvalue(rhsVariable), sep="")
-        student <- if (tclvalue(studentVariable) == 1) "TRUE" else "FALSE"
-        model.formula <- as.character(formula(get(.activeModel)))
-#        model.formula <- as.character(eval(parse(text=paste("formula(", .activeModel, ")", sep=""))))
-        model.formula <- paste(model.formula[2], "~", model.formula[3])
-        command <- paste("bptest(", model.formula, type, ", studentize=", student,
-            ", data=", ActiveDataSet(), ")", sep="")
-        doItAndPrint(command)  
-        tkfocus(CommanderWindow())
-        }
-    OKCancelHelp(helpSubject="bptest")
-    studentVariable <- tclVar("0")
-    studentFrame <- tkframe(optionsFrame)
-    studentCheckBox <- tkcheckbutton(studentFrame, variable=studentVariable)
-    tkgrid(labelRcmdr(studentFrame, text=gettextRcmdr("Studentized test statistic"), justify="left"),
-        studentCheckBox, sticky="w")
-    tkgrid(studentFrame, sticky="w")
-    radioButtons(optionsFrame, name="var", buttons=c("fitted", "predictors", "other"), 
-        labels=gettextRcmdr(c("Fitted values", "Explanatory variables", "Other (specify)")), title=gettextRcmdr("Variance Formula"))
-    tkgrid(varFrame, sticky="w")
-    modelFormula(optionsFrame, hasLhs=FALSE)
-    tkgrid(formulaFrame, sticky="w")
-    tkgrid(outerOperatorsFrame)
-    tkgrid(getFrame(xBox), sticky="w")
-    tkgrid(optionsFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=4, columns=1)
-    }
+	defaults <- list (initial.var = "fitted", initial.student = 0)
+	dialog.values <- getDialog ("BreuschPaganTest", defaults)
+	initializeDialog(title = gettextRcmdr("Breusch-Pagan Test"))
+	tkgrid(labelRcmdr(top, text = gettextRcmdr("Score Test for Nonconstant Error Variance"), 
+					fg = "blue"), sticky = "w")
+	optionsFrame <- tkframe(top)
+	onOK <- function() {
+		.activeModel <- ActiveModel()
+		student <- tclvalue(studentVariable)
+		var <- tclvalue(varVariable)
+		putDialog ("BreuschPaganTest", list (initial.var = var, initial.student = student))
+		type <- if (var == "fitted") 
+					paste(", varformula = ~ fitted.values(", .activeModel, 
+							")", sep = "")
+				else if (var == "predictors") 
+					""
+				else paste(", varformula = ~", tclvalue(rhsVariable), 
+							sep = "")
+		model.formula <- as.character(formula(get(.activeModel)))
+		model.formula <- paste(model.formula[2], "~", model.formula[3])
+		closeDialog()
+		student <- if (tclvalue(studentVariable) == 1) 
+					"TRUE"
+				else "FALSE"
+		command <- paste("bptest(", model.formula, type, ", studentize=", 
+				student, ", data=", ActiveDataSet(), ")", sep = "")
+		doItAndPrint(command)
+		tkfocus(CommanderWindow())
+	}
+	OKCancelHelp(helpSubject = "bptest", reset = "BreuschPaganTest")
+	studentVariable <- tclVar(dialog.values$initial.student)
+	studentFrame <- tkframe(optionsFrame)
+	studentCheckBox <- tkcheckbutton(studentFrame, variable = studentVariable)
+	tkgrid(labelRcmdr(studentFrame, text = gettextRcmdr("Studentized test statistic"), 
+					justify = "left"), studentCheckBox, sticky = "w")
+	tkgrid(studentFrame, sticky = "w")
+	radioButtons(optionsFrame, name = "var", buttons = c("fitted", 
+					"predictors", "other"), labels = gettextRcmdr(c("Fitted values", 
+							"Explanatory variables", "Other (specify)")), title = gettextRcmdr("Variance Formula"), 
+			initialValue = dialog.values$initial.var)
+	tkgrid(varFrame, sticky = "w")
+	modelFormula(optionsFrame, hasLhs = FALSE)
+	tkgrid(formulaFrame, sticky = "w")
+	tkgrid(outerOperatorsFrame)
+	tkgrid(getFrame(xBox), sticky = "w")
+	tkgrid(optionsFrame, sticky = "w")
+	tkgrid(buttonsFrame, sticky = "w")
+	dialogSuffix(rows = 4, columns = 1)
+}
 
 #DurbinWatsonTest <- function(){
 #    if (is.null(.activeModel)) return()
