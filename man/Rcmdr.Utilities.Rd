@@ -157,7 +157,7 @@ groupsBox(recall=NULL, label=gettextRcmdr("Plot by:"),
     initialLabel=gettextRcmdr("Plot by groups"),
     plotLinesByGroup=FALSE, positionLegend=FALSE, 
     plotLinesByGroupsText=gettextRcmdr("Plot lines by group"), 
-    initialGroup=NULL)  # macro
+    initialGroup=NULL, initialLinesByGroup=1)  # macro
 groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1)  # macro
 hclustSolutionsP()
 initializeDialog(window=top, title="", offset=10, preventCrisp=FALSE)  # macro
@@ -258,6 +258,7 @@ commanderPosition()
   \item{increment}{increment to model number; -1 to set back after error.}
   \item{initialGroup}{quoted name of variable to define groups, set as initial selection in Groups variable list; 
   	\code{NULL} (the default) for no initial selection.}
+  \item{initialLinesByGroup}{if 1, the lines-by-groups check box is initially checked; 0 to uncheck.}
   \item{initialLabel}{label for groups button before a selection is made.}
   \item{initialSelection}{index of item initially selected, 0-base indexing.}
   \item{initialValue}{for a set of related radio buttons.}
