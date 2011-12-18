@@ -1,4 +1,4 @@
-# last modified 2011-09-22 by J. Fox
+# last modified 2011-12-18 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -23,8 +23,8 @@ loadLog <- function(){
     tkinsert(.log, "end", paste(contents, collapse="\n"))
     }
 
-saveLog <- function() {
-    .logFileName <- getRcmdr("logFileName")
+saveLog <- function(logfilename) {
+    .logFileName <- if(missing(logfilename)) getRcmdr("logFileName") else logfilename
     if (is.null(.logFileName)) {
         saveLogAs()
         return()
