@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2011-12-09 by J. Fox
+# last modified 2011-12-18 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -158,6 +158,7 @@ Commander <- function(){
 	setOption("console.output", FALSE)
 	setOption("retain.selections", TRUE)
 	putRcmdr("dialog.values", list())
+	putRcmdr("savedTable", NULL)
 	log.height <- as.character(setOption("log.height", if (!getRcmdr("log.commands")) 0 else 10, global=FALSE))
 	log.width <- as.character(setOption("log.width", 80, global=FALSE))
 	output.height <- as.character(setOption("output.height",
