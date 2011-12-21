@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2011-12-27 by J. Fox
+# last modified 2011-12-21 by J. Fox
 
     # Summaries menu
     
@@ -79,6 +79,7 @@ numericalSummaries <- function(){ # dialog memory 2011-06-27  J. Fox
 			initial.skewness="0", initial.kurtosis="0", initial.type="2",
 			initial.group=NULL)
 	dialog.values <- getDialog("numericalSummaries", defaults)
+	initial.group <- dialog.values$initial.group
 	initializeDialog(title=gettextRcmdr("Numerical Summaries"))
 	xBox <- variableListBox(top, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick one or more)"),
 			initialSelection=varPosn(dialog.values$initial.x, "numeric"))
@@ -98,8 +99,9 @@ numericalSummaries <- function(){ # dialog memory 2011-06-27  J. Fox
 	quantiles <- tclVar(dialog.values$initial.quantiles)
 	quantilesEntry <- ttkentry(quantilesFrame, width="20", textvariable=quantiles)
 	groupsBox(recall=numericalSummaries, label=gettextRcmdr("Summarize by:"), 
-			initialLabel=gettextRcmdr("Summarize by groups"), 
-			initialGroup=dialog.values$initial.group)
+			initialLabel=if (is.null(initial.group)) gettextRcmdr("Summarize by groups") 
+					else paste(gettextRcmdr("Summarize by:"), initial.group), 
+			initialGroup=initial.group)
 	onOK <- function(){
 		x <- getSelection(xBox)
 		quants <- tclvalue(quantiles)

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2011-12-08 by J. Fox
+# last modified 2011-12-21 by J. Fox
 
     # Dimensional-analysis menu
     
@@ -155,7 +155,7 @@ principalComponents <- function () {
 			errorCondition(recall = principalComponents, message = gettextRcmdr("Fewer than 2 variables selected."))
 			return()
 		}
-		subset <- if (trim.blanks(subset) == gettextRcmdr("<all valid cases>")) 
+		subset <- if (trim.blanks(subset) == "" || trim.blanks(subset) == gettextRcmdr("<all valid cases>")) 
 					""
 				else paste(", subset=", subset, sep = "")
 		correlations <- if (correlations == "1") 
@@ -175,9 +175,11 @@ principalComponents <- function () {
 			logger("screeplot(.PC)")
 		}
 		if (addPC == "1") {
-			if (trim.blanks(subset) != gettextRcmdr("<all valid cases>")) 
+			if (trim.blanks(subset) != ""){
 				errorCondition(recall=principalComponents,
 						message=gettextRcmdr("Component scores are not available when subset is specified."))
+				return()
+			}
 			initializeDialog(subdialog, title = gettextRcmdr("Number of Components"))
 			tkgrid(labelRcmdr(subdialog, text = gettextRcmdr("Number of components to retain:"), 
 							fg = "blue"), sticky = "w")
@@ -364,12 +366,14 @@ factorAnalysis <- function () {
 			dialogSuffix(subdialog, onOK = onOKsub, rows = 2, 
 					columns = 1, focus = subdialog)
 		}
-		if (scores != "none" && trim.blanks(subset) != gettextRcmdr("<all valid cases>")) 
-				errorCondition(recall=factorAnalysis,
-						message=gettextRcmdr("Factor scores are not available when subset is specified."))
-		subset <- if (trim.blanks(subset) == gettextRcmdr("<all valid cases>")) 
+		subset <- if (trim.blanks(subset) == "" || trim.blanks(subset) == gettextRcmdr("<all valid cases>")) 
 					""
 				else paste(", subset=", subset, sep = "")
+		if (scores != "none" && subset != ""){
+			errorCondition(recall=factorAnalysis,
+					message=gettextRcmdr("Factor scores are not available when subset is specified."))
+			return()
+		}
 		.activeDataSet <- ActiveDataSet()
 		command <- paste("factanal(~", paste(x, collapse = "+"), 
 				", factors=", getRcmdr("nfactors"), ", rotation=\"", 
