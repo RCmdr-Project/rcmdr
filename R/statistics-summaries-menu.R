@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2011-12-21 by J. Fox
+# last modified 2011-12-22 by J. Fox
 
     # Summaries menu
     
@@ -440,17 +440,14 @@ statisticsTable <- function () {
 	responseBox <- variableListBox(variablesFrame, Numeric(), selectmode = "multiple", 
 			initialSelection = varPosn(dialog.values$initial.response, "numeric"),
 			title = gettextRcmdr("Response variables (pick one or more)"))
-	radioButtons(name = "statistic", buttons = c("mean", "median", 
-					"sd"), labels = gettextRcmdr(c("Mean", "Median", "Standard deviation")), 
+	statFrame <- tkframe(top)
+	radioButtons(statFrame, name = "statistic", buttons = c("mean", "median", 
+					"sd", "other"), labels = gettextRcmdr(c("Mean", "Median", "Standard deviation", "Other (specify)")), 
 			initialValue = dialog.values$initial.statistic, 
 			title = gettextRcmdr("Statistic"))
 	otherVariable <- tclVar(dialog.values$initial.other)
-	if (!(dialog.values$initial.statistic %in% c("mean", "median", "sd"))) statisticVariable <- tclVar("other")
-	otherButton <- ttkradiobutton(statisticFrame, variable = statisticVariable, 
-			value = "other")
-	otherEntry <- ttkentry(statisticFrame, width = "20", textvariable = otherVariable)
-	tkgrid(labelRcmdr(statisticFrame, text = gettextRcmdr("Other (specify)")), 
-			otherButton, otherEntry, sticky = "w")
+	otherEntry <- ttkentry(statFrame, width = "20", textvariable = otherVariable)
+	tkgrid(statisticFrame, labelRcmdr(statFrame, text ="  "), otherEntry, sticky = "sw")
 	onOK <- function() {
 		groups <- getSelection(groupBox)
 		if (0 == length(groups)) {
@@ -466,7 +463,7 @@ statisticsTable <- function () {
 		if (statistic == "other") 
 			statistic <- tclvalue(otherVariable)
 		putDialog ("statisticsTable", list(initial.group=groups, initial.response=responses, 
-						initial.statistic=statistic, initial.other = if(stat == "other") statistic else ""))  
+						initial.statistic=stat, initial.other = if(stat == "other") statistic else ""))  
 		closeDialog()
 		.activeDataSet <- ActiveDataSet()
 		groups.list <- paste(paste(groups, "=", .activeDataSet, 
@@ -485,7 +482,7 @@ statisticsTable <- function () {
 	tkgrid(getFrame(groupBox), labelRcmdr(variablesFrame, text = "    "), 
 			getFrame(responseBox), sticky = "nw")
 	tkgrid(variablesFrame, sticky = "w")
-	tkgrid(statisticFrame, sticky = "w")
+	tkgrid(statFrame, sticky = "w")
 	tkgrid(buttonsFrame, sticky = "w")
 	dialogSuffix(rows = 3, columns = 1, focus = otherEntry)
 }
