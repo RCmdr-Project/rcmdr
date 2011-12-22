@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2011-12-08 by J. Fox
+# last modified 2011-12-22 by J. Fox
 
     # Nonparametric tests menu
     
@@ -49,7 +49,7 @@
 
 twoSampleWilcoxonTest <- function () {
 	defaults <- list(initial.group = NULL, initial.response = NULL, initial.alternative = "two.sided", 
-			initial.test = "default")
+			initial.test = "default", initial.label=NULL)
 	dialog.values <- getDialog("twoSampleWilcoxonTest", defaults)
 	initializeDialog(title = gettextRcmdr("Two-Sample Wilcoxon Test"))
 	groupBox <- variableListBox(top, TwoLevelFactors(), title = gettextRcmdr("Groups (pick one)"),
@@ -71,7 +71,7 @@ twoSampleWilcoxonTest <- function () {
 		test <- as.character(tclvalue(testVariable))
 		closeDialog()
 		putDialog("twoSampleWilcoxonTest", list(initial.group = group, initial.response = response, 
-						initial.test = test, initial.alternative = alternative))
+						initial.test = test, initial.alternative = alternative, initial.label=.groupsLabel))
 		.activeDataSet <- ActiveDataSet()
 		doItAndPrint(paste("tapply(", paste(.activeDataSet, "$", 
 								response, sep = ""), ", ", paste(.activeDataSet, 
@@ -99,7 +99,7 @@ twoSampleWilcoxonTest <- function () {
 			initialValue = dialog.values$initial.test,
 			title = gettextRcmdr("Type of Test"))
 	tkgrid(getFrame(groupBox), getFrame(responseBox), sticky = "nw")
-	groupsLabel(groupsBox = groupBox, columnspan = 2)
+	groupsLabel(groupsBox = groupBox, columnspan = 2, initialText=dialog.values$initial.label)
 	tkgrid(alternativeFrame, testFrame, sticky = "nw")
 	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
 	dialogSuffix(rows = 4, columns = 2)

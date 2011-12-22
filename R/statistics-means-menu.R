@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2011-10-13 by J. Fox
+# last modified 2011-12-22 by J. Fox
 
     # Means menu
 
@@ -53,7 +53,7 @@
 
 independentSamplesTTest <- function () {
 	defaults <- list(initial.group = NULL, initial.response = NULL, initial.alternative = "two.sided", 
-			initial.confidenceLevel = ".95", initial.variances = "FALSE")
+			initial.confidenceLevel = ".95", initial.variances = "FALSE", initial.label=NULL)
 	dialog.values <- getDialog("independentSamplesTTest", defaults)
 	initializeDialog(title = gettextRcmdr("Independent Samples t-Test"))
 	variablesFrame <- tkframe(top)
@@ -80,7 +80,7 @@ independentSamplesTTest <- function () {
 		level <- tclvalue(confidenceLevel)
 		variances <- as.character(tclvalue(variancesVariable))
 		putDialog ("independentSamplesTTest", list (initial.group = group, initial.response = response, initial.alternative = alternative, 
-						initial.confidenceLevel = level, initial.variances = variances))        
+						initial.confidenceLevel = level, initial.variances = variances, initial.label=.groupsLabel))        
 		closeDialog()
 		doItAndPrint(paste("t.test(", response, "~", group, ", alternative='", 
 						alternative, "', conf.level=", level, ", var.equal=", 
@@ -108,7 +108,7 @@ independentSamplesTTest <- function () {
 	tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level"), 
 					fg = "blue"), sticky = "w")
 	tkgrid(confidenceField, sticky = "w")
-	groupsLabel(groupsBox = groupBox)
+	groupsLabel(groupsBox = groupBox, initialText=dialog.values$initial.label)
 	tkgrid(alternativeFrame, labelRcmdr(optionsFrame, text = "    "), 
 			confidenceFrame, labelRcmdr(optionsFrame, text = "    "), 
 			variancesFrame, sticky = "nw")

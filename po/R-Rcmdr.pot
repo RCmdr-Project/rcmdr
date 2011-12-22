@@ -1,6 +1,6 @@
-"Project-Id-Version: Rcmdr 1.8-0\n"
+"Project-Id-Version: Rcmdr 1.8-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2011-12-15 8:30:00\n"
+"POT-Creation-Date: 2011-12-22 15:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3818,9 +3818,13 @@ msgstr ""
 msgid "Confirmatory factor analysis..."
 msgstr ""
 
-# the following message was omitted from version 1.8-0
+# messages added to version 1.8-1
+
+	# the following message was omitted from version 1.8-0
 
 msgid "Robust standard errors"
 msgstr ""
 
 
+msgid "No factors defined."
+msgstr ""

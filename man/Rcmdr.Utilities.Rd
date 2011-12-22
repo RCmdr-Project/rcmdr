@@ -158,7 +158,7 @@ groupsBox(recall=NULL, label=gettextRcmdr("Plot by:"),
     plotLinesByGroup=FALSE, positionLegend=FALSE, 
     plotLinesByGroupsText=gettextRcmdr("Plot lines by group"), 
     initialGroup=NULL, initialLinesByGroup=1)  # macro
-groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1)  # macro
+groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1, initialText=NULL)  # macro
 hclustSolutionsP()
 initializeDialog(window=top, title="", offset=10, preventCrisp=FALSE)  # macro
 is.valid.name(x)
@@ -251,6 +251,8 @@ commanderPosition()
   \item{generic}{quoted name of generic function.}
   \item{glm}{\code{TRUE} if the model is a \code{glm} object, \code{FALSE} otherwise.}
   \item{groupsBox}{listbox object for selecting groups variable.}
+  \item{initialText}{initial text to display in the groups label; if \code{NULL}, \code{"<No groups selected>"}
+    will be displayed.}
   \item{hasLhs}{does the model formula have a left-hand side?}
   \item{helpSubject}{the quoted name of a help subject, to be called as \code{help(helpSubject)}
     when the dialog \emph{Help} button is pressed.}

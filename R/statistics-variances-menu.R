@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2011-12-08 by J. Fox
+# last modified 2011-12-22 by J. Fox
 
     # Variances menu
     
@@ -50,7 +50,7 @@
 
 twoVariancesFTest <- function () {
 	defaults <- list(initial.groups = NULL, initial.response = NULL, initial.alternative = "two.sided", 
-			initial.confidenceLevel = ".95")
+			initial.confidenceLevel = ".95", initial.label=NULL)
 	dialog.values <- getDialog("twoVariancesFTest", defaults)
 	initializeDialog(title = gettextRcmdr("Two Variances F-Test"))
 	variablesFrame <- tkframe(top)
@@ -75,7 +75,8 @@ twoVariancesFTest <- function () {
 		level <- tclvalue(confidenceLevel)
 		closeDialog()
 		putDialog("twoVariancesFTest", list(initial.groups = group, initial.response = response, 
-						initial.alternative = alternative, initial.confidenceLevel = level))
+						initial.alternative = alternative, initial.confidenceLevel = level,
+						initial.label=.groupsLabel))
 		.activeDataSet <- ActiveDataSet()
 		doItAndPrint(paste("tapply(", .activeDataSet, "$", response, 
 						", ", .activeDataSet, "$", group, ",  var, na.rm=TRUE)", 
@@ -99,7 +100,7 @@ twoVariancesFTest <- function () {
 	tkgrid(getFrame(groupBox), labelRcmdr(variablesFrame, text = "    "), 
 			getFrame(responseBox), sticky = "nw")
 	tkgrid(variablesFrame, sticky = "w")
-	groupsLabel(groupsBox = groupBox)
+	groupsLabel(groupsBox = groupBox, initialText=dialog.values$initial.label)
 	tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level:  "), 
 					fg = "blue"), confidenceField, sticky = "w")
 	tkgrid(alternativeFrame, sticky = "w")

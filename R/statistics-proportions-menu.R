@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2011-12-09 by J. Fox
+# last modified 2011-12-22 by J. Fox
 
     # Proportions menu
     
@@ -56,8 +56,7 @@
 #    dialogSuffix(rows=4, columns=2)
 #    }
 
-singleProportionTest <- function () 
-{
+singleProportionTest <- function () {
 	defaults <- list (initial.x = NULL, initial.alternative = "two.sided", initial.level = ".95", 
 			initial.test = "normal" , initial.p = ".5")
 	dialog.values <- getDialog ("singleProportionTest", defaults)
@@ -188,7 +187,7 @@ singleProportionTest <- function ()
 twoSampleProportionsTest <- function () {
 	Library("abind")
 	defaults <- list(initial.groups = NULL, initial.response = NULL, initial.alternative = "two.sided", 
-			initial.confidenceLevel = ".95", initial.test = "normal")
+			initial.confidenceLevel = ".95", initial.test = "normal", initial.label=NULL)
 	dialog.values <- getDialog("twoSampleProportionsTest", defaults)
 	initializeDialog(title = gettextRcmdr("Two-Sample Proportions Test"))
 	.twoLevelFactors <- TwoLevelFactors()
@@ -219,7 +218,8 @@ twoSampleProportionsTest <- function () {
 		test <- as.character(tclvalue(testVariable))
 		closeDialog()
 		putDialog("twoSampleProportionsTest", list(initial.groups = groups, initial.response = x, 
-						initial.test = test, initial.alternative = alternative, initial.confidenceLevel = level))
+						initial.test = test, initial.alternative = alternative, initial.confidenceLevel = level,
+						initial.label=.groupsLabel))
 		command <- paste("xtabs(~", groups, "+", x, ", data=", 
 				ActiveDataSet(), ")", sep = "")
 		logger(paste(".Table <-", command))
@@ -252,7 +252,7 @@ twoSampleProportionsTest <- function () {
 			initialValue = dialog.values$initial.test, 
 			title = gettextRcmdr("Type of Test"))
 	tkgrid(getFrame(groupsBox), getFrame(xBox), sticky = "nw")
-	groupsLabel(columnspan = 2)
+	groupsLabel(columnspan = 2, initialText=dialog.values$initial.label)
 	tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level: "), 
 					fg = "blue"), confidenceField, sticky = "w")
 	tkgrid(confidenceFrame, sticky = "w")
@@ -262,3 +262,4 @@ twoSampleProportionsTest <- function () {
 	tkgrid.configure(confidenceField, sticky = "e")
 	dialogSuffix(rows = 5, columns = 2)
 }
+

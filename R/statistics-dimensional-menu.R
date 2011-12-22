@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2011-12-21 by J. Fox
+# last modified 2011-12-22 by J. Fox
 
     # Dimensional-analysis menu
     
@@ -466,6 +466,10 @@ CFA <- function(){
 		closeDialog()
 		putDialog("CFA", list(initial.matrix=matrix, initial.factorCor=correlations, 
 						initial.identify=identify, initial.robust=robust))
+		if (length(factors) == 0) {
+			errorCondition(recall=CFA, message=gettextRcmdr("No factors defined."))
+			return()
+		}
 		putRcmdr("factorNumber", NULL)
 		modelText <- vector(length(factors), mode="character")
 		for (i in 1:length(factors)){
@@ -484,7 +488,7 @@ CFA <- function(){
 						"[, c(", paste(paste("'", allvars, "'", sep=""), collapse=", "),  ")]", sep=""))
 		if (matrix == "correlation") doItAndPrint(".Data <- as.data.frame(scale(.Data))")
 		doItAndPrint(paste("summary(sem(.model, data=.Data), robust=", if (robust == 1) "TRUE" else "FALSE", 
-						 ")", sep=""))
+						")", sep=""))
 		justDoIt("remove('.model', '.Data', envir=.GlobalEnv)")
 		logger("remove('.model', '.Data')")
 	}

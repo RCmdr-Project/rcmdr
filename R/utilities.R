@@ -1,4 +1,4 @@
-# last modified 2011-12-21 by J. Fox
+# last modified 2011-12-22 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1329,19 +1329,21 @@ groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=
 			tkgrid(labelRcmdr(groupsFrame, text="    "), groupsButton, sticky="w")
 		})
 
-groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1,
-	expr={
-		groupsFrame <- tkframe(frame)
-		groupsLabel <- labelRcmdr(groupsFrame, text=gettextRcmdr("<No groups selected>"))
-		tkgrid(labelRcmdr(groupsFrame, text=gettextRcmdr("Difference: "), fg="blue"), groupsLabel, sticky="w")
-		tkgrid(groupsFrame, sticky="w", columnspan=columnspan)
-		onSelect <- function(){
-			group <- getSelection(groupsBox)
-			levels <- eval(parse(text=paste("levels(", ActiveDataSet(), "$", group, ")", sep="")))
-			tkconfigure(groupsLabel, text=paste(levels[1], "-", levels[2]))
-		}
-		tkbind(groupsBox$listbox, "<ButtonRelease-1>", onSelect)
-	})
+groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialText=NULL,
+		expr={
+			groupsFrame <- tkframe(frame)
+			.groupsLabel <- if (is.null(initialText)) gettextRcmdr("<No groups selected>") else initialText
+			groupsLabel <- labelRcmdr(groupsFrame, text=.groupsLabel)
+			tkgrid(labelRcmdr(groupsFrame, text=gettextRcmdr("Difference: "), fg="blue"), groupsLabel, sticky="w")
+			tkgrid(groupsFrame, sticky="w", columnspan=columnspan)
+			onSelect <- function(){
+				group <- getSelection(groupsBox)
+				levels <- eval(parse(text=paste("levels(", ActiveDataSet(), "$", group, ")", sep="")))
+				.groupsLabel <<- paste(levels[1], "-", levels[2])
+				tkconfigure(groupsLabel, text=.groupsLabel)
+			}
+			tkbind(groupsBox$listbox, "<ButtonRelease-1>", onSelect)
+		})
 
 #modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
 #    checkAddOperator <- function(rhs){
