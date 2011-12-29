@@ -202,15 +202,18 @@ Commander <- function(){
 		putRcmdr("oldPager", options(pager=RcmdrPager))
 	}
 	default.font.size <- as.character(setOption("default.font.size", if (.Platform$OS.type == "windows")10 else 12, global=FALSE))
-#		default.font <- setOption("default.font",
-#			paste("*helvetica-medium-r-normal-*-", default.font.size, "*", sep=""), global=FALSE)
+	default.font <- if (.Platform$OS.type != "windows") setOption("default.font", NULL, global=FALSE) else NULL
 #		.Tcl(paste("option add *font ", default.font, sep=""))
 #		.Tcl(paste("font create RcmdrDefaultFont -family Helvetica -size ", default.font.size))
 	if (!("RcmdrDefaultFont" %in% as.character(.Tcl("font names")))){
-			.Tcl(paste("font create RcmdrDefaultFont -size ", default.font.size))
+			if (is.null(default.font)) .Tcl(paste("font create RcmdrDefaultFont -size ", default.font.size))
+			else .Tcl(paste("font create RcmdrDefaultFont ", default.font))
 			.Tcl("option add *font RcmdrDefaultFont")
 		}
-	else .Tcl(paste("font configure RcmdrDefaultFont -size ", default.font.size))
+	else {
+		if (is.null(default.font)) .Tcl(paste("font configure RcmdrDefaultFont -size ", default.font.size))
+		else .Tcl(paste("font configure RcmdrDefaultFont ", default.font))
+	}
 	.Tcl("ttk::style configure TButton -font RcmdrDefaultFont")
 	placement <- setOption("placement", "-40+20", global=FALSE)
 	source.files <- list.files(etc, pattern="\\.[Rr]$")
