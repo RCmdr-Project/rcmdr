@@ -1,14 +1,14 @@
 
 # The R Commander and command logger
 
-# last modified 2011-12-22 by J. Fox
+# last modified 2011-12-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 #   modified 17 December 2008 by Richard Heiberger  ##rmh
 
 Commander <- function(){
-	RcmdrVersion <- "1.8-1"
+	RcmdrVersion <- "1.8-2"
 	##    DESCRIPTION <- readLines(file.path(.find.package("Rcmdr"), "DESCRIPTION")[1])
 	##    RcmdrVersion <- trim.blanks(sub("^Version:", "",
 	##        grep("^Version:", D, value=TRUE)))
@@ -200,11 +200,18 @@ Commander <- function(){
 	}
 	if (.Platform$OS.type != "windows") {
 		putRcmdr("oldPager", options(pager=RcmdrPager))
-		default.font.size <- as.character(setOption("default.font.size", 12, global=FALSE))
-		default.font <- setOption("default.font",
-			paste("*helvetica-medium-r-normal-*-", default.font.size, "*", sep=""), global=FALSE)
-		.Tcl(paste("option add *font ", default.font, sep=""))
 	}
+	default.font.size <- as.character(setOption("default.font.size", 12, global=FALSE))
+#		default.font <- setOption("default.font",
+#			paste("*helvetica-medium-r-normal-*-", default.font.size, "*", sep=""), global=FALSE)
+#		.Tcl(paste("option add *font ", default.font, sep=""))
+#		.Tcl(paste("font create RcmdrDefaultFont -family Helvetica -size ", default.font.size))
+	if (!("RcmdrDefaultFont" %in% as.character(.Tcl("font names")))){
+			.Tcl(paste("font create RcmdrDefaultFont -size ", default.font.size))
+			.Tcl("option add *font RcmdrDefaultFont")
+		}
+	else .Tcl(paste("font configure RcmdrDefaultFont -size ", default.font.size))
+	.Tcl("ttk::style configure TButton -font RcmdrDefaultFont")
 	placement <- setOption("placement", "-40+20", global=FALSE)
 	source.files <- list.files(etc, pattern="\\.[Rr]$")
 	for (file in source.files) {

@@ -1,3 +1,13 @@
+Changes to Version 1.8-2
+
+   o Fixes to font selection, especially for non-Windows systems.
+
+
+Changes to Version 1.8-1
+
+   o Updated DESCRIPTION file; version synchronization for CRAN.
+   
+
 Changes to Version 1.8-0
 
     o See CHANGES file for changes to older versions.
