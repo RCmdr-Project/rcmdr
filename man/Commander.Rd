@@ -146,8 +146,8 @@ set none, one, several, or all options. The available options are as follows:
     \code{c("contr.Treatment", "contr.poly")}. When the Commander exits, the \code{contrasts}
     option is returned to its pre-existing value. Note that \code{contr.Treatment} is from the \code{car} package.}
     
-    \item{\code{default.font}}{The default font, as an X11 font specification, given in a character string. 
-    For example,  \code{"*helvetica-medium-r-normal-*-12*"} specifies a 12-point Helvetica font.
+    \item{\code{default.font}}{The default font, Tk font specification, given in a character string. 
+    For example,  \code{"-family Helvetica -size 12"} specifies a 12-point Helvetica font.
     If specified, this value takes precedence
     over the default font size (below). This option is only for non-Windows systems.}
 
