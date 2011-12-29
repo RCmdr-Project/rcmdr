@@ -201,7 +201,7 @@ Commander <- function(){
 	if (.Platform$OS.type != "windows") {
 		putRcmdr("oldPager", options(pager=RcmdrPager))
 	}
-	default.font.size <- as.character(setOption("default.font.size", 12, global=FALSE))
+	default.font.size <- as.character(setOption("default.font.size", if (.Platform$OS.type == "windows")10 else 12, global=FALSE))
 #		default.font <- setOption("default.font",
 #			paste("*helvetica-medium-r-normal-*-", default.font.size, "*", sep=""), global=FALSE)
 #		.Tcl(paste("option add *font ", default.font, sep=""))

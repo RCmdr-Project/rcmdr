@@ -1,4 +1,4 @@
-# last modified 2011-12-18 by J. Fox
+# last modified 2011-12-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -172,8 +172,8 @@ Options <- function(){
     scale.factor <- current$scale.factor
     default.font.size <- setOption("default.font.size",
         if (.Platform$OS.type != "windows") 12 else 10)
-    default.font <- setOption("default.font",
-        paste("*helvetica-medium-r-normal-*-", default.font.size, "*", sep=""))
+#    default.font <- setOption("default.font",
+#        paste("*helvetica-medium-r-normal-*-", default.font.size, "*", sep=""))
     consoleOutputVar <- tclVar(console.output)
     consoleOutputCheckBox <- tkcheckbutton(top, variable=consoleOutputVar)
     logCommandsVar <- tclVar(log.commands)
@@ -206,8 +206,11 @@ Options <- function(){
     scaleFactorVar <- tclVar(if (is.null(scale.factor)) 1.0 else scale.factor)
     scaleFactorSlider <- tkscale(top, from=0.2, to=3.0, showvalue=TRUE, variable=scaleFactorVar,
         resolution=0.2, orient="horizontal")
-    defaultFont <- tclVar(default.font)
-    defaultFontEntry <- ttkentry(top, width="30", textvariable=scaleFactorVar)
+#    defaultFont <- tclVar(default.font)
+#    defaultFontEntry <- ttkentry(top, width="30", textvariable=scaleFactorVar)
+	defaultFontSizeVar <- tclVar(default.font.size)
+	defaultFontSizeSlider <- tkscale(top, from=6, to=20, showvalue=TRUE, variable=defaultFontSizeVar,
+			resolution=1, orient="horizontal")
     onOK <- function(){
         closeDialog(top)
         log.font.size <- round(as.numeric(tclvalue(logFontSizeVar)))
@@ -223,7 +226,7 @@ Options <- function(){
         show.edit.button <- tclvalue(showEditButtonVar) == 1
         scale.factor <- round(as.numeric(tclvalue(scaleFactorVar)), 1)
         if (scale.factor == 1) scale.factor <- NULL
-        default.font <- tclvalue(defaultFont)
+#        default.font <- tclvalue(defaultFont)
 		options <- current
 		options$log.font.size <- log.font.size
 		options$log.width <- log.width
@@ -248,8 +251,8 @@ Options <- function(){
 		tkgrid.configure(scaleFactorSlider, sticky="w")
 	}
 	else {
-		tkgrid(labelRcmdr(top, text=gettextRcmdr("Default font")), defaultFontEntry, sticky="e")
-		tkgrid.configure(defaultFontEntry, sticky="w")
+		tkgrid(labelRcmdr(top, text=gettextRcmdr("Default-font size (points)")), defaultFontSizeSlider, sticky="e")
+		tkgrid.configure(defaultFontSizeSlider, sticky="w")
 	}
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Log-font size (points)")), logFontSizeSlider, sticky="se")
     tkgrid.configure(logFontSizeSlider, sticky="w")
