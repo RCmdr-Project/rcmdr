@@ -227,6 +227,7 @@ Options <- function(){
         scale.factor <- round(as.numeric(tclvalue(scaleFactorVar)), 1)
         if (scale.factor == 1) scale.factor <- NULL
 #        default.font <- tclvalue(defaultFont)
+		default.font.size <- tclvalue(defaultFontSizeVar)
 		options <- current
 		options$log.font.size <- log.font.size
 		options$log.width <- log.width
@@ -240,7 +241,7 @@ Options <- function(){
 		options$sort.names <- sort.names
 		options$show.edit.button <- show.edit.button
         if (.Platform$OS.type == "windows") options$scale.factor <- scale.factor
-            else options$default.font <- default.font
+            else options$default.font.size <- default.font.size
         options(Rcmdr=options)
         closeCommander()
         Commander()
