@@ -146,10 +146,11 @@ set none, one, several, or all options. The available options are as follows:
     \code{c("contr.Treatment", "contr.poly")}. When the Commander exits, the \code{contrasts}
     option is returned to its pre-existing value. Note that \code{contr.Treatment} is from the \code{car} package.}
     
-    \item{\code{default.font}}{The default font, Tk font specification, given in a character string. 
+    \item{\code{default.font}}{The default font for GUI elements such as menus and text labels, in the form of a 
+    Tk font specification, given in a character string. 
     For example,  \code{"-family Helvetica -size 12"} specifies a 12-point Helvetica font.
-    If specified, this value takes precedence
-    over the default font size (below). This option is only for non-Windows systems.}
+    If specified, this value takes precedence over the default font size (below). Absent a compelling reason for
+    changing the font, it is generally more convenient simply to change the default font size.}
 
     \item{\code{default.font.size}}{The size, in points, of the default font. The default is 10 for Windows systems
     and 12 for other systems. To set the font size for R input and output, see the \code{log.font.size} option.
