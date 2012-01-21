@@ -1,4 +1,4 @@
-# last modified 2011-12-22 by J. Fox
+# last modified 2012-01-21 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1325,7 +1325,7 @@ groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=
 			}
 			groupsFrame <- tkframe(top)
 			groupsButton <- tkbutton(groupsFrame, textvariable=.groupsLabel, command=onGroups, borderwidth=3)
-			if (!is.null(initial.group)) tkconfigure(groupsButton, foreground="blue")
+			if (!is.null(initialGroup)) tkconfigure(groupsButton, foreground="blue")
 			tkgrid(labelRcmdr(groupsFrame, text="    "), groupsButton, sticky="w")
 		})
 

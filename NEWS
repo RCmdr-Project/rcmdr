@@ -2,6 +2,8 @@ Changes to Version 1.8-2
 
    o Fixes to font selection, especially for non-Windows systems.
    
+   o Fix to groupsBox() utility function (to fix bug reported by Richard Heiberger).
+   
    o PDF files for "Getting Started" manual in English, Japanese, and Spanish compacted (suggestion of Brian Ripley).
 
 
