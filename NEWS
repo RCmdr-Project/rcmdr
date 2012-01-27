@@ -5,6 +5,8 @@ Changes to Version 1.8-2
    o Fix to groupsBox() utility function (to fix bug reported by Richard Heiberger).
    
    o PDF files for "Getting Started" manual in English, Japanese, and Spanish compacted (suggestion of Brian Ripley).
+   
+   o Retain dialog selections optionally non-resettable, used for probability dialogs.
 
 
 Changes to Version 1.8-1

@@ -193,7 +193,7 @@ packageAvailable(name)
 polrP()
 popCommand()
 popOutput()
-putDialog(dialog, values=NULL)
+putDialog(dialog, values=NULL, resettable=TRUE)
 putRcmdr(x, value)
 radioButtons(window=top, name, buttons, values=NULL, 
 	initialValue=..values[1], labels, 
@@ -296,6 +296,8 @@ commanderPosition()
   \item{recall}{function to call after error --- usually the function that initiates the dialog.}
   \item{release}{release the focus if the grab.focus option has been set.}
   \item{reset}{quoted name of dialog function, to be invoked with all defaults by Reset button.}
+  \item{resettable}{should dialog state be reset when the data set changes? The default is 
+  code{TRUE}.}
   \item{reportError}{if \code{TRUE}, report an error message.}
   \item{right.buttons}{radio button placed to right of button-labels; defaults to \code{TRUE}.}
   \item{rows, columns}{numbers of rows and columns of widgets in the dialog box.}

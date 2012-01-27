@@ -1,4 +1,4 @@
-# last modified 2012-01-21 by J. Fox
+# last modified 2012-01-26 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -882,6 +882,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
 				onReset <- function(){
 					if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
 					putDialog(reset, NULL)
+					putDialog(reset, NULL, resettable=FALSE)
 					closeDialog()
 					eval(parse(text=paste(reset, "()")))
 				}
@@ -2304,13 +2305,22 @@ startHelp <- function(){
 
 # dialog memory support
 
-putDialog <- function (dialog, values=NULL){
-	dialog.values <- getRcmdr("dialog.values")
-	dialog.values[[dialog]] <- values
-	putRcmdr("dialog.values", dialog.values)
+putDialog <- function (dialog, values=NULL, resettable=TRUE){
+	if (resettable){
+		dialog.values <- getRcmdr("dialog.values")
+		dialog.values[[dialog]] <- values
+		putRcmdr("dialog.values", dialog.values)
+	}
+	else{
+		dialog.values <- getRcmdr("dialog.values.noreset")
+		dialog.values[[dialog]] <- values
+		putRcmdr("dialog.values.noreset", dialog.values)
+	}
 }
 
 getDialog <- function(dialog, defaults=NULL){
+	values <- getRcmdr("dialog.values.noreset")[[dialog]]
+	if (getRcmdr("retain.selections") && !is.null(values)) return(values)
 	values <- getRcmdr("dialog.values")[[dialog]]
 	if (!getRcmdr("retain.selections") || is.null(values)) return(defaults)
 	else return (values)
@@ -2334,9 +2344,12 @@ flushDialogMemory <- function(what){
 	if (missing(what)) putRcmdr("dialog.values", list())
 	else{
 		dialog.values <- getRcmdr("dialog.values")
+		dialog.values.noreset <- getRcmdr("dialog.values.noreset")
 		for (dialog in what){
 			dialog.values[dialog] <- NULL
+			dialog.values.noreset[dialog] <- NULL
 		}
 		putRcmdr("dialog.values", dialog.values)
+		putRcmdr("dialog.values.noreset", dialog.values.noreset)
 	}
 }

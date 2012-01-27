@@ -1,6 +1,6 @@
 # Distributions menu dialogs
 
-# last modified 8 July 2010 by J. Fox
+# last modified 2012-01-26 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic (20 July 06)
 # Modified by Miroslav Ristic (15 January 11)
@@ -309,238 +309,250 @@ negbinomialProbabilities <-function() {distributionProbabilities("negbinomial")}
 negbinomialMass <-function() {distributionMass("negbinomial")}
 
 distributionQuantiles <- function(nameVar){
-    fVar<-get(paste(nameVar,"Distribution",sep=""))
-    nnVar<-length(fVar$params)
-    initializeDialog(title=gettextRcmdr(paste(fVar$titleName,"Quantiles",sep=" ")))
-    quantilesVar <- tclVar("")
-    quantilesEntry <- ttkentry(top, width="30", textvariable=quantilesVar)
-    paramsVar<-paste(fVar$params,"Var",sep="")
-    paramsEntry<-paste(fVar$params,"Entry",sep="")
-    for (i in 1:nnVar) {
-	eval(parse(text=paste(paramsVar[i],"<-tclVar('",fVar$initialValues[i],"')",sep="")))
-	eval(parse(text=paste(paramsEntry[i],"<-ttkentry(top, width='6', textvariable=",paramsVar[i],")",sep="")))
-    }
-    tailVar <- tclVar("lower")
-    lowerTailButton <- ttkradiobutton(top, variable=tailVar, value="lower")
-    upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
-    onOK <- function(){
-	nameVarF<-get(paste(nameVar,"Quantiles",sep=""),mode="function")
-        closeDialog()
-        quantiles <- gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
-        if ("" == quantiles) {
-            errorCondition(recall=nameVarF, message=gettextRcmdr("No probabilities specified."))
-            return()
-            }
-	warn <- options(warn=-1)
-	vars<-real(nnVar)
+	fVar<-get(paste(nameVar,"Distribution",sep=""))
+	nnVar<-length(fVar$params)
+	dialogName <- paste(nameVar,"Quantiles", sep="")
+	defaults <- list(initialValues=fVar$initialValues, tail="lower", quantiles="")
+	initial <- getDialog(dialogName, defaults=defaults)
+	initializeDialog(title=gettextRcmdr(paste(fVar$titleName,"Quantiles",sep=" ")))
+	quantilesVar <- tclVar(initial$quantiles)
+	quantilesEntry <- ttkentry(top, width="30", textvariable=quantilesVar)
+	paramsVar<-paste(fVar$params,"Var",sep="")
+	paramsEntry<-paste(fVar$params,"Entry",sep="")
 	for (i in 1:nnVar) {
-	    vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
+		eval(parse(text=paste(paramsVar[i],"<-tclVar('",initial$initialValues[i],"')",sep="")))
+		eval(parse(text=paste(paramsEntry[i],"<-ttkentry(top, width='6', textvariable=",paramsVar[i],")",sep="")))
 	}
-	if (length(fVar$paramsRound)>0) {
-	    for (j in fVar$paramsRound) {
-		vars[j]<-round(vars[j])
-	    }
+	tailVar <- tclVar(initial$tail)
+	lowerTailButton <- ttkradiobutton(top, variable=tailVar, value="lower")
+	upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
+	onOK <- function(){
+		nameVarF<-get(paste(nameVar,"Quantiles",sep=""),mode="function")
+		closeDialog()
+		quantiles <- gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
+		if ("" == quantiles) {
+			errorCondition(recall=nameVarF, message=gettextRcmdr("No probabilities specified."))
+			return()
+		}
+		warn <- options(warn=-1)
+		vars<-real(nnVar)
+		for (i in 1:nnVar) {
+			vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
+		}
+		if (length(fVar$paramsRound)>0) {
+			for (j in fVar$paramsRound) {
+				vars[j]<-round(vars[j])
+			}
+		}
+		options(warn)
+		for (i in 1:length(fVar$errorConds)) {
+			if (eval(parse(text=fVar$errorConds[i]))) {
+				errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
+				return()
+			}
+		}
+		tail <- tclvalue(tailVar)
+		pasteVar<-""
+		for (i in 1:nnVar) {
+			pasteVar<-paste(pasteVar,fVar$params[i],"=",vars[i],", ",sep="")
+		}
+		if (nameVar=="Gumbel") {
+			doItAndPrint(paste("log(q",fVar$funName,"(c(", quantiles, "), ",pasteVar,
+							"lower.tail=", tail == "lower",")) # Gumbel distribution", sep=""))
+		} else {
+			doItAndPrint(paste("q",fVar$funName,"(c(", quantiles, "), ",
+							pasteVar,"lower.tail=", tail == "lower",")", sep=""))
+		}
+		putDialog(dialogName, list(initialValues=vars, tail=tclvalue(tailVar), quantiles=tclvalue(quantilesVar)), resettable=FALSE)
+		tkfocus(CommanderWindow())
 	}
-	options(warn)
-	for (i in 1:length(fVar$errorConds)) {
-	    if (eval(parse(text=fVar$errorConds[i]))) {
-		errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
-		return()
-	    }
-	}
-        tail <- tclvalue(tailVar)
-	pasteVar<-""
+	OKCancelHelp(helpSubject=paste("q",fVar$funName,sep=""), reset = dialogName)
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Probabilities")), quantilesEntry, sticky="e")
 	for (i in 1:nnVar) {
-	    pasteVar<-paste(pasteVar,fVar$params[i],"=",vars[i],", ",sep="")
+		tkgrid(labelRcmdr(top, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="e")
 	}
-	if (nameVar=="Gumbel") {
-	    doItAndPrint(paste("log(q",fVar$funName,"(c(", quantiles, "), ",pasteVar,
-			       "lower.tail=", tail == "lower",")) # Gumbel distribution", sep=""))
-	} else {
-	    doItAndPrint(paste("q",fVar$funName,"(c(", quantiles, "), ",
-			       pasteVar,"lower.tail=", tail == "lower",")", sep=""))
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Lower tail")), lowerTailButton, sticky="e")
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Upper tail")), upperTailButton, sticky="e")
+	tkgrid(buttonsFrame, sticky="w", columnspan=2)
+	tkgrid.configure(quantilesEntry, sticky="w")
+	for (i in 1:nnVar) {
+		tkgrid.configure(get(paramsEntry[i]), sticky="w")
 	}
-        tkfocus(CommanderWindow())
-        }
-    OKCancelHelp(helpSubject=paste("q",fVar$funName,sep=""))
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("Probabilities")), quantilesEntry, sticky="e")
-    for (i in 1:nnVar) {
-	tkgrid(labelRcmdr(top, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="e")
-    }
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("Lower tail")), lowerTailButton, sticky="e")
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("Upper tail")), upperTailButton, sticky="e")
-    tkgrid(buttonsFrame, sticky="w", columnspan=2)
-    tkgrid.configure(quantilesEntry, sticky="w")
-    for (i in 1:nnVar) {
-	tkgrid.configure(get(paramsEntry[i]), sticky="w")
-    }
-    tkgrid.configure(lowerTailButton, sticky="w")
-    tkgrid.configure(upperTailButton, sticky="w")
-    dialogSuffix(rows=6, columns=2, focus=quantilesEntry)
-    }
+	tkgrid.configure(lowerTailButton, sticky="w")
+	tkgrid.configure(upperTailButton, sticky="w")
+	dialogSuffix(rows=6, columns=2, focus=quantilesEntry)
+}
 
 distributionProbabilities <- function(nameVar){
-    fVar<-get(paste(nameVar,"Distribution",sep=""))
-    nnVar<-length(fVar$params)
-    initializeDialog(title=gettextRcmdr(paste(fVar$titleName,"Probabilities",sep=" ")))
-    probabilitiesVar <- tclVar("")
-    probabilitiesEntry <- ttkentry(top, width="30", textvariable=probabilitiesVar)
-    paramsVar<-paste(fVar$params,"Var",sep="")
-    paramsEntry<-paste(fVar$params,"Entry",sep="")
-    for (i in 1:nnVar) {
-	eval(parse(text=paste(paramsVar[i],"<-tclVar('",fVar$initialValues[i],"')",sep="")))
-	eval(parse(text=paste(paramsEntry[i],"<-ttkentry(top, width='6', textvariable=",paramsVar[i],")",sep="")))
-    }
-    tailVar <- tclVar("lower")
-    lowerTailButton <- ttkradiobutton(top, variable=tailVar, value="lower")
-    upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
-    onOK <- function(){
-	nameVarF<-get(paste(nameVar,"Probabilities",sep=""),mode="function")
-        closeDialog()
-        probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
-        if ("" == probabilities) {
-            errorCondition(recall=nameVarF, message=gettextRcmdr("No values specified."))
-            return()
-            }
-	warn <- options(warn=-1)
-	vars<-real(nnVar)
+	fVar<-get(paste(nameVar,"Distribution",sep=""))
+	nnVar<-length(fVar$params)
+	dialogName <- paste(nameVar,"Probabilities", sep="")
+	defaults <- list(initialValues=fVar$initialValues, tail="lower", probabilities="")
+	initial <- getDialog(dialogName, defaults=defaults)
+	initializeDialog(title=gettextRcmdr(paste(fVar$titleName,"Probabilities",sep=" ")))
+	probabilitiesVar <- tclVar(initial$probabilities)
+	probabilitiesEntry <- ttkentry(top, width="30", textvariable=probabilitiesVar)
+	paramsVar<-paste(fVar$params,"Var",sep="")
+	paramsEntry<-paste(fVar$params,"Entry",sep="")
 	for (i in 1:nnVar) {
-	    vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
+		eval(parse(text=paste(paramsVar[i],"<-tclVar('", initial$initialValues[i],"')", sep="")))
+		eval(parse(text=paste(paramsEntry[i],"<-ttkentry(top, width='6', textvariable=",paramsVar[i],")",sep="")))
 	}
-	if (length(fVar$paramsRound)>0) {
-	    for (j in fVar$paramsRound) {
-		vars[j]<-round(vars[j])
-	    }
+	tailVar <- tclVar(initial$tail)
+	lowerTailButton <- ttkradiobutton(top, variable=tailVar, value="lower")
+	upperTailButton <- ttkradiobutton(top, variable=tailVar, value="upper")
+	onOK <- function(){
+		nameVarF<-get(paste(nameVar,"Probabilities",sep=""),mode="function")
+		closeDialog()
+		probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
+		if ("" == probabilities) {
+			errorCondition(recall=nameVarF, message=gettextRcmdr("No values specified."))
+			return()
+		}
+		warn <- options(warn=-1)
+		vars<-real(nnVar)
+		for (i in 1:nnVar) {
+			vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
+		}
+		if (length(fVar$paramsRound)>0) {
+			for (j in fVar$paramsRound) {
+				vars[j]<-round(vars[j])
+			}
+		}
+		options(warn)
+		for (i in 1:length(fVar$errorConds)) {
+			if (eval(parse(text=fVar$errorConds[i]))) {
+				errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
+				return()
+			}
+		}
+		tail <- tclvalue(tailVar)
+		pasteVar<-""
+		for (i in 1:nnVar) {
+			pasteVar<-paste(pasteVar,fVar$params[i],"=",vars[i],", ",sep="")
+		}
+		if (nameVar=="Gumbel") {
+			doItAndPrint(paste("p",fVar$funName,"(exp(c(", probabilities, ")), ",
+							pasteVar,"lower.tail=", tail == "lower",") #Gumbel Distribution", sep=""))
+		} else {
+			doItAndPrint(paste("p",fVar$funName,"(c(", probabilities, "), ",
+							pasteVar,"lower.tail=", tail == "lower",")", sep=""))
+		}
+		tkfocus(CommanderWindow())
+		putDialog(dialogName, list(initialValues=vars, tail=tclvalue(tailVar), probabilities=tclvalue(probabilitiesVar)), resettable=FALSE)
 	}
-	options(warn)
-	for (i in 1:length(fVar$errorConds)) {
-	    if (eval(parse(text=fVar$errorConds[i]))) {
-		errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
-		return()
-	    }
-	}
-        tail <- tclvalue(tailVar)
-	pasteVar<-""
+	OKCancelHelp(helpSubject=paste("p",fVar$funName,sep=""), reset = dialogName)
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Variable value(s)")), probabilitiesEntry, sticky="e")
 	for (i in 1:nnVar) {
-	    pasteVar<-paste(pasteVar,fVar$params[i],"=",vars[i],", ",sep="")
+		tkgrid(labelRcmdr(top, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="e")
 	}
-	if (nameVar=="Gumbel") {
-	    doItAndPrint(paste("p",fVar$funName,"(exp(c(", probabilities, ")), ",
-			   pasteVar,"lower.tail=", tail == "lower",") #Gumbel Distribution", sep=""))
-	} else {
-	    doItAndPrint(paste("p",fVar$funName,"(c(", probabilities, "), ",
-			   pasteVar,"lower.tail=", tail == "lower",")", sep=""))
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Lower tail")), lowerTailButton, sticky="e")
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Upper tail")), upperTailButton, sticky="e")
+	tkgrid(buttonsFrame, sticky="w", columnspan=2)
+	tkgrid.configure(probabilitiesEntry, sticky="w")
+	for (i in 1:nnVar) {
+		tkgrid.configure(get(paramsEntry[i]), sticky="w")
 	}
-        tkfocus(CommanderWindow())
-        }
-    OKCancelHelp(helpSubject=paste("p",fVar$funName,sep=""))
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("Variable value(s)")), probabilitiesEntry, sticky="e")
-    for (i in 1:nnVar) {
-	tkgrid(labelRcmdr(top, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="e")
-    }
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("Lower tail")), lowerTailButton, sticky="e")
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("Upper tail")), upperTailButton, sticky="e")
-    tkgrid(buttonsFrame, sticky="w", columnspan=2)
-    tkgrid.configure(probabilitiesEntry, sticky="w")
-    for (i in 1:nnVar) {
-	tkgrid.configure(get(paramsEntry[i]), sticky="w")
-    }
-    tkgrid.configure(lowerTailButton, sticky="w")
-    tkgrid.configure(upperTailButton, sticky="w")
-    dialogSuffix(rows=6, columns=1, focus=probabilitiesEntry)
-    }
+	tkgrid.configure(lowerTailButton, sticky="w")
+	tkgrid.configure(upperTailButton, sticky="w")
+	dialogSuffix(rows=6, columns=1, focus=probabilitiesEntry)
+}
     
 distributionMass  <- function(nameVar) {
-    fVar<-get(paste(nameVar,"Distribution",sep=""))
-    nnVar<-length(fVar$params)
-    checkRange <- function(range){
-	if (nameVar=="binomial") {
-	    messageVar<-"Number of trials, %d, is large.\nCreate long output?"
-	} else {
-	    messageVar<-"Range of values over which to plot, %d, is large.\nCreate long output?"
+	fVar<-get(paste(nameVar,"Distribution",sep=""))
+	nnVar<-length(fVar$params)
+	dialogName <- paste(nameVar,"Mass", sep="")
+	defaults <- list(initialValues=fVar$initialValues)
+	initial <- getDialog(dialogName, defaults=defaults)
+	checkRange <- function(range){
+		if (nameVar=="binomial") {
+			messageVar<-"Number of trials, %d, is large.\nCreate long output?"
+		} else {
+			messageVar<-"Range of values over which to plot, %d, is large.\nCreate long output?"
+		}
+		RcmdrTkmessageBox(message=sprintf(gettextRcmdr(messageVar),range),
+				icon="warning", type="yesno", default="no")
 	}
-        RcmdrTkmessageBox(message=sprintf(gettextRcmdr(messageVar),range),
-            icon="warning", type="yesno", default="no")
-        }
-    initializeDialog(title=gettextRcmdr(paste(fVar$titleName,"Probabilities",sep=" ")))
-    paramsVar<-paste(fVar$params,"Var",sep="")
-    paramsEntry<-paste(fVar$params,"Entry",sep="")
-    for (i in 1:nnVar) {
-	eval(parse(text=paste(paramsVar[i],"<-tclVar('",fVar$initialValues[i],"')",sep="")))
-	eval(parse(text=paste(paramsEntry[i],"<-ttkentry(top, width='6', textvariable=",paramsVar[i],")",sep="")))
-    }
-    onOK <- function(){
-	nameVarF<-get(paste(nameVar,"Mass",sep=""),mode="function")
-        closeDialog()
-	warn <- options(warn=-1)
-	vars<-real(nnVar)
+	initializeDialog(title=gettextRcmdr(paste(fVar$titleName,"Probabilities",sep=" ")))
+	paramsVar<-paste(fVar$params,"Var",sep="")
+	paramsEntry<-paste(fVar$params,"Entry",sep="")
 	for (i in 1:nnVar) {
-	    vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
+		eval(parse(text=paste(paramsVar[i],"<-tclVar('",initial$initialValues[i],"')",sep="")))
+		eval(parse(text=paste(paramsEntry[i],"<-ttkentry(top, width='6', textvariable=",paramsVar[i],")",sep="")))
 	}
-	if (length(fVar$paramsRound)>0) {
-	    for (j in fVar$paramsRound) {
-		vars[j]<-round(vars[j])
-	    }
+	onOK <- function(){
+		nameVarF<-get(paste(nameVar,"Mass",sep=""),mode="function")
+		closeDialog()
+		warn <- options(warn=-1)
+		vars<-real(nnVar)
+		for (i in 1:nnVar) {
+			vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
+		}
+		if (length(fVar$paramsRound)>0) {
+			for (j in fVar$paramsRound) {
+				vars[j]<-round(vars[j])
+			}
+		}
+		options(warn)
+		for (i in 1:length(fVar$errorConds)) {
+			if (eval(parse(text=fVar$errorConds[i]))) {
+				errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
+				return()
+			}
+		}
+		if (nameVar=="binomial") {
+			if (vars[1] > 50){
+				if ("no" == tclvalue(checkRange(vars[1]))){
+					if (getRcmdr("grab.focus")) tkgrab.release(top)
+					tkdestroy(top)
+					nameVarF()
+					return()
+				}
+			}
+		} else {
+			pasteVar<-""
+			for (i in 1:nnVar) {
+				pasteVar<-paste(pasteVar,", ",fVar$params[i],"=",vars[i])
+			}
+			xmin <- eval(parse(text=paste("q",fVar$funName,"(.0005",pasteVar,")",sep="")))
+			xmax <- eval(parse(text=paste("q",fVar$funName,"(.9995",pasteVar,")",sep="")))
+			range <- xmax-xmin
+			if (xmax - xmin > 50){
+				if ("no" == tclvalue(checkRange(range))){
+					if (getRcmdr("grab.focus")) tkgrab.release(top)
+					tkdestroy(top)
+					nameVarF()
+					return()
+				}
+			}
+		}
+		if (nameVar=="binomial") {
+			command <- paste("data.frame(Pr=dbinom(0:", vars[1], ", size=", vars[1], 
+					", prob=", vars[2], "))", sep="")
+			logger(paste(".Table <- ", command, sep=""))
+			assign(".Table", justDoIt(command), envir=.GlobalEnv)
+			logger(paste("rownames(.Table) <- 0:", vars[1], sep=""))
+			justDoIt(paste("rownames(.Table) <- 0:", vars[1], sep=""))
+		} else {
+			command <- paste("data.frame(Pr=d",fVar$funName,"(", xmin, ":", xmax, pasteVar, "))", sep="")
+			logger(paste(".Table <- ", command, sep=""))
+			assign(".Table", justDoIt(command), envir=.GlobalEnv)
+			logger(paste("rownames(.Table) <- ", xmin, ":", xmax, sep=""))
+			justDoIt(paste("rownames(.Table) <- ", xmin, ":", xmax, sep=""))
+		}
+		doItAndPrint(".Table")
+		logger("remove(.Table)")
+		remove(.Table, envir=.GlobalEnv)
+		tkfocus(CommanderWindow())
+		putDialog(dialogName, list(initialValues=vars), resettable=FALSE)
 	}
-	options(warn)
-	for (i in 1:length(fVar$errorConds)) {
-	    if (eval(parse(text=fVar$errorConds[i]))) {
-		errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
-		return()
-	    }
+	OKCancelHelp(helpSubject=paste("d",fVar$funName,sep=""), reset = dialogName)
+	for (i in 1:nnVar) {
+		tkgrid(labelRcmdr(top, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="e")
 	}
-	if (nameVar=="binomial") {
-	    if (vars[1] > 50){
-            if ("no" == tclvalue(checkRange(vars[1]))){
-                if (getRcmdr("grab.focus")) tkgrab.release(top)
-                tkdestroy(top)
-                nameVarF()
-                return()
-                }
-            }
-	} else {
-	    pasteVar<-""
-	    for (i in 1:nnVar) {
-		pasteVar<-paste(pasteVar,", ",fVar$params[i],"=",vars[i])
-	    }
-	    xmin <- eval(parse(text=paste("q",fVar$funName,"(.0005",pasteVar,")",sep="")))
-	    xmax <- eval(parse(text=paste("q",fVar$funName,"(.9995",pasteVar,")",sep="")))
-	    range <- xmax-xmin
-	    if (xmax - xmin > 50){
-	    if ("no" == tclvalue(checkRange(range))){
-                if (getRcmdr("grab.focus")) tkgrab.release(top)
-                tkdestroy(top)
-                nameVarF()
-                return()
-                }
-            }
+	tkgrid(buttonsFrame, columnspan=2, sticky="w")
+	for (i in 1:nnVar) {
+		tkgrid.configure(get(paramsEntry[i]), sticky="w")
 	}
-	if (nameVar=="binomial") {
-	    command <- paste("data.frame(Pr=dbinom(0:", vars[1], ", size=", vars[1], 
-            ", prob=", vars[2], "))", sep="")
-	    logger(paste(".Table <- ", command, sep=""))
-	    assign(".Table", justDoIt(command), envir=.GlobalEnv)
-	    logger(paste("rownames(.Table) <- 0:", vars[1], sep=""))
-	    justDoIt(paste("rownames(.Table) <- 0:", vars[1], sep=""))
-	} else {
-	    command <- paste("data.frame(Pr=d",fVar$funName,"(", xmin, ":", xmax, pasteVar, "))", sep="")
-	    logger(paste(".Table <- ", command, sep=""))
-	    assign(".Table", justDoIt(command), envir=.GlobalEnv)
-	    logger(paste("rownames(.Table) <- ", xmin, ":", xmax, sep=""))
-	    justDoIt(paste("rownames(.Table) <- ", xmin, ":", xmax, sep=""))
-	}
-        doItAndPrint(".Table")
-        logger("remove(.Table)")
-        remove(.Table, envir=.GlobalEnv)
-        tkfocus(CommanderWindow())
-        }
-    OKCancelHelp(helpSubject=paste("d",fVar$funName,sep=""))
-    for (i in 1:nnVar) {
-	tkgrid(labelRcmdr(top, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="e")
-    }
-    tkgrid(buttonsFrame, columnspan=2, sticky="w")
-    for (i in 1:nnVar) {
-	tkgrid.configure(get(paramsEntry[i]), sticky="w")
-    }
-    dialogSuffix(rows=4, columns=2, focus=get(paramsEntry[1]))
-    }
+	dialogSuffix(rows=4, columns=2, focus=get(paramsEntry[1]))
+}

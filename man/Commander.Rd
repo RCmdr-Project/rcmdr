@@ -161,7 +161,7 @@ set none, one, several, or all options. The available options are as follows:
 %    \code{"*helvetica-medium-r-normal-*-xx*"}, where \code{xx} is the default font size.}
     
     \item{\code{retain.selections}}{If \code{TRUE} (the default), dialogs remember their previous state, where appropriate,
-     as long as the data set isn't changed.}
+     as long as the data set isn't changed; some dialogs, e.g., for probabilities, retain selections even when the data set chanages.}
     
     \item{\code{double.click}}{Set to \code{TRUE} if you want a double-click of the left mouse
     button to press the default button in all dialogs. The default is \code{FALSE}.}
