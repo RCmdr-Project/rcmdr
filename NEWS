@@ -7,6 +7,8 @@ Changes to Version 1.8-2
    o PDF files for "Getting Started" manual in English, Japanese, and Spanish compacted (suggestion of Brian Ripley).
    
    o Retain dialog selections optionally non-resettable, used for probability dialogs.
+   
+   o Bartlett's test and Levene's test now allow more than one factor.
 
 
 Changes to Version 1.8-1

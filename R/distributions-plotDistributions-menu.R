@@ -20,14 +20,14 @@ WeibullDistributionPlot <- function(){distributionPlot("Weibull")}
 GumbelDistributionPlot <- function(){distributionPlot("Gumbel")}
 binomialDistributionPlot <- function(){discreteDistributionPlot("binomial")}
 PoissonDistributionPlot <- function(){discreteDistributionPlot("Poisson")}
-    
+
 # the following functions were contributed by G. Jay Kerns, Andy Chang, and  Theophilius Boye
 #  last modified 26 July 06 by J. Fox
 
 geomDistributionPlot  <- function(){discreteDistributionPlot("geom")}
 hyperDistributionPlot  <- function(){discreteDistributionPlot("hyper")}
 negbinomialDistributionPlot  <- function(){discreteDistributionPlot("negbinomial")}
-    
+
 distributionPlot <- function(nameVar){
 	fVar<-get(paste(nameVar,"Distribution",sep=""))
 	nnVar<-length(fVar$params)
@@ -114,7 +114,7 @@ distributionPlot <- function(nameVar){
 	tkgrid.configure(distributionButton, sticky="w")
 	dialogSuffix(rows=5, columns=2, focus=get(paramsEntry[1]))
 }
-    
+
 discreteDistributionPlot <- function(nameVar){
 	fVar<-get(paste(nameVar,"Distribution",sep=""))
 	nnVar<-length(fVar$params)

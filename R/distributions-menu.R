@@ -6,219 +6,219 @@
 # Modified by Miroslav Ristic (15 January 11)
 
 normalDistribution <- list(titleName="Normal",
-			  funName="norm",
-			  params=c("mean","sd"),
-			  paramsLabels=c("Mean","Standard deviation"),
-			  initialValues=c("0","1"),
-			  errorTexts=c("Mean not specified.",
-				      "Standard deviation must be positive."),
-			  errorConds=c("is.na(vars[1])",
-				       "is.na(vars[2]) || (vars[2] <= 0)"),
-			  paramsRound=c()
-			 )
-			 
+		funName="norm",
+		params=c("mean","sd"),
+		paramsLabels=c("Mean","Standard deviation"),
+		initialValues=c("0","1"),
+		errorTexts=c("Mean not specified.",
+				"Standard deviation must be positive."),
+		errorConds=c("is.na(vars[1])",
+				"is.na(vars[2]) || (vars[2] <= 0)"),
+		paramsRound=c()
+)
+
 normalQuantiles <- function() {distributionQuantiles("normal")}
 normalProbabilities <-function() {distributionProbabilities("normal")}
 
 tDistribution <- list(titleName="t",
-			  funName="t",
-			  params=c("df"),
-			  paramsLabels=c("Degrees of freedom"),
-			  initialValues=c(""),
-			  errorTexts=c("Degrees of freedom not specified.",
-				      "Degrees of freedom must be positive."),
-			  errorConds=c("is.na(vars[1])",
-				       "(vars[1] <= 0)"),
-			  paramsRound=c()
-			 )
-			 
+		funName="t",
+		params=c("df"),
+		paramsLabels=c("Degrees of freedom"),
+		initialValues=c(""),
+		errorTexts=c("Degrees of freedom not specified.",
+				"Degrees of freedom must be positive."),
+		errorConds=c("is.na(vars[1])",
+				"(vars[1] <= 0)"),
+		paramsRound=c()
+)
+
 tQuantiles <- function() {distributionQuantiles("t")}
 tProbabilities <-function() {distributionProbabilities("t")}
 
 chisqDistribution <- list(titleName="ChiSquared",
-			  funName="chisq",
-			  params=c("df"),
-			  paramsLabels=c("Degrees of freedom"),
-			  initialValues=c(""),
-			  errorTexts=c("Degrees of freedom not specified.",
-				      "Degrees of freedom must be positive."),
-			  errorConds=c("is.na(vars[1])",
-				       "(vars[1] <= 0)"),
-			  paramsRound=c()
-			 )
-			 
+		funName="chisq",
+		params=c("df"),
+		paramsLabels=c("Degrees of freedom"),
+		initialValues=c(""),
+		errorTexts=c("Degrees of freedom not specified.",
+				"Degrees of freedom must be positive."),
+		errorConds=c("is.na(vars[1])",
+				"(vars[1] <= 0)"),
+		paramsRound=c()
+)
+
 chisqQuantiles <- function() {distributionQuantiles("chisq")}
 chisqProbabilities <-function() {distributionProbabilities("chisq")}
-    
+
 FDistribution <- list(titleName="F",
-			  funName="f",
-			  params=c("df1","df2"),
-			  paramsLabels=c("Numerator degrees of freedom",
-					 "Denominator degrees of freedom"),
-			  initialValues=c("",""),
-			  errorTexts=c("Degrees of freedom not specified.",
-				      "Degrees of freedom must be positive."),
-			  errorConds=c("is.na(vars[1]) || is.na(vars[2])",
-				       "(vars[1] <= 0 || vars[2] <= 0)"),
-			  paramsRound=c()
-			 )
-			 
+		funName="f",
+		params=c("df1","df2"),
+		paramsLabels=c("Numerator degrees of freedom",
+				"Denominator degrees of freedom"),
+		initialValues=c("",""),
+		errorTexts=c("Degrees of freedom not specified.",
+				"Degrees of freedom must be positive."),
+		errorConds=c("is.na(vars[1]) || is.na(vars[2])",
+				"(vars[1] <= 0 || vars[2] <= 0)"),
+		paramsRound=c()
+)
+
 FQuantiles <- function() {distributionQuantiles("F")}
 FProbabilities <-function() {distributionProbabilities("F")}
 
 exponentialDistribution <- list(titleName="Exponential",
-			  funName="exp",
-			  params=c("rate"),
-			  paramsLabels=c("Rate"),
-			  initialValues=c("1"),
-			  errorTexts=c("Rate must be positive."),
-			  errorConds=c("is.na(vars[1]) || vars[1] <= 0"),
-			  paramsRound=c()
-			 )
-			 
+		funName="exp",
+		params=c("rate"),
+		paramsLabels=c("Rate"),
+		initialValues=c("1"),
+		errorTexts=c("Rate must be positive."),
+		errorConds=c("is.na(vars[1]) || vars[1] <= 0"),
+		paramsRound=c()
+)
+
 exponentialQuantiles <- function() {distributionQuantiles("exponential")}
 exponentialProbabilities <-function() {distributionProbabilities("exponential")}
 
 uniformDistribution <- list(titleName="Uniform",
-			  funName="unif",
-			  params=c("min","max"),
-			  paramsLabels=c("Minimum","Maximum"),
-			  initialValues=c("0","1"),
-			  errorTexts=c("Lower limit must be less than upper limit."),
-			  errorConds=c("is.na(vars[1]) || is.na(vars[2]) || vars[1] >= vars[2]"),
-			  paramsRound=c()
-			 )
-			 
+		funName="unif",
+		params=c("min","max"),
+		paramsLabels=c("Minimum","Maximum"),
+		initialValues=c("0","1"),
+		errorTexts=c("Lower limit must be less than upper limit."),
+		errorConds=c("is.na(vars[1]) || is.na(vars[2]) || vars[1] >= vars[2]"),
+		paramsRound=c()
+)
+
 uniformQuantiles <- function() {distributionQuantiles("uniform")}
 uniformProbabilities <-function() {distributionProbabilities("uniform")}
 
 betaDistribution <- list(titleName="Beta",
-			  funName="beta",
-			  params=c("shape1","shape2"),
-			  paramsLabels=c("Shape 1","Shape 2"),
-			  initialValues=c("",""),
-			  errorTexts=c("Shapes not specified.",
-				       "Shapes must be positive."),
-			  errorConds=c("is.na(vars[1]) || is.na(vars[2])",
-				       "vars[1] <= 0 || vars[2] <= 0"),
-			  paramsRound=c()
-			 )
-			 
+		funName="beta",
+		params=c("shape1","shape2"),
+		paramsLabels=c("Shape 1","Shape 2"),
+		initialValues=c("",""),
+		errorTexts=c("Shapes not specified.",
+				"Shapes must be positive."),
+		errorConds=c("is.na(vars[1]) || is.na(vars[2])",
+				"vars[1] <= 0 || vars[2] <= 0"),
+		paramsRound=c()
+)
+
 betaQuantiles <- function() {distributionQuantiles("beta")}
 betaProbabilities <-function() {distributionProbabilities("beta")}
 
 CauchyDistribution <- list(titleName="Cauchy",
-			  funName="cauchy",
-			  params=c("location","scale"),
-			  paramsLabels=c("Location","Scale"),
-			  initialValues=c("0","1"),
-			  errorTexts=c("Location not specified.",
-				       "Scale must be positive."),
-			  errorConds=c("is.na(vars[1])",
-				       "is.na(vars[2]) || vars[2] <= 0"),
-			  paramsRound=c()
-			 )
-			 
+		funName="cauchy",
+		params=c("location","scale"),
+		paramsLabels=c("Location","Scale"),
+		initialValues=c("0","1"),
+		errorTexts=c("Location not specified.",
+				"Scale must be positive."),
+		errorConds=c("is.na(vars[1])",
+				"is.na(vars[2]) || vars[2] <= 0"),
+		paramsRound=c()
+)
+
 CauchyQuantiles <- function() {distributionQuantiles("Cauchy")}
 CauchyProbabilities <-function() {distributionProbabilities("Cauchy")}
 
 logisticDistribution <- list(titleName="Logistic",
-			  funName="logis",
-			  params=c("location","scale"),
-			  paramsLabels=c("Location","Scale"),
-			  initialValues=c("0","1"),
-			  errorTexts=c("Location not specified.",
-				       "Scale must be positive."),
-			  errorConds=c("is.na(vars[1])",
-				       "is.na(vars[2]) || vars[2] <= 0"),
-			  paramsRound=c()
-			 )
-			 
+		funName="logis",
+		params=c("location","scale"),
+		paramsLabels=c("Location","Scale"),
+		initialValues=c("0","1"),
+		errorTexts=c("Location not specified.",
+				"Scale must be positive."),
+		errorConds=c("is.na(vars[1])",
+				"is.na(vars[2]) || vars[2] <= 0"),
+		paramsRound=c()
+)
+
 logisticQuantiles <- function() {distributionQuantiles("logistic")}
 logisticProbabilities <-function() {distributionProbabilities("logistic")}
 
 lognormalDistribution <- list(titleName="Lognormal",
-			  funName="lnorm",
-			  params=c("meanlog","sdlog"),
-			  paramsLabels=c("Mean (log scale)","Standard deviation (log scale)"),
-			  initialValues=c("0","1"),
-			  errorTexts=c("Mean not specified.",
-				       "Standard deviation must be positive."),
-			  errorConds=c("is.na(vars[1])",
-				       "is.na(vars[2]) || vars[2] <= 0"),
-			  paramsRound=c()
-			 )
-			 
+		funName="lnorm",
+		params=c("meanlog","sdlog"),
+		paramsLabels=c("Mean (log scale)","Standard deviation (log scale)"),
+		initialValues=c("0","1"),
+		errorTexts=c("Mean not specified.",
+				"Standard deviation must be positive."),
+		errorConds=c("is.na(vars[1])",
+				"is.na(vars[2]) || vars[2] <= 0"),
+		paramsRound=c()
+)
+
 lognormalQuantiles <- function() {distributionQuantiles("lognormal")}
 lognormalProbabilities <-function() {distributionProbabilities("lognormal")}
 
 gammaDistribution <- list(titleName="Gamma",
-			  funName="gamma",
-			  params=c("shape","scale"),
-			  paramsLabels=c("Shape","Scale (inverse rate)"),
-			  initialValues=c("","1"),
-			  errorTexts=c("Shape not specified.",
-				       "Shape must be positive.",
-				       "Scale must be positive."),
-			  errorConds=c("is.na(vars[1])",
-				       "vars[1]<=0",
-				       "is.na(vars[2]) || vars[2] <= 0"),
-			  paramsRound=c()
-			 )
-			 
+		funName="gamma",
+		params=c("shape","scale"),
+		paramsLabels=c("Shape","Scale (inverse rate)"),
+		initialValues=c("","1"),
+		errorTexts=c("Shape not specified.",
+				"Shape must be positive.",
+				"Scale must be positive."),
+		errorConds=c("is.na(vars[1])",
+				"vars[1]<=0",
+				"is.na(vars[2]) || vars[2] <= 0"),
+		paramsRound=c()
+)
+
 gammaQuantiles <- function() {distributionQuantiles("gamma")}
 gammaProbabilities <-function() {distributionProbabilities("gamma")}
 
 WeibullDistribution <- list(titleName="Weibull",
-			  funName="weibull",
-			  params=c("shape","scale"),
-			  paramsLabels=c("Shape","Scale"),
-			  initialValues=c("","1"),
-			  errorTexts=c("Shape not specified.",
-				       "Shape must be positive.",
-				       "Scale must be positive."),
-			  errorConds=c("is.na(vars[1])",
-				       "vars[1]<=0",
-				       "is.na(vars[2]) || vars[2] <= 0"),
-			  paramsRound=c()
-			 )
-			 
+		funName="weibull",
+		params=c("shape","scale"),
+		paramsLabels=c("Shape","Scale"),
+		initialValues=c("","1"),
+		errorTexts=c("Shape not specified.",
+				"Shape must be positive.",
+				"Scale must be positive."),
+		errorConds=c("is.na(vars[1])",
+				"vars[1]<=0",
+				"is.na(vars[2]) || vars[2] <= 0"),
+		paramsRound=c()
+)
+
 WeibullQuantiles <- function() {distributionQuantiles("Weibull")}
 WeibullProbabilities <-function() {distributionProbabilities("Weibull")}
 
 GumbelDistribution <- list(titleName="Gumbel",
-			  funName="weibull",
-			  params=c("shape","scale"),
-			  paramsLabels=c("Shape (log scale)","Scale (log scale)"),
-			  initialValues=c("","1"),
-			  errorTexts=c("Shape not specified.",
-				       "Shape must be positive.",
-				       "Scale must be positive."),
-			  errorConds=c("is.na(vars[1])",
-				       "vars[1]<=0",
-				       "is.na(vars[2]) || vars[2] <= 0"),
-			  paramsRound=c()
-			 )
-			 
+		funName="weibull",
+		params=c("shape","scale"),
+		paramsLabels=c("Shape (log scale)","Scale (log scale)"),
+		initialValues=c("","1"),
+		errorTexts=c("Shape not specified.",
+				"Shape must be positive.",
+				"Scale must be positive."),
+		errorConds=c("is.na(vars[1])",
+				"vars[1]<=0",
+				"is.na(vars[2]) || vars[2] <= 0"),
+		paramsRound=c()
+)
+
 GumbelQuantiles <- function() {distributionQuantiles("Gumbel")}
 GumbelProbabilities <-function() {distributionProbabilities("Gumbel")}
 
 binomialDistribution <- list(titleName="Binomial",
-			  funName="binom",
-			  params=c("size","prob"),
-			  paramsLabels=c("Binomial trials","Probability of success"),
-			  initialValues=c("","0.5"),
-			  errorTexts=c("Binomial trials not specified.",
-				       "Binomial trials must be positive.",
-				       "Probability of success not specified.",
-				       "Probability of success must be between 0 and 1."),
-			  errorConds=c("is.na(vars[1])",
-				       "vars[1]<=0",
-				       "is.na(vars[2])",
-				       "vars[2]<0 || vars[2]>1"),
-			  paramsRound=c(1)
-			 )
-			 
+		funName="binom",
+		params=c("size","prob"),
+		paramsLabels=c("Binomial trials","Probability of success"),
+		initialValues=c("","0.5"),
+		errorTexts=c("Binomial trials not specified.",
+				"Binomial trials must be positive.",
+				"Probability of success not specified.",
+				"Probability of success must be between 0 and 1."),
+		errorConds=c("is.na(vars[1])",
+				"vars[1]<=0",
+				"is.na(vars[2])",
+				"vars[2]<0 || vars[2]>1"),
+		paramsRound=c(1)
+)
+
 binomialQuantiles <- function() {distributionQuantiles("binomial")}
 binomialProbabilities <-function() {distributionProbabilities("binomial")}
 binomialMass <- function() {distributionMass("binomial")}
@@ -228,82 +228,82 @@ binomialMass <- function() {distributionMass("binomial")}
 #  modified by Miroslav Ristic (15 January 2011)
 
 PoissonDistribution <- list(titleName="Poisson",
-			  funName="pois",
-			  params=c("lambda"),
-			  paramsLabels=c("Mean"),
-			  initialValues=c("1"),
-			  errorTexts=c("Poisson mean not specified.",
-				       "Poisson mean cannot be negative."),
-			  errorConds=c("is.na(vars[1])",
-				       "vars[1]<0"),
-			  paramsRound=c()
-			 )
-			 
+		funName="pois",
+		params=c("lambda"),
+		paramsLabels=c("Mean"),
+		initialValues=c("1"),
+		errorTexts=c("Poisson mean not specified.",
+				"Poisson mean cannot be negative."),
+		errorConds=c("is.na(vars[1])",
+				"vars[1]<0"),
+		paramsRound=c()
+)
+
 PoissonQuantiles <- function() {distributionQuantiles("Poisson")}
 PoissonProbabilities <-function() {distributionProbabilities("Poisson")}
 PoissonMass <-function() {distributionMass("Poisson")}
 
 geomDistribution <- list(titleName="Geometric",
-			  funName="geom",
-			  params=c("prob"),
-			  paramsLabels=c("Probability of success"),
-			  initialValues=c("0.5"),
-			  errorTexts=c("Probability of success not specified.",
-				       "Probability of success must be between 0 and 1."),
-			  errorConds=c("is.na(vars[1])",
-				       "vars[1] < 0 || vars[1] > 1"),
-			  paramsRound=c()
-			 )
-			 
+		funName="geom",
+		params=c("prob"),
+		paramsLabels=c("Probability of success"),
+		initialValues=c("0.5"),
+		errorTexts=c("Probability of success not specified.",
+				"Probability of success must be between 0 and 1."),
+		errorConds=c("is.na(vars[1])",
+				"vars[1] < 0 || vars[1] > 1"),
+		paramsRound=c()
+)
+
 geomQuantiles <- function() {distributionQuantiles("geom")}
 geomProbabilities <-function() {distributionProbabilities("geom")}
 geomMass <-function() {distributionMass("geom")}
 
 hyperDistribution <- list(titleName="Hypergeometric",
-			  funName="hyper",
-			  params=c("m","n","k"),
-			  paramsLabels=c("m (number of white balls in the urn)",
-					 "n (number of black balls in the urn)",
-					 "k (number of balls drawn from the urn)"),
-			  initialValues=c("1","1","1"),
-			  errorTexts=c("The m parameter was not specified.",
-				       "The m parameter cannot be negative.",
-				       "The n parameter was not specified.",
-				       "The n parameter cannot be negative.",
-				       "The k parameter was not specified.",
-				       "The k parameter cannot be negative.",
-				       "The k parameter cannot be greater than m + n."),
-			  errorConds=c("is.na(vars[1])",
-				       "vars[1] < 0",
-				       "is.na(vars[2])",
-				       "vars[2] <0",
-				       "is.na(vars[3])",
-				       "vars[3] <0",
-				       "vars[3]>(vars[1]+vars[2])"),
-			  paramsRound=c(1,2,3)
-			 )
-			 
+		funName="hyper",
+		params=c("m","n","k"),
+		paramsLabels=c("m (number of white balls in the urn)",
+				"n (number of black balls in the urn)",
+				"k (number of balls drawn from the urn)"),
+		initialValues=c("1","1","1"),
+		errorTexts=c("The m parameter was not specified.",
+				"The m parameter cannot be negative.",
+				"The n parameter was not specified.",
+				"The n parameter cannot be negative.",
+				"The k parameter was not specified.",
+				"The k parameter cannot be negative.",
+				"The k parameter cannot be greater than m + n."),
+		errorConds=c("is.na(vars[1])",
+				"vars[1] < 0",
+				"is.na(vars[2])",
+				"vars[2] <0",
+				"is.na(vars[3])",
+				"vars[3] <0",
+				"vars[3]>(vars[1]+vars[2])"),
+		paramsRound=c(1,2,3)
+)
+
 hyperQuantiles <- function() {distributionQuantiles("hyper")}
 hyperProbabilities <-function() {distributionProbabilities("hyper")}
 hyperMass <-function() {distributionMass("hyper")}
 
 negbinomialDistribution <- list(titleName="NegativeBinomial",
-			  funName="nbinom",
-			  params=c("size","prob"),
-			  paramsLabels=c("Target number of successes",
-					 "Probability of success"),
-			  initialValues=c("1","0.5"),
-			  errorTexts=c("Target number of successes not specified.",
-				       "Target number of successes cannot be negative.",
-				       "Probability of success not specified.",
-				       "Probability of success must be between 0 and 1."),
-			  errorConds=c("is.na(vars[1])",
-				       "vars[1]<0",
-				       "is.na(vars[2])",
-				       "vars[2] < 0 || vars[2] >1 "),
-			  paramsRound=c(1)
-			 )
-			 
+		funName="nbinom",
+		params=c("size","prob"),
+		paramsLabels=c("Target number of successes",
+				"Probability of success"),
+		initialValues=c("1","0.5"),
+		errorTexts=c("Target number of successes not specified.",
+				"Target number of successes cannot be negative.",
+				"Probability of success not specified.",
+				"Probability of success must be between 0 and 1."),
+		errorConds=c("is.na(vars[1])",
+				"vars[1]<0",
+				"is.na(vars[2])",
+				"vars[2] < 0 || vars[2] >1 "),
+		paramsRound=c(1)
+)
+
 negbinomialQuantiles <- function() {distributionQuantiles("negbinomial")}
 negbinomialProbabilities <-function() {distributionProbabilities("negbinomial")}
 negbinomialMass <-function() {distributionMass("negbinomial")}
@@ -457,7 +457,7 @@ distributionProbabilities <- function(nameVar){
 	tkgrid.configure(upperTailButton, sticky="w")
 	dialogSuffix(rows=6, columns=1, focus=probabilitiesEntry)
 }
-    
+
 distributionMass  <- function(nameVar) {
 	fVar<-get(paste(nameVar,"Distribution",sep=""))
 	nnVar<-length(fVar$params)
