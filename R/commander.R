@@ -144,7 +144,7 @@ Commander <- function(){
 	putRcmdr("reset.model", FALSE)
 	putRcmdr("rgl", FALSE)
 	putRcmdr("Identify3d", NULL)
-	setOption("log.font.size", if (.Platform$OS.type == "windows") 10 else 12)
+	setOption("log.font.size", 10) # if (.Platform$OS.type == "windows") 10 else 12)
 	putRcmdr("logFont", tkfont.create(family="courier", size=getRcmdr("log.font.size")))
 	scale.factor <- current$scale.factor
 	if (!is.null(scale.factor)) .Tcl(paste("tk scaling ", scale.factor, sep=""))
@@ -201,7 +201,7 @@ Commander <- function(){
 	if (.Platform$OS.type != "windows") {
 		putRcmdr("oldPager", options(pager=RcmdrPager))
 	}
-	default.font.size <- as.character(setOption("default.font.size", if (.Platform$OS.type == "windows")10 else 12, global=FALSE))
+	default.font.size <- as.character(setOption("default.font.size", 10, global=FALSE)) # if (.Platform$OS.type == "windows")10 else 12, global=FALSE))
 	default.font <- setOption("default.font", NULL, global=FALSE) 
 	if (!("RcmdrDefaultFont" %in% as.character(.Tcl("font names")))){
 		if (is.null(default.font)) .Tcl(paste("font create RcmdrDefaultFont -size ", default.font.size))

@@ -170,8 +170,8 @@ Options <- function(){
 	sort.names <- setOption("sort.names", TRUE)
 	show.edit.button <- setOption("show.edit.button", TRUE)
 	scale.factor <- current$scale.factor
-	default.font.size <- setOption("default.font.size",
-			if (.Platform$OS.type != "windows") 12 else 10)
+	default.font.size <- setOption("default.font.size", 10)
+#			if (.Platform$OS.type != "windows") 12 else 10)
 	consoleOutputVar <- tclVar(console.output)
 	consoleOutputCheckBox <- tkcheckbutton(top, variable=consoleOutputVar)
 	logCommandsVar <- tclVar(log.commands)
