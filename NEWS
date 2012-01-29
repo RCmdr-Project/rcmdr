@@ -9,6 +9,8 @@ Changes to Version 1.8-2
    o Retain dialog selections optionally non-resettable, used for probability dialogs.
    
    o Bartlett's test and Levene's test now allow more than one factor.
+   
+   o Updated Slovenian translation (thanks to Jaro Lajovic and Matjaz Jeran).
 
 
 Changes to Version 1.8-1
