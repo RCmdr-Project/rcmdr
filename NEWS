@@ -11,6 +11,8 @@ Changes to Version 1.8-2
    o Bartlett's test and Levene's test now allow more than one factor.
    
    o Updated Slovenian translation (thanks to Jaro Lajovic and Matjaz Jeran).
+   
+   o Fixed bug in scatterplot dialog that prevented log axes from being used with groups defined (reported by Kent Johnson).
 
 
 Changes to Version 1.8-1

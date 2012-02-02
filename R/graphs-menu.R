@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2012-01-27 by J. Fox
+# last modified 2012-02-02 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
@@ -455,7 +455,7 @@ scatterPlot <- function () {
 		}
 		else {
 			doItAndPrint(paste("scatterplot(", y, "~", x, " | ", 
-							.groups, ", reg.line=", line, ", smooth=", smooth, 
+							.groups, log, ", reg.line=", line, ", smooth=", smooth, 
 							", spread=", spread, idtext, ", boxplots=", box, 
 							", span=", span/100, jitter, xlab, ylab, cex, 
 							cex.axis, cex.lab, pch, ", by.groups=", .linesByGroup, 
