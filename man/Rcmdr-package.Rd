@@ -13,7 +13,7 @@ user interface) for R, based on the tcltk package.
 \tabular{ll}{
 Package: \tab Rcmdr\cr
 Version: \tab 1.8-2\cr
-Date: \tab 2012/02/02\cr
+Date: \tab 2012/02/06\cr
 Depends: \tab R (>= 2.1.0), tcltk, grDevices, utils\cr
 Suggests: \tab abind, aplpack, car (>= 1.1-1), effects (>= 1.0-7), foreign, grid, 
   lattice, lmtest, MASS, mgcv, multcomp, nlme, nnet, relimp, rgl, RODBC\cr
@@ -44,7 +44,7 @@ German: Gerhard Schoen;
 Indonesian, I Made Tirta;
 Italian, Stefano Calza;
 Japanese, Takaharu Araki;
-Korean, Chel Hee Lee and Dae-Heung Jang;
+Korean, Chel Hee Lee, Dae-Heung Jang, and Shin Jong-Hwa;
 Polish, Marcin Kozak;
 Romanian, Adrian Dusa;
 Russian, Alexey Shipunov;

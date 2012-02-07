@@ -1,3514 +1,3737 @@
-# Catalan translations for the Rcmdr package
-# Traducci� Catalana del paquet Rcmdr
-# Copyright (C) 2005 John Fox
-# This file is distributed under the same license as the Rcmdr package
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 1.3-0\n"
+"Project-Id-Version: Rcmdr1.8.1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2011-09-24 19:49-0600\n"
-"Last-Translator: Open Statistics with GNU R in Korea <gnustats@gmail.com>\n"
-"Language-Team: Open Statistics with GNU R in Korea <gnustats@gmail.com>\n"
+"POT-Creation-Date: 2011-12-22 15:30:00\n"
+"PO-Revision-Date: 2012-02-07 01:21+0900\n"
+"Last-Translator: SHIN Jong-Hwa <sens5900r@modernity.or.kr>\n"
+"Language-Team: Korean R User Group <shin.jonghwa@r-project.kr>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.1.6\n"
 "X-Poedit-Language: Korean\n"
 "X-Poedit-Country: KOREA, REPUBLIC OF\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 msgid "KMeans Clustering"
-msgstr "k?? ??? ??"
+msgstr "K평균 군집화"
 
 msgid "Variables (pick one or more)"
-msgstr "?? (?? ?? ??)"
+msgstr "변수 (하나 이상 선택)"
 
 msgid "No variables selected."
-msgstr "??? ?????? ?????."
+msgstr "선택된 변수가 없음."
 
 msgid "<all valid cases>"
-msgstr "<?? ??? ??>"
+msgstr "모든 타당한 사례"
 
 msgid "Number of clusters:"
-msgstr "??? ?:"
+msgstr "군집의 수:"
 
 msgid "Number of starting seeds:"
-msgstr "???? ?:"
+msgstr "초기값의 수:"
 
 msgid "Maximum iterations:"
-msgstr "?? ???:"
+msgstr "최대 반복:"
 
 msgid "Print cluster summary"
-msgstr "?? ?? ??? ????"
+msgstr "군집 요약정보 출력하기"
 
 msgid "Bi-plot of clusters"
-msgstr "??? bi-??"
+msgstr "군집 행렬도"
 
 msgid ""
 "Assign clusters to\n"
 "the data set"
-msgstr "??? ??? ??? ?????."
+msgstr "데이터셋에 군집 배정하기"
 
 msgid "Assignment variable:"
-msgstr "?? ??:"
+msgstr "할당 변수:"
 
 msgid "Hierarchical Clustering"
-msgstr "??? ???"
+msgstr "위계적 군집화"
 
 msgid "Ward's Method"
-msgstr "Ward's ?"
+msgstr "워드(Ward) 기법"
 
 msgid "Single Linkage"
-msgstr "?? ???"
+msgstr "단일 연결"
 
 msgid "Complete Linkage"
-msgstr "?? ???"
+msgstr "완전 연결"
 
 msgid "Average Linkage"
-msgstr "?? ???"
+msgstr "평균 연결"
 
 msgid "McQuitty's Method"
-msgstr "McQuitty's ?"
+msgstr "맥퀴티(McQuitty)법"
 
 msgid "Median Linkage"
-msgstr "??? ???"
+msgstr "중위수 연결"
 
 msgid "Centroid Linkage"
-msgstr "?? ???"
+msgstr "중심 연결"
 
 msgid "Clustering Method"
-msgstr "??? ??"
+msgstr "군집화 기법"
 
 msgid "Euclidean"
-msgstr "?????"
+msgstr "유클리드-"
 
 msgid "Squared-Euclidian"
-msgstr "????? ??"
+msgstr "유클리드 제곱"
 
 msgid "Manhattan (City Block)"
-msgstr "??? (City block)"
+msgstr "맨하탄 (도시 블록)"
 
 msgid "No Transformation"
-msgstr "???? ?????."
+msgstr "변화되지 않음"
 
 msgid "Distance Measure"
-msgstr "?? ??"
+msgstr "거리 측정"
 
 msgid "Clustering solution name:"
-msgstr "??? ???"
+msgstr "군집화 해결책 이름:"
 
 msgid "Plot Dendrogram"
-msgstr "????? ??"
+msgstr "덴드로그램 그리기"
 
 msgid "Hierarchical Cluster Summary"
-msgstr "??? ?? ??"
+msgstr "위계적 군집화 요약"
 
 msgid "Select One Clustering Solution"
-msgstr "??? ??? ??? ?????."
+msgstr "군집화 해결책 선택하기"
 
 msgid "There are no hierachical clustering solutions"
-msgstr "??? ??? ??? ????."
+msgstr "위계적 군집화 해결책이 없습니다"
 
 msgid "No hierachical clustering solutions are associated with this data set."
-msgstr "??? ??? ???? ? ??? ??? ???? ?? ????."
+msgstr "이 데이터셋과는 어떤 어떤 계층적 군집화 해결책도 연관되지 않습니다."
 
 msgid "A clustering solution has not been selected."
-msgstr "??? ??? ???? ?????."
+msgstr "군집화 해결책이 선택되지 않았습니다."
 
 msgid "Append Cluster Groups to the Active Data Set"
-msgstr "??? ??? ??? ?? ???? ?????."
+msgstr "활성 데이터셋에 군집화 집단 덧붙이기"
 
 msgid "Assigned cluster label:"
-msgstr "??? ?? ??"
+msgstr "할당된 군집 라벨:"
 
 msgid "Find"
-msgstr "??"
+msgstr "찾기"
 
 msgid "Regular-expression search"
-msgstr "??-?? ??"
+msgstr "정규-표현 찾기"
 
 msgid "Case sensitive"
-msgstr "???? ??"
+msgstr "대소문자 구분"
 
 msgid "Forward"
-msgstr "Forward"
+msgstr "앞으로"
 
 msgid "Backward"
-msgstr "Backward"
+msgstr "뒤로"
 
 msgid "Search Direction"
-msgstr "?? ??"
+msgstr "검색 방향"
 
 msgid "No search text specified."
-msgstr "??? ?? ???? ????."
+msgstr "지적된 검색 본문이 없음."
 
 msgid "Text not found."
-msgstr "???? ?? ? ????."
+msgstr "본문이 발견되지 않음."
 
 msgid "Search for:"
-msgstr "??:"
+msgstr "검색:"
 
 msgid "R Commander"
 msgstr "R Commander"
 
 msgid "Sourced:"
-msgstr "??:"
+msgstr "출처:"
 
 msgid "menu definition error:"
-msgstr "?? ?? ??:"
+msgstr "메뉴 정의 오류:"
 
 msgid "Nothing is selected."
-msgstr "???? ?????? ?????."
+msgstr "아무것도 선택되지 않았습니다."
 
 msgid "Clear window"
-msgstr "? ???"
+msgstr "창 지우기"
 
 msgid "Submit"
-msgstr "????."
+msgstr "실행하기"
 
 msgid "Cut"
-msgstr "???"
+msgstr "자르기"
 
 msgid "Copy"
-msgstr "????"
+msgstr "복사하기"
 
 msgid "Paste"
-msgstr "????"
+msgstr "붙이기"
 
 msgid "Delete"
-msgstr "???"
+msgstr "지우기"
 
 msgid "Find..."
-msgstr "??..."
+msgstr "찾기..."
 
 msgid "Select all"
-msgstr "?? ??"
+msgstr "모두 선택하기"
 
 msgid "Edit data set"
-msgstr "??? ?? ??"
+msgstr "데이터셋 편집하기"
 
 msgid "View data set"
-msgstr "??? ?? ??"
+msgstr "데이터셋 보기"
 
 msgid "<No active dataset>"
-msgstr "<??? ??? ??? ??>"
+msgstr "<활성 데이터셋 없음>"
 
 msgid "<No active model>"
-msgstr "<??? ??? ??>"
+msgstr "<활성 모델 없음>"
 
 msgid "Data set:"
-msgstr "??? ??:"
+msgstr "데이터셋"
 
 msgid "Model:"
-msgstr "??:"
+msgstr "모델:"
 
 msgid "Script Window"
-msgstr "???? ?"
+msgstr "스크립트 창"
 
 msgid "Output Window"
-msgstr "?? ?"
+msgstr "출력 창"
 
 msgid "Messages"
-msgstr "???"
+msgstr "메세지"
 
 msgid "The rgl package is absent; 3D plots are unavailable."
-msgstr "rgl ???? ????. ;3D ??? ?? ?? ????."
+msgstr " rgl 패키지가 없습니다; 3차원 그림을 이용할 수 없습니다."
 
 msgid "R Commander Version"
-msgstr "R Commander ??"
+msgstr "R Commander 버전"
 
 msgid "First and last 5 warnings:"
-msgstr "??? ??? 5 ?? ??:??"
+msgstr "처음과 마지막 다섯 경고"
 
 msgid "ERROR:"
-msgstr "??:"
+msgstr "오류"
 
 msgid "WARNING:"
-msgstr "??:"
+msgstr "경고:"
 
 msgid "ERROR"
-msgstr "??"
+msgstr "오류"
 
 msgid "WARNING"
-msgstr "??"
+msgstr "경고"
 
 msgid "NOTE"
-msgstr "??"
+msgstr "주석"
 
 msgid "New Data Set"
-msgstr "??? ??? ??"
+msgstr "새로운 데이터셋"
 
 msgid "Dataset"
-msgstr "??? ??"
+msgstr "데이터셋"
 
 msgid "You must enter the name of a data set."
-msgstr "??? ??? ??? ??? ???? ???."
+msgstr "데이터셋의 이름을 입력해야 합니다."
 
 msgid "is not a valid name."
-msgstr "??? ??? ????."
+msgstr "은(는) 유효한 이름이 아닙니다."
 
 msgid "Data set"
-msgstr "??? ??"
+msgstr "데이터셋"
 
 msgid "empty data set."
-msgstr "? ??? ??"
+msgstr "빈 데이터."
 
 msgid "Enter name for data set:"
-msgstr "??? ??? ??? ?????."
+msgstr "데이터셋의 이름 입력하기:"
 
 msgid "There is only one dataset in memory."
-msgstr "???? ?? ??? ??? ??? ????."
+msgstr "보조기억장치(메모리)에 오직 하나의 데이터셋이 있습니다."
 
 msgid "There are no data sets from which to choose."
-msgstr "??? ? ?? ??? ??? ????."
+msgstr "선택할 수 있는 데이터셋이 없습니다."
 
 msgid "Select Data Set"
-msgstr "??? ??? ?????."
+msgstr "데이터셋 선택하기"
 
 msgid "Data Sets (pick one)"
-msgstr "??? ?? (?? ??)"
+msgstr "데이터셋 (하나 선택)"
 
 msgid "Recode Variable"
-msgstr "??? ??"
+msgstr "변수 다시 코딩하기"
 
 msgid "Variable to recode (pick one)"
-msgstr "??? ?? (?? ??)"
+msgstr "다시 코딩할 변수 (하나 선택)"
 
 msgid "variable"
-msgstr "??"
+msgstr "변수"
 
 msgid "You must select a variable."
-msgstr "??? ??? ???? ???."
+msgstr "변수 하나를 선택해야 합니다."
 
 msgid "No recode directives specified."
-msgstr "??? ??? ???? ?????."
+msgstr "'다시코딩하기' 지시문이 지정되지 않음."
 
 msgid "Use only double-quotes (\" \") in recode directives"
-msgstr "??? ??? ?? ? ???? ?????."
+msgstr "'다시코딩하기'지시문에 오직 큰 따옴표(\" \") 사용하기"
 
 msgid "New variable name"
-msgstr "??? ?? ??"
+msgstr "새로운 변수 이름"
 
 msgid "Enter recode directives"
-msgstr "??? ??? ?????."
+msgstr "'다시 코딩하기' 지시문 입력하기"
 
 msgid "Make new variable a factor"
-msgstr "??? ?? ??? ????."
+msgstr "새로운 변수를 요인으로 만들기"
 
 msgid "Compute New Variable"
-msgstr "??? ??? ?????."
+msgstr "새로운 변수 계산하기"
 
 msgid "[factor]"
-msgstr "[??]"
+msgstr "[요인]"
 
 msgid "Current variables (double-click to expression)"
-msgstr "?? ?? (?? ??)"
+msgstr "현재의 변수(표현식을 위해서 두번 클릭)"
 
 msgid "No expression specified."
-msgstr "??? ??? ????."
+msgstr "표현식이 지정되지 않음."
 
 msgid "Variable"
-msgstr "??"
+msgstr "변수"
 
 msgid "Expression to compute"
-msgstr "???? ??"
+msgstr "계산 표현식"
 
 msgid "Delete Variables"
-msgstr "?? ??"
+msgstr "변수 삭제하기"
 
 msgid "Variable(s) to delete (pick one or more)"
-msgstr "??(?)? ??(?? ?? ??)"
+msgstr "삭제할 변수 (하나 이상 선택)"
 
 msgid "You must select one or more variables."
-msgstr "??? ?? ??? ??? ???? ???."
+msgstr "하나 이상의 변수를 선택해야 합니다."
 
 msgid ""
 "Delete %s?\n"
 "Please confirm."
 msgstr ""
-"?? %s ?\n"
-"??????."
+" %s을 삭제할까요?\n"
+"확인하십시오."
 
+#, fuzzy
 msgid ""
 "Delete %d variables?\n"
 "Please confirm."
 msgstr ""
-"?? %d ?? ?\n"
-"??????."
+"Delete %d variables?\n"
+"확인하십시오."
 
 msgid "Read Data From Text File"
-msgstr "??? ???? ??? ??"
+msgstr "텍스트 파일로부터 데이터 읽기"
 
 msgid "White space"
-msgstr "??"
+msgstr "공백"
 
 msgid "Commas"
-msgstr "??"
+msgstr "쉼표"
 
 msgid "Tabs"
-msgstr "?"
+msgstr "탭"
 
 msgid "Field Separator"
-msgstr "?? ???"
+msgstr "필드 구분자"
 
 msgid "Period [.]"
-msgstr "??? [.]"
+msgstr "마침표[.]"
 
 msgid "Comma [,]"
-msgstr "?? [,]"
+msgstr "쉼표[,]"
 
 msgid "Decimal-Point Character"
-msgstr "??-??? ??"
+msgstr "십진수-포인트 문자"
 
 msgid "You must enter a name for the data set."
-msgstr "??? data set? ??? ???? ???."
+msgstr "데이터셋의 이름을 입력해야 합니다."
 
+#, fuzzy
 msgid "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
 
 msgid "Variable names in file:"
-msgstr "??? ?? ??:"
+msgstr "파일에 있는 변수 이름:"
 
 msgid "Missing data indicator:"
-msgstr "??? ??:"
+msgstr "결측 자료 표시문:"
 
 msgid "Other"
-msgstr "??"
+msgstr "다른"
 
 msgid "Specify:"
-msgstr "?????:"
+msgstr "지정하기:"
 
 msgid "Read Data From Package"
-msgstr "?????? ???? ????."
+msgstr "패키지로부터 데이터 읽기"
 
 msgid "Select package:"
-msgstr "???? ?????:"
+msgstr "패키지 선택하기:"
 
+#, fuzzy
 msgid "Data set %s does not exit"
-msgstr "??? ?? %s ???? ?????."
+msgstr "%s(이)라는 데이터가 존재하지 않습니다"
 
 msgid "You must select a package."
-msgstr "??? ???? ???? ???."
+msgstr "패키지 하나를 선택해야 합니다."
 
 msgid "You must select a data set."
-msgstr "??? ??? ??? ???? ???."
+msgstr "데이터셋 하나를 선택해야 합니다."
 
 msgid "Package (Double-click to select)"
-msgstr "??? (?? ???? ??)"
+msgstr "패키지 (두번 클릭하여 선택)"
 
 msgid "Data set (Double-click to select)"
-msgstr "??? ??(?? ???? ??)"
+msgstr "데이터셋(두번 클릭하여 선택)"
 
 msgid "OR"
-msgstr "??"
+msgstr "또는"
 
 msgid "Enter name of data set:"
-msgstr "??? ??? ??? ????:"
+msgstr "데이터셋의 이름 입력하기:"
 
 msgid "Import SPSS Data Set"
-msgstr "SPSS ??? ?? ????"
+msgstr "SPSS 데이터셋 불러오기"
 
+#, fuzzy
 msgid "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*\"}}"
 
+#, fuzzy
 msgid ""
 "Convert value labels\n"
 "to factor levels"
-msgstr "?? ??? ? ???? ?????"
+msgstr ""
+"Convert value labels\n"
+"to factor levels"
 
+#, fuzzy
 msgid ""
 "Maximum number\n"
 "of value labels\n"
 "for factor conversion"
-msgstr "?? ?? ? ???? ???"
+msgstr ""
+"Maximum number\n"
+"of value labels\n"
+"for factor conversion"
 
 msgid "Import Minitab Data Set"
-msgstr "??? ??? ?? ????"
+msgstr "Minitab 데이터셋 불러오기"
 
+#, fuzzy
 msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
 
+#, fuzzy
 msgid ""
 "Minitab data set contains elements of unequal length.\n"
 "Data set cannot be converted."
-msgstr "??? ??? ??? ??? ??? ??? ?????.??? ??? ????? ? ????."
+msgstr ""
+"Minitab data set contains elements of unequal length.\n"
+"데이터셋이 변활될 수 없습니다."
 
 msgid "Import STATA Data Set"
-msgstr "STATA ??? ?? ????"
+msgstr "STATA 데이터셋 불러오기"
 
 msgid "{\"STATA datasets\" {\".dta\" \".DTA\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"STATA datasets\" {\".dta\" \".DTA\"}} {\"All Files\" {\"*\"}}"
 
 msgid "Convert dates to R format"
-msgstr "R ???? ??? ?????"
+msgstr "R 형식으로 날짜 변환하기"
 
 msgid "Multiple missing types (>=Stata 8)"
-msgstr "????? ?? ?? (>= Stata 8)"
+msgstr "다중 결측 유형 (>=Stata 8)"
 
 msgid "Convert underscore to period"
-msgstr "??? ??? ?????."
+msgstr "아랫값을 마침표(.)로 변환하기"
 
 msgid "Warn on missing labels"
-msgstr "??? ??? ?? ??"
+msgstr "결측 라벨에 대해서 경고하기"
 
 msgid "Convert Numeric Variable to Factor"
-msgstr "??? ?? ??? ?????."
+msgstr "숫자 변수를 요인으로 변환하기"
 
 msgid "Variable (pick one)"
-msgstr "?? (??? ??)"
+msgstr "변수 (하나 선택)"
 
 msgid "Supply level names"
-msgstr "?? ??? ???."
+msgstr "수준 이름 제공하기"
 
 msgid "Use numbers"
-msgstr "???? ??"
+msgstr "숫자 사용하기"
 
 msgid "Factor Levels"
-msgstr "?? ??"
+msgstr "요인 수준"
 
 msgid "<same as variable>"
-msgstr "<?? ??>"
+msgstr "<변수와 같음>"
 
+#, fuzzy
 msgid "Number of levels (%d) too large."
-msgstr "??? ?? ?? ???."
+msgstr "Number of levels (%d) too large."
 
 msgid "Level Names"
-msgstr "?? ??"
+msgstr "수준 이름"
 
 msgid "Levels names are not unique."
-msgstr "?? ??? ???? ????."
+msgstr "수준 이름이 유일하지 않습니다."
 
 msgid "A level name is empty."
-msgstr "?? ??? ?? ????."
+msgstr "수준 이름이 비어있습니다."
 
 msgid "Numeric value"
-msgstr "?? ?"
+msgstr "숫자 값"
 
 msgid "Level name"
-msgstr "?? ??"
+msgstr "수준 이름"
 
 msgid "Name for factor"
-msgstr "?? ??"
+msgstr "요인 이름"
 
 msgid "Bin a Numeric Variable"
-msgstr "?? ?? ??"
+msgstr "숫자 변수를 구간으로 나누기"
 
 msgid "Variable to bin (pick one)"
-msgstr "?? ?? (??? ??)"
+msgstr "구간화할 변수 (하나 선택)"
 
 msgid "Specify names"
-msgstr "?? ??"
+msgstr "이름 지정하기"
 
 msgid "Numbers"
-msgstr "??"
+msgstr "숫자"
 
 msgid "Ranges"
-msgstr "??"
+msgstr "범위"
 
 msgid "Equal-width bins"
-msgstr "??? ?? ??"
+msgstr "동일-넓이 구간"
 
 msgid "Equal-count bins"
-msgstr "??? ?? ??"
+msgstr "동일-계산치 구간"
 
+#, fuzzy
 msgid ""
 "Natural breaks\n"
 "(from K-means clustering)"
-msgstr "?? ???(k-?? ???)"
+msgstr ""
+"Natural breaks\n"
+"(from K-means clustering)"
 
 msgid "Binning Method"
-msgstr "Binning ?"
+msgstr "구간화 기법"
 
 msgid "Bin Names"
-msgstr "?? ??"
+msgstr "구간 이름"
 
 msgid "Level names must be unique."
-msgstr "?? ??? ???? ???."
+msgstr "수준 이름은 유일해야 합니다."
 
 msgid "Bin"
-msgstr "??"
+msgstr "구간"
 
 msgid "Name"
-msgstr "??"
+msgstr "이름"
 
 msgid "Number of bins:"
-msgstr "??? ?:"
+msgstr "구간의 수:"
 
 msgid "Reorder Factor Levels"
-msgstr "?? ?? ??"
+msgstr "요인 수준 다시 정렬하기"
 
 msgid "Factor (pick one)"
-msgstr "?? (??? ??)"
+msgstr "요인 (하나 선택)"
 
 msgid "<same as original>"
-msgstr "<?? ??>"
+msgstr "<원래와 같음>"
 
 msgid "Reorder Levels"
-msgstr "?? ??"
+msgstr "수준 다시 정렬하기"
 
+#, fuzzy
 msgid "Order of levels must include all integers from 1 to"
-msgstr "??? ??? 1?? ?? ?? ??? ???? ???."
+msgstr "Order of levels must include all integers from 1 to"
 
 msgid "Old Levels"
-msgstr "??? ??"
+msgstr "예전 수준"
 
 msgid "New order"
-msgstr "??? ??"
+msgstr "새로운 순서"
 
 msgid "Make ordered factor"
-msgstr "???? ??? ????."
+msgstr "순서화된 요인 만들기"
 
 msgid "Standardize Variables"
-msgstr "??? ??"
+msgstr "변수 표준화하기"
 
 msgid "Export Active Data Set"
-msgstr "???? ??? ?? ????"
+msgstr "활성 데이터셋 내보내기"
 
 msgid "Write variable names:"
-msgstr "?? ?? ??:"
+msgstr "변수 이름 쓰기:"
 
 msgid "Write row names:"
-msgstr "? ?? ??:"
+msgstr "행 이름 쓰기:"
 
 msgid "Quotes around character values:"
-msgstr "?? ? ??? ???:"
+msgstr "문자 값 주위에 따옴표쓰기:"
 
 msgid "Spaces"
-msgstr "????"
+msgstr "여백"
 
 msgid "Active dataset exported to file"
-msgstr "???? ??? ??? ???? ??????."
+msgstr "파일로 내보낸 활성 데이터셋"
 
 msgid "Missing values:"
-msgstr "???:"
+msgstr "결측 값:"
 
 msgid "Remove Missing Data"
-msgstr "???? ????."
+msgstr "결측 데이터 제거하기"
 
 msgid "Variables (select one or more)"
-msgstr "?? (?? ??? ??)"
+msgstr "변수 (하나 이상 선택)"
 
 msgid "<same as active data set>"
-msgstr "<???? ??? ??? ??>"
+msgstr "<활성 데이터셋과 같음>"
 
 msgid "No variables were selected."
-msgstr "??? ?????? ???."
+msgstr "변수가 선택되지 않았습니다."
 
 msgid "Include all variables"
-msgstr "?? ??? ????."
+msgstr "모든 변수 포함하기"
 
 msgid "Name for new data set"
-msgstr "??? ??? ?? ??"
+msgstr "새로운 데이터셋 이름"
 
 msgid "Subset Data Set"
-msgstr "??? ?? ?? ??"
+msgstr "데이터셋 하위설정하기"
 
 msgid "<all cases>"
-msgstr "<?? ??>"
+msgstr "<<모든 사례>>"
 
 msgid "New data set same as active data set."
-msgstr "??? ??? ??? ??? ??? ??? ????."
+msgstr "활성 데이터셋과 같은 새로운 데이터셋"
 
 msgid "Subset expression"
-msgstr "???? ??"
+msgstr "표현식 하위설정하기"
 
 msgid "Set Case Names"
-msgstr "case ??? ?????."
+msgstr "사례 이름 설정하기"
 
 msgid "Select variable containing row names"
-msgstr "? ??? ???? ?? ??"
+msgstr "행 이름 포함하는 변수 선택하기"
 
 msgid "Case names must be unique."
-msgstr "case ??? ???? ???."
+msgstr "사례 이름은 유일해야 합니다."
 
 msgid "Rename Variables"
-msgstr "??? ?? ??"
+msgstr "변수이름 다시짓기"
 
 msgid "Variable Names"
-msgstr "?? ??"
+msgstr "변수 이름"
 
 msgid "A variable name is empty."
-msgstr "?? ??? ??????."
+msgstr "변수이름이 비어있습니다."
 
 msgid "The following variable names are not valid:"
-msgstr "??? ?? ??? ???? ????:"
+msgstr "다음의 변수 이름은 타당하지 않습니다:"
 
 msgid "Variable names are not unique"
-msgstr "?? ??? ???? ????."
+msgstr "변수 이름이 유일하지 않습니다"
 
 msgid "Old Name"
-msgstr "??? ??"
+msgstr "예전 이름"
 
 msgid "New name"
-msgstr "??? ??"
+msgstr "새로운 이름"
 
 msgid "Set Contrasts for Factor"
-msgstr "??? ?? ?? ??"
+msgstr "요인 대조 설정하기"
 
 msgid "Treatment (dummy) contrasts"
-msgstr "??(??) ??"
+msgstr "(더미) 대조 처리"
 
 msgid "Sum (deviation) contrasts"
-msgstr "??(??) ??"
+msgstr "(편차) 대조 합계"
 
 msgid "Helmert contrasts"
-msgstr "Helmert ??"
+msgstr "Helmert 대조"
 
 msgid "Polynomial contrasts"
-msgstr "???? ??"
+msgstr "다항식 대조"
 
 msgid "Other (specify)"
-msgstr "?? (????)"
+msgstr "다른 (지정하기)"
 
 msgid "Contrasts"
-msgstr "??"
+msgstr "대조"
 
 msgid "Specify Contrasts"
-msgstr "??? ?????."
+msgstr "대조 지정하기"
 
 msgid "Enter Contrast Coefficients"
-msgstr "?? ??? ?????."
+msgstr "대비 계수 입력하기"
 
 msgid "Contrast Name:"
-msgstr "?? ??:"
+msgstr "대조 이름:"
 
+#, fuzzy
 msgid ""
 "Number of valid entries in contrast matrix(%d)\n"
 "not equal to number of levels (%d) * number of contrasts (%d)."
-msgstr "?? ??? ??? ??? ??? ??? ?? ? * ??? ?? ???? ????."
+msgstr ""
+"Number of valid entries in contrast matrix(%d)\n"
+"not equal to number of levels (%d) * number of contrasts (%d)."
 
 msgid "Contrast matrix is not of full column rank"
-msgstr "?? ??? ??? ? ??? ????."
+msgstr "대비 행렬이 모든 열 순위의 것이 아닙니다"
 
 msgid "Contrast names must be unique"
-msgstr "?? ??? ???? ???."
+msgstr "대조 이름은 유일해야 합니다"
 
 msgid "Normal Quantiles"
-msgstr "?? ????"
+msgstr "정상 분위수"
 
 msgid "No probabilities specified."
-msgstr "??? ???? ?????."
+msgstr "확률이 지정되지 않음."
 
 msgid "Probabilities"
-msgstr "??"
+msgstr "확률"
 
 msgid "mu (mean)"
-msgstr "? (??)"
+msgstr "뮤 (평균)"
 
 msgid "sigma (standard deviation)"
-msgstr "??? (?? ??)"
+msgstr "시그마 (표준 편차)"
 
 msgid "Lower tail"
-msgstr "?? ??"
+msgstr "낮은쪽 꼬리"
 
 msgid "Upper tail"
-msgstr "?? ??"
+msgstr "높은쪽 꼬리"
 
 msgid "Normal Probabilities"
-msgstr "?? ???"
+msgstr "정상 확률"
 
 msgid "No values specified."
-msgstr "?? ???? ?????."
+msgstr "값이 지정되지않음."
 
 msgid "Variable value(s)"
-msgstr "?? ?(?)"
+msgstr "변수 값"
 
 msgid "t Quantiles"
-msgstr "t ???"
+msgstr "t 분위수"
 
 msgid "Degrees of freedom not specified."
-msgstr "???? ???? ?????."
+msgstr "자유도가 지정되지 않음."
 
 msgid "Degrees of freedom"
-msgstr "???"
+msgstr "자유도"
 
 msgid "t Probabilities"
-msgstr "t ??"
+msgstr "t 확률"
 
 msgid "Chi-Squared Quantiles"
-msgstr "???? ???"
+msgstr "카이-제곱 분위수"
 
 msgid "Chi-Squared Probabilities"
-msgstr "???? ??"
+msgstr "카이-제곱 확률"
 
 msgid "F Quantiles"
-msgstr "F ???"
+msgstr "F 분위수"
 
 msgid "Probabilities not specified"
-msgstr "??? ???? ?????."
+msgstr "확률이 지정되지 않음"
 
 msgid "Numerator degrees of freedom"
-msgstr "?? ???"
+msgstr "분자 자유도"
 
 msgid "Denominator degrees of freedom"
-msgstr "?? ???"
+msgstr "분모 자유도"
 
 msgid "F Probabilities"
-msgstr "F ??"
+msgstr "F 확률"
 
 msgid "Values not specified."
-msgstr "?? ???? ?????."
+msgstr "값이 지정되지 않음."
 
 msgid "Binomial Quantiles"
-msgstr "?? ????"
+msgstr "이항 분위수"
 
 msgid "Probabilities not specified."
-msgstr "??? ???? ?????."
+msgstr "확률이 지정되지 않음."
 
 msgid "Binomial trials not specified."
-msgstr "?? ??? ???? ?????."
+msgstr "이항 시행이 지정되지 않음."
 
 msgid "Probability of success not specified."
-msgstr "?? ??? ???? ?????."
+msgstr "성공확률이 지정되지 않음."
 
 msgid "Binomial trials"
-msgstr "?? ??"
+msgstr "이항 시행"
 
 msgid "Probability of success"
-msgstr "?? ??"
+msgstr "성공 확률"
 
 msgid "Cumulative Binomial Probabilities"
-msgstr "?? ?? ??"
+msgstr "누적 이항 확률"
 
+#, fuzzy
 msgid ""
 "Number of trials, %d, is large.\n"
 "Create long output?"
-msgstr "??? ?? ??.? ???? ????????"
+msgstr ""
+"Number of trials, %d, is large.\n"
+"Create long output?"
 
 msgid "Binomial Probabilities"
-msgstr "?? ??"
+msgstr "이항 확률"
 
+#, fuzzy
 msgid ""
 "Range of values over which to plot, %d, is large.\n"
 "Create long output?"
-msgstr "?? ??? ??? ??? ???.? ???? ????????"
+msgstr ""
+"Range of values over which to plot, %d, is large.\n"
+"Create long output?"
 
 msgid "Poisson Probabilities"
-msgstr "??? ??"
+msgstr "Poisson 확률"
 
 msgid "Poisson mean not specified."
-msgstr "??? ??? ???? ?????."
+msgstr "Poisson 평균이 지정되지 않음."
 
 msgid "Mean"
-msgstr "??"
+msgstr "평균"
 
 msgid "Normal Distribution"
-msgstr "?? ??"
+msgstr "정규 분포"
 
 msgid "Plot density function"
-msgstr "?? ?? ??"
+msgstr "밀도 함수 그리기"
 
 msgid "Plot distribution function"
-msgstr "?? ?? ??"
+msgstr "분포 함수 그리기"
 
 msgid "t Distribution"
-msgstr "t ??"
+msgstr "t 분포"
 
 msgid "Chi-squared Distribution"
-msgstr "???? ??"
+msgstr "카이-제곱 분포"
 
 msgid "F Distribution"
-msgstr "F ??"
+msgstr "F 분포"
 
 msgid "Numerator degrees of freedom not specified."
-msgstr "?? ???? ???? ?????."
+msgstr "분자의 자유도가 지정되지 않음."
 
 msgid "Denominator degrees of freedom not specified."
-msgstr "?? ???? ???? ?????."
+msgstr "분모의 자유도가 지정되지 않음."
 
 msgid "Binomial Distribution"
-msgstr "?? ??"
+msgstr "이항 분포"
 
 msgid "Plot probability mass function"
-msgstr "?? ?? ?? ??"
+msgstr "확률 질량 함수 그리기"
 
 msgid "Poisson Distribution"
-msgstr "??? ??"
+msgstr "Poisson 분포"
 
 msgid "Mean not specified."
-msgstr "??? ???? ?????."
+msgstr "평균이 지정되지 않음."
 
 msgid "mean"
-msgstr "??"
+msgstr "평균"
 
+#, fuzzy
 msgid "{\"Script Files\" {\".R\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Script Files\" {\".R\"}} {\"All Files\" {\"*\"}}"
 
 msgid "Save current log file?"
-msgstr "?? ?? ??? ?????????"
+msgstr "현재의 로그 파일을 저장하겠습니까?"
 
+#, fuzzy
 msgid "Script saved to"
-msgstr "????? ??"
+msgstr "Script saved to"
 
+#, fuzzy
 msgid "Output saved to"
-msgstr "???? ??"
+msgstr "Output saved to"
 
+#, fuzzy
 msgid "{\"Output Files\" {\".txt\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Output Files\" {\".txt\"}} {\"All Files\" {\"*\"}}"
 
+#, fuzzy
 msgid "{\"All Files\" {\"*\"}}"
 msgstr "{\"All Files\" {\"*\"}}"
 
+#, fuzzy
 msgid "R workspace saved to"
-msgstr "R ????? ??"
+msgstr "R workspace saved to"
 
 msgid "Exit?"
-msgstr "?????????"
+msgstr "나가기?"
 
 msgid "Save script file?"
-msgstr "???? ??? ?????????"
+msgstr "스크립트 파일 저장하기?"
 
 msgid "Save output file?"
-msgstr "?? ??? ?????????"
+msgstr "출력 파일 저정하기?"
 
 msgid "Commander Options"
-msgstr "?? ??"
+msgstr "Commander 옵션"
 
+#, fuzzy
 msgid "Log commands to script window"
-msgstr "?? ?? ???? ?"
+msgstr "Log commands to script window"
 
 msgid "Log-font size (points)"
-msgstr "??-?? ??(???)"
+msgstr "로그-폰트 크기 (포인트)"
 
 msgid "Log width (characters)"
-msgstr "?? ?(??)"
+msgstr "로그 넓이 (문자)"
 
 msgid "Log height (lines)"
-msgstr "?? ??(?)"
+msgstr "로그 높이 (줄)"
 
 msgid "Send output to R Console"
-msgstr "R ??? ???? ????."
+msgstr "출력물을 R 콘솔로 보내기"
 
 msgid "Output height (lines)"
-msgstr "???? ??(?)"
+msgstr "출력물 높이(줄)"
 
 msgid "Unordered factors"
-msgstr "???? ?? ??"
+msgstr "순서화되지않은 요인"
 
 msgid "Ordered factors"
-msgstr "???? ??"
+msgstr "순서화된 요인"
 
+#, fuzzy
 msgid "Active window grabs focus"
-msgstr "??? ? ??? ????."
+msgstr "Active window grabs focus"
 
 msgid "Double-click presses OK button"
-msgstr "OK ??? ?? ????."
+msgstr "OK 버튼을 두번 누르기"
 
 msgid "Sort variable names alphabetically"
-msgstr "?????? ?? ??? ?????."
+msgstr "변수 이름을 알파벳 순서로 정렬하기"
 
 msgid "Show edit button"
-msgstr "?? ??? ?????."
+msgstr "편집 버튼 보이기"
 
 msgid ""
 "Exit and Restart\n"
 "R Commander"
-msgstr "R Commander? ???? ?? ?????."
+msgstr ""
+"Exit and Restart\n"
+"R Commander"
 
 msgid "Scale factor for Tk elements"
-msgstr "TK ??? ?? ?? ??"
+msgstr "Tk 요소를 위한 요인 척도"
 
 msgid "Default font"
-msgstr "?? ??"
+msgstr "기본 글꼴"
 
 msgid "No packages available to load."
-msgstr "?? ??? ???? ????."
+msgstr "불러올 패키지가 없음."
 
 msgid "Load Packages"
-msgstr "?? ???"
+msgstr "패키지 불러오기"
 
 msgid "Packages (pick one or more)"
-msgstr "???(?? ?? ??)"
+msgstr "패키지 (하나 이상 선택)"
 
 msgid "You must select at least one package."
-msgstr "??? ??? ??? ???? ???? ???."
+msgstr "적어도 하나 이상의 패키지를 선택해야 합니다."
 
 msgid "Packages loaded:"
-msgstr "???? ???:"
+msgstr "불러들인 패키지:"
 
 msgid "Index Plot"
-msgstr "?? ??"
+msgstr "색인도"
 
 msgid "You must select a variable"
-msgstr "??? ??? ??? ???? ???."
+msgstr "변수 하나를 선택해야 합니다"
 
+#, fuzzy
 msgid ""
 "Identify observations\n"
 "with mouse"
-msgstr "???? ???? ?????."
+msgstr ""
+"Identify observations\n"
+"with mouse"
 
 msgid "Spikes"
-msgstr "????"
+msgstr "스파이크"
 
 msgid "Points"
-msgstr "???"
+msgstr "포인트"
 
 msgid "Histogram"
-msgstr "?????"
+msgstr "히스토그램"
 
 msgid "<auto>"
-msgstr "<??>"
+msgstr "<자동>"
 
 msgid "Frequency counts"
-msgstr "???"
+msgstr "빈도수 세기"
 
 msgid "Percentages"
-msgstr "??"
+msgstr "백분율"
 
 msgid "Densities"
-msgstr "??"
+msgstr "밀도"
 
 msgid "Axis Scaling"
-msgstr "? ????"
+msgstr "축 크기조정"
 
 msgid "Stem and Leaf Display"
-msgstr "??? ?? ???."
+msgstr "줄기-잎 표시"
 
 msgid "Automatic"
-msgstr "??"
+msgstr "자동"
 
 msgid "Parts Per Stem"
-msgstr "? ??? ?? ??"
+msgstr "줄기 부분"
 
 msgid "Tukey"
-msgstr "??"
+msgstr "Tukey"
 
 msgid "Repeated stem digits"
-msgstr "??? ?? ?"
+msgstr "반복된 줄기 숫자"
 
 msgid "Style of Divided Stems"
-msgstr "??? ?? ??"
+msgstr "분할된 줄기 모양새"
 
 msgid "Trim outliers"
-msgstr "???? ????."
+msgstr "이상치 다듬기"
 
 msgid "Show depths"
-msgstr "??? ????."
+msgstr "깊이 보여주기"
 
 msgid "Reverse negative leaves"
-msgstr "?? ??? ???"
+msgstr "음의 잎 변환하기"
 
 msgid "Leafs Digit:"
-msgstr "?? ?:"
+msgstr "잎의 자리수:"
 
 msgid "or set:"
-msgstr "?? set:"
+msgstr "또는 셋:"
 
 msgid "Options"
-msgstr " ??"
+msgstr "선택기능"
 
 msgid "Boxplot"
-msgstr "?? ??"
+msgstr "상자그림"
 
 msgid "Identify outliers with mouse"
-msgstr "???? ???? ?????."
+msgstr "이상치를 마우스로 확인하기"
 
 msgid "Scatterplot"
-msgstr "Scatter ??"
+msgstr "산점도"
 
 msgid "x-variable (pick one)"
-msgstr "?? x (?? ??) "
+msgstr "x-변수 (하나 선택)"
 
 msgid "y-variable (pick one)"
-msgstr "?? y (?? ??)"
+msgstr "y-변수 (하나 선택)"
 
 msgid "Identify points"
-msgstr "?? ???"
+msgstr "포인트 확인하기"
 
 msgid "Jitter x-variable"
-msgstr "?? x? ??? ?????"
+msgstr "x-변수 조금씩 움직이기"
 
 msgid "Jitter y-variable"
-msgstr "?? y? ??? ?????"
+msgstr "y-변수 조금씩 움직이기"
 
 msgid "Marginal boxplots"
-msgstr "?? ??? ??"
+msgstr "한계적인 상자그림"
 
 msgid "Least-squares line"
-msgstr "?? ?? ?"
+msgstr "최소-제곱 선"
 
 msgid "Smooth Line"
-msgstr "??? ?"
+msgstr "평활선"
 
 msgid "You must select two variables"
-msgstr "??? ? ?? ??? ???? ???."
+msgstr "두개의 변수를 선택해야 합니다"
 
 msgid "x and y variables must be different"
-msgstr "x? y? ??? ??? ??."
+msgstr "x와 y변수는 차이가 있어야 합니다"
 
+#, fuzzy
 msgid "Span for smooth"
-msgstr "???? ?? ?"
+msgstr "Span for smooth"
 
 msgid "Scatterplot Matrix"
-msgstr "Scatter?? ??"
+msgstr "산점도 행렬"
 
 msgid "Select variables (three or more)"
-msgstr "???? (?? ??)"
+msgstr "변수 선택하기 (세개 이상)"
 
 msgid "Least-squares lines"
-msgstr "?? ?? ?"
+msgstr "최소-제곱 선"
 
 msgid "Smooth lines"
-msgstr "??? ?"
+msgstr "평활선"
 
 msgid "Density plots"
-msgstr "?? ??"
+msgstr "밀도그림"
 
 msgid "Histograms"
-msgstr "?????"
+msgstr "히스토그램"
 
 msgid "Boxplots"
-msgstr "?? ??"
+msgstr "상자그림"
 
 msgid "Normal QQ plots"
-msgstr "??? QQ ??"
+msgstr "정규 QQ 그림"
 
 msgid "Nothing (empty)"
-msgstr "???? ?? (????)"
+msgstr "아무것도 없음 (비어있음)"
 
 msgid "On Diagonal"
-msgstr "?????"
+msgstr "대각선에서"
 
 msgid "Fewer than 3 variable selected."
-msgstr "3?? ???? ?? ??????."
+msgstr "세개 미만의 변수가 선택됨."
 
 msgid "Bar Graph"
-msgstr "?? ???"
+msgstr "막대 그래프"
 
 msgid "Pie Chart"
-msgstr "?? ??"
+msgstr "원형표"
 
 msgid "Line Plot"
-msgstr "? ??"
+msgstr "선 그림"
 
 msgid "x variable (pick one)"
-msgstr "?? x (?? ??)"
+msgstr "x 변수 (하나 선택)"
 
 msgid "y variables (pick one or more)"
-msgstr "?? y (?? ?? ??)"
+msgstr "y 변수 (하나 이상 선택)"
 
 msgid "<use y-variable names>"
-msgstr "<?? y ?? ??>"
+msgstr "<y-변수 이름 사용하기>"
 
 msgid "No x variable selected."
-msgstr "?? x? ???? ?????."
+msgstr "x 변수가 선택되지 않음."
 
 msgid "No y variables selected."
-msgstr "?? y? ???? ?????."
+msgstr "y 변수가 선택되지 않음."
 
 msgid "x and y variables must be different."
-msgstr "x? y ??? ??? ???."
+msgstr "x와 y변수는 차이가 있어야 합니다."
 
+#, fuzzy
 msgid ""
 "x-values are not in order.\n"
 "Continue?"
-msgstr "x ?? ???? ?? ?? ????.?????????"
+msgstr ""
+"x-values are not in order.\n"
+"Continue?"
 
 msgid "Label for y-axis"
-msgstr "y ? ??"
+msgstr "y-축 이름표"
 
+#, fuzzy
 msgid "Plot legend (position with mouse click)"
-msgstr "?? ?? (??? ???? ??)"
+msgstr "Plot legend (position with mouse click)"
 
 msgid "Quantile-Comparison (QQ) Plot"
-msgstr "???? ?? (QQ) ??"
+msgstr "분위수-비교 (QQ) 그림"
 
 msgid "df for t must be a positive number."
-msgstr "t? ???? ????? ???."
+msgstr "t를 위한 자유도는 양수가 되어야 합니다."
 
 msgid "df for chi-square must be a positive number."
-msgstr "???? ???? ????? ???."
+msgstr "카이-제곱 자유도는 양수가 되어야 합니다."
 
+#, fuzzy
 msgid ""
 "numerator and denominator \n"
 "df for F must be positive numbers."
-msgstr "F ??? ??? ??? ????? ???."
+msgstr ""
+"numerator and denominator \n"
+"df for F must be positive numbers."
 
 msgid "Identify observations with mouse"
-msgstr "???? ???? ?????."
+msgstr "관찰치를 마우스로 확인하기"
 
 msgid "Distribution"
-msgstr "??"
+msgstr "분포"
 
 msgid "Normal"
-msgstr "??"
+msgstr "정규"
 
 msgid "Chi-square"
-msgstr "????"
+msgstr "카이제곱"
 
 msgid "Numerator df ="
-msgstr "??? ??? ="
+msgstr "분자 자유도 ="
 
 msgid "Denominator df ="
-msgstr "??? ??? ="
+msgstr "분모 자유도 ="
 
 msgid "Parameters:"
-msgstr "?? :"
+msgstr "모수:"
 
 msgid "Plot Means"
-msgstr "?? ??"
+msgstr "평균 그리기"
 
 msgid "Factors (pick one or two)"
-msgstr "?? (?? ?? ?? ??)"
+msgstr "요인 (하나 이상 선택)"
 
 msgid "Response Variable (pick one)"
-msgstr "?? ?? (?? ??)"
+msgstr "반응 변수 (하나 선택)"
 
 msgid "No factors selected."
-msgstr "??? ???? ???."
+msgstr "요인이 선택되지 않음."
 
 msgid "More than two factors selected."
-msgstr "? ?? ???? ?? ??????."
+msgstr "두개 이상의 요인이 선택됨."
 
 msgid "No response variable selected."
-msgstr "?? ??? ???? ?????."
+msgstr "반응 변수가 선택되지 않음."
 
+#, fuzzy
 msgid "Error Bars"
-msgstr "?? ?"
+msgstr "Error Bars"
 
 msgid "blue"
-msgstr "??"
+msgstr "파란색"
 
 msgid "Standard errors"
-msgstr "?? ??"
+msgstr "표준 오차"
 
 msgid "Standard deviations"
-msgstr "?? ??"
+msgstr "표준 편차"
 
 msgid "Confidence intervals"
-msgstr "?? ??"
+msgstr "신뢰 구간"
 
 msgid "Level of confidence:"
-msgstr "???"
+msgstr "신뢰 수준:"
 
+#, fuzzy
 msgid "No error bars"
-msgstr "?? ?? ??."
+msgstr "No error bars"
 
 msgid "3D Scatterplot"
-msgstr "3D Scatter ??"
+msgstr "3차원 산점도"
 
 msgid "Explanatory variables (pick two)"
-msgstr "?? ?? (?? ??)"
+msgstr "설명 변수 (두개 선택)"
 
 msgid "Response variable (pick one)"
-msgstr "?? ?? (?? ??)"
+msgstr "반응 변수 (한개 선택)"
 
 msgid "You must select a response variable."
-msgstr "??? ?? ??? ???? ??."
+msgstr "반응 변수를 선택해야 합니다."
 
 msgid "You must select 2 explanatory variables."
-msgstr "??? 2?? ?? ??? ???? ??."
+msgstr "두개의 설명 변수를 선택해야 합니다."
 
 msgid "Response and explanatory variables must be different."
-msgstr "?? ??? ?? ??? ??? ??."
+msgstr "반응변수와 설명변수는 차이가 있어야 합니다."
 
+#, fuzzy
 msgid "Parallel regression surfaces"
-msgstr "?? ?? ?"
+msgstr "Parallel regression surfaces"
 
+#, fuzzy
 msgid "Show surface grid lines"
-msgstr "?? ???? ?????."
+msgstr "Show surface grid lines"
 
+#, fuzzy
 msgid "Surfaces to Fit"
-msgstr "???? ?? ?"
+msgstr "Surfaces to Fit"
 
 msgid "Linear least-squares"
-msgstr "?? ????"
+msgstr "선형 최소-제곱"
 
 msgid "Quadratic least-squares"
-msgstr "?? ????"
+msgstr "이차 최소-제곱"
 
 msgid "Smooth regression"
-msgstr "??? ??"
+msgstr "평활 회귀"
 
 msgid "Additive regression"
-msgstr "???? ??"
+msgstr "가법 회귀"
 
 msgid "df(each term) ="
-msgstr "???(??)="
+msgstr "자유도(each term) ="
 
 msgid "Background Color"
-msgstr "?? ??"
+msgstr "배경 색상"
 
 msgid "Black"
-msgstr "??"
+msgstr "검정색"
 
 msgid "White"
-msgstr "??"
+msgstr "흰색"
 
 msgid "Save Graph as Bitmap"
-msgstr "????? ???? ?????."
+msgstr "그래프를 비트맵으로 저장하기"
 
 msgid "There is no current graphics device to save."
-msgstr "?? ???? ?? ??? ??? ????."
+msgstr "저장할 그래픽 장치가 현재 없습니다."
 
 msgid "Graphics File Type"
-msgstr "??? ?? ??"
+msgstr "그래픽 파일 유형"
 
+#, fuzzy
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 
+#, fuzzy
 msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
 
 msgid "Graph saved to file"
-msgstr "???? ??? ??????."
+msgstr "그래프 파일로 저장"
 
 msgid "Width (pixels)"
-msgstr "? (pixels)"
+msgstr "넓이(픽셀)"
 
 msgid "Height (pixels)"
-msgstr "?? (pixels)"
+msgstr "높이(픽셀)"
 
 msgid "Save Graph as PDF/Postscript"
-msgstr "PDF/Postscript ???? ??"
+msgstr "그래프를 PDF/Postscript로 저장하기"
 
+#, fuzzy
 msgid "PDF"
 msgstr "PDF"
 
+#, fuzzy
 msgid "Postscript"
 msgstr "Postscript"
 
+#, fuzzy
 msgid "Encapsulated Postscript"
-msgstr "??? Postscript"
+msgstr "Encapsulated Postscript"
 
+#, fuzzy
 msgid "{\"PDF Files\" {\".pdf\" \".PDF\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fitxers PDF\" {\".pdf\" \".PDF\"}} {\"Tots els fitxers\" {\"*\"}}"
+msgstr "{\"PDF Files\" {\".pdf\" \".PDF\"}} {\"All Files\" {\"*\"}}"
 
+#, fuzzy
 msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fitxers Postscript\" {\".ps\" \".PS\"}} {\"Tots els fitxers\" {\"*\"}}"
+msgstr "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 
+#, fuzzy
 msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fitxers Postscript encapsulats\" {\".eps\" \".EPS\"}} {\"Tots els fitxers\" {\"*\"}}"
+msgstr "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
 
 msgid "Width (inches)"
-msgstr "?? (inches)"
+msgstr "넓이 (인치)"
 
 msgid "Height (inches)"
-msgstr "?? (inches)"
+msgstr "높이 (인치)"
 
 msgid "Text size (points)"
-msgstr "??? ?? (punts)"
+msgstr "텍스트 크기 (포인트)"
 
 msgid "There is no current RGL graphics device to save."
-msgstr "?? ????? RGL ??? ??? ????."
+msgstr "저장할 RGL 그래픽 장치가 현재 없습니다."
 
+#, fuzzy
 msgid "{\"PNG Bitmap Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fitxers PNG\" {\".png\" \".PNG\"}} {\"Tots els fitxers\" {\"*\"}}"
+msgstr "{\"PNG Bitmap Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 
 msgid "There is only one model in memory."
-msgstr "?? ???? ??? ???? ??."
+msgstr "보조기억장치(메모리)에 오직 하나의 모델이 있습니다."
 
 msgid "There are no models from which to choose."
-msgstr "??? ? ?? ?? ??? ????."
+msgstr "선택할 수 있는 모델이 없습니다."
 
 msgid "Select Model"
-msgstr "?? ??"
+msgstr "모델 선택하기"
 
 msgid "Models (pick one)"
-msgstr "?? (?? ??)"
+msgstr "모델 (하나 선택)"
 
 msgid "There is no dataset associated with this model."
-msgstr "? ??? ??? ??? ??? ????."
+msgstr "이 모델과 연관된 데이터셋이 없습니다."
 
+#, fuzzy
 msgid "The dataset associated with this model, %s, is not in memory."
-msgstr "? ??? ??? ??? ??? ???? ????."
+msgstr "The dataset associated with this model, %s, is not in memory."
 
 msgid "Current Model:"
-msgstr "?? ??:"
+msgstr "현재 모델:"
 
 msgid "Identify points with mouse?"
-msgstr "???? ???? ??? ? ?????"
+msgstr "마우스로 포인트 확인하기?"
 
 msgid "There is no appropriate Anova method for a model of this class."
-msgstr "? ???? ??? ?? ??? Anova ??? ????."
+msgstr "이 클래스의 모델을 위한 적절한 분산분석이 없습니다."
 
+#, fuzzy
 msgid ""
 "Observation statistics not available\n"
 "for a model fit to a subset of the data."
-msgstr "?? ?? ???? ?? ??? ?? ??? ??? ? ????."
+msgstr ""
+"Observation statistics not available\n"
+"for a model fit to a subset of the data."
 
 msgid "Add Observation Statistics to Data"
-msgstr "???? ?? ??? ??"
+msgstr "데이터에 관찰 통계 추가하기"
 
 msgid "Fitted values"
-msgstr "??? ?"
+msgstr "Fitted values"
 
 msgid "Residuals"
-msgstr "??"
+msgstr "잔차"
 
+#, fuzzy
 msgid "Studentized residuals"
-msgstr "???? ??"
+msgstr "Studentized 잔차"
 
+#, fuzzy
 msgid "Hat-values"
-msgstr "Hat-?"
+msgstr "Hat-값"
 
+#, fuzzy
 msgid "Cook's distances"
-msgstr "Cook's ??"
+msgstr "Cook의 거리"
 
 msgid "Observation indices"
-msgstr "?? ??"
+msgstr "관찰 지수"
 
 msgid "Residual Quantile-Comparison Plot"
-msgstr "?? ???-?? ??"
+msgstr "잔차 분위수-비교 그림"
 
+#, fuzzy
 msgid "Simulated confidence envelope"
-msgstr "??? ?? envelope"
+msgstr "Simulated confidence envelope"
 
 msgid "Identify points with mouse"
-msgstr "???? ???? ??"
+msgstr "마우스로 포인트 정보 확인하기"
 
 msgid "Test Linear Hypothesis"
-msgstr "?? ?? ???"
+msgstr "선형 가설 검정하기"
 
+#, fuzzy
 msgid ""
 "Number of valid entries in hypothesis matrix(%d)\n"
 "not equal to number of rows (%d) * number of columns (%d)."
-msgstr "?? ??? ??? ??? ?? ?? ? * ?? ?? ???? ????."
+msgstr ""
+"Number of valid entries in hypothesis matrix(%d)\n"
+"not equal to number of rows (%d) * number of columns (%d)."
 
 msgid "Hypothesis matrix is not of full row rank."
-msgstr "?? ??? ??? ? ??? ????."
+msgstr "가설 행렬이 모든 행 순위의 것이 아닙니다."
 
+#, fuzzy
 msgid ""
 "Number of valid entries in rhs vector (%d)\n"
 "is not equal to number of rows (%d)."
-msgstr "rhs ???? ??? ??? ?? ?? ?? ???? ????."
+msgstr ""
+"Number of valid entries in rhs vector (%d)\n"
+"is not equal to number of rows (%d)."
 
 msgid "Number of Rows:"
-msgstr "?? ?:"
+msgstr "행의 수:"
 
 msgid "Enter hypothesis matrix and right-hand side vector:"
-msgstr "?? ??? ??? ??? ?????:"
+msgstr "가설 행렬과 오른쪽 벡터 입력하기"
 
 msgid "There are fewer than two models."
-msgstr "? ?? ??? ? ???."
+msgstr "두 개의 모델보다 갯수가 적습니다."
 
 msgid "Compare Models"
-msgstr "?? ??"
+msgstr "모델 비교하기"
 
 msgid "First model (pick one)"
-msgstr "??? ?? (?? ??)"
+msgstr "첫째 모델(하나 선택)"
 
 msgid "Second model (pick one)"
-msgstr "??? ?? (?? ??)"
+msgstr "둘째 모델(하나 선택)"
 
 msgid "You must select two models."
-msgstr "??? ??? ??? ???? ???."
+msgstr "두 개의 모델을 선택해야 합니다."
 
 msgid "Models are not of the same class."
-msgstr "??? ??? ???? ????."
+msgstr "모델들이 같은 클래스의 것이 아닙니다."
 
+#, fuzzy
 msgid "Breusch-Pagan Test"
-msgstr "Breusch-Pagan ??"
+msgstr "Breusch-Pagan 검정"
 
 msgid "Score Test for Nonconstant Error Variance"
-msgstr "??? ?? ?? ?? ??"
+msgstr "비상수 오류 분산 점수 검정"
 
+#, fuzzy
 msgid "Studentized test statistic"
-msgstr "Studentized ??? ??"
+msgstr "Studentized test statistic"
 
 msgid "Explanatory variables"
-msgstr "?? ??"
+msgstr "설명 변수"
 
 msgid "Variance Formula"
-msgstr "?? ??"
+msgstr "분산 공식"
 
+#, fuzzy
 msgid "Durbin-Waton Test"
-msgstr "Durbin-Waton ??"
+msgstr "Durbin-Waton 검정"
 
+#, fuzzy
 msgid "Test for First-Order Error Autocorrelation"
-msgstr "??? ?? ?? ??"
+msgstr "Test for First-Order Error Autocorrelation"
 
 msgid "Alternative Hypothesis"
-msgstr "?? ??"
+msgstr "대립 가설"
 
+#, fuzzy
 msgid "RESET Test"
-msgstr "RESET ???"
+msgstr "RESET 검정"
 
 msgid "Test for Nonlinearity"
-msgstr "???? ??"
+msgstr "비선형성 검정"
 
 msgid "No powers are checked."
-msgstr "???? ???? ?????."
+msgstr "검토된 검정력이 없습니다."
 
 msgid "First principal component"
-msgstr "??? ???"
+msgstr "첫째 주성분"
 
 msgid "Type of Test"
-msgstr "?? ??"
+msgstr "검정 유형"
 
 msgid "Powers to Include"
-msgstr "??? ??"
+msgstr "포함할 검정력"
 
+#, fuzzy
 msgid "2 (squares)"
-msgstr "2 (??)"
+msgstr "2 (제곱)"
 
+#, fuzzy
 msgid "3 (cubes)"
-msgstr "3 (???)"
+msgstr "3 (cubes)"
 
 msgid "There is no appropriate outlier.test method for a model of this class."
-msgstr "? ???? ??? ?? ??? ??? ???? ????."
+msgstr "이 클래스의 모델을 위한 적절한 outlier.test 방법이 없습니다."
 
 msgid "Confidence Intervals"
-msgstr "????"
+msgstr "신뢰 구간"
 
 msgid "Confidence Intervals for Individual Coefficients"
-msgstr "?? ??? ?? ????"
+msgstr "개별 계수 신뢰 구간"
 
 msgid "Confidence level must be a number between 0 and 1."
-msgstr "????? 0? 1 ??? ? ???? ???."
+msgstr "신뢰 수준은 0과 1 사이가 되어야 합니다."
 
 msgid "Likelihood-ratio statistic"
-msgstr "???? ??"
+msgstr "우도(尤度)비 통계량"
 
 msgid "Wald statistic"
-msgstr "Wald ??"
+msgstr "Wald 통계량"
 
+#, fuzzy
 msgid "Test Based On"
-msgstr "??? ????"
+msgstr "Test Based On"
 
 msgid "Confidence Level:"
-msgstr "????:"
+msgstr "신뢰 수준:"
 
 msgid "Rcmdr Version"
-msgstr "Rcmdr ??"
+msgstr "Rcmdr 버전"
 
 msgid "The tcltk package is absent. The R Commander cannot function."
-msgstr "tcltk ????? ????. R Commander? ???? ?? ? ????."
+msgstr "tcltk 패키지가 없습니다. R Commander가 기능할 수 없습니다."
 
 msgid "R-Rcmdr"
 msgstr "R-Rcmdr"
 
 msgid "The following packages used by Rcmdr are missing:"
-msgstr "Rcmdr?? ???? ??? ???? ???? :"
+msgstr "Rcmdr에 의해 사용되는 다음의 패키지가 없습니다:"
 
 msgid "Without these packages, some features will not be available."
-msgstr "??? ?????, ?? ??? ??? ? ????."
+msgstr "이 패키지들이 없이는, 일부 기능을 사용할 수 없습니다."
 
 msgid "Install these packages?"
-msgstr "? ???? ?????????"
+msgstr "이 패키지들을 설치할까요?"
 
 msgid "Install Missing Packages"
-msgstr "??? ??? ??"
+msgstr "누락된 패키지 설치하기"
 
 msgid "Browse..."
-msgstr "????..."
+msgstr "검색하기"
 
+#, fuzzy
 msgid "Install Packages From:"
-msgstr "??? ?? :"
+msgstr "Install Packages From:"
 
+#, fuzzy
 msgid ""
 "Specify package  \n"
 "directory:"
-msgstr "?? ??? ???? :"
+msgstr ""
+"Specify package  \n"
+"directory:"
 
 msgid ""
 "Local package directory\n"
 "(must include PACKAGES index file)"
-msgstr "?? ??? ????(??? ?? ??? ???????)"
+msgstr ""
+"로컬 패키지 디렉토리\n"
+"(must include PACKAGES index file)"
 
 msgid "The following packages were not found at the specified location:"
-msgstr "??? ???? ??? ???? ?? ? ????:"
+msgstr "다음의 패키지가 지정된 위치에서 발견되지 않았습니다:"
 
 msgid "Cancel"
-msgstr "??"
+msgstr "취소하기"
 
 msgid "Help"
-msgstr "??"
+msgstr "도움말"
 
 msgid "Scale Reliability"
-msgstr "??? ??"
+msgstr "척도 신뢰성"
 
 msgid "Variables (pick three or more)"
-msgstr "?? (?? ?? ??)"
+msgstr "변수 (세개 이상 선택)"
 
 msgid "Fewer than 3 variables selected."
-msgstr "3?? ?? ?? ?? ??????."
+msgstr "세개보다 적은 변수들이 선택됨."
 
 msgid "Principal Components Analysis"
-msgstr "??? ??"
+msgstr "주성분 분석"
 
 msgid "Variables (pick two or more)"
-msgstr "?? (?? ?? ??)"
+msgstr "변수 (두개 이상 선택)"
 
 msgid "Analyze correlation matrix"
-msgstr "?? ?? ??"
+msgstr "상관 행렬 분석하기"
 
+#, fuzzy
 msgid "Screeplot"
-msgstr "Scree ??"
+msgstr "Screeplot"
 
 msgid "Add principal components to data set"
-msgstr "??? ??? ???? ??"
+msgstr "데이터셋에 주성분 추가하기"
 
 msgid "Fewer than 2 variables selected."
-msgstr "2?? ???? ?? ??????."
+msgstr "두개 미만의 변수가 선택됨."
 
 msgid "Number of Components"
-msgstr "??? ?"
+msgstr "성분 수"
 
 msgid "Number of components to retain:"
-msgstr "???? ?? ??? ?"
+msgstr "보유할 성분의 수:"
 
 msgid "Factor Analysis"
-msgstr "?? ??"
+msgstr "요인 분석"
 
+#, fuzzy
 msgid "None"
-msgstr "??"
+msgstr "None"
 
+#, fuzzy
 msgid "Varimax"
 msgstr "Varimax"
 
+#, fuzzy
 msgid "Promax"
 msgstr "Promax"
 
 msgid "Factor Rotation"
-msgstr "?? ??"
+msgstr "요인 회전"
 
+#, fuzzy
 msgid "Bartlett's method"
-msgstr "Bartlett's ??"
+msgstr "Bartlett 방법"
 
 msgid "Regression method"
-msgstr "?? ??"
+msgstr "회귀 방법"
 
 msgid "Factor Scores"
-msgstr "?? ??"
+msgstr "요인 점수"
 
 msgid "Number of Factors"
-msgstr "??? ?"
+msgstr "요인의 수"
 
 msgid "Number of factors to extract:"
-msgstr "??? ??? ? :"
+msgstr "추출할 요인의 수 :"
 
 msgid "Independent Samples t-Test"
-msgstr "?? ?? t-??"
+msgstr "독립 표본 t-검정"
 
 msgid "Groups (pick one)"
-msgstr "?? (?? ??)"
+msgstr "집단 (하나 선택)"
 
 msgid "You must select a groups variable."
-msgstr "??? ??? ?? ??? ???? ???."
+msgstr "집단 변수 하나를 선택해야 합니다."
 
 msgid "Two-sided"
-msgstr "??? ??"
+msgstr "양쪽(측)"
 
 msgid "Difference < 0"
-msgstr "?? < 0"
+msgstr "차이 < 0"
 
 msgid "Difference > 0"
-msgstr "?? > 0"
+msgstr "차이 > 0"
 
 msgid "Yes"
-msgstr "?"
+msgstr "예"
 
 msgid "No"
-msgstr "???"
+msgstr "아니오"
 
 msgid "Assume equal variances?"
-msgstr "??? ????? ??????"
+msgstr "동등한 분산을 가정합니까?"
 
 msgid "Confidence Level"
-msgstr "?? ??"
+msgstr "신뢰 수준"
 
+#, fuzzy
 msgid "Paired t-Test"
-msgstr "?? t-??"
+msgstr "Paired t-검정"
 
 msgid "First variable (pick one)"
-msgstr "??? ?? (?? ??)"
+msgstr "첫째 변수 (하나 선택)"
 
 msgid "Second variable (pick one)"
-msgstr "??? ?? (?? ??)"
+msgstr "둘째 변수 (하나 선택)"
 
 msgid "You must select two variables."
-msgstr "??? ??? ??? ???? ???."
+msgstr "두 변수를 선택해야 합니다."
 
 msgid "Variables must be different."
-msgstr "???? ?? ??? ???."
+msgstr "변수는 차이가 있어야 합니다."
 
 msgid "Single-Sample t-Test"
-msgstr "?? ?? t-??"
+msgstr "일-표본 t-검정"
 
+#, fuzzy
 msgid "Population mean = mu0"
-msgstr "??? ?? = 0"
+msgstr "모집단 평균 = mu0"
 
+#, fuzzy
 msgid "Population mean < mu0"
-msgstr "??? ?? < 0"
+msgstr "모집단 평균 < mu0"
 
+#, fuzzy
 msgid "Population mean > mu0"
-msgstr "??? ?? > 0"
+msgstr "모집단 평균 > mu0"
 
+#, fuzzy
 msgid "Null hypothesis: mu ="
-msgstr "???? : mu ="
+msgstr "귀무 가설: mu ="
 
 msgid "One-Way Analysis of Variance"
-msgstr "?? ?? ??"
+msgstr "일원 분산 분석"
 
 msgid "You must select a groups factor."
-msgstr "??? ??? ?? ??? ???? ???."
+msgstr "집단 요인 하나를 선택해야 합니다."
 
 msgid "Factor has fewer than 3 levels; pairwise comparisons omitted."
-msgstr "3?? ???? ?? ??? ???? ; ??? ???? ?? ??????."
+msgstr "요인은 세개 미만의 수준을 가집니다: 쌍별 비교가 생략됨."
 
 msgid "Pairwise comparisons of means"
-msgstr "??? ? ??"
+msgstr "쌍별 비교 평균"
 
 msgid "Multi-Way Analysis of Variance"
-msgstr "?? ?? ??"
+msgstr "다중 분산 분석"
 
 msgid "Factors (pick one or more)"
-msgstr "?? (?? ?? ??)"
+msgstr "요인 (하나 이상 선택)"
 
 msgid "You must select at least one factor."
-msgstr "??? ??? ??? ??? ???? ???."
+msgstr "적어도 요인 하나를 선택해야 합니다."
 
 msgid "Linear Regression"
-msgstr "?? ??"
+msgstr "선형 회귀"
 
 msgid "Explanatory variables (pick one or more)"
-msgstr "?? ?? (?? ?? ??)"
+msgstr "설명 변수 (하나 이상 선택)"
 
 msgid "No explanatory variables selected."
-msgstr "?? ??? ???? ?????."
+msgstr "설명 변수가 선택되지 않음."
 
+#, fuzzy
 msgid "\"%s\" is not a valid name."
-msgstr "\"%s\" ? ??? ??? ????."
+msgstr "\"%s\" is not a valid name."
 
 msgid "Model"
-msgstr "??"
+msgstr "모델"
 
 msgid "Enter name for model:"
-msgstr "??? ??? ??????."
+msgstr "모델 이름 입력하기:"
 
 msgid "Linear Model"
-msgstr "?? ??"
+msgstr "선형 모델"
 
 msgid "Left-hand side of model empty."
-msgstr "?? ?? ??? ??????."
+msgstr "왼편의 모델이 비어있음."
 
 msgid "Right-hand side of model empty."
-msgstr "??? ?? ??? ??????."
+msgstr "오른편의 모델이 비어있음."
 
 msgid "Generalized Linear Model"
-msgstr "???????"
+msgstr "일반화 선형 모델"
 
+#, fuzzy
 msgid "Family (double-click to select)"
-msgstr "Family (?? ???? ??)"
+msgstr "Family (double-click to select)"
 
 msgid "Link function"
-msgstr "????"
+msgstr "연결 함수"
 
+#, fuzzy
 msgid "Proportional-Odds Logit Model"
-msgstr "??-?? ?? ??"
+msgstr "비례-오즈(Odds) 로짓 모델"
 
 msgid "Response variable must be a factor"
-msgstr "?? ??? ????? ???."
+msgstr "반응 변수는 요인이어야 합니다"
 
 msgid "Multinomial Logit Model"
-msgstr "?? ?? ??"
+msgstr "다항 로짓 모델"
 
+#, fuzzy
 msgid "Two-Sample Wilcoxon Test"
-msgstr "?-?? Wilcoxon ??"
+msgstr "이-표본 Wilcoxon 검정"
 
 msgid "Default"
-msgstr "???"
+msgstr "기본값"
 
+#, fuzzy
 msgid "Exact"
-msgstr "??"
+msgstr "Exact"
 
+#, fuzzy
 msgid "Normal approximation"
-msgstr "?? ??"
+msgstr "정규 근사"
 
+#, fuzzy
 msgid ""
 "Normal approximation with\n"
 "continuity correction"
-msgstr "???? ??? ??"
+msgstr ""
+"Normal approximation with\n"
+"continuity correction"
 
+#, fuzzy
 msgid "Paired Wilcoxon Test"
-msgstr "?? Wilcoxon ??"
+msgstr "Paired Wilcoxon 검정"
 
 msgid "The two variables must be different."
-msgstr "??? ??? ?? ??? ???."
+msgstr "두 변수는 차이가 있어야 합니다."
 
+#, fuzzy
 msgid "Kruskal-Wallis Rank Sum Test"
-msgstr "Kruskal-Wallis ?? ? ??"
+msgstr "Kruskal-Wallis 순위 합 검정"
 
 msgid "Single-Sample Proportion Test"
-msgstr "?? ?? ?? ??"
+msgstr "일-표본 비율 검정"
 
+#, fuzzy
 msgid "Population proportion = p0"
-msgstr "??? ?? = p0"
+msgstr "모집단 비율 = p0"
 
+#, fuzzy
 msgid "Population proportion < p0"
-msgstr "??? ?? < p0"
+msgstr "모집단 비율 < p0"
 
+#, fuzzy
 msgid "Population proportion > p0"
-msgstr "??? ?? > p0"
+msgstr "모집단 비율 > p0"
 
+#, fuzzy
 msgid "Exact binomial"
-msgstr "?? ??"
+msgstr "Exact binomial"
 
+#, fuzzy
 msgid "Null hypothesis: p ="
-msgstr "????: p ="
+msgstr "귀무 가설: p ="
 
 msgid "Two-Sample Proportions Test"
-msgstr "??? ?? ?? ??"
+msgstr "이-표본 비율 검정"
 
 msgid "Groups and response variables must be different."
-msgstr "??? ?? ??? ?? ??? ???."
+msgstr "집단과 반응변수는 차이가 있어야 합니다."
 
+#, fuzzy
 msgid ""
 "There are %d variables in the data set %s.\n"
 "Do you want to proceed?"
-msgstr "??? ??? ??? ????.?? ?? ???????"
+msgstr ""
+"There are %d variables in the data set %s.\n"
+"Do you want to proceed?"
 
 msgid "Numerical Summaries"
-msgstr "?? ??"
+msgstr "수치적 요약"
 
 msgid "Standard Deviation"
-msgstr "????"
+msgstr "표준 편차"
 
+#, fuzzy
 msgid "Summarize by:"
-msgstr "?? :"
+msgstr "Summarize by:"
 
 msgid "Summarize by groups"
-msgstr "?? ??"
+msgstr "집단별 요약"
 
 msgid "Quantiles"
-msgstr "???"
+msgstr "분위수"
 
 msgid "quantiles:"
-msgstr "???:"
+msgstr "분위수:"
 
 msgid "Frequency Distribution"
-msgstr "?? ??"
+msgstr "빈도 분포"
 
 msgid "Goodness-of-Fit Test"
-msgstr "??? ??"
+msgstr "적합도 검정"
 
 msgid "Invalid entry."
-msgstr "??? ??."
+msgstr "타당하지않은 입력."
 
 msgid "Missing entry."
-msgstr "?? ??."
+msgstr "입력 없음."
 
+#, fuzzy
 msgid ""
 "Number of valid entries (%d)\n"
 "not equal to number levels (%d)."
-msgstr "??? ??? ?? ??? ?? ???? ????."
+msgstr ""
+"Number of valid entries (%d)\n"
+"not equal to number levels (%d)."
 
 msgid "Negative probabilities not allowed."
-msgstr "?? ??? ???? ????."
+msgstr "음 확률은 허용되지 않음."
 
+#, fuzzy
 msgid "Probabilities rescaled to sum to 1."
-msgstr "??? ?? 1? ???????."
+msgstr "Probabilities rescaled to sum to 1."
 
 msgid "Chi-square goodness-of-fit test"
-msgstr "???? ??? ??"
+msgstr "카이-제곱 적합도 검정"
 
 msgid "Table of Statistics"
-msgstr "???"
+msgstr "통계표"
 
 msgid "Median"
-msgstr "???"
+msgstr "중위수"
 
 msgid "Standard deviation"
-msgstr "????"
+msgstr "표준 편차"
 
 msgid "Statistic"
-msgstr "??"
+msgstr "통계량"
 
 msgid "Correlation Matrix"
-msgstr "????"
+msgstr "상관 행렬"
 
+#, fuzzy
 msgid "Pearson product-moment"
-msgstr "Pearson ???"
+msgstr "Pearson product-moment"
 
+#, fuzzy
 msgid "Spearman rank-order"
-msgstr "Spearman ??-??"
+msgstr "Spearman 순위-순서"
 
+#, fuzzy
 msgid "Partial"
-msgstr "??,?"
+msgstr "Partial"
 
 msgid "Type of Correlations"
-msgstr "?? ??"
+msgstr "상관 유형"
 
+#, fuzzy
 msgid ""
 "Fewer than 3 variables selected\n"
 "for partial correlations."
-msgstr "3? ?? ?? ??? ?? ??? ???????."
+msgstr ""
+"Fewer than 3 variables selected\n"
+"for partial correlations."
 
 msgid "Two-Way Table"
-msgstr "???"
+msgstr "이원표"
 
 msgid "Row variable (pick one)"
-msgstr "? ?? (?? ??)"
+msgstr "행 변수 (하나 선택)"
 
 msgid "Column variable (pick one)"
-msgstr "? ?? (?? ??)"
+msgstr "열 변수 (하나 선택)"
 
 msgid "Row and column variables are the same."
-msgstr "?? ? ??? ?????."
+msgstr "행과 열 변수가 같습니다."
 
 msgid "expected frequencies are less than 1"
-msgstr "??? ???? 1?? ????."
+msgstr "예상된 빈도가 1보다 적습니다"
 
 msgid "expected frequencies are less than 5"
-msgstr "?? ???? 5?? ????."
+msgstr "예상된 빈도가 5보다 적습니다"
 
 msgid "Row percentages"
-msgstr "? ???"
+msgstr "행 백분율"
 
 msgid "Column percentages"
-msgstr "? ???"
+msgstr "열 백분율"
 
 msgid "No percentages"
-msgstr "???? ??"
+msgstr "백분율 없음"
 
 msgid "Compute Percentages"
-msgstr "??? ??"
+msgstr "백분율 계산하기"
 
 msgid "Chi-square test of independence"
-msgstr "?? ???? ??"
+msgstr "카이-제곱 독립성 검정"
 
 msgid "Print expected frequencies"
-msgstr "??? ???? ?????."
+msgstr "예상된 빈도를 출력하기"
 
+#, fuzzy
 msgid "Fisher's exact test"
-msgstr "Fisher's ?? ??"
+msgstr "Fisher's exact 검정"
 
 msgid "Hypothesis Tests"
-msgstr "?? ??"
+msgstr "가설 검정"
 
 msgid "Multi-Way Table"
-msgstr "?? ?"
+msgstr "다원표"
 
 msgid "Control variable(s) (pick one or more)"
-msgstr "?? ?? (?? ??? ??)"
+msgstr "통제 변수 (하나 이상 선택)"
 
 msgid "You must select row, column, and control variables"
-msgstr "??? ?, ? ??? ?? ??? ???? ???."
+msgstr "행, 열, 그리고 통제변수를 선택해야 합니다."
 
 msgid "Row, column, and control variables must be different."
-msgstr "?, ?, ??? ?? ??? ???? ??? ???."
+msgstr "행, 열, 그리고 통제변수는 차이가 있어야 합니다."
 
 msgid "Enter Two-Way Table"
-msgstr "???? ??????."
+msgstr "이원표 입력하기"
 
+#, fuzzy
 msgid ""
 "Number of valid entries (%d)\n"
 "not equal to number of rows (%d) * number of columns (%d)."
-msgstr "??? ??? ?? ?? ? * ?? ?? ???? ????."
+msgstr ""
+"Number of valid entries (%d)\n"
+"not equal to number of rows (%d) * number of columns (%d)."
 
 msgid "Row names are not unique."
-msgstr "?? ??? ???? ????."
+msgstr "행 이름이 유일하지 않습니다."
 
 msgid "Column names are not unique."
-msgstr "?? ??? ???? ????."
+msgstr "열 이름이 유일하지 않습니다."
 
 msgid "Number of Columns:"
-msgstr "?? ?:"
+msgstr "열의 수:"
 
 msgid "Enter counts:"
-msgstr "??? ?????:"
+msgstr "해당건수 입력하기:"
 
 msgid "Two Variances F-Test"
-msgstr "? ?? F-??"
+msgstr "이분산 F-검정"
 
+#, fuzzy
 msgid "Bartlett's Test"
-msgstr "Bartlett's ??"
+msgstr "Bartlett 검정"
 
+#, fuzzy
 msgid "Levene's Test"
-msgstr "Levene's ??"
+msgstr "Levene 검정"
 
 msgid "There is no active data set."
-msgstr "???? ??? ??? ????."
+msgstr "활성 데이터셋이 없습니다."
 
 msgid "is not a data frame and cannot be attached."
-msgstr "??? ???? ?? ??? ? ????."
+msgstr "은(는) 데이터 프레임이 아닙니다. 첨부되지 않습니다."
 
+#, fuzzy
 msgid "The dataset %s has %d rows and %d columns."
-msgstr "??? ??? ?? ?? ????."
+msgstr "The dataset %s has %d rows and %d columns."
 
 msgid "There is no active model."
-msgstr "???? ??? ????."
+msgstr "활성 모델이 없습니다."
 
+#, fuzzy
 msgid "argument must be a square, symmetric, numeric covariance matrix"
-msgstr "??? ??, ??, ?? ??? ????? ???."
+msgstr "argument must be a square, symmetric, numeric covariance matrix"
 
+#, fuzzy
 msgid "there are fewer than 3 items in the scale"
-msgstr "3?? ???? ????."
+msgstr "there are fewer than 3 items in the scale"
 
+#, fuzzy
 msgid "Argument response must be numeric."
-msgstr "?? ??? ???? ???."
+msgstr "Argument response must be numeric."
 
+#, fuzzy
 msgid "Argument factor1 must be a factor."
-msgstr "?? factor1? ????? ???."
+msgstr "Argument factor1 must be a factor."
 
+#, fuzzy
 msgid "Arguments factor1 and factor2 must be factors."
-msgstr "?? factor1? factor2? ???? ???."
+msgstr "Arguments factor1 and factor2 must be factors."
 
+#, fuzzy
 msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
-msgstr "factor2? ?? ?? distinct colours? ?? ?????."
+msgstr "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
 
 msgid "The number of bins exceeds the number of data values"
-msgstr "bins? ?? ??? ?? ?? ?????."
+msgstr "구간의 수가 데이터 값의 수를 초과합니다."
 
+#, fuzzy
 msgid "Number of groups (%d) exceeds number of colors (%d)."
-msgstr "??? ?? ??? ?? ?????."
+msgstr "Number of groups (%d) exceeds number of colors (%d)."
 
 msgid "groups variable must be a factor."
-msgstr "?? ??? ????? ???."
+msgstr "집단 변수는 요인이어야 합니다."
 
 msgid "cannot plot both multiple surfaces and residuals"
-msgstr "?? ??? ?? ?? ??? ?? ? ????."
+msgstr "다중 표면과 잔차 둘 모두를 그릴수 없습니다"
 
+#, fuzzy
 msgid "not supplied"
-msgstr "???? ????."
+msgstr "not supplied"
 
+#, fuzzy
 msgid "OK"
-msgstr "??"
+msgstr "OK"
 
+#, fuzzy
 msgid "There fewer than %d factors in the active data set."
-msgstr "??? ??? ??? ???? ?? ????."
+msgstr "There fewer than %d factors in the active data set."
 
 msgid "There are no factors in the active data set."
-msgstr "??? ??? ??? ??? ????."
+msgstr "활성 데이터셋에 요인이 없습니다."
 
+#, fuzzy
 msgid "There fewer than %d two-level factors in the active data set."
-msgstr "??? ??? ??? ? ??? ???? ?? ????."
+msgstr "There fewer than %d two-level factors in the active data set."
 
 msgid "There are no two-level factors in the active data set."
-msgstr "??? ??? ??? ? ?? ??? ????."
+msgstr "활성 데이터셋에 이-수준 요인이 없습니다."
 
+#, fuzzy
 msgid "There fewer than %d numeric variables in the active data set."
-msgstr "??? ??? ??? ??? ???? ?? ????."
+msgstr "There fewer than %d numeric variables in the active data set."
 
 msgid "There are no numeric variables in the active data set."
-msgstr "??? ??? ??? ??? ??? ????."
+msgstr "활성 데이터셋에 숫자 변수가 없습니다."
 
+#, fuzzy
 msgid "There fewer than %d variables in the active data set."
-msgstr "??? ??? ??? ???? ?? ????."
+msgstr "There fewer than %d variables in the active data set."
 
 msgid "There are no variables in the active data set."
-msgstr "??? ??? ??? ??? ????."
+msgstr "활성 데이터셋에 변수가 없습니다."
 
+#, fuzzy
 msgid ""
 "%s %s already exists.\n"
 "Overwrite %s?"
-msgstr "?? ?????.?????????"
+msgstr ""
+"%s %s already exists.\n"
+"Overwrite %s?"
 
+#, fuzzy
 msgid "Plot by:"
-msgstr "?? :"
+msgstr "Plot by:"
 
 msgid "Plot by groups"
-msgstr "??? ??"
+msgstr "집단기준으로 그리기"
 
 msgid "Plot lines by group"
-msgstr "?? ?? ??"
+msgstr "집단기준으로 선 그리기"
 
 msgid "There no factors in the active data set."
-msgstr "??? ??? ??? ??? ????."
+msgstr "활성 데이터셋에 요인이 없습니다."
 
 msgid "Groups"
-msgstr "??"
+msgstr "집단"
 
 msgid "Groups variable (pick one)"
-msgstr "?? ??(?? ??)"
+msgstr "집단 변수 (하나 선택)"
 
+#, fuzzy
 msgid "Position legend with mouse click"
-msgstr "??? ???? ??? ??"
+msgstr "Position legend with mouse click"
 
 msgid "<No groups selected>"
-msgstr "<??? ???? ??>"
+msgstr "<집단이 선택되지 않음>"
 
 msgid "Difference:"
-msgstr "??:"
+msgstr "차이:"
 
+#, fuzzy
 msgid "Variables (double-click to formula)"
-msgstr "?? (??? ?? ??)"
+msgstr "변수 (double-click to formula)"
 
 msgid "Model Formula:"
-msgstr "?? ??:"
+msgstr "모델 공식:"
 
+#, fuzzy
 msgid ""
 "No appropriate %s method exists\n"
 "for a model of this class."
-msgstr "? ???? ??? ?? ??? ??? ????."
+msgstr ""
+"No appropriate %s method exists\n"
+"for a model of this class."
 
+#, fuzzy
 msgid "The model is not of class \"%s\"."
-msgstr "??? ???? ????."
+msgstr "The model is not of class \"%s\"."
 
 msgid "Open script file..."
-msgstr "???? ??? ??..."
+msgstr "스크립트 파일 열기..."
 
 msgid "Save script..."
-msgstr "???? ??..."
+msgstr "스크립트 저장하기..."
 
 msgid "Save script as..."
-msgstr "???? ??..."
+msgstr "스크립트를 다른 이름[형식]으로 저장하기..."
 
 msgid "Save output..."
-msgstr "??? ??..."
+msgstr "출력물 저장하기..."
 
 msgid "Save output as..."
-msgstr "??? ??..."
+msgstr "출력물을 다른 이름[형식]으로 저장하기..."
 
 msgid "Save R workspace..."
-msgstr "R ???? ??..."
+msgstr "R 작업공간 저장하기..."
 
 msgid "Save R workspace as..."
-msgstr "R ???? ??..."
+msgstr "R 작업공간을 다른 이름[형식]으로 저장하기..."
 
 msgid "From Commander"
-msgstr "Commander???"
+msgstr "Commander에서"
 
 msgid "From Commander and R"
-msgstr "Commander? R???"
+msgstr "Commander와 R에서"
 
 msgid "Exit"
-msgstr "??"
+msgstr "나가기"
 
 msgid "File"
-msgstr "??"
+msgstr "파일"
 
 msgid "Edit"
-msgstr "??"
+msgstr "편집하기"
 
 msgid "New data set..."
-msgstr "??? ??? ??..."
+msgstr "새로운 데이터셋..."
 
 msgid "from text file..."
-msgstr "??? ?????..."
+msgstr "텍스트 파일에서..."
 
 msgid "from SPSS data set..."
-msgstr "SPSS ??? ?????..."
+msgstr "SPSS 데이터셋에서..."
 
+#, fuzzy
 msgid "from Minitab data set..."
-msgstr "Minitab ??? ?????..."
+msgstr "Minitab 데이터셋에서..."
 
 msgid "from STATA data set..."
-msgstr "STATA ??? ?????..."
+msgstr "STATA 데이터셋에서..."
 
 msgid "Import data"
-msgstr "??? ????"
+msgstr "데이터 불러오기"
 
 msgid "List data sets in packages"
-msgstr "??? ??? ?? ??"
+msgstr "패키지에 있는 데이터셋 목록"
 
 msgid "Read data set from an attached package..."
-msgstr "??? ?????? ??? ??? ????..."
+msgstr "첨부된 패키지에서 데이터셋 읽기..."
 
 msgid "Data in packages"
-msgstr "??? ???"
+msgstr "패키지에 있는 데이터"
 
 msgid "Select active data set..."
-msgstr "???? ??? ??? ??????..."
+msgstr "활성 데이터셋 선택하기..."
 
 msgid "Help on active data set (if available)"
-msgstr "??? ??? ?? ??(?? ???????)"
+msgstr "활성 데이터셋에 관한 도움말 (만약 이용가능하다면)"
 
 msgid "Variables in active data set"
-msgstr "??? ??? ?? ??"
+msgstr "활성 데이터셋의 변수"
 
 msgid "Set case names..."
-msgstr "Set case ??..."
+msgstr "사례 이름 정하기..."
 
 msgid "Subset active data set..."
-msgstr "??? ??? ?? ????..."
+msgstr "활성 데이터셋의 하위셋 만들기..."
 
 msgid "Remove cases with missing data..."
-msgstr "?? ???? ????..."
+msgstr "결측 자료 사례 제거하기"
 
 msgid "Export active data set..."
-msgstr "??? ??? ?? ????..."
+msgstr "활성 데이터셋 내보내기..."
 
 msgid "Active data set"
-msgstr "??? ??? ??"
+msgstr "활성 데이터셋"
 
 msgid "Recode variable..."
-msgstr "Recodifica les variables..."
+msgstr "변수 다시코딩하기..."
 
 msgid "Compute new variable..."
-msgstr "??? ??? ?????..."
+msgstr "새로운 변수 계산하기..."
 
 msgid "Standardize variables..."
-msgstr "??? ??..."
+msgstr "변수 표준화하기..."
 
 msgid "Convert numeric variable to factor..."
-msgstr "??? ?? ??? ?????..."
+msgstr "수치 변수를 요인으로 변환하기..."
 
 msgid "Bin numeric variable..."
-msgstr "Bin ??? ??..."
+msgstr "수치 변수 구간 만들기..."
 
 msgid "Reorder factor levels..."
-msgstr "?? ??? ???????..."
+msgstr "요인 수준 재정렬하기..."
 
 msgid "Define contrasts for a factor..."
-msgstr "??? ??? ?????..."
+msgstr "요인 대비 정의하기..."
 
 msgid "Rename variables..."
-msgstr "??? ??? ?? ????..."
+msgstr "변수이름 다시 짓기..."
 
 msgid "Delete variables from data set ..."
-msgstr "??? ????? ??? ????..."
+msgstr "데이터셋에서 변수 지우기..."
 
 msgid "Manage variables in active data set"
-msgstr "??? ??? ??? ??? ?????."
+msgstr "활성 데이터셋에 있는 변수 관리하기"
 
 msgid "Data"
-msgstr "???"
+msgstr "데이터"
 
 msgid "Numerical summaries..."
-msgstr "??? ??..."
+msgstr "수치적 요약..."
 
 msgid "Frequency distribution..."
-msgstr "?? ??..."
+msgstr "빈도 분포..."
 
 msgid "Table of statistics..."
-msgstr "???..."
+msgstr "통계표..."
 
 msgid "Correlation matrix..."
-msgstr "????..."
+msgstr "상관 행렬..."
 
 msgid "Two-way table..."
-msgstr "?????..."
+msgstr "이원표..."
 
 msgid "Multi-way table..."
-msgstr "?????..."
+msgstr "다원표..."
 
 msgid "Enter and analyze two-way table..."
-msgstr "?????? ???? ?????..."
+msgstr "이원표 입력 및 분석하기..."
 
 msgid "Single-sample t-test..."
-msgstr "?? ?? t-??..."
+msgstr "일-표본 t-검정..."
 
 msgid "Independent samples t-test..."
-msgstr "?? ?? t-??..."
+msgstr "독립 표본 t-검정..."
 
+#, fuzzy
 msgid "Paired t-test..."
-msgstr "?? t-??..."
+msgstr "Paired t-검정..."
 
 msgid "One-way ANOVA..."
-msgstr "?? ANOVA..."
+msgstr "일원 분산 분석..."
 
 msgid "Multi-way ANOVA..."
-msgstr "?? ANOVA..."
+msgstr "다원 분산 분석..."
 
 msgid "Single-sample proportion test..."
-msgstr "?? ?? ?? ??.."
+msgstr "일-표본 비율 검정..."
 
 msgid "Two-sample proportions test..."
-msgstr "? ?? ?? ??..."
+msgstr "이-표본 비율 검정..."
 
 msgid "Two-variances F-test..."
-msgstr "? ?? F-??..."
+msgstr "이-분산 F-검정..."
 
+#, fuzzy
 msgid "Bartlett's test..."
-msgstr "Bartlett's ??..."
+msgstr "Bartlett 검정..."
 
+#, fuzzy
 msgid "Levene's test..."
-msgstr "Levene's ??..."
+msgstr "Levene 검정..."
 
 msgid "Two-sample Wilcoxon test..."
-msgstr "? ?? Wilcoxon ??..."
+msgstr "이-표본 Wilcoxon 검정..."
 
+#, fuzzy
 msgid "Paired-samples Wilcoxon test..."
-msgstr "?? ?? Wilcoxon ??..."
+msgstr "Paired-samples Wilcoxon 검정..."
 
+#, fuzzy
 msgid "Kruskal-Wallis test..."
-msgstr "Kruskal-Wallis ??..."
+msgstr "Kruskal-Wallis 검정..."
 
 msgid "Scale reliability..."
-msgstr "??? ??..."
+msgstr "척도 신뢰성..."
 
 msgid "Principal-components analysis..."
-msgstr "??? ??..."
+msgstr "주-성분 분석..."
 
 msgid "Factor analysis..."
-msgstr "?? ??..."
+msgstr "요인 분석..."
 
 msgid "k-means cluster analysis..."
-msgstr "K-?? ?? ??..."
+msgstr "k-평균 군집 분석..."
 
 msgid "Hierarchical cluster analysis..."
-msgstr "??? ?? ??..."
+msgstr "위계 군집 분석..."
 
 msgid "Summarize hierarchical clustering..."
-msgstr "??? ??? ??..."
+msgstr "위계 군집화 요약하기..."
 
 msgid "Add hierarchical clustering to data set..."
-msgstr "??? ??? ??? ???? ??..."
+msgstr "위계 군집화를 데이터 셋에 추가하기..."
 
 msgid "Cluster analysis"
-msgstr "?? ??"
+msgstr "군집 분석"
 
 msgid "Linear regression..."
-msgstr "?? ??..."
+msgstr "선형 회귀..."
 
 msgid "Linear model..."
-msgstr "?? ??..."
+msgstr "선형 모델..."
 
 msgid "Generalized linear model..."
-msgstr "???? ?? ??..."
+msgstr "일반화 선형 모델..."
 
 msgid "Multinomial logit model..."
-msgstr "?? ?? ??..."
+msgstr "다항 로짓 모델..."
 
 msgid "Proportional-odds logit model..."
-msgstr "??-?? ?? ??..."
+msgstr "비례-오즈(odds) 로짓 모델..."
 
 msgid "Statistics"
-msgstr "??"
+msgstr "통계"
 
 msgid "Summaries"
-msgstr "??"
+msgstr "요약"
 
 msgid "Contingency tables"
-msgstr "???"
+msgstr "분할[우발]표"
 
 msgid "Means"
-msgstr "??"
+msgstr "평균"
 
 msgid "Proportions"
-msgstr "??"
+msgstr "비율"
 
 msgid "Variances"
-msgstr "??"
+msgstr "분산"
 
 msgid "Nonparametric tests"
-msgstr "???? ??"
+msgstr "비모수 검정"
 
 msgid "Dimensional analysis"
-msgstr "?? ??"
+msgstr "척도 분석"
 
 msgid "Fit models"
-msgstr "?? ??"
+msgstr "적합성 모델"
 
 msgid "Index plot..."
-msgstr "?? ??..."
+msgstr "색인 그림..."
 
 msgid "Histogram..."
-msgstr "?????..."
+msgstr "히스토그램..."
 
 msgid "Stem-and-leaf display..."
-msgstr "??? ?? ?????..."
+msgstr "줄기-잎 표시..."
 
 msgid "Boxplot..."
-msgstr "?? ??..."
+msgstr "상자그림..."
 
 msgid "Quantile-comparison plot..."
-msgstr "???-?? ??..."
+msgstr "분위수-비교 그림..."
 
 msgid "Scatterplot..."
-msgstr "Scatter ??..."
+msgstr "산점도..."
 
 msgid "Scatterplot matrix..."
-msgstr "Scatter ?? ??..."
+msgstr "산점도 행렬..."
 
 msgid "3D scatterplot..."
-msgstr "3D scatter ??..."
+msgstr "3차원 산점도..."
 
 msgid "Line graph..."
-msgstr "? ???..."
+msgstr "선 그래프..."
 
 msgid "Plot of means..."
-msgstr "??? ??..."
+msgstr "평균 그림..."
 
 msgid "Bar graph..."
-msgstr "Bar ???..."
+msgstr "막대 그래프..."
 
 msgid "Pie chart..."
-msgstr "?? ??..."
+msgstr "원 그래프..."
 
+#, fuzzy
 msgid "as bitmap..."
-msgstr "?????..."
+msgstr "bitmap(으)로..."
 
+#, fuzzy
 msgid "as PDF/Postscript/EPS..."
-msgstr "PDF/Postscript/EPS??..."
+msgstr "PDF/Postscript/EPS(으)로..."
 
+#, fuzzy
 msgid "3D RGL graph..."
-msgstr "3D RGL ???..."
+msgstr "3차원 RGL 그래프..."
 
 msgid "Save graph to file"
-msgstr "??? ?? ???? ?????..."
+msgstr "그래프를 파일로 저장하기"
 
 msgid "Graphs"
-msgstr "???"
+msgstr "그래프"
 
 msgid "Select active model..."
-msgstr "??? ??? ?????..."
+msgstr "활성 모델 선택하기..."
 
 msgid "Summarize model"
-msgstr "?? ??"
+msgstr "모델 요약하기"
 
 msgid "Add observation statistics to data..."
-msgstr "???? ?? ?? ??..."
+msgstr "관찰 통계를 데이터에 추가하..."
 
 msgid "Confidence intervals..."
-msgstr "?? ??..."
+msgstr "신뢰 구간..."
 
 msgid "Hypothesis tests"
-msgstr "?? ??"
+msgstr "가설 검정"
 
 msgid "ANOVA table"
-msgstr "ANOVA ?"
+msgstr "분산분석표"
 
 msgid "Compare two models..."
-msgstr "? ??? ?????..."
+msgstr "두 모델 비교하기..."
 
 msgid "Linear hypothesis..."
-msgstr "?? ??..."
+msgstr "선형 가설..."
 
 msgid "Numerical diagnostics"
-msgstr "??? ??"
+msgstr "수치적 진단"
 
 msgid "Variance-inflation factors"
-msgstr "??-?? ??"
+msgstr "분산-팽창 요인"
 
 msgid "Breusch-Pagan test for heteroscedasticity..."
-msgstr "????? ?? Breusch-Pagan ??..."
+msgstr "이분산성에 대한 Breusch-Pagan 검정..."
 
+#, fuzzy
 msgid "Durbin-Watson test for autocorrelation..."
-msgstr "?? ??? ?? Durbin-Watson ??..."
+msgstr "자기상관에 대한 Durbin-Watson 검정..."
 
+#, fuzzy
 msgid "RESET test for nonlinearity..."
-msgstr "????? ?? RESET ??..."
+msgstr "비선형성에 대한 RESET 검정..."
 
+#, fuzzy
 msgid "Bonferroni outlier test"
-msgstr "Bonferron ??? ??"
+msgstr "Bonferroni 이상치 검정"
 
 msgid "Basic diagnostic plots"
-msgstr "?? ?? ??"
+msgstr "기초 진단 그림"
 
 msgid "Residual quantile-comparison plot..."
-msgstr "?? ???-?? ??..."
+msgstr "잔차 분위수-비교 그림..."
 
 msgid "Component+residual plots"
-msgstr "?? + ?? ??"
+msgstr "성분+잔차 그림"
 
 msgid "Added-variable plots"
-msgstr "??? ?? ??"
+msgstr "추가-변수 그림"
 
 msgid "Influence plot"
-msgstr "??? ??"
+msgstr "영향 그림"
 
 msgid "Effect plots"
-msgstr "?? ??"
+msgstr "효과 그림"
 
 msgid "Models"
-msgstr "??"
+msgstr "모델"
 
 msgid "Normal distribution"
-msgstr "?? ??"
+msgstr "정규 분포"
 
 msgid "Normal quantiles..."
-msgstr "?? ???..."
+msgstr "정규 분위수..."
 
 msgid "Normal probabilities..."
-msgstr "?? ??..."
+msgstr "정규 확률..."
 
 msgid "Plot normal distribution..."
-msgstr "?? ?? ??..."
+msgstr "정규 분포 그리기..."
 
 msgid "t distribution"
-msgstr "t ??"
+msgstr "t 분포"
 
 msgid "t quantiles..."
-msgstr "t ???..."
+msgstr "t 분위수..."
 
+#, fuzzy
 msgid "t probabilities..."
-msgstr "t ??..."
+msgstr "t 확률..."
 
+#, fuzzy
 msgid "Plot t distribution..."
-msgstr "t ?? ??..."
+msgstr "t 분포 그리기..."
 
 msgid "Chi-squared distribution"
-msgstr "?? ?? ??"
+msgstr "카이-제곱 분포"
 
 msgid "Chi-squared quantiles..."
-msgstr "?? ?? ???..."
+msgstr "카이-제곱 분위수..."
 
 msgid "Chi-squared probabilities..."
-msgstr "?? ?? ??..."
+msgstr "카이-제곱 확률..."
 
 msgid "Plot chi-squared distribution..."
-msgstr "?? ?? ?? ??..."
+msgstr "카이-제곱 분포 그리기..."
 
+#, fuzzy
 msgid "F distribution"
-msgstr "F ??"
+msgstr "F 분포"
 
+#, fuzzy
 msgid "F quantiles..."
-msgstr "F ???..."
+msgstr "F 분위수..."
 
+#, fuzzy
 msgid "F probabilities..."
-msgstr "F ??..."
+msgstr "F 확률..."
 
+#, fuzzy
 msgid "Plot F distribution..."
-msgstr "F ?? ??..."
+msgstr "F 분포 그리기..."
 
 msgid "Binomial distribution"
-msgstr "?? ??"
+msgstr "이항 분포"
 
 msgid "Binomial quantiles..."
-msgstr "?? ???..."
+msgstr "이항 분위수..."
 
 msgid "Binomial tail probabilities..."
-msgstr "?? ?? ??..."
+msgstr "이항 꼬리 확률..."
 
 msgid "Binomial probabilities..."
-msgstr "?? ??..."
+msgstr "이항 확률..."
 
 msgid "Plot binomial distribution..."
-msgstr "?? ?? ??..."
+msgstr "이항 분포 그리기..."
 
+#, fuzzy
 msgid "Poisson distribution"
-msgstr "??? ??"
+msgstr "Poisson 분포"
 
+#, fuzzy
 msgid "Poisson probabilities..."
-msgstr "??? ??..."
+msgstr "Poisson 확률..."
 
+#, fuzzy
 msgid "Plot Poisson distribution..."
-msgstr "??? ?? ??..."
+msgstr "Poisson 분포 그리기..."
 
 msgid "Distributions"
-msgstr "??"
+msgstr "분포도"
 
 msgid "Load package(s)..."
-msgstr "??? ??..."
+msgstr "패키지 탑재하기..."
 
 msgid "Options..."
-msgstr "??..."
+msgstr "선택기능..."
 
 msgid "Tools"
-msgstr "??"
+msgstr "도구"
 
 msgid "Commander help"
-msgstr "Commander ??"
+msgstr "Commander 도움말"
 
 msgid "Introduction to the R Commander"
-msgstr "R Commander? ??"
+msgstr "R Commander 소개"
 
 msgid "About Rcmdr"
-msgstr "Rcmdr ???"
+msgstr "Rcmdr에 대하여"
 
 msgid "df ="
-msgstr "??? ="
+msgstr "자유도(df) ="
 
+#  messages added to Rcmdr version 1.1-1
+#
 msgid "There is no current RGL graphics device."
-msgstr "?? RGL ??? ??? ????."
+msgstr "RGL 그래픽 장치가 없습니다."
 
 msgid "3D graph"
-msgstr "3D ???"
+msgstr "3차원 그래프"
 
-# # messages added to Rcmdr version 1.1-6
+#  messages added to Rcmdr version 1.1-6
+#
+#, fuzzy
 msgid " contains non-standard variable names:\n"
-msgstr "??? ?? ??? ???? ????.:\n"
+msgstr " contains non-standard variable names:\n"
 
-msgid "These have been changed to:\n"
-msgstr "??? ?? ??????? :\n"
+#, fuzzy
+msgid ""
+"\n"
+"These have been changed to:\n"
+msgstr ""
+"\n"
+"These have been changed to:\n"
 
-# # messages added to Rcmdr version 1.2-0
+#  messages added to Rcmdr version 1.2-0
 # importRODBCtable dialog
+#
+#, fuzzy
 msgid "This function requires the RODBC package.\n"
-msgstr "? ??? RODBC ???? ?????.\n"
+msgstr "이 함수는 RODBC 패키지를 요구합니다.\n"
 
+#, fuzzy
 msgid "Import from Excel, Access or dBase data set"
-msgstr "????? ????, ?? ?? ???? ??? ??"
+msgstr "Excel, Access or dBase 데이터셋에서 불러오기"
 
+#, fuzzy
 msgid "{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Fitxer MS Excel\" {*.xls \".XLS\"}} {\"Base de dades MS Access\" {*.mdb \".MDB\"}} {\"fitxer tipus dBase\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 
 msgid "Select one table"
-msgstr "??? ???? ???????."
+msgstr "표 선택하기"
 
 msgid "No table selected"
-msgstr "???? ???? ?????."
+msgstr "표가 선택되지않음"
 
+#, fuzzy
 msgid "from Excel, Access or dBase data set..."
-msgstr "??? ??, ?? ?? ???? ??? ??..."
+msgstr "Excel, Access or dBase 데이터셋에서..."
 
+# probability distributions
+#
 msgid "Standard deviation must be positive."
-msgstr "?? ??? ????? ???."
+msgstr "표준 편차는 양수이어야 합니다."
 
 msgid "Degrees of freedom must be positive."
-msgstr "???? ????? ???."
+msgstr "자유도는 양수이어야 합니다."
 
 msgid "Numerator degrees of freedom must be positive."
-msgstr "??? ???? ????? ???."
+msgstr "분자 자유도는 양수이어야 합니다."
 
 msgid "Denominator degrees of freedom must be positive."
-msgstr "??? ???? ????? ???."
+msgstr "분모 자유도는 양수이어야 합니다."
 
 msgid "Exponential Distribution"
-msgstr "?? ??"
+msgstr "지수 분포"
 
+#, fuzzy
 msgid "Rate must be positive."
-msgstr "??? ????? ???."
+msgstr "Rate must be positive."
 
+#, fuzzy
 msgid "Rate"
-msgstr "??"
+msgstr "Rate"
 
 msgid "Uniform Distribution"
-msgstr "?? ??"
+msgstr "균일 분포"
 
+#, fuzzy
 msgid "Lower limit must be less than upper limit."
-msgstr "???? ????? ??? ???."
+msgstr "Lower limit must be less than upper limit."
 
+#, fuzzy
 msgid "Minimum"
-msgstr "???"
+msgstr "Minimum"
 
 msgid "Maximum"
-msgstr "???"
+msgstr "최대"
 
 msgid "Beta Distribution"
-msgstr "?? ??"
+msgstr "베타 분포"
 
+#, fuzzy
 msgid "Shapes not specified."
-msgstr "??? ???? ?????."
+msgstr "Shapes not specified."
 
+#, fuzzy
 msgid "Shapes must be positive."
-msgstr "??? ????? ???."
+msgstr "Shapes must be positive."
 
+#, fuzzy
 msgid "Shape"
-msgstr "??"
+msgstr "Shape"
 
+#, fuzzy
 msgid "Cauchy Distribution"
-msgstr "?? ??"
+msgstr "Cauchy 분포"
 
+#, fuzzy
 msgid "Scale must be positive."
-msgstr "??? ???? ???."
+msgstr "Scale must be positive."
 
 msgid "Location"
-msgstr "??"
+msgstr "위치"
 
+#, fuzzy
 msgid "Scale"
-msgstr "??"
+msgstr "Scale"
 
 msgid "Logistic Distribution"
-msgstr "???? ??"
+msgstr "로지스틱 분포"
 
 msgid "Lognormal Distribution"
-msgstr "?? ????"
+msgstr "로그정규 분포"
 
+#, fuzzy
 msgid "Mean (log scale)"
-msgstr "?? (log ??)"
+msgstr "평균 (log scale)"
 
+#, fuzzy
 msgid "Standard deviation (log scale)"
-msgstr "?? ?? (log ??)"
+msgstr "표준 편차 (log scale)"
 
+#, fuzzy
 msgid "Gamma Distribution"
-msgstr "?? ??"
+msgstr "Gamma 분포"
 
+#, fuzzy
 msgid "Shape not specified."
-msgstr "??? ???? ?????."
+msgstr "Shape not specified."
 
+#, fuzzy
 msgid "Shape must be positive."
-msgstr "??? ????? ???."
+msgstr "Shape must be positive."
 
+#, fuzzy
 msgid "Weibull Distribution"
-msgstr "??? ??"
+msgstr "Weibull 분포"
 
+#, fuzzy
 msgid "Exponential Quantiles"
-msgstr "?? ???"
+msgstr "Exponential 분위수"
 
 msgid "Exponential Probabilities"
-msgstr "?? ??"
+msgstr "지수 확률"
 
 msgid "Uniform Quantiles"
-msgstr "?? ???"
+msgstr "균일 분위수"
 
 msgid "Uniform Probabilities"
-msgstr "?? ??"
+msgstr "균일 확률"
 
+#, fuzzy
 msgid "Beta Quantiles"
-msgstr "?? ???"
+msgstr "Beta 분위수"
 
+#, fuzzy
 msgid "Beta Probabilities"
-msgstr "?? ??"
+msgstr "Beta 확률"
 
+#, fuzzy
 msgid "Cauchy Quantiles"
-msgstr "?? ???"
+msgstr "Cauchy 분위수"
 
+#, fuzzy
 msgid "Cauchy Probabilities"
-msgstr "?? ??"
+msgstr "Cauchy 확률"
 
 msgid "Logistic Quantiles"
-msgstr "???? ???"
+msgstr "로지스틱 분위수"
 
 msgid "Logistic Probabilities"
-msgstr "???? ??"
+msgstr "로지스틱 확률"
 
 msgid "Lognormal Quantiles"
-msgstr "?? ?? ???"
+msgstr "로그정규 분위수"
 
 msgid "Lognormal Probabilities"
-msgstr "?? ?? ??"
+msgstr "로그정규 확률"
 
+#, fuzzy
 msgid "Gamma Quantiles"
-msgstr "?? ???"
+msgstr "Gamma 분위수"
 
+#, fuzzy
 msgid "Gamma Probabilities"
-msgstr "?? ??"
+msgstr "Gamma 확률"
 
+#, fuzzy
 msgid "Weibull Quantiles"
-msgstr "??? ???"
+msgstr "Weibull 분위수"
 
+#, fuzzy
 msgid "Weibull Probabilities"
-msgstr "??? ??"
+msgstr "Weibull 확률"
 
+#, fuzzy
 msgid "Gumbel Distribution"
-msgstr "?? ??"
+msgstr "Gumbel 분포"
 
+#, fuzzy
 msgid "Shape (log shape)"
-msgstr "?? (log ??)"
+msgstr "Shape (log shape)"
 
+#, fuzzy
 msgid "Scale (log scale)"
-msgstr "?? (log ??)"
+msgstr "Scale (log scale)"
 
+#, fuzzy
 msgid "Gumbel Probabilities"
-msgstr "?? ??"
+msgstr "Gumbel 확률"
 
+#, fuzzy
 msgid "Probability of success must be between 0 and 1."
-msgstr "?? ??? 0? 1?? ???? ???."
+msgstr "확률 성공은 0과 1 사이어야 합니다."
 
+#, fuzzy
 msgid "Poisson Quantiles"
-msgstr "??? ???"
+msgstr "Poisson 분위수"
 
 msgid "Geometric Quantiles"
-msgstr "?? ???"
+msgstr "기하 분위수"
 
 msgid "Geometric Probabilities"
-msgstr "?? ??"
+msgstr "기하 확률"
 
 msgid "Hypergeometric Quantiles"
-msgstr "??? ???"
+msgstr "초기하 분위수"
 
 msgid "The m parameter was not specified."
-msgstr "?? m? ???? ?????."
+msgstr "모수 m이 지정되지 않았습니다."
 
 msgid "The m parameter cannot be negative."
-msgstr "?? m? ??? ???? ???."
+msgstr "모수 m은 음의 수가 될 수 없습니다."
 
 msgid "The n parameter was not specified."
-msgstr "?? n? ???? ?????."
+msgstr "모수 n이 지정되지 않았습니다."
 
 msgid "The n parameter cannot be negative."
-msgstr "?? n? ??? ???? ???."
+msgstr "모수 n은 음의 수가 될 수 없습니다."
 
 msgid "The k parameter was not specified."
-msgstr "?? k? ???? ?????."
+msgstr "모수 k가 지정되지 않았습니다."
 
 msgid "The k parameter cannot be greater than m + n."
-msgstr "?? k? m + n ?? ?? ??? ???."
+msgstr "모수 k는 m+n보다 클 수 없습니다."
 
 msgid "The k parameter cannot be negative."
-msgstr "?? k? ??? ???? ???."
+msgstr "모수 k는 음의 수가 될 수 없습니다."
 
+#, fuzzy
 msgid "m (number of white balls in the urn)"
-msgstr "m (??? ?? ??? ??)"
+msgstr "m (number of white balls in the urn)"
 
+#, fuzzy
 msgid "n (number of black balls in the urn)"
-msgstr "n (???? ?? ?? ??)"
+msgstr "n (number of black balls in the urn)"
 
+#, fuzzy
 msgid "k (number of balls drawn from the urn)"
-msgstr "k (?? ?? ??? ???)"
+msgstr "k (number of balls drawn from the urn)"
 
 msgid "Hypergeometric Probabilities"
-msgstr "??? ??"
+msgstr "초기하 확률"
 
 msgid "Negative Binomial Quantiles"
-msgstr "??? ???"
+msgstr "음이항 분위수"
 
+#, fuzzy
 msgid "Target number of successes not specified."
-msgstr "??? ?? ?? ???? ?????."
+msgstr "Target number of successes not specified."
 
+#, fuzzy
 msgid "Target number of successes cannot be negative."
-msgstr "??? ?? ?? ??? ? ? ????."
+msgstr "Target number of successes cannot be negative."
 
+#, fuzzy
 msgid "Target number of successes"
-msgstr "??? ?? ?"
+msgstr "Target number of successes"
 
 msgid "Negative Binomial Probabilities"
-msgstr "??? ??"
+msgstr "음이항 확률"
 
 msgid "Geometric Distribution"
-msgstr "?? ??"
+msgstr "기하 분포"
 
 msgid "Hypergeometric Distribution"
-msgstr "??? ??"
+msgstr "초기하 분포"
 
 msgid "Negative Binomial Distribution"
-msgstr "??? ??"
+msgstr "음이항 분포"
 
 msgid "Sample from Normal Distribution"
-msgstr "?? ?????? ??"
+msgstr "정규분포의 표본"
 
 msgid "NormalSamples"
-msgstr "?? ??"
+msgstr "정규표본"
 
 msgid "Sample means"
-msgstr "?? ??"
+msgstr "표본 평균"
 
 msgid "Sample sums"
-msgstr "?? ?"
+msgstr "표본 합"
 
 msgid "Sample standard deviations"
-msgstr "?? ?? ??"
+msgstr "표본 표준 편차"
 
 msgid "Sample size must be positive."
-msgstr "??? ??? ????? ???."
+msgstr "표본 크기는 양수이어야 합니다."
 
 msgid "Number of samples must be positive."
-msgstr "??? ?? ????? ???."
+msgstr "표본의 수는 양수이어야 합니다."
 
 msgid "Number of samples (rows)"
-msgstr "??? ? (?)"
+msgstr "표본 수 (행)"
 
 msgid "Number of observations (columns)"
-msgstr "???? ? (?)"
+msgstr "관찰 수 (열)"
 
 msgid "Add to Data Set:"
-msgstr "??? ??? ??:"
+msgstr "데이터셋에 더하기:"
 
 msgid "Sample from t Distribution"
-msgstr "t ?????? ??"
+msgstr "t 분포의 표본"
 
 msgid "tSamples"
-msgstr "t ??"
+msgstr "t표본"
 
 msgid "Sample from Chi-squared Distribution"
-msgstr "???? ?????? ??"
+msgstr "카이-제곱 분포의 표본"
 
 msgid "ChisquareSamples"
-msgstr "?? ?? ??"
+msgstr "카이제곱표본"
 
 msgid "Sample from F Distribution"
-msgstr "f ?????? ??"
+msgstr "F 분포의 표본"
 
 msgid "FSamples"
-msgstr "F ??"
+msgstr "F표본"
 
 msgid "Sample from Exponential Distribution"
-msgstr "???????? ??"
+msgstr "지수 분포의 표본"
 
 msgid "ExponentialSamples"
-msgstr "?? ??"
+msgstr "지수표본"
 
 msgid "Sample from Uniform Distribution"
-msgstr "?? ?????? ??"
+msgstr "균일 분포의 표본"
 
 msgid "UniformSamples"
-msgstr "?? ??"
+msgstr "균일표본"
 
+#, fuzzy
 msgid "Sample from Beta Distribution"
-msgstr "?? ?????? ??"
+msgstr "Beta 분포의 표본"
 
+#, fuzzy
 msgid "BetaSamples"
-msgstr "?? ??"
+msgstr "Beta표본"
 
+#, fuzzy
 msgid "Sample from Cauchy Distribution"
-msgstr "?? ?????? ??"
+msgstr "Cauchy 분포의 표본"
 
+#, fuzzy
 msgid "CauchySamples"
-msgstr "?? ??"
+msgstr "Cauchy표본"
 
+#, fuzzy
 msgid "Sample from Logistic Distribution"
-msgstr "???? ?????? ??"
+msgstr "Logistic 분포의 표본"
 
+#, fuzzy
 msgid "LogisticSamples"
-msgstr "???? ??"
+msgstr "Logistic표본"
 
 msgid "Sample from Log-Normal Distribution"
-msgstr "?? ?? ?????? ??"
+msgstr "로그-정규 분포의 표본"
 
 msgid "LogNormalSamples"
-msgstr "?? ?? ??"
+msgstr "로그정규표본"
 
+#, fuzzy
 msgid "Sample from Gamma Distribution"
-msgstr "?? ?????? ??"
+msgstr "Gamma 분포의 표본"
 
+#, fuzzy
 msgid "GammaSamples"
-msgstr "?? ??"
+msgstr "Gamma표본"
 
+#, fuzzy
 msgid "Sample from Weibull Distribution"
-msgstr "??? ?????? ??"
+msgstr "Weibull 분포의 표본"
 
+#, fuzzy
 msgid "WeibullSamples"
-msgstr "??? ??"
+msgstr "Weibull표본"
 
+#, fuzzy
 msgid "Sample from Gumbel Distribution"
-msgstr "?? ?????? ??"
+msgstr "Gumbel 분포의 표본"
 
+#, fuzzy
 msgid "GumbelSamples"
-msgstr "?? ??"
+msgstr "Gumbel표본"
 
 msgid "Sample from Binomial Distribution"
-msgstr "?? ?????? ??"
+msgstr "이항 분포의 표본"
 
 msgid "BinomialSamples"
-msgstr "?? ??"
+msgstr "이항표본"
 
+#, fuzzy
 msgid "Poisson mean cannot be negative."
-msgstr "??? ??? ??? ? ? ????."
+msgstr "Poisson 평균은 음수가 될 수 없습니다."
 
+#, fuzzy
 msgid "Sample from Poisson Distribution"
-msgstr "??? ?????? ??"
+msgstr "Poisson 분포의 표본"
 
+#, fuzzy
 msgid "PoissonSamples"
-msgstr "??? ??"
+msgstr "Poisson표본"
 
 msgid "Sample from Geometric Distribution"
-msgstr "???????? ??"
+msgstr "기하 분포의 표본"
 
 msgid "GeometricSamples"
-msgstr "?? ??"
+msgstr "기하표본"
 
 msgid "Sample from Hypergeometric Distribution"
-msgstr "??? ?????? ??"
+msgstr "초기하 분포의 표본"
 
 msgid "HypergeometricSamples"
-msgstr "??? ??"
+msgstr "초기하표본"
 
 msgid "Sample from Negative Binomial Distribution"
-msgstr "??? ?????? ??"
+msgstr "음이항 분포의 표본"
 
 msgid "NegativeBinomialSamples"
-msgstr "??? ??"
+msgstr "음이항표본"
 
 msgid "Sample from normal distribution..."
-msgstr "???????? ??"
+msgstr "정규 분포의 표본"
 
 msgid "Sample from t distribution..."
-msgstr "t ?????? ??..."
+msgstr "t 분포의 표본"
 
 msgid "Sample from chi-squared distribution..."
-msgstr "???? ?????? ??"
+msgstr "chi제곱 분포의 표본"
 
 msgid "Sample from F distribution..."
-msgstr "F ?????? ??"
+msgstr "F 분포의 표본"
 
 msgid "Exponential distribution"
-msgstr "?? ??"
+msgstr "지수 분포"
 
 msgid "Exponential quantiles..."
-msgstr "?? ???..."
+msgstr "지수 분위수..."
 
 msgid "Exponential probabilities..."
-msgstr "?? ??..."
+msgstr "지수 확률..."
 
 msgid "Plot exponential distribution..."
-msgstr "?? ?? ??..."
+msgstr "지수 분포 그리기..."
 
 msgid "Sample from exponential distribution..."
-msgstr "?? ?????? ??..."
+msgstr "지수 분포의 표본"
 
 msgid "Uniform distribution"
-msgstr "?? ??"
+msgstr "균일 분포"
 
 msgid "Uniform quantiles..."
-msgstr "?? ???"
+msgstr "균일 분위수..."
 
 msgid "Uniform probabilities..."
-msgstr "????..."
+msgstr "균일 확률..."
 
 msgid "Plot uniform distribution..."
-msgstr "?? ?? ??..."
+msgstr "균일 분포 그리기..."
 
 msgid "Sample from uniform distribution..."
-msgstr "?? ?????? ??..."
+msgstr "균일 분포의 표본"
 
 msgid "Beta distribution"
-msgstr "?? ??"
+msgstr "베타 분포"
 
 msgid "Beta quantiles..."
-msgstr "?? ???..."
+msgstr "베타 분위수..."
 
 msgid "Beta probabilities..."
-msgstr "?? ??..."
+msgstr "베타 확률..."
 
 msgid "Plot beta distribution..."
-msgstr "?? ?? ??..."
+msgstr "베타 분포 그리기..."
 
 msgid "Sample from beta distribution..."
-msgstr "?? ?????? ??..."
+msgstr "베타 분포의 표본..."
 
+#, fuzzy
 msgid "Cauchy distribution"
-msgstr "?? ??"
+msgstr "Cauchy 분포"
 
+#, fuzzy
 msgid "Cauchy quantiles..."
-msgstr "?? ???..."
+msgstr "Cauchy 분위수..."
 
+#, fuzzy
 msgid "Cauchy probabilities..."
-msgstr "?? ??..."
+msgstr "Cauchy 확률..."
 
+#, fuzzy
 msgid "Plot Cauchy distribution..."
-msgstr "?? ??..."
+msgstr "Cauchy 분포 그리기..."
 
+#, fuzzy
 msgid "Sample from Cauchy distribution..."
-msgstr "?? ?????? ??..."
+msgstr "Cauchy 분포의 표본..."
 
 msgid "Logistic distribution"
-msgstr "???? ??"
+msgstr "로지스틱 분포"
 
 msgid "Logistic quantiles..."
-msgstr "???? ???..."
+msgstr "로지스틱 분위수..."
 
 msgid "Logistic probabilities..."
-msgstr "???? ??..."
+msgstr "로지스틱 확률..."
 
 msgid "Plot logistic distribution..."
-msgstr "???? ?? ??..."
+msgstr "로지스틱 분포 그리기..."
 
 msgid "Sample from logistic distribution..."
-msgstr "???? ?????? ??..."
+msgstr "로지스틱 분포의 표본..."
 
 msgid "Lognormal distribution"
-msgstr "?? ?? ??"
+msgstr "로그정규 분포"
 
 msgid "Lognormal quantiles..."
-msgstr "?? ???..."
+msgstr "로그정규 분위수..."
 
 msgid "Lognormal probabilities..."
-msgstr "?? ??..."
+msgstr "로그정규 확률..."
 
 msgid "Plot lognormal distribution..."
-msgstr "?? ?? ??..."
+msgstr "로그정규 분포 그리기..."
 
 msgid "Sample from lognormal distribution..."
-msgstr "?? ?? ?????? ??..."
+msgstr "로그정규 분포 표본..."
 
 msgid "Gamma distribution"
-msgstr "?? ??"
+msgstr "Gamma 분포"
 
 msgid "Gamma quantiles..."
-msgstr "?? ???..."
+msgstr "Gamma 분위수..."
 
 msgid "Gamma probabilities..."
-msgstr "?? ??..."
+msgstr "Gamma 확률..."
 
 msgid "Plot gamma distribution..."
-msgstr "?? ?? ??..."
+msgstr "Gamma 분포 그리기..."
 
 msgid "Sample from gamma distribution..."
-msgstr "?? ?????? ??..."
+msgstr "Gamma 분포 표본..."
 
+#, fuzzy
 msgid "Weibull distribution"
-msgstr "??? ??"
+msgstr "Weibull 분포"
 
+#, fuzzy
 msgid "Weibull quantiles..."
-msgstr "??? ???..."
+msgstr "Weibull 분위수..."
 
+#, fuzzy
 msgid "Weibull probabilities..."
-msgstr "??? ??..."
+msgstr "Weibull 확률..."
 
+#, fuzzy
 msgid "Plot Weibull distribution..."
-msgstr "??? ?? ??..."
+msgstr "Weibull 분포 그리기..."
 
+#, fuzzy
 msgid "Sample from Weibull distribution..."
-msgstr "??? ?????? ??"
+msgstr "Weibull 분포 표본..."
 
+#, fuzzy
 msgid "Gumbel distribution"
-msgstr "?? ??"
+msgstr "Gumbel 분포"
 
+#, fuzzy
 msgid "Gumbel quantiles..."
-msgstr "?? ???..."
+msgstr "Gumbel 분위수..."
 
+#, fuzzy
 msgid "Gumbel probabilities..."
-msgstr "?? ??..."
+msgstr "Gumbel 확률..."
 
+#, fuzzy
 msgid "Plot Gumbel distribution..."
-msgstr "?? ?? ??..."
+msgstr "Gumbel 분포 그리기..."
 
+#, fuzzy
 msgid "Sample from Gumbel distribution..."
-msgstr "?? ?????? ??..."
+msgstr "Gumbel 분포 표본..."
 
+#, fuzzy
 msgid "Sample from binomial distribution..."
-msgstr "?? ?????? ??..."
+msgstr "이항 분포 표본..."
 
+#, fuzzy
 msgid "Poisson quantiles..."
-msgstr "??? ???..."
+msgstr "Poisson 분위수..."
 
+#, fuzzy
 msgid "Poisson tail probabilities..."
-msgstr "??? ?? ??..."
+msgstr "Poisson 꼬리 확률..."
 
+#, fuzzy
 msgid "Sample from Poisson distribution..."
-msgstr "??? ?????? ??..."
+msgstr "Poisson 분포 표본..."
 
 msgid "Geometric distribution"
-msgstr "?? ??"
+msgstr "기하 분포"
 
 msgid "Geometric quantiles..."
-msgstr "?? ???..."
+msgstr "기하 분위수..."
 
 msgid "Geometric tail probabilities..."
-msgstr "?? ?? ??..."
+msgstr "기하 꼬리 분위수..."
 
 msgid "Geometric probabilities..."
-msgstr "?? ??..."
+msgstr "기하 확률..."
 
 msgid "Plot geometric distribution..."
-msgstr "?? ?? ??..."
+msgstr "기하 분포 그리기..."
 
 msgid "Sample from geometric distribution..."
-msgstr "?? ?????? ??..."
+msgstr "기하 분포 표본..."
 
 msgid "Hypergeometric distribution"
-msgstr "??? ??"
+msgstr "초기하 분포"
 
 msgid "Hypergeometric quantiles..."
-msgstr "??? ???..."
+msgstr "초기하 분위수..."
 
 msgid "Hypergeometric tail probabilities..."
-msgstr "??? ?? ??..."
+msgstr "초기하 꼬리 확률..."
 
 msgid "Hypergeometric probabilities..."
-msgstr "??? ??..."
+msgstr "초기하 확률..."
 
 msgid "Plot hypergeometric distribution..."
-msgstr "??? ?? ??..."
+msgstr "초기하 분포 그리기..."
 
 msgid "Sample from hypergeometric distribution..."
-msgstr "??? ?????? ??..."
+msgstr "초기하 분포 표본..."
 
 msgid "Negative binomial distribution"
-msgstr "??? ??"
+msgstr "음이항 분포"
 
 msgid "Negative binomial quantiles..."
-msgstr "??? ???..."
+msgstr "음이항 분위수..."
 
 msgid "Negative binomial tail probabilities..."
-msgstr "??? ?? ??..."
+msgstr "음이항 꼬리 확률..."
 
 msgid "Negative binomial probabilities..."
-msgstr "??? ??..."
+msgstr "음이항 확률..."
 
 msgid "Plot negative binomial distribution..."
-msgstr "??? ?? ??..."
+msgstr "음이항 분포 그리기..."
 
 msgid "Sample from negative binomial distribution..."
-msgstr "??? ?????? ??..."
+msgstr "음이항 분포 표본..."
 
 msgid "Continuous distributions"
-msgstr "?? ??"
+msgstr "연속 분포"
 
 msgid "Discrete distributions"
-msgstr "?? ??"
+msgstr "이산 분포"
 
 # Xyplot dialog
+#
+#, fuzzy
 msgid "XY Conditioning Plot"
-msgstr "XY ?? ??"
+msgstr "XY Conditioning Plot"
 
 msgid "Response variables (pick one or more)"
-msgstr "?? ?? (?? ?? ??)"
+msgstr "반응 변수( 하나 이상 선택)"
 
 msgid "Groups (pick zero or more)"
-msgstr "?? (0? ?? ??)"
+msgstr "집단 (0개 이상 선택)"
 
+#, fuzzy
 msgid "Automatically draw key"
-msgstr "?? ??? ?"
+msgstr "Automatically draw key"
 
+#, fuzzy
 msgid "Different panels for different responses"
-msgstr "?? ??? ?? ?? ??"
+msgstr "Different panels for different responses"
 
+#, fuzzy
 msgid "Identical"
-msgstr "???"
+msgstr "Identical"
 
+#, fuzzy
 msgid "Free"
-msgstr "???"
+msgstr "Free"
 
 msgid "Same range"
-msgstr "?? ??"
+msgstr "같은 범위"
 
+#, fuzzy
 msgid "X-Axis Scales in Different Panels"
-msgstr "?? ??? X-? ??"
+msgstr "X-Axis Scales in Different Panels"
 
+#, fuzzy
 msgid "Y-Axis Scales in Different Panels"
-msgstr "?? ??? Y-? ??"
+msgstr "Y-Axis Scales in Different Panels"
 
 msgid "At least one response variable must be selected."
-msgstr " ??? ??? ?? ??? ???? ???."
+msgstr "적어도 하나의 반응 변수가 선택되어야 합니다."
 
 msgid "At least one explanatory variable must be selected."
-msgstr "??? ??? ?? ??? ???? ???."
+msgstr "적어도 하나의 설명 변수가 선택되어야 합니다."
 
+#, fuzzy
 msgid "XY conditioning plot..."
-msgstr "XY ?? ??..."
+msgstr "XY conditioning plot..."
 
+# contingency tables dialog
+#
 msgid "Percentages of total"
-msgstr "? ??"
+msgstr "전체 백분율"
 
 msgid "Components of chi-square statistic"
-msgstr "?? ?? ??? ??"
+msgstr "카이-제곱 통계량 요소"
 
+# 3D scatterplots dialog
+#
 msgid "Show squared residuals"
-msgstr "?? ??? ?????."
+msgstr "잔차 제곱 보여주기"
 
+#, fuzzy
 msgid "Show axis scales"
-msgstr "? ??? ?????."
+msgstr "Show axis scales"
 
+#, fuzzy
 msgid "Plot 50% concentration ellipsoid"
-msgstr "50%? ?? ?? ??"
+msgstr "Plot 50% concentration ellipsoid"
 
 # scatterplot matrices dialog
+#
 msgid "One-dimensional scatterplots"
-msgstr "1?? scatter ??"
+msgstr "일차원 산점도"
 
 # count NAs (menu item)
+#
 msgid "Count missing observations"
-msgstr "???? ???."
+msgstr "관찰 결측치 셈하기"
 
+# Correlation test dialog
+#
 msgid "Correlation Test"
-msgstr "?? ??"
+msgstr "상관 검정"
 
 msgid "Variables (pick two)"
-msgstr "?? (?? ??)"
+msgstr "변수 (두개 선택)"
 
+#, fuzzy
 msgid "Kendall's tau"
-msgstr "Kendall? ??"
+msgstr "Kendall의 tau"
 
 msgid "Type of Correlation"
-msgstr "?? ??"
+msgstr "상관 유형"
 
+#, fuzzy
 msgid "Correlation < 0"
-msgstr "?? < 0"
+msgstr "상관 < 0"
 
+#, fuzzy
 msgid "Correlation > 0"
-msgstr "?? > 0"
+msgstr "상관 > 0"
 
 msgid "More than 2 variables selected."
-msgstr "2?? ???? ? ???????."
+msgstr "2개 이상의 변수가 선택됨."
 
 msgid "Correlation test..."
-msgstr "?? ??..."
+msgstr "상관 검정..."
 
+# Recode dialog
+#
 msgid "Recode Variables"
-msgstr "??? ??"
+msgstr "변수 다시코딩하기"
 
 msgid "Variables to recode (pick one or more)"
-msgstr "??? ?? (?? ?? ??)"
+msgstr "다시코딩할 변수(하나 이상 선택)"
 
 msgid "New variable name or prefix for multiple recodes:"
-msgstr "?? ???? ??? ?? ?? ?? ???:"
+msgstr "다중적 재코딩을 위한 새로운 변수 이름 또는 접미사"
 
 msgid "Make (each) new variable a factor"
-msgstr "(??) ??? ??? ? ??? ????."
+msgstr "(각) 새로운 변수를 요인으로 만들기"
 
 msgid "Recode variables..."
-msgstr "??? ??..."
+msgstr "변수를 다시코딩하기..."
 
+# Frequency distributions dialog
+#
 msgid "Frequency Distributions"
-msgstr "?? ??"
+msgstr "빈도 분포"
 
 msgid "Chi-square goodness-of-fit test (for one variable only)"
-msgstr "???? ??? ??(?? ??? ??)"
+msgstr "카이-제곱 적합성 검정(오직 하나의 변수)"
 
 msgid "Goodness-of-fit test not available when more than one variable is selected."
-msgstr "??? ??? ??? ???? ? ????? ??? ??? ? ????."
+msgstr "하나 이상의 변수가 선택되면 적합성 검정이 가능하지 않음."
 
 msgid "Frequency distributions..."
-msgstr "?? ??..."
+msgstr "빈도 분포..."
 
+# Numeric to factor dialog
+#
 msgid "Convert Numeric Variables to Factors"
-msgstr "??? ?? ??? ?????."
+msgstr "수치 변수를 요인으로 변환하기"
 
+#, fuzzy
 msgid "<same as variables>"
-msgstr "<?? ??>"
+msgstr "<same as variables>"
 
+#, fuzzy
 msgid "Level Names for"
-msgstr "?? ??"
+msgstr "Level Names for"
 
 msgid "Factors"
-msgstr "??"
+msgstr "요인"
 
 msgid "New variable name or prefix for multiple variables:"
-msgstr "?? ???? ??? ?? ?? ?? ??? :"
+msgstr "다중 변수를 위한 새로운 변수 이름 또는 접미사"
 
 msgid "Convert numeric variables to factors..."
-msgstr "??? ?? ??? ????..."
+msgstr "수치 변수를 요인으로 변환하기..."
 
+# Stack dialog
+#
 msgid "Stack Variables"
-msgstr "Stack ??"
+msgstr "누적 변수"
 
 msgid "factor"
-msgstr "??"
+msgstr "요인"
 
 msgid "StackedData"
-msgstr "Stack ???"
+msgstr "누적데이터"
 
 msgid "You must select at least two variables."
-msgstr "??? ??? ??? ??? ???? ???."
+msgstr "적어도 두개의 변수를 선택해야 합니다."
 
 msgid "Name for stacked data set:"
-msgstr "Stack? ??? ??? ??:"
+msgstr "누적 데이터셋 이름:"
 
 msgid "Name for variable:"
-msgstr "??? ??:"
+msgstr "변수 이름:"
 
 msgid "Name for factor:"
-msgstr "??? ??:"
+msgstr "요인 이름:"
 
 msgid "Stack variables in active data set..."
-msgstr "??? ??? ??? Stack ??..."
+msgstr "활성 데이터셋의 누적 변수..."
 
+# miscelaneous
+#
+#, fuzzy
 msgid "Identify Points"
-msgstr "?? ???"
+msgstr "Identify Points"
 
+#, fuzzy
 msgid ""
 "Use left mouse button to identify points,\n"
 "right button to exit."
-msgstr "??? ??? ?? ?? ??? ??? ?????,???? ?? ??? ??? ??? ?????."
+msgstr ""
+"Use left mouse button to identify points,\n"
+"right button to exit."
 
+#, fuzzy
 msgid ""
 "Drag right mouse button to identify points,\n"
 "click right button to exit."
-msgstr "??? ??? ?? ??? ??? ??? ??????.???? ?? ??? ??? ??? ?????."
+msgstr ""
+"Drag right mouse button to identify points,\n"
+"click right button to exit."
 
 msgid "Read Data From Text File or Clipboard"
-msgstr "??? ?? ?? ??????? ???? ????."
+msgstr "텍스트 파일 또는 클립보드로부터 데이터 읽기"
 
 msgid "Read data from clipboard:"
-msgstr "??????? ???? ??:"
+msgstr "클립보드로부터 데이터 읽기:"
 
 msgid "from text file or clipboard..."
-msgstr "??? ?? ?? ???????..."
+msgstr "텍스트 파일 또는 클립보드로부터..."
 
 msgid "Add observation numbers to data set"
-msgstr "??? ??? ?? ?? ?????."
+msgstr "관찰 수를 데이터셋에 더하기"
 
+#, fuzzy
 msgid "Refresh active data set"
-msgstr "??? ??? ??? ?? ????."
+msgstr "Refresh active data set"
 
 msgid "No statistics selected."
-msgstr "??? ???? ?????."
+msgstr "통계방법이 선택되지 않음."
 
+#, fuzzy
 msgid "Right-hand side"
-msgstr "??? ??"
+msgstr "Right-hand side"
 
+#  messages added to Rcmdr version 1.3-0
+# handling plug-ins
+#
 msgid "Load Plugins"
-msgstr "?? ????"
+msgstr "플러그인 불러오기"
 
 msgid "Plug-ins (pick one or more)"
-msgstr "???? (?? ?? ??)"
+msgstr "플러그인(하나 이상 선택)"
 
 msgid "You must select at least one plug-in."
-msgstr "??? ??? ??? ????? ???? ???."
+msgstr "적어도 하나의 플러그인이 선택되어야 합니다."
 
 msgid "Plug-ins loaded:"
-msgstr "??? ????:"
+msgstr "탑재된 플러그인:"
 
+#, fuzzy
 msgid ""
 "The plug-in(s) will not be available until the Commander is restarted.\n"
 "Restart now?"
-msgstr "????? Commander? ?? ?????? ??? ? ?? ????.?? ?? ?????????"
+msgstr ""
+"플러그인은 Commander가 다시 시작할 때까지 사용할 수 없습니다.\n"
+"다시 시작할까요?"
 
+#, fuzzy
 msgid "objects have different numbers of columns"
-msgstr "??? ?? ?? ??? ??? ????."
+msgstr "objects have different numbers of columns"
 
+#, fuzzy
 msgid "objects have different column names"
-msgstr "??? ?? ?? ??? ??? ????."
+msgstr "objects have different column names"
 
 msgid "Load Rcmdr plug-in(s)..."
-msgstr "?? Rcmdr ????..."
+msgstr "Rcmdr 플러그인 불러오기..."
 
+#, fuzzy
 msgid "the plug-in package %s is missing"
-msgstr "???? ???? ???? ????."
+msgstr "the plug-in package %s is missing"
 
+#, fuzzy
 msgid "the package %s is not an Rcmdr plug-in"
-msgstr "???? Rcmdr ????? ????."
+msgstr "the package %s is not an Rcmdr plug-in"
 
+#, fuzzy
 msgid "unrecognized operation, \"%s\", in plugin menu line %i"
-msgstr "?? ?? ??, ???? ??"
+msgstr "unrecognized operation, \"%s\", in plugin menu line %i"
 
+#, fuzzy
 msgid "unrecognized type, \"%s\", in plugin menu line %i"
-msgstr "?? ?? ??, ???? ??"
+msgstr "unrecognized type, \"%s\", in plugin menu line %i"
 
 # miscelaneous additions
+#
 msgid "Color palette..."
-msgstr "?? ???..."
+msgstr "색 팔레..."
 
 msgid "Set Color Palette"
-msgstr "?? ??? ??"
+msgstr "색 팔레트 설정하기"
 
 msgid "Color palette reset."
-msgstr "?? ???? ?? ????."
+msgstr "색 팔레트 제설정하기."
 
 msgid "Save active data set..."
-msgstr "??? ??? ??? ?????..."
+msgstr "활성 데이터셋 저장하기..."
 
 msgid "Load data set..."
-msgstr "?? ??? ??..."
+msgstr "데이터셋 불러오기..."
 
+#, fuzzy
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
 
+#, fuzzy
 msgid "Shapiro-Wilk test of normality..."
-msgstr "Shapiro-Wilk ??? ??..."
+msgstr "Shapiro-Wilk 정규성 검정..."
 
+#, fuzzy
 msgid "Shapiro-Wilk Test of Normality"
-msgstr "Shapiro-Wilk ??? ??"
+msgstr "Shapiro-Wilk 정규성 검정"
 
+#, fuzzy
 msgid "Ordinal regression model..."
-msgstr "?? ?? ??l..."
+msgstr "Ordinal regression model..."
 
+#, fuzzy
 msgid "Ordinal Regression Model"
-msgstr "?? ?? ??"
+msgstr "Ordinal Regression Model"
 
+#, fuzzy
 msgid "Proportional-odds logit"
-msgstr "??-?? ??..."
+msgstr "Proportional-odds logit"
 
+#, fuzzy
 msgid "Ordered probit"
-msgstr "??? ???"
+msgstr "Ordered probit"
 
 msgid "Type of Model"
-msgstr "?? ??"
+msgstr "모델 유형"
 
 msgid "x-axis label"
-msgstr "x-? ???"
+msgstr " x-축 이름표"
 
 msgid "y-axis label"
-msgstr "y-? ???"
+msgstr "y-축 이름표"
 
+#, fuzzy
 msgid "No plotting characters."
-msgstr " plotting ??? ????."
+msgstr "No plotting characters."
 
+#, fuzzy
 msgid "Plotting Parameters"
-msgstr "Plotting ??"
+msgstr "Plotting Parameters"
 
+#, fuzzy
 msgid "Plotting characters"
-msgstr "Plotting ??"
+msgstr "Plotting characters"
 
+#, fuzzy
 msgid "Point size"
-msgstr "??? ??"
+msgstr "Point size"
 
+#, fuzzy
 msgid "Axis text size"
-msgstr "? ??? ??"
+msgstr "Axis text size"
 
 msgid "Axis-labels text size"
-msgstr "?-??? ??? ??"
+msgstr "축-이름표 문자크기"
 
 # message added to version 1.3-3 (because of inadvertent omission)
+#
+#, fuzzy
 msgid "Scale (inverse rate)"
-msgstr "?? (? ??)"
+msgstr "Scale (inverse rate)"
 
 # messages added to version 1.3-5
+#
+#, fuzzy
 msgid " has been coerced to a data frame"
-msgstr "??? ???? ??? ???????."
+msgstr " has been coerced to a data frame"
 
 msgid "the dataset %s is no longer available"
-msgstr "??? ??? ??? ??? ? ????."
-
-# message added to version 1.3-10
-msgid "The Commander GUI is launched only in interactive sessions"
-msgstr "GUI Commander? ?? ??? ????? ???????."
-
-msgid "Commander"
-msgstr "Commander"
-
-# For the following you must supply a PDF document containing a translation
-# of "Getting-Started-with-the-Rcmdr.pdf". I suggest using a translation
-# including -xx, where xx is the code for your language.
-# Example: "Empezando-con-Rcmdr-es"
-msgid "Getting-Started-with-the-Rcmdr"
-msgstr "Rcmdr ????"
-
-msgid "Type of Tests"
-msgstr "?? ??"
-
-msgid "Sequential (\"Type I\")"
-msgstr "?? (\"Type I\")"
-
-msgid "Partial obeying marginality (\"Type II\")"
-msgstr "??? ?? ???(\"Type II\")"
-
-msgid "Partial ignoring marginality (\"Type III\")"
-msgstr "??? ??? ??? (\"Type III\")"
-
-msgid "Type III tests require careful attention to contrast coding."
-msgstr "Type III ??? ?? ??? ???? ??? ?????."
-
-msgid "There is no appropriate anova method for a model of this class."
-msgstr "? ???? ??? ?? ??? anova ??? ????."
-
-msgid "Duplicate menu names:"
-msgstr "?? ?? ??:"
-
-msgid "Strip chart..."
-msgstr "Strip ??..."
-
-msgid "Strip Chart"
-msgstr "Strip ??"
-
-msgid "Factors (pick zero or more)"
-msgstr "?? (0? ?? ??)"
-
-msgid "Duplicate Values"
-msgstr "???"
-
-msgid "Stack"
-msgstr "??"
-
-msgid "Jitter"
-msgstr "??? ????"
-
-msgid "Remove Rows from Active Data Set"
-msgstr "??? ??? ????? ?? ??"
-
-msgid "Remove row(s) from active data set..."
-msgstr "??? ??? ????? ?? ??..."
-
-msgid "No rows to remove"
-msgstr "??? ?? ????."
-
-msgid "Indices or quoted names of row(s) to remove"
-msgstr "??? ?? ?? ?? ?? ??"
-
-msgid "Akaike Information Criterion (AIC)"
-msgstr "???? ?? ?? (AIC)"
-
-msgid "Bayesian Information Criterion (BIC)"
-msgstr "???? ?? ?? (BIC)"
-
-msgid "Change working directory..."
-msgstr "?? ???? ??..."
-
-msgid "Log x-axis"
-msgstr "Log x-?"
-
-msgid "Log y-axis"
-msgstr "Log y-?"
-
-msgid "from text file, clipboard, or URL..."
-msgstr "??? ??, ????, URL? ??...."
-
-msgid "Read Text Data From File, Clipboard, or URL"
-msgstr "??, ????, URL??? ??? ???? ??."
-
-msgid "Location of Data File"
-msgstr "??? ?? ??"
-
-msgid "Local file system"
-msgstr "?? ?? ???"
-
-msgid "Clipboard"
-msgstr "????"
-
-msgid "Internet URL"
-msgstr "??? URL"
-
-msgid "Friedman rank-sum test..."
-msgstr "Friedman ??-?? ???"
-
-msgid "Friedman Rank Sum Test"
-msgstr "Friedman ?? ?? ???"
-
-msgid "Repeated-Measures Variables (pick two or more)"
-msgstr "??-?? ??(?? ?? ??)"
-
-msgid "Undo"
-msgstr "?? ??? ????."
-
-msgid "Redo"
-msgstr "????"
-
-msgid "ANOVA table..."
-msgstr "ANOVA ???..."
+msgstr "%s 데이터셋을 더이상 이용할수 없습니다"
 

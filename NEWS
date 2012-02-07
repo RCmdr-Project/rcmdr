@@ -12,6 +12,8 @@ Changes to Version 1.8-2
    
    o Updated Slovenian translation (thanks to Jaro Lajovic and Matjaz Jeran).
    
+   o Updated Korean translation (courtesy of Shin Jong-Hwa and the Korean translation team).
+   
    o Fixed bug in scatterplot dialog that prevented log axes from being used with groups defined (reported by Kent Johnson).
 
 
