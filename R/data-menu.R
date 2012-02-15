@@ -1915,7 +1915,7 @@ mergeDataSets <- function(){
 		closeDialog()
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(help="mergeRows")
+	OKCancelHelp(helpSubject="mergeRows")
 	tkgrid(labelRcmdr(dsnameFrame, text=gettextRcmdr("Name for merged data set:  ")), entryDsname)
 	tkgrid(dsnameFrame, sticky="w", columnspan=2)
 	tkgrid(getFrame(dataSet1Box), getFrame(dataSet2Box), sticky="nw")
@@ -1991,7 +1991,7 @@ Aggregate <- function(){
 		closeDialog()
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(help="aggregate")
+	OKCancelHelp(helpSubject="aggregate")
 	tkgrid(labelRcmdr(dsnameFrame, text=gettextRcmdr("Name for aggregated data set:  ")), entryDsname)
 	tkgrid(dsnameFrame, sticky="w", columnspan=2)
 	tkgrid(getFrame(variablesBox), getFrame(byBox), sticky="nw")
