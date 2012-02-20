@@ -1,3 +1,7 @@
+Changes to Version 1.8-4
+
+  o Fixes to Italian translation (from Stefano Calza).
+
 Changes to Version 1.8-3
 
    o Small fixes to pass CRAN checks (reported by Kurt Hornik).
