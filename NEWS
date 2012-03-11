@@ -7,6 +7,8 @@ Changes to Version 1.8-4
   o Fixed bug in numSummary() that surfaced when only one quantile was specified (reported by Peter B. Mandeville).
   
   o Titles for sets of check boxes now left-aligned (suggestion of Milan Bouchet-Valat).
+  
+  o Fix to Spanish translation (courtesy of Manuel Munoz Marquez).
 
 Changes to Version 1.8-3
 

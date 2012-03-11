@@ -3,9 +3,10 @@ msgstr ""
 "Project-Id-Version: Rcmdr 1.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2011-12-13 11:04+0100\n"
-"Last-Translator: Manuel Muñoz Márquez <manuel.munoz@uca.es>\n"
+"PO-Revision-Date: 2012-03-11 23:32+0100\n"
+"Last-Translator: Manuel Munoz-Marquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <ginteloy@uca.es>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3275,7 +3276,7 @@ msgid "factor"
 msgstr "factor"
 
 msgid "StackedData"
-msgstr "Datos apilados"
+msgstr "DatosApilados"
 
 msgid "You must select at least two variables."
 msgstr "Debe seleccionar al menos dos variables"
@@ -3861,9 +3862,6 @@ msgstr "Ortogonal"
 msgid "Factor Correlations"
 msgstr "Correlaciones de los factores"
 
-msgid "Define facto"
-msgstr "Defina factor"
-
 msgid "There are too many factors."
 msgstr "Hay demasiados factores."
 
@@ -3878,6 +3876,18 @@ msgstr "Primera carga de cada factor establecida a 1"
 
 msgid "Confirmatory factor analysis..."
 msgstr "Análisis confirmatorio factorial..."
+
+msgid "Robust standard errors"
+msgstr "Errores típicos robustos"
+
+msgid "No factors defined."
+msgstr "No hay factores definidos."
+
+msgid "Default-font size (points)"
+msgstr "Tamaño de letra por defecto (puntos)"
+
+#~ msgid "Define facto"
+#~ msgstr "Defina factor"
 
 #~ msgid "Approximate number of bins for histograms"
 #~ msgstr "Número aproximado de intervalos para el histograma"
