@@ -1,4 +1,4 @@
-# last modified 2012-03-11 by J. Fox
+# last modified 2012-03-12 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1101,7 +1101,7 @@ checkBoxes <- defmacro(window=top, frame, boxes, initialValues=NULL, labels, tit
 		expr={
 			..initialValues <- if (is.null(initialValues)) rep("1", length(boxes)) else initialValues
 			assign(frame, tkframe(window))
-			if (!is.null(title)) tkgrid(labelRcmdr(eval(parse(text=frame)), text=title, foreground="blue"))
+			if (!is.null(title)) tkgrid(labelRcmdr(eval(parse(text=frame)), text=title, foreground="blue"), sticky="w")
 			..variables <- paste(boxes, "Variable", sep="")
 			for (i in 1:length(boxes)) {
 				assign(..variables[i], tclVar(..initialValues[i]))
