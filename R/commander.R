@@ -343,7 +343,7 @@ Commander <- function(){
 		result <- justDoIt(command)
 		if (class(result)[1] !=  "try-error"){ 			
 			if (nrow(get(dsnameValue)) == 0){
-				errorCondition(message=gettextRcmdr("empty data set."))
+				errorCondition(window=NULL, message=gettextRcmdr("empty data set."))
 				assign(dsnameValue, save.dataset, envir=.GlobalEnv)
 				return()
 			}
@@ -353,8 +353,9 @@ Commander <- function(){
 			}
 		}
 		else{
-			errorCondition(message=gettextRcmdr("data set edit error."))
+			errorCondition(window=NULL, message=gettextRcmdr("data set edit error."))
 			assign(dsnameValue, save.dataset, envir=.GlobalEnv)
+			return()
 		}
 		tkwm.deiconify(CommanderWindow())
 		tkfocus(CommanderWindow())

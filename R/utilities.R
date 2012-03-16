@@ -1,4 +1,4 @@
-# last modified 2012-03-12 by J. Fox
+# last modified 2012-03-16 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1121,8 +1121,10 @@ checkReplace <- function(name, type=gettextRcmdr("Variable")){
 errorCondition <- defmacro(window=top, recall=NULL, message, model=FALSE,
 		expr={
 			if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
-			if (GrabFocus()) tkgrab.release(window)
-			tkdestroy(window)
+			if (!is.null(window)){
+				if (GrabFocus()) tkgrab.release(window)
+				tkdestroy(window)
+			}
 			Message(message=message, type="error")
 			if (!is.null(recall)) recall()
 			else tkfocus(CommanderWindow())
