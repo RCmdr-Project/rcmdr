@@ -1,6 +1,6 @@
-"Project-Id-Version: Rcmdr 1.8-2\n"
+"Project-Id-Version: Rcmdr 1.8-4\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2011-12-29 13:30:00\n"
+"POT-Creation-Date: 2012-03-16 13:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3820,16 +3820,20 @@ msgstr ""
 
 # messages added to version 1.8-1
 
-	# the following message was omitted from version 1.8-0
+	# the following messages were omitted from version 1.8-0
 
 msgid "Robust standard errors"
 msgstr ""
 
-
 msgid "No factors defined."
 msgstr ""
 
-# messages added to version 1.8-2
+# message added to version 1.8-2
 
 msgid "Default-font size (points)"
+msgstr ""
+
+# message added to version 1.8-4
+
+msgid "data set edit error."
 msgstr ""

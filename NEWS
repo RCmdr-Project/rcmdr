@@ -9,6 +9,8 @@ Changes to Version 1.8-4
   o Titles for sets of check boxes now left-aligned (suggestion of Milan Bouchet-Valat).
   
   o Fix to Spanish translation (courtesy of Manuel Munoz Marquez).
+  
+  o Fix to data set edit button, which was removing case names (reported by Gilles Le Pape).
 
 Changes to Version 1.8-3
 
