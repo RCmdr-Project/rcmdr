@@ -11,6 +11,8 @@ Changes to Version 1.8-4
   o Fix to Spanish translation (courtesy of Manuel Munoz Marquez).
   
   o Fix to data set edit button, which was removing case names (reported by Gilles Le Pape).
+  
+  o Updated Slovenian translations (courtesy of Jaro Lajovic and Matjaz Jeran).
 
 Changes to Version 1.8-3
 
