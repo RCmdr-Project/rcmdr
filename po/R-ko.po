@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Rcmdr1.8.1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-02-21 16:38+0900\n"
+"PO-Revision-Date: 2012-03-27 16:39+0900\n"
 "Last-Translator: SHIN Jong-Hwa <sens5900r@modernity.or.kr>\n"
 "Language-Team: Korean R User Group <shin.jonghwa@r-project.kr>\n"
 "MIME-Version: 1.0\n"
@@ -22,14 +22,16 @@ msgstr "변수 (하나 이상 선택)"
 msgid "No variables selected."
 msgstr "선택된 변수가 없음."
 
+# 2012-02-24: '타당한'과 '사례'에 오류적 기호 삽입확인. 원문과 유사하게 <> 추가.
 msgid "<all valid cases>"
-msgstr "모든 타당한 사례"
+msgstr "<모든 타당한 사례>"
 
 msgid "Number of clusters:"
 msgstr "군집의 수:"
 
+# 2012-02-24: 'Seed' 추가.
 msgid "Number of starting seeds:"
-msgstr "초기값의 수:"
+msgstr "초기값(seed)의 수:"
 
 msgid "Maximum iterations:"
 msgstr "최대 반복:"
@@ -37,8 +39,9 @@ msgstr "최대 반복:"
 msgid "Print cluster summary"
 msgstr "군집 요약정보 출력하기"
 
+# 20102-02-23: 1.8-4에서 '행렬'과 '도' 사이에 오류적인 기호삽입 확인.
 msgid "Bi-plot of clusters"
-msgstr "군집 행렬도"
+msgstr "군집 행렬도(Bi-plot)"
 
 msgid ""
 "Assign clusters to\n"
@@ -208,7 +211,7 @@ msgid "Messages"
 msgstr "메세지"
 
 msgid "The rgl package is absent; 3D plots are unavailable."
-msgstr " rgl 패키지가 없습니다; 3차원 그림을 이용할 수 없습니다."
+msgstr "rgl 패키지가 없습니다; 3차원 그림을 이용할 수 없습니다."
 
 msgid "R Commander Version"
 msgstr "R Commander 버전"
@@ -351,7 +354,7 @@ msgid "Period [.]"
 msgstr "마침표[.]"
 
 msgid "Comma [,]"
-msgstr "쉼표[,]"
+msgstr "쉼표 [,]"
 
 msgid "Decimal-Point Character"
 msgstr "십진수-포인트 문자"
@@ -573,7 +576,7 @@ msgid "Write variable names:"
 msgstr "변수 이름 쓰기:"
 
 msgid "Write row names:"
-msgstr "행 이름 쓰기:"
+msgstr "열 이름 쓰기:"
 
 msgid "Quotes around character values:"
 msgstr "문자 값 주위에 따옴표쓰기:"
@@ -621,7 +624,7 @@ msgid "Set Case Names"
 msgstr "사례 이름 설정하기"
 
 msgid "Select variable containing row names"
-msgstr "행 이름 포함하는 변수 선택하기"
+msgstr "열 이름 포함하는 변수 선택하기"
 
 msgid "Case names must be unique."
 msgstr "사례 이름은 유일해야 합니다."
@@ -685,7 +688,7 @@ msgstr ""
 "not equal to number of levels (%d) * number of contrasts (%d)."
 
 msgid "Contrast matrix is not of full column rank"
-msgstr "대비 행렬이 모든 열 순위의 것이 아닙니다"
+msgstr "대비 행렬이 모든 행 순위의 것이 아닙니다"
 
 msgid "Contrast names must be unique"
 msgstr "대비 이름은 유일해야 합니다"
@@ -781,8 +784,8 @@ msgid ""
 "Number of trials, %d, is large.\n"
 "Create long output?"
 msgstr ""
-"Number of trials, %d, is large.\n"
-"Create long output?"
+"시행횟수, %d, (이)가 큽니다.\n"
+"긴 출력물을 만들겠습니까?"
 
 msgid "Binomial Probabilities"
 msgstr "이항 확률"
@@ -792,7 +795,7 @@ msgid ""
 "Create long output?"
 msgstr ""
 "Range of values over which to plot, %d, is large.\n"
-"Create long output?"
+"긴 출력물을 만들겠습니까?"
 
 msgid "Poisson Probabilities"
 msgstr "Poisson 확률"
@@ -948,9 +951,7 @@ msgstr "변수 하나를 선택해야 합니다"
 msgid ""
 "Identify observations\n"
 "with mouse"
-msgstr ""
-"Identify observations\n"
-"with mouse"
+msgstr "마우스로 관찰치 확인하기"
 
 msgid "Spikes"
 msgstr "스파이크"
@@ -1144,7 +1145,7 @@ msgstr ""
 "df for F must be positive numbers."
 
 msgid "Identify observations with mouse"
-msgstr "관찰치를 마우스로 확인하기"
+msgstr "마우스로 관찰치 확인하기"
 
 msgid "Distribution"
 msgstr "분포"
@@ -1389,7 +1390,7 @@ msgstr ""
 "not equal to number of rows (%d) * number of columns (%d)."
 
 msgid "Hypothesis matrix is not of full row rank."
-msgstr "가설 행렬이 모든 행 순위의 것이 아닙니다."
+msgstr "가설 행렬이 모든 열 순위의 것이 아닙니다."
 
 msgid ""
 "Number of valid entries in rhs vector (%d)\n"
@@ -1399,7 +1400,7 @@ msgstr ""
 "is not equal to number of rows (%d)."
 
 msgid "Number of Rows:"
-msgstr "행의 수:"
+msgstr "열의 수:"
 
 msgid "Enter hypothesis matrix and right-hand side vector:"
 msgstr "가설 행렬과 오른쪽 벡터 입력하기"
@@ -1876,13 +1877,13 @@ msgid "Two-Way Table"
 msgstr "이원표"
 
 msgid "Row variable (pick one)"
-msgstr "행 변수 (하나 선택)"
-
-msgid "Column variable (pick one)"
 msgstr "열 변수 (하나 선택)"
 
+msgid "Column variable (pick one)"
+msgstr "행 변수 (하나 선택)"
+
 msgid "Row and column variables are the same."
-msgstr "행과 열 변수가 같습니다."
+msgstr "열과 행 변수가 같습니다."
 
 msgid "expected frequencies are less than 1"
 msgstr "예상된 빈도가 1보다 적습니다"
@@ -1891,10 +1892,10 @@ msgid "expected frequencies are less than 5"
 msgstr "예상된 빈도가 5보다 적습니다"
 
 msgid "Row percentages"
-msgstr "행 백분율"
+msgstr "열 백분율"
 
 msgid "Column percentages"
-msgstr "열 백분율"
+msgstr "행 백분율"
 
 msgid "No percentages"
 msgstr "백분율 없음"
@@ -1921,10 +1922,10 @@ msgid "Control variable(s) (pick one or more)"
 msgstr "통제 변수 (하나 이상 선택)"
 
 msgid "You must select row, column, and control variables"
-msgstr "행, 열, 그리고 통제변수를 선택해야 합니다."
+msgstr "열, 행, 그리고 통제변수를 선택해야 합니다."
 
 msgid "Row, column, and control variables must be different."
-msgstr "행, 열, 그리고 통제변수는 차이가 있어야 합니다."
+msgstr "열, 행, 그리고 통제변수는 차이가 있어야 합니다."
 
 msgid "Enter Two-Way Table"
 msgstr "이원표 입력하기"
@@ -1937,13 +1938,13 @@ msgstr ""
 "not equal to number of rows (%d) * number of columns (%d)."
 
 msgid "Row names are not unique."
-msgstr "행 이름이 유일하지 않습니다."
-
-msgid "Column names are not unique."
 msgstr "열 이름이 유일하지 않습니다."
 
+msgid "Column names are not unique."
+msgstr "행 이름이 유일하지 않습니다."
+
 msgid "Number of Columns:"
-msgstr "열의 수:"
+msgstr "행의 수:"
 
 msgid "Enter counts:"
 msgstr "해당건수 입력하기:"
@@ -1964,7 +1965,7 @@ msgid "is not a data frame and cannot be attached."
 msgstr "은(는) 데이터 프레임이 아닙니다. 첨부되지 않습니다."
 
 msgid "The dataset %s has %d rows and %d columns."
-msgstr "데이터셋 %s(은)는 %d 행과 %d 열을 가지고 있습니다."
+msgstr "데이터셋 %s(은)는 %d 열과 %d 행을 가지고 있습니다."
 
 msgid "There is no active model."
 msgstr "활성 모델이 없습니다."
@@ -2305,7 +2306,7 @@ msgid "Summaries"
 msgstr "요약"
 
 msgid "Contingency tables"
-msgstr "분할[우발]표"
+msgstr "분할표"
 
 msgid "Means"
 msgstr "평균"
@@ -2813,10 +2814,10 @@ msgid "Number of samples must be positive."
 msgstr "표본의 수는 양수이어야 합니다."
 
 msgid "Number of samples (rows)"
-msgstr "표본 수 (행)"
+msgstr "표본의 수(rows)"
 
 msgid "Number of observations (columns)"
-msgstr "관찰 수 (열)"
+msgstr "관찰 수 (columns)"
 
 msgid "Add to Data Set:"
 msgstr "데이터셋에 더하기:"
@@ -3381,10 +3382,10 @@ msgstr ""
 "다시 시작할까요?"
 
 msgid "objects have different numbers of columns"
-msgstr "객체의 열(column) 이름이 다릅니다"
+msgstr "객체의 행(column)의 갯수가 다릅니다"
 
 msgid "objects have different column names"
-msgstr "객체의 열(column) 이름이 다릅니다"
+msgstr "객체의 행(column)의 갯수가 다릅니다"
 
 msgid "Load Rcmdr plug-in(s)..."
 msgstr "Rcmdr 플러그인 탑재하기..."
@@ -3533,13 +3534,13 @@ msgid "Jitter"
 msgstr "움직임(떨림)"
 
 msgid "Remove Rows from Active Data Set"
-msgstr "활성 데이터셋에서 행(들) 제거하기"
+msgstr "활성 데이터셋에서 열(rows) 제거하기"
 
 msgid "Remove row(s) from active data set..."
-msgstr "활성 데이터셋에서 행(들) 제거하기..."
+msgstr "활성 데이터셋에서 열(rows) 제거하기..."
 
 msgid "No rows to remove"
-msgstr "제거할 행이 없음"
+msgstr "제거할 열이 없음"
 
 msgid "Indices or quoted names of row(s) to remove"
 msgstr "Indices or quoted names of row(s) to remove"
@@ -3671,10 +3672,10 @@ msgid "Second Data Set (pick one)"
 msgstr "둘째 데이터셋 (하나 선택)"
 
 msgid "Merge rows"
-msgstr "행 병합하기"
+msgstr "열 병합하기"
 
 msgid "Merge columns"
-msgstr "열(column) 병합하기"
+msgstr "행(column) 병합하기"
 
 msgid "Direction of Merge"
 msgstr "병합의 방향"
@@ -3749,8 +3750,8 @@ msgid ""
 "Pairwise p-values\n"
 "for Pearson or Spearman correlations"
 msgstr ""
-"Pairwise p-values\n"
-"for Pearson or Spearman correlations"
+"Pearson 또는 Spearman \n"
+"상관을 위한 쌍별(pairwise) 유의값"
 
 msgid ""
 "The Windows version of the R Commander works best under RGui\n"
@@ -3763,7 +3764,7 @@ msgid "median"
 msgstr "중앙값"
 
 msgid "Center"
-msgstr "Center"
+msgstr "중앙(센터)"
 
 msgid "Smooth line"
 msgstr "평활선"
@@ -3863,7 +3864,7 @@ msgstr "쌍이되는 모든사례 사용하기"
 
 # messages added to version 1.7-4
 msgid "Component scores are not available when subset is specified."
-msgstr "Component scores are not available when subset is specified."
+msgstr "하위셋이 지정되면 요소(component) 점수는 이용가능하지 않습니다."
 
 msgid "Factor scores are not available when subset is specified."
 msgstr "하위셋이 지정되면 요인 점수는 이용가능하지 않습니다."
