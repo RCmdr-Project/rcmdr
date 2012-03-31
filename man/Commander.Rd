@@ -135,7 +135,8 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{command.text.color}}{Color for commands in the output window; the default is \code{"red"}.}
        
     \item{\code{console.output}}{If \code{TRUE}, output is directed to the \emph{R Console}, and the 
-    \emph{R Commander} output window is not displayed. The default is \code{FALSE}.}
+    \emph{R Commander} output window is not displayed. The default is \code{FALSE}, unless the R Commander is running under RStudio, 
+    in which case the default is \code{TRUE}.}
     
     \item{\code{crisp.dialogs}}{If \code{TRUE}, dialogs should appear on the screen fully drawn, rather than built up
     widget by widget. Prior to R 2.6.1, this option only works on the Windows version of R, but should in any event be harmless.

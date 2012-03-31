@@ -15,6 +15,8 @@ Changes to Version 1.8-4
   o Updated Slovenian translations (courtesy of Jaro Lajovic and Matjaz Jeran).
   
   o Updated Korean translation (courtesy of Shin Jong-Hwa).
+  
+  o Rcmdr now detects when it is running under RStudio and arranges to display graphs properly. There is still an open bug causing a freeze in the RStudio graphics device when points are identified in a graph.
 
 Changes to Version 1.8-3
 
