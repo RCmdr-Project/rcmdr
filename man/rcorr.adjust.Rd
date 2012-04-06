@@ -44,9 +44,11 @@ John Fox, adapting code from Robert A. Muenchen.
 }
 
 \examples{
+	\dontrun{
 require(car)
 rcorr.adjust(Mroz[,c("k5", "k618", "age", "lwg", "inc")])
 rcorr.adjust(Mroz[,c("k5", "k618", "age", "lwg", "inc")], type="spearman")
+	}
 }
 
 \keyword{ htest }
