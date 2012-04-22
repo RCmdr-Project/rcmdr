@@ -201,7 +201,7 @@ msgid "Model:"
 msgstr "Model:"
 
 msgid "Script Window"
-msgstr "Okno skrytpu"
+msgstr "Okno skryptu"
 
 msgid "Output Window"
 msgstr "Okno wyników"
@@ -3154,7 +3154,7 @@ msgid "Groups (pick zero or more)"
 msgstr "Grupy (wybierz zero lub więcej)"
 
 msgid "Automatically draw key"
-msgstr "Automatycznie rysuj przycisk"
+msgstr "Automatycznie rysuj legendę"
 
 msgid "Different panels for different responses"
 msgstr "Różne panele dla różnych odpowiedzi"
