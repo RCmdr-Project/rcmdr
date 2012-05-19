@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr-pl 1.8.3\n"
+"Project-Id-Version: Rcmdr-pl\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 msgid "KMeans Clustering"
-msgstr "Klasteryzacja metodą k-średnich"
+msgstr "Grupowanie metodą k-średnich"
 
 msgid "Variables (pick one or more)"
 msgstr "Zmienne (wybierz jedną lub więcej)"
@@ -26,7 +26,7 @@ msgid "<all valid cases>"
 msgstr "<wszystkie poprawne przypadki>"
 
 msgid "Number of clusters:"
-msgstr "Liczba klastrów:"
+msgstr "Liczba grup:"
 
 msgid "Number of starting seeds:"
 msgstr "Liczba ziaren startowych:"
@@ -35,23 +35,23 @@ msgid "Maximum iterations:"
 msgstr "Maksymalna liczba iteracji:"
 
 msgid "Print cluster summary"
-msgstr "Wyświetl podsumowanie klastra"
+msgstr "Wyświetl podsumowanie grupy"
 
 msgid "Bi-plot of clusters"
-msgstr "Wykres dwuwymiarowego modelu dyspersji klastrów"
+msgstr "Wykres dwuwymiarowego modelu dyspersji grup"
 
 msgid ""
 "Assign clusters to\n"
 "the data set"
 msgstr ""
-"Przypisz klastry do\n"
+"Przypisz grupy do\n"
 "zbioru danych"
 
 msgid "Assignment variable:"
 msgstr "Przypisanie do zmiennej:"
 
 msgid "Hierarchical Clustering"
-msgstr "Hierarchiczna klasteryzacja"
+msgstr "Hierarchiczne grupowanie"
 
 msgid "Ward's Method"
 msgstr "Metoda Warda"
@@ -75,7 +75,7 @@ msgid "Centroid Linkage"
 msgstr "Centroidalne łączenie"
 
 msgid "Clustering Method"
-msgstr "Metoda klasteryzacji"
+msgstr "Metoda grupowania"
 
 msgid "Euclidean"
 msgstr "Euklidesowa"
@@ -93,31 +93,31 @@ msgid "Distance Measure"
 msgstr "Miara odległości"
 
 msgid "Clustering solution name:"
-msgstr "Nazwa rozwiązania klasteryzacyjnego:"
+msgstr "Nazwa rozwiązania grupowania:"
 
 msgid "Plot Dendrogram"
 msgstr "Rysuj drzewo celów"
 
 msgid "Hierarchical Cluster Summary"
-msgstr "Podsumowanie hierarchicznej klasteryzacji"
+msgstr "Podsumowanie hierarchicznego grupowania"
 
 msgid "Select One Clustering Solution"
-msgstr "Wybierz jedno rozwiązanie klasteryzacji"
+msgstr "Wybierz jedno rozwiązanie grupowania"
 
 msgid "There are no hierachical clustering solutions"
-msgstr "Brak rozwiązań hierarchicznej klasteryzacji"
+msgstr "Brak rozwiązań hierarchicznego grupowania"
 
 msgid "No hierachical clustering solutions are associated with this data set."
-msgstr "Brak powiązanych rozwiązań hierarchicznej klasteryzacji z tym zbiorem danych."
+msgstr "Brak powiązanych rozwiązań hierarchicznego grupowania z tym zbiorem danych."
 
 msgid "A clustering solution has not been selected."
-msgstr "Rozwiązanie klasteryzacji nie zostało wybrane."
+msgstr "Rozwiązanie grupowania nie zostało wybrane."
 
 msgid "Append Cluster Groups to the Active Data Set"
-msgstr "Dołącz grupy klasteryzacji do aktywnego zbioru danych"
+msgstr "Dołącz Grupy do aktywnego zbioru danych"
 
 msgid "Assigned cluster label:"
-msgstr "Przypisana etykieta klasteryzacji:"
+msgstr "Przypisana etykieta grupy:"
 
 msgid "Find"
 msgstr "Znajdź"
@@ -521,7 +521,7 @@ msgid ""
 "(from K-means clustering)"
 msgstr ""
 "Naturalne przerwy\n"
-"(klasteryzacja metodą k-średnich)"
+"(grupowanie metodą k-średnich)"
 
 msgid "Binning Method"
 msgstr "Metoda przedziałowania"
@@ -1363,7 +1363,7 @@ msgid "Studentized residuals"
 msgstr "Studentyzowane reszty"
 
 msgid "Hat-values"
-msgstr "Wartości y z daszkiem"
+msgstr "Dopasowane 'y'"
 
 msgid "Cook's distances"
 msgstr "Odległości Cooka"
@@ -2082,7 +2082,7 @@ msgid "The model is not of class \"%s\"."
 msgstr "Model nie jest klasy \"%s\"."
 
 msgid "Open script file..."
-msgstr "Otwórz skrypt"
+msgstr "Otwórz skrypt..."
 
 msgid "Save script..."
 msgstr "Zapisz skrypt..."
@@ -2124,7 +2124,7 @@ msgid "from text file..."
 msgstr "z pliku tekstowego..."
 
 msgid "from SPSS data set..."
-msgstr "ze zbioru danych SPSS"
+msgstr "ze zbioru danych SPSS..."
 
 msgid "from Minitab data set..."
 msgstr "ze zbioru danych Minitab..."
@@ -2193,7 +2193,7 @@ msgid "Rename variables..."
 msgstr "Zmień nazwy zmiennych..."
 
 msgid "Delete variables from data set ..."
-msgstr "Skasuj zmienne ze zbioru danych..."
+msgstr "Skasuj zmienne ze zbioru danych ..."
 
 msgid "Manage variables in active data set"
 msgstr "Zarządzaj zmiennymi w aktywnym zbiorze danych"
@@ -2208,7 +2208,7 @@ msgid "Frequency distribution..."
 msgstr "Rozkład częstości..."
 
 msgid "Table of statistics..."
-msgstr "Tabela statystyk"
+msgstr "Tabela statystyk..."
 
 msgid "Correlation matrix..."
 msgstr "Macierz korelacyjna..."
@@ -2253,7 +2253,7 @@ msgid "Levene's test..."
 msgstr "Test Levene'a..."
 
 msgid "Two-sample Wilcoxon test..."
-msgstr "Test Wilcoxon dwu prób..."
+msgstr "Test Wilcoxona dwu prób..."
 
 msgid "Paired-samples Wilcoxon test..."
 msgstr "Test Wilcoxona sparowanych prób..."
@@ -2265,22 +2265,22 @@ msgid "Scale reliability..."
 msgstr "Rzetelność skali..."
 
 msgid "Principal-components analysis..."
-msgstr "Analiza głównych składowych ..."
+msgstr "Analiza głównych składowych..."
 
 msgid "Factor analysis..."
 msgstr "Analiza czynnikowa..."
 
 msgid "k-means cluster analysis..."
-msgstr "Klasteryzacja metodą k-średnich..."
+msgstr "grupowanie metodą k-średnich..."
 
 msgid "Hierarchical cluster analysis..."
-msgstr "Hierarchiczna klasteryzacja..."
+msgstr "Analiza hierarchicznego grupowania..."
 
 msgid "Summarize hierarchical clustering..."
-msgstr "Podsumuj hierarchiczną klasteryzację..."
+msgstr "Podsumuj hierarchiczne grupowanie..."
 
 msgid "Add hierarchical clustering to data set..."
-msgstr "Dodaj hierarchiczną klasteryzację do zbioru danych..."
+msgstr "Dodaj hierarchiczne grupowanie do zbioru danych..."
 
 msgid "Cluster analysis"
 msgstr "Analiza skupień"
@@ -2337,7 +2337,7 @@ msgid "Stem-and-leaf display..."
 msgstr "Wykres łodygowo-liściowy..."
 
 msgid "Boxplot..."
-msgstr "Wykres pudełkowy"
+msgstr "Wykres pudełkowy..."
 
 msgid "Quantile-comparison plot..."
 msgstr "Wykres porównawczy kwantyli..."
@@ -2355,7 +2355,7 @@ msgid "Line graph..."
 msgstr "Wykres liniowy..."
 
 msgid "Plot of means..."
-msgstr "Wykres średnich.."
+msgstr "Wykres średnich..."
 
 msgid "Bar graph..."
 msgstr "Wykres słupkowy..."
@@ -2537,14 +2537,14 @@ msgstr "O programie Rcmdr"
 msgid "df ="
 msgstr "df ="
 
-## messages added to Rcmdr version 1.1-1
+#  messages added to Rcmdr version 1.1-1
 msgid "There is no current RGL graphics device."
 msgstr "Nie ma bieżącego urządzenia graficznego RGL."
 
 msgid "3D graph"
 msgstr "Wykres 3D"
 
-## messages added to Rcmdr version 1.1-6
+#  messages added to Rcmdr version 1.1-6
 msgid " contains non-standard variable names:\n"
 msgstr " zawiera niestandardowe nazwy zmiennych:\n"
 
@@ -2555,7 +2555,7 @@ msgstr ""
 "\n"
 "Te zostały zmienione na:\n"
 
-## messages added to Rcmdr version 1.2-0
+#  messages added to Rcmdr version 1.2-0
 # importRODBCtable dialog
 msgid "This function requires the RODBC package.\n"
 msgstr "Ta funkcja wymaga pakiet RODBC.\n"
@@ -3345,7 +3345,7 @@ msgstr "Nie wybrano statystyki."
 msgid "Right-hand side"
 msgstr "Prawa strona"
 
-## messages added to Rcmdr version 1.3-0
+#  messages added to Rcmdr version 1.3-0
 # handling plug-ins
 msgid "Load Plugins"
 msgstr "Załaduj wtyczki"
@@ -3363,7 +3363,7 @@ msgid ""
 "The plug-in(s) will not be available until the Commander is restarted.\n"
 "Restart now?"
 msgstr ""
-"Wtyczka(i) nie będą dostępne dopóki Commander nie zostanie zrestartowany.\n"
+"Wtyczka lub wtyczki nie będą dostępne dopóki Commander nie zostanie zrestartowany.\n"
 "Uruchomić ponownie teraz?"
 
 msgid "objects have different numbers of columns"
@@ -3373,7 +3373,7 @@ msgid "objects have different column names"
 msgstr "obiekty mają różne nazwy kolumn"
 
 msgid "Load Rcmdr plug-in(s)..."
-msgstr "Załaduj wtyczkę(i) programu Rcmdr"
+msgstr "Załaduj wtyczkę(i) programu Rcmdr..."
 
 msgid "the plug-in package %s is missing"
 msgstr "brakuje pakietu wtyczki %s"
@@ -3462,6 +3462,9 @@ msgstr "została dołączona do ramki"
 msgid "the dataset %s is no longer available"
 msgstr "zbiór danych %s nie jest już dostępny"
 
+msgid "the model %s is no longer available"
+msgstr "model %s nie jest już dostępny"
+
 # message added to version 1.3-10
 msgid "The Commander GUI is launched only in interactive sessions"
 msgstr "GUI programu Commander uruchamiane jest jedynie w interaktywnych sesjach"
@@ -3471,7 +3474,8 @@ msgstr "GUI programu Commander uruchamiane jest jedynie w interaktywnych sesjach
 #  translated documents are supplied
 # For the following, you must supply a file named Commander-xx.Rd containing
 # a translation of the file Commander.Rd, where xx is the code for your
-# language. The \name{} and \alias{} fields in the .Rd file should both be
+# language. The \n
+# e{} and \alias{} fields in the .Rd file should both be
 # Commander-xx, where again xx is the language code.
 # Example: "Commander-es"
 # Note: Some translated Commander-xx.Rd files have not been compiling properly. As
@@ -3868,7 +3872,7 @@ msgid "Use complete cases"
 msgstr "Używaj kompletnych przypadków"
 
 msgid "Use pairwise-complete cases"
-msgstr "Używaj kompletnych przypadków parami"
+msgstr "Używaj przypadków kompletnych parami"
 
 # messages added to version 1.7-4
 msgid "Component scores are not available when subset is specified."
@@ -3938,4 +3942,8 @@ msgstr "Brak zdefiniowanych czynników."
 # messages added to version 1.8-2
 msgid "Default-font size (points)"
 msgstr "Domyślny rozmiar czcionki (punkty)"
+
+# message added to version 1.8-4
+msgid "data set edit error."
+msgstr "błąd edytora zbioru danych."
 

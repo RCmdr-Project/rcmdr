@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2012-03-31 by J. Fox
+# last modified 2012-05-19 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -757,6 +757,7 @@ doItAndPrint <- function(command, log=TRUE) {
 	}
 	for (i in seq_along(exprs)) {
 		ei <- exprs[i]
+		tcl("update")
 		result <-  try(withVisible(eval(ei, envir=.GlobalEnv)), silent=TRUE)
 		if (class(result)[1] ==  "try-error"){
 			Message(message=paste(strsplit(result, ":")[[1]][2]), type="error")
