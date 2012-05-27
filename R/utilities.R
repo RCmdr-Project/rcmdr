@@ -1,4 +1,4 @@
-# last modified 2012-03-16 by J. Fox
+# last modified 2012-05-27 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1055,7 +1055,7 @@ variableListBox <- function(parentWindow, variableList=Variables(), bg="white",
 	tkgrid(labelRcmdr(frame, text=title, foreground="blue"), columnspan=2, sticky="w")
 	tkgrid(listbox, scrollbar, sticky="nw")
 	tkgrid.configure(scrollbar, sticky="wns")
-	tkgrid.configure(listbox, sticky="ew")
+	tkgrid.configure(listbox, sticky="ewns")
 	result <- list(frame=frame, listbox=listbox, scrollbar=scrollbar,
 			selectmode=selectmode, varlist=variableList)
 	class(result) <- "listbox"
