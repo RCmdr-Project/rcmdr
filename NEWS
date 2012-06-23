@@ -3,6 +3,8 @@ Changes to Version 1.8-5
   o New Polish translation (courtesy of Lukasz Daniel).
   
   o Small GUI improvements (suggestions of Milan Bouchet-Valat).
+  
+  o globalVariables() invoked for R 2.15.1 and above.
 
 Changes to Version 1.8-4
 
@@ -45,8 +47,7 @@ Changes to Version 1.8-2
    o Updated Korean translation (courtesy of Shin Jong-Hwa and the Korean translation team).
    
    o Fixed bug in scatterplot dialog that prevented log axes from being used with groups defined (reported by Kent Johnson).
-
-
+   
 Changes to Version 1.8-1
 
    o Updated DESCRIPTION file; version synchronization for CRAN.
