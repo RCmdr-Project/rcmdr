@@ -1,4 +1,4 @@
-# last modified 2012-01-27 by J. Fox
+# last modified 2012-06-24 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -139,7 +139,8 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
 	putRcmdr("outputWindow", NULL)
 	options(getRcmdr("quotes"))
 	tkwait <- options("Rcmdr")[[1]]$tkwait  # to address problem in Debian Linux
-	if ((!is.null(tkwait)) && tkwait) tclvalue(.commander.done) <<- "1"
+#	if ((!is.null(tkwait)) && tkwait) tclvalue(.commander.done) <<- "1"
+	if ((!is.null(tkwait)) && tkwait) assign(".commander.done", tclVar("1"), envir = .GlobalEnv)
 	return(invisible(response))
 }
 

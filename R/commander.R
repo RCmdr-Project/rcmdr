@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2012-05-19 by J. Fox
+# last modified 2012-06-24 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -491,8 +491,9 @@ Commander <- function(){
 				menus[[Menus[m, 2]]] <- list(ID=get(Menus[m, 2])$ID, position=0)
 			}
 			else if (Menus[m, 1] == "item") {
+				position[Menus[m, 2]] <- position[Menus[m, 2]] + 1
 				if (Menus[m, 3] == "command"){
-					position[Menus[m, 2]] <- position[Menus[m, 2]] + 1
+				#	position[Menus[m, 2]] <- position[Menus[m, 2]] + 1  # moved up following suggestion on M. Bouchet-Valet
 					if (Menus[m, 6] == "")
 						tkadd(get(Menus[m, 2]), "command", label=gettextMenus(Menus[m, 4]),
 								command=get(Menus[m, 5]))
@@ -650,7 +651,8 @@ Commander <- function(){
 	if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
 	tkwait <- options("Rcmdr")[[1]]$tkwait  # to address problem in Debian Linux
 	if ((!is.null(tkwait)) && tkwait) {
-		.commander.done <<- tclVar("0")
+#		.commander.done <<- tclVar("0")
+		assign(".commander.done", tclVar("0"), envir = .GlobalEnv)
 		tkwait.variable(.commander.done)
 	}
 	Message(paste(gettextRcmdr("R Commander Version "), getRcmdr("RcmdrVersion"), ": ", date(), sep=""))
@@ -874,7 +876,10 @@ Message <- function(message, type=c("note", "error", "warning")){
 		putRExcel(".rexcel.last.message",message)
 	######### end of change ###############
 	lines <- strsplit(message, "\n")[[1]]
-	
+	width <- (as.numeric(tkwinfo("width", .message)) - 2*as.numeric(tkcget(.message, borderwidth=NULL)) - 2)/
+			as.numeric(tkfont.measure(tkcget(.message, font=NULL), "0"))
+	eval(parse(text=paste("options(width=", floor(width), ")", sep="")))
+	lines <- strwrap(lines)
 	######### added by rmh #####################                   ##rmh
 	if (console.output) {                                        ##rmh & J. Fox
 		if (sink.number() != 0) sink()							## fixed by J. Fox
