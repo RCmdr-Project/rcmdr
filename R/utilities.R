@@ -1,4 +1,4 @@
-# last modified 2012-05-27 by J. Fox
+# last modified 2012-06-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1074,7 +1074,7 @@ getFrame.listbox <- function(object){
 	object$frame
 }
 
-# This function modified based on code by Liviu Andronic (13 Dec 09):
+# This function modified based on code by Liviu Andronic (13 Dec 09) and on code by Milan Bouchet-Valat (29 Jun 12):
 radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..values[1], labels, 
 		title="", title.color="blue", right.buttons=TRUE,
 		expr={
@@ -1088,10 +1088,18 @@ radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..
 			}
 			for (i in 1:length(buttons)) {
 				..button <- paste(buttons[i], "Button", sep="")
-				assign(..button,
-						ttkradiobutton(eval(parse(text=..frame)), variable=eval(parse(text=..variable)), value=..values[i]))
-				if (right.buttons) tkgrid(labelRcmdr(eval(parse(text=..frame)), text=labels[i], justify="left"), eval(parse(text=..button)), sticky="w")
-				else  tkgrid(eval(parse(text=..button)), labelRcmdr(eval(parse(text=..frame)), text=labels[i], justify="left"), sticky="w")
+				## assign(..button,
+				#		ttkradiobutton(eval(parse(text=..frame)), variable=eval(parse(text=..variable)), value=..values[i]))
+				# if (right.buttons) tkgrid(labelRcmdr(eval(parse(text=..frame)), text=labels[i], justify="left"), eval(parse(text=..button)), sticky="w")
+				# else  tkgrid(eval(parse(text=..button)), labelRcmdr(eval(parse(text=..frame)), text=labels[i], justify="left"), sticky="w")
+				if (right.buttons) {
+					assign(..button, ttkradiobutton(eval(parse(text=..frame)), variable=eval(parse(text=..variable)), value=..values[i]))
+					tkgrid(labelRcmdr(eval(parse(text=..frame)), text=labels[i], justify="left"), eval(parse(text=..button)), sticky="w")
+				}
+				else{
+					assign(..button, ttkradiobutton(eval(parse(text=..frame)), variable=eval(parse(text=..variable)), value=..values[i], text=labels[i]))
+					tkgrid(eval(parse(text=..button)), sticky="w")
+				}
 			}
 		}
 )
@@ -1107,8 +1115,10 @@ checkBoxes <- defmacro(window=top, frame, boxes, initialValues=NULL, labels, tit
 				assign(..variables[i], tclVar(..initialValues[i]))
 				..checkBox <- paste(boxes[i], "CheckBox", sep="")
 				assign(..checkBox,
-						tkcheckbutton(eval(parse(text=frame)), variable=eval(parse(text=..variables[i]))))
-				tkgrid(labelRcmdr(eval(parse(text=frame)), text=labels[i]), eval(parse(text=..checkBox)), sticky="w")
+				#		tkcheckbutton(eval(parse(text=frame)), variable=eval(parse(text=..variables[i]))))
+				# tkgrid(labelRcmdr(eval(parse(text=frame)), text=labels[i]), eval(parse(text=..checkBox)), sticky="w")
+						tkcheckbutton(eval(parse(text=frame)), variable=eval(parse(text=..variables[i])), text=labels[i]))
+				tkgrid(eval(parse(text=..checkBox)), sticky="w")
 			}
 		}
 )

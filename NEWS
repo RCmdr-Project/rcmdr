@@ -2,7 +2,7 @@ Changes to Version 1.8-5
 
   o New Polish translation (courtesy of Lukasz Daniel).
   
-  o Small GUI improvements (suggestions of Milan Bouchet-Valat).
+  o Small GUI improvements (suggestions/code of Milan Bouchet-Valat).
   
   o globalVariables() invoked for R 2.15.1 and above.
 
