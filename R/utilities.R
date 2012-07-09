@@ -825,7 +825,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
 			memory <- getRcmdr("retain.selections")
 			buttonsFrame <- tkframe(window, borderwidth=5)
 			OKbutton <- buttonRcmdr(buttonsFrame, text=gettextRcmdr("OK"), foreground="darkgreen", width="12", command=onOK, default="active",
-					borderwidth=3, image="::image::okIcon", compound="right")
+					borderwidth=3, image="::image::okIcon", compound="left")
 			onCancel <- function() {
 				if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
 				if (GrabFocus()) tkgrab.release(window)
@@ -833,7 +833,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
 				tkfocus(CommanderWindow())
 			}
 			cancelButton <- buttonRcmdr(buttonsFrame, text=gettextRcmdr("Cancel"), foreground="red", width="12", command=onCancel, borderwidth=3,
-					image="::image::cancelIcon", compound="right")
+					image="::image::cancelIcon", compound="left")
 			if (!is.null(helpSubject)){
 				onHelp <- function() {
 					if (GrabFocus() && .Platform$OS.type != "windows") tkgrab.release(window)
@@ -841,7 +841,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
 					else help(helpSubject)
 				}
 				helpButton <- buttonRcmdr(buttonsFrame, text=gettextRcmdr("Help"), width="12", command=onHelp, borderwidth=3,
-						image="::image::helpIcon", compound="right")
+						image="::image::helpIcon", compound="left")
 			}
 			if (!is.null(reset) && memory){
 				onReset <- function(){
@@ -852,7 +852,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
 					eval(parse(text=paste(reset, "()")))
 				}
 				resetButton <- buttonRcmdr(buttonsFrame, text=gettextRcmdr("Reset"), width=12, command=onReset,
-						image="::image::resetIcon", compound="right")
+						image="::image::resetIcon", compound="left")
 			}
 			tkgrid(OKbutton, labelRcmdr(buttonsFrame, text="  "), cancelButton, labelRcmdr(buttonsFrame, text="            "),
 					if(!is.null(reset) && memory) resetButton, if(!is.null(reset) && memory) labelRcmdr(buttonsFrame, text="  "), 
@@ -863,14 +863,14 @@ subOKCancelHelp <- defmacro(window=subdialog, helpSubject=NULL,
 		expr={
 			subButtonsFrame <- tkframe(window, borderwidth=5)
 			subOKbutton <- buttonRcmdr(subButtonsFrame, text=gettextRcmdr("OK"), foreground="darkgreen", width="12", command=onOKsub, default="active",
-					borderwidth=3, image="::image::okIcon", compound="right")
+					borderwidth=3, image="::image::okIcon", compound="left")
 			onCancelSub <- function() {
 				if (GrabFocus()) tkgrab.release(window)
 				tkdestroy(window)
 				tkfocus(CommanderWindow())
 			}
 			subCancelButton <- buttonRcmdr(subButtonsFrame, text=gettextRcmdr("Cancel"), foreground="red", width="12", command=onCancelSub,
-					borderwidth=3, image="::image::cancelIcon", compound="right")
+					borderwidth=3, image="::image::cancelIcon", compound="left")
 			if (!is.null(helpSubject)){
 				onHelpSub <- function(){
 					if (GrabFocus() && .Platform$OS.type != "windows") tkgrab.release(window)
@@ -878,7 +878,7 @@ subOKCancelHelp <- defmacro(window=subdialog, helpSubject=NULL,
 					else help(helpSubject)
 				}
 				subHelpButton <- buttonRcmdr(subButtonsFrame, text=gettextRcmdr("Help"), width="12", command=onHelpSub, borderwidth=3,
-						image="::image::helpIcon", compound="right")
+						image="::image::helpIcon", compound="left")
 			}
 			tkgrid(subOKbutton, labelRcmdr(subButtonsFrame, text="  "), subCancelButton,
 					labelRcmdr(subButtonsFrame, text="            "), if (!is.null(helpSubject)) subHelpButton, sticky="w")
