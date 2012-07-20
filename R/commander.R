@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2012-07-08 by J. Fox
+# last modified 2012-07-20 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -880,9 +880,11 @@ Message <- function(message, type=c("note", "error", "warning")){
 		putRExcel(".rexcel.last.message",message)
 	######### end of change ###############
 	lines <- strsplit(message, "\n")[[1]]
-	width <- (as.numeric(tkwinfo("width", .message)) - 2*as.numeric(tkcget(.message, borderwidth=NULL)) - 2)/
-			as.numeric(tkfont.measure(tkcget(.message, font=NULL), "0"))
-	eval(parse(text=paste("options(width=", floor(width), ")", sep="")))
+	if (!console.output){
+	  width <- (as.numeric(tkwinfo("width", .message)) - 2*as.numeric(tkcget(.message, borderwidth=NULL)) - 2)/
+	    as.numeric(tkfont.measure(tkcget(.message, font=NULL), "0"))
+	  eval(parse(text=paste("options(width=", floor(width), ")", sep="")))
+	}
 	lines <- strwrap(lines)
 	######### added by rmh #####################                   ##rmh
 	if (console.output) {                                        ##rmh & J. Fox
