@@ -1,3 +1,9 @@
+Changes to Version 1.9-0
+
+  o Improvements to boxplot dialog.
+
+  o Improvements to save graphs dialogs (adapting suggestions of Milan Bouchet-Valat).
+
 Changes to Version 1.8-5
 
   o New Polish translation (courtesy of Lukasz Daniel).

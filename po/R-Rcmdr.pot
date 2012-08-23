@@ -1,6 +1,6 @@
-"Project-Id-Version: Rcmdr 1.8-4\n"
+"Project-Id-Version: Rcmdr 1.9-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2012-03-20 10:30:00\n"
+"POT-Creation-Date: 2012-09-23 18:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3837,3 +3837,18 @@ msgstr ""
 
 msgid "data set edit error."
 msgstr ""
+
+# messages added to version 1.9-0
+
+msgid "Identify Outliers"
+msgstr ""
+
+msgid "Automatically"
+msgstr ""
+
+msgid "With mouse"
+msgstr ""
+
+
+
+
