@@ -6,6 +6,8 @@ Changes to Version 1.9-0
 
   o Added data import from SAS xport files (suggestion of Peter Mandeville).
 
+  o Added ability to import Excel data sets generally via XLConnect package (suggestion of Michael Weylandt)
+
 Changes to Version 1.8-5
 
   o New Polish translation (courtesy of Lukasz Daniel).

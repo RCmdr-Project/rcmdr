@@ -1197,7 +1197,7 @@ saveBitmap <- function () {
     }
     defaults <- list (initial.type = "png")
     dialog.values <- getDialog ("saveBitmap", defaults)
-    size <- dev.size(unit="px")
+    size <- dev.size(units="px")
     aspect <- size[2]/size[1]
     initializeDialog(title = gettextRcmdr("Save Graph as Bitmap"))
     radioButtons(name = "filetype", buttons = c("png", "jpeg"), 

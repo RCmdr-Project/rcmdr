@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 1.9-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2012-09-24 13:00:00\n"
+"POT-Creation-Date: 2012-09-24 16:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3856,4 +3856,16 @@ msgid "from SAS xport file..."
 msgstr ""
 
 msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgstr ""
+
+msgid "Convert variable names\nto lower case"
+msgstr ""
+
+msgid "from Excel file..."
+msgstr ""
+
+msgid "Import Excel Data Set"
+msgstr ""
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""

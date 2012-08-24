@@ -40,6 +40,7 @@
     item    importMenu      command         "from Minitab data set..."                      importMinitab               ""          "packageAvailable('foreign')"
     item    importMenu      command         "from STATA data set..."                        importSTATA                 ""          "packageAvailable('foreign')"
     item    importMenu      command         "from Excel, Access or dBase data set..."       importRODBCtable            ""          "(.Platform$OS.type == 'windows') && packageAvailable('RODBC') && (.Platform$r_arch == 'i386')"
+    item    importMenu      command         "from Excel file..."                            importExcel                 ""      "packageAvailable('XLConnect') && ((.Platform$OS.type != 'windows') || (.Platform$r_arch != 'i386'))"
     item    dataMenu        cascade         "Import data"                                   importMenu                  ""          ""
     menu    packagesMenu    dataMenu        ""                                              ""                          ""          ""
     item    packagesMenu    command         "List data sets in packages"                    listDataSetsInPackages      ""          ""

@@ -1,3 +1,5 @@
+# last modified 2012-08-24 by J. Fox
+
 if (getRversion() >= "2.15.1")  globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
 		'.activeModel', 'varVariable', 'rhsVariable', 'varFrame', 'formulaFrame',
 		'outerOperatorsFrame', 'xBox', 'matrixVariable', 'factorCorVariable',
@@ -35,4 +37,4 @@ if (getRversion() >= "2.15.1")  globalVariables(c('top', 'statisticFrame', 'stat
 		'styleVariable', 'trimOutliersVariable', 'showDepthsVariable',
 		'reverseNegativeVariable', 'partsFrame', 'styleFrame', 'criterionVariable',
 		'criterionFrame', 'plotTypeVariable', 'plotTypeFrame', '.RHS',
-		'chisqTestVariable', 'fisherTestVariable', '.commander.done'))
+		'chisqTestVariable', 'fisherTestVariable', '.commander.done', '.Workbook', '.Datasets'))

@@ -606,6 +606,13 @@ readDataFromPackage <- function() {
 }
 
 importSAS <- function() {
+    # the following local function is adapted from ?chartr
+    capwords <- function(s) {
+        cap <- function(s) paste(toupper(substring(s,1,1)),
+                    {s <- substring(s, 2); tolower(s)},
+                                 sep = "", collapse = " " )
+        sapply(strsplit(s, split = " "), cap)
+    }
     Library("foreign")
     file <- tclvalue(tkgetOpenFile(
         filetypes=gettextRcmdr('{"All Files" {"*"}} {"SAS xport files" {".xpt" ".XPT" ".xport" ".XPORT"}}')))
@@ -619,7 +626,7 @@ importSAS <- function() {
     if (class(result)[1] !=  "try-error"){
         assign(".Datasets", result, envir=.GlobalEnv)
         if (length(.Datasets) == 2){
-            dsname <- names(.Datasets)[1]
+            dsname <- capwords(names(.Datasets)[1])
             if (is.element(dsname, listDataSets())) {
                 if ("no" == tclvalue(checkReplace(dsname, gettextRcmdr("Data set")))){
                     importSAS()
@@ -628,12 +635,14 @@ importSAS <- function() {
             }
             assign(dsname, .Datasets[[1]], envir=.GlobalEnv)
             logger(paste(dsname, " <- .Datasets[[1]]", sep=""))
+            doItAndPrint(paste("colnames(", dsname, ") <- ", "tolower(colnames(", 
+                               dsname, "))", sep=""))
             logger("remove(.Datasets)")
             remove(".Datasets", envir=.GlobalEnv)
             activeDataSet(dsname)
         }
         else {
-            dsnames <- names(.Datasets)[-length(.Datasets)]
+            dsnames <- capwords(names(.Datasets)[-length(.Datasets)])
             datasets <- listDataSets()
             initializeDialog(title=gettextRcmdr("Select Dataset"))
             datasetsBox <- variableListBox(top, dsnames, 
@@ -649,6 +658,8 @@ importSAS <- function() {
                     }
                     assign(dsnames[ds], .Datasets[[ds]], envir=.GlobalEnv)
                     logger(paste(dsnames[ds], " <- .Datasets[[", ds, "]]", sep=""))
+                    doItAndPrint(paste("colnames(", dsnames[ds], ") <- ", "tolower(colnames(", 
+                                       dsnames[ds], "))", sep=""))
                 }
                 logger("remove(.Datasets)")
                 remove(".Datasets", envir=.GlobalEnv)
@@ -672,6 +683,8 @@ importSPSS <- function() {
 	entryDsname <- ttkentry(top, width="20", textvariable=dsname)
 	asFactor <- tclVar("1")
 	asFactorCheckBox <- tkcheckbutton(top, variable=asFactor)
+    toLower <- tclVar("1")
+    toLowerCheckBox <- tkcheckbutton(top, variable=toLower)
 	maxLevels <- tclVar("Inf")
 	entryMaxLevels <- ttkentry(top, width="5", textvariable=maxLevels)
 	onOK <- function(){
@@ -707,6 +720,9 @@ importSPSS <- function() {
 		result <- justDoIt(command)
 		if (class(result)[1] !=  "try-error"){
 			assign(dsnameValue, result, envir=.GlobalEnv)
+            if (tclvalue(toLower) == "1") 
+                doItAndPrint(paste("colnames(", dsnameValue, ") <- tolower(colnames(",
+                                   dsnameValue, "))", sep=""))
 			activeDataSet(dsnameValue)
 		}
 		tkfocus(CommanderWindow())
@@ -715,13 +731,16 @@ importSPSS <- function() {
 	tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter name for data set:")), entryDsname, sticky="w")
 	tkgrid(labelRcmdr(top, text=gettextRcmdr("Convert value labels\nto factor levels"), justify="left"),
 			asFactorCheckBox, sticky="w")
+    tkgrid(labelRcmdr(top, text=gettextRcmdr("Convert variable names\nto lower case"), justify="left"),
+           toLowerCheckBox, sticky="w")
 	tkgrid(labelRcmdr(top, text=gettextRcmdr("Maximum number\nof value labels\nfor factor conversion"), justify="left"),
 			entryMaxLevels, sticky="w")
 	tkgrid(buttonsFrame, columnspan="2", sticky="w")
 	tkgrid.configure(entryDsname, sticky="w")
 	tkgrid.configure(asFactorCheckBox, sticky="w")
+    tkgrid.configure(toLowerCheckBox, stick="w")
 	tkgrid.configure(entryMaxLevels, sticky="w")
-	dialogSuffix(rows=4, columns=2, focus=entryDsname)
+	dialogSuffix(rows=5, columns=2, focus=entryDsname)
 }
 
 importMinitab <- function() {
@@ -961,6 +980,68 @@ importRODBCtable <- function(){
 	dialogSuffix(rows=2, columns=2, focus=entryDsname)
 }
 
+importExcel <- function(){
+    Library("XLConnect")
+    initializeDialog(title = gettextRcmdr("Import Excel Data Set"))
+    dsname <- tclVar(gettextRcmdr("Dataset"))
+    entryDsname <- ttkentry(top, width = "35", textvariable = dsname)
+    onOK <- function(){
+        closeDialog()
+        dsnameValue <- trim.blanks(tclvalue(dsname))
+        if(dsnameValue == ""){
+            errorCondition(recall = importExcel,
+                           message = gettextRcmdr("You must enter the name of a data set."))
+            return()
+        }
+        if(!is.valid.name(dsnameValue)){
+            errorCondition(recall = importExcel,
+                           message = paste('"', dsnameValue, '" ',
+                                           gettextRcmdr("is not a valid name."), sep = ""))
+            return()
+        }
+        if(is.element(dsnameValue, listDataSets())){
+            if("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
+                importExcel()
+                return()
+            }
+        }
+        File <- tclvalue(tkgetOpenFile(filetypes = gettextRcmdr(
+            '{"All Files" {"*"}} {"MS Excel 2007 file" {".xlsx" ".XLSX"}} {"MS Excel file" {".xls" ".XLS"}}'
+        ), parent=CommanderWindow()))
+        if(File == ""){
+            tkfocus(CommanderWindow())
+            return()
+        }
+        command <- paste('loadWorkbook("', File, '")', sep="")
+        logger(paste(".Workbook <- ", command, sep=""))
+        justDoIt(paste('assign(".Workbook", ', command, ", envir=.GlobalEnv)", sep=""))
+        worksheets <- getSheets(.Workbook)
+        if(length(worksheets)>1)
+            worksheet <- tk_select.list(worksheets,
+                                        title = gettextRcmdr("Select one table"))
+        else
+            worksheet <- worksheets
+        if(worksheet == ""){
+            errorCondition(message=gettextRcmdr("No table selected"))
+            return()
+        }
+        command <- paste('readWorksheet(.Workbook, "', worksheet, '")', sep="")
+        logger(paste(dsnameValue, " <- ", command, sep=""))
+        result <- justDoIt(command)
+        if (class(result)[1] !=  "try-error"){
+            assign(dsnameValue, result, envir=.GlobalEnv)
+            activeDataSet(dsnameValue)
+        }
+        logger("remove(.Workbook)")
+        justDoIt("remove(.Workbook, envir=.GlobalEnv)")
+    }
+    OKCancelHelp(helpSubject="readWorksheet")
+    tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter name of data set:  ")),
+           entryDsname, sticky="e")
+    tkgrid(buttonsFrame, columnspan="2", sticky="w")
+    tkgrid.configure(entryDsname, sticky="w")
+    dialogSuffix(rows=2, columns=2, focus=entryDsname)
+}
 
 numericToFactor <- function(){
 	initializeDialog(title=gettextRcmdr("Convert Numeric Variables to Factors"))
