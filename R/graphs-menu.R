@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2012-08-23 by J. Fox
+# last modified 2012-08-24 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
@@ -1180,6 +1180,16 @@ Identify3D <- function(){
 }
 
 saveBitmap <- function () {
+    updateWidth <- function(...){
+        if (tclvalue(aspectVariable) == "1"){
+            tclvalue(heightVariable) <- round(aspect*as.numeric(tclvalue(widthVariable)))
+        }
+    }
+    updateHeight <- function(...){
+        if (tclvalue(aspectVariable) == "1"){
+            tclvalue(widthVariable) <- round((1/aspect)*as.numeric(tclvalue(heightVariable)))
+        }
+    }
     if (1 == dev.cur()) {
         Message(gettextRcmdr("There is no current graphics device to save."), 
                 type = "error")
@@ -1187,7 +1197,8 @@ saveBitmap <- function () {
     }
     defaults <- list (initial.type = "png")
     dialog.values <- getDialog ("saveBitmap", defaults)
-    size <- dev.size(units="px")
+    size <- dev.size(unit="px")
+    aspect <- size[2]/size[1]
     initializeDialog(title = gettextRcmdr("Save Graph as Bitmap"))
     radioButtons(name = "filetype", buttons = c("png", "jpeg"), 
                  labels = c("PNG", "JPEG"), title = gettextRcmdr("Graphics File Type"),
@@ -1196,17 +1207,20 @@ saveBitmap <- function () {
     widthVariable <- tclVar(size[1])
     widthSlider <- tkscale(sliderFrame, from = min(200, size[1]), to = max(1000, size[1]), 
                            showvalue = TRUE, variable = widthVariable, resolution = 1, 
-                           orient = "horizontal")
+                           orient = "horizontal", command=updateWidth)
     heightVariable <- tclVar(size[2])
     heightSlider <- tkscale(sliderFrame, from = min(200, size[2]), to = max(1000, size[2]), 
                             showvalue = TRUE, variable = heightVariable, resolution = 1, 
-                            orient = "horizontal")
+                            orient = "horizontal", command=updateHeight)
+    aspectVariable <- tclVar("1")
+    aspectFrame <- tkframe(top)
+    aspectCheckBox <- tkcheckbutton(aspectFrame, variable = aspectVariable)
     onOK <- function() {
         closeDialog()
         width <- tclvalue(widthVariable)
         height <- tclvalue(heightVariable)
         type <- tclvalue(filetypeVariable)
-        putDialog ("saveBitmap", list (initial.width = width, initial.height = height, initial.type = type))
+        putDialog ("saveBitmap", list (initial.type = type))
         if (type == "png") {
             ext <- "png"
             filetypes <- gettextRcmdr("{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}")
@@ -1230,16 +1244,29 @@ saveBitmap <- function () {
     }
     OKCancelHelp(helpSubject = "png", reset = "saveBitmap")
     tkgrid(filetypeFrame, sticky = "w")
+    tkgrid(labelRcmdr(aspectFrame, text = gettextRcmdr("Fixed aspect ratio (height:width)")),
+           aspectCheckBox, sticky="w")
+    tkgrid(aspectFrame, sticky="w")
     tkgrid(labelRcmdr(sliderFrame, text = gettextRcmdr("Width (pixels)")), 
            widthSlider, sticky = "sw")
     tkgrid(labelRcmdr(sliderFrame, text = gettextRcmdr("Height (pixels)")), 
            heightSlider, sticky = "sw")
     tkgrid(sliderFrame, sticky = "w")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 3, columns = 1)
+    dialogSuffix(rows = 4, columns = 1)
 }
 
 savePDF <- function () {
+    updateWidth <- function(...){
+        if (tclvalue(aspectVariable) == "1"){
+            tclvalue(heightVariable) <- round(aspect*as.numeric(tclvalue(widthVariable)), 1)
+        }
+    }
+    updateHeight <- function(...){
+        if (tclvalue(aspectVariable) == "1"){
+            tclvalue(widthVariable) <- round((1/aspect)*as.numeric(tclvalue(heightVariable)), 1)
+        }
+    }
     if (1 == dev.cur()) {
         Message(gettextRcmdr("There is no current graphics device to save."), 
                 type = "error")
@@ -1247,21 +1274,28 @@ savePDF <- function () {
     }
     defaults <- list (initial.type = "pdf", initial.pointsize = 10)
     dialog.values <- getDialog ("savePDF", defaults)
-    size <- round(dev.size(), 1)
+    size <- dev.size()
+    aspect <- size[2]/size[1]
+    size <- round(size, 1)
     initializeDialog(title = gettextRcmdr("Save Graph as PDF/Postscript"))
     radioButtons(name = "filetype", buttons = c("pdf", "postscript", 
                                                 "eps"), labels = gettextRcmdr(c("PDF", "Postscript", 
                                                                                 "Encapsulated Postscript")), title = gettextRcmdr("Graphics File Type"), 
                  initialValue = dialog.values$initial.type)
+    aspectVariable <- tclVar("1")
+    aspectFrame <- tkframe(top)
+    aspectCheckBox <- tkcheckbutton(aspectFrame, variable = aspectVariable)
     sliderFrame <- tkframe(top)
     widthVariable <- tclVar(size[1])
     widthSlider <- tkscale(sliderFrame, from = min(3, size[1]), to = max(10, size[1]), 
                            showvalue = TRUE, 
-                           variable = widthVariable, resolution = 0.1, orient = "horizontal")
+                           variable = widthVariable, resolution = 0.1, orient = "horizontal", 
+                           command=updateWidth)
     heightVariable <- tclVar(size[2])
     heightSlider <- tkscale(sliderFrame, from = min(3, size[2]), to = max(10, size[2]), 
                             showvalue = TRUE, 
-                            variable = heightVariable, resolution = 0.1, orient = "horizontal")
+                            variable = heightVariable, resolution = 0.1, orient = "horizontal",
+                            command=updateHeight)
     pointSizeVariable <- tclVar(dialog.values$initial.pointsize)
     pointSizeSlider <- tkscale(sliderFrame, from = 6, to = 14, 
                                showvalue = TRUE, variable = pointSizeVariable, resolution = 1, 
@@ -1305,6 +1339,9 @@ savePDF <- function () {
     }
     OKCancelHelp(helpSubject = "pdf", reset = "savePDF")
     tkgrid(filetypeFrame, sticky = "w")
+    tkgrid(labelRcmdr(aspectFrame, text = gettextRcmdr("Fixed aspect ratio (height:width)")),
+           aspectCheckBox, sticky="w")
+    tkgrid(aspectFrame, sticky="w")
     tkgrid(labelRcmdr(sliderFrame, text = gettextRcmdr("Width (inches)")), 
            widthSlider, sticky = "sw")
     tkgrid(labelRcmdr(sliderFrame, text = gettextRcmdr("Height (inches)")), 

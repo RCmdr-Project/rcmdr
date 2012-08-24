@@ -4,6 +4,8 @@ Changes to Version 1.9-0
 
   o Improvements to save graphs dialogs (adapting suggestions of Milan Bouchet-Valat).
 
+  o Added data import from SAS xport files (suggestion of Peter Mandeville).
+
 Changes to Version 1.8-5
 
   o New Polish translation (courtesy of Lukasz Daniel).

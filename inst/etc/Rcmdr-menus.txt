@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2011-12-21 by J. Fox
+# last modified 2012-08-24 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -36,6 +36,7 @@
     menu    importMenu      dataMenu        ""                                              ""                          ""          ""
     item    importMenu      command         "from text file, clipboard, or URL..."          readDataSet                 ""          ""
     item    importMenu      command         "from SPSS data set..."                         importSPSS                  ""          "packageAvailable('foreign')"
+    item    importMenu      command         "from SAS xport file..."                        importSAS                   ""           "packageAvailable('foreign')"
     item    importMenu      command         "from Minitab data set..."                      importMinitab               ""          "packageAvailable('foreign')"
     item    importMenu      command         "from STATA data set..."                        importSTATA                 ""          "packageAvailable('foreign')"
     item    importMenu      command         "from Excel, Access or dBase data set..."       importRODBCtable            ""          "(.Platform$OS.type == 'windows') && packageAvailable('RODBC') && (.Platform$r_arch == 'i386')"
