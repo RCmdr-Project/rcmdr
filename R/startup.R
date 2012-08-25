@@ -1,4 +1,4 @@
-# last modified 2012-08-24 by J. Fox
+# last modified 2012-08-25 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 .onAttach <- function(...){
@@ -26,9 +26,8 @@
 	on.exit(options(save.options))
 	required.packages <- rev(c("abind", "aplpack", "car", "colorspace", 
 					"effects", "e1071", "foreign", "grid", "Hmisc", "lattice", "leaps", "lmtest",
-					"MASS", "mgcv", "multcomp", "nlme", "nnet", "relimp", "rgl", "sem", 
-                    "XLConnect"))
-	if (.Platform$OS.type == "windows") required.packages <- c(required.packages, "RODBC")
+					"MASS", "mgcv", "multcomp", "nlme", "nnet", "relimp", "rgl", "sem"))
+	if (.Platform$OS.type == "windows") required.packages <- c(required.packages, c("RODBC", "XLConnect"))
 	check <- options("Rcmdr")[[1]]$check.packages
 	if (length(check) > 0 && !check) return()
 	packages.to.check <- required.packages
