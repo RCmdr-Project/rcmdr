@@ -1,4 +1,4 @@
-# last modified 2012-08-24 by J. Fox
+# last modified 2012-08-25 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
@@ -608,9 +608,7 @@ readDataFromPackage <- function() {
 importSAS <- function() {
     # the following local function is adapted from ?chartr
     capwords <- function(s) {
-        cap <- function(s) paste(toupper(substring(s,1,1)),
-                    {s <- substring(s, 2); tolower(s)},
-                                 sep = "", collapse = " " )
+        cap <- function(s) paste(toupper(substring(s,1,1)), {s <- substring(s, 2); tolower(s)}, sep = "", collapse = " " )
         sapply(strsplit(s, split = " "), cap)
     }
     Library("foreign")
@@ -625,52 +623,93 @@ importSAS <- function() {
     result <- justDoIt(command)
     if (class(result)[1] !=  "try-error"){
         assign(".Datasets", result, envir=.GlobalEnv)
-        if (length(.Datasets) == 2){
-            dsname <- capwords(names(.Datasets)[1])
-            if (is.element(dsname, listDataSets())) {
-                if ("no" == tclvalue(checkReplace(dsname, gettextRcmdr("Data set")))){
-                    importSAS()
-                    return()
-                }
-            }
-            assign(dsname, .Datasets[[1]], envir=.GlobalEnv)
-            logger(paste(dsname, " <- .Datasets[[1]]", sep=""))
-            doItAndPrint(paste("colnames(", dsname, ") <- ", "tolower(colnames(", 
-                               dsname, "))", sep=""))
-            logger("remove(.Datasets)")
-            remove(".Datasets", envir=.GlobalEnv)
-            activeDataSet(dsname)
-        }
-        else {
-            dsnames <- capwords(names(.Datasets)[-length(.Datasets)])
-            datasets <- listDataSets()
-            initializeDialog(title=gettextRcmdr("Select Dataset"))
-            datasetsBox <- variableListBox(top, dsnames, 
-                                           title=gettextRcmdr("Datasets in file (pick one)"),
-                                           initialSelection=0)
-            onOK <- function() {
-                dsname <- getSelection(datasetsBox)
-                for (ds in 1:length(dsnames)){
-                    if (is.element(dsnames[ds], datasets)) {
-                        if ("no" == tclvalue(checkReplace(dsnames[ds], gettextRcmdr("Data set")))){
-                            next()
+        if (is.data.frame(.Datasets)){
+            getdsname <- function(){
+                initializeDialog(title=gettextRcmdr("Data Set Name"))
+                dsname <- tclVar(gettextRcmdr("Dataset"))
+                entryDsname <- ttkentry(top, width="20", textvariable=dsname)
+                onOK <- function(){
+                    closeDialog()
+                    dsnameValue <- trim.blanks(tclvalue(dsname))
+                    if (dsnameValue == ""){
+                        errorCondition(recall=getdsname,
+                                       message=gettextRcmdr("You must enter the name of a data set."))
+                        return()
+                    }
+                    if (!is.valid.name(dsnameValue)){
+                        errorCondition(recall=getdsname,
+                                       message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
+                        return()
+                    }
+                    if (is.element(dsnameValue, listDataSets())) {
+                        if ("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
+                            getdsname()
+                            return()
                         }
                     }
-                    assign(dsnames[ds], .Datasets[[ds]], envir=.GlobalEnv)
-                    logger(paste(dsnames[ds], " <- .Datasets[[", ds, "]]", sep=""))
-                    doItAndPrint(paste("colnames(", dsnames[ds], ") <- ", "tolower(colnames(", 
-                                       dsnames[ds], "))", sep=""))
+                    doItAndPrint(paste(dsnameValue, " <- .Datasets", sep=""))
+                    logger("remove(.Datasets)")
+                    remove(".Datasets", envir=.GlobalEnv)
+                    activeDataSet(dsnameValue)
                 }
+                OKCancelHelp()
+                tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter name for data set:")), entryDsname, sticky="w")
+                tkgrid(buttonsFrame, columnspan="2", sticky="w")
+                tkgrid.configure(entryDsname, sticky="w")
+                dialogSuffix(rows=2, columns=2, focus=entryDsname)
+            }
+            getdsname()
+        }
+        else {
+            fmt <- grep("^FORMAT", names(.Datasets))
+            if (length(fmt) >= 1) assign(".Datasets", .Datasets[-fmt], envir=.GlobalEnv)
+            if (length(.Datasets) == 1){
+                dsname <- capwords(names(.Datasets))
+                if (is.element(dsname, listDataSets())) {
+                    if ("no" == tclvalue(checkReplace(dsname, gettextRcmdr("Data set")))){
+                        importSAS()
+                        return()
+                    }
+                }
+                assign(dsname, .Datasets[[1]], envir=.GlobalEnv)
+                logger(paste(dsname, " <- .Datasets[[1]]", sep=""))
+                doItAndPrint(paste("colnames(", dsname, ") <- ", "tolower(colnames(", 
+                                   dsname, "))", sep=""))
                 logger("remove(.Datasets)")
                 remove(".Datasets", envir=.GlobalEnv)
                 activeDataSet(dsname)
-                closeDialog()
-                tkfocus(CommanderWindow())
             }
-            OKCancelHelp(helpSubject="read.xport")
-            tkgrid(getFrame(datasetsBox), sticky="w")
-            tkgrid(buttonsFrame, sticky="w")
-            dialogSuffix(rows=2, columns=1)
+            else {
+                dsnames <- capwords(names(.Datasets))
+                datasets <- listDataSets()
+                initializeDialog(title=gettextRcmdr("Select Dataset"))
+                datasetsBox <- variableListBox(top, dsnames, 
+                                               title=gettextRcmdr("Datasets in file (pick one)"),
+                                               initialSelection=0)
+                onOK <- function() {
+                    dsname <- getSelection(datasetsBox)
+                    for (ds in 1:length(dsnames)){
+                        if (is.element(dsnames[ds], datasets)) {
+                            if ("no" == tclvalue(checkReplace(dsnames[ds], gettextRcmdr("Data set")))){
+                                next()
+                            }
+                        }
+                        assign(dsnames[ds], .Datasets[[ds]], envir=.GlobalEnv)
+                        logger(paste(dsnames[ds], " <- .Datasets[[", ds, "]]", sep=""))
+                        doItAndPrint(paste("colnames(", dsnames[ds], ") <- ", "tolower(colnames(", 
+                                           dsnames[ds], "))", sep=""))
+                    }
+                    logger("remove(.Datasets)")
+                    remove(".Datasets", envir=.GlobalEnv)
+                    activeDataSet(dsname)
+                    closeDialog()
+                    tkfocus(CommanderWindow())
+                }
+                OKCancelHelp(helpSubject="read.xport")
+                tkgrid(getFrame(datasetsBox), sticky="w")
+                tkgrid(buttonsFrame, sticky="w")
+                dialogSuffix(rows=2, columns=1)
+            }
         }
     }
     tkfocus(CommanderWindow())
