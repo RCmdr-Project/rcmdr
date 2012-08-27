@@ -1,4 +1,4 @@
-# last modified 2012-06-24 by J. Fox
+# last modified 2012-08-27 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -24,8 +24,8 @@ loadLog <- function(){
 }
 
 saveLog <- function(logfilename) {
-	.logFileName <- if(missing(logfilename)) getRcmdr("logFileName") else logfilename
-	if (is.null(.logFileName)) {
+	.logFileName <- if (missing(logfilename)) getRcmdr("logFileName") else logfilename
+	if (is.null(.logFileName) || (.logFileName == "%logfilename")) {
 		saveLogAs()
 		return()
 	}
