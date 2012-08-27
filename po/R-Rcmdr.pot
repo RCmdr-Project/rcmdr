@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 1.9-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2012-09-27 10:20:00\n"
+"POT-Creation-Date: 2012-09-27 15:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3880,4 +3880,7 @@ msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\
 msgstr ""
 
 msgid "Interquartile Range"
+msgstr ""
+
+msgid "Interquartile range"
 msgstr ""
