@@ -8,6 +8,8 @@ Changes to Version 1.9-0
 
   o Added ability to import Excel data sets generally via XLConnect package (suggestion of Michael Weylandt, only for Windows at this point).
 
+  o Added IQR to numerical summaries (suggestion of Peter Mandeville).
+
   o Updated French translation (thanks to Milan Bouchet-Valat).
 
 Changes to Version 1.8-5

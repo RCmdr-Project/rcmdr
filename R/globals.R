@@ -1,4 +1,4 @@
-# last modified 2012-08-25 by J. Fox
+# last modified 2012-08-27 by J. Fox
 
 if (getRversion() >= "2.15.1")  globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
 		'.activeModel', 'varVariable', 'rhsVariable', 'varFrame', 'formulaFrame',
@@ -39,4 +39,4 @@ if (getRversion() >= "2.15.1")  globalVariables(c('top', 'statisticFrame', 'stat
 		'criterionFrame', 'plotTypeVariable', 'plotTypeFrame', '.RHS',
 		'chisqTestVariable', 'fisherTestVariable', '.commander.done', '.Workbook', '.Datasets', 
         'getSheets', 'odbcConnectExcel', 'odbcConnectExcel2007', 'odbcConnectAccess', 
-        'odbcConnectAccess2007', 'odbcConnectDbase'))
+        'odbcConnectAccess2007', 'odbcConnectDbase', 'IQRVariable'))
