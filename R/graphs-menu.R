@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2012-08-24 by J. Fox
+# last modified 2012-08-28 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
@@ -1195,7 +1195,7 @@ saveBitmap <- function () {
                 type = "error")
         return()
     }
-    defaults <- list (initial.type = "png")
+    defaults <- list (initial.type = "png", initial.pointsize=12)
     dialog.values <- getDialog ("saveBitmap", defaults)
     size <- dev.size(units="px")
     aspect <- size[2]/size[1]
@@ -1212,6 +1212,10 @@ saveBitmap <- function () {
     heightSlider <- tkscale(sliderFrame, from = min(200, size[2]), to = max(1000, size[2]), 
                             showvalue = TRUE, variable = heightVariable, resolution = 1, 
                             orient = "horizontal", command=updateHeight)
+    pointSizeVariable <- tclVar(dialog.values$initial.pointsize)
+    pointSizeSlider <- tkscale(sliderFrame, from = 6, to = 16, 
+                               showvalue = TRUE, variable = pointSizeVariable, resolution = 1, 
+                               orient = "horizontal")
     aspectVariable <- tclVar("1")
     aspectFrame <- tkframe(top)
     aspectCheckBox <- tkcheckbutton(aspectFrame, variable = aspectVariable)
@@ -1220,7 +1224,8 @@ saveBitmap <- function () {
         width <- tclvalue(widthVariable)
         height <- tclvalue(heightVariable)
         type <- tclvalue(filetypeVariable)
-        putDialog ("saveBitmap", list (initial.type = type))
+        pointsize <- tclvalue(pointSizeVariable)
+        putDialog ("saveBitmap", list (initial.type = type, initial.pointsize = pointsize))
         if (type == "png") {
             ext <- "png"
             filetypes <- gettextRcmdr("{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}")
@@ -1236,7 +1241,7 @@ saveBitmap <- function () {
         if (filename == "") 
             return()
         command <- paste("dev.print(", type, ", filename=\"", 
-                         filename, "\", width=", width, ", height=", height, 
+                         filename, "\", width=", width, ", height=", height, ", pointsize=", pointsize,
                          ")", sep = "")
         doItAndPrint(command)
         Message(paste(gettextRcmdr("Graph saved to file"), filename), 
@@ -1251,6 +1256,8 @@ saveBitmap <- function () {
            widthSlider, sticky = "sw")
     tkgrid(labelRcmdr(sliderFrame, text = gettextRcmdr("Height (pixels)")), 
            heightSlider, sticky = "sw")
+    tkgrid(labelRcmdr(sliderFrame, text = gettextRcmdr("Text size (points)")), 
+           pointSizeSlider, sticky = "sw")
     tkgrid(sliderFrame, sticky = "w")
     tkgrid(buttonsFrame, sticky = "w")
     dialogSuffix(rows = 4, columns = 1)
@@ -1272,7 +1279,7 @@ savePDF <- function () {
                 type = "error")
         return()
     }
-    defaults <- list (initial.type = "pdf", initial.pointsize = 10)
+    defaults <- list (initial.type = "pdf", initial.pointsize = 12)
     dialog.values <- getDialog ("savePDF", defaults)
     size <- dev.size()
     aspect <- size[2]/size[1]
@@ -1297,7 +1304,7 @@ savePDF <- function () {
                             variable = heightVariable, resolution = 0.1, orient = "horizontal",
                             command=updateHeight)
     pointSizeVariable <- tclVar(dialog.values$initial.pointsize)
-    pointSizeSlider <- tkscale(sliderFrame, from = 6, to = 14, 
+    pointSizeSlider <- tkscale(sliderFrame, from = 6, to = 16, 
                                showvalue = TRUE, variable = pointSizeVariable, resolution = 1, 
                                orient = "horizontal")
     onOK <- function() {
