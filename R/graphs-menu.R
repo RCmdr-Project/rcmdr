@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2012-08-28 by J. Fox
+# last modified 2012-08-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
@@ -1180,6 +1180,7 @@ Identify3D <- function(){
 }
 
 saveBitmap <- function () {
+    env <- environment()
     updateWidth <- function(...){
         if (tclvalue(aspectVariable) == "1"){
             tclvalue(heightVariable) <- round(aspect*as.numeric(tclvalue(widthVariable)))
@@ -1190,32 +1191,113 @@ saveBitmap <- function () {
             tclvalue(widthVariable) <- round((1/aspect)*as.numeric(tclvalue(heightVariable)))
         }
     }
+    updateSize <- function(...){
+        units <- tclvalue(unitsVariable)
+        size <- dev.size(units=units)
+        if (units == "in") {
+            wmin <- min(3, size[1])
+            wmax <- max(10, size[1])
+            hmin <- min(3, size[2])
+            hmax <- max(10, size[2])
+            rmin <- 50
+            rmax <- 300
+            res <- if (tclvalue(resVariable) == "72") 72 else round(2.54*as.numeric(tclvalue(resVariable)))
+        }
+        else if (units == "cm") {
+            wmin <- min(8, size[1])
+            wmax <- max(25, size[1])
+            hmin <- min(8, size[2])
+            hmax <- max(25, size[2])
+            rmin <- 20
+            rmax <- 120
+            res <- round(as.numeric(tclvalue(resVariable))/2.54)
+        }
+        else {
+            wmin <- min(200, size[1])
+            wmax <- max(1000, size[1])
+            hmin <- min(200, size[2])
+            hmax <- max(1000, size[2])
+            rmin <- 50
+            rmax <- 300
+            res <- 72
+        }
+        tkconfigure(widthSlider, from = wmin, to = wmax)
+        tkconfigure(heightSlider,  from = hmin, to = hmax)
+        tkconfigure(wlabel, text = paste(gettextRcmdr(c("Width", " (", all.units[units], ")")), collapse=""))
+        tkconfigure(hlabel, text = paste(gettextRcmdr(c("Height",  " (", all.units[units], ")")), collapse=""))
+        tkconfigure(rlabel, text = paste(gettextRcmdr(c("Resolution (pixels/", unit[units], ")")), collapse=""))
+        tkconfigure(resSlider, from=rmin, to=rmax, state = if (tclvalue(unitsVariable) == "px") "disabled" else "normal")
+        tkconfigure(disabled, text = if (units == "px") gettextRcmdr("[disabled]") else "")
+        tclvalue(widthVariable) <- size[1]
+        tclvalue(heightVariable) <- size[2]
+        tclvalue(resVariable) <- res
+    }
+    all.units <- c("inches", "cm", "pixels")
+    names(all.units) <- c("in", "cm", "px")
+    unit <- c("inch", "cm", "inch")
+    names(unit) <- c("in", "cm", "px")
     if (1 == dev.cur()) {
         Message(gettextRcmdr("There is no current graphics device to save."), 
                 type = "error")
         return()
     }
-    defaults <- list (initial.type = "png", initial.pointsize=12)
+    defaults <- list (initial.type = "png", initial.pointsize=12, initial.units="in", initial.res = 72)
     dialog.values <- getDialog ("saveBitmap", defaults)
-    size <- dev.size(units="px")
+    units <- dialog.values$initial.units
+    size <- dev.size(units=units)
     aspect <- size[2]/size[1]
+    if (units == "in") {
+        wmin <- min(3, size[1])
+        wmax <- max(10, size[1])
+        hmin <- min(3, size[2])
+        hmax <- max(10, size[2])
+        rmin <- 50
+        rmax <- 300
+        res <- dialog.values$initial.res
+    }
+    else if (units == "cm") {
+        wmin <- min(8, size[1])
+        wmax <- max(25, size[1])
+        hmin <- min(8, size[2])
+        hmax <- max(25, size[2])
+        rmin <- 20
+        rmax <- 120
+        res <- dialog.values$initial.res
+    }
+    else {
+        wmin <- min(200, size[1])
+        wmax <- max(1000, size[1])
+        hmin <- min(200, size[2])
+        hmax <- max(1000, size[2])
+        rmin <- 50
+        rmax <- 300
+        res <- 72
+    }
     initializeDialog(title = gettextRcmdr("Save Graph as Bitmap"))
     radioButtons(name = "filetype", buttons = c("png", "jpeg"), 
                  labels = c("PNG", "JPEG"), title = gettextRcmdr("Graphics File Type"),
                  initialValue = dialog.values$initial.type)
+    radioButtons(name = "units", buttons = c("in", "cm", "px"), 
+                 labels = gettextRcmdr(c("inches", "cm", "pixels")), title = gettextRcmdr("Units"),
+                 initialValue = dialog.values$initial.units, command=updateSize)
     sliderFrame <- tkframe(top)
     widthVariable <- tclVar(size[1])
-    widthSlider <- tkscale(sliderFrame, from = min(200, size[1]), to = max(1000, size[1]), 
+    widthSlider <- tkscale(sliderFrame, from = wmin, to = wmax, 
                            showvalue = TRUE, variable = widthVariable, resolution = 1, 
                            orient = "horizontal", command=updateWidth)
     heightVariable <- tclVar(size[2])
-    heightSlider <- tkscale(sliderFrame, from = min(200, size[2]), to = max(1000, size[2]), 
+    heightSlider <- tkscale(sliderFrame, from = hmin, to = hmax, 
                             showvalue = TRUE, variable = heightVariable, resolution = 1, 
                             orient = "horizontal", command=updateHeight)
     pointSizeVariable <- tclVar(dialog.values$initial.pointsize)
     pointSizeSlider <- tkscale(sliderFrame, from = 6, to = 16, 
                                showvalue = TRUE, variable = pointSizeVariable, resolution = 1, 
                                orient = "horizontal")
+    resVariable <- tclVar(res)
+    resSlider <- tkscale(sliderFrame, from = rmin, to = rmax, 
+                         showvalue = TRUE, variable = resVariable, resolution = 1, 
+                         orient = "horizontal")
+    tkconfigure(resSlider,  state = if (tclvalue(unitsVariable) == "px") "disabled" else "normal")
     aspectVariable <- tclVar("1")
     aspectFrame <- tkframe(top)
     aspectCheckBox <- tkcheckbutton(aspectFrame, variable = aspectVariable)
@@ -1225,7 +1307,9 @@ saveBitmap <- function () {
         height <- tclvalue(heightVariable)
         type <- tclvalue(filetypeVariable)
         pointsize <- tclvalue(pointSizeVariable)
-        putDialog ("saveBitmap", list (initial.type = type, initial.pointsize = pointsize))
+        units <- tclvalue(unitsVariable)
+        res <- tclvalue(resVariable)
+        putDialog ("saveBitmap", list (initial.type = type, initial.pointsize = pointsize, initial.units=units, initial.res=res))
         if (type == "png") {
             ext <- "png"
             filetypes <- gettextRcmdr("{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}")
@@ -1241,26 +1325,31 @@ saveBitmap <- function () {
         if (filename == "") 
             return()
         command <- paste("dev.print(", type, ", filename=\"", 
-                         filename, "\", width=", width, ", height=", height, ", pointsize=", pointsize,
-                         ")", sep = "")
+                         filename, "\", width=", width, ", height=", height, ", pointsize=", pointsize, ', units="', units, 
+                         if(units == "px") '")' else paste('", res=', res, ')', sep=""), sep = "")
         doItAndPrint(command)
         Message(paste(gettextRcmdr("Graph saved to file"), filename), 
                 type = "note")
     }
     OKCancelHelp(helpSubject = "png", reset = "saveBitmap")
     tkgrid(filetypeFrame, sticky = "w")
+    tkgrid(unitsFrame, stick="w")
     tkgrid(labelRcmdr(aspectFrame, text = gettextRcmdr("Fixed aspect ratio (height:width)")),
            aspectCheckBox, sticky="w")
     tkgrid(aspectFrame, sticky="w")
-    tkgrid(labelRcmdr(sliderFrame, text = gettextRcmdr("Width (pixels)")), 
+    tkgrid(wlabel <- labelRcmdr(sliderFrame, text = paste(gettextRcmdr(c("Width", " (", all.units[units], ")")), collapse="")), 
            widthSlider, sticky = "sw")
-    tkgrid(labelRcmdr(sliderFrame, text = gettextRcmdr("Height (pixels)")), 
+    tkgrid(hlabel <- labelRcmdr(sliderFrame, text = paste(gettextRcmdr(c("Height",  " (", all.units[units], ")")), collapse="")), 
            heightSlider, sticky = "sw")
+    tkgrid(rlabel <- labelRcmdr(sliderFrame, text = paste(gettextRcmdr(c("Resolution", "(", "pixels", "/", unit[units], ")")), collapse="")), 
+           resSlider, 
+           disabled <- labelRcmdr(sliderFrame, text = if (units == "px") gettextRcmdr("[disabled]") else ""),
+           sticky = "sw")
     tkgrid(labelRcmdr(sliderFrame, text = gettextRcmdr("Text size (points)")), 
            pointSizeSlider, sticky = "sw")
     tkgrid(sliderFrame, sticky = "w")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 4, columns = 1)
+    dialogSuffix(rows = 5, columns = 1)
 }
 
 savePDF <- function () {
@@ -1274,32 +1363,72 @@ savePDF <- function () {
             tclvalue(widthVariable) <- round((1/aspect)*as.numeric(tclvalue(heightVariable)), 1)
         }
     }
+    updateSize <- function(...){
+        units <- tclvalue(unitsVariable)
+        size <- dev.size(units=units)
+        if (units == "in") {
+            wmin <- min(3, size[1])
+            wmax <- max(10, size[1])
+            hmin <- min(3, size[2])
+            hmax <- max(10, size[2])
+        }
+        else {
+            wmin <- min(8, size[1])
+            wmax <- max(25, size[1])
+            hmin <- min(8, size[2])
+            hmax <- max(25, size[2])
+        }
+        tkconfigure(widthSlider, from = wmin, to = wmax)
+        tkconfigure(heightSlider,  from = hmin, to = hmax)
+        tkconfigure(wlabel, text = paste(gettextRcmdr(c("Width", " (", all.units[units], ")")), collapse=""))
+        tkconfigure(hlabel, text = paste(gettextRcmdr(c("Height",  " (", all.units[units], ")")), collapse=""))
+        tclvalue(widthVariable) <- size[1]
+        tclvalue(heightVariable) <- size[2]
+    }
+    all.units <- c("inches", "cm")
+    names(all.units) <- c("in", "cm")
     if (1 == dev.cur()) {
         Message(gettextRcmdr("There is no current graphics device to save."), 
                 type = "error")
         return()
     }
-    defaults <- list (initial.type = "pdf", initial.pointsize = 12)
+    defaults <- list (initial.type = "pdf", initial.pointsize = 12, initial.units="in")
     dialog.values <- getDialog ("savePDF", defaults)
-    size <- dev.size()
+    units <- dialog.values$initial.units
+    size <- dev.size(units=units)
     aspect <- size[2]/size[1]
     size <- round(size, 1)
+    if (units == "in") {
+        wmin <- min(3, size[1])
+        wmax <- max(10, size[1])
+        hmin <- min(3, size[2])
+        hmax <- max(10, size[2])
+    }
+    else {
+        wmin <- min(8, size[1])
+        wmax <- max(25, size[1])
+        hmin <- min(8, size[2])
+        hmax <- max(25, size[2])
+    }
     initializeDialog(title = gettextRcmdr("Save Graph as PDF/Postscript"))
     radioButtons(name = "filetype", buttons = c("pdf", "postscript", 
                                                 "eps"), labels = gettextRcmdr(c("PDF", "Postscript", 
                                                                                 "Encapsulated Postscript")), title = gettextRcmdr("Graphics File Type"), 
                  initialValue = dialog.values$initial.type)
+    radioButtons(name = "units", buttons = c("in", "cm"), 
+                 labels = gettextRcmdr(c("inches", "cm")), title = gettextRcmdr("Units"),
+                 initialValue = dialog.values$initial.units, command=updateSize)
     aspectVariable <- tclVar("1")
     aspectFrame <- tkframe(top)
     aspectCheckBox <- tkcheckbutton(aspectFrame, variable = aspectVariable)
     sliderFrame <- tkframe(top)
     widthVariable <- tclVar(size[1])
-    widthSlider <- tkscale(sliderFrame, from = min(3, size[1]), to = max(10, size[1]), 
+    widthSlider <- tkscale(sliderFrame, from = wmin, to = wmax, 
                            showvalue = TRUE, 
                            variable = widthVariable, resolution = 0.1, orient = "horizontal", 
                            command=updateWidth)
     heightVariable <- tclVar(size[2])
-    heightSlider <- tkscale(sliderFrame, from = min(3, size[2]), to = max(10, size[2]), 
+    heightSlider <- tkscale(sliderFrame, from = hmin, to = hmax, 
                             showvalue = TRUE, 
                             variable = heightVariable, resolution = 0.1, orient = "horizontal",
                             command=updateHeight)
@@ -1312,8 +1441,13 @@ savePDF <- function () {
         width <- tclvalue(widthVariable)
         height <- tclvalue(heightVariable)
         type <- tclvalue(filetypeVariable)
+        units <- tclvalue(unitsVariable)
         pointsize <- tclvalue(pointSizeVariable)
-        putDialog ("savePDF", list (initial.type = type, initial.pointsize = pointsize))
+        putDialog ("savePDF", list (initial.type = type, initial.pointsize = pointsize, initial.units=units))
+        if (units == "cm") {
+            width <- round(as.numeric(width)/2.54, 1)
+            height <- round(as.numeric(height)/2.54, 1)
+        } 
         if (type == "pdf") {
             ext <- "pdf"
             filetypes <- gettextRcmdr("{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}")
@@ -1346,18 +1480,19 @@ savePDF <- function () {
     }
     OKCancelHelp(helpSubject = "pdf", reset = "savePDF")
     tkgrid(filetypeFrame, sticky = "w")
+    tkgrid(unitsFrame, stick="w")
     tkgrid(labelRcmdr(aspectFrame, text = gettextRcmdr("Fixed aspect ratio (height:width)")),
            aspectCheckBox, sticky="w")
     tkgrid(aspectFrame, sticky="w")
-    tkgrid(labelRcmdr(sliderFrame, text = gettextRcmdr("Width (inches)")), 
+    tkgrid(wlabel <- labelRcmdr(sliderFrame, text = paste(gettextRcmdr(c("Width", " (", all.units[units], ")")), collapse="")), 
            widthSlider, sticky = "sw")
-    tkgrid(labelRcmdr(sliderFrame, text = gettextRcmdr("Height (inches)")), 
+    tkgrid(hlabel <- labelRcmdr(sliderFrame, text = paste(gettextRcmdr(c("Height",  " (", all.units[units], ")")), collapse="")), 
            heightSlider, sticky = "sw")
     tkgrid(labelRcmdr(sliderFrame, text = gettextRcmdr("Text size (points)")), 
            pointSizeSlider, sticky = "sw")
     tkgrid(sliderFrame, sticky = "w")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 3, columns = 1)
+    dialogSuffix(rows = 4, columns = 1)
 }
 
 saveRglGraph <- function(){
@@ -1379,145 +1514,384 @@ saveRglGraph <- function(){
 	Message(paste(gettextRcmdr("Graph saved to file"), filename), type="note")
 }
 
+# Xyplot <- function () {
+# 	Library("lattice")
+# 	defaults <- list(initial.predictor = NULL, initial.response = NULL, initial.auto.key = 1, 
+# 			initial.outer = 0, initial.x.relation = "same", initial.y.relation = "same",
+# 			initial.layoutColumns = "", initial.layoutRows = "", initial.conditions = FALSE,
+# 			initial.groups = FALSE) 
+# 	dialog.values <- getDialog("Xyplot", defaults)
+# 	initializeDialog(title = gettextRcmdr("XY Conditioning Plot"))
+# 	predictorFrame <- tkframe(top)
+# 	predictorBox <- variableListBox(predictorFrame, Numeric(), 
+# 			title = gettextRcmdr("Explanatory variables (pick one or more)"), 
+# 			selectmode = "multiple", initialSelection = varPosn (dialog.values$initial.predictor, "numeric"))
+# 	responseBox <- variableListBox(predictorFrame, Numeric(), 
+# 			title = gettextRcmdr("Response variables (pick one or more)"), 
+# 			selectmode = "multiple", initialSelection = varPosn (dialog.values$initial.response, "numeric"))
+# 	cgFrame <- tkframe(top)
+# 	conditionsBox <- variableListBox(cgFrame, Factors(), title = gettextRcmdr("Conditions '|' (pick zero or more)"), 
+# 			selectmode = "multiple", 
+# 			initialSelection = if (dialog.values$initial.conditions == FALSE) FALSE else varPosn (dialog.values$initial.conditions, "factor"))
+# 	groupsBox <- variableListBox(cgFrame, Factors(), title = gettextRcmdr("Groups 'groups=' (pick zero or more)"), 
+# 			selectmode = "multiple", 
+# 			initialSelection = if (dialog.values$initial.groups == FALSE) FALSE else varPosn (dialog.values$initial.groups, "factor"))
+# 	checkBoxes(frame = "optionsFrame", boxes = c("auto.key", 
+# 					"outer"), initialValues = c(dialog.values$initial.auto.key, dialog.values$initial.outer), 
+# 			labels = gettextRcmdr(c("Automatically draw key", "Different panels for different y~x combinations")))
+# 	relationFrame <- tkframe(top)
+# 	radioButtons(window = relationFrame, name = "x.relation", 
+# 			buttons = c("same", "free", "sliced"), labels = gettextRcmdr(c("Identical", 
+# 							"Free", "Same range")), title = gettextRcmdr("X-Axis Scales in Different Panels"), 
+# 			initialValue = dialog.values$initial.x.relation)
+# 	radioButtons(window = relationFrame, name = "y.relation", 
+# 			buttons = c("same", "free", "sliced"), labels = gettextRcmdr(c("Identical", 
+# 							"Free", "Same range")), title = gettextRcmdr("Y-Axis Scales in Different Panels"), 
+# 			initialValue = dialog.values$initial.y.relation)
+# 	scalarsFrame <- tkframe(top)
+# 	layoutColumnsVar <- tclVar(dialog.values$initial.layoutColumns)
+# 	layoutColumnsEntry <- tkentry(scalarsFrame, width = "6", 
+# 			textvariable = layoutColumnsVar)
+# 	layoutRowsVar <- tclVar(dialog.values$initial.layoutRows)
+# 	layoutRowsEntry <- tkentry(scalarsFrame, width = "6", textvariable = layoutRowsVar)
+# 	onOK <- function() {
+# 		predictor <- getSelection(predictorBox)
+# 		response <- getSelection(responseBox)
+# 		conditions <- getSelection(conditionsBox)
+# 		groups <- getSelection(groupsBox)
+# 		closeDialog()
+# 		if (0 == length(response)) {
+# 			errorCondition(recall = Xyplot.HH, message = gettextRcmdr("At least one response variable must be selected."))
+# 			return()
+# 		}
+# 		if (0 == length(predictor)) {
+# 			errorCondition(recall = Xyplot.HH, message = gettextRcmdr("At least one explanatory variable must be selected."))
+# 			return()
+# 		}
+# 		auto.key <- ("1" == tclvalue(auto.keyVariable))
+# 		outer <- ("1" == tclvalue(outerVariable))
+# 		x.relation <- as.character(tclvalue(x.relationVariable))
+# 		y.relation <- as.character(tclvalue(y.relationVariable))
+# 		layoutColumns <- as.numeric(tclvalue(layoutColumnsVar))
+# 		layoutRows <- as.numeric(tclvalue(layoutRowsVar))
+# 		putDialog ("Xyplot", list(initial.predictor = predictor, initial.response = response, 
+# 						initial.auto.key = auto.key, initial.outer = outer, initial.x.relation = x.relation, 
+# 						initial.y.relation = y.relation, initial.layoutColumns = tclvalue(layoutColumnsVar), 
+# 						initial.layoutRows = tclvalue(layoutRowsVar), initial.conditions = if (length(conditions) != 0) conditions else FALSE, 
+# 						initial.groups = if (length(groups) != 0) groups else FALSE))
+# 		layout.command <- ""
+# 		number.na <- is.na(layoutColumns) + is.na(layoutRows)
+# 		if (number.na == 1) {
+# 			errorCondition(recall = Xyplot.HH, message = gettextRcmdr("Both or neither layout values must be numbers."))
+# 			return()
+# 		}
+# 		if (number.na == 0) 
+# 			layout.command <- deparse(c(layoutColumns, layoutRows))
+# 		.activeDataSet <- ActiveDataSet()
+# 		condtions.command <- if (length(conditions) == 0) {
+# 					if (outer) {
+# 						if (layout.command == "") 
+# 							paste(", layout=c(", length(predictor), ",", 
+# 									length(response), ")")
+# 						else paste(", layout=", layout.command, sep = "")
+# 					}
+# 				}
+# 				else {
+# 					if (outer) {
+# 						condition.levels <- prod(sapply(conditions, d.f = get(.activeDataSet), 
+# 										function(g, d.f) length(levels(d.f[[g]]))))
+# 						paste(", layout=c(", condition.levels, "*", length(predictor), 
+# 								",", length(response), ")", ", between=list(x=c(", 
+# 								paste(rep(c(rep(0, condition.levels - 1), 1), 
+# 												length = condition.levels * length(predictor) - 
+# 														1), collapse = ","), "), y=1)")
+# 					}
+# 				}
+# 		groups.command <- if (length(groups) == 1) 
+# 					paste(", groups=", groups, sep = "")
+# 				else ""
+# 		xyplot.command <- paste("xyplot(", paste(response, collapse = " + "), 
+# 				" ~ ", paste(predictor, collapse = " + "), if (length(conditions) > 
+# 								0) 
+# 							paste(" | ", paste(conditions, collapse = " + "))
+# 						else "", if (outer) 
+# 					",\n outer=TRUE", condtions.command, groups.command, 
+# 				", pch=16", if (auto.key) 
+# 							",\n auto.key=list(border=TRUE), par.settings = simpleTheme(pch=16)"
+# 						else "", paste(", scales=list(x=list(relation='", 
+# 						x.relation, "'), y=list(relation='", y.relation, 
+# 						"'))", sep = ""), ",\n data=", .activeDataSet, 
+# 				")", sep = "")
+# 		doItAndPrint(xyplot.command)
+# 		activateMenus()
+# 		tkfocus(CommanderWindow())
+# 	}
+# 	OKCancelHelp(helpSubject = "xyplot", reset = "Xyplot")
+# 	tkgrid(getFrame(predictorBox), getFrame(responseBox), columnspan = 1, 
+# 			sticky = "w")
+# 	tkgrid(predictorFrame, sticky = "w")
+# 	tkgrid(getFrame(conditionsBox), tklabel(cgFrame, text = gettextRcmdr("           ")), 
+# 			getFrame(groupsBox), columnspan = 1, sticky = "w")
+# 	tkgrid(cgFrame, sticky = "w")
+# 	tkgrid(tklabel(top, text = gettextRcmdr("Options"), fg = "blue"), 
+# 			sticky = "w")
+# 	tkgrid(optionsFrame, sticky = "w")
+# 	tkgrid(x.relationFrame, y.relationFrame, columnspan = 2, 
+# 			sticky = "w")
+# 	tkgrid(relationFrame, sticky = "w")
+# 	tkgrid(tklabel(top, text = gettextRcmdr("Layout"), fg = "blue"), 
+# 			sticky = "w")
+# 	tkgrid(tklabel(scalarsFrame, text = gettextRcmdr("number of columns:")), 
+# 			layoutColumnsEntry, sticky = "w")
+# 	tkgrid(tklabel(scalarsFrame, text = gettextRcmdr("number of rows:")), 
+# 			layoutRowsEntry, sticky = "w")
+# 	tkgrid(scalarsFrame, sticky = "w")
+# 	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
+# 	dialogSuffix(rows = 6, columns = 2)
+# }
+
 ## The following function by Richard Heiberger, with small modifications by J. Fox
 ## with more modifications by Richard Heiberger.
 ## 2008-01-03 added conditions, layout, and multiple colors
+## 2012-08-19 rmh added memory to the dialogs, using John Fox's getDialog and putDialog functions
+## 2012-08-19 rmh option to set number of conditions or groups to zero.
 
-Xyplot <- function () {
-	Library("lattice")
-	defaults <- list(initial.predictor = NULL, initial.response = NULL, initial.auto.key = 1, 
-			initial.outer = 0, initial.x.relation = "same", initial.y.relation = "same",
-			initial.layoutColumns = "", initial.layoutRows = "", initial.conditions = FALSE,
-			initial.groups = FALSE) 
-	dialog.values <- getDialog("Xyplot", defaults)
-	initializeDialog(title = gettextRcmdr("XY Conditioning Plot"))
-	predictorFrame <- tkframe(top)
-	predictorBox <- variableListBox(predictorFrame, Numeric(), 
-			title = gettextRcmdr("Explanatory variables (pick one or more)"), 
-			selectmode = "multiple", initialSelection = varPosn (dialog.values$initial.predictor, "numeric"))
-	responseBox <- variableListBox(predictorFrame, Numeric(), 
-			title = gettextRcmdr("Response variables (pick one or more)"), 
-			selectmode = "multiple", initialSelection = varPosn (dialog.values$initial.response, "numeric"))
-	cgFrame <- tkframe(top)
-	conditionsBox <- variableListBox(cgFrame, Factors(), title = gettextRcmdr("Conditions '|' (pick zero or more)"), 
-			selectmode = "multiple", 
-			initialSelection = if (dialog.values$initial.conditions == FALSE) FALSE else varPosn (dialog.values$initial.conditions, "factor"))
-	groupsBox <- variableListBox(cgFrame, Factors(), title = gettextRcmdr("Groups 'groups=' (pick zero or more)"), 
-			selectmode = "multiple", 
-			initialSelection = if (dialog.values$initial.groups == FALSE) FALSE else varPosn (dialog.values$initial.groups, "factor"))
-	checkBoxes(frame = "optionsFrame", boxes = c("auto.key", 
-					"outer"), initialValues = c(dialog.values$initial.auto.key, dialog.values$initial.outer), 
-			labels = gettextRcmdr(c("Automatically draw key", "Different panels for different y~x combinations")))
-	relationFrame <- tkframe(top)
-	radioButtons(window = relationFrame, name = "x.relation", 
-			buttons = c("same", "free", "sliced"), labels = gettextRcmdr(c("Identical", 
-							"Free", "Same range")), title = gettextRcmdr("X-Axis Scales in Different Panels"), 
-			initialValue = dialog.values$initial.x.relation)
-	radioButtons(window = relationFrame, name = "y.relation", 
-			buttons = c("same", "free", "sliced"), labels = gettextRcmdr(c("Identical", 
-							"Free", "Same range")), title = gettextRcmdr("Y-Axis Scales in Different Panels"), 
-			initialValue = dialog.values$initial.y.relation)
-	scalarsFrame <- tkframe(top)
-	layoutColumnsVar <- tclVar(dialog.values$initial.layoutColumns)
-	layoutColumnsEntry <- tkentry(scalarsFrame, width = "6", 
-			textvariable = layoutColumnsVar)
-	layoutRowsVar <- tclVar(dialog.values$initial.layoutRows)
-	layoutRowsEntry <- tkentry(scalarsFrame, width = "6", textvariable = layoutRowsVar)
-	onOK <- function() {
-		predictor <- getSelection(predictorBox)
-		response <- getSelection(responseBox)
-		conditions <- getSelection(conditionsBox)
-		groups <- getSelection(groupsBox)
-		closeDialog()
-		if (0 == length(response)) {
-			errorCondition(recall = Xyplot.HH, message = gettextRcmdr("At least one response variable must be selected."))
-			return()
-		}
-		if (0 == length(predictor)) {
-			errorCondition(recall = Xyplot.HH, message = gettextRcmdr("At least one explanatory variable must be selected."))
-			return()
-		}
-		auto.key <- ("1" == tclvalue(auto.keyVariable))
-		outer <- ("1" == tclvalue(outerVariable))
-		x.relation <- as.character(tclvalue(x.relationVariable))
-		y.relation <- as.character(tclvalue(y.relationVariable))
-		layoutColumns <- as.numeric(tclvalue(layoutColumnsVar))
-		layoutRows <- as.numeric(tclvalue(layoutRowsVar))
-		putDialog ("Xyplot", list(initial.predictor = predictor, initial.response = response, 
-						initial.auto.key = auto.key, initial.outer = outer, initial.x.relation = x.relation, 
-						initial.y.relation = y.relation, initial.layoutColumns = tclvalue(layoutColumnsVar), 
-						initial.layoutRows = tclvalue(layoutRowsVar), initial.conditions = if (length(conditions) != 0) conditions else FALSE, 
-						initial.groups = if (length(groups) != 0) groups else FALSE))
-		layout.command <- ""
-		number.na <- is.na(layoutColumns) + is.na(layoutRows)
-		if (number.na == 1) {
-			errorCondition(recall = Xyplot.HH, message = gettextRcmdr("Both or neither layout values must be numbers."))
-			return()
-		}
-		if (number.na == 0) 
-			layout.command <- deparse(c(layoutColumns, layoutRows))
-		.activeDataSet <- ActiveDataSet()
-		condtions.command <- if (length(conditions) == 0) {
-					if (outer) {
-						if (layout.command == "") 
-							paste(", layout=c(", length(predictor), ",", 
-									length(response), ")")
-						else paste(", layout=", layout.command, sep = "")
-					}
-				}
-				else {
-					if (outer) {
-						condition.levels <- prod(sapply(conditions, d.f = get(.activeDataSet), 
-										function(g, d.f) length(levels(d.f[[g]]))))
-						paste(", layout=c(", condition.levels, "*", length(predictor), 
-								",", length(response), ")", ", between=list(x=c(", 
-								paste(rep(c(rep(0, condition.levels - 1), 1), 
-												length = condition.levels * length(predictor) - 
-														1), collapse = ","), "), y=1)")
-					}
-				}
-		groups.command <- if (length(groups) == 1) 
-					paste(", groups=", groups, sep = "")
-				else ""
-		xyplot.command <- paste("xyplot(", paste(response, collapse = " + "), 
-				" ~ ", paste(predictor, collapse = " + "), if (length(conditions) > 
-								0) 
-							paste(" | ", paste(conditions, collapse = " + "))
-						else "", if (outer) 
-					",\n outer=TRUE", condtions.command, groups.command, 
-				", pch=16", if (auto.key) 
-							",\n auto.key=list(border=TRUE), par.settings = simpleTheme(pch=16)"
-						else "", paste(", scales=list(x=list(relation='", 
-						x.relation, "'), y=list(relation='", y.relation, 
-						"'))", sep = ""), ",\n data=", .activeDataSet, 
-				")", sep = "")
-		doItAndPrint(xyplot.command)
-		activateMenus()
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "xyplot", reset = "Xyplot")
-	tkgrid(getFrame(predictorBox), getFrame(responseBox), columnspan = 1, 
-			sticky = "w")
-	tkgrid(predictorFrame, sticky = "w")
-	tkgrid(getFrame(conditionsBox), tklabel(cgFrame, text = gettextRcmdr("           ")), 
-			getFrame(groupsBox), columnspan = 1, sticky = "w")
-	tkgrid(cgFrame, sticky = "w")
-	tkgrid(tklabel(top, text = gettextRcmdr("Options"), fg = "blue"), 
-			sticky = "w")
-	tkgrid(optionsFrame, sticky = "w")
-	tkgrid(x.relationFrame, y.relationFrame, columnspan = 2, 
-			sticky = "w")
-	tkgrid(relationFrame, sticky = "w")
-	tkgrid(tklabel(top, text = gettextRcmdr("Layout"), fg = "blue"), 
-			sticky = "w")
-	tkgrid(tklabel(scalarsFrame, text = gettextRcmdr("number of columns:")), 
-			layoutColumnsEntry, sticky = "w")
-	tkgrid(tklabel(scalarsFrame, text = gettextRcmdr("number of rows:")), 
-			layoutRowsEntry, sticky = "w")
-	tkgrid(scalarsFrame, sticky = "w")
-	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
-	dialogSuffix(rows = 6, columns = 2)
+Xyplot <- function() {
+    Library("lattice")
+    defaults <- list(initial.predictor = NULL, initial.response = NULL,
+                     initial.auto.key = 1, initial.outer = 0,
+                     initial.x.relation = "same", initial.y.relation = "same",
+                     initial.layoutColumns = "", initial.layoutRows = "",
+                     initial.conditions = FALSE,
+                     initial.groups = FALSE,
+                     initial.points = 1, initial.lines = 0)
+    dialog.values <- getDialog("Xyplot", defaults)
+    initializeDialog(title=gettextRcmdr("XY Conditioning Plot"))
+    predictorFrame <- tkframe(top)
+    predictorBox <-
+        variableListBox(predictorFrame, Numeric(),
+                        title=gettextRcmdr("Explanatory variables (pick one or more)"),
+                        selectmode="multiple",
+                        initialSelection = varPosn (dialog.values$initial.predictor, "numeric"))
+    responseBox <- variableListBox(predictorFrame, Numeric(),
+                                   title=gettextRcmdr("Response variables (pick one or more)"),
+                                   selectmode="multiple",
+                                   initialSelection = varPosn (dialog.values$initial.response, "numeric"))
+    cgFrame <- tkframe(top)
+    conditions.if <-
+        length(dialog.values$initial.conditions) == 1 &&
+        dialog.values$initial.conditions == FALSE
+    conditionsBox <- variableListBox(cgFrame, c("",Factors()),
+                                     title=gettextRcmdr("Conditions '|' (pick zero or more)"),
+                                     selectmode="multiple",
+                                     initialSelection=if (conditions.if) FALSE else
+                                         1 + varPosn(dialog.values$initial.conditions, "factor"))
+    groups.if <-
+        length(dialog.values$initial.groups) == 1 &&
+        dialog.values$initial.groups == FALSE
+    groupsBox <- variableListBox(cgFrame, c("",Factors()),
+                                 title=gettextRcmdr("Groups 'groups=' (pick zero or more)"),
+                                 selectmode="multiple",
+                                 initialSelection=if (groups.if) FALSE else
+                                     1 + varPosn(dialog.values$initial.groups, "factor"))
+    checkBoxes(frame="optionsFrame",
+               boxes=c("auto.key", "outer"),
+               initialValues=c(dialog.values$initial.auto.key, dialog.values$initial.outer),
+               labels=gettextRcmdr(c("Automatically draw key",
+                                     "Different panels for different y ~ x combinations")))
+    relationFrame <- tkframe(top)
+    radioButtons(window=relationFrame,
+                 name="x.relation",
+                 buttons=c("same", "free", "sliced"),
+                 labels=gettextRcmdr(c("Identical", "Free", "Same range")),
+                 title=gettextRcmdr("X-Axis Scales in Different Panels"),
+                 initialValue = dialog.values$initial.x.relation)
+    radioButtons(window=relationFrame,
+                 name="y.relation",
+                 buttons=c("same", "free", "sliced"),
+                 labels=gettextRcmdr(c("Identical", "Free", "Same range")),
+                 title=gettextRcmdr("Y-Axis Scales in Different Panels"),
+                 initialValue = dialog.values$initial.y.relation)
+    
+    scalarsFrame <- tkframe(top)
+    layoutColumnsVar <- tclVar(dialog.values$initial.layoutColumns)
+    layoutColumnsEntry <- tkentry(scalarsFrame, width="6", textvariable=layoutColumnsVar)
+    layoutRowsVar <- tclVar(dialog.values$initial.layoutRows)
+    layoutRowsEntry <- tkentry(scalarsFrame, width="6", textvariable=layoutRowsVar)
+    
+    checkBoxes(frame="typeFrame",
+               boxes=c("points", "lines"),
+               initialValues=c(dialog.values$initial.points, dialog.values$initial.lines),
+               labels=gettextRcmdr(c("Points", "Lines")))
+    
+    onOK <- function() {
+        predictor <- getSelection(predictorBox)
+        response <- getSelection(responseBox)
+        conditions <- getSelection(conditionsBox)
+        groups <- getSelection(groupsBox)
+        closeDialog()
+        
+        conditions.test <- conditions[conditions != ""]
+        groups.test <- groups[groups != ""]
+        
+        if (0 == length(response)) {
+            errorCondition(recall=Xyplot,
+                           message=gettextRcmdr("At least one response variable must be selected."))
+            return()
+        }
+        if (0 == length(predictor)) {
+            errorCondition(recall=Xyplot,
+                           message=gettextRcmdr("At least one explanatory variable must be selected."))
+            return()
+        }
+        auto.key <- ("1" == tclvalue(auto.keyVariable))
+        outer    <- ("1" == tclvalue(outerVariable))
+        x.relation <- as.character(tclvalue(x.relationVariable))
+        y.relation <- as.character(tclvalue(y.relationVariable))
+        
+        layoutColumns  <- as.numeric(tclvalue(layoutColumnsVar))
+        layoutRows     <- as.numeric(tclvalue(layoutRowsVar))
+        
+        points <- ("1" == tclvalue(pointsVariable))
+        lines  <- ("1" == tclvalue(linesVariable))
+        
+        putDialog ("Xyplot", list(initial.predictor = predictor, initial.response = response,
+                                  initial.auto.key = auto.key, initial.outer = outer,
+                                  initial.x.relation = x.relation,
+                                  initial.y.relation = y.relation,
+                                  initial.layoutColumns = tclvalue(layoutColumnsVar),
+                                  initial.layoutRows = tclvalue(layoutRowsVar),
+                                  initial.conditions = if (length(conditions.test) != 0) conditions else FALSE,
+                                  initial.groups = if (length(groups.test) != 0) groups else FALSE,
+                                  initial.points = points,
+                                  initial.lines = lines))
+        
+        layout.command <- ""
+        number.na <- is.na(layoutColumns) + is.na(layoutRows)
+        
+        if (number.na==1) {
+            errorCondition(recall=Xyplot,
+                           message=gettextRcmdr("Both or neither layout values must be numbers."))
+            return()
+        }
+        if (number.na==0) layout.command <- deparse(c(layoutColumns, layoutRows))
+        
+        .activeDataSet <- ActiveDataSet()
+        
+        
+        
+        conditions.command <-
+            if (length(conditions.test) == 0) {
+                if (outer) {
+                    if (layout.command == "")
+                        paste(", layout=c(",
+                              length(predictor),
+                              ",",
+                              length(response),
+                              ")")
+                    else
+                        paste(", layout=", layout.command, sep="")
+                }
+                else
+                    if (layout.command != "")
+                        paste(", layout=", layout.command, sep="")
+            }
+        else {  ## (length(conditions.test) > 0)
+            if (outer) {
+                condition.levels <- prod(sapply(conditions.test, d.f=get(.activeDataSet),
+                                                function(g, d.f) length(levels(d.f[[g]]))))
+                if (layout.command != "")
+                    paste(", layout=", layout.command, sep="")
+                else
+                    paste(", layout=c(",
+                          condition.levels,
+                          "*",
+                          length(predictor),
+                          ",",
+                          length(response),
+                          ")",
+                          ## ", between=list(x=c(0,0, 1, 0,0), y=1)",
+                          ", between=list(x=c(",
+                          paste(rep(c(rep(0, condition.levels-1), 1),
+                                    length=condition.levels*length(predictor)-1),
+                                collapse=","),
+                          "), y=1)")
+            }
+            else
+                if (layout.command != "")
+                    paste(", layout=", layout.command, sep="")
+        }
+        
+        
+        groups.command <- switch(as.character(length(groups.test)),
+                                 "0"="",
+                                 "1"=paste(", groups=", groups.test, sep=""),
+                                 paste(", groups=interaction(",
+                                       paste(groups.test, collapse=","),
+                                       ")", sep=""))
+        
+        if(!(points || lines)) {
+            errorCondition(recall=Xyplot,
+                           message=gettextRcmdr("Choose at least one of points or lines."))
+            return()
+        }
+        
+        type.command <- paste(", type=",
+                              deparse(c("p"[points], "l"[lines])),
+                              sep="")
+        
+        xyplot.command <- paste("xyplot(",
+                                paste(response, collapse=" + "),
+                                " ~ ",
+                                paste(predictor, collapse=" + "),
+                                if (length(conditions.test) > 0)
+                                    paste(" |",
+                                          paste(conditions.test, collapse=" + ")
+                                    ) else "",
+                                if (outer) ", outer=TRUE",
+                                conditions.command,
+                                groups.command,
+                                type.command,
+                                ", pch=16",
+                                if (auto.key) ", auto.key=list(border=TRUE), par.settings=simpleTheme(pch=16)" else "",
+                                paste(", scales=list(x=list(relation='",
+                                      x.relation,
+                                      "'), y=list(relation='",
+                                      y.relation,
+                                      "'))", sep=""),
+                                ", data=", .activeDataSet, ")", sep="")
+        doItAndPrint(xyplot.command)
+        activateMenus()
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject="xyplot", reset = "Xyplot")
+    tkgrid(getFrame(predictorBox), getFrame(responseBox),
+           columnspan=1, sticky="w")
+    tkgrid(predictorFrame, sticky="w")
+    tkgrid(getFrame(conditionsBox),
+           tklabel(cgFrame, text=gettextRcmdr("           ")),
+           getFrame(groupsBox),
+           columnspan=1, sticky="w")
+    tkgrid(cgFrame, sticky="w")
+    
+    tkgrid(tklabel(top, text=gettextRcmdr("Options"), fg="blue"), sticky="w")
+    tkgrid(optionsFrame, sticky="w")
+    tkgrid(tklabel(top, text=gettextRcmdr("Plot Type (one or both)"), fg="blue"), sticky="w")
+    tkgrid(typeFrame, sticky="w")
+    
+    tkgrid(x.relationFrame, y.relationFrame, columnspan=2, sticky="w")
+    tkgrid(relationFrame, sticky="w")
+    
+    tkgrid(tklabel(top, text=gettextRcmdr("Layout"), fg="blue"),
+           sticky="w")
+    tkgrid(tklabel(scalarsFrame, text=gettextRcmdr("number of columns:")), layoutColumnsEntry, sticky="w")
+    tkgrid(tklabel(scalarsFrame, text=gettextRcmdr("number of rows:")), layoutRowsEntry, sticky="w")
+    tkgrid(scalarsFrame, sticky="w")
+    
+    tkgrid(buttonsFrame, columnspan=2, sticky="w")
+    dialogSuffix(rows=6, columns=2)
 }
+
 
 
 # set the colour palette

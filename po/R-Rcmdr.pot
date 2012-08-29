@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 1.9-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2012-09-27 15:00:00\n"
+"POT-Creation-Date: 2012-09-29 15:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3849,7 +3849,34 @@ msgstr ""
 msgid "With mouse"
 msgstr ""
 
+msgid "Width"
+msgstr ""
+
+msgid "Height"
+msgstr ""
+
+msgid "[disabled]"
+msgstr ""
+
+msgid "inches"
+msgstr ""
+
+msgid "inch"
+msgstr ""
+
+msgid "cm"
+msgstr ""
+
+msgid "pixels"
+msgstr ""
+
+msgid "Units"
+msgstr ""
+
 msgid "Fixed aspect ratio (height:width)"
+msgstr ""
+
+msgid "Resolution"
 msgstr ""
 
 msgid "from SAS xport file..."
@@ -3884,3 +3911,14 @@ msgstr ""
 
 msgid "Interquartile range"
 msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Choose at least one of points or lines."
+msgstr ""
+
+msgid "Plot Type (one or both)"
+msgstr ""
+
+

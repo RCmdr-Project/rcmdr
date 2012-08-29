@@ -1,4 +1,4 @@
-# last modified 2012-08-27 by J. Fox
+# last modified 2012-08-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1089,32 +1089,30 @@ getFrame.listbox <- function(object){
 
 # This function modified based on code by Liviu Andronic (13 Dec 09) and on code by Milan Bouchet-Valat (29 Jun 12):
 radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..values[1], labels, 
-		title="", title.color="blue", right.buttons=TRUE,
-		expr={
-			..values <- if (is.null(values)) buttons else values
-			..frame <- paste(name, "Frame", sep="")
-			assign(..frame, tkframe(window))
-			..variable <- paste(name, "Variable", sep="")
-			assign(..variable, tclVar(initialValue))
-			if(title != ""){
-				tkgrid(labelRcmdr(eval(parse(text=..frame)), text=title, foreground=title.color), columnspan=2, sticky="w")
-			}
-			for (i in 1:length(buttons)) {
-				..button <- paste(buttons[i], "Button", sep="")
-				## assign(..button,
-				#		ttkradiobutton(eval(parse(text=..frame)), variable=eval(parse(text=..variable)), value=..values[i]))
-				# if (right.buttons) tkgrid(labelRcmdr(eval(parse(text=..frame)), text=labels[i], justify="left"), eval(parse(text=..button)), sticky="w")
-				# else  tkgrid(eval(parse(text=..button)), labelRcmdr(eval(parse(text=..frame)), text=labels[i], justify="left"), sticky="w")
-				if (right.buttons) {
-					assign(..button, ttkradiobutton(eval(parse(text=..frame)), variable=eval(parse(text=..variable)), value=..values[i]))
-					tkgrid(labelRcmdr(eval(parse(text=..frame)), text=labels[i], justify="left"), eval(parse(text=..button)), sticky="w")
-				}
-				else{
-					assign(..button, ttkradiobutton(eval(parse(text=..frame)), variable=eval(parse(text=..variable)), value=..values[i], text=labels[i]))
-					tkgrid(eval(parse(text=..button)), sticky="w")
-				}
-			}
-		}
+                         title="", title.color="blue", right.buttons=TRUE, command=function(){},
+                         expr={
+                             ..values <- if (is.null(values)) buttons else values
+                             ..frame <- paste(name, "Frame", sep="")
+                             assign(..frame, tkframe(window))
+                             ..variable <- paste(name, "Variable", sep="")
+                             assign(..variable, tclVar(initialValue))
+                             if(title != ""){
+                                 tkgrid(labelRcmdr(eval(parse(text=..frame)), text=title, foreground=title.color), columnspan=2, sticky="w")
+                             }
+                             for (i in 1:length(buttons)) {
+                                 ..button <- paste(buttons[i], "Button", sep="")
+                                 if (right.buttons) {
+                                     assign(..button, ttkradiobutton(eval(parse(text=..frame)), variable=eval(parse(text=..variable)), 
+                                                                     value=..values[i], command=command))
+                                     tkgrid(labelRcmdr(eval(parse(text=..frame)), text=labels[i], justify="left"), eval(parse(text=..button)), sticky="w")
+                                 }
+                                 else{
+                                     assign(..button, ttkradiobutton(eval(parse(text=..frame)), variable=eval(parse(text=..variable)), 
+                                                                     value=..values[i], text=labels[i], command=command))
+                                     tkgrid(eval(parse(text=..button)), sticky="w")
+                                 }
+                             }
+                         }
 )
 
 

@@ -1,4 +1,4 @@
-# last modified 2012-08-25 by J. Fox
+# last modified 2012-08-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
@@ -1463,52 +1463,52 @@ variablesDataSet <- function(){
 }
 
 exportDataSet <- function() {
-	dsname <- activeDataSet()
-	initializeDialog(title=gettextRcmdr("Export Active Data Set"))
-	checkBoxes(frame="optionsFrame", boxes=c("colnames", "rownames", "quotes"),
-			initialValues=rep(1,3), labels=gettextRcmdr(c("Write variable names:", "Write row names:", "Quotes around character values:")))
-	missingVariable <- tclVar("NA")
-	missingEntry <- ttkentry(optionsFrame, width="8", textvariable=missingVariable)
-	radioButtons(name="delimiter", buttons=c("spaces", "tabs", "commas"), labels=gettextRcmdr(c("Spaces", "Tabs", "Commas")),
-			title=gettextRcmdr("Field Separator"))
-	otherButton <- ttkradiobutton(delimiterFrame, variable=delimiterVariable, value="other")
-	otherVariable <- tclVar("")
-	otherEntry <- ttkentry(delimiterFrame, width="4", textvariable=otherVariable)
-	onOK <- function(){
-		closeDialog()
-		col <- tclvalue(colnamesVariable) == 1
-		row <- tclvalue(rownamesVariable) == 1
-		quote <- tclvalue(quotesVariable) == 1
-		delim <- tclvalue(delimiterVariable)
-		missing <- tclvalue(missingVariable)
-		sep <- if (delim == "tabs") "\\t"
-				else if (delim == "spaces") " "
-				else if (delim == "commas") ","
-				else trim.blanks(tclvalue(otherVariable))
-		saveFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Text Files" {".txt" ".TXT" ".dat" ".DAT" ".csv" ".CSV"}}'),
-						defaultextension="txt",
-						initialfile=paste(dsname, ".txt", sep=""),
-						parent=CommanderWindow()))
-		if (saveFile == "") {
-			tkfocus(CommanderWindow())
-			return()
-		}
-		command <- paste("write.table(", dsname, ', "', saveFile, '", sep="', sep,
-				'", col.names=', col, ", row.names=", row, ", quote=", quote,
-				', na="', missing, '")', sep="")
-		justDoIt(command)
-		logger(command)
-		Message(paste(gettextRcmdr("Active dataset exported to file"), saveFile), type="note")
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject="write.table")
-	tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Missing values:")), missingEntry, sticky="w")
-	tkgrid(optionsFrame, sticky="w")
-	tkgrid(labelRcmdr(delimiterFrame, text=gettextRcmdr("Other")), otherButton,
-			labelRcmdr(delimiterFrame, text=gettextRcmdr("  Specify:")), otherEntry, sticky="w")
-	tkgrid(delimiterFrame, stick="w")
-	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=3, columns=1)
+    dsname <- activeDataSet()
+    initializeDialog(title=gettextRcmdr("Export Active Data Set"))
+    checkBoxes(frame="optionsFrame", boxes=c("colnames", "rownames", "quotes"),
+               initialValues=rep(1,3), labels=gettextRcmdr(c("Write variable names:", "Write row names:", "Quotes around character values:")))
+    missingVariable <- tclVar("NA")
+    missingEntry <- ttkentry(optionsFrame, width="8", textvariable=missingVariable)
+    radioButtons(name="delimiter", buttons=c("spaces", "tabs", "commas"), labels=gettextRcmdr(c("Spaces", "Tabs", "Commas")),
+                 title=gettextRcmdr("Field Separator"))
+    otherButton <- ttkradiobutton(delimiterFrame, variable=delimiterVariable, value="other")
+    otherVariable <- tclVar("")
+    otherEntry <- ttkentry(delimiterFrame, width="4", textvariable=otherVariable)
+    onOK <- function(){
+        closeDialog()
+        col <- tclvalue(colnamesVariable) == 1
+        row <- tclvalue(rownamesVariable) == 1
+        quote <- tclvalue(quotesVariable) == 1
+        delim <- tclvalue(delimiterVariable)
+        missing <- tclvalue(missingVariable)
+        sep <- if (delim == "tabs") "\\t"
+        else if (delim == "spaces") " "
+        else if (delim == "commas") ","
+        else trim.blanks(tclvalue(otherVariable))
+        saveFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Text Files" {".txt" ".TXT" ".dat" ".DAT" ".csv" ".CSV"}}'),
+                                           defaultextension="txt",
+                                           initialfile=paste(dsname, if (delim == "commas") ".csv" else ".txt", sep=""),
+                                           parent=CommanderWindow()))
+        if (saveFile == "") {
+            tkfocus(CommanderWindow())
+            return()
+        }
+        command <- paste("write.table(", dsname, ', "', saveFile, '", sep="', sep,
+                         '", col.names=', col, ", row.names=", row, ", quote=", quote,
+                         ', na="', missing, '")', sep="")
+        justDoIt(command)
+        logger(command)
+        Message(paste(gettextRcmdr("Active dataset exported to file"), saveFile), type="note")
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject="write.table")
+    tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Missing values:")), missingEntry, sticky="w")
+    tkgrid(optionsFrame, sticky="w")
+    tkgrid(labelRcmdr(delimiterFrame, text=gettextRcmdr("Other")), otherButton,
+           labelRcmdr(delimiterFrame, text=gettextRcmdr("  Specify:")), otherEntry, sticky="w")
+    tkgrid(delimiterFrame, stick="w")
+    tkgrid(buttonsFrame, sticky="w")
+    dialogSuffix(rows=3, columns=1)
 }
 
 filterNA <- function(){

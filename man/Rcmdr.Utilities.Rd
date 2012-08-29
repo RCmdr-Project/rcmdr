@@ -197,7 +197,7 @@ putDialog(dialog, values=NULL, resettable=TRUE)
 putRcmdr(x, value)
 radioButtons(window=top, name, buttons, values=NULL, 
 	initialValue=..values[1], labels, 
-	title="", title.color="blue", right.buttons=TRUE)  # macro
+	title="", title.color="blue", right.buttons=TRUE, command=function(){})  # macro
 RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
@@ -232,7 +232,8 @@ commanderPosition()
   \item{buttons}{vector of quoted names for buttons in a set of related radio buttons.}
   \item{class}{quoted name of class.}
   \item{columnspan}{number of dialog-box columns to be spanned by frame.}
-  \item{command}{a character string that evaluates to an R command.}
+  \item{command}{a character string that evaluates to an R command or (in the case of \code{radioButton}) a
+    function to be called when a button is pressed.}
   \item{dataSet, dsname}{the quoted name of a data frame in memory.}
   \item{default}{default button: if not specified, "ok" for "okcancel", "yes" for "yesno", and "ok" for "ok";
     or look for a default method; for \code{putDialog}, a list of defaults for the dialog box if there are no
