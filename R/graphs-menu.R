@@ -1654,7 +1654,6 @@ saveRglGraph <- function(){
 ## with more modifications by Richard Heiberger.
 ## 2008-01-03 added conditions, layout, and multiple colors
 ## 2012-08-19 rmh added memory to the dialogs, using John Fox's getDialog and putDialog functions
-## 2012-08-19 rmh option to set number of conditions or groups to zero.
 
 Xyplot <- function() {
     Library("lattice")
@@ -1681,19 +1680,19 @@ Xyplot <- function() {
     conditions.if <-
         length(dialog.values$initial.conditions) == 1 &&
         dialog.values$initial.conditions == FALSE
-    conditionsBox <- variableListBox(cgFrame, c("",Factors()),
+    conditionsBox <- variableListBox(cgFrame, Factors(),
                                      title=gettextRcmdr("Conditions '|' (pick zero or more)"),
                                      selectmode="multiple",
                                      initialSelection=if (conditions.if) FALSE else
-                                         1 + varPosn(dialog.values$initial.conditions, "factor"))
+                                         varPosn(dialog.values$initial.conditions, "factor"))
     groups.if <-
         length(dialog.values$initial.groups) == 1 &&
         dialog.values$initial.groups == FALSE
-    groupsBox <- variableListBox(cgFrame, c("",Factors()),
+    groupsBox <- variableListBox(cgFrame, Factors(),
                                  title=gettextRcmdr("Groups 'groups=' (pick zero or more)"),
                                  selectmode="multiple",
                                  initialSelection=if (groups.if) FALSE else
-                                     1 + varPosn(dialog.values$initial.groups, "factor"))
+                                     varPosn(dialog.values$initial.groups, "factor"))
     checkBoxes(frame="optionsFrame",
                boxes=c("auto.key", "outer"),
                initialValues=c(dialog.values$initial.auto.key, dialog.values$initial.outer),
@@ -1731,9 +1730,6 @@ Xyplot <- function() {
         groups <- getSelection(groupsBox)
         closeDialog()
         
-        conditions.test <- conditions[conditions != ""]
-        groups.test <- groups[groups != ""]
-        
         if (0 == length(response)) {
             errorCondition(recall=Xyplot,
                            message=gettextRcmdr("At least one response variable must be selected."))
@@ -1761,8 +1757,8 @@ Xyplot <- function() {
                                   initial.y.relation = y.relation,
                                   initial.layoutColumns = tclvalue(layoutColumnsVar),
                                   initial.layoutRows = tclvalue(layoutRowsVar),
-                                  initial.conditions = if (length(conditions.test) != 0) conditions else FALSE,
-                                  initial.groups = if (length(groups.test) != 0) groups else FALSE,
+                                  initial.conditions = if (length(conditions) != 0) conditions else FALSE,
+                                  initial.groups = if (length(groups) != 0) groups else FALSE,
                                   initial.points = points,
                                   initial.lines = lines))
         
@@ -1781,7 +1777,7 @@ Xyplot <- function() {
         
         
         conditions.command <-
-            if (length(conditions.test) == 0) {
+            if (length(conditions) == 0) {
                 if (outer) {
                     if (layout.command == "")
                         paste(", layout=c(",
@@ -1796,9 +1792,9 @@ Xyplot <- function() {
                     if (layout.command != "")
                         paste(", layout=", layout.command, sep="")
             }
-        else {  ## (length(conditions.test) > 0)
+        else {  ## (length(conditions) > 0)
             if (outer) {
-                condition.levels <- prod(sapply(conditions.test, d.f=get(.activeDataSet),
+                condition.levels <- prod(sapply(conditions, d.f=get(.activeDataSet),
                                                 function(g, d.f) length(levels(d.f[[g]]))))
                 if (layout.command != "")
                     paste(", layout=", layout.command, sep="")
@@ -1823,11 +1819,11 @@ Xyplot <- function() {
         }
         
         
-        groups.command <- switch(as.character(length(groups.test)),
+        groups.command <- switch(as.character(length(groups)),
                                  "0"="",
-                                 "1"=paste(", groups=", groups.test, sep=""),
+                                 "1"=paste(", groups=", groups, sep=""),
                                  paste(", groups=interaction(",
-                                       paste(groups.test, collapse=","),
+                                       paste(groups, collapse=","),
                                        ")", sep=""))
         
         if(!(points || lines)) {
@@ -1844,9 +1840,9 @@ Xyplot <- function() {
                                 paste(response, collapse=" + "),
                                 " ~ ",
                                 paste(predictor, collapse=" + "),
-                                if (length(conditions.test) > 0)
+                                if (length(conditions) > 0)
                                     paste(" |",
-                                          paste(conditions.test, collapse=" + ")
+                                          paste(conditions, collapse=" + ")
                                     ) else "",
                                 if (outer) ", outer=TRUE",
                                 conditions.command,
@@ -1891,8 +1887,6 @@ Xyplot <- function() {
     tkgrid(buttonsFrame, columnspan=2, sticky="w")
     dialogSuffix(rows=6, columns=2)
 }
-
-
 
 # set the colour palette
 
