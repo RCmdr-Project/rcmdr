@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr1.8.1\n"
+"Project-Id-Version: Rcmdr1.8.4\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-03-27 16:39+0900\n"
-"Last-Translator: SHIN Jong-Hwa <sens5900r@modernity.or.kr>\n"
+"PO-Revision-Date: 2012-08-30 15:26+0900\n"
+"Last-Translator: SHIN Jong-Hwa <shin.jonghwa@r-project.kr>\n"
 "Language-Team: Korean R User Group <shin.jonghwa@r-project.kr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,7 +55,7 @@ msgid "Hierarchical Clustering"
 msgstr "위계적 군집화"
 
 msgid "Ward's Method"
-msgstr "워드(Ward) 기법"
+msgstr "워드(Ward) 기법"
 
 msgid "Single Linkage"
 msgstr "단일 연결"
@@ -618,7 +618,7 @@ msgid "New data set same as active data set."
 msgstr "활성 데이터셋과 같은 새로운 데이터셋"
 
 msgid "Subset expression"
-msgstr "표현식 하위설정하기"
+msgstr "하위셋 표현식"
 
 msgid "Set Case Names"
 msgstr "사례 이름 설정하기"
@@ -2041,7 +2041,7 @@ msgid "Plot by:"
 msgstr "Plot by:"
 
 msgid "Plot by groups"
-msgstr "집단기준으로 그리기"
+msgstr "집단기준으로 그리기"
 
 msgid "Plot lines by group"
 msgstr "집단기준으로 선 그리기"
@@ -2384,7 +2384,7 @@ msgid "Summarize model"
 msgstr "모델 요약하기"
 
 msgid "Add observation statistics to data..."
-msgstr "관찰 통계를 데이터에 추가하..."
+msgstr "관찰 통계를 데이터에 추가하기..."
 
 msgid "Confidence intervals..."
 msgstr "신뢰 구간..."
@@ -2649,7 +2649,7 @@ msgid "Standard deviation (log scale)"
 msgstr "표준 편차 (log scale)"
 
 msgid "Gamma Distribution"
-msgstr "Gamma 분포"
+msgstr "감마 분포"
 
 msgid "Shape not specified."
 msgstr "모양이 지정되지 않음."
@@ -2697,10 +2697,10 @@ msgid "Lognormal Probabilities"
 msgstr "로그정규 확률"
 
 msgid "Gamma Quantiles"
-msgstr "Gamma 분위수"
+msgstr "감마 분위수"
 
 msgid "Gamma Probabilities"
-msgstr "Gamma 확률"
+msgstr "감마 확률"
 
 msgid "Weibull Quantiles"
 msgstr "Weibull 분위수"
@@ -2877,10 +2877,10 @@ msgid "LogNormalSamples"
 msgstr "로그정규표본"
 
 msgid "Sample from Gamma Distribution"
-msgstr "Gamma 분포 표본"
+msgstr "감마 분포 표본"
 
 msgid "GammaSamples"
-msgstr "Gamma표본"
+msgstr "감마표본"
 
 msgid "Sample from Weibull Distribution"
 msgstr "Weibull 분포 표본"
@@ -3030,19 +3030,19 @@ msgid "Sample from lognormal distribution..."
 msgstr "로그정규 분포 표본..."
 
 msgid "Gamma distribution"
-msgstr "Gamma 분포"
+msgstr "감마 분포"
 
 msgid "Gamma quantiles..."
-msgstr "Gamma 분위수..."
+msgstr "감마 분위수..."
 
 msgid "Gamma probabilities..."
-msgstr "Gamma 확률..."
+msgstr "감마 확률..."
 
 msgid "Plot gamma distribution..."
-msgstr "Gamma 분포 그리기..."
+msgstr "감마 분포 그리기..."
 
 msgid "Sample from gamma distribution..."
-msgstr "Gamma 분포 표본..."
+msgstr "감마 분포 표본..."
 
 msgid "Weibull distribution"
 msgstr "Weibull 분포"
@@ -3492,7 +3492,7 @@ msgstr "R Commander"
 # including -xx, where xx is the code for your language.
 # Example: "Empezando-con-Rcmdr-es"
 msgid "Getting-Started-with-the-Rcmdr"
-msgstr "R Commander 시작하기"
+msgstr "Getting-Started-with-the-Rcmdr-ko"
 
 msgid "Type of Tests"
 msgstr "검정 유형"
@@ -3585,7 +3585,7 @@ msgid "Friedman Rank Sum Test"
 msgstr "Friedman 순위 합 검정"
 
 msgid "Repeated-Measures Variables (pick two or more)"
-msgstr "반복-측정 ㅂ변수 (두개 이상 선택)"
+msgstr "반복-측정 변수 (두개 이상 선택)"
 
 msgid "Undo"
 msgstr "뒤로돌리기"
