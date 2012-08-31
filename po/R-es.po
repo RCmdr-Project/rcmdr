@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 1.8-0\n"
+"Project-Id-Version: Rcmdr 1.9-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2011-12-13 11:04+0100\n"
+"PO-Revision-Date: 2012-08-31 15:02+0100\n"
 "Last-Translator: Manuel Muñoz Márquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <ginteloy@uca.es>\n"
 "Language: es\n"
@@ -3443,6 +3443,9 @@ msgstr " se ha forzado a data frame"
 msgid "the dataset %s is no longer available"
 msgstr "El conjunto de datos %s no está disponible"
 
+msgid "the model %s is no longer available"
+msgstr "El modelo %s no está disponible"
+
 msgid "The Commander GUI is launched only in interactive sessions"
 msgstr "La interfaz R-Commander sólo funciona en sesiones interactivas"
 
@@ -3802,7 +3805,7 @@ msgid "Skewness"
 msgstr "Asimetría"
 
 msgid "Kurtosis"
-msgstr "apuntamiento"
+msgstr "Apuntamiento"
 
 msgid "Type 1"
 msgstr "Tipo 1"
@@ -3862,9 +3865,6 @@ msgstr "Ortogonal"
 msgid "Factor Correlations"
 msgstr "Correlaciones de los factores"
 
-msgid "Define facto"
-msgstr "Defina factor"
-
 msgid "There are too many factors."
 msgstr "Hay demasiados factores."
 
@@ -3879,6 +3879,106 @@ msgstr "Primera carga de cada factor establecida a 1"
 
 msgid "Confirmatory factor analysis..."
 msgstr "Análisis confirmatorio factorial..."
+
+msgid "Robust standard errors"
+msgstr "Errores típicos robustos"
+
+msgid "No factors defined."
+msgstr "No hay factores definidos."
+
+msgid "Default-font size (points)"
+msgstr "Tamaño de letra por defecto (puntos)"
+
+msgid "data set edit error."
+msgstr "error de edición del conjunto de datos."
+
+msgid "Identify Outliers"
+msgstr "Identificar atípicos"
+
+msgid "Automatically"
+msgstr "Automáticamente"
+
+msgid "With mouse"
+msgstr "Con el ratón"
+
+msgid "Width"
+msgstr "Ancho"
+
+msgid "Height"
+msgstr "Alto"
+
+msgid "[disabled]"
+msgstr "[deshabilitado]"
+
+msgid "inches"
+msgstr "pulgadas"
+
+msgid "inch"
+msgstr "pulgada"
+
+msgid "cm"
+msgstr "cm"
+
+msgid "pixels"
+msgstr "píxeles"
+
+msgid "Units"
+msgstr "Unidades"
+
+msgid "Fixed aspect ratio (height:width)"
+msgstr "Apariencia fija (alto:ancho)"
+
+msgid "Resolution"
+msgstr "Resolución"
+
+msgid "from SAS xport file..."
+msgstr "desde un archivo SAS exportado..."
+
+msgid "Data Set Name"
+msgstr "Nombre del conjunto de datos"
+
+msgid "Select Dataset"
+msgstr "Seleccione conjunto de datos"
+
+msgid "Datasets in file (pick one)"
+msgstr "Conjuntos de datos en fichero (seleccione uno)"
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgstr "{\"Todos los ficheros\" {\"*\"}} {\"Ficheros SAS exportados\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+
+msgid ""
+"Convert variable names\n"
+"to lower case"
+msgstr ""
+"Convertir nombres de variables\n"
+"a minúsculas"
+
+msgid "from Excel file..."
+msgstr "desde un archivo de Ecel..."
+
+msgid "Import Excel Data Set"
+msgstr "Importar un conjunto de datos Excel"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"Todos los ficheros\" {\"*\"}} {\"Ficheros MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"Ficheros MS Excel\" {\".xls\" \".XLS\"}}"
+
+msgid "Interquartile Range"
+msgstr "Rango Intercuartílico"
+
+msgid "Interquartile range"
+msgstr "Rango intercuartílico"
+
+msgid "Lines"
+msgstr "Líneas"
+
+msgid "Choose at least one of points or lines."
+msgstr "Elige al menos uno de los puntos o de las líneas."
+
+msgid "Plot Type (one or both)"
+msgstr "Tipo de Gráfico (uno o ambos)"
+
+#~ msgid "Define facto"
+#~ msgstr "Defina factor"
 
 #~ msgid "Approximate number of bins for histograms"
 #~ msgstr "Número aproximado de intervalos para el histograma"
@@ -3963,6 +4063,3 @@ msgstr "Análisis confirmatorio factorial..."
 
 #~ msgid "Power of the test"
 #~ msgstr "Potencia del test"
-
-#~ msgid "the model %s is no longer available"
-#~ msgstr "El modelo %s no está disponible"
