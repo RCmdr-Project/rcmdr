@@ -288,7 +288,7 @@ scatterPlot <- function () {
 					dialog.values$initial.spread),labels = gettextRcmdr(c("Identify points", 
 							"Jitter x-variable", "Jitter y-variable", "Log x-axis", 
 							"Log y-axis", "Marginal boxplots", "Least-squares line", 
-							"Smooth line", "Show spread")), title = "Options")
+							"Smooth line", "Show spread")), title = gettextRcmdr("Options"))
 	sliderValue <- tclVar(dialog.values$initial.span)
 	slider <- tkscale(optionsFrame, from = 0, to = 100, showvalue = TRUE, 
 			variable = sliderValue, resolution = 5, orient = "horizontal")
