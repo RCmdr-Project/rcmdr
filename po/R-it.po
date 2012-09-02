@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 1.8-3\n"
+"Project-Id-Version: Rcmdr 1.9-1\n"
 "Report-Msgid-Bugs-To: bugs@r-project.org\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-02-19 22:15+0100\n"
+"PO-Revision-Date: 2012-09-02 21:50+0100\n"
 "Last-Translator: Stefano Calza <stefano.calza@med.unibs.it>\n"
 "Language-Team: Italiano <stefano.calza@med.unibs.it>\n"
 "Language: \n"
@@ -3461,6 +3461,9 @@ msgstr "è stato/a trasformato/a in un dataframe"
 msgid "the dataset %s is no longer available"
 msgstr "il dataset %s non è più disponibile"
 
+msgid "the model %s is no longer available"
+msgstr "il modello %s non è più disponibile"
+
 # message added to version 1.3-10
 msgid "The Commander GUI is launched only in interactive sessions"
 msgstr "La GUI di Commander è avviata esclusivamente durante una sessione interattiva"
@@ -3902,4 +3905,119 @@ msgstr "Analisi dei fattori confermativa..."
 
 msgid "Robust standard errors"
 msgstr "Errori standard robusti"
+
+msgid "No factors defined."
+msgstr "Nessun fattore definito"
+
+msgid "Default-font size (points)"
+msgstr "Dimensione del font (punti)"
+
+msgid "data set edit error."
+msgstr "errore nella modifica del set di dati"
+
+msgid "Identify Outliers"
+msgstr "Identifica gli outliers"
+
+msgid "Automatically"
+msgstr "Automaticamente"
+
+msgid "With mouse"
+msgstr "Con il mouse"
+
+msgid "Width"
+msgstr "Larghezza"
+
+msgid "Height"
+msgstr "Altezza"
+
+msgid "[disabled]"
+msgstr "[disabilita]"
+
+msgid "inches"
+msgstr "pollici"
+
+msgid "inch"
+msgstr "pollici"
+
+msgid "cm"
+msgstr "cm"
+
+msgid "pixels"
+msgstr "pixels"
+
+msgid "Units"
+msgstr "Unità"
+
+msgid "Fixed aspect ratio (height:width)"
+msgstr "Rapporto altezza-larghezza fisso"
+
+msgid "Resolution"
+msgstr "Risoluzione"
+
+msgid "from SAS xport file..."
+msgstr "da SAS xport file..."
+
+msgid "Data Set Name"
+msgstr "Nome del Set di Dati"
+
+msgid "Select Dataset"
+msgstr "Seleziona Set di Dati"
+
+msgid "Datasets in file (pick one)"
+msgstr "Set di Dati nel file (uno solo)"
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgstr "{\"Tutti i files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+
+msgid ""
+"Convert variable names\n"
+"to lower case"
+msgstr ""
+"Converti i nomi delle variabili\n"
+"in minuscolo"
+
+msgid "from Excel file..."
+msgstr "da file  Excel..."
+
+msgid "Import Excel Data Set"
+msgstr "Importa Set di Dati Excel"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"Tutti i files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+
+msgid "Interquartile Range"
+msgstr "Range interquartile"
+
+msgid "Interquartile range"
+msgstr "Range interquartile"
+
+msgid "Lines"
+msgstr "Linee"
+
+msgid "Choose at least one of points or lines."
+msgstr "Scegliere almeno un punto o una linea"
+
+msgid "Plot Type (one or both)"
+msgstr "Tipo di grafico (uno od entrambi)"
+
+msgid "Plot legend"
+msgstr "Legenda"
+
+msgid "Conditions '|' (pick zero or more)"
+msgstr "Condizioni '|' (zero o più)"
+
+msgid "Groups 'groups=' (pick zero or more)"
+msgstr "Gruppi 'groups=' (nessuno o più)"
+
+msgid "Different panels for different y ~ x combinations"
+msgstr "Pannelli differenti per differenti combinazioni y ~ x"
+
+msgid "Layout"
+msgstr "Layout"
+
+msgid "number of columns:"
+msgstr "numero di colonne:"
+
+msgid "number of rows:"
+msgstr "numero di righe:"
 
