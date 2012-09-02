@@ -3923,4 +3923,27 @@ msgstr "Alege cel putin un punct sau linie"
 msgid "Plot Type (one or both)"
 msgstr "Tip de grafic (unul sau ambele)"
 
+# messages added to version 1.9-1 (missing from 1.9-0)
 
+msgid "Plot legend"
+msgstr "Adauga legenda"
+
+   # the following were missing from Xyplot()
+
+msgid "Conditions '|' (pick zero or more)"
+msgstr "Conditii | (alege zero sau mai multe)"
+
+msgid "Groups 'groups=' (pick zero or more)"
+msgstr "Grupuri 'grupuri=' (alege zero sau mai multe)"
+
+msgid "Different panels for different y ~ x combinations"
+msgstr "Paneluri diferite pentru diferite combinatii de y ~ x"
+
+msgid "Layout"
+msgstr "Forma"
+
+msgid "number of columns:"
+msgstr "numar de coloane:"
+
+msgid "number of rows:"
+msgstr "numar de randuri:"
