@@ -2,13 +2,13 @@
 # Traducerea in limba romana a pachetului Rcmdr
 # Copyright (C) 2005 John Fox
 # This file is distributed under the same license as the Rcmdr package
-# Dusa Adrian <dusa.adrian@gmail.com>, 2011
+# Dusa Adrian <dusa.adrian@gmail.com>, 2012
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 1.8-0\n"
+"Project-Id-Version: Rcmdr 1.9-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2011-12-11 12:00\n"
-"PO-Revision-Date: 2011-12-13 17:00+0200\n"
+"POT-Creation-Date: 2012-08-29 15:00:00\n"
+"PO-Revision-Date: 2012-09-02 14:00+0200\n"
 "Last-Translator: Adrian Dusa <dusa.adrian@gmail.com>\n"
 "Language-Team: Romanian <dusa.adrian@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -3819,3 +3819,108 @@ msgstr "Prima incarcaturia a fiecarui factor setata la 1"
 
 msgid "Confirmatory factor analysis..."
 msgstr "Analiza factoriala confirmatorie..."
+
+# messages added to version 1.8-1
+
+	# the following messages were omitted from version 1.8-0
+
+msgid "Robust standard errors"
+msgstr "Erori standard robuste"
+
+msgid "No factors defined."
+msgstr "Nici un factor definit."
+
+# message added to version 1.8-2
+
+msgid "Default-font size (points)"
+msgstr "Marime font predefinita (puncte)"
+
+# message added to version 1.8-4
+
+msgid "data set edit error."
+msgstr "eroare de editare set de date"
+
+# messages added to version 1.9-0
+
+msgid "Identify Outliers"
+msgstr "Identificare valori extreme"
+
+msgid "Automatically"
+msgstr "Automatic"
+
+msgid "With mouse"
+msgstr "Cu mouse-ul"
+
+msgid "Width"
+msgstr "Latime"
+
+msgid "Height"
+msgstr "Inaltime"
+
+msgid "[disabled]"
+msgstr "[invalid]"
+
+msgid "inches"
+msgstr "inci"
+
+msgid "inch"
+msgstr "inch"
+
+msgid "cm"
+msgstr "cm"
+
+msgid "pixels"
+msgstr "pixeli"
+
+msgid "Units"
+msgstr "Unitati"
+
+msgid "Fixed aspect ratio (height:width)"
+msgstr "Aspect fix (inaltime:latime)"
+
+msgid "Resolution"
+msgstr "Rezolutie"
+
+msgid "from SAS xport file..."
+msgstr "din fisier SAS xport..."
+
+msgid "Data Set Name"
+msgstr "Nume set de date"
+
+msgid "Select Dataset"
+msgstr "Selectare set de date"
+
+msgid "Datasets in file (pick one)"
+msgstr "Seturi de date in fisier (alege unul)"
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisiere SAS xport\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+
+msgid "Convert variable names\nto lower case"
+msgstr "Convertire nume de variabile\nin litere mici"
+
+msgid "from Excel file..."
+msgstr "din fisier Excel..."
+
+msgid "Import Excel Data Set"
+msgstr "Importare set de date Excel"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisier MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"Fisier MS Excel\" {\".xls\" \".XLS\"}}"
+
+msgid "Interquartile Range"
+msgstr "Abaterea Interquartila"
+
+msgid "Interquartile range"
+msgstr "Abaterea interquartila"
+
+msgid "Lines"
+msgstr "Linii"
+
+msgid "Choose at least one of points or lines."
+msgstr "Alege cel putin un punct sau linie"
+
+msgid "Plot Type (one or both)"
+msgstr "Tip de grafic (unul sau ambele)"
+
+

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Rcmdr 1.2-0\n"
 "Report-Msgid-Bugs-To: bugs@R-project.org\n"
 "POT-Creation-Date: 2005-06-02 13:06+0100\n"
-"PO-Revision-Date: 2011-12-13 01:44-0600\n"
+"PO-Revision-Date: 2012-09-01 23:39-0600\n"
 "Last-Translator: Alexey Shipunov <dactylorhiza@gmail.com>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -3930,4 +3930,106 @@ msgstr "Первая нагрузка для каждого фактора установлена в 1"
 
 msgid "Confirmatory factor analysis..."
 msgstr "Подтверждающий факторный анализ..."
+
+# messages added to version 1.8-1
+# the following messages were omitted from version 1.8-0
+msgid "Robust standard errors"
+msgstr "Робастные стандартные ошибки"
+
+msgid "No factors defined."
+msgstr "Факторы не определены."
+
+# message added to version 1.8-2
+msgid "Default-font size (points)"
+msgstr "Размер шрифта по умолчанию (в пунктах)"
+
+# message added to version 1.8-4
+msgid "data set edit error."
+msgstr "ошибка редактирования данных."
+
+# messages added to version 1.9-0
+msgid "Identify Outliers"
+msgstr "Определить выбросы"
+
+msgid "Automatically"
+msgstr "Автоматически"
+
+msgid "With mouse"
+msgstr "Мышкой"
+
+msgid "Width"
+msgstr "Ширина"
+
+msgid "Height"
+msgstr "Высота"
+
+msgid "[disabled]"
+msgstr "[отключено]"
+
+msgid "inches"
+msgstr "дюймы"
+
+msgid "inch"
+msgstr "дюйм"
+
+msgid "cm"
+msgstr "см"
+
+msgid "pixels"
+msgstr "пикселы"
+
+msgid "Units"
+msgstr "Единицы"
+
+msgid "Fixed aspect ratio (height:width)"
+msgstr "Заданный масштаб (высота:ширина)"
+
+msgid "Resolution"
+msgstr "Разрешение"
+
+msgid "from SAS xport file..."
+msgstr "из xport файла SAS..."
+
+msgid "Data Set Name"
+msgstr "Название данных"
+
+msgid "Select Dataset"
+msgstr "Выбрать данные"
+
+msgid "Datasets in file (pick one)"
+msgstr "Данные в файле (выберите один)"
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"SAS xport файлы\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+
+msgid ""
+"Convert variable names\n"
+"to lower case"
+msgstr ""
+"Перевести имена переменных\n"
+"в нижний регистр"
+
+msgid "from Excel file..."
+msgstr "из файла Excel..."
+
+msgid "Import Excel Data Set"
+msgstr "Импортировать данные Excel"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"MS Excel 2007 файл\" {\".xlsx\" \".XLSX\"}} {\"MS Excel файл\" {\".xls\" \".XLS\"}}"
+
+msgid "Interquartile Range"
+msgstr "Межквартильный размах"
+
+msgid "Interquartile range"
+msgstr "Межквартильный размах"
+
+msgid "Lines"
+msgstr "Линии"
+
+msgid "Choose at least one of points or lines."
+msgstr "Выберите по крайней мере одно: точки или линии."
+
+msgid "Plot Type (one or both)"
+msgstr "Тип графика (один или оба)"
 

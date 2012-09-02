@@ -1,6 +1,12 @@
 Changes to Version 1.9-1
 
-Nothing yet!
+  o Updated Romanian translation (thanks to Adrian Dusa).
+
+  o Updated Russian translation (thanks to Alexey Shipunov).
+
+  o Updated Slovenian translation (thanks to Jaro Lajovic and Matjaz Jeran).
+
+  o Fixed omissions to R-Rcmdr.pot file (reported by Jaro Lajovic)
 
 Changes to Version 1.9-0
 

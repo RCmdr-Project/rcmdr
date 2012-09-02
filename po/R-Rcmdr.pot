@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 1.9-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2012-09-29 15:00:00\n"
+"POT-Creation-Date: 2012-08-29 15:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3922,3 +3922,27 @@ msgid "Plot Type (one or both)"
 msgstr ""
 
 
+# messages added to version 1.9-1 (missing from 1.9-0)
+
+msgid "Plot legend"
+msgstr ""
+
+   # the following were missing from Xyplot()
+
+msgid "Conditions '|' (pick zero or more)"
+msgstr ""
+
+msgid "Groups 'groups=' (pick zero or more)"
+msgstr ""
+
+msgid "Different panels for different y ~ x combinations"
+msgstr ""
+
+msgid "Layout"
+msgstr ""
+
+msgid "number of columns:"
+msgstr ""
+
+msgid "number of rows:"
+msgstr ""
