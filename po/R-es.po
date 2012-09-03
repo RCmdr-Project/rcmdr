@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Rcmdr 1.9-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-08-31 15:02+0100\n"
+"PO-Revision-Date: 2012-09-03 09:16+0100\n"
 "Last-Translator: Manuel Muñoz Márquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <ginteloy@uca.es>\n"
 "Language: es\n"
@@ -3977,6 +3977,27 @@ msgstr "Elige al menos uno de los puntos o de las líneas."
 msgid "Plot Type (one or both)"
 msgstr "Tipo de Gráfico (uno o ambos)"
 
+msgid "Plot legend"
+msgstr "Leyenda del diagrama"
+
+msgid "Conditions '|' (pick zero or more)"
+msgstr "Condiciones '|' (elija alguna o ninguna)"
+
+msgid "Groups 'groups=' (pick zero or more)"
+msgstr "Grupos 'groups=' (elija alguno o ninguno)"
+
+msgid "Different panels for different y ~ x combinations"
+msgstr "Paneles diferentes para diferentes combinaciones y ~ x"
+
+msgid "Layout"
+msgstr "Disposición"
+
+msgid "number of columns:"
+msgstr "Número de columnas:"
+
+msgid "number of rows:"
+msgstr "número de filas:"
+
 #~ msgid "Define facto"
 #~ msgstr "Defina factor"
 
@@ -4027,9 +4048,6 @@ msgstr "Tipo de Gráfico (uno o ambos)"
 
 #~ msgid "Gumbel Quantiles"
 #~ msgstr "Cuantiles Gumbel"
-
-#~ msgid "Plot legend"
-#~ msgstr "Leyenda del diagrama"
 
 #~ msgid "Population standar deviation"
 #~ msgstr "Desviación típica poblacional"
