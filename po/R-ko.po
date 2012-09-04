@@ -1,17 +1,18 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr1.8.4\n"
+"Project-Id-Version: Rcmdr1.9.1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-08-30 15:26+0900\n"
+"PO-Revision-Date: 2012-09-04 08:56+0900\n"
 "Last-Translator: SHIN Jong-Hwa <shin.jonghwa@r-project.kr>\n"
 "Language-Team: Korean R User Group <shin.jonghwa@r-project.kr>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.1.6\n"
+"X-Poedit-Country: KOREA, REPUBLIC OF\n"
 
 msgid "KMeans Clustering"
 msgstr "K평균 군집화"
@@ -3480,6 +3481,9 @@ msgstr " has been coerced to a data frame"
 msgid "the dataset %s is no longer available"
 msgstr "%s 데이터셋을 더이상 이용할수 없습니다"
 
+msgid "the model %s is no longer available"
+msgstr "%s 모델을 더이상 이용할수 없습니다"
+
 # message added to version 1.3-10
 msgid "The Commander GUI is launched only in interactive sessions"
 msgstr "Commander GUI는 인터렉티브 세션에서만 시작됩니다."
@@ -3928,4 +3932,113 @@ msgstr "요인이 정의되지않음."
 
 msgid "Default-font size (points)"
 msgstr "기본-폰트 크기 (포인트)"
+
+msgid "data set edit error."
+msgstr "데이터셋(이) 편집 오류."
+
+msgid "Identify Outliers"
+msgstr "이상치를 마우스로 확인하기"
+
+msgid "Automatically"
+msgstr "자동"
+
+msgid "With mouse"
+msgstr "With mouse"
+
+msgid "Width"
+msgstr "넓이"
+
+msgid "Height"
+msgstr "높이"
+
+msgid "[disabled]"
+msgstr "[disabled]"
+
+msgid "inches"
+msgstr "넓이 (인치)"
+
+msgid "inch"
+msgstr "inch"
+
+msgid "cm"
+msgstr "cm"
+
+msgid "pixels"
+msgstr "넓이(픽셀)"
+
+msgid "Units"
+msgstr "Units"
+
+msgid "Fixed aspect ratio (height:width)"
+msgstr "고정비율(높이:넓이)"
+
+msgid "Resolution"
+msgstr "해상도"
+
+msgid "from SAS xport file..."
+msgstr "SAS xport 파일에서..."
+
+msgid "Data Set Name"
+msgstr "데이터셋 이름"
+
+msgid "Select Dataset"
+msgstr "데이터셋 선택하기"
+
+msgid "Datasets in file (pick one)"
+msgstr "파일의 데이터셋 (하나 선택)"
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgstr "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+
+msgid ""
+"Convert variable names\n"
+"to lower case"
+msgstr ""
+"Convert variable names\n"
+"to lower case"
+
+msgid "from Excel file..."
+msgstr "Excel 파일에서..."
+
+msgid "Import Excel Data Set"
+msgstr "Excel 데이터셋 불러오기"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+
+msgid "Interquartile Range"
+msgstr "Interquartile Range"
+
+msgid "Interquartile range"
+msgstr "Interquartile range"
+
+msgid "Lines"
+msgstr "Lines"
+
+msgid "Choose at least one of points or lines."
+msgstr "Choose at least one of points or lines."
+
+msgid "Plot Type (one or both)"
+msgstr "그림 유형(하나 또는 둘 모두)"
+
+msgid "Plot legend"
+msgstr "Plot legend"
+
+msgid "Conditions '|' (pick zero or more)"
+msgstr "Conditions '|' (pick zero or more)"
+
+msgid "Groups 'groups=' (pick zero or more)"
+msgstr "Groups 'groups=' (pick zero or more)"
+
+msgid "Different panels for different y ~ x combinations"
+msgstr "Different panels for different y ~ x combinations"
+
+msgid "Layout"
+msgstr "Layout"
+
+msgid "number of columns:"
+msgstr "행의 수:"
+
+msgid "number of rows:"
+msgstr "열의 수:"
 

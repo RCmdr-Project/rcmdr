@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr-pl 1.9-0\n"
+"Project-Id-Version: Rcmdr-pl 1.9-1\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
@@ -3189,7 +3189,7 @@ msgid "Automatically draw key"
 msgstr "Automatycznie rysuj legendę"
 
 msgid "Different panels for different responses"
-msgstr "Różne panele dla różnych odpowiedzi"
+msgstr "Różne panele dla różnych zmiennych zależnych"
 
 msgid "Identical"
 msgstr "Identyczne"
@@ -4113,3 +4113,24 @@ msgstr "Wybierz przynajmniej jeden z punktów lub linii."
 
 msgid "Plot Type (one or both)"
 msgstr "Typ wykresu (jeden lub oba)"
+
+msgid "Plot legend"
+msgstr "Legenda"
+
+msgid "Conditions '|' (pick zero or more)"
+msgstr "Warunki '|' (wybierz zero lub więcej)"
+
+msgid "Groups 'groups=' (pick zero or more)"
+msgstr "Grupy 'groups=' (wybierz zero lub więcej)"
+
+msgid "Different panels for different y ~ x combinations"
+msgstr "Różne panele dla różnych kombinacji y ~ x"
+
+msgid "Layout"
+msgstr "Wygląd"
+
+msgid "number of columns:"
+msgstr "liczba kolumn:"
+
+msgid "number of rows:"
+msgstr "liczba wierszy:"
