@@ -31,7 +31,11 @@ available on CRAN.
 
 For more details, see my (slightly out-of-date) article on ``Extending the Rcmdr by 
 Plug-in Packages'' in the December 2007 issue of \emph{R News} 
-<\url{http://www.r-project.org/doc/Rnews/Rnews_2007-3.pdf}>.
+<\url{http://www.r-project.org/doc/Rnews/Rnews_2007-3.pdf}>. There is also more recent information
+about writing plug-ins in Fox and Carvalho (2012), 
+``The RcmdrPlugin.survival Package: Extending the R Commander Interface to Survival Analysis,''
+\emph{Journal of Statistical Software}, 49:7, 1--32.
+<\url{http://www.jstatsoft.org/v49/i07}>.
 }
 
 \seealso{\code{\link{Commander}}}
