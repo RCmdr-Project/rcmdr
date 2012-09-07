@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2011-12-22 by J. Fox
+# last modified 2012-09-07 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -657,52 +657,53 @@ OutlierTest <- function(){
 }
 
 confidenceIntervals <- function () {
-	if (is.null(.activeModel)) 
-		return()
-	Library("MASS")
-	defaults <- list (initial.level = "0.95", initial.statistic="LR")
-	dialog.values <- getDialog ("confidenceIntervals", defaults)
-	initializeDialog(title = gettextRcmdr("Confidence Intervals"))
-	tkgrid(labelRcmdr(top, text = gettextRcmdr("Confidence Intervals for Individual Coefficients"), 
-					fg = "blue"), sticky = "w")
-	onOK <- function() {
-		level <- tclvalue(confidenceLevel)
-		putDialog ("confidenceIntervals", list (initial.level = level,
-						initial.statistic = if(glm) tclvalue(typeVariable) else "LR"))
-		opts <- options(warn = -1)
-		lev <- as.numeric(level)
-		options(opts)
-		closeDialog()
-		if ((is.na(lev)) || (lev < 0) || (lev > 1)) {
-			Message(gettextRcmdr("Confidence level must be a number between 0 and 1."))
-			tkfocus(CommanderWindow())
-			return()
-		}
-		command <- if (glm) 
-					paste("Confint(", .activeModel, ", level=", level, 
-							", type=\"", tclvalue(typeVariable), "\")", sep = "")
-				else paste("Confint(", .activeModel, ", level=", level, 
-							")", sep = "")
-		doItAndPrint(command)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "Confint", reset = "confidenceIntervals")
-	confidenceFrame <- tkframe(top)
-	confidenceLevel <- tclVar(dialog.values$initial.level)
-	confidenceField <- ttkentry(confidenceFrame, width = "6", 
-			textvariable = confidenceLevel)
-	radioButtons(top, name = "type", buttons = c("LR", "Wald"), initialValue=dialog.values$initial.statistic,
-			labels = gettextRcmdr(c("Likelihood-ratio statistic", 
-							"Wald statistic")), title = gettextRcmdr("Test Based On"))
-	tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level: ")), 
-			confidenceField, sticky = "w")
-	tkgrid(confidenceFrame, sticky = "w")
-	.activeModel <- ActiveModel()
-	glm <- class(get(.activeModel))[1] == "glm"
-	if (glm) 
-		tkgrid(typeFrame, sticky = "w")
-	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 3 + glm, columns = 1)
+    if (is.null(.activeModel)) 
+        return()
+    Library("MASS")
+    defaults <- list (initial.level = "0.95", initial.statistic="LR")
+    dialog.values <- getDialog ("confidenceIntervals", defaults)
+    initializeDialog(title = gettextRcmdr("Confidence Intervals"))
+    tkgrid(labelRcmdr(top, text = gettextRcmdr("Confidence Intervals for Individual Coefficients"), 
+                      fg = "blue"), sticky = "w")
+    onOK <- function() {
+        level <- tclvalue(confidenceLevel)
+        opts <- options(warn = -1)
+        lev <- as.numeric(level)
+        options(opts)
+        closeDialog()
+        if ((is.na(lev)) || !is.numeric(lev) || (lev < 0) || (lev > 1)) {
+            Message(gettextRcmdr("Confidence level must be a number between 0 and 1."),
+                    type="error")
+            confidenceIntervals()
+            return()
+        }
+        putDialog ("confidenceIntervals", list (initial.level = level,
+                                                initial.statistic = if(glm) tclvalue(typeVariable) else "LR"))
+        command <- if (glm) 
+            paste("Confint(", .activeModel, ", level=", level, 
+                  ", type=\"", tclvalue(typeVariable), "\")", sep = "")
+        else paste("Confint(", .activeModel, ", level=", level, 
+                   ")", sep = "")
+        doItAndPrint(command)
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "Confint", reset = "confidenceIntervals")
+    confidenceFrame <- tkframe(top)
+    confidenceLevel <- tclVar(dialog.values$initial.level)
+    confidenceField <- ttkentry(confidenceFrame, width = "6", 
+                                textvariable = confidenceLevel)
+    radioButtons(top, name = "type", buttons = c("LR", "Wald"), initialValue=dialog.values$initial.statistic,
+                 labels = gettextRcmdr(c("Likelihood-ratio statistic", 
+                                         "Wald statistic")), title = gettextRcmdr("Test Based On"))
+    tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level: ")), 
+           confidenceField, sticky = "w")
+    tkgrid(confidenceFrame, sticky = "w")
+    .activeModel <- ActiveModel()
+    glm <- class(get(.activeModel))[1] == "glm"
+    if (glm) 
+        tkgrid(typeFrame, sticky = "w")
+    tkgrid(buttonsFrame, sticky = "w")
+    dialogSuffix(rows = 3 + glm, columns = 1)
 }
 
 aic <- function(){
