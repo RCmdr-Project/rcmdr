@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr Japanese Translation\n"
 "POT-Creation-Date: 2010-07-10 19:00\n"
-"PO-Revision-Date: 2011-12-15 14:25+0900\n"
+"PO-Revision-Date: 2012-09-13 13:24+0900\n"
 "Last-Translator: Takaharu Araki <arakit@kansai-u.ac.jp>\n"
 "Language-Team: Rcmdr Japanese Translation <arakit@kansai-u.ac.jp>\n"
 "MIME-Version: 1.0\n"
@@ -1125,24 +1125,21 @@ msgstr "y 軸のラベル"
 msgid "Plot legend (position with mouse click)"
 msgstr "凡例の表示 (位置をマウスで指定)"
 
-msgid "Plot legend"
-msgstr "凡例の表示"
-
 msgid "Quantile-Comparison (QQ) Plot"
 msgstr "QQプロット"
 
 msgid "df for t must be a positive number."
-msgstr "ｔ分布の自由度は正の値でなければならない．"
+msgstr "ｔ分布の自由度は正の値である必要があります．"
 
 msgid "df for chi-square must be a positive number."
-msgstr "カイ２乗分布の自由度は正の値でなければならない．"
+msgstr "カイ２乗分布の自由度は正の値である必要があります．"
 
 msgid ""
 "numerator and denominator \n"
 "df for F must be positive numbers."
 msgstr ""
 "F分布の分子と分母の\n"
-"自由度は正の値でなければならない．"
+"自由度は正の値である必要があります．"
 
 msgid "Identify observations with mouse"
 msgstr "マウスでデータ情報を表示"
@@ -1790,7 +1787,7 @@ msgid ""
 "There are %d variables in the data set %s.\n"
 "Do you want to proceed?"
 msgstr ""
-"データセット %s に %d 個の変数があります．\n"
+"There are %d variables in the data set %s.\n"
 "続けますか?"
 
 msgid "Numerical Summaries"
@@ -2576,22 +2573,22 @@ msgstr "Excel または Access，dBase のデータセットから..."
 
 # probability distributions
 msgid "Standard deviation must be positive."
-msgstr "標準偏差は正の値でなくてはだめです．"
+msgstr "標準偏差は正の値である必要があります．"
 
 msgid "Degrees of freedom must be positive."
-msgstr "自由度は正の値でなくてはだめです．"
+msgstr "自由度は正の値である必要があります．"
 
 msgid "Numerator degrees of freedom must be positive."
-msgstr "分子の自由度が正の値でありません．"
+msgstr "分子の自由度が正の値ではありません．"
 
 msgid "Denominator degrees of freedom must be positive."
-msgstr "分母の自由度が正の値でありません．"
+msgstr "分母の自由度が正の値ではありません．"
 
 msgid "Exponential Distribution"
 msgstr "指数分布"
 
 msgid "Rate must be positive."
-msgstr "比率は正の値でないとだめです．"
+msgstr "比率は正の値である必要があります．"
 
 msgid "Rate"
 msgstr "比率"
@@ -2717,7 +2714,7 @@ msgid "Gumbel Probabilities"
 msgstr "グンベル分布の確率"
 
 msgid "Probability of success must be between 0 and 1."
-msgstr "成功の確率は０から１の範囲にしてください．"
+msgstr "成功の確率は０から１の範囲内にある必要があります．"
 
 msgid "Poisson Quantiles"
 msgstr "ポアソン分布の分位点"
@@ -3797,25 +3794,6 @@ msgstr "エスケープキーで終了"
 msgid "Start R help system"
 msgstr "Rヘルプシステムの開始"
 
-# missing from the catalog
-msgid "Layout"
-msgstr "レイアウト"
-
-msgid "Conditions '|' (pick zero or more)"
-msgstr "条件 '|' (０個以上選択)"
-
-msgid "Groups 'groups=' (pick zero or more)"
-msgstr "グループ 'groups=' (０個以上選択)"
-
-msgid "Different panels for different y~x combinations"
-msgstr "異なる y~x の組合せに対して異なるパネルを利用"
-
-msgid "number of columns:"
-msgstr "列数："
-
-msgid "number of rows:"
-msgstr "行数："
-
 # messages added to version 1.6-4
 #  to correct order of file extensions
 msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
@@ -3945,6 +3923,128 @@ msgstr "各因子の最初の負荷量を1に設定"
 msgid "Confirmatory factor analysis..."
 msgstr "検証的因子分析..."
 
+# messages added to version 1.8-1
+# the following messages were omitted from version 1.8-0
 msgid "Robust standard errors"
 msgstr "ロバスト標準誤差"
+
+msgid "No factors defined."
+msgstr "因子が定義されていない．"
+
+# message added to version 1.8-2
+msgid "Default-font size (points)"
+msgstr "デフォルトのフォントサイズ（ポイント）"
+
+# message added to version 1.8-4
+msgid "data set edit error."
+msgstr "データセットの編集エラー"
+
+# messages added to version 1.9-0
+msgid "Identify Outliers"
+msgstr "外れ値の特定"
+
+msgid "Automatically"
+msgstr "自動的に"
+
+msgid "With mouse"
+msgstr "マウスで"
+
+msgid "Width"
+msgstr "幅"
+
+msgid "Height"
+msgstr "高さ"
+
+msgid "[disabled]"
+msgstr "[disabled]"
+
+msgid "inches"
+msgstr "インチ"
+
+msgid "inch"
+msgstr "インチ"
+
+msgid "cm"
+msgstr "センチメートル"
+
+msgid "pixels"
+msgstr "ピクセル"
+
+msgid "Units"
+msgstr "単位"
+
+msgid "Fixed aspect ratio (height:width)"
+msgstr "固定縦横比（高さ:幅）"
+
+msgid "Resolution"
+msgstr "分解能"
+
+msgid "from SAS xport file..."
+msgstr "SASのエクスポートファイルから..."
+
+msgid "Data Set Name"
+msgstr "データセット名"
+
+msgid "Select Dataset"
+msgstr "データセットの選択"
+
+msgid "Datasets in file (pick one)"
+msgstr "ファイル内のデータセット（1つ選択）"
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgstr "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+
+msgid ""
+"Convert variable names\n"
+"to lower case"
+msgstr ""
+"変数名を\n"
+"小文字に変換"
+
+msgid "from Excel file..."
+msgstr "エクセルファイルから..."
+
+msgid "Import Excel Data Set"
+msgstr "エクセルデータセットのインポート"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+
+msgid "Interquartile Range"
+msgstr "四分位範囲"
+
+msgid "Interquartile range"
+msgstr "四分位範囲"
+
+msgid "Lines"
+msgstr "折れ線"
+
+msgid "Choose at least one of points or lines."
+msgstr "少なくとも一つの点または線を選択"
+
+msgid "Plot Type (one or both)"
+msgstr "線"
+
+# messages added to version 1.9-1 (missing from 1.9-0)
+msgid "Plot legend"
+msgstr "凡例のプロット"
+
+# the following were missing from Xyplot()
+msgid "Conditions '|' (pick zero or more)"
+msgstr "条件 '|' (０個以上選択)"
+
+msgid "Groups 'groups=' (pick zero or more)"
+msgstr "グループ 'groups=' (０個以上選択)"
+
+msgid "Different panels for different y ~ x combinations"
+msgstr "異なる y~x の組合せに対して異なるパネルを利用"
+
+msgid "Layout"
+msgstr "レイアウト"
+
+msgid "number of columns:"
+msgstr "列数："
+
+msgid "number of rows:"
+msgstr "行数："
 
