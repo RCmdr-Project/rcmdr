@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2012-07-20 by J. Fox
+# last modified 2012-09-18 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -12,7 +12,7 @@ Commander <- function(){
 	tkimage.create("photo", "::image::cancelIcon", file=system.file("etc", "cancel.gif", package="Rcmdr"))
 	tkimage.create("photo", "::image::helpIcon", file=system.file("etc", "help.gif", package="Rcmdr"))
 	tkimage.create("photo", "::image::resetIcon", file=system.file("etc", "reset.gif", package="Rcmdr"))
-	RStudioP <- function() exists("RStudio.version", where=1)
+	RStudioP <- function() nzchar(Sys.getenv("RSTUDIO_USER_IDENTITY"))
 	DESCRIPTION <- readLines(file.path(.find.package("Rcmdr"), "DESCRIPTION")[1])
 	RcmdrVersion <- trim.blanks(sub("^Version:", "",
 					grep("^Version:", DESCRIPTION, value=TRUE)))
