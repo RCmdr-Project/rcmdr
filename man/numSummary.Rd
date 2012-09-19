@@ -9,8 +9,8 @@ skewness, kurtosis, and quantiles of numeric variables.
 }
 \usage{
 numSummary(data, 
-	statistics=c("mean", "sd", "quantiles", "cv", "skewness", "kurtosis"),
-	type=c("1", "2", "3"),
+	statistics=c("mean", "sd", "IQR", "quantiles", "cv", "skewness", "kurtosis"),
+	type=c("2", "1", "3"),
     quantiles=c(0, .25, .5, .75, 1), groups)
     
 \method{print}{numSummary}(x, ...)
@@ -22,8 +22,8 @@ numSummary(data,
   	\code{"cv"} (coefficient of variation --- sd/mean), \code{"skewness"}, or \code{"kurtosis"},
     defaulting to the first three.}
   \item{type}{definition to use in computing skewness and kurtosis; see the 
-  	\code{link[e1071]{skewness}} and \code{link[e1071]{kurtosis}} functions in the \pkg{e1071}
-  	package. The default is \code{"1"}.}
+  	\code{\link[e1071]{skewness}} and \code{\link[e1071]{kurtosis}} functions in the \pkg{e1071}
+  	package. The default is \code{"2"}.}
   \item{quantiles}{quantiles to report; default is \code{c(0, 0.25, 0.5, 0.75, 1)}.}
   \item{groups}{optional variable, typically a factor, to be used to partition the data.}
   \item{x}{object of class \code{"numSummary"} to print.}
@@ -39,7 +39,7 @@ statistics to be reported along with information on missing data, if there are a
 
 
 \seealso{\code{\link[base]{mean}}, \code{\link[stats]{sd}}, \code{\link[stats]{quantile}},
-	\code{link[e1071]{skewness}}, \code{link[e1071]{kurtosis}}.}
+	\code{\link[e1071]{skewness}}, \code{\link[e1071]{kurtosis}}.}
 
 \examples{
 	\dontrun{

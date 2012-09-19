@@ -1,4 +1,4 @@
-# last modified 2012-08-29 by J. Fox
+# last modified 2012-09-18 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -358,8 +358,8 @@ confint.multinom <- function (object, parm, level=0.95, ...){
 Confint.multinom <- function(object, parm, level = 0.95, ...) confint (object, parm=parm, level=0.95, ...)
 
 numSummary <- function(data, 
-                       statistics=c("mean", "sd", "quantiles", "cv", "skewness", "kurtosis"),
-                       type=c("1", "2", "3"),
+                       statistics=c("mean", "sd", "IQR", "quantiles", "cv", "skewness", "kurtosis"),
+                       type=c("2", "1", "3"),
                        quantiles=c(0, .25, .5, .75, 1), groups){
     sd <- function(x, type, ...){
         apply(as.matrix(x), 2, stats::sd, na.rm=TRUE)
@@ -396,9 +396,8 @@ numSummary <- function(data,
     type <- as.numeric(type)
     ngroups <- if(missing(groups)) 1 else length(grps <- levels(groups))
     quantiles <- if ("quantiles" %in% statistics) quantiles else NULL
-    #    quants <- if (length(quantiles) > 1) paste(100*quantiles, "%", sep="")
-    #			else NULL
-    quants <- paste(100*quantiles, "%", sep="")
+    quants <- if (length(quantiles) > 1) paste(100*quantiles, "%", sep="") else NULL
+#    quants <- paste(100*quantiles, "%", sep="")
     nquants <- length(quants)
     stats <- c(c("mean", "sd", "IQR", "cv", "skewness", "kurtosis")[c("mean", "sd", "IQR", "cv", "skewness", "kurtosis") %in% statistics], quants)
     nstats <- length(stats)
