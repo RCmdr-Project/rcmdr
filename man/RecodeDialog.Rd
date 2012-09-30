@@ -1,12 +1,12 @@
-\name{Recode}
-\alias{Recode}
+\name{RecodeDialog}
+\alias{RecodeDialog}
 
 \title{Rcmdr Recode Dialog}
 \description{
   The recode dialog is normally used to recode numeric variables and factors
   into factors, for example by combining values of numeric variables or levels
   of factors. It may also be used to produce new numeric variables. The Rcmdr
-  recode dialog is based on the \code{\link[car]{recode}} function in the
+  recode dialog is based on the \code{\link[car]{Recode}} function in the
   \code{car} package.
 }
 
@@ -48,6 +48,6 @@ to replace the original variables.
 
 \author{John Fox \email{jfox@mcmaster.ca}}
 
-\seealso{\code{\link[car]{recode}}}
+\seealso{\code{\link[car]{Recode}}}
 
 \keyword{manip}

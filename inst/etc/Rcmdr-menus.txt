@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2012-08-24 by J. Fox
+# last modified 2012-09-30 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -61,7 +61,7 @@
     item    activeMenu      command         "Export active data set..."                     exportDataSet               "activeDataSetP()"          ""
     item    dataMenu        cascade         "Active data set"                               activeMenu                  ""          ""
     menu    variablesMenu   dataMenu        ""                                              ""                          ""          ""
-    item    variablesMenu   command         "Recode variables..."                           Recode                      "activeDataSetP()" "packageAvailable('car')"
+    item    variablesMenu   command         "Recode variables..."                           RecodeDialog                "activeDataSetP()" "packageAvailable('car')"
     item    variablesMenu   command         "Compute new variable..."                       Compute                     "activeDataSetP()"          ""
     item    variablesMenu   command         "Add observation numbers to data set"           addObsNumbers               "activeDataSetP()"          ""
     item    variablesMenu   command         "Standardize variables..."                      standardize                 "numericP()"                ""

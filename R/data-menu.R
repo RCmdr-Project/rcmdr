@@ -79,7 +79,7 @@ selectActiveDataSet <- function(){
 
 listDataSetsInPackages <- function() doItAndPrint("data()")
 
-Recode <- function () {
+RecodeDialog <- function () {
 	require("car")
 	processRecode <- function(recode) {
 		parts <- strsplit(recode, "=")[[1]]
@@ -90,7 +90,7 @@ Recode <- function () {
 	dataSet <- activeDataSet()
 	defaults <- list (initial.asFactor = 1, initial.variables = NULL, initial.name = gettextRcmdr ("variable"),
 			initial.recode.directives="")
-	dialog.values <- getDialog ("Recode", defaults)
+	dialog.values <- getDialog ("RecodeDialog", defaults)
 	initializeDialog(title = gettextRcmdr("Recode Variables"))
 	variablesBox <- variableListBox(top, Variables(), selectmode = "multiple", 
 			title = gettextRcmdr("Variables to recode (pick one or more)"),
@@ -119,11 +119,11 @@ Recode <- function () {
 		recode.directives <- gsub("\n", "; ", save.recodes)
 		check.empty <- gsub(";", "", gsub(" ", "", recode.directives))
 		if ("" == check.empty) {
-			errorCondition(recall = Recode, message = gettextRcmdr("No recode directives specified."))
+			errorCondition(recall = RecodeDialog, message = gettextRcmdr("No recode directives specified."))
 			return()
 		}
 		if (0 != length(grep("'", recode.directives))) {
-			errorCondition(recall = Recode, message = gettextRcmdr("Use only double-quotes (\" \") in recode directives"))
+			errorCondition(recall = RecodeDialog, message = gettextRcmdr("Use only double-quotes (\" \") in recode directives"))
 			return()
 		}
 		recode.directives <- strsplit(recode.directives, ";")[[1]]
@@ -133,7 +133,7 @@ Recode <- function () {
 		variables <- getSelection(variablesBox)
 		closeDialog()
 		if (length(variables) == 0) {
-			errorCondition(recall = Recode, message = gettextRcmdr("You must select a variable."))
+			errorCondition(recall = RecodeDialog, message = gettextRcmdr("You must select a variable."))
 			return()
 		}
 		multiple <- if (length(variables) > 1) 
@@ -141,25 +141,25 @@ Recode <- function () {
 				else FALSE
 		name <- trim.blanks(tclvalue(newVariableName))
 #        save.recodes <- gsub("; ", "\\\n", trim.blanks(recode.directives))  
-		putDialog ("Recode", list (initial.asFactor = asFactor, initial.variables = variables,
+		putDialog ("RecodeDialog", list (initial.asFactor = asFactor, initial.variables = variables,
 						initial.name = name, initial.recode.directives=save.recodes))
 		for (variable in variables) {
 			newVar <- if (multiple) 
 						paste(name, variable, sep = "")
 					else name
 			if (!is.valid.name(newVar)) {
-				errorCondition(recall = Recode, message = paste("\"", 
+				errorCondition(recall = RecodeDialog, message = paste("\"", 
 								newVar, "\" ", gettextRcmdr("is not a valid name."), 
 								sep = ""))
 				return()
 			}
 			if (is.element(newVar, Variables())) {
 				if ("no" == tclvalue(checkReplace(newVar))) {
-					Recode()
+					RecodeDialog()
 					return()
 				}
 			}
-			cmd <- paste("recode(", dataSet, "$", variable, ", '", 
+			cmd <- paste("Recode(", dataSet, "$", variable, ", '", 
 					recode.directives, "', as.factor.result=", asFactor, 
 					")", sep = "")
 			logger(paste(dataSet, "$", newVar, " <- ", cmd, sep = ""))
@@ -170,7 +170,7 @@ Recode <- function () {
 			tkfocus(CommanderWindow())
 		}
 	}
-	OKCancelHelp(helpSubject = "Recode", reset = "Recode")
+	OKCancelHelp(helpSubject = "RecodeDialog", reset = "RecodeDialog")
 	tkgrid(getFrame(variablesBox), sticky = "nw")
 	tkgrid(labelRcmdr(variablesFrame, text = ""))
 	tkgrid(labelRcmdr(variablesFrame, text = gettextRcmdr("New variable name or prefix for multiple recodes: ")), 
