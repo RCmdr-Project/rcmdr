@@ -41,6 +41,8 @@ Commander <- function(){
 	tkimage.create("photo", "::image::submitIcon", file = system.file("etc", "submit.gif", package="Rcmdr"))
 	tkimage.create("photo", "::image::editIcon", file = system.file("etc", "edit.gif", package="Rcmdr"))
 	tkimage.create("photo", "::image::viewIcon", file = system.file("etc", "view.gif", package="Rcmdr"))
+	tkimage.create("photo", "::image::dataIcon", file = system.file("etc", "data.gif", package="Rcmdr"))
+	tkimage.create("photo", "::image::modelIcon", file = system.file("etc", "model.gif", package="Rcmdr"))
 	setOption("number.messages", TRUE)
 	etc <- setOption("etc", file.path(.path.package(package="Rcmdr")[1], "etc"))
 	etcMenus <- setOption("etcMenus", etc)
@@ -539,7 +541,7 @@ Commander <- function(){
 	                          image="::image::viewIcon", compound="left")
 	putRcmdr("dataSetName", tclVar(gettextRcmdr("<No active dataset>")))
 	putRcmdr("dataSetLabel", tkbutton(controlsFrame, textvariable=getRcmdr("dataSetName"), foreground="red",
-					relief="groove", command=selectActiveDataSet))
+					relief="groove", command=selectActiveDataSet, image="::image::dataIcon", compound="left"))
 	logFrame <- tkframe(CommanderWindow())
 	putRcmdr("logWindow", tktext(logFrame, bg="white", foreground=getRcmdr("log.text.color"),
 					font=getRcmdr("logFont"), height=log.height, width=log.width, wrap="none", undo=TRUE))
@@ -578,7 +580,7 @@ Commander <- function(){
 	tkconfigure(.messages, yscrollcommand=function(...) tkset(messagesYscroll, ...))
 	putRcmdr("modelName", tclVar(gettextRcmdr("<No active model>")))
 	putRcmdr("modelLabel", tkbutton(controlsFrame, textvariable=getRcmdr("modelName"), foreground="red",
-					relief="groove", command=selectActiveModel))
+					relief="groove", command=selectActiveModel, image="::image::modelIcon", compound="left"))
 	show.edit.button <- options("Rcmdr")[[1]]$show.edit.button
 	show.edit.button <- if (is.null(show.edit.button)) TRUE else show.edit.button
 	if (!getRcmdr("suppress.menus")){
