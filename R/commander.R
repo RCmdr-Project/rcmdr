@@ -551,7 +551,7 @@ Commander <- function(){
 	tkconfigure(.log, xscrollcommand=function(...) tkset(logXscroll, ...))
 	tkconfigure(.log, yscrollcommand=function(...) tkset(logYscroll, ...))
 	outputFrame <- tkframe(.commander)
-	submitIm <- tcl("image", "create", "bitmap", file=file.path(etc, "submit.xbm"))
+#	submitIm <- tcl("image", "create", "bitmap", file=file.path(etc, "submit.xbm"))
 	submitButton <- if (getRcmdr("console.output"))
 		 buttonRcmdr(logFrame, text=gettextRcmdr("Submit"), borderwidth="2", command=onSubmit,
                      image="::image::submitIcon", compound="right")
