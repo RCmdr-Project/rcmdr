@@ -38,6 +38,9 @@ Commander <- function(){
                     else system.file("etc", "blank.gif", package="Rcmdr"))
 	tkimage.create("photo", "::image::resetIcon", file = if (icon.images) system.file("etc", "reset.gif", package="Rcmdr")
                     else system.file("etc", "blank.gif", package="Rcmdr"))
+	tkimage.create("photo", "::image::submitIcon", file = system.file("etc", "submit.gif", package="Rcmdr"))
+	tkimage.create("photo", "::image::editIcon", file = system.file("etc", "edit.gif", package="Rcmdr"))
+	tkimage.create("photo", "::image::viewIcon", file = system.file("etc", "view.gif", package="Rcmdr"))
 	setOption("number.messages", TRUE)
 	etc <- setOption("etc", file.path(.path.package(package="Rcmdr")[1], "etc"))
 	etcMenus <- setOption("etcMenus", etc)
@@ -530,8 +533,10 @@ Commander <- function(){
 	putRcmdr("autoRestart", FALSE)
 	activateMenus()
 	controlsFrame <- tkframe(CommanderWindow())
-	editButton <- buttonRcmdr(controlsFrame, text=gettextRcmdr("Edit data set"), command=onEdit)
-	viewButton <- buttonRcmdr(controlsFrame, text=gettextRcmdr("View data set"), command=onView)
+	editButton <- buttonRcmdr(controlsFrame, text=gettextRcmdr("Edit data set"), command=onEdit, 
+                              image="::image::editIcon", compound="left")
+	viewButton <- buttonRcmdr(controlsFrame, text=gettextRcmdr("View data set"), command=onView,
+	                          image="::image::viewIcon", compound="left")
 	putRcmdr("dataSetName", tclVar(gettextRcmdr("<No active dataset>")))
 	putRcmdr("dataSetLabel", tkbutton(controlsFrame, textvariable=getRcmdr("dataSetName"), foreground="red",
 					relief="groove", command=selectActiveDataSet))
@@ -547,13 +552,11 @@ Commander <- function(){
 	tkconfigure(.log, yscrollcommand=function(...) tkset(logYscroll, ...))
 	outputFrame <- tkframe(.commander)
 	submitIm <- tcl("image", "create", "bitmap", file=file.path(etc, "submit.xbm"))
-	if (getRcmdr("console.output"))
-		submitButton <- if (English()) buttonRcmdr(logFrame, image=submitIm,
-							borderwidth="2", command=onSubmit)
-				else buttonRcmdr(logFrame, text=gettextRcmdr("Submit"), borderwidth="2", command=onSubmit)
-	else submitButton <- if (English()) buttonRcmdr(outputFrame, image=submitIm,
-							borderwidth="2", command=onSubmit)
-				else buttonRcmdr(outputFrame, text=gettextRcmdr("Submit"), borderwidth="2", command=onSubmit)
+	submitButton <- if (getRcmdr("console.output"))
+		 buttonRcmdr(logFrame, text=gettextRcmdr("Submit"), borderwidth="2", command=onSubmit,
+                     image="::image::submitIcon", compound="right")
+	else buttonRcmdr(outputFrame, text=gettextRcmdr("Submit"), borderwidth="2", command=onSubmit, 
+	                 image="::image::submitIcon", compound="right")
 	putRcmdr("outputWindow", tktext(outputFrame, bg="white", foreground=getRcmdr("output.text.color"),
 					font=getRcmdr("logFont"), height=output.height, width=log.width, wrap="none", undo=TRUE))
 	.output <- OutputWindow()
