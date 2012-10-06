@@ -1,17 +1,13 @@
 
 # The R Commander and command logger
 
-# last modified 2012-09-18 by J. Fox
+# last modified 2012-10-06 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 #   modified 17 December 2008 by Richard Heiberger  ##rmh
 
 Commander <- function(){
-	tkimage.create("photo", "::image::okIcon", file=system.file("etc", "ok.gif", package="Rcmdr"))
-	tkimage.create("photo", "::image::cancelIcon", file=system.file("etc", "cancel.gif", package="Rcmdr"))
-	tkimage.create("photo", "::image::helpIcon", file=system.file("etc", "help.gif", package="Rcmdr"))
-	tkimage.create("photo", "::image::resetIcon", file=system.file("etc", "reset.gif", package="Rcmdr"))
 	RStudioP <- function() nzchar(Sys.getenv("RSTUDIO_USER_IDENTITY"))
 	DESCRIPTION <- readLines(file.path(.find.package("Rcmdr"), "DESCRIPTION")[1])
 	RcmdrVersion <- trim.blanks(sub("^Version:", "",
@@ -32,6 +28,16 @@ Commander <- function(){
 		else opt
 	}
 	current <- options("Rcmdr")[[1]]
+    setOption("suppress.icon.images", FALSE)
+    icon.images <- !getRcmdr("suppress.icon.images")
+    tkimage.create("photo", "::image::okIcon", 
+                   file = if (icon.images) system.file("etc", "ok.gif", package="Rcmdr") else system.file("etc", "blank.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::cancelIcon", file = if (icon.images) system.file("etc", "cancel.gif", package="Rcmdr") 
+                   else system.file("etc", "blank.gif", package="Rcmdr"))
+	tkimage.create("photo", "::image::helpIcon", file = if (icon.images) system.file("etc", "help.gif", package="Rcmdr")
+                    else system.file("etc", "blank.gif", package="Rcmdr"))
+	tkimage.create("photo", "::image::resetIcon", file = if (icon.images) system.file("etc", "reset.gif", package="Rcmdr")
+                    else system.file("etc", "blank.gif", package="Rcmdr"))
 	setOption("number.messages", TRUE)
 	etc <- setOption("etc", file.path(.path.package(package="Rcmdr")[1], "etc"))
 	etcMenus <- setOption("etcMenus", etc)

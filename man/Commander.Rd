@@ -263,6 +263,9 @@ set none, one, several, or all options. The available options are as follows:
     
     \item{\code{sort.names}}{Set to \code{TRUE} (the default) if you want variable names to be sorted
     alphabetically in variable lists.}
+    
+    \item{\code{suppress.icon.images}}{Set to \code{TRUE} to suppress the icon images in dialog OK, Cancel, Reset, and Help buttons;
+    the default is \code{FALSE}.}
         
     \item{\code{tkwait}}{This option addresses a problem that, to my knowledge, is rare, 
     and may occur on some non-Windows systems. If the Commander causes R to hang, 
