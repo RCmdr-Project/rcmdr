@@ -191,7 +191,7 @@ Commander <- function(){
 	setOption("grab.focus", TRUE)
 	setOption("attach.data.set", FALSE)
 	setOption("log.text.color", "black")
-	setOption("command.text.color", "red")
+	setOption("command.text.color", "darkred")
 	setOption("output.text.color", "darkblue")
 	setOption("error.text.color", "red")
 	setOption("warning.text.color", "darkgreen")
@@ -556,9 +556,9 @@ Commander <- function(){
 #	submitIm <- tcl("image", "create", "bitmap", file=file.path(etc, "submit.xbm"))
 	submitButton <- if (getRcmdr("console.output"))
 		 buttonRcmdr(logFrame, text=gettextRcmdr("Submit"), borderwidth="2", command=onSubmit,
-                     image="::image::submitIcon", compound="right")
+                     image="::image::submitIcon", compound="left")
 	else buttonRcmdr(outputFrame, text=gettextRcmdr("Submit"), borderwidth="2", command=onSubmit, 
-	                 image="::image::submitIcon", compound="right")
+	                 image="::image::submitIcon", compound="left")
 	putRcmdr("outputWindow", tktext(outputFrame, bg="white", foreground=getRcmdr("output.text.color"),
 					font=getRcmdr("logFont"), height=output.height, width=log.width, wrap="none", undo=TRUE))
 	.output <- OutputWindow()
@@ -599,7 +599,7 @@ Commander <- function(){
 	tkgrid(logXscroll)
 	if (.log.commands) tkgrid(logFrame, sticky="news", padx=10, pady=0, columnspan=2)
 	tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output Window"), foreground="blue"),
-			if (.log.commands && !.console.output) submitButton, sticky="w")
+			if (.log.commands && !.console.output) submitButton, sticky="sw")
 	tkgrid(.output, outputYscroll, sticky="news", columnspan=2)
 	tkgrid(outputXscroll, columnspan=1 + (.log.commands && !.console.output))
 	if (!.console.output) tkgrid(outputFrame, sticky="news", padx=10, pady=0, columnspan=2)
