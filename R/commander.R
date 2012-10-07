@@ -584,8 +584,9 @@ Commander <- function(){
 	show.edit.button <- options("Rcmdr")[[1]]$show.edit.button
 	show.edit.button <- if (is.null(show.edit.button)) TRUE else show.edit.button
 	if (!getRcmdr("suppress.menus")){
-		RcmdrIm <- tcl("image", "create", "bitmap", file=file.path(etc, "Rcmdr.xbm"), foreground="red")
-		tkgrid(labelRcmdr(controlsFrame, image=RcmdrIm),
+#		RcmdrIm <- tcl("image", "create", "bitmap", file=file.path(etc, "Rcmdr.xbm"), foreground="red")
+        tkimage.create("photo", "::image::RlogoIcon", file = system.file("etc", "R-logo.gif", package="Rcmdr"))
+		tkgrid(labelRcmdr(controlsFrame, image="::image::RlogoIcon", compound="left"),
 				labelRcmdr(controlsFrame, text=gettextRcmdr("Data set:")), getRcmdr("dataSetLabel"),
 				labelRcmdr(controlsFrame, text="  "), if(show.edit.button) editButton, viewButton,
 				labelRcmdr(controlsFrame, text=gettextRcmdr("    Model: ")), getRcmdr("modelLabel"), sticky="w")
