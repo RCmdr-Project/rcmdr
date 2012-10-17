@@ -1,4 +1,4 @@
-# last modified 2012-08-25 by J. Fox
+# last modified 2012-10-17 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 .onAttach <- function(...){
@@ -41,6 +41,7 @@
 				icon="error", type="yesno")
 		if (tclvalue(response) == "yes") {
 			top <- tktoplevel(borderwidth=10)
+			tkwm.iconbitmap(top, system.file("etc", "R-logo.ico", package="Rcmdr"))
 			tkwm.title(top, gettext("Install Missing Packages", domain="R-Rcmdr"))
 			locationFrame <- tkframe(top)
 			locationVariable <- tclVar("CRAN")
