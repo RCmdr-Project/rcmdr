@@ -42,7 +42,7 @@ commands and output appear in the output window (the initially empty text window
 script window). To alter these and
 other defaults, see the information below on configuration.
  
-Some \code{Rcmdr} dialogs (those in the \emph{Statistics -> Fit models} menu) 
+Some \pkg{Rcmdr} dialogs (those in the \emph{Statistics -> Fit models} menu) 
 produce linear, generalized
 linear, or other models. When a model is fit, it becomes the active model, as indicated in the information
 field in the R Commander toolbar.
@@ -101,7 +101,7 @@ see \code{help("\link{Plugins}")}.
 Alternatively, configuration files reside in the \code{etc} subdirectory of the package, 
 or in the locations given by the \code{etc} and \code{etcMenus} options (see below).
 
-The \code{Rcmdr} menus can be customized by editing the file \code{Rcmdr-menus.txt}.
+The \pkg{Rcmdr} menus can be customized by editing the file \code{Rcmdr-menus.txt}.
 
 You can add R code to the package, e.g., for creating additional dialogs, by placing files with
 file type \code{.R} in the \code{etc} directory, also editing \code{Rcmdr-menus.txt} to provide
@@ -110,9 +110,9 @@ the source package and recompile it.
 
 To reiterate, however, the preferred procedure is to write an R Commander plug-in package.
 
-A number of functions are provided to assist in writing dialogs, and \code{Rcmdr} state information
+A number of functions are provided to assist in writing dialogs, and \pkg{Rcmdr} state information
 is stored in a separate environment. See \code{help("\link{Rcmdr.Utilities}")}
-and the manual supplied in the \code{doc} directory of the \code{Rcmdr} package for more information.
+and the manual supplied in the \code{doc} directory of the \pkg{Rcmdr} package for more information.
 
 In addition, several features are controlled by run-time options, set via the \code{options("Rcmdr")}
 command. These options should be set before the package is loaded. If the options are unset, which is
@@ -120,17 +120,17 @@ the usual situation, defaults are used. Specify options as a list of \emph{name=
 set none, one, several, or all options. The available options are as follows:
 
 \describe{
-	\item{\code{ask.to.exit}}{if \code{TRUE} (the default), then the user is asked whether he or she wants to exit the \code{Rcmdr};
+	\item{\code{ask.to.exit}}{if \code{TRUE} (the default), then the user is asked whether he or she wants to exit the \pkg{Rcmdr};
 	if this option is set to \code{FALSE}, then the subsequent option is also set to \code{FALSE}.}
 	
     \item{\code{ask.on.exit}}{if \code{TRUE} (the default), then the user is asked whether to save
-    the script file and the output file when the \code{Rcmdr} exits.}
+    the script file and the output file when the \pkg{Rcmdr} exits.}
 
     \item{\code{attach.data.set}}{if \code{TRUE} (the default is \code{FALSE}), the active data set is attached to the
     search path.}
 
-    \item{\code{check.packages}}{if \code{TRUE} (the default), on start-up, the presence of all of the \code{Rcmdr}
-    recommended packages will be checked, and if any are absent, the \code{Rcmdr} will offer to install them.}
+    \item{\code{check.packages}}{if \code{TRUE} (the default), on start-up, the presence of all of the \pkg{Rcmdr}
+    recommended packages will be checked, and if any are absent, the \pkg{Rcmdr} will offer to install them.}
 
     \item{\code{command.text.color}}{Color for commands in the output window; the default is \code{"red"}.}
        
@@ -155,7 +155,7 @@ set none, one, several, or all options. The available options are as follows:
 
     \item{\code{default.font.size}}{The size, in points, of the default font. The default is 10. 
     To set the font size for R input and output, see the \code{log.font.size} option.
-    It is recommended that Windows users set the \code{Rcmdr} \code{scale factor} option to
+    It is recommended that Windows users set the \pkg{Rcmdr} \code{scale factor} option to
     control font size.}
     
     \item{\code{retain.selections}}{If \code{TRUE} (the default), dialogs remember their previous state, where appropriate,
@@ -166,8 +166,8 @@ set none, one, several, or all options. The available options are as follows:
     
     \item{\code{error.text.color}}{Color for error messages; the default is \code{"red"}.}
     
-    \item{\code{etc}}{Set to the path of the directory containing the \code{Rcmdr}
-    configuration files; defaults to the \code{etc} subdirectory of the installed \code{Rcmdr} package.}
+    \item{\code{etc}}{Set to the path of the directory containing the \pkg{Rcmdr}
+    configuration files; defaults to the \code{etc} subdirectory of the installed \pkg{Rcmdr} package.}
     
     \item{\code{grab.focus}}{Set to \code{TRUE} for the current Tk window to 
     "grab" the focus --- that is, to prevent the focus from being changed to another Tk window.
@@ -185,7 +185,7 @@ set none, one, several, or all options. The available options are as follows:
     of this stack is also 10.}
     
 %%    \item{\code{load.at.startup}}{A character vector of names of packages to be loaded 
-%%    when the \code{Rcmdr} package is loaded; the default is to load only the \code{car} package. 
+%%    when the \pkg{Rcmdr} package is loaded; the default is to load only the \code{car} package. 
 %%    Other required packages will be loaded as needed. If it is available, the 
 %%    \code{car} package will be loaded at when the Commander starts in any event.}
       
@@ -195,7 +195,7 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{log.font.size}}{The font size, in points, to be used in the script window,
     in the output window,
     in recode dialogs, and in compute expressions --- that is, where a monospaced font is used. The default is 10.
-    It is recommended that Windows users set the \code{Rcmdr} \code{scale factor} option to
+    It is recommended that Windows users set the \pkg{Rcmdr} \code{scale factor} option to
     control font size.}
     
     \item{\code{log.height}}{The height of the script window, in lines. The default is 10. Setting \code{log.height}
@@ -213,7 +213,7 @@ set none, one, several, or all options. The available options are as follows:
     the selection (and may be used to select additional variables); Shift-left-click extends the selection.
     This is the standard Windows convention. If set
     to \code{"multiple"}, left-clicking toggles the selection of a variable and may be used to select more than one
-    variable. This is the behaviour in the \code{Rcmdr} prior to version 1.9-10.}
+    variable. This is the behaviour in the \pkg{Rcmdr} prior to version 1.9-10.}
     
     \item{\code{number.messages}}{If \code{TRUE}, the default, messages in the messages window are numbered.}
     
@@ -226,7 +226,7 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{placement}}{Placement of the \emph{R Commander} window, in pixels; the default is
     \code{"-40+20"}, which puts the window near the upper-right corner of the screen.}
     
-    \item{\code{plugins}}{A character vector giving the names of \code{Rcmdr} plug-in packages to load when the 
+    \item{\code{plugins}}{A character vector giving the names of \pkg{Rcmdr} plug-in packages to load when the 
     Commander starts up. Plug-in packages can also be loaded from the \emph{Tools -> Load Rcmdr plug-in(s)} menu.
     See \link{Plugins}.}
     
@@ -236,12 +236,12 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{suppress.menus}}{if \code{TRUE}, the Commander menu bar and tool bar are suppressed, allowing another
     program (such as Excel) to take over these functions. The default (of course) is \code{FALSE}.}
             
-    \item{\code{suppress.X11.warnings}}{On (some?) Linux and Mac OS X systems, multiple X11 warnings are generated by \code{Rcmdr}
+    \item{\code{suppress.X11.warnings}}{On (some?) Linux and Mac OS X systems, multiple X11 warnings are generated by \pkg{Rcmdr}
     commands after a graphics-device window has been opened. Set this option to \code{TRUE} (the default when running
     interactively under X11) to suppress reporting of these warnings. An undesirable side effect
-    is that then \emph{all} warnings and error messages are intercepted by the \code{Rcmdr},
+    is that then \emph{all} warnings and error messages are intercepted by the \pkg{Rcmdr},
     even those for commands entered at the R command prompt. Messages produced by such commands will be printed
-    in the Commander Messages window after the next \code{Rcmdr}-generated command.
+    in the Commander Messages window after the next \pkg{Rcmdr}-generated command.
     Some X11 warnings may be printed when you exit from the Commander.}
     
     \item{\code{retain.messages}}{If \code{TRUE} (the default), the contents of the message window
@@ -323,13 +323,19 @@ For more information about R initialization, see \code{?Startup}.
 
 
 \note{
+  On startup, the R Commander sets \code{options(na.action=na.exclude)}; this is done so that
+  observation statistics such as residuals can be properly added to the active data set
+  when there are missing values. The
+  option is reset to its pre-existing value when the Commander exits. Some functions may not
+  work properly when the default \code{na.action} is set to \code{na.exclude}.
+
   This version may be compatible with SciViews:
    \url{http://www.sciviews.org/SciViews-R}; see \code{\link{Rcmdr.sciviews-specific}}.
   This version should be compatiable with the \pkg{RExcel} package, which can use the R Commander
   menus.
   
-  Under Windows, the \code{Rcmdr} package can be run under the \emph{Rgui} in the SDI (single-document
-  interface) mode, or under \code{rterm.exe}. You might experience problems running the \code{Rcmdr} under
+  Under Windows, the \pkg{Rcmdr} package can be run under the \emph{Rgui} in the SDI (single-document
+  interface) mode, or under \code{rterm.exe}. You might experience problems running the \pkg{Rcmdr} under
   \code{ESS} with NTEmacs or XEmacs; under other R consoles; or under the Rgui in the MDI (multiple-document interface) mode.
 }
 
