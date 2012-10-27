@@ -1,5 +1,7 @@
 Changes to Version 1.9-3
 
+  o Fixed one- and multi-way ANOVA so that observation statistics can be saved (bug reported by Pedro Alberto Barbetta).
+
   o Small interface and documentation tweaks.
 
 Changes to Version 1.9-2

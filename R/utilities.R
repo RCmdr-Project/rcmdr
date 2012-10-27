@@ -738,7 +738,7 @@ RcmdrPager <- function (file, header, title, delete.file)
 	for (i in seq(along = file)) {
 		zfile <- file[[i]]
 		tt <- tktoplevel()
-		tkwm.iconbitmap(tt, system.file("etc", "R-logo.ico", package="Rcmdr"))
+#		tkwm.iconbitmap(tt, system.file("etc", "R-logo.ico", package="Rcmdr"))
 		tkwm.title(tt, if (length(title))
 							title[(i - 1)%%length(title) + 1]
 						else "")
@@ -969,7 +969,7 @@ initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp=FALSE
 		expr={
 			if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
 			window <- tktoplevel(borderwidth=10)
-			tkwm.iconbitmap(window, system.file("etc", "R-logo.ico", package="Rcmdr"))
+#			tkwm.iconbitmap(window, system.file("etc", "R-logo.ico", package="Rcmdr"))
 			tkwm.title(window, title)
 			tkwm.transient(window, CommanderWindow())
 			position <- if (is.SciViews()) -1 else commanderPosition() # +PhG

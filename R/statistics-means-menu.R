@@ -230,6 +230,7 @@ oneWayAnova <- function () {
 						response, " , groups=", .activeDataSet, "$", group, 
 						", statistics=c(\"mean\", \"sd\"))", sep = ""))
 		activeModel(modelValue)
+		putRcmdr("modelWithSubset", FALSE)
 		pairwise <- tclvalue(pairwiseVariable)
 		putDialog ("oneWayAnova", list (initial.group = group, initial.response = response, initial.pairwise = pairwise))
 		if (pairwise == 1) {
@@ -329,6 +330,7 @@ multiWayAnova <- function () {
 						", list(", groups.list, "), function(x) sum(!is.na(x))) # counts", 
 						sep = ""))
 		activeModel(modelValue)
+		putRcmdr("modelWithSubset", FALSE)
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject = "Anova", model = TRUE, reset = "multiWayAnova")

@@ -494,7 +494,7 @@ Commander <- function(){
 	if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
 	putRcmdr("commanderWindow", tktoplevel(class="Rcommander"))
 	.commander <- CommanderWindow()
-	tkwm.iconbitmap(.commander, system.file("etc", "R-logo.ico", package="Rcmdr"))
+#	tkwm.iconbitmap(.commander, system.file("etc", "R-logo.ico", package="Rcmdr"))
 	tkwm.geometry(.commander, placement)
 	tkwm.title(.commander, gettextRcmdr("R Commander"))
 	tkwm.protocol(.commander, "WM_DELETE_WINDOW", CloseCommander)
