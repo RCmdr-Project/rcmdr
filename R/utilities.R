@@ -969,7 +969,7 @@ initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp=FALSE
 		expr={
 			if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
 			window <- tktoplevel(borderwidth=10)
-#			tkwm.iconbitmap(window, system.file("etc", "R-logo.ico", package="Rcmdr"))
+			if (.Platform$OS.type == "windows") tkwm.iconbitmap(window, system.file("etc", "R-logo.ico", package="Rcmdr"))
 			tkwm.title(window, title)
 			tkwm.transient(window, CommanderWindow())
 			position <- if (is.SciViews()) -1 else commanderPosition() # +PhG
