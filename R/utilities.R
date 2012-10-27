@@ -1,4 +1,4 @@
-# last modified 2012-10-17 by J. Fox
+# last modified 2012-10-27 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -738,7 +738,7 @@ RcmdrPager <- function (file, header, title, delete.file)
 	for (i in seq(along = file)) {
 		zfile <- file[[i]]
 		tt <- tktoplevel()
-#		tkwm.iconbitmap(tt, system.file("etc", "R-logo.ico", package="Rcmdr"))
+		if (.Platform$OS.type == "windows") tkwm.iconbitmap(tt, system.file("etc", "R-logo.ico", package="Rcmdr"))
 		tkwm.title(tt, if (length(title))
 							title[(i - 1)%%length(title) + 1]
 						else "")

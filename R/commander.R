@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2012-10-17 by J. Fox
+# last modified 2012-10-27 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -494,7 +494,7 @@ Commander <- function(){
 	if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
 	putRcmdr("commanderWindow", tktoplevel(class="Rcommander"))
 	.commander <- CommanderWindow()
-#	tkwm.iconbitmap(.commander, system.file("etc", "R-logo.ico", package="Rcmdr"))
+	if (.Platform$OS.type == "windows") tkwm.iconbitmap(.commander, system.file("etc", "R-logo.ico", package="Rcmdr"))
 	tkwm.geometry(.commander, placement)
 	tkwm.title(.commander, gettextRcmdr("R Commander"))
 	tkwm.protocol(.commander, "WM_DELETE_WINDOW", CloseCommander)
