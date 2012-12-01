@@ -2,6 +2,8 @@ Changes to Version 1.9-3
 
   o Fixed one- and multi-way ANOVA so that observation statistics can be saved (bug reported by Pedro Alberto Barbetta).
 
+  o Avoid explicit assign()s to global environment (suggestion of Kurt Hornik).
+
   o Small interface and documentation tweaks.
 
 Changes to Version 1.9-2
@@ -12,7 +14,7 @@ Changes to Version 1.9-2
 
   o Better icons for dialog buttons, new option to suppress these icons, other interface tweaks (after suggestions of Milan Bouchet-Valat).
 
-  o Small fixes.
+  o Small fixs.
 
 Changes to Version 1.9-1
 

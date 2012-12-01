@@ -1,6 +1,6 @@
 # Distributions menu dialogs
 
-# last modified 2012-01-26 by J. Fox
+# last modified 2012-12-02 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic (20 July 06)
 # Modified by Miroslav Ristic (15 January 11)
@@ -529,14 +529,16 @@ distributionMass  <- function(nameVar) {
 		if (nameVar=="binomial") {
 			command <- paste("data.frame(Pr=dbinom(0:", vars[1], ", size=", vars[1], 
 					", prob=", vars[2], "))", sep="")
-			logger(paste(".Table <- ", command, sep=""))
-			assign(".Table", justDoIt(command), envir=.GlobalEnv)
+# 			logger(paste(".Table <- ", command, sep=""))
+# 			assign(".Table", justDoIt(command), envir=.GlobalEnv)
+            doItAndPrint(paste(".Table <- ", command, sep=""))
 			logger(paste("rownames(.Table) <- 0:", vars[1], sep=""))
 			justDoIt(paste("rownames(.Table) <- 0:", vars[1], sep=""))
 		} else {
 			command <- paste("data.frame(Pr=d",fVar$funName,"(", xmin, ":", xmax, pasteVar, "))", sep="")
-			logger(paste(".Table <- ", command, sep=""))
-			assign(".Table", justDoIt(command), envir=.GlobalEnv)
+# 			logger(paste(".Table <- ", command, sep=""))
+# 			assign(".Table", justDoIt(command), envir=.GlobalEnv)
+			doItAndPrint(paste(".Table <- ", command, sep=""))
 			logger(paste("rownames(.Table) <- ", xmin, ":", xmax, sep=""))
 			justDoIt(paste("rownames(.Table) <- ", xmin, ":", xmax, sep=""))
 		}
