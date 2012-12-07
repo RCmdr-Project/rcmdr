@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2012-01-27 by J. Fox
+# last modified 2012-12-07 by J. Fox
 
 # Nonparametric tests menu
 
@@ -179,8 +179,9 @@ FriedmanTest <- function () {
 		.activeDataSet <- ActiveDataSet()
 		command <- paste("na.omit(with(", .activeDataSet, ", cbind(", 
 				paste(responses, collapse = ", "), ")))", sep = "")
-		logger(paste(".Responses <- ", command, sep = ""))
-		assign(".Responses", justDoIt(command), envir = .GlobalEnv)
+# 		logger(paste(".Responses <- ", command, sep = ""))
+# 		assign(".Responses", justDoIt(command), envir = .GlobalEnv)
+		doItAndPrint(paste(".Responses <- ", command, sep = ""))
 		doItAndPrint("apply(.Responses, 2, median)")
 		doItAndPrint("friedman.test(.Responses)")
 		logger("remove(.Responses)")

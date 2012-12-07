@@ -70,8 +70,9 @@ principalComponents <- function () {
 		command <- paste("princomp(~", paste(x, collapse = "+"), 
 				", cor=", correlations, ", data=", .activeDataSet, 
 				subset, ")", sep = "")
-		assign(".PC", justDoIt(command), envir = .GlobalEnv)
-		logger(paste(".PC <- ", command, sep = ""))
+# 		assign(".PC", justDoIt(command), envir = .GlobalEnv)
+# 		logger(paste(".PC <- ", command, sep = ""))
+		doItAndPrint(paste(".PC <- ", command, sep = ""))
 		doItAndPrint("unclass(loadings(.PC))  # component loadings")
 		doItAndPrint(".PC$sd^2  # component variances")
 		doItAndPrint("summary(.PC) # proportions of variance")
@@ -206,8 +207,9 @@ factorAnalysis <- function () {
 				", factors=", getRcmdr("nfactors"), ", rotation=\"", 
 				rotation, "\", scores=\"", scores, "\", data=", .activeDataSet, 
 				subset, ")", sep = "")
-		assign(".FA", justDoIt(command), envir = .GlobalEnv)
-		logger(paste(".FA <- ", command, sep = ""))
+# 		assign(".FA", justDoIt(command), envir = .GlobalEnv)
+# 		logger(paste(".FA <- ", command, sep = ""))
+		doItAndPrint(paste(".FA <- ", command, sep = ""))
 		doItAndPrint(".FA")
 		if (scores != "none") {
 			for (i in 1:getRcmdr("nfactors")) {

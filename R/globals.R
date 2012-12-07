@@ -7,7 +7,7 @@ if (getRversion() >= "2.15.1")
                       'identifyVariable', 'robustVariable', 'matrixFrame', 'factorCorFrame',
                       'identifyFrame', 'robustFrame', 'regexprVariable', 'caseVariable',
                       'directionVariable', 'optionsFrame', 'directionFrame', 'putRExcel',
-                      '.commander.done', 'altHypothesisVariable', 'altHypothesisFrame', '.Responses',
+                      'altHypothesisVariable', 'altHypothesisFrame', '.Responses',
                       'scaleVariable', 'scaleFrame', 'centerVariable', 'centerFrame', 'console.output',
                       'OKbutton', 'typeFrame', 'messageBox', 'groupsFrame', 'current.print.line',
                       'Xyplot.HH', 'auto.keyVariable', 'outerVariable', 'x.relationVariable',

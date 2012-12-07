@@ -1,4 +1,4 @@
-# last modified 2012-10-17 by J. Fox
+# last modified 2012-12-07 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 .onAttach <- function(...){
@@ -10,10 +10,6 @@
 	}
 	packageStartupMessage(gettext("\nRcmdr Version", domain="R-Rcmdr"), " ",
 			getRcmdr("RcmdrVersion"), "\n")
-#	if (.Platform$GUI == "Rgui"  && ismdi()) packageStartupMessage(paste(gettextRcmdr("NOTE"), ": ",
-#		gettextRcmdr(
-#		"The Windows version of the R Commander works best under RGui with the single-document interface (SDI)\nSee ?Commander"),
-#		sep=""))
 }
 
 .onLoad <- function(...){
@@ -78,11 +74,11 @@
 				tkdestroy(top)
 				location <- tclvalue(locationVariable)
 				if (location == "CRAN") {
-					packages <- utils:::CRAN.packages()[,1]
+					packages <- available.packages()[,1]
 					present <- missing.packages %in% packages
 					if (!all(present)) errorMessage()
 					if (!any(present)) return()
-					utils:::install.packages(missing.packages[present], lib=.libPaths()[1])		
+					install.packages(missing.packages[present], lib=.libPaths()[1])		
 				}
 #                else if (location == "Bioconductor") {
 #                    packages <- CRAN.packages(CRAN=getOption("BIOC"))[,1]
@@ -93,11 +89,11 @@
 #                    }
 				else {
 					directory <- paste("file:", tclvalue(directoryVariable), sep="")
-					packages <- utils:::CRAN.packages(contriburl=directory)[,1]
+					packages <- available.packages(contriburl=directory)[,1]
 					present <- missing.packages %in% packages
 					if (!all(present)) errorMessage()
 					if (!any(present)) return()
-					utils:::install.packages(missing.packages[present], contriburl=directory,
+					install.packages(missing.packages[present], contriburl=directory,
 							lib=.libPaths()[1])
 				}
 			}
@@ -124,7 +120,7 @@
 			tkbind(top, "<Return>", onOK)
 			tkwm.deiconify(top)
 			tkgrab.set(top)
-			tkfocus(top)
+		#	tkfocus(top)
 			tkwait.window(top)
 		}
 	}

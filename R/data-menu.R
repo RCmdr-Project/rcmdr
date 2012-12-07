@@ -1,4 +1,4 @@
-# last modified 2012-08-29 by J. Fox
+# last modified 2012-12-07 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
@@ -30,8 +30,9 @@ newDataSet <- function() {
 		result <- justDoIt(command)
 		result <- as.data.frame(lapply(result, function(x) if (is.character(x)) factor(x) else x))
 		if (class(result)[1] !=  "try-error"){ 
-			assign(dsnameValue, result, envir=.GlobalEnv)
-			logger(paste(dsnameValue, "<-", command))
+# 			assign(dsnameValue, result, envir=.GlobalEnv)
+# 			logger(paste(dsnameValue, "<-", command))
+		    doItAndPrint(paste(dsnameValue, "<-", command))
 			if (nrow(get(dsnameValue)) == 0){
 				#        	if (eval(parse(text=paste("nrow(", dsnameValue, ")"))) == 0){
 				errorCondition(recall=newDataSet, message=gettextRcmdr("empty data set."))
@@ -382,7 +383,7 @@ readDataSet <- function() {
 		logger(paste(dsnameValue, " <- ", command, sep=""))
 		result <- justDoIt(command)
 		if (class(result)[1] !=  "try-error"){
-			assign(dsnameValue, result, envir=.GlobalEnv)
+			gassign(dsnameValue, result)
 			activeDataSet(dsnameValue)
 		}
 		tkfocus(CommanderWindow())
@@ -622,7 +623,7 @@ importSAS <- function() {
     logger(paste(".Datasets <- ", command, sep=""))
     result <- justDoIt(command)
     if (class(result)[1] !=  "try-error"){
-        assign(".Datasets", result, envir=.GlobalEnv)
+        gassign(".Datasets", result)
         if (is.data.frame(.Datasets)){
             getdsname <- function(){
                 initializeDialog(title=gettextRcmdr("Data Set Name"))
@@ -662,7 +663,7 @@ importSAS <- function() {
         }
         else {
             fmt <- grep("^FORMAT", names(.Datasets))
-            if (length(fmt) >= 1) assign(".Datasets", .Datasets[-fmt], envir=.GlobalEnv)
+            if (length(fmt) >= 1) gassign(".Datasets", .Datasets[-fmt])
             if (length(.Datasets) == 1){
                 dsname <- capwords(names(.Datasets))
                 if (is.element(dsname, listDataSets())) {
@@ -671,8 +672,9 @@ importSAS <- function() {
                         return()
                     }
                 }
-                assign(dsname, .Datasets[[1]], envir=.GlobalEnv)
-                logger(paste(dsname, " <- .Datasets[[1]]", sep=""))
+#                 assign(dsname, .Datasets[[1]], envir=.GlobalEnv)
+#                 logger(paste(dsname, " <- .Datasets[[1]]", sep=""))
+                doItAndPrint(paste(dsname, " <- .Datasets[[1]]", sep=""))
                 doItAndPrint(paste("colnames(", dsname, ") <- ", "tolower(colnames(", 
                                    dsname, "))", sep=""))
                 logger("remove(.Datasets)")
@@ -694,8 +696,9 @@ importSAS <- function() {
                                 next()
                             }
                         }
-                        assign(dsnames[ds], .Datasets[[ds]], envir=.GlobalEnv)
-                        logger(paste(dsnames[ds], " <- .Datasets[[", ds, "]]", sep=""))
+#                         assign(dsnames[ds], .Datasets[[ds]], envir=.GlobalEnv)
+#                         logger(paste(dsnames[ds], " <- .Datasets[[", ds, "]]", sep=""))
+                        doItAndPrint(paste(dsnames[ds], " <- .Datasets[[", ds, "]]", sep=""))
                         doItAndPrint(paste("colnames(", dsnames[ds], ") <- ", "tolower(colnames(", 
                                            dsnames[ds], "))", sep=""))
                     }
@@ -758,7 +761,7 @@ importSPSS <- function() {
 		logger(paste(dsnameValue, " <- ", command, sep=""))
 		result <- justDoIt(command)
 		if (class(result)[1] !=  "try-error"){
-			assign(dsnameValue, result, envir=.GlobalEnv)
+			gassign(dsnameValue, result)
             if (tclvalue(toLower) == "1") 
                 doItAndPrint(paste("colnames(", dsnameValue, ") <- tolower(colnames(",
                                    dsnameValue, "))", sep=""))
@@ -825,8 +828,9 @@ importMinitab <- function() {
 			tkfocus(CommanderWindow())
 			return()
 		}
-		assign(dsnameValue, as.data.frame(datalist), envir=.GlobalEnv)
-		logger(paste(dsnameValue, " <- as.data.frame(", command, ")", sep=""))
+# 		assign(dsnameValue, as.data.frame(datalist), envir=.GlobalEnv)
+# 		logger(paste(dsnameValue, " <- as.data.frame(", command, ")", sep=""))
+		doItAndPrint(paste(dsnameValue, " <- as.data.frame(", command, ")", sep=""))
 		activeDataSet(dsnameValue)
 		tkfocus(CommanderWindow())
 	}
@@ -890,7 +894,7 @@ importSTATA <- function() {
 		logger(paste(dsnameValue, " <- ", command, sep=""))
 		result <- justDoIt(command)
 		if (class(result)[1] !=  "try-error"){
-			assign(dsnameValue, result, envir=.GlobalEnv)
+			gassign(dsnameValue, result)
 			activeDataSet(dsnameValue)
 		}
 		tkfocus(CommanderWindow())
@@ -1004,7 +1008,7 @@ importRODBCtable <- function(){
 		names(dat)<- trim.blanks(names(dat))
 		dat <- trim.col.na(dat)
 		odbcCloseAll()
-		assign(dsnameValue, as.data.frame(dat), envir = .GlobalEnv)
+		gassign(dsnameValue, as.data.frame(dat))
 		command <- paste("sqlQuery(channel = ",channel,", select * from ", fil,")",
 				sep = "")
 		logger(paste(dsnameValue, " <- ", command, sep = ""))
@@ -1052,8 +1056,9 @@ importExcel <- function(){
             return()
         }
         command <- paste('loadWorkbook("', File, '")', sep="")
-        logger(paste(".Workbook <- ", command, sep=""))
-        justDoIt(paste('assign(".Workbook", ', command, ", envir=.GlobalEnv)", sep=""))
+#         logger(paste(".Workbook <- ", command, sep=""))
+#         justDoIt(paste('assign(".Workbook", ', command, ", envir=.GlobalEnv)", sep=""))
+        doItAndPrint(paste(".Workbook <- ", command, sep=""))
         worksheets <- getSheets(.Workbook)
         if(length(worksheets)>1)
             worksheet <- tk_select.list(worksheets,
@@ -1068,7 +1073,7 @@ importExcel <- function(){
         logger(paste(dsnameValue, " <- ", command, sep=""))
         result <- justDoIt(command)
         if (class(result)[1] !=  "try-error"){
-            assign(dsnameValue, result, envir=.GlobalEnv)
+            gassign(dsnameValue, result)
             activeDataSet(dsnameValue)
         }
         logger("remove(.Workbook)")
@@ -1423,7 +1428,7 @@ standardize <- function(X){
 		command <- paste("scale(", .activeDataSet, "[,c(", paste(xx, collapse=","),
 				")])", sep="")
 		result <- justDoIt(command)
-		assign(".Z", result, envir=.GlobalEnv)
+		gassign(".Z", result)
 		logger(paste(".Z <- ", command, sep=""))
 		for (i in 1:length(x)){
 			Z <- paste("Z.", x[i], sep="")
@@ -1828,8 +1833,9 @@ setContrasts <- function(){
 				}
 				command <- paste("matrix(c(", paste(values, collapse=","), "), ", nrows, ", ", ncols,
 						")", sep="")
-				assign(".Contrasts", justDoIt(command), envir=.GlobalEnv)
-				logger(paste(".Contrasts <- ", command, sep=""))
+# 				assign(".Contrasts", justDoIt(command), envir=.GlobalEnv)
+# 				logger(paste(".Contrasts <- ", command, sep=""))
+				doItAndPrint(paste(".Contrasts <- ", command, sep=""))
 				command <- paste("colnames(.Contrasts) <- c(",
 						paste("'", contrast.names, "'", sep="", collapse=", "), ")", sep="")
 				justDoIt(command)

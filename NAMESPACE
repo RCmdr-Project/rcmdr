@@ -1,10 +1,13 @@
-# last modified 25 July 2011 by J. Fox
+# last modified 2012-12-07 by J. Fox
 
 useDynLib(Rcmdr)
 
 import(tcltk)
 
-export(activateMenus, activeDataSet, ActiveDataSet, activeDataSetP, activeModel,
+importFrom(utils, available.packages, install.packages)
+
+export(tkfocus,
+activateMenus, activeDataSet, ActiveDataSet, activeDataSetP, activeModel,
 ActiveModel, activeModelP, aicP, assignCluster, bin.var, buttonRcmdr,
 checkActiveDataSet,
 checkActiveModel, checkBoxes, checkClass, checkFactors, checkMethod, 
@@ -14,7 +17,7 @@ closeDialog, colPercents, Commander,
 commanderPosition, CommanderWindow, Confint, dataSetsP, defmacro,
 dialogSuffix, doItAndPrint, errorCondition, exists.method,
 Factors, factorsP, formulaFields, flushDialogMemory, 
-getDialog, getFrame, getRcmdr, getSelection, gettextRcmdr,
+gassign, getDialog, getFrame, getRcmdr, getSelection, gettextRcmdr,
 glmP, GrabFocus, groupsBox, groupsLabel, hclustSolutionsP, Hist, initializeDialog, 
 is.valid.name, is.SciViews, justDoIt, KMeans, labelRcmdr, Library,
 listAllModels, listAOVModels, listDataSets, listFactors, listGeneralizedLinearModels, 
@@ -31,9 +34,11 @@ subsetBox, tclvalue, totPercents, trim.blanks, ttkentry, ttkframe, ttkradiobutto
 ttkscrollbar, TwoLevelFactors, twoLevelFactorsP, 
 UpdateModelNumber, variableListBox, Variables, varPosn)
 
+S3method(coef, multinom)
 S3method(Confint, glm)
 S3method(Confint, default)
 S3method(Confint, multinom)
+S3method(confint, glm)
 S3method(confint, multinom)
 S3method(confint, polr)
 S3method(mergeRows, data.frame)

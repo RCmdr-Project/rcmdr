@@ -22,7 +22,7 @@ is.SciViews.TclTk <- function() {
 tkfocus <- function(...){
     # A call to tcltk:::tkfocus() causes a GPF in SciViews
     # => replaced by this version that check if we are in SciViews or not
-    if (!is.SciViews()) tcltk:::tkfocus(...)
+    if (!is.SciViews()) tkfocus(...)
     }
 
 svCommander <- function(Version = "1.1-0"){

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2011-12-18 by J. Fox
+# last modified 2012-07-18 by J. Fox
 
 # Tables menu
 
@@ -46,16 +46,18 @@ twoWayTable <- function(){ # dialog memory 2011-06-27 J. Fox
 		closeDialog()
 		command <- paste("xtabs(~", row, "+", column, ", data=", ActiveDataSet(),
 				subset, ")", sep="")
-		logger(paste(".Table <- ", command, sep=""))
-		assign(".Table", justDoIt(command), envir=.GlobalEnv)
+# 		logger(paste(".Table <- ", command, sep=""))
+# 		assign(".Table", justDoIt(command), envir=.GlobalEnv)
+		doItAndPrint(paste(".Table <- ", command, sep=""))
 		doItAndPrint(".Table")
 		if (percents == "row") doItAndPrint("rowPercents(.Table) # Row Percentages")
 		if (percents == "column") doItAndPrint("colPercents(.Table) # Column Percentages")
 		if (percents == "total") doItAndPrint("totPercents(.Table) # Percentage of Total")
 		if (chisq == 1) {
 			command <- "chisq.test(.Table, correct=FALSE)"
-			logger(paste(".Test <- ", command, sep=""))
-			assign(".Test", justDoIt(command), envir=.GlobalEnv)
+# 			logger(paste(".Test <- ", command, sep=""))
+# 			assign(".Test", justDoIt(command), envir=.GlobalEnv)
+			doItAndPrint(paste(".Test <- ", command, sep=""))
 			doItAndPrint(".Test")
 			if (expected == 1) doItAndPrint(".Test$expected # Expected Counts")
 			warnText <- NULL
@@ -137,8 +139,9 @@ multiWayTable <- function (){
 		command <- paste("xtabs(~", row, "+", column, "+", paste(controls, 
 						collapse = "+"), ", data=", ActiveDataSet(), subset, 
 				")", sep = "")
-		logger(paste(".Table <- ", command, sep = ""))
-		assign(".Table", justDoIt(command), envir = .GlobalEnv)
+# 		logger(paste(".Table <- ", command, sep = ""))
+# 		assign(".Table", justDoIt(command), envir = .GlobalEnv)
+		doItAndPrint(paste(".Table <- ", command, sep = ""))
 		doItAndPrint(".Table")
 		if (percents == "row") 
 			doItAndPrint("rowPercents(.Table) # Row Percentages")
@@ -262,8 +265,9 @@ enterTable <- function(){
 		closeDialog()
 		command <- paste("matrix(c(", paste(counts, collapse=","), "), ", nrows, ", ", ncols,
 				", byrow=TRUE)", sep="")
-		assign(".Table", justDoIt(command), envir=.GlobalEnv)
-		logger(paste(".Table <- ", command, sep=""))
+# 		assign(".Table", justDoIt(command), envir=.GlobalEnv)
+# 		logger(paste(".Table <- ", command, sep=""))
+		doItAndPrint(paste(".Table <- ", command, sep=""))
 		command <- paste("c(",paste(paste("'", row.names, "'", sep=""), collapse=", "), ")", sep="")
 		justDoIt(paste("rownames(.Table) <- ", command, sep=""))
 		logger(paste("rownames(.Table) <- ", command, sep=""))
@@ -276,8 +280,9 @@ enterTable <- function(){
 		if (percents == "total") doItAndPrint("totPercents(.Table) # Percentage of Total")
 		if (chisq == 1) {
 			command <- "chisq.test(.Table, correct=FALSE)"
-			logger(paste(".Test <- ", command, sep=""))
-			assign(".Test", justDoIt(command), envir=.GlobalEnv)
+# 			logger(paste(".Test <- ", command, sep=""))
+# 			assign(".Test", justDoIt(command), envir=.GlobalEnv)
+			doItAndPrint(paste(".Test <- ", command, sep=""))
 			doItAndPrint(".Test")
 			if (expected == 1) doItAndPrint(".Test$expected # Expected Counts")
 			warnText <- NULL

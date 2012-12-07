@@ -32,6 +32,7 @@
 \alias{factorsP}
 \alias{formulaFields}
 \alias{flushDialogMemory}
+\alias{gassign}
 \alias{getDialog}
 \alias{getFrame}
 \alias{getFrame.listbox}
@@ -146,6 +147,7 @@ Factors(names)
 factorsP(n=1)
 formulaFields(model, hasLhs=TRUE, glm=FALSE)
 flushDialogMemory(what)
+gassign(x, value)
 getDialog(dialog, defaults=NULL)
 \method{getFrame}{listbox}(object)
 \method{getSelection}{listbox}(object)
@@ -310,7 +312,7 @@ commanderPosition()
   \item{title.color}{color for title above radio buttons; defaults to \code{"blue"}.} 
   \item{type}{quoted type of object to check; used to generate check-replace dialog box;
     or type of message to print in Message window. For \code{varPosn}, type of variable list.}
-  \item{value}{an object to be stored.}
+  \item{value}{an object to be stored or assigned.}
   \item{values}{vector of quoted values associated with radio buttons or check boxes; for \code{putDialog},
   	a list of current selections to be stored in support of dialog memory.}
   \item{variableList}{a vector of variable names.}
@@ -340,6 +342,8 @@ commanderPosition()
   10 outputs. \code{popOutput()} ``pops'' (i.e., returns and removes) the first entry
   of the output stack. Note that, as a stack, the queue is LIFO (``last in, first out'').
   There is also a stack of commands, which is accessed similarly by \code{popCommand()}.
+  Ocassionally, it's necessary to assign an object directly in the global environment, and
+  this can be done with the \code{gassign} function.
   
   \emph{Checking for errors: }
   The function \code{is.valid.name} checks whether a character string specifies a valid name

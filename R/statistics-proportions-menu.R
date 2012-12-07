@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2011-12-27 by J. Fox
+# last modified 2012-12-07 by J. Fox
 
     # Proportions menu
 
@@ -26,8 +26,9 @@ singleProportionTest <- function () {
 		closeDialog()
 		command <- paste("xtabs(~", x, ", data=", ActiveDataSet(), 
 				")")
-		logger(paste(".Table <-", command))
-		assign(".Table", justDoIt(command), envir = .GlobalEnv)
+# 		logger(paste(".Table <-", command))
+# 		assign(".Table", justDoIt(command), envir = .GlobalEnv)
+		doItAndPrint(paste(".Table <-", command))
 		doItAndPrint(".Table")
 		if (test == "normal") 
 			doItAndPrint(paste("prop.test(rbind(.Table), alternative='", 
@@ -40,6 +41,8 @@ singleProportionTest <- function () {
 		else doItAndPrint(paste("binom.test(rbind(.Table), alternative='", 
 							alternative, "', p=", p, ", conf.level=", level, 
 							")", sep = ""))
+		logger("remove(.Table)")
+		remove(.Table, envir = .GlobalEnv)
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject = "prop.test", reset = "singleProportionTest")
@@ -113,8 +116,9 @@ twoSampleProportionsTest <- function () {
 						initial.label=.groupsLabel))
 		command <- paste("xtabs(~", groups, "+", x, ", data=", 
 				ActiveDataSet(), ")", sep = "")
-		logger(paste(".Table <-", command))
-		assign(".Table", justDoIt(command), envir = .GlobalEnv)
+# 		logger(paste(".Table <-", command))
+# 		assign(".Table", justDoIt(command), envir = .GlobalEnv)
+		doItAndPrint(paste(".Table <-", command))
 		doItAndPrint("rowPercents(.Table)")
 		if (test == "normal") 
 			doItAndPrint(paste("prop.test(.Table, alternative='", 

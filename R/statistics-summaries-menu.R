@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2012-08-27 by J. Fox
+# last modified 2012-12-07 by J. Fox
 
 # Summaries menu
 
@@ -136,8 +136,9 @@ frequencyDistribution <- function () {
 		for (variable in x) {
 			command <- paste("table(", .activeDataSet, "$", variable, 
 					")", sep = "")
-			logger(paste(".Table <-", command))
-			assign(".Table", justDoIt(command), envir = .GlobalEnv)
+# 			logger(paste(".Table <-", command))
+# 			assign(".Table", justDoIt(command), envir = .GlobalEnv)
+			doItAndPrint(paste(".Table <-", command))
 			doItAndPrint(paste(".Table  # counts for", variable))
 			doItAndPrint(paste("round(100*.Table/sum(.Table), 2)  # percentages for", 
 							variable))
@@ -204,8 +205,9 @@ frequencyDistribution <- function () {
 				closeDialog(subwin)
 				command <- paste("c(", paste(probs, collapse = ","), 
 						")", sep = "")
-				logger(paste(".Probs <-", command))
-				assign(".Probs", justDoIt(command), envir = .GlobalEnv)
+# 				logger(paste(".Probs <-", command))
+# 				assign(".Probs", justDoIt(command), envir = .GlobalEnv)
+				doItAndPrint(paste(".Probs <-", command))
 				doItAndPrint("chisq.test(.Table, p=.Probs)")
 				logger("remove(.Probs)")
 				remove(.Probs, envir = .GlobalEnv)

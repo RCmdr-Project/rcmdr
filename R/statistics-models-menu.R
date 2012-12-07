@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2011-12-09 by J. Fox
+# last modified 2012-12-07 by J. Fox
 
     # Models menu
 
@@ -69,8 +69,9 @@ linearRegressionModel <- function () {
 		}
 		command <- paste("lm(", y, "~", paste(x, collapse = "+"), 
 				", data=", ActiveDataSet(), subset, ")", sep = "")
-		logger(paste(modelValue, " <- ", command, sep = ""))
-		assign(modelValue, justDoIt(command), envir = .GlobalEnv)
+# 		logger(paste(modelValue, " <- ", command, sep = ""))
+# 		assign(modelValue, justDoIt(command), envir = .GlobalEnv)
+		doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
 		doItAndPrint(paste("summary(", modelValue, ")", sep = ""))
 		activeModel(modelValue)
 		tkfocus(CommanderWindow())
@@ -142,8 +143,9 @@ linearModel <- function(){
 		formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
 		command <- paste("lm(", formula,
 				", data=", ActiveDataSet(), subset, ")", sep="")
-		logger(paste(modelValue, " <- ", command, sep=""))
-		assign(modelValue, justDoIt(command), envir=.GlobalEnv)
+# 		logger(paste(modelValue, " <- ", command, sep=""))
+# 		assign(modelValue, justDoIt(command), envir=.GlobalEnv)
+		doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
 		doItAndPrint(paste("summary(", modelValue, ")", sep=""))
 		activeModel(modelValue)
 		tkfocus(CommanderWindow())
@@ -263,8 +265,9 @@ generalizedLinearModel <- function(){
 		}
 		command <- paste("glm(", formula, ", family=", family, "(", link,
 				"), data=", ActiveDataSet(), subset, ")", sep="")
-		logger(paste(modelValue, " <- ", command, sep=""))
-		assign(modelValue, justDoIt(command), envir=.GlobalEnv)
+# 		logger(paste(modelValue, " <- ", command, sep=""))
+# 		assign(modelValue, justDoIt(command), envir=.GlobalEnv)
+		doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
 		doItAndPrint(paste("summary(", modelValue, ")", sep=""))
 		activeModel(modelValue)
 		tkfocus(CommanderWindow())
@@ -371,8 +374,9 @@ ordinalRegressionModel <- function(){
 		formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
 		command <- paste("polr(", formula, ', method="', tclvalue(modelTypeVariable),
 				'", data=', .activeDataSet, subset, ", Hess=TRUE)", sep="")
-		logger(paste(modelValue, " <- ", command, sep=""))
-		assign(modelValue, justDoIt(command), envir=.GlobalEnv)
+# 		logger(paste(modelValue, " <- ", command, sep=""))
+# 		assign(modelValue, justDoIt(command), envir=.GlobalEnv)
+		doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
 		doItAndPrint(paste("summary(", modelValue, ")", sep=""))
 		activeModel(modelValue)
 		tkfocus(CommanderWindow())
@@ -457,8 +461,9 @@ multinomialLogitModel <- function(){
 		formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
 		command <- paste("multinom(", formula,
 				", data=", .activeDataSet, subset, ", trace=FALSE)", sep="")
-		logger(paste(modelValue, " <- ", command, sep=""))
-		assign(modelValue, justDoIt(command), envir=.GlobalEnv)
+# 		logger(paste(modelValue, " <- ", command, sep=""))
+# 		assign(modelValue, justDoIt(command), envir=.GlobalEnv)
+		doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
 		doItAndPrint(paste("summary(", modelValue, ", cor=FALSE, Wald=TRUE)", sep=""))
 		activeModel(modelValue)
 		tkfocus(CommanderWindow())

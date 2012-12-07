@@ -1,6 +1,6 @@
 # this code originally by Dan Putler, used with permission 
 
-# last modified 2012-01-27 by J. Fox
+# last modified 2012-12-06 by J. Fox
 
 assignCluster <- function(clusterData, origData, clusterVec){
 	rowsDX <- row.names(clusterData)
@@ -120,8 +120,9 @@ kmeansClustering <- function () {
 		command <- paste("KMeans(", xmat, ", centers = ", nClusters, 
 				", iter.max = ", iters, ", num.seeds = ", seeds, 
 				")", sep = "")
-		assign(".cluster", justDoIt(command), envir = .GlobalEnv)
-		logger(paste(".cluster <- ", command, sep = ""))
+# 		assign(".cluster", justDoIt(command), envir = .GlobalEnv)
+# 		logger(paste(".cluster <- ", command, sep = ""))
+		doItAndPrint(paste(".cluster <- ", command))
 		if (clusterSummary == "1") {
 			doItAndPrint(paste(".cluster$size # Cluster Sizes"))
 			doItAndPrint(paste(".cluster$centers # Cluster Centroids"))
@@ -255,8 +256,9 @@ hierarchicalCluster <- function () {
 		}
 		command <- paste("hclust(", dx, " , method= ", "\"", 
 				clusMethod, "\"", ")", sep = "")
-		assign(solution, justDoIt(command), envir = .GlobalEnv)
-		logger(paste(solution, " <- ", command, sep = ""))
+# 		assign(solution, justDoIt(command), envir = .GlobalEnv)
+# 		logger(paste(solution, " <- ", command, sep = ""))
+        doItAndPrint(paste(solution, " <- ", command, sep = ""))
 		if (dendro == "1") {
 			justDoIt(paste("plot(", solution, ", main= ", "\"", 
 							"Cluster Dendrogram for Solution ", solution, 

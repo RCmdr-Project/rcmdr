@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2012-10-27 by J. Fox
+# last modified 2012-12-07 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -365,7 +365,8 @@ Commander <- function(){
 		if (class(result)[1] !=  "try-error"){ 			
 			if (nrow(get(dsnameValue)) == 0){
 				errorCondition(window=NULL, message=gettextRcmdr("empty data set."))
-				assign(dsnameValue, save.dataset, envir=.GlobalEnv)
+				# assign(dsnameValue, save.dataset, envir=.GlobalEnv)
+                justDoIt(paste(dsnameValue, "<- save.dataset"))
 				return()
 			}
 			else{
@@ -375,7 +376,8 @@ Commander <- function(){
 		}
 		else{
 			errorCondition(window=NULL, message=gettextRcmdr("data set edit error."))
-			assign(dsnameValue, save.dataset, envir=.GlobalEnv)
+			# assign(dsnameValue, save.dataset, envir=.GlobalEnv)
+			justDoIt(paste(dsnameValue, "<- save.dataset"))
 			return()
 		}
 		tkwm.deiconify(CommanderWindow())
@@ -673,8 +675,10 @@ Commander <- function(){
 	tkwait <- options("Rcmdr")[[1]]$tkwait  # to address problem in Debian Linux
 	if ((!is.null(tkwait)) && tkwait) {
 #		.commander.done <<- tclVar("0")
-		assign(".commander.done", tclVar("0"), envir = .GlobalEnv)
-		tkwait.variable(.commander.done)
+#		assign(".commander.done", tclVar("0"), envir = .GlobalEnv)
+        putRcmdr(".commander.done", tclVar("0"))
+#		tkwait.variable(.commander.done)
+        tkwait.variable(getRcmdr(".commander.done"))
 	}
 	Message(paste(gettextRcmdr("R Commander Version "), getRcmdr("RcmdrVersion"), ": ", date(), sep=""))
 	if (.Platform$GUI == "Rgui"  && ismdi()) Message(gettextRcmdr(
@@ -897,6 +901,7 @@ Message <- function(message, type=c("note", "error", "warning")){
 		putRExcel(".rexcel.last.message",message)
 	######### end of change ###############
 	lines <- strsplit(message, "\n")[[1]]
+    console.output <- getRcmdr("console.output")
 	if (!console.output){
 	  width <- (as.numeric(tkwinfo("width", .message)) - 2*as.numeric(tkcget(.message, borderwidth=NULL)) - 2)/
 	    as.numeric(tkfont.measure(tkcget(.message, font=NULL), "0"))

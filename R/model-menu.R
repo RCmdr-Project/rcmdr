@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2012-09-07 by J. Fox
+# last modified 2012-12-07 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -309,7 +309,7 @@ residualQQPlot <- function () {
 }
 
 testLinearHypothesis <- function(){
-	coef.multinom <- car:::coef.multinom
+	# coef.multinom <- car:::coef.multinom
 	defaults <- list(previous.model=NULL, nrows=1, table.values=0, rhs.values=0)
 	dialog.values <- getDialog("testLinearHypothesis", defaults=defaults)
 	Library("car")
@@ -411,11 +411,13 @@ testLinearHypothesis <- function(){
 		}
 		command <- paste("matrix(c(", paste(values, collapse=","), "), ", nrows, ", ", ncols,
 				", byrow=TRUE)", sep="")
-		assign(".Hypothesis", justDoIt(command), envir=.GlobalEnv)
-		logger(paste(".Hypothesis <- ", command, sep=""))
+# 		assign(".Hypothesis", justDoIt(command), envir=.GlobalEnv)
+# 		logger(paste(".Hypothesis <- ", command, sep=""))
+		doItAndPrint(paste(".Hypothesis <- ", command, sep=""))
 		command <- paste("c(", paste(rhs, collapse=","), ")", sep="")
-		assign(".RHS", justDoIt(command), envir=.GlobalEnv)
-		logger(paste(".RHS <- ", command, sep=""))
+# 		assign(".RHS", justDoIt(command), envir=.GlobalEnv)
+# 		logger(paste(".RHS <- ", command, sep=""))
+		doItAndPrint(paste(".RHS <- ", command, sep=""))
 		rhs.values <- .RHS
 		command <- paste("linearHypothesis(", .activeModel, ", .Hypothesis, rhs=.RHS)", sep="")
 		doItAndPrint(command)

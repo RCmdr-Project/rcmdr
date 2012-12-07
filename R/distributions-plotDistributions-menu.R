@@ -1,6 +1,6 @@
 # Distributions menu dialogs for plots
 
-# last modified 2012-01-26 by J. Fox
+# last modified 2012-12-07 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic  (20 July 06)
 # modified by Miroslav M. Ristic (15 January 11)
@@ -86,8 +86,9 @@ distributionPlot <- function(nameVar){
 		} else {
 			command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
 		}
-		logger(paste(".x <- ", command, sep=""))
-		assign(".x", justDoIt(command), envir=.GlobalEnv)
+# 		logger(paste(".x <- ", command, sep=""))
+# 		assign(".x", justDoIt(command), envir=.GlobalEnv)
+		doItAndPrint(paste(".x <- ", command, sep=""))
 		doVar<-"plot(.x, "
 		if (nameVar=="Gumbel") {doVar<-"plot(log(.x), "}
 		if (nameVar=="F") {mainVar<-paste(",Numerator degrees=",vars[1],", Denominator degrees=",vars[2],sep="")}
@@ -159,8 +160,9 @@ discreteDistributionPlot <- function(nameVar){
 		min <- eval(parse(text=paste("q",fVar$funName,"(.0005",pasteVar,")",sep="")))
 		max <- eval(parse(text=paste("q",fVar$funName,"(.9995",pasteVar,")",sep="")))
 		command <- paste(min, ":", max, sep="")
-		logger(paste(".x <- ", command, sep=""))
-		assign(".x", justDoIt(command), envir=.GlobalEnv)
+# 		logger(paste(".x <- ", command, sep=""))
+# 		assign(".x", justDoIt(command), envir=.GlobalEnv)
+		doItAndPrint(paste(".x <- ", command, sep=""))
 		switch(nameVar,
 				"binomial" = xlabVar<-"Number of Successes",
 				"Poisson" = xlabVar<-"x",
@@ -187,8 +189,9 @@ discreteDistributionPlot <- function(nameVar){
 		}
 		else {
 			command <- "rep(.x, rep(2, length(.x)))"
-			logger(paste(".x <- ", command, sep=""))
-			assign(".x", justDoIt(command), envir=.GlobalEnv)
+# 			logger(paste(".x <- ", command, sep=""))
+# 			assign(".x", justDoIt(command), envir=.GlobalEnv)
+			doItAndPrint(paste(".x <- ", command, sep=""))
 			doItAndPrint(paste("plot(.x[-1], p",fVar$funName,"(.x",
 							pasteVar,')[-length(.x)], xlab="',xlabVar,
 							'",ylab="Cumulative Probability", main="',
