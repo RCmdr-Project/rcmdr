@@ -1,4 +1,4 @@
-# last modified 2012-12-07 by J. Fox
+# last modified 2012-12-11 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1895,13 +1895,17 @@ splitCmd <- function(cmd, width=getOption("width") - 4, at="[ ,]"){
 	if (singleQuotes[1] > 0 && (singleQuotes[1] < doubleQuotes[1] || doubleQuotes[1] < 0 ) && (singleQuotes[1] < comment[1] || comment[1] < 0 )){
 		nquotes <- length(singleQuotes)
 		if (nquotes < 2) stop("unbalanced quotes")
-		where[(where > singleQuotes[1]) & (where < singleQuotes[2])] <- NA
+#		where[(where > singleQuotes[1]) & (where < singleQuotes[2])] <- NA
+		for(i in seq(nquotes/2))
+		    where[(where > singleQuotes[2 * i - 1]) & (where < singleQuotes[2 * i])] <- NA
 		where <- na.omit(where)
 	}  
 	else if (doubleQuotes[1] > 0 && (doubleQuotes[1] < singleQuotes[1] || singleQuotes[1] < 0) && (doubleQuotes[1] < comment[1] || comment[1] < 0 )){
 		nquotes <- length(doubleQuotes)
 		if (nquotes < 2) stop("unbalanced quotes")
-		where[(where > doubleQuotes[1]) & (where < doubleQuotes[2])] <- NA
+#		where[(where > doubleQuotes[1]) & (where < doubleQuotes[2])] <- NA
+		for(i in seq(nquotes/2))
+		    where[(where > doubleQuotes[2 * i - 1]) & (where < doubleQuotes[2 * i])] <- NA
 		where <- na.omit(where)
 	}
 	else if (comment > 0){

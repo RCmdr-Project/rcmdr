@@ -4,7 +4,7 @@ Changes to Version 1.9-3
 
   o Various low-level changes for compatability with R devel (R 2.16.0).
 
-  o Small interface and documentation tweaks.
+  o Small interface and documentation tweaks and bug fixes.
 
 Changes to Version 1.9-2
 
