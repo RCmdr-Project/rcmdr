@@ -1,6 +1,6 @@
 Package: Rcmdr
 Version: 1.9-3
-Date: 2012/12/14
+Date: 2012/12/15
 Title: R Commander
 Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaster.ca"),
     person("Liviu", "Andronic", role = "ctb"),

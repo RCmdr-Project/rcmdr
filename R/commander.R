@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2012-12-14 by J. Fox
+# last modified 2012-12-15 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -229,7 +229,11 @@ Commander <- function(){
 	default.font.size <- as.character(setOption("default.font.size", 10, global=FALSE)) # if (.Platform$OS.type == "windows")10 else 12, global=FALSE))
 	default.font <- setOption("default.font", NULL, global=FALSE) 
 	if (!("RcmdrDefaultFont" %in% as.character(.Tcl("font names")))){
-		if (is.null(default.font)) .Tcl(paste("font create RcmdrDefaultFont -size ", default.font.size))
+#		if (is.null(default.font)) .Tcl(paste("font create RcmdrDefaultFont -size ", default.font.size))
+	    if (is.null(default.font)){
+	        .Tcl(paste("font create RcmdrDefaultFont", tclvalue(tkfont.actual("TkDefaultFont"))))
+	        tkfont.configure("RcmdrDefaultFont", size=default.font.size)
+	    }
 		else .Tcl(paste("font create RcmdrDefaultFont ", default.font))
 		.Tcl("option add *font RcmdrDefaultFont")
 	}
