@@ -2,9 +2,11 @@ Changes to Version 1.9-3
 
   o Fixed one- and multi-way ANOVA so that observation statistics can be saved (bug reported by Pedro Alberto Barbetta).
 
+  o New quit.R.on.close Rcmdr option (suggested by Milan Bouchet-Valat.)
+
   o Various low-level changes for compatability with R devel (R 2.16.0).
 
-  o Updated French translation (coutersy of Milan Bouchet-Valat).
+  o Updated French translation (courtesy of Milan Bouchet-Valat).
 
   o Small interface and documentation tweaks and bug fixes.
 

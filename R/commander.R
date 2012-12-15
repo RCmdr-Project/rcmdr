@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2012-12-07 by J. Fox
+# last modified 2012-12-14 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -15,9 +15,12 @@ Commander <- function(){
 	putRcmdr("quotes", options(useFancyQuotes=FALSE))
 	putRcmdr("messageNumber", 0)
 	# the following test suggested by Richard Heiberger
-	if ("RcmdrEnv" %in% search() &&
-			exists("commanderWindow", "RcmdrEnv") &&
-			!is.null(get("commanderWindow", "RcmdrEnv"))) {
+# 	if ("RcmdrEnv" %in% search() &&
+# 			exists("commanderWindow", "RcmdrEnv") &&
+# 			!is.null(get("commanderWindow", "RcmdrEnv"))) {
+	if (exists(".RcmdrEnv") && is.environment(RcmdrEnv()) &&
+	        exists("commanderWindow", RcmdrEnv()) &&
+	        !is.null(get("commanderWindow", RcmdrEnv()))) {
 		warning("The R Commander is already open.")
 		return(invisible(NULL))
 	}
@@ -44,7 +47,8 @@ Commander <- function(){
 	tkimage.create("photo", "::image::dataIcon", file = system.file("etc", "data.gif", package="Rcmdr"))
 	tkimage.create("photo", "::image::modelIcon", file = system.file("etc", "model.gif", package="Rcmdr"))
 	setOption("number.messages", TRUE)
-	etc <- setOption("etc", file.path(.path.package(package="Rcmdr")[1], "etc"))
+#etc <- setOption("etc", file.path(.path.package(package="Rcmdr")[1], "etc"))
+	etc <- setOption("etc", system.file("etc", package="Rcmdr"))
 	etcMenus <- setOption("etcMenus", etc)
 	putRcmdr("etcMenus", etcMenus)
 	onCopy <- function(){
@@ -205,6 +209,7 @@ Commander <- function(){
 	setOption("crisp.dialogs",  TRUE)
 	setOption("length.output.stack", 10)
 	setOption("length.command.stack", 10)
+    setOption("quit.R.on.close", FALSE)
 	putRcmdr("outputStack", as.list(rep(NA, getRcmdr("length.output.stack"))))
 	putRcmdr("commandStack", as.list(rep(NA, getRcmdr("length.command.stack"))))
 	setOption("variable.list.height", 4)
@@ -499,7 +504,8 @@ Commander <- function(){
 	if (.Platform$OS.type == "windows") tkwm.iconbitmap(.commander, system.file("etc", "R-logo.ico", package="Rcmdr"))
 	tkwm.geometry(.commander, placement)
 	tkwm.title(.commander, gettextRcmdr("R Commander"))
-	tkwm.protocol(.commander, "WM_DELETE_WINDOW", CloseCommander)
+	tkwm.protocol(.commander, "WM_DELETE_WINDOW", 
+                  if (getRcmdr("quit.R.on.close")) closeCommanderAndR else CloseCommander)
 	topMenu <- tkmenu(.commander)
 	tkconfigure(.commander, menu=topMenu)
 	position <- numeric(0)
