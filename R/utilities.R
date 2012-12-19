@@ -1,4 +1,4 @@
-# last modified 2012-12-11 by J. Fox
+# last modified 2012-12-17 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -2107,4 +2107,4 @@ confint.glm <- function (object, parm, level = 0.95, trace = FALSE, ...)
             ...)
 }
 
-tkfocus <- function(...) NULL
+tkfocus <- function(...) tcl("focus", ...)

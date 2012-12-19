@@ -6,6 +6,8 @@ Changes to Version 1.9-3
 
   o Fix to Rcmdr display font to improve appearance on some Macs (suggested by Milan Bouchet-Valat).
 
+  o Modified start-up so that Commander window doesn't open twice when a plug-in is loaded via library() (adapting a suggestion by Milan Bouchet-Valat).
+
   o Various low-level changes for compatability with R devel (R 2.16.0).
 
   o Updated French translation (courtesy of Milan Bouchet-Valat).
