@@ -12,6 +12,8 @@ Changes to Version 1.9-3
 
   o Updated French translation (courtesy of Milan Bouchet-Valat).
 
+  o Plug-in packages now can specify models via the RcmdrModels: field in the DESCRIPTION file in preference to the Models: field (request of Brian Ripley).
+
   o Small interface and documentation tweaks and bug fixes.
 
 Changes to Version 1.9-2

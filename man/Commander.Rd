@@ -224,7 +224,7 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{output.text.color}}{Color for output in the output window; the default is \code{"blue"}.}
         
     \item{\code{placement}}{Placement of the \emph{R Commander} window, in pixels; the default is
-    \code{"-40+20"}, which puts the window near the upper-right corner of the screen.}
+    \code{"+20+20"}, which puts the window near the upper-left corner of the screen.}
     
     \item{\code{plugins}}{A character vector giving the names of \pkg{Rcmdr} plug-in packages to load when the 
     Commander starts up. Plug-in packages can also be loaded from the \emph{Tools -> Load Rcmdr plug-in(s)} menu.
