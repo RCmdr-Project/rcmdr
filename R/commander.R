@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-01-02 by J. Fox
+# last modified 2013-01-08 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -243,7 +243,7 @@ Commander <- function(){
 		else .Tcl(paste("font configure RcmdrDefaultFont ", default.font))
 	}
 	.Tcl("ttk::style configure TButton -font RcmdrDefaultFont")
-	placement <- setOption("placement", "+20+20", global=FALSE)
+	placement <- setOption("placement", "", global=FALSE)
 	source.files <- list.files(etc, pattern="\\.[Rr]$")
 	for (file in source.files) {
 		source(file.path(etc, file))
