@@ -52,6 +52,7 @@
 \alias{tkwm.resizable}
 \alias{tkwm.title}
 \alias{tkwm.transient}
+\alias{tkxview}
 \alias{tkxview.moveto}
 \alias{tkyview}
 

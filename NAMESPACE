@@ -1,4 +1,4 @@
-# last modified 2013-01-10 by J. Fox
+# last modified 2013-01-11 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -46,7 +46,7 @@ tkscrollbar, tk_select.list, tkselection.clear,
 tkselection.set, tkset, tktag.configure, tktext, tktoplevel,
 tkwait.window, tkwm.deiconify, tkwm.iconbitmap, tkwm.geometry, tkwm.protocol,
 tkwm.resizable, tkwm.title, tkwm.transient,
-tkxview.moveto, tkyview)
+tkxview.moveto, tkxview, tkyview)
 
 S3method(coef, multinom)
 S3method(Confint, glm)
