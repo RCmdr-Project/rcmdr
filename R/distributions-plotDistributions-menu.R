@@ -1,6 +1,6 @@
 # Distributions menu dialogs for plots
 
-# last modified 2012-12-07 by J. Fox
+# last modified 2013-01-11 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic  (20 July 06)
 # modified by Miroslav M. Ristic (15 January 11)
@@ -48,7 +48,7 @@ distributionPlot <- function(nameVar){
 		nameVarF<-get(paste(nameVar,"DistributionPlot",sep=""),mode="function")
 		closeDialog()
 		warn <- options(warn=-1)
-		vars<-real(nnVar)
+		vars<-numeric(nnVar)
 		for (i in 1:nnVar) {
 			vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
 		}
@@ -136,7 +136,7 @@ discreteDistributionPlot <- function(nameVar){
 		nameVarF<-get(paste(nameVar,"DistributionPlot",sep=""),mode="function")
 		closeDialog()
 		warn <- options(warn=-1)
-		vars<-real(nnVar)
+		vars<-numeric(nnVar)
 		for (i in 1:nnVar) {
 			vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
 		}

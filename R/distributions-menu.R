@@ -1,6 +1,6 @@
 # Distributions menu dialogs
 
-# last modified 2012-12-02 by J. Fox
+# last modified 2013-01-11 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic (20 July 06)
 # Modified by Miroslav Ristic (15 January 11)
@@ -335,7 +335,7 @@ distributionQuantiles <- function(nameVar){
 			return()
 		}
 		warn <- options(warn=-1)
-		vars<-real(nnVar)
+		vars<-numeric(nnVar)
 		for (i in 1:nnVar) {
 			vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
 		}
@@ -410,7 +410,7 @@ distributionProbabilities <- function(nameVar){
 			return()
 		}
 		warn <- options(warn=-1)
-		vars<-real(nnVar)
+		vars<-numeric(nnVar)
 		for (i in 1:nnVar) {
 			vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
 		}
@@ -484,7 +484,7 @@ distributionMass  <- function(nameVar) {
 		nameVarF<-get(paste(nameVar,"Mass",sep=""),mode="function")
 		closeDialog()
 		warn <- options(warn=-1)
-		vars<-real(nnVar)
+		vars<-numeric(nnVar)
 		for (i in 1:nnVar) {
 			vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
 		}

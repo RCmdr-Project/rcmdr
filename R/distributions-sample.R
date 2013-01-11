@@ -1,6 +1,6 @@
 # Distributions menu dialogs for selecting samples
 
-# last modified 2012-01-26 by J. Fox
+# last modified 2013-01-11 by J. Fox
 # modified by Miroslav M. Ristic (15 January 2011)
 
 
@@ -70,7 +70,7 @@ distributionSamples <- function(nameVar) {
 			}
 		}
 		warn <- options(warn=-1)
-		vars<-real(nnVar)
+		vars<-numeric(nnVar)
 		for (i in 1:nnVar) {
 			vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
 		}
