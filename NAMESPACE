@@ -1,4 +1,4 @@
-# last modified 2013-01-11 by J. Fox
+# last modified 2013-01-12 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -42,11 +42,11 @@ tkgrid, tkgrid.columnconfigure, tkgrid.configure, tkgrid.rowconfigure,
 tkicursor, tkindex, tkinsert,
 tkinvoke, tkitemconfigure, tklabel, tklistbox, tkmark.set,
 tkmessageBox, tkpack, tkradiobutton, tkraise, tkscale,
-tkscrollbar, tk_select.list, tkselection.clear,
+tkscrollbar, tk_select.list, tkselection.clear, tkselection.present,
 tkselection.set, tkset, tktag.configure, tktext, tktoplevel,
 tkwait.window, tkwm.deiconify, tkwm.iconbitmap, tkwm.geometry, tkwm.protocol,
 tkwm.resizable, tkwm.title, tkwm.transient,
-tkxview.moveto, tkxview, tkyview)
+tkxview.moveto, tkxview, tkyview, tkyview.scroll)
 
 S3method(coef, multinom)
 S3method(Confint, glm)
