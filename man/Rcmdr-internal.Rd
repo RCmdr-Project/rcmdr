@@ -39,6 +39,7 @@
 \alias{tkscale}
 \alias{tkscrollbar}
 \alias{tkselection.clear}
+\alias{tkselection.present}
 \alias{tkselection.set}
 \alias{tkset}
 \alias{tktag.configure}
@@ -55,6 +56,7 @@
 \alias{tkxview}
 \alias{tkxview.moveto}
 \alias{tkyview}
+\alias{tkyview.scroll}
 
 \title{
 \pkg{tcltk} Functions Re-exported by the \pkg{Rcmdr} Package.
