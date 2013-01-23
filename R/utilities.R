@@ -1,4 +1,4 @@
-# last modified 2012-12-17 by J. Fox
+# last modified 2013-01-22 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1483,33 +1483,19 @@ isS4object <- function(object) {
 	}
 	else isS4(object)
 }
-
-# the following three functions are slightly adapted with permission from Philippe Grosjean
-
-# RcmdrEnv <- function() {
-# 	pos <-  match("RcmdrEnv", search())
-# 	if (is.na(pos)) { # Must create it
-# 		RcmdrEnv <- list()
-# 		attach(RcmdrEnv, pos = length(search()) - 1)
-# 		rm(RcmdrEnv)
-# 		pos <- match("RcmdrEnv", search())
-# 	}
-# 	return(pos.to.env(pos))
-# }
-# 
-# putRcmdr <- function(x, value)
-# 	assign(x, value, envir = RcmdrEnv())
-# 
-# getRcmdr <- function(x, mode="any")
-# 	get(x, envir = RcmdrEnv(), mode = mode, inherits = FALSE)
-
+    
 .RcmdrEnv <- new.env(parent=emptyenv())
 
-putRcmdr <- function(x, value) assign(x, value, envir=.RcmdrEnv)
-
-getRcmdr <- function(x, mode="any") get(x, envir=.RcmdrEnv, mode=mode, inherits=FALSE)
+# putRcmdr <- function(x, value) assign(x, value, envir=.RcmdrEnv)
+# 
+# getRcmdr <- function(x, mode="any") get(x, envir=.RcmdrEnv, mode=mode, inherits=FALSE)
 
 RcmdrEnv <- function() .RcmdrEnv
+
+putRcmdr <- function(x, value) assign(x, value, envir=RcmdrEnv())
+
+getRcmdr <- function(x, mode="any") get(x, envir=RcmdrEnv(), mode=mode, inherits=FALSE)
+
 
 RcmdrTclSet <- function(name, value){
 	if (is.SciViews()) return()   # + PhG

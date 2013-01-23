@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2012-12-07 by J. Fox
+# last modified 2013-01-22 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -185,6 +185,8 @@ effectPlots <- function(){
 }
 
 addObservationStatistics <- function () {
+    .activeDataSet <- ActiveDataSet()
+    .activeModel <- ActiveModel()
 	if (is.null(.activeModel)) 
 		return()
 	addVariable <- function(name) {
@@ -210,8 +212,6 @@ addObservationStatistics <- function () {
 			initial.hatvalues = 1, initial.cookd = 1, initial.obsNumbers = 1)
 	dialog.values <- getDialog ("addObservationStatistics", defaults)
 	initializeDialog(title = gettextRcmdr("Add Observation Statistics to Data"))
-	.activeModel <- ActiveModel()
-	.activeDataSet <- ActiveDataSet()
 	.variables <- Variables()
 	obsNumberExists <- is.element("obsNumber", .variables)
 	activate <- c(checkMethod("fitted", .activeModel, default = TRUE, 
@@ -505,6 +505,7 @@ compareModels <- function () {
 }
 
 BreuschPaganTest <- function () {
+    .activeModel <- ActiveModel()
 	if (is.null(.activeModel)) 
 		return()
 	Library("lmtest")
@@ -516,7 +517,6 @@ BreuschPaganTest <- function () {
 					fg = "blue"), sticky = "w")
 	optionsFrame <- tkframe(top)
 	onOK <- function() {
-		.activeModel <- ActiveModel()
 		student <- tclvalue(studentVariable)
 		var <- tclvalue(varVariable)
 		putDialog ("BreuschPaganTest", list (initial.var = var, initial.student = student))
@@ -560,6 +560,7 @@ BreuschPaganTest <- function () {
 }
 
 DurbinWatsonTest <- function () {
+    .activeModel <- ActiveModel()
 	if (is.null(.activeModel)) 
 		return()
 	Library("lmtest")
@@ -592,6 +593,7 @@ DurbinWatsonTest <- function () {
 }
 
 RESETtest <- function () {
+    .activeModel <- ActiveModel()
 	if (is.null(.activeModel)) 
 		return()
 	Library("lmtest")
@@ -648,9 +650,9 @@ RESETtest <- function () {
 }
 
 OutlierTest <- function(){
+    .activeModel <- ActiveModel()
 	if (is.null(.activeModel)) return()
 	Library("car")
-	.activeModel <- ActiveModel()
 	if (!checkMethod("outlierTest", .activeModel)) {
 		errorCondition(gettextRcmdr("There is no appropriate outlierTest method for a model of this class."))
 		return()
@@ -659,6 +661,7 @@ OutlierTest <- function(){
 }
 
 confidenceIntervals <- function () {
+    .activeModel <- ActiveModel()
     if (is.null(.activeModel)) 
         return()
     Library("MASS")
@@ -700,7 +703,6 @@ confidenceIntervals <- function () {
     tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level: ")), 
            confidenceField, sticky = "w")
     tkgrid(confidenceFrame, sticky = "w")
-    .activeModel <- ActiveModel()
     glm <- class(get(.activeModel))[1] == "glm"
     if (glm) 
         tkgrid(typeFrame, sticky = "w")

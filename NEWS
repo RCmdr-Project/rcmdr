@@ -1,3 +1,9 @@
+Changes to Version 1.9-4
+
+  o Introduced RcmdrEnv.on.path option for plug-in packages that don't conform to the new rules.
+
+  o Bug fixes to some dialogs that didn't work properly when RcmdrEnv not on path (reported by Kristian Hovde Liland).
+
 Changes to Version 1.9-3
 
   o Fixed one- and multi-way ANOVA so that observation statistics can be saved (bug reported by Pedro Alberto Barbetta).
@@ -24,7 +30,7 @@ Changes to Version 1.9-2
 
   o Better icons for dialog buttons, new option to suppress these icons, other interface tweaks (after suggestions of Milan Bouchet-Valat).
 
-  o Small fixs.
+  o Small fixes.
 
 Changes to Version 1.9-1
 

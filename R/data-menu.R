@@ -1,52 +1,52 @@
-# last modified 2012-12-07 by J. Fox
+# last modified 2013-01-22 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
 
 newDataSet <- function() {
-	initializeDialog(title=gettextRcmdr("New Data Set"))
-	dsname <- tclVar(gettextRcmdr("Dataset"))
-	entryDsname <- ttkentry(top, width="20", textvariable=dsname)
-	onOK <- function(){
-		dsnameValue <- trim.blanks(tclvalue(dsname))
-		if (dsnameValue == "") {
-			errorCondition(recall=newDataSet,
-					message=gettextRcmdr("You must enter the name of a data set."))
-			return()
-		}
-		if (!is.valid.name(dsnameValue)) {
-			errorCondition(recall=newDataSet,
-					message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
-			return()
-		}
-		if (is.element(dsnameValue, listDataSets())) {
-			if ("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
-				newDataSet()
-				return()
-			}
-		}
-		closeDialog()
-		command <- "edit(as.data.frame(NULL))"
-		result <- justDoIt(command)
-		result <- as.data.frame(lapply(result, function(x) if (is.character(x)) factor(x) else x))
-		if (class(result)[1] !=  "try-error"){ 
-# 			assign(dsnameValue, result, envir=.GlobalEnv)
-# 			logger(paste(dsnameValue, "<-", command))
-		    doItAndPrint(paste(dsnameValue, "<-", command))
-			if (nrow(get(dsnameValue)) == 0){
-				#        	if (eval(parse(text=paste("nrow(", dsnameValue, ")"))) == 0){
-				errorCondition(recall=newDataSet, message=gettextRcmdr("empty data set."))
-				return()
-			}
-			activeDataSet(dsnameValue)
-		}
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject="edit.data.frame")
-	tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter name for data set:")), entryDsname, sticky="e")
-	tkgrid(buttonsFrame, columnspan="2", sticky="w")
-	tkgrid.configure(entryDsname, sticky="w")
-	dialogSuffix(rows=2, columns=2, focus=entryDsname)
+    initializeDialog(title=gettextRcmdr("New Data Set"))
+    dsname <- tclVar(gettextRcmdr("Dataset"))
+    entryDsname <- ttkentry(top, width="20", textvariable=dsname)
+    onOK <- function(){
+        dsnameValue <- trim.blanks(tclvalue(dsname))
+        if (dsnameValue == "") {
+            errorCondition(recall=newDataSet,
+                message=gettextRcmdr("You must enter the name of a data set."))
+            return()
+        }
+        if (!is.valid.name(dsnameValue)) {
+            errorCondition(recall=newDataSet,
+                message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
+            return()
+        }
+        if (is.element(dsnameValue, listDataSets())) {
+            if ("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
+                newDataSet()
+                return()
+            }
+        }
+        closeDialog()
+        command <- "edit(as.data.frame(NULL))"
+        result <- justDoIt(command)
+        result <- as.data.frame(lapply(result, function(x) if (is.character(x)) factor(x) else x))
+        if (class(result)[1] !=  "try-error"){ 
+            putRcmdr(".newDataSet", result)
+            logger(paste(dsnameValue, "<-", command))
+            justDoIt(paste(dsnameValue, "<- getRcmdr('.newDataSet')"))
+            remove(".newDataSet", envir=RcmdrEnv())
+            if (nrow(get(dsnameValue)) == 0){
+                errorCondition(recall=newDataSet, message=gettextRcmdr("empty data set."))
+                return()
+            }
+            activeDataSet(dsnameValue)
+        }
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject="edit.data.frame")
+    tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter name for data set:")), entryDsname, sticky="e")
+    tkgrid(buttonsFrame, columnspan="2", sticky="w")
+    tkgrid.configure(entryDsname, sticky="w")
+    dialogSuffix(rows=2, columns=2, focus=entryDsname)
 }
 
 selectActiveDataSet <- function(){
