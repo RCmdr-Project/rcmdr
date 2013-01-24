@@ -235,6 +235,11 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{prefixes}}{A four-item character vector to specify the prefixes used when output is directed
     to the R console; the default is \code{c("Rcmdr> ", "Rcmdr+ ", "RcmdrMsg: ", "RcmdrMsg+ ")}.}
     
+    \item{\code{RcmdrEnv.on.path}}{If \code{TRUE} (the default for versions of R
+    prior to version 3.0.0, the environment in which R Commander state information
+    is stored is placed on the search path. Some plug-ins may, at least until
+    they are updated, require this setting.)}
+    
     \item{\code{quit.R.on.close}}{if \code{TRUE}, both the Commander and R are exited when the Commander
     window is closed. The default is \code{FALSE}, in which case only the Commander is exited (and can be restarted
     by the command \code{Commander()}).}

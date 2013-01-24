@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-01-22 by J. Fox
+# last modified 2013-01-24 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -10,13 +10,14 @@
 Commander <- function(){
     library(Rcmdr, quietly=TRUE)
     RcmdrEnv.on.path <- getOption("Rcmdr")[["RcmdrEnv.on.path"]]
-    if (is.null(RcmdrEnv.on.path)) RcmdrEnv.on.path <- FALSE
+    if (is.null(RcmdrEnv.on.path)) RcmdrEnv.on.path <- (getRversion() < "3.0.0")
     if (RcmdrEnv.on.path){
         RcmdrEnv <- function() {
             pos <-  match("RcmdrEnv", search())
             if (is.na(pos)) { # Must create it
+                RcmdrAttach <- base::attach
                 RcmdrEnv <- list()
-                attach(RcmdrEnv, pos = length(search()) - 1)
+                RcmdrAttach(RcmdrEnv, pos = length(search()) - 1)
                 rm(RcmdrEnv)
                 pos <- match("RcmdrEnv", search())
             }
