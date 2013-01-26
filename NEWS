@@ -1,3 +1,7 @@
+Changes to Version 1.9-5
+
+  o Improvements to opening dialogs on Windows.
+
 Changes to Version 1.9-4
 
   o Introduced RcmdrEnv.on.path option for plug-in packages that don't conform to the new rules.
