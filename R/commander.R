@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-01-24 by J. Fox
+# last modified 2013-01-27 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -53,6 +53,7 @@ Commander <- function(){
 	current <- options("Rcmdr")[[1]]
     setOption("suppress.icon.images", FALSE)
     icon.images <- !getRcmdr("suppress.icon.images")
+    tkimage.create("photo", "::image::RlogoIcon", file = system.file("etc", "R-logo.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::okIcon", 
                    file = if (icon.images) system.file("etc", "ok.gif", package="Rcmdr") else system.file("etc", "blank.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::cancelIcon", file = if (icon.images) system.file("etc", "cancel.gif", package="Rcmdr") 
@@ -529,7 +530,8 @@ Commander <- function(){
 	if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
 	putRcmdr("commanderWindow", tktoplevel(class="Rcommander"))
 	.commander <- CommanderWindow()
-	if (.Platform$OS.type == "windows") tkwm.iconbitmap(.commander, system.file("etc", "R-logo.ico", package="Rcmdr"))
+#	if (.Platform$OS.type == "windows") tkwm.iconbitmap(.commander, default=system.file("etc", "R-logo.ico", package="Rcmdr"))
+    tcl("wm", "iconphoto", .commander, "::image::RlogoIcon")
 	tkwm.geometry(.commander, placement)
 	tkwm.title(.commander, gettextRcmdr("R Commander"))
 	tkwm.protocol(.commander, "WM_DELETE_WINDOW", 
@@ -626,7 +628,6 @@ Commander <- function(){
 	show.edit.button <- if (is.null(show.edit.button)) TRUE else show.edit.button
 	if (!getRcmdr("suppress.menus")){
 #		RcmdrIm <- tcl("image", "create", "bitmap", file=file.path(etc, "Rcmdr.xbm"), foreground="red")
-        tkimage.create("photo", "::image::RlogoIcon", file = system.file("etc", "R-logo.gif", package="Rcmdr"))
 		tkgrid(labelRcmdr(controlsFrame, image="::image::RlogoIcon", compound="left"),
 				labelRcmdr(controlsFrame, text=gettextRcmdr("Data set:")), getRcmdr("dataSetLabel"),
 				labelRcmdr(controlsFrame, text="  "), if(show.edit.button) editButton, viewButton,

@@ -1,6 +1,8 @@
 Changes to Version 1.9-5
 
-  o Improvements to opening dialogs on Windows.
+  o R logo now replaces Tk logo on non-Windows as well as Windows platforms (with help of Milan Bouchet-Valet).
+
+  o Faster opening of dialog windows under Windows (consequence of above).
 
 Changes to Version 1.9-4
 
