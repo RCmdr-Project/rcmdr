@@ -43,7 +43,7 @@
 				icon="error", type="yesno")
 		if (tclvalue(response) == "yes") {
 			top <- tktoplevel(borderwidth=10)
-			tkwm.iconbitmap(top, system.file("etc", "R-logo.ico", package="Rcmdr"))
+#			tkwm.iconbitmap(top, system.file("etc", "R-logo.ico", package="Rcmdr"))
 			tkwm.title(top, gettext("Install Missing Packages", domain="R-Rcmdr"))
 			locationFrame <- tkframe(top)
 			locationVariable <- tclVar("CRAN")

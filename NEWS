@@ -4,6 +4,8 @@ Changes to Version 1.9-5
 
   o Faster opening of dialog windows under Windows (consequence of above).
 
+  o Fix for Mac OS X bug in auto-load of missing dependencies on initial start-up (reported by Pablo Serrano).
+
 Changes to Version 1.9-4
 
   o Introduced RcmdrEnv.on.path option for plug-in packages that don't conform to the new rules.
