@@ -738,7 +738,7 @@ RcmdrPager <- function (file, header, title, delete.file)
 	for (i in seq(along = file)) {
 		zfile <- file[[i]]
 		tt <- tktoplevel()
-		if (.Platform$OS.type == "windows") tkwm.iconbitmap(tt, system.file("etc", "R-logo.ico", package="Rcmdr"))
+		if (.Platform$OS.type == "windows") tkwm.iconbitmap(tt, system.file("etc", "R-logo.ico", package="Rcmdr2"))
 		tkwm.title(tt, if (length(title))
 							title[(i - 1)%%length(title) + 1]
 						else "")
@@ -764,10 +764,10 @@ RcmdrPager <- function (file, header, title, delete.file)
 # help functions
 
 helpCommander <- function() {
-	PDF <- file.access(paste(file.path(.path.package(package="Rcmdr")[1], "doc"), 
+	PDF <- file.access(paste(file.path(.path.package(package="Rcmdr2")[1], "doc"), 
 					"/", gettextRcmdr("Commander"), ".pdf", sep=""), mode=4)
 	if (PDF == 0){
-		browseURL(paste(file.path(.path.package(package="Rcmdr")[1], "doc"),
+		browseURL(paste(file.path(.path.package(package="Rcmdr2")[1], "doc"),
 						"/", gettextRcmdr("Commander"), ".pdf", sep=""))
 	} 
 	else if (as.numeric(R.Version()$major) >= 2) print(help(gettextRcmdr("Commander")))
@@ -780,7 +780,7 @@ helpAboutCommander <- function() {
 }
 
 browseManual <- function() {
-	browseURL(paste(file.path(.path.package(package="Rcmdr")[1], "doc"),
+	browseURL(paste(file.path(.path.package(package="Rcmdr2")[1], "doc"),
 					"/", gettextRcmdr("Getting-Started-with-the-Rcmdr"), ".pdf", sep=""))
 }
 
@@ -803,7 +803,7 @@ defmacro <- function(..., expr){
 	for (i in seq(length.out=length(a))){
 		if (nn[i] == "") {
 			nn[i] <- paste(a[[i]])
-			msg <- paste(a[[i]], gettext("not supplied", domain="R-Rcmdr"))
+			msg <- paste(a[[i]], gettext("not supplied", domain="R-Rcmdr2"))
 			a[[i]] <- substitute(stop(foo), list(foo = msg))
 		}
 	}
@@ -977,7 +977,7 @@ initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp=FALSE
 		    tcl("wm", "iconphoto", window, "::image::RlogoIcon")
 # 		    if (.Platform$OS.type == "windows") {
 # 		        tkwm.iconify(window)
-# 		        tkwm.iconbitmap(window, system.file("etc", "R-logo.ico", package="Rcmdr"))
+# 		        tkwm.iconbitmap(window, system.file("etc", "R-logo.ico", package="Rcmdr2"))
 # 		    }
 		    tkwm.transient(window, CommanderWindow())
 		}
@@ -1649,7 +1649,7 @@ activateMenus <- function(){
 
 # for internationalization
 
-gettextRcmdr <- function(...) gettext(..., domain="R-Rcmdr")
+gettextRcmdr <- function(...) gettext(..., domain="R-Rcmdr2")
 
 gettextMenus <- function(...){
 	text <- gettextRcmdr(...)

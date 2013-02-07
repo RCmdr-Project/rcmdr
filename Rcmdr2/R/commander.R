@@ -8,7 +8,7 @@
 #   modified 17 December 2008 by Richard Heiberger  ##rmh
 
 Commander <- function(){
-    library(Rcmdr, quietly=TRUE)
+    library(Rcmdr2, quietly=TRUE)
     RcmdrEnv.on.path <- getOption("Rcmdr")[["RcmdrEnv.on.path"]]
     if (is.null(RcmdrEnv.on.path)) RcmdrEnv.on.path <- (getRversion() < "3.0.0")
     if (RcmdrEnv.on.path){
@@ -53,23 +53,23 @@ Commander <- function(){
 	current <- options("Rcmdr")[[1]]
     setOption("suppress.icon.images", FALSE)
     icon.images <- !getRcmdr("suppress.icon.images")
-    tkimage.create("photo", "::image::RlogoIcon", file = system.file("etc", "R-logo.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::RlogoIcon", file = system.file("etc", "R-logo.gif", package="Rcmdr2"))
     tkimage.create("photo", "::image::okIcon", 
-                   file = if (icon.images) system.file("etc", "ok.gif", package="Rcmdr") else system.file("etc", "blank.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::cancelIcon", file = if (icon.images) system.file("etc", "cancel.gif", package="Rcmdr") 
-                   else system.file("etc", "blank.gif", package="Rcmdr"))
-	tkimage.create("photo", "::image::helpIcon", file = if (icon.images) system.file("etc", "help.gif", package="Rcmdr")
-                    else system.file("etc", "blank.gif", package="Rcmdr"))
-	tkimage.create("photo", "::image::resetIcon", file = if (icon.images) system.file("etc", "reset.gif", package="Rcmdr")
-                    else system.file("etc", "blank.gif", package="Rcmdr"))
-	tkimage.create("photo", "::image::submitIcon", file = system.file("etc", "submit.gif", package="Rcmdr"))
-	tkimage.create("photo", "::image::editIcon", file = system.file("etc", "edit.gif", package="Rcmdr"))
-	tkimage.create("photo", "::image::viewIcon", file = system.file("etc", "view.gif", package="Rcmdr"))
-	tkimage.create("photo", "::image::dataIcon", file = system.file("etc", "data.gif", package="Rcmdr"))
-	tkimage.create("photo", "::image::modelIcon", file = system.file("etc", "model.gif", package="Rcmdr"))
+                   file = if (icon.images) system.file("etc", "ok.gif", package="Rcmdr2") else system.file("etc", "blank.gif", package="Rcmdr2"))
+    tkimage.create("photo", "::image::cancelIcon", file = if (icon.images) system.file("etc", "cancel.gif", package="Rcmdr2") 
+                   else system.file("etc", "blank.gif", package="Rcmdr2"))
+	tkimage.create("photo", "::image::helpIcon", file = if (icon.images) system.file("etc", "help.gif", package="Rcmdr2")
+                    else system.file("etc", "blank.gif", package="Rcmdr2"))
+	tkimage.create("photo", "::image::resetIcon", file = if (icon.images) system.file("etc", "reset.gif", package="Rcmdr2")
+                    else system.file("etc", "blank.gif", package="Rcmdr2"))
+	tkimage.create("photo", "::image::submitIcon", file = system.file("etc", "submit.gif", package="Rcmdr2"))
+	tkimage.create("photo", "::image::editIcon", file = system.file("etc", "edit.gif", package="Rcmdr2"))
+	tkimage.create("photo", "::image::viewIcon", file = system.file("etc", "view.gif", package="Rcmdr2"))
+	tkimage.create("photo", "::image::dataIcon", file = system.file("etc", "data.gif", package="Rcmdr2"))
+	tkimage.create("photo", "::image::modelIcon", file = system.file("etc", "model.gif", package="Rcmdr2"))
 	setOption("number.messages", TRUE)
-#etc <- setOption("etc", file.path(.path.package(package="Rcmdr")[1], "etc"))
-	etc <- setOption("etc", system.file("etc", package="Rcmdr"))
+#etc <- setOption("etc", file.path(.path.package(package="Rcmdr2")[1], "etc"))
+	etc <- setOption("etc", system.file("etc", package="Rcmdr2"))
 	etcMenus <- setOption("etcMenus", etc)
 	putRcmdr("etcMenus", etcMenus)
 	onCopy <- function(){
@@ -530,7 +530,7 @@ Commander <- function(){
 	if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
 	putRcmdr("commanderWindow", tktoplevel(class="Rcommander"))
 	.commander <- CommanderWindow()
-#	if (.Platform$OS.type == "windows") tkwm.iconbitmap(.commander, default=system.file("etc", "R-logo.ico", package="Rcmdr"))
+#	if (.Platform$OS.type == "windows") tkwm.iconbitmap(.commander, default=system.file("etc", "R-logo.ico", package="Rcmdr2"))
     tcl("wm", "iconphoto", .commander, "::image::RlogoIcon")
 	tkwm.geometry(.commander, placement)
 	tkwm.title(.commander, gettextRcmdr("R Commander"))
