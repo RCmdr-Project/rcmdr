@@ -57,6 +57,7 @@
 \alias{tkxview.moveto}
 \alias{tkyview}
 \alias{tkyview.scroll}
+\alias{ttklabelframe}
 
 \title{
 \pkg{tcltk} Functions Re-exported by the \pkg{Rcmdr} Package.
