@@ -1,4 +1,4 @@
-# last modified 2013-01-27 by J. Fox
+# last modified 2013-02-08 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -828,67 +828,106 @@ defmacro <- function(..., expr){
 }
 
 OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
-		expr={
-			memory <- getRcmdr("retain.selections")
-			buttonsFrame <- tkframe(window, borderwidth=5)
-			OKbutton <- buttonRcmdr(buttonsFrame, text=gettextRcmdr("OK"), foreground="darkgreen", width="12", command=onOK, default="active",
-					borderwidth=3, image="::image::okIcon", compound="left")
-			onCancel <- function() {
-				if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
-				if (GrabFocus()) tkgrab.release(window)
-				tkdestroy(window)
-				tkfocus(CommanderWindow())
-			}
-			cancelButton <- buttonRcmdr(buttonsFrame, text=gettextRcmdr("Cancel"), foreground="red", width="12", command=onCancel, borderwidth=3,
-					image="::image::cancelIcon", compound="left")
-			if (!is.null(helpSubject)){
-				onHelp <- function() {
-					if (GrabFocus() && .Platform$OS.type != "windows") tkgrab.release(window)
-					if (as.numeric(R.Version()$major) >= 2) print(help(helpSubject))
-					else help(helpSubject)
-				}
-				helpButton <- buttonRcmdr(buttonsFrame, text=gettextRcmdr("Help"), width="12", command=onHelp, borderwidth=3,
-						image="::image::helpIcon", compound="left")
-			}
-			if (!is.null(reset) && memory){
-				onReset <- function(){
-					if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
-					putDialog(reset, NULL)
-					putDialog(reset, NULL, resettable=FALSE)
-					closeDialog()
-					eval(parse(text=paste(reset, "()")))
-				}
-				resetButton <- buttonRcmdr(buttonsFrame, text=gettextRcmdr("Reset"), width=12, command=onReset,
-						image="::image::resetIcon", compound="left")
-			}
-			tkgrid(OKbutton, labelRcmdr(buttonsFrame, text="  "), cancelButton, labelRcmdr(buttonsFrame, text="            "),
-					if(!is.null(reset) && memory) resetButton, if(!is.null(reset) && memory) labelRcmdr(buttonsFrame, text="  "), 
-					if (!is.null(helpSubject)) helpButton, sticky="w")
-		})
+    expr={
+        memory <- getRcmdr("retain.selections")
+        buttonsFrame <- tkframe(window)
+        leftButtonsBox <- tkframe(buttonsFrame)
+        rightButtonsBox <- tkframe(buttonsFrame)
+        OKbutton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("OK"), foreground="darkgreen", width="12", command=onOK, default="active",
+            image="::image::okIcon", compound="left")
+        onCancel <- function() {
+            if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
+            if (GrabFocus()) tkgrab.release(window)
+            tkdestroy(window)
+            tkfocus(CommanderWindow())
+        }
+        cancelButton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("Cancel"), foreground="red", width="12", command=onCancel, # borderwidth=3,
+            image="::image::cancelIcon", compound="left")
+        if (!is.null(helpSubject)){
+            onHelp <- function() {
+                if (GrabFocus() && .Platform$OS.type != "windows") tkgrab.release(window)
+                if (as.numeric(R.Version()$major) >= 2) print(help(helpSubject))
+                else help(helpSubject)
+            }
+            helpButton <- buttonRcmdr(leftButtonsBox, text=gettextRcmdr("Help"), width="12", command=onHelp, # borderwidth=3,
+                image="::image::helpIcon", compound="left")
+        }
+        if (!is.null(reset) && memory){
+            onReset <- function(){
+                if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
+                putDialog(reset, NULL)
+                putDialog(reset, NULL, resettable=FALSE)
+                closeDialog()
+                eval(parse(text=paste(reset, "()")))
+            }
+            resetButton <- buttonRcmdr(leftButtonsBox, text=gettextRcmdr("Reset"), width=12, command=onReset,
+                image="::image::resetIcon", compound="left")
+        }
+        
+        if(!WindowsP()) {
+            tkgrid(cancelButton, OKbutton, sticky="w")
+            tkgrid.configure(OKbutton, padx=c(6, 0))
+        }
+        else {
+            tkgrid(OKbutton, cancelButton, sticky="w")
+            tkgrid.configure(OKbutton, padx=c(0, 6))
+        }
+        if (!is.null(reset) && memory) {
+            if (! is.null(helpSubject)){
+                tkgrid (helpButton, resetButton, pady=6)
+            }
+            else tkgrid (resetButton, pady=6)
+        }
+        else if (! is.null(helpSubject)){
+            tkgrid(helpButton, pady=6)
+        }
+        tkgrid(leftButtonsBox, rightButtonsBox, pady=6)
+        if (!is.null(helpSubject)) tkgrid.configure(helpButton, padx=c(0, 18))
+        else if (!is.null(reset) && memory) tkgrid.configure(reset, padx=c(0, 18))
+        tkgrid.columnconfigure(buttonsFrame, 0, weight=1)
+        tkgrid.columnconfigure(buttonsFrame, 1, weight=1)
+        tkgrid.configure(leftButtonsBox, sticky="w")
+        tkgrid.configure(rightButtonsBox, sticky="e")
+    })
 
 subOKCancelHelp <- defmacro(window=subdialog, helpSubject=NULL,
 		expr={
-			subButtonsFrame <- tkframe(window, borderwidth=5)
-			subOKbutton <- buttonRcmdr(subButtonsFrame, text=gettextRcmdr("OK"), foreground="darkgreen", width="12", command=onOKsub, default="active",
-					borderwidth=3, image="::image::okIcon", compound="left")
+		    subButtonsFrame <- tkframe(window)
+		    subLeftButtonsBox <- tkframe(subButtonsFrame)
+		    subRightButtonsBox <- tkframe(subButtonsFrame)
+			subOKbutton <- buttonRcmdr(subRightButtonsBox, text=gettextRcmdr("OK"), foreground="darkgreen", width="12", command=onOKsub, default="active",
+					image="::image::okIcon", compound="left")
 			onCancelSub <- function() {
 				if (GrabFocus()) tkgrab.release(window)
 				tkdestroy(window)
 				tkfocus(CommanderWindow())
 			}
-			subCancelButton <- buttonRcmdr(subButtonsFrame, text=gettextRcmdr("Cancel"), foreground="red", width="12", command=onCancelSub,
-					borderwidth=3, image="::image::cancelIcon", compound="left")
+			subCancelButton <- buttonRcmdr(subRightButtonsBox, text=gettextRcmdr("Cancel"), foreground="red", width="12", command=onCancelSub,
+					image="::image::cancelIcon", compound="left") # borderwidth=3, 
 			if (!is.null(helpSubject)){
 				onHelpSub <- function(){
 					if (GrabFocus() && .Platform$OS.type != "windows") tkgrab.release(window)
 					if (as.numeric(R.Version()$major) >= 2) print(help(helpSubject))
 					else help(helpSubject)
 				}
-				subHelpButton <- buttonRcmdr(subButtonsFrame, text=gettextRcmdr("Help"), width="12", command=onHelpSub, borderwidth=3,
+				subHelpButton <- buttonRcmdr(subLeftButtonsBox, text=gettextRcmdr("Help"), width="12", command=onHelpSub, 
 						image="::image::helpIcon", compound="left")
 			}
-			tkgrid(subOKbutton, labelRcmdr(subButtonsFrame, text="  "), subCancelButton,
-					labelRcmdr(subButtonsFrame, text="            "), if (!is.null(helpSubject)) subHelpButton, sticky="w")
+		    if(!WindowsP()) {
+		        tkgrid(subCancelButton, subOKbutton, sticky="w")
+		        tkgrid.configure(subOKbutton, padx=c(6, 0))
+		    }
+		    else {
+		        tkgrid(subOKbutton, subCancelButton, sticky="w")
+		        tkgrid.configure(subOKbutton, padx=c(0, 6))
+		    }
+		    if (! is.null(helpSubject)){
+		        tkgrid(helpButton, pady=6, padx=c(0, 18))
+		    }
+		    tkgrid.columnconfigure(subButtonsFrame, 0, weight=1)
+		    tkgrid.columnconfigure(subButtonsFrame, 1, weight=1)
+		    tkgrid.configure(subLeftButtonsBox, sticky="w")
+		    tkgrid.configure(subRightButtonsBox, sticky="e")
 		})
 
 checkActiveDataSet <- function(){
@@ -975,10 +1014,6 @@ initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp=FALSE
 					else paste("+", paste(offset + position, collapse="+"), sep="")
 			tkwm.geometry(window, position)
 		    tcl("wm", "iconphoto", window, "::image::RlogoIcon")
-# 		    if (.Platform$OS.type == "windows") {
-# 		        tkwm.iconify(window)
-# 		        tkwm.iconbitmap(window, system.file("etc", "R-logo.ico", package="Rcmdr2"))
-# 		    }
 		    tkwm.transient(window, CommanderWindow())
 		}
 )
@@ -991,93 +1026,93 @@ closeDialog <- defmacro(window=top, release=TRUE,
 )
 
 dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows=1, columns=1, focus=top,
-		bindReturn=TRUE, preventGrabFocus=FALSE, preventDoubleClick=FALSE,
-		preventCrisp=FALSE,
-		expr={
-			for (row in 0:(rows-1)) tkgrid.rowconfigure(window, row, weight=0)
-			for (col in 0:(columns-1)) tkgrid.columnconfigure(window, col, weight=0)
-			.Tcl("update idletasks")
-			tkwm.resizable(window, 0, 0)
-			if (bindReturn) tkbind(window, "<Return>", onOK)
-			tkbind(window, "<Escape>", onCancel)
-			if (getRcmdr("double.click") && (!preventDoubleClick)) tkbind(window, "<Double-ButtonPress-1>", onOK)
-			tkwm.deiconify(window)
-			# focus grabs appear to cause problems for some dialogs
-			if (GrabFocus() && (!preventGrabFocus)) tkgrab.set(window)
-			tkfocus(focus)
-			tkwait.window(window)
-			if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
-		}
+    bindReturn=TRUE, preventGrabFocus=FALSE, preventDoubleClick=FALSE,
+    preventCrisp=FALSE,
+    expr={
+        #         for (row in 0:(rows-1)) tkgrid.rowconfigure(window, row, weight=0)
+        #         for (col in 0:(columns-1)) tkgrid.columnconfigure(window, col, weight=0)
+        .Tcl("update idletasks")
+        tkwm.resizable(window, 0, 0)
+        if (bindReturn) tkbind(window, "<Return>", onOK)
+        tkbind(window, "<Escape>", onCancel)
+        if (getRcmdr("double.click") && (!preventDoubleClick)) tkbind(window, "<Double-ButtonPress-1>", onOK)
+        tkwm.deiconify(window)
+        # focus grabs appear to cause problems for some dialogs
+        if (GrabFocus() && (!preventGrabFocus)) tkgrab.set(window)
+        tkfocus(focus)
+        tkwait.window(window)
+        if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
+    }
 )
 
 variableListBox <- function(parentWindow, variableList=Variables(), bg="white",
-		selectmode="single", export="FALSE", initialSelection=NULL, listHeight=getRcmdr("variable.list.height"), title){
-	if (selectmode == "multiple") selectmode <- getRcmdr("multiple.select.mode")
-	if (length(variableList) == 1 && is.null(initialSelection)) initialSelection <- 0
-	frame <- tkframe(parentWindow)
-	minmax <- getRcmdr("variable.list.width")
-	listbox <- tklistbox(frame, height=min(listHeight, length(variableList)),
-			selectmode=selectmode, background=bg, exportselection=export, 
-			width=min(max(minmax[1], nchar(variableList)), minmax[2]))
-	scrollbar <- ttkscrollbar(frame, command=function(...) tkyview(listbox, ...))
-	tkconfigure(listbox, yscrollcommand=function(...) tkset(scrollbar, ...))
-	for (var in variableList) tkinsert(listbox, "end", var)
-	if (is.numeric(initialSelection)) for (sel in initialSelection) tkselection.set(listbox, sel)
-	firstChar <- tolower(substr(variableList, 1, 1))
-	len <- length(variableList)
-	onLetter <- function(letter){
-		letter <- tolower(letter)
-		current <- 1 + round(as.numeric(unlist(strsplit(tclvalue(tkyview(listbox) ), " "))[1])*len)
-		mat <- match(letter, firstChar[-(1:current)])
-		if (is.na(mat)) return()
-		tkyview.scroll(listbox, mat, "units")
-	}
-	onA <- function() onLetter("a")
-	onB <- function() onLetter("b")
-	onC <- function() onLetter("c")
-	onD <- function() onLetter("d")
-	onE <- function() onLetter("e")
-	onF <- function() onLetter("f")
-	onG <- function() onLetter("g")
-	onH <- function() onLetter("h")
-	onI <- function() onLetter("i")
-	onJ <- function() onLetter("j")
-	onK <- function() onLetter("k")
-	onL <- function() onLetter("l")
-	onM <- function() onLetter("m")
-	onN <- function() onLetter("n")
-	onO <- function() onLetter("o")
-	onP <- function() onLetter("p")
-	onQ <- function() onLetter("q")
-	onR <- function() onLetter("r")
-	onS <- function() onLetter("s")
-	onT <- function() onLetter("t")
-	onU <- function() onLetter("u")
-	onV <- function() onLetter("v")
-	onW <- function() onLetter("w")
-	onX <- function() onLetter("x")
-	onY <- function() onLetter("y")
-	onZ <- function() onLetter("z")
-	for (letter in c(letters, LETTERS)){
-		tkbind(listbox, paste("<", letter, ">", sep=""),
-				get(paste("on", toupper(letter), sep="")))
-	}
-	onClick <- function() tkfocus(listbox)
-	toggleSelection <- function(){
-		active <- tclvalue(tkindex(listbox, "active"))
-		selected <- tclvalue(tkcurselection(listbox))
-		if (selected == active) tkselection.clear(listbox, "active") else tkselection.set(listbox, "active")
-	}
-	tkbind(listbox, "<ButtonPress-1>", onClick)
-	if (selectmode == "single") tkbind(listbox, "<Control-ButtonPress-1>", toggleSelection)
-	tkgrid(labelRcmdr(frame, text=title, foreground="blue"), columnspan=2, sticky="w")
-	tkgrid(listbox, scrollbar, sticky="nw")
-	tkgrid.configure(scrollbar, sticky="wns")
-	tkgrid.configure(listbox, sticky="ewns")
-	result <- list(frame=frame, listbox=listbox, scrollbar=scrollbar,
-			selectmode=selectmode, varlist=variableList)
-	class(result) <- "listbox"
-	result
+    selectmode="single", export="FALSE", initialSelection=NULL, listHeight=getRcmdr("variable.list.height"), title){
+    if (selectmode == "multiple") selectmode <- getRcmdr("multiple.select.mode")
+    if (length(variableList) == 1 && is.null(initialSelection)) initialSelection <- 0
+    frame <- tkframe(parentWindow)
+    minmax <- getRcmdr("variable.list.width")
+    listbox <- tklistbox(frame, height=min(listHeight, length(variableList)),
+        selectmode=selectmode, background=bg, exportselection=export, 
+        width=min(max(minmax[1], nchar(variableList)), minmax[2]))
+    scrollbar <- ttkscrollbar(frame, command=function(...) tkyview(listbox, ...))
+    tkconfigure(listbox, yscrollcommand=function(...) tkset(scrollbar, ...))
+    for (var in variableList) tkinsert(listbox, "end", var)
+    if (is.numeric(initialSelection)) for (sel in initialSelection) tkselection.set(listbox, sel)
+    firstChar <- tolower(substr(variableList, 1, 1))
+    len <- length(variableList)
+    onLetter <- function(letter){
+        letter <- tolower(letter)
+        current <- 1 + round(as.numeric(unlist(strsplit(tclvalue(tkyview(listbox) ), " "))[1])*len)
+        mat <- match(letter, firstChar[-(1:current)])
+        if (is.na(mat)) return()
+        tkyview.scroll(listbox, mat, "units")
+    }
+    onA <- function() onLetter("a")
+    onB <- function() onLetter("b")
+    onC <- function() onLetter("c")
+    onD <- function() onLetter("d")
+    onE <- function() onLetter("e")
+    onF <- function() onLetter("f")
+    onG <- function() onLetter("g")
+    onH <- function() onLetter("h")
+    onI <- function() onLetter("i")
+    onJ <- function() onLetter("j")
+    onK <- function() onLetter("k")
+    onL <- function() onLetter("l")
+    onM <- function() onLetter("m")
+    onN <- function() onLetter("n")
+    onO <- function() onLetter("o")
+    onP <- function() onLetter("p")
+    onQ <- function() onLetter("q")
+    onR <- function() onLetter("r")
+    onS <- function() onLetter("s")
+    onT <- function() onLetter("t")
+    onU <- function() onLetter("u")
+    onV <- function() onLetter("v")
+    onW <- function() onLetter("w")
+    onX <- function() onLetter("x")
+    onY <- function() onLetter("y")
+    onZ <- function() onLetter("z")
+    for (letter in c(letters, LETTERS)){
+        tkbind(listbox, paste("<", letter, ">", sep=""),
+            get(paste("on", toupper(letter), sep="")))
+    }
+    onClick <- function() tkfocus(listbox)
+    toggleSelection <- function(){
+        active <- tclvalue(tkindex(listbox, "active"))
+        selected <- tclvalue(tkcurselection(listbox))
+        if (selected == active) tkselection.clear(listbox, "active") else tkselection.set(listbox, "active")
+    }
+    tkbind(listbox, "<ButtonPress-1>", onClick)
+    if (selectmode == "single") tkbind(listbox, "<Control-ButtonPress-1>", toggleSelection)
+    tkgrid(labelRcmdr(frame, text=title, fg=getRcmdr("title.color")), columnspan=2, sticky="w")
+    tkgrid(listbox, scrollbar, sticky="nw")
+    tkgrid.configure(scrollbar, sticky="wns")
+    tkgrid.configure(listbox, sticky="ewns")
+    result <- list(frame=frame, listbox=listbox, scrollbar=scrollbar,
+        selectmode=selectmode, varlist=variableList)
+    class(result) <- "listbox"
+    result
 }
 
 getSelection <- function(object) UseMethod("getSelection")
@@ -1094,7 +1129,7 @@ getFrame.listbox <- function(object){
 
 # This function modified based on code by Liviu Andronic (13 Dec 09) and on code by Milan Bouchet-Valat (29 Jun 12):
 radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..values[1], labels, 
-                         title="", title.color="blue", right.buttons=TRUE, command=function(){},
+                         title="", title.color=getRcmdr("title.color"), right.buttons=TRUE, command=function(){},
                          expr={
                              ..values <- if (is.null(values)) buttons else values
                              ..frame <- paste(name, "Frame", sep="")
@@ -1121,22 +1156,22 @@ radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..
 )
 
 
-checkBoxes <- defmacro(window=top, frame, boxes, initialValues=NULL, labels, title=NULL,
-		expr={
-			..initialValues <- if (is.null(initialValues)) rep("1", length(boxes)) else initialValues
-			assign(frame, tkframe(window))
-			if (!is.null(title)) tkgrid(labelRcmdr(eval(parse(text=frame)), text=title, foreground="blue"), sticky="w")
-			..variables <- paste(boxes, "Variable", sep="")
-			for (i in 1:length(boxes)) {
-				assign(..variables[i], tclVar(..initialValues[i]))
-				..checkBox <- paste(boxes[i], "CheckBox", sep="")
-				assign(..checkBox,
-				#		tkcheckbutton(eval(parse(text=frame)), variable=eval(parse(text=..variables[i]))))
-				# tkgrid(labelRcmdr(eval(parse(text=frame)), text=labels[i]), eval(parse(text=..checkBox)), sticky="w")
-						tkcheckbutton(eval(parse(text=frame)), variable=eval(parse(text=..variables[i])), text=labels[i]))
-				tkgrid(eval(parse(text=..checkBox)), sticky="w")
-			}
-		}
+checkBoxes <- defmacro(window=top, frame, boxes, initialValues=NULL, labels, title=NULL, ttk=FALSE,
+    expr={
+        ..initialValues <- if (is.null(initialValues)) rep("1", length(boxes)) else initialValues
+        assign(frame, if (ttk) ttklabelframe(window, text=title) else tkframe(window))
+        if (!is.null(title) && !ttk) tkgrid(labelRcmdr(eval(parse(text=frame)), text=title, fg=getRcmdr("title.color")), sticky="w")
+        ..variables <- paste(boxes, "Variable", sep="")
+        for (i in 1:length(boxes)) {
+            assign(..variables[i], tclVar(..initialValues[i]))
+            ..checkBox <- paste(boxes[i], "CheckBox", sep="")
+            assign(..checkBox,
+                #    	tkcheckbutton(eval(parse(text=frame)), variable=eval(parse(text=..variables[i]))))
+                # tkgrid(labelRcmdr(eval(parse(text=frame)), text=labels[i]), eval(parse(text=..checkBox)), sticky="w")
+                tkcheckbutton(eval(parse(text=frame)), variable=eval(parse(text=..variables[i])), text=labels[i]))
+            tkgrid(eval(parse(text=..checkBox)), sticky="w")
+        }
+    }
 )
 
 checkReplace <- function(name, type=gettextRcmdr("Variable")){
@@ -1157,87 +1192,89 @@ errorCondition <- defmacro(window=top, recall=NULL, message, model=FALSE,
 		})
 
 subsetBox <- defmacro(window=top, subset.expression=NULL, model=FALSE,
-		expr={
-			subsetVariable <- if (!is.null(subset.expression)) tclVar(gettextRcmdr(subset.expression))
-					else if (model){
-						if (currentModel && currentFields$subset != "")
-							tclVar(currentFields$subset) else tclVar(gettextRcmdr("<all valid cases>"))
-					}
-					else tclVar(gettextRcmdr("<all valid cases>"))
-			subsetFrame <- tkframe(window)
-			subsetEntry <- ttkentry(subsetFrame, width="20", textvariable=subsetVariable)
-			subsetScroll <- ttkscrollbar(subsetFrame, orient="horizontal",
-					command=function(...) tkxview(subsetEntry, ...))
-			tkconfigure(subsetEntry, xscrollcommand=function(...) tkset(subsetScroll, ...))
-			tkgrid(labelRcmdr(subsetFrame, text=gettextRcmdr("Subset expression"), foreground="blue"), sticky="w")
-			tkgrid(subsetEntry, sticky="w")
-			tkgrid(subsetScroll, sticky="ew")
-		})
+    expr={
+        subsetVariable <- if (!is.null(subset.expression)) tclVar(gettextRcmdr(subset.expression))
+        else if (model){
+            if (currentModel && currentFields$subset != "")
+                tclVar(currentFields$subset) else tclVar(gettextRcmdr("<all valid cases>"))
+        }
+        else tclVar(gettextRcmdr("<all valid cases>"))
+        subsetFrame <- tkframe(window)
+        subsetEntry <- ttkentry(subsetFrame, width="20", textvariable=subsetVariable)
+        subsetScroll <- ttkscrollbar(subsetFrame, orient="horizontal",
+            command=function(...) tkxview(subsetEntry, ...))
+        tkconfigure(subsetEntry, xscrollcommand=function(...) tkset(subsetScroll, ...))
+        tkgrid(labelRcmdr(subsetFrame, text=gettextRcmdr("Subset expression"), fg=getRcmdr("title.color")), sticky="w")
+        tkgrid(subsetEntry, sticky="ew")
+        tkgrid(subsetScroll, sticky="ew")
+        tkgrid.columnconfigure(subsetFrame, 0, weight=1)
+    })
 
 
 groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=gettextRcmdr("Plot by groups"),
-		plotLinesByGroup=FALSE, positionLegend=FALSE, plotLinesByGroupsText=gettextRcmdr("Plot lines by group"),
-		initialGroup=NULL, initialLinesByGroup=1,
-		expr={
-			env <- environment()
-			.groups <- if (is.null(initialGroup)) FALSE else initialGroup
-			.linesByGroup <- FALSE
-			.groupsLabel <- tclVar(if (!is.null(initialGroup)) initialLabel else paste(initialLabel, "...", sep=""))
-			.factors <- Factors()
-			onGroups <- function(){
-				if (length(.factors) == 0){
-					errorCondition(recall=recall, message=gettextRcmdr("There are no factors in the active data set."))
-					return()
-				}
-				initializeDialog(subdialog, title=gettextRcmdr("Groups"))
-				groupsBox <- variableListBox(subdialog, .factors, title=gettextRcmdr("Groups variable (pick one)"),
-						initialSelection=varPosn(initialGroup, "factor"))
-				if (plotLinesByGroup){
-					linesByGroupFrame <- tkframe(subdialog)
-					linesByGroup <- tclVar(if(initialLinesByGroup == 1) "1" else "0")
-					linesCheckBox <- tkcheckbutton(linesByGroupFrame, variable=linesByGroup)
-					tkgrid(labelRcmdr(linesByGroupFrame, text=plotLinesByGroupsText), linesCheckBox, sticky="w")
-				}
-				onOKsub <- function() {
-					groups <- getSelection(groupsBox)
-					if (length(groups) == 0){
-						assign(".groups", FALSE, envir=env)
-						tclvalue(.groupsLabel) <- paste(gettextRcmdr("Plot by groups"), "...", sep="")
-						tkconfigure(groupsButton, foreground="black")
-						if (GrabFocus()) tkgrab.release(subdialog)
-						tkdestroy(subdialog)
-						tkwm.deiconify(top)
-						if (GrabFocus()) tkgrab.set(top)
-						tkfocus(top)
-						tkwait.window(top)
-						return()
-					}
-					assign(".groups", groups, envir=env)
-					tclvalue(.groupsLabel) <- paste(label, groups)
-					tkconfigure(groupsButton, foreground="blue")
-					if (plotLinesByGroup) {
-						lines <- as.character("1" == tclvalue(linesByGroup))
-						assign(".linesByGroup", lines, envir=env)
-					}
-					if (GrabFocus()) tkgrab.release(subdialog)
-					tkdestroy(subdialog)
-					tkwm.deiconify(top)
-					if (GrabFocus()) tkgrab.set(top)
-					tkfocus(top)
-					tkwait.window(top)
-				}
-				subOKCancelHelp()
-				tkgrid(getFrame(groupsBox), sticky="nw")
-				if (plotLinesByGroup) tkgrid(linesByGroupFrame, sticky="w")
-				tkgrid(subButtonsFrame, sticky="w")
-				if (positionLegend) tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Position legend with mouse click"), fg="blue"))
-				dialogSuffix(subdialog, onOK=onOKsub, rows=3+plotLinesByGroup+positionLegend, columns=2, focus=subdialog)
-			}
-			groupsFrame <- tkframe(top)
-			groupsButton <- tkbutton(groupsFrame, textvariable=.groupsLabel, command=onGroups, borderwidth=3)
-			if (!is.null(initialGroup)) tkconfigure(groupsButton, foreground="blue")
-			tkgrid(labelRcmdr(groupsFrame, text="    "), groupsButton, sticky="w")
-		})
+    plotLinesByGroup=FALSE, positionLegend=FALSE, plotLinesByGroupsText=gettextRcmdr("Plot lines by group"),
+    initialGroup=NULL, initialLinesByGroup=1, window=top,
+    expr={
+        env <- environment()
+        .groups <- if (is.null(initialGroup)) FALSE else initialGroup
+        .linesByGroup <- initialLinesByGroup == 1
+        .groupsLabel <- tclVar(if (!is.null(initialGroup)) initialLabel else paste(initialLabel, "...", sep=""))
+        .factors <- Factors()
+        onGroups <- function(){
+            if (length(.factors) == 0){
+                errorCondition(recall=recall, message=gettextRcmdr("There are no factors in the active data set."))
+                return()
+            }
+            initializeDialog(subdialog, title=gettextRcmdr("Groups"))
+            groupsBox <- variableListBox(subdialog, .factors, title=gettextRcmdr("Groups variable (pick one)"),
+                initialSelection=varPosn(initialGroup, "factor"))
+            if (plotLinesByGroup){
+                linesByGroupFrame <- tkframe(subdialog)
+                linesByGroup <- tclVar(if(initialLinesByGroup == 1) "1" else "0")
+                linesCheckBox <- tkcheckbutton(linesByGroupFrame, variable=linesByGroup)
+                tkgrid(labelRcmdr(linesByGroupFrame, text=plotLinesByGroupsText), linesCheckBox, sticky="w")
+            }
+            onOKsub <- function() {
+                groups <- getSelection(groupsBox)
+                if (length(groups) == 0){
+                    assign(".groups", FALSE, envir=env)
+                    tclvalue(.groupsLabel) <- paste(gettextRcmdr("Plot by groups"), "...", sep="")
+                    tkconfigure(groupsButton, foreground="black")
+                    if (GrabFocus()) tkgrab.release(subdialog)
+                    tkdestroy(subdialog)
+                    tkwm.deiconify(top)
+                    if (GrabFocus()) tkgrab.set(top)
+                    tkfocus(top)
+                    tkwait.window(top)
+                    return()
+                }
+                assign(".groups", groups, envir=env)
+                tclvalue(.groupsLabel) <- paste(label, groups)
+                tkconfigure(groupsButton, foreground="blue")
+                if (plotLinesByGroup) {
+                    lines <- as.character("1" == tclvalue(linesByGroup))
+                    assign(".linesByGroup", lines, envir=env)
+                }
+                if (GrabFocus()) tkgrab.release(subdialog)
+                tkdestroy(subdialog)
+                tkwm.deiconify(top)
+                if (GrabFocus()) tkgrab.set(top)
+                tkfocus(top)
+                tkwait.window(top)
+            }
+            subOKCancelHelp()
+            tkgrid(getFrame(groupsBox), sticky="nw")
+            if (plotLinesByGroup) tkgrid(linesByGroupFrame, sticky="w")
+            tkgrid(subButtonsFrame, sticky="w")
+            if (positionLegend) tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Position legend with mouse click"), fg="blue"))
+            dialogSuffix(subdialog, onOK=onOKsub, rows=3+plotLinesByGroup+positionLegend, columns=2, focus=subdialog)
+        }
+        groupsFrame <- tkframe(window)
+        groupsButton <- tkbutton(groupsFrame, textvariable=.groupsLabel, command=onGroups)
+        if (!is.null(initialGroup)) tkconfigure(groupsButton, foreground="blue")
+        tkgrid(groupsButton, sticky="we")
+        tkgrid.columnconfigure(groupsFrame, 0, weight=1)
+    })
 
 groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialText=NULL,
 		expr={
@@ -2098,3 +2135,14 @@ confint.glm <- function (object, parm, level = 0.95, trace = FALSE, ...)
 }
 
 tkfocus <- function(...) tcl("focus", ...)
+
+# the following functions adapted from Milan Bouchet-Valat
+
+WindowsP <- function() {
+    .Platform$OS.type == "windows"
+}
+
+X11P <- function(){
+    .Platform$GUI == "X11"
+}
+

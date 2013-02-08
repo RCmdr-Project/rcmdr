@@ -123,7 +123,8 @@ activeModelP()
 aicP()
 checkActiveDataSet()
 checkActiveModel()
-checkBoxes(window=top, frame, boxes, initialValues=NULL, labels, title=NULL)  # macro
+checkBoxes(window=top, frame=stop("frame not supplied"), boxes=stop("boxes not supplied"), 
+    initialValues=NULL, labels=stop("labels not supplied"), title=NULL, ttk=FALSE)  # macro
 checkClass(object, class, message=NULL)  # macro
 checkFactors(n=1)
 checkMethod(generic, object, message=NULL, default=FALSE, strict=FALSE, 
@@ -159,7 +160,7 @@ groupsBox(recall=NULL, label=gettextRcmdr("Plot by:"),
     initialLabel=gettextRcmdr("Plot by groups"),
     plotLinesByGroup=FALSE, positionLegend=FALSE, 
     plotLinesByGroupsText=gettextRcmdr("Plot lines by group"), 
-    initialGroup=NULL, initialLinesByGroup=1)  # macro
+    initialGroup=NULL, initialLinesByGroup=1, window=top)  # macro
 groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1, initialText=NULL)  # macro
 hclustSolutionsP()
 initializeDialog(window=top, title="", offset=10, preventCrisp=FALSE)  # macro
@@ -197,9 +198,9 @@ popCommand()
 popOutput()
 putDialog(dialog, values=NULL, resettable=TRUE)
 putRcmdr(x, value)
-radioButtons(window=top, name, buttons, values=NULL, 
-	initialValue=..values[1], labels, 
-	title="", title.color="blue", right.buttons=TRUE, command=function(){})  # macro
+radioButtons(window=top, name=stop("name not supplied"), buttons=stop("buttons not supplied"), 
+    values=NULL, initialValue=..values[1], labels=stop("labels not supplied"), 
+    title="", title.color=getRcmdr("title.color"), right.buttons=TRUE, command=function(){})   # macro
 RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
@@ -310,6 +311,7 @@ commanderPosition()
   \item{text}{a text string.}
   \item{title}{Window or dialog-box-element title.}
   \item{title.color}{color for title above radio buttons; defaults to \code{"blue"}.} 
+  \item{ttk}{use ttk themed widget for check boxes.}
   \item{type}{quoted type of object to check; used to generate check-replace dialog box;
     or type of message to print in Message window. For \code{varPosn}, type of variable list.}
   \item{value}{an object to be stored or assigned.}

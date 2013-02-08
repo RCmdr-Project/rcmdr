@@ -277,6 +277,9 @@ set none, one, several, or all options. The available options are as follows:
     
     \item{\code{suppress.icon.images}}{Set to \code{TRUE} to suppress the icon images in dialog OK, Cancel, Reset, and Help buttons;
     the default is \code{FALSE}.}
+    
+    \item{\code{title.color}}{Color for the titles of some widgets, such as variable-list boxes; the default is \code{"blue"} under
+    Windows and \code{"black"} otherwise.}
         
     \item{\code{tkwait}}{This option addresses a problem that, to my knowledge, is rare, 
     and may occur on some non-Windows systems. If the Commander causes R to hang, 

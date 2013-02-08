@@ -1,4 +1,4 @@
-# last modified 2012-08-29 by J. Fox
+# last modified 2013-02-08 by J. Fox
 
 if (getRversion() >= "2.15.1")  
     globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
@@ -20,7 +20,7 @@ if (getRversion() >= "2.15.1")
                       'meanVariable', 'sumVariable', 'sdVariable', 'checkBoxFrame', 'percentsVariable',
                       'chisqVariable', 'chisqComponentsVariable', 'expFreqVariable', 'fisherVariable',
                       '.Test', 'percentsFrame', 'testsFrame', 'delimiterFrame', 'delimiterVariable',
-                      'colnamesVariable', 'rownamesVariable', 'quotesVariable', 'subsetVariable',
+                      'colnamesVariable', 'rownamesVariable', 'quotesVariable', 'subsetVariable', 'subsetEntry',
                       'rotationVariable', 'scoresVariable', '.FA', 'subsetFrame', 'rotationFrame',
                       'scoresFrame', 'subwin', '.Probs', 'lhsVariable', 'onHelp', 'lhsEntry',
                       'distanceTypeVariable', 'distanceTypeFrame', 'queryimportRODBCtable',

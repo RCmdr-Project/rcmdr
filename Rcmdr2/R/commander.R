@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-01-27 by J. Fox
+# last modified 2013-02-08 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -29,7 +29,7 @@ Commander <- function(){
         
     }
 	RStudioP <- function() nzchar(Sys.getenv("RSTUDIO_USER_IDENTITY"))
-	DESCRIPTION <- readLines(file.path(.find.package("Rcmdr"), "DESCRIPTION")[1])
+	DESCRIPTION <- readLines(file.path(.find.package("Rcmdr2"), "DESCRIPTION")[1])
 	RcmdrVersion <- trim.blanks(sub("^Version:", "",
 					grep("^Version:", DESCRIPTION, value=TRUE)))
 	putRcmdr("quotes", options(useFancyQuotes=FALSE))
@@ -193,6 +193,7 @@ Commander <- function(){
 		setOption("default.contrasts", c("contr.Treatment", "contr.poly"))
 	}
 	else setOption("default.contrasts", c("contr.treatment", "contr.poly"))
+    setOption("title.color", if (WindowsP()) "blue" else "black")
 	setOption("log.commands", TRUE)
 	setOption("RStudio", RStudioP())
 	setOption("console.output", getRcmdr("RStudio"))
