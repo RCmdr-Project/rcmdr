@@ -881,7 +881,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
         else if (! is.null(helpSubject)){
             tkgrid(helpButton, pady=6)
         }
-        tkgrid(leftButtonsBox, rightButtonsBox, pady=6)
+        tkgrid(leftButtonsBox, rightButtonsBox, pady=6, sticky="ew")
         if (!is.null(helpSubject)) tkgrid.configure(helpButton, padx=c(0, 18))
         else if (!is.null(reset) && memory) tkgrid.configure(reset, padx=c(0, 18))
         tkgrid.columnconfigure(buttonsFrame, 0, weight=1)
@@ -924,6 +924,7 @@ subOKCancelHelp <- defmacro(window=subdialog, helpSubject=NULL,
 		    if (! is.null(helpSubject)){
 		        tkgrid(helpButton, pady=6, padx=c(0, 18))
 		    }
+		    tkgrid(subLeftButtonsBox, subRightButtonsBox, pady=6, sticky="ew")
 		    tkgrid.columnconfigure(subButtonsFrame, 0, weight=1)
 		    tkgrid.columnconfigure(subButtonsFrame, 1, weight=1)
 		    tkgrid.configure(subLeftButtonsBox, sticky="w")
@@ -1265,7 +1266,7 @@ groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=
             subOKCancelHelp()
             tkgrid(getFrame(groupsBox), sticky="nw")
             if (plotLinesByGroup) tkgrid(linesByGroupFrame, sticky="w")
-            tkgrid(subButtonsFrame, sticky="w")
+            tkgrid(subButtonsFrame, sticky="ew")
             if (positionLegend) tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Position legend with mouse click"), fg="blue"))
             dialogSuffix(subdialog, onOK=onOKsub, rows=3+plotLinesByGroup+positionLegend, columns=2, focus=subdialog)
         }

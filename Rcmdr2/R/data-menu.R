@@ -1,4 +1,4 @@
-# last modified 2013-01-22 by J. Fox
+# last modified 2013-02-08 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
@@ -598,7 +598,7 @@ readDataFromPackage <- function() {
 	tkgrid(labelRcmdr(enterFrame, text=gettextRcmdr("Enter name of data set:  "), fg="blue"), entryDsname, sticky="w")
 	tkgrid(enterFrame, sticky="w")
 	tkgrid(dataHelpButton, sticky="w")
-	tkgrid(buttonsFrame, sticky="w")
+	tkgrid(buttonsFrame, sticky="ew")
 	tkgrid.configure(packageScroll, sticky="ns")
 	tkgrid.configure(datasetScroll, sticky="ns")
 	tkbind(packageBox, "<Double-ButtonPress-1>", onPackageSelect)
