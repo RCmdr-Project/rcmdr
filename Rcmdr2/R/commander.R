@@ -630,24 +630,24 @@ Commander <- function(){
 	if (!getRcmdr("suppress.menus")){
 #		RcmdrIm <- tcl("image", "create", "bitmap", file=file.path(etc, "Rcmdr.xbm"), foreground="red")
 		tkgrid(labelRcmdr(controlsFrame, image="::image::RlogoIcon", compound="left"),
-				labelRcmdr(controlsFrame, text=gettextRcmdr("Data set:")), getRcmdr("dataSetLabel"),
+				labelRcmdr(controlsFrame, text=gettextRcmdr("Data set: ")), getRcmdr("dataSetLabel"),
 				labelRcmdr(controlsFrame, text="  "), if(show.edit.button) editButton, viewButton,
-				labelRcmdr(controlsFrame, text=gettextRcmdr("    Model: ")), getRcmdr("modelLabel"), sticky="w")
+				labelRcmdr(controlsFrame, text=gettextRcmdr("    Model: ")), getRcmdr("modelLabel"), sticky="w", pady=c(3, 3))
 		tkgrid(controlsFrame, sticky="w")
 	}
 	.log.commands <-  getRcmdr("log.commands")
 	.console.output <- getRcmdr("console.output")
 	if (.log.commands) tkgrid(labelRcmdr(logFrame, text=gettextRcmdr("Script Window"), foreground="blue"),
-				if (.log.commands && .console.output) submitButton, sticky="w")
+				if (.log.commands && .console.output) submitButton, sticky="w", pady=c(0, 6))
 	tkgrid(.log, logYscroll, sticky="news", columnspan=2)
 	tkgrid(logXscroll)
 	if (.log.commands) tkgrid(logFrame, sticky="news", padx=10, pady=0, columnspan=2)
 	tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output Window"), foreground="blue"),
-			if (.log.commands && !.console.output) submitButton, sticky="sw")
+			if (.log.commands && !.console.output) submitButton, sticky="sw", pady=c(6, 6))
 	tkgrid(.output, outputYscroll, sticky="news", columnspan=2)
 	tkgrid(outputXscroll, columnspan=1 + (.log.commands && !.console.output))
 	if (!.console.output) tkgrid(outputFrame, sticky="news", padx=10, pady=0, columnspan=2)
-	tkgrid(labelRcmdr(messagesFrame, text=gettextRcmdr("Messages"), foreground=getRcmdr("error.text.color")), sticky="w")
+	tkgrid(labelRcmdr(messagesFrame, text=gettextRcmdr("Messages"), foreground=getRcmdr("error.text.color")), sticky="w", pady=c(6, 6))
 	tkgrid(.messages, messagesYscroll, sticky="news", columnspan=2)
 	tkgrid(messagesXscroll)
 	if (!.console.output) tkgrid(messagesFrame, sticky="news", padx=10, pady=0, columnspan=2) ##rmh & J. Fox
