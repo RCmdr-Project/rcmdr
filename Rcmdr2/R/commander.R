@@ -532,7 +532,8 @@ Commander <- function(){
 	putRcmdr("commanderWindow", tktoplevel(class="Rcommander"))
 	.commander <- CommanderWindow()
 #	if (.Platform$OS.type == "windows") tkwm.iconbitmap(.commander, default=system.file("etc", "R-logo.ico", package="Rcmdr2"))
-    tcl("wm", "iconphoto", .commander, "::image::RlogoIcon")
+#    tcl("wm", "iconphoto", .commander, "::image::RlogoIcon")
+    tcl("wm", "iconphoto", .commander, "-default", "::image::RlogoIcon")
 	tkwm.geometry(.commander, placement)
 	tkwm.title(.commander, gettextRcmdr("R Commander"))
 	tkwm.protocol(.commander, "WM_DELETE_WINDOW", 

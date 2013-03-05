@@ -682,20 +682,20 @@ plotMeans <- function(response, factor1, factor2, error.bars = c("se", "sd", "co
 }
 
 bin.var <- function (x, bins=4, method=c("intervals", "proportions", "natural"), labels=FALSE){
-	method <- match.arg(method)
-# Author: Dan Putler (revision by J. Fox, 5 Dec 04)
-	if(length(x) < bins) {
-		stop(gettextRcmdr("The number of bins exceeds the number of data values"))
-	}
-	x <- if(method == "intervals") cut(x, bins, labels=labels)
-			else if (method == "proportions") cut(x, quantile(x, probs=seq(0,1,1/bins), na.rm=TRUE),
-						include.lowest = TRUE, labels=labels)
-			else {
-				xx <- na.omit(x)
-				breaks <- c(min(xx), tapply(xx, KMeans(xx, bins)$cluster, max))
-				cut(x, breaks, include.lowest=TRUE, labels=labels)
-			}
-	as.factor(x)
+    method <- match.arg(method)
+    # Author: Dan Putler (revision by J. Fox, 5 Dec 04 & 5 Mar 13)
+    if(length(x) < bins) {
+        stop(gettextRcmdr("The number of bins exceeds the number of data values"))
+    }
+    x <- if(method == "intervals") cut(x, bins, labels=labels)
+    else if (method == "proportions") cut(x, quantile(x, probs=seq(0,1,1/bins), na.rm=TRUE),
+        include.lowest = TRUE, labels=labels)
+    else {
+        xx <- na.omit(x)
+        breaks <- c(-Inf, tapply(xx, KMeans(xx, bins)$cluster, max))
+        cut(x, breaks, labels=labels)
+    }
+    as.factor(x)
 }
 
 # the following function is adapted from a suggestion by Robert Muenchen
@@ -1014,7 +1014,7 @@ initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp=FALSE
 			position <- if (any(position < 0)) "-50+50"
 					else paste("+", paste(offset + position, collapse="+"), sep="")
 			tkwm.geometry(window, position)
-		    tcl("wm", "iconphoto", window, "::image::RlogoIcon")
+#		    tcl("wm", "iconphoto", window, "::image::RlogoIcon")
 		    tkwm.transient(window, CommanderWindow())
 		}
 )
