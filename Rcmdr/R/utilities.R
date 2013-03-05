@@ -1,4 +1,4 @@
-# last modified 2013-01-27 by J. Fox
+# last modified 2013-03-05 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -683,7 +683,7 @@ plotMeans <- function(response, factor1, factor2, error.bars = c("se", "sd", "co
 
 bin.var <- function (x, bins=4, method=c("intervals", "proportions", "natural"), labels=FALSE){
 	method <- match.arg(method)
-# Author: Dan Putler (revision by J. Fox, 5 Dec 04)
+# Author: Dan Putler (revision by J. Fox, 5 Dec 04 & 5 Mar 13)
 	if(length(x) < bins) {
 		stop(gettextRcmdr("The number of bins exceeds the number of data values"))
 	}
@@ -692,8 +692,8 @@ bin.var <- function (x, bins=4, method=c("intervals", "proportions", "natural"),
 						include.lowest = TRUE, labels=labels)
 			else {
 				xx <- na.omit(x)
-				breaks <- c(min(xx), tapply(xx, KMeans(xx, bins)$cluster, max))
-				cut(x, breaks, include.lowest=TRUE, labels=labels)
+				breaks <- c(-Inf, tapply(xx, KMeans(xx, bins)$cluster, max))
+				cut(x, breaks, labels=labels)
 			}
 	as.factor(x)
 }
