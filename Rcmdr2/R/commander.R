@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-02-08 by J. Fox
+# last modified 2013-03-14 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -29,7 +29,7 @@ Commander <- function(){
         
     }
 	RStudioP <- function() nzchar(Sys.getenv("RSTUDIO_USER_IDENTITY"))
-	DESCRIPTION <- readLines(file.path(.find.package("Rcmdr2"), "DESCRIPTION")[1])
+	DESCRIPTION <- readLines(file.path(find.package("Rcmdr2"), "DESCRIPTION")[1])
 	RcmdrVersion <- trim.blanks(sub("^Version:", "",
 					grep("^Version:", DESCRIPTION, value=TRUE)))
 	putRcmdr("quotes", options(useFancyQuotes=FALSE))
@@ -68,7 +68,6 @@ Commander <- function(){
 	tkimage.create("photo", "::image::dataIcon", file = system.file("etc", "data.gif", package="Rcmdr2"))
 	tkimage.create("photo", "::image::modelIcon", file = system.file("etc", "model.gif", package="Rcmdr2"))
 	setOption("number.messages", TRUE)
-#etc <- setOption("etc", file.path(.path.package(package="Rcmdr2")[1], "etc"))
 	etc <- setOption("etc", system.file("etc", package="Rcmdr2"))
 	etcMenus <- setOption("etcMenus", etc)
 	putRcmdr("etcMenus", etcMenus)
@@ -294,7 +293,7 @@ Commander <- function(){
 				"commandOrMenu", "activation", "install")
 		names(Menus) <- nms
 		for (plugin in Plugins) {
-			MenusToAdd <- read.table(file.path(.path.package(package=plugin)[1], "etc/menus.txt"),
+			MenusToAdd <- read.table(file.path(path.package(package=plugin)[1], "etc/menus.txt"),
 					colClasses = "character")
 			names(MenusToAdd) <- nms
 			for (i in 1:nrow(MenusToAdd)){
@@ -356,7 +355,7 @@ Commander <- function(){
 	## end of change ###############################
 	modelClasses <- scan(file.path(etc, "model-classes.txt"), what="", quiet=TRUE, comment.char="#")
 	for (plugin in Plugins){
-		description <- readLines(file.path(.path.package(package=plugin)[1], "DESCRIPTION"))
+		description <- readLines(file.path(path.package(package=plugin)[1], "DESCRIPTION"))
 		addModels <- description[grep("Models:", description)]
 		addModels <- gsub(" ", "", sub("^Models:", "", addModels))
 		addModels <- unlist(strsplit(addModels, ","))

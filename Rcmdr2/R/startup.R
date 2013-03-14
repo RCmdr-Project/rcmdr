@@ -1,4 +1,4 @@
-# last modified 2012-12-19 by J. Fox
+# last modified 2013-03-14 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 .onAttach <- function(...){
@@ -20,7 +20,7 @@
 
 .onLoad <- function(...){
 	packagesAvailable <- function(packages){
-		sapply(sapply(packages, .find.package, quiet=TRUE),
+		sapply(sapply(packages, find.package, quiet=TRUE),
 				function(x) length(x) != 0)
 	}
 	if (!interactive()) return()

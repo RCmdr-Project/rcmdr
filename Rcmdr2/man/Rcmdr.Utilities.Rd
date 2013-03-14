@@ -96,6 +96,8 @@
 \alias{variableListBox}
 \alias{Variables}
 \alias{varPosn}
+\alias{WindowsP}
+\alias{X11P}
 
 \alias{buttonRcmdr}
 \alias{labelRcmdr}
@@ -219,6 +221,8 @@ variableListBox(parentWindow, variableList=Variables(), bg="white",
     listHeight=getRcmdr("variable.list.height"), title)
 Variables(names)
 varPosn(variables, type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor"))
+WindowsP()
+X11P()
 
 # the following function is exported for technical reasons,
 # but is not meant to be called directly
@@ -404,7 +408,9 @@ commanderPosition()
   A number of functions of the form \emph{name}\code{P} are `predicate' functions, which return
   \code{TRUE} or \code{FALSE} depending upon whether some condition obtains. For example, \code{lmP()} 
   returns \code{TRUE} if there is an active model that is a linear model; and \code{factorsP(2)}
-  returns \code{TRUE} if there are at least two factors in the active data set.
+  returns \code{TRUE} if there are at least two factors in the active data set. 
+  \code{WindowsP()} and \code{X11P()} return \code{TRUE} respectively if the R Commander is running under Windows or
+  X-Windows.
   
   \emph{Translating text:}
   The \code{gettextRcmdr} function simply passes its argument(s) to

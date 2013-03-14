@@ -32,7 +32,7 @@ RcmdrTkmessageBox, rcorr.adjust,
 reliability, RExcelSupported, rowPercents, sortVarNames, stepwise, subOKCancelHelp,
 subsetBox, tclvalue, totPercents, trim.blanks, ttkentry, ttkframe, ttkradiobutton,
 ttkscrollbar, TwoLevelFactors, twoLevelFactorsP, 
-UpdateModelNumber, variableListBox, Variables, varPosn,
+UpdateModelNumber, variableListBox, Variables, varPosn, WindowsP, X11P,
     
 .Tcl, tcl, tclRequire, tclServiceMode, "tclvalue<-",
 tclVar, tkbind, tkcget, tkcheckbutton, tkconfigure,
