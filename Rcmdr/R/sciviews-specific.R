@@ -1,7 +1,7 @@
 # SciViews specific R Commander code
 
 # Supplied by Ph. Grosjean
-# last modified 18 August 2009 by J. Fox
+# last modified 2013-03-14 by J. Fox
 #  small fix to call to list.files() by J. Fox 17 Jan 05
 #  modifications 18 Feb 06 by J. Fox
 #  small change 20 Mar 08 by J. Fox
@@ -36,7 +36,7 @@ svCommander <- function(Version = "1.1-0"){
             if (global) putRcmdr(option, opt)
             else opt
             }
-        etc <- file.path(.path.package(package="Rcmdr")[1], "etc")
+        etc <- file.path(path.package(package="Rcmdr")[1], "etc")
         # Do NOT sink error messages!
         #assign(".messages.connection", textConnection(".messages", open = "w"), envir=.GlobalEnv)
         #sink(.messages.connection, type="message")
