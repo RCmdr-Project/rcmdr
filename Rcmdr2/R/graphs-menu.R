@@ -280,7 +280,7 @@ scatterPlot <- function () {
     yBox <- variableListBox(dataTab, .numeric, title = gettextRcmdr("y-variable (pick one)"), 
         initialSelection = varPosn (dialog.values$initial.y, "numeric"))
     optionsParFrame <- tkframe(optionsTab)
-    parFrame <- ttklabelframe(optionsParFrame, text="Plotting Parameters")
+    parFrame <- ttklabelframe(optionsParFrame, text=gettextRcmdr("Plotting Parameters"))
     checkBoxes(window = optionsParFrame, frame = "optionsFrame", 
         boxes = c("identify", "jitterX", "jitterY", "logX", "logY", 
             "boxplots", "lsLine", "smoothLine", "spread"), initialValues = c(dialog.values$initial.log, 
