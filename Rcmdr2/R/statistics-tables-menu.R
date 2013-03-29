@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2012-07-18 by J. Fox
+# last modified 2013-03-29 by J. Fox
 
 # Tables menu
 
@@ -163,7 +163,7 @@ multiWayTable <- function (){
 	tkgrid(variablesFrame, sticky = "w")
 	tkgrid(percentsFrame, sticky = "w")
 	tkgrid(subsetFrame, sticky = "w")
-	tkgrid(buttonsFrame, sticky = "w")
+	tkgrid(buttonsFrame, sticky = "ew")
 	dialogSuffix(rows = 4, columns = 1)
 }
 
