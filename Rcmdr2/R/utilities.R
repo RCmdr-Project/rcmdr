@@ -897,6 +897,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                 tkgrid (helpButton, resetButton, pady=6)
             }
             else tkgrid (resetButton, pady=6)
+            if (!WindowsP()) tkgrid.configure(resetButton, padx=c(0, 6))
         }
         else if (! is.null(helpSubject)){
             tkgrid(helpButton, pady=6)
