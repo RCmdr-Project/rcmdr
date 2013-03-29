@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-03-14 by J. Fox
+# last modified 2013-03-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -60,7 +60,9 @@ Commander <- function(){
                    else system.file("etc", "blank.gif", package="Rcmdr2"))
 	tkimage.create("photo", "::image::helpIcon", file = if (icon.images) system.file("etc", "help.gif", package="Rcmdr2")
                     else system.file("etc", "blank.gif", package="Rcmdr2"))
-	tkimage.create("photo", "::image::resetIcon", file = if (icon.images) system.file("etc", "reset.gif", package="Rcmdr2")
+    tkimage.create("photo", "::image::resetIcon", file = if (icon.images) system.file("etc", "reset.gif", package="Rcmdr2")
+        else system.file("etc", "blank.gif", package="Rcmdr2"))
+	tkimage.create("photo", "::image::applyIcon", file = if (icon.images) system.file("etc", "apply.gif", package="Rcmdr2")
                     else system.file("etc", "blank.gif", package="Rcmdr2"))
 	tkimage.create("photo", "::image::submitIcon", file = system.file("etc", "submit.gif", package="Rcmdr2"))
 	tkimage.create("photo", "::image::editIcon", file = system.file("etc", "edit.gif", package="Rcmdr2"))

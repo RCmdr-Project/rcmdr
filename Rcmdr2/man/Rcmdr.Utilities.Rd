@@ -192,7 +192,7 @@ modelsP(n=1)
 multinomP()
 Numeric(names)
 numericP(n=1)
-OKCancelHelp(window=top, helpSubject=NULL, model=FALSE, reset=NULL)  # macro
+OKCancelHelp(window=top, helpSubject=NULL, model=FALSE, reset=NULL, apply=NULL)  # macro
 OutputWindow()
 packageAvailable(name)
 polrP()
@@ -233,6 +233,10 @@ commanderPosition()
 \arguments{
   \item{ask}{ask for confirmation.}
   \item{ask.save}{ask whether to save contents of script and output windows.}
+  \item{apply}{if non-null (the default is \code{NULL}), an Apply button is included in the dialog's button bar. 
+    This argument should be set to the quoted name of the function that initiates the dialog; 
+    when the button is pressed, the \code{onOK} function for the dialog is executed, and then the function named
+    in \code{apply} is (re)called.}
   \item{bg}{background color.}
   \item{bindReturn}{if \code{TRUE}, the \emph{Return} key is bound to the \code{onOK} function in the dialog.}
   \item{boxes}{vector of quoted names for check boxes, used to generate each box and its associated variable.}

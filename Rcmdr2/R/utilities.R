@@ -1,4 +1,4 @@
-# last modified 2013-03-14 by J. Fox
+# last modified 2013-03-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -827,7 +827,7 @@ defmacro <- function(..., expr){
 	ff
 }
 
-OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
+OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL, apply=NULL,
     expr={
         memory <- getRcmdr("retain.selections")
         buttonsFrame <- tkframe(window)
@@ -863,14 +863,34 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             resetButton <- buttonRcmdr(leftButtonsBox, text=gettextRcmdr("Reset"), width=12, command=onReset,
                 image="::image::resetIcon", compound="left")
         }
+        if (!is.null(apply)){
+            onApply <- function(){
+                onOK()
+                eval(parse(text=paste(apply, "()")))
+            }
+            applyButton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("Apply"), foreground="yellow", width="12", command=onApply,
+                image="::image::applyIcon", compound="left")
+        }
         
         if(!WindowsP()) {
-            tkgrid(cancelButton, OKbutton, sticky="w")
+            if (!is.null(apply)){
+                tkgrid(cancelButton, OKbutton, applyButton, sticky="w")
+                tkgrid.configure(applyButton, padx=c(6, 0))
+            }
+            else{
+                tkgrid(cancelButton, OKbutton, sticky="w")
+            }
             tkgrid.configure(OKbutton, padx=c(6, 0))
         }
         else {
-            tkgrid(OKbutton, cancelButton, sticky="w")
-            tkgrid.configure(OKbutton, padx=c(0, 6))
+            if (!is.null(apply)){
+                tkgrid(OKbutton, cancelButton, applyButton, sticky="w")
+                tkgrid.configure(applyButton, padx=c(6, 0))
+            }
+            else{
+                tkgrid(OKbutton, cancelButton, sticky="w")
+            }
+            tkgrid.configure(OKbutton, padx=c(6, 6))
         }
         if (!is.null(reset) && memory) {
             if (! is.null(helpSubject)){

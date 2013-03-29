@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2012-12-07 by J. Fox
+# last modified 2013-03-29 by J. Fox
 
     # Models menu
 
@@ -150,7 +150,7 @@ linearModel <- function(){
 		activeModel(modelValue)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject="linearModel", model=TRUE, reset="resetLinearModel")
+	OKCancelHelp(helpSubject="linearModel", model=TRUE, reset="resetLinearModel", apply="linearModel")
 	tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model:")), model, sticky="w")
 	tkgrid(modelFrame, sticky="w")
 	modelFormula()

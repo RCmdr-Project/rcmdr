@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-02-07 by J. Fox
+# last modified 2013-03-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
@@ -440,7 +440,7 @@ scatterPlot <- function () {
     }
     groupsBox(scatterPlot, plotLinesByGroup = TRUE, initialGroup=initial.group, initialLinesByGroup=dialog.values$initial.lines.by.group,
         initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups") else paste(gettextRcmdr("Plot by:"), initial.group), window=dataTab)
-    OKCancelHelp(helpSubject = "scatterplot", reset = "scatterPlot")
+    OKCancelHelp(helpSubject = "scatterplot", reset = "scatterPlot", apply="scatterPlot")
     tkgrid(getFrame(xBox), getFrame(yBox), sticky = "nw", padx=6, pady=c(6, 0))
     tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Span for smooth")), 
         slider, sticky = "we", padx=6, pady=6)
