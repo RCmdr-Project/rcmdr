@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-03-29 by J. Fox
+# last modified 2013-04-03 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -185,6 +185,7 @@ Commander <- function(){
 	putRcmdr("reset.model", FALSE)
 	putRcmdr("rgl", FALSE)
 	putRcmdr("Identify3d", NULL)
+    putRcmdr("open.dialog.here", NULL)
 	setOption("log.font.size", 10) # if (.Platform$OS.type == "windows") 10 else 12)
 	putRcmdr("logFont", tkfont.create(family="courier", size=getRcmdr("log.font.size")))
 	scale.factor <- current$scale.factor

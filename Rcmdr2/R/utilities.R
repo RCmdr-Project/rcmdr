@@ -1,4 +1,4 @@
-# last modified 2013-03-29 by J. Fox
+# last modified 2013-04-03 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -854,19 +854,25 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
         }
         if (!is.null(reset) && memory){
             onReset <- function(){
+                ID <- window$ID
+                putRcmdr("open.dialog.here", as.character(.Tcl(paste("winfo geometry", ID))))
                 if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
                 putDialog(reset, NULL)
                 putDialog(reset, NULL, resettable=FALSE)
                 closeDialog()
                 eval(parse(text=paste(reset, "()")))
+                putRcmdr("open.dialog.here", NULL)
             }
             resetButton <- buttonRcmdr(leftButtonsBox, text=gettextRcmdr("Reset"), width=12, command=onReset,
                 image="::image::resetIcon", compound="left")
         }
         if (!is.null(apply)){
             onApply <- function(){
+                ID <- window$ID
+                putRcmdr("open.dialog.here", as.character(.Tcl(paste("winfo geometry", ID))))
                 onOK()
                 eval(parse(text=paste(apply, "()")))
+                putRcmdr("open.dialog.here", NULL)
             }
             applyButton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("Apply"), foreground="yellow", width="12", command=onApply,
                 image="::image::applyIcon", compound="left")
@@ -1027,17 +1033,21 @@ commanderPosition <- function (){
 }
 
 initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp=FALSE,
-		expr={
-			if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
-			window <- tktoplevel(borderwidth=10)
-			tkwm.title(window, title)
-			position <- if (is.SciViews()) -1 else commanderPosition() # +PhG
-			position <- if (any(position < 0)) "-50+50"
-					else paste("+", paste(offset + position, collapse="+"), sep="")
-			tkwm.geometry(window, position)
-#		    tcl("wm", "iconphoto", window, "::image::RlogoIcon")
-		    tkwm.transient(window, CommanderWindow())
-		}
+    expr={
+        if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
+        window <- tktoplevel(borderwidth=10)
+        tkwm.title(window, title)
+        location <- getRcmdr("open.dialog.here")
+        position <- if (!is.null(location)) location
+                    else {
+                        pos <- if (is.SciViews()) -1 
+                                else offset + commanderPosition() 
+                        if (any(pos < 0)) "-50+50"
+                        else paste("+", paste(pos, collapse="+"), sep="")
+                    }
+        tkwm.geometry(window, position)
+        tkwm.transient(window, CommanderWindow())
+    }
 )
 
 closeDialog <- defmacro(window=top, release=TRUE,
