@@ -153,7 +153,8 @@ set none, one, several, or all options. The available options are as follows:
     If specified, this value takes precedence over the default font size (below). Absent a compelling reason for
     changing the font, it is generally more convenient simply to change the default font size.}
 
-    \item{\code{default.font.size}}{The size, in points, of the default font. The default is 10. 
+    \item{\code{default.font.size}}{The size, in points, of the default font. The default is the size of the
+    Tcl/Tk default font (if this can be ascertained) or 10 (if it cannot). 
     To set the font size for R input and output, see the \code{log.font.size} option.
     It is recommended that Windows users set the \pkg{Rcmdr} \code{scale factor} option to
     control font size.}

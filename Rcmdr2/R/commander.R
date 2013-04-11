@@ -250,10 +250,12 @@ Commander <- function(){
 	if (.Platform$OS.type != "windows" || RStudioP()) {
 	    options(help_type = "text")
 	}
-	default.font.size <- as.character(setOption("default.font.size", 10, global=FALSE)) # if (.Platform$OS.type == "windows")10 else 12, global=FALSE))
+    default.font.size.val <- as.numeric(regmatches(tclvalue(tkfont.actual("TkDefaultFont")),
+        regexec("-size (-?[[:digit:]]+)", tclvalue(tkfont.actual("TkDefaultFont"))))[[1]][2])
+    if (is.na(default.font.size.val)) default.font.size.val <- 10
+	default.font.size <- as.character(setOption("default.font.size", default.font.size.val, global=FALSE))
 	default.font <- setOption("default.font", NULL, global=FALSE) 
 	if (!("RcmdrDefaultFont" %in% as.character(.Tcl("font names")))){
-#		if (is.null(default.font)) .Tcl(paste("font create RcmdrDefaultFont -size ", default.font.size))
 	    if (is.null(default.font)){
 	        .Tcl(paste("font create RcmdrDefaultFont", tclvalue(tkfont.actual("TkDefaultFont"))))
 	        tkfont.configure("RcmdrDefaultFont", size=default.font.size)
