@@ -1270,7 +1270,7 @@ checkBoxes <- defmacro(window=top, frame, boxes, initialValues=NULL, labels, tit
             assign(..checkBox,
                 #    	tkcheckbutton(eval(parse(text=frame)), variable=eval(parse(text=..variables[i]))))
                 # tkgrid(labelRcmdr(eval(parse(text=frame)), text=labels[i]), eval(parse(text=..checkBox)), sticky="w")
-                tkcheckbutton(eval(parse(text=frame)), variable=eval(parse(text=..variables[i])), text=labels[i]))
+                ttkcheckbutton(eval(parse(text=frame)), variable=eval(parse(text=..variables[i])), text=labels[i]))
             tkgrid(eval(parse(text=..checkBox)), sticky="w")
         }
     }
@@ -1333,7 +1333,7 @@ groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=
             if (plotLinesByGroup){
                 linesByGroupFrame <- tkframe(subdialog)
                 linesByGroup <- tclVar(if(initialLinesByGroup == 1) "1" else "0")
-                linesCheckBox <- tkcheckbutton(linesByGroupFrame, variable=linesByGroup)
+                linesCheckBox <- ttkcheckbutton(linesByGroupFrame, variable=linesByGroup)
                 tkgrid(labelRcmdr(linesByGroupFrame, text=plotLinesByGroupsText), linesCheckBox, sticky="w")
             }
             onOKsub <- function() {

@@ -1,4 +1,4 @@
-# last modified 2013-02-08 by J. Fox
+# last modified 2013-04-11 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
@@ -113,7 +113,7 @@ RecodeDialog <- function () {
 	tkinsert(recodes, "1.0", dialog.values$initial.recode.directives)
 	asFactorFrame <- tkframe(top)
 	asFactorVariable <- tclVar(dialog.values$initial.asFactor)
-	asFactorCheckBox <- tkcheckbutton(asFactorFrame, variable = asFactorVariable)
+	asFactorCheckBox <- ttkcheckbutton(asFactorFrame, variable = asFactorVariable)
 	onOK <- function() {
 		asFactor <- tclvalue(asFactorVariable) == "1"
 		save.recodes <- trim.blanks(tclvalue(tkget(recodes, "1.0", "end")))
@@ -313,7 +313,7 @@ readDataSet <- function() {
 	radioButtons(optionsFrame, "location", buttons=c("local", "clipboard", "url"), 
 			labels=gettextRcmdr(c("Local file system", "Clipboard", "Internet URL")), title=gettextRcmdr("Location of Data File"))
 	headerVariable <- tclVar("1")
-	headerCheckBox <- tkcheckbutton(optionsFrame, variable=headerVariable)
+	headerCheckBox <- ttkcheckbutton(optionsFrame, variable=headerVariable)
 	radioButtons(optionsFrame, "delimiter", buttons=c("whitespace", "commas", "tabs"),
 			labels=gettextRcmdr(c("White space", "Commas", "Tabs")), title=gettextRcmdr("Field Separator"))
 	otherButton <- ttkradiobutton(delimiterFrame, variable=delimiterVariable, value="other")
@@ -724,9 +724,9 @@ importSPSS <- function() {
 	dsname <- tclVar(gettextRcmdr("Dataset"))
 	entryDsname <- ttkentry(top, width="20", textvariable=dsname)
 	asFactor <- tclVar("1")
-	asFactorCheckBox <- tkcheckbutton(top, variable=asFactor)
+	asFactorCheckBox <- ttkcheckbutton(top, variable=asFactor)
     toLower <- tclVar("1")
-    toLowerCheckBox <- tkcheckbutton(top, variable=toLower)
+    toLowerCheckBox <- ttkcheckbutton(top, variable=toLower)
 	maxLevels <- tclVar("Inf")
 	entryMaxLevels <- ttkentry(top, width="5", textvariable=maxLevels)
 	onOK <- function(){
@@ -849,15 +849,15 @@ importSTATA <- function() {
 	dsname <- tclVar(gettextRcmdr("Dataset"))
 	entryDsname <- ttkentry(top, width="20", textvariable=dsname)
 	asFactor <- tclVar("1")
-	asFactorCheckBox <- tkcheckbutton(top, variable=asFactor)
+	asFactorCheckBox <- ttkcheckbutton(top, variable=asFactor)
 	asDate <- tclVar("1")
-	asDateCheckBox <- tkcheckbutton(top, variable=asDate)
+	asDateCheckBox <- ttkcheckbutton(top, variable=asDate)
 	asMissingType <- tclVar("1")
-	asMissingTypeCheckBox <- tkcheckbutton(top, variable=asMissingType)
+	asMissingTypeCheckBox <- ttkcheckbutton(top, variable=asMissingType)
 	asConvertUnderscore <- tclVar("1")
-	asConvertUnderscoreCheckBox <- tkcheckbutton(top, variable=asConvertUnderscore)
+	asConvertUnderscoreCheckBox <- ttkcheckbutton(top, variable=asConvertUnderscore)
 	asWarnMissingLabels <- tclVar("1")
-	asWarnMissingLabelsCheckBox <- tkcheckbutton(top, variable=asWarnMissingLabels)
+	asWarnMissingLabelsCheckBox <- ttkcheckbutton(top, variable=asWarnMissingLabels)
 	onOK <- function(){
 		closeDialog()
 		dsnameValue <- trim.blanks(tclvalue(dsname))
@@ -1333,7 +1333,7 @@ reorderFactor <- function(){
 	variableBox <- variableListBox(top, Factors(), title=gettextRcmdr("Factor (pick one)"))
 	orderedFrame <- tkframe(top)
 	orderedVariable <- tclVar("0")
-	orderedCheckBox <- tkcheckbutton(orderedFrame, variable=orderedVariable)
+	orderedCheckBox <- ttkcheckbutton(orderedFrame, variable=orderedVariable)
 	factorName <- tclVar(gettextRcmdr("<same as original>"))
 	factorNameField <- ttkentry(top, width="20", textvariable=factorName)
 	onOK <- function(){
@@ -1521,7 +1521,7 @@ filterNA <- function(){
 	initializeDialog(title=gettextRcmdr("Remove Missing Data"))
 	allVariablesFrame <- tkframe(top)
 	allVariables <- tclVar("1")
-	allVariablesCheckBox <- tkcheckbutton(allVariablesFrame, variable=allVariables)
+	allVariablesCheckBox <- ttkcheckbutton(allVariablesFrame, variable=allVariables)
 	variablesBox <- variableListBox(top, Variables(), selectmode="multiple", initialSelection=NULL,
 			title=gettextRcmdr("Variables (select one or more)"))
 	newDataSetName <- tclVar(gettextRcmdr("<same as active data set>"))
@@ -1583,7 +1583,7 @@ subsetDataSet <- function(){
 	initializeDialog(title=gettextRcmdr("Subset Data Set"))
 	allVariablesFrame <- tkframe(top)
 	allVariables <- tclVar("1")
-	allVariablesCheckBox <- tkcheckbutton(allVariablesFrame, variable=allVariables)
+	allVariablesCheckBox <- ttkcheckbutton(allVariablesFrame, variable=allVariables)
 	variablesBox <- variableListBox(top, Variables(), selectmode="multiple",
 			initialSelection=NULL, title=gettextRcmdr("Variables (select one or more)"))
 	subsetVariable <- tclVar(gettextRcmdr("<all cases>"))
@@ -2042,7 +2042,7 @@ mergeDataSets <- function(){
 	dataSet2Box <- variableListBox(top, dataSets, title=gettextRcmdr("Second Data Set (pick one)"))
 	commonVar <- tclVar("0")
 	commonFrame <- tkframe(top)
-	commonButton <- tkcheckbutton(commonFrame, variable=commonVar)	
+	commonButton <- ttkcheckbutton(commonFrame, variable=commonVar)	
 	radioButtons(top, "direction", buttons=c("rows", "columns"), 
 			labels=gettextRcmdr(c("Merge rows", "Merge columns")), title=gettextRcmdr("Direction of Merge"))
 	onOK <- function(){

@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2013-01-22 by J. Fox
+# last modified 2013-04-11 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -275,8 +275,8 @@ residualQQPlot <- function () {
 	selectFrame <- tkframe(top)
 	simulateVar <- tclVar(dialog.values$initial.simulate)
 	identifyVar <- tclVar(dialog.values$initial.identify)
-	simulateCheckBox <- tkcheckbutton(selectFrame, variable = simulateVar)
-	identifyCheckBox <- tkcheckbutton(selectFrame, variable = identifyVar)
+	simulateCheckBox <- ttkcheckbutton(selectFrame, variable = simulateVar)
+	identifyCheckBox <- ttkcheckbutton(selectFrame, variable = identifyVar)
 	onOK <- function() {
 		simulate <- tclvalue (simulateVar)  
 		identify <- tclvalue (identifyVar)
@@ -541,7 +541,7 @@ BreuschPaganTest <- function () {
 	OKCancelHelp(helpSubject = "bptest", reset = "BreuschPaganTest")
 	studentVariable <- tclVar(dialog.values$initial.student)
 	studentFrame <- tkframe(optionsFrame)
-	studentCheckBox <- tkcheckbutton(studentFrame, variable = studentVariable)
+	studentCheckBox <- ttkcheckbutton(studentFrame, variable = studentVariable)
 	tkgrid(labelRcmdr(studentFrame, text = gettextRcmdr("Studentized test statistic"), 
 					justify = "left"), studentCheckBox, sticky = "w")
 	tkgrid(studentFrame, sticky = "w")
@@ -629,9 +629,9 @@ RESETtest <- function () {
 	OKCancelHelp(helpSubject = "reset", reset = "RESETtest")
 	optionsFrame <- tkframe(top)
 	squareVariable <- tclVar(dialog.values$initial.square)
-	squareCheckBox <- tkcheckbutton(optionsFrame, variable = squareVariable)
+	squareCheckBox <- ttkcheckbutton(optionsFrame, variable = squareVariable)
 	cubeVariable <- tclVar(dialog.values$initial.cube)
-	cubeCheckBox <- tkcheckbutton(optionsFrame, variable = cubeVariable)
+	cubeCheckBox <- ttkcheckbutton(optionsFrame, variable = cubeVariable)
 	typeVariable <- tclVar("regressor")
 	radioButtons(optionsFrame, name = "type", buttons = c("regressor", 
 					"fitted", "princomp"), labels = gettextRcmdr(c("Explanatory variables", 

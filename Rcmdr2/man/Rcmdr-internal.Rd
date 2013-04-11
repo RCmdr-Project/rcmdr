@@ -58,6 +58,7 @@
 \alias{tkyview}
 \alias{tkyview.scroll}
 \alias{ttklabelframe}
+\alias{ttkcheckbutton}
 
 \title{
 \pkg{tcltk} Functions Re-exported by the \pkg{Rcmdr} Package.

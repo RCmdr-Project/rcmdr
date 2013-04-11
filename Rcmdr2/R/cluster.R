@@ -1,6 +1,6 @@
 # this code originally by Dan Putler, used with permission 
 
-# last modified 2012-12-06 by J. Fox
+# last modified 2013-04-11 by J. Fox
 
 assignCluster <- function(clusterData, origData, clusterVec){
 	rowsDX <- row.names(clusterData)
@@ -68,13 +68,13 @@ kmeansClustering <- function () {
 			showvalue = TRUE, variable = iterNumber, resolution = 5, 
 			orient = "horizontal")
 	summaryClusters <- tclVar(dialog.values$initial.clusterSummary)
-	summaryCB <- tkcheckbutton(optionsFrame)
+	summaryCB <- ttkcheckbutton(optionsFrame)
 	tkconfigure(summaryCB, variable = summaryClusters)
 	plotClusters <- tclVar(dialog.values$initial.clusterPlot)
-	plotCB <- tkcheckbutton(optionsFrame)
+	plotCB <- ttkcheckbutton(optionsFrame)
 	tkconfigure(plotCB, variable = plotClusters)
 	assignClusters <- tclVar(dialog.values$initial.clusterAssign)
-	assignCB <- tkcheckbutton(optionsFrame)
+	assignCB <- ttkcheckbutton(optionsFrame)
 	tkconfigure(assignCB, variable = assignClusters)
 	assignName <- tclVar(dialog.values$initial.clusterVariable)
 	assignField <- ttkentry(optionsFrame, width = "15", textvariable = assignName)
@@ -208,7 +208,7 @@ hierarchicalCluster <- function () {
 			initialValue = dialog.values$initial.distance)
 	checkFrame <- tkframe(optionsFrame)
 	plotDendro <- tclVar(dialog.values$initial.dendro)
-	plotCB <- tkcheckbutton(checkFrame)
+	plotCB <- ttkcheckbutton(checkFrame)
 	tkconfigure(plotCB, variable = plotDendro)
 	onOK <- function() {
 		x <- getSelection(xBox)
@@ -320,10 +320,10 @@ hclustSummary <- function () {
 	slider <- tkscale(optionsFrame, from = 2, to = 10, showvalue = TRUE, 
 			variable = clusterNumber, resolution = 1, orient = "horizontal")
 	summaryClusters <- tclVar(dialog.values$initial.clusterSummary)
-	summaryCB <- tkcheckbutton(optionsFrame)
+	summaryCB <- ttkcheckbutton(optionsFrame)
 	tkconfigure(summaryCB, variable = summaryClusters)
 	plotClusters <- tclVar(dialog.values$initial.clusterPlot)
-	plotCB <- tkcheckbutton(optionsFrame)
+	plotCB <- ttkcheckbutton(optionsFrame)
 	tkconfigure(plotCB, variable = plotClusters)
 	if (length(hclustObjects) == 0) {
 		errorCondition(recall = return, message = gettextRcmdr("There are no hierachical clustering solutions"))

@@ -43,7 +43,7 @@ numericalSummaries <- function(){ # dialog memory 2011-06-27  J. Fox
                  labels=gettextRcmdr(c("Type 1", "Type 2", "Type 3")))
     quantilesVariable <- tclVar(dialog.values$initial.quantiles.variable)
     quantilesFrame <- tkframe(top)
-    quantilesCheckBox <- tkcheckbutton(quantilesFrame, variable=quantilesVariable)
+    quantilesCheckBox <- ttkcheckbutton(quantilesFrame, variable=quantilesVariable)
     quantiles <- tclVar(dialog.values$initial.quantiles)
     quantilesEntry <- ttkentry(quantilesFrame, width="20", textvariable=quantiles)
     groupsBox(recall=numericalSummaries, label=gettextRcmdr("Summarize by:"), 
@@ -118,7 +118,7 @@ frequencyDistribution <- function () {
 			initialSelection = varPosn (dialog.values$initial.x, "factor"))
 	optionsFrame <- tkframe(top)
 	goodnessOfFitVariable <- tclVar(dialog.values$initial.goodnessOfFit)
-	goodnessOfFitCheckBox <- tkcheckbutton(optionsFrame, variable = goodnessOfFitVariable)
+	goodnessOfFitCheckBox <- ttkcheckbutton(optionsFrame, variable = goodnessOfFitVariable)
 	onOK <- function() {
 		x <- getSelection(xBox)
 		if (length(x) == 0) {
@@ -305,7 +305,7 @@ correlationMatrix <- function (){
         initialValue = dialog.values$initial.use)
     pvaluesFrame <- tkframe(top)
     pvaluesVar <- tclVar(dialog.values$initial.pvaluesVar)
-    pvaluesCheckbox <- tkcheckbutton(pvaluesFrame, variable = pvaluesVar)
+    pvaluesCheckbox <- ttkcheckbutton(pvaluesFrame, variable = pvaluesVar)
     onOK <- function() {
         correlations <- tclvalue(correlationsVariable)
         use <- tclvalue(useVariable)

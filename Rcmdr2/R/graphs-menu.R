@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-03-29 by J. Fox
+# last modified 2013-04-11 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
@@ -50,7 +50,7 @@ indexPlot <- function () {
 	pointsButton <- ttkradiobutton(optionsFrame, variable = typeVariable, 
 			value = "points")
 	identifyVariable <- tclVar(dialog.values$initial.identify)
-	identifyCheckBox <- tkcheckbutton(optionsFrame, variable = identifyVariable)
+	identifyCheckBox <- ttkcheckbutton(optionsFrame, variable = identifyVariable)
 	tkgrid(getFrame(xBox), sticky = "nw")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Identify observations\nwith mouse"), 
 					justify = "left"), identifyCheckBox, sticky = "w")
@@ -147,7 +147,7 @@ stemAndLeaf <- function () {
 	leafsDigitShow <- labelRcmdr(leafsFrame, textvariable = displayDigits, 
 			width = 8, justify = "right")
 	leafsAutoVariable <- tclVar("1") # tclVar(dialog.values$initial.leafs.auto)
-	leafsDigitCheckBox <- tkcheckbutton(leafsFrame, variable = leafsAutoVariable)
+	leafsDigitCheckBox <- ttkcheckbutton(leafsFrame, variable = leafsAutoVariable)
 	onOK <- function() {
 		x <- getSelection(xBox)
 		m <- tclvalue(partsVariable)
@@ -630,7 +630,7 @@ linePlot <- function () {
 						...))
 	legendFrame <- tkframe(top)
 	legendVariable <- tclVar(dialog.values$initial.legend)
-	legendCheckBox <- tkcheckbutton(legendFrame, variable = legendVariable)
+	legendCheckBox <- ttkcheckbutton(legendFrame, variable = legendVariable)
 	onOK <- function() {
 		y <- getSelection(yBox)
 		x <- getSelection(xBox)
@@ -846,7 +846,7 @@ QQPlot <- function () {
 			textvariable = otherNameVariable)
 	identifyVariable <- tclVar(dialog.values$initial.identify)
 	identifyFrame <- tkframe(top)
-	identifyCheckBox <- tkcheckbutton(identifyFrame, variable = identifyVariable)
+	identifyCheckBox <- ttkcheckbutton(identifyFrame, variable = identifyVariable)
 	tkgrid(getFrame(xBox), sticky = "nw")
 	tkgrid(labelRcmdr(identifyFrame, text = gettextRcmdr("Identify observations with mouse")), 
 			identifyCheckBox, sticky = "w")
@@ -984,28 +984,28 @@ Scatter3D <- function () {
 			initialSelection = varPosn (dialog.values$initial.y, "numeric"))
 	surfacesFrame <- tkframe(top)
 	identifyPoints <- tclVar(dialog.values$initial.identify)
-	identifyPointsCheckBox <- tkcheckbutton(surfacesFrame, variable = identifyPoints)
+	identifyPointsCheckBox <- ttkcheckbutton(surfacesFrame, variable = identifyPoints)
 	axisScales <- tclVar(dialog.values$initial.scales)
-	axisScalesCheckBox <- tkcheckbutton(surfacesFrame, variable = axisScales)
+	axisScalesCheckBox <- ttkcheckbutton(surfacesFrame, variable = axisScales)
 	gridLines <- tclVar(dialog.values$initial.grid)
-	gridLinesCheckBox <- tkcheckbutton(surfacesFrame, variable = gridLines)
+	gridLinesCheckBox <- ttkcheckbutton(surfacesFrame, variable = gridLines)
 	squaredResiduals <- tclVar(dialog.values$initial.resids)
-	squaredResidualsCheckBox <- tkcheckbutton(surfacesFrame, 
+	squaredResidualsCheckBox <- ttkcheckbutton(surfacesFrame, 
 			variable = squaredResiduals)
 	linearLSSurface <- tclVar(dialog.values$initial.lin)
-	linearLSCheckBox <- tkcheckbutton(surfacesFrame, variable = linearLSSurface)
+	linearLSCheckBox <- ttkcheckbutton(surfacesFrame, variable = linearLSSurface)
 	quadLSSurface <- tclVar(dialog.values$initial.quad)
-	quadLSCheckBox <- tkcheckbutton(surfacesFrame, variable = quadLSSurface)
+	quadLSCheckBox <- ttkcheckbutton(surfacesFrame, variable = quadLSSurface)
 	nonparSurface <- tclVar(dialog.values$initial.nonpar)
-	nonparCheckBox <- tkcheckbutton(surfacesFrame, variable = nonparSurface)
+	nonparCheckBox <- ttkcheckbutton(surfacesFrame, variable = nonparSurface)
 	dfNonparVariable <- tclVar(dialog.values$initial.dfNonpar)
 	dfNonparField <- ttkentry(surfacesFrame, width = "6", textvariable = dfNonparVariable)
 	additiveSurface <- tclVar(dialog.values$initial.additive)
-	additiveCheckBox <- tkcheckbutton(surfacesFrame, variable = additiveSurface)
+	additiveCheckBox <- ttkcheckbutton(surfacesFrame, variable = additiveSurface)
 	dfAddVariable <- tclVar(dialog.values$initial.dfAdd)
 	dfAddField <- ttkentry(surfacesFrame, width = "6", textvariable = dfAddVariable)
 	ellipsoid <- tclVar(dialog.values$initial.ellips)
-	ellipsoidCheckBox <- tkcheckbutton(surfacesFrame, variable = ellipsoid)
+	ellipsoidCheckBox <- ttkcheckbutton(surfacesFrame, variable = ellipsoid)
 	bgFrame <- tkframe(top)
 	bgVariable <- tclVar(dialog.values$initial.bg)
 	whiteButton <- ttkradiobutton(bgFrame, variable = bgVariable, 
@@ -1295,7 +1295,7 @@ saveBitmap <- function () {
     tkconfigure(resSlider,  state = if (tclvalue(unitsVariable) == "px") "disabled" else "normal")
     aspectVariable <- tclVar("1")
     aspectFrame <- tkframe(top)
-    aspectCheckBox <- tkcheckbutton(aspectFrame, variable = aspectVariable)
+    aspectCheckBox <- ttkcheckbutton(aspectFrame, variable = aspectVariable)
     onOK <- function() {
         closeDialog()
         width <- tclvalue(widthVariable)
@@ -1415,7 +1415,7 @@ savePDF <- function () {
                  initialValue = dialog.values$initial.units, command=updateSize)
     aspectVariable <- tclVar("1")
     aspectFrame <- tkframe(top)
-    aspectCheckBox <- tkcheckbutton(aspectFrame, variable = aspectVariable)
+    aspectCheckBox <- ttkcheckbutton(aspectFrame, variable = aspectVariable)
     sliderFrame <- tkframe(top)
     widthVariable <- tclVar(size[1])
     widthSlider <- tkscale(sliderFrame, from = wmin, to = wmax, 

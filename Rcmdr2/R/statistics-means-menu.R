@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2012-01-27 by J. Fox
+# last modified 2013-04-11 by J. Fox
 
 # Means menu
 
@@ -192,7 +192,7 @@ oneWayAnova <- function () {
 			initialSelection = varPosn(dialog.values$initial.response, "numeric"))
 	optionsFrame <- tkframe(top)
 	pairwiseVariable <- tclVar(dialog.values$initial.pairwise)
-	pairwiseCheckBox <- tkcheckbutton(optionsFrame, variable = pairwiseVariable)
+	pairwiseCheckBox <- ttkcheckbutton(optionsFrame, variable = pairwiseVariable)
 	onOK <- function() {
 		modelValue <- trim.blanks(tclvalue(modelName))
 		if (!is.valid.name(modelValue)) {

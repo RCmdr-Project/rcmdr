@@ -1,4 +1,4 @@
-# last modified 2012-12-06 by J. Fox
+# last modified 2013-04-11 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -176,9 +176,9 @@ Options <- function(){
 	default.font.size <- setOption("default.font.size", 10)
 #			if (.Platform$OS.type != "windows") 12 else 10)
 	consoleOutputVar <- tclVar(console.output)
-	consoleOutputCheckBox <- tkcheckbutton(top, variable=consoleOutputVar)
+	consoleOutputCheckBox <- ttkcheckbutton(top, variable=consoleOutputVar)
 	logCommandsVar <- tclVar(log.commands)
-	logCommandsCheckBox <- tkcheckbutton(top, variable=logCommandsVar)
+	logCommandsCheckBox <- ttkcheckbutton(top, variable=logCommandsVar)
 	logFontSizeVar <- tclVar(log.font.size)
 	logFontSizeSlider <- tkscale(top, from=6, to=20, showvalue=TRUE, variable=logFontSizeVar,
 			resolution=1, orient="horizontal")
@@ -197,13 +197,13 @@ Options <- function(){
 	contrasts1Entry <- ttkentry(contrastsFrame, width="15", textvariable=contrasts1)
 	contrasts2Entry <- ttkentry(contrastsFrame, width="15", textvariable=contrasts2)
 	grabFocusVar <- tclVar(as.numeric(grab.focus))
-	grabFocusCheckBox <- tkcheckbutton(top, variable=grabFocusVar)
+	grabFocusCheckBox <- ttkcheckbutton(top, variable=grabFocusVar)
 	doubleClickVar <- tclVar(as.numeric(double.click))
-	doubleClickCheckBox <- tkcheckbutton(top, variable=doubleClickVar)
+	doubleClickCheckBox <- ttkcheckbutton(top, variable=doubleClickVar)
 	sortNamesVar <- tclVar(as.numeric(sort.names))
-	sortNamesCheckBox <- tkcheckbutton(top, variable=sortNamesVar)
+	sortNamesCheckBox <- ttkcheckbutton(top, variable=sortNamesVar)
 	showEditButtonVar <- tclVar(as.numeric(show.edit.button))
-	showEditButtonCheckBox <- tkcheckbutton(top, variable=showEditButtonVar)
+	showEditButtonCheckBox <- ttkcheckbutton(top, variable=showEditButtonVar)
 	scaleFactorVar <- tclVar(if (is.null(scale.factor)) 1.0 else scale.factor)
 	scaleFactorSlider <- tkscale(top, from=0.2, to=3.0, showvalue=TRUE, variable=scaleFactorVar,
 			resolution=0.2, orient="horizontal")
