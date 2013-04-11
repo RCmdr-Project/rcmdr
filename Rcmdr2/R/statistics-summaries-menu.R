@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2012-12-07 by J. Fox
+# last modified 2013-04-11 by J. Fox
 
 # Summaries menu
 
@@ -289,77 +289,88 @@ statisticsTable <- function () {
 }
 
 correlationMatrix <- function (){
-	defaults <- list (initial.x = NULL, initial.correlations = "Pearson", initial.pvaluesVar="0")  
-	dialog.values <- getDialog ("correlationMatrix", defaults)
-	initializeDialog(title = gettextRcmdr("Correlation Matrix"))
-	xBox <- variableListBox(top, Numeric(), selectmode = "multiple", 
-			title = gettextRcmdr("Variables (pick two or more)"),
-			initialSelection = varPosn (dialog.values$initial.x, "numeric"))
-	radioButtons(name = "correlations", buttons = c("pearson", 
-					"spearman", "partial"), values = c("Pearson", "Spearman", 
-					"partial"), labels = gettextRcmdr(c("Pearson product-moment", 
-							"Spearman rank-order", "Partial")), title = gettextRcmdr("Type of Correlations"),
-			initialValue = dialog.values$initial.correlations)
-	pvaluesFrame <- tkframe(top)
-	pvaluesVar <- tclVar(dialog.values$initial.pvaluesVar)
-	pvaluesCheckbox <- tkcheckbutton(pvaluesFrame, variable = pvaluesVar)
-	onOK <- function() {
-		correlations <- tclvalue(correlationsVariable)
-		x <- getSelection(xBox)
-		pvalues <- tclvalue(pvaluesVar)
-		if (2 > length(x)) {
-			errorCondition(recall = correlationMatrix, message = gettextRcmdr("Fewer than 2 variables selected."))
-			return()
-		}
-		if ((correlations == "partial") && (3 > length(x))) {
-			errorCondition(recall = correlationMatrix, message = gettextRcmdr("Fewer than 3 variables selected\nfor partial correlations."))
-			return()
-		}
-		closeDialog()
-		putDialog ("correlationMatrix", list (initial.x=x, initial.correlations=correlations, 
-						initial.pvaluesVar=pvalues))
-		x <- paste("\"", x, "\"", sep = "")
-		.activeDataSet <- ActiveDataSet()
-		if (correlations == "Pearson") {
-			if (pvalues == 0) {
-				doItAndPrint(paste("cor(", .activeDataSet, "[,c(", 
-								paste(x, collapse = ","), ")], use=\"complete.obs\")", 
-								sep = ""))
-			}
-			else {
-				Library("Hmisc")
-				doItAndPrint(paste("rcorr.adjust(", .activeDataSet, 
-								"[,c(", paste(x, collapse = ","), ")], type=\"pearson\")", 
-								sep = ""))
-			}
-		}
-		else if (correlations == "Spearman") {
-			logger("# Spearman rank-order correlations")
-			if (pvalues == 0) {
-				doItAndPrint(paste("cor(", .activeDataSet, "[,c(", 
-								paste(x, collapse = ","), ")], use=\"complete.obs\", method=\"spearman\")", 
-								sep = ""))
-			}
-			else {
-				Library("Hmisc")
-				doItAndPrint(paste("rcorr.adjust(", .activeDataSet, 
-								"[,c(", paste(x, collapse = ","), ")], type=\"spearman\")", 
-								sep = ""))
-			}
-		}
-		else doItAndPrint(paste("partial.cor(", .activeDataSet, 
-							"[,c(", paste(x, collapse = ","), ")], use=\"complete.obs\")", 
-							sep = ""))
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "rcorr.adjust", reset="correlationMatrix")
-	tkgrid(getFrame(xBox), sticky = "nw")
-	tkgrid(correlationsFrame, sticky = "w")
-	tkgrid(labelRcmdr(pvaluesFrame, text = gettextRcmdr("Pairwise p-values\nfor Pearson or Spearman correlations")), 
-			pvaluesCheckbox, sticky = "w")
-	tkgrid(pvaluesFrame, sticky = "w")
-	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 4, columns = 1)
+    defaults <- list (initial.x = NULL, initial.correlations = "Pearson", initial.pvaluesVar="0", initial.use="complete")  
+    dialog.values <- getDialog ("correlationMatrix", defaults)
+    initializeDialog(title = gettextRcmdr("Correlation Matrix"))
+    xBox <- variableListBox(top, Numeric(), selectmode = "multiple", 
+        title = gettextRcmdr("Variables (pick two or more)"),
+        initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+    radioButtons(name = "correlations", buttons = c("pearson", 
+        "spearman", "partial"), values = c("Pearson", "Spearman", 
+            "partial"), labels = gettextRcmdr(c("Pearson product-moment", 
+                "Spearman rank-order", "Partial")), title = gettextRcmdr("Type of Correlations"),
+        initialValue = dialog.values$initial.correlations)
+    radioButtons(name = "use", buttons = c("complete", "pairwise.complete"), 
+        labels = gettextRcmdr(c("Complete observations", "Pairwise-complete observations")), title = gettextRcmdr("Observations to Use"),
+        initialValue = dialog.values$initial.use)
+    pvaluesFrame <- tkframe(top)
+    pvaluesVar <- tclVar(dialog.values$initial.pvaluesVar)
+    pvaluesCheckbox <- tkcheckbutton(pvaluesFrame, variable = pvaluesVar)
+    onOK <- function() {
+        correlations <- tclvalue(correlationsVariable)
+        use <- tclvalue(useVariable)
+        x <- getSelection(xBox)
+        pvalues <- tclvalue(pvaluesVar)
+        if (2 > length(x)) {
+            errorCondition(recall = correlationMatrix, message = gettextRcmdr("Fewer than 2 variables selected."))
+            return()
+        }
+        if ((correlations == "partial") && (3 > length(x))) {
+            errorCondition(recall = correlationMatrix, message = gettextRcmdr("Fewer than 3 variables selected\nfor partial correlations."))
+            return()
+        }
+        closeDialog()
+        putDialog ("correlationMatrix", list (initial.x=x, initial.correlations=correlations, 
+            initial.pvaluesVar=pvalues, initial.use=use))
+        x <- paste("\"", x, "\"", sep = "")
+        .activeDataSet <- ActiveDataSet()
+        if (correlations == "Pearson") {
+            if (pvalues == 0) {
+                doItAndPrint(paste("cor(", .activeDataSet, "[,c(", 
+                    paste(x, collapse = ","), ")], use=\"", use, "\")", 
+                    sep = ""))
+            }
+            else {
+                Library("Hmisc")
+                doItAndPrint(paste("rcorr.adjust(", .activeDataSet, 
+                    "[,c(", paste(x, collapse = ","), ")], type=\"pearson\", use=\"", use, "\")", 
+                    sep = ""))
+            }
+        }
+        else if (correlations == "Spearman") {
+            if (pvalues == 0) {
+                doItAndPrint(paste("cor(", .activeDataSet, "[,c(", 
+                    paste(x, collapse = ","), ")], method=\"spearman\", use=\"", use, "\")", 
+                    sep = ""))
+            }
+            else {
+                Library("Hmisc")
+                doItAndPrint(paste("rcorr.adjust(", .activeDataSet, 
+                    "[,c(", paste(x, collapse = ","), ")], type=\"spearman\", use=\"", use, "\")", 
+                    sep = ""))
+            }
+        }
+        else if (pvalues == 0){
+            doItAndPrint(paste("partial.cor(", .activeDataSet, 
+                "[,c(", paste(x, collapse = ","), ")], use=\"", use, "\")", 
+                sep = ""))
+        }
+        else {
+            doItAndPrint(paste("partial.cor(", .activeDataSet, 
+                "[,c(", paste(x, collapse = ","), ")], tests=TRUE, use=\"", use, "\")", 
+                sep = ""))
+        }
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "rcorr.adjust", reset="correlationMatrix")
+    tkgrid(getFrame(xBox), sticky = "nw")
+    tkgrid(correlationsFrame, sticky = "w")
+    tkgrid(useFrame, sticky="w")
+    tkgrid(labelRcmdr(pvaluesFrame, text = gettextRcmdr("Pairwise p-values"), fg="blue"), 
+        pvaluesCheckbox, sticky = "w")
+    tkgrid(pvaluesFrame, sticky = "w")
+    tkgrid(buttonsFrame, sticky = "w")
+    dialogSuffix(rows = 5, columns = 1)
 }
 
 # the following dialog contributed by Stefano Calza, modified by J. Fox

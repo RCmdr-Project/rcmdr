@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-03-29 12:05:00\n"
+"POT-Creation-Date: 2013-04-11 12:25:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3956,4 +3956,15 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
+msgid "Pairwise p-values"
+msgstr ""
+
+msgid "Observations to Use"
+msgstr ""
+
+msgid "Complete observations"
+msgstr ""
+
+msgid "Pairwise-complete observations"
+msgstr ""
 

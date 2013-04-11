@@ -7,16 +7,17 @@
   controlling for the others.
 }
 \usage{
-partial.cor(X, ...)
+partial.cor(X, tests=FALSE, use=c("complete.obs", "pairwise.complete.obs"))
 }
 
 \arguments{
   \item{X}{data matrix.}
-  \item{\dots}{arguments to be passed to \code{cor}.}
+  \item{tests}{show two-sided p-value and p-value adjusted for multiple testing by Holm's method for each partial correlation?}
+  \item{use}{observations to use to compute partial correlations, default is \code{"complete.obs"}.}
 }
 
 \value{
-    Returns a matrix of partial correlations.
+    Returns the matrix of partial correlations, optionally with adjusted and unadjusted p-values.
 }
 
 \author{John Fox \email{jfox@mcmaster.ca}}
@@ -27,5 +28,6 @@ partial.cor(X, ...)
     library(car)
     data(DavisThin)
     partial.cor(DavisThin)
+    partial.cor(DavisThin, tests=TRUE)
 }
 \keyword{misc}

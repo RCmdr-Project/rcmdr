@@ -1,4 +1,4 @@
-# last modified 2013-04-03 by J. Fox
+# last modified 2013-04-11 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -263,14 +263,67 @@ print.reliability <- function(x, digits=4, ...){
 	invisible(x)
 }
 
-partial.cor <- function(X, ...){
-	R <- cor(X, ...)
-	RI <- solve(R)
-	D <- 1/sqrt(diag(RI))
-	R <- - RI * (D %o% D)
-	diag(R) <- 0
-	rownames(R) <- colnames(R) <- colnames(X)
-	R
+partial.cor <- function(X, tests=FALSE, use=c("complete.obs", "pairwise.complete.obs")){
+    countValid <- function(X){
+        X <- !is.na(X)
+        t(X) %*% X
+    }
+    use <- match.arg(use)
+    if (use == "complete.obs"){
+        X <- na.omit(X)
+        n <- nrow(X)
+    }
+    else n <- countValid(X) 
+    R <- cor(X, use=use)
+    RI <- solve(R)
+    D <- 1/sqrt(diag(RI))
+    R <- - RI * (D %o% D)
+    diag(R) <- 0
+    rownames(R) <- colnames(R) <- colnames(X)
+    result <- list(R=R, n=n, P=NULL, P.unadj=NULL)
+    if (tests){
+        opt <- options(scipen=5)
+        on.exit(options(opt))
+        df <- n - ncol(X)
+        f <- (R^2)*df/(1 - R^2)
+        P <- P.unadj <- pf(f, 1, df, lower.tail=FALSE)
+        p <- P[lower.tri(P)]
+        adj.p <- p.adjust(p, method="holm")
+        P[lower.tri(P)] <- adj.p
+        P[upper.tri(P)] <- 0
+        P <- P + t(P)
+        P <- ifelse(P < 1e-04, 0, P)
+        P <- format(round(P, 4))
+        diag(P) <- ""
+        P[grep("0.0000", P)] <- "<.0001"
+        P.unadj <- ifelse(P.unadj < 1e-04, 0, P.unadj)
+        P.unadj <- format(round(P.unadj, 4))
+        diag(P.unadj) <- ""
+        P.unadj[grep("0.0000", P.unadj)] <- "<.0001"
+        result$P <- P
+        result$P.unadj <- P.unadj
+    }
+    class(result) <- "partial.cor"
+    result
+}
+
+print.partial.cor <- function(x, digits=max(3, getOption("digits") - 2), ...){
+    cat("\n Partial correlations:\n")
+    print(round(x$R, digits, ...))
+    cat("\n Number of observations: ")
+    n <- x$n
+    if (all(n[1] == n)) cat(n[1], "\n")
+    else{
+        cat("\n")
+        print(n)
+    }
+    if (!is.null(x$P)){
+        cat("\n Pairwise two-sided p-values:\n")
+        print(x$P.unadj, quote=FALSE)
+        cat("\n Adjusted p-values (Holm's method)\n")
+        print(x$P, quote=FALSE)
+    }
+    x
 }
 
 Confint <- function(object, parm, level=0.95, ...) UseMethod("Confint")
@@ -701,30 +754,47 @@ bin.var <- function (x, bins=4, method=c("intervals", "proportions", "natural"),
 # the following function is adapted from a suggestion by Robert Muenchen
 
 rcorr.adjust <- function(x, type=c("pearson", "spearman"), 
-		use=c("complete.obs", "pairwise.complete.obs")){
-	require("Hmisc")
-	type <- match.arg(type)
-	use <- match.arg(use)
-	x <- if (use == "complete.obs") as.matrix(na.omit(x)) else as.matrix(x)
-	R <- rcorr(x, type=type)
-	P <- R$P
-	p <- P[lower.tri(P)]
-	adj.p <- p.adjust(p, method="holm")
-	P[lower.tri(P)] <- adj.p
-	P[upper.tri(P)] <- 0
-	P <- P + t(P)
-	P <- ifelse(P < 1e-04, 0, P)
-	P <- format(round(P, 4))
-	P[grep("NA", P)] <- ""
-	res <- list(R=R, P=P)
-	class(res) <- "rcorr.adjust"
-	res
+    use=c("complete.obs", "pairwise.complete.obs")){
+    require("Hmisc")
+    opt <- options(scipen=5)
+    on.exit(options(opt))
+    type <- match.arg(type)
+    use <- match.arg(use)
+    x <- if (use == "complete.obs") as.matrix(na.omit(x)) else as.matrix(x)
+    R <- rcorr(x, type=type)
+    P <- P.unadj <- R$P
+    p <- P[lower.tri(P)]
+    adj.p <- p.adjust(p, method="holm")
+    P[lower.tri(P)] <- adj.p
+    P[upper.tri(P)] <- 0
+    P <- P + t(P)
+    P <- ifelse(P < 1e-04, 0, P)
+    P <- format(round(P, 4))
+    diag(P) <- ""
+    P[grep("0.0000", P)] <- "<.0001"
+    P.unadj <- ifelse(P.unadj < 1e-04, 0, P.unadj)
+    P.unadj <- format(round(P.unadj, 4))
+    diag(P.unadj) <- ""
+    P.unadj[grep("0.0000", P.unadj)] <- "<.0001"
+    result <- list(R=R, P=P, P.unadj=P.unadj, type=type)
+    class(result) <- "rcorr.adjust"
+    result
 }
 
 print.rcorr.adjust <- function(x, ...){
-	print(x$R)
-	cat("\n Adjusted p-values (Holm's method)\n")
-	print(x$P, quote = FALSE)
+    cat("\n", if (x$type == "pearson") "Pearson" else "Spearman", "correlations:\n")
+    print(round(x$R$r, 4))
+    cat("\n Number of observations: ")
+    n <- x$R$n
+    if (all(n[1] == n)) cat(n[1], "\n")
+    else{
+        cat("\n")
+        print(n)
+    }
+    cat("\n Pairwise two-sided p-values:\n")
+    print(x$P.unadj, quote=FALSE)
+    cat("\n Adjusted p-values (Holm's method)\n")
+    print(x$P, quote=FALSE)
 }
 
 # Pager
