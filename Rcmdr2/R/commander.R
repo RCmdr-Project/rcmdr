@@ -268,6 +268,7 @@ Commander <- function(){
 		else .Tcl(paste("font configure RcmdrDefaultFont ", default.font))
 	}
 	.Tcl("ttk::style configure TButton -font RcmdrDefaultFont")
+    .Tcl(paste("font configure TkDefaultFont -size ", default.font.size))
 	placement <- setOption("placement", "", global=FALSE)
 	source.files <- list.files(etc, pattern="\\.[Rr]$")
 	for (file in source.files) {
