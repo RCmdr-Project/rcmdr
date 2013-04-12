@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2012-01-27 by J. Fox
+# last modified 2013-04-12 by J. Fox
 
 # Dimensional-analysis menu
 
@@ -88,7 +88,7 @@ principalComponents <- function () {
 			}
 			initializeDialog(subdialog, title = gettextRcmdr("Number of Components"))
 			tkgrid(labelRcmdr(subdialog, text = gettextRcmdr("Number of components to retain:"), 
-							fg = "blue"), sticky = "w")
+							fg = getRcmdr("title.color")), sticky = "w")
 			sliderFrame <- tkframe(subdialog)
 			sliderValue <- tclVar("1")
 			componentsSlider <- tkscale(sliderFrame, from = 1, 
@@ -175,7 +175,7 @@ factorAnalysis <- function () {
 		else {
 			initializeDialog(subdialog, title = gettextRcmdr("Number of Factors"))
 			tkgrid(labelRcmdr(subdialog, text = gettextRcmdr("Number of factors to extract:"), 
-							fg = "blue"), sticky = "w")
+							fg = getRcmdr("title.color")), sticky = "w")
 			sliderFrame <- tkframe(subdialog)
 			sliderValue <- tclVar("1")
 			componentsSlider <- tkscale(sliderFrame, from = 1, 

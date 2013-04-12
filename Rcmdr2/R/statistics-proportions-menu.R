@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2012-12-07 by J. Fox
+# last modified 2013-04-12 by J. Fox
 
     # Proportions menu
 
@@ -65,11 +65,11 @@ singleProportionTest <- function () {
 			title = gettextRcmdr("Type of Test"), initialValue = dialog.values$initial.test)
 	tkgrid(getFrame(xBox), sticky = "nw")
 	tkgrid(labelRcmdr(pFrame, text = gettextRcmdr("Null hypothesis: p = "), 
-					fg = "blue"), pField, sticky = "w")
+					fg = getRcmdr("title.color")), pField, sticky = "w")
 	tkgrid(pFrame, sticky = "w")
 	tkgrid(labelRcmdr(rightFrame, text = ""))
 	tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level: "), 
-					fg = "blue"), confidenceField, sticky = "w")
+					fg = getRcmdr("title.color")), confidenceField, sticky = "w")
 	tkgrid(confidenceFrame, sticky = "w")
 	tkgrid(alternativeFrame, rightFrame, sticky = "nw")
 	tkgrid(testFrame, sticky = "w")
@@ -149,7 +149,7 @@ twoSampleProportionsTest <- function () {
 	tkgrid(getFrame(groupsBox), getFrame(xBox), sticky = "nw")
 	groupsLabel(columnspan = 2, initialText=dialog.values$initial.label)
 	tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level: "), 
-					fg = "blue"), confidenceField, sticky = "w")
+					fg = getRcmdr("title.color")), confidenceField, sticky = "w")
 	tkgrid(confidenceFrame, sticky = "w")
 	tkgrid(alternativeFrame, rightFrame, sticky = "nw")
 	tkgrid(testFrame, sticky = "w")

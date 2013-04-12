@@ -1,4 +1,4 @@
-# last modified 2013-04-11 by J. Fox
+# last modified 2013-04-12 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -111,8 +111,8 @@ activeDataSet <- function(dsname, flushModel=TRUE, flushDialogMemory=TRUE){
 	Factors(listFactors())
 	TwoLevelFactors(listTwoLevelFactors())
 	RcmdrTclSet("dataSetName", paste(" ", dsname, " "))
-	# -PhG tkconfigure(.dataSetLabel, foreground="blue")
-	if (!is.SciViews()) tkconfigure(getRcmdr("dataSetLabel"), foreground="blue") else refreshStatus() # +PhG
+	# -PhG tkconfigure(.dataSetLabel, foreground=getRcmdr("title.color"))
+	if (!is.SciViews()) tkconfigure(getRcmdr("dataSetLabel"), foreground=getRcmdr("title.color")) else refreshStatus() # +PhG
 # 	if (getRcmdr("attach.data.set")){
 # 		attach(get(dsname, envir=.GlobalEnv), name=dsname)
 # 		logger(paste("attach(", dsname, ")", sep=""))
@@ -134,8 +134,8 @@ activeModel <- function(model){
 	}
 	ActiveModel(model)
 	RcmdrTclSet("modelName", paste(" ", model, " "))
-	# -PhG tkconfigure(.modelLabel, foreground="blue")
-	if (!is.SciViews()) tkconfigure(getRcmdr("modelLabel"), foreground="blue") else refreshStatus() # +PhG
+	# -PhG tkconfigure(.modelLabel, foreground=getRcmdr("title.color"))
+	if (!is.SciViews()) tkconfigure(getRcmdr("modelLabel"), foreground=getRcmdr("title.color")) else refreshStatus() # +PhG
 	activateMenus()
 	model
 }
@@ -1352,7 +1352,7 @@ groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=
                 }
                 assign(".groups", groups, envir=env)
                 tclvalue(.groupsLabel) <- paste(label, groups)
-                tkconfigure(groupsButton, foreground="blue")
+                tkconfigure(groupsButton, foreground=getRcmdr("title.color"))
                 if (plotLinesByGroup) {
                     lines <- as.character("1" == tclvalue(linesByGroup))
                     assign(".linesByGroup", lines, envir=env)
@@ -1368,12 +1368,12 @@ groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=
             tkgrid(getFrame(groupsBox), sticky="nw")
             if (plotLinesByGroup) tkgrid(linesByGroupFrame, sticky="w")
             tkgrid(subButtonsFrame, sticky="ew")
-            if (positionLegend) tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Position legend with mouse click"), fg="blue"))
+            if (positionLegend) tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Position legend with mouse click"), fg=getRcmdr("title.color")))
             dialogSuffix(subdialog, onOK=onOKsub, rows=3+plotLinesByGroup+positionLegend, columns=2, focus=subdialog)
         }
         groupsFrame <- tkframe(window)
         groupsButton <- tkbutton(groupsFrame, textvariable=.groupsLabel, command=onGroups)
-        if (!is.null(initialGroup)) tkconfigure(groupsButton, foreground="blue")
+        if (!is.null(initialGroup)) tkconfigure(groupsButton, foreground=getRcmdr("title.color"))
         tkgrid(groupsButton, sticky="we")
         tkgrid.columnconfigure(groupsFrame, 0, weight=1)
     })
@@ -1383,7 +1383,7 @@ groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialTex
 			groupsFrame <- tkframe(frame)
 			.groupsLabel <- if (is.null(initialText)) gettextRcmdr("<No groups selected>") else initialText
 			groupsLabel <- labelRcmdr(groupsFrame, text=.groupsLabel)
-			tkgrid(labelRcmdr(groupsFrame, text=gettextRcmdr("Difference: "), fg="blue"), groupsLabel, sticky="w")
+			tkgrid(labelRcmdr(groupsFrame, text=gettextRcmdr("Difference: "), fg=getRcmdr("title.color")), groupsLabel, sticky="w")
 			tkgrid(groupsFrame, sticky="w", columnspan=columnspan)
 			onSelect <- function(){
 				group <- getSelection(groupsBox)
@@ -1560,7 +1560,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
 					powerButton, leftParenButton, rightParenButton, sticky="w")
 			formulaFrame <- tkframe(frame)
 			if (hasLhs){
-				tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Model Formula:     "), fg="blue"), operatorsFrame)
+				tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Model Formula:     "), fg=getRcmdr("title.color")), operatorsFrame)
 				lhsVariable <- if (currentModel) tclVar(currentFields$lhs) else tclVar("")
 				rhsVariable <- if (currentModel) tclVar(currentFields$rhs) else tclVar("")
 				rhsEntry <- ttkentry(formulaFrame, width="50", textvariable=rhsVariable)
@@ -1832,7 +1832,7 @@ RcmdrTkmessageBox <- function(message, icon=c("info", "question", "warning",
 	buttonFrame <- tkframe(messageBox,  borderwidth=5)
 	if (icon != "question") tkbell()
 	result <- tclVar()
-	iconColor <- switch(icon, info="blue", question="blue", warning="black",
+	iconColor <- switch(icon, info=getRcmdr("title.color"), question=getRcmdr("title.color"), warning="black",
 			error="red")
 	onOK <- function() {
 		if (GrabFocus()) tkgrab.release(messageBox)

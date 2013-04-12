@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-03-29 by J. Fox
+# last modified 2013-04-12 by J. Fox
 
 # Tables menu
 
@@ -92,7 +92,7 @@ twoWayTable <- function(){ # dialog memory 2011-06-27 J. Fox
 	tkgrid(getFrame(rowBox), labelRcmdr(variablesFrame, text="    "), getFrame(columnBox), sticky="nw")
 	tkgrid(variablesFrame, sticky="w")
 	tkgrid(percentsFrame, sticky="w")
-	tkgrid(labelRcmdr(top, text=gettextRcmdr("Hypothesis Tests"), fg="blue"), sticky="w")
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Hypothesis Tests"), fg=getRcmdr("title.color")), sticky="w")
 	tkgrid(testsFrame, sticky="w")
 	tkgrid(subsetFrame, sticky="w")
 	tkgrid(buttonsFrame, sticky="w")
@@ -318,10 +318,10 @@ enterTable <- function(){
 	tkgrid(labelRcmdr(rowColFrame, text=gettextRcmdr("Number of Rows:")), rowsSlider, rowsShow, sticky="w")
 	tkgrid(labelRcmdr(rowColFrame, text=gettextRcmdr("Number of Columns:")), colsSlider, colsShow, sticky="w")
 	tkgrid(rowColFrame, sticky="w")
-	tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter counts:"), fg="blue"), sticky="w")
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter counts:"), fg=getRcmdr("title.color")), sticky="w")
 	tkgrid(outerTableFrame, sticky="w")
 	tkgrid(percentsFrame, sticky="w")
-	tkgrid(labelRcmdr(top, text=gettextRcmdr("Hypothesis Tests"), fg="blue"), sticky="w")
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Hypothesis Tests"), fg=getRcmdr("title.color")), sticky="w")
 	tkgrid(testsFrame, sticky="w")
 	tkgrid(buttonsFrame, columnspan=2, sticky="w")
 	dialogSuffix(rows=7, columns=2)

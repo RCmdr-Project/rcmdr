@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-04-03 by J. Fox
+# last modified 2013-04-12 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -643,12 +643,12 @@ Commander <- function(){
 	}
 	.log.commands <-  getRcmdr("log.commands")
 	.console.output <- getRcmdr("console.output")
-	if (.log.commands) tkgrid(labelRcmdr(logFrame, text=gettextRcmdr("Script Window"), foreground="blue"),
+	if (.log.commands) tkgrid(labelRcmdr(logFrame, text=gettextRcmdr("Script Window"), foreground=getRcmdr("title.color")),
 				if (.log.commands && .console.output) submitButton, sticky="w", pady=c(0, 6))
 	tkgrid(.log, logYscroll, sticky="news", columnspan=2)
 	tkgrid(logXscroll)
 	if (.log.commands) tkgrid(logFrame, sticky="news", padx=10, pady=0, columnspan=2)
-	tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output Window"), foreground="blue"),
+	tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output Window"), foreground=getRcmdr("title.color")),
 			if (.log.commands && !.console.output) submitButton, sticky="sw", pady=c(6, 6))
 	tkgrid(.output, outputYscroll, sticky="news", columnspan=2)
 	tkgrid(outputXscroll, columnspan=1 + (.log.commands && !.console.output))

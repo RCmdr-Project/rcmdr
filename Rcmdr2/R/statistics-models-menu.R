@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-03-29 by J. Fox
+# last modified 2013-04-12 by J. Fox
 
     # Models menu
 
@@ -280,8 +280,8 @@ generalizedLinearModel <- function(){
 	tkgrid(outerOperatorsFrame, sticky="w")
 	tkgrid(formulaFrame, sticky="w")
 	tkgrid(subsetFrame, sticky="w")
-	tkgrid(labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Family (double-click to select)"), fg="blue"),
-			labelRcmdr(linkFamilyFrame, text="   "), labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Link function"), fg="blue"), sticky="w")
+	tkgrid(labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Family (double-click to select)"), fg=getRcmdr("title.color")),
+			labelRcmdr(linkFamilyFrame, text="   "), labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Link function"), fg=getRcmdr("title.color")), sticky="w")
 	tkgrid(familyBox, familyScroll, sticky="nw")
 	tkgrid(linkBox, sticky="nw")
 	tkgrid(familyFrame, labelRcmdr(linkFamilyFrame, text="   "), linkFrame, sticky="nw")

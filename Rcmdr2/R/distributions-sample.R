@@ -1,6 +1,6 @@
 # Distributions menu dialogs for selecting samples
 
-# last modified 2013-01-11 by J. Fox
+# last modified 2013-01-12 by J. Fox
 # modified by Miroslav M. Ristic (15 January 2011)
 
 
@@ -157,7 +157,7 @@ distributionSamples <- function(nameVar) {
 	tkgrid(labelRcmdr(top, text=gettextRcmdr("Number of samples (rows) ")), samplesEntry, sticky="w")
 	tkgrid(labelRcmdr(top, text=gettextRcmdr("Number of observations (columns) ")), obserEntry, sticky="w")
 	tkgrid(labelRcmdr(top, text=""))
-	tkgrid(labelRcmdr(top, text=gettextRcmdr("Add to Data Set:"), fg="blue"), sticky="w")
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Add to Data Set:"), fg=getRcmdr("title.color")), sticky="w")
 	tkgrid(checkBoxFrame, columnspan=2, sticky="w")
 	tkgrid(labelRcmdr(top, text=""))
 	tkgrid(buttonsFrame, columnspan=2, sticky="w")

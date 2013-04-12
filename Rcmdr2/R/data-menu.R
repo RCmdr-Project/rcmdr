@@ -1,4 +1,4 @@
-# last modified 2013-04-11 by J. Fox
+# last modified 2013-04-12 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
@@ -180,7 +180,7 @@ RecodeDialog <- function () {
 			asFactorCheckBox, sticky = "w")
 	tkgrid(labelRcmdr(asFactorFrame, text = ""))
 	tkgrid(labelRcmdr(recodesFrame, text = gettextRcmdr("Enter recode directives"), 
-					fg = "blue"), sticky = "w")
+					fg = getRcmdr("title.color")), sticky = "w")
 	tkgrid(recodes, recodesYscroll, sticky = "nw")
 	tkgrid(recodesXscroll)
 	tkgrid(variablesFrame, sticky = "w")
@@ -587,15 +587,15 @@ readDataFromPackage <- function() {
 	}
 	OKCancelHelp(helpSubject="data")
 	dataHelpButton <- buttonRcmdr(top, text=gettextRcmdr("Help on selected data set"), command=onDataHelp)
-	tkgrid(labelRcmdr(packageDatasetFrame, text=gettextRcmdr("Package (Double-click to select)"), fg="blue"),
+	tkgrid(labelRcmdr(packageDatasetFrame, text=gettextRcmdr("Package (Double-click to select)"), fg=getRcmdr("title.color")),
 			labelRcmdr(packageDatasetFrame, text="   "), labelRcmdr(packageDatasetFrame, text=gettextRcmdr("Data set (Double-click to select)"),
-					fg="blue"), sticky="w")
+					fg=getRcmdr("title.color")), sticky="w")
 	tkgrid(packageBox, packageScroll, sticky="nw")
 	tkgrid(datasetBox, datasetScroll, sticky="nw")
 	tkgrid(packageFrame, labelRcmdr(packageDatasetFrame, text="   "), datasetFrame, sticky="nw")
 	tkgrid(packageDatasetFrame, sticky="w")
 	tkgrid(labelRcmdr(top, text=gettextRcmdr("OR"), fg="red"), sticky="w")
-	tkgrid(labelRcmdr(enterFrame, text=gettextRcmdr("Enter name of data set:  "), fg="blue"), entryDsname, sticky="w")
+	tkgrid(labelRcmdr(enterFrame, text=gettextRcmdr("Enter name of data set:  "), fg=getRcmdr("title.color")), entryDsname, sticky="w")
 	tkgrid(enterFrame, sticky="w")
 	tkgrid(dataHelpButton, sticky="w")
 	tkgrid(buttonsFrame, sticky="ew")
@@ -1272,8 +1272,8 @@ binVariable <- function () {
 			}
 			subOKCancelHelp()
 			tkgrid(labelRcmdr(subdialog, text = gettextRcmdr("Bin"), 
-							fg = "blue"), labelRcmdr(subdialog, text = gettextRcmdr("Name"), 
-							fg = "blue"), sticky = "w")
+							fg = getRcmdr("title.color")), labelRcmdr(subdialog, text = gettextRcmdr("Name"), 
+							fg = getRcmdr("title.color")), sticky = "w")
 			for (i in 1:bins) {
 				valVar <- paste("levelName", i, sep = "")
 				assign(valVar, tclVar(i))
@@ -1313,7 +1313,7 @@ binVariable <- function () {
 	}
 	OKCancelHelp(helpSubject = "bin.var", reset = "binVariable")
 	tkgrid(labelRcmdr(newVariableFrame, text = gettextRcmdr("New variable name"), 
-					fg = "blue"), sticky = "w")
+					fg = getRcmdr("title.color")), sticky = "w")
 	tkgrid(newVariable, sticky = "w")
 	tkgrid(getFrame(variableBox), labelRcmdr(variableFrame, text = "    "), 
 			newVariableFrame, sticky = "nw")
@@ -1390,8 +1390,8 @@ reorderFactor <- function(){
 			if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
 		}
 		subOKCancelHelp()
-		tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Old Levels"), fg="blue"),
-				labelRcmdr(subdialog, text=gettextRcmdr("New order"), fg="blue"), sticky="w")
+		tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Old Levels"), fg=getRcmdr("title.color")),
+				labelRcmdr(subdialog, text=gettextRcmdr("New order"), fg=getRcmdr("title.color")), sticky="w")
 		for (i in 1:nvalues){
 			valVar <- paste("levelOrder", i, sep="")
 			assign(valVar, tclVar(i))
@@ -1732,8 +1732,8 @@ renameVariables <- function(){
 			tkfocus(CommanderWindow())
 		}
 		subOKCancelHelp()
-		tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Old Name"), fg="blue"),
-				labelRcmdr(subdialog, text=gettextRcmdr("New name"), fg="blue"), sticky="w")
+		tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Old Name"), fg=getRcmdr("title.color")),
+				labelRcmdr(subdialog, text=gettextRcmdr("New name"), fg=getRcmdr("title.color")), sticky="w")
 		for (i in 1:nvariables){
 			valVar <- paste("newName", i, sep="")
 			assign(valVar, tclVar(""))
@@ -1774,7 +1774,7 @@ setContrasts <- function(){
 		}
 		else{
 			initializeDialog(subdialog, title=gettextRcmdr("Specify Contrasts"))
-			tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Enter Contrast Coefficients"), fg="blue"), sticky="w")
+			tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Enter Contrast Coefficients"), fg=getRcmdr("title.color")), sticky="w")
 			env <- environment()
 			tableFrame <- tkframe(subdialog)
 			row.names <- eval(parse(text=paste("levels(", ActiveDataSet(), "$", variable, ")")))
@@ -2019,7 +2019,7 @@ RemoveRows <- function(){
 	}
 	OKCancelHelp(helpSubject="[.data.frame")
 	tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
-					foreground="blue"), sticky="w")
+					foreground=getRcmdr("title.color")), sticky="w")
 	tkgrid(removeEntry, sticky="w")
 	tkgrid(removeScroll, sticky="ew")
 	tkgrid(removeFrame, sticky="w")

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2011-12-27 by J. Fox
+# last modified 2013-04-12 by J. Fox
 
 # Variances menu
 
@@ -58,7 +58,7 @@ twoVariancesFTest <- function () {
 	tkgrid(variablesFrame, sticky = "w")
 	groupsLabel(groupsBox = groupBox, initialText=dialog.values$initial.label)
 	tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level:  "), 
-					fg = "blue"), confidenceField, sticky = "w")
+					fg = getRcmdr("title.color")), confidenceField, sticky = "w")
 	tkgrid(alternativeFrame, sticky = "w")
 	tkgrid(confidenceFrame, sticky = "w")
 	tkgrid(buttonsFrame, sticky = "w")

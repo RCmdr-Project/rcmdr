@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-04-11 by J. Fox
+# last modified 2013-04-12 by J. Fox
 
 # Summaries menu
 
@@ -366,7 +366,7 @@ correlationMatrix <- function (){
     tkgrid(getFrame(xBox), sticky = "nw")
     tkgrid(correlationsFrame, sticky = "w")
     tkgrid(useFrame, sticky="w")
-    tkgrid(labelRcmdr(pvaluesFrame, text = gettextRcmdr("Pairwise p-values"), fg="blue"), 
+    tkgrid(labelRcmdr(pvaluesFrame, text = gettextRcmdr("Pairwise p-values"), fg=getRcmdr("title.color")), 
         pvaluesCheckbox, sticky = "w")
     tkgrid(pvaluesFrame, sticky = "w")
     tkgrid(buttonsFrame, sticky = "w")

@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-04-11 by J. Fox
+# last modified 2013-04-12 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
@@ -192,13 +192,13 @@ stemAndLeaf <- function () {
 	OKCancelHelp(helpSubject = "stem.leaf", reset = "stemAndLeaf")
 	tkgrid(getFrame(xBox), sticky = "nw")
 	tkgrid(labelRcmdr(leafsFrame, text = gettextRcmdr("Leafs Digit:  "), 
-					fg = "blue"), labelRcmdr(leafsFrame, text = gettextRcmdr("Automatic")), 
+					fg = getRcmdr("title.color")), labelRcmdr(leafsFrame, text = gettextRcmdr("Automatic")), 
 			leafsDigitCheckBox, labelRcmdr(leafsFrame, text = gettextRcmdr("  or set:"), 
 					fg = "red"), leafsDigitShow, leafsDigitSlider, sticky = "w")
 	tkgrid(leafsFrame, sticky = "w")
 	tkgrid(partsFrame, sticky = "w")
 	tkgrid(styleFrame, sticky = "w")
-	tkgrid(labelRcmdr(top, text = gettextRcmdr("Options"), fg = "blue"), 
+	tkgrid(labelRcmdr(top, text = gettextRcmdr("Options"), fg = getRcmdr("title.color")), 
 			sticky = "w")
 	tkgrid(optionsFrame, sticky = "w")
 	tkgrid(buttonsFrame, sticky = "w")
@@ -715,7 +715,7 @@ linePlot <- function () {
 			getFrame(yBox), sticky = "nw")
 	tkgrid(variablesFrame, sticky = "nw")
 	tkgrid(labelRcmdr(axisLabelFrame, text = gettextRcmdr("Label for y-axis"), 
-					fg = "blue"), sticky = "w")
+					fg = getRcmdr("title.color")), sticky = "w")
 	tkgrid(axisLabelEntry, sticky = "w")
 	tkgrid(axisLabelScroll, sticky = "ew")
 	tkgrid(axisLabelFrame, sticky = "w")
@@ -852,7 +852,7 @@ QQPlot <- function () {
 			identifyCheckBox, sticky = "w")
 	tkgrid(identifyFrame, sticky = "w")
 	tkgrid(labelRcmdr(distFrame, text = gettextRcmdr("Distribution"), 
-					fg = "blue"), columnspan = 6, sticky = "w")
+					fg = getRcmdr("title.color")), columnspan = 6, sticky = "w")
 	tkgrid(labelRcmdr(distFrame, text = gettextRcmdr("Normal")), 
 			normalButton, sticky = "w")
 	tkgrid(labelRcmdr(tDfFrame, text = gettextRcmdr("df = ")), 
@@ -944,7 +944,7 @@ PlotMeans <- function () {
 	OKCancelHelp(helpSubject = "plotMeans", reset = "PlotMeans")
 	tkgrid(getFrame(groupBox), getFrame(responseBox), sticky = "nw")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Error Bars"), 
-					fg = "blue"), sticky = "w")
+					fg = getRcmdr("title.color")), sticky = "w")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Standard errors")), 
 			seButton, sticky = "w")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Standard deviations")), 
@@ -1134,7 +1134,7 @@ Scatter3D <- function () {
 	tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Show squared residuals")), 
 			squaredResidualsCheckBox, sticky = "w")
 	tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Surfaces to Fit"), 
-					fg = "blue"), sticky = "w")
+					fg = getRcmdr("title.color")), sticky = "w")
 	tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Linear least-squares")), 
 			linearLSCheckBox, sticky = "w")
 	tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Quadratic least-squares")), 
@@ -1150,7 +1150,7 @@ Scatter3D <- function () {
 			ellipsoidCheckBox, sticky = "w")
 	tkgrid(surfacesFrame, sticky = "w")
 	tkgrid(labelRcmdr(bgFrame, text = gettextRcmdr("Background Color"), 
-					fg = "blue"), sticky = "w", columnspan = 2)
+					fg = getRcmdr("title.color")), sticky = "w", columnspan = 2)
 	tkgrid(labelRcmdr(bgFrame, text = gettextRcmdr("Black")), 
 			blackButton, sticky = "w")
 	tkgrid(labelRcmdr(bgFrame, text = gettextRcmdr("White")), 
@@ -1628,13 +1628,13 @@ saveRglGraph <- function(){
 # 	tkgrid(getFrame(conditionsBox), tklabel(cgFrame, text = gettextRcmdr("           ")), 
 # 			getFrame(groupsBox), columnspan = 1, sticky = "w")
 # 	tkgrid(cgFrame, sticky = "w")
-# 	tkgrid(tklabel(top, text = gettextRcmdr("Options"), fg = "blue"), 
+# 	tkgrid(tklabel(top, text = gettextRcmdr("Options"), fg = getRcmdr("title.color")), 
 # 			sticky = "w")
 # 	tkgrid(optionsFrame, sticky = "w")
 # 	tkgrid(x.relationFrame, y.relationFrame, columnspan = 2, 
 # 			sticky = "w")
 # 	tkgrid(relationFrame, sticky = "w")
-# 	tkgrid(tklabel(top, text = gettextRcmdr("Layout"), fg = "blue"), 
+# 	tkgrid(tklabel(top, text = gettextRcmdr("Layout"), fg = getRcmdr("title.color")), 
 # 			sticky = "w")
 # 	tkgrid(tklabel(scalarsFrame, text = gettextRcmdr("number of columns:")), 
 # 			layoutColumnsEntry, sticky = "w")
@@ -1865,15 +1865,15 @@ Xyplot <- function() {
            columnspan=1, sticky="w")
     tkgrid(cgFrame, sticky="w")
     
-    tkgrid(tklabel(top, text=gettextRcmdr("Options"), fg="blue"), sticky="w")
+    tkgrid(tklabel(top, text=gettextRcmdr("Options"), fg=getRcmdr("title.color")), sticky="w")
     tkgrid(optionsFrame, sticky="w")
-    tkgrid(tklabel(top, text=gettextRcmdr("Plot Type (one or both)"), fg="blue"), sticky="w")
+    tkgrid(tklabel(top, text=gettextRcmdr("Plot Type (one or both)"), fg=getRcmdr("title.color")), sticky="w")
     tkgrid(typeFrame, sticky="w")
     
     tkgrid(x.relationFrame, y.relationFrame, columnspan=2, sticky="w")
     tkgrid(relationFrame, sticky="w")
     
-    tkgrid(tklabel(top, text=gettextRcmdr("Layout"), fg="blue"),
+    tkgrid(tklabel(top, text=gettextRcmdr("Layout"), fg=getRcmdr("title.color")),
            sticky="w")
     tkgrid(tklabel(scalarsFrame, text=gettextRcmdr("number of columns:")), layoutColumnsEntry, sticky="w")
     tkgrid(tklabel(scalarsFrame, text=gettextRcmdr("number of rows:")), layoutRowsEntry, sticky="w")
