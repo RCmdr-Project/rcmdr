@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-04-14 by J. Fox
+# last modified 2013-04-15 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -48,7 +48,7 @@ Commander <- function(){
 	setOption <- function(option, default, global=TRUE) {
 		opt <- if (is.null(current[option][[1]])) default else current[option][[1]]
 		if (global) putRcmdr(option, opt)
-		else opt
+		opt
 	}
 	current <- options("Rcmdr")[[1]]
     setOption("suppress.icon.images", FALSE)
@@ -214,8 +214,9 @@ Commander <- function(){
 		setOption("default.contrasts", c("contr.Treatment", "contr.poly"))
 	}
 	else setOption("default.contrasts", c("contr.treatment", "contr.poly"))
-    setOption("title.color", if (WindowsP()) "blue" else "black")
-	setOption("log.commands", TRUE)
+    title.color <- setOption("title.color", as.character(.Tcl("ttk::style lookup TLabelframe.Label -foreground"))) # if (WindowsP()) "blue" else "black")
+    .Tcl(paste("ttk::style configure TLabelframe.Label -foreground", title.color))
+    setOption("log.commands", TRUE)
 	setOption("RStudio", RStudioP())
 	setOption("console.output", getRcmdr("RStudio"))
 	setOption("retain.selections", TRUE)
