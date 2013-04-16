@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-04-15 by J. Fox
+# last modified 2013-04-16 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -34,10 +34,6 @@ Commander <- function(){
 					grep("^Version:", DESCRIPTION, value=TRUE)))
 	putRcmdr("quotes", options(useFancyQuotes=FALSE))
 	putRcmdr("messageNumber", 0)
-	# the following test suggested by Richard Heiberger
-# 	if ("RcmdrEnv" %in% search() &&
-# 			exists("commanderWindow", "RcmdrEnv") &&
-# 			!is.null(get("commanderWindow", "RcmdrEnv"))) {
 	if (exists(".RcmdrEnv") && is.environment(RcmdrEnv()) &&
 	        exists("commanderWindow", RcmdrEnv()) &&
 	        !is.null(get("commanderWindow", RcmdrEnv()))) {
@@ -214,7 +210,7 @@ Commander <- function(){
 		setOption("default.contrasts", c("contr.Treatment", "contr.poly"))
 	}
 	else setOption("default.contrasts", c("contr.treatment", "contr.poly"))
-    title.color <- setOption("title.color", as.character(.Tcl("ttk::style lookup TLabelframe.Label -foreground"))) # if (WindowsP()) "blue" else "black")
+    title.color <- setOption("title.color", as.character(.Tcl("ttk::style lookup TLabelframe.Label -foreground"))) 
     .Tcl(paste("ttk::style configure TLabelframe.Label -foreground", title.color))
     setOption("log.commands", TRUE)
 	setOption("RStudio", RStudioP())
@@ -247,7 +243,6 @@ Commander <- function(){
 	setOption("multiple.select.mode", "extended")
 	setOption("suppress.X11.warnings",
 			interactive() && .Platform$GUI == "X11") # to address problem in X11 (Linux or Mac OS X)
-#		interactive() && .Platform$GUI == "X11" && getRversion() < "2.4.0")
 	setOption("showData.threshold", 100)
 	setOption("retain.messages", TRUE)
 	setOption("crisp.dialogs",  TRUE)
@@ -261,7 +256,6 @@ Commander <- function(){
 	if (getRcmdr("suppress.X11.warnings")) {
 		putRcmdr("messages.connection", file(open = "w+"))
 		sink(getRcmdr("messages.connection"), type="message")
-#        putRcmdr("length.messages", 0)
 	}
 	if (.Platform$OS.type != "windows") {
 		putRcmdr("oldPager", options(pager=RcmdrPager))
@@ -326,8 +320,6 @@ Commander <- function(){
 				line <- MenusToAdd[i,]
 				line[, "label"] <- gettext(line[,"label"], domain=paste("R=", plugin, sep=""))
 				if (line[1, "type"] == "remove"){
-					##					which <- line[1, "menuOrItem"] == Menus[,2] | line[1, "menuOrItem"] == Menus[,3] | line[1, "menuOrItem"] == Menus[,5]
-					##					Menus <- Menus[!which,]
 					removeMenus(line[1, "menuOrItem"])
 					next
 				}
@@ -392,27 +384,6 @@ Commander <- function(){
 		if (length(addRcmdrModels) > 0) modelClasses <- c(modelClasses, addRcmdrModels)
 	}
 	putRcmdr("modelClasses", modelClasses)
-#	onEdit <- function(){
-#		if (activeDataSet() == FALSE) {
-#			tkfocus(CommanderWindow())
-#			return()
-#		}
-#		dsnameValue <- ActiveDataSet()
-#		command <- paste("fix(", dsnameValue, ")", sep="")
-#		result <- justDoIt(command)
-#		result <- as.data.frame(lapply(result, function(x) if (is.character(x)) factor(x) else x))
-#		if (class(result)[1] !=  "try-error"){ 
-#			assign(dsnameValue, result, envir=.GlobalEnv)
-#			logger(command)
-#			if (nrow(get(dsnameValue)) == 0){
-#				errorCondition(message=gettextRcmdr("empty data set."))
-#				return()
-#			}
-#			activeDataSet(dsnameValue)
-#		}
-#		tkwm.deiconify(CommanderWindow())
-#		tkfocus(CommanderWindow())
-#	}
 	onEdit <- function(){
 		if (activeDataSet() == FALSE) {
 			tkfocus(CommanderWindow())
@@ -556,8 +527,6 @@ Commander <- function(){
 	if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
 	putRcmdr("commanderWindow", tktoplevel(class="Rcommander"))
 	.commander <- CommanderWindow()
-#	if (.Platform$OS.type == "windows") tkwm.iconbitmap(.commander, default=system.file("etc", "R-logo.ico", package="Rcmdr2"))
-#    tcl("wm", "iconphoto", .commander, "::image::RlogoIcon")
     tcl("wm", "iconphoto", .commander, "-default", "::image::RlogoIcon")
 	tkwm.geometry(.commander, placement)
 	tkwm.title(.commander, gettextRcmdr("R Commander"))
@@ -623,7 +592,6 @@ Commander <- function(){
 	tkconfigure(.log, xscrollcommand=function(...) tkset(logXscroll, ...))
 	tkconfigure(.log, yscrollcommand=function(...) tkset(logYscroll, ...))
 	outputFrame <- tkframe(.commander)
-#	submitIm <- tcl("image", "create", "bitmap", file=file.path(etc, "submit.xbm"))
 	submitButton <- if (getRcmdr("console.output"))
 		 buttonRcmdr(logFrame, text=gettextRcmdr("Submit"), borderwidth="2", command=onSubmit,
                      image="::image::submitIcon", compound="left")
@@ -654,7 +622,6 @@ Commander <- function(){
 	show.edit.button <- options("Rcmdr")[[1]]$show.edit.button
 	show.edit.button <- if (is.null(show.edit.button)) TRUE else show.edit.button
 	if (!getRcmdr("suppress.menus")){
-#		RcmdrIm <- tcl("image", "create", "bitmap", file=file.path(etc, "Rcmdr.xbm"), foreground="red")
 		tkgrid(labelRcmdr(controlsFrame, image="::image::RlogoIcon", compound="left"),
 				labelRcmdr(controlsFrame, text=gettextRcmdr("Data set: ")), getRcmdr("dataSetLabel"),
 				labelRcmdr(controlsFrame, text="  "), if(show.edit.button) editButton, viewButton,
@@ -736,10 +703,7 @@ Commander <- function(){
 	if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
 	tkwait <- options("Rcmdr")[[1]]$tkwait  # to address problem in Debian Linux
 	if ((!is.null(tkwait)) && tkwait) {
-#		.commander.done <<- tclVar("0")
-#		assign(".commander.done", tclVar("0"), envir = .GlobalEnv)
         putRcmdr(".commander.done", tclVar("0"))
-#		tkwait.variable(.commander.done)
         tkwait.variable(getRcmdr(".commander.done"))
 	}
 	Message(paste(gettextRcmdr("R Commander Version "), getRcmdr("RcmdrVersion"), ": ", date(), sep=""))
