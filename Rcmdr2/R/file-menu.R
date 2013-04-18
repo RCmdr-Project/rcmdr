@@ -1,4 +1,4 @@
-# last modified 2013-04-11 by J. Fox
+# last modified 2013-04-18 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -154,9 +154,14 @@ closeCommanderAndR <- function(){
 }
 
 Options <- function(){
-	setOption <- function(option, default) {
-		if (is.null(current[[option]])) default else current[[option]]
-	}
+# 	setOption <- function(option, default) {
+# 		if (is.null(current[[option]])) default else current[[option]]
+# 	}
+    setOption <- function(option, default) {
+        if (!is.null(current[[option]])) return(current[[option]])
+        else if (!is.null(getRcmdr(option, fail=FALSE))) return(getRcmdr(option))
+        return(default)
+    }
 	initializeDialog(title=gettextRcmdr("Commander Options"))
 	current <- options("Rcmdr")[[1]]
 	console.output <- setOption("console.output", FALSE)

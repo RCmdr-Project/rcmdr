@@ -1,4 +1,4 @@
-# last modified 2013-04-12 by J. Fox
+# last modified 2013-04-18 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1637,7 +1637,12 @@ RcmdrEnv <- function() .RcmdrEnv
 
 putRcmdr <- function(x, value) assign(x, value, envir=RcmdrEnv())
 
-getRcmdr <- function(x, mode="any") get(x, envir=RcmdrEnv(), mode=mode, inherits=FALSE)
+# getRcmdr <- function(x, mode="any") get(x, envir=RcmdrEnv(), mode=mode, inherits=FALSE)
+
+getRcmdr <- function(x, mode="any", fail=TRUE){
+    if ((!fail) && (!exists(x, mode=mode, envir=RcmdrEnv(), inherits=FALSE))) return(NULL)
+    get(x, envir=RcmdrEnv(), mode=mode, inherits=FALSE)
+}
 
 
 RcmdrTclSet <- function(name, value){

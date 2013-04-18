@@ -154,7 +154,7 @@ gassign(x, value)
 getDialog(dialog, defaults=NULL)
 \method{getFrame}{listbox}(object)
 \method{getSelection}{listbox}(object)
-getRcmdr(x, mode="any")
+getRcmdr(x, mode="any", fail=TRUE)
 gettextRcmdr(...)
 glmP()
 GrabFocus(value)
@@ -255,6 +255,8 @@ commanderPosition()
   \item{export}{export selection?}
   \item{expr}{expression constituting the body of the macro; typically a compound expression.}
   \item{flushDialogMemory}{remove saved values of dialog options so that \code{getDialog} returns \code{NULL} for all dialogs.}
+  \item{fail}{if \code{TRUE}, the default, \code{getRcmdr} will generate an error if the object sought doesn't exist; 
+    if \code{FALSE} and the object doesn't exist, \code{NULL} is returned.}
   \item{flushModel}{set (or reset) the active model to NULL? Should normally be \code{TRUE} when the active 
     data set is changed; an exception is when variables are simply added to, deleted from, or modified in 
     the data set set.}
