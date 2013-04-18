@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-04-16 by J. Fox
+# last modified 2013-04-18 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   slight changes 12 Aug 04 by Ph. Grosjean
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
@@ -181,13 +181,13 @@ Commander <- function(){
 	putRcmdr("reset.model", FALSE)
 	putRcmdr("rgl", FALSE)
 	putRcmdr("Identify3d", NULL)
-    putRcmdr("open.dialog.here", NULL)
-#	 setOption("log.font.size", 10) 
+    putRcmdr("open.dialog.here", NULL)	 
+    log.font.size <- as.character(setOption("log.font.size", 10))
 #    putRcmdr("logFont", tkfont.create(family="courier", size=getRcmdr("log.font.size")))
-    default.log.font.size.val <- as.numeric(regmatches(tclvalue(tkfont.actual("TkFixedFont ")),
-        regexec("-size (-?[[:digit:]]+)", tclvalue(tkfont.actual("TkFixedFont "))))[[1]][2])
-    if (is.na(default.log.font.size.val)) default.log.font.size.val <- 10
-    log.font.size <- as.character(setOption("log.font.size", default.log.font.size.val, global=FALSE))
+#     default.log.font.size.val <- as.numeric(regmatches(tclvalue(tkfont.actual("TkFixedFont ")),
+#         regexec("-size (-?[[:digit:]]+)", tclvalue(tkfont.actual("TkFixedFont "))))[[1]][2])
+#     if (is.na(default.log.font.size.val)) default.log.font.size.val <- 10
+#     log.font.size <- as.character(setOption("log.font.size", default.log.font.size.val, global=FALSE))
     log.font <- setOption("log.font", NULL, global=FALSE) 
     if (!("RcmdrLogFont" %in% as.character(.Tcl("font names")))){
         if (is.null(log.font)){

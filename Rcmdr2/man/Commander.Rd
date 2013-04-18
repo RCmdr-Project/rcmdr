@@ -151,10 +151,10 @@ set none, one, several, or all options. The available options are as follows:
     Tk font specification, given in a character string. 
     For example,  \code{"-family Helvetica -size 12"} specifies a 12-point Helvetica font.
     If specified, this value takes precedence over the default font size (below). Absent a compelling reason for
-    changing the font, it is generally more convenient simply to change the default font size.}
+    changing the font, it is generally more convenient simply to change the default font size. The default is the \code{TkDefaultFont}.}
 
     \item{\code{default.font.size}}{The size, in points, of the default font. The default is the size of the
-    Tcl/Tk default font (if this can be ascertained) or 10 (if it cannot). 
+    \code{TkDefaultFont} (if this can be ascertained) or 10 (if it cannot). 
     To set the font size for R input and output, see the \code{log.font.size} option.
     It is recommended that Windows users set the \pkg{Rcmdr} \code{scale factor} option to
     control font size.}
@@ -195,8 +195,7 @@ set none, one, several, or all options. The available options are as follows:
 
     \item{\code{log.font.size}}{The font size, in points, to be used in the script window,
     in the output window,
-    in recode dialogs, and in compute expressions --- that is, where a monospaced font is used. The default is the size of the Tk standard fixed font, if
-    that can't be ascertained, 10.
+    in recode dialogs, and in compute expressions --- that is, where a monospaced font is used. The default is \code{10}.
     It is recommended that Windows users set the \pkg{Rcmdr} \code{scale factor} option to
     control font size.}
     
