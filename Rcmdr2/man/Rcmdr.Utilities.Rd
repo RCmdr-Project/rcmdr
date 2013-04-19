@@ -105,6 +105,7 @@
 \alias{ttkframe}
 \alias{ttkradiobutton}
 \alias{ttkscrollbar}
+\alias{tkfocus}
 
 \title{Rcmdr Utility Functions}
 \description{
@@ -212,6 +213,7 @@ sortVarNames(x)
 subOKCancelHelp(window=subdialog, helpSubject=NULL)  # macro
 subsetBox(window = top, subset.expression = NULL, model = FALSE)  # macro
 tclvalue(x)
+tkfocus(...)
 trim.blanks(text)
 TwoLevelFactors(names)
 twoLevelFactorsP(n=1)
@@ -438,6 +440,8 @@ commanderPosition()
   Some of these functions, marked \code{# macro} under \emph{Usage}, are "macro-like" in their behaviour, in that they 
   execute in the environment from which they are called. These were defined with an adaptation (used with permission) of
   Thomas Lumley's \code{defmacro} function, described in Lumley (2001).
+  
+  The \code{tkfocus} function is exported for historical reasons.
   
 }
 

@@ -1,4 +1,4 @@
-# last modified 2013-04-11 by J. Fox
+# last modified 2013-04-19 by J. Fox
 
 useDynLib(Rcmdr2)
 
@@ -6,7 +6,7 @@ import(tcltk)
 
 importFrom(utils, available.packages, install.packages)
 
-export(tkfocus,
+export(
 activateMenus, activeDataSet, ActiveDataSet, activeDataSetP, activeModel,
 ActiveModel, activeModelP, aicP, assignCluster, bin.var, buttonRcmdr,
 checkActiveDataSet,
@@ -19,7 +19,7 @@ dialogSuffix, doItAndPrint, errorCondition, exists.method,
 Factors, factorsP, formulaFields, flushDialogMemory, 
 gassign, getDialog, getFrame, getRcmdr, getSelection, gettextRcmdr,
 glmP, GrabFocus, groupsBox, groupsLabel, hclustSolutionsP, Hist, initializeDialog, 
-is.valid.name, is.SciViews, justDoIt, KMeans, labelRcmdr, Library,
+is.valid.name, justDoIt, KMeans, labelRcmdr, Library,
 listAllModels, listAOVModels, listDataSets, listFactors, listGeneralizedLinearModels, 
 listLinearModels, listMultinomialLogitModels, listNumeric, listPlugins, 
 listProportionalOddsModels, listTwoLevelFactors, listVariables, 

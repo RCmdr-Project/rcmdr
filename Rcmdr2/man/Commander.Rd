@@ -345,8 +345,6 @@ For more information about R initialization, see \code{?Startup}.
   option is reset to its pre-existing value when the Commander exits. Some functions may not
   work properly when the default \code{na.action} is set to \code{na.exclude}.
 
-  This version may be compatible with SciViews:
-   \url{http://www.sciviews.org/SciViews-R}; see \code{\link{Rcmdr.sciviews-specific}}.
   This version should be compatiable with the \pkg{RExcel} package, which can use the R Commander
   menus.
   

@@ -1,14 +1,15 @@
-# last modified 2013-03-14 by J. Fox
+# last modified 2013-03-19 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 .onAttach <- function(...){
-    if(interactive()){
+    if (interactive()){
         if (!(exists(".RcmdrEnv") && is.environment(RcmdrEnv()) &&
                  exists("commanderWindow", RcmdrEnv()) &&
                  !is.null(get("commanderWindow", RcmdrEnv())))){
             Commander()
             packageStartupMessage(gettext("\nRcmdr Version", domain="R-Rcmdr"), " ",
                                   getRcmdr("RcmdrVersion"), "\n")
+            return()
         }
     }
     else {

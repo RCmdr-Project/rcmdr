@@ -1,4 +1,4 @@
-# last modified 2013-04-18 by J. Fox
+# last modified 2013-04-19 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -95,10 +95,9 @@ activeDataSet <- function(dsname, flushModel=TRUE, flushDialogMemory=TRUE){
 	if (flushModel) {
 		putRcmdr(".activeModel", NULL)
 		RcmdrTclSet("modelName", gettextRcmdr("<No active model>"))
-		if (!is.SciViews()) tkconfigure(getRcmdr("modelLabel"), foreground="red") else refreshStatus()
+	    tkconfigure(getRcmdr("modelLabel"), foreground="red")
 	}
 	if (flushDialogMemory) putRcmdr("dialog.values", list())
-	# -PhG tkconfigure(.modelLabel, foreground="red")
 	ActiveDataSet(dsname)
 	Message(sprintf(gettextRcmdr("The dataset %s has %d rows and %d columns."), dsname,
 					nrow(get(dsname, envir=.GlobalEnv)), ncol(get(dsname, envir=.GlobalEnv))), type="note")
@@ -111,13 +110,7 @@ activeDataSet <- function(dsname, flushModel=TRUE, flushDialogMemory=TRUE){
 	Factors(listFactors())
 	TwoLevelFactors(listTwoLevelFactors())
 	RcmdrTclSet("dataSetName", paste(" ", dsname, " "))
-	# -PhG tkconfigure(.dataSetLabel, foreground=getRcmdr("title.color"))
-	if (!is.SciViews()) tkconfigure(getRcmdr("dataSetLabel"), foreground=getRcmdr("title.color")) else refreshStatus() # +PhG
-# 	if (getRcmdr("attach.data.set")){
-# 		attach(get(dsname, envir=.GlobalEnv), name=dsname)
-# 		logger(paste("attach(", dsname, ")", sep=""))
-# 	}
-	if (is.SciViews()) refreshStatus() else if (flushModel) tkconfigure(getRcmdr("modelLabel"), foreground="red") # +PhG (& J.Fox, 25Dec04)
+    tkconfigure(getRcmdr("dataSetLabel"), foreground="blue")
 	activateMenus()
 	dsname
 }
@@ -134,8 +127,7 @@ activeModel <- function(model){
 	}
 	ActiveModel(model)
 	RcmdrTclSet("modelName", paste(" ", model, " "))
-	# -PhG tkconfigure(.modelLabel, foreground=getRcmdr("title.color"))
-	if (!is.SciViews()) tkconfigure(getRcmdr("modelLabel"), foreground=getRcmdr("title.color")) else refreshStatus() # +PhG
+    tkconfigure(getRcmdr("modelLabel"), foreground="blue")
 	activateMenus()
 	model
 }
@@ -1110,8 +1102,7 @@ initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp=FALSE
         location <- getRcmdr("open.dialog.here")
         position <- if (!is.null(location)) location
                     else {
-                        pos <- if (is.SciViews()) -1 
-                                else offset + commanderPosition() 
+                        pos <- offset + commanderPosition() 
                         if (any(pos < 0)) "-50+50"
                         else paste("+", paste(pos, collapse="+"), sep="")
                     }
@@ -1646,7 +1637,6 @@ getRcmdr <- function(x, mode="any", fail=TRUE){
 
 
 RcmdrTclSet <- function(name, value){
-	if (is.SciViews()) return()   # + PhG
 	name <- ls(unclass(getRcmdr(name))$env)
 	tcl("set", name, value)
 }
@@ -1677,49 +1667,46 @@ TwoLevelFactors <- function(names){
 #  and subsequently by John Fox (23 July 07)
 
 ActiveDataSet <- function(name){
-	if (missing(name)) {
-		temp <- getRcmdr(".activeDataSet")
-		if (is.null(temp))
-			return(NULL)
-		else
-		if (!exists(temp) || !is.data.frame(get(temp,envir=.GlobalEnv))) {
-			Message(sprintf(gettextRcmdr("the dataset %s is no longer available"),
-							temp), type="error")
-			putRcmdr(".activeDataSet", NULL)
-			RcmdrTclSet("dataSetName", gettextRcmdr("<No active dataset>"))
-			putRcmdr(".activeModel", NULL)
-			RcmdrTclSet("modelName", gettextRcmdr("<No active model>"))
-			if (!is.SciViews()) {
-				tkconfigure(getRcmdr("dataSetLabel"), foreground="red") 
-				tkconfigure(getRcmdr("modelLabel"), foreground="red") 
-			} 
-			else refreshStatus()
-			activateMenus()
-			if (getRcmdr("suppress.menus") && RExcelSupported()) return(NULL)
-		}
-		return(temp)
-	}
-	else putRcmdr(".activeDataSet", name)
+    if (missing(name)) {
+        temp <- getRcmdr(".activeDataSet")
+        if (is.null(temp))
+            return(NULL)
+        else
+            if (!exists(temp) || !is.data.frame(get(temp,envir=.GlobalEnv))) {
+                Message(sprintf(gettextRcmdr("the dataset %s is no longer available"),
+                    temp), type="error")
+                putRcmdr(".activeDataSet", NULL)
+                RcmdrTclSet("dataSetName", gettextRcmdr("<No active dataset>"))
+                putRcmdr(".activeModel", NULL)
+                RcmdrTclSet("modelName", gettextRcmdr("<No active model>"))
+                tkconfigure(getRcmdr("dataSetLabel"), foreground="red") 
+                tkconfigure(getRcmdr("modelLabel"), foreground="red") 
+                activateMenus()
+                if (getRcmdr("suppress.menus") && RExcelSupported()) return(NULL)
+            }
+        return(temp)
+    }
+    else putRcmdr(".activeDataSet", name)
 }
 
 ActiveModel <- function(name){
-	if (missing(name)) {
-		temp <- getRcmdr(".activeModel")
-		if (is.null(temp))
-			return(NULL)
-		else
-		if (!exists(temp) || !is.model(get(temp,envir=.GlobalEnv))) {
-			Message(sprintf(gettextRcmdr("the model %s is no longer available"),
-							temp), type="error")
-			putRcmdr(".activeModel", NULL)
-			RcmdrTclSet("modelName", gettextRcmdr("<No active model>"))
-			if (!is.SciViews()) tkconfigure(getRcmdr("modelLabel"), foreground="red") else refreshStatus()
-			activateMenus()
-			return(NULL)
-		}
-		else return(temp)
-	}
-	else putRcmdr(".activeModel", name)
+    if (missing(name)) {
+        temp <- getRcmdr(".activeModel")
+        if (is.null(temp))
+            return(NULL)
+        else
+            if (!exists(temp) || !is.model(get(temp,envir=.GlobalEnv))) {
+                Message(sprintf(gettextRcmdr("the model %s is no longer available"),
+                    temp), type="error")
+                putRcmdr(".activeModel", NULL)
+                RcmdrTclSet("modelName", gettextRcmdr("<No active model>"))
+                tkconfigure(getRcmdr("modelLabel"), foreground="red")
+                activateMenus()
+                return(NULL)
+            }
+        else return(temp)
+    }
+    else putRcmdr(".activeModel", name)
 }
 
 GrabFocus <- function(value){
