@@ -85,6 +85,7 @@
 \alias{RcmdrTkmessageBox}
 \alias{RExcelSupported}
 \alias{rglLoaded}
+\alias{RmdWindow}
 \alias{sortVarNames}
 \alias{subOKCancelHelp}
 \alias{subsetBox}
@@ -209,6 +210,7 @@ RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
 RExcelSupported()
 rglLoaded()
+RmdWindow()
 sortVarNames(x)
 subOKCancelHelp(window=subdialog, helpSubject=NULL)  # macro
 subsetBox(window = top, subset.expression = NULL, model = FALSE)  # macro

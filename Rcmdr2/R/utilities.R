@@ -1725,6 +1725,8 @@ CommanderWindow <- function() getRcmdr("commanderWindow")
 
 LogWindow <- function() getRcmdr("logWindow")
 
+RmdWindow <- function() getRcmdr("RmdWindow")
+
 OutputWindow <- function() getRcmdr("outputWindow")
 
 MessagesWindow <- function() getRcmdr("messagesWindow")

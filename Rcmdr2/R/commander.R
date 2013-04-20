@@ -6,8 +6,6 @@
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 #   modified 17 December 2008 by Richard Heiberger  ##rmh
 
-RmdWindow <- function() getRcmdr("RmdWindow")
-
 Commander <- function(){
     library(Rcmdr2, quietly=TRUE)
     RcmdrEnv.on.path <- getOption("Rcmdr")[["RcmdrEnv.on.path"]]
@@ -629,18 +627,10 @@ Commander <- function(){
     putRcmdr("RmdWindow", tktext(RmdFrame, bg="#FAFAFA", foreground=getRcmdr("log.text.color"),
         font=getRcmdr("logFont"), height=log.height, width=log.width, wrap="none", undo=TRUE))
     .rmd <- RmdWindow()
-    tkinsert(.rmd, "end", paste(
-        "<!-- Replace with Title for HTML Page --> \n\n",
-        "Replace with Main Title\n",
-        "============================= \n\n",
-        "### Your Name \n\n",
-        "### `r as.character(Sys.Date())` \n\n",
-        "```{r echo=FALSE} \n",
-        "# include this code chunk as-is to set options \n",
-        "opts_chunk$set(comment=NA, prompt=TRUE, out.width=750, fig.height=8, fig.width=8) \n",
-        "library(Rcmdr2)\n",
-        "```\n\n",
-        sep=""))
+    rmd.template <- setOption("rmd.template", 
+        system.file("etc", "Rcmdr-Markdown-Template.Rmd", package="Rcmdr2"))
+    template <- paste(readLines(rmd.template), collapse="\n")
+    tkinsert(.rmd, "end", template)
     RmdXscroll <- ttkscrollbar(RmdFrame, orient="horizontal",
         command=function(...) tkxview(.rmd, ...))
     RmdYscroll <- ttkscrollbar(RmdFrame,

@@ -261,6 +261,9 @@ set none, one, several, or all options. The available options are as follows:
     
     \item{\code{RExcelSupport}}{If \code{TRUE} (the default is \code{FALSE}), menus and output are handled by Excel.}
     
+    \item{\code{rmd.template}}{The quoted path to a \code{.Rmd} file to serve as a template for
+    R code and output. The default is to use a template included with the package.}
+    
     \item{\code{scale.factor}}{A scaling factor to be applied to all Tk elements, such as fonts. This works well
     only in Windows. The default is \code{NULL}.}
 
