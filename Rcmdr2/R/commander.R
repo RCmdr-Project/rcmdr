@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-04-19 by J. Fox
+# last modified 2013-04-20 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 #   modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -180,6 +180,7 @@ Commander <- function(){
     putRcmdr(".activeDataSet", NULL)
     putRcmdr(".activeModel", NULL)
     putRcmdr("logFileName", NULL)
+    putRcmdr("RmdFileName", "RcmdrMarkdown.Rmd")
     putRcmdr("outputFileName", NULL)
     putRcmdr("saveFileName", NULL)
     putRcmdr("modelNumber", 0)
@@ -488,10 +489,15 @@ Commander <- function(){
         }
         else {
             lines <- tclvalue(tkget(.rmd, "1.0", "end"))
-            writeLines(lines, ".Rcmdr.Rmd")
-            knit(".Rcmdr.Rmd", ".Rcmdr.md")
-            markdownToHTML(".Rcmdr.md", ".Rcmdr.html")
-            browseURL(paste("file:///", getwd(), "/.Rcmdr.html", sep=""))
+            .RmdFile <- getRcmdr("RmdFileName")
+            .filename <- sub("\\.Rmd$", "", trim.blanks(.RmdFile))
+            writeLines(lines, .RmdFile)
+            knit(.RmdFile, paste(.filename, ".md", sep=""))
+            .html.file <- paste(.filename, ".html", sep="")
+            markdownToHTML(paste(.filename, ".md", sep=""), .html.file)
+            .html.file.location <- if (file.exists(.html.file)) paste("file:///", .html.file, sep="")
+                else paste("file:///", getwd(), "/", .html.file, sep="")
+            browseURL(.html.file.location)
         }
     }
     contextMenuLog <- function(){
@@ -688,7 +694,7 @@ Commander <- function(){
     tkadd(notebook, RmdFrame, text=gettextRcmdr("R Markdown"), padding=6)
     tkgrid(notebook, sticky="news")
     if (.log.commands && .console.output) tkgrid(submitButton, sticky="w", pady=c(0, 6))
-    tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output Window"), foreground="black"),
+    tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output"), foreground="black"),
         if (.log.commands && !.console.output) submitButton, sticky="sw", pady=c(6, 6))
     tkgrid(.output, outputYscroll, sticky="news", columnspan=2)
     tkgrid(outputXscroll, columnspan=1 + (.log.commands && !.console.output))

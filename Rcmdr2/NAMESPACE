@@ -1,4 +1,4 @@
-# last modified 2013-04-19 by J. Fox
+# last modified 2013-04-20 by J. Fox
 
 useDynLib(Rcmdr2)
 
@@ -6,7 +6,7 @@ import(tcltk)
 
 importFrom(utils, available.packages, install.packages)
 
-export(
+export(tkfocus,
 activateMenus, activeDataSet, ActiveDataSet, activeDataSetP, activeModel,
 ActiveModel, activeModelP, aicP, assignCluster, bin.var, buttonRcmdr,
 checkActiveDataSet,

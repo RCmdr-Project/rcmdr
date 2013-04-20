@@ -1,4 +1,4 @@
-# last modified 2013-04-18 by J. Fox
+# last modified 2013-04-20 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -48,6 +48,53 @@ saveLogAs <- function() {
 	close(fileCon)
 	putRcmdr("logFileName", logFile)
 	Message(paste(gettextRcmdr("Script saved to"), logFile), type="note")
+}
+
+loadRmd <- function(){
+    RmdFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"R Markdown Files" {".Rmd" ".rmd"}}'),
+        defaultextension="Rmd",
+        parent=CommanderWindow()))
+    if (RmdFile == "") return()
+    fileCon <- file(RmdFile, "r")
+    contents <- readLines(fileCon)
+    close(fileCon)
+    currentRmdFileName <- getRcmdr("RmdFileName")
+    putRcmdr("RmdFileName", RmdFile)
+    .rmd <- RmdWindow()
+    if (tclvalue(tkget(.rmd, "1.0", "end")) != "\n"){
+        response2 <- RcmdrTkmessageBox(message=gettextRcmdr("Save current Rmd file?"),
+            icon="question", type="yesno", default="yes")
+        if ("yes" == tclvalue(response2)) saveLog(currentRmdFileName)
+    }
+    tkdelete(.rmd, "1.0", "end")
+    tkinsert(.rmd, "end", paste(contents, collapse="\n"))
+}
+
+saveRmd <- function(Rmdfilename) {
+    .RmdFileName <- if (missing(Rmdfilename)) getRcmdr("RmdFileName") else Rmdfilename
+    if (is.null(.RmdFileName) || (.RmdFileName == "%Rmdfilename")) {
+        saveRmdAs()
+        return()
+    }
+    .rmd <- tclvalue(tkget(RmdWindow(), "1.0", "end"))
+    fileCon <- file(.RmdFileName, "w")
+    cat(.rmd, file = fileCon)
+    close(fileCon)
+    Message(paste(gettextRcmdr("R Markdown file saved to"), .RmdFileName), type="note")
+}
+
+saveRmdAs <- function() {
+    RmdFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"R Markdown Files" {".Rmd" ".rmd"}}'),
+        defaultextension="Rmd",
+        initialfile="RCommanderMarkdown.Rmd",
+        parent=CommanderWindow()))
+    if (RmdFile == "") return()
+    .rmd <- tclvalue(tkget(RmdWindow(), "1.0", "end"))
+    fileCon <- file(RmdFile, "w")
+    cat(.rmd, file = fileCon)
+    close(fileCon)
+    putRcmdr("RmdFileName", RmdFile)
+    Message(paste(gettextRcmdr("R Markdown file saved to"), RmdFile), type="note")
 }
 
 saveOutput <- function() {
