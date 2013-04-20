@@ -495,8 +495,7 @@ Commander <- function(){
             knit(.RmdFile, paste(.filename, ".md", sep=""))
             .html.file <- paste(.filename, ".html", sep="")
             markdownToHTML(paste(.filename, ".md", sep=""), .html.file)
-            .html.file.location <- if (file.exists(.html.file)) paste("file:///", .html.file, sep="")
-                else paste("file:///", getwd(), "/", .html.file, sep="")
+            .html.file.location <- paste("file:///", normalizePath(.html.file), sep="")
             browseURL(.html.file.location)
         }
     }

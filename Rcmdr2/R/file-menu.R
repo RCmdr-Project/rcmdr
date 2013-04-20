@@ -72,7 +72,9 @@ loadRmd <- function(){
 
 saveRmd <- function(Rmdfilename) {
     .RmdFileName <- if (missing(Rmdfilename)) getRcmdr("RmdFileName") else Rmdfilename
-    if (is.null(.RmdFileName) || (.RmdFileName == "%Rmdfilename")) {
+    if ((.RmdFileName == "RcmdrMarkdown.Rmd") || 
+            is.null(.RmdFileName) || 
+            (.RmdFileName == "%Rmdfilename")) {
         saveRmdAs()
         return()
     }
@@ -158,7 +160,6 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
 		response <- "ok"
 	}
 	sink(type="message")
-#    if (rglLoaded()) rgl.quit()
 	if (!is.null(ActiveDataSet()) && getRcmdr("attach.data.set"))
 		justDoIt(logger(paste("detach(", ActiveDataSet(), ")", sep="")))
 	putRcmdr(".activeDataSet", NULL)
@@ -168,6 +169,13 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
 				icon="question", type="yesno", default="yes")
 		if ("yes" == tclvalue(response2)) saveLog()
 	}
+    
+	if (ask.save && getRcmdr("log.commands") && tclvalue(tkget(RmdWindow(), "1.0", "end")) != "\n"){
+	    response2 <- RcmdrTkmessageBox(message=gettextRcmdr("Save R Markdown file?"),
+	                                   icon="question", type="yesno", default="yes")
+	    if ("yes" == tclvalue(response2)) saveRmd()
+	}
+    
 	if (ask.save && !getRcmdr("console.output") && tclvalue(tkget(OutputWindow(), "1.0", "end")) != "\n"){
 		response3 <- RcmdrTkmessageBox(message=gettextRcmdr("Save output file?"),
 				icon="question", type="yesno", default="yes")
@@ -183,12 +191,11 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
 	tkdestroy(CommanderWindow())
 	putRcmdr("commanderWindow", NULL)
 	putRcmdr("logWindow", NULL)
+    putRcmdr("RmdWindow", NULL)
 	putRcmdr("messagesWindow", NULL)
 	putRcmdr("outputWindow", NULL)
 	options(getRcmdr("quotes"))
 	tkwait <- options("Rcmdr")[[1]]$tkwait  # to address problem in Debian Linux
-#	if ((!is.null(tkwait)) && tkwait) tclvalue(.commander.done) <<- "1"
-#	if ((!is.null(tkwait)) && tkwait) assign(".commander.done", tclVar("1"), envir = .GlobalEnv)
 	if ((!is.null(tkwait)) && tkwait) putRcmdr(".commander.done", tclVar("1"))
 	return(invisible(response))
 }
@@ -201,9 +208,6 @@ closeCommanderAndR <- function(){
 }
 
 Options <- function(){
-# 	setOption <- function(option, default) {
-# 		if (is.null(current[[option]])) default else current[[option]]
-# 	}
     setOption <- function(option, default) {
         if (!is.null(current[[option]])) return(current[[option]])
         else if (!is.null(getRcmdr(option, fail=FALSE))) return(getRcmdr(option))
