@@ -1,6 +1,6 @@
 # Distributions menu dialogs for plots
 
-# last modified 2013-01-11 by J. Fox
+# last modified 2013-04-21 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic  (20 July 06)
 # modified by Miroslav M. Ristic (15 January 11)
@@ -66,6 +66,7 @@ distributionPlot <- function(nameVar){
 		}
 		fun <- tclvalue(functionVar)
 		fn <- if (fun == "Density") paste("d",fVar$funName,sep="") else paste("p",fVar$funName,sep="")
+        dist.arg <- if (fun == "Density") "FALSE" else "TRUE"
 		pasteVar<-""
 		for (i in 1:nnVar) {
 			pasteVar<-paste(pasteVar,", ",fVar$params[i],"=",vars[i],sep="")
@@ -82,20 +83,19 @@ distributionPlot <- function(nameVar){
 			max <- eval(parse(text=paste("round(q",fVar$funName,"(.9995",pasteVar,"),3)",sep="")))
 		}
 		if (nameVar=="Gumbel") {
-			command <- paste("exp(seq(", min, ", ", max, ", length.out=100))", sep="")
+			command <- paste("exp(seq(", min, ", ", max, ", length.out=1000))", sep="")
 		} else {
-			command <- paste("seq(", min, ", ", max, ", length.out=100)", sep="")
+			command <- paste("seq(", min, ", ", max, ", length.out=1000)", sep="")
 		}
 # 		logger(paste(".x <- ", command, sep=""))
 # 		assign(".x", justDoIt(command), envir=.GlobalEnv)
 		doItAndPrint(paste(".x <- ", command, sep=""))
-		doVar<-"plot(.x, "
-		if (nameVar=="Gumbel") {doVar<-"plot(log(.x), "}
-		if (nameVar=="F") {mainVar<-paste(",Numerator degrees=",vars[1],", Denominator degrees=",vars[2],sep="")}
-		doItAndPrint(paste(doVar, fn, "(.x", pasteVar,'), xlab="x", ylab="', fun, 
-						'", main=paste("',fVar$titleName,' Distribution: ',substr(mainVar,2,nchar(mainVar)),'"),
-								type="l")', sep=""))
-		doItAndPrint('abline(h=0, col="gray")')
+		doVar<-"plotDistr(.x, "
+		if (nameVar=="Gumbel") {doVar<-"plotDistr(log(.x), "}
+		if (nameVar=="F") {mainVar<-paste(", Numerator df = ",vars[1],", Denominator df = ",vars[2],sep="")}
+		doItAndPrint(paste(doVar, fn, "(.x", pasteVar,'), cdf=', dist.arg, ', xlab="x", ylab="', fun, 
+						'", main=paste("',fVar$titleName,' Distribution: ',substr(mainVar,2,nchar(mainVar)),'"))', sep=""))
+#		doItAndPrint('abline(h=0, col="gray")')
 		remove(.x, envir=.GlobalEnv)
 		logger("remove(.x)")
 		tkfocus(CommanderWindow())
@@ -181,23 +181,23 @@ discreteDistributionPlot <- function(nameVar){
 			}   
 		}
 		if (fun == "Probability"){
-			doItAndPrint(paste("plot(.x, d",fVar$funName,"(.x", pasteVar,
+			doItAndPrint(paste("plotDistr(.x, d",fVar$funName,"(.x", pasteVar,
 							'), xlab="',xlabVar,'", ylab="Probability Mass", main="',fVar$titleName,
-							' Distribution: ',substr(mainVar,2,nchar(mainVar)),'", type="h")', sep=""))
-			doItAndPrint(paste("points(.x, d",fVar$funName,"(.x", pasteVar,
-							'), pch=16)', sep=""))
+							' Distribution: ',substr(mainVar,2,nchar(mainVar)),'", discrete=TRUE)', sep=""))
+# 			doItAndPrint(paste("points(.x, d",fVar$funName,"(.x", pasteVar,
+# 							'), pch=16)', sep=""))
 		}
 		else {
-			command <- "rep(.x, rep(2, length(.x)))"
+#			command <- "rep(.x, rep(2, length(.x)))"
 # 			logger(paste(".x <- ", command, sep=""))
 # 			assign(".x", justDoIt(command), envir=.GlobalEnv)
-			doItAndPrint(paste(".x <- ", command, sep=""))
-			doItAndPrint(paste("plot(.x[-1], p",fVar$funName,"(.x",
-							pasteVar,')[-length(.x)], xlab="',xlabVar,
+#			doItAndPrint(paste(".x <- ", command, sep=""))
+			doItAndPrint(paste("plotDistr(.x, p",fVar$funName,"(.x",
+							pasteVar,'), xlab="',xlabVar,
 							'",ylab="Cumulative Probability", main="',
-							fVar$titleName,' Distribution: ',substr(mainVar,2,nchar(mainVar)),'", type="l")', sep=""))
+							fVar$titleName,' Distribution: ',substr(mainVar,2,nchar(mainVar)),'", discrete=TRUE, cdf=TRUE)', sep=""))
 		}
-		doItAndPrint('abline(h=0, col="gray")')
+#		doItAndPrint('abline(h=0, col="gray")')
 		remove(.x, envir=.GlobalEnv)
 		logger("remove(.x)")
 		tkfocus(CommanderWindow())
@@ -216,4 +216,32 @@ discreteDistributionPlot <- function(nameVar){
 	tkgrid.configure(densityButton, sticky="w")
 	tkgrid.configure(distributionButton, sticky="w")
 	dialogSuffix(rows=5, columns=2, focus=get(paramsEntry[1]))
+}
+
+plotDistr <- function(x, p, discrete=FALSE, cdf=FALSE, ...){
+    if (discrete){
+        if (cdf){
+            plot(x, p, ..., type="n")
+            abline(h=0:1, col="gray")
+            lines(x, p, ..., type="s")
+        }
+        else {
+            plot(x, p, ..., type="h")
+            points(x, p, pch=16)
+            abline(h=0, col="gray")
+        }
+    }
+    else{
+        if (cdf){
+            plot(x, p, ..., type="n")
+            abline(h=0:1, col="gray")
+            lines(x, p, ..., type="l")
+        }
+        else{
+            plot(x, p, ..., type="n")
+            abline(h=0, col="gray")
+            lines(x, p, ..., type="l")
+        }
+    }
+    return(invisible(NULL))
 }
