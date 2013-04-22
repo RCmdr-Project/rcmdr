@@ -445,7 +445,7 @@ scatterPlot <- function () {
         else {
             doItAndPrint(paste("scatterplot(", y, "~", x, " | ", 
                 .groups, log, ", reg.line=", line, ", smooth=", smooth, 
-                ", spread=", spread, idtext, ", boxplots=", box, 
+                ", spread=", spread, identify.text, ", boxplots=", box, 
                 ", span=", span/100, jitter, xlab, ylab, cex, 
                 cex.axis, cex.lab, pch, ", by.groups=", .linesByGroup, 
                 ", data=", .activeDataSet, subset, ")", sep = ""))

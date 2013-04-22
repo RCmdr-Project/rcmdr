@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-04-20 15:55:00\n"
+"POT-Creation-Date: 2013-04-22 14:08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3972,6 +3972,20 @@ msgid "R Script"
 msgstr ""
 
 msgid "Output"
+msgstr ""
+
+    # point identification in graphs (additional messages)
+
+msgid "Interactively with mouse"
+msgstr ""
+
+msgid "Do not identify"
+msgstr ""
+
+msgid "number of points to identify must be an integer"
+msgstr ""
+
+msgid "Number of points to identify"
 msgstr ""
 
     # support for R Markdown
