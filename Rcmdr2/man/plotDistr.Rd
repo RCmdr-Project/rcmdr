@@ -14,7 +14,7 @@ plotDistr(x, p, discrete=FALSE, cdf=FALSE, ...)
 
 \arguments{
   \item{x}{horizontal coordinates}
-  \item{p}{vertical coordiantes}
+  \item{p}{vertical coordinates}
   \item{discrete}{is the random variable discrete?}
   \item{cdf}{is this a cumulative distribution (as opposed to mass) function?}
   \item{\dots}{arguments to be passed to \code{plot}.}

@@ -726,6 +726,31 @@ plotMeans <- function(response, factor1, factor2, error.bars = c("se", "sd", "co
 	invisible(NULL)
 }
 
+lineplot <- function(x, ..., legend){
+    xlab <- deparse(substitute(x))
+    y <- cbind(...)
+    m <- ncol(y)
+    legend <- if (missing(legend)) m > 1
+    if (legend && m > 1) {
+        mar <- par("mar")
+        top <- 3.5 + m
+        old.mar <- par(mar=c(mar[1:2], top, mar[4]))
+        on.exit(par(old.mar))
+    }
+    if (m > 1) matplot(x, y, type="b", lty=1, xlab=xlab, ylab="")
+    else plot(x, y, type="b", pch=16, xlab=xlab, ylab=colnames(y))
+    if (legend && ncol(y) > 1){
+        xpd <- par(xpd=TRUE)
+        on.exit(par(xpd), add=TRUE)
+        ncols <- length(palette())
+        cols <- rep(1:ncols, 1 + m %/% ncols)[1:m]
+        usr <- par("usr")
+        legend(usr[1], usr[4] + 1.2*top*strheight("x"), 
+            legend=colnames(y), col=cols, lty=1, pch=as.character(1:m))
+    }
+    return(invisible(NULL))
+}
+
 bin.var <- function (x, bins=4, method=c("intervals", "proportions", "natural"), labels=FALSE){
     method <- match.arg(method)
     # Author: Dan Putler (revision by J. Fox, 5 Dec 04 & 5 Mar 13)
