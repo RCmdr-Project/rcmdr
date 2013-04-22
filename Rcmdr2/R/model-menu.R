@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2013-04-12 by J. Fox
+# last modified 2013-04-22 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -298,7 +298,7 @@ residualQQPlot <- function () {
 		activateMenus()
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "qq.plot.lm", reset = "residualQQPlot")
+	OKCancelHelp(helpSubject = "qqPlot.lm", reset = "residualQQPlot")
 	tkgrid(labelRcmdr(selectFrame, text = gettextRcmdr("Simulated confidence envelope")), 
 			simulateCheckBox, sticky = "w")
 	tkgrid(labelRcmdr(selectFrame, text = gettextRcmdr("Identify points with mouse")), 

@@ -23,8 +23,8 @@ Commander <- function(){
             return(pos.to.env(pos))
         }
         
-       assignInMyNamespace("RcmdrEnv", RcmdrEnv)        
-       assignInMyNamespace(".RcmdrEnv", NULL)
+#        assignInMyNamespace("RcmdrEnv", RcmdrEnv)        
+#        assignInMyNamespace(".RcmdrEnv", NULL)
         
     }
     RStudioP <- function() nzchar(Sys.getenv("RSTUDIO_USER_IDENTITY"))

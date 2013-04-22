@@ -484,87 +484,101 @@ scatterPlot <- function () {
 }
 
 scatterPlotMatrix <- function () {
-	require("car")
-	defaults <- list(initial.variables = NULL, initial.line = 1, initial.smooth = 1, initial.spread = 0, 
-			initial.span = 50, initial.diag = "density", initial.subset = gettextRcmdr ("<all valid cases>"),
-			initialGroup=NULL, initial.lines.by.group=1) 
-	dialog.values <- getDialog("scatterPlotMatrix", defaults)
-	initial.group <- dialog.values$initial.group
-	.linesByGroup <- if (dialog.values$initial.lines.by.group == 1) TRUE else FALSE
-	.groups <- if (is.null(initial.group)) FALSE else initial.group
-	initializeDialog(title = gettextRcmdr("Scatterplot Matrix"))
-	variablesBox <- variableListBox(top, Numeric(), title = gettextRcmdr("Select variables (three or more)"), 
-			selectmode = "multiple", initialSelection = varPosn (dialog.values$initial.variables, "numeric"))
-	checkBoxes(frame = "optionsFrame", boxes = c("lsLine", "smoothLine", 
-					"spread"), initialValues = c(dialog.values$initial.line, dialog.values$initial.smooth,
-					dialog.values$initial.spread), labels = gettextRcmdr(c("Least-squares lines", 
-							"Smooth lines", "Show spread")))
-	sliderValue <- tclVar(dialog.values$initial.span)
-	slider <- tkscale(optionsFrame, from = 0, to = 100, showvalue = TRUE, 
-			variable = sliderValue, resolution = 5, orient = "horizontal")
-	radioButtons(name = "diagonal", buttons = c("density", "histogram", 
-					"boxplot", "oned", "qqplot", "none"), labels = gettextRcmdr(c("Density plots", 
-							"Histograms", "Boxplots", "One-dimensional scatterplots", 
-							"Normal QQ plots", "Nothing (empty)")), title = gettextRcmdr("On Diagonal"), 
-			initialValue = dialog.values$initial.diag)
-	subsetBox(subset.expression = dialog.values$initial.subset)
-	onOK <- function() {
-		variables <- getSelection(variablesBox)
-		closeDialog()
-		if (length(variables) < 3) {
-			errorCondition(recall = scatterPlotMatrix, message = gettextRcmdr("Fewer than 3 variable selected."))
-			return()
-		}
-		line <- if ("1" == tclvalue(lsLineVariable)) 
-					"lm"
-				else "FALSE"
-		smooth <- as.character("1" == tclvalue(smoothLineVariable))
-		spread <- as.character("1" == tclvalue(spreadVariable))
-		span <- as.numeric(tclvalue(sliderValue))
-		diag <- as.character(tclvalue(diagonalVariable))
-		initial.subset <- subset <- tclvalue(subsetVariable)
-		subset <- if (trim.blanks(subset) == gettextRcmdr("<all valid cases>")) ""
-				else paste(", subset=", subset, sep="")
-		putDialog("scatterPlotMatrix", list(initial.variables = variables, initial.line = tclvalue (lsLineVariable), 
-						initial.smooth = tclvalue(smoothLineVariable),initial.spread = tclvalue (spreadVariable), 
-						initial.span = span, initial.diag = diag, initial.subset = initial.subset, 
-						initial.group=if (.groups == FALSE) NULL else .groups,
-						initial.lines.by.group=if (.linesByGroup) 1 else 0))
-		.activeDataSet <- ActiveDataSet()
-		if (.groups == FALSE) {
-			command <- paste("scatterplotMatrix(~", paste(variables, 
-							collapse = "+"), ", reg.line=", line, ", smooth=", 
-					smooth, ", spread=", spread, ", span=", span/100, 
-					", diagonal = '", diag, "', data=", .activeDataSet, 
-					subset, ")", sep = "")
-			logger(command)
-			justDoIt(command)
-		}
-		else {
-			command <- paste("scatterplotMatrix(~", paste(variables, 
-							collapse = "+"), " | ", .groups, ", reg.line=", 
-					line, ", smooth=", smooth, ", spread=", spread, 
-					", span=", span/100, ", diagonal= '", diag, "', by.groups=", 
-					.linesByGroup, ", data=", .activeDataSet, subset, 
-					")", sep = "")
-			logger(command)
-			justDoIt(command)
-		}
-		activateMenus()
-		tkfocus(CommanderWindow())
-	}
-	groupsBox(scatterPlot, plotLinesByGroup = TRUE, initialGroup=initial.group, initialLinesByGroup=dialog.values$initial.lines.by.group,
-			initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups") else paste(gettextRcmdr("Plot by:"), initial.group))
-	OKCancelHelp(helpSubject = "scatterplotMatrix", reset = "scatterPlotMatrix")
-	tkgrid(getFrame(variablesBox), sticky = "nw")
-	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Span for smooth")), 
-			slider, sticky = "w")
-	tkgrid(optionsFrame, sticky = "w")
-	tkgrid(diagonalFrame, sticky = "w")
-	tkgrid(subsetFrame, sticky = "w")
-	tkgrid(groupsFrame, sticky = "w")
-	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
-	dialogSuffix(rows = 6, columns = 2)
+    require("car")
+    defaults <- list(initial.variables = NULL, initial.line = 1, initial.smooth = 1, initial.spread = 0, 
+        initial.span = 50, initial.diag = "density", initial.subset = gettextRcmdr ("<all valid cases>"),
+        initialGroup=NULL, initial.lines.by.group=1, initial.id.n="0") 
+    dialog.values <- getDialog("scatterPlotMatrix", defaults)
+    initial.group <- dialog.values$initial.group
+    .linesByGroup <- if (dialog.values$initial.lines.by.group == 1) TRUE else FALSE
+    .groups <- if (is.null(initial.group)) FALSE else initial.group
+    initializeDialog(title = gettextRcmdr("Scatterplot Matrix"))
+    variablesBox <- variableListBox(top, Numeric(), title = gettextRcmdr("Select variables (three or more)"), 
+        selectmode = "multiple", initialSelection = varPosn (dialog.values$initial.variables, "numeric"))
+    checkBoxes(frame = "optionsFrame", boxes = c("lsLine", "smoothLine", 
+        "spread"), initialValues = c(dialog.values$initial.line, dialog.values$initial.smooth,
+            dialog.values$initial.spread), labels = gettextRcmdr(c("Least-squares lines", 
+                "Smooth lines", "Show spread")))
+    identifyFrame <- tkframe(optionsFrame)
+    id.n.Var <- tclVar(dialog.values$initial.id.n) 
+    npointsSpinner <- tkspinbox(identifyFrame, from=0, to=10, width=2, textvariable=id.n.Var)    
+    sliderValue <- tclVar(dialog.values$initial.span)
+    slider <- tkscale(optionsFrame, from = 0, to = 100, showvalue = TRUE, 
+        variable = sliderValue, resolution = 5, orient = "horizontal")
+    radioButtons(name = "diagonal", buttons = c("density", "histogram", 
+        "boxplot", "oned", "qqplot", "none"), labels = gettextRcmdr(c("Density plots", 
+            "Histograms", "Boxplots", "One-dimensional scatterplots", 
+            "Normal QQ plots", "Nothing (empty)")), title = gettextRcmdr("On Diagonal"), 
+        initialValue = dialog.values$initial.diag)
+    subsetBox(subset.expression = dialog.values$initial.subset)
+    onOK <- function() {
+        variables <- getSelection(variablesBox)
+        closeDialog()
+        if (length(variables) < 3) {
+            errorCondition(recall = scatterPlotMatrix, message = gettextRcmdr("Fewer than 3 variable selected."))
+            return()
+        }
+        line <- if ("1" == tclvalue(lsLineVariable)) 
+            "lm"
+        else "FALSE"
+        smooth <- as.character("1" == tclvalue(smoothLineVariable))
+        spread <- as.character("1" == tclvalue(spreadVariable))
+        id.n <- tclvalue(id.n.Var)
+        if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
+            errorCondition(recall = scatterPlotMatrix, 
+                message = gettextRcmdr("number of points to identify must be an integer"))
+            return()
+        }
+        span <- as.numeric(tclvalue(sliderValue))
+        diag <- as.character(tclvalue(diagonalVariable))
+        initial.subset <- subset <- tclvalue(subsetVariable)
+        subset <- if (trim.blanks(subset) == gettextRcmdr("<all valid cases>")) ""
+        else paste(", subset=", subset, sep="")
+        putDialog("scatterPlotMatrix", list(initial.variables = variables, initial.line = tclvalue (lsLineVariable), 
+            initial.smooth = tclvalue(smoothLineVariable),initial.spread = tclvalue (spreadVariable), 
+            initial.span = span, initial.diag = diag, initial.subset = initial.subset, 
+            initial.group=if (.groups == FALSE) NULL else .groups,
+            initial.lines.by.group=if (.linesByGroup) 1 else 0, initial.id.n=id.n))
+        .activeDataSet <- ActiveDataSet()
+        if (.groups == FALSE) {
+            command <- paste("scatterplotMatrix(~", paste(variables, 
+                collapse = "+"), ", reg.line=", line, ", smooth=", 
+                smooth, ", spread=", spread, ", span=", span/100, ", id.n=", id.n,
+                ", diagonal = '", diag, "', data=", .activeDataSet, 
+                subset, ")", sep = "")
+            logger(command)
+            justDoIt(command)
+        }
+        else {
+            command <- paste("scatterplotMatrix(~", paste(variables, 
+                collapse = "+"), " | ", .groups, ", reg.line=", 
+                line, ", smooth=", smooth, ", spread=", spread, 
+                ", span=", span/100,  ", id.n=", id.n,
+                ", diagonal= '", diag, "', by.groups=", 
+                .linesByGroup, ", data=", .activeDataSet, subset, 
+                ")", sep = "")
+            logger(command)
+            justDoIt(command)
+        }
+        activateMenus()
+        tkfocus(CommanderWindow())
+    }
+    groupsBox(scatterPlot, plotLinesByGroup = TRUE, initialGroup=initial.group, initialLinesByGroup=dialog.values$initial.lines.by.group,
+        initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups") else paste(gettextRcmdr("Plot by:"), initial.group))
+    OKCancelHelp(helpSubject = "scatterplotMatrix", reset = "scatterPlotMatrix")
+    tkgrid(getFrame(variablesBox), sticky = "nw")
+    tkgrid(labelRcmdr(identifyFrame, 
+        text = gettextRcmdr("Number of points to identify  \nin each panel and group ")), 
+        npointsSpinner, sticky="nw")
+    tkgrid(identifyFrame, sticky="w", columnspan=2)
+    tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Span for smooth")), 
+        slider, sticky = "w")
+    tkgrid(optionsFrame, sticky = "w")
+    tkgrid(diagonalFrame, sticky = "w")
+    tkgrid(subsetFrame, sticky = "w")
+    tkgrid(groupsFrame, sticky = "w")
+    tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
+    dialogSuffix(rows = 6, columns = 2)
 }
 
 barGraph <- function () {
