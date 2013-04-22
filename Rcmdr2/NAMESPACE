@@ -6,7 +6,7 @@ import(tcltk)
 
 importFrom(utils, available.packages, install.packages)
 
-export(tkfocus,
+export(tkfocus, tkspinbox,
 activateMenus, activeDataSet, ActiveDataSet, activeDataSetP, activeModel,
 ActiveModel, activeModelP, aicP, assignCluster, bin.var, buttonRcmdr,
 checkActiveDataSet,

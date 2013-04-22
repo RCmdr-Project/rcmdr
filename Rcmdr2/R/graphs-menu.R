@@ -261,11 +261,12 @@ boxPlot <- function () {
 
 scatterPlot <- function () {
     defaults <- list(initial.x = NULL, initial.y = NULL, initial.jitterx = 0, initial.jittery = 0, 
-        initial.logstringx = 0, initial.logstringy = 0, initial.log = 0, initial.box = 1, 
+        initial.logstringx = 0, initial.logstringy = 0, initial.box = 1, 
         initial.line = 1, initial.smooth = 1, initial.spread = 1, initial.span = 50,
         initial.subset = gettextRcmdr ("<all valid cases>"), initial.ylab = gettextRcmdr ("<auto>"), 
         initial.xlab = gettextRcmdr("<auto>"), initial.pch = gettextRcmdr("<auto>"), 
-        initial.cexValue = 1, initial.cex.axisValue = 1, initial.cex.labValue = 1, initialGroup=NULL, initial.lines.by.group=1) 
+        initial.cexValue = 1, initial.cex.axisValue = 1, initial.cex.labValue = 1, initialGroup=NULL, initial.lines.by.group=1,
+        initial.identify="auto", initial.identify.points="2") 
     dialog.values <- getDialog("scatterPlot", defaults)
     initial.group <- dialog.values$initial.group
     .linesByGroup <- if (dialog.values$initial.lines.by.group == 1) TRUE else FALSE
@@ -282,18 +283,25 @@ scatterPlot <- function () {
     optionsParFrame <- tkframe(optionsTab)
     parFrame <- ttklabelframe(optionsParFrame, text=gettextRcmdr("Plotting Parameters"))
     checkBoxes(window = optionsParFrame, frame = "optionsFrame", 
-        boxes = c("identify", "jitterX", "jitterY", "logX", "logY", 
-            "boxplots", "lsLine", "smoothLine", "spread"), initialValues = c(dialog.values$initial.log, 
+        boxes = c("jitterX", "jitterY", "logX", "logY", 
+            "boxplots", "lsLine", "smoothLine", "spread"), initialValues = c( 
                 dialog.values$initial.jitterx, dialog.values$initial.jittery, 
                 dialog.values$initial.logstringx, dialog.values$initial.logstringy,
                 dialog.values$initial.box, dialog.values$initial.line, dialog.values$initial.smooth,
-                dialog.values$initial.spread),labels = gettextRcmdr(c("Identify points", 
+                dialog.values$initial.spread),labels = gettextRcmdr(c( 
                     "Jitter x-variable", "Jitter y-variable", "Log x-axis", 
                     "Log y-axis", "Marginal boxplots", "Least-squares line", 
                     "Smooth line", "Show spread")), title = gettextRcmdr("Options"), ttk=TRUE)
     sliderValue <- tclVar(dialog.values$initial.span)
     slider <- tkscale(optionsFrame, from = 0, to = 100, showvalue = TRUE, 
         variable = sliderValue, resolution = 5, orient = "horizontal")
+    radioButtons(window=optionsFrame, name = "identify", buttons = c("auto", "mouse", 
+        "not"), labels = gettextRcmdr(c("Automatically", 
+            "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
+        initialValue = dialog.values$initial.identify)
+    
+    id.n.Var <- tclVar(dialog.values$initial.identify.points) 
+    npointsSpinner <- tkspinbox(optionsFrame, from=1, to=10, width=2, textvariable=id.n.Var)    
     subsetBox(dataTab, subset.expression = dialog.values$initial.subset)
     tkbind(subsetEntry, "<FocusIn>", function() tkselection.clear(subsetEntry))
     xlabVar <- tclVar(dialog.values$initial.xlab)
@@ -342,7 +350,12 @@ scatterPlot <- function () {
             logstring <- paste(logstring, "x", sep = "")
         if ("1" == tclvalue(logYVariable)) 
             logstring <- paste(logstring, "y", sep = "")
-        log <- tclvalue(identifyVariable)
+        identify <- tclvalue(identifyVariable)
+        id.n <- tclvalue(id.n.Var)
+        identify.text <- switch(identify,
+            auto = paste(", id.method='mahal', id.n =", id.n),
+            mouse = ", id.method='identify'",
+            not = "")
         box <- tclvalue(boxplotsVariable)
         line <- tclvalue(lsLineVariable)
         smooth <-  tclvalue(smoothLineVariable)
@@ -363,24 +376,15 @@ scatterPlot <- function () {
         ylab <- if (ylab == gettextRcmdr("<auto>")) 
             ""
         else paste(", ylab=\"", ylab, "\"", sep = "")
-        pch <- gsub(" ", ",", tclvalue(pchVar))
-        putDialog ("scatterPlot", list (initial.x = x, initial.y = y, initial.jitterx = tclvalue(jitterXVariable),
-            initial.jittery = tclvalue(jitterYVariable), initial.logstringx = tclvalue(logXVariable),
-            initial.logstringy = tclvalue(logYVariable), initial.log = log, initial.box = box, 
-            initial.line = line, initial.smooth = smooth, initial.spread = spread,
-            initial.span = span, initial.subset = initial.subset, initial.xlab = tclvalue(xlabVar),
-            initial.ylab = tclvalue(ylabVar), initial.cexValue = tclvalue(cexValue), 
-            initial.cex.axisValue = tclvalue(cex.axisValue), initial.cex.labValue = tclvalue(cex.labValue), 
-            initial.pch = pch, initial.group=if (.groups == FALSE) NULL else .groups,
-            initial.lines.by.group=if (.linesByGroup) 1 else 0))
+        pchVal <- gsub(" ", ",", tclvalue(pchVar))
         closeDialog()
-        if ("" == pch) {
+        if ("" == pchVal) {
             errorCondition(recall = scatterPlot, message = gettextRcmdr("No plotting characters."))
             return()
         }
-        pch <- if (trim.blanks(pch) == gettextRcmdr("<auto>")) 
+        pch <- if (trim.blanks(pchVal) == gettextRcmdr("<auto>")) 
             ""
-        else paste(", pch=c(", pch, ")", sep = "")
+        else paste(", pch=c(", pchVal, ")", sep = "")
         if (length(x) == 0 || length(y) == 0) {
             errorCondition(recall = scatterPlot, message = gettextRcmdr("You must select two variables"))
             return()
@@ -389,19 +393,30 @@ scatterPlot <- function () {
             errorCondition(recall = scatterPlot, message = gettextRcmdr("x and y variables must be different"))
             return()
         }
+        if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
+            errorCondition(recall = scatterPlot, message = gettextRcmdr("number of points to identify must be an integer"))
+            return()
+        }
+        putDialog ("scatterPlot", list (initial.x = x, initial.y = y, initial.jitterx = tclvalue(jitterXVariable),
+            initial.jittery = tclvalue(jitterYVariable), initial.logstringx = tclvalue(logXVariable),
+            initial.logstringy = tclvalue(logYVariable),  initial.box = box, 
+            initial.line = line, initial.smooth = smooth, initial.spread = spread,
+            initial.span = span, initial.subset = initial.subset, initial.xlab = tclvalue(xlabVar),
+            initial.ylab = tclvalue(ylabVar), initial.cexValue = tclvalue(cexValue), 
+            initial.cex.axisValue = tclvalue(cex.axisValue), initial.cex.labValue = tclvalue(cex.labValue), 
+            initial.pch = pchVal, initial.group=if (.groups == FALSE) NULL else .groups,
+            initial.lines.by.group=if (.linesByGroup) 1 else 0, initial.identify=identify, initial.identify.points=id.n))
         .activeDataSet <- ActiveDataSet()
         log <- if (logstring != "") 
             paste(", log=\"", logstring, "\"", sep = "")
         else ""
-        if ("1" == tclvalue(identifyVariable)) {
-            RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
+        if (identify == "mouse") {
+            RcmdrTkmessageBox(title = gettextRcmdr("Identify Points"), message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
                 gettextRcmdr(if (MacOSXP()) 
                     "esc key to exit."
                     else "right button to exit."), sep = ""), icon = "info", 
                 type = "ok")
-            idtext <- ", id.method=\"identify\""
         }
-        else idtext <- ""
         box <- if ("1" == tclvalue(boxplotsVariable)) 
             "'xy'"
         else "FALSE"
@@ -422,7 +437,7 @@ scatterPlot <- function () {
         if (.groups == FALSE) {
             doItAndPrint(paste("scatterplot(", y, "~", x, log, 
                 ", reg.line=", line, ", smooth=", smooth, ", spread=", 
-                spread, idtext, ", boxplots=", box, ", span=", 
+                spread, identify.text, ", boxplots=", box, ", span=", 
                 span/100, jitter, xlab, ylab, cex, cex.axis, 
                 cex.lab, pch, ", data=", .activeDataSet, subset, 
                 ")", sep = ""))
@@ -444,6 +459,8 @@ scatterPlot <- function () {
     tkgrid(getFrame(xBox), getFrame(yBox), sticky = "nw", padx=6, pady=c(6, 0))
     tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Span for smooth")), 
         slider, sticky = "we", padx=6, pady=6)
+    tkgrid(identifyFrame, sticky="")
+    tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Number of points to identify")), npointsSpinner, sticky="w")
     tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("Plotting characters")), 
         pchEntry, stick = "we", padx=6, pady=6)
     tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("Point size")), 

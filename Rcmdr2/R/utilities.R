@@ -2257,6 +2257,8 @@ confint.glm <- function (object, parm, level = 0.95, trace = FALSE, ...)
 
 tkfocus <- function(...) tcl("focus", ...)
 
+tkspinbox <- function(parent, ...) tkwidget(parent, "spinbox", ...)
+
 # the following functions adapted from Milan Bouchet-Valat
 
 WindowsP <- function() {

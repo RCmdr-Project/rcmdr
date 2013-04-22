@@ -1,11 +1,11 @@
-# last modified 2013-04-11 by J. Fox
+# last modified 2013-04-22 by J. Fox
 
 if (getRversion() >= "2.15.1")  
     globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                       '.activeModel', 'varVariable', 'rhsVariable', 'varFrame', 'formulaFrame',
                       'outerOperatorsFrame', 'xBox', 'matrixVariable', 'factorCorVariable',
                       'identifyVariable', 'robustVariable', 'matrixFrame', 'factorCorFrame',
-                      'identifyFrame', 'robustFrame', 'regexprVariable', 'caseVariable',
+                      'identifyFrame', 'idtext', 'robustFrame', 'regexprVariable', 'caseVariable',
                       'directionVariable', 'optionsFrame', 'directionFrame', 'putRExcel',
                       'altHypothesisVariable', 'altHypothesisFrame', '.Responses',
                       'scaleVariable', 'scaleFrame', 'centerVariable', 'centerFrame', 'console.output',

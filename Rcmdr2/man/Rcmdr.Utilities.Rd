@@ -90,6 +90,7 @@
 \alias{subOKCancelHelp}
 \alias{subsetBox}
 \alias{tclvalue}
+\alias{tkspinbox}
 \alias{trim.blanks}
 \alias{TwoLevelFactors}
 \alias{twoLevelFactorsP}
@@ -216,6 +217,7 @@ subOKCancelHelp(window=subdialog, helpSubject=NULL)  # macro
 subsetBox(window = top, subset.expression = NULL, model = FALSE)  # macro
 tclvalue(x)
 tkfocus(...)
+tkspinbox(parent, ...)
 trim.blanks(text)
 TwoLevelFactors(names)
 twoLevelFactorsP(n=1)
@@ -301,6 +303,7 @@ commanderPosition()
   \item{onOK}{function to execute when the \emph{OK} button is pressed.}
   \item{onCancel}{function to execute when the \emph{Cancel} button or \emph{Esc} key is pressed.}
   \item{package}{quoted name of package to load.}
+  \item{parent}{parent Tk window.}
   \item{plotLinesByGroup}{include a check box for plotting lines by group?}
   \item{plotLinesByGroupsText}{the label for the plot-lines-by-group check box.}
   \item{pos}{position on search path at which to load package; default is \code{4}.}
@@ -400,7 +403,8 @@ commanderPosition()
   a text box for entering a subsetting expression, \code{subsetBox};
   \emph{OK}, \emph{Cancel}, and \emph{Help} buttons for dialogs, \code{OKCancelHelp}, and subdialogs, \code{subOKCancelHelp}.
   The functions \code{putDialog}, \code{getDialog}, and \code{varPosn} support dialog-box memory---i.e., retaining
-  selections across invocations of a dialog.
+  selections across invocations of a dialog. The \code{tkspinbox} function is omitted from the tcltk package and
+  may be used to create a spinbox widget.
   
   \emph{``Themed'' Tk widgets:}
   Tk 8.5 introduced so-called ``themed'' widgets, which look better than the traditional Tk widgets. 
