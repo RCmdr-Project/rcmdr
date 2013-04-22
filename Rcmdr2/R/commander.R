@@ -596,6 +596,8 @@ Commander <- function(){
                 else if (Menus[m, 3] == "cascade")
                     tkadd(get(Menus[m, 2]), "cascade", label=gettextMenus(Menus[m, 4]),
                         menu=get(Menus[m, 5]))
+                else if (Menus[m, 3] == "separator")
+                    tkadd(get(Menus[m, 2]), "separator")
                 else stop(paste(gettextRcmdr("menu definition error:"), Menus[m, ], collapse=" "),
                     domain=NA)
             }

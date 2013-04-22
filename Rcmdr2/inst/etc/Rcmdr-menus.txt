@@ -1,21 +1,26 @@
 # R Commander Menu Definitions
 
-# last modified 2013-04-20 by J. Fox
+# last modified 2013-04-22 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
     menu    fileMenu        topMenu         ""                                              ""                          ""          ""
     item	fileMenu		command			"Change working directory..."					Setwd						""			""
+    item    fileMenu        separator       ""                                              ""                          ""          ""
     item    fileMenu        command         "Open script file..."                           loadLog                     ""          ""
-    item    fileMenu        command         "Open R Markdown file..."                       loadRmd                     ""          ""
     item    fileMenu        command         "Save script..."                                saveLog                     ""          ""
     item    fileMenu        command         "Save script as..."                             saveLogAs                   ""          ""
+    item    fileMenu        separator       ""                                              ""                          ""          ""
+    item    fileMenu        command         "Open R Markdown file..."                       loadRmd                     ""          ""
     item    fileMenu        command         "Save R Markdown file..."                       saveRmd                     ""          ""
     item    fileMenu        command         "Save R Markdown file as..."                    saveRmdAs                   ""          ""
+    item    fileMenu        separator       ""                                              ""                          ""          ""
     item    fileMenu        command         "Save output..."                                saveOutput                  ""          ""
     item    fileMenu        command         "Save output as..."                             saveOutputAs                ""          ""
+    item    fileMenu        separator       ""                                              ""                          ""          ""
     item    fileMenu        command         "Save R workspace..."                           saveWorkspace               ""          ""
     item    fileMenu        command         "Save R workspace as..."                        saveWorkspaceAs             ""          ""
+    item    fileMenu        separator       ""                                              ""                          ""          ""
     menu    exitMenu        fileMenu        ""                                              ""                          ""          ""
     item    exitMenu        command         "From Commander"                                CloseCommander              ""          ""
     item    exitMenu        command         "From Commander and R"                          closeCommanderAndR          ""          ""
