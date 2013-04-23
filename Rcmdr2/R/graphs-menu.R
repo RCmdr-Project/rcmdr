@@ -773,7 +773,7 @@ QQPlot <- function () {
             args <- paste("dist=\"", dist, "\", ", params, sep = "")
         })
         if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-            errorCondition(recall = indexPlot, message = gettextRcmdr("number of points to identify must be an integer"))
+            errorCondition(recall = QQPlot, message = gettextRcmdr("number of points to identify must be an integer"))
             return()
         }
         putDialog ("QQPlot", list (initial.x = x, initial.dist = initial.dist,

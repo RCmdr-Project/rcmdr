@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2013-04-22 by J. Fox
+# last modified 2013-04-23 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -265,47 +265,58 @@ addObservationStatistics <- function () {
 }
 
 residualQQPlot <- function () {
-	Library("car")
-	.activeModel <- ActiveModel()
-	if (is.null(.activeModel) || !checkMethod("qqPlot", .activeModel)) 
-		return()
-	defaults <- list (initial.simulate = 1, initial.identify = 0)
-	dialog.values <- getDialog ("residualQQPlot", defaults)
-	initializeDialog(title = gettextRcmdr("Residual Quantile-Comparison Plot"))
-	selectFrame <- tkframe(top)
-	simulateVar <- tclVar(dialog.values$initial.simulate)
-	identifyVar <- tclVar(dialog.values$initial.identify)
-	simulateCheckBox <- ttkcheckbutton(selectFrame, variable = simulateVar)
-	identifyCheckBox <- ttkcheckbutton(selectFrame, variable = identifyVar)
-	onOK <- function() {
-		simulate <- tclvalue (simulateVar)  
-		identify <- tclvalue (identifyVar)
-		putDialog ("residualQQPlot", list (initial.identify = identify, initial.simulate = simulate))
-		closeDialog()
-		simulate <- tclvalue(simulateVar) == 1
-		if (tclvalue(identifyVar) == 1) {
-			identify <- ", id.method=\"identify\""
-			RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
-							gettextRcmdr(if (MacOSXP()) 
-												"esc key to exit."
-											else "right button to exit."), sep = ""), icon = "info", 
-					type = "ok")
-		}
-		else identify <- ""
-		command <- paste("qqPlot(", .activeModel, ", simulate=", 
-				simulate, identify, ")", sep = "")
-		doItAndPrint(command)
-		activateMenus()
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "qqPlot.lm", reset = "residualQQPlot")
-	tkgrid(labelRcmdr(selectFrame, text = gettextRcmdr("Simulated confidence envelope")), 
-			simulateCheckBox, sticky = "w")
-	tkgrid(labelRcmdr(selectFrame, text = gettextRcmdr("Identify points with mouse")), 
-			identifyCheckBox, sticky = "w")
-	tkgrid(selectFrame, sticky = "w")
-	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 2, columns = 1)
+    Library("car")
+    .activeModel <- ActiveModel()
+    if (is.null(.activeModel) || !checkMethod("qqPlot", .activeModel)) 
+        return()
+    defaults <- list (initial.simulate = 1, initial.identify = "auto", initial.id.n="2")
+    dialog.values <- getDialog ("residualQQPlot", defaults)
+    initializeDialog(title = gettextRcmdr("Residual Quantile-Comparison Plot"))
+    selectFrame <- tkframe(top)
+    simulateVar <- tclVar(dialog.values$initial.simulate)
+    simulateCheckBox <- ttkcheckbutton(selectFrame, variable = simulateVar)
+    identifyPointsFrame <- tkframe(top)
+    radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse", 
+        "not"), labels = gettextRcmdr(c("Automatically", 
+            "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
+        initialValue = dialog.values$initial.identify)    
+    id.n.Var <- tclVar(dialog.values$initial.id.n) 
+    npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
+    onOK <- function() {
+        simulate <- tclvalue (simulateVar)  
+        id.n <- tclvalue(id.n.Var)
+        identify <- tclvalue(identifyVariable)
+        method <- if (identify == "mouse") "identify" else "y"
+        id.n.use <- if (identify == "not") 0 else id.n   
+        closeDialog()
+        if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
+            errorCondition(recall = residualQQPlot, message = gettextRcmdr("number of points to identify must be an integer"))
+            return()
+        }
+        putDialog ("residualQQPlot", list (initial.simulate = simulate, initial.identify = identify, initial.id.n=id.n))
+        simulate <- tclvalue(simulateVar) == 1
+        if (identify == "mouse") {
+            RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
+                gettextRcmdr(if (MacOSXP()) 
+                    "esc key to exit."
+                    else "right button to exit."), sep = ""), icon = "info", 
+                type = "ok")
+        }
+        command <- paste("qqPlot(", .activeModel, ", simulate=", 
+            simulate, ', id.method="', method, '", id.n=', id.n.use,  ")", sep = "")
+        doItAndPrint(command)
+        activateMenus()
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "qqPlot.lm", reset = "residualQQPlot")
+    tkgrid(labelRcmdr(selectFrame, text = gettextRcmdr("Simulated confidence envelope")), 
+        simulateCheckBox, sticky = "w")
+    tkgrid(selectFrame, sticky = "w")
+    tkgrid(identifyFrame, sticky="w")
+    tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
+    tkgrid(identifyPointsFrame, sticky="w")
+    tkgrid(buttonsFrame, sticky = "w")
+    dialogSuffix(rows = 2, columns = 1)
 }
 
 testLinearHypothesis <- function(){
