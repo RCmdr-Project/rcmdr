@@ -80,17 +80,94 @@ CRPlots <- function(){
 	activateMenus()
 }
 
-AVPlots <- function(){
-	Library("car")
-	.activeModel <- ActiveModel()
-	if (is.null(.activeModel) || !checkMethod("avPlot", .activeModel)) return()
-	response <- tclvalue(RcmdrTkmessageBox(
-					message=paste(gettextRcmdr("Identify points with mouse?\n"),
-							gettextRcmdr(if (MacOSXP()) "esc key to exit." else "right button to exit."), sep=""),
-					icon="question", type="yesno", default="no"))
-	idmethod <- if (response == "yes") ', id.method="identify"' else ""
-	doItAndPrint(paste("avPlots(", .activeModel, idmethod, ")", sep=""))
-	activateMenus()
+AVPlots <- function () {
+    Library("car")
+    .activeModel <- ActiveModel()
+    if (is.null(.activeModel) || !checkMethod("avPlot", .activeModel)) 
+        return()
+    defaults <- list (initial.identify = "auto", initial.id.n="2")
+    dialog.values <- getDialog ("AVPlots", defaults)
+    initializeDialog(title = gettextRcmdr("Added-Variable Plots"))
+    identifyPointsFrame <- tkframe(top)
+    radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse", 
+        "not"), labels = gettextRcmdr(c("Automatically", 
+            "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
+        initialValue = dialog.values$initial.identify)    
+    id.n.Var <- tclVar(dialog.values$initial.id.n) 
+    npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
+    onOK <- function() {
+        id.n <- tclvalue(id.n.Var)
+        identify <- tclvalue(identifyVariable)
+        method <- if (identify == "mouse") "identify" else "mahal"
+        id.n.use <- if (identify == "not") 0 else id.n   
+        closeDialog()
+        if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
+            errorCondition(recall = AVPlots, message = gettextRcmdr("number of points to identify must be an integer"))
+            return()
+        }
+        putDialog ("AVPlots", list (initial.identify = identify, initial.id.n=id.n))
+        if (identify == "mouse") {
+            RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
+                gettextRcmdr(if (MacOSXP()) 
+                    "esc key to exit."
+                    else "right button to exit."), sep = ""), icon = "info", 
+                type = "ok")
+        }
+        command <- paste("avPlots(", .activeModel, ', id.method="', method, '", id.n=', id.n.use,  ")", sep = "")
+        doItAndPrint(command)
+        activateMenus()
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "avPlots", reset = "AVPlots")
+    tkgrid(identifyFrame, sticky="w")
+    tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
+    tkgrid(identifyPointsFrame, sticky="w")
+    tkgrid(buttonsFrame, sticky = "w")
+    dialogSuffix(rows = 2, columns = 1)
+}
+
+InfluencePlot <- function () {
+    Library("car")
+    .activeModel <- ActiveModel()
+    if (is.null(.activeModel) || !checkMethod("influencePlot", .activeModel)) 
+        return()
+    defaults <- list (initial.identify = "auto", initial.id.n="2")
+    dialog.values <- getDialog ("InfluencePlot", defaults)
+    initializeDialog(title = gettextRcmdr("Influence Plot"))
+    identifyPointsFrame <- tkframe(top)
+    radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse"), labels = gettextRcmdr(c("Automatically", 
+        "Interactively with mouse")), title = gettextRcmdr("Identify Points"), 
+        initialValue = dialog.values$initial.identify)    
+    id.n.Var <- tclVar(dialog.values$initial.id.n) 
+    npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
+    onOK <- function() {
+        id.n <- tclvalue(id.n.Var)
+        identify <- tclvalue(identifyVariable)
+        method <- if (identify == "mouse") "identify" else "noteworthy"
+        closeDialog()
+        if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
+            errorCondition(recall = InfluencePlot, message = gettextRcmdr("number of points to identify must be an integer"))
+            return()
+        }
+        putDialog ("InfluencePlot", list (initial.identify = identify, initial.id.n=id.n))
+        if (identify == "mouse") {
+            RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
+                gettextRcmdr(if (MacOSXP()) 
+                    "esc key to exit."
+                    else "right button to exit."), sep = ""), icon = "info", 
+                type = "ok")
+        }
+        command <- paste("influencePlot(", .activeModel, ', id.method="', method, '", id.n=', id.n,  ")", sep = "")
+        doItAndPrint(command)
+        activateMenus()
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "influencePlot", reset = "InfluencePlot")
+    tkgrid(identifyFrame, sticky="w")
+    tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
+    tkgrid(identifyPointsFrame, sticky="w")
+    tkgrid(buttonsFrame, sticky = "w")
+    dialogSuffix(rows = 2, columns = 1)
 }
 
 anovaTable <- function () {
@@ -159,18 +236,6 @@ VIF <- function(){
 	if (is.null(.activeModel) || !checkMethod("vif", .activeModel)) return()
 	doItAndPrint(paste("vif(", .activeModel, ")", sep=""))
 }
-
-InfluencePlot <- function(){
-	Library("car")
-	.activeModel <- ActiveModel()
-	if (is.null(.activeModel) || !checkMethod("influencePlot", .activeModel)) return()
-	response <- tclvalue(RcmdrTkmessageBox(
-					message=paste(gettextRcmdr("Identify points with mouse?\n"),
-							gettextRcmdr(if (MacOSXP()) "esc key to exit." else "right button to exit."), sep=""),
-					icon="question", type="yesno", default="no"))
-	idmethod <- if (response == "yes") ', id.method="identify"' else ""
-	doItAndPrint(paste("influencePlot(", .activeModel, idmethod, ")", sep=""))
-}  
 
 effectPlots <- function(){
 	Library("effects")
