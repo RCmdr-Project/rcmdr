@@ -1,4 +1,4 @@
-# last modified 2013-04-19 by J. Fox
+# last modified 2013-04-23 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -749,6 +749,14 @@ lineplot <- function(x, ..., legend){
             legend=colnames(y), col=cols, lty=1, pch=as.character(1:m))
     }
     return(invisible(NULL))
+}
+
+indexplot <- function(x, labels=seq_along(x), id.method="y", type="h", id.n=0, ylab, ...){
+    if (missing(ylab)) ylab <- deparse(substitute(x))
+    plot(x, type=type, ylab=ylab, xlab="Observation Index", ...)
+    if (par("usr")[3] <= 0) abline(h=0, col='gray')
+    ids <- showLabels(seq_along(x), x, labels=labels, id.method=id.method, id.n=id.n)
+    if (is.null(ids)) return(invisible(NULL)) else return(ids)
 }
 
 bin.var <- function (x, bins=4, method=c("intervals", "proportions", "natural"), labels=FALSE){
