@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-04-20 by J. Fox
+# last modified 2013-04-24 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 #   modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -219,6 +219,7 @@ Commander <- function(){
     title.color <- setOption("title.color", as.character(.Tcl("ttk::style lookup TLabelframe.Label -foreground"))) 
     .Tcl(paste("ttk::style configure TLabelframe.Label -foreground", title.color))
     setOption("log.commands", TRUE)
+    setOption("use.markdown", TRUE)
     setOption("RStudio", RStudioP())
     setOption("console.output", getRcmdr("RStudio"))
     setOption("retain.selections", TRUE)
@@ -784,17 +785,20 @@ logger <- function(command){
     .log <- LogWindow()
     .rmd <- RmdWindow()
     .output <- OutputWindow()
+    Rmd <- is.null(attr(command, "suppressRmd")) && getRcmdr("use.markdown")
     command <- splitCmd(command)
     if (getRcmdr("log.commands")) {
         last2 <- tclvalue(tkget(.log, "end -2 chars", "end"))
         if (last2 != "\n\n") tkinsert(.log, "end", "\n")
         tkinsert(.log, "end", paste(command,"\n", sep=""))
         tkyview.moveto(.log, 1)
-        last2 <- tclvalue(tkget(.rmd, "end -2 chars", "end"))
-        if (last2 != "\n\n") tkinsert(.rmd, "end", "\n")
-        tkinsert(.rmd, "end", "\n")
-        tkinsert(.rmd, "end", paste("```{r}\n", command,"\n```\n", sep=""))
-        tkyview.moveto(.rmd, 1)
+        if (Rmd){
+            last2 <- tclvalue(tkget(.rmd, "end -2 chars", "end"))
+            if (last2 != "\n\n") tkinsert(.rmd, "end", "\n")
+            tkinsert(.rmd, "end", "\n")
+            tkinsert(.rmd, "end", paste("```{r}\n", command,"\n```\n", sep=""))
+            tkyview.moveto(.rmd, 1)
+        }
     }
     lines <- strsplit(command, "\n")[[1]]
     tkinsert(.output, "end", "\n")

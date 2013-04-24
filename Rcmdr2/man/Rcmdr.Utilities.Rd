@@ -89,6 +89,7 @@
 \alias{sortVarNames}
 \alias{subOKCancelHelp}
 \alias{subsetBox}
+\alias{suppressMarkdown}
 \alias{tclvalue}
 \alias{tkspinbox}
 \alias{trim.blanks}
@@ -215,6 +216,7 @@ RmdWindow()
 sortVarNames(x)
 subOKCancelHelp(window=subdialog, helpSubject=NULL)  # macro
 subsetBox(window = top, subset.expression = NULL, model = FALSE)  # macro
+suppressMarkdown(command)
 tclvalue(x)
 tkfocus(...)
 tkspinbox(parent, ...)
@@ -362,7 +364,7 @@ commanderPosition()
   of the output stack. Note that, as a stack, the queue is LIFO (``last in, first out'').
   There is also a stack of commands, which is accessed similarly by \code{popCommand()}.
   Ocassionally, it's necessary to assign an object directly in the global environment, and
-  this can be done with the \code{gassign} function.
+  this can be done with the \code{gassign} function. \code{suppressMarkdown} takes a command in character-string form and adds an attribute to it that will cause the command \emph{not} to be entered in the R Markdown tab.
   
   \emph{Checking for errors: }
   The function \code{is.valid.name} checks whether a character string specifies a valid name

@@ -1,4 +1,4 @@
-# last modified 2013-04-23 by J. Fox
+# last modified 2013-04-24 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -2267,7 +2267,7 @@ tkfocus <- function(...) tcl("focus", ...)
 
 tkspinbox <- function(parent, ...) tkwidget(parent, "spinbox", ...)
 
-# the following functions adapted from Milan Bouchet-Valat
+# the following two functions adapted from Milan Bouchet-Valat
 
 WindowsP <- function() {
     .Platform$OS.type == "windows"
@@ -2277,3 +2277,7 @@ X11P <- function(){
     .Platform$GUI == "X11"
 }
 
+suppressMarkdown <- function(command){
+    attr(command, "suppressRmd") <- TRUE
+    command
+}

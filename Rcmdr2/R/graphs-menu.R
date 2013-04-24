@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-04-23 by J. Fox
+# last modified 2013-04-24 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
@@ -51,6 +51,7 @@ indexPlot <- function () {
         command <- paste("with(", .activeDataSet, ", indexplot(", x, ", type='", type,
             "', id.method='", method, "', id.n=", id.n.use, ", labels=rownames(", .activeDataSet, ")))",
             sep="")
+        if (identify == "mouse") command <- suppressMarkdown(command)
         doItAndPrint(command)
         activateMenus()
         tkfocus(CommanderWindow())
