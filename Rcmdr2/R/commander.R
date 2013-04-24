@@ -336,8 +336,9 @@ Commander <- function(){
                             (Menus[, "menuOrItem"] == line[1, "operationOrParent"])))
                 }
                 else if (line[1, "type"] == "item"){
-                    if (line[1, "operationOrParent"] == "command"){
-                        which <- which((Menus[, "operationOrParent"] == "command") &
+                    if ((line[1, "operationOrParent"] == "command") || (line[1, "operationOrParent"] == "separator")){
+                        which <- which(((Menus[, "operationOrParent"] == "command") | 
+                                (Menus[, "operationOrParent"] == "separator")) &
                                 (Menus[, "menuOrItem"] == line[1, "menuOrItem"]))
                         where <- if (length(which) == 0)
                             which((Menus[, "type"] == "menu")
@@ -504,14 +505,18 @@ Commander <- function(){
         .log <- LogWindow()
         contextMenu <- tkmenu(tkmenu(.log), tearoff=FALSE)
         tkadd(contextMenu, "command", label=gettextRcmdr("Submit"), command=onSubmit)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Cut"), command=onCut)
         tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)
         tkadd(contextMenu, "command", label=gettextRcmdr("Paste"), command=onPaste)
         tkadd(contextMenu, "command", label=gettextRcmdr("Delete"), command=onDelete)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Find..."), command=onFind)
         tkadd(contextMenu, "command", label=gettextRcmdr("Select all"), command=onSelectAll)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Undo"), command=onUndo)
         tkadd(contextMenu, "command", label=gettextRcmdr("Redo"), command=onRedo)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
         tkpopup(contextMenu, tkwinfo("pointerx", .log), tkwinfo("pointery", .log))
     }
@@ -519,14 +524,18 @@ Commander <- function(){
         .rmd <- RmdWindow()
         contextMenu <- tkmenu(tkmenu(.rmd), tearoff=FALSE)
         tkadd(contextMenu, "command", label=gettextRcmdr("Submit"), command=onSubmit)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Cut"), command=onCut)
         tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)
         tkadd(contextMenu, "command", label=gettextRcmdr("Paste"), command=onPaste)
         tkadd(contextMenu, "command", label=gettextRcmdr("Delete"), command=onDelete)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Find..."), command=onFind)
         tkadd(contextMenu, "command", label=gettextRcmdr("Select all"), command=onSelectAll)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Undo"), command=onUndo)
         tkadd(contextMenu, "command", label=gettextRcmdr("Redo"), command=onRedo)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
         tkpopup(contextMenu, tkwinfo("pointerx", .rmd), tkwinfo("pointery", .rmd))
     }
@@ -537,10 +546,13 @@ Commander <- function(){
         tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)
         tkadd(contextMenu, "command", label=gettextRcmdr("Paste"), command=onPaste)
         tkadd(contextMenu, "command", label=gettextRcmdr("Delete"), command=onDelete)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Find..."), command=onFind)
         tkadd(contextMenu, "command", label=gettextRcmdr("Select all"), command=onSelectAll)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Undo"), command=onUndo)
         tkadd(contextMenu, "command", label=gettextRcmdr("Redo"), command=onRedo)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
         tkpopup(contextMenu, tkwinfo("pointerx", .output), tkwinfo("pointery", .output))
     }
@@ -551,10 +563,13 @@ Commander <- function(){
         tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)
         tkadd(contextMenu, "command", label=gettextRcmdr("Paste"), command=onPaste)
         tkadd(contextMenu, "command", label=gettextRcmdr("Delete"), command=onDelete)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Find..."), command=onFind)
         tkadd(contextMenu, "command", label=gettextRcmdr("Select all"), command=onSelectAll)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Undo"), command=onUndo)
         tkadd(contextMenu, "command", label=gettextRcmdr("Redo"), command=onRedo)
+        tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
         tkpopup(contextMenu, tkwinfo("pointerx", .messages), tkwinfo("pointery", .messages))
     }
