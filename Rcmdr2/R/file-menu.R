@@ -170,7 +170,7 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
 		if ("yes" == tclvalue(response2)) saveLog()
 	}
     
-	if (ask.save && getRcmdr("log.commands") && tclvalue(tkget(RmdWindow(), "1.0", "end")) != "\n"){
+	if (ask.save && getRcmdr("markdown.output") && getRcmdr("log.commands") && tclvalue(tkget(RmdWindow(), "1.0", "end")) != "\n"){
 	    response2 <- RcmdrTkmessageBox(message=gettextRcmdr("Save R Markdown file?"),
 	                                   icon="question", type="yesno", default="yes")
 	    if ("yes" == tclvalue(response2)) saveRmd()

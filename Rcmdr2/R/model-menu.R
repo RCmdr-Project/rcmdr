@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2013-04-23 by J. Fox
+# last modified 2013-04-24 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -73,11 +73,30 @@ plotModel <- function(){
 }
 
 CRPlots <- function(){
-	Library("car")
-	.activeModel <- ActiveModel()
-	if (is.null(.activeModel) || !checkMethod("crPlot", .activeModel)) return()
-	doItAndPrint(paste("crPlots(", .activeModel, ")", sep=""))
-	activateMenus()
+    Library("car")
+    .activeModel <- ActiveModel()
+    if (is.null(.activeModel) || !checkMethod("crPlot", .activeModel)) return()
+    
+    defaults <- list(initial.span=50)
+    dialog.values <- getDialog("CRPlots", defaults)
+    initializeDialog(title = gettextRcmdr("Component+Residual Plots"))
+    sliderValue <- tclVar(dialog.values$initial.span)
+    sliderFrame <- tkframe(top)
+    slider <- tkscale(sliderFrame, from = 5, to = 100, showvalue = TRUE, 
+        variable = sliderValue, resolution = 5, orient = "horizontal")
+    onOK <- function(){
+        span <- as.numeric(tclvalue(sliderValue))
+        closeDialog()
+        putDialog ("CRPlots", list(initial.span=span))
+        doItAndPrint(paste("crPlots(", .activeModel, ", span=", span/100, ")", sep=""))
+        activateMenus()
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "crPlots", reset = "CRPlots")
+    tkgrid(labelRcmdr(sliderFrame, text=gettextRcmdr("Span for smooth")), slider, sticky="sw")
+    tkgrid(sliderFrame, sticky="w")
+    tkgrid(buttonsFrame, sticky="w")
+    dialogSuffix(rows=2, columns=1)
 }
 
 AVPlots <- function () {
@@ -114,6 +133,7 @@ AVPlots <- function () {
                 type = "ok")
         }
         command <- paste("avPlots(", .activeModel, ', id.method="', method, '", id.n=', id.n.use,  ")", sep = "")
+        if (identify == "mouse") command <- suppressMarkdown(command)
         doItAndPrint(command)
         activateMenus()
         tkfocus(CommanderWindow())
@@ -158,6 +178,7 @@ InfluencePlot <- function () {
                 type = "ok")
         }
         command <- paste("influencePlot(", .activeModel, ', id.method="', method, '", id.n=', id.n,  ")", sep = "")
+        if (identify == "mouse") command <- suppressMarkdown(command)
         doItAndPrint(command)
         activateMenus()
         tkfocus(CommanderWindow())
@@ -369,6 +390,7 @@ residualQQPlot <- function () {
         }
         command <- paste("qqPlot(", .activeModel, ", simulate=", 
             simulate, ', id.method="', method, '", id.n=', id.n.use,  ")", sep = "")
+        if (identify == "mouse") command <- suppressMarkdown(command)
         doItAndPrint(command)
         activateMenus()
         tkfocus(CommanderWindow())

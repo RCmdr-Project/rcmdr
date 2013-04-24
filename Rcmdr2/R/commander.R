@@ -639,6 +639,7 @@ Commander <- function(){
         system.file("etc", "Rcmdr-Markdown-Template.Rmd", package="Rcmdr2"))
     template <- paste(readLines(rmd.template), collapse="\n")
     tkinsert(.rmd, "end", template)
+    putRcmdr("markdown.output", FALSE)
     RmdXscroll <- ttkscrollbar(RmdFrame, orient="horizontal",
         command=function(...) tkxview(.rmd, ...))
     RmdYscroll <- ttkscrollbar(RmdFrame,
@@ -690,10 +691,10 @@ Commander <- function(){
         tkgrid(logFrame, sticky="news", padx=10, pady=0, columnspan=2)
         tkgrid(.rmd, RmdYscroll, sticky="news", columnspan=2)
         tkgrid(RmdXscroll)
-        tkgrid(RmdFrame, sticky="news", padx=10, pady=0, columnspan=2)
+        if (getRcmdr("use.markdown")) tkgrid(RmdFrame, sticky="news", padx=10, pady=0, columnspan=2)
     }
     tkadd(notebook, logFrame, text=gettextRcmdr("R Script"), padding=6)
-    tkadd(notebook, RmdFrame, text=gettextRcmdr("R Markdown"), padding=6)
+    if (getRcmdr("use.markdown")) tkadd(notebook, RmdFrame, text=gettextRcmdr("R Markdown"), padding=6)
     tkgrid(notebook, sticky="news")
     if (.log.commands && .console.output) tkgrid(submitButton, sticky="w", pady=c(0, 6))
     tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output"), foreground="black"),
@@ -724,10 +725,12 @@ Commander <- function(){
         tkgrid.rowconfigure(logFrame, 1, weight=0)
         tkgrid.columnconfigure(logFrame, 0, weight=1)
         tkgrid.columnconfigure(logFrame, 1, weight=0)
-        tkgrid.rowconfigure(RmdFrame, 0, weight=1)
-        tkgrid.rowconfigure(RmdFrame, 1, weight=0)
-        tkgrid.columnconfigure(RmdFrame, 0, weight=1)
-        tkgrid.columnconfigure(RmdFrame, 1, weight=0)
+        if (getRcmdr("use.markdown")){
+            tkgrid.rowconfigure(RmdFrame, 0, weight=1)
+            tkgrid.rowconfigure(RmdFrame, 1, weight=0)
+            tkgrid.columnconfigure(RmdFrame, 0, weight=1)
+            tkgrid.columnconfigure(RmdFrame, 1, weight=0)
+        }
     }
     if (!.console.output){
         tkgrid.rowconfigure(outputFrame, 0, weight=0)
@@ -798,6 +801,7 @@ logger <- function(command){
             tkinsert(.rmd, "end", "\n")
             tkinsert(.rmd, "end", paste("```{r}\n", command,"\n```\n", sep=""))
             tkyview.moveto(.rmd, 1)
+            putRcmdr("markdown.output", TRUE)
         }
     }
     lines <- strsplit(command, "\n")[[1]]

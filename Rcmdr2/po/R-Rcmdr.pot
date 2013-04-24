@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-04-23 19:25:00\n"
+"POT-Creation-Date: 2013-04-24 11:35:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3992,6 +3992,9 @@ msgid "Number of points to identify  \nin each panel and group "
 msgstr ""
 
 msgid "Added-Variable Plots"
+msgstr ""
+
+msgid "Component+Residual Plots"
 msgstr ""
 
 msgid "Influence Plot"

@@ -246,11 +246,14 @@ boxPlot <- function () {
         if (is.null(.groups) || .groups == FALSE) {
             command <- paste("Boxplot( ~ ", x, ", data=", .activeDataSet, ', id.method="', 
                              identifyPoints, '")', sep="")
+            if (identifyPoints == "identify") command <- suppressMarkdown(command)
+            
             doItAndPrint(command)
         }
         else {
             command <- paste("Boxplot(", x, "~", .groups, ", data=", .activeDataSet, 
                              ', id.method="', identifyPoints, '")', sep = "")
+            if (identifyPoints == "identify") command <- suppressMarkdown(command)
             doItAndPrint(command)
         }
         activateMenus()
@@ -300,7 +303,7 @@ scatterPlot <- function () {
                     "Log y-axis", "Marginal boxplots", "Least-squares line", 
                     "Smooth line", "Show spread")), title = gettextRcmdr("Options"), ttk=TRUE)
     sliderValue <- tclVar(dialog.values$initial.span)
-    slider <- tkscale(optionsFrame, from = 0, to = 100, showvalue = TRUE, 
+    slider <- tkscale(optionsFrame, from = 5, to = 100, showvalue = TRUE, 
         variable = sliderValue, resolution = 5, orient = "horizontal")
     radioButtons(window=optionsFrame, name = "identify", buttons = c("auto", "mouse", 
         "not"), labels = gettextRcmdr(c("Automatically", 
@@ -441,20 +444,24 @@ scatterPlot <- function () {
             ""
         else paste(", cex.lab=", cex.lab, sep = "")
         if (.groups == FALSE) {
-            doItAndPrint(paste("scatterplot(", y, "~", x, log, 
+            command <- paste("scatterplot(", y, "~", x, log, 
                 ", reg.line=", line, ", smooth=", smooth, ", spread=", 
                 spread, identify.text, ", boxplots=", box, ", span=", 
                 span/100, jitter, xlab, ylab, cex, cex.axis, 
                 cex.lab, pch, ", data=", .activeDataSet, subset, 
-                ")", sep = ""))
+                ")", sep = "")
+            if (identify == "mouse") command <- suppressMarkdown(command)
+            doItAndPrint(command)
         }
         else {
-            doItAndPrint(paste("scatterplot(", y, "~", x, " | ", 
+            command <- paste("scatterplot(", y, "~", x, " | ", 
                 .groups, log, ", reg.line=", line, ", smooth=", smooth, 
                 ", spread=", spread, identify.text, ", boxplots=", box, 
                 ", span=", span/100, jitter, xlab, ylab, cex, 
                 cex.axis, cex.lab, pch, ", by.groups=", .linesByGroup, 
-                ", data=", .activeDataSet, subset, ")", sep = ""))
+                ", data=", .activeDataSet, subset, ")", sep = "")
+            if (identify == "mouse") command <- suppressMarkdown(command)
+            doItAndPrint(command)
         }
         activateMenus()
         tkfocus(CommanderWindow())
@@ -509,7 +516,7 @@ scatterPlotMatrix <- function () {
     id.n.Var <- tclVar(dialog.values$initial.id.n) 
     npointsSpinner <- tkspinbox(identifyFrame, from=0, to=10, width=2, textvariable=id.n.Var)    
     sliderValue <- tclVar(dialog.values$initial.span)
-    slider <- tkscale(optionsFrame, from = 0, to = 100, showvalue = TRUE, 
+    slider <- tkscale(optionsFrame, from = 5, to = 100, showvalue = TRUE, 
         variable = sliderValue, resolution = 5, orient = "horizontal")
     radioButtons(name = "diagonal", buttons = c("density", "histogram", 
         "boxplot", "oned", "qqplot", "none"), labels = gettextRcmdr(c("Density plots", 
@@ -791,6 +798,7 @@ QQPlot <- function () {
         }
         command <- paste("qqPlot", "(", .activeDataSet, "$", 
             x, ", ", args, ', id.method="', method, '", id.n=', id.n.use, ", labels=rownames(", .activeDataSet, "))", sep = "")
+        if (identify == "mouse") command <- suppressMarkdown(command)
         doItAndPrint(command)
         activateMenus()
         tkfocus(CommanderWindow())
@@ -1091,18 +1099,22 @@ Scatter3D <- function () {
                 icon="info", type="ok")
         }
         if (.groups == FALSE) {
-            doItAndPrint(paste("scatter3d(", y, "~", x[1], "+", x[2], ", data=", .activeDataSet, 
+            command <- paste("scatter3d(", y, "~", x[1], "+", x[2], ", data=", .activeDataSet, 
                 fit, resids, dfNonpar, dfAdd, 
                 parallel, ", bg=\"", bg, "\", axis.scales=", scales, 
                 ", grid=", grid, ", ellipsoid=", ellips, identify.text,
-                ")", sep = ""))
+                ")", sep = "")
+            command <- suppressMarkdown(command)
+            doItAndPrint(command)
         }
         else {
-            doItAndPrint(paste("scatter3d(", y, "~", x[1], "+", x[2], "|", .groups, ", data=", .activeDataSet, 
+            command <- paste("scatter3d(", y, "~", x[1], "+", x[2], "|", .groups, ", data=", .activeDataSet, 
                 fit, resids, dfNonpar, dfAdd, 
                 parallel, ", bg=\"", bg, "\", axis.scales=", scales, 
                 ", grid=", grid, ", ellipsoid=", ellips, identify.text,
-                ")", sep = ""))
+                ")", sep = "")
+            command <- suppressMarkdown(command)
+            doItAndPrint(command)
         }
         
         putRcmdr("rgl", TRUE)
@@ -1170,6 +1182,7 @@ Identify3D <- function(){
 			message=gettextRcmdr("Drag right mouse button to identify points,\nclick right button to exit."),
 			icon="info", type="ok")
 	command <- getRcmdr("Identify3d")
+    command <- suppressMarkdown(command)
 	doItAndPrint(command)
 }
 
