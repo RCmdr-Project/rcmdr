@@ -879,6 +879,12 @@ browseManual <- function() {
 					"/", gettextRcmdr("Getting-Started-with-the-Rcmdr"), ".pdf", sep=""))
 }
 
+browseRcmdrWebsite <- function() browseURL("http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/")
+
+browseRWebsite <- function() browseURL("http://www.r-project.org/")
+
+browseRMarkdown <- function() browseURL("http://www.rstudio.com/ide/docs/authoring/using_markdown")
+
 
 
 # functions for building dialog boxes
