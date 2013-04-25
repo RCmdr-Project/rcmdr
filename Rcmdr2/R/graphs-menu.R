@@ -276,7 +276,7 @@ scatterPlot <- function () {
         initial.subset = gettextRcmdr ("<all valid cases>"), initial.ylab = gettextRcmdr ("<auto>"), 
         initial.xlab = gettextRcmdr("<auto>"), initial.pch = gettextRcmdr("<auto>"), 
         initial.cexValue = 1, initial.cex.axisValue = 1, initial.cex.labValue = 1, initialGroup=NULL, initial.lines.by.group=1,
-        initial.identify="auto", initial.identify.points="2") 
+        initial.identify="auto", initial.identify.points="2", initial.tab=NULL) 
     dialog.values <- getDialog("scatterPlot", defaults)
     initial.group <- dialog.values$initial.group
     .linesByGroup <- if (dialog.values$initial.lines.by.group == 1) TRUE else FALSE
@@ -344,6 +344,7 @@ scatterPlot <- function () {
         showvalue = TRUE, variable = cex.labValue, resolution = 0.1, 
         orient = "horizontal")
     onOK <- function() {
+        tab <- if (as.character(tkselect(notebook)) == dataTab$ID) "dataTab" else "optionsTab"
         x <- getSelection(xBox)
         y <- getSelection(yBox)
         jitter <- if ("1" == tclvalue(jitterXVariable) && "1" == 
@@ -414,7 +415,9 @@ scatterPlot <- function () {
             initial.ylab = tclvalue(ylabVar), initial.cexValue = tclvalue(cexValue), 
             initial.cex.axisValue = tclvalue(cex.axisValue), initial.cex.labValue = tclvalue(cex.labValue), 
             initial.pch = pchVal, initial.group=if (.groups == FALSE) NULL else .groups,
-            initial.lines.by.group=if (.linesByGroup) 1 else 0, initial.identify=identify, initial.identify.points=id.n))
+            initial.lines.by.group=if (.linesByGroup) 1 else 0, initial.identify=identify, initial.identify.points=id.n,
+            initial.tab=tab)
+            )
         .activeDataSet <- ActiveDataSet()
         log <- if (logstring != "") 
             paste(", log=\"", logstring, "\"", sep = "")
@@ -493,6 +496,9 @@ scatterPlot <- function () {
     tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6)
     tkgrid(notebook)
     tkgrid(buttonsFrame, columnspan = 2, sticky = "ew")
+    if (!is.null(dialog.values$initial.tab)){
+        tkselect(notebook,if (dialog.values$initial.tab == "dataTab") 0 else 1)
+    }
     dialogSuffix(rows = 8, columns = 2)
 }
 
