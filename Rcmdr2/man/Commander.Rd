@@ -14,7 +14,7 @@ Commander()
 \bold{Getting Started}
 
 The default R Commander interface consists of (from top to bottom) a menu bar, a toolbar,
-a script window, an output window, and a messages window.
+a code window with script and R Markdown tabs, an output window, and a messages window.
 
 Commands to read, write, transform, and analyze data are entered using the menus in the
 menu bar at the top of the \emph{Commander} window. Most menu items lead to dialog boxes
