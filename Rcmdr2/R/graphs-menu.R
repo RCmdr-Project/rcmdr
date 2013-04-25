@@ -276,7 +276,7 @@ scatterPlot <- function () {
         initial.subset = gettextRcmdr ("<all valid cases>"), initial.ylab = gettextRcmdr ("<auto>"), 
         initial.xlab = gettextRcmdr("<auto>"), initial.pch = gettextRcmdr("<auto>"), 
         initial.cexValue = 1, initial.cex.axisValue = 1, initial.cex.labValue = 1, initialGroup=NULL, initial.lines.by.group=1,
-        initial.identify="auto", initial.identify.points="2", initial.tab=NULL) 
+        initial.identify="auto", initial.identify.points="2", initial.tab=0) 
     dialog.values <- getDialog("scatterPlot", defaults)
     initial.group <- dialog.values$initial.group
     .linesByGroup <- if (dialog.values$initial.lines.by.group == 1) TRUE else FALSE
@@ -344,7 +344,7 @@ scatterPlot <- function () {
         showvalue = TRUE, variable = cex.labValue, resolution = 0.1, 
         orient = "horizontal")
     onOK <- function() {
-        tab <- if (as.character(tkselect(notebook)) == dataTab$ID) "dataTab" else "optionsTab"
+        tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         x <- getSelection(xBox)
         y <- getSelection(yBox)
         jitter <- if ("1" == tclvalue(jitterXVariable) && "1" == 
@@ -496,9 +496,7 @@ scatterPlot <- function () {
     tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6)
     tkgrid(notebook)
     tkgrid(buttonsFrame, columnspan = 2, sticky = "ew")
-    if (!is.null(dialog.values$initial.tab)){
-        tkselect(notebook,if (dialog.values$initial.tab == "dataTab") 0 else 1)
-    }
+    tkselect(notebook, dialog.values$initial.tab)
     dialogSuffix(rows = 8, columns = 2)
 }
 
