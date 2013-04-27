@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-04-12 by J. Fox
+# last modified 2013-04-27 by J. Fox
 
 # Variances menu
 
@@ -43,7 +43,7 @@ twoVariancesFTest <- function () {
 		tkfocus(CommanderWindow())
 		tkdestroy(top)
 	}
-	OKCancelHelp(helpSubject = "var.test", reset = "twoVariancesFTest")
+	OKCancelHelp(helpSubject = "var.test", reset = "twoVariancesFTest", apply = "twoVariancesFTest")
 	radioButtons(name = "alternative", buttons = c("twosided", 
 					"less", "greater"), values = c("two.sided", "less", "greater"), 
 			labels = gettextRcmdr(c("Two-sided", "Difference < 0", 
@@ -106,7 +106,7 @@ BartlettTest <- function () {
 		}
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "bartlett.test", reset = "BartlettTest")
+	OKCancelHelp(helpSubject = "bartlett.test", reset = "BartlettTest", apply = "BartlettTest")
 	tkgrid(getFrame(groupBox), labelRcmdr(variableFrame, text = "    "), 
 			getFrame(responseBox), sticky = "nw")
 	tkgrid(variableFrame, sticky = "w")
@@ -164,7 +164,7 @@ LeveneTest <- function () {
 		}
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "leveneTest", reset = "LeveneTest")
+	OKCancelHelp(helpSubject = "leveneTest", reset = "LeveneTest", apply = "LeveneTest")
 	tkgrid(getFrame(groupBox), labelRcmdr(variableFrame, text = "    "), 
 			getFrame(responseBox), sticky = "nw")
 	tkgrid(variableFrame, sticky = "w")

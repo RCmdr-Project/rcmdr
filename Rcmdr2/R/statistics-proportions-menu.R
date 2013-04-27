@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-04-12 by J. Fox
+# last modified 2013-04-27 by J. Fox
 
     # Proportions menu
 
@@ -45,7 +45,7 @@ singleProportionTest <- function () {
 		remove(.Table, envir = .GlobalEnv)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "prop.test", reset = "singleProportionTest")
+	OKCancelHelp(helpSubject = "prop.test", reset = "singleProportionTest", apply = "singleProportionTest")
 	radioButtons(top, name = "alternative", buttons = c("twosided", 
 					"less", "greater"), values = c("two.sided", "less", "greater"), 
 			labels = gettextRcmdr(c("Population proportion != p0", 
@@ -131,7 +131,7 @@ twoSampleProportionsTest <- function () {
 		remove(.Table, envir = .GlobalEnv)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "prop.test", reset = "twoSampleProportionsTest")
+	OKCancelHelp(helpSubject = "prop.test", reset = "twoSampleProportionsTest", apply = "twoSampleProportionsTest")
 	radioButtons(name = "alternative", buttons = c("twosided", 
 					"less", "greater"), values = c("two.sided", "less", "greater"), 
 			labels = gettextRcmdr(c("Two-sided", "Difference < 0", 

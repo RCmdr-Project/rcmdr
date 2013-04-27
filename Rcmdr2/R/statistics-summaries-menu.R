@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-04-12 by J. Fox
+# last modified 2013-04-27 by J. Fox
 
 # Summaries menu
 
@@ -96,7 +96,7 @@ numericalSummaries <- function(){ # dialog memory 2011-06-27  J. Fox
         doItAndPrint(command) 
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject="numSummary", reset="numericalSummaries")
+    OKCancelHelp(helpSubject="numSummary", reset="numericalSummaries", apply="numericalSummaries")
     tkgrid(getFrame(xBox), sticky="nw")    
     tkgrid(checkBoxFrame, sticky="w")
     tkgrid(skCheckBoxFrame, typeButtonsFrame, sticky="nw")
@@ -279,7 +279,7 @@ statisticsTable <- function () {
         }
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject = "tapply", reset="statisticsTable")
+    OKCancelHelp(helpSubject = "tapply", reset="statisticsTable", apply="statisticsTable")
     tkgrid(getFrame(groupBox), labelRcmdr(variablesFrame, text = "    "), 
            getFrame(responseBox), sticky = "nw")
     tkgrid(variablesFrame, sticky = "w")
@@ -362,7 +362,7 @@ correlationMatrix <- function (){
         }
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject = "rcorr.adjust", reset="correlationMatrix")
+    OKCancelHelp(helpSubject = "rcorr.adjust", reset="correlationMatrix", apply="correlationMatrix")
     tkgrid(getFrame(xBox), sticky = "nw")
     tkgrid(correlationsFrame, sticky = "w")
     tkgrid(useFrame, sticky="w")
@@ -411,7 +411,7 @@ correlationTest <- function(){
 		doItAndPrint(command)  
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject="cor.test", reset="correlationTest")
+	OKCancelHelp(helpSubject="cor.test", reset="correlationTest", apply="correlationTest")
 	tkgrid(getFrame(xBox), sticky="nw")
 	tkgrid(labelRcmdr(top, text=""))
 	tkgrid(correlationsFrame,alternativeFrame, sticky="w")
@@ -444,7 +444,7 @@ ShapiroTest <- function () {
 						"$", var, ")", sep = ""))
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "shapiro.test", reset = "ShapiroTest")
+	OKCancelHelp(helpSubject = "shapiro.test", reset = "ShapiroTest", apply = "ShapiroTest")
 	tkgrid(getFrame(variableBox), sticky = "nw")
 	tkgrid(buttonsFrame, sticky = "w")
 	dialogSuffix(rows = 2, columns = 1)

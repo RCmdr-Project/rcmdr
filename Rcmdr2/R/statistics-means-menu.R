@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-04-12 by J. Fox
+# last modified 2013-04-27 by J. Fox
 
 # Means menu
 
@@ -40,7 +40,7 @@ independentSamplesTTest <- function () {
 						variances, ", data=", ActiveDataSet(), ")", sep = ""))
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "t.test", reset = "independentSamplesTTest")
+	OKCancelHelp(helpSubject = "t.test", reset = "independentSamplesTTest", apply = "independentSamplesTTest")
 	optionsFrame <- tkframe(top)
 	radioButtons(optionsFrame, name = "alternative", buttons = c("twosided", 
 					"less", "greater"), values = c("two.sided", "less", "greater"), 
@@ -103,7 +103,7 @@ pairedTTest <- function () {
 						sep = ""))
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "t.test", reset = "pairedTTest")
+	OKCancelHelp(helpSubject = "t.test", reset = "pairedTTest", apply = "pairedTTest")
 	radioButtons(top, name = "alternative", buttons = c("twosided", 
 					"less", "greater"), values = c("two.sided", "less", "greater"), 
 			labels = gettextRcmdr(c("Two-sided", "Difference < 0", 
@@ -147,7 +147,7 @@ singleSampleTTest <- function () {
 		tkdestroy(top)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "t.test", reset = "singleSampleTTest")
+	OKCancelHelp(helpSubject = "t.test", reset = "singleSampleTTest", apply = "singleSampleTTest")
 	radioButtons(top, name = "alternative", buttons = c("twosided", 
 					"less", "greater"), values = c("two.sided", "less", "greater"), 
 			labels = gettextRcmdr(c("Population mean != mu0", "Population mean < mu0", 
@@ -259,7 +259,7 @@ oneWayAnova <- function () {
 		}
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "anova", model = TRUE, reset = "oneWayAnova")
+	OKCancelHelp(helpSubject = "anova", model = TRUE, reset = "oneWayAnova", apply = "oneWayAnova")
 	tkgrid(labelRcmdr(modelFrame, text = gettextRcmdr("Enter name for model: ")), 
 			model, sticky = "w")
 	tkgrid(modelFrame, sticky = "w", columnspan = 2)
@@ -333,7 +333,7 @@ multiWayAnova <- function () {
 		putRcmdr("modelWithSubset", FALSE)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "Anova", model = TRUE, reset = "multiWayAnova")
+	OKCancelHelp(helpSubject = "Anova", model = TRUE, reset = "multiWayAnova", apply = "multiWayAnova")
 	tkgrid(labelRcmdr(modelFrame, text = gettextRcmdr("Enter name for model: ")), 
 			model, sticky = "w")
 	tkgrid(modelFrame, sticky = "w", columnspan = 2)

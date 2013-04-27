@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-04-12 by J. Fox
+# last modified 2013-04-27 by J. Fox
 
 # Tables menu
 
@@ -79,7 +79,7 @@ twoWayTable <- function(){ # dialog memory 2011-06-27 J. Fox
 		remove(.Table, envir=.GlobalEnv)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject="xtabs", reset="twoWayTable")
+	OKCancelHelp(helpSubject="xtabs", reset="twoWayTable", apply="twoWayTable")
 	radioButtons(name="percents",
 			buttons=c("rowPercents", "columnPercents", "totalPercents", "nonePercents"),
 			values=c("row", "column", "total", "none"), initialValue=dialog.values$initial.percents,
@@ -151,7 +151,7 @@ multiWayTable <- function (){
 		remove(.Table, envir = .GlobalEnv)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "xtabs", reset = "multiWayTable")
+	OKCancelHelp(helpSubject = "xtabs", reset = "multiWayTable", apply = "multiWayTable")
 	radioButtons(name = "percents", buttons = c("rowPercents", 
 					"columnPercents", "nonePercents"), values = c("row", 
 					"column", "none"),  labels = gettextRcmdr(c("Row percentages", 
@@ -309,7 +309,7 @@ enterTable <- function(){
 		remove(.Table, envir=.GlobalEnv)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject="chisq.test", reset="resetEnterTable")
+	OKCancelHelp(helpSubject="chisq.test", reset="resetEnterTable", apply="enterTable")
 	radioButtons(name="percents", buttons=c("rowPercents", "columnPercents", "totalPercents", "nonePercents"), values=c("row", "column", "total", "none"),
 			initialValue=initial.percentages, labels=gettextRcmdr(c("Row percentages", "Column percentages",  "Percentages of total", "No percentages")), title=gettextRcmdr("Compute Percentages"))
 	checkBoxes(frame="testsFrame", boxes=c("chisq", "chisqComponents", "expFreq", "fisher"), initialValues=initial.tests,
