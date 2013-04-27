@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2012-12-07 by J. Fox
+# last modified 2012-12-27 by J. Fox
 
 # Nonparametric tests menu
 
@@ -44,7 +44,8 @@ twoSampleWilcoxonTest <- function () {
 							", data=", .activeDataSet, ")", sep = ""))
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "wilcox.test", reset = "twoSampleWilcoxonTest")
+	OKCancelHelp(helpSubject = "wilcox.test", reset = "twoSampleWilcoxonTest",
+	             apply = "twoSampleWilcoxonTest")
 	radioButtons(name = "alternative", buttons = c("twosided", 
 					"less", "greater"), values = c("two.sided", "less", "greater"), 
 			labels = gettextRcmdr(c("Two-sided", "Difference < 0", 
@@ -110,7 +111,8 @@ pairedWilcoxonTest <- function () {
 		}
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "wilcox.test", reset = "pairedWilcoxonTest")
+	OKCancelHelp(helpSubject = "wilcox.test", reset = "pairedWilcoxonTest",
+	             apply = "pairedWilcoxonTest")
 	radioButtons(name = "alternative", buttons = c("twosided", 
 					"less", "greater"), values = c("two.sided", "less", "greater"), 
 			labels = gettextRcmdr(c("Two-sided", "Difference < 0", 
@@ -155,7 +157,8 @@ KruskalWallisTest <- function () {
 						group, ", data=", .activeDataSet, ")", sep = ""))
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "kruskal.test", reset = "KruskalWallisTest")
+	OKCancelHelp(helpSubject = "kruskal.test", reset = "KruskalWallisTest",
+	             apply = "KruskalWallisTest")
 	tkgrid(getFrame(groupBox), getFrame(responseBox), sticky = "nw")
 	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
 	dialogSuffix(rows = 2, columns = 2)
@@ -188,7 +191,8 @@ FriedmanTest <- function () {
 		remove(.Responses, envir = .GlobalEnv)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "friedman.test", reset = "FriedmanTest")
+	OKCancelHelp(helpSubject = "friedman.test", reset = "FriedmanTest",
+	             apply = "FriedmanTest")
 	tkgrid(getFrame(responseBox), sticky = "nw")
 	tkgrid(buttonsFrame, sticky = "w")
 	dialogSuffix(rows = 2, columns = 1)
