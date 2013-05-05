@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-04-27 by J. Fox
+# last modified 2013-05-05 by J. Fox
 
 # Summaries menu
 
@@ -29,27 +29,30 @@ numericalSummaries <- function(){ # dialog memory 2011-06-27  J. Fox
     dialog.values <- getDialog("numericalSummaries", defaults)
     initial.group <- dialog.values$initial.group
     initializeDialog(title=gettextRcmdr("Numerical Summaries"))
-    xBox <- variableListBox(top, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick one or more)"),
+    notebook <- ttknotebook(top, width=600)
+    dataTab <- tkframe(top)
+    statisticsTab <- tkframe(top)
+    xBox <- variableListBox(dataTab, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick one or more)"),
                             initialSelection=varPosn(dialog.values$initial.x, "numeric"))
-    selectFrame <- tkframe(top)
-    checkBoxes(frame="checkBoxFrame", boxes=c("mean", "sd", "IQR", "cv"), 
+    checkBoxes(window = statisticsTab, frame="checkBoxFrame", boxes=c("mean", "sd", "IQR", "cv"), 
                initialValues=c(dialog.values$initial.mean, dialog.values$initial.sd, dialog.values$initial.IQR, dialog.values$initial.cv), 
                labels=gettextRcmdr(c("Mean", "Standard Deviation", "Interquartile Range", "Coefficient of Variation")))
-    checkBoxes(window=selectFrame, frame="skCheckBoxFrame", boxes=c("skewness", "kurtosis"), 
+    skFrame <- tkframe(statisticsTab)
+    checkBoxes(window = skFrame, frame="skCheckBoxFrame", boxes=c("skewness", "kurtosis"), 
                initialValues=c(dialog.values$initial.skewness, dialog.values$initial.kurtosis), 
                labels=gettextRcmdr(c("Skewness", "Kurtosis")))
-    radioButtons(window=selectFrame, name="typeButtons", buttons=c("b1", "b2", "b3"), values=c("1", "2", "3"), 
+    radioButtons(window = skFrame, name="typeButtons", buttons=c("b1", "b2", "b3"), values=c("1", "2", "3"), 
                  initialValue=dialog.values$initial.type,
                  labels=gettextRcmdr(c("Type 1", "Type 2", "Type 3")))
     quantilesVariable <- tclVar(dialog.values$initial.quantiles.variable)
-    quantilesFrame <- tkframe(top)
-    quantilesCheckBox <- ttkcheckbutton(quantilesFrame, variable=quantilesVariable)
+    quantilesFrame <- tkframe(statisticsTab)
+    quantilesCheckBox <- tkcheckbutton(quantilesFrame, variable=quantilesVariable)
     quantiles <- tclVar(dialog.values$initial.quantiles)
     quantilesEntry <- ttkentry(quantilesFrame, width="20", textvariable=quantiles)
     groupsBox(recall=numericalSummaries, label=gettextRcmdr("Summarize by:"), 
               initialLabel=if (is.null(initial.group)) gettextRcmdr("Summarize by groups") 
               else paste(gettextRcmdr("Summarize by:"), initial.group), 
-              initialGroup=initial.group)
+              initialGroup=initial.group, window = dataTab)
     onOK <- function(){
         x <- getSelection(xBox)
         quants <- tclvalue(quantiles)
@@ -66,7 +69,7 @@ numericalSummaries <- function(){ # dialog memory 2011-06-27  J. Fox
             initial.quantiles.variable=quantsVar, initial.quantiles=quants,
             initial.skewness=skewnessVar, initial.kurtosis=kurtosisVar, initial.type=typeVar,
             initial.group=if (.groups != FALSE) .groups else NULL
-        ))    	
+        ))      
         if (length(x) == 0){
             errorCondition(recall=numericalSummaries, message=gettextRcmdr("You must select a variable."))
             return()
@@ -96,15 +99,21 @@ numericalSummaries <- function(){ # dialog memory 2011-06-27  J. Fox
         doItAndPrint(command) 
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject="numSummary", reset="numericalSummaries", apply="numericalSummaries")
+    OKCancelHelp(helpSubject="numSummary", reset="numericalSummaries", apply ="numericalSummaries")
     tkgrid(getFrame(xBox), sticky="nw")    
+    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6)
+    tkadd(notebook, statisticsTab, text=gettextRcmdr("Statistics"), padding=6)
     tkgrid(checkBoxFrame, sticky="w")
+    tkgrid(ttklabel(statisticsTab, text=""))
     tkgrid(skCheckBoxFrame, typeButtonsFrame, sticky="nw")
-    tkgrid(selectFrame, sticky="w")
+    tkgrid(skFrame, sticky="w")
     tkgrid(labelRcmdr(quantilesFrame, text=gettextRcmdr("Quantiles")), quantilesCheckBox,
            labelRcmdr(quantilesFrame, text=gettextRcmdr(" quantiles:")), quantilesEntry, sticky="w")
+    tkgrid(ttklabel(statisticsTab, text=""))
     tkgrid(quantilesFrame, sticky="w")
-    tkgrid(groupsFrame, sticky="w")
+    tkgrid(ttklabel(dataTab, text=""))
+    tkgrid(groupsFrame, sticky = "w", padx=6)
+    tkgrid(notebook, sticky="nsew") 
     tkgrid(buttonsFrame, sticky="w")
     dialogSuffix(rows=7, columns=1)
 }
