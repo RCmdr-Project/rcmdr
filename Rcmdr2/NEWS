@@ -4,6 +4,8 @@ Changes to Version 2.0-0
 
   o Support for R Markdown, with script and Rmd tabs.
 
+  o Expanded Options dialog and new Save Options dialog.
+
   o Improved probability plots. 
 
   o Introduced plotDistr(), lineplot(), indexplot() convenience functions.

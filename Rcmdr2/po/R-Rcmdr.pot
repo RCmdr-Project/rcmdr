@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-04-24 14:58:00\n"
+"POT-Creation-Date: 2013-05-11 21:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3983,6 +3983,9 @@ msgstr ""
 msgid "Using R Markdown"
 msgstr ""
 
+msgid "Table"
+msgstr ""
+
     # point identification in graphs (additional messages)
 
 msgid "Interactively with mouse"
@@ -4024,4 +4027,105 @@ msgid "Save R Markdown file as..."
 msgstr ""
 
 msgid "Save R Markdown file?"
+msgstr ""
+
+msgid "{\"All Files" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr ""
+
+    # setting and saving options
+
+msgid "Ask to exit Commander"
+msgstr ""
+
+msgid "Ask to save documents on exit"
+msgstr ""
+
+msgid "Quit R on exit"
+msgstr ""
+
+msgid "Number messages"
+msgstr ""
+
+msgid "Retain messages"
+msgstr ""
+
+msgid "Use R Markown"
+msgstr ""
+
+msgid "Select file"
+msgstr ""
+
+msgid "R Markdown template file"
+msgstr ""
+
+msgid "Suppress icon images"
+msgstr ""
+
+msgid "Retain dialog selections"
+msgstr ""
+
+msgid "Use rgl package"
+msgstr ""
+
+msgid "Dialog text font size (points)"
+msgstr ""
+
+msgid "Script and output font size (points)"
+msgstr ""
+
+msgid "Dialog font"
+msgstr ""
+
+msgid "Script and output font"
+msgstr ""
+
+msgid "Script text color"
+msgstr ""
+
+msgid "Command text color"
+msgstr ""
+
+msgid "Output text color"
+msgstr ""
+
+msgid "Error text color"
+msgstr ""
+
+msgid "Warning text color"
+msgstr ""
+
+msgid "Dialog subtitles text color"
+msgstr ""
+
+msgid "Script window width (characters)"
+msgstr ""
+
+msgid "Script window height (lines)"
+msgstr ""
+
+msgid "Output window height (lines)"
+msgstr ""
+
+msgid "Messages window height (lines)"
+msgstr ""
+
+msgid "Fonts"
+msgstr ""
+
+msgid "Other Options"
+msgstr ""
+
+msgid "Save Commander Options"
+msgstr ""
+
+msgid "R Profile saved to"
+msgstr ""
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr ""
+
+msgid "You may edit this file before saving it."
+msgstr ""
+
+msgid "Save Rcmdr options..."
 msgstr ""

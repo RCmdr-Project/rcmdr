@@ -1,4 +1,4 @@
-# last modified 2013-04-22 by J. Fox
+# last modified 2013-05-11 by J. Fox
 
 if (getRversion() >= "2.15.1")  
     globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
@@ -41,4 +41,9 @@ if (getRversion() >= "2.15.1")
                       'chisqTestVariable', 'fisherTestVariable', '.commander.done', '.Workbook', '.Datasets', 
                       'getSheets', 'odbcConnectExcel', 'odbcConnectExcel2007', 'odbcConnectAccess', 
                       'odbcConnectAccess2007', 'odbcConnectDbase', 'IQRVariable',  'unitsVariable', 'unitsFrame',
-                      'pointsVariable', 'linesVariable', 'useVariable', 'useFrame'))
+                      'pointsVariable', 'linesVariable', 'useVariable', 'useFrame',
+                      'askToExitVariable', 'askOnExitVariable', 'quitRVariable', 'consoleOutputVariable',
+                      'numberMessagesVariable', 'retainMessagesVariable', 'useMarkdownVariable', 'logCommandsVariable',
+                      'grabFocusVariable', 'doubleClickVariable', 'sortNamesVariable', 'showEditButtonVariable',
+                      'SuppressIconImagesVariable', 'retainSelectionsVariable', 'useRglVariable', 'closeOptionsFrame',
+                      'outputOptionsFrame', 'otherOptionsFrame'))
