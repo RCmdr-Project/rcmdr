@@ -1,4 +1,4 @@
-# last modified 2013-05-11 by J. Fox
+# last modified 2013-05-12 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -588,7 +588,7 @@ saveOptions <- function(){
     tkbind(top, "<Control-W>", onRedo)
     tkbind(top, "<Alt-BackSpace>", onUndo)
     tkbind(optionsWindow, "<ButtonPress-3>", contextMenu)
-    OKCancelHelp(helpSubject="Commander")
+    OKCancelHelp(helpSubject="saveOptions")
     menu <- tkmenu(top)
     tkconfigure(top, menu=menu)
     editMenu <- tkmenu(menu, tearoff=FALSE)
@@ -611,6 +611,7 @@ saveOptions <- function(){
     if (length(start) == 1 && length(end) == 1){
         Rprofile <- Rprofile[-(start:end)]
     }
+    Rprofile <- sub("\\n*$", "", Rprofile)
     tkinsert(optionsWindow, "end", paste(Rprofile, collapse="\n"))
     options <- getOption("Rcmdr")
     con <- file(open="w+")
@@ -622,6 +623,13 @@ saveOptions <- function(){
                        "options(Rcmdr=",
                        options,
                        ")",
+                       "",
+                       "# Uncomment the following line (remove the #)",
+                       "# to start the R Commander automatically",
+                       "# when R starts:",
+                       "",
+                       "# library(Rcmdr)",
+                       "",
                        "###! Rcmdr Options End !###"),
                      collapse="\n"
     )
