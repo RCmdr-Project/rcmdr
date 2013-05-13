@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-04-24 by J. Fox
+# last modified 2013-05-13 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
 #   modified 17 December 2008 by Richard Heiberger  ##rmh
@@ -841,6 +841,7 @@ logger <- function(command){
 }
 
 justDoIt <- function(command) {
+    command <- enc2native(command)
     Message()
     if (!getRcmdr("suppress.X11.warnings")){
         messages.connection <- file(open="w+")
@@ -864,6 +865,7 @@ justDoIt <- function(command) {
 
 doItAndPrint <- function(command, log=TRUE) {
     # with modifications from Duncan Murdoch 4 Jan 08
+    command <- enc2native(command)
     Message()
     .console.output <- getRcmdr("console.output")
     .output <- OutputWindow()

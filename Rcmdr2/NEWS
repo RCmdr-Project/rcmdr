@@ -16,7 +16,7 @@ Changes to Version 2.0-0
 
   o Partial correlations now optionally report pairwise p-values (suggestion of Aaron Swink).
 
-  o Removed Sciviews supoort code.
+  o Removed Sciviews support code.
 
   o Small fixes.
 
