@@ -1,4 +1,4 @@
-# last modified 2013-05-12 by J. Fox
+# last modified 2013-05-14 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -624,11 +624,13 @@ saveOptions <- function(){
                        options,
                        ")",
                        "",
-                       "# Uncomment the following line (remove the #)",
-                       "# to start the R Commander automatically",
-                       "# when R starts:",
+                       "# Uncomment the following 4 lines (remove the #s)",
+                       "#  to start the R Commander automatically when R starts:",
                        "",
-                       "# library(Rcmdr)",
+                       "# local({",
+                       "#    old <- getOption('defaultPackages')",
+                       "#    options(defaultPackages = c(old, 'Rcmdr'))",
+                       "# })",
                        "",
                        "###! Rcmdr Options End !###"),
                      collapse="\n"
