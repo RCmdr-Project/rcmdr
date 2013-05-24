@@ -1,4 +1,4 @@
-# last modified 2013-04-24 by J. Fox
+# last modified 2013-05-23 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -833,7 +833,7 @@ RcmdrPager <- function (file, header, title, delete.file)
 	for (i in seq(along = file)) {
 		zfile <- file[[i]]
 		tt <- tktoplevel()
-		if (.Platform$OS.type == "windows") tkwm.iconbitmap(tt, system.file("etc", "R-logo.ico", package="Rcmdr2"))
+		if (.Platform$OS.type == "windows") tkwm.iconbitmap(tt, system.file("etc", "R-logo.ico", package="Rcmdr"))
 		tkwm.title(tt, if (length(title))
 							title[(i - 1)%%length(title) + 1]
 						else "")
@@ -859,10 +859,10 @@ RcmdrPager <- function (file, header, title, delete.file)
 # help functions
 
 helpCommander <- function() {
-	PDF <- file.access(paste(file.path(path.package(package="Rcmdr2")[1], "doc"), 
+	PDF <- file.access(paste(file.path(path.package(package="Rcmdr")[1], "doc"), 
 					"/", gettextRcmdr("Commander"), ".pdf", sep=""), mode=4)
 	if (PDF == 0){
-		browseURL(paste(file.path(path.package(package="Rcmdr2")[1], "doc"),
+		browseURL(paste(file.path(path.package(package="Rcmdr")[1], "doc"),
 						"/", gettextRcmdr("Commander"), ".pdf", sep=""))
 	} 
 	else if (as.numeric(R.Version()$major) >= 2) print(help(gettextRcmdr("Commander")))
@@ -875,7 +875,7 @@ helpAboutCommander <- function() {
 }
 
 browseManual <- function() {
-	browseURL(paste(file.path(path.package(package="Rcmdr2")[1], "doc"),
+	browseURL(paste(file.path(path.package(package="Rcmdr")[1], "doc"),
 					"/", gettextRcmdr("Getting-Started-with-the-Rcmdr"), ".pdf", sep=""))
 }
 
@@ -904,7 +904,7 @@ defmacro <- function(..., expr){
 	for (i in seq(length.out=length(a))){
 		if (nn[i] == "") {
 			nn[i] <- paste(a[[i]])
-			msg <- paste(a[[i]], gettext("not supplied", domain="R-Rcmdr2"))
+			msg <- paste(a[[i]], gettext("not supplied", domain="R-Rcmdr"))
 			a[[i]] <- substitute(stop(foo), list(foo = msg))
 		}
 	}
@@ -1821,7 +1821,7 @@ activateMenus <- function(){
 
 # for internationalization
 
-gettextRcmdr <- function(...) gettext(..., domain="R-Rcmdr2")
+gettextRcmdr <- function(...) gettext(..., domain="R-Rcmdr")
 
 gettextMenus <- function(...){
 	text <- gettextRcmdr(...)

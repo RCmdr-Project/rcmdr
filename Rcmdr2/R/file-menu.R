@@ -1,4 +1,4 @@
-# last modified 2013-05-14 by J. Fox
+# last modified 2013-05-23 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -271,7 +271,7 @@ Options <- function(){
     placement <- setOption("placement", "")
     suppress.menus <- getRcmdr("suppress.menus")
     rmd.template <- getRcmdr("rmd.template")
-    rmd.standard <- system.file("etc", "Rcmdr-Markdown-Template.Rmd", package="Rcmdr2")
+    rmd.standard <- system.file("etc", "Rcmdr-Markdown-Template.Rmd", package="Rcmdr")
     use.rgl <- setOption("use.rgl", TRUE)
     checkBoxes(closeTab, frame="closeOptionsFrame", boxes=c("askToExit", "askOnExit", "quitR"),
                initialValues=c(ask.to.exit, ask.on.exit, quit.R.on.close),

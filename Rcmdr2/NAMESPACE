@@ -1,6 +1,6 @@
-# last modified 2013-04-24 by J. Fox
+# last modified 2013-05-23 by J. Fox
 
-useDynLib(Rcmdr2)
+useDynLib(Rcmdr)
 
 import(tcltk)
 
