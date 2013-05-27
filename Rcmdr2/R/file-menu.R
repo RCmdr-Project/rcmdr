@@ -484,7 +484,7 @@ Options <- function(){
     tkgrid(closeOptionsFrame, sticky="nw")
     tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Dialog text font size (points)")), defaultFontSizeSlider, sticky="sw")
     tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Script and output font size (points)")), logFontSizeSlider, sticky="sw")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Dialog family")), defaultFontEntry, sticky="w")
+    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Dialog font")), defaultFontEntry, sticky="w")
     tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Script and output font")), logFontEntry, sticky="w")
     tkgrid(labelRcmdr(fontTab, text="")) 
     pal <- c(log.text.color, command.text.color, output.text.color, error.text.color, warning.text.color, title.color)
