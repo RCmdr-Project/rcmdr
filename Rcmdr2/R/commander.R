@@ -1,13 +1,13 @@
 
 # The R Commander and command logger
 
-# last modified 2013-05-23 by J. Fox
-#  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
-#   changes 21 June 2007 by Erich Neuwirth for Excel support (marked EN)
-#   modified 17 December 2008 by Richard Heiberger  ##rmh
+# last modified 2013-05-26 by J. Fox
+
+# contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
 Commander <- function(){
     library(Rcmdr, quietly=TRUE)
+    # set up RcmdrEnv
     RcmdrEnv.on.path <- getOption("Rcmdr")[["RcmdrEnv.on.path"]]
     if (is.null(RcmdrEnv.on.path)) RcmdrEnv.on.path <- (getRversion() < "3.0.0")
     if (RcmdrEnv.on.path){
@@ -23,11 +23,12 @@ Commander <- function(){
             return(pos.to.env(pos))
         }
         
-       assignInMyNamespace("RcmdrEnv", RcmdrEnv)        
-       assignInMyNamespace(".RcmdrEnv", NULL)
+        # the following two lines to be commented-out for debugging:
+        assignInMyNamespace("RcmdrEnv", RcmdrEnv)        
+        assignInMyNamespace(".RcmdrEnv", NULL)
         
     }
-    RStudioP <- function() nzchar(Sys.getenv("RSTUDIO_USER_IDENTITY"))
+    RStudioP <- function() nzchar(Sys.getenv("RSTUDIO_USER_IDENTITY")) # to detect RStudio
     DESCRIPTION <- readLines(file.path(find.package("Rcmdr"), "DESCRIPTION")[1])
     RcmdrVersion <- trim.blanks(sub("^Version:", "",
         grep("^Version:", DESCRIPTION, value=TRUE)))
@@ -36,15 +37,18 @@ Commander <- function(){
     if (exists(".RcmdrEnv") && is.environment(RcmdrEnv()) &&
             exists("commanderWindow", RcmdrEnv()) &&
             !is.null(get("commanderWindow", RcmdrEnv()))) {
-        #		warning("The R Commander is already open.")
         return(invisible(NULL))
     }
+    # the following function used to apply Rcmdr options with specified defaults
+    # if global == TRUE, store option
     setOption <- function(option, default, global=TRUE) {
         opt <- if (is.null(current[option][[1]])) default else current[option][[1]]
         if (global) putRcmdr(option, opt)
         opt
     }
-    current <- options("Rcmdr")[[1]]
+    current <- getOption("Rcmdr")
+    
+    # define icons
     setOption("suppress.icon.images", FALSE)
     icon.images <- !getRcmdr("suppress.icon.images")
     tkimage.create("photo", "::image::RlogoIcon", file = system.file("etc", "R-logo.gif", package="Rcmdr"))
@@ -63,10 +67,11 @@ Commander <- function(){
     tkimage.create("photo", "::image::viewIcon", file = system.file("etc", "view.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::dataIcon", file = system.file("etc", "data.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::modelIcon", file = system.file("etc", "model.gif", package="Rcmdr"))
-    setOption("number.messages", TRUE)
+    # locate Rcmdr etc directory and directory for menus (usually the same)
     etc <- setOption("etc", system.file("etc", package="Rcmdr"))
     etcMenus <- setOption("etcMenus", etc)
     putRcmdr("etcMenus", etcMenus)
+    # standard edit actions
     onCopy <- function(){
         focused <- tkfocus()
         if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID) && 
@@ -175,6 +180,7 @@ Commander <- function(){
             focused <- LogWindow()
         tcl(focused, "edit", "redo")
     }
+    # various initializations
     messageTag(reset=TRUE)
     putRcmdr("RcmdrVersion", RcmdrVersion)
     putRcmdr(".activeDataSet", NULL)
@@ -188,29 +194,44 @@ Commander <- function(){
     putRcmdr("rgl", FALSE)
     putRcmdr("Identify3d", NULL)
     putRcmdr("open.dialog.here", NULL)	 
-    log.font.size <- as.character(setOption("log.font.size", 10))
-    #    putRcmdr("logFont", tkfont.create(family="courier", size=getRcmdr("log.font.size")))
-    #     default.log.font.size.val <- as.numeric(regmatches(tclvalue(tkfont.actual("TkFixedFont ")),
-    #         regexec("-size (-?[[:digit:]]+)", tclvalue(tkfont.actual("TkFixedFont "))))[[1]][2])
-    #     if (is.na(default.log.font.size.val)) default.log.font.size.val <- 10
-    #     log.font.size <- as.character(setOption("log.font.size", default.log.font.size.val, global=FALSE))
-    log.font <- setOption("log.font", NULL, global=FALSE) 
-    if (!("RcmdrLogFont" %in% as.character(.Tcl("font names")))){
-        if (is.null(log.font)){
-            .Tcl(paste("font create RcmdrLogFont", tclvalue(tkfont.actual("TkFixedFont"))))
-            tkfont.configure("RcmdrLogFont", size=log.font.size)
-        }
-        else .Tcl(paste("font create RcmdrLogFont ", log.font))
-        .Tcl("option add *font RcmdrLogFont")
+    # set up Rcmdr default and text (log) fonts, Tk scaling factor
+    default.font.size.val <- abs(as.numeric(.Tcl("font actual TkDefaultFont -size")))
+    if (is.na(default.font.size.val)) default.font.size.val <- 10
+    default.font.size <- as.character(setOption("default.font.size", default.font.size.val))
+    default.font.family.val <- tclvalue(.Tcl("font actual TkDefaultFont -family"))
+    default.font.family.val <- gsub("\\{", "", gsub("\\}", "", default.font.family.val))
+    default.font.family <- setOption("default.font.family", default.font.family.val)
+    if (!("RcmdrDefaultFont" %in% as.character(.Tcl("font names")))){
+        .Tcl(paste("font create RcmdrDefaultFont", tclvalue(tkfont.actual("TkDefaultFont"))))
+        tkfont.configure("RcmdrDefaultFont", size=default.font.size)
+        .Tcl("option add *font RcmdrDefaultFont")
     }
     else {
-        if (is.null(log.font)) .Tcl(paste("font configure RcmdrLogFont -size ", log.font.size))
-        else .Tcl(paste("font configure RcmdrLogFont ", log.font))
+        .Tcl(paste("font configure RcmdrDefaultFont -size ", default.font.size))
     }
-    .Tcl(paste("font configure TkFixedFont -size ", log.font.size))    
+    .Tcl(paste("font configure RcmdrDefaultFont -family {", default.font.family, "}", sep=""))
+    .Tcl("ttk::style configure TButton -font RcmdrDefaultFont")
+    .Tcl("ttk::style configure TLabel -font RcmdrDefaultFont")
+    .Tcl(paste("font configure TkDefaultFont -size ", default.font.size))
+    .Tcl(paste("font configure TkDefaultFont -family {",  default.font.family, "}", sep=""))
+    log.font.size <- as.character(setOption("log.font.size", 10))
+    log.font.family.val <- tclvalue(.Tcl("font actual TkFixedFont -family"))
+    log.font.family.val <- gsub("\\{", "", gsub("\\}", "", log.font.family.val))
+    log.font.family <- setOption("log.font.family", log.font.family.val)
+    if (!("RcmdrLogFont" %in% as.character(.Tcl("font names")))){
+        .Tcl(paste("font create RcmdrLogFont", tclvalue(tkfont.actual("TkFixedFont"))))
+        tkfont.configure("RcmdrLogFont", size=log.font.size)
+    }
+    else {
+        .Tcl(paste("font configure RcmdrLogFont -size ", log.font.size))
+    }
+    .Tcl(paste("font configure RcmdrLogFont -family {", log.font.family, "}", sep=""))
+    .Tcl(paste("font configure TkFixedFont -size ", log.font.size))
+    .Tcl(paste("font configure TkFixedFont -family {",  log.font.family, "}", sep=""))
     putRcmdr("logFont", "RcmdrLogFont")    
     scale.factor <- current$scale.factor
     if (!is.null(scale.factor)) .Tcl(paste("tk scaling ", scale.factor, sep=""))
+    # set various options
     if (packageAvailable("car")){
         require("car")
         setOption("default.contrasts", c("contr.Treatment", "contr.poly"))
@@ -218,6 +239,7 @@ Commander <- function(){
     else setOption("default.contrasts", c("contr.treatment", "contr.poly"))
     title.color <- setOption("title.color", as.character(.Tcl("ttk::style lookup TLabelframe.Label -foreground"))) 
     .Tcl(paste("ttk::style configure TLabelframe.Label -foreground", title.color))
+    setOption("number.messages", TRUE)
     setOption("log.commands", TRUE)
     setOption("use.markdown", TRUE)
     setOption("RStudio", RStudioP())
@@ -260,6 +282,8 @@ Commander <- function(){
     putRcmdr("commandStack", as.list(rep(NA, getRcmdr("length.command.stack"))))
     setOption("variable.list.height", 4)
     setOption("variable.list.width", c(20, Inf))
+    placement <- setOption("placement", "", global=FALSE)
+    # platform-specific issues
     if (getRcmdr("suppress.X11.warnings")) {
         putRcmdr("messages.connection", file(open = "w+"))
         sink(getRcmdr("messages.connection"), type="message")
@@ -271,31 +295,13 @@ Commander <- function(){
     if (.Platform$OS.type != "windows" || RStudioP()) {
         options(help_type = "text")
     }
-    default.font.size.val <- as.numeric(regmatches(tclvalue(tkfont.actual("TkDefaultFont")),
-        regexec("-size (-?[[:digit:]]+)", tclvalue(tkfont.actual("TkDefaultFont"))))[[1]][2])
-    if (is.na(default.font.size.val)) default.font.size.val <- 10
-    default.font.size <- as.character(setOption("default.font.size", default.font.size.val, global=FALSE))
-    default.font <- setOption("default.font", NULL, global=FALSE) 
-    if (!("RcmdrDefaultFont" %in% as.character(.Tcl("font names")))){
-        if (is.null(default.font)){
-            .Tcl(paste("font create RcmdrDefaultFont", tclvalue(tkfont.actual("TkDefaultFont"))))
-            tkfont.configure("RcmdrDefaultFont", size=default.font.size)
-        }
-        else .Tcl(paste("font create RcmdrDefaultFont ", default.font))
-        .Tcl("option add *font RcmdrDefaultFont")
-    }
-    else {
-        if (is.null(default.font)) .Tcl(paste("font configure RcmdrDefaultFont -size ", default.font.size))
-        else .Tcl(paste("font configure RcmdrDefaultFont ", default.font))
-    }
-    .Tcl("ttk::style configure TButton -font RcmdrDefaultFont")
-    .Tcl(paste("font configure TkDefaultFont -size ", default.font.size))
-    placement <- setOption("placement", "", global=FALSE)
+    # source additional .R files, plug-ins preferred
     source.files <- list.files(etc, pattern="\\.[Rr]$")
     for (file in source.files) {
         source(file.path(etc, file))
         cat(paste(gettextRcmdr("Sourced:"), file, "\n"))
     }
+    # collect plug-ins to be used
     Plugins <- options()$Rcmdr$plugins
     allPlugins <- listPlugins(loaded=TRUE)
     for (plugin in Plugins){
@@ -308,6 +314,7 @@ Commander <- function(){
             stop(sprintf(gettextRcmdr("the package %s is not an Rcmdr plug-in"), plugin))
         }
     }
+    # build Rcmdr menus
     Menus <- read.table(file.path(etcMenus, "Rcmdr-menus.txt"), colClasses = "character")
     addMenus <- function(Menus){
         removeMenus <- function(what){
@@ -375,11 +382,10 @@ Commander <- function(){
     menuItems <- 0
     oldMenu <- ncol(Menus) == 6
     setOption("suppress.menus", FALSE)
-    ## added by EN ###############################
-    if (RExcelSupported())
+    if (RExcelSupported()) # contributed by Erich Neuwirth
         putRExcel(".rexcel.menu.dataframe", Menus)
-    ## end of change ###############################
-    modelClasses <- scan(file.path(etc, "model-classes.txt"), what="", quiet=TRUE, comment.char="#")
+    modelClasses <- scan(file.path(etc, "model-classes.txt"), what="", quiet=TRUE, comment.char="#") # default recognized models
+    # process plug-ins
     for (plugin in Plugins){
         description <- readLines(file.path(path.package(package=plugin)[1], "DESCRIPTION"))
         addModels <- description[grep("Models:", description)]
@@ -392,6 +398,7 @@ Commander <- function(){
         if (length(addRcmdrModels) > 0) modelClasses <- c(modelClasses, addRcmdrModels)
     }
     putRcmdr("modelClasses", modelClasses)
+    # data-set edit
     onEdit <- function(){
         if (activeDataSet() == FALSE) {
             tkfocus(CommanderWindow())
@@ -420,6 +427,7 @@ Commander <- function(){
         tkwm.deiconify(CommanderWindow())
         tkfocus(CommanderWindow())
     }
+    # data-set view
     onView <- function(){
         if (packageAvailable("relimp")) Library("relimp")
         if (activeDataSet() == FALSE) {
@@ -437,7 +445,7 @@ Commander <- function(){
         logger(command)
         justDoIt(command)
     }
-    # the following function modified 14 July 07 by Erich Neuwirth
+    # submit command in script tab or compile .Rmd file in markdown tab
     onSubmit <- function(){
         .log <- LogWindow()
         .rmd <- RmdWindow()
@@ -466,7 +474,7 @@ Commander <- function(){
                 current.line <- lines[iline]
                 if (.console.output) cat(paste("\n", getRcmdr("prefixes")[1], current.line,"\n", sep=""))
                 else{
-                    tkinsert(.output, "end", paste("\n> ", current.line,"\n", sep="")) ### end of changed
+                    tkinsert(.output, "end", paste("\n> ", current.line,"\n", sep="")) 
                     tktag.add(.output, "currentLine", "end - 2 lines linestart", "end - 2 lines lineend")
                     tktag.configure(.output, "currentLine", foreground=getRcmdr("command.text.color"))
                 }
@@ -501,6 +509,7 @@ Commander <- function(){
             browseURL(.html.file.location)
         }
     }
+    # right-click context menus
     contextMenuLog <- function(){
         .log <- LogWindow()
         contextMenu <- tkmenu(tkmenu(.log), tearoff=FALSE)
@@ -573,6 +582,7 @@ Commander <- function(){
         tkadd(contextMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
         tkpopup(contextMenu, tkwinfo("pointerx", .messages), tkwinfo("pointery", .messages))
     }
+    # main Commander window
     if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
     putRcmdr("commanderWindow", tktoplevel(class="Rcommander"))
     .commander <- CommanderWindow()
@@ -584,6 +594,7 @@ Commander <- function(){
     topMenu <- tkmenu(.commander)
     tkconfigure(.commander, menu=topMenu)
     position <- numeric(0)
+    # install menus
     if (!getRcmdr("suppress.menus")){
         for (m in 1:nrow(Menus)){
             install <- if (oldMenu) "" else Menus[m, 7]
@@ -596,7 +607,6 @@ Commander <- function(){
             else if (Menus[m, 1] == "item") {
                 position[Menus[m, 2]] <- position[Menus[m, 2]] + 1
                 if (Menus[m, 3] == "command"){
-                    #	position[Menus[m, 2]] <- position[Menus[m, 2]] + 1  # moved up following suggestion on M. Bouchet-Valet
                     if (Menus[m, 6] == "")
                         tkadd(get(Menus[m, 2]), "command", label=gettextMenus(Menus[m, 4]),
                             command=get(Menus[m, 5]))
@@ -624,6 +634,7 @@ Commander <- function(){
     putRcmdr("Menus", .Menus)
     putRcmdr("autoRestart", FALSE)
     activateMenus()
+    # toolbar
     controlsFrame <- tkframe(CommanderWindow())
     editButton <- buttonRcmdr(controlsFrame, text=gettextRcmdr("Edit data set"), command=onEdit, 
         image="::image::editIcon", compound="left")
@@ -632,10 +643,9 @@ Commander <- function(){
     putRcmdr("dataSetName", tclVar(gettextRcmdr("<No active dataset>")))
     putRcmdr("dataSetLabel", tkbutton(controlsFrame, textvariable=getRcmdr("dataSetName"), foreground="red",
         relief="groove", command=selectActiveDataSet, image="::image::dataIcon", compound="left"))
-    
+    # script and markdown tabs
     notebook <- ttknotebook(CommanderWindow())
-    
-    logFrame <- tkframe(CommanderWindow())    
+    logFrame <- ttkframe(CommanderWindow())    
     putRcmdr("logWindow", tktext(logFrame, bg="white", foreground=getRcmdr("log.text.color"),
         font=getRcmdr("logFont"), height=log.height, width=log.width, wrap="none", undo=TRUE))
     .log <- LogWindow()
@@ -645,8 +655,7 @@ Commander <- function(){
         command=function(...) tkyview(.log, ...))
     tkconfigure(.log, xscrollcommand=function(...) tkset(logXscroll, ...))
     tkconfigure(.log, yscrollcommand=function(...) tkset(logYscroll, ...))
-    
-    RmdFrame <- tkframe(CommanderWindow())
+    RmdFrame <- ttkframe(CommanderWindow())
     putRcmdr("RmdWindow", tktext(RmdFrame, bg="#FAFAFA", foreground=getRcmdr("log.text.color"),
         font=getRcmdr("logFont"), height=log.height, width=log.width, wrap="none", undo=TRUE))
     .rmd <- RmdWindow()
@@ -676,6 +685,7 @@ Commander <- function(){
         command=function(...) tkyview(.output, ...))
     tkconfigure(.output, xscrollcommand=function(...) tkset(outputXscroll, ...))
     tkconfigure(.output, yscrollcommand=function(...) tkset(outputYscroll, ...))
+    # messages window
     messagesFrame <- tkframe(.commander)
     putRcmdr("messagesWindow", tktext(messagesFrame, bg="lightgray",
         font=getRcmdr("logFont"), height=messages.height, width=log.width, wrap="none", undo=TRUE))
@@ -686,6 +696,7 @@ Commander <- function(){
         command=function(...) tkyview(.messages, ...))
     tkconfigure(.messages, xscrollcommand=function(...) tkset(messagesXscroll, ...))
     tkconfigure(.messages, yscrollcommand=function(...) tkset(messagesYscroll, ...))
+    # configure toolbar, etc., install various windows and widgets
     putRcmdr("modelName", tclVar(gettextRcmdr("<No active model>")))
     putRcmdr("modelLabel", tkbutton(controlsFrame, textvariable=getRcmdr("modelName"), foreground="red",
         relief="groove", command=selectActiveModel, image="::image::modelIcon", compound="left"))
@@ -798,6 +809,7 @@ Commander <- function(){
         type="warning")
 }
 
+# put commands in script and markdown tabs
 logger <- function(command){
     pushCommand(command)
     .log <- LogWindow()
@@ -824,9 +836,9 @@ logger <- function(command){
     if (getRcmdr("console.output")) {
         for (line in seq(along.with=lines)) {
             prompt <- ifelse (line==1, paste("\n", getRcmdr("prefixes")[1], sep=""), paste("\n", getRcmdr("prefixes")[2], sep=""))
-            cat(paste(prompt, lines[line]))  ##rmh
+            cat(paste(prompt, lines[line]))
         }
-        cat("\n")                          ##rmh
+        cat("\n")
     }
     else {
         for (line in  seq(along.with=lines)) {
@@ -863,8 +875,8 @@ justDoIt <- function(command) {
     result
 }
 
+# execute commands, save commands and output
 doItAndPrint <- function(command, log=TRUE) {
-    # with modifications from Duncan Murdoch 4 Jan 08
     command <- enc2native(command)
     Message()
     .console.output <- getRcmdr("console.output")
@@ -928,10 +940,8 @@ doItAndPrint <- function(command, log=TRUE) {
             }
         }
         else if (.console.output) sink(type="output")
-        ###### added by EN  ######################
-        if (RExcelSupported())
+        if (RExcelSupported()) # added by Erich Neuwirth
             putRExcel(".rexcel.last.output",.Output)
-        ###### end of change  #####################
         # errors already intercepted, display any warnings
         checkWarnings(readLines(messages.connection))
     }
@@ -1013,10 +1023,8 @@ Message <- function(message, type=c("note", "error", "warning")){
         putRcmdr("messageNumber", messageNumber)
         message <- paste("[", messageNumber, "] ", message, sep="")
     }
-    ######### added by EN #####################
-    if (RExcelSupported())
+    if (RExcelSupported()) # added by Erich Neuwirth
         putRExcel(".rexcel.last.message",message)
-    ######### end of change ###############
     lines <- strsplit(message, "\n")[[1]]
     console.output <- getRcmdr("console.output")
     if (!console.output){
@@ -1025,17 +1033,14 @@ Message <- function(message, type=c("note", "error", "warning")){
         eval(parse(text=paste("options(width=", floor(width), ")", sep="")))
     }
     lines <- strwrap(lines)
-    ######### added by rmh #####################                   ##rmh
-    if (console.output) {                                        ##rmh & J. Fox
-        if (sink.number() != 0) sink()							## fixed by J. Fox
-        for (jline in seq(along.with=lines)) {                            ##rmh
-            Header <- if (jline==1) getRcmdr("prefixes")[3] else getRcmdr("prefixes")[4]     ##rmh
-            cat(paste(Header, lines[jline], "\n", sep=""))             ##rmh
-        }                                                            ##rmh
-    }                                                              ##rmh
-    else                                                           ##rmh
-        ######### end of change ###############                        ##rmh
-        
+    if (console.output) {
+        if (sink.number() != 0) sink()
+        for (jline in seq(along.with=lines)) {
+            Header <- if (jline==1) getRcmdr("prefixes")[3] else getRcmdr("prefixes")[4]
+            cat(paste(Header, lines[jline], "\n", sep=""))
+        } 
+    }
+    else
         for (line in lines){
             tagName <- messageTag()
             tkinsert(.message, "end", paste(line, "\n", sep=""))

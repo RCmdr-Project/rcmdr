@@ -1,4 +1,4 @@
-# last modified 2013-05-23 by J. Fox
+# last modified 2013-05-26 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -220,10 +220,13 @@ Options <- function(){
     fontTab <- tkframe(top)
     outputTab <- tkframe(top)
     otherTab <- tkframe(top)
-    current <- options("Rcmdr")[[1]]
+    current <- getOption("Rcmdr")
     console.output <- getRcmdr("console.output")
+    default.font.size <- getRcmdr("default.font.size")
+    default.font.family <- getRcmdr("default.font.family")
     log.commands <- getRcmdr("log.commands")
     log.font.size <- getRcmdr("log.font.size")
+    log.font.family <- getRcmdr("log.font.family")
     log.width <- setOption("log.width", 80)
     log.height <- if (!is.null(current$log.height)) current$log.height
     else if (!log.commands) 0 else 10
@@ -235,15 +238,13 @@ Options <- function(){
     sort.names <- getRcmdr("sort.names")
     show.edit.button <- setOption("show.edit.button", TRUE)
     scale.factor <- current$scale.factor
-    default.font.size.val <- as.numeric(regmatches(tclvalue(tkfont.actual("TkDefaultFont")),
-                                                   regexec("-size (-?[[:digit:]]+)", tclvalue(tkfont.actual("TkDefaultFont"))))[[1]][2])
-    if (is.na(default.font.size.val)) default.font.size.val <- 10
-    default.font.size <- setOption("default.font.size", default.font.size.val)
     suppress.icon.images <- getRcmdr("suppress.icon.images")
     number.messages <- getRcmdr("number.messages")
     etc <- getRcmdr("etc")
     etcMenus <- getRcmdr("etcMenus")
     log.font <- tclvalue(tkfont.actual("RcmdrLogFont"))
+    log.font.family <- tclvalue(.Tcl("font actual RcmdrLogFont -family"))
+    if (length(grep(" ", log.font.family)) > 1) log.font.family <- paste("{", log.font.family, "}", sep="")
     title.color <- getRcmdr("title.color")
     use.markdown<- getRcmdr("use.markdown")
     retain.selections <- getRcmdr("retain.selections")
@@ -267,7 +268,6 @@ Options <- function(){
     quit.R.on.close <- getRcmdr("quit.R.on.close")
     variable.list.height <- getRcmdr("variable.list.height")
     variable.list.width <- getRcmdr("variable.list.width")
-    default.font <- tclvalue(tkfont.actual("RcmdrDefaultFont"))
     placement <- setOption("placement", "")
     suppress.menus <- getRcmdr("suppress.menus")
     rmd.template <- getRcmdr("rmd.template")
@@ -329,10 +329,10 @@ Options <- function(){
     defaultFontSizeVar <- tclVar(default.font.size)
     defaultFontSizeSlider <- tkscale(fontTab, from=6, to=20, showvalue=TRUE, variable=defaultFontSizeVar,
                                      resolution=1, orient="horizontal")
-    logFontVar <- tclVar(log.font)
-    defaultFontVar <- tclVar(default.font)
-    logFontEntry <- ttkentry(fontTab, width="75", textvariable=logFontVar)
-    defaultFontEntry <- ttkentry(fontTab, width="75", textvariable=defaultFontVar)
+    logFontFamilyVar <- tclVar(log.font.family)
+    defaultFontFamilyVar <- tclVar(default.font.family)
+    logFontEntry <- ttkentry(fontTab, width="20", textvariable=logFontFamilyVar)
+    defaultFontEntry <- ttkentry(fontTab, width="20", textvariable=defaultFontFamilyVar)
     rmdTemplateVar <- tclVar(rmd.template)
     rmdTemplateEntry <- ttkentry(outputTab, width="75", textvariable=rmdTemplateVar)
     onSelectTemplate <- function(){
@@ -355,9 +355,12 @@ Options <- function(){
         use.markdown <- asLogical(tclvalue(useMarkdownVariable))
         rmd.template <- tclvalue(rmdTemplateVar)
         if (rmd.template == rmd.standard) rmd.template <- NULL
-        log.font <- tclvalue(logFontVar)
-        default.font <- tclvalue(defaultFontVar)
+        log.font.family <- tclvalue(logFontFamilyVar)
+        default.font.family <- tclvalue(defaultFontFamilyVar)
         log.font.size <- round(as.numeric(tclvalue(logFontSizeVar)))
+        default.font.size <- tclvalue(defaultFontSizeVar)
+        scale.factor <- round(as.numeric(tclvalue(scaleFactorVar)), 1)
+        if (scale.factor == 1) scale.factor <- NULL
         log.width <- round(as.numeric(tclvalue(logWidthVar)))
         log.height <- as.numeric(tclvalue(logHeightVar))
         log.commands <- asLogical(tclvalue(logCommandsVariable)) && (log.height != 0)
@@ -371,9 +374,6 @@ Options <- function(){
         suppress.icon.images <- asLogical(tclvalue(SuppressIconImagesVariable))
         retain.selections <- asLogical(tclvalue(retainSelectionsVariable))
         use.rgl <- asLogical(tclvalue(useRglVariable))
-        scale.factor <- round(as.numeric(tclvalue(scaleFactorVar)), 1)
-        if (scale.factor == 1) scale.factor <- NULL
-        default.font.size <- tclvalue(defaultFontSizeVar)
         options <- current
         options$ask.to.exit <- ask.to.exit
         options$ask.on.exit <- ask.on.exit
@@ -382,9 +382,12 @@ Options <- function(){
         options$retain.messages <- retain.messages
         options$use.markdown <- use.markdown
         options$rmd.template <- rmd.template
-        options$log.font <- log.font
-        options$default.font <- default.font
+        options$log.font.family <- log.font.family
+        options$default.font.family <- default.font.family
         options$log.font.size <- log.font.size
+        options$default.font.size <- default.font.size
+        options$scale.factor <- scale.factor
+        # if (.Platform$OS.type == "windows") options$scale.factor <- scale.factor
         options$log.width <- log.width
         options$log.height <- log.height
         options$log.commands <- log.commands
@@ -398,8 +401,12 @@ Options <- function(){
         options$suppress.icon.images <- suppress.icon.images
         options$retain.selections <- retain.selections
         options$use.rgl <- use.rgl
-        if (.Platform$OS.type == "windows") options$scale.factor <- scale.factor
-        options$default.font.size <- default.font.size
+        options$title.color <- title.color
+        options$log.text.color <- log.text.color
+        options$command.text.color <- command.text.color
+        options$output.text.color <- output.text.color
+        options$error.text.color <- error.text.color
+        options$warning.text.color <- warning.text.color
         options(Rcmdr=options)
         closeCommander()
         Commander()
@@ -408,7 +415,7 @@ Options <- function(){
     tkgrid(closeOptionsFrame, sticky="nw")
     tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Dialog text font size (points)")), defaultFontSizeSlider, sticky="sw")
     tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Script and output font size (points)")), logFontSizeSlider, sticky="sw")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Dialog font")), defaultFontEntry, sticky="w")
+    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Dialog family")), defaultFontEntry, sticky="w")
     tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Script and output font")), logFontEntry, sticky="w")
     tkgrid(labelRcmdr(fontTab, text=""))
     tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Script text color ")), logTextColorEntry, sticky="w")
@@ -424,9 +431,9 @@ Options <- function(){
     tkgrid(labelRcmdr(outputTab, text=" "), sticky="w")    
     tkgrid(outputOptionsFrame, sticky="nw", columnspan = 3)
     tkgrid(labelRcmdr(outputTab, text="R Markdown template file"), rmdTemplateEntry, templateButton, sticky="w")
-    if (.Platform$OS.type == "windows"){
+#    if (.Platform$OS.type == "windows"){
         tkgrid(labelRcmdr(otherTab, text=gettextRcmdr("Scale factor for Tk elements")), scaleFactorSlider, sticky="sw")
-    }
+#    }
     tkgrid(labelRcmdr(contrastsFrame, text=gettextRcmdr("Unordered factors")), labelRcmdr(contrastsFrame, text="   "),
            labelRcmdr(contrastsFrame, text=gettextRcmdr("Ordered factors")), sticky="w")
     tkgrid(contrasts1Entry, labelRcmdr(contrastsFrame, text="   "), contrasts2Entry, sticky="w")

@@ -153,16 +153,15 @@ set none, one, several, or all options. The available options are as follows:
     \code{c("contr.Treatment", "contr.poly")}. When the Commander exits, the \code{contrasts}
     option is returned to its pre-existing value. Note that \code{contr.Treatment} is from the \code{car} package.}
     
-    \item{\code{default.font}}{The default font for GUI elements such as menus and text labels, in the form of a 
-    Tk font specification, given in a character string. 
-    For example,  \code{"-family Helvetica -size 12"} specifies a 12-point Helvetica font.
-    If specified, this value takes precedence over the default font size (below). Absent a compelling reason for
-    changing the font, it is generally more convenient simply to change the default font size. The default is the \code{TkDefaultFont}.}
+    \item{\code{default.font.family}}{The default font for GUI elements such as menus and text labels, in the form of a 
+    Tk font family specification, given in a character string. 
+    For example,  \code{"Helvetica"} specifies the sans-serif Helvetica font family.
+    IThe default is taken from the \code{TkDefaultFont}. Normally a sans-serif font should be used.}
 
     \item{\code{default.font.size}}{The size, in points, of the default font. The default is the size of the
     \code{TkDefaultFont} (if this can be ascertained) or 10 (if it cannot). 
     To set the font size for R input and output, see the \code{log.font.size} option.
-    It is recommended that Windows users set the \pkg{Rcmdr} \code{scale factor} option to
+    The \pkg{Rcmdr} \code{scale factor} option to
     control font size.}
     
     \item{\code{retain.selections}}{If \code{TRUE} (the default), dialogs remember their previous state, where appropriate,
@@ -198,11 +197,15 @@ set none, one, several, or all options. The available options are as follows:
       
     \item{\code{log.commands}}{If \code{TRUE} (the default), commands are echoed to the script window;
     if \code{FALSE}, the script window is not displayed.}
+    
+    \item{\code{log.font.family}}{The font family to be used for text in the script window, output window, messages window,
+    etc., specified as a character vector giving a Tk font family. This should normally be a monospaced font like \code{"Courier"}.
+    The default is taken from the \code{TkFixedFont}.}
 
     \item{\code{log.font.size}}{The font size, in points, to be used in the script window,
-    in the output window,
+    in the output window, messages window,
     in recode dialogs, and in compute expressions --- that is, where a monospaced font is used. The default is \code{10}.
-    It is recommended that Windows users set the \pkg{Rcmdr} \code{scale factor} option to
+    Alternatively the \pkg{Rcmdr} \code{scale factor} option may also be used to
     control font size.}
     
     \item{\code{log.height}}{The height of the script window, in lines. The default is 10. Setting \code{log.height}
