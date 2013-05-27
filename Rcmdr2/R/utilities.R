@@ -1,4 +1,4 @@
-# last modified 2013-05-23 by J. Fox
+# last modified 2013-05-27 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -2287,3 +2287,20 @@ suppressMarkdown <- function(command){
     attr(command, "suppressRmd") <- TRUE
     command
 }
+
+# the rgb2col function translates #RRGGBB colors to names if a named color exists (not exported)
+
+r2c <- function(){
+    colors <- colors()
+    rgb <- col2rgb(colors)
+    rgb <- apply(rgb, 2, function(x) paste(format(as.hexmode(x), width=2, upper.case=TRUE), collapse=""))
+    names(rgb) <- colors
+    function(cols){
+        cols <- sub("^#", "", toupper(cols))
+        names <- sapply(cols, function(color) colors[which(color == rgb)[1]])
+        names[is.na(names)] <- paste("#", cols[is.na(names)], sep="")
+        names
+    }
+}
+
+rgb2col <- r2c()

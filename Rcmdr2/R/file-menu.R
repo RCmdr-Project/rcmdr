@@ -470,12 +470,14 @@ Options <- function(){
         options$suppress.icon.images <- suppress.icon.images
         options$retain.selections <- retain.selections
         options$use.rgl <- use.rgl
-        options$log.text.color <- hex.1
-        options$command.text.color <- hex.2
-        options$output.text.color <- hex.3
-        options$error.text.color <- hex.4
-        options$warning.text.color <- hex.5
-        options$title.color <- hex.6
+        colors <- c(hex.1, hex.2, hex.3, hex.4, hex.5, hex.6)
+        colors <- rgb2col(colors)
+        options$log.text.color <- colors[1]
+        options$command.text.color <- colors[2]
+        options$output.text.color <- colors[3]
+        options$error.text.color <- colors[4]
+        options$warning.text.color <- colors[5]
+        options$title.color <- colors[6]
         options(Rcmdr=options)
         closeCommander()
         Commander()
