@@ -1,4 +1,4 @@
-# last modified 2013-05-26 by J. Fox
+# last modified 2013-05-27 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -274,61 +274,131 @@ Options <- function(){
     rmd.standard <- system.file("etc", "Rcmdr-Markdown-Template.Rmd", package="Rcmdr")
     use.rgl <- setOption("use.rgl", TRUE)
     checkBoxes(closeTab, frame="closeOptionsFrame", boxes=c("askToExit", "askOnExit", "quitR"),
-               initialValues=c(ask.to.exit, ask.on.exit, quit.R.on.close),
-               labels=gettextRcmdr("Ask to exit Commander", "Ask to save documents on exit", "Quit R on exit"))
+        initialValues=c(ask.to.exit, ask.on.exit, quit.R.on.close),
+        labels=gettextRcmdr("Ask to exit Commander", "Ask to save documents on exit", "Quit R on exit"))
     checkBoxes(outputTab, frame="outputOptionsFrame", 
-               boxes=c("consoleOutput", "logCommands", "numberMessages", "retainMessages", "useMarkdown"),
-               initialValues=c(console.output, log.commands, number.messages, retain.messages, use.markdown),
-               labels=gettextRcmdr("Send output to R Console", "Log commands to script window", "Number messages", 
-                                   "Retain messages", "Use R Markown"))
-    logTextColorVar <- tclVar(log.text.color)
-    logTextColorEntry <- ttkentry(fontTab, width="15", textvariable=logTextColorVar)
-    commandTextColorVar <- tclVar(command.text.color)
-    commandTextColorEntry <- ttkentry(fontTab, width="15", textvariable=commandTextColorVar)
-    outputTextColorVar <- tclVar(output.text.color)
-    outputTextColorEntry <- ttkentry(fontTab, width="15", textvariable=outputTextColorVar)
-    errorTextColorVar <- tclVar(error.text.color)
-    errorTextColorEntry <- ttkentry(fontTab, width="15", textvariable=errorTextColorVar)
-    warningTextColorVar <- tclVar(warning.text.color)
-    warningTextColorEntry <- ttkentry(fontTab, width="15", textvariable=warningTextColorVar)
-    titleColorVar <- tclVar(title.color)
-    titleColorEntry <- ttkentry(fontTab, width="15", textvariable=titleColorVar)
+        boxes=c("consoleOutput", "logCommands", "numberMessages", "retainMessages", "useMarkdown"),
+        initialValues=c(console.output, log.commands, number.messages, retain.messages, use.markdown),
+        labels=gettextRcmdr("Send output to R Console", "Log commands to script window", "Number messages", 
+            "Retain messages", "Use R Markown"))
+    cval <- function(x,y) -sum((x-y)^2)
+    contrasting <- function(x)
+        optim(rep(127, 3),cval,lower=0,upper=255,method="L-BFGS-B",y=x)$par
+    # the following local function from Thomas Lumley via r-help
+    convert <- function (color){
+        rgb <- col2rgb(color)/255
+        L <- c(0.2, 0.6, 0) %*% rgb
+        ifelse(L >= 0.2, "#000060", "#FFFFA0")
+    }
+    env <- environment()
+    pal <- c(log.text.color, command.text.color, output.text.color, error.text.color, warning.text.color, title.color)
+    pickColor <- function(initialcolor, parent){
+        newcolor <- tclvalue(.Tcl(paste("tk_chooseColor", .Tcl.args(title = "Select a Color",
+            initialcolor=initialcolor, parent=parent))))
+        if (newcolor == "") initialcolor else newcolor
+    }
+    hexcolor <- colorConverter(toXYZ = function(hex,...) {
+        rgb <- t(col2rgb(hex))/255
+        colorspaces$sRGB$toXYZ(rgb,...) },
+        fromXYZ = function(xyz,...) {
+            rgb <- colorspaces$sRGB$fromXYZ(xyz,..)
+            rgb <- round(rgb,5)
+            if (min(rgb) < 0 || max(rgb) > 1) as.character(NA)
+            else rgb(rgb[1],rgb[2],rgb[3])},
+        white = "D65", name = "#rrggbb")
+    cols <- t(col2rgb(pal))
+    hex <- convertColor(cols, from="sRGB", to=hexcolor, scale.in=255, scale.out=NULL)
+    for (i in 1:8) assign(paste("hex", i, sep="."), hex[i], envir=env)
+    button1 <- tkbutton(fontTab, text=hex[1], bg = hex[1],
+        fg=convert(hex[1]),
+        command=function() {
+            color <- pickColor(hex[1], parent=button1)
+            fg <- convert(color)
+            tkconfigure(button1, bg=color, fg=fg, text=toupper(color))
+            assign("hex.1", color, envir=env)
+        }
+    )
+    button2 <- tkbutton(fontTab, text=hex[2], bg = hex[2],
+        fg=convert(hex[2]),
+        command=function() {
+            color <- pickColor(hex[2], parent=button2)
+            fg <- convert(color)
+            tkconfigure(button2, bg=color, fg=fg, text=toupper(color))
+            assign("hex.2", color, envir=env)
+        }
+    )
+    button3 <- tkbutton(fontTab, text=hex[3], bg = hex[3],
+        fg=convert(hex[3]),
+        command=function() {
+            color <- pickColor(hex[3], parent=button3)
+            fg <- convert(color)
+            tkconfigure(button3, bg=color, fg=fg, text=toupper(color))
+            assign("hex.3", color, envir=env)
+        }
+    )
+    button4 <- tkbutton(fontTab, text=hex[4], bg = hex[4],
+        fg=convert(hex[4]),
+        command=function() {
+            color <- pickColor(hex[4], parent=button4)
+            fg <- convert(color)
+            tkconfigure(button4, bg=color, fg=fg, text=toupper(color))
+            assign("hex.4", color, envir=env)
+        }
+    )
+    button5 <- tkbutton(fontTab, text=hex[5], bg = hex[5],
+        fg=convert(hex[5]),
+        command=function() {
+            color <- pickColor(hex[5], parent=button5)
+            fg <- convert(color)
+            tkconfigure(button5, bg=color, fg=fg, text=toupper(color))
+            assign("hex.5", color, envir=env)
+        }
+    )
+    button6 <- tkbutton(fontTab, text=hex[6], bg = hex[6],
+        fg=convert(hex[6]),
+        command=function() {
+            color <- pickColor(hex[6], parent=button6)
+            fg <- convert(color)
+            tkconfigure(button6, bg=color, fg=fg, text=toupper(color))
+            assign("hex.6", color, envir=env)
+        }
+    )
     logFontSizeVar <- tclVar(log.font.size)
     logFontSizeSlider <- tkscale(fontTab, from=6, to=20, showvalue=TRUE, variable=logFontSizeVar,
-                                 resolution=1, orient="horizontal")
+        resolution=1, orient="horizontal")
     logWidthVar <- tclVar(log.width)
     logWidthSlider <- tkscale(outputTab, from=30, to=120, showvalue=TRUE, variable=logWidthVar,
-                              resolution=5, orient="horizontal")
+        resolution=5, orient="horizontal")
     logHeightVar <- tclVar(log.height)
     logHeightSlider <- tkscale(outputTab, from=0, to=25, showvalue=TRUE, variable=logHeightVar,
-                               resolution=1, orient="horizontal")
+        resolution=1, orient="horizontal")
     outputHeightVar <- tclVar(output.height)
     outputHeightSlider <- tkscale(outputTab, from=0, to=50, showvalue=TRUE, variable=outputHeightVar,
-                                  resolution=5, orient="horizontal")
+        resolution=5, orient="horizontal")
     
     messagesHeightVar <- tclVar(messages.height)
     messagesHeightSlider <- tkscale(outputTab, from=0, to=10, showvalue=TRUE, variable=messagesHeightVar,
-                                    resolution=1, orient="horizontal")       
+        resolution=1, orient="horizontal")       
     contrasts1 <- tclVar(contrasts[1])
     contrasts2 <- tclVar(contrasts[2])
     contrastsFrame <- tkframe(otherTab)
     contrasts1Entry <- ttkentry(contrastsFrame, width="15", textvariable=contrasts1)
     contrasts2Entry <- ttkentry(contrastsFrame, width="15", textvariable=contrasts2)
     checkBoxes(otherTab, frame="otherOptionsFrame", 
-               boxes=c("grabFocus", "doubleClick", "sortNames", "showEditButton", "SuppressIconImages",
-                       "retainSelections", "useRgl"),
-               initialValues=c(grab.focus, double.click, sort.names, show.edit.button, suppress.icon.images,
-                               retain.selections, use.rgl),
-               labels=gettextRcmdr("Active window grabs focus", "Double-click presses OK button", 
-                                   "Sort variable names alphabetically", "Show edit button",
-                                   "Suppress icon images", "Retain dialog selections", "Use rgl package")
+        boxes=c("grabFocus", "doubleClick", "sortNames", "showEditButton", "SuppressIconImages",
+            "retainSelections", "useRgl"),
+        initialValues=c(grab.focus, double.click, sort.names, show.edit.button, suppress.icon.images,
+            retain.selections, use.rgl),
+        labels=gettextRcmdr("Active window grabs focus", "Double-click presses OK button", 
+            "Sort variable names alphabetically", "Show edit button",
+            "Suppress icon images", "Retain dialog selections", "Use rgl package")
     )
     scaleFactorVar <- tclVar(if (is.null(scale.factor)) 1.0 else scale.factor)
     scaleFactorSlider <- tkscale(otherTab, from=0.2, to=3.0, showvalue=TRUE, variable=scaleFactorVar,
-                                 resolution=0.2, orient="horizontal")
+        resolution=0.2, orient="horizontal")
     defaultFontSizeVar <- tclVar(default.font.size)
     defaultFontSizeSlider <- tkscale(fontTab, from=6, to=20, showvalue=TRUE, variable=defaultFontSizeVar,
-                                     resolution=1, orient="horizontal")
+        resolution=1, orient="horizontal")
     logFontFamilyVar <- tclVar(log.font.family)
     defaultFontFamilyVar <- tclVar(default.font.family)
     logFontEntry <- ttkentry(fontTab, width="20", textvariable=logFontFamilyVar)
@@ -337,8 +407,8 @@ Options <- function(){
     rmdTemplateEntry <- ttkentry(outputTab, width="75", textvariable=rmdTemplateVar)
     onSelectTemplate <- function(){
         templateFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"R Markdown Files" {".Rmd" ".rmd"}}'),
-                                               defaultextension=".Rmd",
-                                               parent=outputTab))
+            defaultextension=".Rmd",
+            parent=outputTab))
         if (templateFile == "") return()
         tclvalue(rmdTemplateVar) <- templateFile
         return(NULL)
@@ -387,7 +457,6 @@ Options <- function(){
         options$log.font.size <- log.font.size
         options$default.font.size <- default.font.size
         options$scale.factor <- scale.factor
-        # if (.Platform$OS.type == "windows") options$scale.factor <- scale.factor
         options$log.width <- log.width
         options$log.height <- log.height
         options$log.commands <- log.commands
@@ -401,12 +470,12 @@ Options <- function(){
         options$suppress.icon.images <- suppress.icon.images
         options$retain.selections <- retain.selections
         options$use.rgl <- use.rgl
-        options$title.color <- title.color
-        options$log.text.color <- log.text.color
-        options$command.text.color <- command.text.color
-        options$output.text.color <- output.text.color
-        options$error.text.color <- error.text.color
-        options$warning.text.color <- warning.text.color
+        options$log.text.color <- hex.1
+        options$command.text.color <- hex.2
+        options$output.text.color <- hex.3
+        options$error.text.color <- hex.4
+        options$warning.text.color <- hex.5
+        options$title.color <- hex.6
         options(Rcmdr=options)
         closeCommander()
         Commander()
@@ -417,13 +486,14 @@ Options <- function(){
     tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Script and output font size (points)")), logFontSizeSlider, sticky="sw")
     tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Dialog family")), defaultFontEntry, sticky="w")
     tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Script and output font")), logFontEntry, sticky="w")
-    tkgrid(labelRcmdr(fontTab, text=""))
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Script text color ")), logTextColorEntry, sticky="w")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Command text color ")), commandTextColorEntry, sticky="w")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Output text color ")), outputTextColorEntry, sticky="w")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Error text color ")), errorTextColorEntry, sticky="w")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Warning text color ")), warningTextColorEntry, sticky="w")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Dialog subtitles text color ")), titleColorEntry, sticky="w")
+    tkgrid(labelRcmdr(fontTab, text="")) 
+    pal <- c(log.text.color, command.text.color, output.text.color, error.text.color, warning.text.color, title.color)
+    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Script text color ")), button1, sticky="w")
+    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Command text color ")), button2, sticky="w")
+    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Output text color ")), button3, sticky="w")
+    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Error text color ")), button4, sticky="w")
+    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Warning text color ")), button5, sticky="w")
+    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Dialog subtitles text color ")), button6, sticky="w")
     tkgrid(labelRcmdr(outputTab, text=gettextRcmdr("Script window width (characters)")), logWidthSlider, sticky="sw")
     tkgrid(labelRcmdr(outputTab, text=gettextRcmdr("Script window height (lines)")), logHeightSlider, sticky="sw")
     tkgrid(labelRcmdr(outputTab, text=gettextRcmdr("Output window height (lines)")), outputHeightSlider, sticky="sw")
@@ -431,11 +501,9 @@ Options <- function(){
     tkgrid(labelRcmdr(outputTab, text=" "), sticky="w")    
     tkgrid(outputOptionsFrame, sticky="nw", columnspan = 3)
     tkgrid(labelRcmdr(outputTab, text="R Markdown template file"), rmdTemplateEntry, templateButton, sticky="w")
-#    if (.Platform$OS.type == "windows"){
-        tkgrid(labelRcmdr(otherTab, text=gettextRcmdr("Scale factor for Tk elements")), scaleFactorSlider, sticky="sw")
-#    }
+    tkgrid(labelRcmdr(otherTab, text=gettextRcmdr("Scale factor for Tk elements")), scaleFactorSlider, sticky="sw")
     tkgrid(labelRcmdr(contrastsFrame, text=gettextRcmdr("Unordered factors")), labelRcmdr(contrastsFrame, text="   "),
-           labelRcmdr(contrastsFrame, text=gettextRcmdr("Ordered factors")), sticky="w")
+        labelRcmdr(contrastsFrame, text=gettextRcmdr("Ordered factors")), sticky="w")
     tkgrid(contrasts1Entry, labelRcmdr(contrastsFrame, text="   "), contrasts2Entry, sticky="w")
     tkgrid(labelRcmdr(otherTab, text=gettextRcmdr("Contrasts")), contrastsFrame, sticky="sw")
     tkgrid(labelRcmdr(otherTab, text=" "), sticky="w")    

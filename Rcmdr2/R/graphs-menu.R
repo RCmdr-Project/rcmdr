@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-04-24 by J. Fox
+# last modified 2013-05-27 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
@@ -1913,10 +1913,11 @@ setPalette <- function() {
 	}
 	env <- environment()
 	pal <- palette()
-	pickColor <- function(initialcolor, parent){
-		tclvalue(.Tcl(paste("tk_chooseColor", .Tcl.args(title = "Select a Color",
-										initialcolor=initialcolor, parent=parent))))
-	}
+    pickColor <- function(initialcolor, parent){
+        newcolor <- tclvalue(.Tcl(paste("tk_chooseColor", .Tcl.args(title = "Select a Color",
+            initialcolor=initialcolor, parent=parent))))
+        if (newcolor == "") initialcolor else newcolor
+    }
 	initializeDialog(title=gettextRcmdr("Set Color Palette"))
 	hexcolor <- colorConverter(toXYZ = function(hex,...) {
 				rgb <- t(col2rgb(hex))/255
@@ -1936,7 +1937,7 @@ setPalette <- function() {
 			command=function() {
 				color <- pickColor(hex[1], parent=button1)
 				fg <- convert(color)
-				tkconfigure(button1, bg=color, fg=fg)
+				tkconfigure(button1, bg=color, fg=fg, text=toupper(color))
 				assign("hex.1", color, envir=env)
 			}
 	)
@@ -1945,7 +1946,7 @@ setPalette <- function() {
 			command=function() {
 				color <- pickColor(hex[2], parent=button2)
 				fg <- convert(color)
-				tkconfigure(button2, bg=color, fg=fg)
+				tkconfigure(button2, bg=color, fg=fg, text=toupper(color))
 				assign("hex.2", color, envir=env)
 			}
 	)
@@ -1954,7 +1955,7 @@ setPalette <- function() {
 			command=function() {
 				color <- pickColor(hex[3], parent=button3)
 				fg <- convert(color)
-				tkconfigure(button3, bg=color, fg=fg)
+				tkconfigure(button3, bg=color, fg=fg, text=toupper(color))
 				assign("hex.3", color, envir=env)
 			}
 	)
@@ -1963,7 +1964,7 @@ setPalette <- function() {
 			command=function() {
 				color <- pickColor(hex[4], parent=button4)
 				fg <- convert(color)
-				tkconfigure(button4, bg=color, fg=fg)
+				tkconfigure(button4, bg=color, fg=fg, text=toupper(color))
 				assign("hex.4", color, envir=env)
 			}
 	)
@@ -1972,7 +1973,7 @@ setPalette <- function() {
 			command=function() {
 				color <- pickColor(hex[5], parent=button5)
 				fg <- convert(color)
-				tkconfigure(button5, bg=color, fg=fg)
+				tkconfigure(button5, bg=color, fg=fg, text=toupper(color))
 				assign("hex.5", color, envir=env)
 			}
 	)
@@ -1981,7 +1982,7 @@ setPalette <- function() {
 			command=function() {
 				color <- pickColor(hex[6], parent=button6)
 				fg <- convert(color)
-				tkconfigure(button6, bg=color, fg=fg)
+				tkconfigure(button6, bg=color, fg=fg, text=toupper(color))
 				assign("hex.6", color, envir=env)
 			}
 	)
@@ -1990,7 +1991,7 @@ setPalette <- function() {
 			command=function() {
 				color <- pickColor(hex[7], parent=button7)
 				fg <- convert(color)
-				tkconfigure(button7, bg=color, fg=fg)
+				tkconfigure(button7, bg=color, fg=fg, text=toupper(color))
 				assign("hex.7", color, envir=env)
 			}
 	)
@@ -1999,7 +2000,7 @@ setPalette <- function() {
 			command=function() {
 				color <- pickColor(hex[8], parent=button8)
 				fg <- convert(color)
-				tkconfigure(button8, bg=color, fg=fg)
+				tkconfigure(button8, bg=color, fg=fg, text=toupper(color))
 				assign("hex.8", color, envir=env)
 			}
 	)
