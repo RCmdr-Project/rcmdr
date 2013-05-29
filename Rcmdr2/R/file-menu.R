@@ -311,7 +311,7 @@ Options <- function(){
     for (i in 1:8) assign(paste("hex", i, sep="."), hex[i], envir=env)
     fontColorsFrame <- tkframe(fontTab)
     colorField1 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[1]), fg=hex[1])
-    button1 <- tkbutton(fontColorsFrame, text=hex[1], bg = hex[1],
+    button1 <- tkbutton(fontColorsFrame, text=hex[1], bg = hex[1], width="10",
         fg=convert(hex[1]),
         command=function() {
             color <- pickColor(hex[1], parent=button1)
@@ -322,7 +322,7 @@ Options <- function(){
         }
     )
     colorField2 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[2]), fg=hex[2])
-    button2 <- tkbutton(fontColorsFrame, text=hex[2], bg = hex[2],
+    button2 <- tkbutton(fontColorsFrame, text=hex[2], bg = hex[2], width="10",
         fg=convert(hex[2]),
         command=function() {
             color <- pickColor(hex[2], parent=button2)
@@ -333,7 +333,7 @@ Options <- function(){
         }
     )
     colorField3 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[3]), fg=hex[3])
-    button3 <- tkbutton(fontColorsFrame, text=hex[3], bg = hex[3],
+    button3 <- tkbutton(fontColorsFrame, text=hex[3], bg = hex[3], width="10",
         fg=convert(hex[3]),
         command=function() {
             color <- pickColor(hex[3], parent=button3)
@@ -344,7 +344,7 @@ Options <- function(){
         }
     )
     colorField4 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[4]), fg=hex[4])
-    button4 <- tkbutton(fontColorsFrame, text=hex[4], bg = hex[4],
+    button4 <- tkbutton(fontColorsFrame, text=hex[4], bg = hex[4], width="10",
         fg=convert(hex[4]),
         command=function() {
             color <- pickColor(hex[4], parent=button4)
@@ -355,7 +355,7 @@ Options <- function(){
         }
     )
     colorField5 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[5]), fg=hex[5])
-    button5 <- tkbutton(fontColorsFrame, text=hex[5], bg = hex[5],
+    button5 <- tkbutton(fontColorsFrame, text=hex[5], bg = hex[5], width="10",
         fg=convert(hex[5]),
         command=function() {
             color <- pickColor(hex[5], parent=button5)
@@ -366,7 +366,7 @@ Options <- function(){
         }
     )
     colorField6 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[6]), fg=hex[6])
-    button6 <- tkbutton(fontColorsFrame, text=hex[6], bg = hex[6],
+    button6 <- tkbutton(fontColorsFrame, text=hex[6], bg = hex[6], width="10",
         fg=convert(hex[6]),
         command=function() {
             color <- pickColor(hex[6], parent=button6)
@@ -377,20 +377,21 @@ Options <- function(){
         }
     )
     logFontSizeVar <- tclVar(log.font.size)
-    logFontSizeSlider <- tkscale(fontTab, from=6, to=20, showvalue=TRUE, variable=logFontSizeVar,
+    fontFrame <- tkframe(fontTab)
+    logFontSizeSlider <- tkscale(fontFrame, from=6, to=20, showvalue=TRUE, variable=logFontSizeVar,
         resolution=1, orient="horizontal")
     logWidthVar <- tclVar(log.width)
-    logWidthSlider <- tkscale(outputTab, from=30, to=120, showvalue=TRUE, variable=logWidthVar,
+    outputSliderFrame <- tkframe(outputTab)
+    logWidthSlider <- tkscale(outputSliderFrame, from=30, to=120, showvalue=TRUE, variable=logWidthVar,
         resolution=5, orient="horizontal")
     logHeightVar <- tclVar(log.height)
-    logHeightSlider <- tkscale(outputTab, from=0, to=25, showvalue=TRUE, variable=logHeightVar,
+    logHeightSlider <- tkscale(outputSliderFrame, from=0, to=25, showvalue=TRUE, variable=logHeightVar,
         resolution=1, orient="horizontal")
     outputHeightVar <- tclVar(output.height)
-    outputHeightSlider <- tkscale(outputTab, from=0, to=50, showvalue=TRUE, variable=outputHeightVar,
+    outputHeightSlider <- tkscale(outputSliderFrame, from=0, to=50, showvalue=TRUE, variable=outputHeightVar,
         resolution=5, orient="horizontal")
-    
     messagesHeightVar <- tclVar(messages.height)
-    messagesHeightSlider <- tkscale(outputTab, from=0, to=10, showvalue=TRUE, variable=messagesHeightVar,
+    messagesHeightSlider <- tkscale(outputSliderFrame, from=0, to=10, showvalue=TRUE, variable=messagesHeightVar,
         resolution=1, orient="horizontal")       
     contrasts1 <- tclVar(contrasts[1])
     contrasts2 <- tclVar(contrasts[2])
@@ -410,14 +411,15 @@ Options <- function(){
     scaleFactorSlider <- tkscale(otherTab, from=0.2, to=3.0, showvalue=TRUE, variable=scaleFactorVar,
         resolution=0.2, orient="horizontal")
     defaultFontSizeVar <- tclVar(default.font.size)
-    defaultFontSizeSlider <- tkscale(fontTab, from=6, to=20, showvalue=TRUE, variable=defaultFontSizeVar,
+    defaultFontSizeSlider <- tkscale(fontFrame, from=6, to=20, showvalue=TRUE, variable=defaultFontSizeVar,
         resolution=1, orient="horizontal")
     logFontFamilyVar <- tclVar(log.font.family)
     defaultFontFamilyVar <- tclVar(default.font.family)
-    logFontEntry <- ttkentry(fontTab, width="20", textvariable=logFontFamilyVar)
-    defaultFontEntry <- ttkentry(fontTab, width="20", textvariable=defaultFontFamilyVar)
+    logFontEntry <- ttkentry(fontFrame, width="20", textvariable=logFontFamilyVar)
+    defaultFontEntry <- ttkentry(fontFrame, width="20", textvariable=defaultFontFamilyVar)
     rmdTemplateVar <- tclVar(rmd.template)
-    rmdTemplateEntry <- ttkentry(outputTab, width="75", textvariable=rmdTemplateVar)
+    templateFrame <- tkframe(outputTab)
+    rmdTemplateEntry <- ttkentry(templateFrame, width="75", textvariable=rmdTemplateVar)
     onSelectTemplate <- function(){
         templateFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"R Markdown Files" {".Rmd" ".rmd"}}'),
             defaultextension=".Rmd",
@@ -426,7 +428,7 @@ Options <- function(){
         tclvalue(rmdTemplateVar) <- templateFile
         return(NULL)
     }
-    templateButton <- buttonRcmdr(outputTab, text=gettextRcmdr("Select file"), command=onSelectTemplate)
+    templateButton <- buttonRcmdr(templateFrame, text=gettextRcmdr("Select file"), command=onSelectTemplate)
     onOK <- function(){
         closeDialog(top)
         ask.to.exit <- asLogical(tclvalue(askToExitVariable))
@@ -497,26 +499,29 @@ Options <- function(){
     }
     OKCancelHelp(helpSubject="Commander")
     tkgrid(closeOptionsFrame, sticky="nw")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Dialog text font size (points)")), defaultFontSizeSlider, sticky="sw")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Script and output font size (points)")), logFontSizeSlider, sticky="sw")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Dialog font")), defaultFontEntry, sticky="w")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Script and output font")), logFontEntry, sticky="w")
+    tkgrid(labelRcmdr(fontFrame, text=gettextRcmdr("Dialog text font size (points)")), defaultFontSizeSlider, sticky="sw", padx=6)
+    tkgrid(labelRcmdr(fontFrame, text=gettextRcmdr("Script and output font size (points)")), logFontSizeSlider, sticky="sw", padx=6)
+    tkgrid(labelRcmdr(fontFrame, text=gettextRcmdr("Dialog font")), defaultFontEntry, sticky="w", padx=6)
+    tkgrid(labelRcmdr(fontFrame, text=gettextRcmdr("Script and output font")), logFontEntry, sticky="w", padx=6)
+    tkgrid(fontFrame, sticky="w")
     tkgrid(labelRcmdr(fontTab, text="")) 
     pal <- c(log.text.color, command.text.color, output.text.color, error.text.color, warning.text.color, title.color)
-    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Script text color ")), button1, colorField1, sticky="w")
-    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Command text color ")), button2, colorField2, sticky="w")
-    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Output text color ")), button3, colorField3, sticky="w")
-    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Error text color ")), button4, colorField4, sticky="w")
-    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Warning text color ")), button5, colorField5, sticky="w")
-    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Dialog subtitles text color ")), button6, colorField6, sticky="w")
+    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Script text color ")), button1, colorField1, sticky="w", padx=6)
+    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Command text color ")), button2, colorField2, sticky="w", padx=6)
+    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Output text color ")), button3, colorField3, sticky="w", padx=6)
+    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Error text color ")), button4, colorField4, sticky="w", padx=6)
+    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Warning text color ")), button5, colorField5, sticky="w", padx=6)
+    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Dialog subtitles text color ")), button6, colorField6, sticky="w", padx=6)
     tkgrid(fontColorsFrame, sticky="w")
-    tkgrid(labelRcmdr(outputTab, text=gettextRcmdr("Script window width (characters)")), logWidthSlider, sticky="sw")
-    tkgrid(labelRcmdr(outputTab, text=gettextRcmdr("Script window height (lines)")), logHeightSlider, sticky="sw")
-    tkgrid(labelRcmdr(outputTab, text=gettextRcmdr("Output window height (lines)")), outputHeightSlider, sticky="sw")
-    tkgrid(labelRcmdr(outputTab, text=gettextRcmdr("Messages window height (lines)")), messagesHeightSlider, sticky="sw")
+    tkgrid(labelRcmdr(outputSliderFrame, text=gettextRcmdr("Script window width (characters)")), logWidthSlider, sticky="sw", padx=6)
+    tkgrid(labelRcmdr(outputSliderFrame, text=gettextRcmdr("Script window height (lines)")), logHeightSlider, sticky="sw", padx=6)
+    tkgrid(labelRcmdr(outputSliderFrame, text=gettextRcmdr("Output window height (lines)")), outputHeightSlider, sticky="sw", padx=6)
+    tkgrid(labelRcmdr(outputSliderFrame, text=gettextRcmdr("Messages window height (lines)")), messagesHeightSlider, sticky="sw", padx=6)
+    tkgrid(outputSliderFrame, sticky="w")
     tkgrid(labelRcmdr(outputTab, text=" "), sticky="w")    
     tkgrid(outputOptionsFrame, sticky="nw", columnspan = 3)
-    tkgrid(labelRcmdr(outputTab, text="R Markdown template file"), rmdTemplateEntry, templateButton, sticky="w")
+    tkgrid(labelRcmdr(templateFrame, text="R Markdown template file"), rmdTemplateEntry, templateButton, sticky="w", padx=6)
+    tkgrid(templateFrame, columnspan=2, sticky="w")
     tkgrid(labelRcmdr(otherTab, text=gettextRcmdr("Scale factor for Tk elements")), scaleFactorSlider, sticky="sw")
     tkgrid(labelRcmdr(contrastsFrame, text=gettextRcmdr("Unordered factors")), labelRcmdr(contrastsFrame, text="   "),
         labelRcmdr(contrastsFrame, text=gettextRcmdr("Ordered factors")), sticky="w")
