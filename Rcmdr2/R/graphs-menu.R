@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-05-27 by J. Fox
+# last modified 2013-05-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
@@ -303,7 +303,8 @@ scatterPlot <- function () {
                     "Log y-axis", "Marginal boxplots", "Least-squares line", 
                     "Smooth line", "Show spread")), title = gettextRcmdr("Options"), ttk=TRUE)
     sliderValue <- tclVar(dialog.values$initial.span)
-    slider <- tkscale(optionsFrame, from = 5, to = 100, showvalue = TRUE, 
+    sliderFrame <- tkframe(optionsFrame)
+    slider <- tkscale(sliderFrame, from = 5, to = 100, showvalue = TRUE, 
         variable = sliderValue, resolution = 5, orient = "horizontal")
     radioButtons(window=optionsFrame, name = "identify", buttons = c("auto", "mouse", 
         "not"), labels = gettextRcmdr(c("Automatically", 
@@ -417,7 +418,7 @@ scatterPlot <- function () {
             initial.pch = pchVal, initial.group=if (.groups == FALSE) NULL else .groups,
             initial.lines.by.group=if (.linesByGroup) 1 else 0, initial.identify=identify, initial.identify.points=id.n,
             initial.tab=tab)
-            )
+        )
         .activeDataSet <- ActiveDataSet()
         log <- if (logstring != "") 
             paste(", log=\"", logstring, "\"", sep = "")
@@ -473,8 +474,9 @@ scatterPlot <- function () {
         initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups") else paste(gettextRcmdr("Plot by:"), initial.group), window=dataTab)
     OKCancelHelp(helpSubject = "scatterplot", reset = "scatterPlot", apply="scatterPlot")
     tkgrid(getFrame(xBox), getFrame(yBox), sticky = "nw", padx=6, pady=c(6, 0))
-    tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Span for smooth")), 
-        slider, sticky = "we", padx=6, pady=6)
+    tkgrid(labelRcmdr(sliderFrame, text = gettextRcmdr("Span for smooth")), 
+        slider, sticky = "swe", padx=6, pady=6)
+    tkgrid(sliderFrame, sticky="w")
     tkgrid(identifyFrame, sticky="w")
     tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
     tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("Plotting characters")), 
@@ -1525,142 +1527,6 @@ saveRglGraph <- function(){
 	Message(paste(gettextRcmdr("Graph saved to file"), filename), type="note")
 }
 
-# Xyplot <- function () {
-# 	Library("lattice")
-# 	defaults <- list(initial.predictor = NULL, initial.response = NULL, initial.auto.key = 1, 
-# 			initial.outer = 0, initial.x.relation = "same", initial.y.relation = "same",
-# 			initial.layoutColumns = "", initial.layoutRows = "", initial.conditions = FALSE,
-# 			initial.groups = FALSE) 
-# 	dialog.values <- getDialog("Xyplot", defaults)
-# 	initializeDialog(title = gettextRcmdr("XY Conditioning Plot"))
-# 	predictorFrame <- tkframe(top)
-# 	predictorBox <- variableListBox(predictorFrame, Numeric(), 
-# 			title = gettextRcmdr("Explanatory variables (pick one or more)"), 
-# 			selectmode = "multiple", initialSelection = varPosn (dialog.values$initial.predictor, "numeric"))
-# 	responseBox <- variableListBox(predictorFrame, Numeric(), 
-# 			title = gettextRcmdr("Response variables (pick one or more)"), 
-# 			selectmode = "multiple", initialSelection = varPosn (dialog.values$initial.response, "numeric"))
-# 	cgFrame <- tkframe(top)
-# 	conditionsBox <- variableListBox(cgFrame, Factors(), title = gettextRcmdr("Conditions '|' (pick zero or more)"), 
-# 			selectmode = "multiple", 
-# 			initialSelection = if (dialog.values$initial.conditions == FALSE) FALSE else varPosn (dialog.values$initial.conditions, "factor"))
-# 	groupsBox <- variableListBox(cgFrame, Factors(), title = gettextRcmdr("Groups 'groups=' (pick zero or more)"), 
-# 			selectmode = "multiple", 
-# 			initialSelection = if (dialog.values$initial.groups == FALSE) FALSE else varPosn (dialog.values$initial.groups, "factor"))
-# 	checkBoxes(frame = "optionsFrame", boxes = c("auto.key", 
-# 					"outer"), initialValues = c(dialog.values$initial.auto.key, dialog.values$initial.outer), 
-# 			labels = gettextRcmdr(c("Automatically draw key", "Different panels for different y~x combinations")))
-# 	relationFrame <- tkframe(top)
-# 	radioButtons(window = relationFrame, name = "x.relation", 
-# 			buttons = c("same", "free", "sliced"), labels = gettextRcmdr(c("Identical", 
-# 							"Free", "Same range")), title = gettextRcmdr("X-Axis Scales in Different Panels"), 
-# 			initialValue = dialog.values$initial.x.relation)
-# 	radioButtons(window = relationFrame, name = "y.relation", 
-# 			buttons = c("same", "free", "sliced"), labels = gettextRcmdr(c("Identical", 
-# 							"Free", "Same range")), title = gettextRcmdr("Y-Axis Scales in Different Panels"), 
-# 			initialValue = dialog.values$initial.y.relation)
-# 	scalarsFrame <- tkframe(top)
-# 	layoutColumnsVar <- tclVar(dialog.values$initial.layoutColumns)
-# 	layoutColumnsEntry <- tkentry(scalarsFrame, width = "6", 
-# 			textvariable = layoutColumnsVar)
-# 	layoutRowsVar <- tclVar(dialog.values$initial.layoutRows)
-# 	layoutRowsEntry <- tkentry(scalarsFrame, width = "6", textvariable = layoutRowsVar)
-# 	onOK <- function() {
-# 		predictor <- getSelection(predictorBox)
-# 		response <- getSelection(responseBox)
-# 		conditions <- getSelection(conditionsBox)
-# 		groups <- getSelection(groupsBox)
-# 		closeDialog()
-# 		if (0 == length(response)) {
-# 			errorCondition(recall = Xyplot.HH, message = gettextRcmdr("At least one response variable must be selected."))
-# 			return()
-# 		}
-# 		if (0 == length(predictor)) {
-# 			errorCondition(recall = Xyplot.HH, message = gettextRcmdr("At least one explanatory variable must be selected."))
-# 			return()
-# 		}
-# 		auto.key <- ("1" == tclvalue(auto.keyVariable))
-# 		outer <- ("1" == tclvalue(outerVariable))
-# 		x.relation <- as.character(tclvalue(x.relationVariable))
-# 		y.relation <- as.character(tclvalue(y.relationVariable))
-# 		layoutColumns <- as.numeric(tclvalue(layoutColumnsVar))
-# 		layoutRows <- as.numeric(tclvalue(layoutRowsVar))
-# 		putDialog ("Xyplot", list(initial.predictor = predictor, initial.response = response, 
-# 						initial.auto.key = auto.key, initial.outer = outer, initial.x.relation = x.relation, 
-# 						initial.y.relation = y.relation, initial.layoutColumns = tclvalue(layoutColumnsVar), 
-# 						initial.layoutRows = tclvalue(layoutRowsVar), initial.conditions = if (length(conditions) != 0) conditions else FALSE, 
-# 						initial.groups = if (length(groups) != 0) groups else FALSE))
-# 		layout.command <- ""
-# 		number.na <- is.na(layoutColumns) + is.na(layoutRows)
-# 		if (number.na == 1) {
-# 			errorCondition(recall = Xyplot.HH, message = gettextRcmdr("Both or neither layout values must be numbers."))
-# 			return()
-# 		}
-# 		if (number.na == 0) 
-# 			layout.command <- deparse(c(layoutColumns, layoutRows))
-# 		.activeDataSet <- ActiveDataSet()
-# 		condtions.command <- if (length(conditions) == 0) {
-# 					if (outer) {
-# 						if (layout.command == "") 
-# 							paste(", layout=c(", length(predictor), ",", 
-# 									length(response), ")")
-# 						else paste(", layout=", layout.command, sep = "")
-# 					}
-# 				}
-# 				else {
-# 					if (outer) {
-# 						condition.levels <- prod(sapply(conditions, d.f = get(.activeDataSet), 
-# 										function(g, d.f) length(levels(d.f[[g]]))))
-# 						paste(", layout=c(", condition.levels, "*", length(predictor), 
-# 								",", length(response), ")", ", between=list(x=c(", 
-# 								paste(rep(c(rep(0, condition.levels - 1), 1), 
-# 												length = condition.levels * length(predictor) - 
-# 														1), collapse = ","), "), y=1)")
-# 					}
-# 				}
-# 		groups.command <- if (length(groups) == 1) 
-# 					paste(", groups=", groups, sep = "")
-# 				else ""
-# 		xyplot.command <- paste("xyplot(", paste(response, collapse = " + "), 
-# 				" ~ ", paste(predictor, collapse = " + "), if (length(conditions) > 
-# 								0) 
-# 							paste(" | ", paste(conditions, collapse = " + "))
-# 						else "", if (outer) 
-# 					",\n outer=TRUE", condtions.command, groups.command, 
-# 				", pch=16", if (auto.key) 
-# 							",\n auto.key=list(border=TRUE), par.settings = simpleTheme(pch=16)"
-# 						else "", paste(", scales=list(x=list(relation='", 
-# 						x.relation, "'), y=list(relation='", y.relation, 
-# 						"'))", sep = ""), ",\n data=", .activeDataSet, 
-# 				")", sep = "")
-# 		doItAndPrint(xyplot.command)
-# 		activateMenus()
-# 		tkfocus(CommanderWindow())
-# 	}
-# 	OKCancelHelp(helpSubject = "xyplot", reset = "Xyplot")
-# 	tkgrid(getFrame(predictorBox), getFrame(responseBox), columnspan = 1, 
-# 			sticky = "w")
-# 	tkgrid(predictorFrame, sticky = "w")
-# 	tkgrid(getFrame(conditionsBox), tklabel(cgFrame, text = gettextRcmdr("           ")), 
-# 			getFrame(groupsBox), columnspan = 1, sticky = "w")
-# 	tkgrid(cgFrame, sticky = "w")
-# 	tkgrid(tklabel(top, text = gettextRcmdr("Options"), fg = getRcmdr("title.color")), 
-# 			sticky = "w")
-# 	tkgrid(optionsFrame, sticky = "w")
-# 	tkgrid(x.relationFrame, y.relationFrame, columnspan = 2, 
-# 			sticky = "w")
-# 	tkgrid(relationFrame, sticky = "w")
-# 	tkgrid(tklabel(top, text = gettextRcmdr("Layout"), fg = getRcmdr("title.color")), 
-# 			sticky = "w")
-# 	tkgrid(tklabel(scalarsFrame, text = gettextRcmdr("number of columns:")), 
-# 			layoutColumnsEntry, sticky = "w")
-# 	tkgrid(tklabel(scalarsFrame, text = gettextRcmdr("number of rows:")), 
-# 			layoutRowsEntry, sticky = "w")
-# 	tkgrid(scalarsFrame, sticky = "w")
-# 	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
-# 	dialogSuffix(rows = 6, columns = 2)
-# }
-
 ## The following function by Richard Heiberger, with small modifications by J. Fox
 ## with more modifications by Richard Heiberger.
 ## 2008-01-03 added conditions, layout, and multiple colors
@@ -1902,118 +1768,136 @@ Xyplot <- function() {
 # set the colour palette
 
 setPalette <- function() {
-	cval <- function(x,y) -sum((x-y)^2)
-	contrasting <- function(x)
-		optim(rep(127, 3),cval,lower=0,upper=255,method="L-BFGS-B",y=x)$par
-	# the following local function from Thomas Lumley via r-help
-	convert <- function (color){
-		rgb <- col2rgb(color)/255
-		L <- c(0.2, 0.6, 0) %*% rgb
-		ifelse(L >= 0.2, "#000060", "#FFFFA0")
-	}
-	env <- environment()
-	pal <- palette()
+    cval <- function(x,y) -sum((x-y)^2)
+    contrasting <- function(x)
+        optim(rep(127, 3),cval,lower=0,upper=255,method="L-BFGS-B",y=x)$par
+    # the following local function from Thomas Lumley via r-help
+    convert <- function (color){
+        rgb <- col2rgb(color)/255
+        L <- c(0.2, 0.6, 0) %*% rgb
+        ifelse(L >= 0.2, "#000060", "#FFFFA0")
+    }
+    env <- environment()
+    pal <- palette()
     pickColor <- function(initialcolor, parent){
         newcolor <- tclvalue(.Tcl(paste("tk_chooseColor", .Tcl.args(title = "Select a Color",
             initialcolor=initialcolor, parent=parent))))
         if (newcolor == "") initialcolor else newcolor
     }
-	initializeDialog(title=gettextRcmdr("Set Color Palette"))
-	hexcolor <- colorConverter(toXYZ = function(hex,...) {
-				rgb <- t(col2rgb(hex))/255
-				colorspaces$sRGB$toXYZ(rgb,...) },
-			fromXYZ = function(xyz,...) {
-				rgb <- colorspaces$sRGB$fromXYZ(xyz,..)
-				rgb <- round(rgb,5)
-				if (min(rgb) < 0 || max(rgb) > 1) as.character(NA)
-				else rgb(rgb[1],rgb[2],rgb[3])},
-			white = "D65", name = "#rrggbb")
-	cols <- t(col2rgb(pal))
-	hex <- convertColor(cols, from="sRGB", to=hexcolor, scale.in=255, scale.out=NULL)
-	for (i in 1:8) assign(paste("hex", i, sep="."), hex[i], envir=env)
-	paletteFrame <- tkframe(top)
-	button1 <- tkbutton(paletteFrame, text=hex[1], bg = hex[1],
-			fg=convert(hex[1]),
-			command=function() {
-				color <- pickColor(hex[1], parent=button1)
-				fg <- convert(color)
-				tkconfigure(button1, bg=color, fg=fg, text=toupper(color))
-				assign("hex.1", color, envir=env)
-			}
-	)
-	button2 <- tkbutton(paletteFrame, text=hex[2], bg = hex[2],
-			fg=convert(hex[2]),
-			command=function() {
-				color <- pickColor(hex[2], parent=button2)
-				fg <- convert(color)
-				tkconfigure(button2, bg=color, fg=fg, text=toupper(color))
-				assign("hex.2", color, envir=env)
-			}
-	)
-	button3 <- tkbutton(paletteFrame, text=hex[3], bg = hex[3],
-			fg=convert(hex[3]),
-			command=function() {
-				color <- pickColor(hex[3], parent=button3)
-				fg <- convert(color)
-				tkconfigure(button3, bg=color, fg=fg, text=toupper(color))
-				assign("hex.3", color, envir=env)
-			}
-	)
-	button4 <- tkbutton(paletteFrame, text=hex[4], bg = hex[4],
-			fg=convert(hex[4]),
-			command=function() {
-				color <- pickColor(hex[4], parent=button4)
-				fg <- convert(color)
-				tkconfigure(button4, bg=color, fg=fg, text=toupper(color))
-				assign("hex.4", color, envir=env)
-			}
-	)
-	button5 <- tkbutton(paletteFrame, text=hex[5], bg = hex[5],
-			fg=convert(hex[5]),
-			command=function() {
-				color <- pickColor(hex[5], parent=button5)
-				fg <- convert(color)
-				tkconfigure(button5, bg=color, fg=fg, text=toupper(color))
-				assign("hex.5", color, envir=env)
-			}
-	)
-	button6 <- tkbutton(paletteFrame, text=hex[6], bg = hex[6],
-			fg=convert(hex[6]),
-			command=function() {
-				color <- pickColor(hex[6], parent=button6)
-				fg <- convert(color)
-				tkconfigure(button6, bg=color, fg=fg, text=toupper(color))
-				assign("hex.6", color, envir=env)
-			}
-	)
-	button7 <- tkbutton(paletteFrame, text=hex[7], bg = hex[7],
-			fg=convert(hex[7]),
-			command=function() {
-				color <- pickColor(hex[7], parent=button7)
-				fg <- convert(color)
-				tkconfigure(button7, bg=color, fg=fg, text=toupper(color))
-				assign("hex.7", color, envir=env)
-			}
-	)
-	button8 <- tkbutton(paletteFrame, text=hex[8], bg = hex[8],
-			fg=convert(hex[8]),
-			command=function() {
-				color <- pickColor(hex[8], parent=button8)
-				fg <- convert(color)
-				tkconfigure(button8, bg=color, fg=fg, text=toupper(color))
-				assign("hex.8", color, envir=env)
-			}
-	)
-	onOK <- function(){
-		closeDialog(top)
-		palette(c(hex.1, hex.2, hex.3, hex.4, hex.5, hex.6, hex.7, hex.8))
-		Message(gettextRcmdr("Color palette reset.", type="note"))
-	}
-	OKCancelHelp(helpSubject="palette")
-	tkgrid(button1, button2, button3, button4, button5, button6, button7, button8)
-	tkgrid(paletteFrame)
-	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=2)
+    initializeDialog(title=gettextRcmdr("Set Color Palette"))
+    hexcolor <- colorConverter(toXYZ = function(hex,...) {
+        rgb <- t(col2rgb(hex))/255
+        colorspaces$sRGB$toXYZ(rgb,...) },
+        fromXYZ = function(xyz,...) {
+            rgb <- colorspaces$sRGB$fromXYZ(xyz,..)
+            rgb <- round(rgb,5)
+            if (min(rgb) < 0 || max(rgb) > 1) as.character(NA)
+            else rgb(rgb[1],rgb[2],rgb[3])},
+        white = "D65", name = "#rrggbb")
+    cols <- t(col2rgb(pal))
+    hex <- convertColor(cols, from="sRGB", to=hexcolor, scale.in=255, scale.out=NULL)
+    for (i in 1:8) assign(paste("hex", i, sep="."), hex[i], envir=env)
+    paletteFrame <- tkframe(top)
+    colorField1 <- labelRcmdr(paletteFrame, text=rgb2col(hex[1]), fg=hex[1])
+    button1 <- tkbutton(paletteFrame, text=hex[1], bg = hex[1],
+        fg=convert(hex[1]),
+        command=function() {
+            color <- pickColor(hex[1], parent=button1)
+            fg <- convert(color)
+            tkconfigure(button1, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField1, text=rgb2col(color), foreground=color)
+            assign("hex.1", color, envir=env)
+        }
+    )
+    colorField2 <- labelRcmdr(paletteFrame, text=rgb2col(hex[2]), fg=hex[2])
+    button2 <- tkbutton(paletteFrame, text=hex[2], bg = hex[2],
+        fg=convert(hex[2]),
+        command=function() {
+            color <- pickColor(hex[2], parent=button2)
+            fg <- convert(color)
+            tkconfigure(button2, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField2, text=rgb2col(color), foreground=color)
+            assign("hex.2", color, envir=env)
+        }
+    )
+    colorField3 <- labelRcmdr(paletteFrame, text=rgb2col(hex[3]), fg=hex[3])
+    button3 <- tkbutton(paletteFrame, text=hex[3], bg = hex[3],
+        fg=convert(hex[3]),
+        command=function() {
+            color <- pickColor(hex[3], parent=button3)
+            fg <- convert(color)
+            tkconfigure(button3, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField3, text=rgb2col(color), foreground=color)
+            assign("hex.3", color, envir=env)
+        }
+    )
+    colorField4 <- labelRcmdr(paletteFrame, text=rgb2col(hex[4]), fg=hex[4])
+    button4 <- tkbutton(paletteFrame, text=hex[4], bg = hex[4],
+        fg=convert(hex[4]),
+        command=function() {
+            color <- pickColor(hex[4], parent=button4)
+            fg <- convert(color)
+            tkconfigure(button4, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField4, text=rgb2col(color), foreground=color)
+            assign("hex.4", color, envir=env)
+        }
+    )
+    colorField5 <- labelRcmdr(paletteFrame, text=rgb2col(hex[5]), fg=hex[5])
+    button5 <- tkbutton(paletteFrame, text=hex[5], bg = hex[5],
+        fg=convert(hex[5]),
+        command=function() {
+            color <- pickColor(hex[5], parent=button5)
+            fg <- convert(color)
+            tkconfigure(button5, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField5, text=rgb2col(color), foreground=color)
+            assign("hex.5", color, envir=env)
+        }
+    )
+    colorField6 <- labelRcmdr(paletteFrame, text=rgb2col(hex[6]), fg=hex[6])
+    button6 <- tkbutton(paletteFrame, text=hex[6], bg = hex[6],
+        fg=convert(hex[6]),
+        command=function() {
+            color <- pickColor(hex[6], parent=button6)
+            fg <- convert(color)
+            tkconfigure(button6, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField6, text=rgb2col(color), foreground=color)
+            assign("hex.6", color, envir=env)
+        }
+    )
+    colorField7 <- labelRcmdr(paletteFrame, text=rgb2col(hex[7]), fg=hex[7])
+    button7 <- tkbutton(paletteFrame, text=hex[7], bg = hex[7],
+        fg=convert(hex[7]),
+        command=function() {
+            color <- pickColor(hex[7], parent=button7)
+            fg <- convert(color)
+            tkconfigure(button7, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField7, text=rgb2col(color), foreground=color)
+            assign("hex.7", color, envir=env)
+        }
+    )
+    colorField8 <- labelRcmdr(paletteFrame, text=rgb2col(hex[8]), fg=hex[8])
+    button8 <- tkbutton(paletteFrame, text=hex[8], bg = hex[8],
+        fg=convert(hex[8]),
+        command=function() {
+            color <- pickColor(hex[8], parent=button8)
+            fg <- convert(color)
+            tkconfigure(button8, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField8, text=rgb2col(color), foreground=color)
+            assign("hex.8", color, envir=env)
+        }
+    )
+    onOK <- function(){
+        closeDialog(top)
+        palette(c(hex.1, hex.2, hex.3, hex.4, hex.5, hex.6, hex.7, hex.8))
+        Message(gettextRcmdr("Color palette reset.", type="note"))
+    }
+    OKCancelHelp(helpSubject="palette")
+    tkgrid(button1, button2, button3, button4, button5, button6, button7, button8)
+    tkgrid(colorField1, colorField2, colorField3, colorField4, colorField5, 
+        colorField6, colorField7, colorField8)
+    tkgrid(paletteFrame)
+    tkgrid(buttonsFrame, sticky="ew")
+    dialogSuffix(rows=2)
 }
 
 stripChart <- function () {

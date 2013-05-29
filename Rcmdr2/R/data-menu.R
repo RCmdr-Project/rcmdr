@@ -1,4 +1,4 @@
-# last modified 2013-04-12 by J. Fox
+# last modified 2013-05-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
@@ -1088,117 +1088,117 @@ importExcel <- function(){
 }
 
 numericToFactor <- function(){
-	initializeDialog(title=gettextRcmdr("Convert Numeric Variables to Factors"))
-	variableBox <- variableListBox(top, Numeric(), selectmode="multiple",
-			title=gettextRcmdr("Variables (pick one or more)"))
-	radioButtons(name="levels", buttons=c("names", "numbers"),
-			labels=gettextRcmdr(c("Supply level names", "Use numbers")), title=gettextRcmdr("Factor Levels"))
-	factorName <- tclVar(gettextRcmdr("<same as variables>"))
-	factorNameField <- ttkentry(top, width="20", textvariable=factorName)
-	onOK <- function(){
-		variables <- getSelection(variableBox)
-		closeDialog()
-		if (length(variables) == 0) {
-			errorCondition(recall=numericToFactor, message=gettextRcmdr("You must select a variable."))
-			return()
-		}
-		facname <- trim.blanks(tclvalue(factorName))
-		.activeDataSet <- ActiveDataSet()
-		cmd <- paste("apply(", .activeDataSet, "[c(", paste(
-						paste('"', variables, '"', sep=""),
-						collapse=","), ")], 2, function(x) sort(unique(x)))", sep="")
-		levs <- eval(parse(text=cmd), envir=.GlobalEnv)
-		sameLevels <- (length(variables) == 1) ||
-				((is.matrix(levs)) && (all(0 == apply(levs, 1, var))))
-		for (name in variables){
-			fname <- if (facname == gettextRcmdr("<same as variables>")) name
-					else if (length(variables) == 1) facname
-					else paste(facname, name, sep="")
-			if (!is.valid.name(fname)){
-				errorCondition(recall=numericToFactor,
-						message=paste('"', fname, '" ', gettextRcmdr("is not a valid name."), sep=""))
-				return()
-			}
-			if (is.element(fname, Variables())) {
-				if ("no" == tclvalue(checkReplace(fname))){
-					numericToFactor()
-					return()
-				}
-			}
-			levelsType <- tclvalue(levelsVariable)
-			env <- environment()
-			if (((name == variables[1]) || (!sameLevels)) && (levelsType == "names")){
-				values <- sort(unique(eval(parse(text=paste(.activeDataSet, "$", name, sep="")),
-										envir=.GlobalEnv)))
-				nvalues <- length(values)
-				if (nvalues > 30) {
-					errorCondition(recall=numericToFactor,
-							message=sprintf(gettextRcmdr("Number of levels (%d) too large."), nvalues))
-					return()
-				}
-				initializeDialog(subdialog,
-						title=paste(gettextRcmdr("Level Names for"),
-								if(sameLevels && length(variables) > 1) "Factors" else fname))
-				names <- rep("", nvalues)
-				onOKsub <- function() {
-					closeDialog(subdialog)
-					for (i in 1:nvalues){
-						names[i] <- eval(parse(text=paste("tclvalue(levelName", i, ")", sep="")))
-					}
-					if (length(unique(names)) != nvalues){
-						errorCondition(recall=numericToFactor,
-								message=gettextRcmdr("Levels names are not unique."))
-						return()
-					}
-					if (any(names == "")){
-						errorCondition(recall=numericToFactor,
-								message=gettextRcmdr("A level name is empty."))
-						return()
-					}
-					assign("labels", paste(paste("'", names, "'", sep=""), collapse=","),
-							envir=env)
-				}
-				subOKCancelHelp()
-				tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Numeric value")), labelRcmdr(subdialog, text=gettextRcmdr("Level name")), sticky="w")
-				for (i in 1:nvalues){
-					valVar <- paste("levelName", i, sep="")
-					assign(valVar, tclVar(""))
-					assign(paste("entry", i, sep=""), ttkentry(subdialog, width="20",
-									textvariable=get(valVar)))
-#                        textvariable=eval(parse(text=valVar))))
-					tkgrid(labelRcmdr(subdialog, text=values[i]), get(paste("entry", i, sep="")), sticky="w")
-#                    tkgrid(labelRcmdr(subdialog, text=values[i]), eval(parse(text=paste("entry", i, sep=""))), sticky="w")
-				}
-				tkgrid(subButtonsFrame, sticky="w", columnspan=2)
-				dialogSuffix(subdialog, rows=nvalues+2, columns=2, focus=entry1, onOK=onOKsub)
-			}
-			if (levelsType == "names"){
-				if (!exists("labels", mode="character")) return()
-				command <- paste("factor(", .activeDataSet, "$", name,
-						", labels=c(", labels, "))", sep="")
-				result <- justDoIt(paste(.activeDataSet, "$", fname, " <- ", command, sep=""))
-				logger(paste(.activeDataSet,"$", fname," <- ", command, sep=""))
-				if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet)
-				tkfocus(CommanderWindow())
-			}
-			else{
-				command <- paste("as.factor(", .activeDataSet, "$", name, ")", sep="")
-				result <- justDoIt(paste(.activeDataSet, "$", fname, " <- ", command, sep=""))
-				logger(paste(.activeDataSet, "$", fname," <- ", command, sep=""))
-				if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
-				tkfocus(CommanderWindow())
-			}
-		}
-	}
-	OKCancelHelp(helpSubject="factor")
-	tkgrid(getFrame(variableBox), levelsFrame, sticky="nw")
-	tkgrid(labelRcmdr(top,
-					text=gettextRcmdr("New variable name or prefix for multiple variables:")),
-			factorNameField, sticky="w")
-	tkgrid(buttonsFrame, sticky="w", columnspan=2)
-	tkgrid.configure(numbersButton, sticky="w")
-	tkgrid.configure(namesButton, sticky="w")
-	dialogSuffix(rows=4, columns=2, preventGrabFocus=TRUE)
+    initializeDialog(title=gettextRcmdr("Convert Numeric Variables to Factors"))
+    variableBox <- variableListBox(top, Numeric(), selectmode="multiple",
+        title=gettextRcmdr("Variables (pick one or more)"))
+    radioButtons(name="levels", buttons=c("names", "numbers"),
+        labels=gettextRcmdr(c("Supply level names", "Use numbers")), title=gettextRcmdr("Factor Levels"))
+    factorName <- tclVar(gettextRcmdr("<same as variables>"))
+    factorNameField <- ttkentry(top, width="20", textvariable=factorName)
+    onOK <- function(){
+        variables <- getSelection(variableBox)
+        closeDialog()
+        if (length(variables) == 0) {
+            errorCondition(recall=numericToFactor, message=gettextRcmdr("You must select a variable."))
+            return()
+        }
+        facname <- trim.blanks(tclvalue(factorName))
+        .activeDataSet <- ActiveDataSet()
+        cmd <- paste("apply(", .activeDataSet, "[c(", paste(
+            paste('"', variables, '"', sep=""),
+            collapse=","), ")], 2, function(x) sort(unique(x)))", sep="")
+        levs <- eval(parse(text=cmd), envir=.GlobalEnv)
+        sameLevels <- (length(variables) == 1) ||
+            ((is.matrix(levs)) && (all(0 == apply(levs, 1, var))))
+        for (name in variables){
+            fname <- if (facname == gettextRcmdr("<same as variables>")) name
+            else if (length(variables) == 1) facname
+            else paste(facname, name, sep="")
+            if (!is.valid.name(fname)){
+                errorCondition(recall=numericToFactor,
+                    message=paste('"', fname, '" ', gettextRcmdr("is not a valid name."), sep=""))
+                return()
+            }
+            if (is.element(fname, Variables())) {
+                if ("no" == tclvalue(checkReplace(fname))){
+                    numericToFactor()
+                    return()
+                }
+            }
+            levelsType <- tclvalue(levelsVariable)
+            env <- environment()
+            if (((name == variables[1]) || (!sameLevels)) && (levelsType == "names")){
+                values <- sort(unique(eval(parse(text=paste(.activeDataSet, "$", name, sep="")),
+                    envir=.GlobalEnv)))
+                nvalues <- length(values)
+                if (nvalues > 30) {
+                    errorCondition(recall=numericToFactor,
+                        message=sprintf(gettextRcmdr("Number of levels (%d) too large."), nvalues))
+                    return()
+                }
+                initializeDialog(subdialog,
+                    title=paste(gettextRcmdr("Level Names for"),
+                        if(sameLevels && length(variables) > 1) "Factors" else fname))
+                names <- rep("", nvalues)
+                onOKsub <- function() {
+                    closeDialog(subdialog)
+                    for (i in 1:nvalues){
+                        names[i] <- eval(parse(text=paste("tclvalue(levelName", i, ")", sep="")))
+                    }
+                    if (length(unique(names)) != nvalues){
+                        errorCondition(recall=numericToFactor,
+                            message=gettextRcmdr("Levels names are not unique."))
+                        return()
+                    }
+                    if (any(names == "")){
+                        errorCondition(recall=numericToFactor,
+                            message=gettextRcmdr("A level name is empty."))
+                        return()
+                    }
+                    assign("labels", paste(paste("'", names, "'", sep=""), collapse=","),
+                        envir=env)
+                }
+                subOKCancelHelp()
+                tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Numeric value")), labelRcmdr(subdialog, text=gettextRcmdr("Level name")), sticky="w")
+                for (i in 1:nvalues){
+                    valVar <- paste("levelName", i, sep="")
+                    assign(valVar, tclVar(""))
+                    assign(paste("entry", i, sep=""), ttkentry(subdialog, width="20",
+                        textvariable=get(valVar)))
+                    #                        textvariable=eval(parse(text=valVar))))
+                    tkgrid(labelRcmdr(subdialog, text=values[i]), get(paste("entry", i, sep="")), sticky="w")
+                    #                    tkgrid(labelRcmdr(subdialog, text=values[i]), eval(parse(text=paste("entry", i, sep=""))), sticky="w")
+                }
+                tkgrid(subButtonsFrame, sticky="w", columnspan=2)
+                dialogSuffix(subdialog, rows=nvalues+2, columns=2, focus=entry1, onOK=onOKsub)
+            }
+            if (levelsType == "names"){
+                if (!exists("labels", mode="character")) return()
+                command <- paste("factor(", .activeDataSet, "$", name,
+                    ", labels=c(", labels, "))", sep="")
+                result <- justDoIt(paste(.activeDataSet, "$", fname, " <- ", command, sep=""))
+                logger(paste(.activeDataSet,"$", fname," <- ", command, sep=""))
+                if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet)
+                tkfocus(CommanderWindow())
+            }
+            else{
+                command <- paste("as.factor(", .activeDataSet, "$", name, ")", sep="")
+                result <- justDoIt(paste(.activeDataSet, "$", fname, " <- ", command, sep=""))
+                logger(paste(.activeDataSet, "$", fname," <- ", command, sep=""))
+                if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
+                tkfocus(CommanderWindow())
+            }
+        }
+    }
+    OKCancelHelp(helpSubject="factor")
+    tkgrid(getFrame(variableBox), levelsFrame, sticky="nw")
+    tkgrid(labelRcmdr(top,
+        text=gettextRcmdr("New variable name or prefix for multiple variables:")),
+        factorNameField, sticky="w")
+    tkgrid(buttonsFrame, sticky="ew", columnspan=2)
+    tkgrid.configure(numbersButton, sticky="w")
+    tkgrid.configure(namesButton, sticky="w")
+    dialogSuffix(rows=4, columns=2, preventGrabFocus=TRUE)
 }
 
 binVariable <- function () {

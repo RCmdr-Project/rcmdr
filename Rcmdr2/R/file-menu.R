@@ -1,4 +1,4 @@
-# last modified 2013-05-27 by J. Fox
+# last modified 2013-05-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -309,57 +309,70 @@ Options <- function(){
     cols <- t(col2rgb(pal))
     hex <- convertColor(cols, from="sRGB", to=hexcolor, scale.in=255, scale.out=NULL)
     for (i in 1:8) assign(paste("hex", i, sep="."), hex[i], envir=env)
-    button1 <- tkbutton(fontTab, text=hex[1], bg = hex[1],
+    fontColorsFrame <- tkframe(fontTab)
+    colorField1 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[1]), fg=hex[1])
+    button1 <- tkbutton(fontColorsFrame, text=hex[1], bg = hex[1],
         fg=convert(hex[1]),
         command=function() {
             color <- pickColor(hex[1], parent=button1)
             fg <- convert(color)
             tkconfigure(button1, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField1, text=rgb2col(color), foreground=color)
             assign("hex.1", color, envir=env)
         }
     )
-    button2 <- tkbutton(fontTab, text=hex[2], bg = hex[2],
+    colorField2 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[2]), fg=hex[2])
+    button2 <- tkbutton(fontColorsFrame, text=hex[2], bg = hex[2],
         fg=convert(hex[2]),
         command=function() {
             color <- pickColor(hex[2], parent=button2)
             fg <- convert(color)
             tkconfigure(button2, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField2, text=rgb2col(color), foreground=color)
             assign("hex.2", color, envir=env)
         }
     )
-    button3 <- tkbutton(fontTab, text=hex[3], bg = hex[3],
+    colorField3 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[3]), fg=hex[3])
+    button3 <- tkbutton(fontColorsFrame, text=hex[3], bg = hex[3],
         fg=convert(hex[3]),
         command=function() {
             color <- pickColor(hex[3], parent=button3)
             fg <- convert(color)
             tkconfigure(button3, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField3, text=rgb2col(color), foreground=color)
             assign("hex.3", color, envir=env)
         }
     )
-    button4 <- tkbutton(fontTab, text=hex[4], bg = hex[4],
+    colorField4 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[4]), fg=hex[4])
+    button4 <- tkbutton(fontColorsFrame, text=hex[4], bg = hex[4],
         fg=convert(hex[4]),
         command=function() {
             color <- pickColor(hex[4], parent=button4)
             fg <- convert(color)
             tkconfigure(button4, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField4, text=rgb2col(color), foreground=color)
             assign("hex.4", color, envir=env)
         }
     )
-    button5 <- tkbutton(fontTab, text=hex[5], bg = hex[5],
+    colorField5 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[5]), fg=hex[5])
+    button5 <- tkbutton(fontColorsFrame, text=hex[5], bg = hex[5],
         fg=convert(hex[5]),
         command=function() {
             color <- pickColor(hex[5], parent=button5)
             fg <- convert(color)
             tkconfigure(button5, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField5, text=rgb2col(color), foreground=color)
             assign("hex.5", color, envir=env)
         }
     )
-    button6 <- tkbutton(fontTab, text=hex[6], bg = hex[6],
+    colorField6 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[6]), fg=hex[6])
+    button6 <- tkbutton(fontColorsFrame, text=hex[6], bg = hex[6],
         fg=convert(hex[6]),
         command=function() {
             color <- pickColor(hex[6], parent=button6)
             fg <- convert(color)
             tkconfigure(button6, bg=color, fg=fg, text=toupper(color))
+            tkconfigure(colorField6, text=rgb2col(color), foreground=color)
             assign("hex.6", color, envir=env)
         }
     )
@@ -490,12 +503,13 @@ Options <- function(){
     tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Script and output font")), logFontEntry, sticky="w")
     tkgrid(labelRcmdr(fontTab, text="")) 
     pal <- c(log.text.color, command.text.color, output.text.color, error.text.color, warning.text.color, title.color)
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Script text color ")), button1, sticky="w")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Command text color ")), button2, sticky="w")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Output text color ")), button3, sticky="w")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Error text color ")), button4, sticky="w")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Warning text color ")), button5, sticky="w")
-    tkgrid(labelRcmdr(fontTab, text=gettextRcmdr("Dialog subtitles text color ")), button6, sticky="w")
+    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Script text color ")), button1, colorField1, sticky="w")
+    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Command text color ")), button2, colorField2, sticky="w")
+    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Output text color ")), button3, colorField3, sticky="w")
+    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Error text color ")), button4, colorField4, sticky="w")
+    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Warning text color ")), button5, colorField5, sticky="w")
+    tkgrid(labelRcmdr(fontColorsFrame, text=gettextRcmdr("Dialog subtitles text color ")), button6, colorField6, sticky="w")
+    tkgrid(fontColorsFrame, sticky="w")
     tkgrid(labelRcmdr(outputTab, text=gettextRcmdr("Script window width (characters)")), logWidthSlider, sticky="sw")
     tkgrid(labelRcmdr(outputTab, text=gettextRcmdr("Script window height (lines)")), logHeightSlider, sticky="sw")
     tkgrid(labelRcmdr(outputTab, text=gettextRcmdr("Output window height (lines)")), outputHeightSlider, sticky="sw")
