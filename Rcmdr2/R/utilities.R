@@ -2288,24 +2288,26 @@ suppressMarkdown <- function(command){
     command
 }
 
-# the rgb2col function translates #RRGGBB colors to names if a named color exists (not exported)
+# the rgb2col function translates #RRGGBB colors to names if a named color exists or otherwise a "close" color (not exported)
 
 r2c <- function(){
     hexnumerals <- 0:15
     names(hexnumerals) <- c(0:9, LETTERS[1:6])
     hex2decimal <- function(hexnums){
         hexnums <- strsplit(hexnums, "")
-        sapply(hexnums, function(x) sum(hexnumerals[x] * 16^(0:5)))
+        decimals <- matrix(0, 3, length(hexnums))
+        decimals[1, ] <- sapply(hexnums, function(x) sum(hexnumerals[x[1:2]] * c(16, 1)))
+        decimals[2, ] <- sapply(hexnums, function(x) sum(hexnumerals[x[3:4]] * c(16, 1)))
+        decimals[3, ] <- sapply(hexnums, function(x) sum(hexnumerals[x[5:6]] * c(16, 1)))
+        decimals
     }
     colors <- colors()
-    rgb <- col2rgb(colors)
-    rgb <- apply(rgb, 2, function(x) paste(format(as.hexmode(x), width=2, upper.case=TRUE), collapse=""))
-    dec.colors <- hex2decimal(rgb)
+    hsv <- rgb2hsv(col2rgb(colors))
     function(cols){
         cols <- sub("^#", "", toupper(cols))
-        dec.cols <- hex2decimal(cols)
-        colors[sapply(dec.cols, function(dec.col) 
-            which.min(abs(dec.col - dec.colors)))]
+        dec.cols <- rgb2hsv(hex2decimal(cols))
+        colors[apply(dec.cols, 2, function(dec.col) 
+            which.min(colSums((hsv - dec.col)^2)))]
     }
 }
 
