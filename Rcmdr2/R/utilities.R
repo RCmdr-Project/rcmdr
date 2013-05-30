@@ -1,4 +1,4 @@
-# last modified 2013-05-29 by J. Fox
+# last modified 2013-05-30 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -2291,23 +2291,24 @@ suppressMarkdown <- function(command){
 # the rgb2col function translates #RRGGBB colors to names if a named color exists or otherwise a "close" color (not exported)
 
 r2c <- function(){
-    hexnumerals <- 0:15
-    names(hexnumerals) <- c(0:9, LETTERS[1:6])
-    hex2decimal <- function(hexnums){
-        hexnums <- strsplit(hexnums, "")
-        decimals <- matrix(0, 3, length(hexnums))
-        decimals[1, ] <- sapply(hexnums, function(x) sum(hexnumerals[x[1:2]] * c(16, 1)))
-        decimals[2, ] <- sapply(hexnums, function(x) sum(hexnumerals[x[3:4]] * c(16, 1)))
-        decimals[3, ] <- sapply(hexnums, function(x) sum(hexnumerals[x[5:6]] * c(16, 1)))
-        decimals
+    hex2dec <- function(hexnums) {
+        # suggestion of Eik Vettorazzi
+        sapply(strtoi(hexnums, 16L), function(x) x %/% 256^(2:0) %% 256)
+    }
+    findMatch <- function(dec.col) {
+        sq.dist <- colSums((hsv - dec.col)^2)
+        rbind(which.min(sq.dist), min(sq.dist))
     }
     colors <- colors()
     hsv <- rgb2hsv(col2rgb(colors))
-    function(cols){
+    function(cols, near=0.25){
         cols <- sub("^#", "", toupper(cols))
-        dec.cols <- rgb2hsv(hex2decimal(cols))
-        colors[apply(dec.cols, 2, function(dec.col) 
-            which.min(colSums((hsv - dec.col)^2)))]
+        dec.cols <- rgb2hsv(hex2dec(cols))
+        which.col <- apply(dec.cols, 2, findMatch)
+        matches <- colors[which.col[1, ]]
+        unmatched <- which.col[2, ] > near^2
+        matches[unmatched] <- paste("#", cols[unmatched], sep="")
+        matches
     }
 }
 
