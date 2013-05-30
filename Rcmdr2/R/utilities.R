@@ -1,4 +1,4 @@
-# last modified 2013-05-27 by J. Fox
+# last modified 2013-05-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -2291,15 +2291,21 @@ suppressMarkdown <- function(command){
 # the rgb2col function translates #RRGGBB colors to names if a named color exists (not exported)
 
 r2c <- function(){
+    hexnumerals <- 0:15
+    names(hexnumerals) <- c(0:9, LETTERS[1:6])
+    hex2decimal <- function(hexnums){
+        hexnums <- strsplit(hexnums, "")
+        sapply(hexnums, function(x) sum(hexnumerals[x] * 16^(0:5)))
+    }
     colors <- colors()
     rgb <- col2rgb(colors)
     rgb <- apply(rgb, 2, function(x) paste(format(as.hexmode(x), width=2, upper.case=TRUE), collapse=""))
-    names(rgb) <- colors
+    dec.colors <- hex2decimal(rgb)
     function(cols){
         cols <- sub("^#", "", toupper(cols))
-        names <- sapply(cols, function(color) colors[which(color == rgb)[1]])
-        names[is.na(names)] <- paste("#", cols[is.na(names)], sep="")
-        names
+        dec.cols <- hex2decimal(cols)
+        colors[sapply(dec.cols, function(dec.col) 
+            which.min(abs(dec.col - dec.colors)))]
     }
 }
 
