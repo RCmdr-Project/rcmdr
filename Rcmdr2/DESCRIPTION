@@ -1,6 +1,6 @@
 Package: Rcmdr
 Version: 2.0-0
-Date: 2013/05/30
+Date: 2013/06/01
 Title: R Commander
 Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaster.ca"),
     person("Liviu", "Andronic", role = "ctb"),
@@ -24,8 +24,8 @@ Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaste
     person("Dan", "Putler", role = "ctb"),
     person("Brian", "Ripley", role = "ctb"),
     person("Miroslav", "Ristic", role = "ctb"),
-    person("Eik", "Vettorazzi", role="ctb"),
-    person("Peter", "Wolf", role = "ctb")
+    person("Peter", "Wolf", role = "ctb"),
+    person("Kevin", "Wright", role="ctb")
    )
 Depends: R (>= 2.15.0), grDevices, utils, car (>= 2.0-15), knitr, markdown
 Imports: tcltk

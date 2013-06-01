@@ -1,4 +1,4 @@
-# last modified 2013-05-30 by J. Fox
+# last modified 2013-05-31 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -2289,27 +2289,20 @@ suppressMarkdown <- function(command){
 }
 
 # the rgb2col function translates #RRGGBB colors to names if a named color exists or otherwise a "close" color (not exported)
+#  uses code from r-help adapted from Kevin Wright
 
-r2c <- function(){
-    hex2dec <- function(hexnums) {
-        # suggestion of Eik Vettorazzi
-        sapply(strtoi(hexnums, 16L), function(x) x %/% 256^(2:0) %% 256)
+rgb2col <- local({
+    all.names <- colors(distinct=TRUE)
+    all.lab <- t(convertColor(t(col2rgb(all.names)), from = "sRGB", 
+        to = "Lab", scale.in = 255))
+    findNear <- function(x.lab) {
+        sq.dist <- colSums((all.lab - x.lab)^2)
+        rbind(all.names[which.min(sq.dist)], min(sq.dist))
     }
-    findMatch <- function(dec.col) {
-        sq.dist <- colSums((hsv - dec.col)^2)
-        rbind(which.min(sq.dist), min(sq.dist))
+    function(cols.hex, near = 15) { # near = 2.3 is nominally the JND
+        cols.lab <- t(convertColor(t(col2rgb(cols.hex)), from = "sRGB", 
+            to = "Lab", scale.in = 255))
+        cols.near <- apply(cols.lab, 2, findNear)
+        ifelse(as.numeric(cols.near[2, ]) < near^2, cols.near[1, ], toupper(cols.hex))
     }
-    colors <- colors()
-    hsv <- rgb2hsv(col2rgb(colors))
-    function(cols, near=0.25){
-        cols <- sub("^#", "", toupper(cols))
-        dec.cols <- rgb2hsv(hex2dec(cols))
-        which.col <- apply(dec.cols, 2, findMatch)
-        matches <- colors[which.col[1, ]]
-        unmatched <- which.col[2, ] > near^2
-        matches[unmatched] <- paste("#", cols[unmatched], sep="")
-        matches
-    }
-}
-
-rgb2col <- r2c()
+})
