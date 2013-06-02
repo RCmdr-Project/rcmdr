@@ -1,4 +1,4 @@
-# last modified 2013-05-31 by J. Fox
+# last modified 2013-06-02 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -833,7 +833,7 @@ RcmdrPager <- function (file, header, title, delete.file)
 	for (i in seq(along = file)) {
 		zfile <- file[[i]]
 		tt <- tktoplevel()
-		if (.Platform$OS.type == "windows") tkwm.iconbitmap(tt, system.file("etc", "R-logo.ico", package="Rcmdr"))
+		if (WindowsP()) tkwm.iconbitmap(tt, system.file("etc", "R-logo.ico", package="Rcmdr"))
 		tkwm.title(tt, if (length(title))
 							title[(i - 1)%%length(title) + 1]
 						else "")
@@ -946,7 +946,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             image="::image::cancelIcon", compound="left")
         if (!is.null(helpSubject)){
             onHelp <- function() {
-                if (GrabFocus() && .Platform$OS.type != "windows") tkgrab.release(window)
+                if (GrabFocus() && (!WindowsP())) tkgrab.release(window)
                 if (as.numeric(R.Version()$major) >= 2) print(help(helpSubject))
                 else help(helpSubject)
             }
@@ -1034,7 +1034,7 @@ subOKCancelHelp <- defmacro(window=subdialog, helpSubject=NULL,
 					image="::image::cancelIcon", compound="left") # borderwidth=3, 
 			if (!is.null(helpSubject)){
 				onHelpSub <- function(){
-					if (GrabFocus() && .Platform$OS.type != "windows") tkgrab.release(window)
+					if (GrabFocus() && (!WindowsP())) tkgrab.release(window)
 					if (as.numeric(R.Version()$major) >= 2) print(help(helpSubject))
 					else help(helpSubject)
 				}
@@ -1849,7 +1849,7 @@ English <- function() {
 
 RcmdrTkmessageBox <- function(message, icon=c("info", "question", "warning",
 				"error"), type=c("okcancel", "yesno", "ok"), default, title="") {
-	if ( (English()) || (.Platform$OS.type != "windows") ){
+	if ( (English()) || (!WindowsP()) ){
 		if (missing(default)){
 			default <- switch(type,
 					okcancel="ok",

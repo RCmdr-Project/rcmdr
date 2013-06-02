@@ -1,4 +1,4 @@
-# last modified 2013-06-01 by J. Fox
+# last modified 2013-06-02 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -181,7 +181,7 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
 				icon="question", type="yesno", default="yes")
 		if ("yes" == tclvalue(response3)) saveOutput()
 	}
-	if (.Platform$OS.type != "windows") options(getRcmdr("oldPager"))
+	if (!WindowsP()) options(getRcmdr("oldPager"))
 	if (getRcmdr("suppress.X11.warnings")) {
 		sink(type = "message")
 		close(getRcmdr("messages.connection"))

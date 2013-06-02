@@ -288,16 +288,18 @@ Commander <- function(){
         putRcmdr("messages.connection", file(open = "w+"))
         sink(getRcmdr("messages.connection"), type="message")
     }
-    if (.Platform$OS.type != "windows") {
+    if (!(WindowsP())) {
         putRcmdr("oldPager", options(pager=RcmdrPager))
     }
     putRcmdr("restore.help_type", getOption("help_type"))
-    if (.Platform$OS.type != "windows" || RStudioP()) {
+    if (RStudioP()) {
         options(help_type = "html")
     }
     putRcmdr("restore.device", getOption("device"))
     if (RStudioP()){
-        options(device="x11")
+        if (WindowsP()) options(device="windows")
+        else if (MacOSXP()) options(device="quartz")
+        else options(device="x11")
     }
     # source additional .R files, plug-ins preferred
     source.files <- list.files(etc, pattern="\\.[Rr]$")
