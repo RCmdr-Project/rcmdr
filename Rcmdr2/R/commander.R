@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-06-01 by J. Fox
+# last modified 2013-06-02 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -421,7 +421,6 @@ Commander <- function(){
                 return()
             }
             else{
-                logger(command)
                 activeDataSet(dsnameValue)
             }
         }
@@ -435,7 +434,7 @@ Commander <- function(){
     }
     # data-set view
     onView <- function(){
-        if (packageAvailable("relimp")) Library("relimp")
+        if (packageAvailable("relimp")) Library("relimp", log=FALSE)
         if (activeDataSet() == FALSE) {
             tkfocus(CommanderWindow())
             return()
@@ -448,8 +447,7 @@ Commander <- function(){
                 log.width, ", maxheight=", view.height, suppress, ")", sep="")
         }
         else paste("View(", ActiveDataSet(), ")", sep="")
-        logger(command)
-        justDoIt(command)
+        doItAndPrint(command, log=FALSE)
     }
     # submit command in script tab or compile .Rmd file in markdown tab
     onSubmit <- function(){
