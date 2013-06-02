@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-05-26 by J. Fox
+# last modified 2013-06-01 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -293,7 +293,11 @@ Commander <- function(){
     }
     putRcmdr("restore.help_type", getOption("help_type"))
     if (.Platform$OS.type != "windows" || RStudioP()) {
-        options(help_type = "text")
+        options(help_type = "html")
+    }
+    putRcmdr("restore.device", getOption("device"))
+    if (RStudioP()){
+        options(device="x11")
     }
     # source additional .R files, plug-ins preferred
     source.files <- list.files(etc, pattern="\\.[Rr]$")
