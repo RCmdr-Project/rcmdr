@@ -2103,7 +2103,7 @@ sortVarNames <- function(x){
 
 # to load packages
 
-Library <- function(package, pos=4, log=TRUE){
+Library <- function(package, pos=4, rmd=TRUE){
 	loaded <- search()
 	loaded <- loaded[grep("^package:", loaded)]
 	loaded <- sub("^package:", "", loaded)
@@ -2117,7 +2117,7 @@ Library <- function(package, pos=4, log=TRUE){
 	}
 	if (!(package %in% loaded)){
 		command <- paste("library(", package, ", pos=", pos, ")", sep="")
-		if (log) logger(command)
+		logger(command, rmd=rmd)
 		result <- try(eval(parse(text=command), envir=.GlobalEnv), silent=TRUE)
 		if (class(result)[1] ==  "try-error"){
 			Message(message=paste(strsplit(result, ":")[[1]][2]), type="error")

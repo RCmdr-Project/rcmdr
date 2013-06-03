@@ -147,7 +147,7 @@ defmacro(..., expr)
 dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows=1, columns=1, 
 	focus=top, bindReturn=TRUE, 
     preventGrabFocus=FALSE, preventDoubleClick=FALSE, preventCrisp=FALSE)  # macro
-doItAndPrint(command, log=TRUE)
+doItAndPrint(command, log=TRUE, rmd=log)
 errorCondition(window=top, recall=NULL, message, model=FALSE)  # macro
 exists.method(generic, object, default=TRUE, strict=FALSE)
 Factors(names)
@@ -172,7 +172,7 @@ hclustSolutionsP()
 initializeDialog(window=top, title="", offset=10, preventCrisp=FALSE)  # macro
 is.valid.name(x)
 justDoIt(command)
-Library(package, pos=4, log=TRUE)
+Library(package, pos=4, rmd=TRUE)
 listAllModels(envir=.GlobalEnv, ...)
 listAOVModels(envir=.GlobalEnv, ...)
 listDataSets(envir=.GlobalEnv, ...)
@@ -186,7 +186,7 @@ listProportionalOddsModels(envir=.GlobalEnv, ...)
 listTwoLevelFactors(dataSet=ActiveDataSet())
 listVariables(dataSet=ActiveDataSet())
 lmP()
-logger(command)
+logger(command, rmd=TRUE)
 LogWindow()
 MacOSXP()
 Message(message, type=c("note", "error", "warning"))
@@ -292,7 +292,7 @@ commanderPosition()
   \item{listHeight}{Maximum number of elements displayed simultaneously in list box.}
   \item{loaded}{if \code{TRUE}, plug-in packages that are loaded are included in the vector of names
     returned.}
-  \item{log}{echo command to the log window, as well as executing it and printing its output.}
+  \item{log}{echo command to the script window, as well as executing it and printing its output.}
   \item{message}{error (or other) message.}
   \item{mode}{mode of object to retrieve.}
   \item{model}{the name of a model, as a character string, or a model object, 
@@ -323,6 +323,7 @@ commanderPosition()
   code{TRUE}.}
   \item{reportError}{if \code{TRUE}, report an error message.}
   \item{right.buttons}{radio button placed to right of button-labels; defaults to \code{TRUE}.}
+  \item{rmd}{enter the command in the R Markdown tab.}
   \item{rows, columns}{numbers of rows and columns of widgets in the dialog box.}
   \item{selectmode}{\code{"single"} or \code{"multiple"}.}
   \item{strict}{if \code{TRUE}, only use first element of class vector.}

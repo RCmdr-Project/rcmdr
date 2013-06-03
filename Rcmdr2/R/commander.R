@@ -421,6 +421,7 @@ Commander <- function(){
                 return()
             }
             else{
+                logger(command, rmd=FALSE)
                 activeDataSet(dsnameValue)
             }
         }
@@ -434,7 +435,7 @@ Commander <- function(){
     }
     # data-set view
     onView <- function(){
-        if (packageAvailable("relimp")) Library("relimp", log=FALSE)
+        if (packageAvailable("relimp")) Library("relimp", rmd=FALSE)
         if (activeDataSet() == FALSE) {
             tkfocus(CommanderWindow())
             return()
@@ -447,7 +448,7 @@ Commander <- function(){
                 log.width, ", maxheight=", view.height, suppress, ")", sep="")
         }
         else paste("View(", ActiveDataSet(), ")", sep="")
-        doItAndPrint(command, log=FALSE)
+        doItAndPrint(command, rmd=FALSE)
     }
     # submit command in script tab or compile .Rmd file in markdown tab
     onSubmit <- function(){
@@ -495,7 +496,7 @@ Commander <- function(){
                     jline <- jline + 1
                     iline <- iline + 1
                 }
-                if (!(is.null(current.line) || is.na(current.line))) doItAndPrint(current.line, log=FALSE)
+                if (!(is.null(current.line) || is.na(current.line))) doItAndPrint(current.line, rmd=FALSE)
                 iline <- iline + 1
                 tkyview.moveto(.output, 1)
                 tkfocus(.log)
@@ -814,12 +815,12 @@ Commander <- function(){
 }
 
 # put commands in script and markdown tabs
-logger <- function(command){
+logger <- function(command, rmd=TRUE){
     pushCommand(command)
     .log <- LogWindow()
     .rmd <- RmdWindow()
     .output <- OutputWindow()
-    Rmd <- is.null(attr(command, "suppressRmd")) && getRcmdr("use.markdown")
+    Rmd <- rmd && is.null(attr(command, "suppressRmd")) && getRcmdr("use.markdown")
     command <- splitCmd(command)
     if (getRcmdr("log.commands")) {
         last2 <- tclvalue(tkget(.log, "end -2 chars", "end"))
@@ -880,7 +881,7 @@ justDoIt <- function(command) {
 }
 
 # execute commands, save commands and output
-doItAndPrint <- function(command, log=TRUE) {
+doItAndPrint <- function(command, log=TRUE, rmd=log) {
     command <- enc2native(command)
     Message()
     .console.output <- getRcmdr("console.output")
@@ -905,7 +906,7 @@ doItAndPrint <- function(command, log=TRUE) {
         if (!.console.output) sink(type="output") # if .console.output, output connection already closed
         close(output.connection)
     }, add=TRUE)
-    if (log) logger(command) else pushCommand(command)
+    if (log) logger(command, rmd=rmd) else pushCommand(command)
     result <- try(parse(text=paste(command)), silent=TRUE)
     if (class(result)[1] == "try-error"){
         Message(message=paste(strsplit(result, ":")[[1]][2]), type="error")
