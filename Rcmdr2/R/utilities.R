@@ -1,4 +1,4 @@
-# last modified 2013-06-02 by J. Fox
+# last modified 2013-06-07 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -934,7 +934,11 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
         buttonsFrame <- tkframe(window)
         leftButtonsBox <- tkframe(buttonsFrame)
         rightButtonsBox <- tkframe(buttonsFrame)
-        OKbutton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("OK"), foreground="darkgreen", width="12", command=onOK, default="active",
+        OnOK <- function(){
+            putRcmdr("restoreTab", FALSE)
+            onOK()
+        }
+        OKbutton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("OK"), foreground="darkgreen", width="12", command=OnOK, default="active",
             image="::image::okIcon", compound="left")
         onCancel <- function() {
             if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
@@ -963,12 +967,14 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                 closeDialog()
                 eval(parse(text=paste(reset, "()")))
                 putRcmdr("open.dialog.here", NULL)
+                putRcmdr("restoreTab", FALSE)
             }
             resetButton <- buttonRcmdr(leftButtonsBox, text=gettextRcmdr("Reset"), width=12, command=onReset,
                 image="::image::resetIcon", compound="left")
         }
         if (!is.null(apply)){
             onApply <- function(){
+                putRcmdr("restoreTab", TRUE)
                 ID <- window$ID
                 putRcmdr("open.dialog.here", as.character(.Tcl(paste("winfo geometry", ID))))
                 onOK()

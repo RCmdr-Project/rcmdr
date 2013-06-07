@@ -498,7 +498,7 @@ scatterPlot <- function () {
     tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6)
     tkgrid(notebook)
     tkgrid(buttonsFrame, columnspan = 2, sticky = "ew")
-    tkselect(notebook, dialog.values$initial.tab)
+    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
     dialogSuffix(rows = 8, columns = 2)
 }
 

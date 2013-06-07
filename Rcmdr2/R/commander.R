@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-06-02 by J. Fox
+# last modified 2013-06-07 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -24,8 +24,8 @@ Commander <- function(){
         }
         
         # the following two lines to be commented-out for debugging:
-#         assignInMyNamespace("RcmdrEnv", RcmdrEnv)        
-#         assignInMyNamespace(".RcmdrEnv", NULL)
+        assignInMyNamespace("RcmdrEnv", RcmdrEnv)        
+        assignInMyNamespace(".RcmdrEnv", NULL)
         
     }
     RStudioP <- function() nzchar(Sys.getenv("RSTUDIO_USER_IDENTITY")) # to detect RStudio
@@ -193,7 +193,8 @@ Commander <- function(){
     putRcmdr("reset.model", FALSE)
     putRcmdr("rgl", FALSE)
     putRcmdr("Identify3d", NULL)
-    putRcmdr("open.dialog.here", NULL)	 
+    putRcmdr("open.dialog.here", NULL)
+    putRcmdr("restoreTab", FALSE)
     # set up Rcmdr default and text (log) fonts, Tk scaling factor
     default.font.size.val <- abs(as.numeric(.Tcl("font actual TkDefaultFont -size")))
     if (is.na(default.font.size.val)) default.font.size.val <- 10
