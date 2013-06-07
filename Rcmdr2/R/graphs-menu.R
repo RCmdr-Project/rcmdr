@@ -1973,15 +1973,23 @@ DensityPlot <- function () {
         kernel <- tclvalue(kernelVariable)
         adjust <- tclvalue(adjustVariable)
         bw <- tclvalue(bwVariable)
+        if (length(x) == 0) {
+            errorCondition(recall = DensityPlot, message = gettextRcmdr("You must select a variable"))
+            return()
+        }
+        if (bw != "<auto>"){
+            test.bw <- suppressWarnings(as.numeric(bw))
+            if (is.na(test.bw) || test.bw <= 0){
+                errorCondition(recall = DensityPlot, 
+                               message = gettextRcmdr("Bandwidth must be <auto> or a positive number"))
+                return()
+            }
+        }
         putDialog ("DensityPlot", list(initial.x = x, initial.bw = bw, initial.kernel=kernel,
                                        initial.adjust=adjust,
                                        initial.group=if (.groups == FALSE) NULL else .groups))
         if (bw == "<auto>") bw  <- '"SJ"'
         closeDialog()
-        if (length(x) == 0) {
-            errorCondition(recall = boxPlot, message = gettextRcmdr("You must select a variable"))
-            return()
-        }
         .activeDataSet <- ActiveDataSet()
         var <- paste(.activeDataSet, "$", x, sep = "")
         if (is.null(.groups) || .groups == FALSE) {

@@ -4155,3 +4155,6 @@ msgstr ""
 
 msgid "Density estimate..."
 msgstr ""
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr ""
