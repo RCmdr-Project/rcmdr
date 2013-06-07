@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-05-11 21:00:00\n"
+"POT-Creation-Date: 2013-06-07 08:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4128,4 +4128,30 @@ msgid "You may edit this file before saving it."
 msgstr ""
 
 msgid "Save Rcmdr options..."
+msgstr ""
+
+    # density estimate dialog
+
+msgid "Nonparametric Density Estimate"
+msgstr ""
+
+msgid "Gaussian"
+msgstr ""
+
+msgid "Epanechnikov"
+msgstr ""
+
+msgid "Tukey biweight"
+msgstr ""
+
+msgid "Kernel Function"
+msgstr ""
+
+msgid "Bandwidth"
+msgstr ""
+
+msgid "Multiply bandwidth by"
+msgstr ""
+
+msgid "Density estimate..."
 msgstr ""

@@ -1,6 +1,6 @@
 Package: Rcmdr
 Version: 2.0-0
-Date: 2013/06/02
+Date: 2013/06/07
 Title: R Commander
 Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaster.ca"),
     person("Liviu", "Andronic", role = "ctb"),
@@ -27,7 +27,7 @@ Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaste
     person("Peter", "Wolf", role = "ctb"),
     person("Kevin", "Wright", role="ctb")
    )
-Depends: R (>= 2.15.0), grDevices, utils, car (>= 2.0-15), knitr, markdown
+Depends: R (>= 2.15.0), grDevices, utils, car (>= 2.0-18), knitr, markdown
 Imports: tcltk
 Suggests: abind, aplpack, colorspace, effects (>= 1.0-7), e1071, foreign, grid, Hmisc, lattice, leaps, lmtest, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, relimp, rgl, RODBC, sem (>= 2.1-1) 
 ByteCompile: yes

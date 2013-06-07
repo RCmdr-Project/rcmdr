@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-05-29 by J. Fox
+# last modified 2013-06-07 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
@@ -214,7 +214,7 @@ stemAndLeaf <- function () {
 }
 
 boxPlot <- function () {
-    defaults <- list(initial.x = NULL, initial.identify = "y", initialGroup=NULL) 
+    defaults <- list(initial.x = NULL, initial.identify = "y", initial.group=NULL) 
     dialog.values <- getDialog("boxPlot", defaults)
     initializeDialog(title = gettextRcmdr("Boxplot"))
     xBox <- variableListBox(top, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
@@ -1946,4 +1946,74 @@ stripChart <- function () {
 	dialogSuffix(rows = 3, columns = 2)
 }
 
+DensityPlot <- function () {
+    defaults <- list(initial.x = NULL, initial.bw = gettextRcmdr("<auto>"), 
+                     initial.kernel="gaussian", initial.adjust=1, initial.group=NULL) 
+    dialog.values <- getDialog("DensityPlot", defaults)
+    initializeDialog(title = gettextRcmdr("Nonparametric Density Estimate"))
+    notebook <- ttknotebook(top)
+    dataTab <- tkframe(top)
+    optionsTab <- tkframe(top)
+    xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
+                            initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+    radioButtons(optionsTab, name = "kernel", buttons = c("gaussian", "epanechnikov", "biweight"), 
+                 labels = gettextRcmdr(c("Gaussian", "Epanechnikov", "Tukey biweight")), 
+                 title = gettextRcmdr("Kernel Function"), 
+                 initialValue = dialog.values$initial.kernel)
+    bwFrame <- tkframe(optionsTab)
+    bwVariable <- tclVar(dialog.values$initial.bw)
+    bwField <- ttkentry(bwFrame, width = "8", textvariable = bwVariable)
+    adjustVariable <- tclVar(dialog.values$initial.adjust)
+    adjustSlider <- tkscale(bwFrame, from = 0.1, to = 10, showvalue = TRUE, 
+                            variable = adjustVariable, resolution = 0.1, orient = "horizontal")
+    initial.group <- dialog.values$initial.group
+    .groups <- if (is.null(initial.group)) FALSE else initial.group
+    onOK <- function() {
+        x <- getSelection(xBox)
+        kernel <- tclvalue(kernelVariable)
+        adjust <- tclvalue(adjustVariable)
+        bw <- tclvalue(bwVariable)
+        putDialog ("DensityPlot", list(initial.x = x, initial.bw = bw, initial.kernel=kernel,
+                                       initial.adjust=adjust,
+                                       initial.group=if (.groups == FALSE) NULL else .groups))
+        if (bw == "<auto>") bw  <- '"SJ"'
+        closeDialog()
+        if (length(x) == 0) {
+            errorCondition(recall = boxPlot, message = gettextRcmdr("You must select a variable"))
+            return()
+        }
+        .activeDataSet <- ActiveDataSet()
+        var <- paste(.activeDataSet, "$", x, sep = "")
+        if (is.null(.groups) || .groups == FALSE) {
+            command <- paste("densityPlot( ~ ", x, ", data=", .activeDataSet, ', bw=', bw,
+                             ", adjust=", adjust, ', kernel="', kernel,  '")', sep="")            
+            doItAndPrint(command)
+        }
+        else {
+            command <- paste("densityPlot(", x, "~", .groups, ", data=", 
+                             .activeDataSet, ', bw=', bw,
+                             ", adjust=", adjust, ', kernel="', kernel,  '")', sep="")  
+            doItAndPrint(command)
+        }
+        activateMenus()
+        tkfocus(CommanderWindow())
+    }
+    groupsBox(DensityPlot, initialGroup=initial.group, 
+              initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups") 
+              else paste(gettextRcmdr("Plot by:"), initial.group),
+              window=dataTab)
+    OKCancelHelp(helpSubject = "densityPlot", reset = "DensityPlot", apply="DensityPlot")
+    tkgrid(getFrame(xBox), sticky = "nw")
+    tkgrid(groupsFrame, sticky = "w")
+    tkgrid(kernelFrame, stick = "w")
+    tkgrid(labelRcmdr(bwFrame, text = gettextRcmdr("Bandwidth")), bwField,
+           labelRcmdr(bwFrame, text = gettextRcmdr("Multiply bandwidth by")), 
+           adjustSlider, sticky = "swe", padx=6)
+    tkgrid(bwFrame, sticky="sw")
+    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
+    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
+    tkgrid(notebook, sticky="nsew")
+    tkgrid(buttonsFrame, sticky = "w")
+    dialogSuffix(rows = 4, columns = 1)
+}
 

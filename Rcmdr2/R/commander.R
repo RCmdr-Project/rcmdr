@@ -24,8 +24,8 @@ Commander <- function(){
         }
         
         # the following two lines to be commented-out for debugging:
-        assignInMyNamespace("RcmdrEnv", RcmdrEnv)        
-        assignInMyNamespace(".RcmdrEnv", NULL)
+#         assignInMyNamespace("RcmdrEnv", RcmdrEnv)        
+#         assignInMyNamespace(".RcmdrEnv", NULL)
         
     }
     RStudioP <- function() nzchar(Sys.getenv("RSTUDIO_USER_IDENTITY")) # to detect RStudio
