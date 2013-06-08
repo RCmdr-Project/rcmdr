@@ -1948,7 +1948,7 @@ stripChart <- function () {
 
 DensityPlot <- function () {
     defaults <- list(initial.x = NULL, initial.bw = gettextRcmdr("<auto>"), 
-                     initial.kernel="gaussian", initial.adjust=1, initial.group=NULL) 
+                     initial.kernel="gaussian", initial.adjust=1, initial.group=NULL, initial.tab=0) 
     dialog.values <- getDialog("DensityPlot", defaults)
     initializeDialog(title = gettextRcmdr("Nonparametric Density Estimate"))
     notebook <- ttknotebook(top)
@@ -1969,6 +1969,7 @@ DensityPlot <- function () {
     initial.group <- dialog.values$initial.group
     .groups <- if (is.null(initial.group)) FALSE else initial.group
     onOK <- function() {
+        tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         x <- getSelection(xBox)
         kernel <- tclvalue(kernelVariable)
         adjust <- tclvalue(adjustVariable)
@@ -1987,7 +1988,8 @@ DensityPlot <- function () {
         }
         putDialog ("DensityPlot", list(initial.x = x, initial.bw = bw, initial.kernel=kernel,
                                        initial.adjust=adjust,
-                                       initial.group=if (.groups == FALSE) NULL else .groups))
+                                       initial.group=if (.groups == FALSE) NULL else .groups,
+                                       initial.tab=tab))
         if (bw == "<auto>") bw  <- '"SJ"'
         closeDialog()
         .activeDataSet <- ActiveDataSet()
@@ -2022,6 +2024,7 @@ DensityPlot <- function () {
     tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
     tkgrid(notebook, sticky="nsew")
     tkgrid(buttonsFrame, sticky = "w")
+    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
     dialogSuffix(rows = 4, columns = 1)
 }
 
