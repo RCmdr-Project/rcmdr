@@ -46,6 +46,7 @@
 \alias{groupsLabel}
 \alias{hclustSolutionsP}
 \alias{initializeDialog}
+\alias{is.SciViews}
 \alias{is.valid.name}
 \alias{justDoIt}
 \alias{Library}
@@ -171,6 +172,7 @@ groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1, initialText=NULL)  # m
 hclustSolutionsP()
 initializeDialog(window=top, title="", offset=10, preventCrisp=FALSE)  # macro
 is.valid.name(x)
+is.SciViews()
 justDoIt(command)
 Library(package, pos=4, rmd=TRUE)
 listAllModels(envir=.GlobalEnv, ...)
@@ -391,7 +393,8 @@ commanderPosition()
   The function \code{packageAvailable} reports whether the named package is 
   available to be loaded (or has possibly already been loaded).
   The function \code{exists.method} checks whether a method exists for a particular generic that is
-  appropriate for a particular object, and returns \code{TRUE} or \code{FALSE}.
+  appropriate for a particular object, and returns \code{TRUE} or \code{FALSE}. The function \code{is.SciViews} always returns \code{FALSE}
+  since the SciViews GUI is no longer supported.
   
   \emph{Building dialog boxes: }
   Several functions simplify the process of constructing Tk dialogs: 

@@ -1,4 +1,4 @@
-# last modified 2013-06-07 by J. Fox
+# last modified 2013-06-10 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -2312,3 +2312,7 @@ rgb2col <- local({
         ifelse(as.numeric(cols.near[2, ]) < near^2, cols.near[1, ], toupper(cols.hex))
     }
 })
+
+# the following function is for plug-ins that test for SciViews (which is no longer supported)
+
+is.SciViews <- function() FALSE

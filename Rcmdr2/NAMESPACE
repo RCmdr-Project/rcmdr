@@ -1,4 +1,4 @@
-# last modified 2013-05-23 by J. Fox
+# last modified 2013-06-10 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -19,7 +19,7 @@ dialogSuffix, doItAndPrint, errorCondition, exists.method,
 Factors, factorsP, formulaFields, flushDialogMemory, 
 gassign, getDialog, getFrame, getRcmdr, getSelection, gettextRcmdr,
 glmP, GrabFocus, groupsBox, groupsLabel, hclustSolutionsP, Hist, indexplot, initializeDialog, 
-is.valid.name, justDoIt, KMeans, labelRcmdr, Library, lineplot,
+is.SciViews, is.valid.name, justDoIt, KMeans, labelRcmdr, Library, lineplot,
 listAllModels, listAOVModels, listDataSets, listFactors, listGeneralizedLinearModels, 
 listLinearModels, listMultinomialLogitModels, listNumeric, listPlugins, 
 listProportionalOddsModels, listTwoLevelFactors, listVariables, 
