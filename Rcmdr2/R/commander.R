@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-06-07 by J. Fox
+# last modified 2013-06-12 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -710,10 +710,15 @@ Commander <- function(){
     show.edit.button <- if (is.null(show.edit.button)) TRUE else show.edit.button
     if (!getRcmdr("suppress.menus")){
         tkgrid(labelRcmdr(controlsFrame, image="::image::RlogoIcon", compound="left"),
-            labelRcmdr(controlsFrame, text=gettextRcmdr("Data set: ")), getRcmdr("dataSetLabel"),
-            labelRcmdr(controlsFrame, text="  "), if(show.edit.button) editButton, viewButton,
-            labelRcmdr(controlsFrame, text=gettextRcmdr("    Model: ")), getRcmdr("modelLabel"), sticky="w", pady=c(3, 3))
+            labelRcmdr(controlsFrame, text=gettextRcmdr("   Data set:")), getRcmdr("dataSetLabel"),
+            if(show.edit.button) editButton, viewButton,
+            labelRcmdr(controlsFrame, text=gettextRcmdr("Model:")), getRcmdr("modelLabel"), sticky="w", pady=c(3, 3))
         tkgrid(controlsFrame, sticky="w")
+        tkgrid.configure(getRcmdr("dataSetLabel"), padx=c(2, 5))
+        tkgrid.configure(getRcmdr("modelLabel"), padx=c(2, 10))
+        tkgrid.configure(editButton, padx=c(10, 1))
+        if (show.edit.button) tkgrid.configure(viewButton, padx=c(1, 15))
+        else tkgrid.configure(viewButton, padx=c(10, 15))
     }
     .log.commands <-  getRcmdr("log.commands")
     .console.output <- getRcmdr("console.output")
