@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-06-07 08:30:00\n"
+"POT-Creation-Date: 2013-06-13 23:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4013,6 +4013,9 @@ msgid "Influence Plot"
 msgstr ""
 
     # support for R Markdown
+
+msgid "Generate HTML report"
+msgstr ""
 
 msgid "R Markdown"
 msgstr ""

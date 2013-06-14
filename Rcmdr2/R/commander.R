@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-06-12 by J. Fox
+# last modified 2013-06-13 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -538,7 +538,7 @@ Commander <- function(){
     contextMenuRmd <- function(){
         .rmd <- RmdWindow()
         contextMenu <- tkmenu(tkmenu(.rmd), tearoff=FALSE)
-        tkadd(contextMenu, "command", label=gettextRcmdr("Submit"), command=onSubmit)
+        tkadd(contextMenu, "command", label=gettextRcmdr("Generate HTML report"), command=onSubmit)
         tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Cut"), command=onCut)
         tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)
@@ -676,12 +676,18 @@ Commander <- function(){
         command=function(...) tkyview(.rmd, ...))
     tkconfigure(.rmd, xscrollcommand=function(...) tkset(logXscroll, ...))
     tkconfigure(.rmd, yscrollcommand=function(...) tkset(logYscroll, ...))    
-    outputFrame <- tkframe(.commander)
+    outputFrame <- tkframe(.commander) 
+    submitButtonLabel <- tclVar(gettextRcmdr("Submit"))
     submitButton <- if (getRcmdr("console.output"))
-        buttonRcmdr(CommanderWindow(), text=gettextRcmdr("Submit"), borderwidth="2", command=onSubmit,
+        buttonRcmdr(CommanderWindow(), textvariable=submitButtonLabel, borderwidth="2", command=onSubmit,
             image="::image::submitIcon", compound="left")
-    else buttonRcmdr(outputFrame, text=gettextRcmdr("Submit"), borderwidth="2", command=onSubmit, 
+    else buttonRcmdr(outputFrame, textvariable=submitButtonLabel, borderwidth="2", command=onSubmit, 
         image="::image::submitIcon", compound="left")
+    
+    tkbind(CommanderWindow(), "<Button-1>", function() {
+        if (as.character(tkselect(notebook)) == logFrame$ID) tclvalue(submitButtonLabel) <- gettextRcmdr("Submit")
+        if (as.character(tkselect(notebook)) == RmdFrame$ID) tclvalue(submitButtonLabel) <- gettextRcmdr("Generate HTML report")
+    })
     putRcmdr("outputWindow", tktext(outputFrame, bg="white", foreground=getRcmdr("output.text.color"),
         font=getRcmdr("logFont"), height=output.height, width=log.width, wrap="none", undo=TRUE))
     .output <- OutputWindow()
