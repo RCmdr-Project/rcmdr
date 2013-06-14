@@ -1,4 +1,4 @@
-# last modified 2013-06-10 by J. Fox
+# last modified 2013-06-14 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -2292,6 +2292,23 @@ X11P <- function(){
 suppressMarkdown <- function(command){
     attr(command, "suppressRmd") <- TRUE
     command
+}
+
+suppressRmdBlock <- function(command){
+    attr(command, "noRmdBlock") <- TRUE
+    command
+}
+
+beginRmdBlock <- function(){
+    .rmd <- RmdWindow()
+    last2 <- tclvalue(tkget(.rmd, "end -2 chars", "end"))
+    if (last2 != "\n\n") tkinsert(.rmd, "end", "\n")
+    tkinsert(.rmd, "end", "\n")
+    tkinsert(.rmd, "end", "```{r}\n")
+}
+
+endRmdBlock <- function(){
+    tkinsert(RmdWindow(), "end", "```\n")
 }
 
 # the rgb2col function translates #RRGGBB colors to names if a named color exists or otherwise a "close" color (not exported)

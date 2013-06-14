@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-06-13 by J. Fox
+# last modified 2013-06-14 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -213,6 +213,17 @@ Commander <- function(){
     .Tcl(paste("font configure RcmdrDefaultFont -family {", default.font.family, "}", sep=""))
     .Tcl("ttk::style configure TButton -font RcmdrDefaultFont")
     .Tcl("ttk::style configure TLabel -font RcmdrDefaultFont")
+    
+#     if (!("RcmdrTitleFont" %in% as.character(.Tcl("font names")))){
+#         .Tcl(paste("font create RcmdrTitleFont", tclvalue(tkfont.actual("TkDefaultFont"))))
+#         tkfont.configure("RcmdrTitleFont", size=default.font.size)
+#         .Tcl("option add *font RcmdrTitleFont")
+#     }
+#     else {
+#         .Tcl(paste("font configure RcmdrTitleFont -size ", default.font.size))
+#     }
+#     .Tcl(paste("font configure RcmdrTitleFont -family {", default.font.family, "}", sep=""))
+    
     .Tcl(paste("font configure TkDefaultFont -size ", default.font.size))
     .Tcl(paste("font configure TkDefaultFont -family {",  default.font.family, "}", sep=""))
     log.font.size <- as.character(setOption("log.font.size", 10))
@@ -238,7 +249,17 @@ Commander <- function(){
         setOption("default.contrasts", c("contr.Treatment", "contr.poly"))
     }
     else setOption("default.contrasts", c("contr.treatment", "contr.poly"))
-    title.color <- setOption("title.color", as.character(.Tcl("ttk::style lookup TLabelframe.Label -foreground"))) 
+    
+    standard.title.color <- as.character(.Tcl("ttk::style lookup TLabelframe.Label -foreground"))
+    if (tolower(standard.title.color) == "black" || standard.title.color == "#000000") standard.title.color="blue"
+    title.color <- setOption("title.color", standard.title.color) 
+    
+
+#     if (tolower(title.color) == "black" || title.color == "#000000"){
+#         .Tcl(paste("font configure RcmdrTitleFont -family {", default.font.family, " bold}", sep=""))
+#     }
+#     .Tcl("ttk::style configure TLabelframe.Label -font RcmdrTitleFont")
+    
     .Tcl(paste("ttk::style configure TLabelframe.Label -foreground", title.color))
     setOption("number.messages", TRUE)
     setOption("log.commands", TRUE)
@@ -840,10 +861,15 @@ logger <- function(command, rmd=TRUE){
         tkinsert(.log, "end", paste(command,"\n", sep=""))
         tkyview.moveto(.log, 1)
         if (Rmd){
-            last2 <- tclvalue(tkget(.rmd, "end -2 chars", "end"))
-            if (last2 != "\n\n") tkinsert(.rmd, "end", "\n")
-            tkinsert(.rmd, "end", "\n")
-            tkinsert(.rmd, "end", paste("```{r}\n", command,"\n```\n", sep=""))
+            if (is.null(attr(command, "noRmdBlock"))){
+                last2 <- tclvalue(tkget(.rmd, "end -2 chars", "end"))
+                if (last2 != "\n\n") tkinsert(.rmd, "end", "\n")
+                tkinsert(.rmd, "end", "\n")
+                tkinsert(.rmd, "end", paste("```{r}\n", command,"\n```\n", sep=""))
+            }
+            else {
+                tkinsert(.rmd, "end", paste(command, "\n", sep=""))
+            }
             tkyview.moveto(.rmd, 1)
             putRcmdr("markdown.output", TRUE)
         }

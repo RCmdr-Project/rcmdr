@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-05-29 by J. Fox
+# last modified 2013-06-14 by J. Fox
 
 # Tables menu
 
@@ -44,21 +44,21 @@ twoWayTable <- function(){ # dialog memory 2011-06-27 J. Fox
 			return()
 		}
 		closeDialog()
+	    beginRmdBlock()
 		command <- paste("xtabs(~", row, "+", column, ", data=", ActiveDataSet(),
 				subset, ")", sep="")
-# 		logger(paste(".Table <- ", command, sep=""))
-# 		assign(".Table", justDoIt(command), envir=.GlobalEnv)
-		doItAndPrint(paste(".Table <- ", command, sep=""))
-		doItAndPrint(".Table")
+		doItAndPrint(suppressRmdBlock(paste(".Table <- ", command, sep="")))
+		doItAndPrint(suppressRmdBlock(".Table"))
+        endRmdBlock()
 		if (percents == "row") doItAndPrint("rowPercents(.Table) # Row Percentages")
 		if (percents == "column") doItAndPrint("colPercents(.Table) # Column Percentages")
 		if (percents == "total") doItAndPrint("totPercents(.Table) # Percentage of Total")
 		if (chisq == 1) {
 			command <- "chisq.test(.Table, correct=FALSE)"
-# 			logger(paste(".Test <- ", command, sep=""))
-# 			assign(".Test", justDoIt(command), envir=.GlobalEnv)
-			doItAndPrint(paste(".Test <- ", command, sep=""))
-			doItAndPrint(".Test")
+            beginRmdBlock()
+			doItAndPrint(suppressRmdBlock(paste(".Test <- ", command, sep="")))
+			doItAndPrint(suppressRmdBlock(".Test"))
+            endRmdBlock()
 			if (expected == 1) doItAndPrint(".Test$expected # Expected Counts")
 			warnText <- NULL
 			if (0 < (nlt1 <- sum(.Test$expected < 1))) warnText <- paste(nlt1,

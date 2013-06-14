@@ -292,8 +292,8 @@ set none, one, several, or all options. The available options are as follows:
     the default is \code{FALSE}.}
     
     \item{\code{title.color}}{Color for the titles of some widgets, such as variable-list boxes; can be given as a color name, such as
-    \code{"blue"} or as an RGB value, such as \code{"#0000FF"}
-    the default is the standard color for ttk label frames.}
+    \code{"blue"} or as an RGB value, such as \code{"#0000FF"}.
+    The default is the standard color for ttk label frames, unless that is \code{"#000000"} or \code{"black"}, in which case \code{"blue"}" is used instead.}
         
     \item{\code{tkwait}}{This option addresses a problem that, to my knowledge, is rare, 
     and may occur on some non-Windows systems. If the Commander causes R to hang, 
