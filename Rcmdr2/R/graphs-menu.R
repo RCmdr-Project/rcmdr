@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-06-07 by J. Fox
+# last modified 2013-06-16 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
@@ -199,13 +199,13 @@ stemAndLeaf <- function () {
 	OKCancelHelp(helpSubject = "stem.leaf", reset = "stemAndLeaf")
 	tkgrid(getFrame(xBox), sticky = "nw")
 	tkgrid(labelRcmdr(leafsFrame, text = gettextRcmdr("Leafs Digit:  "), 
-					fg = getRcmdr("title.color")), labelRcmdr(leafsFrame, text = gettextRcmdr("Automatic")), 
+					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), labelRcmdr(leafsFrame, text = gettextRcmdr("Automatic")), 
 			leafsDigitCheckBox, labelRcmdr(leafsFrame, text = gettextRcmdr("  or set:"), 
 					fg = "red"), leafsDigitShow, leafsDigitSlider, sticky = "w")
 	tkgrid(leafsFrame, sticky = "w")
 	tkgrid(partsFrame, sticky = "w")
 	tkgrid(styleFrame, sticky = "w")
-	tkgrid(labelRcmdr(top, text = gettextRcmdr("Options"), fg = getRcmdr("title.color")), 
+	tkgrid(labelRcmdr(top, text = gettextRcmdr("Options"), fg = getRcmdr("title.color"), font="RcmdrTitleFont"), 
 			sticky = "w")
 	tkgrid(optionsFrame, sticky = "w")
 	tkgrid(buttonsFrame, sticky = "w")
@@ -311,7 +311,8 @@ scatterPlot <- function () {
             "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
         initialValue = dialog.values$initial.identify)
     id.n.Var <- tclVar(dialog.values$initial.identify.points) 
-    npointsSpinner <- tkspinbox(optionsFrame, from=1, to=10, width=2, textvariable=id.n.Var)    
+    npointsFrame <- tkframe(optionsFrame)
+    npointsSpinner <- tkspinbox(npointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)    
     subsetBox(dataTab, subset.expression = dialog.values$initial.subset)
     tkbind(subsetEntry, "<FocusIn>", function() tkselection.clear(subsetEntry))
     xlabVar <- tclVar(dialog.values$initial.xlab)
@@ -478,7 +479,8 @@ scatterPlot <- function () {
         slider, sticky = "swe", padx=6, pady=6)
     tkgrid(sliderFrame, sticky="w")
     tkgrid(identifyFrame, sticky="w")
-    tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
+    tkgrid(labelRcmdr(npointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
+    tkgrid(npointsFrame, sticky="w")
     tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("Plotting characters")), 
         pchEntry, stick = "we", padx=6, pady=6)
     tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("Point size")), 
@@ -842,7 +844,7 @@ QQPlot <- function () {
         textvariable = otherNameVariable)
     tkgrid(getFrame(xBox), sticky = "nw")
     tkgrid(labelRcmdr(distFrame, text = gettextRcmdr("Distribution"), 
-        fg = getRcmdr("title.color")), columnspan = 6, sticky = "w")
+        fg = getRcmdr("title.color"), font="RcmdrTitleFont"), columnspan = 6, sticky = "w")
     tkgrid(labelRcmdr(distFrame, text = gettextRcmdr("Normal")), 
         normalButton, sticky = "w")
     tkgrid(labelRcmdr(tDfFrame, text = gettextRcmdr("df = ")), 
@@ -937,7 +939,7 @@ PlotMeans <- function () {
 	OKCancelHelp(helpSubject = "plotMeans", reset = "PlotMeans")
 	tkgrid(getFrame(groupBox), getFrame(responseBox), sticky = "nw")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Error Bars"), 
-					fg = getRcmdr("title.color")), sticky = "w")
+					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Standard errors")), 
 			seButton, sticky = "w")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Standard deviations")), 
@@ -1148,7 +1150,7 @@ Scatter3D <- function () {
     tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Show squared residuals")), 
         squaredResidualsCheckBox, sticky = "w")
     tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Surfaces to Fit"), 
-        fg = getRcmdr("title.color")), sticky = "w")
+        fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
     tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Linear least-squares")), 
         linearLSCheckBox, sticky = "w")
     tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Quadratic least-squares")), 
@@ -1164,7 +1166,7 @@ Scatter3D <- function () {
         ellipsoidCheckBox, sticky = "w")
     tkgrid(surfacesFrame, sticky = "w")
     tkgrid(labelRcmdr(bgFrame, text = gettextRcmdr("Background Color"), 
-        fg = getRcmdr("title.color")), sticky = "w", columnspan = 2)
+        fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w", columnspan = 2)
     tkgrid(labelRcmdr(bgFrame, text = gettextRcmdr("Black")), 
         blackButton, sticky = "w")
     tkgrid(labelRcmdr(bgFrame, text = gettextRcmdr("White")), 
@@ -1747,15 +1749,15 @@ Xyplot <- function() {
            columnspan=1, sticky="w")
     tkgrid(cgFrame, sticky="w")
     
-    tkgrid(tklabel(top, text=gettextRcmdr("Options"), fg=getRcmdr("title.color")), sticky="w")
+    tkgrid(tklabel(top, text=gettextRcmdr("Options"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
     tkgrid(optionsFrame, sticky="w")
-    tkgrid(tklabel(top, text=gettextRcmdr("Plot Type (one or both)"), fg=getRcmdr("title.color")), sticky="w")
+    tkgrid(tklabel(top, text=gettextRcmdr("Plot Type (one or both)"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
     tkgrid(typeFrame, sticky="w")
     
     tkgrid(x.relationFrame, y.relationFrame, columnspan=2, sticky="w")
     tkgrid(relationFrame, sticky="w")
     
-    tkgrid(tklabel(top, text=gettextRcmdr("Layout"), fg=getRcmdr("title.color")),
+    tkgrid(tklabel(top, text=gettextRcmdr("Layout"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"),
            sticky="w")
     tkgrid(tklabel(scalarsFrame, text=gettextRcmdr("number of columns:")), layoutColumnsEntry, sticky="w")
     tkgrid(tklabel(scalarsFrame, text=gettextRcmdr("number of rows:")), layoutRowsEntry, sticky="w")

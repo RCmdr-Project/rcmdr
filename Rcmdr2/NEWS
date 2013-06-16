@@ -1,10 +1,14 @@
 Changes to Version 2.0-0
 
+  o New package co-author: Milan Bouchet-Valet. 
+
   o Many changes to style of dialogs: tabs, Reset button, Apply button, small interface improvements.
 
   o Support for R Markdown, with script and Rmd tabs.
 
   o Expanded Options dialog and new Save Options dialog.
+
+  o Better handling of default fonts.
 
   o Improved probability plots. 
 
@@ -177,4 +181,4 @@ Changes to Version 1.8-0
    
     o Added confirmatory factor analysis.
    
-    o Updated Italiian, Japanese, Romanian, Russian, and Spanish translations (thanks respectively to Stefano Calza, Takaharu Araki, Adrian Dusa, Alexey Shipunov, and Manuel Munoz Marquez).    
+    o Updated Italian, Japanese, Romanian, Russian, and Spanish translations (thanks respectively to Stefano Calza, Takaharu Araki, Adrian Dusa, Alexey Shipunov, and Manuel Munoz Marquez).    

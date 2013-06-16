@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-06-14 by J. Fox
+# last modified 2013-06-16 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -204,25 +204,18 @@ Commander <- function(){
     default.font.family <- setOption("default.font.family", default.font.family.val)
     if (!("RcmdrDefaultFont" %in% as.character(.Tcl("font names")))){
         .Tcl(paste("font create RcmdrDefaultFont", tclvalue(tkfont.actual("TkDefaultFont"))))
-        tkfont.configure("RcmdrDefaultFont", size=default.font.size)
         .Tcl("option add *font RcmdrDefaultFont")
     }
-    else {
-        .Tcl(paste("font configure RcmdrDefaultFont -size ", default.font.size))
-    }
+    tkfont.configure("RcmdrDefaultFont", size=default.font.size)
     .Tcl(paste("font configure RcmdrDefaultFont -family {", default.font.family, "}", sep=""))
     .Tcl("ttk::style configure TButton -font RcmdrDefaultFont")
     .Tcl("ttk::style configure TLabel -font RcmdrDefaultFont")
     
-#     if (!("RcmdrTitleFont" %in% as.character(.Tcl("font names")))){
-#         .Tcl(paste("font create RcmdrTitleFont", tclvalue(tkfont.actual("TkDefaultFont"))))
-#         tkfont.configure("RcmdrTitleFont", size=default.font.size)
-#         .Tcl("option add *font RcmdrTitleFont")
-#     }
-#     else {
-#         .Tcl(paste("font configure RcmdrTitleFont -size ", default.font.size))
-#     }
-#     .Tcl(paste("font configure RcmdrTitleFont -family {", default.font.family, "}", sep=""))
+    if (!("RcmdrTitleFont" %in% as.character(.Tcl("font names")))){
+        .Tcl(paste("font create RcmdrTitleFont", tclvalue(tkfont.actual("TkDefaultFont"))))
+    }
+    tkfont.configure("RcmdrTitleFont", size=default.font.size)
+    .Tcl(paste("font configure RcmdrTitleFont -family {", default.font.family, "}", sep=""))
     
     .Tcl(paste("font configure TkDefaultFont -size ", default.font.size))
     .Tcl(paste("font configure TkDefaultFont -family {",  default.font.family, "}", sep=""))
@@ -232,11 +225,8 @@ Commander <- function(){
     log.font.family <- setOption("log.font.family", log.font.family.val)
     if (!("RcmdrLogFont" %in% as.character(.Tcl("font names")))){
         .Tcl(paste("font create RcmdrLogFont", tclvalue(tkfont.actual("TkFixedFont"))))
-        tkfont.configure("RcmdrLogFont", size=log.font.size)
     }
-    else {
-        .Tcl(paste("font configure RcmdrLogFont -size ", log.font.size))
-    }
+    tkfont.configure("RcmdrLogFont", size=log.font.size)
     .Tcl(paste("font configure RcmdrLogFont -family {", log.font.family, "}", sep=""))
     .Tcl(paste("font configure TkFixedFont -size ", log.font.size))
     .Tcl(paste("font configure TkFixedFont -family {",  log.font.family, "}", sep=""))
@@ -251,19 +241,21 @@ Commander <- function(){
     else setOption("default.contrasts", c("contr.treatment", "contr.poly"))
     
     standard.title.color <- as.character(.Tcl("ttk::style lookup TLabelframe.Label -foreground"))
-    if (tolower(standard.title.color) == "black" || standard.title.color == "#000000") standard.title.color="blue"
+#    if (tolower(standard.title.color) == "black" || standard.title.color == "#000000") standard.title.color="blue"
     title.color <- setOption("title.color", standard.title.color) 
     
 
-#     if (tolower(title.color) == "black" || title.color == "#000000"){
-#         .Tcl(paste("font configure RcmdrTitleFont -family {", default.font.family, " bold}", sep=""))
-#     }
-#     .Tcl("ttk::style configure TLabelframe.Label -font RcmdrTitleFont")
+    if (tolower(title.color) == "black" || title.color == "#000000"){
+        .Tcl(paste("font configure RcmdrTitleFont -family {", default.font.family, " bold}", sep=""))
+    }
+    .Tcl("ttk::style configure TLabelframe.Label -font RcmdrTitleFont")
     
     .Tcl(paste("ttk::style configure TLabelframe.Label -foreground", title.color))
     setOption("number.messages", TRUE)
     setOption("log.commands", TRUE)
     setOption("use.markdown", TRUE)
+    putRcmdr("startNewCommandBlock", TRUE)
+    putRcmdr("rmd.generated", FALSE)
     setOption("RStudio", RStudioP())
     setOption("console.output", getRcmdr("RStudio"))
     setOption("retain.selections", TRUE)
@@ -518,7 +510,7 @@ Commander <- function(){
                     jline <- jline + 1
                     iline <- iline + 1
                 }
-                if (!(is.null(current.line) || is.na(current.line))) doItAndPrint(current.line, rmd=FALSE)
+                if (!(is.null(current.line) || is.na(current.line))) doItAndPrint(current.line, log=FALSE, rmd=TRUE)
                 iline <- iline + 1
                 tkyview.moveto(.output, 1)
                 tkfocus(.log)
@@ -695,8 +687,8 @@ Commander <- function(){
         command=function(...) tkxview(.rmd, ...))
     RmdYscroll <- ttkscrollbar(RmdFrame,
         command=function(...) tkyview(.rmd, ...))
-    tkconfigure(.rmd, xscrollcommand=function(...) tkset(logXscroll, ...))
-    tkconfigure(.rmd, yscrollcommand=function(...) tkset(logYscroll, ...))    
+    tkconfigure(.rmd, xscrollcommand=function(...) tkset(RmdXscroll, ...))
+    tkconfigure(.rmd, yscrollcommand=function(...) tkset(RmdYscroll, ...))    
     outputFrame <- tkframe(.commander) 
     submitButtonLabel <- tclVar(gettextRcmdr("Submit"))
     submitButton <- if (getRcmdr("console.output"))
@@ -854,24 +846,43 @@ logger <- function(command, rmd=TRUE){
     .rmd <- RmdWindow()
     .output <- OutputWindow()
     Rmd <- rmd && is.null(attr(command, "suppressRmd")) && getRcmdr("use.markdown")
+#     if (!is.null(attr(command, "suppressRmd"))) {
+#         endRmdBlock()
+#         removeNullRmdBlocks()
+#     }
     command <- splitCmd(command)
     if (getRcmdr("log.commands")) {
         last2 <- tclvalue(tkget(.log, "end -2 chars", "end"))
         if (last2 != "\n\n") tkinsert(.log, "end", "\n")
         tkinsert(.log, "end", paste(command,"\n", sep=""))
         tkyview.moveto(.log, 1)
+#         if (Rmd){
+#             if (is.null(attr(command, "noRmdBlock"))){
+#                 last2 <- tclvalue(tkget(.rmd, "end -2 chars", "end"))
+#                 if (last2 != "\n\n") tkinsert(.rmd, "end", "\n")
+#                 tkinsert(.rmd, "end", "\n")
+#                 tkinsert(.rmd, "end", paste("```{r}\n", command,"\n```\n", sep=""))
+#             }
+#             else {
+#                 tkinsert(.rmd, "end", paste(command, "\n", sep=""))
+#             }
+#             tkyview.moveto(.rmd, 1)
+#             putRcmdr("markdown.output", TRUE)
+#         }
         if (Rmd){
-            if (is.null(attr(command, "noRmdBlock"))){
-                last2 <- tclvalue(tkget(.rmd, "end -2 chars", "end"))
-                if (last2 != "\n\n") tkinsert(.rmd, "end", "\n")
-                tkinsert(.rmd, "end", "\n")
-                tkinsert(.rmd, "end", paste("```{r}\n", command,"\n```\n", sep=""))
-            }
-            else {
+            if (getRcmdr("startNewCommandBlock")){
+                beginRmdBlock()
                 tkinsert(.rmd, "end", paste(command, "\n", sep=""))
+                tkyview.moveto(.rmd, 1)
+                putRcmdr("markdown.output", TRUE)
+                endRmdBlock()
             }
-            tkyview.moveto(.rmd, 1)
-            putRcmdr("markdown.output", TRUE)
+            else{
+                tkinsert(.rmd, "end", paste(command, "\n", sep=""))
+                tkyview.moveto(.rmd, 1)
+                putRcmdr("markdown.output", TRUE)
+                putRcmdr("rmd.generated", TRUE)
+            }
         }
     }
     lines <- strsplit(command, "\n")[[1]]
@@ -944,7 +955,11 @@ doItAndPrint <- function(command, log=TRUE, rmd=log) {
         if (!.console.output) sink(type="output") # if .console.output, output connection already closed
         close(output.connection)
     }, add=TRUE)
-    if (log) logger(command, rmd=rmd) else pushCommand(command)
+    if (log) logger(command, rmd=rmd) 
+    else {
+        pushCommand(command)
+        if (rmd) enterMarkdown(command)
+    }
     result <- try(parse(text=paste(command)), silent=TRUE)
     if (class(result)[1] == "try-error"){
         Message(message=paste(strsplit(result, ":")[[1]][2]), type="error")

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-14 by J. Fox
+# last modified 2013-06-16 by J. Fox
 
 # Tables menu
 
@@ -44,21 +44,17 @@ twoWayTable <- function(){ # dialog memory 2011-06-27 J. Fox
 			return()
 		}
 		closeDialog()
-	    beginRmdBlock()
 		command <- paste("xtabs(~", row, "+", column, ", data=", ActiveDataSet(),
 				subset, ")", sep="")
-		doItAndPrint(suppressRmdBlock(paste(".Table <- ", command, sep="")))
-		doItAndPrint(suppressRmdBlock(".Table"))
-        endRmdBlock()
+	    doItAndPrint(paste(".Table <- ", command, sep=""))
+	    doItAndPrint(".Table")
 		if (percents == "row") doItAndPrint("rowPercents(.Table) # Row Percentages")
 		if (percents == "column") doItAndPrint("colPercents(.Table) # Column Percentages")
 		if (percents == "total") doItAndPrint("totPercents(.Table) # Percentage of Total")
 		if (chisq == 1) {
 			command <- "chisq.test(.Table, correct=FALSE)"
-            beginRmdBlock()
-			doItAndPrint(suppressRmdBlock(paste(".Test <- ", command, sep="")))
-			doItAndPrint(suppressRmdBlock(".Test"))
-            endRmdBlock()
+		    doItAndPrint(paste(".Test <- ", command, sep=""))
+		    doItAndPrint(".Test")
 			if (expected == 1) doItAndPrint(".Test$expected # Expected Counts")
 			warnText <- NULL
 			if (0 < (nlt1 <- sum(.Test$expected < 1))) warnText <- paste(nlt1,
@@ -92,7 +88,7 @@ twoWayTable <- function(){ # dialog memory 2011-06-27 J. Fox
 	tkgrid(getFrame(rowBox), labelRcmdr(variablesFrame, text="    "), getFrame(columnBox), sticky="nw")
 	tkgrid(variablesFrame, sticky="w")
 	tkgrid(percentsFrame, sticky="w")
-	tkgrid(labelRcmdr(top, text=gettextRcmdr("Hypothesis Tests"), fg=getRcmdr("title.color")), sticky="w")
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Hypothesis Tests"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
 	tkgrid(testsFrame, sticky="w")
 	tkgrid(subsetFrame, sticky="w")
 	tkgrid(buttonsFrame, sticky="w")
@@ -317,7 +313,7 @@ enterTable <- function(){
     tkgrid(labelRcmdr(sliderFrame, text=gettextRcmdr("Number of Columns:")), colsSlider, colsShow, sticky="we", padx = 6,  pady = 6)
     tkgrid(sliderFrame, sticky="w")
     tkgrid(tableTab, sticky="we", padx = 6,  pady = 6)
-    tkgrid(labelRcmdr(tableTab, text=gettextRcmdr("Enter counts:"), fg=getRcmdr("title.color")), sticky="we", padx = 6,  pady = 6)
+    tkgrid(labelRcmdr(tableTab, text=gettextRcmdr("Enter counts:"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="we", padx = 6,  pady = 6)
     tkgrid(percentsFrame, sticky="we", padx = 6,  pady = 6)
     tkgrid(testsFrame, sticky="we", padx = 6, pady = 6)
     tkadd(notebook, tableTab, text=gettextRcmdr("Table"), padding=6)

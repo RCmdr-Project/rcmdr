@@ -1,4 +1,4 @@
-# last modified 2013-06-14 by J. Fox
+# last modified 2013-06-16 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -8,14 +8,14 @@ importFrom(utils, available.packages, install.packages)
 
 export(tkfocus, tkspinbox,
 activateMenus, activeDataSet, ActiveDataSet, activeDataSetP, activeModel,
-ActiveModel, activeModelP, aicP, assignCluster, beginRmdBlock, bin.var, buttonRcmdr,
+ActiveModel, activeModelP, aicP, assignCluster, bin.var, buttonRcmdr,
 checkActiveDataSet,
 checkActiveModel, checkBoxes, checkClass, checkFactors, checkMethod, 
 checkNumeric, checkReplace,
 checkTwoLevelFactors, checkVariables, closeCommander,
 closeDialog, colPercents, Commander,
 commanderPosition, CommanderWindow, Confint, dataSetsP, defmacro,
-dialogSuffix, doItAndPrint, endRmdBlock, errorCondition, exists.method,
+dialogSuffix, doItAndPrint, enterMarkdown, errorCondition, exists.method,
 Factors, factorsP, formulaFields, flushDialogMemory, 
 gassign, getDialog, getFrame, getRcmdr, getSelection, gettextRcmdr,
 glmP, GrabFocus, groupsBox, groupsLabel, hclustSolutionsP, Hist, indexplot, initializeDialog, 
@@ -30,7 +30,7 @@ plotDistr, plotMeans, polrP, popCommand, popOutput, putDialog, putRcmdr,
 radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet, 
 RcmdrTkmessageBox, rcorr.adjust,
 reliability, RExcelSupported, RmdWindow, rowPercents, sortVarNames, stepwise, subOKCancelHelp,
-subsetBox, suppressMarkdown, suppressRmdBlock, 
+subsetBox, suppressMarkdown, 
 tclvalue, totPercents, trim.blanks, ttkentry, ttkframe, ttkradiobutton, ttkcheckbutton,
 ttkscrollbar, TwoLevelFactors, twoLevelFactorsP, 
 UpdateModelNumber, variableListBox, Variables, varPosn, WindowsP, X11P,

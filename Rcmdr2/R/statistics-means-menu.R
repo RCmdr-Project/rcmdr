@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-04-27 by J. Fox
+# last modified 2013-06-16 by J. Fox
 
 # Means menu
 
@@ -59,7 +59,7 @@ independentSamplesTTest <- function () {
 			getFrame(responseBox), sticky = "nw")
 	tkgrid(variablesFrame, sticky = "nw")
 	tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level"), 
-					fg = getRcmdr("title.color")), sticky = "w")
+					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
 	tkgrid(confidenceField, sticky = "w")
 	groupsLabel(groupsBox = groupBox, initialText=dialog.values$initial.label)
 	tkgrid(alternativeFrame, labelRcmdr(optionsFrame, text = "    "), 
@@ -115,7 +115,7 @@ pairedTTest <- function () {
 			textvariable = confidenceLevel)
 	tkgrid(getFrame(xBox), getFrame(yBox), sticky = "nw")
 	tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level"), 
-					fg = getRcmdr("title.color")))
+					fg = getRcmdr("title.color"), font="RcmdrTitleFont"))
 	tkgrid(confidenceField, sticky = "w")
 	tkgrid(alternativeFrame, confidenceFrame, sticky = "nw")
 	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")

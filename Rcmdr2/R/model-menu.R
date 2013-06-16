@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2013-04-24 by J. Fox
+# last modified 2013-06-16 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -46,7 +46,7 @@ selectActiveModel <- function(){
 	}
 	OKCancelHelp()
 	nameFrame <- tkframe(top)
-	tkgrid(labelRcmdr(nameFrame, fg=getRcmdr("title.color"), text=gettextRcmdr("Current Model: ")), 
+	tkgrid(labelRcmdr(nameFrame, fg=getRcmdr("title.color"), font="RcmdrTitleFont", text=gettextRcmdr("Current Model: ")), 
 			labelRcmdr(nameFrame, text=tclvalue(getRcmdr("modelName"))), sticky="w")
 	tkgrid(nameFrame, sticky="w", columnspan="2")
 	tkgrid(getFrame(modelsBox), columnspan="2", sticky="w")
@@ -529,7 +529,7 @@ testLinearHypothesis <- function(){
 	OKCancelHelp(helpSubject="linearHypothesis", reset="testLinearHypothesis")
 	tkgrid(labelRcmdr(rowsFrame, text=gettextRcmdr("Number of Rows:")), rowsSlider, rowsShow, sticky="w")
 	tkgrid(rowsFrame, sticky="w")
-	tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter hypothesis matrix and right-hand side vector:"), fg=getRcmdr("title.color")), sticky="w")
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter hypothesis matrix and right-hand side vector:"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
 	tkgrid(outerTableFrame, sticky="w")
 	tkgrid(labelRcmdr(top, text=""))
 	tkgrid(buttonsFrame, sticky="w")
@@ -612,7 +612,7 @@ BreuschPaganTest <- function () {
 	dialog.values <- getDialog ("BreuschPaganTest", defaults)
 	initializeDialog(title = gettextRcmdr("Breusch-Pagan Test"))
 	tkgrid(labelRcmdr(top, text = gettextRcmdr("Score Test for Nonconstant Error Variance"), 
-					fg = getRcmdr("title.color")), sticky = "w")
+					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
 	optionsFrame <- tkframe(top)
 	onOK <- function() {
 		student <- tclvalue(studentVariable)
@@ -666,7 +666,7 @@ DurbinWatsonTest <- function () {
 	dialog.values <- getDialog ("DurbinWatsonTest", defaults)
 	initializeDialog(title = gettextRcmdr("Durbin-Waton Test"))
 	tkgrid(labelRcmdr(top, text = gettextRcmdr("Test for First-Order Error Autocorrelation"), 
-					fg = getRcmdr("title.color")), sticky = "w")
+					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
 	onOK <- function() {
 		altHypothesis <- tclvalue(altHypothesisVariable)
 		putDialog ("DurbinWatsonTest", list(initial.altHypothesis = altHypothesis))
@@ -699,7 +699,7 @@ RESETtest <- function () {
 	dialog.values <- getDialog ("RESETtest", defaults)
 	initializeDialog(title = gettextRcmdr("RESET Test"))
 	tkgrid(labelRcmdr(top, text = gettextRcmdr("Test for Nonlinearity"), 
-					fg = getRcmdr("title.color")), sticky = "w")
+					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
 	onOK <- function() {
 		type <- tclvalue(typeVariable)
 		square <- tclvalue(squareVariable)
@@ -736,7 +736,7 @@ RESETtest <- function () {
 							"Fitted values", "First principal component")), title = gettextRcmdr("Type of Test"), 
 			initialValue = dialog.values$initial.type)
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Powers to Include"), 
-					fg = getRcmdr("title.color")), sticky = "w")
+					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("2 (squares)")), 
 			squareCheckBox, sticky = "w")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("3 (cubes)   ")), 
@@ -767,7 +767,7 @@ confidenceIntervals <- function () {
     dialog.values <- getDialog ("confidenceIntervals", defaults)
     initializeDialog(title = gettextRcmdr("Confidence Intervals"))
     tkgrid(labelRcmdr(top, text = gettextRcmdr("Confidence Intervals for Individual Coefficients"), 
-                      fg = getRcmdr("title.color")), sticky = "w")
+                      fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
     onOK <- function() {
         level <- tclvalue(confidenceLevel)
         opts <- options(warn = -1)
@@ -887,9 +887,9 @@ subsetRegression <- function () {
 			orient = "horizontal")
 	tkgrid(tklabel(slidersFrame, text = "     "), tklabel(slidersFrame, 
 					text = gettextRcmdr("Number of best models\nof each size:"), 
-					fg = getRcmdr("title.color")), nbestSlider, sticky = "w")
+					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), nbestSlider, sticky = "w")
 	tkgrid(tklabel(slidersFrame, text = "     "), tklabel(slidersFrame, 
-					text = gettextRcmdr("Maximum size:"), fg = getRcmdr("title.color")), nvmaxSlider, 
+					text = gettextRcmdr("Maximum size:"), fg = getRcmdr("title.color"), font="RcmdrTitleFont"), nvmaxSlider, 
 			sticky = "e")
 	tkgrid(criterionFrame, slidersFrame, sticky = "nw")
 	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")

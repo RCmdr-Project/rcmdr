@@ -9,7 +9,6 @@
 \alias{ActiveModel}
 \alias{activeModelP}
 \alias{aicP}
-\alias{beginRmdBlock}
 \alias{checkActiveDataSet}
 \alias{checkActiveModel}
 \alias{checkBoxes}
@@ -28,7 +27,7 @@
 \alias{defmacro}
 \alias{dialogSuffix}
 \alias{doItAndPrint}
-\alias{endRmdBlock}
+\alias{enterMarkdown}
 \alias{errorCondition}
 \alias{exists.method}
 \alias{Factors}
@@ -94,7 +93,6 @@
 \alias{subOKCancelHelp}
 \alias{subsetBox}
 \alias{suppressMarkdown}
-\alias{suppressRmdBlock}
 \alias{tclvalue}
 \alias{tkspinbox}
 \alias{trim.blanks}
@@ -133,7 +131,6 @@ activeModel(model)
 ActiveModel(name)
 activeModelP()
 aicP()
-beginRmdBlock()
 checkActiveDataSet()
 checkActiveModel()
 checkBoxes(window=top, frame=stop("frame not supplied"), boxes=stop("boxes not supplied"), 
@@ -155,7 +152,7 @@ dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows=1, columns=1,
 	focus=top, bindReturn=TRUE, 
     preventGrabFocus=FALSE, preventDoubleClick=FALSE, preventCrisp=FALSE)  # macro
 doItAndPrint(command, log=TRUE, rmd=log)
-endRmdBlock()
+enterMarkdown(command)
 errorCondition(window=top, recall=NULL, message, model=FALSE)  # macro
 exists.method(generic, object, default=TRUE, strict=FALSE)
 Factors(names)
@@ -215,7 +212,7 @@ putDialog(dialog, values=NULL, resettable=TRUE)
 putRcmdr(x, value)
 radioButtons(window=top, name=stop("name not supplied"), buttons=stop("buttons not supplied"), 
     values=NULL, initialValue=..values[1], labels=stop("labels not supplied"), 
-    title="", title.color=getRcmdr("title.color"), right.buttons=TRUE, command=function(){})   # macro
+    title="", title.color=getRcmdr("title.color"), right.buttons=FALSE, command=function(){})   # macro
 RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
@@ -226,7 +223,6 @@ sortVarNames(x)
 subOKCancelHelp(window=subdialog, helpSubject=NULL)  # macro
 subsetBox(window = top, subset.expression = NULL, model = FALSE)  # macro
 suppressMarkdown(command)
-suppressRmdBlock(command)
 tclvalue(x)
 tkfocus(...)
 tkspinbox(parent, ...)
@@ -332,7 +328,7 @@ commanderPosition()
   \item{resettable}{should dialog state be reset when the data set changes? The default is 
   code{TRUE}.}
   \item{reportError}{if \code{TRUE}, report an error message.}
-  \item{right.buttons}{radio button placed to right of button-labels; defaults to \code{TRUE}.}
+  \item{right.buttons}{radio button placed to right of button-labels; defaults to \code{FALSE}.}
   \item{rmd}{enter the command in the R Markdown tab.}
   \item{rows, columns}{numbers of rows and columns of widgets in the dialog box.}
   \item{selectmode}{\code{"single"} or \code{"multiple"}.}
@@ -382,11 +378,8 @@ commanderPosition()
   \code{suppressMarkdown} takes a command in character-string form and adds an attribute to it 
   that will cause the command \emph{not} to be entered in the R Markdown tab. This is useful when a
   command, such as \code{identify}, requires direct user interaction and won't generate useful Markdown.
-  To achieve finer control over generated Markdown, \code{suppressRmdBlock} similarly
-  enters a command in the Markdown tab but doesn't surround it with an Rmd block. 
-  This is useful if, for cosmetic reasons, you want to put several commands in a single block. In this case,
-  you should explicitly begin the block with a call to \code{beginRmdBlock} and end it with
-  a call to \code{endRmdBlock}. 
+  \code{enterMarkdown} can be used to enter command blocks directly in the R Markdown tab; this should
+  rarely be required.
   
   \emph{Checking for errors: }
   
