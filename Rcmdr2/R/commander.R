@@ -246,7 +246,8 @@ Commander <- function(){
     
 
     if (tolower(title.color) == "black" || title.color == "#000000"){
-        .Tcl(paste("font configure RcmdrTitleFont -family {", default.font.family, " bold}", sep=""))
+#        .Tcl(paste("font configure RcmdrTitleFont -family {", default.font.family, " bold}", sep=""))
+        tkfont.configure("RcmdrTitleFont", weight="bold")
     }
     .Tcl("ttk::style configure TLabelframe.Label -font RcmdrTitleFont")
     
