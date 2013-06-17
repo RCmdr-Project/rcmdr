@@ -14,7 +14,7 @@ user interface) for R, based on the tcltk package.
 Package: \tab Rcmdr\cr
 Version: \tab 2.0-0\cr
 Date: \tab 2013/06/16\cr
-Depends: \tab R (>= 3.0.0), grDevices, utils, car (>= 2.0-15)\cr
+Depends: \tab R (>= 3.0.0), grDevices, utils, car (>= 2.0-18), knitr, markdown\cr
 Imports: \tab tcltk\cr
 Suggests: \tab abind, aplpack, colorspace, effects (>= 1.0-7), e1071, foreign, grid, 
    Hmisc, lattice, leaps, lmtest, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, 
@@ -55,7 +55,7 @@ Spanish, Spanish R-UCA Project, http://knuth.uca.es/R.
 }
 
 \author{
-John Fox <jfox@mcmaster.ca>, with contributions from Michael Ash, Theophilius Boye, Stefano Calza, Andy Chang, Philippe Grosjean, Richard Heiberger, G. Jay Kerns, Renaud Lancelot, Matthieu Lesnoff, Uwe Ligges, Samir Messad, Martin Maechler, Robert Muenchen, Duncan Murdoch, Erich Neuwirth, Dan Putler, Brian Ripley, Miroslav Ristic, and Peter Wolf.
+John Fox <jfox@mcmaster.ca> and Milan Bouchet-Valat, with contributions from Liviu Andronic, Michael Ash, Theophilius Boye, Stefano Calza, Andy Chang, Philippe Grosjean, Richard Heiberger, G. Jay Kerns, Renaud Lancelot, Matthieu Lesnoff, Uwe Ligges, Samir Messad, Martin Maechler, Robert Muenchen, Duncan Murdoch, Erich Neuwirth, Dan Putler, Brian Ripley, Miroslav Ristic,  Peter Wolf, and Kevin Wright.
 
 Maintainer: John Fox <jfox@mcmaster.ca>
 }
