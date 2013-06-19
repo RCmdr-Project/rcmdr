@@ -1,28 +1,32 @@
 # Graphs menu dialogs
 
-# last modified 2013-06-16 by J. Fox
+# last modified 2013-06-19 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
-    defaults <- list(initial.x = NULL, initial.type = "spikes", initial.identify = "auto", initial.id.n="2") 
+    defaults <- list(initial.x = NULL, initial.type = "spikes", initial.identify = "auto", initial.id.n="2", initial.tab=0) 
     dialog.values <- getDialog("indexPlot", defaults)
     initializeDialog(title = gettextRcmdr("Index Plot"))
-    xBox <- variableListBox(top, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
-        initialSelection = varPosn (dialog.values$initial.x, "numeric"))
-    optionsFrame <- tkframe(top)
+    notebook <- ttknotebook(top)
+    dataTab <- tkframe(top)
+    optionsTab <- tkframe(top)
+    xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
+                            initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+    optionsFrame <- tkframe(optionsTab)
     typeVariable <- tclVar(dialog.values$initial.type)
     spikesButton <- ttkradiobutton(optionsFrame, variable = typeVariable, 
-        value = "spikes")
+                                   value = "spikes")
     pointsButton <- ttkradiobutton(optionsFrame, variable = typeVariable, 
-        value = "points")  
-    identifyPointsFrame <- tkframe(top)
+                                   value = "points")  
+    identifyPointsFrame <- tkframe(optionsTab)
     radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse", 
-        "not"), labels = gettextRcmdr(c("Automatically", 
-            "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
-        initialValue = dialog.values$initial.identify)    
+                                                                     "not"), labels = gettextRcmdr(c("Automatically", 
+                                                                                                     "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
+                 initialValue = dialog.values$initial.identify)    
     id.n.Var <- tclVar(dialog.values$initial.id.n) 
     npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
     onOK <- function() {
+        tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         x <- getSelection(xBox)
         identify <- tclvalue(identifyVariable)
         id.n <- tclvalue(id.n.Var)
@@ -31,7 +35,7 @@ indexPlot <- function () {
             return()
         }
         putDialog ("indexPlot", list(initial.x = x, initial.type = tclvalue(typeVariable), initial.identify = identify,
-            initial.id.n = id.n))
+                                     initial.id.n = id.n, initial.tab=tab))
         closeDialog()
         if (length(x) == 0) {
             errorCondition(recall = indexPlot, message = gettextRcmdr("You must select a variable"))
@@ -43,78 +47,91 @@ indexPlot <- function () {
         .activeDataSet <- ActiveDataSet()
         if (identify == "mouse") {
             RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
-                gettextRcmdr(if (MacOSXP()) 
-                    "esc key to exit."
-                    else "right button to exit."), sep = ""), icon = "info", 
-                type = "ok")
+                                                                         gettextRcmdr(if (MacOSXP()) 
+                                                                             "esc key to exit."
+                                                                                      else "right button to exit."), sep = ""), icon = "info", 
+                              type = "ok")
         }
         command <- paste("with(", .activeDataSet, ", indexplot(", x, ", type='", type,
-            "', id.method='", method, "', id.n=", id.n.use, ", labels=rownames(", .activeDataSet, ")))",
-            sep="")
+                         "', id.method='", method, "', id.n=", id.n.use, ", labels=rownames(", .activeDataSet, ")))",
+                         sep="")
         if (identify == "mouse") command <- suppressMarkdown(command)
         doItAndPrint(command)
         activateMenus()
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject = "indexplot", reset = "indexPlot")
+    OKCancelHelp(helpSubject = "indexplot", reset = "indexPlot", apply="indexPlot")
     tkgrid(getFrame(xBox), sticky = "nw")
-    tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Spikes")), 
-        spikesButton, sticky = "w")
-    tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Points")), 
-        pointsButton, sticky = "w")
+    tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Style of plot"), fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w", columnspan=2)
+    tkgrid(spikesButton, labelRcmdr(optionsFrame, text = gettextRcmdr("Spikes")), 
+           sticky = "w")
+    tkgrid(pointsButton, labelRcmdr(optionsFrame, text = gettextRcmdr("Points")), 
+           sticky = "w")
     tkgrid(optionsFrame, sticky = "w")
     tkgrid(identifyFrame, sticky="w")
     tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
     tkgrid(identifyPointsFrame, sticky="w")
+    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
+    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
+    tkgrid(notebook, sticky="nsew")
     tkgrid(buttonsFrame, sticky = "w")
+    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
     dialogSuffix(rows = 3, columns = 1)
 }
 
 Histogram <- function () {
-	defaults <- list(initial.x = NULL, initial.scale = "frequency", 
-			initial.bins = gettextRcmdr ("<auto>")) 
-	dialog.values <- getDialog("Histogram", defaults)
-	initializeDialog(title = gettextRcmdr("Histogram"))
-	xBox <- variableListBox(top, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
-			initialSelection = varPosn (dialog.values$initial.x, "numeric"))
-	onOK <- function() {
-		x <- getSelection(xBox)
-		closeDialog()
-		if (length(x) == 0) {
-			errorCondition(recall = Histogram, message = gettextRcmdr("You must select a variable"))
-			return()
-		}
-		bins <- tclvalue(binsVariable)
-		opts <- options(warn = -1)
-		binstext <- if (bins == gettextRcmdr("<auto>")) 
-					"\"Sturges\""
-				else as.numeric(bins)
-		options(opts)
-		scale <- tclvalue(scaleVariable)
-		putDialog ("Histogram", list (initial.x = x, initial.bins = bins, initial.scale = scale))
-		command <- paste("Hist(", ActiveDataSet(), "$", x, ", scale=\"", 
-				scale, "\", breaks=", binstext, ", col=\"darkgray\")", 
-				sep = "")
-		doItAndPrint(command)
-		activateMenus()
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "Hist", reset = "Histogram")
-	radioButtons(name = "scale", buttons = c("frequency", "percent", 
-					"density"), labels = gettextRcmdr(c("Frequency counts", 
-							"Percentages", "Densities")), title = gettextRcmdr("Axis Scaling"), 
-			initialValue = dialog.values$initial.scale)
-	binsFrame <- tkframe(top)
-	binsVariable <- tclVar(dialog.values$initial.bins)
-	binsField <- ttkentry(binsFrame, width = "8", textvariable = binsVariable)
-	tkgrid(getFrame(xBox), sticky = "nw")
-	tkgrid(labelRcmdr(binsFrame, text = gettextRcmdr("Number of bins: ")), 
-			binsField, sticky = "w")
-	tkgrid(binsFrame, sticky = "w")
-	tkgrid(scaleFrame, sticky = "w")
-	tkgrid(buttonsFrame, sticky = "w")
-	tkgrid.configure(binsField, sticky = "e")
-	dialogSuffix(rows = 4, columns = 1)
+    defaults <- list(initial.x = NULL, initial.scale = "frequency", 
+                     initial.bins = gettextRcmdr ("<auto>"), initial.tab=0) 
+    dialog.values <- getDialog("Histogram", defaults)
+    initializeDialog(title = gettextRcmdr("Histogram"))
+    notebook <- ttknotebook(top)
+    dataTab <- tkframe(top)
+    optionsTab <- tkframe(top)
+    xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
+                            initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+    onOK <- function() {
+        tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
+        x <- getSelection(xBox)
+        closeDialog()
+        if (length(x) == 0) {
+            errorCondition(recall = Histogram, message = gettextRcmdr("You must select a variable"))
+            return()
+        }
+        bins <- tclvalue(binsVariable)
+        opts <- options(warn = -1)
+        binstext <- if (bins == gettextRcmdr("<auto>")) 
+            "\"Sturges\""
+        else as.numeric(bins)
+        options(opts)
+        scale <- tclvalue(scaleVariable)
+        putDialog ("Histogram", list (initial.x = x, initial.bins = bins, initial.scale = scale, initial.tab=tab))
+        command <- paste("Hist(", ActiveDataSet(), "$", x, ", scale=\"", 
+                         scale, "\", breaks=", binstext, ", col=\"darkgray\")", 
+                         sep = "")
+        doItAndPrint(command)
+        activateMenus()
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "Hist", reset = "Histogram", apply="Histogram")
+    radioButtons(optionsTab, name = "scale", buttons = c("frequency", "percent", 
+                                                         "density"), labels = gettextRcmdr(c("Frequency counts", 
+                                                                                             "Percentages", "Densities")), title = gettextRcmdr("Axis Scaling"), 
+                 initialValue = dialog.values$initial.scale)
+    binsFrame <- tkframe(optionsTab)
+    binsVariable <- tclVar(dialog.values$initial.bins)
+    binsField <- ttkentry(binsFrame, width = "8", textvariable = binsVariable)
+    tkgrid(getFrame(xBox), sticky = "nw")
+    tkgrid(labelRcmdr(binsFrame, text = gettextRcmdr("Number of bins: ")), 
+           binsField, sticky = "w")
+    tkgrid(binsFrame, sticky = "w")
+    tkgrid(scaleFrame, sticky = "w")
+    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
+    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
+    tkgrid(notebook, sticky="nsew")
+    tkgrid(buttonsFrame, sticky = "w")
+    tkgrid.configure(binsField, sticky = "e")
+    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
+    dialogSuffix(rows = 4, columns = 1)
 }
 
 stemAndLeaf <- function () {
@@ -261,10 +278,10 @@ boxPlot <- function () {
     }
     groupsBox(boxPlot, initialGroup=initial.group, 
               initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups") else paste(gettextRcmdr("Plot by:"), initial.group))
-    OKCancelHelp(helpSubject = "boxplot", reset = "boxPlot")
+    OKCancelHelp(helpSubject = "Boxplot", reset = "boxPlot", apply="boxPlot")
     tkgrid(getFrame(xBox), sticky = "nw")
-    tkgrid(identifyFrame, stick = "w")
     tkgrid(groupsFrame, sticky = "w")
+    tkgrid(identifyFrame, stick = "w")
     tkgrid(buttonsFrame, sticky = "w")
     dialogSuffix(rows = 4, columns = 1)
 }
