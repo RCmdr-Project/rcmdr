@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-06-18 13:00:00\n"
+"POT-Creation-Date: 2013-06-21 12:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4165,4 +4165,20 @@ msgstr ""
 # index plot dialog
 
 msgid "Style of plot"
+msgstr ""
+
+# export data set dialog
+
+msgid "Write variable names"
+msgstr ""
+
+msgid "Write row names"
+msgstr ""
+
+magid "Quotes around character values"
+msgstr ""
+
+# numerical summaries dialog
+
+msgid "Quantiles:"
 msgstr ""

@@ -1,4 +1,4 @@
-# last modified 2013-06-16 by J. Fox
+# last modified 2013-06-21 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1091,7 +1091,7 @@ subOKCancelHelp <- defmacro(window=subdialog, helpSubject=NULL,
 		        tkgrid.configure(subOKbutton, padx=c(0, 6))
 		    }
 		    if (! is.null(helpSubject)){
-		        tkgrid(helpButton, pady=6, padx=c(0, 18))
+		        tkgrid(subHelpButton, pady=6, padx=c(0, 18))
 		    }
 		    tkgrid(subLeftButtonsBox, subRightButtonsBox, pady=6, sticky="ew")
 		    tkgrid.columnconfigure(subButtonsFrame, 0, weight=1)
