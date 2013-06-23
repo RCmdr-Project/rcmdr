@@ -1174,18 +1174,40 @@ commanderPosition <- function (){
 					tclvalue(.Tcl(paste("winfo rooty", ID)))))
 }
 
-initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp=FALSE,
+# initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp=FALSE,
+#     expr={
+#         if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
+#         window <- tktoplevel(borderwidth=10)
+#         tkwm.title(window, title)
+#         location <- getRcmdr("open.dialog.here")
+#         position <- if (!is.null(location)) location
+#                     else {
+#                         pos <- offset + commanderPosition() 
+#                         if (any(pos < 0)) "-50+50"
+#                         else paste("+", paste(pos, collapse="+"), sep="")
+#                     }
+#         tkwm.geometry(window, position)
+#         tkwm.transient(window, CommanderWindow())
+#     }
+# )
+
+initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp=FALSE, 
+    use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"),
     expr={
         if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
         window <- tktoplevel(borderwidth=10)
+        if (use.tabs){
+            notebook <- ttknotebook(window)
+            for (tab in tabs) assign(tab, tkframe(window))
+        }
         tkwm.title(window, title)
         location <- getRcmdr("open.dialog.here")
         position <- if (!is.null(location)) location
-                    else {
-                        pos <- offset + commanderPosition() 
-                        if (any(pos < 0)) "-50+50"
-                        else paste("+", paste(pos, collapse="+"), sep="")
-                    }
+        else {
+            pos <- offset + commanderPosition() 
+            if (any(pos < 0)) "-50+50"
+            else paste("+", paste(pos, collapse="+"), sep="")
+        }
         tkwm.geometry(window, position)
         tkwm.transient(window, CommanderWindow())
     }
@@ -1198,12 +1220,41 @@ closeDialog <- defmacro(window=top, release=TRUE,
 		}
 )
 
+# dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows=1, columns=1, focus=top,
+#     bindReturn=TRUE, preventGrabFocus=FALSE, preventDoubleClick=FALSE,
+#     preventCrisp=FALSE,
+#     expr={
+#         #         for (row in 0:(rows-1)) tkgrid.rowconfigure(window, row, weight=0)
+#         #         for (col in 0:(columns-1)) tkgrid.columnconfigure(window, col, weight=0)
+#         .Tcl("update idletasks")
+#         tkwm.resizable(window, 0, 0)
+#         if (bindReturn) tkbind(window, "<Return>", onOK)
+#         tkbind(window, "<Escape>", onCancel)
+#         if (getRcmdr("double.click") && (!preventDoubleClick)) tkbind(window, "<Double-ButtonPress-1>", onOK)
+#         tkwm.deiconify(window)
+#         # focus grabs appear to cause problems for some dialogs
+#         if (GrabFocus() && (!preventGrabFocus)) tkgrab.set(window)
+#         tkfocus(focus)
+#         tkwait.window(window)
+#         if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
+#     }
+# )
+
 dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows=1, columns=1, focus=top,
     bindReturn=TRUE, preventGrabFocus=FALSE, preventDoubleClick=FALSE,
-    preventCrisp=FALSE,
+    preventCrisp=FALSE, 
+    use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), tab.names=c("Data", "Options"),
+    grid.buttons=FALSE,
     expr={
-        #         for (row in 0:(rows-1)) tkgrid.rowconfigure(window, row, weight=0)
-        #         for (col in 0:(columns-1)) tkgrid.columnconfigure(window, col, weight=0)
+        if (use.tabs){
+            for (i in 1:length(tabs)){
+                tkadd(notebook, get(tabs[i]), text=gettextRcmdr(tab.names[i]), padding=6, sticky="nsew")
+            }
+            tkgrid(notebook, sticky="nsew")
+        }
+        if (grid.buttons) tkgrid(buttonsFrame, sticky = "ew")
+        if (exists("dialog.values") && !is.null(dialog.values$initial.tab) && getRcmdr("restoreTab")) 
+            tkselect(notebook, dialog.values$initial.tab)
         .Tcl("update idletasks")
         tkwm.resizable(window, 0, 0)
         if (bindReturn) tkbind(window, "<Return>", onOK)

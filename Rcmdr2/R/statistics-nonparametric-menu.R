@@ -8,10 +8,7 @@ twoSampleWilcoxonTest <- function () {
     defaults <- list(initial.group = NULL, initial.response = NULL, initial.alternative = "two.sided", 
         initial.test = "default", initial.label=NULL, initial.tab=0)
     dialog.values <- getDialog("twoSampleWilcoxonTest", defaults)
-    initializeDialog(title = gettextRcmdr("Two-Sample Wilcoxon Test"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title = gettextRcmdr("Two-Sample Wilcoxon Test"), use.tabs=TRUE)
     groupBox <- variableListBox(dataTab, TwoLevelFactors(), title = gettextRcmdr("Groups (pick one)"),
         initialSelection = varPosn(dialog.values$initial.group, "twoLevelFactor"))
     responseBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Response Variable (pick one)"),
@@ -63,22 +60,14 @@ twoSampleWilcoxonTest <- function () {
     tkgrid(getFrame(groupBox), labelRcmdr(dataTab, text="  "), getFrame(responseBox), sticky = "nw")
     groupsLabel(optionsTab, groupsBox = groupBox, columnspan = 3, initialText=dialog.values$initial.label)
     tkgrid(alternativeFrame, labelRcmdr(optionsTab, text="  "), testFrame, sticky = "nw")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky = "ew")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 4, columns = 1)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 pairedWilcoxonTest <- function () {
     defaults <- list(initial.x = NULL, initial.y = NULL, initial.alternative = "two.sided", 
         initial.test = "default", initial.tab=0)
     dialog.values <- getDialog("pairedWilcoxonTest", defaults)
-    initializeDialog(title = gettextRcmdr("Paired Wilcoxon Test"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title = gettextRcmdr("Paired Wilcoxon Test"), use.tabs=TRUE)
     .numeric <- Numeric()
     xBox <- variableListBox(dataTab, .numeric, title = gettextRcmdr("First variable (pick one)"), 
         initialSelection = varPosn(dialog.values$initial.x, "numeric"))
@@ -141,7 +130,7 @@ pairedWilcoxonTest <- function () {
     tkgrid(notebook, sticky="nsew")
     tkgrid(buttonsFrame, sticky = "ew")
     if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 3, columns = 1)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 KruskalWallisTest <- function () {
@@ -179,7 +168,7 @@ KruskalWallisTest <- function () {
     tkgrid(getFrame(groupBox), labelRcmdr(dataFrame, text="   "), getFrame(responseBox), sticky = "nw")
     tkgrid(dataFrame, sticky="w")
     tkgrid(buttonsFrame, sticky = "ew")
-    dialogSuffix(rows = 2, columns = 1)
+    dialogSuffix()
 }
 
 FriedmanTest <- function () {
@@ -200,8 +189,6 @@ FriedmanTest <- function () {
 		.activeDataSet <- ActiveDataSet()
 		command <- paste("na.omit(with(", .activeDataSet, ", cbind(", 
 				paste(responses, collapse = ", "), ")))", sep = "")
-# 		logger(paste(".Responses <- ", command, sep = ""))
-# 		assign(".Responses", justDoIt(command), envir = .GlobalEnv)
 		doItAndPrint(paste(".Responses <- ", command, sep = ""))
 		doItAndPrint("apply(.Responses, 2, median)")
 		doItAndPrint("friedman.test(.Responses)")
@@ -213,6 +200,6 @@ FriedmanTest <- function () {
 	             apply = "FriedmanTest")
 	tkgrid(getFrame(responseBox), sticky = "nw")
 	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 2, columns = 1)
+	dialogSuffix()
 }
 

@@ -150,7 +150,9 @@ dataSetsP(n=1)
 defmacro(..., expr)
 dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows=1, columns=1, 
 	focus=top, bindReturn=TRUE, 
-    preventGrabFocus=FALSE, preventDoubleClick=FALSE, preventCrisp=FALSE)  # macro
+    preventGrabFocus=FALSE, preventDoubleClick=FALSE, preventCrisp=FALSE,
+    use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), 
+    tab.names=c("Data", "Options"), grid.buttons=FALSE)  # macro
 doItAndPrint(command, log=TRUE, rmd=log)
 enterMarkdown(command)
 errorCondition(window=top, recall=NULL, message, model=FALSE)  # macro
@@ -174,7 +176,8 @@ groupsBox(recall=NULL, label=gettextRcmdr("Plot by:"),
     initialGroup=NULL, initialLinesByGroup=1, window=top)  # macro
 groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1, initialText=NULL)  # macro
 hclustSolutionsP()
-initializeDialog(window=top, title="", offset=10, preventCrisp=FALSE)  # macro
+initializeDialog(window=top, title="", offset=10, preventCrisp=FALSE,
+    use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"))  # macro
 is.valid.name(x)
 is.SciViews()
 justDoIt(command)
@@ -278,6 +281,8 @@ commanderPosition()
   \item{frame}{frame or quoted name for frame depending upon the function.}
   \item{generic}{quoted name of generic function.}
   \item{glm}{\code{TRUE} if the model is a \code{glm} object, \code{FALSE} otherwise.}
+  \item{grid.buttons}{insert call to \code{tkgrid} for the buttons frame (default \code{FALSE}); 
+    use \code{TRUE} for tabbed dialogs and optionally for other dialogs.}
   \item{groupsBox}{listbox object for selecting groups variable.}
   \item{initialText}{initial text to display in the groups label; if \code{NULL}, \code{"<No groups selected>"}
     will be displayed.}
@@ -303,9 +308,10 @@ commanderPosition()
   \item{mode}{mode of object to retrieve.}
   \item{model}{the name of a model, as a character string, or a model object, 
   	or \code{TRUE} or \code{FALSE}, depending upon the function.}
+  \item{n}{number of items to check for.}
   \item{name}{quoted name.}
   \item{names}{optional names to be stored.}
-  \item{n}{number of items to check for.}
+  \item{notebook}{notebook windows for a tabbed dialog (default \code{notebook}).}
   \item{object}{an object (depends on context).}
   \item{offset}{in pixels, from top-left of Commander window.}
   \item{onOK}{function to execute when the \emph{OK} button is pressed.}
@@ -330,16 +336,20 @@ commanderPosition()
   \item{reportError}{if \code{TRUE}, report an error message.}
   \item{right.buttons}{radio button placed to right of button-labels; defaults to \code{FALSE}.}
   \item{rmd}{enter the command in the R Markdown tab.}
-  \item{rows, columns}{numbers of rows and columns of widgets in the dialog box.}
+  \item{rows, columns}{numbers of rows and columns of widgets in the dialog box; this is actually no longer used, but
+    is still present for backwards compatibility.}
   \item{selectmode}{\code{"single"} or \code{"multiple"}.}
   \item{strict}{if \code{TRUE}, only use first element of class vector.}
   \item{subset.expression}{a quoted expression to subset the data set.}
+  \item{tab.names}{text to print as tab labels (default \code{c("Data", "Options")}).}
+  \item{tabs}{quoted names of tabs for a tabbed dialog (default \code{c("dataTab", "optionsTab")}).}
   \item{text}{a text string.}
   \item{title}{Window or dialog-box-element title.}
   \item{title.color}{color for title above radio buttons; defaults to \code{"blue"}.} 
   \item{ttk}{use ttk themed widget for check boxes.}
   \item{type}{quoted type of object to check; used to generate check-replace dialog box;
     or type of message to print in Message window. For \code{varPosn}, type of variable list.}
+  \item{use.tabs}{(default \code{FALSE}) construct a tabbed dialog.}
   \item{value}{an object to be stored or assigned.}
   \item{values}{vector of quoted values associated with radio buttons or check boxes; for \code{putDialog},
   	a list of current selections to be stored in support of dialog memory.}
