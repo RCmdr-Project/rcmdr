@@ -1,68 +1,86 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-16 by J. Fox
+# last modified 2013-06-23 by J. Fox
 
 # Variances menu
 
 twoVariancesFTest <- function () {
-	defaults <- list(initial.groups = NULL, initial.response = NULL, initial.alternative = "two.sided", 
-			initial.confidenceLevel = ".95", initial.label=NULL)
-	dialog.values <- getDialog("twoVariancesFTest", defaults)
-	initializeDialog(title = gettextRcmdr("Two Variances F-Test"))
-	variablesFrame <- tkframe(top)
-	groupBox <- variableListBox(variablesFrame, TwoLevelFactors(), 
-			title = gettextRcmdr("Groups (pick one)"), 
-			initialSelection = varPosn(dialog.values$initial.groups, "twoLevelFactor"))
-	responseBox <- variableListBox(variablesFrame, Numeric(), 
-			title = gettextRcmdr("Response Variable (pick one)"), 
-			initialSelection = varPosn(dialog.values$initial.response, "numeric"))
-	onOK <- function() {
-		group <- getSelection(groupBox)
-		if (length(group) == 0) {
-			errorCondition(recall = twoVariancesFTest, message = gettextRcmdr("You must select a groups variable."))
-			return()
-		}
-		response <- getSelection(responseBox)
-		if (length(response) == 0) {
-			errorCondition(recall = twoVariancesFTest, message = gettextRcmdr("You must select a response variable."))
-			return()
-		}
-		alternative <- as.character(tclvalue(alternativeVariable))
-		level <- tclvalue(confidenceLevel)
-		closeDialog()
-		putDialog("twoVariancesFTest", list(initial.groups = group, initial.response = response, 
-						initial.alternative = alternative, initial.confidenceLevel = level,
-						initial.label=.groupsLabel))
-		.activeDataSet <- ActiveDataSet()
-		doItAndPrint(paste("tapply(", .activeDataSet, "$", response, 
-						", ", .activeDataSet, "$", group, ",  var, na.rm=TRUE)", 
-						sep = ""))
-		doItAndPrint(paste("var.test(", response, " ~ ", group, 
-						", alternative='", alternative, "', conf.level=", 
-						level, ", data=", .activeDataSet, ")", sep = ""))
-		tkfocus(CommanderWindow())
-		tkdestroy(top)
-	}
-	OKCancelHelp(helpSubject = "var.test", reset = "twoVariancesFTest", apply = "twoVariancesFTest")
-	radioButtons(name = "alternative", buttons = c("twosided", 
-					"less", "greater"), values = c("two.sided", "less", "greater"), 
-			labels = gettextRcmdr(c("Two-sided", "Difference < 0", 
-							"Difference > 0")), title = gettextRcmdr("Alternative Hypothesis"), 
-			initialValue = dialog.values$initial.alternative,)
-	confidenceFrame <- tkframe(top)
-	confidenceLevel <- tclVar(dialog.values$initial.confidenceLevel)
-	confidenceField <- ttkentry(confidenceFrame, width = "6", 
-			textvariable = confidenceLevel)
-	tkgrid(getFrame(groupBox), labelRcmdr(variablesFrame, text = "    "), 
-			getFrame(responseBox), sticky = "nw")
-	tkgrid(variablesFrame, sticky = "w")
-	groupsLabel(groupsBox = groupBox, initialText=dialog.values$initial.label)
-	tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level:  "), 
-					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), confidenceField, sticky = "w")
-	tkgrid(alternativeFrame, sticky = "w")
-	tkgrid(confidenceFrame, sticky = "w")
-	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 5, columns = 1)
+    defaults <- list(initial.groups = NULL, initial.response = NULL, initial.alternative = "two.sided", 
+        initial.confidenceLevel = ".95", initial.label=NULL, initial.tab=0)
+    dialog.values <- getDialog("twoVariancesFTest", defaults)
+    initializeDialog(title = gettextRcmdr("Two Variances F-Test"))
+    notebook <- ttknotebook(top)
+    dataTab <- tkframe(top)
+    optionsTab <- tkframe(top)
+    variablesFrame <- tkframe(dataTab)
+    groupBox <- variableListBox(variablesFrame, TwoLevelFactors(), 
+        title = gettextRcmdr("Groups (pick one)"), 
+        initialSelection = varPosn(dialog.values$initial.groups, "twoLevelFactor"))
+    responseBox <- variableListBox(variablesFrame, Numeric(), 
+        title = gettextRcmdr("Response Variable (pick one)"), 
+        initialSelection = varPosn(dialog.values$initial.response, "numeric"))
+    onOK <- function() {
+        tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
+        group <- getSelection(groupBox)
+        if (length(group) == 0) {
+            errorCondition(recall = twoVariancesFTest, message = gettextRcmdr("You must select a groups variable."))
+            return()
+        }
+        response <- getSelection(responseBox)
+        if (length(response) == 0) {
+            errorCondition(recall = twoVariancesFTest, message = gettextRcmdr("You must select a response variable."))
+            return()
+        }
+        alternative <- as.character(tclvalue(alternativeVariable))
+        level <- tclvalue(confidenceLevel)
+        closeDialog()
+        putDialog("twoVariancesFTest", list(initial.groups = group, initial.response = response, 
+            initial.alternative = alternative, initial.confidenceLevel = level,
+            initial.label=.groupsLabel, initial.tab=tab))
+        .activeDataSet <- ActiveDataSet()
+        doItAndPrint(paste("tapply(", .activeDataSet, "$", response, 
+            ", ", .activeDataSet, "$", group, ",  var, na.rm=TRUE)", 
+            sep = ""))
+        doItAndPrint(paste("var.test(", response, " ~ ", group, 
+            ", alternative='", alternative, "', conf.level=", 
+            level, ", data=", .activeDataSet, ")", sep = ""))
+        tkfocus(CommanderWindow())
+        #         tkdestroy(top)
+    }
+    OKCancelHelp(helpSubject = "var.test", reset = "twoVariancesFTest", apply = "twoVariancesFTest")
+    radioButtons(optionsTab, name = "alternative", buttons = c("twosided", 
+        "less", "greater"), values = c("two.sided", "less", "greater"), 
+        labels = gettextRcmdr(c("Two-sided", "Difference < 0", 
+            "Difference > 0")), title = gettextRcmdr("Alternative Hypothesis"), 
+        initialValue = dialog.values$initial.alternative,)
+    confidenceFrame <- tkframe(optionsTab)
+    confidenceLevel <- tclVar(dialog.values$initial.confidenceLevel)
+    confidenceField <- ttkentry(confidenceFrame, width = "6", 
+        textvariable = confidenceLevel)
+    tkgrid(getFrame(groupBox), labelRcmdr(variablesFrame, text = "    "), 
+        getFrame(responseBox), sticky = "nw")
+    tkgrid(variablesFrame, sticky = "w")
+    initial.label <- dialog.values$initial.label
+    if  (is.null(initial.label)) {
+        group <- getSelection(groupBox)
+        initial.label <- if (length(group) == 0) NULL 
+        else {
+            levels <- eval(parse(text = paste("levels(", ActiveDataSet(), 
+                "$", group, ")", sep = "")))
+            paste(levels[1], "-", levels[2])
+        }
+    }
+    groupsLabel(optionsTab, groupsBox = groupBox, initialText=initial.label)
+    tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level:  "), 
+        fg = getRcmdr("title.color"), font="RcmdrTitleFont"), confidenceField, sticky = "w")
+    tkgrid(alternativeFrame, sticky = "w")
+    tkgrid(confidenceFrame, sticky = "w")
+    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
+    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
+    tkgrid(notebook, sticky="nsew")
+    tkgrid(buttonsFrame, sticky = "ew")
+    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
+    dialogSuffix(rows = 5, columns = 1)
 }
 
 BartlettTest <- function () {
