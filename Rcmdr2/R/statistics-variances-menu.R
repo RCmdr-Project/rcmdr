@@ -60,16 +60,6 @@ twoVariancesFTest <- function () {
     tkgrid(getFrame(groupBox), labelRcmdr(variablesFrame, text = "    "), 
         getFrame(responseBox), sticky = "nw")
     tkgrid(variablesFrame, sticky = "w")
-    initial.label <- dialog.values$initial.label
-    if  (is.null(initial.label)) {
-        group <- getSelection(groupBox)
-        initial.label <- if (length(group) == 0) NULL 
-        else {
-            levels <- eval(parse(text = paste("levels(", ActiveDataSet(), 
-                "$", group, ")", sep = "")))
-            paste(levels[1], "-", levels[2])
-        }
-    }
     groupsLabel(optionsTab, groupsBox = groupBox, initialText=initial.label)
     tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level:  "), 
         fg = getRcmdr("title.color"), font="RcmdrTitleFont"), confidenceField, sticky = "w")
