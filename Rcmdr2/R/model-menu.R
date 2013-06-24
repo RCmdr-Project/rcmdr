@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2013-06-16 by J. Fox
+# last modified 2013-06-24 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -51,7 +51,7 @@ selectActiveModel <- function(){
 	tkgrid(nameFrame, sticky="w", columnspan="2")
 	tkgrid(getFrame(modelsBox), columnspan="2", sticky="w")
 	tkgrid(buttonsFrame, columnspan=2, sticky="w")
-	dialogSuffix(rows=3, columns=2)
+	dialogSuffix()
 }
 
 summarizeModel <- function(){
@@ -96,7 +96,7 @@ CRPlots <- function(){
     tkgrid(labelRcmdr(sliderFrame, text=gettextRcmdr("Span for smooth")), slider, sticky="sw")
     tkgrid(sliderFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=2, columns=1)
+    dialogSuffix()
 }
 
 AVPlots <- function () {
@@ -143,7 +143,7 @@ AVPlots <- function () {
     tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
     tkgrid(identifyPointsFrame, sticky="w")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 2, columns = 1)
+    dialogSuffix()
 }
 
 InfluencePlot <- function () {
@@ -188,7 +188,7 @@ InfluencePlot <- function () {
     tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
     tkgrid(identifyPointsFrame, sticky="w")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 2, columns = 1)
+    dialogSuffix()
 }
 
 anovaTable <- function () {
@@ -248,7 +248,7 @@ anovaTable <- function () {
 	OKCancelHelp(helpSubject = "Anova", reset = "anovaTable")
 	tkgrid(typeFrame, sticky = "w")
 	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 2, columns = 1)
+	dialogSuffix()
 }
 
 VIF <- function(){
@@ -347,7 +347,7 @@ addObservationStatistics <- function () {
 	OKCancelHelp(helpSubject = "influence.measures", reset = "addObservationStatistics")
 	tkgrid(selectFrame, sticky = "w")
 	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 5, columns = 1)
+	dialogSuffix()
 }
 
 residualQQPlot <- function () {
@@ -403,7 +403,7 @@ residualQQPlot <- function () {
     tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
     tkgrid(identifyPointsFrame, sticky="w")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 2, columns = 1)
+    dialogSuffix()
 }
 
 testLinearHypothesis <- function(){
@@ -533,7 +533,7 @@ testLinearHypothesis <- function(){
 	tkgrid(outerTableFrame, sticky="w")
 	tkgrid(labelRcmdr(top, text=""))
 	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=4, columns=1)       
+	dialogSuffix()       
 } 
 
 compareModels <- function () {
@@ -599,7 +599,7 @@ compareModels <- function () {
 	OKCancelHelp(helpSubject = "anova", reset = "compareModels")
 	tkgrid(getFrame(modelsBox1), getFrame(modelsBox2), sticky = "nw")
 	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
-	dialogSuffix(rows = 2, columns = 2)
+	dialogSuffix()
 }
 
 BreuschPaganTest <- function () {
@@ -654,7 +654,7 @@ BreuschPaganTest <- function () {
 	tkgrid(getFrame(xBox), sticky = "w")
 	tkgrid(optionsFrame, sticky = "w")
 	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 4, columns = 1)
+	dialogSuffix()
 }
 
 DurbinWatsonTest <- function () {
@@ -687,7 +687,7 @@ DurbinWatsonTest <- function () {
 			initialValue = dialog.values$initial.altHypothesis)
 	tkgrid(altHypothesisFrame, sticky = "w")
 	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 3, columns = 1)
+	dialogSuffix()
 }
 
 RESETtest <- function () {
@@ -744,7 +744,7 @@ RESETtest <- function () {
 	tkgrid(typeFrame, sticky = "w")
 	tkgrid(optionsFrame, sticky = "w")
 	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 3, columns = 1)
+	dialogSuffix()
 }
 
 OutlierTest <- function(){
@@ -805,7 +805,7 @@ confidenceIntervals <- function () {
     if (glm) 
         tkgrid(typeFrame, sticky = "w")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 3 + glm, columns = 1)
+    dialogSuffix()
 }
 
 aic <- function(){
@@ -846,7 +846,7 @@ stepwiseRegression <- function () {
 							"AIC")), title = gettextRcmdr("Criterion"), initialValue = dialog.values$initial.criterion)
 	tkgrid(directionFrame, criterionFrame, sticky = "nw")
 	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
-	dialogSuffix(rows = 2, columns = 2)
+	dialogSuffix()
 }
 
 subsetRegression <- function () {
@@ -893,5 +893,5 @@ subsetRegression <- function () {
 			sticky = "e")
 	tkgrid(criterionFrame, slidersFrame, sticky = "nw")
 	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
-	dialogSuffix(rows = 2, columns = 2)
+	dialogSuffix()
 }

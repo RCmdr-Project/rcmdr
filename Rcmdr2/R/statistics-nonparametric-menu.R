@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-23 by J. Fox
+# last modified 2013-06-24 by J. Fox
 
 # Nonparametric tests menu
 
@@ -125,11 +125,6 @@ pairedWilcoxonTest <- function () {
         title = gettextRcmdr("Type of Test"), initialValue = dialog.values$initial.test)
     tkgrid(getFrame(xBox), labelRcmdr(dataTab, text="  "), getFrame(yBox), sticky = "nw")
     tkgrid(alternativeFrame, labelRcmdr(optionsTab, text="  "), testFrame, sticky = "nw")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky = "ew")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 

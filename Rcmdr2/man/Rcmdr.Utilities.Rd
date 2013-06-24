@@ -148,7 +148,7 @@ closeDialog(window, release=TRUE)  # macro
 CommanderWindow()
 dataSetsP(n=1)
 defmacro(..., expr)
-dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows=1, columns=1, 
+dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows, columns, 
 	focus=top, bindReturn=TRUE, 
     preventGrabFocus=FALSE, preventDoubleClick=FALSE, preventCrisp=FALSE,
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), 

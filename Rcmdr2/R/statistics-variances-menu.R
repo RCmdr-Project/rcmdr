@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-23 by J. Fox
+# last modified 2013-06-24 by J. Fox
 
 # Variances menu
 
@@ -8,10 +8,7 @@ twoVariancesFTest <- function () {
     defaults <- list(initial.groups = NULL, initial.response = NULL, initial.alternative = "two.sided", 
         initial.confidenceLevel = ".95", initial.label=NULL, initial.tab=0)
     dialog.values <- getDialog("twoVariancesFTest", defaults)
-    initializeDialog(title = gettextRcmdr("Two Variances F-Test"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title = gettextRcmdr("Two Variances F-Test"), use.tabs=TRUE)
     variablesFrame <- tkframe(dataTab)
     groupBox <- variableListBox(variablesFrame, TwoLevelFactors(), 
         title = gettextRcmdr("Groups (pick one)"), 
@@ -65,12 +62,7 @@ twoVariancesFTest <- function () {
         fg = getRcmdr("title.color"), font="RcmdrTitleFont"), confidenceField, sticky = "w")
     tkgrid(alternativeFrame, sticky = "w")
     tkgrid(confidenceFrame, sticky = "w")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky = "ew")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 5, columns = 1)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 BartlettTest <- function () {
@@ -119,7 +111,7 @@ BartlettTest <- function () {
 			getFrame(responseBox), sticky = "nw")
 	tkgrid(variableFrame, sticky = "w")
 	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 2, columns = 1)
+	dialogSuffix()
 }
 
 LeveneTest <- function () {
@@ -178,6 +170,6 @@ LeveneTest <- function () {
 	tkgrid(variableFrame, sticky = "w")
 	tkgrid(centerFrame, sticky = "nw")
 	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 3, columns = 1)
+	dialogSuffix()
 }
 

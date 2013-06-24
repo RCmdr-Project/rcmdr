@@ -1,6 +1,6 @@
 # Distributions menu dialogs
 
-# last modified 2013-05-29 by J. Fox
+# last modified 2013-06-24 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic (20 July 06)
 # Modified by Miroslav Ristic (15 January 11)
@@ -325,8 +325,9 @@ distributionQuantiles <- function(nameVar){
 		eval(parse(text=paste(paramsEntry[i],"<-ttkentry(entryFrame, width='6', textvariable=",paramsVar[i],")",sep="")))
 	}
 	tailVar <- tclVar(initial$tail)
-	lowerTailButton <- ttkradiobutton(entryFrame, variable=tailVar, value="lower")
-	upperTailButton <- ttkradiobutton(entryFrame, variable=tailVar, value="upper")
+    buttonFrame <- tkframe(top)
+	lowerTailButton <- ttkradiobutton(buttonFrame, variable=tailVar, value="lower")
+	upperTailButton <- ttkradiobutton(buttonFrame, variable=tailVar, value="upper")
 	onOK <- function(){
 		nameVarF<-get(paste(nameVar,"Quantiles",sep=""),mode="function")
 		closeDialog()
@@ -367,22 +368,21 @@ distributionQuantiles <- function(nameVar){
 		putDialog(dialogName, list(initialValues=vars, tail=tclvalue(tailVar), quantiles=tclvalue(quantilesVar)), resettable=FALSE)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject=paste("q",fVar$funName,sep=""), reset = dialogName)
+	OKCancelHelp(helpSubject=paste("q",fVar$funName,sep=""), reset = dialogName, apply=dialogName)
 	tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr("Probabilities")), quantilesEntry, sticky="w", padx=6)
 	for (i in 1:nnVar) {
 		tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="w", padx=6)
 	}
-	tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr("Lower tail")), lowerTailButton, sticky="w", padx=6)
-	tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr("Upper tail")), upperTailButton, sticky="w", padx=6)
+	tkgrid(lowerTailButton, labelRcmdr(buttonFrame, text=gettextRcmdr("Lower tail")), sticky="w")
+	tkgrid(upperTailButton, labelRcmdr(buttonFrame, text=gettextRcmdr("Upper tail")), sticky="w")
     tkgrid(entryFrame, sticky="w")
-	tkgrid(buttonsFrame, sticky="w", columnspan=2)
+	tkgrid(buttonFrame, sticky="w")
 	tkgrid.configure(quantilesEntry, sticky="w")
 	for (i in 1:nnVar) {
 		tkgrid.configure(get(paramsEntry[i]), sticky="w")
 	}
-	tkgrid.configure(lowerTailButton, sticky="w")
-	tkgrid.configure(upperTailButton, sticky="w")
-	dialogSuffix(rows=6, columns=2, focus=quantilesEntry)
+    tkgrid(buttonsFrame, sticky="ew")
+	dialogSuffix(focus=quantilesEntry)
 }
 
 distributionProbabilities <- function(nameVar){
@@ -402,8 +402,9 @@ distributionProbabilities <- function(nameVar){
 		eval(parse(text=paste(paramsEntry[i],"<-ttkentry(entryFrame, width='6', textvariable=",paramsVar[i],")",sep="")))
 	}
 	tailVar <- tclVar(initial$tail)
-	lowerTailButton <- ttkradiobutton(entryFrame, variable=tailVar, value="lower")
-	upperTailButton <- ttkradiobutton(entryFrame, variable=tailVar, value="upper")
+    buttonFrame <- tkframe(top)
+	lowerTailButton <- ttkradiobutton(buttonFrame, variable=tailVar, value="lower")
+	upperTailButton <- ttkradiobutton(buttonFrame, variable=tailVar, value="upper")
 	onOK <- function(){
 		nameVarF<-get(paste(nameVar,"Probabilities",sep=""),mode="function")
 		closeDialog()
@@ -444,22 +445,21 @@ distributionProbabilities <- function(nameVar){
 		tkfocus(CommanderWindow())
 		putDialog(dialogName, list(initialValues=vars, tail=tclvalue(tailVar), probabilities=tclvalue(probabilitiesVar)), resettable=FALSE)
 	}
-	OKCancelHelp(helpSubject=paste("p",fVar$funName,sep=""), reset = dialogName)
+	OKCancelHelp(helpSubject=paste("p",fVar$funName,sep=""), reset = dialogName, apply = dialogName)
 	tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr("Variable value(s)")), probabilitiesEntry, sticky="w", padx=6)
 	for (i in 1:nnVar) {
 		tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="w", padx=6)
 	}
-	tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr("Lower tail")), lowerTailButton, sticky="w", padx=6)
-	tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr("Upper tail")), upperTailButton, sticky="w", padx=6)
+	tkgrid(lowerTailButton, labelRcmdr(buttonFrame, text=gettextRcmdr("Lower tail")), sticky="w")
+	tkgrid(upperTailButton, labelRcmdr(buttonFrame, text=gettextRcmdr("Upper tail")), sticky="w")
     tkgrid(entryFrame, sticky="w")
-	tkgrid(buttonsFrame, sticky="w", columnspan=2)
+    tkgrid(buttonFrame, sticky="w")
+	tkgrid(buttonsFrame, sticky="ew")
 	tkgrid.configure(probabilitiesEntry, sticky="w")
 	for (i in 1:nnVar) {
 		tkgrid.configure(get(paramsEntry[i]), sticky="w")
 	}
-	tkgrid.configure(lowerTailButton, sticky="w")
-	tkgrid.configure(upperTailButton, sticky="w")
-	dialogSuffix(rows=6, columns=1, focus=probabilitiesEntry)
+	dialogSuffix(focus=probabilitiesEntry)
 }
 
 distributionMass  <- function(nameVar) {
@@ -549,7 +549,7 @@ distributionMass  <- function(nameVar) {
 		tkfocus(CommanderWindow())
 		putDialog(dialogName, list(initialValues=vars), resettable=FALSE)
 	}
-	OKCancelHelp(helpSubject=paste("d",fVar$funName,sep=""), reset = dialogName)
+	OKCancelHelp(helpSubject=paste("d",fVar$funName,sep=""), reset = dialogName, apply = dialogName)
 	for (i in 1:nnVar) {
 		tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="w", padx=6)
 	}
@@ -558,5 +558,5 @@ distributionMass  <- function(nameVar) {
 	for (i in 1:nnVar) {
 		tkgrid.configure(get(paramsEntry[i]), sticky="w")
 	}
-	dialogSuffix(rows=4, columns=2, focus=get(paramsEntry[1]))
+	dialogSuffix(focus=get(paramsEntry[1]))
 }

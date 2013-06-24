@@ -1,25 +1,22 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-21 by J. Fox
+# last modified 2013-06-24 by J. Fox
 
 # Tables menu
 
-twoWayTable <- function(){ # dialog memory 2011-06-27 J. Fox
+twoWayTable <- function(){
     Library("abind")
     defaults <- list(initial.row=NULL, initial.column=NULL, 
-                     initial.percents="none", initial.chisq=1, initial.chisqComp=0, initial.expected=0, 
-                     initial.fisher=0, initial.subset=gettextRcmdr("<all valid cases>"), initial.tab=0)
+        initial.percents="none", initial.chisq=1, initial.chisqComp=0, initial.expected=0, 
+        initial.fisher=0, initial.subset=gettextRcmdr("<all valid cases>"), initial.tab=0)
     dialog.values <- getDialog("twoWayTable", defaults)
-    initializeDialog(title=gettextRcmdr("Two-Way Table"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title=gettextRcmdr("Two-Way Table"), use.tabs=TRUE)
     variablesFrame <- tkframe(dataTab)
     .factors <- Factors()
     rowBox <- variableListBox(variablesFrame, .factors, title=gettextRcmdr("Row variable (pick one)"),
-                              initialSelection=varPosn(dialog.values$initial.row, "factor"))
+        initialSelection=varPosn(dialog.values$initial.row, "factor"))
     columnBox <- variableListBox(variablesFrame, .factors, title=gettextRcmdr("Column variable (pick one)"),
-                                 initialSelection=varPosn(dialog.values$initial.column, "factor"))
+        initialSelection=varPosn(dialog.values$initial.column, "factor"))
     subsetBox(dataTab, subset.expression=dialog.values$initial.subset)
     onOK <- function(){
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
@@ -49,7 +46,7 @@ twoWayTable <- function(){ # dialog memory 2011-06-27 J. Fox
         }
         closeDialog()
         command <- paste("xtabs(~", row, "+", column, ", data=", ActiveDataSet(),
-                         subset, ")", sep="")
+            subset, ")", sep="")
         doItAndPrint(paste(".Table <- ", command, sep=""))
         doItAndPrint(".Table")
         if (percents == "row") doItAndPrint("rowPercents(.Table) # Row Percentages")
@@ -62,11 +59,11 @@ twoWayTable <- function(){ # dialog memory 2011-06-27 J. Fox
             if (expected == 1) doItAndPrint(".Test$expected # Expected Counts")
             warnText <- NULL
             if (0 < (nlt1 <- sum(.Test$expected < 1))) warnText <- paste(nlt1,
-                                                                         gettextRcmdr("expected frequencies are less than 1"))
+                gettextRcmdr("expected frequencies are less than 1"))
             if (0 < (nlt5 <- sum(.Test$expected < 5))) warnText <- paste(warnText, "\n", nlt5,
-                                                                         gettextRcmdr(" expected frequencies are less than 5"), sep="")
+                gettextRcmdr(" expected frequencies are less than 5"), sep="")
             if (!is.null(warnText)) Message(message=warnText,
-                                            type="warning")
+                type="warning")
             if (chisqComp == 1) {
                 command <- "round(.Test$residuals^2, 2) # Chi-square Components"
                 doItAndPrint(command)
@@ -81,27 +78,22 @@ twoWayTable <- function(){ # dialog memory 2011-06-27 J. Fox
     }
     OKCancelHelp(helpSubject="xtabs", reset="twoWayTable", apply="twoWayTable")
     radioButtons(optionsTab, name="percents",
-                 buttons=c("rowPercents", "columnPercents", "totalPercents", "nonePercents"),
-                 values=c("row", "column", "total", "none"), initialValue=dialog.values$initial.percents,
-                 labels=gettextRcmdr(c("Row percentages", "Column percentages", "Percentages of total", "No percentages")), 
-                 title=gettextRcmdr("Compute Percentages"))
+        buttons=c("rowPercents", "columnPercents", "totalPercents", "nonePercents"),
+        values=c("row", "column", "total", "none"), initialValue=dialog.values$initial.percents,
+        labels=gettextRcmdr(c("Row percentages", "Column percentages", "Percentages of total", "No percentages")), 
+        title=gettextRcmdr("Compute Percentages"))
     checkBoxes(optionsTab, frame="testsFrame", boxes=c("chisqTest", "chisqComponents", "expFreq", "fisherTest"), 
-               initialValues=c(dialog.values$initial.chisq, dialog.values$initial.chisqComp, 
-                               dialog.values$initial.expected, dialog.values$initial.fisher),
-               labels=gettextRcmdr(c("Chi-square test of independence", "Components of chi-square statistic",
-                                     "Print expected frequencies", "Fisher's exact test")))
+        initialValues=c(dialog.values$initial.chisq, dialog.values$initial.chisqComp, 
+            dialog.values$initial.expected, dialog.values$initial.fisher),
+        labels=gettextRcmdr(c("Chi-square test of independence", "Components of chi-square statistic",
+            "Print expected frequencies", "Fisher's exact test")))
     tkgrid(getFrame(rowBox), labelRcmdr(variablesFrame, text="    "), getFrame(columnBox), sticky="nw")
     tkgrid(variablesFrame, sticky="w")
     tkgrid(percentsFrame, sticky="w")
     tkgrid(labelRcmdr(optionsTab, text=gettextRcmdr("Hypothesis Tests"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
     tkgrid(testsFrame, sticky="w")
     tkgrid(subsetFrame, sticky="w")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky="w")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows=6, columns=1)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE, tab.names=c("Data", "Statistics"))
 }
 
 multiWayTable <- function (){
@@ -144,8 +136,6 @@ multiWayTable <- function (){
 		command <- paste("xtabs(~", row, "+", column, "+", paste(controls, 
 						collapse = "+"), ", data=", ActiveDataSet(), subset, 
 				")", sep = "")
-# 		logger(paste(".Table <- ", command, sep = ""))
-# 		assign(".Table", justDoIt(command), envir = .GlobalEnv)
 		doItAndPrint(paste(".Table <- ", command, sep = ""))
 		doItAndPrint(".Table")
 		if (percents == "row") 
@@ -169,16 +159,15 @@ multiWayTable <- function (){
 	tkgrid(percentsFrame, sticky = "w")
 	tkgrid(subsetFrame, sticky = "w")
 	tkgrid(buttonsFrame, sticky = "ew")
-	dialogSuffix(rows = 4, columns = 1)
+	dialogSuffix()
 }
 
 enterTable <- function(){
     Library("abind")
     env <- environment()
-    initializeDialog(title=gettextRcmdr("Enter Two-Way Table"))
-    notebook <- ttknotebook(top, width = 500, height = 300)
-    tableTab <- tkframe(top)
-    statisticsTab <- tkframe(top)
+    defaults <- list(initial.tab=0)
+    dialog.values <- getDialog("enterTable", defaults)
+    initializeDialog(title=gettextRcmdr("Enter Two-Way Table"), use.tabs=TRUE, tabs=c("tableTab", "statisticsTab"))
     assign(".tableFrame", tkframe(tableTab), envir=env)  
     setUpTable <- function(...){
         tkdestroy(get(".tableFrame", envir=env))
@@ -234,6 +223,8 @@ enterTable <- function(){
         resolution=1, orient="horizontal", command=setUpTable)
     colsShow <- labelRcmdr(sliderFrame, textvariable=colsValue, width=2, justify="right")
     onOK <- function(){
+        tab <- if (as.character(tkselect(notebook)) == tableTab$ID) 0 else 1
+        putDialog("enterTable", list(initial.tab=tab))
         nrows <- as.numeric(tclvalue(rowsValue))
         ncols <- as.numeric(tclvalue(colsValue))
         cell <- 0
@@ -321,16 +312,10 @@ enterTable <- function(){
     tkgrid(labelRcmdr(sliderFrame, text=gettextRcmdr("Number of Rows:")), rowsSlider, rowsShow, sticky="we", padx = 6,  pady = 6)
     tkgrid(labelRcmdr(sliderFrame, text=gettextRcmdr("Number of Columns:")), colsSlider, colsShow, sticky="we", padx = 6,  pady = 6)
     tkgrid(sliderFrame, sticky="w")
-    tkgrid(tableTab, sticky="we", padx = 6,  pady = 6)
     tkgrid(labelRcmdr(tableTab, text=gettextRcmdr("Enter counts:"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="we", padx = 6,  pady = 6)
     tkgrid(percentsFrame, sticky="we", padx = 6,  pady = 6)
     tkgrid(testsFrame, sticky="we", padx = 6, pady = 6)
-    tkadd(notebook, tableTab, text=gettextRcmdr("Table"), padding=6)
-    tkadd(notebook, statisticsTab, text=gettextRcmdr("Statistics"), padding=6)
-    tkgrid(notebook, sticky="nsew") 
-    #  tkgrid(buttonsFrame, columnspan=2, sticky="ew")
-    tkgrid(buttonsFrame, sticky="ew")
-    dialogSuffix(rows=7, columns=2)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE, tabs=c("tableTab", "statisticsTab"), tab.names=c("Table", "Statistics"))
 }
 
 resetEnterTable <- function(){

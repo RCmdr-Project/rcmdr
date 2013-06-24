@@ -1,15 +1,12 @@
 # Graphs menu dialogs
 
-# last modified 2013-06-20 by J. Fox
+# last modified 2013-06-24 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
     defaults <- list(initial.x = NULL, initial.type = "spikes", initial.identify = "auto", initial.id.n="2", initial.tab=0) 
     dialog.values <- getDialog("indexPlot", defaults)
-    initializeDialog(title = gettextRcmdr("Index Plot"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title = gettextRcmdr("Index Plot"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
                             initialSelection = varPosn (dialog.values$initial.x, "numeric"))
     optionsFrame <- tkframe(optionsTab)
@@ -71,22 +68,14 @@ indexPlot <- function () {
     tkgrid(identifyFrame, sticky="w")
     tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
     tkgrid(identifyPointsFrame, sticky="w")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky = "w")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 3, columns = 1)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 Histogram <- function () {
     defaults <- list(initial.x = NULL, initial.scale = "frequency", 
                      initial.bins = gettextRcmdr ("<auto>"), initial.tab=0) 
     dialog.values <- getDialog("Histogram", defaults)
-    initializeDialog(title = gettextRcmdr("Histogram"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title = gettextRcmdr("Histogram"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
                             initialSelection = varPosn (dialog.values$initial.x, "numeric"))
     onOK <- function() {
@@ -125,13 +114,8 @@ Histogram <- function () {
            binsField, sticky = "w")
     tkgrid(binsFrame, sticky = "w")
     tkgrid(scaleFrame, sticky = "w")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky = "w")
     tkgrid.configure(binsField, sticky = "e")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 4, columns = 1)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 stemAndLeaf <- function () {
@@ -141,10 +125,7 @@ stemAndLeaf <- function () {
                      initial.tab=0) 
     dialog.values <- getDialog("stemAndLeaf", defaults)
     initializeDialog(title = gettextRcmdr("Stem and Leaf Display"), 
-                     preventCrisp = TRUE)
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+                     preventCrisp = TRUE, use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
                             initialSelection = varPosn (dialog.values$initial.x, "numeric"))
     displayDigits <- tclVar(formatC(10^dialog.values$initial.unit))
@@ -228,12 +209,7 @@ stemAndLeaf <- function () {
     tkgrid(styleFrame, sticky = "w")
     tkgrid(otherOptionsFrame, sticky="w")
     tkgrid(leafsFrame, sticky = "w")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky = "w")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 7, columns = 1, preventCrisp = TRUE)
+    dialogSuffix(preventCrisp = TRUE, use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 boxPlot <- function () {
@@ -289,7 +265,7 @@ boxPlot <- function () {
     tkgrid(groupsFrame, sticky = "w")
     tkgrid(identifyFrame, stick = "w")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 4, columns = 1)
+    dialogSuffix()
 }
 
 scatterPlot <- function () {
@@ -304,11 +280,8 @@ scatterPlot <- function () {
     initial.group <- dialog.values$initial.group
     .linesByGroup <- if (dialog.values$initial.lines.by.group == 1) TRUE else FALSE
     .groups <- if (is.null(initial.group)) FALSE else initial.group
-    initializeDialog(title = gettextRcmdr("Scatterplot"))
+    initializeDialog(title = gettextRcmdr("Scatterplot"), use.tabs=TRUE)
     .numeric <- Numeric()
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
     xBox <- variableListBox(dataTab, .numeric, title = gettextRcmdr("x-variable (pick one)"), 
         initialSelection = varPosn (dialog.values$initial.x, "numeric"))
     yBox <- variableListBox(dataTab, .numeric, title = gettextRcmdr("y-variable (pick one)"), 
@@ -519,12 +492,7 @@ scatterPlot <- function () {
     tkgrid(ttklabel(dataTab, text=""))
     tkgrid(subsetFrame, sticky = "we", padx=6, pady=c(0, 6))
     tkgrid(labelRcmdr(top, text = " "), padx=6)
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6)
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6)
-    tkgrid(notebook)
-    tkgrid(buttonsFrame, columnspan = 2, sticky = "ew")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 8, columns = 2)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 scatterPlotMatrix <- function () {
@@ -536,10 +504,7 @@ scatterPlotMatrix <- function () {
     initial.group <- dialog.values$initial.group
     .linesByGroup <- if (dialog.values$initial.lines.by.group == 1) TRUE else FALSE
     .groups <- if (is.null(initial.group)) FALSE else initial.group
-    initializeDialog(title = gettextRcmdr("Scatterplot Matrix"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title = gettextRcmdr("Scatterplot Matrix"), use.tabs=TRUE)
     variablesBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Select variables (three or more)"), 
                                     selectmode = "multiple", initialSelection = varPosn (dialog.values$initial.variables, "numeric"))
     checkBoxes(optionsTab, frame = "optionsFrame", boxes = c("lsLine", "smoothLine", 
@@ -628,12 +593,7 @@ scatterPlotMatrix <- function () {
     tkgrid(optionsFrame, sticky = "w")
     tkgrid(groupsFrame, sticky = "w")
     tkgrid(subsetFrame, sticky = "w")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky = "ew")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 6, columns = 2)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 barGraph <- function () {
@@ -661,7 +621,7 @@ barGraph <- function () {
     OKCancelHelp(helpSubject = "barplot", reset = "barGraph", apply = "barGraph")
     tkgrid(getFrame(variableBox), sticky = "nw")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 2, columns = 1)
+    dialogSuffix()
 }
 
 pieChart <- function () {
@@ -692,7 +652,7 @@ pieChart <- function () {
     OKCancelHelp(helpSubject = "pie", reset = "pieChart", apply = "pieChart")
     tkgrid(getFrame(variableBox), sticky = "nw")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 3, columns = 1)
+    dialogSuffix()
 }
 
 linePlot <- function () {
@@ -743,7 +703,7 @@ linePlot <- function () {
         getFrame(yBox), sticky = "nw")
     tkgrid(variablesFrame, sticky = "nw")
     tkgrid(buttonsFrame, stick = "w")
-    dialogSuffix(rows = 2, columns = 1)
+    dialogSuffix()
 }
 
 QQPlot <- function () {
@@ -753,10 +713,7 @@ QQPlot <- function () {
                      initial.chisqdf = "", initial.fdf1 = "", initial.fdf2 = "", initial.othername = "", 
                      initial.otherparam = "", initial.identify = "auto", initial.id.n="2", initial.tab=0)
     dialog.values <- getDialog("QQPlot", defaults)
-    initializeDialog(title = gettextRcmdr("Quantile-Comparison (QQ) Plot"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title = gettextRcmdr("Quantile-Comparison (QQ) Plot"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
                             initialSelection = varPosn (dialog.values$initial.x, "numeric"))
     identifyPointsFrame <- tkframe(optionsTab)
@@ -908,12 +865,7 @@ QQPlot <- function () {
     tkgrid(identifyFrame, sticky="w")
     tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
     tkgrid(identifyPointsFrame, sticky="w")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky = "w")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 5, columns = 1)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 PlotMeans <- function () {
@@ -996,7 +948,7 @@ PlotMeans <- function () {
            sticky = "w")
     tkgrid(optionsFrame, columnspan = 2, sticky = "w")
     tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
-    dialogSuffix(rows = 3, columns = 2)
+    dialogSuffix()
 }
 
 Scatter3D <- function () {
@@ -1016,10 +968,7 @@ Scatter3D <- function () {
     initial.group <- dialog.values$initial.group
     .linesByGroup <- if (dialog.values$initial.lines.by.group == 1) TRUE else FALSE
     .groups <- if (is.null(initial.group)) FALSE else initial.group
-    initializeDialog(title = gettextRcmdr("3D Scatterplot"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title = gettextRcmdr("3D Scatterplot"), use.tabs=TRUE)
     variablesFrame <- tkframe(dataTab)
     .numeric <- Numeric()
     xBox <- variableListBox(variablesFrame, .numeric, title = gettextRcmdr("Explanatory variables (pick two)"), 
@@ -1227,12 +1176,7 @@ Scatter3D <- function () {
     tkgrid(labelRcmdr(idFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
     tkgrid(idFrame, sticky="w")
     tkgrid(groupsFrame, sticky = "w")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky = "ew")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 6, columns = 1)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 Identify3D <- function(){
@@ -1419,7 +1363,7 @@ saveBitmap <- function () {
            pointSizeSlider, sticky = "sw")
     tkgrid(sliderFrame, sticky = "w")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 5, columns = 1)
+    dialogSuffix()
 }
 
 savePDF <- function () {
@@ -1562,7 +1506,7 @@ savePDF <- function () {
            pointSizeSlider, sticky = "sw")
     tkgrid(sliderFrame, sticky = "w")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 4, columns = 1)
+    dialogSuffix()
 }
 
 saveRglGraph <- function(){
@@ -1600,10 +1544,7 @@ Xyplot <- function() {
                      initial.groups = FALSE,
                      initial.points = 1, initial.lines = 0, initial.tab=0)
     dialog.values <- getDialog("Xyplot", defaults)
-    initializeDialog(title=gettextRcmdr("XY Conditioning Plot"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title=gettextRcmdr("XY Conditioning Plot"), use.tabs=TRUE)
     predictorFrame <- tkframe(dataTab)
     predictorBox <-
         variableListBox(predictorFrame, Numeric(),
@@ -1823,12 +1764,7 @@ Xyplot <- function() {
     tkgrid(scalarsFrame, sticky="w")
     tkgrid(tklabel(optionsTab, text=gettextRcmdr("Other Options"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
     tkgrid(optionsFrame, sticky="w")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, columnspan=2, sticky="w")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows=6, columns=2)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 # set the colour palette
@@ -1963,7 +1899,7 @@ setPalette <- function() {
         colorField6, colorField7, colorField8)
     tkgrid(paletteFrame)
     tkgrid(buttonsFrame, sticky="ew")
-    dialogSuffix(rows=2)
+    dialogSuffix()
 }
 
 stripChart <- function () {
@@ -2009,17 +1945,14 @@ stripChart <- function () {
     tkgrid(getFrame(groupBox), getFrame(responseBox), sticky = "nw")
     tkgrid(plotTypeFrame, sticky = "w")
     tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
-    dialogSuffix(rows = 3, columns = 2)
+    dialogSuffix()
 }
 
 DensityPlot <- function () {
     defaults <- list(initial.x = NULL, initial.bw = gettextRcmdr("<auto>"), 
                      initial.kernel="gaussian", initial.adjust=1, initial.group=NULL, initial.tab=0) 
     dialog.values <- getDialog("DensityPlot", defaults)
-    initializeDialog(title = gettextRcmdr("Nonparametric Density Estimate"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title = gettextRcmdr("Nonparametric Density Estimate"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
                             initialSelection = varPosn (dialog.values$initial.x, "numeric"))
     radioButtons(optionsTab, name = "kernel", buttons = c("gaussian", "epanechnikov", "biweight"), 
@@ -2086,11 +2019,6 @@ DensityPlot <- function () {
            labelRcmdr(bwFrame, text = gettextRcmdr("Multiply bandwidth by")), 
            adjustSlider, sticky = "swe", padx=6)
     tkgrid(bwFrame, sticky="sw")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky = "w")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 4, columns = 1)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 

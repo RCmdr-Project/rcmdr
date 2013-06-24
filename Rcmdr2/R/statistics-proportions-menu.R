@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-22 by J. Fox
+# last modified 2013-06-24 by J. Fox
 
     # Proportions menu
 
@@ -8,10 +8,7 @@ singleProportionTest <- function () {
     defaults <- list (initial.x = NULL, initial.alternative = "two.sided", initial.level = ".95", 
         initial.test = "normal" , initial.p = ".5", initial.tab=0)
     dialog.values <- getDialog ("singleProportionTest", defaults)
-    initializeDialog(title = gettextRcmdr("Single-Sample Proportion Test"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title = gettextRcmdr("Single-Sample Proportion Test"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, TwoLevelFactors(), title = gettextRcmdr("Variable (pick one)"),
         initialSelection = varPosn(dialog.values$initial.x,"factor"))
     onOK <- function() {
@@ -75,13 +72,8 @@ singleProportionTest <- function () {
     tkgrid(confidenceFrame, sticky = "w")
     tkgrid(alternativeFrame, labelRcmdr(optionsTab, text="   "), rightFrame, sticky = "nw")
     tkgrid(testFrame, sticky = "w")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky = "ew")
     tkgrid.configure(confidenceField, sticky = "e")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 4, columns = 2)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 twoSampleProportionsTest <- function () {
@@ -89,10 +81,7 @@ twoSampleProportionsTest <- function () {
     defaults <- list(initial.groups = NULL, initial.response = NULL, initial.alternative = "two.sided", 
         initial.confidenceLevel = ".95", initial.test = "normal", initial.label=NULL, initial.tab=0)
     dialog.values <- getDialog("twoSampleProportionsTest", defaults)
-    initializeDialog(title = gettextRcmdr("Two-Sample Proportions Test"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title = gettextRcmdr("Two-Sample Proportions Test"), use.tabs=TRUE)
     .twoLevelFactors <- TwoLevelFactors()
     groupsBox <- variableListBox(dataTab, .twoLevelFactors, title = gettextRcmdr("Groups (pick one)"), 
         initialSelection = varPosn(dialog.values$initial.groups, "twoLevelFactor"))
@@ -161,12 +150,7 @@ twoSampleProportionsTest <- function () {
     tkgrid(confidenceFrame, sticky = "w")
     tkgrid(alternativeFrame, rightFrame, sticky = "nw")
     tkgrid(testFrame, sticky = "w")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky = "w")
     tkgrid.configure(confidenceField, sticky = "e")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 5, columns = 2)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 

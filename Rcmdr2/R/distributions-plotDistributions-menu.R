@@ -1,6 +1,6 @@
 # Distributions menu dialogs for plots
 
-# last modified 2013-05-29 by J. Fox
+# last modified 2013-06-24 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic  (20 July 06)
 # modified by Miroslav M. Ristic (15 January 11)
@@ -43,8 +43,9 @@ distributionPlot <- function(nameVar){
         eval(parse(text=paste(paramsEntry[i],"<-ttkentry(entriesFrame, width='6', textvariable=",paramsVar[i],")",sep="")))
     }
     functionVar <- tclVar(initial$type)
-    densityButton <- ttkradiobutton(entriesFrame, variable=functionVar, value="Density")
-    distributionButton <- ttkradiobutton(entriesFrame, variable=functionVar, value="Cumulative Probability")
+    buttonFrame <- tkframe(top)
+    densityButton <- ttkradiobutton(buttonFrame, variable=functionVar, value="Density")
+    distributionButton <- ttkradiobutton(buttonFrame, variable=functionVar, value="Cumulative Probability")
     onOK <- function(){
         nameVarF<-get(paste(nameVar,"DistributionPlot",sep=""),mode="function")
         closeDialog()
@@ -99,20 +100,19 @@ distributionPlot <- function(nameVar){
         tkfocus(CommanderWindow())
         putDialog(dialogName, list(initialValues=vars, type=fun), resettable=FALSE)
     }
-    OKCancelHelp(helpSubject=paste("d",fVar$funName,sep=""), reset=dialogName)
+    OKCancelHelp(helpSubject=paste("d",fVar$funName,sep=""), reset=dialogName, apply=dialogName)
     for (i in 1:nnVar) {
         tkgrid(labelRcmdr(entriesFrame, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="w", padx=6)
     }
     tkgrid(entriesFrame, sticky="w")
-    tkgrid(labelRcmdr(entriesFrame, text=gettextRcmdr("Plot density function")), densityButton, sticky="w", padx=6)
-    tkgrid(labelRcmdr(entriesFrame, text=gettextRcmdr("Plot distribution function")), distributionButton, sticky="w", padx=6)
-    tkgrid(buttonsFrame, columnspan=2, sticky="w")
+    tkgrid(buttonFrame, sticky="w")
+    tkgrid(densityButton, labelRcmdr(buttonFrame, text=gettextRcmdr("Plot density function")), sticky="w")
+    tkgrid(distributionButton, labelRcmdr(buttonFrame, text=gettextRcmdr("Plot distribution function")), sticky="w")
+    tkgrid(buttonsFrame, sticky="ew")
     for (i in 1:nnVar) {
         tkgrid.configure(get(paramsEntry[i]), sticky="w")
     }
-    tkgrid.configure(densityButton, sticky="w")
-    tkgrid.configure(distributionButton, sticky="w")
-    dialogSuffix(rows=5, columns=2, focus=get(paramsEntry[1]))
+    dialogSuffix(focus=get(paramsEntry[1]))
 }
 
 discreteDistributionPlot <- function(nameVar){
@@ -130,8 +130,9 @@ discreteDistributionPlot <- function(nameVar){
         eval(parse(text=paste(paramsEntry[i],"<-ttkentry(entriesFrame, width='6', textvariable=",paramsVar[i],")",sep="")))
     }
     functionVar <- tclVar(initial$type)
-    densityButton <- ttkradiobutton(entriesFrame, variable=functionVar, value="Probability")
-    distributionButton <- ttkradiobutton(entriesFrame, variable=functionVar, value="Cumulative Probability")
+    buttonFrame <- tkframe(top)
+    densityButton <- ttkradiobutton(buttonFrame, variable=functionVar, value="Probability")
+    distributionButton <- ttkradiobutton(buttonFrame, variable=functionVar, value="Cumulative Probability")
     onOK <- function(){
         nameVarF<-get(paste(nameVar,"DistributionPlot",sep=""),mode="function")
         closeDialog()
@@ -194,20 +195,19 @@ discreteDistributionPlot <- function(nameVar){
         tkfocus(CommanderWindow())
         putDialog(dialogName, list(initialValues=vars, type=fun), resettable=FALSE)
     }
-    OKCancelHelp(helpSubject=paste("d",fVar$funName,sep=""), reset=dialogName)
+    OKCancelHelp(helpSubject=paste("d",fVar$funName,sep=""), reset=dialogName, apply=dialogName)
     for (i in 1:nnVar) {
         tkgrid(labelRcmdr(entriesFrame, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="w", padx=6)
     }
-    tkgrid(labelRcmdr(entriesFrame, text=gettextRcmdr("Plot probability mass function")), densityButton, sticky="w", padx=6)
-    tkgrid(labelRcmdr(entriesFrame, text=gettextRcmdr("Plot distribution function")), distributionButton, sticky="w", padx=6)
+    tkgrid(densityButton, labelRcmdr(buttonFrame, text=gettextRcmdr("Plot probability mass function")), sticky="w")
+    tkgrid(distributionButton, labelRcmdr(buttonFrame, text=gettextRcmdr("Plot distribution function")), sticky="w")
     tkgrid(entriesFrame, sticky="w")
+    tkgrid(buttonFrame, sticky="w")
     tkgrid(buttonsFrame, columnspan=2, sticky="w")
     for (i in 1:nnVar) {
         tkgrid.configure(get(paramsEntry[i]), sticky="w")
     }
-    tkgrid.configure(densityButton, sticky="w")
-    tkgrid.configure(distributionButton, sticky="w")
-    dialogSuffix(rows=5, columns=2, focus=get(paramsEntry[1]))
+    dialogSuffix(focus=get(paramsEntry[1]))
 }
 
 plotDistr <- function(x, p, discrete=FALSE, cdf=FALSE, ...){

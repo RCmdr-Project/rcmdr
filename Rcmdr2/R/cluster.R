@@ -1,6 +1,6 @@
 # this code originally by Dan Putler, used with permission 
 
-# last modified 2013-04-11 by J. Fox
+# last modified 2013-06-24 by J. Fox
 
 assignCluster <- function(clusterData, origData, clusterVec){
 	rowsDX <- row.names(clusterData)
@@ -46,15 +46,15 @@ kmeansClustering <- function () {
 	defaults <- list(initial.x = NULL, initial.subset  = gettextRcmdr("<all valid cases>"), 
 			initial.nClusters = "2", initial.seeds  = "10", initial.iters = "10", 
 			initial.clusterSummary  = 1, initial.clusterPlot = 1, initial.clusterAssign = 0, 
-			initial.clusterVariable = gettextRcmdr("KMeans"))
+			initial.clusterVariable = gettextRcmdr("KMeans"), initial.tab=0)
 	dialog.values <- getDialog ("kmeansClustering", defaults)
-	initializeDialog (title = gettextRcmdr("KMeans Clustering"))
-	dataFrame <- tkframe(top)
+	initializeDialog (title = gettextRcmdr("KMeans Clustering"), use.tabs=TRUE)
+	dataFrame <- tkframe(dataTab)
 	xBox <- variableListBox(dataFrame, Numeric(), selectmode = "multiple", 
 			initialSelection = varPosn(dialog.values$initial.x, "numeric"), 
 			title = gettextRcmdr("Variables (pick one or more)"))
-	subsetBox(subset.expression = dialog.values$initial.subset)
-	optionsFrame <- tkframe(top)
+	subsetBox(dataTab, subset.expression = dialog.values$initial.subset)
+	optionsFrame <- tkframe(optionsTab)
 	clusterNumber <- tclVar(dialog.values$initial.nClusters)
 	clusterNumSlider <- tkscale(optionsFrame, from = 2, to = 10, 
 			showvalue = TRUE, variable = clusterNumber, resolution = 1, 
@@ -79,6 +79,7 @@ kmeansClustering <- function () {
 	assignName <- tclVar(dialog.values$initial.clusterVariable)
 	assignField <- ttkentry(optionsFrame, width = "15", textvariable = assignName)
 	onOK <- function() {
+	    tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
 		x <- getSelection(xBox)
 		nvar <- length(x)
 		subset <- trim.blanks(tclvalue(subsetVariable))
@@ -93,7 +94,8 @@ kmeansClustering <- function () {
 		putDialog("kmeansClustering", list(initial.x = x, initial.subset  = subset, 
 						initial.nClusters = nClusters, initial.seeds  = seeds, initial.iters = iters, 
 						initial.clusterSummary  = clusterSummary,  initial.clusterPlot = clusterPlot, 
-						initial.clusterAssign = clusterAssign, initial.clusterVariable = clusterVariable))
+						initial.clusterAssign = clusterAssign, initial.clusterVariable = clusterVariable,
+                        initial.tab=tab))
 		if (clusterAssign == "1") {
 			if (is.element(clusterVariable, Variables())) {
 				if ("no" == tclvalue(checkReplace(clusterVariable))) {
@@ -120,8 +122,6 @@ kmeansClustering <- function () {
 		command <- paste("KMeans(", xmat, ", centers = ", nClusters, 
 				", iter.max = ", iters, ", num.seeds = ", seeds, 
 				")", sep = "")
-# 		assign(".cluster", justDoIt(command), envir = .GlobalEnv)
-# 		logger(paste(".cluster <- ", command, sep = ""))
 		doItAndPrint(paste(".cluster <- ", command))
 		if (clusterSummary == "1") {
 			doItAndPrint(paste(".cluster$size # Cluster Sizes"))
@@ -150,6 +150,7 @@ kmeansClustering <- function () {
 	}
 	OKCancelHelp(helpSubject = "KMeans", reset = "kmeansClustering")
 	tkgrid(getFrame(xBox), sticky = "nw")
+    tkgrid(dataFrame, sticky="w")
 	tkgrid(subsetFrame, sticky = "w")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Number of clusters:")), 
 			clusterNumSlider, sticky = "sw")
@@ -157,18 +158,16 @@ kmeansClustering <- function () {
 			seedNumSlider, sticky = "sw")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Maximum iterations:")), 
 			iterNumSlider, sticky = "sw")
-	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Print cluster summary")), 
-			summaryCB, sticky = "w")
-	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Bi-plot of clusters")), 
-			plotCB, sticky = "w")
-	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Assign clusters to\nthe data set         ")), 
-			assignCB, sticky = "w")
+	tkgrid(summaryCB, labelRcmdr(optionsFrame, text = gettextRcmdr("Print cluster summary")), 
+			sticky = "w")
+	tkgrid(plotCB, labelRcmdr(optionsFrame, text = gettextRcmdr("Bi-plot of clusters")), 
+			sticky = "w")
+	tkgrid(assignCB, labelRcmdr(optionsFrame, text = gettextRcmdr("Assign clusters to\nthe data set         ")), 
+			sticky = "w")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Assignment variable: ")), 
 			assignField, sticky = "w")
-	tkgrid(dataFrame, labelRcmdr(top, text = "  "), optionsFrame, 
-			sticky = "nw")
-	tkgrid(buttonsFrame, columnspan = 3, sticky = "w")
-	dialogSuffix(rows = 3, columns = 3)
+    tkgrid(optionsFrame, sticky="w")
+	dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 listHclustSolutions <- function(envir=.GlobalEnv, ...) {
@@ -182,25 +181,25 @@ hierarchicalCluster <- function () {
 	solutionNumber = length(listHclustSolutions())
 	defaults <- list(initial.x = NULL, initial.clusMethod = "ward", initial.distance = "euc",  
 			initial.subset = gettextRcmdr ("<all valid cases>"),
-			initial.dendro = 1)
+			initial.dendro = 1, initial.tab=0)
 	dialog.values <- getDialog("hierarchicalCluster", defaults)
-	initializeDialog(title = gettextRcmdr("Hierarchical Clustering"))
-	solutionFrame <- tkframe(top)
+	initializeDialog(title = gettextRcmdr("Hierarchical Clustering"), use.tabs=TRUE)
+	solutionFrame <- tkframe(dataTab)
 	solutionName <- tclVar(paste("HClust.", (solutionNumber + 
 								1), sep = ""))
 	solutionField <- ttkentry(solutionFrame, width = "20", textvariable = solutionName)
-	dataFrame <- tkframe(top)
+	dataFrame <- tkframe(dataTab)
 	xBox <- variableListBox(dataFrame, Numeric(), selectmode = "multiple", 
 			title = gettextRcmdr("Variables (pick one or more)"), 
 			initialSelection = varPosn (dialog.values$initial.x, "numeric"))
 	subsetBox(dataFrame, subset.expression = dialog.values$initial.subset)
-	radioButtons(name = "method", buttons = c("ward", "single", 
+	radioButtons(optionsTab, name = "method", buttons = c("ward", "single", 
 					"complete", "average", "mcquitty", "median", "centroid"), 
 			labels = gettextRcmdr(c("Ward's Method", "Single Linkage", 
 							"Complete Linkage", "Average Linkage", "McQuitty's Method", 
 							"Median Linkage", "Centroid Linkage")), title = gettextRcmdr("Clustering Method"), 
 			initialValue = dialog.values$initial.clusMethod)
-	optionsFrame <- tkframe(top)
+	optionsFrame <- tkframe(optionsTab)
 	radioButtons(optionsFrame, name = "distanceType", buttons = c("euc", 
 					"euc2", "city", "none"), labels = gettextRcmdr(c("Euclidean", 
 							"Squared-Euclidian", "Manhattan (City Block)", "No Transformation")), 
@@ -211,6 +210,7 @@ hierarchicalCluster <- function () {
 	plotCB <- ttkcheckbutton(checkFrame)
 	tkconfigure(plotCB, variable = plotDendro)
 	onOK <- function() {
+	    tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
 		x <- getSelection(xBox)
 		nvar <- length(x)
 		clusMethod <- tclvalue(methodVariable)
@@ -224,7 +224,7 @@ hierarchicalCluster <- function () {
 		}
 		putDialog("hierarchicalCluster", list(initial.x = x, initial.clusMethod = clusMethod, 
 						initial.distance = distance, initial.subset = subset,
-						initial.dendro = dendro))
+						initial.dendro = dendro, initial.tab = tab))
 		closeDialog()
 		varFormula <- paste(x, collapse = "+")
 		vars <- paste(x, collapse = ",", sep = "")
@@ -256,8 +256,6 @@ hierarchicalCluster <- function () {
 		}
 		command <- paste("hclust(", dx, " , method= ", "\"", 
 				clusMethod, "\"", ")", sep = "")
-# 		assign(solution, justDoIt(command), envir = .GlobalEnv)
-# 		logger(paste(solution, " <- ", command, sep = ""))
         doItAndPrint(paste(solution, " <- ", command, sep = ""))
 		if (dendro == "1") {
 			justDoIt(paste("plot(", solution, ", main= ", "\"", 
@@ -276,18 +274,18 @@ hierarchicalCluster <- function () {
 	}
 	OKCancelHelp(helpSubject = "hclust", reset = "hierarchicalCluster", model = TRUE)
 	tkgrid(solutionField, sticky = "w")
-	tkgrid(labelRcmdr(top, text = gettextRcmdr("Clustering solution name:")), 
+	tkgrid(labelRcmdr(dataTab, text = gettextRcmdr("Clustering solution name:")), 
 			solutionFrame, sticky = "w")
 	tkgrid(getFrame(xBox), sticky = "nw")
 	tkgrid(subsetFrame, sticky = "w")
 	tkgrid(distanceTypeFrame, sticky = "w")
 	tkgrid(labelRcmdr(checkFrame, text = "  "), sticky = "w")
-	tkgrid(labelRcmdr(checkFrame, text = gettextRcmdr("Plot Dendrogram  ")), 
-			plotCB, sticky = "w")
+	tkgrid(plotCB, labelRcmdr(checkFrame, text = gettextRcmdr("Plot Dendrogram  ")), 
+			sticky = "w")
 	tkgrid(checkFrame, sticky = "w")
-	tkgrid(dataFrame, methodFrame, optionsFrame, sticky = "nw")
-	tkgrid(buttonsFrame, columnspan = 3, sticky = "w")
-	dialogSuffix(rows = 3, columns = 3)
+    tkgrid(dataFrame, sticky="w")
+    tkgrid(methodFrame, optionsFrame, sticky="nw")
+	dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 hclustSummary <- function () {
@@ -374,7 +372,7 @@ hclustSummary <- function () {
 		}
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "biplot", reset = "hclustSummary")
+	OKCancelHelp(helpSubject = "biplot", reset = "hclustSummary", apply = "hclustSummary")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Number of clusters:")), 
 			slider, sticky = "sw")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Print cluster summary")), 
@@ -383,7 +381,7 @@ hclustSummary <- function () {
 			plotCB, sticky = "w")
 	tkgrid(getFrame(hclustBox), optionsFrame, sticky = "nw")
 	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
-	dialogSuffix(rows = 2, columns = 3)
+	dialogSuffix()
 }
 
 appendHclustGroup <- function () {
@@ -469,13 +467,13 @@ appendHclustGroup <- function () {
 			activeDataSet(.activeDataSet, flushDialogMemory=FALSE)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "assignCluster", reset = "appendHclustGroup")
+	OKCancelHelp(helpSubject = "assignCluster", reset = "appendHclustGroup", apply = "appendHclustGroup")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("  Assigned cluster label:")), 
 			labelNameField, sticky = "w")
 	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("  Number of clusters:")), 
 			slider, sticky = "sw")
 	tkgrid(getFrame(hclustBox), optionsFrame, sticky = "nw")
 	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
-	dialogSuffix(rows = 2, columns = 3)
+	dialogSuffix()
 } 
 

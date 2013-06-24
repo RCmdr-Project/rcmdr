@@ -1,4 +1,4 @@
-# last modified 2013-06-02 by J. Fox
+# last modified 2013-06-24 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -537,7 +537,7 @@ Options <- function(){
     tkgrid(notebook)
     tkconfigure(OKbutton, text=gettextRcmdr("Exit and Restart\nR Commander"), width=18)
     tkgrid(buttonsFrame, columnspan=3, sticky="ew")
-    dialogSuffix(rows=11, columns=3)
+    dialogSuffix()
 }
 
 saveOptions <- function(){
@@ -614,7 +614,7 @@ saveOptions <- function(){
         tkgrid(optionsFrame, sticky="w")
         tkgrid(directionFrame, sticky="w")
         tkgrid(buttonsFrame, sticky="w")
-        dialogSuffix(rows=4, columns=1, focus=textEntry)
+        dialogSuffix(focus=textEntry)
     }
     onSelectAll <- function() {
         focused <- tkfocus()
@@ -741,7 +741,7 @@ saveOptions <- function(){
     tkgrid(optionsXscroll, sticky="ew", columnspan=2)
     tkgrid(optionsFrame, sticky="news", padx=10, pady=0)
     tkgrid(buttonsFrame, sticky="ew")
-    dialogSuffix(rows=2, columns=1)
+    dialogSuffix()
 }
 
 loadPackages <- function(){
@@ -768,7 +768,7 @@ loadPackages <- function(){
 	OKCancelHelp(helpSubject="library")
 	tkgrid(getFrame(packagesBox), sticky="nw")
 	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=1, columns=1)
+	dialogSuffix()
 }
 
 Setwd <- function(){

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-21 by J. Fox
+# last modified 2013-06-24 by J. Fox
 
 # Means menu
 
@@ -9,10 +9,7 @@ independentSamplesTTest <- function () {
                      initial.confidenceLevel = ".95", initial.variances = "FALSE", initial.label=NULL,
                      initial.tab=0)
     dialog.values <- getDialog("independentSamplesTTest", defaults)
-    initializeDialog(title = gettextRcmdr("Independent Samples t-Test"))
-    notebook <- ttknotebook(top)
-    dataTab <- tkframe(top)
-    optionsTab <- tkframe(top)
+    initializeDialog(title = gettextRcmdr("Independent Samples t-Test"), use.tabs=TRUE)
     variablesFrame <- tkframe(dataTab)
     groupBox <- variableListBox(variablesFrame, TwoLevelFactors(), 
                                 title = gettextRcmdr("Groups (pick one)"), 
@@ -72,26 +69,22 @@ independentSamplesTTest <- function () {
            confidenceFrame, labelRcmdr(optionsFrame, text = "    "), 
            variancesFrame, sticky = "nw")
     tkgrid(optionsFrame, sticky = "nw")
-    tkadd(notebook, dataTab, text=gettextRcmdr("Data"), padding=6, sticky="nsew")
-    tkadd(notebook, optionsTab, text=gettextRcmdr("Options"), padding=6, sticky="nsew")
-    tkgrid(notebook, sticky="nsew")
-    tkgrid(buttonsFrame, sticky = "ew")
-    if (getRcmdr("restoreTab")) tkselect(notebook, dialog.values$initial.tab)
-    dialogSuffix(rows = 4, columns = 1)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 pairedTTest <- function () {
     defaults <- list(initial.x = NULL, initial.y = NULL, initial.alternative = "two.sided", 
-                     initial.confidenceLevel = ".95")
+                     initial.confidenceLevel = ".95", initial.tab=0)
     dialog.values <- getDialog("pairedTTest", defaults)
-    initializeDialog(title = gettextRcmdr("Paired t-Test"))
+    initializeDialog(title = gettextRcmdr("Paired t-Test"), use.tabs=TRUE)
     .numeric <- Numeric()
-    dataFrame <- tkframe(top)
+    dataFrame <- tkframe(dataTab)
     xBox <- variableListBox(dataFrame, .numeric, title = gettextRcmdr("First variable (pick one)"),
                             initialSelection = varPosn(dialog.values$initial.x, "numeric"))
     yBox <- variableListBox(dataFrame, .numeric, title = gettextRcmdr("Second variable (pick one)"),
                             initialSelection = varPosn(dialog.values$initial.y, "numeric"))
     onOK <- function() {
+        tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         x <- getSelection(xBox)
         y <- getSelection(yBox)
         if (length(x) == 0 | length(y) == 0) {
@@ -105,7 +98,7 @@ pairedTTest <- function () {
         alternative <- as.character(tclvalue(alternativeVariable))
         level <- tclvalue(confidenceLevel)
         putDialog ("pairedTTest", list (initial.x = x, initial.y = y, initial.alternative = alternative, 
-                                        initial.confidenceLevel = level))
+                                        initial.confidenceLevel = level, initial.tab=tab))
         closeDialog()
         .activeDataSet <- ActiveDataSet()
         doItAndPrint(paste("t.test(", .activeDataSet, "$", x, 
@@ -115,7 +108,7 @@ pairedTTest <- function () {
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject = "t.test", reset = "pairedTTest", apply = "pairedTTest")
-    optionsFrame <- tkframe(top)
+    optionsFrame <- tkframe(optionsTab)
     radioButtons(optionsFrame, name = "alternative", buttons = c("twosided", 
                                                                  "less", "greater"), values = c("two.sided", "less", "greater"), 
                  labels = gettextRcmdr(c("Two-sided", "Difference < 0", 
@@ -132,8 +125,7 @@ pairedTTest <- function () {
     tkgrid(confidenceField, sticky = "w")
     tkgrid(alternativeFrame, labelRcmdr(optionsFrame, text="  "), confidenceFrame, sticky = "nw")
     tkgrid(optionsFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 3, columns = 1)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 singleSampleTTest <- function () {
@@ -188,7 +180,7 @@ singleSampleTTest <- function () {
     tkgrid(optionsFrame, sticky="w")
     tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
     tkgrid.configure(confidenceField, sticky = "e")
-    dialogSuffix(rows = 4, columns = 2)
+    dialogSuffix()
 }
 
 oneWayAnova <- function () {
@@ -286,7 +278,7 @@ oneWayAnova <- function () {
            sticky = "w")
     tkgrid(optionsFrame, sticky = "w")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 4, columns = 1)
+    dialogSuffix()
 }
 
 multiWayAnova <- function () {
@@ -359,5 +351,5 @@ multiWayAnova <- function () {
     tkgrid(getFrame(groupBox), labelRcmdr(dataFrame, text="  "), getFrame(responseBox), sticky = "nw")
     tkgrid(dataFrame, sticky="w")
     tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix(rows = 4, columns = 1)
+    dialogSuffix()
 }

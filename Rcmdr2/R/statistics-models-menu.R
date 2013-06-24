@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-16 by J. Fox
+# last modified 2013-06-24 by J. Fox
 
     # Models menu
 
@@ -69,14 +69,12 @@ linearRegressionModel <- function () {
 		}
 		command <- paste("lm(", y, "~", paste(x, collapse = "+"), 
 				", data=", ActiveDataSet(), subset, ")", sep = "")
-# 		logger(paste(modelValue, " <- ", command, sep = ""))
-# 		assign(modelValue, justDoIt(command), envir = .GlobalEnv)
 		doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
 		doItAndPrint(paste("summary(", modelValue, ")", sep = ""))
 		activeModel(modelValue)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "lm", model = TRUE, reset = "linearRegressionModel")
+	OKCancelHelp(helpSubject = "lm", model = TRUE, reset = "linearRegressionModel", apply = "linearRegressionModel")
 	tkgrid(labelRcmdr(modelFrame, text = gettextRcmdr("Enter name for model:")), 
 			model, sticky = "w")
 	tkgrid(modelFrame, sticky = "w")
@@ -86,7 +84,7 @@ linearRegressionModel <- function () {
 	tkgrid(subsetFrame, sticky = "w")
 	tkgrid(buttonsFrame, stick = "w")
 	tkgrid.configure(helpButton, sticky = "e")
-	dialogSuffix(rows = 4, columns = 1)
+	dialogSuffix()
 }
 
 linearModel <- function(){
@@ -143,8 +141,6 @@ linearModel <- function(){
 		formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
 		command <- paste("lm(", formula,
 				", data=", ActiveDataSet(), subset, ")", sep="")
-# 		logger(paste(modelValue, " <- ", command, sep=""))
-# 		assign(modelValue, justDoIt(command), envir=.GlobalEnv)
 		doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
 		doItAndPrint(paste("summary(", modelValue, ")", sep=""))
 		activeModel(modelValue)
@@ -160,7 +156,7 @@ linearModel <- function(){
 	tkgrid(formulaFrame, sticky="w")
 	tkgrid(subsetFrame, sticky="w")
 	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=6, columns=1, focus=lhsEntry, preventDoubleClick=TRUE)
+	dialogSuffix(focus=lhsEntry, preventDoubleClick=TRUE)
 }
 
 resetLinearModel <- function(){
@@ -265,14 +261,12 @@ generalizedLinearModel <- function(){
 		}
 		command <- paste("glm(", formula, ", family=", family, "(", link,
 				"), data=", ActiveDataSet(), subset, ")", sep="")
-# 		logger(paste(modelValue, " <- ", command, sep=""))
-# 		assign(modelValue, justDoIt(command), envir=.GlobalEnv)
 		doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
 		doItAndPrint(paste("summary(", modelValue, ")", sep=""))
 		activeModel(modelValue)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject="generalizedLinearModel", model=TRUE, reset="resetGLM")
+	OKCancelHelp(helpSubject="generalizedLinearModel", model=TRUE, reset="resetGLM", apply="generalizedLinearModel")
 	helpButton <- buttonRcmdr(buttonsFrame, text="Help", width="12", command=onHelp)
 	tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model:")), model, sticky="w")
 	tkgrid(modelFrame, sticky="w")
@@ -298,7 +292,7 @@ generalizedLinearModel <- function(){
 			else 0
 	tkselection.set(linkBox, lnk)
 	tkbind(familyBox, "<Double-ButtonPress-1>", onFamilySelect)
-	dialogSuffix(rows=7, columns=1, focus=lhsEntry, preventDoubleClick=TRUE)
+	dialogSuffix(focus=lhsEntry, preventDoubleClick=TRUE)
 }
 
 resetGLM <- function(){
@@ -359,7 +353,6 @@ ordinalRegressionModel <- function(){
 			return()
 		}
 		if (!is.factor(eval(parse(text=tclvalue(lhsVariable)), envir=get(.activeDataSet, envir=.GlobalEnv)))){
-#        if (!is.factor(eval(parse(text=tclvalue(lhsVariable)), envir=eval(parse(text=.activeDataSet), envir=.GlobalEnv)))){
 			errorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Response variable must be a factor"))
 			return()
 		}
@@ -374,14 +367,12 @@ ordinalRegressionModel <- function(){
 		formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
 		command <- paste("polr(", formula, ', method="', tclvalue(modelTypeVariable),
 				'", data=', .activeDataSet, subset, ", Hess=TRUE)", sep="")
-# 		logger(paste(modelValue, " <- ", command, sep=""))
-# 		assign(modelValue, justDoIt(command), envir=.GlobalEnv)
 		doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
 		doItAndPrint(paste("summary(", modelValue, ")", sep=""))
 		activeModel(modelValue)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject="polr", model=TRUE, reset = "resetPOLR")
+	OKCancelHelp(helpSubject="polr", model=TRUE, reset = "resetPOLR", apply = "ordinalRegressionModel")
 	tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model:")), model, sticky="w")
 	tkgrid(modelFrame, sticky="w")
 	modelFormula()
@@ -392,7 +383,7 @@ ordinalRegressionModel <- function(){
 	tkgrid(subsetFrame, sticky="w")
 	tkgrid(modelTypeFrame, sticky="w")
 	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=7, columns=1, focus=lhsEntry, preventDoubleClick=TRUE)
+	dialogSuffix(focus=lhsEntry, preventDoubleClick=TRUE)
 }
 
 resetPOLR <- function(){
@@ -461,14 +452,12 @@ multinomialLogitModel <- function(){
 		formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
 		command <- paste("multinom(", formula,
 				", data=", .activeDataSet, subset, ", trace=FALSE)", sep="")
-# 		logger(paste(modelValue, " <- ", command, sep=""))
-# 		assign(modelValue, justDoIt(command), envir=.GlobalEnv)
 		doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
 		doItAndPrint(paste("summary(", modelValue, ", cor=FALSE, Wald=TRUE)", sep=""))
 		activeModel(modelValue)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject="multinom", model=TRUE, reset="resetMNL")
+	OKCancelHelp(helpSubject="multinom", model=TRUE, reset="resetMNL", apply="multinomialLogitModel")
 	tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model:")), model, sticky="w")
 	tkgrid(modelFrame, sticky="w")
 	modelFormula()
@@ -478,7 +467,7 @@ multinomialLogitModel <- function(){
 	tkgrid(formulaFrame, sticky="w")
 	tkgrid(subsetFrame, sticky="w")
 	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=6, columns=1, focus=lhsEntry, preventDoubleClick=TRUE)
+	dialogSuffix(focus=lhsEntry, preventDoubleClick=TRUE)
 }
 
 resetMNL <- function(){

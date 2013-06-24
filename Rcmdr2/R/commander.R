@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-06-16 by J. Fox
+# last modified 2013-06-24 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -152,7 +152,7 @@ Commander <- function(){
         tkgrid(optionsFrame, sticky="w")
         tkgrid(directionFrame, sticky="w")
         tkgrid(buttonsFrame, sticky="w")
-        dialogSuffix(rows=4, columns=1, focus=textEntry)
+        dialogSuffix(focus=textEntry)
     }
     onSelectAll <- function() {
         focused <- tkfocus()

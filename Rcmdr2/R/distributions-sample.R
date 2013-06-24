@@ -1,6 +1,6 @@
 # Distributions menu dialogs for selecting samples
 
-# last modified 2013-06-16 by J. Fox
+# last modified 2013-06-24 by J. Fox
 # modified by Miroslav M. Ristic (15 January 2011)
 
 
@@ -147,7 +147,7 @@ distributionSamples <- function(nameVar) {
 						mean=tclvalue(meanVariable), sum=tclvalue(sumVariable), sd=tclvalue(sdVariable)),
 				resettable=FALSE)
 	}
-	OKCancelHelp(helpSubject=paste("r",fVar$funName,sep=""), reset=dialogName)
+	OKCancelHelp(helpSubject=paste("r",fVar$funName,sep=""), reset=dialogName, apply=dialogName)
 	tkgrid(labelRcmdr(dsFrame, text=gettextRcmdr("Enter name for data set:")), entryDsname, 
 			sticky="w")
 	tkgrid(dsFrame, columnspan=2, sticky="w")
@@ -163,5 +163,5 @@ distributionSamples <- function(nameVar) {
 	tkgrid(checkBoxFrame, columnspan=2, sticky="w")
 	tkgrid(labelRcmdr(top, text=""))
 	tkgrid(buttonsFrame, columnspan=2, sticky="w")
-	dialogSuffix(rows=10, columns=2, focus=get(paramsEntry[1]))
+	dialogSuffix(focus=get(paramsEntry[1]))
 }

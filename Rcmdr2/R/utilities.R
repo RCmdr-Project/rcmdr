@@ -1,4 +1,4 @@
-# last modified 2013-06-23 by J. Fox
+# last modified 2013-06-24 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1240,7 +1240,7 @@ closeDialog <- defmacro(window=top, release=TRUE,
 #     }
 # )
 
-dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows=1, columns=1, focus=top,
+dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns, focus=top,
     bindReturn=TRUE, preventGrabFocus=FALSE, preventDoubleClick=FALSE,
     preventCrisp=FALSE, 
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), tab.names=c("Data", "Options"),
@@ -1492,7 +1492,7 @@ groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=
             if (plotLinesByGroup) tkgrid(linesByGroupFrame, sticky="w")
             tkgrid(subButtonsFrame, sticky="ew")
             if (positionLegend) tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Position legend with mouse click"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"))
-            dialogSuffix(subdialog, onOK=onOKsub, rows=3+plotLinesByGroup+positionLegend, columns=2, focus=subdialog)
+            dialogSuffix(subdialog, onOK=onOKsub, focus=subdialog)
         }
         groupsFrame <- tkframe(window)
         groupsButton <- tkbutton(groupsFrame, textvariable=.groupsLabel, command=onGroups)
@@ -2042,7 +2042,7 @@ RcmdrTkmessageBox <- function(message, icon=c("info", "question", "warning",
 			}
 	)
 	tkgrid(buttonFrame)
-	dialogSuffix(messageBox, rows=2, focus=messageBox, bindReturn=FALSE)
+	dialogSuffix(messageBox, focus=messageBox, bindReturn=FALSE)
 	result
 }
 
@@ -2126,7 +2126,7 @@ loadPlugins <- function(){
 	OKCancelHelp(helpSubject="Plugins")
 	tkgrid(getFrame(packagesBox), sticky="nw")
 	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=1, columns=1)
+	dialogSuffix()
 }
 
 # the following two functions contributed by Erich Neuwirth (added 22 July 07)

@@ -1,4 +1,4 @@
-# last modified 2013-06-21 by J. Fox
+# last modified 2013-06-24 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
@@ -46,7 +46,7 @@ newDataSet <- function() {
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter name for data set:")), entryDsname, sticky="e")
     tkgrid(buttonsFrame, columnspan="2", sticky="w")
     tkgrid.configure(entryDsname, sticky="w")
-    dialogSuffix(rows=2, columns=2, focus=entryDsname)
+    dialogSuffix(focus=entryDsname)
 }
 
 selectActiveDataSet <- function(){
@@ -75,7 +75,7 @@ selectActiveDataSet <- function(){
 	OKCancelHelp()
 	tkgrid(getFrame(dataSetsBox), sticky="nw")
 	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=2, columns=1)
+	dialogSuffix()
 }
 
 listDataSetsInPackages <- function() doItAndPrint("data()")
@@ -189,7 +189,7 @@ RecodeDialog <- function () {
     tkgrid(buttonsFrame, sticky = "w", columnspan = 2)
     tkgrid.configure(recodesXscroll, sticky = "ew")
     tkgrid.configure(recodesYscroll, sticky = "ns")
-    dialogSuffix(rows = 4, columns = 2, bindReturn = FALSE)
+    dialogSuffix(bindReturn = FALSE)
 }
 
 Compute <- function(){
@@ -260,7 +260,7 @@ Compute <- function(){
     tkgrid(computeXscroll, sticky="ew")
     tkgrid(variablesFrame, computeFrame, sticky="nw")
     tkgrid(buttonsFrame, sticky="w", columnspan=2)
-    dialogSuffix(rows=3, columns=2, focus=compute)
+    dialogSuffix(focus=compute)
 }
 
 deleteVariable <- function(){
@@ -302,7 +302,7 @@ deleteVariable <- function(){
 	OKCancelHelp(helpSubject="NULL")
 	tkgrid(getFrame(variablesBox), sticky="nw")
 	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=2, columns=1)
+	dialogSuffix()
 }
 
 readDataSet <- function() {
@@ -363,7 +363,7 @@ readDataSet <- function() {
             tkgrid(urlXscroll, sticky="ew")
             tkgrid(urlFrame, sticky="nw")
             tkgrid(subButtonsFrame, sticky="w")
-            dialogSuffix(subdialog, rows=2, columns=1, focus=url, onOK=onOKsub)
+            dialogSuffix(subdialog, focus=url, onOK=onOKsub)
             tclvalue(urlVar)
         }
         if (file == "") {
@@ -401,7 +401,7 @@ readDataSet <- function() {
     tkgrid(decimalFrame, sticky="w")
     tkgrid(optionsFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=5, columns=1)
+    dialogSuffix()
 }
 
 readDataFromPackage <- function() {
@@ -605,7 +605,7 @@ readDataFromPackage <- function() {
 	tkgrid.configure(datasetScroll, sticky="ns")
 	tkbind(packageBox, "<Double-ButtonPress-1>", onPackageSelect)
 	tkbind(datasetBox, "<Double-ButtonPress-1>", onDatasetSelect)
-	dialogSuffix(rows=5, columns=1, focus=entryDsname)
+	dialogSuffix(focus=entryDsname)
 }
 
 importSAS <- function() {
@@ -659,7 +659,7 @@ importSAS <- function() {
                 tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter name for data set:")), entryDsname, sticky="w")
                 tkgrid(buttonsFrame, columnspan="2", sticky="w")
                 tkgrid.configure(entryDsname, sticky="w")
-                dialogSuffix(rows=2, columns=2, focus=entryDsname)
+                dialogSuffix(focus=entryDsname)
             }
             getdsname()
         }
@@ -709,7 +709,7 @@ importSAS <- function() {
                 OKCancelHelp(helpSubject="read.xport")
                 tkgrid(getFrame(datasetsBox), sticky="w")
                 tkgrid(buttonsFrame, sticky="w")
-                dialogSuffix(rows=2, columns=1)
+                dialogSuffix()
             }
         }
     }
@@ -784,7 +784,7 @@ importSPSS <- function() {
            entryMaxLevels, sticky="nw")
     tkgrid(maxLevelsFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="ew")
-    dialogSuffix(rows=5, columns=1, focus=entryDsname)
+    dialogSuffix(focus=entryDsname)
 }
 
 importMinitab <- function() {
@@ -838,7 +838,7 @@ importMinitab <- function() {
 	tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter name for data set:")), entryDsname, sticky="e")
 	tkgrid(buttonsFrame, columnspan="2", sticky="w")
 	tkgrid.configure(entryDsname, sticky="w")
-	dialogSuffix(rows=2, columns=2, focus=entryDsname)
+	dialogSuffix(focus=entryDsname)
 }
 
 # the following function was contributed by Michael Ash (modified by J. Fox)
@@ -916,7 +916,7 @@ importSTATA <- function() {
            sticky="w")
     tkgrid(optionsFrame, sticky="w")
     tkgrid(buttonsFrame, columnspan="2", sticky="ew")
-    dialogSuffix(rows=3, columns=1, focus=entryDsname)
+    dialogSuffix(focus=entryDsname)
 }
 
 # The following function was contributed by Matthieu Lesnoff
@@ -1019,7 +1019,7 @@ importRODBCtable <- function(){
 			entryDsname, sticky="e")
 	tkgrid(buttonsFrame, columnspan="2", sticky="w")
 	tkgrid.configure(entryDsname, sticky="w")
-	dialogSuffix(rows=2, columns=2, focus=entryDsname)
+	dialogSuffix(focus=entryDsname)
 }
 
 importExcel <- function(){
@@ -1081,7 +1081,7 @@ importExcel <- function(){
            entryDsname, sticky="e")
     tkgrid(buttonsFrame, columnspan="2", sticky="w")
     tkgrid.configure(entryDsname, sticky="w")
-    dialogSuffix(rows=2, columns=2, focus=entryDsname)
+    dialogSuffix(focus=entryDsname)
 }
 
 numericToFactor <- function(){
@@ -1167,7 +1167,7 @@ numericToFactor <- function(){
                     tkgrid(labelRcmdr(subdialog, text=values[i]), get(paste("entry", i, sep="")), sticky="w")
                 }
                 tkgrid(subButtonsFrame, sticky="w", columnspan=2)
-                dialogSuffix(subdialog, rows=nvalues+2, columns=2, focus=entry1, onOK=onOKsub)
+                dialogSuffix(subdialog, focus=entry1, onOK=onOKsub)
             }
             if (levelsType == "names"){
                 if (!exists("labels", mode="character")) return()
@@ -1197,7 +1197,7 @@ numericToFactor <- function(){
     tkgrid(buttonsFrame, sticky="ew", columnspan=2)
     tkgrid.configure(numbersButton, sticky="w")
     tkgrid.configure(namesButton, sticky="w")
-    dialogSuffix(rows=4, columns=2, preventGrabFocus=TRUE)
+    dialogSuffix(preventGrabFocus=TRUE)
 }
 
 binVariable <- function () {
@@ -1282,8 +1282,7 @@ binVariable <- function () {
 						get(paste("entry", i, sep = "")), sticky = "w")
 			}
 			tkgrid(subButtonsFrame, sticky = "w", columnspan = 2)
-			dialogSuffix(subdialog, focus = entry1, rows = bins + 
-							1, columns = 2, bindReturn = FALSE)
+			dialogSuffix(subdialog, focus = entry1, bindReturn = FALSE)
 		}
 		labels <- if (levels == "numbers") 
 					"FALSE"
@@ -1324,7 +1323,7 @@ binVariable <- function () {
 			methodFrame, sticky = "nw")
 	tkgrid(optionsFrame, sticky = "w")
 	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix(rows = 4, columns = 1)
+	dialogSuffix()
 }
 
 reorderFactor <- function(){
@@ -1399,7 +1398,7 @@ reorderFactor <- function(){
             tkgrid(labelRcmdr(subdialog, text=old.levels[i]), get(paste("entry", i, sep="")), sticky="w")
         }
         tkgrid(subButtonsFrame, sticky="w", columnspan=2)
-        dialogSuffix(subdialog, focus=entry1, rows=nvalues+1, columns=2)
+        dialogSuffix(subdialog, focus=entry1)
     }
     OKCancelHelp(helpSubject="factor")
     tkgrid(getFrame(variableBox), sticky="nw")
@@ -1408,7 +1407,7 @@ reorderFactor <- function(){
     tkgrid(orderedCheckBox, labelRcmdr(orderedFrame, text=gettextRcmdr("Make ordered factor")), sticky="w")
     tkgrid(orderedFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=5, columns=1, preventGrabFocus=TRUE)
+    dialogSuffix(preventGrabFocus=TRUE)
 }
 
 standardize <- function(X){
@@ -1449,7 +1448,7 @@ standardize <- function(X){
 	OKCancelHelp(helpSubject="scale")
 	tkgrid(getFrame(xBox), sticky="w")
 	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=2, columns=1)
+	dialogSuffix()
 }
 
 helpDataSet <- function(){
@@ -1514,7 +1513,7 @@ exportDataSet <- function() {
            labelRcmdr(delimiterFrame, text=gettextRcmdr("Specify:")), otherEntry, sticky="w")
     tkgrid(delimiterFrame, stick="w")
     tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=3, columns=1)
+    dialogSuffix()
 }
 
 filterNA <- function(){
@@ -1576,7 +1575,7 @@ filterNA <- function(){
     tkgrid(dataSetNameEntry, sticky="w")
     tkgrid(dataSetNameFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=4, columns=1)
+    dialogSuffix()
 }
 
 subsetDataSet <- function(){
@@ -1651,7 +1650,7 @@ subsetDataSet <- function(){
     tkgrid(dataSetNameEntry, sticky="w")
     tkgrid(dataSetNameFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=6, columns=1)
+    dialogSuffix()
 }
 
 setCaseNames <- function(){
@@ -1682,7 +1681,7 @@ setCaseNames <- function(){
 	OKCancelHelp(helpSubject="row.names")
 	tkgrid(getFrame(variablesBox), sticky="nw")
 	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=3, columns=1)
+	dialogSuffix()
 }
 
 renameVariables <- function(){
@@ -1742,12 +1741,12 @@ renameVariables <- function(){
 			tkgrid(labelRcmdr(subdialog, text=variables[i]), get(paste("entry", i, sep="")), sticky="w")
 		}
 		tkgrid(subButtonsFrame, sticky="w", columnspan=2)
-		dialogSuffix(subdialog, rows=nvariables+2, columns=2, focus=entry1, onOK=onOKsub)
+		dialogSuffix(subdialog, focus=entry1, onOK=onOKsub)
 	}
 	OKCancelHelp(helpSubject="names")
 	tkgrid(getFrame(variableBox), sticky="nw")
 	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=2, columns=1)
+	dialogSuffix()
 }
 
 setContrasts <- function(){
@@ -1850,14 +1849,14 @@ setContrasts <- function(){
             tkgrid(tableFrame, sticky="w")
             tkgrid(labelRcmdr(subdialog, text=""))
             tkgrid(subButtonsFrame, sticky="w")
-            dialogSuffix(subdialog, rows=5, columns=1, focus=subdialog)
+            dialogSuffix(subdialog, focus=subdialog)
         }
     }
     OKCancelHelp(helpSubject="contrasts")
     tkgrid(getFrame(variableBox), sticky="nw")
     tkgrid(contrastsFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(rows=4, columns=1)
+    dialogSuffix()
 }
 
 refreshActiveDataSet <- function() activeDataSet(ActiveDataSet())
@@ -1939,7 +1938,7 @@ Stack <- function(){
 	tkgrid(labelRcmdr(top,
 					text=gettextRcmdr("Name for factor:")), factorNameField, sticky="w")
 	tkgrid(buttonsFrame, sticky="w", columnspan=2)
-	dialogSuffix(rows=5, columns=2, preventGrabFocus=TRUE)
+	dialogSuffix(preventGrabFocus=TRUE)
 }
 
 loadDataSet <- function() {
@@ -2024,7 +2023,7 @@ RemoveRows <- function(){
 	tkgrid(dataSetNameEntry, sticky="w")
 	tkgrid(dataSetNameFrame, sticky="w")
 	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(rows=3, columns=1)
+	dialogSuffix()
 }
 
 mergeDataSets <- function(){
@@ -2106,7 +2105,7 @@ mergeDataSets <- function(){
            sticky="nw")
     tkgrid(directionFrame, commonFrame, sticky="sw")
     tkgrid(buttonsFrame, sticky="w", columnspan=2)
-    dialogSuffix(rows=5, columns=2)
+    dialogSuffix()
 }
 
 Aggregate <- function(){
@@ -2183,5 +2182,5 @@ Aggregate <- function(){
     tkgrid(getFrame(variablesBox), getFrame(byBox), sticky="nw")
     tkgrid(statisticFrame, sticky="w", columnspan=2)
     tkgrid(buttonsFrame, sticky="w", columnspan=2)
-    dialogSuffix(rows=5, columns=2)
+    dialogSuffix()
 }
