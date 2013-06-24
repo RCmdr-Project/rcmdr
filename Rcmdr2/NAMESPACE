@@ -1,4 +1,4 @@
-# last modified 2013-06-16 by J. Fox
+# last modified 2013-06-14 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -30,10 +30,14 @@ plotDistr, plotMeans, polrP, popCommand, popOutput, putDialog, putRcmdr,
 radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet, 
 RcmdrTkmessageBox, rcorr.adjust,
 reliability, RExcelSupported, RmdWindow, rowPercents, sortVarNames, stepwise, subOKCancelHelp,
-subsetBox, suppressMarkdown, 
+subsetBox,  
 tclvalue, totPercents, trim.blanks, ttkentry, ttkframe, ttkradiobutton, ttkcheckbutton,
 ttkscrollbar, TwoLevelFactors, twoLevelFactorsP, 
 UpdateModelNumber, variableListBox, Variables, varPosn, WindowsP, X11P,
+    
+beginRmdBlock, endRmdBlock, enterMarkdown, removeNullRmdBlocks, suppressMarkdown,
+    
+.setBusyCursor, .setIdleCursor,
     
 .Tcl, tcl, tclRequire, tclServiceMode, "tclvalue<-",
 tclVar, tkbind, tkcget, tkcheckbutton, tkconfigure,

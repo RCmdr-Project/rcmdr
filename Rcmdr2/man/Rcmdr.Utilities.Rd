@@ -1,6 +1,9 @@
 \name{Rcmdr.Utilities}
 \alias{Rcmdr.Utilities}
 \alias{Rcmdr Utilities}
+\alias{R Commander Utilities}
+\alias{.setBusyCursor}
+\alias{.setIdleCursor}
 \alias{activateMenus}
 \alias{activeDataSet}
 \alias{ActiveDataSet}
@@ -9,6 +12,7 @@
 \alias{ActiveModel}
 \alias{activeModelP}
 \alias{aicP}
+\alias{beginRmdBlock}
 \alias{checkActiveDataSet}
 \alias{checkActiveModel}
 \alias{checkBoxes}
@@ -27,6 +31,7 @@
 \alias{defmacro}
 \alias{dialogSuffix}
 \alias{doItAndPrint}
+\alias{endRmdBlock}
 \alias{enterMarkdown}
 \alias{errorCondition}
 \alias{exists.method}
@@ -86,6 +91,7 @@
 \alias{radioButtons}
 \alias{RcmdrTclSet}
 \alias{RcmdrTkmessageBox}
+\alias{removeNullRmdBlocks}
 \alias{RExcelSupported}
 \alias{rglLoaded}
 \alias{RmdWindow}
@@ -131,6 +137,7 @@ activeModel(model)
 ActiveModel(name)
 activeModelP()
 aicP()
+beginRmdBlock()
 checkActiveDataSet()
 checkActiveModel()
 checkBoxes(window=top, frame=stop("frame not supplied"), boxes=stop("boxes not supplied"), 
@@ -154,6 +161,7 @@ dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows, columns,
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), 
     tab.names=c("Data", "Options"), grid.buttons=FALSE)  # macro
 doItAndPrint(command, log=TRUE, rmd=log)
+endRmdBlock()
 enterMarkdown(command)
 errorCondition(window=top, recall=NULL, message, model=FALSE)  # macro
 exists.method(generic, object, default=TRUE, strict=FALSE)
@@ -219,6 +227,7 @@ radioButtons(window=top, name=stop("name not supplied"), buttons=stop("buttons n
 RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
+removeNullRmdBlocks()
 RExcelSupported()
 rglLoaded()
 RmdWindow()
@@ -241,9 +250,11 @@ varPosn(variables, type=c("all", "factor", "numeric", "nonfactor", "twoLevelFact
 WindowsP()
 X11P()
 
-# the following function is exported for technical reasons,
-# but is not meant to be called directly
+# the following functions are exported for technical reasons,
+# but are not meant to be called directly
 
+.setBusyCursor()
+.setIdleCursor()
 commanderPosition()
 }
 
@@ -389,7 +400,8 @@ commanderPosition()
   that will cause the command \emph{not} to be entered in the R Markdown tab. This is useful when a
   command, such as \code{identify}, requires direct user interaction and won't generate useful Markdown.
   \code{enterMarkdown} can be used to enter command blocks directly in the R Markdown tab; this should
-  rarely be required.
+  rarely be required. The functions \code{beginRmdBlock}, \code{endRmdBlock}, and \code{removeNullRmdBlocks}
+  should normally not be called directly.
   
   \emph{Checking for errors: }
   
