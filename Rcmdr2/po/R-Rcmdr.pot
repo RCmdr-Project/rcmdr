@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-06-21 12:00:00\n"
+"POT-Creation-Date: 2013-06-25 15:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4181,4 +4181,36 @@ msgstr ""
 # numerical summaries dialog
 
 msgid "Quantiles:"
+msgstr ""
+
+# for splines and polynomials in model formulas
+
+msgid "spline requires a numeric variable"
+msgstr ""
+
+msgid "cannot select more than one variable"
+msgstr ""
+
+msgid "polynomial requires a numeric variable"
+msgstr ""
+
+msgid "B-spline\n"
+msgstr ""
+
+msgid "natural\nspline"
+msgstr ""
+
+msgid "orthogonal\npolynomial"
+msgstr ""
+
+msgid "raw\npolynomial"
+msgstr ""
+
+msgid "Model Formula"
+msgstr ""
+
+msgid "Operators (click to formula):"
+msgstr ""
+
+msgid "Splines/Polynomials:\n(select variable and click)"
 msgstr ""
