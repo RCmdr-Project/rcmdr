@@ -1711,8 +1711,8 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
         }
         check <- !checkAddOperator(rhs)
         tclvalue(rhsVariable) <- paste(rhs, 
-            if (!check) paste(" + bs(", var, ", df=5)", sep="") 
-            else paste(" bs(", var, ", df=5)", sep=""),
+            if (!check) paste(" + bs(", var, ", df=", tclvalue(dfSplineVar), ")", sep="") 
+            else paste(" bs(", var, ", df=", tclvalue(dfSplineVar), ")", sep=""),
             sep="")
         tkicursor(rhsEntry, "end")
         tkxview.moveto(rhsEntry, "1")
@@ -1732,8 +1732,8 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
         }
         check <- !checkAddOperator(rhs)
         tclvalue(rhsVariable) <- paste(rhs, 
-            if (!check) paste(" + ns(", var, ", df=5)", sep="") 
-            else paste(" ns(", var, ", df=5)", sep=""),
+            if (!check) paste(" + ns(", var, ", df=", tclvalue(dfSplineVar), ")", sep="") 
+            else paste(" ns(", var, ", df=", tclvalue(dfSplineVar), ")", sep=""),
             sep="")
         tkicursor(rhsEntry, "end")
         tkxview.moveto(rhsEntry, "1")
@@ -1753,8 +1753,8 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
         }
         check <- !checkAddOperator(rhs)
         tclvalue(rhsVariable) <- paste(rhs, 
-            if (!check) paste(" + poly(", var, ", degree=2)", sep="") 
-            else paste(" poly(", var, ", degree=2)", sep=""),
+            if (!check) paste(" + poly(", var, ", degree=", tclvalue(degPolyVar), ")", sep="") 
+            else paste(" poly(", var, ", degree=", tclvalue(degPolyVar), ")", sep=""),
             sep="")
         tkicursor(rhsEntry, "end")
         tkxview.moveto(rhsEntry, "1")
@@ -1774,8 +1774,8 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
         }
         check <- !checkAddOperator(rhs)
         tclvalue(rhsVariable) <- paste(rhs, 
-            if (!check) paste(" + poly(", var, ", degree=2, raw=TRUE)", sep="") 
-            else paste(" poly(", var, ", degree=2, raw=TRUE)", sep=""),
+            if (!check) paste(" + poly(", var, ", degree=", tclvalue(degPolyVar), ", raw=TRUE)", sep="") 
+            else paste(" poly(", var, ", degree=", tclvalue(degPolyVar), ", raw=TRUE)", sep=""),
             sep="")
         tkicursor(rhsEntry, "end")
         tkxview.moveto(rhsEntry, "1")
@@ -1784,14 +1784,25 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
     nsplineButton <- buttonRcmdr(splinePolyFrame, text="natural\nspline", width="10", command=onNatSline)
     polyButton <- buttonRcmdr(splinePolyFrame, text="orthogonal\npolynomial", width="10", command=onPoly)
     RawPolyButton <- buttonRcmdr(splinePolyFrame, text="raw\npolynomial", width="10", command=onRawPoly)
+    dfSplineVar <- tclVar("5")
+    degPolyVar <- tclVar("2")
+    dfDegFrame <- tkframe(outerOperatorsFrame)
+    dfSplineSlider <- tkscale(dfDegFrame, from=2, to=10, showvalue=TRUE, 
+        resolution=1, orient="horizontal", variable=dfSplineVar)
+    degPolySlider <- tkscale(dfDegFrame, from=2, to=10, showvalue=TRUE, 
+        resolution=1, orient="horizontal", variable=degPolyVar)
     tkgrid(plusButton, timesButton, colonButton, slashButton, inButton, minusButton,
         powerButton, leftParenButton, rightParenButton, sticky="w")
     tkgrid(bsplineButton, nsplineButton, polyButton, RawPolyButton, sticky="nw")
+    tkgrid(labelRcmdr(dfDegFrame, text=gettextRcmdr("df for splines: ")), dfSplineSlider, 
+        labelRcmdr(dfDegFrame, text=gettextRcmdr("  degree for polynomials: ")), degPolySlider,
+        sticky="sw")
     formulaFrame <- tkframe(frame)
     if (hasLhs){
         tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Model Formula"), 
             fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
         tkgrid(labelRcmdr(outerOperatorsFrame, text="Operators (click to formula):  "), operatorsFrame, sticky="nw")
+        tkgrid(dfDegFrame, sticky="w", columnspan=2)
         tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Splines/Polynomials:\n(select variable and click)")), 
             splinePolyFrame, sticky="nw")
         lhsVariable <- if (currentModel) tclVar(currentFields$lhs) else tclVar("")
