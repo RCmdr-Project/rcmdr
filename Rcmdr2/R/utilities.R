@@ -1789,7 +1789,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
     dfDegFrame <- tkframe(outerOperatorsFrame)
     dfSplineSlider <- tkscale(dfDegFrame, from=2, to=10, showvalue=TRUE, 
         resolution=1, orient="horizontal", variable=dfSplineVar)
-    degPolySlider <- tkscale(dfDegFrame, from=2, to=10, showvalue=TRUE, 
+    degPolySlider <- tkscale(dfDegFrame, from=2, to=5, showvalue=TRUE, 
         resolution=1, orient="horizontal", variable=degPolyVar)
     tkgrid(plusButton, timesButton, colonButton, slashButton, inButton, minusButton,
         powerButton, leftParenButton, rightParenButton, sticky="w")
