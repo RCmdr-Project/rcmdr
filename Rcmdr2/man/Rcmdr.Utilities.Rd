@@ -140,8 +140,10 @@ aicP()
 beginRmdBlock()
 checkActiveDataSet()
 checkActiveModel()
-checkBoxes(window=top, frame=stop("frame not supplied"), boxes=stop("boxes not supplied"), 
-    initialValues=NULL, labels=stop("labels not supplied"), title=NULL, ttk=FALSE)  # macro
+checkBoxes(window=top, frame=stop("frame not supplied"), 
+    boxes=stop("boxes not supplied"), 
+    initialValues=NULL, labels=stop("labels not supplied"), 
+    title=NULL, ttk=FALSE)  # macro
 checkClass(object, class, message=NULL)  # macro
 checkFactors(n=1)
 checkMethod(generic, object, message=NULL, default=FALSE, strict=FALSE, 
@@ -182,10 +184,12 @@ groupsBox(recall=NULL, label=gettextRcmdr("Plot by:"),
     plotLinesByGroup=FALSE, positionLegend=FALSE, 
     plotLinesByGroupsText=gettextRcmdr("Plot lines by group"), 
     initialGroup=NULL, initialLinesByGroup=1, window=top)  # macro
-groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1, initialText=NULL)  # macro
+groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1, 
+    initialText=NULL)  # macro
 hclustSolutionsP()
 initializeDialog(window=top, title="", offset=10, preventCrisp=FALSE,
-    use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"))  # macro
+    use.tabs=FALSE, notebook=notebook, 
+    tabs=c("dataTab", "optionsTab"))  # macro
 is.valid.name(x)
 is.SciViews()
 justDoIt(command)
@@ -213,7 +217,8 @@ modelsP(n=1)
 multinomP()
 Numeric(names)
 numericP(n=1)
-OKCancelHelp(window=top, helpSubject=NULL, model=FALSE, reset=NULL, apply=NULL)  # macro
+OKCancelHelp(window=top, helpSubject=NULL, model=FALSE, 
+    reset=NULL, apply=NULL)  # macro
 OutputWindow()
 packageAvailable(name)
 polrP()
@@ -221,9 +226,12 @@ popCommand()
 popOutput()
 putDialog(dialog, values=NULL, resettable=TRUE)
 putRcmdr(x, value)
-radioButtons(window=top, name=stop("name not supplied"), buttons=stop("buttons not supplied"), 
-    values=NULL, initialValue=..values[1], labels=stop("labels not supplied"), 
-    title="", title.color=getRcmdr("title.color"), right.buttons=FALSE, command=function(){})   # macro
+radioButtons(window=top, name=stop("name not supplied"), 
+    buttons=stop("buttons not supplied"), 
+    values=NULL, initialValue=..values[1], 
+    labels=stop("labels not supplied"), 
+    title="", title.color=getRcmdr("title.color"), 
+    right.buttons=FALSE, command=function(){})   # macro
 RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
@@ -246,7 +254,8 @@ variableListBox(parentWindow, variableList=Variables(), bg="white",
     selectmode="single", export="FALSE", initialSelection=NULL, 
     listHeight=getRcmdr("variable.list.height"), title)
 Variables(names)
-varPosn(variables, type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor"))
+varPosn(variables, 
+    type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor"))
 WindowsP()
 X11P()
 
