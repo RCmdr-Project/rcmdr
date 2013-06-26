@@ -1,4 +1,4 @@
-# last modified 2013-06-25 by J. Fox
+# last modified 2013-06-26 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1550,7 +1550,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
     onDoubleClick <- if (!hasLhs){
         function(){
             var <- getSelection(xBox)
-            tkselection.clear(xBox$listbox, "0", "end")    				
+            tkselection.clear(xBox$listbox, "0", "end")            		
             if (length(grep(word, var)) == 1) var <- sub(word, "",  var)
             tkfocus(rhsEntry)
             rhs <- tclvalue(rhsVariable)
@@ -1787,24 +1787,20 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
     dfSplineVar <- tclVar("5")
     degPolyVar <- tclVar("2")
     dfDegFrame <- tkframe(outerOperatorsFrame)
-    dfSplineSlider <- tkscale(dfDegFrame, from=2, to=10, showvalue=TRUE, 
-        resolution=1, orient="horizontal", variable=dfSplineVar)
-    degPolySlider <- tkscale(dfDegFrame, from=2, to=5, showvalue=TRUE, 
-        resolution=1, orient="horizontal", variable=degPolyVar)
+    dfSplineSpin <- tkspinbox(dfDegFrame, textvariable=dfSplineVar, state="readonly", from=2, to=10, width=2)
+    degPolySpin <- tkspinbox(dfDegFrame, textvariable=degPolyVar, state="readonly", from=2, to=5, width=2)
     tkgrid(plusButton, timesButton, colonButton, slashButton, inButton, minusButton,
         powerButton, leftParenButton, rightParenButton, sticky="w")
-    tkgrid(bsplineButton, nsplineButton, polyButton, RawPolyButton, sticky="nw")
-    tkgrid(labelRcmdr(dfDegFrame, text=gettextRcmdr("df for splines: ")), dfSplineSlider, 
-        labelRcmdr(dfDegFrame, text=gettextRcmdr("  degree for polynomials: ")), degPolySlider,
-        sticky="sw")
+    tkgrid(labelRcmdr(dfDegFrame, text=gettextRcmdr("df for splines: ")), dfSplineSpin,  sticky="se")
+    tkgrid(labelRcmdr(dfDegFrame, text=gettextRcmdr("deg. for polynomials: ")), degPolySpin, sticky="se")
     formulaFrame <- tkframe(frame)
     if (hasLhs){
         tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Model Formula"), 
             fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
         tkgrid(labelRcmdr(outerOperatorsFrame, text="Operators (click to formula):  "), operatorsFrame, sticky="nw")
-        tkgrid(dfDegFrame, sticky="w", columnspan=2)
+        tkgrid(bsplineButton, nsplineButton, polyButton, RawPolyButton, sticky="nw")
         tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Splines/Polynomials:\n(select variable and click)")), 
-            splinePolyFrame, sticky="nw")
+            splinePolyFrame, dfDegFrame, sticky="nw")
         lhsVariable <- if (currentModel) tclVar(currentFields$lhs) else tclVar("")
         rhsVariable <- if (currentModel) tclVar(currentFields$rhs) else tclVar("")
         rhsEntry <- ttkentry(formulaFrame, width="75", textvariable=rhsVariable)
