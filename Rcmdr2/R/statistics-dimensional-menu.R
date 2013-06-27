@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-24 by J. Fox
+# last modified 2013-06-26 by J. Fox
 
 # Dimensional-analysis menu
 
@@ -32,104 +32,104 @@ Reliability <- function () {
 }
 
 principalComponents <- function () {
-	defaults <- list(initial.x = NULL, initial.correlations = 1, 
-			initial.subset = gettextRcmdr("<all valid cases>"), initial.screeplot = 0, initial.addPC = 0,
-            initial.tab=0)
-	dialog.values <- getDialog("principalComponents", defaults)
-	initializeDialog(title = gettextRcmdr("Principal Components Analysis"), use.tabs=TRUE)
-	xBox <- variableListBox(dataTab, Numeric(), selectmode = "multiple", 
-			initialSelection = varPosn(dialog.values$initial.x, "numeric"), 
-			title = gettextRcmdr("Variables (pick two or more)"))
-	subsetBox(dataTab, subset.expression = dialog.values$initial.subset)
-	checkBoxes(optionsTab, frame = "optionsFrame", boxes = c("correlations", 
-					"screeplot", "addPC"), initialValues = c(dialog.values$initial.correlations, 
-					dialog.values$initial.screeplot, dialog.values$initial.addPC), 
-			labels = gettextRcmdr(c("Analyze correlation matrix", 
-							"Screeplot", "Add principal components to data set")))
-	onOK <- function() {
-	    tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
-		putRcmdr("ncomponents", 0)
-		x <- getSelection(xBox)
-		nvar <- length(x)#?
-		correlations <- tclvalue(correlationsVariable)
-		subset <- tclvalue(subsetVariable)
-		screeplot <- tclvalue(screeplotVariable)
-		addPC <- tclvalue(addPCVariable)
-		closeDialog()
-		putDialog("principalComponents", list(initial.x = x, initial.correlations = correlations, 
-						initial.subset = subset, initial.screeplot = screeplot, initial.addPC = addPC,
-                        initial.tab=tab))
-		if (2 > length(x)) {
-			errorCondition(recall = principalComponents, message = gettextRcmdr("Fewer than 2 variables selected."))
-			return()
-		}
-		subset <- if (trim.blanks(subset) == "" || trim.blanks(subset) == gettextRcmdr("<all valid cases>")) 
-					""
-				else paste(", subset=", subset, sep = "")
-		correlations <- if (correlations == "1") 
-					"TRUE"
-				else "FALSE"
-		.activeDataSet <- ActiveDataSet()
-		command <- paste("princomp(~", paste(x, collapse = "+"), 
-				", cor=", correlations, ", data=", .activeDataSet, 
-				subset, ")", sep = "")
-		doItAndPrint(paste(".PC <- ", command, sep = ""))
-		doItAndPrint("unclass(loadings(.PC))  # component loadings")
-		doItAndPrint(".PC$sd^2  # component variances")
-		doItAndPrint("summary(.PC) # proportions of variance")
-		if (screeplot == "1") {
-			justDoIt("screeplot(.PC)")
-			logger("screeplot(.PC)")
-		}
-		if (addPC == "1") {
-			if (trim.blanks(subset) != ""){
-				errorCondition(recall=principalComponents,
-						message=gettextRcmdr("Component scores are not available when subset is specified."))
-				return()
-			}
-			initializeDialog(subdialog, title = gettextRcmdr("Number of Components"))
-			tkgrid(labelRcmdr(subdialog, text = gettextRcmdr("Number of components to retain:"), 
-							fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
-			sliderFrame <- tkframe(subdialog)
-			sliderValue <- tclVar("1")
-			componentsSlider <- tkscale(sliderFrame, from = 1, 
-					to = nvar, showvalue = FALSE, variable = sliderValue, 
-					resolution = 1, orient = "horizontal")
-			componentsShow <- labelRcmdr(sliderFrame, textvariable = sliderValue, 
-					width = 2, justify = "right")
-			onOKsub <- function() {
-				closeDialog(subdialog)
-				putRcmdr("ncomponents", as.numeric(tclvalue(sliderValue)))
-			}
-			subOKCancelHelp()
-			tkgrid(componentsSlider, componentsShow, sticky = "nw")
-			tkgrid(sliderFrame, sticky = "w")
-			tkgrid(subButtonsFrame, sticky = "w")
-			dialogSuffix(subdialog, onOK = onOKsub, focus = subdialog)
-			if ((ncomponents <- getRcmdr("ncomponents")) > 0) {
-				for (i in 1:ncomponents) {
-					var <- paste("PC", i, sep = "")
-					if (is.element(var, Variables())) {
-						if ("no" == tclvalue(checkReplace(var))) 
-							next
-					}
-					justDoIt(paste(.activeDataSet, "$PC", i, " <- .PC$scores[,", 
-									i, "]", sep = ""))
-					logger(paste(.activeDataSet, "$PC", i, " <- .PC$scores[,", 
-									i, "]", sep = ""))
-				}
-				activeDataSet(.activeDataSet, flushDialogMemory=FALSE)
-			}
-		}
-		remove(.PC, envir = .GlobalEnv)
-		logger("remove(.PC)")
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "princomp", reset = "principalComponents")
-	tkgrid(getFrame(xBox), sticky = "nw")
-	tkgrid(subsetFrame, sticky = "w")
-	tkgrid(optionsFrame, sticky = "w")
-	dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
+    defaults <- list(initial.x = NULL, initial.correlations = 1, 
+        initial.subset = gettextRcmdr("<all valid cases>"), initial.screeplot = 0, initial.addPC = 0,
+        initial.tab=0)
+    dialog.values <- getDialog("principalComponents", defaults)
+    initializeDialog(title = gettextRcmdr("Principal Components Analysis"), use.tabs=TRUE)
+    xBox <- variableListBox(dataTab, Numeric(), selectmode = "multiple", 
+        initialSelection = varPosn(dialog.values$initial.x, "numeric"), 
+        title = gettextRcmdr("Variables (pick two or more)"))
+    subsetBox(dataTab, subset.expression = dialog.values$initial.subset)
+    checkBoxes(optionsTab, frame = "optionsFrame", boxes = c("correlations", 
+        "screeplot", "addPC"), initialValues = c(dialog.values$initial.correlations, 
+            dialog.values$initial.screeplot, dialog.values$initial.addPC), 
+        labels = gettextRcmdr(c("Analyze correlation matrix", 
+            "Screeplot", "Add principal components to data set")))
+    onOK <- function() {
+        tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
+        putRcmdr("ncomponents", 0)
+        x <- getSelection(xBox)
+        nvar <- length(x)#?
+        correlations <- tclvalue(correlationsVariable)
+        subset <- tclvalue(subsetVariable)
+        screeplot <- tclvalue(screeplotVariable)
+        addPC <- tclvalue(addPCVariable)
+        closeDialog()
+        putDialog("principalComponents", list(initial.x = x, initial.correlations = correlations, 
+            initial.subset = subset, initial.screeplot = screeplot, initial.addPC = addPC,
+            initial.tab=tab))
+        if (2 > length(x)) {
+            errorCondition(recall = principalComponents, message = gettextRcmdr("Fewer than 2 variables selected."))
+            return()
+        }
+        subset <- if (trim.blanks(subset) == "" || trim.blanks(subset) == gettextRcmdr("<all valid cases>")) 
+            ""
+        else paste(", subset=", subset, sep = "")
+        correlations <- if (correlations == "1") 
+            "TRUE"
+        else "FALSE"
+        .activeDataSet <- ActiveDataSet()
+        command <- paste("princomp(~", paste(x, collapse = "+"), 
+            ", cor=", correlations, ", data=", .activeDataSet, 
+            subset, ")", sep = "")
+        doItAndPrint(paste(".PC <- ", command, sep = ""))
+        doItAndPrint("unclass(loadings(.PC))  # component loadings")
+        doItAndPrint(".PC$sd^2  # component variances")
+        doItAndPrint("summary(.PC) # proportions of variance")
+        if (screeplot == "1") {
+            justDoIt("screeplot(.PC)")
+            logger("screeplot(.PC)")
+        }
+        if (addPC == "1") {
+            if (trim.blanks(subset) != ""){
+                errorCondition(recall=principalComponents,
+                    message=gettextRcmdr("Component scores are not available when subset is specified."))
+                return()
+            }
+            initializeDialog(subdialog, title = gettextRcmdr("Number of Components"))
+            tkgrid(labelRcmdr(subdialog, text = gettextRcmdr("Number of components to retain:"), 
+                fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
+            sliderFrame <- tkframe(subdialog)
+            sliderValue <- tclVar("1")
+            componentsSlider <- tkscale(sliderFrame, from = 1, 
+                to = nvar, showvalue = FALSE, variable = sliderValue, 
+                resolution = 1, orient = "horizontal")
+            componentsShow <- labelRcmdr(sliderFrame, textvariable = sliderValue, 
+                width = 2, justify = "right")
+            onOKsub <- function() {
+                closeDialog(subdialog)
+                putRcmdr("ncomponents", as.numeric(tclvalue(sliderValue)))
+            }
+            subOKCancelHelp()
+            tkgrid(componentsSlider, componentsShow, sticky = "nw")
+            tkgrid(sliderFrame, sticky = "w")
+            tkgrid(subButtonsFrame, sticky = "w")
+            dialogSuffix(subdialog, onOK = onOKsub, focus = subdialog)
+            if ((ncomponents <- getRcmdr("ncomponents")) > 0) {
+                for (i in 1:ncomponents) {
+                    var <- paste("PC", i, sep = "")
+                    if (is.element(var, Variables())) {
+                        if ("no" == tclvalue(checkReplace(var))) 
+                            next
+                    }
+                    justDoIt(paste(.activeDataSet, "$PC", i, " <- .PC$scores[,", 
+                        i, "]", sep = ""))
+                    logger(paste(.activeDataSet, "$PC", i, " <- .PC$scores[,", 
+                        i, "]", sep = ""))
+                }
+                activeDataSet(.activeDataSet, flushDialogMemory=FALSE)
+            }
+        }
+        remove(.PC, envir = .GlobalEnv)
+        logger("remove(.PC)")
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "princomp", reset = "principalComponents", apply = "principalComponents")
+    tkgrid(getFrame(xBox), sticky = "nw")
+    tkgrid(subsetFrame, sticky = "w")
+    tkgrid(optionsFrame, sticky = "w")
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 factorAnalysis <- function () {
@@ -226,7 +226,7 @@ factorAnalysis <- function () {
 		remove(.FA, envir = .GlobalEnv)
 		tkfocus(CommanderWindow())
 	}
-	OKCancelHelp(helpSubject = "factanal", reset = "factorAnalysis")
+	OKCancelHelp(helpSubject = "factanal", reset = "factorAnalysis", apply = "factorAnalysis")
 	tkgrid(getFrame(xBox), sticky = "nw")
 	tkgrid(subsetFrame, sticky = "w")
 	tkgrid(optionsFrame, sticky = "w")
@@ -319,7 +319,7 @@ CFA <- function(){
 		justDoIt("remove('.model', '.Data', envir=.GlobalEnv)")
 		logger("remove('.model', '.Data')")
 	}
-	OKCancelHelp(helpSubject="CFA", reset="CFA")
+	OKCancelHelp(helpSubject="CFA", reset="CFA", apply="CFA")
 	tkgrid(matrixFrame, labelRcmdr(optionsFrame, text="    "), factorCorFrame, sticky="nw")
 	tkgrid(identifyFrame, labelRcmdr(optionsFrame, text="    "),  robustFrame, sticky="w")
 	tkgrid(optionsFrame, sticky="w")

@@ -1253,7 +1253,7 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
             tkgrid(notebook, sticky="nsew")
         }
         if (grid.buttons) tkgrid(buttonsFrame, sticky = "ew")
-        if (exists("dialog.values") && !is.null(dialog.values$initial.tab) && getRcmdr("restoreTab")) 
+        if (use.tabs && exists("dialog.values") && !is.null(dialog.values$initial.tab) && getRcmdr("restoreTab")) 
             tkselect(notebook, dialog.values$initial.tab)
         .Tcl("update idletasks")
         tkwm.resizable(window, 0, 0)
@@ -1268,6 +1268,7 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
         if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
     }
 )
+
 
 variableListBox <- function(parentWindow, variableList=Variables(), bg="white",
     selectmode="single", export="FALSE", initialSelection=NULL, listHeight=getRcmdr("variable.list.height"), title){
