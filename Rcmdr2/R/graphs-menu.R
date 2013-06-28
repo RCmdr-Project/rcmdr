@@ -162,7 +162,8 @@ stemAndLeaf <- function () {
     leafsDigitShow <- labelRcmdr(leafsFrame, textvariable = displayDigits, 
                                  width = 8, justify = "right")
     leafsAutoVariable <- tclVar(dialog.values$initial.leafs.auto)
-    leafsDigitCheckBox <- ttkcheckbutton(leafsFrame, variable = leafsAutoVariable)
+    leafsDigitCheckBox <- ttkcheckbutton(leafsFrame, text = gettextRcmdr("Automatic"),
+                                         variable = leafsAutoVariable)
     onOK <- function() {
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         x <- getSelection(xBox)
@@ -208,7 +209,7 @@ stemAndLeaf <- function () {
     OKCancelHelp(helpSubject = "stem.leaf", reset = "stemAndLeaf", apply = "stemAndLeaf")
     tkgrid(getFrame(xBox), sticky = "nw")
     tkgrid(labelRcmdr(leafsFrame, text = gettextRcmdr("Leafs Digit:  "), 
-                      fg = getRcmdr("title.color"), font="RcmdrTitleFont"), leafsDigitCheckBox, labelRcmdr(leafsFrame, text = gettextRcmdr("Automatic")), 
+                      fg = getRcmdr("title.color"), font="RcmdrTitleFont"), leafsDigitCheckBox, 
            labelRcmdr(leafsFrame, text = gettextRcmdr("  or set:"), 
                       fg = "red"), leafsDigitShow, leafsDigitSlider, sticky = "w")
     tkgrid(partsFrame, sticky = "w")
