@@ -130,10 +130,16 @@ stemAndLeaf <- function () {
                             initialSelection = varPosn (dialog.values$initial.x, "numeric"))
     displayDigits <- tclVar(formatC(10^dialog.values$initial.unit))
     leafsDigitValue <- tclVar(dialog.values$initial.unit)
+    leafsDigitOnce <- TRUE
     onDigits <- function(...) {
+        if(leafsDigitOnce) {
+            leafsDigitOnce <<- FALSE
+            return()
+        }
+
         tclvalue(displayDigits) <- formatC(10^as.numeric(tclvalue(leafsDigitValue)), 
                                            format = "fg", big.mark = ",")
-        #        tclvalue(leafsAutoVariable) <- "0"
+        tclvalue(leafsAutoVariable) <- "0"
     }
     radioButtons(optionsTab, name = "parts", buttons = c("auto", "one", "two", 
                                                          "five"), values = c("auto", "1", "2", "5"), labels = c(gettextRcmdr("Automatic"), 
