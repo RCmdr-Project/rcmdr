@@ -1,5 +1,5 @@
-\name{Rcmdr-internal}
-\alias{Rcmdr-internal}
+\name{Rcmdr1-internal}
+\alias{Rcmdr1-internal}
 \alias{tcl}
 \alias{tclRequire}
 \alias{tclServiceMode}

@@ -1,6 +1,6 @@
-\name{Rcmdr-package}
-\alias{Rcmdr-package}
-\alias{Rcmdr}
+\name{Rcmdr1-package}
+\alias{Rcmdr1-package}
+\alias{Rcmdr1}
 \docType{package}
 \title{
 R Commander
@@ -11,7 +11,7 @@ user interface) for R, based on the tcltk package.
 }
 \details{
 \tabular{ll}{
-Package: \tab Rcmdr\cr
+Package: \tab Rcmdr1\cr
 Version: \tab 1.9-7\cr
 Date: \tab 2013/03/14\cr
 Depends: \tab R (>= 2.15.0), grDevices, utils, car (>= 2.0-15)\cr
