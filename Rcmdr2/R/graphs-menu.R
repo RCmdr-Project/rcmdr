@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-06-24 by J. Fox
+# last modified 2013-06-28 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 indexPlot <- function () {
@@ -125,7 +125,8 @@ stemAndLeaf <- function () {
                      initial.tab=0) 
     dialog.values <- getDialog("stemAndLeaf", defaults)
     initializeDialog(title = gettextRcmdr("Stem and Leaf Display"), 
-                     preventCrisp = TRUE, use.tabs=TRUE)
+#                     preventCrisp = TRUE, use.tabs=TRUE)
+                     use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
                             initialSelection = varPosn (dialog.values$initial.x, "numeric"))
     displayDigits <- tclVar(formatC(10^dialog.values$initial.unit))
@@ -216,6 +217,7 @@ stemAndLeaf <- function () {
     tkgrid(styleFrame, sticky = "w")
     tkgrid(otherOptionsFrame, sticky="w")
     tkgrid(leafsFrame, sticky = "w")
+#    dialogSuffix(preventCrisp = TRUE, use.tabs=TRUE, grid.buttons=TRUE)
     dialogSuffix(preventCrisp = TRUE, use.tabs=TRUE, grid.buttons=TRUE)
 }
 
