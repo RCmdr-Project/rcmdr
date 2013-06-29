@@ -218,7 +218,7 @@ stemAndLeaf <- function () {
     tkgrid(otherOptionsFrame, sticky="w")
     tkgrid(leafsFrame, sticky = "w")
 #    dialogSuffix(preventCrisp = TRUE, use.tabs=TRUE, grid.buttons=TRUE)
-    dialogSuffix(preventCrisp = TRUE, use.tabs=TRUE, grid.buttons=TRUE)
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 boxPlot <- function () {

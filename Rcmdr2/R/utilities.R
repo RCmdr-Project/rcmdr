@@ -1,4 +1,4 @@
-# last modified 2013-06-26 by J. Fox
+# last modified 2013-06-28 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -958,6 +958,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             image="::image::okIcon", compound="left")
         
         onCancel <- function() {
+            putRcmdr("restoreTab", FALSE)
             if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
             if (GrabFocus()) tkgrab.release(window)
             tkdestroy(window)
@@ -1191,10 +1192,11 @@ commanderPosition <- function (){
 #     }
 # )
 
-initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp=FALSE, 
+initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp, 
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"),
     expr={
-        if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
+#        if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
+        if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
         window <- tktoplevel(borderwidth=10)
         if (use.tabs){
             notebook <- ttknotebook(window)
@@ -1242,7 +1244,7 @@ closeDialog <- defmacro(window=top, release=TRUE,
 
 dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns, focus=top,
     bindReturn=TRUE, preventGrabFocus=FALSE, preventDoubleClick=FALSE,
-    preventCrisp=FALSE, 
+    preventCrisp, 
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), tab.names=c("Data", "Options"),
     grid.buttons=FALSE,
     expr={
@@ -1265,7 +1267,8 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
         if (GrabFocus() && (!preventGrabFocus)) tkgrab.set(window)
         tkfocus(focus)
         tkwait.window(window)
-        if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
+#        if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
+        if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
     }
 )
 

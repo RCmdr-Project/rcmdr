@@ -159,7 +159,7 @@ dataSetsP(n=1)
 defmacro(..., expr)
 dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows, columns, 
 	focus=top, bindReturn=TRUE, 
-    preventGrabFocus=FALSE, preventDoubleClick=FALSE, preventCrisp=FALSE,
+    preventGrabFocus=FALSE, preventDoubleClick=FALSE, preventCrisp,
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), 
     tab.names=c("Data", "Options"), grid.buttons=FALSE)  # macro
 doItAndPrint(command, log=TRUE, rmd=log)
@@ -187,7 +187,7 @@ groupsBox(recall=NULL, label=gettextRcmdr("Plot by:"),
 groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1, 
     initialText=NULL)  # macro
 hclustSolutionsP()
-initializeDialog(window=top, title="", offset=10, preventCrisp=FALSE,
+initializeDialog(window=top, title="", offset=10, preventCrisp,
     use.tabs=FALSE, notebook=notebook, 
     tabs=c("dataTab", "optionsTab"))  # macro
 is.valid.name(x)
@@ -346,8 +346,9 @@ commanderPosition()
   \item{preventDoubleClick}{prevent double-clicking from pressing the OK button, even when the
     double.click option is set; necessary for statistical modelling dialogs, which use double-clicking
     to build the model formula.}
-  \item{preventCrisp}{prevent call to \code{tclServiceMode}, which (rarely) causes
-    problems with some dialogs.}
+%  \item{preventCrisp}{prevent call to \code{tclServiceMode}, which (rarely) causes
+%    problems with some dialogs.}
+  \item{preventCrisp}{this argument is ignored, and is present only for backwards compatibility.}
   \item{recall}{function to call after error --- usually the function that initiates the dialog.}
   \item{release}{release the focus if the grab.focus option has been set.}
   \item{reset}{quoted name of dialog function, to be invoked with all defaults by Reset button.}
