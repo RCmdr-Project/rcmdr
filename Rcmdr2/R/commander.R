@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-06-24 by J. Fox
+# last modified 2013-06-30 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -522,7 +522,7 @@ Commander <- function(){
             .RmdFile <- getRcmdr("RmdFileName")
             .filename <- sub("\\.Rmd$", "", trim.blanks(.RmdFile))
             writeLines(lines, .RmdFile)
-            knit(.RmdFile, paste(.filename, ".md", sep=""))
+            knit(.RmdFile, paste(.filename, ".md", sep=""), quiet=TRUE)
             .html.file <- paste(.filename, ".html", sep="")
             markdownToHTML(paste(.filename, ".md", sep=""), .html.file)
             .html.file.location <- paste("file:///", normalizePath(.html.file), sep="")
