@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-06-26 16:30:00\n"
+"POT-Creation-Date: 2013-07-01 18:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3951,6 +3951,9 @@ msgstr ""
 # messages added to version 2.0-0
 
 msgid "Plotting Parameters"
+msgstr ""
+
+msgid "Graph title"
 msgstr ""
 
 msgid "Apply"

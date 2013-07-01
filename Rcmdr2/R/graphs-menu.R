@@ -1,27 +1,48 @@
 # Graphs menu dialogs
 
-# last modified 2013-06-28 by J. Fox
+# last modified 2013-07-01 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
+# the following function improved by Miroslav Ristic 3013-07-01
+
 indexPlot <- function () {
-    defaults <- list(initial.x = NULL, initial.type = "spikes", initial.identify = "auto", initial.id.n="2", initial.tab=0) 
+    defaults <- list(initial.x = NULL, initial.type = "spikes", initial.identify = "auto",
+        initial.id.n="2", initial.tab=0, initial.ylab="<auto>", initial.main="<auto>")
     dialog.values <- getDialog("indexPlot", defaults)
     initializeDialog(title = gettextRcmdr("Index Plot"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
-                            initialSelection = varPosn (dialog.values$initial.x, "numeric"))
-    optionsFrame <- tkframe(optionsTab)
+        initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+    optionsFrame <- tkframe(optionsTab)    
+    optFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Options"))
+    parFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plotting Parameters"))
     typeVariable <- tclVar(dialog.values$initial.type)
-    spikesButton <- ttkradiobutton(optionsFrame, variable = typeVariable, 
-                                   value = "spikes")
-    pointsButton <- ttkradiobutton(optionsFrame, variable = typeVariable, 
-                                   value = "points")  
-    identifyPointsFrame <- tkframe(optionsTab)
+    styleFrame <- tkframe(optFrame)
+    radioButtons(styleFrame, name = "type", buttons = c("spikes", "points"),
+        labels = gettextRcmdr(c("Spikes", "Points")), title = gettextRcmdr("Style of plot"),
+        initialValue = dialog.values$initial.type)
+    identifyPointsFrame <- tkframe(optFrame)
     radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse", 
-                                                                     "not"), labels = gettextRcmdr(c("Automatically", 
-                                                                                                     "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
-                 initialValue = dialog.values$initial.identify)    
+        "not"), labels = gettextRcmdr(c("Automatically", 
+            "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
+        initialValue = dialog.values$initial.identify)    
     id.n.Var <- tclVar(dialog.values$initial.id.n) 
-    npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
+    npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)
+    ylabVar <- tclVar(dialog.values$initial.ylab)
+    mainVar <- tclVar(dialog.values$initial.main)
+    ylabEntry <- ttkentry(parFrame, width = "25", textvariable = ylabVar)
+    ylabScroll <- ttkscrollbar(parFrame, orient = "horizontal",
+        command = function(...) tkxview(ylabEntry, ...))
+    tkconfigure(ylabEntry, xscrollcommand = function(...) tkset(ylabScroll,
+        ...))
+    tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("y-axis label")), ylabEntry, sticky = "ew", padx=6)
+    tkgrid(labelRcmdr(parFrame, text =""), ylabScroll, sticky = "ew", padx=6)
+    mainEntry <- ttkentry(parFrame, width = "25", textvariable = mainVar)
+    mainScroll <- ttkscrollbar(parFrame, orient = "horizontal",
+        command = function(...) tkxview(mainEntry, ...))
+    tkconfigure(mainEntry, xscrollcommand = function(...) tkset(mainScroll,
+        ...))
+    tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("Graph title")), mainEntry, sticky = "ew", padx=6)
+    tkgrid(labelRcmdr(parFrame, text=""), mainScroll, sticky = "ew", padx=6)
     onOK <- function() {
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         x <- getSelection(xBox)
@@ -31,8 +52,17 @@ indexPlot <- function () {
             errorCondition(recall = indexPlot, message = gettextRcmdr("number of points to identify must be an integer"))
             return()
         }
+        ylab <- trim.blanks(tclvalue(ylabVar))
+        ylab <- if (ylab == gettextRcmdr("<auto>"))
+            ""
+        else paste(", ylab=\"", ylab, "\"", sep = "")
+        main <- trim.blanks(tclvalue(mainVar))
+        main <- if (main == gettextRcmdr("<auto>"))
+            ""
+        else paste(", main=\"", main, "\"", sep = "")
         putDialog ("indexPlot", list(initial.x = x, initial.type = tclvalue(typeVariable), initial.identify = identify,
-                                     initial.id.n = id.n, initial.tab=tab))
+            initial.id.n = id.n, initial.tab=tab,
+            initial.ylab = tclvalue(ylabVar), initial.main = tclvalue(mainVar)))
         closeDialog()
         if (length(x) == 0) {
             errorCondition(recall = indexPlot, message = gettextRcmdr("You must select a variable"))
@@ -44,14 +74,14 @@ indexPlot <- function () {
         .activeDataSet <- ActiveDataSet()
         if (identify == "mouse") {
             RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
-                                                                         gettextRcmdr(if (MacOSXP()) 
-                                                                             "esc key to exit."
-                                                                                      else "right button to exit."), sep = ""), icon = "info", 
-                              type = "ok")
+                gettextRcmdr(if (MacOSXP()) 
+                    "esc key to exit."
+                    else "right button to exit."), sep = ""), icon = "info", 
+                type = "ok")
         }
         command <- paste("with(", .activeDataSet, ", indexplot(", x, ", type='", type,
-                         "', id.method='", method, "', id.n=", id.n.use, ", labels=rownames(", .activeDataSet, ")))",
-                         sep="")
+            "', id.method='", method, "', id.n=", id.n.use, ", labels=rownames(", .activeDataSet, ")",
+            ylab, main, "))", sep="") # Modification
         if (identify == "mouse") command <- suppressMarkdown(command)
         doItAndPrint(command)
         activateMenus()
@@ -59,15 +89,13 @@ indexPlot <- function () {
     }
     OKCancelHelp(helpSubject = "indexplot", reset = "indexPlot", apply="indexPlot")
     tkgrid(getFrame(xBox), sticky = "nw")
-    tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Style of plot"), fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w", columnspan=2)
-    tkgrid(spikesButton, labelRcmdr(optionsFrame, text = gettextRcmdr("Spikes")), 
-           sticky = "w")
-    tkgrid(pointsButton, labelRcmdr(optionsFrame, text = gettextRcmdr("Points")), 
-           sticky = "w")
-    tkgrid(optionsFrame, sticky = "w")
+    tkgrid(typeFrame, sticky = "w")
+    tkgrid(styleFrame, sticky = "w")
     tkgrid(identifyFrame, sticky="w")
     tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
     tkgrid(identifyPointsFrame, sticky="w")
+    tkgrid(optFrame, parFrame, sticky = "nswe", padx=6, pady=6)
+    tkgrid(optionsFrame, sticky = "w")
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
