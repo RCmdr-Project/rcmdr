@@ -13,6 +13,7 @@
 \alias{activeModelP}
 \alias{aicP}
 \alias{beginRmdBlock}
+\alias{beginRnwBlock}
 \alias{checkActiveDataSet}
 \alias{checkActiveModel}
 \alias{checkBoxes}
@@ -32,7 +33,9 @@
 \alias{dialogSuffix}
 \alias{doItAndPrint}
 \alias{endRmdBlock}
+\alias{endRnwBlock}
 \alias{enterMarkdown}
+\alias{enterKnitr}
 \alias{errorCondition}
 \alias{exists.method}
 \alias{Factors}
@@ -92,9 +95,11 @@
 \alias{RcmdrTclSet}
 \alias{RcmdrTkmessageBox}
 \alias{removeNullRmdBlocks}
+\alias{removeNullRnwBlocks}
 \alias{RExcelSupported}
 \alias{rglLoaded}
 \alias{RmdWindow}
+\alias{RnwWindow}
 \alias{sortVarNames}
 \alias{subOKCancelHelp}
 \alias{subsetBox}
@@ -138,6 +143,7 @@ ActiveModel(name)
 activeModelP()
 aicP()
 beginRmdBlock()
+beginRnwBlock()
 checkActiveDataSet()
 checkActiveModel()
 checkBoxes(window=top, frame=stop("frame not supplied"), 
@@ -164,7 +170,9 @@ dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows, columns,
     tab.names=c("Data", "Options"), grid.buttons=FALSE)  # macro
 doItAndPrint(command, log=TRUE, rmd=log)
 endRmdBlock()
+endRnwBlock()
 enterMarkdown(command)
+enterKnitr(command)
 errorCondition(window=top, recall=NULL, message, model=FALSE)  # macro
 exists.method(generic, object, default=TRUE, strict=FALSE)
 Factors(names)
@@ -236,9 +244,11 @@ RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
 removeNullRmdBlocks()
+removeNullRnwBlocks()
 RExcelSupported()
 rglLoaded()
 RmdWindow()
+RnwWindow()
 sortVarNames(x)
 subOKCancelHelp(window=subdialog, helpSubject=NULL)  # macro
 subsetBox(window = top, subset.expression = NULL, model = FALSE)  # macro

@@ -941,6 +941,10 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                 putRcmdr("startNewCommandBlock", FALSE)
                 beginRmdBlock()
             }
+            if (getRcmdr("use.knitr")) {
+                putRcmdr("startNewKnitrCommandBlock", FALSE)
+                beginRnwBlock()
+            }
             .setBusyCursor()
             onOK()
             .setIdleCursor()
@@ -951,6 +955,14 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                     putRcmdr("rmd.generated", FALSE)
                 }
                 removeNullRmdBlocks()
+            }
+            if (getRcmdr("use.knitr")){
+                putRcmdr("startNewKnitrCommandBlock", TRUE)
+                if (getRcmdr("rnw.generated")) {
+                    endRnwBlock()
+                    putRcmdr("rnw.generated", FALSE)
+                }
+                removeNullRnwBlocks()
             }
         }
         
@@ -1003,6 +1015,10 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                     putRcmdr("startNewCommandBlock", FALSE)
                     beginRmdBlock()
                 }
+                if (getRcmdr("use.knitr")) {
+                    putRcmdr("startNewKnitrCommandBlock", FALSE)
+                    beginRnwBlock()
+                }
                 .setBusyCursor()
                 onOK()
                 .setIdleCursor()
@@ -1013,6 +1029,14 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                         putRcmdr("rmd.generated", FALSE)
                     }
                     removeNullRmdBlocks()
+                }
+                if (getRcmdr("use.knitr")){
+                    putRcmdr("startNewKnitrCommandBlock", TRUE)
+                    if (getRcmdr("rnw.generated")) {
+                        endRnwBlock()
+                        putRcmdr("rnw.generated", FALSE)
+                    }
+                    removeNullRnwBlocks()
                 }
                 eval(parse(text=paste(apply, "()")))
                 putRcmdr("open.dialog.here", NULL)
@@ -1980,6 +2004,8 @@ LogWindow <- function() getRcmdr("logWindow")
 
 RmdWindow <- function() getRcmdr("RmdWindow")
 
+RnwWindow <- function() getRcmdr("RnwWindow")
+
 OutputWindow <- function() getRcmdr("outputWindow")
 
 MessagesWindow <- function() getRcmdr("messagesWindow")
@@ -2538,6 +2564,46 @@ enterMarkdown <- function(command){
     endRmdBlock()
     command
 }
+
+# the following functions to support knitr
+
+beginRnwBlock <- function(){
+    .rnw <- RnwWindow()
+    last2 <- tclvalue(tkget(.rnw, "end -2 chars", "end"))
+    if (last2 != "\n\n") tkinsert(.rnw, "end", "\n")
+    tkinsert(.rnw, "end", "\n")
+    tkinsert(.rnw, "end", "<<>>=\n")
+}
+
+endRnwBlock <- function(){
+    tkinsert(RnwWindow(), "end", "@\n")
+}
+
+### FIXME: fix Rnw start/end 
+
+removeNullRnwBlocks <- function(){
+    .rnw <- RnwWindow()
+    rnw <- tclvalue(tkget(.rnw, "1.0", "end"))
+    rnw <- gsub("\n+$", "\n", rnw)
+    rnw <- gsub("```\\{r\\}\n$", "", rnw)
+    rnw <- gsub("```\\{r\\}\n```\n$", "", rnw)
+    tkdelete(.rnw, "1.0", "end")
+    tkinsert(.rnw, "end", rnw)
+    tkyview.moveto(.rnw, 1)
+}
+
+enterKnitr <- function(command){
+    .rnw <- RnwWindow()
+    if (!getRcmdr("use.knitr")) return()
+    command <- splitCmd(command)
+    beginRnwBlock()
+    tkinsert(.rnw, "end", paste(command, "\n", sep=""))
+    tkyview.moveto(.rnw, 1)
+    putRcmdr("knitr.output", TRUE)
+    endRnwBlock()
+    command
+}
+
 
 # the rgb2col function translates #RRGGBB colors to names if a named color exists or otherwise a "close" color (not exported)
 #  uses code from r-help adapted from Kevin Wright

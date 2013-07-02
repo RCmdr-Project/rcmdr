@@ -75,7 +75,7 @@ Commander <- function(){
     onCopy <- function(){
         focused <- tkfocus()
         if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID) && 
-                (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID))
+                (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID) && (tclvalue(focused) != RnwWindow()$ID))
             focused <- LogWindow()
         selection <- strsplit(tclvalue(tktag.ranges(focused, "sel")), " ")[[1]]
         if (is.na(selection[1])) return()
@@ -86,7 +86,7 @@ Commander <- function(){
     onDelete <- function(){
         focused <- tkfocus()
         if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID) && 
-                (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID))
+                (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID) && (tclvalue(focused) != RnwWindow()$ID))
             focused <- LogWindow()
         selection <- strsplit(tclvalue(tktag.ranges(focused, "sel")), " ")[[1]]
         if (is.na(selection[1])) return()
@@ -100,7 +100,7 @@ Commander <- function(){
         onDelete()
         focused <- tkfocus()
         if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID)  && 
-                (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID))
+                (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID) && (tclvalue(focused) != RnwWindow()$ID))
             focused <- LogWindow()
         text <- tclvalue(.Tcl("selection get -selection CLIPBOARD"))
         if (length(text) == 0) return()
@@ -109,7 +109,7 @@ Commander <- function(){
     onFind <- function(){
         focused <- tkfocus()
         if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID)  && 
-                (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID))
+                (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID) && (tclvalue(focused) != RnwWindow()$ID))
             focused <- LogWindow()
         initializeDialog(title=gettextRcmdr("Find"))
         textFrame <- tkframe(top)
@@ -157,7 +157,7 @@ Commander <- function(){
     onSelectAll <- function() {
         focused <- tkfocus()
         if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID) 
-            && (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID))
+            && (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID) && (tclvalue(focused) != RnwWindow()$ID))
             focused <- LogWindow()
         tktag.add(focused, "sel", "1.0", "end")
         tkfocus(focused)
@@ -169,14 +169,14 @@ Commander <- function(){
     onUndo <- function(){
         focused <- tkfocus()
         if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID) && 
-                (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID))
+                (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID) && (tclvalue(focused) != RnwWindow()$ID))
             focused <- LogWindow()
         tcl(focused, "edit", "undo")
     }
     onRedo <- function(){
         focused <- tkfocus()
         if ((tclvalue(focused) != LogWindow()$ID) && (tclvalue(focused) != OutputWindow()$ID) && 
-                (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID))
+                (tclvalue(focused) != MessagesWindow()$ID) && (tclvalue(focused) != RmdWindow()$ID) && (tclvalue(focused) != RnwWindow()$ID))
             focused <- LogWindow()
         tcl(focused, "edit", "redo")
     }
@@ -187,6 +187,7 @@ Commander <- function(){
     putRcmdr(".activeModel", NULL)
     putRcmdr("logFileName", NULL)
     putRcmdr("RmdFileName", "RcmdrMarkdown.Rmd")
+    putRcmdr("RnwFileName", "RcmdrKnitr.Rnw")
     putRcmdr("outputFileName", NULL)
     putRcmdr("saveFileName", NULL)
     putRcmdr("modelNumber", 0)
@@ -255,8 +256,11 @@ Commander <- function(){
     setOption("number.messages", TRUE)
     setOption("log.commands", TRUE)
     setOption("use.markdown", TRUE)
+    setOption("use.knitr", FALSE)
     putRcmdr("startNewCommandBlock", TRUE)
+    putRcmdr("startNewKnitrCommandBlock", TRUE)
     putRcmdr("rmd.generated", FALSE)
+    putRcmdr("rnw.generated", FALSE)
     setOption("RStudio", RStudioP())
     setOption("console.output", getRcmdr("RStudio"))
     setOption("retain.selections", TRUE)
@@ -465,10 +469,11 @@ Commander <- function(){
         else paste("View(", ActiveDataSet(), ")", sep="")
         doItAndPrint(command, rmd=FALSE)
     }
-    # submit command in script tab or compile .Rmd file in markdown tab
+    # submit command in script tab or compile .Rmd file in markdown tab or compile .Rnw file in knitr tab
     onSubmit <- function(){
         .log <- LogWindow()
         .rmd <- RmdWindow()
+        .rnw <- RnwWindow()
         if (as.character(tkselect(notebook)) == logFrame$ID) {
             selection <- strsplit(tclvalue(tktag.ranges(.log, "sel")), " ")[[1]]
             if (is.na(selection[1])) {
@@ -517,7 +522,7 @@ Commander <- function(){
                 tkfocus(.log)
             }
         }
-        else {
+        else if (as.character(tkselect(notebook)) == RmdFrame$ID) {
             lines <- tclvalue(tkget(.rmd, "1.0", "end"))
             .RmdFile <- getRcmdr("RmdFileName")
             .filename <- sub("\\.Rmd$", "", trim.blanks(.RmdFile))
@@ -527,6 +532,17 @@ Commander <- function(){
             markdownToHTML(paste(.filename, ".md", sep=""), .html.file)
             .html.file.location <- paste("file:///", normalizePath(.html.file), sep="")
             browseURL(.html.file.location)
+        }
+        else{ ### FIXME: 
+            lines <- tclvalue(tkget(.rnw, "1.0", "end"))
+            .RnwFile <- getRcmdr("RnwFileName")
+            .filename <- sub("\\.Rnw$", "", trim.blanks(.RnwFile))
+            writeLines(lines, .RnwFile)
+#             knit(.RmdFile, paste(.filename, ".md", sep=""), quiet=TRUE)
+#             .html.file <- paste(.filename, ".html", sep="")
+#             markdownToHTML(paste(.filename, ".md", sep=""), .html.file)
+#             .html.file.location <- paste("file:///", normalizePath(.html.file), sep="")
+#             browseURL(.html.file.location)
         }
     }
     # right-click context menus
@@ -690,6 +706,23 @@ Commander <- function(){
         command=function(...) tkyview(.rmd, ...))
     tkconfigure(.rmd, xscrollcommand=function(...) tkset(RmdXscroll, ...))
     tkconfigure(.rmd, yscrollcommand=function(...) tkset(RmdYscroll, ...))    
+    
+    RnwFrame <- ttkframe(CommanderWindow())
+    putRcmdr("RnwWindow", tktext(RnwFrame, bg="#FAFAFA", foreground=getRcmdr("log.text.color"),
+        font=getRcmdr("logFont"), height=log.height, width=log.width, wrap="none", undo=TRUE))
+    .rnw <- RnwWindow()
+    rnw.template <- setOption("rnw.template", 
+        system.file("etc", "Rcmdr-knitr-Template.Rnw", package="Rcmdr"))
+    template <- paste(readLines(rnw.template), collapse="\n")
+    tkinsert(.rnw, "end", template)
+    putRcmdr("knitr.output", FALSE)
+    RnwXscroll <- ttkscrollbar(RnwFrame, orient="horizontal",
+        command=function(...) tkxview(.rnw, ...))
+    RnwYscroll <- ttkscrollbar(RnwFrame,
+        command=function(...) tkyview(.rnw, ...))
+    tkconfigure(.rnw, xscrollcommand=function(...) tkset(RnwXscroll, ...))
+    tkconfigure(.rnw, yscrollcommand=function(...) tkset(RnwYscroll, ...))    
+    
     outputFrame <- tkframe(.commander) 
     submitButtonLabel <- tclVar(gettextRcmdr("Submit"))
     submitButton <- if (getRcmdr("console.output"))
@@ -701,6 +734,7 @@ Commander <- function(){
     tkbind(CommanderWindow(), "<Button-1>", function() {
         if (as.character(tkselect(notebook)) == logFrame$ID) tclvalue(submitButtonLabel) <- gettextRcmdr("Submit")
         if (as.character(tkselect(notebook)) == RmdFrame$ID) tclvalue(submitButtonLabel) <- gettextRcmdr("Generate HTML report")
+        if (as.character(tkselect(notebook)) == RnwFrame$ID) tclvalue(submitButtonLabel) <- gettextRcmdr("Generate PDF report")
     })
     putRcmdr("outputWindow", tktext(outputFrame, bg="white", foreground=getRcmdr("output.text.color"),
         font=getRcmdr("logFont"), height=output.height, width=log.width, wrap="none", undo=TRUE))
@@ -748,10 +782,14 @@ Commander <- function(){
         tkgrid(logFrame, sticky="news", padx=10, pady=0, columnspan=2)
         tkgrid(.rmd, RmdYscroll, sticky="news", columnspan=2)
         tkgrid(RmdXscroll)
+        tkgrid(.rnw, RnwYscroll, sticky="news", columnspan=2)
+        tkgrid(RnwXscroll)
         if (getRcmdr("use.markdown")) tkgrid(RmdFrame, sticky="news", padx=10, pady=0, columnspan=2)
+        if (getRcmdr("use.knitr")) tkgrid(RnwFrame, sticky="news", padx=10, pady=0, columnspan=2)
     }
     tkadd(notebook, logFrame, text=gettextRcmdr("R Script"), padding=6)
     if (getRcmdr("use.markdown")) tkadd(notebook, RmdFrame, text=gettextRcmdr("R Markdown"), padding=6)
+    if (getRcmdr("use.knitr")) tkadd(notebook, RnwFrame, text=gettextRcmdr("knitr Document"), padding=6)
     tkgrid(notebook, sticky="news")
     if (.log.commands && .console.output) tkgrid(submitButton, sticky="w", pady=c(0, 6))
     tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output"), foreground="black"),
@@ -787,6 +825,12 @@ Commander <- function(){
             tkgrid.rowconfigure(RmdFrame, 1, weight=0)
             tkgrid.columnconfigure(RmdFrame, 0, weight=1)
             tkgrid.columnconfigure(RmdFrame, 1, weight=0)
+        }
+        if (getRcmdr("use.knitr")){
+            tkgrid.rowconfigure(RnwFrame, 0, weight=1)
+            tkgrid.rowconfigure(RnwFrame, 1, weight=0)
+            tkgrid.columnconfigure(RnwFrame, 0, weight=1)
+            tkgrid.columnconfigure(RnwFrame, 1, weight=0)
         }
     }
     if (!.console.output){
@@ -845,8 +889,9 @@ logger <- function(command, rmd=TRUE){
     pushCommand(command)
     .log <- LogWindow()
     .rmd <- RmdWindow()
+    .rnw <- RnwWindow()
     .output <- OutputWindow()
-    Rmd <- rmd && is.null(attr(command, "suppressRmd")) && getRcmdr("use.markdown")
+    Rmd <- rmd && is.null(attr(command, "suppressRmd")) && (getRcmdr("use.markdown") || getRcmdr("use.kntir"))
 #     if (!is.null(attr(command, "suppressRmd"))) {
 #         endRmdBlock()
 #         removeNullRmdBlocks()
@@ -871,20 +916,38 @@ logger <- function(command, rmd=TRUE){
 #             putRcmdr("markdown.output", TRUE)
 #         }
         if (Rmd){
-            if (getRcmdr("startNewCommandBlock")){
-                beginRmdBlock()
-                tkinsert(.rmd, "end", paste(command, "\n", sep=""))
-                tkyview.moveto(.rmd, 1)
-                putRcmdr("markdown.output", TRUE)
-                endRmdBlock()
+            if (getRcmdr("use.markdown")){
+                if (getRcmdr("startNewCommandBlock")){
+                    beginRmdBlock()
+                    tkinsert(.rmd, "end", paste(command, "\n", sep=""))
+                    tkyview.moveto(.rmd, 1)
+                    putRcmdr("markdown.output", TRUE)
+                    endRmdBlock()
+                }
+                else{
+                    tkinsert(.rmd, "end", paste(command, "\n", sep=""))
+                    tkyview.moveto(.rmd, 1)
+                    putRcmdr("markdown.output", TRUE)
+                    putRcmdr("rmd.generated", TRUE)
+                }
             }
-            else{
-                tkinsert(.rmd, "end", paste(command, "\n", sep=""))
-                tkyview.moveto(.rmd, 1)
-                putRcmdr("markdown.output", TRUE)
-                putRcmdr("rmd.generated", TRUE)
+            if (getRcmdr("use.knitr")){
+                if (getRcmdr("startNewKnitrCommandBlock")){
+                    beginRnwBlock()
+                    tkinsert(.rnw, "end", paste(command, "\n", sep=""))
+                    tkyview.moveto(.rnw, 1)
+                    putRcmdr("knitr.output", TRUE)
+                    endRnwBlock()
+                }
+                else{
+                    tkinsert(.rnw, "end", paste(command, "\n", sep=""))
+                    tkyview.moveto(.rnw, 1)
+                    putRcmdr("knitr.output", TRUE)
+                    putRcmdr("rnw.generated", TRUE)
+                }
             }
         }
+        
     }
     lines <- strsplit(command, "\n")[[1]]
     tkinsert(.output, "end", "\n")
