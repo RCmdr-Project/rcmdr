@@ -533,16 +533,16 @@ Commander <- function(){
             .html.file.location <- paste("file:///", normalizePath(.html.file), sep="")
             browseURL(.html.file.location)
         }
-        else{ ### FIXME: 
+        else{ 
             lines <- tclvalue(tkget(.rnw, "1.0", "end"))
+            lines <- paste(lines, "\n\\end{document}\n")
             .RnwFile <- getRcmdr("RnwFileName")
             .filename <- sub("\\.Rnw$", "", trim.blanks(.RnwFile))
             writeLines(lines, .RnwFile)
-#             knit(.RmdFile, paste(.filename, ".md", sep=""), quiet=TRUE)
-#             .html.file <- paste(.filename, ".html", sep="")
-#             markdownToHTML(paste(.filename, ".md", sep=""), .html.file)
-#             .html.file.location <- paste("file:///", normalizePath(.html.file), sep="")
-#             browseURL(.html.file.location)
+            knit2pdf(.RnwFile)
+            .pdf.file <- paste(.filename, ".pdf", sep="")
+            .pdf.file.location <- paste("file:///", normalizePath(.pdf.file), sep="")
+            browseURL(.pdf.file.location)
         }
     }
     # right-click context menus
