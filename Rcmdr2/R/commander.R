@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-06-30 by J. Fox
+# last modified 2013-07-30 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -805,6 +805,8 @@ Commander <- function(){
     tkgrid.configure(logXscroll, sticky="ew")
     tkgrid.configure(RmdYscroll, sticky="ns")
     tkgrid.configure(RmdXscroll, sticky="ew")
+    tkgrid.configure(RnwYscroll, sticky="ns")
+    tkgrid.configure(RnwXscroll, sticky="ew")
     tkgrid.configure(outputYscroll, sticky="ns")
     tkgrid.configure(outputXscroll, sticky="ew")
     tkgrid.configure(messagesYscroll, sticky="ns")
