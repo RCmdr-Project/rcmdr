@@ -4032,16 +4032,31 @@ msgstr ""
 msgid "Open R Markdown file..."
 msgstr ""
 
+msgid "Open knitr file..."
+msgstr ""
+
 msgid "Save R Markdown file..."
+msgstr ""
+
+msgid "Save knitr file..."
+msgstr ""
+
+msgid "Save current Rmd file?"
+msgstr ""
+
+msgid "Save current Rnw file?"
 msgstr ""
 
 msgid "Save R Markdown file as..."
 msgstr ""
 
-msgid "Save R Markdown file?"
+msgid "Save knitr file as..."
 msgstr ""
 
 msgid "{\"All Files" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr ""
+
+msgid "{\"All Files" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
 msgstr ""
 
     # setting and saving options

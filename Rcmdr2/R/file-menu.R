@@ -70,6 +70,27 @@ loadRmd <- function(){
     tkinsert(.rmd, "end", paste(contents, collapse="\n"))
 }
 
+loadRnw <- function(){
+    RnwFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"knitr Files" {".Rnw" ".rnw" ".Snw" ".snw}}'),
+                                      defaultextension="Rnw",
+                                      parent=CommanderWindow()))
+    if (RnwFile == "") return()
+    fileCon <- file(RnwFile, "r")
+    contents <- readLines(fileCon)
+    close(fileCon)
+    currentRnwFileName <- getRcmdr("RnwFileName")
+    putRcmdr("RnwFileName", RnwFile)
+    .rnw <- RnwWindow()
+    if (tclvalue(tkget(.rnw, "1.0", "end")) != "\n"){
+        response2 <- RcmdrTkmessageBox(message=gettextRcmdr("Save current Rnw file?"),
+                                       icon="question", type="yesno", default="yes")
+        if ("yes" == tclvalue(response2)) saveLog(currentRnwFileName)
+    }
+    tkdelete(.rnw, "1.0", "end")
+    tkinsert(.rnw, "end", paste(contents, collapse="\n"))
+}
+
+
 saveRmd <- function(Rmdfilename) {
     .RmdFileName <- if (missing(Rmdfilename)) getRcmdr("RmdFileName") else Rmdfilename
     if ((.RmdFileName == "RcmdrMarkdown.Rmd") || 
@@ -84,6 +105,22 @@ saveRmd <- function(Rmdfilename) {
     close(fileCon)
     Message(paste(gettextRcmdr("R Markdown file saved to"), .RmdFileName), type="note")
 }
+
+saveRnw <- function(Rnwfilename) {
+    .RnwFileName <- if (missing(Rnwfilename)) getRcmdr("RnwFileName") else Rnwfilename
+    if ((.RnwFileName == "RcmdrKnitr.Rnw") || 
+            is.null(.RnwFileName) || 
+            (.RnwFileName == "%Rnwfilename")) {
+        saveRnwAs()
+        return()
+    }
+    .rnw <- tclvalue(tkget(RnwWindow(), "1.0", "end"))
+    fileCon <- file(.RnwFileName, "w")
+    cat(.rnw, file = fileCon)
+    close(fileCon)
+    Message(paste(gettextRcmdr("knitr file saved to"), .RnwFileName), type="note")
+}
+
 
 saveRmdAs <- function() {
     RmdFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"R Markdown Files" {".Rmd" ".rmd"}}'),
