@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2013-06-07 by J. Fox
+# last modified 2013-07-03 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -10,10 +10,13 @@
     item    fileMenu        command         "Open script file..."                           loadLog                     ""          ""
     item    fileMenu        command         "Save script..."                                saveLog                     ""          ""
     item    fileMenu        command         "Save script as..."                             saveLogAs                   ""          ""
-    item    fileMenu        separator       ""                                              ""                          ""          ""
-    item    fileMenu        command         "Open R Markdown file..."                       loadRmd                     ""          ""
-    item    fileMenu        command         "Save R Markdown file..."                       saveRmd                     ""          ""
-    item    fileMenu        command         "Save R Markdown file as..."                    saveRmdAs                   ""          ""
+    item    fileMenu        separator       ""                                              ""                          ""          "getRcmdr('use.markdown') || getRcmdr('use.knitr')"
+    item    fileMenu        command         "Open R Markdown file..."                       loadRmd                     ""          "getRcmdr('use.markdown')"
+    item    fileMenu        command         "Open knitr file..."                            loadRnw                     ""          "getRcmdr('use.knitr')"
+    item    fileMenu        command         "Save R Markdown file..."                       saveRmd                     ""          "getRcmdr('use.markdown')"
+    item    fileMenu        command         "Save knitr file..."                            saveRnw                    ""          "getRcmdr('use.knitr')"
+    item    fileMenu        command         "Save R Markdown file as..."                    saveRmdAs                   ""          "getRcmdr('use.markdown')"
+    item    fileMenu        command         "Save knitr file as..."                         saveRnwAs                   ""          "getRcmdr('use.knitr')"
     item    fileMenu        separator       ""                                              ""                          ""          ""
     item    fileMenu        command         "Save output..."                                saveOutput                  ""          ""
     item    fileMenu        command         "Save output as..."                             saveOutputAs                ""          ""

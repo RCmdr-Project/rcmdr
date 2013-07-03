@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-07-02 19:30:00\n"
+"POT-Creation-Date: 2013-07-03 23:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4051,6 +4051,12 @@ msgid "Save R Markdown file as..."
 msgstr ""
 
 msgid "Save knitr file as..."
+msgstr ""
+
+msgid "R Markdown file saved to"
+msgstr ""
+
+msgid "knitr file saved to"
 msgstr ""
 
 msgid "{\"All Files" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"

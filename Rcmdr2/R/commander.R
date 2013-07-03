@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-07-30 by J. Fox
+# last modified 2013-07-03 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -255,8 +255,8 @@ Commander <- function(){
     .Tcl(paste("ttk::style configure TLabelframe.Label -foreground", title.color))
     setOption("number.messages", TRUE)
     setOption("log.commands", TRUE)
-    setOption("use.markdown", TRUE)
     setOption("use.knitr", FALSE)
+    setOption("use.markdown", !getRcmdr("use.knitr"))
     putRcmdr("startNewCommandBlock", TRUE)
     putRcmdr("startNewKnitrCommandBlock", TRUE)
     putRcmdr("rmd.generated", FALSE)

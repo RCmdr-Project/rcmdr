@@ -71,7 +71,7 @@ loadRmd <- function(){
 }
 
 loadRnw <- function(){
-    RnwFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"knitr Files" {".Rnw" ".rnw" ".Snw" ".snw}}'),
+    RnwFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"knitr Files" {".Rnw" ".rnw" ".Snw" ".snw"}}'),
                                       defaultextension="Rnw",
                                       parent=CommanderWindow()))
     if (RnwFile == "") return()
@@ -87,9 +87,10 @@ loadRnw <- function(){
         if ("yes" == tclvalue(response2)) saveLog(currentRnwFileName)
     }
     tkdelete(.rnw, "1.0", "end")
-    tkinsert(.rnw, "end", paste(contents, collapse="\n"))
+    contents <- paste(contents, collapse="\n")
+    contents <- sub("\n\\\\end\\{document\\}\n", "", contents)
+    tkinsert(.rnw, "end", contents)
 }
-
 
 saveRmd <- function(Rmdfilename) {
     .RmdFileName <- if (missing(Rmdfilename)) getRcmdr("RmdFileName") else Rmdfilename
@@ -115,6 +116,7 @@ saveRnw <- function(Rnwfilename) {
         return()
     }
     .rnw <- tclvalue(tkget(RnwWindow(), "1.0", "end"))
+    .rnw <- paste(.rnw, "\n\\end{document}\n")
     fileCon <- file(.RnwFileName, "w")
     cat(.rnw, file = fileCon)
     close(fileCon)
@@ -135,6 +137,22 @@ saveRmdAs <- function() {
     putRcmdr("RmdFileName", RmdFile)
     Message(paste(gettextRcmdr("R Markdown file saved to"), RmdFile), type="note")
 }
+
+saveRnwAs <- function() {
+    RnwFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"knitr Files" {".Rnw" ".rnw" ".Snw" ".snw"}}'),
+                                      defaultextension="Rnw",
+                                      initialfile="RCommanderKnitr.Rnw",
+                                      parent=CommanderWindow()))
+    if (RnwFile == "") return()
+    .rnw <- tclvalue(tkget(RnwWindow(), "1.0", "end"))
+    .rnw <- paste(.rnw, "\n\\end{document}\n")
+    fileCon <- file(RnwFile, "w")
+    cat(.rnw, file = fileCon)
+    close(fileCon)
+    putRcmdr("RnwFileName", RnwFile)
+    Message(paste(gettextRcmdr("knitr file saved to"), RnwFile), type="note")
+}
+
 
 saveOutput <- function() {
 	.outputFileName <- getRcmdr("outputFileName")
