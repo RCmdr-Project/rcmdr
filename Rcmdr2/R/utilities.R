@@ -1,4 +1,4 @@
-# last modified 2013-06-28 by J. Fox
+# last modified 2013-07-04 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -949,6 +949,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             onOK()
             .setIdleCursor()
             if (getRcmdr("use.markdown")){
+                removeNullRmdBlocks()
                 putRcmdr("startNewCommandBlock", TRUE)
                 if (getRcmdr("rmd.generated")) {
                     endRmdBlock()
@@ -957,6 +958,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                 removeNullRmdBlocks()
             }
             if (getRcmdr("use.knitr")){
+                removeNullRnwBlocks()
                 putRcmdr("startNewKnitrCommandBlock", TRUE)
                 if (getRcmdr("rnw.generated")) {
                     endRnwBlock()
@@ -1023,6 +1025,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                 onOK()
                 .setIdleCursor()
                 if (getRcmdr("use.markdown")){
+                    removeNullRmdBlocks()
                     putRcmdr("startNewCommandBlock", TRUE)
                     if (getRcmdr("rmd.generated")) {
                         endRmdBlock()
@@ -1031,6 +1034,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                     removeNullRmdBlocks()
                 }
                 if (getRcmdr("use.knitr")){
+                    removeNullRnwBlocks()
                     putRcmdr("startNewKnitrCommandBlock", TRUE)
                     if (getRcmdr("rnw.generated")) {
                         endRnwBlock()
@@ -2579,14 +2583,12 @@ endRnwBlock <- function(){
     tkinsert(RnwWindow(), "end", "@\n")
 }
 
-### FIXME: fix Rnw start/end 
-
 removeNullRnwBlocks <- function(){
     .rnw <- RnwWindow()
     rnw <- tclvalue(tkget(.rnw, "1.0", "end"))
     rnw <- gsub("\n+$", "\n", rnw)
-    rnw <- gsub("```\\{r\\}\n$", "", rnw)
-    rnw <- gsub("```\\{r\\}\n```\n$", "", rnw)
+    rnw <- gsub("<<>>=\n$", "", rnw)
+    rnw <- gsub("<<>>=\n@\n$", "", rnw)
     tkdelete(.rnw, "1.0", "end")
     tkinsert(.rnw, "end", rnw)
     tkyview.moveto(.rnw, 1)

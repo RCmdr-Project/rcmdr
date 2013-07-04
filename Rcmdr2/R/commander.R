@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-07-03 by J. Fox
+# last modified 2013-07-04 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -584,6 +584,25 @@ Commander <- function(){
         tkadd(contextMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
         tkpopup(contextMenu, tkwinfo("pointerx", .rmd), tkwinfo("pointery", .rmd))
     }
+    contextMenuRnw <- function(){
+        .rnw <- RnwWindow()
+        contextMenu <- tkmenu(tkmenu(.rnw), tearoff=FALSE)
+        tkadd(contextMenu, "command", label=gettextRcmdr("Generate PDF report"), command=onSubmit)
+        tkadd(contextMenu, "separator")
+        tkadd(contextMenu, "command", label=gettextRcmdr("Cut"), command=onCut)
+        tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)
+        tkadd(contextMenu, "command", label=gettextRcmdr("Paste"), command=onPaste)
+        tkadd(contextMenu, "command", label=gettextRcmdr("Delete"), command=onDelete)
+        tkadd(contextMenu, "separator")
+        tkadd(contextMenu, "command", label=gettextRcmdr("Find..."), command=onFind)
+        tkadd(contextMenu, "command", label=gettextRcmdr("Select all"), command=onSelectAll)
+        tkadd(contextMenu, "separator")
+        tkadd(contextMenu, "command", label=gettextRcmdr("Undo"), command=onUndo)
+        tkadd(contextMenu, "command", label=gettextRcmdr("Redo"), command=onRedo)
+        tkadd(contextMenu, "separator")
+        tkadd(contextMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
+        tkpopup(contextMenu, tkwinfo("pointerx", .rnw), tkwinfo("pointery", .rnw))
+    }
     contextMenuOutput <- function(){
         .output <- OutputWindow()
         contextMenu <- tkmenu(tkmenu(.output), tearoff=FALSE)
@@ -893,7 +912,7 @@ logger <- function(command, rmd=TRUE){
     .rmd <- RmdWindow()
     .rnw <- RnwWindow()
     .output <- OutputWindow()
-    Rmd <- rmd && is.null(attr(command, "suppressRmd")) && (getRcmdr("use.markdown") || getRcmdr("use.kntir"))
+    Rmd <- rmd && is.null(attr(command, "suppressRmd")) && (getRcmdr("use.markdown") || getRcmdr("use.knitr"))
 #     if (!is.null(attr(command, "suppressRmd"))) {
 #         endRmdBlock()
 #         removeNullRmdBlocks()

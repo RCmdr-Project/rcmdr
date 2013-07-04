@@ -1,4 +1,4 @@
-# last modified 2013-06-24 by J. Fox
+# last modified 2013-07-04 by J. Fox
 
 if (getRversion() >= "2.15.1")  
     globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
@@ -43,7 +43,7 @@ if (getRversion() >= "2.15.1")
                       'odbcConnectAccess2007', 'odbcConnectDbase', 'IQRVariable',  'unitsVariable', 'unitsFrame',
                       'pointsVariable', 'linesVariable', 'useVariable', 'useFrame',
                       'askToExitVariable', 'askOnExitVariable', 'quitRVariable', 'consoleOutputVariable',
-                      'numberMessagesVariable', 'retainMessagesVariable', 'useMarkdownVariable', 'logCommandsVariable',
+                      'numberMessagesVariable', 'retainMessagesVariable', 'useMarkdownVariable', 'useKnitrVariable', 'logCommandsVariable',
                       'grabFocusVariable', 'doubleClickVariable', 'sortNamesVariable', 'showEditButtonVariable',
                       'SuppressIconImagesVariable', 'retainSelectionsVariable', 'useRglVariable', 'closeOptionsFrame',
                       'outputOptionsFrame', 'otherOptionsFrame', 'kernelVariable', 'kernelFrame',

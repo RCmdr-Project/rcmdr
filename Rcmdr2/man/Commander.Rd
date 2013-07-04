@@ -41,9 +41,11 @@ initially empty text window immediately below the toolbar), and
 commands and output appear in the Output window (the initially empty text window below the
 Script tab). Commands that don't require direct user interaction (such as interactive
 identification of points on a graph) are also used to create an R Markdown document in
-the tab of the same name. When the R Markdown tab is in front, pressing the Submit button
+the tab of the same name. When the R Markdown tab is in front, pressing the "Generate HTML report" button
 compiles the document to create an html page with input and output, which opens in a web browser. To alter these and
-other defaults, see the information below on configuration.
+other defaults, see the information below on configuration. Note, for example, that the \pkg{knitr} package
+can be used to create a LaTeX document to be compiled to a PDF report, as an alternative to --- or in addition to ---
+an R Markdown document (see the \code{use.knitr} option below).
  
 Some \pkg{Rcmdr} dialogs (those in the \emph{Statistics -> Fit models} menu) 
 produce linear, generalized
@@ -70,18 +72,18 @@ submits the line containing the text-insertion cursor. Note that an error will b
 command or commands are incomplete.
 
 Pressing \emph{Control-F} brings up a find-text dialog box (which can also be accessed via 
-\emph{Edit -> Find}) to search for text in the Script tab, R Markdown tab, Output window, or Messages window. Edit functions such as
+\emph{Edit -> Find}) to search for text in the Script tab, R Markdown tab, knitr tab, Output window, or Messages window. Edit functions such as
 search are performed in the Script tab unless you first click in another tab or window to make it active.
 
-Pressing \emph{Control-S} will save the Script tab, R Markdown tab, or Output window.
+Pressing \emph{Control-S} will save the Script tab, R Markdown tab, knitr tab, or Output window.
 
-Pressing \emph{Control-A} selects all of the text in the Script tab, R Markdown tab, Output window, or Messages window.
+Pressing \emph{Control-A} selects all of the text in the Script tab, R Markdown tab, knitr tab, Output window, or Messages window.
 
 In addition, the following Control-key combinations work in these tabs and windows: \emph{Control-X}, cut;
 \emph{Control-C}, copy; \emph{Control-V}, insert; \emph{Control-Z} or \emph{Alt-Backspace}, undo; and \emph{Control-W}, redo.
 
 Right-clicking the mouse (clicking button 3 on a three-button mouse, or \emph{Control}-left-clicking) in the tabs or windows brings up
-a "context" menu with the \emph{Edit}-menu items, plus (in the Script and R Markdown tabs) a \emph{Submit} item.
+a "context" menu with the \emph{Edit}-menu items, plus (in the Script, R Markdown, and knitr tabs) a \emph{Submit} item.
 
 When you
 execute commands from the \emph{Commander} window, you must ensure that the sequence of commands
@@ -305,8 +307,12 @@ set none, one, several, or all options. The available options are as follows:
     under Windows, and it should not be used with the Windows R GUI with buffered output when output is directed to the
     R console.}
     
-    \item{\code{use.markdown}}{If \code{TRUE} (the default), an R Markdown document
-    is created.}
+    \item{\code{use.knitr}}{If \code{TRUE} (the default is \code{FALSE}), a knitr \code{.Rnw} LaTeX document is created in a tab of the main Commander window;
+    this document can be compiled into \code{.tex} and \code{.pdf} reports via the \code{\link{knit2pdf}}
+    function in the \pkg{knitr} package.}
+    
+    \item{\code{use.markdown}}{If \code{TRUE} (the default is the negation of the \code{use.knitr} argument), an R Markdown document
+    is created, which can be compiled into an HTML report.}
     
     \item{\code{use.rgl}}{If \code{TRUE} (the default), the \code{rgl} package will be loaded if it is present in an
     accessible library; if \code{FALSE}, the \code{rgl} package will be ignored even if it is available. 
@@ -380,7 +386,7 @@ Extending the R Commander by "plug in" packages.
 
 \author{John Fox \email{jfox@mcmaster.ca}}
 
-\seealso{\link{Plugins}, \link{Rcmdr.Utilities}}
+\seealso{\link{Plugins}, \link{Rcmdr.Utilities}, \code{\link{knit}}, \code{\link{knit2pdf}}}
 
 \examples{
     options(Rcmdr=list(log.font.size=12, default.contrasts=c("contr.Sum", "contr.poly")))

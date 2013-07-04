@@ -1,4 +1,4 @@
-# last modified 2013-06-24 by J. Fox
+# last modified 2013-07-04 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # File menu dialogs
@@ -231,6 +231,12 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
 	    if ("yes" == tclvalue(response2)) saveRmd()
 	}
     
+	if (ask.save && getRcmdr("knitr.output") && getRcmdr("log.commands") && tclvalue(tkget(RnwWindow(), "1.0", "end")) != "\n"){
+	    response2 <- RcmdrTkmessageBox(message=gettextRcmdr("Save knitr file?"),
+	                                   icon="question", type="yesno", default="yes")
+	    if ("yes" == tclvalue(response2)) saveRnw()
+	}
+    
 	if (ask.save && !getRcmdr("console.output") && tclvalue(tkget(OutputWindow(), "1.0", "end")) != "\n"){
 		response3 <- RcmdrTkmessageBox(message=gettextRcmdr("Save output file?"),
 				icon="question", type="yesno", default="yes")
@@ -303,6 +309,7 @@ Options <- function(){
     if (length(grep(" ", log.font.family)) > 1) log.font.family <- paste("{", log.font.family, "}", sep="")
     title.color <- getRcmdr("title.color")
     use.markdown<- getRcmdr("use.markdown")
+    use.knitr<- getRcmdr("use.knitr")
     retain.selections <- getRcmdr("retain.selections")
     messages.height <- as.character(getRcmdr("messages.height"))
     ask.to.exit <- getRcmdr("ask.to.exit")
@@ -328,15 +335,17 @@ Options <- function(){
     suppress.menus <- getRcmdr("suppress.menus")
     rmd.template <- getRcmdr("rmd.template")
     rmd.standard <- system.file("etc", "Rcmdr-Markdown-Template.Rmd", package="Rcmdr")
+    rnw.template <- getRcmdr("rnw.template")
+    rnw.standard <- system.file("etc", "Rcmdr-knitr-Template.Rnw", package="Rcmdr")
     use.rgl <- setOption("use.rgl", TRUE)
     checkBoxes(closeTab, frame="closeOptionsFrame", boxes=c("askToExit", "askOnExit", "quitR"),
-        initialValues=c(ask.to.exit, ask.on.exit, quit.R.on.close),
-        labels=gettextRcmdr("Ask to exit Commander", "Ask to save documents on exit", "Quit R on exit"))
+               initialValues=c(ask.to.exit, ask.on.exit, quit.R.on.close),
+               labels=gettextRcmdr("Ask to exit Commander", "Ask to save documents on exit", "Quit R on exit"))
     checkBoxes(outputTab, frame="outputOptionsFrame", 
-        boxes=c("consoleOutput", "logCommands", "numberMessages", "retainMessages", "useMarkdown"),
-        initialValues=c(console.output, log.commands, number.messages, retain.messages, use.markdown),
-        labels=gettextRcmdr("Send output to R Console", "Log commands to script window", "Number messages", 
-            "Retain messages", "Use R Markown"))
+               boxes=c("consoleOutput", "logCommands", "numberMessages", "retainMessages", "useMarkdown", "useKnitr"),
+               initialValues=c(console.output, log.commands, number.messages, retain.messages, use.markdown, use.knitr),
+               labels=gettextRcmdr("Send output to R Console", "Log commands to script window", "Number messages", 
+                                   "Retain messages", "Use R Markown", "Use knitr"))
     cval <- function(x,y) -sum((x-y)^2)
     contrasting <- function(x)
         optim(rep(127, 3),cval,lower=0,upper=255,method="L-BFGS-B",y=x)$par
@@ -350,125 +359,125 @@ Options <- function(){
     pal <- c(log.text.color, command.text.color, output.text.color, error.text.color, warning.text.color, title.color)
     pickColor <- function(initialcolor, parent){
         newcolor <- tclvalue(.Tcl(paste("tk_chooseColor", .Tcl.args(title = "Select a Color",
-            initialcolor=initialcolor, parent=parent))))
+                                                                    initialcolor=initialcolor, parent=parent))))
         if (newcolor == "") initialcolor else newcolor
     }
     hexcolor <- colorConverter(toXYZ = function(hex,...) {
         rgb <- t(col2rgb(hex))/255
         colorspaces$sRGB$toXYZ(rgb,...) },
-        fromXYZ = function(xyz,...) {
-            rgb <- colorspaces$sRGB$fromXYZ(xyz,..)
-            rgb <- round(rgb,5)
-            if (min(rgb) < 0 || max(rgb) > 1) as.character(NA)
-            else rgb(rgb[1],rgb[2],rgb[3])},
-        white = "D65", name = "#rrggbb")
+                               fromXYZ = function(xyz,...) {
+                                   rgb <- colorspaces$sRGB$fromXYZ(xyz,..)
+                                   rgb <- round(rgb,5)
+                                   if (min(rgb) < 0 || max(rgb) > 1) as.character(NA)
+                                   else rgb(rgb[1],rgb[2],rgb[3])},
+                               white = "D65", name = "#rrggbb")
     cols <- t(col2rgb(pal))
     hex <- convertColor(cols, from="sRGB", to=hexcolor, scale.in=255, scale.out=NULL)
     for (i in 1:8) assign(paste("hex", i, sep="."), hex[i], envir=env)
     fontColorsFrame <- tkframe(fontTab)
     colorField1 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[1]), fg=hex[1])
     button1 <- tkbutton(fontColorsFrame, text=hex[1], bg = hex[1], width="10",
-        fg=convert(hex[1]),
-        command=function() {
-            color <- pickColor(hex[1], parent=button1)
-            fg <- convert(color)
-            tkconfigure(button1, bg=color, fg=fg, text=toupper(color))
-            tkconfigure(colorField1, text=rgb2col(color), foreground=color)
-            assign("hex.1", color, envir=env)
-        }
+                        fg=convert(hex[1]),
+                        command=function() {
+                            color <- pickColor(hex[1], parent=button1)
+                            fg <- convert(color)
+                            tkconfigure(button1, bg=color, fg=fg, text=toupper(color))
+                            tkconfigure(colorField1, text=rgb2col(color), foreground=color)
+                            assign("hex.1", color, envir=env)
+                        }
     )
     colorField2 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[2]), fg=hex[2])
     button2 <- tkbutton(fontColorsFrame, text=hex[2], bg = hex[2], width="10",
-        fg=convert(hex[2]),
-        command=function() {
-            color <- pickColor(hex[2], parent=button2)
-            fg <- convert(color)
-            tkconfigure(button2, bg=color, fg=fg, text=toupper(color))
-            tkconfigure(colorField2, text=rgb2col(color), foreground=color)
-            assign("hex.2", color, envir=env)
-        }
+                        fg=convert(hex[2]),
+                        command=function() {
+                            color <- pickColor(hex[2], parent=button2)
+                            fg <- convert(color)
+                            tkconfigure(button2, bg=color, fg=fg, text=toupper(color))
+                            tkconfigure(colorField2, text=rgb2col(color), foreground=color)
+                            assign("hex.2", color, envir=env)
+                        }
     )
     colorField3 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[3]), fg=hex[3])
     button3 <- tkbutton(fontColorsFrame, text=hex[3], bg = hex[3], width="10",
-        fg=convert(hex[3]),
-        command=function() {
-            color <- pickColor(hex[3], parent=button3)
-            fg <- convert(color)
-            tkconfigure(button3, bg=color, fg=fg, text=toupper(color))
-            tkconfigure(colorField3, text=rgb2col(color), foreground=color)
-            assign("hex.3", color, envir=env)
-        }
+                        fg=convert(hex[3]),
+                        command=function() {
+                            color <- pickColor(hex[3], parent=button3)
+                            fg <- convert(color)
+                            tkconfigure(button3, bg=color, fg=fg, text=toupper(color))
+                            tkconfigure(colorField3, text=rgb2col(color), foreground=color)
+                            assign("hex.3", color, envir=env)
+                        }
     )
     colorField4 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[4]), fg=hex[4])
     button4 <- tkbutton(fontColorsFrame, text=hex[4], bg = hex[4], width="10",
-        fg=convert(hex[4]),
-        command=function() {
-            color <- pickColor(hex[4], parent=button4)
-            fg <- convert(color)
-            tkconfigure(button4, bg=color, fg=fg, text=toupper(color))
-            tkconfigure(colorField4, text=rgb2col(color), foreground=color)
-            assign("hex.4", color, envir=env)
-        }
+                        fg=convert(hex[4]),
+                        command=function() {
+                            color <- pickColor(hex[4], parent=button4)
+                            fg <- convert(color)
+                            tkconfigure(button4, bg=color, fg=fg, text=toupper(color))
+                            tkconfigure(colorField4, text=rgb2col(color), foreground=color)
+                            assign("hex.4", color, envir=env)
+                        }
     )
     colorField5 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[5]), fg=hex[5])
     button5 <- tkbutton(fontColorsFrame, text=hex[5], bg = hex[5], width="10",
-        fg=convert(hex[5]),
-        command=function() {
-            color <- pickColor(hex[5], parent=button5)
-            fg <- convert(color)
-            tkconfigure(button5, bg=color, fg=fg, text=toupper(color))
-            tkconfigure(colorField5, text=rgb2col(color), foreground=color)
-            assign("hex.5", color, envir=env)
-        }
+                        fg=convert(hex[5]),
+                        command=function() {
+                            color <- pickColor(hex[5], parent=button5)
+                            fg <- convert(color)
+                            tkconfigure(button5, bg=color, fg=fg, text=toupper(color))
+                            tkconfigure(colorField5, text=rgb2col(color), foreground=color)
+                            assign("hex.5", color, envir=env)
+                        }
     )
     colorField6 <- labelRcmdr(fontColorsFrame, text=rgb2col(hex[6]), fg=hex[6])
     button6 <- tkbutton(fontColorsFrame, text=hex[6], bg = hex[6], width="10",
-        fg=convert(hex[6]),
-        command=function() {
-            color <- pickColor(hex[6], parent=button6)
-            fg <- convert(color)
-            tkconfigure(button6, bg=color, fg=fg, text=toupper(color))
-            tkconfigure(colorField6, text=rgb2col(color), foreground=color)
-            assign("hex.6", color, envir=env)
-        }
+                        fg=convert(hex[6]),
+                        command=function() {
+                            color <- pickColor(hex[6], parent=button6)
+                            fg <- convert(color)
+                            tkconfigure(button6, bg=color, fg=fg, text=toupper(color))
+                            tkconfigure(colorField6, text=rgb2col(color), foreground=color)
+                            assign("hex.6", color, envir=env)
+                        }
     )
     logFontSizeVar <- tclVar(log.font.size)
     fontFrame <- tkframe(fontTab)
     logFontSizeSlider <- tkscale(fontFrame, from=6, to=20, showvalue=TRUE, variable=logFontSizeVar,
-        resolution=1, orient="horizontal")
+                                 resolution=1, orient="horizontal")
     logWidthVar <- tclVar(log.width)
     outputSliderFrame <- tkframe(outputTab)
     logWidthSlider <- tkscale(outputSliderFrame, from=30, to=120, showvalue=TRUE, variable=logWidthVar,
-        resolution=5, orient="horizontal")
+                              resolution=5, orient="horizontal")
     logHeightVar <- tclVar(log.height)
     logHeightSlider <- tkscale(outputSliderFrame, from=0, to=25, showvalue=TRUE, variable=logHeightVar,
-        resolution=1, orient="horizontal")
+                               resolution=1, orient="horizontal")
     outputHeightVar <- tclVar(output.height)
     outputHeightSlider <- tkscale(outputSliderFrame, from=0, to=50, showvalue=TRUE, variable=outputHeightVar,
-        resolution=5, orient="horizontal")
+                                  resolution=5, orient="horizontal")
     messagesHeightVar <- tclVar(messages.height)
     messagesHeightSlider <- tkscale(outputSliderFrame, from=0, to=10, showvalue=TRUE, variable=messagesHeightVar,
-        resolution=1, orient="horizontal")       
+                                    resolution=1, orient="horizontal")       
     contrasts1 <- tclVar(contrasts[1])
     contrasts2 <- tclVar(contrasts[2])
     contrastsFrame <- tkframe(otherTab)
     contrasts1Entry <- ttkentry(contrastsFrame, width="15", textvariable=contrasts1)
     contrasts2Entry <- ttkentry(contrastsFrame, width="15", textvariable=contrasts2)
     checkBoxes(otherTab, frame="otherOptionsFrame", 
-        boxes=c("grabFocus", "doubleClick", "sortNames", "showEditButton", "SuppressIconImages",
-            "retainSelections", "useRgl"),
-        initialValues=c(grab.focus, double.click, sort.names, show.edit.button, suppress.icon.images,
-            retain.selections, use.rgl),
-        labels=gettextRcmdr("Active window grabs focus", "Double-click presses OK button", 
-            "Sort variable names alphabetically", "Show edit button",
-            "Suppress icon images", "Retain dialog selections", "Use rgl package")
+               boxes=c("grabFocus", "doubleClick", "sortNames", "showEditButton", "SuppressIconImages",
+                       "retainSelections", "useRgl"),
+               initialValues=c(grab.focus, double.click, sort.names, show.edit.button, suppress.icon.images,
+                               retain.selections, use.rgl),
+               labels=gettextRcmdr("Active window grabs focus", "Double-click presses OK button", 
+                                   "Sort variable names alphabetically", "Show edit button",
+                                   "Suppress icon images", "Retain dialog selections", "Use rgl package")
     )
     scaleFactorVar <- tclVar(if (is.null(scale.factor)) 1.0 else scale.factor)
     scaleFactorSlider <- tkscale(otherTab, from=0.2, to=3.0, showvalue=TRUE, variable=scaleFactorVar,
-        resolution=0.2, orient="horizontal")
+                                 resolution=0.2, orient="horizontal")
     defaultFontSizeVar <- tclVar(default.font.size)
     defaultFontSizeSlider <- tkscale(fontFrame, from=6, to=20, showvalue=TRUE, variable=defaultFontSizeVar,
-        resolution=1, orient="horizontal")
+                                     resolution=1, orient="horizontal")
     logFontFamilyVar <- tclVar(log.font.family)
     defaultFontFamilyVar <- tclVar(default.font.family)
     logFontEntry <- ttkentry(fontFrame, width="20", textvariable=logFontFamilyVar)
@@ -478,13 +487,24 @@ Options <- function(){
     rmdTemplateEntry <- ttkentry(templateFrame, width="75", textvariable=rmdTemplateVar)
     onSelectTemplate <- function(){
         templateFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"R Markdown Files" {".Rmd" ".rmd"}}'),
-            defaultextension=".Rmd",
-            parent=outputTab))
+                                               defaultextension=".Rmd",
+                                               parent=outputTab))
         if (templateFile == "") return()
         tclvalue(rmdTemplateVar) <- templateFile
         return(NULL)
     }
     templateButton <- buttonRcmdr(templateFrame, text=gettextRcmdr("Select file"), command=onSelectTemplate)
+    rnwTemplateVar <- tclVar(rnw.template)
+    rnwTemplateEntry <- ttkentry(templateFrame, width="75", textvariable=rnwTemplateVar)
+    onSelectRnwTemplate <- function(){
+        rnwTemplateFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"knitr Files" {".Rnw" ".rnw" ".Snw" ".snw"}}'),
+                                                  defaultextension=".Rnw",
+                                                  parent=outputTab))
+        if (rnwTemplateFile == "") return()
+        tclvalue(rnwTemplateVar) <- rnwTemplateFile
+        return(NULL)
+    }
+    rnwTemplateButton <- buttonRcmdr(templateFrame, text=gettextRcmdr("Select file"), command=onSelectRnwTemplate)
     onOK <- function(){
         closeDialog(top)
         ask.to.exit <- asLogical(tclvalue(askToExitVariable))
@@ -494,8 +514,11 @@ Options <- function(){
         number.messages <- asLogical(tclvalue(numberMessagesVariable))
         retain.messages <- asLogical(tclvalue(retainMessagesVariable))
         use.markdown <- asLogical(tclvalue(useMarkdownVariable))
+        use.knitr<- asLogical(tclvalue(useKnitrVariable))
         rmd.template <- tclvalue(rmdTemplateVar)
         if (rmd.template == rmd.standard) rmd.template <- NULL
+        rnw.template <- tclvalue(rnwTemplateVar)
+        if (rnw.template == rnw.standard) rnw.template <- NULL
         log.font.family <- tclvalue(logFontFamilyVar)
         default.font.family <- tclvalue(defaultFontFamilyVar)
         log.font.size <- round(as.numeric(tclvalue(logFontSizeVar)))
@@ -523,6 +546,8 @@ Options <- function(){
         options$retain.messages <- retain.messages
         options$use.markdown <- use.markdown
         options$rmd.template <- rmd.template
+        options$use.knitr <- use.knitr
+        options$rnw.template <- rnw.template
         options$log.font.family <- log.font.family
         options$default.font.family <- default.font.family
         options$log.font.size <- log.font.size
@@ -578,9 +603,10 @@ Options <- function(){
     tkgrid(outputOptionsFrame, sticky="nw", columnspan = 3)
     tkgrid(labelRcmdr(templateFrame, text="R Markdown template file"), rmdTemplateEntry, templateButton, sticky="w", padx=6)
     tkgrid(templateFrame, columnspan=2, sticky="w")
+    tkgrid(labelRcmdr(templateFrame, text="R knitr template file"), rnwTemplateEntry, rnwTemplateButton, sticky="w", padx=6)
     tkgrid(labelRcmdr(otherTab, text=gettextRcmdr("Scale factor for Tk elements")), scaleFactorSlider, sticky="sw")
     tkgrid(labelRcmdr(contrastsFrame, text=gettextRcmdr("Unordered factors")), labelRcmdr(contrastsFrame, text="   "),
-        labelRcmdr(contrastsFrame, text=gettextRcmdr("Ordered factors")), sticky="w")
+           labelRcmdr(contrastsFrame, text=gettextRcmdr("Ordered factors")), sticky="w")
     tkgrid(contrasts1Entry, labelRcmdr(contrastsFrame, text="   "), contrasts2Entry, sticky="w")
     tkgrid(labelRcmdr(otherTab, text=gettextRcmdr("Contrasts")), contrastsFrame, sticky="sw")
     tkgrid(labelRcmdr(otherTab, text=" "), sticky="w")    
