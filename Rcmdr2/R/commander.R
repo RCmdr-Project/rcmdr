@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-07-04 by J. Fox
+# last modified 2013-07-05 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -129,10 +129,10 @@ Commander <- function(){
             case <- tclvalue(caseVariable) == 1
             direction <- tclvalue(directionVariable)
             stop <- if (direction == "-forward") "end" else "1.0"
-            where <- if (case) tksearch(focused, type, direction, "--", text, "insert", stop)
+            where.txt <- if (case) tksearch(focused, type, direction, "--", text, "insert", stop)
             else tksearch(focused, type, direction, "-nocase", "--", text, "insert", stop)
-            where <- tclvalue(where)
-            if (where == "") {
+            where.txt <- tclvalue(where.txt)
+            if (where.txt == "") {
                 Message(message=gettextRcmdr("Text not found."),
                     type="note")
                 if (GrabFocus()) tkgrab.release(top)
@@ -142,8 +142,8 @@ Commander <- function(){
             }
             if (GrabFocus()) tkgrab.release(top)
             tkfocus(focused)
-            tkmark.set(focused, "insert", where)
-            tksee(focused, where)
+            tkmark.set(focused, "insert", where.txt)
+            tksee(focused, where.txt)
             tkdestroy(top)
         }
         OKCancelHelp()
