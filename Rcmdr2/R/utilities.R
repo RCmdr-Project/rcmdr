@@ -1,4 +1,4 @@
-# last modified 2013-07-04 by J. Fox
+# last modified 2013-07-08 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -2576,6 +2576,7 @@ beginRnwBlock <- function(){
     last2 <- tclvalue(tkget(.rnw, "end -2 chars", "end"))
     if (last2 != "\n\n") tkinsert(.rnw, "end", "\n")
     tkinsert(.rnw, "end", "\n")
+    tkinsert(.rnw, "end", "\\newpage\n")
     tkinsert(.rnw, "end", "<<>>=\n")
 }
 
@@ -2589,6 +2590,7 @@ removeNullRnwBlocks <- function(){
     rnw <- gsub("\n+$", "\n", rnw)
     rnw <- gsub("<<>>=\n$", "", rnw)
     rnw <- gsub("<<>>=\n@\n$", "", rnw)
+    rnw <- gsub("\\\\newpage\n*$", "", rnw)
     tkdelete(.rnw, "1.0", "end")
     tkinsert(.rnw, "end", rnw)
     tkyview.moveto(.rnw, 1)

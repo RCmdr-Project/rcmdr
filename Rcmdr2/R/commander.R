@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-07-05 by J. Fox
+# last modified 2013-07-08 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -534,6 +534,12 @@ Commander <- function(){
             browseURL(.html.file.location)
         }
         else{ 
+            fig.files <- list.files("./figure")
+            fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
+            if (length(fig.files) == 0) return()
+            response <- tkmessageBox(message = gettextRcmdr("Delete previously created knitr\ngraphics files (recommended)?"),
+                                     icon = "question", type = "okcancel", default = "ok")
+            if (tclvalue(response) == "ok") unlink(paste("./figure/", fig.files, sep=""))
             lines <- tclvalue(tkget(.rnw, "1.0", "end"))
             lines <- paste(lines, "\n\\end{document}\n")
             .RnwFile <- getRcmdr("RnwFileName")

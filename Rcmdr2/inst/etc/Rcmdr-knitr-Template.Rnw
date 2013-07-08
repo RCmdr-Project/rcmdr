@@ -1,5 +1,7 @@
 \documentclass{article}
 
+\usepackage[margin=1in]{geometry}
+
 \begin{document}
 
 \title{Replace with Main Title}
@@ -9,7 +11,7 @@
 
 <<echo=FALSE, results='hide',message=FALSE>>=
 # include this code chunk as-is to set options
-opts_chunk$set(comment=NA, prompt=TRUE)
+opts_chunk$set(comment=NA, prompt=TRUE, tidy=FALSE, fig.width=5, fig.height=5)
 library(Rcmdr)
 @
 
