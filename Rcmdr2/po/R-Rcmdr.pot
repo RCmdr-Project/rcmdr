@@ -1,6 +1,6 @@
 "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-07-08 12:00:00\n"
+"POT-Creation-Date: 2013-07-11 10:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3953,7 +3953,16 @@ msgstr ""
 msgid "Plotting Parameters"
 msgstr ""
 
+msgid "Plot Options"
+msgstr ""
+
+msgid "Plot Labels"
+msgstr ""
+
 msgid "Graph title"
+msgstr ""
+
+msgid "Plot Labels and Points"
 msgstr ""
 
 msgid "Apply"
