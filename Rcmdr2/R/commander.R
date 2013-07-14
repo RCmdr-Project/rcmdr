@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-07-08 by J. Fox
+# last modified 2013-07-13 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -521,6 +521,12 @@ Commander <- function(){
                 tkyview.moveto(.output, 1)
                 tkfocus(.log)
             }
+            if (length(as.character(tksearch(.log, "-regexp", "-forward",  "--", "\\n\\n$", "1.0"))
+) == 0){
+                tkinsert(.log, "end", "\n")
+            }
+            cursor.line.posn <- 1 + floor(as.numeric(tkindex(.log, "insert")))
+            tkmark.set(.log, "insert", paste(cursor.line.posn, ".0", sep=""))
         }
         else if (as.character(tkselect(notebook)) == RmdFrame$ID) {
             lines <- tclvalue(tkget(.rmd, "1.0", "end"))
