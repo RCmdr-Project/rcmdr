@@ -527,6 +527,7 @@ Commander <- function(){
             }
             cursor.line.posn <- 1 + floor(as.numeric(tkindex(.log, "insert")))
             tkmark.set(.log, "insert", paste(cursor.line.posn, ".0", sep=""))
+            tktag.remove(.log, "sel", "1.0", "end")
         }
         else if (as.character(tkselect(notebook)) == RmdFrame$ID) {
             lines <- tclvalue(tkget(.rmd, "1.0", "end"))
