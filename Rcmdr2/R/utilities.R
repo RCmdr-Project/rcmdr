@@ -1,4 +1,4 @@
-# last modified 2013-07-20 by J. Fox
+# last modified 2013-07-31 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -995,11 +995,12 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                              if (!is.null(reset) && memory){
                                  onReset <- function(){
                                      ID <- window$ID
+                                     putRcmdr("cancelDialogReopen", TRUE)
                                      putRcmdr("open.dialog.here", as.character(.Tcl(paste("winfo geometry", ID))))
                                      if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
                                      putDialog(reset, NULL)
                                      putDialog(reset, NULL, resettable=FALSE)
-                                     closeDialog()
+                                    closeDialog()
                                      eval(parse(text=paste(reset, "()")))
                                      putRcmdr("open.dialog.here", NULL)
                                      putRcmdr("restoreTab", FALSE)
@@ -1011,6 +1012,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                              if (!is.null(apply)){
                                  onApply <- function(){
                                      putRcmdr("restoreTab", TRUE)
+                                     putRcmdr("cancelDialogReopen", FALSE)
                                      ID <- window$ID
                                      putRcmdr("open.dialog.here", as.character(.Tcl(paste("winfo geometry", ID))))
                                      if (getRcmdr("use.markdown")) {
@@ -1042,8 +1044,13 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                                          }
                                          removeNullRnwBlocks()
                                      }
-                                     eval(parse(text=paste(apply, "()")))
-                                     putRcmdr("open.dialog.here", NULL)
+                                     if (getRcmdr("cancelDialogReopen")){
+                                         putRcmdr("cancelDialogReopen", FALSE)
+                                     }
+                                     else{
+                                         eval(parse(text=paste(apply, "()")))
+                                         putRcmdr("open.dialog.here", NULL)
+                                     }
                                  }
                                  applyButton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("Apply"), foreground="yellow", width="12", command=onApply,
                                                             image="::image::applyIcon", compound="left")
@@ -1437,6 +1444,7 @@ checkReplace <- function(name, type=gettextRcmdr("Variable")){
 
 errorCondition <- defmacro(window=top, recall=NULL, message, model=FALSE,
 		expr={
+		    putRcmdr("cancelDialogReopen", TRUE)
 			if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
 			if (!is.null(window)){
 				if (GrabFocus()) tkgrab.release(window)
