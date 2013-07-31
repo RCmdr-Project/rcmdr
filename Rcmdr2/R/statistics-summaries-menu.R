@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-24 by J. Fox
+# last modified 2013-07-31 by J. Fox
 
 # Summaries menu
 
@@ -136,7 +136,7 @@ frequencyDistribution <- function () {
         for (variable in x) {
             command <- paste("table(", .activeDataSet, "$", variable, 
                              ")", sep = "")
-            #     		logger(paste(".Table <-", command))
+            #             logger(paste(".Table <-", command))
             # 			assign(".Table", justDoIt(command), envir = .GlobalEnv)
             doItAndPrint(paste(".Table <-", command))
             doItAndPrint(paste(".Table  # counts for", variable))
@@ -205,8 +205,6 @@ frequencyDistribution <- function () {
                 closeDialog(subwin)
                 command <- paste("c(", paste(probs, collapse = ","), 
                                  ")", sep = "")
-                # 				logger(paste(".Probs <-", command))
-                # 				assign(".Probs", justDoIt(command), envir = .GlobalEnv)
                 doItAndPrint(paste(".Probs <-", command))
                 doItAndPrint("chisq.test(.Table, p=.Probs)")
                 logger("remove(.Probs)")
@@ -220,7 +218,7 @@ frequencyDistribution <- function () {
         remove(.Table, envir = .GlobalEnv)
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject = "table", reset = "frequencyDistribution")
+    OKCancelHelp(helpSubject = "table", reset = "frequencyDistribution", apply="frequencyDistribution")
     tkgrid(getFrame(xBox), sticky = "nw")
     tkgrid(goodnessOfFitCheckBox, 
            labelRcmdr(optionsFrame, text = gettextRcmdr("Chi-square goodness-of-fit test (for one variable only)")), 
