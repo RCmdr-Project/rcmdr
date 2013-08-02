@@ -1,4 +1,4 @@
-# last modified 2013-07-28 by J. Fox
+# last modified 2013-08-01 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
@@ -1083,10 +1083,21 @@ importExcel <- function(){
         result <- justDoIt(command)
         if (class(result)[1] !=  "try-error"){
             gassign(dsnameValue, result)
-            activeDataSet(dsnameValue)
         }
         logger("remove(.Workbook)")
         justDoIt("remove(.Workbook, envir=.GlobalEnv)")
+        if (class(result)[1] !=  "try-error"){
+            factors <- sapply(get(dsnameValue, envir=.GlobalEnv), is.character)
+            if (any(factors)){
+                factors <- which(factors)
+                command <- paste(dsnameValue, "[, c(", paste(factors, collapse=", "), 
+                                 ")] <- lapply(", dsnameValue, "[, c(", 
+                                 paste(factors, collapse=", "), "), drop=FALSE], as.factor)",
+                                 sep="")
+                doItAndPrint(command)
+            }
+            activeDataSet(dsnameValue)
+        }
     }
     OKCancelHelp(helpSubject="readWorksheet")
     tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter name of data set:  ")),
