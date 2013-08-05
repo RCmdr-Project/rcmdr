@@ -1,24 +1,17 @@
-# Russian translations for Rcmdr
-# Русский перевод для Rcmdr
-#
-# Copyright (C) 2005 The R Foundation
-# This file is distributed under the same license as the R package.
-#
+# messages added to version 2.0-0msgid "Plot Options"msgstr ""msgid "Plot Labels"msgstr ""msgid "Graph title"msgstr ""msgid "Plot Labels and Points"msgstr ""msgid "Apply"msgstr ""msgid "Pairwise p-values"msgstr ""msgid "Observations to Use"msgstr ""msgid "Complete observations"msgstr ""msgid "Pairwise-complete observations"msgstr ""msgid "R Script"msgstr ""msgid "Output"msgstr ""msgid "R Commander website" msgstr ""msgid "R website"msgstr ""msgid "Using R Markdown"msgstr ""msgid "Table"msgstr ""    # point identification in graphs (additional messages)msgid "Interactively with mouse"msgstr ""msgid "Do not identify"msgstr ""msgid "number of points to identify must be an integer"msgstr ""msgid "Number of points to identify"msgstr ""msgid "Number of points to identify  \nin each panel and group "msgstr ""msgid "Added-Variable Plots"msgstr ""msgid "Component+Residual Plots"msgstr ""msgid "Influence Plot"msgstr ""    # support for R Markdown and knitrmsgid "Generate HTML report"msgstr ""msgid "Generate PDF report"msgstr ""msgid "R Markdown"msgstr ""msgid "knitr Document"msgstr ""msgid "Open R Markdown file..."msgstr ""msgid "Open knitr file..."msgstr ""msgid "Save R Markdown file..."msgstr ""msgid "Save knitr file..."msgstr ""msgid "Save knitr file?"msgstr ""msgid "Save current Rmd file?"msgstr ""msgid "Save current Rnw file?"msgstr ""msgid "Save R Markdown file as..."msgstr ""msgid "Save knitr file as..."msgstr ""msgid "R Markdown file saved to"msgstr ""msgid "knitr file saved to"msgstr ""msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"msgstr ""msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"msgstr ""msgid "Delete previously created knitr\ngraphics files (recommended)?"msgstr ""    # setting and saving optionsmsgid "Ask to exit Commander"msgstr ""msgid "Ask to save documents on exit"msgstr ""msgid "Quit R on exit"msgstr ""msgid "Number messages"msgstr ""msgid "Retain messages"msgstr ""msgid "Use R Markown"msgstr ""msgid "Select file"msgstr ""msgid "R Markdown template file"msgstr ""msgid "R knitr template file"msgstr ""msgid "Suppress icon images"msgstr ""msgid "Retain dialog selections"msgstr ""msgid "Use rgl package"
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 1.2-0\n"
-"Report-Msgid-Bugs-To: bugs@R-project.org\n"
-"POT-Creation-Date: 2005-06-02 13:06+0100\n"
-"PO-Revision-Date: 2012-09-01 23:39-0600\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
 "Last-Translator: Alexey Shipunov <dactylorhiza@gmail.com>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=KOI8-R\n"
+"Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Russian\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
-"X-Poedit-SourceCharset: iso-8859-5\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: iso-8859-1\n"
 
 msgid "KMeans Clustering"
 msgstr "Метод K средних"
@@ -4032,4 +4025,166 @@ msgstr "Выберите по крайней мере одно: точки или линии."
 
 msgid "Plot Type (one or both)"
 msgstr "Тип графика (один или оба)"
+
+msgid "Dialog text font size (points)"
+msgstr "Размер шрифта в диалогах (пункты)"
+
+msgid "Script and output font size (points)"
+msgstr "Размер шрифта в скрипте и выводе (пункты)"
+
+msgid "Dialog font"
+msgstr "Шрифт в диалогах"
+
+msgid "Script and output font"
+msgstr "Шрифт в скрипте и выводе"
+
+msgid "Script text color"
+msgstr "Цвет текста в скрипте"
+
+msgid "Command text color"
+msgstr "Цвет текста в командах"
+
+msgid "Output text color"
+msgstr "Цвет текста в выводе"
+
+msgid "Error text color"
+msgstr "Цвет текста в ошибках"
+
+msgid "Warning text color"
+msgstr "Цвет текста в предупреждениях"
+
+msgid "Dialog subtitles text color"
+msgstr "Цвет текста в подзаголовках диалогов"
+
+msgid "Script window width (characters)"
+msgstr "Ширина окна скрипта (в символах)"
+
+msgid "Script window height (lines)"
+msgstr "Высота окна скрипта (в строках)"
+
+msgid "Output window height (lines)"
+msgstr "Высота окна вывода (в строках)"
+
+msgid "Messages window height (lines)"
+msgstr "Высота окна сообщений (в строках)"
+
+msgid "Fonts"
+msgstr "Шрифты"
+
+msgid "Other Options"
+msgstr "Другие опции"
+
+msgid "Save Commander Options"
+msgstr "Сохранить опции"
+
+msgid "R Profile saved to"
+msgstr "Профиль R сохранен в"
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr "Следующие команды будут сохранены в .Rprofile."
+
+msgid "You may edit this file before saving it."
+msgstr "Вы можете отредактировать это перед сохранением."
+
+msgid "Save Rcmdr options..."
+msgstr "Сохраняю опции Rcmdr..."
+
+# density estimate dialog
+msgid "Nonparametric Density Estimate"
+msgstr "Непараметрическая оценка плотности"
+
+msgid "Gaussian"
+msgstr "Гаусс"
+
+msgid "Epanechnikov"
+msgstr "Епанечиков"
+
+msgid "Tukey biweight"
+msgstr "Тьюки двухвесовой"
+
+msgid "Kernel Function"
+msgstr "Функция ядра"
+
+msgid "Bandwidth"
+msgstr "Ширина полосы"
+
+msgid "Multiply bandwidth by"
+msgstr "Увеличить ширину полосы в"
+
+msgid "Density estimate..."
+msgstr "Оценка плотности..."
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr "Ширина полосы должна быть <auto> или положительным числом"
+
+# index plot dialog
+msgid "Style of plot"
+msgstr "Стиль графика"
+
+# export data set dialog
+msgid "Write variable names"
+msgstr "Записать имена переменных"
+
+msgid "Write row names"
+msgstr "Записать имена строк"
+
+msgid "Quotes around character values"
+msgstr "Кавычки вокруг текстовых значений"
+
+# numerical summaries dialog
+msgid "Quantiles:"
+msgstr "Квантили:"
+
+# for splines and polynomials in model formulas
+msgid "spline requires a numeric variable"
+msgstr "для сплайна нужна цифровая переменная"
+
+msgid "cannot select more than one variable"
+msgstr "не могу выбрать более одной переменной"
+
+msgid "polynomial requires a numeric variable"
+msgstr "для полинома нужна цифровая переменная"
+
+msgid "B-spline\n"
+msgstr "B-сплайн\n"
+
+msgid ""
+"natural\n"
+"spline"
+msgstr ""
+"естественный\n"
+"сплайн"
+
+msgid ""
+"orthogonal\n"
+"polynomial"
+msgstr ""
+"ортогональный\n"
+"полином"
+
+msgid ""
+"raw\n"
+"polynomial"
+msgstr ""
+"базовый\n"
+"полином"
+
+msgid "Model Formula"
+msgstr "Формула модели"
+
+msgid "Operators (click to formula):"
+msgstr "Операторы (щелкните по формуле):"
+
+msgid ""
+"Splines/Polynomials:\n"
+"(select variable and click)"
+msgstr ""
+"Сплайны/полиномы:\n"
+"(выберите переменную и щелкните)"
+
+msgid "df for splines:"
+msgstr "df для сплайнов:"
+
+msgid "deg. for polynomials:"
+msgstr "степень полиномов:"
 
