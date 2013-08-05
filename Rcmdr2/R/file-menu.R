@@ -1,5 +1,4 @@
-# last modified 2013-07-04 by J. Fox
-#  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
+# last modified 2013-08-05 by M. Bouchet-Valat
 
 # File menu dialogs
 
@@ -308,6 +307,11 @@ Options <- function(){
     log.font.family <- tclvalue(.Tcl("font actual RcmdrLogFont -family"))
     if (length(grep(" ", log.font.family)) > 1) log.font.family <- paste("{", log.font.family, "}", sep="")
     title.color <- getRcmdr("title.color")
+    # On Windows 7 with Classic theme, a color name is returned instead of RGB values
+    if(substr(title.color, 1, 1) != "#") {
+        title.color.rgb <- as.numeric(tkwinfo("rgb", top, title.color))
+        title.color <- rgb(rbind(title.color.rgb), maxColorValue=65535)
+    }
     use.markdown<- getRcmdr("use.markdown")
     use.knitr<- getRcmdr("use.knitr")
     retain.selections <- getRcmdr("retain.selections")
