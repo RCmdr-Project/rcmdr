@@ -1,19 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 1.9-0\n"
+"Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-09-03 09:16+0100\n"
-"Last-Translator: Manuel Muñoz Márquez <manuel.munoz@uca.es>\n"
+"POT-Creation-Date: 2013-08-5 15:30:00\n"
+"PO-Revision-Date: 2013-08-07 21:50+0100\n"
+"Last-Translator: Manuel Munoz-Marquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <ginteloy@uca.es>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.4\n"
 
 msgid "KMeans Clustering"
 msgstr "Agrupación por k-medias"
@@ -3998,6 +3995,330 @@ msgstr "Número de columnas:"
 msgid "number of rows:"
 msgstr "número de filas:"
 
+msgid "Plot Options"
+msgstr "Opciones gráfica"
+
+msgid "Plot Labels"
+msgstr "Dibujar etiquetas"
+
+msgid "Graph title"
+msgstr "Título del gráfico"
+
+msgid "Plot Labels and Points"
+msgstr "Dibujar Etiquetas y Puntos"
+
+msgid "Apply"
+msgstr "Aplicar"
+
+msgid "Pairwise p-values"
+msgstr "p-valores pareados"
+
+msgid "Observations to Use"
+msgstr "Observaciones a usar"
+
+msgid "Complete observations"
+msgstr "Observaciones completas"
+
+msgid "Pairwise-complete observations"
+msgstr "Parejas de casos completos"
+
+msgid "R Script"
+msgstr "R Script"
+
+msgid "Output"
+msgstr "Salida"
+
+msgid "R Commander website"
+msgstr "Sitio de R Commander"
+
+msgid "R website"
+msgstr "Sitio R"
+
+msgid "Using R Markdown"
+msgstr "Usando R Markdown"
+
+msgid "Table"
+msgstr "Tabla"
+
+msgid "Interactively with mouse"
+msgstr "Interactivamente con el ratón"
+
+msgid "Do not identify"
+msgstr "No identificar"
+
+msgid "number of points to identify must be an integer"
+msgstr "número de puntos a identificar debe ser un entero"
+
+msgid "Number of points to identify"
+msgstr "Número de puntos a identificar"
+
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group "
+msgstr ""
+"Número de puntos a identificar \n"
+"en cada panel y grupo"
+
+msgid "Added-Variable Plots"
+msgstr "Gráfica de variables agregadas"
+
+msgid "Component+Residual Plots"
+msgstr "Gráfica de componentes+residuos"
+
+msgid "Influence Plot"
+msgstr "Gráfica de influencia"
+
+# support for R Markdown and knitr
+msgid "Generate HTML report"
+msgstr "Generar informe HTML"
+
+msgid "Generate PDF report"
+msgstr "Generar informe PDF"
+
+msgid "R Markdown"
+msgstr "R Markdown"
+
+msgid "knitr Document"
+msgstr "Documento knitr"
+
+msgid "Open R Markdown file..."
+msgstr "Abrir archivo R Markdown..."
+
+msgid "Open knitr file..."
+msgstr "Abrir archivo knitr..."
+
+msgid "Save R Markdown file..."
+msgstr "Guardar fichero R Markdown..."
+
+msgid "Save knitr file..."
+msgstr "Guardar fichero knitr..."
+
+msgid "Save knitr file?"
+msgstr "¿Guardar fichero knitr?"
+
+msgid "Save current Rmd file?"
+msgstr "¿Guardar fichero Rmd actual?"
+
+msgid "Save current Rnw file?"
+msgstr "¿Guardar fichero Rnw actual?"
+
+msgid "Save R Markdown file as..."
+msgstr "Guardar el fichero R Markdown como..."
+
+msgid "Save knitr file as..."
+msgstr "Guardar fichdero knitr como..."
+
+msgid "R Markdown file saved to"
+msgstr "Fichero R Markdown guardado en"
+
+msgid "knitr file saved to"
+msgstr "Fichero knitr guardado en"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr "{\"Todos los archivos\" {\"*\"}} {\"Archivos R Markdown\" {\".Rmd\" \".rmd\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+msgstr "{\"Todos los archivos\" {\"*\"}} {\"Archivos knitr\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+
+msgid ""
+"Delete previously created knitr\n"
+"graphics files (recommended)?"
+msgstr ""
+"Borrar los ficheros gráficos\n"
+"de knitr previamente creados (recomendado)"
+
+msgid "Ask to exit Commander"
+msgstr "Preguntar al salir de Commander"
+
+msgid "Ask to save documents on exit"
+msgstr "Preguntar si se graban los documentos a la salida"
+
+msgid "Quit R on exit"
+msgstr "Salir de R al salir"
+
+msgid "Number messages"
+msgstr "Número de mensajes"
+
+msgid "Retain messages"
+msgstr "Mantener mensajes"
+
+msgid "Use R Markown"
+msgstr "Usar R Markown"
+
+msgid "Select file"
+msgstr "Seleccionar fichero"
+
+msgid "R Markdown template file"
+msgstr "Fichero plantilla R Markdown"
+
+msgid "R knitr template file"
+msgstr "Fichero plantilla R knitr"
+
+msgid "Suppress icon images"
+msgstr "Suprimir los iconos"
+
+msgid "Retain dialog selections"
+msgstr "Mantener selecciones de diálogos"
+
+msgid "Use rgl package"
+msgstr "Usar paquete rg"
+
+msgid "Dialog text font size (points)"
+msgstr "Tamaño de letra de diálogos (puntos)"
+
+msgid "Script and output font size (points)"
+msgstr "Tamaño de letra de programas y salidas (puntos)"
+
+msgid "Dialog font"
+msgstr "Fuente para diálogos"
+
+msgid "Script and output font"
+msgstr "Fuente de Instrucciones y salidas"
+
+msgid "Script text color"
+msgstr "Color del texto de las instrucciones"
+
+msgid "Command text color"
+msgstr "Color texto instrucciones"
+
+msgid "Output text color"
+msgstr "Color texto salida"
+
+msgid "Error text color"
+msgstr "Error color del texto"
+
+msgid "Warning text color"
+msgstr "Aviso color del texto"
+
+msgid "Dialog subtitles text color"
+msgstr "Color del texto de los subtítulos de los diálogos"
+
+msgid "Script window width (characters)"
+msgstr "Anchura de la ventana de instrucciones (caracteres)"
+
+msgid "Script window height (lines)"
+msgstr "Alto de la ventana de instrucciones (líneas)"
+
+msgid "Output window height (lines)"
+msgstr "Alto de la ventana de salida (líneas)"
+
+msgid "Messages window height (lines)"
+msgstr "Alto de la ventana de mensajes (líneas)"
+
+msgid "Fonts"
+msgstr "Fuentes"
+
+msgid "Other Options"
+msgstr "Otras opciones"
+
+msgid "Save Commander Options"
+msgstr "Guardar opciones de R Commander"
+
+msgid "R Profile saved to"
+msgstr "Entorno de trabajo R guardado en"
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr "Las siguientes instrucciones serán grabadas en el fichero .Rprofile."
+
+msgid "You may edit this file before saving it."
+msgstr "Puede editar este fichero antes de guardarlo."
+
+msgid "Save Rcmdr options..."
+msgstr "Guardar opciones Rcmdr..."
+
+msgid "Nonparametric Density Estimate"
+msgstr "Estimación de densidad no paramétrica"
+
+msgid "Gaussian"
+msgstr "Gausiano"
+
+msgid "Epanechnikov"
+msgstr "Epanechnikov"
+
+msgid "Tukey biweight"
+msgstr "Tukey biponderado"
+
+msgid "Kernel Function"
+msgstr "Función núcleo"
+
+msgid "Bandwidth"
+msgstr "Ancho de banda"
+
+msgid "Multiply bandwidth by"
+msgstr "Multiplicar el ancho de banda por"
+
+msgid "Density estimate..."
+msgstr "Estimar densidad..."
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr "El ancho de banda debe ser <auto> o un número positivo"
+
+msgid "Style of plot"
+msgstr "Estilo del gráfico"
+
+msgid "Write variable names"
+msgstr "Escribir los nombres de las variables"
+
+msgid "Write row names"
+msgstr "Escribir el nombre de las filas"
+
+msgid "Quotes around character values"
+msgstr "Entrecomillar valores tipo carácter"
+
+msgid "Quantiles:"
+msgstr "Cuantiles:"
+
+msgid "spline requires a numeric variable"
+msgstr "splines requiere una variable numérica"
+
+msgid "cannot select more than one variable"
+msgstr "no se puede seleccionar más de una variable"
+
+msgid "polynomial requires a numeric variable"
+msgstr "polinómios requiere una variable numérica"
+
+msgid "B-spline\n"
+msgstr "B-spline\n"
+
+msgid ""
+"natural\n"
+"spline"
+msgstr ""
+"spline\n"
+"natural"
+
+msgid ""
+"orthogonal\n"
+"polynomial"
+msgstr ""
+"polinomio\n"
+"ortogonal"
+
+msgid ""
+"raw\n"
+"polynomial"
+msgstr ""
+"polinomio\n"
+"crudo"
+
+msgid "Model Formula"
+msgstr "Fórmula del modelo"
+
+msgid "Operators (click to formula):"
+msgstr "Operadores (pulse para formular):"
+
+msgid ""
+"Splines/Polynomials:\n"
+"(select variable and click)"
+msgstr "Splines/Polinomiales:\n"
+"(seleccionar variable y pulsar)"
+
+msgid "df for splines:"
+msgstr "gl de los splines:"
+
+msgid "deg. for polynomials:"
+msgstr "g. de polinomios:"
+
 #~ msgid "Define facto"
 #~ msgstr "Defina factor"
 
@@ -4069,9 +4390,6 @@ msgstr "número de filas:"
 
 #~ msgid "Single-sample t-test from n,mx,vx..."
 #~ msgstr "Test t para una muestra, a partir de n, mx, vx..."
-
-#~ msgid "Number of samples"
-#~ msgstr "Número de muestras"
 
 #~ msgid "Shape 1"
 #~ msgstr "Parámetro de forma 1"
