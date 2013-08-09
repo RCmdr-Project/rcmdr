@@ -1,4 +1,4 @@
-# last modified 2013-07-31 by J. Fox
+# last modified 2013-08-08 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -1820,10 +1820,10 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
         tkicursor(rhsEntry, "end")
         tkxview.moveto(rhsEntry, "1")
     }
-    bsplineButton <- buttonRcmdr(splinePolyFrame, text="B-spline\n", width="10", command=onBSpline)
-    nsplineButton <- buttonRcmdr(splinePolyFrame, text="natural\nspline", width="10", command=onNatSline)
-    polyButton <- buttonRcmdr(splinePolyFrame, text="orthogonal\npolynomial", width="10", command=onPoly)
-    RawPolyButton <- buttonRcmdr(splinePolyFrame, text="raw\npolynomial", width="10", command=onRawPoly)
+    bsplineButton <- buttonRcmdr(splinePolyFrame, text=gettextRcmdr("B-spline\n"), width="10", command=onBSpline)
+    nsplineButton <- buttonRcmdr(splinePolyFrame, text=gettextRcmdr("natural\nspline"), width="10", command=onNatSline)
+    polyButton <- buttonRcmdr(splinePolyFrame, text=gettextRcmdr("orthogonal\npolynomial"), width="10", command=onPoly)
+    RawPolyButton <- buttonRcmdr(splinePolyFrame, text=gettextRcmdr("raw\npolynomial"), width="10", command=onRawPoly)
     dfSplineVar <- tclVar("5")
     degPolyVar <- tclVar("2")
     dfDegFrame <- tkframe(outerOperatorsFrame)
