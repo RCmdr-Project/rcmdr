@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2013-07-03 by J. Fox
+# last modified 2013-08-09 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -378,6 +378,7 @@
     menu    helpMenu        topMenu         ""                                              ""                          ""          ""
     item    helpMenu        command         "Commander help"                                helpCommander               ""          ""
     item    helpMenu        command         "Introduction to the R Commander"               browseManual                ""          ""
+    item    helpMenu        command         "Introduction to the R Commander (English version)"               browseEnglishManual                ""          "manualTranslationP()"
     item    helpMenu        command         "R Commander website"                           browseRcmdrWebsite          ""          ""
     item    helpMenu        command         "About Rcmdr"                                   helpAboutCommander          ""          ""
     item    helpMenu        separator       ""                                              ""                          ""          ""

@@ -1,4 +1,4 @@
-# last modified 2013-08-08 by J. Fox
+# last modified 2013-08-09 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -877,6 +877,15 @@ helpAboutCommander <- function() {
 browseManual <- function() {
 	browseURL(paste(file.path(path.package(package="Rcmdr")[1], "doc"),
 					"/", gettextRcmdr("Getting-Started-with-the-Rcmdr"), ".pdf", sep=""))
+}
+
+browseEnglishManual <- function() {
+    browseURL(paste(file.path(path.package(package="Rcmdr")[1], "doc"),
+                    "/Getting-Started-with-the-Rcmdr.pdf", sep=""))
+}
+
+manualTranslationP <- function(){
+    gettextRcmdr("Getting-Started-with-the-Rcmdr") != "Getting-Started-with-the-Rcmdr"
 }
 
 browseRcmdrWebsite <- function() browseURL("http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/")
