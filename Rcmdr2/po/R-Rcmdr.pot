@@ -1,6 +1,6 @@
 msgid "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-08-5 15:30:00\n"
+"POT-Creation-Date: 2013-08-15 18:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4095,6 +4095,9 @@ msgid "Retain messages"
 msgstr ""
 
 msgid "Use R Markown"
+msgstr ""
+
+msgid "Use knitr"
 msgstr ""
 
 msgid "Select file"
