@@ -25,8 +25,7 @@ partial.cor(X, tests=FALSE, use=c("complete.obs", "pairwise.complete.obs"))
 \seealso{\code{\link[stats]{cor}}}
 
 \examples{
-    library(car)
-    data(DavisThin)
+    data(DavisThin, package="car")
     partial.cor(DavisThin)
     partial.cor(DavisThin, tests=TRUE)
 }

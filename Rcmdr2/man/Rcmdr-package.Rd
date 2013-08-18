@@ -14,11 +14,11 @@ user interface) for R, based on the tcltk package.
 Package: \tab Rcmdr\cr
 Version: \tab 2.0-0\cr
 Date: \tab 2013/08/18\cr
-Depends: \tab R (>= 3.0.0), grDevices, utils, car (>= 2.0-18), knitr, markdown\cr
+Depends: \tab  R (>= 3.0.0), grDevices, utils, splines\cr
 Imports: \tab tcltk\cr
-Suggests: \tab abind, aplpack, colorspace, effects (>= 1.0-7), e1071, foreign, grid, 
-   Hmisc, lattice, leaps, lmtest, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, 
-   relimp, rgl, RODBC, sem (>= 2.1-1)\cr
+Suggests: \tab abind, aplpack, car (>= 2.0-18), colorspace, effects (>= 1.0-7),
+    e1071, foreign, grid, Hmisc, knitr, lattice, leaps, lmtest, MASS, markdown, mgcv, 
+    multcomp (>= 0.991-2), nlme, nnet, relimp, rgl, RODBC, sem (>= 2.1-1)\cr
 ByteCompile: \tab yes\cr
 License: \tab GPL (>= 2)\cr
 URL: \tab http://www.r-project.org,

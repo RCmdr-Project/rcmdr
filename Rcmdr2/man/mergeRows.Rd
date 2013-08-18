@@ -30,7 +30,7 @@ mergeRows(X, Y, common.only = FALSE, ...)
 \seealso{For column merges and more complex merges, see \code{\link[base]{merge}}.}
 
 \examples{
-require(car)
+data(Duncan, package="car")
 D1 <- Duncan[1:20,]
 D2 <- Duncan[21:45,]
 D <- mergeRows(D1, D2)

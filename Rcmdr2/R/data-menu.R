@@ -1,4 +1,4 @@
-# last modified 2013-08-01 by J. Fox
+# last modified 2013-08-18 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
@@ -93,7 +93,6 @@ selectActiveDataSet <- function(){
 listDataSetsInPackages <- function() doItAndPrint("data()")
 
 RecodeDialog <- function () {
-    require("car")
     processRecode <- function(recode) {
         parts <- strsplit(recode, "=")[[1]]
         if (length(grep(",", parts[1])) > 0) 

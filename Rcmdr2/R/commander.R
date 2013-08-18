@@ -1,12 +1,15 @@
 
 # The R Commander and command logger
 
-# last modified 2013-07-31 by J. Fox
+# last modified 2013-08-18 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
 Commander <- function(){
     library(Rcmdr, quietly=TRUE)
+    require("car")
+    require("knitr")
+    require("markdown")
     # set up RcmdrEnv
     RcmdrEnv.on.path <- getOption("Rcmdr")[["RcmdrEnv.on.path"]]
     if (is.null(RcmdrEnv.on.path)) RcmdrEnv.on.path <- (getRversion() < "3.0.0")
@@ -236,12 +239,7 @@ Commander <- function(){
     scale.factor <- current$scale.factor
     if (!is.null(scale.factor)) .Tcl(paste("tk scaling ", scale.factor, sep=""))
     # set various options
-    if (packageAvailable("car")){
-        require("car")
-        setOption("default.contrasts", c("contr.Treatment", "contr.poly"))
-    }
-    else setOption("default.contrasts", c("contr.treatment", "contr.poly"))
-    
+    setOption("default.contrasts", c("contr.Treatment", "contr.poly"))
     standard.title.color <- as.character(.Tcl("ttk::style lookup TLabelframe.Label -foreground"))
 #    if (tolower(standard.title.color) == "black" || standard.title.color == "#000000") standard.title.color="blue"
     title.color <- setOption("title.color", standard.title.color) 

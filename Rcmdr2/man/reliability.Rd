@@ -39,8 +39,7 @@ reliability(S)
 \seealso{\code{\link{cov}}}
 
 \examples{
-library(car)
-data(DavisThin)
+data(DavisThin, package="car")
 reliability(cov(DavisThin))
 }
 \keyword{misc}

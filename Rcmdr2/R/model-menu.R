@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2013-06-24 by J. Fox
+# last modified 2013-08-18 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -73,7 +73,6 @@ plotModel <- function(){
 }
 
 CRPlots <- function(){
-    Library("car")
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("crPlot", .activeModel)) return()
     
@@ -100,7 +99,6 @@ CRPlots <- function(){
 }
 
 AVPlots <- function () {
-    Library("car")
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("avPlot", .activeModel)) 
         return()
@@ -147,7 +145,6 @@ AVPlots <- function () {
 }
 
 InfluencePlot <- function () {
-    Library("car")
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("influencePlot", .activeModel)) 
         return()
@@ -192,7 +189,6 @@ InfluencePlot <- function () {
 }
 
 anovaTable <- function () {
-	Library("car")
 	.activeModel <- ActiveModel()
 	if (is.null(.activeModel)) 
 		return()
@@ -252,7 +248,6 @@ anovaTable <- function () {
 }
 
 VIF <- function(){
-	Library("car")
 	.activeModel <- ActiveModel()
 	if (is.null(.activeModel) || !checkMethod("vif", .activeModel)) return()
 	doItAndPrint(paste("vif(", .activeModel, ")", sep=""))
@@ -351,7 +346,6 @@ addObservationStatistics <- function () {
 }
 
 residualQQPlot <- function () {
-    Library("car")
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("qqPlot", .activeModel)) 
         return()
@@ -410,7 +404,6 @@ testLinearHypothesis <- function(){
 	# coef.multinom <- car:::coef.multinom
 	defaults <- list(previous.model=NULL, nrows=1, table.values=0, rhs.values=0)
 	dialog.values <- getDialog("testLinearHypothesis", defaults=defaults)
-	Library("car")
 	.activeModel <- ActiveModel()
 	if (is.null(.activeModel) || !checkMethod("linearHypothesis", .activeModel, default=TRUE)) return()
 	if (!is.null(dialog.values$previous.model)){
@@ -750,7 +743,6 @@ RESETtest <- function () {
 OutlierTest <- function(){
     .activeModel <- ActiveModel()
 	if (is.null(.activeModel)) return()
-	Library("car")
 	if (!checkMethod("outlierTest", .activeModel)) {
 		errorCondition(gettextRcmdr("There is no appropriate outlierTest method for a model of this class."))
 		return()

@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-07-11 by J. Fox
+# last modified 2013-08-18 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -641,7 +641,6 @@ scatterPlot <- function () {
 }
 
 scatterPlotMatrix <- function () {
-    require("car")
     defaults <- list(initial.variables = NULL, initial.line = 1, initial.smooth = 1, initial.spread = 0,
                      initial.span = 50, initial.diag = "density", initial.subset = gettextRcmdr ("<all valid cases>"),
                      initialGroup=NULL, initial.lines.by.group=1, initial.id.n="0", initial.tab=0,
@@ -956,7 +955,6 @@ linePlot <- function () {
 
 QQPlot <- function () {
     # this function modified by Martin Maechler
-    require("car")
     defaults <- list(initial.x = NULL, initial.dist = "norm", initial.df = "",
                      initial.chisqdf = "", initial.fdf1 = "", initial.fdf2 = "", initial.othername = "",
                      initial.otherparam = "", initial.identify = "auto", initial.id.n="2",
@@ -1287,7 +1285,6 @@ PlotMeans <- function () {
 Scatter3D <- function () {
     use.rgl <- getOption("Rcmdr")$use.rgl
     if (is.null(use.rgl) || use.rgl) {
-        Library("car")
         Library("rgl")
         Library("mgcv")
     }

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-24 by J. Fox
+# last modified 2013-08-18 by J. Fox
 
 # Variances menu
 
@@ -115,7 +115,6 @@ BartlettTest <- function () {
 }
 
 LeveneTest <- function () {
-	require("car")
 	defaults <- list(initial.group = NULL, initial.response = NULL, initial.center = "median")
 	dialog.values <- getDialog("LeveneTest", defaults)
 	initializeDialog(title = gettextRcmdr("Levene's Test"))

@@ -4,8 +4,8 @@
 \title{Rcmdr 3D Scatterplot Dialog}
 
 \description{
-  This dialog sets up a call to the \code{\link{scatter3d}} function to draw a
-  three-dimensional scatterplot, and optionally to \code{\link{identify3d}} to label
+  This dialog sets up a call to the \code{\link[car]{scatter3d}} function to draw a
+  three-dimensional scatterplot, and optionally to \code{\link[car]{identify3d}} to label
   points interactively with the mouse.
 }
 
@@ -49,7 +49,7 @@ rotate the display, and click and drag the right (or centre) button to identify 
 
 \author{John Fox \email{jfox@mcmaster.ca}}
 
-\seealso{\code{\link{scatter3d}}, \code{\link{identify3d}},  
+\seealso{\code{\link[car]{scatter3d}}, \code{\link[car]{identify3d}},  
   \code{\link[rgl]{rgl-package}}, \code{\link[mgcv]{gam}}}
 
 \keyword{hplot}

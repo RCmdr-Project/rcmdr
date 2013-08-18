@@ -308,7 +308,7 @@ set none, one, several, or all options. The available options are as follows:
     R console.}
     
     \item{\code{use.knitr}}{If \code{TRUE} (the default is \code{FALSE}), a knitr \code{.Rnw} LaTeX document is created in a tab of the main Commander window;
-    this document can be compiled into \code{.tex} and \code{.pdf} reports via the \code{\link{knit2pdf}}
+    this document can be compiled into \code{.tex} and \code{.pdf} reports via the \code{\link[knitr]{knit2pdf}}
     function in the \pkg{knitr} package.}
     
     \item{\code{use.markdown}}{If \code{TRUE} (the default is the negation of the \code{use.knitr} argument), an R Markdown document
@@ -386,7 +386,7 @@ Extending the R Commander by "plug in" packages.
 
 \author{John Fox \email{jfox@mcmaster.ca}}
 
-\seealso{\link{Plugins}, \link{Rcmdr.Utilities}, \code{\link{knit}}, \code{\link{knit2pdf}}}
+\seealso{\link{Plugins}, \link{Rcmdr.Utilities}, \code{\link[knitr]{knit}}, \code{\link[knitr]{knit2pdf}}}
 
 \examples{
     options(Rcmdr=list(log.font.size=12, default.contrasts=c("contr.Sum", "contr.poly")))

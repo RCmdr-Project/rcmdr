@@ -48,7 +48,7 @@ John Fox, adapting code from Robert A. Muenchen.
 
 \examples{
 	\dontrun{
-require(car)
+data(Mroz, package="car")
 rcorr.adjust(Mroz[,c("k5", "k618", "age", "lwg", "inc")])
 rcorr.adjust(Mroz[,c("k5", "k618", "age", "lwg", "inc")], type="spearman")
 	}

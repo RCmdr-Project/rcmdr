@@ -33,8 +33,7 @@ Hist(x, scale=c("frequency", "percent", "density"), xlab=deparse(substitute(x)),
 \seealso{\code{\link[graphics]{hist}}}
 
 \examples{
-    library(car)
-    data(Prestige)
+    data(Prestige, package="car")
     Hist(Prestige$income, scale="percent")
     }
 

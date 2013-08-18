@@ -28,6 +28,7 @@ John Fox \email{jfox@mcmaster.ca}
 }
 
 \examples{
+data(Bfox, package="car")
 Bfox$time <- as.numeric(rownames(Bfox))
 with(Bfox, lineplot(time, menwage, womwage))
 }

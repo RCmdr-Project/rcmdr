@@ -14,7 +14,6 @@ indexplot(x, labels = seq_along(x), id.method = "y", type = "h",
     id.n = 0, ylab, ...) 
 }
 
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{numeric variable.}
   \item{labels}{point labels.}
@@ -39,8 +38,9 @@ John Fox \email{jfox@mcmaster.ca}
 }
 
 \examples{
-data(Prestige, package="car")
-with(Prestige, indexplot(income, id.n=2, labels=rownames(Prestige)))
+if (require("car")){
+    with(Prestige, indexplot(income, id.n=2, labels=rownames(Prestige)))
+}
 }
 
 \keyword{hplot}

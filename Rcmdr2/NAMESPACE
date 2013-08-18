@@ -1,4 +1,4 @@
-# last modified 2013-06-14 by J. Fox
+# last modified 2013-08-18 by J. Fox
 
 useDynLib(Rcmdr)
 
