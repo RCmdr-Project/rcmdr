@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Rcmdr1.9.1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-09-10 15:10+0900\n"
+"PO-Revision-Date: 2013-08-18 12:27+0900\n"
 "Last-Translator: SHIN Jong-Hwa <shin.jonghwa@r-project.kr>\n"
 "Language-Team: Korean R User Group <shin.jonghwa@r-project.kr>\n"
 "Language: ko\n"
@@ -13,6 +13,27 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.1.6\n"
 "X-Poedit-Country: KOREA, REPUBLIC OF\n"
+
+msgid ""
+"Project-Id-Version: Rcmdr 2.0-0\n"
+"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
+"POT-Creation-Date: 2013-08-15 18:30:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+msgstr ""
+"Project-Id-Version: Rcmdr 2.0-0\n"
+"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
+"POT-Creation-Date: 2013-08-15 18:30:00\n"
+"PO-Revision-Date: 2013-08-18 18:30:00+09\n"
+"Last-Translator: SHIN Jong-Hwa <shin.jonghwa@r-project.kr>\n"
+"Language-Team: Korean <shin.jonghwa@r-project.kr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: UTF-8\n"
 
 msgid "KMeans Clustering"
 msgstr "K평균 군집화"
@@ -110,7 +131,7 @@ msgid "There are no hierachical clustering solutions"
 msgstr "위계적 군집화 해결책이 없습니다"
 
 msgid "No hierachical clustering solutions are associated with this data set."
-msgstr "이 데이터셋과는 어떤 어떤 계층적 군집화 해결책도 연관되지 않습니다."
+msgstr "이 데이터셋과는 어떤 계층적 군집화 해결책도 연관되지 않습니다."
 
 msgid "A clustering solution has not been selected."
 msgstr "군집화 해결책이 선택되지 않았습니다."
@@ -119,7 +140,7 @@ msgid "Append Cluster Groups to the Active Data Set"
 msgstr "활성 데이터셋에 군집화 집단 덧붙이기"
 
 msgid "Assigned cluster label:"
-msgstr "할당된 군집 라벨:"
+msgstr "할당된 군집 이름표:"
 
 msgid "Find"
 msgstr "찾기"
@@ -140,10 +161,10 @@ msgid "Search Direction"
 msgstr "검색 방향"
 
 msgid "No search text specified."
-msgstr "지적된 검색 본문이 없음."
+msgstr "검색 글이 지정되지 않음."
 
 msgid "Text not found."
-msgstr "본문이 발견되지 않음."
+msgstr "글이 발견되지 않음."
 
 msgid "Search for:"
 msgstr "검색:"
@@ -197,7 +218,7 @@ msgid "<No active model>"
 msgstr "<활성 모델 없음>"
 
 msgid "Data set:"
-msgstr "데이터셋"
+msgstr "데이터셋:"
 
 msgid "Model:"
 msgstr "모델:"
@@ -206,10 +227,10 @@ msgid "Script Window"
 msgstr "스크립트 창"
 
 msgid "Output Window"
-msgstr "출력 창"
+msgstr "출력물 창"
 
 msgid "Messages"
-msgstr "메세지"
+msgstr "알림글"
 
 msgid "The rgl package is absent; 3D plots are unavailable."
 msgstr "rgl 패키지가 없습니다; 3차원 그림을 이용할 수 없습니다."
@@ -333,7 +354,7 @@ msgid ""
 "Delete %d variables?\n"
 "Please confirm."
 msgstr ""
-"변수 %d 삭제하기 ?\n"
+"변수 %d 삭제할까요?\n"
 "확인하십시오."
 
 msgid "Read Data From Text File"
@@ -415,7 +436,7 @@ msgid ""
 "Convert value labels\n"
 "to factor levels"
 msgstr ""
-"변수 이름표를 요인\n"
+"값 이름표를 요인\n"
 "수준으로 변환하기"
 
 msgid ""
@@ -423,9 +444,8 @@ msgid ""
 "of value labels\n"
 "for factor conversion"
 msgstr ""
-"Maximum number\n"
-"of value labels\n"
-"for factor conversion"
+"요인으로 변환하기위한\n"
+"값 이름표의 최대 숫자"
 
 msgid "Import Minitab Data Set"
 msgstr "Minitab 데이터셋 불러오기"
@@ -456,7 +476,7 @@ msgid "Convert underscore to period"
 msgstr "아랫값을 마침표(.)로 변환하기"
 
 msgid "Warn on missing labels"
-msgstr "결측 라벨에 대해서 경고하기"
+msgstr "결측 이름표에 경고하기"
 
 msgid "Convert Numeric Variable to Factor"
 msgstr "숫자 변수를 요인으로 변환하기"
@@ -695,7 +715,7 @@ msgid "Contrast names must be unique"
 msgstr "대비 이름은 유일해야 합니다"
 
 msgid "Normal Quantiles"
-msgstr "정상 분위수"
+msgstr "정규 분위수"
 
 msgid "No probabilities specified."
 msgstr "확률이 지정되지 않음."
@@ -704,7 +724,7 @@ msgid "Probabilities"
 msgstr "확률"
 
 msgid "mu (mean)"
-msgstr "뮤 (평균)"
+msgstr "mu (평균)"
 
 msgid "sigma (standard deviation)"
 msgstr "시그마 (표준 편차)"
@@ -716,7 +736,7 @@ msgid "Upper tail"
 msgstr "높은쪽 꼬리"
 
 msgid "Normal Probabilities"
-msgstr "정상 확률"
+msgstr "정규 확률"
 
 msgid "No values specified."
 msgstr "값이 지정되지않음."
@@ -850,13 +870,13 @@ msgid "{\"Script Files\" {\".R\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Script Files\" {\".R\"}} {\"All Files\" {\"*\"}}"
 
 msgid "Save current log file?"
-msgstr "현재의 로그 파일을 저장하겠습니까?"
+msgstr "현재의 로그 파일을 저장할까요?"
 
 msgid "Script saved to"
-msgstr "Script saved to"
+msgstr "스크립트를 ...로 저장하기"
 
 msgid "Output saved to"
-msgstr "Output saved to"
+msgstr "출력물을 ...로 저장하기"
 
 msgid "{\"Output Files\" {\".txt\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Output Files\" {\".txt\"}} {\"All Files\" {\"*\"}}"
@@ -865,16 +885,16 @@ msgid "{\"All Files\" {\"*\"}}"
 msgstr "{\"All Files\" {\"*\"}}"
 
 msgid "R workspace saved to"
-msgstr "R workspace saved to"
+msgstr "R 작업공간을 ...로 저장하기"
 
 msgid "Exit?"
 msgstr "끝낼까요?"
 
 msgid "Save script file?"
-msgstr "스크립트 파일 저장하기?"
+msgstr "스크립트 파일을 저장할까요?"
 
 msgid "Save output file?"
-msgstr "출력 파일 저장하기?"
+msgstr "출력 파일을 저장할까요?"
 
 msgid "Commander Options"
 msgstr "Commander 옵션"
@@ -895,7 +915,7 @@ msgid "Send output to R Console"
 msgstr "출력물을 R 콘솔로 보내기"
 
 msgid "Output height (lines)"
-msgstr "출력물 높이(줄)"
+msgstr "출력물 높이 (줄)"
 
 msgid "Unordered factors"
 msgstr "순서화되지않은 요인"
@@ -952,7 +972,9 @@ msgstr "변수 하나를 선택해야 합니다"
 msgid ""
 "Identify observations\n"
 "with mouse"
-msgstr "마우스로 관찰치 확인하기"
+msgstr ""
+"마우스로\n"
+" 관찰치 확인하기"
 
 msgid "Spikes"
 msgstr "스파이크"
@@ -1030,7 +1052,7 @@ msgid "y-variable (pick one)"
 msgstr "y-변수 (하나 선택)"
 
 msgid "Identify points"
-msgstr "포인트 확인하기"
+msgstr "포인트 정보 확인하기"
 
 msgid "Jitter x-variable"
 msgstr "x-변수 조금씩 움직이기"
@@ -1120,7 +1142,7 @@ msgid ""
 "x-values are not in order.\n"
 "Continue?"
 msgstr ""
-"x값이 순서적이지 않습니다.\n"
+"x-값이 순서가 없습니다.\n"
 "계속할까요?"
 
 msgid "Label for y-axis"
@@ -1272,7 +1294,7 @@ msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {
 msgstr "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
 
 msgid "Graph saved to file"
-msgstr "그래프 파일로 저장"
+msgstr "그래프를 파일로 저장하기"
 
 msgid "Width (pixels)"
 msgstr "넓이(픽셀)"
@@ -1308,7 +1330,7 @@ msgid "Height (inches)"
 msgstr "높이 (인치)"
 
 msgid "Text size (points)"
-msgstr "텍스트 크기 (포인트)"
+msgstr "글 크기 (포인트)"
 
 msgid "There is no current RGL graphics device to save."
 msgstr "저장할 RGL 그래픽 장치가 현재 없습니다."
@@ -1338,7 +1360,7 @@ msgid "Current Model:"
 msgstr "현재 모델:"
 
 msgid "Identify points with mouse?"
-msgstr "마우스로 포인트 확인하기?"
+msgstr "마우스로 포인트 정보를 확인할까요?"
 
 msgid "There is no appropriate Anova method for a model of this class."
 msgstr "이 클래스의 모델을 위한 적절한 분산분석이 없습니다."
@@ -1634,7 +1656,7 @@ msgid "No"
 msgstr "아니오"
 
 msgid "Assume equal variances?"
-msgstr "동등한 분산을 가정합니까?"
+msgstr "등분산을 가정합니까?"
 
 msgid "Confidence Level"
 msgstr "신뢰 수준"
@@ -1792,7 +1814,7 @@ msgid ""
 "Do you want to proceed?"
 msgstr ""
 "There are %d variables in the data set %s.\n"
-"진행하겠습니까?"
+"진행할까요?"
 
 msgid "Numerical Summaries"
 msgstr "수치적 요약"
@@ -1990,7 +2012,7 @@ msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d.
 msgstr "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
 
 msgid "The number of bins exceeds the number of data values"
-msgstr "구간의 수가 데이터 값의 수를 초과합니다."
+msgstr "구간의 수가 데이터 값의 수를 초과합니다"
 
 msgid "Number of groups (%d) exceeds number of colors (%d)."
 msgstr "Number of groups (%d) exceeds number of colors (%d)."
@@ -2548,7 +2570,7 @@ msgstr "3차원 그래프"
 #  messages added to Rcmdr version 1.1-6
 #
 msgid " contains non-standard variable names:\n"
-msgstr " contains non-standard variable names:\n"
+msgstr " 은(는) 비-표준 변수 이름을 담고있습니다:\n"
 
 msgid ""
 "\n"
@@ -3323,21 +3345,21 @@ msgstr "활성 데이터셋의 누적 변수..."
 # miscelaneous
 #
 msgid "Identify Points"
-msgstr "Identify Points"
+msgstr "포인트 정보 확인하기"
 
 msgid ""
 "Use left mouse button to identify points,\n"
 "right button to exit."
 msgstr ""
 "Use left mouse button to identify points,\n"
-"right button to exit."
+"오른쪽 버튼으로 나가시오."
 
 msgid ""
 "Drag right mouse button to identify points,\n"
 "click right button to exit."
 msgstr ""
 "Drag right mouse button to identify points,\n"
-"click right button to exit."
+"오른쪽 버튼을 눌러서 나가시오."
 
 msgid "Read Data From Text File or Clipboard"
 msgstr "텍스트 파일 또는 클립보드로부터 데이터 읽기"
@@ -3463,10 +3485,10 @@ msgid "Point size"
 msgstr "Point 크기"
 
 msgid "Axis text size"
-msgstr "축 문자 크기"
+msgstr "축 글 크기"
 
 msgid "Axis-labels text size"
-msgstr "축-이름표 문자크기"
+msgstr "축-이름표 글 크기"
 
 # message added to version 1.3-3 (because of inadvertent omission)
 #
@@ -3489,7 +3511,7 @@ msgid "The Commander GUI is launched only in interactive sessions"
 msgstr "Commander GUI는 인터렉티브 세션에서만 시작됩니다."
 
 msgid "Commander"
-msgstr "R Commander"
+msgstr "Commander"
 
 # For the following you must supply a PDF document containing a translation
 # of "Getting-Started-with-the-Rcmdr.pdf". I suggest using a translation
@@ -3698,7 +3720,7 @@ msgstr ""
 "rows or columns"
 
 msgid "Aggregate variables in active data set..."
-msgstr "활성 데이터셋의 합계 변수..."
+msgstr "활성 데이터셋의 합계될 변수..."
 
 msgid "Aggregate Observations"
 msgstr "관찰치 합계하기"
@@ -3707,7 +3729,7 @@ msgid ""
 "Variables to aggregate\n"
 "(pick one or more)"
 msgstr ""
-"합계할 변수\n"
+"합계될 변수\n"
 "(하나 이상 선택)"
 
 msgid ""
@@ -3721,13 +3743,13 @@ msgid "Sum"
 msgstr "합계"
 
 msgid "You must select at least one variable to aggregate."
-msgstr "적어도 합계할 변수 한개를 선택해야 합니다."
+msgstr "적어도 합계될 변수 한개를 선택해야 합니다."
 
 msgid "You must select at least one variable to aggregate by."
 msgstr "적어도 합계할 변수 한개를 선택해야 합니다."
 
 msgid "Variables to aggregate and those to aggregate by must be different."
-msgstr "Variables to aggregate and those to aggregate by must be different."
+msgstr "합계되는 변수들과 합계하는 변수는 차이가 있어야 합니다."
 
 msgid "Name for aggregated data set:"
 msgstr "합계된 데이터셋 이름:"
@@ -3755,14 +3777,14 @@ msgid ""
 "for Pearson or Spearman correlations"
 msgstr ""
 "Pearson 또는 Spearman \n"
-"상관을 위한 쌍별(pairwise) 유의값"
+"상관을 위한 쌍별(pairwise) 유의-값"
 
 msgid ""
 "The Windows version of the R Commander works best under RGui\n"
 "with the single-document interface (SDI); see ?Commander."
 msgstr ""
 "R Commander 윈도우 버전은 single-document interfact (SDI)에서\n"
-"가장 잘 작동합니다; ?Commander를 참조하시오."
+"가장 잘 작동합니다; ?Commander(도움말)를 참조하시오."
 
 msgid "median"
 msgstr "중앙값"
@@ -3780,8 +3802,8 @@ msgid ""
 "Identify points with mouse?\n"
 "Right-click to exit."
 msgstr ""
-"Identify points with mouse?\n"
-"Right-click to exit."
+"마우스로 포인트 정보를 확인할까요?\n"
+"오른쪽을 눌러 나가시오."
 
 msgid "Use left mouse button to identify points,\n"
 msgstr "Use left mouse button to identify points,\n"
@@ -3868,7 +3890,7 @@ msgstr "쌍이되는 모든사례 사용하기"
 
 # messages added to version 1.7-4
 msgid "Component scores are not available when subset is specified."
-msgstr "하위셋이 지정되면 요소(component) 점수는 이용가능하지 않습니다."
+msgstr "하위셋이 지정되면 성분(component) 점수는 이용가능하지 않습니다."
 
 msgid "Factor scores are not available when subset is specified."
 msgstr "하위셋이 지정되면 요인 점수는 이용가능하지 않습니다."
@@ -3916,10 +3938,10 @@ msgid "Identifying Constraints"
 msgstr "Identifying Constraints"
 
 msgid "Factor variances set to 1"
-msgstr "Factor variances set to 1"
+msgstr "요인 분산을 1로 고정하기"
 
 msgid "First loading on each factor set to 1"
-msgstr "First loading on each factor set to 1"
+msgstr "각 요인의 첫 적재치를 1로 고정하기"
 
 msgid "Confirmatory factor analysis..."
 msgstr "확인적 요인 분석..."
@@ -3940,10 +3962,10 @@ msgid "Identify Outliers"
 msgstr "이상치를 마우스로 확인하기"
 
 msgid "Automatically"
-msgstr "자동"
+msgstr "자동적으로"
 
 msgid "With mouse"
-msgstr "With mouse"
+msgstr "마우스로"
 
 msgid "Width"
 msgstr "넓이"
@@ -3955,7 +3977,7 @@ msgid "[disabled]"
 msgstr "[disabled]"
 
 msgid "inches"
-msgstr "넓이 (인치)"
+msgstr "inches"
 
 msgid "inch"
 msgstr "inch"
@@ -3964,7 +3986,7 @@ msgid "cm"
 msgstr "cm"
 
 msgid "pixels"
-msgstr "넓이(픽셀)"
+msgstr "pixels"
 
 msgid "Units"
 msgstr "Units"
@@ -3994,8 +4016,8 @@ msgid ""
 "Convert variable names\n"
 "to lower case"
 msgstr ""
-"Convert variable names\n"
-"to lower case"
+"변수 이름을 소문자로\n"
+"변환하기"
 
 msgid "from Excel file..."
 msgstr "Excel 파일에서..."
@@ -4007,16 +4029,16 @@ msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\
 msgstr "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
 
 msgid "Interquartile Range"
-msgstr "Interquartile Range"
+msgstr "사분위수 사이의 범위"
 
 msgid "Interquartile range"
-msgstr "Interquartile range"
+msgstr "사분위수 사이의 범위"
 
 msgid "Lines"
-msgstr "Lines"
+msgstr "줄"
 
 msgid "Choose at least one of points or lines."
-msgstr "Choose at least one of points or lines."
+msgstr "적어도 하나 이상의 포인트나 줄을 선택하시오."
 
 msgid "Plot Type (one or both)"
 msgstr "그림 유형(하나 또는 둘 모두)"
@@ -4025,20 +4047,349 @@ msgid "Plot legend"
 msgstr "Plot legend"
 
 msgid "Conditions '|' (pick zero or more)"
-msgstr "Conditions '|' (pick zero or more)"
+msgstr "조건 '|' (pick zero or more)"
 
 msgid "Groups 'groups=' (pick zero or more)"
-msgstr "Groups 'groups=' (pick zero or more)"
+msgstr "집단 'groups=' (pick zero or more)"
 
 msgid "Different panels for different y ~ x combinations"
 msgstr "Different panels for different y ~ x combinations"
 
 msgid "Layout"
-msgstr "Layout"
+msgstr "배열"
 
 msgid "number of columns:"
 msgstr "행의 수:"
 
 msgid "number of rows:"
 msgstr "열의 수:"
+
+msgid "Plot Options"
+msgstr "그림 선택기능"
+
+msgid "Plot Labels"
+msgstr "그림 이름표"
+
+msgid "Graph title"
+msgstr "그래프 제목"
+
+msgid "Plot Labels and Points"
+msgstr "그림 이름표와 포인트 정보"
+
+msgid "Apply"
+msgstr "Apply"
+
+msgid "Pairwise p-values"
+msgstr "쌍별(pair-wise) 유의-값"
+
+msgid "Observations to Use"
+msgstr "Observations to Use"
+
+msgid "Complete observations"
+msgstr "Complete observations"
+
+msgid "Pairwise-complete observations"
+msgstr "Pairwise-complete observations"
+
+msgid "R Script"
+msgstr "R 스크립트"
+
+msgid "Output"
+msgstr "출력물"
+
+msgid "R Commander website"
+msgstr "R Commander 웹사이트"
+
+msgid "R website"
+msgstr "R 웹사이트"
+
+msgid "Using R Markdown"
+msgstr "R Markdown 사용하기"
+
+msgid "Table"
+msgstr "표"
+
+msgid "Interactively with mouse"
+msgstr "Interactively with mouse"
+
+msgid "Do not identify"
+msgstr "Do not identify"
+
+msgid "number of points to identify must be an integer"
+msgstr "확인할 포인트 정보 숫자는 정수이어야 합니다"
+
+msgid "Number of points to identify"
+msgstr "확인할 포인트 정보 숫자"
+
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group "
+msgstr ""
+"Number of points to identify  \n"
+"in each panel and group "
+
+msgid "Added-Variable Plots"
+msgstr "추가-변수 그림"
+
+msgid "Component+Residual Plots"
+msgstr "성분+잔차 그림"
+
+msgid "Influence Plot"
+msgstr "영향 그림"
+
+# support for R Markdown and knitr
+msgid "Generate HTML report"
+msgstr "HTML 보고서 생성하기"
+
+msgid "Generate PDF report"
+msgstr "PDF 보고서 생성하기"
+
+msgid "R Markdown"
+msgstr "R Markdown"
+
+msgid "knitr Document"
+msgstr "knitr 문서"
+
+msgid "Open R Markdown file..."
+msgstr "R Markdown 파일 열기..."
+
+msgid "Open knitr file..."
+msgstr "knitr 파일 열기..."
+
+msgid "Save R Markdown file..."
+msgstr "R Markdown 저장하기..."
+
+msgid "Save knitr file..."
+msgstr "knitr 파일 저장하기..."
+
+msgid "Save knitr file?"
+msgstr "knitr 파일 저장할까요?"
+
+msgid "Save current Rmd file?"
+msgstr "현재의 Rmd 파일을 저장할까요?"
+
+msgid "Save current Rnw file?"
+msgstr "현재의 Rnw 파일을 저장할까요?"
+
+msgid "Save R Markdown file as..."
+msgstr "R Markdown 파일을 다른 이름[형식]으로 저장하기..."
+
+msgid "Save knitr file as..."
+msgstr "knitr 파일을 다른 이름[형식]으로 저장하기..."
+
+msgid "R Markdown file saved to"
+msgstr "R Markdown 파일을 ...로 저장하기"
+
+msgid "knitr file saved to"
+msgstr "knitr 파일을 ...로 저장하기"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+msgstr "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+
+msgid ""
+"Delete previously created knitr\n"
+"graphics files (recommended)?"
+msgstr ""
+"이전에 만든 knitr 그래프 파일을\n"
+"삭제할까요? (추천)"
+
+msgid "Ask to exit Commander"
+msgstr "Commander에서 나가기"
+
+msgid "Ask to save documents on exit"
+msgstr "끝내고 나갈 때 문서 저장 여부를 묻기"
+
+msgid "Quit R on exit"
+msgstr "R 끝내고 나가기"
+
+msgid "Number messages"
+msgstr "알림글 숫자"
+
+msgid "Retain messages"
+msgstr "알림글 간직하기"
+
+msgid "Use R Markown"
+msgstr "R Markdown 사용하기"
+
+msgid "Use knitr"
+msgstr "knitr 사용하기"
+
+msgid "Select file"
+msgstr "파일 선택하기"
+
+msgid "R Markdown template file"
+msgstr "R Markdown 서식 파일"
+
+msgid "R knitr template file"
+msgstr "R knitr 서식 파일"
+
+msgid "Suppress icon images"
+msgstr "Suppress icon images"
+
+msgid "Retain dialog selections"
+msgstr "대화록 선택 간직하기"
+
+msgid "Use rgl package"
+msgstr "rgl 패키지 사용하기"
+
+msgid "Dialog text font size (points)"
+msgstr "대화록 글 폰트 크기(포인트)"
+
+msgid "Script and output font size (points)"
+msgstr "스크립트와 출력물 폰트 크기(포인트)"
+
+msgid "Dialog font"
+msgstr "대화록 폰트"
+
+msgid "Script and output font"
+msgstr "스크립트와 출력물 폰트"
+
+msgid "Script text color"
+msgstr "스크립트 글 색깔"
+
+msgid "Command text color"
+msgstr "R Commander 문자 색깔"
+
+msgid "Output text color"
+msgstr "출력물 글 색깔"
+
+msgid "Error text color"
+msgstr "오류 글 색깔"
+
+msgid "Warning text color"
+msgstr "경고 글 색깔"
+
+msgid "Dialog subtitles text color"
+msgstr "대화록 부제목 글 색깔"
+
+msgid "Script window width (characters)"
+msgstr "스크립트 창 넓이 (문자)"
+
+msgid "Script window height (lines)"
+msgstr "스크립트 창 높이 (줄)"
+
+msgid "Output window height (lines)"
+msgstr "출력물 창 높이(줄)"
+
+msgid "Messages window height (lines)"
+msgstr "알림글 창 높이 (줄)"
+
+msgid "Fonts"
+msgstr "폰트"
+
+msgid "Other Options"
+msgstr "다른 선택기능"
+
+msgid "Save Commander Options"
+msgstr "Commander 옵션 저장하기"
+
+msgid "R Profile saved to"
+msgstr "R 프로파일을 ...로  저장하기"
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr "다음의 명령어는 .Rprofile 파일에 저장됩니다."
+
+msgid "You may edit this file before saving it."
+msgstr "이 파일을 저장하기 전에 편집할 수 있습니다."
+
+msgid "Save Rcmdr options..."
+msgstr "Rcmdr 선택기능 저장하기..."
+
+msgid "Nonparametric Density Estimate"
+msgstr "비모수 밀도 추정"
+
+msgid "Gaussian"
+msgstr "Gaussian"
+
+msgid "Epanechnikov"
+msgstr "Epanechnikov"
+
+msgid "Tukey biweight"
+msgstr "Tukey biweight"
+
+msgid "Kernel Function"
+msgstr "Kernel 함수"
+
+msgid "Bandwidth"
+msgstr "Bandwidth"
+
+msgid "Multiply bandwidth by"
+msgstr "Multiply bandwidth by"
+
+msgid "Density estimate..."
+msgstr "밀도 추정..."
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr "Bandwidth must be <auto> or a positive number"
+
+# index plot dialog
+msgid "Style of plot"
+msgstr "그림 스타일"
+
+msgid "Write variable names"
+msgstr "변수 이름 쓰기"
+
+msgid "Write row names"
+msgstr "열 이름 쓰기"
+
+msgid "Quotes around character values"
+msgstr "문자 값 주위에 따옴표쓰기"
+
+msgid "Quantiles:"
+msgstr "분위수:"
+
+msgid "spline requires a numeric variable"
+msgstr "spline은 수치 변수를 요구합니다"
+
+msgid "cannot select more than one variable"
+msgstr "하나 이상의 변수를 선택할 수 없습니다"
+
+msgid "polynomial requires a numeric variable"
+msgstr "polynomial requires a numeric variable"
+
+msgid "B-spline\n"
+msgstr "B-spline\n"
+
+msgid ""
+"natural\n"
+"spline"
+msgstr ""
+"natural\n"
+"spline"
+
+msgid ""
+"orthogonal\n"
+"polynomial"
+msgstr ""
+"orthogonal\n"
+"polynomial"
+
+msgid ""
+"raw\n"
+"polynomial"
+msgstr ""
+"raw\n"
+"polynomial"
+
+msgid "Model Formula"
+msgstr "모델 공식"
+
+msgid "Operators (click to formula):"
+msgstr "연산자 (click to formula):"
+
+msgid ""
+"Splines/Polynomials:\n"
+"(select variable and click)"
+msgstr ""
+"Splines/Polynomials:\n"
+"(select variable and click)"
+
+msgid "df for splines:"
+msgstr "df for splines:"
+
+msgid "deg. for polynomials:"
+msgstr "deg. for polynomials:"
 
