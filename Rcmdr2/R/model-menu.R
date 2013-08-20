@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2013-08-18 by J. Fox
+# last modified 2013-08-19 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -82,7 +82,7 @@ CRPlots <- function(){
     sliderValue <- tclVar(dialog.values$initial.span)
     sliderFrame <- tkframe(top)
     slider <- tkscale(sliderFrame, from = 5, to = 100, showvalue = TRUE, 
-        variable = sliderValue, resolution = 5, orient = "horizontal")
+                      variable = sliderValue, resolution = 5, orient = "horizontal")
     onOK <- function(){
         span <- as.numeric(tclvalue(sliderValue))
         closeDialog()
@@ -91,7 +91,7 @@ CRPlots <- function(){
         activateMenus()
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject = "crPlots", reset = "CRPlots")
+    OKCancelHelp(helpSubject = "crPlots", reset = "CRPlots", apply = "CRPlots")
     tkgrid(labelRcmdr(sliderFrame, text=gettextRcmdr("Span for smooth")), slider, sticky="sw")
     tkgrid(sliderFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="w")
@@ -107,9 +107,9 @@ AVPlots <- function () {
     initializeDialog(title = gettextRcmdr("Added-Variable Plots"))
     identifyPointsFrame <- tkframe(top)
     radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse", 
-        "not"), labels = gettextRcmdr(c("Automatically", 
-            "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
-        initialValue = dialog.values$initial.identify)    
+                                                                     "not"), labels = gettextRcmdr(c("Automatically", 
+                                                                                                     "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
+                 initialValue = dialog.values$initial.identify)    
     id.n.Var <- tclVar(dialog.values$initial.id.n) 
     npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
     onOK <- function() {
@@ -125,10 +125,10 @@ AVPlots <- function () {
         putDialog ("AVPlots", list (initial.identify = identify, initial.id.n=id.n))
         if (identify == "mouse") {
             RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
-                gettextRcmdr(if (MacOSXP()) 
-                    "esc key to exit."
-                    else "right button to exit."), sep = ""), icon = "info", 
-                type = "ok")
+                                                                         gettextRcmdr(if (MacOSXP()) 
+                                                                             "esc key to exit."
+                                                                                      else "right button to exit."), sep = ""), icon = "info", 
+                              type = "ok")
         }
         command <- paste("avPlots(", .activeModel, ', id.method="', method, '", id.n=', id.n.use,  ")", sep = "")
         if (identify == "mouse") command <- suppressMarkdown(command)
@@ -136,7 +136,7 @@ AVPlots <- function () {
         activateMenus()
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject = "avPlots", reset = "AVPlots")
+    OKCancelHelp(helpSubject = "avPlots", reset = "AVPlots", apply = "AVPlots")
     tkgrid(identifyFrame, sticky="w")
     tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
     tkgrid(identifyPointsFrame, sticky="w")
@@ -153,8 +153,8 @@ InfluencePlot <- function () {
     initializeDialog(title = gettextRcmdr("Influence Plot"))
     identifyPointsFrame <- tkframe(top)
     radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse"), labels = gettextRcmdr(c("Automatically", 
-        "Interactively with mouse")), title = gettextRcmdr("Identify Points"), 
-        initialValue = dialog.values$initial.identify)    
+                                                                                                               "Interactively with mouse")), title = gettextRcmdr("Identify Points"), 
+                 initialValue = dialog.values$initial.identify)    
     id.n.Var <- tclVar(dialog.values$initial.id.n) 
     npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
     onOK <- function() {
@@ -169,10 +169,10 @@ InfluencePlot <- function () {
         putDialog ("InfluencePlot", list (initial.identify = identify, initial.id.n=id.n))
         if (identify == "mouse") {
             RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
-                gettextRcmdr(if (MacOSXP()) 
-                    "esc key to exit."
-                    else "right button to exit."), sep = ""), icon = "info", 
-                type = "ok")
+                                                                         gettextRcmdr(if (MacOSXP()) 
+                                                                             "esc key to exit."
+                                                                                      else "right button to exit."), sep = ""), icon = "info", 
+                              type = "ok")
         }
         command <- paste("influencePlot(", .activeModel, ', id.method="', method, '", id.n=', id.n,  ")", sep = "")
         if (identify == "mouse") command <- suppressMarkdown(command)
@@ -180,7 +180,7 @@ InfluencePlot <- function () {
         activateMenus()
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject = "influencePlot", reset = "InfluencePlot")
+    OKCancelHelp(helpSubject = "influencePlot", reset = "InfluencePlot", apply = "InfluencePlot")
     tkgrid(identifyFrame, sticky="w")
     tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
     tkgrid(identifyPointsFrame, sticky="w")
@@ -357,9 +357,9 @@ residualQQPlot <- function () {
     simulateCheckBox <- ttkcheckbutton(selectFrame, variable = simulateVar)
     identifyPointsFrame <- tkframe(top)
     radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse", 
-        "not"), labels = gettextRcmdr(c("Automatically", 
-            "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
-        initialValue = dialog.values$initial.identify)    
+                                                                     "not"), labels = gettextRcmdr(c("Automatically", 
+                                                                                                     "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
+                 initialValue = dialog.values$initial.identify)    
     id.n.Var <- tclVar(dialog.values$initial.id.n) 
     npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
     onOK <- function() {
@@ -377,21 +377,21 @@ residualQQPlot <- function () {
         simulate <- tclvalue(simulateVar) == 1
         if (identify == "mouse") {
             RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
-                gettextRcmdr(if (MacOSXP()) 
-                    "esc key to exit."
-                    else "right button to exit."), sep = ""), icon = "info", 
-                type = "ok")
+                                                                         gettextRcmdr(if (MacOSXP()) 
+                                                                             "esc key to exit."
+                                                                                      else "right button to exit."), sep = ""), icon = "info", 
+                              type = "ok")
         }
         command <- paste("qqPlot(", .activeModel, ", simulate=", 
-            simulate, ', id.method="', method, '", id.n=', id.n.use,  ")", sep = "")
+                         simulate, ', id.method="', method, '", id.n=', id.n.use,  ")", sep = "")
         if (identify == "mouse") command <- suppressMarkdown(command)
         doItAndPrint(command)
         activateMenus()
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject = "qqPlot.lm", reset = "residualQQPlot")
+    OKCancelHelp(helpSubject = "qqPlot.lm", reset = "residualQQPlot", apply = "residualQQPlot")
     tkgrid(labelRcmdr(selectFrame, text = gettextRcmdr("Simulated confidence envelope")), 
-        simulateCheckBox, sticky = "w")
+           simulateCheckBox, sticky = "w")
     tkgrid(selectFrame, sticky = "w")
     tkgrid(identifyFrame, sticky="w")
     tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
@@ -401,253 +401,253 @@ residualQQPlot <- function () {
 }
 
 testLinearHypothesis <- function(){
-	# coef.multinom <- car:::coef.multinom
-	defaults <- list(previous.model=NULL, nrows=1, table.values=0, rhs.values=0)
-	dialog.values <- getDialog("testLinearHypothesis", defaults=defaults)
-	.activeModel <- ActiveModel()
-	if (is.null(.activeModel) || !checkMethod("linearHypothesis", .activeModel, default=TRUE)) return()
-	if (!is.null(dialog.values$previous.model)){
-		if (dialog.values$previous.model != .activeModel){
-			dialog.values <- defaults
-		}
-	}
-	table.values <- dialog.values$table.values
-	rhs.values <- dialog.values$rhs.values
-	env <- environment()
-	initializeDialog(title=gettextRcmdr("Test Linear Hypothesis"))
-	outerTableFrame <- tkframe(top)
-	assign(".tableFrame", tkframe(outerTableFrame), envir=env)
-	setUpTable <- function(...){
-		tkdestroy(get(".tableFrame", envir=env))
-		assign(".tableFrame", tkframe(outerTableFrame), envir=env)
-		nrows <- as.numeric(tclvalue(rowsValue))
-		if (length(table.values) == 1 && table.values == 0) {
-			table.values <- matrix(0, nrows, ncols)
-			rhs.values <- rep(0, nrows)
-		}
-		if (nrow(table.values) < nrows){
-			add.rows <- nrows - nrow(table.values)
-			table.values <- rbind(table.values, matrix(0, add.rows, ncols))
-			rhs.values <- c(rhs.values, rep(0, add.rows))
-		}
-		col.names <- names(coef(get(.activeModel)))
-		col.names <- substring(paste(abbreviate(col.names, 12), "            "), 1, 12)
-		make.col.names <- "labelRcmdr(.tableFrame, text='')"
-		for (j in 1:ncols) {
-			make.col.names <- paste(make.col.names, ", ", 
-					"labelRcmdr(.tableFrame, text='", col.names[j], "')", sep="")
-		}
-		rhsText <- gettextRcmdr("Right-hand side")
-		make.col.names <- paste(make.col.names, ", labelRcmdr(.tableFrame, text='          ')",
-				", labelRcmdr(.tableFrame, text='", rhsText, "')", sep="")
-		eval(parse(text=paste("tkgrid(", make.col.names, ")", sep="")), envir=env)
-		for (i in 1:nrows){   
-			varname <- paste(".tab.", i, ".1", sep="") 
-			rhs.name <- paste(".rhs.", i, sep="")
-			assign(varname, tclVar(table.values[i, 1]) , envir=env)
-			assign(rhs.name, tclVar(rhs.values[i]), envir=env)
-			make.row <- paste("labelRcmdr(.tableFrame, text=", i, ")")
-			make.row <- paste(make.row, ", ", "ttkentry(.tableFrame, width='5', textvariable=", 
-					varname, ")", sep="")
-			for (j in 2:ncols){
-				varname <- paste(".tab.", i, ".", j, sep="")
-				assign(varname, tclVar(table.values[i, j]), envir=env)
-				make.row <- paste(make.row, ", ", "ttkentry(.tableFrame, width='5', textvariable=", 
-						varname, ")", sep="")
-			}
-			make.row <- paste(make.row, ", labelRcmdr(.tableFrame, text='     '),",
-					"ttkentry(.tableFrame, width='5', textvariable=", rhs.name, ")", sep="")
-			eval(parse(text=paste("tkgrid(", make.row, ")", sep="")), envir=env)
-		}
-		tkgrid(get(".tableFrame", envir=env), sticky="w")
-	}
-	ncols <- length(coef(get(.activeModel)))
-	rowsFrame <- tkframe(top)
-	rowsValue <- tclVar(dialog.values$nrows)
-	rowsSlider <- tkscale(rowsFrame, from=1, to=ncols, showvalue=FALSE, variable=rowsValue,
-			resolution=1, orient="horizontal", command=setUpTable)
-	rowsShow <- labelRcmdr(rowsFrame, textvariable=rowsValue, width=2, justify="right")
-	onOK <- function(){
-		nrows <- as.numeric(tclvalue(rowsValue))
-		cell <- 0
-		values <- rep(NA, nrows*ncols)
-		rhs <- rep(NA, nrows)
-		for (i in 1:nrows){
-			rhs.name <- paste(".rhs.", i, sep="")
-			rhs[i] <- as.numeric(eval(parse(text=paste("tclvalue(", rhs.name,")", sep=""))))
-			for (j in 1:ncols){
-				cell <- cell+1
-				varname <- paste(".tab.", i, ".", j, sep="")
-				values[cell] <- as.numeric(eval(parse(text=paste("tclvalue(", varname,")", sep=""))))
-			}
-		}
-		values <- na.omit(values)
-		closeDialog()
-		if (length(values) != nrows*ncols){
-			Message(message=sprintf(gettextRcmdr("Number of valid entries in hypothesis matrix(%d)\nnot equal to number of rows (%d) * number of columns (%d)."), 
-							length(values), nrows, ncols), type="error")
-			testLinearHypothesis()
-			return()
-		}
-		if (qr(matrix(values, nrows, ncols, byrow=TRUE))$rank < nrows) {
-			Message(message=gettextRcmdr("Hypothesis matrix is not of full row rank."),
-					type="error")
-			testLinearHypothesis()
-			return()
-		}            
-		rhs <- na.omit(rhs)
-		if (length(rhs) != nrows){
-			errorCondition(recall=testLinearHypothesis, message=sprintf(gettextRcmdr("Number of valid entries in rhs vector (%d)\nis not equal to number of rows (%d)."), length(rhs), nrows))
-			return()
-		}
-		command <- paste("matrix(c(", paste(values, collapse=","), "), ", nrows, ", ", ncols,
-				", byrow=TRUE)", sep="")
-# 		assign(".Hypothesis", justDoIt(command), envir=.GlobalEnv)
-# 		logger(paste(".Hypothesis <- ", command, sep=""))
-		doItAndPrint(paste(".Hypothesis <- ", command, sep=""))
-		command <- paste("c(", paste(rhs, collapse=","), ")", sep="")
-# 		assign(".RHS", justDoIt(command), envir=.GlobalEnv)
-# 		logger(paste(".RHS <- ", command, sep=""))
-		doItAndPrint(paste(".RHS <- ", command, sep=""))
-		rhs.values <- .RHS
-		command <- paste("linearHypothesis(", .activeModel, ", .Hypothesis, rhs=.RHS)", sep="")
-		doItAndPrint(command)
-		justDoIt("remove(.Hypothesis, .RHS, envir=.GlobalEnv)") 
-		logger("remove(.Hypothesis, .RHS)")                                              
-		tkfocus(CommanderWindow())
-		contrast.table <- matrix(values, nrows, ncols, byrow=TRUE)
-		putDialog("testLinearHypothesis", list(previous.model=.activeModel, nrows=nrows, table.values=contrast.table,
-						rhs.values=rhs.values))
-	}
-	OKCancelHelp(helpSubject="linearHypothesis", reset="testLinearHypothesis")
-	tkgrid(labelRcmdr(rowsFrame, text=gettextRcmdr("Number of Rows:")), rowsSlider, rowsShow, sticky="w")
-	tkgrid(rowsFrame, sticky="w")
-	tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter hypothesis matrix and right-hand side vector:"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-	tkgrid(outerTableFrame, sticky="w")
-	tkgrid(labelRcmdr(top, text=""))
-	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix()       
+    # coef.multinom <- car:::coef.multinom
+    defaults <- list(previous.model=NULL, nrows=1, table.values=0, rhs.values=0)
+    dialog.values <- getDialog("testLinearHypothesis", defaults=defaults)
+    .activeModel <- ActiveModel()
+    if (is.null(.activeModel) || !checkMethod("linearHypothesis", .activeModel, default=TRUE)) return()
+    if (!is.null(dialog.values$previous.model)){
+        if (dialog.values$previous.model != .activeModel){
+            dialog.values <- defaults
+        }
+    }
+    table.values <- dialog.values$table.values
+    rhs.values <- dialog.values$rhs.values
+    env <- environment()
+    initializeDialog(title=gettextRcmdr("Test Linear Hypothesis"))
+    outerTableFrame <- tkframe(top)
+    assign(".tableFrame", tkframe(outerTableFrame), envir=env)
+    setUpTable <- function(...){
+        tkdestroy(get(".tableFrame", envir=env))
+        assign(".tableFrame", tkframe(outerTableFrame), envir=env)
+        nrows <- as.numeric(tclvalue(rowsValue))
+        if (length(table.values) == 1 && table.values == 0) {
+            table.values <- matrix(0, nrows, ncols)
+            rhs.values <- rep(0, nrows)
+        }
+        if (nrow(table.values) < nrows){
+            add.rows <- nrows - nrow(table.values)
+            table.values <- rbind(table.values, matrix(0, add.rows, ncols))
+            rhs.values <- c(rhs.values, rep(0, add.rows))
+        }
+        col.names <- names(coef(get(.activeModel)))
+        col.names <- substring(paste(abbreviate(col.names, 12), "            "), 1, 12)
+        make.col.names <- "labelRcmdr(.tableFrame, text='')"
+        for (j in 1:ncols) {
+            make.col.names <- paste(make.col.names, ", ", 
+                                    "labelRcmdr(.tableFrame, text='", col.names[j], "')", sep="")
+        }
+        rhsText <- gettextRcmdr("Right-hand side")
+        make.col.names <- paste(make.col.names, ", labelRcmdr(.tableFrame, text='          ')",
+                                ", labelRcmdr(.tableFrame, text='", rhsText, "')", sep="")
+        eval(parse(text=paste("tkgrid(", make.col.names, ")", sep="")), envir=env)
+        for (i in 1:nrows){   
+            varname <- paste(".tab.", i, ".1", sep="") 
+            rhs.name <- paste(".rhs.", i, sep="")
+            assign(varname, tclVar(table.values[i, 1]) , envir=env)
+            assign(rhs.name, tclVar(rhs.values[i]), envir=env)
+            make.row <- paste("labelRcmdr(.tableFrame, text=", i, ")")
+            make.row <- paste(make.row, ", ", "ttkentry(.tableFrame, width='5', textvariable=", 
+                              varname, ")", sep="")
+            for (j in 2:ncols){
+                varname <- paste(".tab.", i, ".", j, sep="")
+                assign(varname, tclVar(table.values[i, j]), envir=env)
+                make.row <- paste(make.row, ", ", "ttkentry(.tableFrame, width='5', textvariable=", 
+                                  varname, ")", sep="")
+            }
+            make.row <- paste(make.row, ", labelRcmdr(.tableFrame, text='     '),",
+                              "ttkentry(.tableFrame, width='5', textvariable=", rhs.name, ")", sep="")
+            eval(parse(text=paste("tkgrid(", make.row, ")", sep="")), envir=env)
+        }
+        tkgrid(get(".tableFrame", envir=env), sticky="w")
+    }
+    ncols <- length(coef(get(.activeModel)))
+    rowsFrame <- tkframe(top)
+    rowsValue <- tclVar(dialog.values$nrows)
+    rowsSlider <- tkscale(rowsFrame, from=1, to=ncols, showvalue=FALSE, variable=rowsValue,
+                          resolution=1, orient="horizontal", command=setUpTable)
+    rowsShow <- labelRcmdr(rowsFrame, textvariable=rowsValue, width=2, justify="right")
+    onOK <- function(){
+        nrows <- as.numeric(tclvalue(rowsValue))
+        cell <- 0
+        values <- rep(NA, nrows*ncols)
+        rhs <- rep(NA, nrows)
+        for (i in 1:nrows){
+            rhs.name <- paste(".rhs.", i, sep="")
+            rhs[i] <- as.numeric(eval(parse(text=paste("tclvalue(", rhs.name,")", sep=""))))
+            for (j in 1:ncols){
+                cell <- cell+1
+                varname <- paste(".tab.", i, ".", j, sep="")
+                values[cell] <- as.numeric(eval(parse(text=paste("tclvalue(", varname,")", sep=""))))
+            }
+        }
+        values <- na.omit(values)
+        closeDialog()
+        if (length(values) != nrows*ncols){
+            Message(message=sprintf(gettextRcmdr("Number of valid entries in hypothesis matrix(%d)\nnot equal to number of rows (%d) * number of columns (%d)."), 
+                                    length(values), nrows, ncols), type="error")
+            testLinearHypothesis()
+            return()
+        }
+        if (qr(matrix(values, nrows, ncols, byrow=TRUE))$rank < nrows) {
+            Message(message=gettextRcmdr("Hypothesis matrix is not of full row rank."),
+                    type="error")
+            testLinearHypothesis()
+            return()
+        }            
+        rhs <- na.omit(rhs)
+        if (length(rhs) != nrows){
+            errorCondition(recall=testLinearHypothesis, message=sprintf(gettextRcmdr("Number of valid entries in rhs vector (%d)\nis not equal to number of rows (%d)."), length(rhs), nrows))
+            return()
+        }
+        command <- paste("matrix(c(", paste(values, collapse=","), "), ", nrows, ", ", ncols,
+                         ", byrow=TRUE)", sep="")
+        # 		assign(".Hypothesis", justDoIt(command), envir=.GlobalEnv)
+        # 		logger(paste(".Hypothesis <- ", command, sep=""))
+        doItAndPrint(paste(".Hypothesis <- ", command, sep=""))
+        command <- paste("c(", paste(rhs, collapse=","), ")", sep="")
+        # 		assign(".RHS", justDoIt(command), envir=.GlobalEnv)
+        # 		logger(paste(".RHS <- ", command, sep=""))
+        doItAndPrint(paste(".RHS <- ", command, sep=""))
+        rhs.values <- .RHS
+        command <- paste("linearHypothesis(", .activeModel, ", .Hypothesis, rhs=.RHS)", sep="")
+        doItAndPrint(command)
+        justDoIt("remove(.Hypothesis, .RHS, envir=.GlobalEnv)") 
+        logger("remove(.Hypothesis, .RHS)")                                              
+        tkfocus(CommanderWindow())
+        contrast.table <- matrix(values, nrows, ncols, byrow=TRUE)
+        putDialog("testLinearHypothesis", list(previous.model=.activeModel, nrows=nrows, table.values=contrast.table,
+                                               rhs.values=rhs.values))
+    }
+    OKCancelHelp(helpSubject="linearHypothesis", reset="testLinearHypothesis", apply="testLinearHypothesis")
+    tkgrid(labelRcmdr(rowsFrame, text=gettextRcmdr("Number of Rows:")), rowsSlider, rowsShow, sticky="w")
+    tkgrid(rowsFrame, sticky="w")
+    tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter hypothesis matrix and right-hand side vector:"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+    tkgrid(outerTableFrame, sticky="w")
+    tkgrid(labelRcmdr(top, text=""))
+    tkgrid(buttonsFrame, sticky="w")
+    dialogSuffix()       
 } 
 
 compareModels <- function () {
-	modelPosn <- function(model){
-		if (is.null(model)) return(NULL)
-		if (!(model %in% models)) NULL
-		else which(model == models) - 1
-	}
-	defaults <- list (initial.model1 = NULL, initial.model2 = NULL)
-	dialog.values <- getDialog ("compareModels", defaults)  
-	models <- listAllModels()
-	if (length(models) < 2) {
-		Message(message = gettextRcmdr("There are fewer than two models."), 
-				type = "error")
-		tkfocus(CommanderWindow())
-		return()
-	}
-	initializeDialog(title = gettextRcmdr("Compare Models"))
-	modelsBox1 <- variableListBox(top, models, title = gettextRcmdr("First model (pick one)"),
-			initialSelection = modelPosn(dialog.values$initial.model1))
-	modelsBox2 <- variableListBox(top, models, title = gettextRcmdr("Second model (pick one)"),
-			initialSelection = modelPosn(dialog.values$initial.model2))
-	onOK <- function() {
-		model1 <- getSelection(modelsBox1)
-		model2 <- getSelection(modelsBox2)
-		closeDialog()
-		putDialog ("compareModels", list (initial.model1 = model1, initial.model2 = model2))
-		if (length(model1) == 0 || length(model2) == 0) {
-			errorCondition(recall = compareModels, message = gettextRcmdr("You must select two models."))
-			return()
-		}
-		if (!checkMethod("anova", model1)) {
-			return()
-		}
-		if (!class(get(model1, envir = .GlobalEnv))[1] == class(get(model2, 
-						envir = .GlobalEnv))[1]) {
-			Message(message = gettextRcmdr("Models are not of the same class."), 
-					type = "error")
-			compareModels()
-			return()
-		}
-		if (glmP()) {
-			family1 <- eval(parse(text = paste(model1, "$family$family", 
-									sep = "")))
-			family2 <- eval(parse(text = paste(model2, "$family$family", 
-									sep = "")))
-			if (family1 != family2) {
-				Message(message = gettextRcmdr("Models do not have the same family."), 
-						type = "error")
-				compareModels()
-				return()
-			}
-			test <- if (family1 %in% c("binomial", "poisson")) 
-						"Chisq"
-					else "F"
-			doItAndPrint(paste("anova(", model1, ", ", model2, 
-							", test=\"", test, "\")", sep = ""))
-		}
-		else doItAndPrint(paste("anova(", model1, ", ", model2, 
-							")", sep = ""))
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "anova", reset = "compareModels")
-	tkgrid(getFrame(modelsBox1), getFrame(modelsBox2), sticky = "nw")
-	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
-	dialogSuffix()
+    modelPosn <- function(model){
+        if (is.null(model)) return(NULL)
+        if (!(model %in% models)) NULL
+        else which(model == models) - 1
+    }
+    defaults <- list (initial.model1 = NULL, initial.model2 = NULL)
+    dialog.values <- getDialog ("compareModels", defaults)  
+    models <- listAllModels()
+    if (length(models) < 2) {
+        Message(message = gettextRcmdr("There are fewer than two models."), 
+                type = "error")
+        tkfocus(CommanderWindow())
+        return()
+    }
+    initializeDialog(title = gettextRcmdr("Compare Models"))
+    modelsBox1 <- variableListBox(top, models, title = gettextRcmdr("First model (pick one)"),
+                                  initialSelection = modelPosn(dialog.values$initial.model1))
+    modelsBox2 <- variableListBox(top, models, title = gettextRcmdr("Second model (pick one)"),
+                                  initialSelection = modelPosn(dialog.values$initial.model2))
+    onOK <- function() {
+        model1 <- getSelection(modelsBox1)
+        model2 <- getSelection(modelsBox2)
+        closeDialog()
+        putDialog ("compareModels", list (initial.model1 = model1, initial.model2 = model2))
+        if (length(model1) == 0 || length(model2) == 0) {
+            errorCondition(recall = compareModels, message = gettextRcmdr("You must select two models."))
+            return()
+        }
+        if (!checkMethod("anova", model1)) {
+            return()
+        }
+        if (!class(get(model1, envir = .GlobalEnv))[1] == class(get(model2, 
+                                                                    envir = .GlobalEnv))[1]) {
+            Message(message = gettextRcmdr("Models are not of the same class."), 
+                    type = "error")
+            compareModels()
+            return()
+        }
+        if (glmP()) {
+            family1 <- eval(parse(text = paste(model1, "$family$family", 
+                                               sep = "")))
+            family2 <- eval(parse(text = paste(model2, "$family$family", 
+                                               sep = "")))
+            if (family1 != family2) {
+                Message(message = gettextRcmdr("Models do not have the same family."), 
+                        type = "error")
+                compareModels()
+                return()
+            }
+            test <- if (family1 %in% c("binomial", "poisson")) 
+                "Chisq"
+            else "F"
+            doItAndPrint(paste("anova(", model1, ", ", model2, 
+                               ", test=\"", test, "\")", sep = ""))
+        }
+        else doItAndPrint(paste("anova(", model1, ", ", model2, 
+                                ")", sep = ""))
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "anova", reset = "compareModels", apply = "compareModels")
+    tkgrid(getFrame(modelsBox1), getFrame(modelsBox2), sticky = "nw")
+    tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
+    dialogSuffix()
 }
 
 BreuschPaganTest <- function () {
     .activeModel <- ActiveModel()
-	if (is.null(.activeModel)) 
-		return()
-	Library("lmtest")
-	currentModel <- FALSE
-	defaults <- list (initial.var = "fitted", initial.student = 0)
-	dialog.values <- getDialog ("BreuschPaganTest", defaults)
-	initializeDialog(title = gettextRcmdr("Breusch-Pagan Test"))
-	tkgrid(labelRcmdr(top, text = gettextRcmdr("Score Test for Nonconstant Error Variance"), 
-					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
-	optionsFrame <- tkframe(top)
-	onOK <- function() {
-		student <- tclvalue(studentVariable)
-		var <- tclvalue(varVariable)
-		putDialog ("BreuschPaganTest", list (initial.var = var, initial.student = student))
-		type <- if (var == "fitted") 
-					paste(", varformula = ~ fitted.values(", .activeModel, 
-							")", sep = "")
-				else if (var == "predictors") 
-					""
-				else paste(", varformula = ~", tclvalue(rhsVariable), 
-							sep = "")
-		model.formula <- as.character(formula(get(.activeModel)))
-		model.formula <- paste(model.formula[2], "~", model.formula[3])
-		closeDialog()
-		student <- if (tclvalue(studentVariable) == 1) 
-					"TRUE"
-				else "FALSE"
-		command <- paste("bptest(", model.formula, type, ", studentize=", 
-				student, ", data=", ActiveDataSet(), ")", sep = "")
-		doItAndPrint(command)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "bptest", reset = "BreuschPaganTest")
-	studentVariable <- tclVar(dialog.values$initial.student)
-	studentFrame <- tkframe(optionsFrame)
-	studentCheckBox <- ttkcheckbutton(studentFrame, variable = studentVariable)
-	tkgrid(labelRcmdr(studentFrame, text = gettextRcmdr("Studentized test statistic"), 
-					justify = "left"), studentCheckBox, sticky = "w")
-	tkgrid(studentFrame, sticky = "w")
-	radioButtons(optionsFrame, name = "var", buttons = c("fitted", 
-					"predictors", "other"), labels = gettextRcmdr(c("Fitted values", 
-							"Explanatory variables", "Other (specify)")), title = gettextRcmdr("Variance Formula"), 
-			initialValue = dialog.values$initial.var)
-	tkgrid(varFrame, sticky = "w")
-	modelFormula(optionsFrame, hasLhs = FALSE)
-	tkgrid(formulaFrame, sticky = "w")
-	tkgrid(outerOperatorsFrame)
-	tkgrid(getFrame(xBox), sticky = "w")
-	tkgrid(optionsFrame, sticky = "w")
-	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix()
+    if (is.null(.activeModel)) 
+        return()
+    Library("lmtest")
+    currentModel <- FALSE
+    defaults <- list (initial.var = "fitted", initial.student = 0)
+    dialog.values <- getDialog ("BreuschPaganTest", defaults)
+    initializeDialog(title = gettextRcmdr("Breusch-Pagan Test"))
+    tkgrid(labelRcmdr(top, text = gettextRcmdr("Score Test for Nonconstant Error Variance"), 
+                      fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
+    optionsFrame <- tkframe(top)
+    onOK <- function() {
+        student <- tclvalue(studentVariable)
+        var <- tclvalue(varVariable)
+        putDialog ("BreuschPaganTest", list (initial.var = var, initial.student = student))
+        type <- if (var == "fitted") 
+            paste(", varformula = ~ fitted.values(", .activeModel, 
+                  ")", sep = "")
+        else if (var == "predictors") 
+            ""
+        else paste(", varformula = ~", tclvalue(rhsVariable), 
+                   sep = "")
+        model.formula <- as.character(formula(get(.activeModel)))
+        model.formula <- paste(model.formula[2], "~", model.formula[3])
+        closeDialog()
+        student <- if (tclvalue(studentVariable) == 1) 
+            "TRUE"
+        else "FALSE"
+        command <- paste("bptest(", model.formula, type, ", studentize=", 
+                         student, ", data=", ActiveDataSet(), ")", sep = "")
+        doItAndPrint(command)
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "bptest", reset = "BreuschPaganTest", apply = "BreuschPaganTest")
+    studentVariable <- tclVar(dialog.values$initial.student)
+    studentFrame <- tkframe(optionsFrame)
+    studentCheckBox <- ttkcheckbutton(studentFrame, variable = studentVariable)
+    tkgrid(labelRcmdr(studentFrame, text = gettextRcmdr("Studentized test statistic"), 
+                      justify = "left"), studentCheckBox, sticky = "w")
+    tkgrid(studentFrame, sticky = "w")
+    radioButtons(optionsFrame, name = "var", buttons = c("fitted", 
+                                                         "predictors", "other"), labels = gettextRcmdr(c("Fitted values", 
+                                                                                                         "Explanatory variables", "Other (specify)")), title = gettextRcmdr("Variance Formula"), 
+                 initialValue = dialog.values$initial.var)
+    tkgrid(varFrame, sticky = "w")
+    modelFormula(optionsFrame, hasLhs = FALSE)
+    tkgrid(formulaFrame, sticky = "w")
+    tkgrid(outerOperatorsFrame)
+    tkgrid(getFrame(xBox), sticky = "w")
+    tkgrid(optionsFrame, sticky = "w")
+    tkgrid(buttonsFrame, sticky = "w")
+    dialogSuffix()
 }
 
 DurbinWatsonTest <- function () {
@@ -685,59 +685,59 @@ DurbinWatsonTest <- function () {
 
 RESETtest <- function () {
     .activeModel <- ActiveModel()
-	if (is.null(.activeModel)) 
-		return()
-	Library("lmtest")
-	defaults <- list (initial.square = 1, initial.cube = 1, initial.type = "regressor")
-	dialog.values <- getDialog ("RESETtest", defaults)
-	initializeDialog(title = gettextRcmdr("RESET Test"))
-	tkgrid(labelRcmdr(top, text = gettextRcmdr("Test for Nonlinearity"), 
-					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
-	onOK <- function() {
-		type <- tclvalue(typeVariable)
-		square <- tclvalue(squareVariable)
-		cube <- tclvalue(cubeVariable)
-		putDialog ("RESETtest", list (initial.square = square, initial.cube = cube, initial.type = type))
-		closeDialog()
-		model.formula <- as.character(formula(get(ActiveModel())))
-		model.formula <- paste(model.formula[2], "~", model.formula[3])
-		if (square == "0" && cube == "0") {
-			errorCondition(recall = RESETtest, message = gettextRcmdr("No powers are checked."))
-			return()
-		}
-		powers <- if (square == "1" && cube == "1") 
-					"2:3"
-				else if (square == "1" && cube == "0") 
-					"2"
-				else if (square == "0" && cube == "1") 
-					"3"
-		command <- paste("resettest(", model.formula, ", power=", 
-				powers, ", type=\"", type, "\", data=", ActiveDataSet(), 
-				")", sep = "")
-		doItAndPrint(command)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "reset", reset = "RESETtest")
-	optionsFrame <- tkframe(top)
-	squareVariable <- tclVar(dialog.values$initial.square)
-	squareCheckBox <- ttkcheckbutton(optionsFrame, variable = squareVariable)
-	cubeVariable <- tclVar(dialog.values$initial.cube)
-	cubeCheckBox <- ttkcheckbutton(optionsFrame, variable = cubeVariable)
-	typeVariable <- tclVar("regressor")
-	radioButtons(optionsFrame, name = "type", buttons = c("regressor", 
-					"fitted", "princomp"), labels = gettextRcmdr(c("Explanatory variables", 
-							"Fitted values", "First principal component")), title = gettextRcmdr("Type of Test"), 
-			initialValue = dialog.values$initial.type)
-	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Powers to Include"), 
-					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
-	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("2 (squares)")), 
-			squareCheckBox, sticky = "w")
-	tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("3 (cubes)   ")), 
-			cubeCheckBox, sticky = "w")
-	tkgrid(typeFrame, sticky = "w")
-	tkgrid(optionsFrame, sticky = "w")
-	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix()
+    if (is.null(.activeModel)) 
+        return()
+    Library("lmtest")
+    defaults <- list (initial.square = 1, initial.cube = 1, initial.type = "regressor")
+    dialog.values <- getDialog ("RESETtest", defaults)
+    initializeDialog(title = gettextRcmdr("RESET Test"))
+    tkgrid(labelRcmdr(top, text = gettextRcmdr("Test for Nonlinearity"), 
+                      fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
+    onOK <- function() {
+        type <- tclvalue(typeVariable)
+        square <- tclvalue(squareVariable)
+        cube <- tclvalue(cubeVariable)
+        putDialog ("RESETtest", list (initial.square = square, initial.cube = cube, initial.type = type))
+        closeDialog()
+        model.formula <- as.character(formula(get(ActiveModel())))
+        model.formula <- paste(model.formula[2], "~", model.formula[3])
+        if (square == "0" && cube == "0") {
+            errorCondition(recall = RESETtest, message = gettextRcmdr("No powers are checked."))
+            return()
+        }
+        powers <- if (square == "1" && cube == "1") 
+            "2:3"
+        else if (square == "1" && cube == "0") 
+            "2"
+        else if (square == "0" && cube == "1") 
+            "3"
+        command <- paste("resettest(", model.formula, ", power=", 
+                         powers, ", type=\"", type, "\", data=", ActiveDataSet(), 
+                         ")", sep = "")
+        doItAndPrint(command)
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "reset", reset = "RESETtest", apply = "RESETtest")
+    optionsFrame <- tkframe(top)
+    squareVariable <- tclVar(dialog.values$initial.square)
+    squareCheckBox <- ttkcheckbutton(optionsFrame, variable = squareVariable)
+    cubeVariable <- tclVar(dialog.values$initial.cube)
+    cubeCheckBox <- ttkcheckbutton(optionsFrame, variable = cubeVariable)
+    typeVariable <- tclVar("regressor")
+    radioButtons(optionsFrame, name = "type", buttons = c("regressor", 
+                                                          "fitted", "princomp"), labels = gettextRcmdr(c("Explanatory variables", 
+                                                                                                         "Fitted values", "First principal component")), title = gettextRcmdr("Type of Test"), 
+                 initialValue = dialog.values$initial.type)
+    tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Powers to Include"), 
+                      fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
+    tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("2 (squares)")), 
+           squareCheckBox, sticky = "w")
+    tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("3 (cubes)   ")), 
+           cubeCheckBox, sticky = "w")
+    tkgrid(typeFrame, sticky = "w")
+    tkgrid(optionsFrame, sticky = "w")
+    tkgrid(buttonsFrame, sticky = "w")
+    dialogSuffix()
 }
 
 OutlierTest <- function(){
@@ -782,7 +782,7 @@ confidenceIntervals <- function () {
         doItAndPrint(command)
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject = "Confint", reset = "confidenceIntervals")
+    OKCancelHelp(helpSubject = "Confint", reset = "confidenceIntervals", apply = "confidenceIntervals")
     confidenceFrame <- tkframe(top)
     confidenceLevel <- tclVar(dialog.values$initial.level)
     confidenceField <- ttkentry(confidenceFrame, width = "6", 
@@ -813,77 +813,78 @@ bic <- function(){
 }
 
 stepwiseRegression <- function () {
-	defaults <- list (initial.direction = "backward/forward", initial.criterion = "BIC")
-	dialog.values <- getDialog ("stepwiseRegression", defaults)
-	initializeDialog(title = gettextRcmdr("Stepwise Model Selection"))
-	onOK <- function() {
-		direction <- as.character(tclvalue(directionVariable))
-		criterion <- as.character(tclvalue(criterionVariable))
-		putDialog ("stepwiseRegression", list (initial.direction = tclvalue(directionVariable), 
-						initial.criterion = tclvalue(criterionVariable)))
-		closeDialog()
-		doItAndPrint(paste("stepwise(", ActiveModel(), ", direction='", 
-						direction, "', criterion='", criterion, "')", sep = ""))
-		tkdestroy(top)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "stepwise", reset = "stepwiseRegression")
-	radioButtons(top, name = "direction", buttons = c("bf", "fb", 
-					"b", "f"), values = c("backward/forward", "forward/backward", 
-					"backward", "forward"), labels = gettextRcmdr(c("backward/forward", 
-							"forward/backward", "backward", "forward")), title = gettextRcmdr("Direction"), 
-			initialValue = dialog.values$initial.direction)
-	radioButtons(top, name = "criterion", buttons = c("bic", 
-					"aic"), values = c("BIC", "AIC"), labels = gettextRcmdr(c("BIC", 
-							"AIC")), title = gettextRcmdr("Criterion"), initialValue = dialog.values$initial.criterion)
-	tkgrid(directionFrame, criterionFrame, sticky = "nw")
-	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
-	dialogSuffix()
+    defaults <- list (initial.direction = "backward/forward", initial.criterion = "BIC")
+    dialog.values <- getDialog ("stepwiseRegression", defaults)
+    initializeDialog(title = gettextRcmdr("Stepwise Model Selection"))
+    onOK <- function() {
+        direction <- as.character(tclvalue(directionVariable))
+        criterion <- as.character(tclvalue(criterionVariable))
+        putDialog ("stepwiseRegression", list (initial.direction = tclvalue(directionVariable), 
+                                               initial.criterion = tclvalue(criterionVariable)))
+        closeDialog()
+        doItAndPrint(paste("stepwise(", ActiveModel(), ", direction='", 
+                           direction, "', criterion='", criterion, "')", sep = ""))
+        tkdestroy(top)
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "stepwise", reset = "stepwiseRegression", 
+                 apply =  "stepwiseRegression")
+    radioButtons(top, name = "direction", buttons = c("bf", "fb", 
+                                                      "b", "f"), values = c("backward/forward", "forward/backward", 
+                                                                            "backward", "forward"), labels = gettextRcmdr(c("backward/forward", 
+                                                                                                                            "forward/backward", "backward", "forward")), title = gettextRcmdr("Direction"), 
+                 initialValue = dialog.values$initial.direction)
+    radioButtons(top, name = "criterion", buttons = c("bic", 
+                                                      "aic"), values = c("BIC", "AIC"), labels = gettextRcmdr(c("BIC", 
+                                                                                                                "AIC")), title = gettextRcmdr("Criterion"), initialValue = dialog.values$initial.criterion)
+    tkgrid(directionFrame, criterionFrame, sticky = "nw")
+    tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
+    dialogSuffix()
 }
 
 subsetRegression <- function () {
-	Library("leaps")
-	defaults <- list (initial.criterion = "bic", initial.nbest = 1)
-	dialog.values <- getDialog ("subsetRegression", defaults)
-	initializeDialog(title = gettextRcmdr("Subset Model Selection"))
-	onOK <- function() {
-		formula <- paste(sub("^[ ]*", "", deparse(formula(get(ActiveModel())))), 
-				collapse = "")
-		criterion <- as.character(tclvalue(criterionVariable))
-		nbest <- as.numeric(tclvalue(nbestValue))
-		putDialog ("subsetRegression", list (initial.criterion = criterion, initial.nbest = nbest))
-		nvmax <- as.numeric(tclvalue(nvmaxValue))
-		really.big <- if (nvmax > 50) 
-					"TRUE"
-				else "FALSE"
-		closeDialog()
-		doItAndPrint(paste("plot(regsubsets(", formula, ", data=", 
-						ActiveDataSet(), ", nbest=", nbest, ", nvmax=", nvmax, 
-						"), scale='", criterion, "')", sep = ""))
-		tkdestroy(top)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "regsubsets", reset = "subsetRegression")
-	radioButtons(top, name = "criterion", buttons = c("bic", 
-					"Cp", "adjr2", "r2"), labels = gettextRcmdr(c("BIC", 
-							"Mallows Cp", "Adjusted R-sq.", "R-squared")), title = gettextRcmdr("Criterion for Model Plot"), 
-			initialValue = dialog.values$initial.criterion)
-	nvar <- ncol(model.matrix(get(ActiveModel())))
-	nbestValue <- tclVar(dialog.values$initial.nbest)
-	nvmaxValue <- tclVar(as.character(min(25, nvar)))
-	slidersFrame <- tkframe(top)
-	nbestSlider <- tkscale(slidersFrame, from = 1, to = 10, showvalue = TRUE, 
-			variable = nbestValue, resolution = 1, orient = "horizontal")
-	nvmaxSlider <- tkscale(slidersFrame, from = 1, to = nvar, 
-			showvalue = TRUE, variable = nvmaxValue, resolution = 1, 
-			orient = "horizontal")
-	tkgrid(tklabel(slidersFrame, text = "     "), tklabel(slidersFrame, 
-					text = gettextRcmdr("Number of best models\nof each size:"), 
-					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), nbestSlider, sticky = "w")
-	tkgrid(tklabel(slidersFrame, text = "     "), tklabel(slidersFrame, 
-					text = gettextRcmdr("Maximum size:"), fg = getRcmdr("title.color"), font="RcmdrTitleFont"), nvmaxSlider, 
-			sticky = "e")
-	tkgrid(criterionFrame, slidersFrame, sticky = "nw")
-	tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
-	dialogSuffix()
+    Library("leaps")
+    defaults <- list (initial.criterion = "bic", initial.nbest = 1)
+    dialog.values <- getDialog ("subsetRegression", defaults)
+    initializeDialog(title = gettextRcmdr("Subset Model Selection"))
+    onOK <- function() {
+        formula <- paste(sub("^[ ]*", "", deparse(formula(get(ActiveModel())))), 
+                         collapse = "")
+        criterion <- as.character(tclvalue(criterionVariable))
+        nbest <- as.numeric(tclvalue(nbestValue))
+        putDialog ("subsetRegression", list (initial.criterion = criterion, initial.nbest = nbest))
+        nvmax <- as.numeric(tclvalue(nvmaxValue))
+        really.big <- if (nvmax > 50) 
+            "TRUE"
+        else "FALSE"
+        closeDialog()
+        doItAndPrint(paste("plot(regsubsets(", formula, ", data=", 
+                           ActiveDataSet(), ", nbest=", nbest, ", nvmax=", nvmax, 
+                           "), scale='", criterion, "')", sep = ""))
+        tkdestroy(top)
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "regsubsets", reset = "subsetRegression", apply = "subsetRegression")
+    radioButtons(top, name = "criterion", buttons = c("bic", 
+                                                      "Cp", "adjr2", "r2"), labels = gettextRcmdr(c("BIC", 
+                                                                                                    "Mallows Cp", "Adjusted R-sq.", "R-squared")), title = gettextRcmdr("Criterion for Model Plot"), 
+                 initialValue = dialog.values$initial.criterion)
+    nvar <- ncol(model.matrix(get(ActiveModel())))
+    nbestValue <- tclVar(dialog.values$initial.nbest)
+    nvmaxValue <- tclVar(as.character(min(25, nvar)))
+    slidersFrame <- tkframe(top)
+    nbestSlider <- tkscale(slidersFrame, from = 1, to = 10, showvalue = TRUE, 
+                           variable = nbestValue, resolution = 1, orient = "horizontal")
+    nvmaxSlider <- tkscale(slidersFrame, from = 1, to = nvar, 
+                           showvalue = TRUE, variable = nvmaxValue, resolution = 1, 
+                           orient = "horizontal")
+    tkgrid(tklabel(slidersFrame, text = "     "), tklabel(slidersFrame, 
+                                                          text = gettextRcmdr("Number of best models\nof each size:"), 
+                                                          fg = getRcmdr("title.color"), font="RcmdrTitleFont"), nbestSlider, sticky = "w")
+    tkgrid(tklabel(slidersFrame, text = "     "), tklabel(slidersFrame, 
+                                                          text = gettextRcmdr("Maximum size:"), fg = getRcmdr("title.color"), font="RcmdrTitleFont"), nvmaxSlider, 
+           sticky = "e")
+    tkgrid(criterionFrame, slidersFrame, sticky = "nw")
+    tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
+    dialogSuffix()
 }
