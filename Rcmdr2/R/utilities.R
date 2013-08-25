@@ -1,4 +1,4 @@
-# last modified 2013-08-09 by J. Fox
+# last modified 2013-08-24 by M. Bouchet-Valat
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -105,10 +105,6 @@ activeDataSet <- function(dsname, flushModel=TRUE, flushDialogMemory=TRUE){
 						paste(varnames[badnames], collapse=", "),
 						gettextRcmdr("\nThese have been changed to:\n"), paste(newnames[badnames], collapse=", "),
 						sep=""), type="warning")
-	Variables(listVariables())
-	Numeric(listNumeric())
-	Factors(listFactors())
-	TwoLevelFactors(listTwoLevelFactors())
 	RcmdrTclSet("dataSetName", paste(" ", dsname, " "))
     tkconfigure(getRcmdr("dataSetLabel"), foreground="blue")
 	activateMenus()
@@ -133,27 +129,47 @@ activeModel <- function(model){
 }
 
 listVariables <- function(dataSet=ActiveDataSet()) {
-	vars <- names(get(dataSet, envir=.GlobalEnv))
-	if (getRcmdr("sort.names")) sortVarNames(vars) else vars
+	if(missing(dataSet)) {
+		Variables()
+	}
+	else {
+		vars <- names(get(dataSet, envir=.GlobalEnv))
+		if (getRcmdr("sort.names")) sortVarNames(vars) else vars
+	}
 }
 
 listFactors <- function(dataSet=ActiveDataSet()) {
-	variables <- if (exists("variables", envir=RcmdrEnv())) getRcmdr("variables") else listVariables(dataSet)
-	variables[sapply(variables, function(.x)
-						is.factor(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))))]
+	if(missing(dataSet)) {
+		Factors()
+	}
+	else {
+		variables <- listVariables(dataSet)
+		variables[sapply(variables, function(.x)
+				 is.factor(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))))]
+	}
 }
 
 listTwoLevelFactors <- function(dataSet=ActiveDataSet()){
-	factors <- listFactors(dataSet)
-	if(length(factors) == 0) return(NULL)
-	factors[sapply(factors, function(.x)
-						2 == length(levels(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv)))))]
+	if(missing(dataSet)) {
+		TwoLevelFactors()
+	}
+	else {
+		factors <- listFactors(dataSet)
+		if(length(factors) == 0) return(NULL)
+		factors[sapply(factors, function(.x)
+			       2 == length(levels(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv)))))]
+	}
 }
 
 listNumeric <- function(dataSet=ActiveDataSet()) {
-	variables <- if (exists("variables", envir=RcmdrEnv())) getRcmdr("variables") else listVariables(dataSet)
-	variables[sapply(variables,function(.x)
-						is.numeric(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))))]
+	if(missing(dataSet)) {
+		Numeric()
+	}
+	else {
+		variables <- listVariables(dataSet)
+		variables[sapply(variables,function(.x)
+				 is.numeric(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))))]
+	}
 }
 
 trim.blanks <- function(text){
@@ -1963,6 +1979,7 @@ TwoLevelFactors <- function(names){
 
 # The following two functions were modified by Erich Neuwrith
 #  and subsequently by John Fox (23 July 07)
+#  and Milan Bouchet-Valat (25 August 13)
 
 ActiveDataSet <- function(name){
     if (missing(name)) {
@@ -1974,6 +1991,10 @@ ActiveDataSet <- function(name){
                 Message(sprintf(gettextRcmdr("the dataset %s is no longer available"),
                     temp), type="error")
                 putRcmdr(".activeDataSet", NULL)
+                Variables(NULL)
+                Numeric(NULL)
+                Factors(NULL)
+                TwoLevelFactors(NULL)
                 RcmdrTclSet("dataSetName", gettextRcmdr("<No active dataset>"))
                 putRcmdr(".activeModel", NULL)
                 RcmdrTclSet("modelName", gettextRcmdr("<No active model>"))
@@ -1984,7 +2005,14 @@ ActiveDataSet <- function(name){
             }
         return(temp)
     }
-    else putRcmdr(".activeDataSet", name)
+    else {
+        putRcmdr(".activeDataSet", name)
+
+        Variables(listVariables(name))
+        Numeric(listNumeric(name))
+        Factors(listFactors(name))
+        TwoLevelFactors(listTwoLevelFactors(name))
+    }
 }
 
 ActiveModel <- function(name){
