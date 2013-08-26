@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2013-08-19 by J. Fox
+# last modified 2013-08-26 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -813,6 +813,7 @@ bic <- function(){
 }
 
 stepwiseRegression <- function () {
+    Library("MASS")
     defaults <- list (initial.direction = "backward/forward", initial.criterion = "BIC")
     dialog.values <- getDialog ("stepwiseRegression", defaults)
     initializeDialog(title = gettextRcmdr("Stepwise Model Selection"))

@@ -1,15 +1,15 @@
 
 # The R Commander and command logger
 
-# last modified 2013-08-18 by J. Fox
+# last modified 2013-08-26 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
 Commander <- function(){
     library(Rcmdr, quietly=TRUE)
     require("car")
-    require("knitr")
-    require("markdown")
+#     require("knitr")
+#     require("markdown")
     # set up RcmdrEnv
     RcmdrEnv.on.path <- getOption("Rcmdr")[["RcmdrEnv.on.path"]]
     if (is.null(RcmdrEnv.on.path)) RcmdrEnv.on.path <- (getRversion() < "3.0.0")
