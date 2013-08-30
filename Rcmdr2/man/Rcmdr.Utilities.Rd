@@ -2,8 +2,6 @@
 \alias{Rcmdr.Utilities}
 \alias{Rcmdr Utilities}
 \alias{R Commander Utilities}
-\alias{setBusyCursor}
-\alias{setIdleCursor}
 \alias{activateMenus}
 \alias{activeDataSet}
 \alias{ActiveDataSet}
@@ -100,6 +98,8 @@
 \alias{rglLoaded}
 \alias{RmdWindow}
 \alias{RnwWindow}
+\alias{setBusyCursor}
+\alias{setIdleCursor}
 \alias{sortVarNames}
 \alias{subOKCancelHelp}
 \alias{subsetBox}
@@ -249,6 +249,8 @@ RExcelSupported()
 rglLoaded()
 RmdWindow()
 RnwWindow()
+setBusyCursor()
+setIdleCursor()
 sortVarNames(x)
 subOKCancelHelp(window=subdialog, helpSubject=NULL)  # macro
 subsetBox(window = top, subset.expression = NULL, model = FALSE)  # macro
@@ -272,8 +274,6 @@ X11P()
 # the following functions are exported for technical reasons,
 # but are not meant to be called directly
 
-setBusyCursor()
-setIdleCursor()
 commanderPosition()
 }
 
