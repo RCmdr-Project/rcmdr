@@ -1,4 +1,4 @@
-# last modified 2013-08-24 by M. Bouchet-Valat
+# last modified 2013-08-30 by M. Bouchet-Valat
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -970,9 +970,9 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                                      putRcmdr("startNewKnitrCommandBlock", FALSE)
                                      beginRnwBlock()
                                  }
-                                 .setBusyCursor()
+                                 setBusyCursor()
                                  onOK()
-                                 .setIdleCursor()
+                                 setIdleCursor()
                                  if (getRcmdr("use.markdown")){
                                      removeNullRmdBlocks()
                                      putRcmdr("startNewCommandBlock", TRUE)
@@ -1048,9 +1048,9 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                                          putRcmdr("startNewKnitrCommandBlock", FALSE)
                                          beginRnwBlock()
                                      }
-                                     .setBusyCursor()
+                                     setBusyCursor()
                                      onOK()
-                                     .setIdleCursor()
+                                     setIdleCursor()
                                      if (getRcmdr("use.markdown")){
                                          removeNullRmdBlocks()
                                          putRcmdr("startNewCommandBlock", TRUE)
@@ -2679,7 +2679,7 @@ is.SciViews <- function() FALSE
 
 # the following two functions from Milan Bouchet-Valat
 
-.setBusyCursor <- function() {
+setBusyCursor <- function() {
     .commander <- CommanderWindow()
     .menu <- tkcget(.commander, menu=NULL)
     .log <- LogWindow()
@@ -2693,7 +2693,7 @@ is.SciViews <- function() FALSE
     tkconfigure(.messages, cursor="watch")
 }
 
-.setIdleCursor <- function() {
+setIdleCursor <- function() {
     .commander <- CommanderWindow()
     .menu <- tkcget(.commander, menu=NULL)
     .log <- LogWindow()
