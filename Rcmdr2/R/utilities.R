@@ -971,8 +971,8 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                                      beginRnwBlock()
                                  }
                                  setBusyCursor()
+                                 on.exit(setIdleCursor())
                                  onOK()
-                                 setIdleCursor()
                                  if (getRcmdr("use.markdown")){
                                      removeNullRmdBlocks()
                                      putRcmdr("startNewCommandBlock", TRUE)
@@ -1049,8 +1049,8 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                                          beginRnwBlock()
                                      }
                                      setBusyCursor()
+                                     on.exit(setIdleCursor())
                                      onOK()
-                                     setIdleCursor()
                                      if (getRcmdr("use.markdown")){
                                          removeNullRmdBlocks()
                                          putRcmdr("startNewCommandBlock", TRUE)
