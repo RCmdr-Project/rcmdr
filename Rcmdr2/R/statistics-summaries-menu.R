@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-07-31 by J. Fox
+# last modified 2013-09-12 by J. Fox
 
 # Summaries menu
 
@@ -104,6 +104,7 @@ numericalSummaries <- function(){
     tkgrid(skCheckBoxFrame, typeButtonsFrame, sticky="nw")
     tkgrid(skFrame, sticky="w")
     tkgrid(quantilesCheckBox, quantilesEntry, sticky="w")
+    tkgrid(quantilesFrame)
     tkgrid(groupsFrame, sticky = "w", padx=6)
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE, tabs=c("dataTab", "statisticsTab"), 
         tab.names=c("Data", "Statistics"))
