@@ -1,4 +1,4 @@
-# last modified 2013-08-18 by J. Fox
+# last modified 2013-09-12 by M. Bouchet-Valat
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # Data menu dialogs
@@ -80,10 +80,11 @@ selectActiveDataSet <- function(){
 	dataSetsBox <- variableListBox(top, dataSets, title=gettextRcmdr("Data Sets (pick one)"),
 			initialSelection=if (is.null(.activeDataSet)) NULL else which(.activeDataSet == dataSets) - 1)
 	onOK <- function(){
+		selection <- getSelection(dataSetsBox)
 		closeDialog()
 		setBusyCursor()
 		on.exit(setIdleCursor())
-		activeDataSet(getSelection(dataSetsBox))
+		activeDataSet(selection)
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp()
