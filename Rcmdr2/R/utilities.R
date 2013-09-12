@@ -1,4 +1,4 @@
-# last modified 2013-08-30 by M. Bouchet-Valat
+# last modified 2013-09-12 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -2614,6 +2614,29 @@ enterMarkdown <- function(command){
     command
 }
 
+removeLastRmdBlock <- function(){
+    .rmd <- RmdWindow()
+    rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
+    start <- gregexpr("```\\{r\\}\n", rmd)
+    if (start[[1]][1] > 0){
+        start <- start[[1]]
+        start <- start[length(start)]
+        tail <- substring(rmd, start, nchar(rmd))
+        end <- gregexpr("```\n", tail)
+        end <- if (end[[1]][1] > 0) end[[1]][1] + 3 else nchar(tail)
+        rmd <- cutstring(rmd, start, start + end)
+        tkdelete(.rmd, "1.0", "end")
+        tkinsert(.rmd, "end", rmd)
+        tkyview.moveto(.rmd, 1)
+    }
+}
+
+cutstring <- function(x, start=1, end=nchar(x)){
+    one <- if (start > 1) substr(x, 1, start - 1) else ""
+    two <- if (end < nchar(x)) substr(x, end + 1, nchar(x)) else ""
+    paste0(one, two)
+}
+
 # the following functions to support knitr
 
 beginRnwBlock <- function(){
@@ -2653,6 +2676,22 @@ enterKnitr <- function(command){
     command
 }
 
+removeLastRnwBlock <- function(){
+    .rnw <- RnwWindow()
+    rnw <- tclvalue(tkget(.rnw, "1.0", "end"))
+    start <- gregexpr("\\\\newpage\n<<>>=\n", rnw)
+    if (start[[1]][1] > 0){
+        start <- start[[1]]
+        start <- start[length(start)]
+        tail <- substring(rnw, start, nchar(rnw))
+        end <- gregexpr("@\n", tail)
+        end <- if (end[[1]][1] > 0) end[[1]][1] + 3 else nchar(tail)
+        rnw <- cutstring(rnw, start, start + end)
+        tkdelete(.rnw, "1.0", "end")
+        tkinsert(.rnw, "end", rnw)
+        tkyview.moveto(.rnw, 1)
+    }
+}
 
 # the rgb2col function translates #RRGGBB colors to names if a named color exists or otherwise a "close" color (not exported)
 #  uses code from r-help adapted from Kevin Wright

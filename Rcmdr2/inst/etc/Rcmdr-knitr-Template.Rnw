@@ -13,6 +13,7 @@
 # include this code chunk as-is to set options
 opts_chunk$set(comment=NA, prompt=TRUE, tidy=FALSE, fig.width=5, fig.height=5)
 library(Rcmdr)
+library(car)
 @
 
 

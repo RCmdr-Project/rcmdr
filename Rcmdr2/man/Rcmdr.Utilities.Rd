@@ -74,6 +74,7 @@
 \alias{logger}
 \alias{LogWindow}
 \alias{MacOSXP}
+\alias{manualTranslationP}
 \alias{Message}
 \alias{MessagesWindow}
 \alias{modelFormula}
@@ -218,6 +219,7 @@ lmP()
 logger(command, rmd=TRUE)
 LogWindow()
 MacOSXP()
+manualTranslationP()
 Message(message, type=c("note", "error", "warning"))
 MessagesWindow()
 modelFormula(frame=top, hasLhs=TRUE)  # macro

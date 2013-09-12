@@ -1,15 +1,13 @@
 
 # The R Commander and command logger
 
-# last modified 2013-08-26 by J. Fox
+# last modified 2013-09-12 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
 Commander <- function(){
     library(Rcmdr, quietly=TRUE)
     require("car")
-#     require("knitr")
-#     require("markdown")
     # set up RcmdrEnv
     RcmdrEnv.on.path <- getOption("Rcmdr")[["RcmdrEnv.on.path"]]
     if (is.null(RcmdrEnv.on.path)) RcmdrEnv.on.path <- (getRversion() < "3.0.0")
@@ -542,10 +540,11 @@ Commander <- function(){
         else{ 
             fig.files <- list.files("./figure")
             fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
-            if (length(fig.files) == 0) return()
-            response <- tkmessageBox(message = gettextRcmdr("Delete previously created knitr\ngraphics files (recommended)?"),
-                                     icon = "question", type = "okcancel", default = "ok")
-            if (tclvalue(response) == "ok") unlink(paste("./figure/", fig.files, sep=""))
+            if (length(fig.files) != 0) {
+                response <- tkmessageBox(message = gettextRcmdr("Delete previously created knitr\ngraphics files (recommended)?"),
+                    icon = "question", type = "okcancel", default = "ok")
+                if (tclvalue(response) == "ok") unlink(paste("./figure/", fig.files, sep=""))
+            }
             lines <- tclvalue(tkget(.rnw, "1.0", "end"))
             lines <- paste(lines, "\n\\end{document}\n")
             .RnwFile <- getRcmdr("RnwFileName")
@@ -919,7 +918,7 @@ Commander <- function(){
         type="warning")
 }
 
-# put commands in script and markdown tabs
+# put commands in script, markdown, and knitr tabs
 logger <- function(command, rmd=TRUE){
     pushCommand(command)
     .log <- LogWindow()
@@ -927,29 +926,12 @@ logger <- function(command, rmd=TRUE){
     .rnw <- RnwWindow()
     .output <- OutputWindow()
     Rmd <- rmd && is.null(attr(command, "suppressRmd")) && (getRcmdr("use.markdown") || getRcmdr("use.knitr"))
-#     if (!is.null(attr(command, "suppressRmd"))) {
-#         endRmdBlock()
-#         removeNullRmdBlocks()
-#     }
     command <- splitCmd(command)
     if (getRcmdr("log.commands")) {
         last2 <- tclvalue(tkget(.log, "end -2 chars", "end"))
         if (last2 != "\n\n") tkinsert(.log, "end", "\n")
         tkinsert(.log, "end", paste(command,"\n", sep=""))
         tkyview.moveto(.log, 1)
-#         if (Rmd){
-#             if (is.null(attr(command, "noRmdBlock"))){
-#                 last2 <- tclvalue(tkget(.rmd, "end -2 chars", "end"))
-#                 if (last2 != "\n\n") tkinsert(.rmd, "end", "\n")
-#                 tkinsert(.rmd, "end", "\n")
-#                 tkinsert(.rmd, "end", paste("```{r}\n", command,"\n```\n", sep=""))
-#             }
-#             else {
-#                 tkinsert(.rmd, "end", paste(command, "\n", sep=""))
-#             }
-#             tkyview.moveto(.rmd, 1)
-#             putRcmdr("markdown.output", TRUE)
-#         }
         if (Rmd){
             if (getRcmdr("use.markdown")){
                 if (getRcmdr("startNewCommandBlock")){
@@ -1057,10 +1039,23 @@ doItAndPrint <- function(command, log=TRUE, rmd=log) {
     if (log) logger(command, rmd=rmd) 
     else {
         pushCommand(command)
-        if (rmd) enterMarkdown(command)
+        if (rmd) {
+            if (getRcmdr("use.markdown")) enterMarkdown(command)
+            if (getRcmdr("use.knitr")) enterKnitr(command)
+        }
     }
     result <- try(parse(text=paste(command)), silent=TRUE)
     if (class(result)[1] == "try-error"){
+        if (rmd) {
+            if (getRcmdr("use.markdown")) {
+                removeLastRmdBlock()
+                putRcmdr("startNewCommandBlock", TRUE)
+            }
+            if (getRcmdr("use.knitr")) {
+                removeLastRnwBlock()
+                putRcmdr("startNewCommandBlock", TRUE)
+            }
+        }
         Message(message=paste(strsplit(result, ":")[[1]][2]), type="error")
         if (.console.output) sink(type="output")
         tkfocus(CommanderWindow())
@@ -1074,6 +1069,16 @@ doItAndPrint <- function(command, log=TRUE, rmd=log) {
         tcl("update")
         result <-  try(withVisible(eval(ei, envir=.GlobalEnv)), silent=TRUE)
         if (class(result)[1] ==  "try-error"){
+            if (rmd) {
+                if (getRcmdr("use.markdown")) {
+                    removeLastRmdBlock()
+                    putRcmdr("startNewCommandBlock", TRUE)
+                }
+                if (getRcmdr("use.knitr")) {
+                    removeLastRnwBlock()
+                    putRcmdr("startNewCommandBlock", TRUE)
+                }
+            }
             Message(message=paste(strsplit(result, ":")[[1]][2]), type="error")
             if (.console.output) sink(type="output")
             tkfocus(CommanderWindow())
