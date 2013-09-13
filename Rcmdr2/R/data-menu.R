@@ -1,5 +1,4 @@
-# last modified 2013-09-12 by M. Bouchet-Valat
-#  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
+# last modified 2013-09-13 by J. Fox
 
 # Data menu dialogs
 
@@ -182,6 +181,10 @@ RecodeDialog <- function () {
                                      cmd, sep = ""))
             if (class(result)[1] != "try-error") 
                 activeDataSet(dataSet, flushModel = FALSE, flushDialogMemory = FALSE)
+            else{
+                if (getRcmdr("use.markdown")) removeLastRmdBlock()
+                if (getRcmdr("use.knitr")) removeLastRnwBlock()
+            }
             tkfocus(CommanderWindow())
         }
     }
@@ -263,6 +266,10 @@ Compute <- function(){
         logger(command)
         result <- justDoIt(command)
         if (class(result)[1] !=  "try-error") activeDataSet(dataSet, flushModel=FALSE, flushDialogMemory=FALSE)
+        else{
+            if (getRcmdr("use.markdown")) removeLastRmdBlock()
+            if (getRcmdr("use.knitr")) removeLastRnwBlock()
+        }
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject="Compute", reset = "Compute", apply = "Compute")

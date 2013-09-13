@@ -2588,7 +2588,13 @@ beginRmdBlock <- function(){
 }
 
 endRmdBlock <- function(){
-    tkinsert(RmdWindow(), "end", "```\n")
+    .rmd <- RmdWindow()
+    rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
+    rmd <- paste(substring(rmd, 1, nchar(rmd) - 1), "```\n", sep="")
+    rmd <- trimHangingEndRmdBlock(rmd)
+    tkdelete(.rmd, "1.0", "end")
+    tkinsert(.rmd, "end", rmd)
+    tkyview.moveto(.rmd, 1)
 }
 
 removeNullRmdBlocks <- function(){
@@ -2603,8 +2609,8 @@ removeNullRmdBlocks <- function(){
 }
 
 enterMarkdown <- function(command){
-    .rmd <- RmdWindow()
     if (!getRcmdr("use.markdown")) return()
+    .rmd <- RmdWindow()
     command <- splitCmd(command)
     beginRmdBlock()
     tkinsert(.rmd, "end", paste(command, "\n", sep=""))
@@ -2612,6 +2618,18 @@ enterMarkdown <- function(command){
     putRcmdr("markdown.output", TRUE)
     endRmdBlock()
     command
+}
+
+trimHangingEndRmdBlock <- function(string){
+    loc.ends <- gregexpr("```\n", string)[[1]]
+    n.ends <- length(loc.ends)
+    if (n.ends > 1){
+        substr <- substring(string, loc.ends[n.ends - 1], loc.ends[n.ends])
+        if (!grepl("```\\{r\\}", substr)){
+            string <- cutstring(string, loc.ends[n.ends], loc.ends[n.ends] + 3)
+        }
+    }
+    string
 }
 
 removeLastRmdBlock <- function(){
@@ -2649,7 +2667,13 @@ beginRnwBlock <- function(){
 }
 
 endRnwBlock <- function(){
-    tkinsert(RnwWindow(), "end", "@\n")
+    .rnw <- RnwWindow()
+    rnw <- tclvalue(tkget(.rnw, "1.0", "end"))
+    rnw <- paste(substring(rnw, 1, nchar(rnw) - 1), "@\n", sep="")
+    rnw <- trimHangingEndRnwBlock(rnw)
+    tkdelete(.rnw, "1.0", "end")
+    tkinsert(.rnw, "end", rnw)
+    tkyview.moveto(.rnw, 1)    
 }
 
 removeNullRnwBlocks <- function(){
@@ -2658,6 +2682,7 @@ removeNullRnwBlocks <- function(){
     rnw <- gsub("\n+$", "\n", rnw)
     rnw <- gsub("<<>>=\n$", "", rnw)
     rnw <- gsub("<<>>=\n@\n$", "", rnw)
+    rnw <- gsub("\\\\newpage\n*$", "", rnw)
     rnw <- gsub("\\\\newpage\n*$", "", rnw)
     tkdelete(.rnw, "1.0", "end")
     tkinsert(.rnw, "end", rnw)
@@ -2676,6 +2701,18 @@ enterKnitr <- function(command){
     command
 }
 
+trimHangingEndRnwBlock <- function(string){
+    loc.ats <- gregexpr("@\n", string)[[1]]
+    n.ats <- length(loc.ats)
+    if (n.ats > 1){
+        substr <- substring(string, loc.ats[n.ats - 1], loc.ats[n.ats])
+        if (!grepl("<<>>=", substr)){
+            string <- cutstring(string, loc.ats[n.ats], loc.ats[n.ats] + 1)
+        }
+    }
+    string
+}
+
 removeLastRnwBlock <- function(){
     .rnw <- RnwWindow()
     rnw <- tclvalue(tkget(.rnw, "1.0", "end"))
@@ -2685,7 +2722,7 @@ removeLastRnwBlock <- function(){
         start <- start[length(start)]
         tail <- substring(rnw, start, nchar(rnw))
         end <- gregexpr("@\n", tail)
-        end <- if (end[[1]][1] > 0) end[[1]][1] + 3 else nchar(tail)
+        end <- if (end[[1]][1] > 0) end[[1]][1] + 1 else nchar(tail)
         rnw <- cutstring(rnw, start, start + end)
         tkdelete(.rnw, "1.0", "end")
         tkinsert(.rnw, "end", rnw)

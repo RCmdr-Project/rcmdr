@@ -1053,7 +1053,7 @@ doItAndPrint <- function(command, log=TRUE, rmd=log) {
             }
             if (getRcmdr("use.knitr")) {
                 removeLastRnwBlock()
-                putRcmdr("startNewCommandBlock", TRUE)
+                putRcmdr("startNewKnitrCommandBlock", TRUE)
             }
         }
         Message(message=paste(strsplit(result, ":")[[1]][2]), type="error")
@@ -1076,7 +1076,7 @@ doItAndPrint <- function(command, log=TRUE, rmd=log) {
                 }
                 if (getRcmdr("use.knitr")) {
                     removeLastRnwBlock()
-                    putRcmdr("startNewCommandBlock", TRUE)
+                    putRcmdr("startNewKnitrCommandBlock", TRUE)
                 }
             }
             Message(message=paste(strsplit(result, ":")[[1]][2]), type="error")
