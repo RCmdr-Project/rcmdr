@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2013-08-09 by J. Fox
+# last modified 2013-09-15 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -30,6 +30,9 @@
     item    fileMenu        cascade         "Exit"                                          exitMenu                    ""          ""
     item    topMenu         cascade         "File"                                          fileMenu                    ""          ""
     menu    editMenu        topMenu         ""                                              ""                          ""          ""
+    item    editMenu        command         "Edit R Markdown document"                      editMarkdown                ""          "MarkdownP()"
+    item    editMenu        command         "Edit knitr document"                           editKnitr                   ""          "knitrP()"
+    item    editMenu        separator       ""                                              ""                          ""          ""
     item    editMenu        command         "Cut"                                           onCut                       ""          ""
     item    editMenu        command         "Copy"                                          onCopy                      ""          ""
     item    editMenu        command         "Paste"                                         onPaste                     ""          ""

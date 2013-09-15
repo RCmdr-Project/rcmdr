@@ -1,6 +1,6 @@
-# last modified 2013-08-05 by M. Bouchet-Valat
+# last modified 2013-09-15 by J. Fox
 
-# File menu dialogs
+# File (and Edit) menu dialogs
 
 loadLog <- function(){
 	logFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Script Files" {".R"}}'),
@@ -861,3 +861,27 @@ Setwd <- function(){
 	if (wd != "") doItAndPrint(paste('setwd("', wd, '")', sep=""))
 }
 
+
+editMarkdown <- function(){
+    .rmd <- RmdWindow()
+    buffer <- tclvalue(tkget(.rmd, "1.0", "end"))
+    RcmdrEditor(buffer, title=gettextRcmdr("Edit R Markdown document"))
+    edited <- getRcmdr("buffer")
+    if (!is.null(edited)){
+        tkdelete(.rmd, "1.0", "end")
+        tkinsert(.rmd, "end", edited)
+        tkyview.moveto(.rmd, 1)
+    }
+}
+
+editKnitr <- function(){
+    .rnw <- RnwWindow()
+    buffer <- tclvalue(tkget(.rnw, "1.0", "end"))
+    RcmdrEditor(buffer, title=gettextRcmdr("Edit knitr document"))
+    edited <- getRcmdr("buffer")
+    if (!is.null(edited)){
+        tkdelete(.rnw, "1.0", "end")
+        tkinsert(.rnw, "end", edited)
+        tkyview.moveto(.rnw, 1)
+    }
+}

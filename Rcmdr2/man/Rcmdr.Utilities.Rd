@@ -57,6 +57,7 @@
 \alias{is.SciViews}
 \alias{is.valid.name}
 \alias{justDoIt}
+\alias{knitrP}
 \alias{Library}
 \alias{listAllModels}
 \alias{listAOVModels}
@@ -75,6 +76,7 @@
 \alias{LogWindow}
 \alias{MacOSXP}
 \alias{manualTranslationP}
+\alias{MarkdownP}
 \alias{Message}
 \alias{MessagesWindow}
 \alias{modelFormula}
@@ -91,6 +93,7 @@
 \alias{putDialog}
 \alias{putRcmdr}
 \alias{radioButtons}
+\alias{RcmdrEditor}
 \alias{RcmdrTclSet}
 \alias{RcmdrTkmessageBox}
 \alias{removeNullRmdBlocks}
@@ -168,7 +171,7 @@ dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows, columns,
 	focus=top, bindReturn=TRUE, 
     preventGrabFocus=FALSE, preventDoubleClick=FALSE, preventCrisp,
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), 
-    tab.names=c("Data", "Options"), grid.buttons=FALSE)  # macro
+    tab.names=c("Data", "Options"), grid.buttons=FALSE, resizable=FALSE)  # macro
 doItAndPrint(command, log=TRUE, rmd=log)
 endRmdBlock()
 endRnwBlock()
@@ -202,6 +205,7 @@ initializeDialog(window=top, title="", offset=10, preventCrisp,
 is.valid.name(x)
 is.SciViews()
 justDoIt(command)
+knitrP()
 Library(package, pos=4, rmd=TRUE)
 listAllModels(envir=.GlobalEnv, ...)
 listAOVModels(envir=.GlobalEnv, ...)
@@ -220,6 +224,7 @@ logger(command, rmd=TRUE)
 LogWindow()
 MacOSXP()
 manualTranslationP()
+MarkdownP()
 Message(message, type=c("note", "error", "warning"))
 MessagesWindow()
 modelFormula(frame=top, hasLhs=TRUE)  # macro
@@ -242,6 +247,7 @@ radioButtons(window=top, name=stop("name not supplied"),
     labels=stop("labels not supplied"), 
     title="", title.color=getRcmdr("title.color"), 
     right.buttons=FALSE, command=function(){})   # macro
+RcmdrEditor(buffer, title=gettextRcmdr("R Commander Editor"))
 RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
@@ -289,6 +295,8 @@ commanderPosition()
   \item{bg}{background color.}
   \item{bindReturn}{if \code{TRUE}, the \emph{Return} key is bound to the \code{onOK} function in the dialog.}
   \item{boxes}{vector of quoted names for check boxes, used to generate each box and its associated variable.}
+  \item{buffer}{a text string, typically representing the contents of a text widget, such as an R Markdown or
+    knitr document.}
   \item{buttons}{vector of quoted names for buttons in a set of related radio buttons.}
   \item{class}{quoted name of class.}
   \item{columnspan}{number of dialog-box columns to be spanned by frame.}
@@ -363,10 +371,11 @@ commanderPosition()
   \item{preventCrisp}{this argument is ignored, and is present only for backwards compatibility.}
   \item{recall}{function to call after error --- usually the function that initiates the dialog.}
   \item{release}{release the focus if the grab.focus option has been set.}
+  \item{reportError}{if \code{TRUE}, report an error message.}
   \item{reset}{quoted name of dialog function, to be invoked with all defaults by Reset button.}
   \item{resettable}{should dialog state be reset when the data set changes? The default is 
   code{TRUE}.}
-  \item{reportError}{if \code{TRUE}, report an error message.}
+  \item{resizable}{should the dialog be resizable by the user? The default is \code{FALSE}.}
   \item{right.buttons}{radio button placed to right of button-labels; defaults to \code{FALSE}.}
   \item{rmd}{enter the command in the R Markdown tab.}
   \item{rows, columns}{numbers of rows and columns of widgets in the dialog box; this is actually no longer used, but
