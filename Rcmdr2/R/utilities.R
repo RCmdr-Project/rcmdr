@@ -997,6 +997,10 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             image="::image::okIcon", compound="left")
         
         onCancel <- function() {
+            if (exists(".exit")){
+                result <- .exit()
+                if (result == "abort") return()
+            }
             putRcmdr("restoreTab", FALSE)
             if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
             if (GrabFocus()) tkgrab.release(window)
@@ -2855,8 +2859,14 @@ RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor")){
     tkinsert(editor, "1.0", buffer)
     putRcmdr("buffer", NULL)
     onOK <- function(){
+        answer <- RcmdrTkmessageBox("Save document and exit?", icon="question", type="yesno")
+        if (as.character(answer) == "no") return()
         putRcmdr("buffer", tclvalue(tkget(editor, "1.0", "end")))
         closeDialog()
+    }
+    .exit <- function(){
+        answer <- RcmdrTkmessageBox("Quit and discard edits?", icon="question", type="yesno")
+        if (as.character(answer) == "no") "abort" else ""
     }
     OKCancelHelp(helpSubject = "ScriptEditor")
     editorMenu <- tkmenu(top)
@@ -2899,6 +2909,7 @@ RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor")){
     tkbind(top, "<Control-w>", onRedo)
     tkbind(top, "<Control-W>", onRedo)
     tkbind(top, "<Alt-BackSpace>", onUndo)
+    tkwm.protocol(top, "WM_DELETE_WINDOW", onCancel)
     tkgrid.rowconfigure(top, 1, weight=0)
     tkgrid.rowconfigure(top, 0, weight=1)
     tkgrid.columnconfigure(top, 0, weight=1)
