@@ -1,4 +1,4 @@
-# last modified 2013-09-15 by J. Fox
+# last modified 2013-09-18 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -865,7 +865,8 @@ Setwd <- function(){
 editMarkdown <- function(){
     .rmd <- RmdWindow()
     buffer <- tclvalue(tkget(.rmd, "1.0", "end"))
-    RcmdrEditor(buffer, title=gettextRcmdr("Edit R Markdown document"))
+    RcmdrEditor(buffer, title=gettextRcmdr("Edit R Markdown document"),
+        help=list(label="Using R Markdown", command=browseRMarkdown))
     edited <- getRcmdr("buffer")
     if (!is.null(edited)){
         tkdelete(.rmd, "1.0", "end")

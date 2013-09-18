@@ -1,4 +1,4 @@
-# last modified 2013-09-15 by J. Fox
+# last modified 2013-09-18 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 #  slight changes 12 Aug 04 by Ph. Grosjean
 
@@ -2743,7 +2743,7 @@ knitrP <- function(){
 }
 # editor for R Markdowna and knitr documents
 
-RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor")){
+RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor"), help=NULL){
     contextMenu <- function(){
         contextMenu <- tkmenu(tkmenu(editor), tearoff=FALSE)
         tkadd(contextMenu, "command", label=gettextRcmdr("Cut"), command=onCut)
@@ -2889,6 +2889,13 @@ RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor")){
     tkadd(editMenu, "separator")
     tkadd(editMenu, "command", label=gettextRcmdr("Clear window"), command=onClear)
     tkadd(editorMenu, "cascade", label=gettextRcmdr("Edit"), menu=editMenu)
+    helpMenu <- tkmenu(editorMenu, tearoff=FALSE)
+    onEditorHelp <- function() print(help("ScriptEditor", package="Rcmdr"))
+    tkadd(helpMenu, "command", label=gettextRcmdr("Editor help"), command=onEditorHelp)
+    if (!is.null(help)){
+        tkadd(helpMenu, "command", label=gettextRcmdr(help$label), command=help$command)
+    }
+    tkadd(editorMenu, "cascade", label=gettextRcmdr("Help"), menu=helpMenu)
     tkgrid(editor, editorYscroll, sticky = "nsew")
     tkgrid(editorXscroll)
     tkgrid(editorFrame, sticky = "nsew")

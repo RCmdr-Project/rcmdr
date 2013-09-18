@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-09-12 by J. Fox
+# last modified 2013-09-18 by J. Fox
 
 # contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -310,6 +310,9 @@ Commander <- function(){
     putRcmdr("restore.help_type", getOption("help_type"))
     if (RStudioP()) {
         options(help_type = "html")
+    }
+    else if (!WindowsP()) {
+        options(help_type = "text")
     }
     putRcmdr("restore.device", getOption("device"))
     if (RStudioP()){

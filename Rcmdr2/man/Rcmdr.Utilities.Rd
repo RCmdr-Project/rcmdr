@@ -247,7 +247,7 @@ radioButtons(window=top, name=stop("name not supplied"),
     labels=stop("labels not supplied"), 
     title="", title.color=getRcmdr("title.color"), 
     right.buttons=FALSE, command=function(){})   # macro
-RcmdrEditor(buffer, title=gettextRcmdr("R Commander Editor"))
+RcmdrEditor(buffer, title=gettextRcmdr("R Commander Editor"), help=NULL)
 RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
@@ -327,6 +327,9 @@ commanderPosition()
   \item{initialText}{initial text to display in the groups label; if \code{NULL}, \code{"<No groups selected>"}
     will be displayed.}
   \item{hasLhs}{does the model formula have a left-hand side?}
+  \item{help}{a two element list: the first element, \code{label}, supplies the text label for a menu item
+    in the \code{RcmdrEditor} Help menu; the second element, \code{command}, is a call-back function to be evaluated
+    when the menu item is selected. If \code{NULL} (the default), no item will be added to the editor Help menu.}
   \item{helpSubject}{the quoted name of a help subject, to be called as \code{help(helpSubject)}
     when the dialog \emph{Help} button is pressed.}
   \item{icon}{Message-box icon.}
