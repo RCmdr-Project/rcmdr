@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-09-22 by Milan Bouchet-Valat
+# last modified 2013-09-22 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -311,7 +311,7 @@ Commander <- function(){
     if (RStudioP()) {
         options(help_type = "html")
     }
-    # HTML help window is not responsive when opened from dialogs
+    # HTML help window is not responsive when opened from dialogs on Mac OS X
     else if (MacOSXP()) {
         options(help_type = "text")
     }
@@ -531,33 +531,35 @@ Commander <- function(){
             tktag.remove(.log, "sel", "1.0", "end")
         }
         else if (as.character(tkselect(notebook)) == RmdFrame$ID) {
-            lines <- tclvalue(tkget(.rmd, "1.0", "end"))
-            .RmdFile <- getRcmdr("RmdFileName")
-            .filename <- sub("\\.Rmd$", "", trim.blanks(.RmdFile))
-            writeLines(lines, .RmdFile)
-            knit(.RmdFile, paste(.filename, ".md", sep=""), quiet=TRUE)
-            .html.file <- paste(.filename, ".html", sep="")
-            markdownToHTML(paste(.filename, ".md", sep=""), .html.file)
-            .html.file.location <- paste("file:///", normalizePath(.html.file), sep="")
-            browseURL(.html.file.location)
+#             lines <- tclvalue(tkget(.rmd, "1.0", "end"))
+#             .RmdFile <- getRcmdr("RmdFileName")
+#             .filename <- sub("\\.Rmd$", "", trim.blanks(.RmdFile))
+#             writeLines(lines, .RmdFile)
+#             knit(.RmdFile, paste(.filename, ".md", sep=""), quiet=TRUE)
+#             .html.file <- paste(.filename, ".html", sep="")
+#             markdownToHTML(paste(.filename, ".md", sep=""), .html.file)
+#             .html.file.location <- paste("file:///", normalizePath(.html.file), sep="")
+#             browseURL(.html.file.location)
+            compileRmd()
         }
         else{ 
-            fig.files <- list.files("./figure")
-            fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
-            if (length(fig.files) != 0) {
-                response <- tkmessageBox(message = gettextRcmdr("Delete previously created knitr\ngraphics files (recommended)?"),
-                    icon = "question", type = "okcancel", default = "ok")
-                if (tclvalue(response) == "ok") unlink(paste("./figure/", fig.files, sep=""))
-            }
-            lines <- tclvalue(tkget(.rnw, "1.0", "end"))
-            lines <- paste(lines, "\n\\end{document}\n")
-            .RnwFile <- getRcmdr("RnwFileName")
-            .filename <- sub("\\.Rnw$", "", trim.blanks(.RnwFile))
-            writeLines(lines, .RnwFile)
-            knit2pdf(.RnwFile)
-            .pdf.file <- paste(.filename, ".pdf", sep="")
-            .pdf.file.location <- paste("file:///", normalizePath(.pdf.file), sep="")
-            browseURL(.pdf.file.location)
+#             fig.files <- list.files("./figure")
+#             fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
+#             if (length(fig.files) != 0) {
+#                 response <- tkmessageBox(message = gettextRcmdr("Delete previously created knitr\ngraphics files (recommended)?"),
+#                     icon = "question", type = "okcancel", default = "ok")
+#                 if (tclvalue(response) == "ok") unlink(paste("./figure/", fig.files, sep=""))
+#             }
+#             lines <- tclvalue(tkget(.rnw, "1.0", "end"))
+#             lines <- paste(lines, "\n\\end{document}\n")
+#             .RnwFile <- getRcmdr("RnwFileName")
+#             .filename <- sub("\\.Rnw$", "", trim.blanks(.RnwFile))
+#             writeLines(lines, .RnwFile)
+#             knit2pdf(.RnwFile)
+#             .pdf.file <- paste(.filename, ".pdf", sep="")
+#             .pdf.file.location <- paste("file:///", normalizePath(.pdf.file), sep="")
+#             browseURL(.pdf.file.location)
+            compileRnw()
         }
     }
     # right-click context menus

@@ -1,6 +1,4 @@
-# last modified 2013-09-18 by J. Fox
-#  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
-#  slight changes 12 Aug 04 by Ph. Grosjean
+# last modified 2013-09-22 by J. Fox
 
 # utility functions
 
@@ -2663,6 +2661,18 @@ MarkdownP <- function(){
     getRcmdr("log.commands") && getRcmdr("use.markdown")
 }
 
+compileRmd <- function() {
+    lines <- tclvalue(tkget(RmdWindow(), "1.0", "end"))
+    .RmdFile <- getRcmdr("RmdFileName")
+    .filename <- sub("\\.Rmd$", "", trim.blanks(.RmdFile))
+    writeLines(lines, .RmdFile)
+    knit(.RmdFile, paste(.filename, ".md", sep=""), quiet=TRUE)
+    .html.file <- paste(.filename, ".html", sep="")
+    markdownToHTML(paste(.filename, ".md", sep=""), .html.file)
+    .html.file.location <- paste("file:///", normalizePath(.html.file), sep="")
+    browseURL(.html.file.location)
+}
+
 # the following functions to support knitr
 
 beginRnwBlock <- function(){
@@ -2738,14 +2748,38 @@ removeLastRnwBlock <- function(){
     }
 }
 
+compileRnw <- function(){
+    fig.files <- list.files("./figure")
+    fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
+    if (length(fig.files) != 0) {
+        response <- tkmessageBox(message = gettextRcmdr("Delete previously created knitr\ngraphics files (recommended)?"),
+            icon = "question", type = "okcancel", default = "ok")
+        if (tclvalue(response) == "ok") unlink(paste("./figure/", fig.files, sep=""))
+    }
+    lines <- tclvalue(tkget(RnwWindow(), "1.0", "end"))
+    lines <- paste(lines, "\n\\end{document}\n")
+    .RnwFile <- getRcmdr("RnwFileName")
+    .filename <- sub("\\.Rnw$", "", trim.blanks(.RnwFile))
+    writeLines(lines, .RnwFile)
+    knit2pdf(.RnwFile)
+    .pdf.file <- paste(.filename, ".pdf", sep="")
+    .pdf.file.location <- paste("file:///", normalizePath(.pdf.file), sep="")
+    browseURL(.pdf.file.location)
+}
+
+
 knitrP <- function(){
     getRcmdr("log.commands") && getRcmdr("use.knitr")
 }
 # editor for R Markdowna and knitr documents
 
-RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor"), help=NULL){
+RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor"), help=NULL, process=NULL){
     contextMenu <- function(){
         contextMenu <- tkmenu(tkmenu(editor), tearoff=FALSE)
+        if (!is.null(process)){
+            tkadd(contextMenu, "command", label=gettextRcmdr(process$label), command=process$command)
+            tkadd(contextMenu, "separator")
+        }
         tkadd(contextMenu, "command", label=gettextRcmdr("Cut"), command=onCut)
         tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)
         tkadd(contextMenu, "command", label=gettextRcmdr("Paste"), command=onPaste)
@@ -2872,6 +2906,10 @@ RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor"), help=N
     editorMenu <- tkmenu(top)
     tkconfigure(top, menu = editorMenu)
     fileMenu <- tkmenu(editorMenu, tearoff=FALSE)
+    if (!is.null(process)){
+        tkadd(fileMenu, "command", label=gettextRcmdr(process$label), command=process$command)
+        tkadd(fileMenu, "separator")
+    }
     tkadd(fileMenu, "command", label=gettextRcmdr("Save document"), command=onOK)
     tkadd(fileMenu, "command", label=gettextRcmdr("Cancel"), command=onCancel)
     tkadd(editorMenu, "cascade", label=gettextRcmdr("File"), menu=fileMenu)

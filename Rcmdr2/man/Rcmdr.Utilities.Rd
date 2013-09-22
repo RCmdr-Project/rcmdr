@@ -247,7 +247,8 @@ radioButtons(window=top, name=stop("name not supplied"),
     labels=stop("labels not supplied"), 
     title="", title.color=getRcmdr("title.color"), 
     right.buttons=FALSE, command=function(){})   # macro
-RcmdrEditor(buffer, title=gettextRcmdr("R Commander Editor"), help=NULL)
+RcmdrEditor(buffer, title=gettextRcmdr("R Commander Editor"), help=NULL,
+    process=NULL)
 RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
@@ -372,6 +373,9 @@ commanderPosition()
 %  \item{preventCrisp}{prevent call to \code{tclServiceMode}, which (rarely) causes
 %    problems with some dialogs.}
   \item{preventCrisp}{this argument is ignored, and is present only for backwards compatibility.}
+  \item{process}{a two element list: the first element, \code{label}, supplies the text label for a menu item
+    in the \code{RcmdrEditor} File and right-click context menus; the second element, \code{command}, is a call-back function to be evaluated
+    when the menu item is selected. If \code{NULL} (the default), no item will be added to the these menus.}
   \item{recall}{function to call after error --- usually the function that initiates the dialog.}
   \item{release}{release the focus if the grab.focus option has been set.}
   \item{reportError}{if \code{TRUE}, report an error message.}

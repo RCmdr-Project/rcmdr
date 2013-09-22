@@ -866,7 +866,8 @@ editMarkdown <- function(){
     .rmd <- RmdWindow()
     buffer <- tclvalue(tkget(.rmd, "1.0", "end"))
     RcmdrEditor(buffer, title=gettextRcmdr("Edit R Markdown document"),
-        help=list(label="Using R Markdown", command=browseRMarkdown))
+        help=list(label="Using R Markdown", command=browseRMarkdown),
+        process=list(label="Generate HTML report", command=compileRmd))
     edited <- getRcmdr("buffer")
     if (!is.null(edited)){
         tkdelete(.rmd, "1.0", "end")
@@ -878,7 +879,8 @@ editMarkdown <- function(){
 editKnitr <- function(){
     .rnw <- RnwWindow()
     buffer <- tclvalue(tkget(.rnw, "1.0", "end"))
-    RcmdrEditor(buffer, title=gettextRcmdr("Edit knitr document"))
+    RcmdrEditor(buffer, title=gettextRcmdr("Edit knitr document"),
+        process=list(label="Generate PDF report", command=compileRnw))
     edited <- getRcmdr("buffer")
     if (!is.null(edited)){
         tkdelete(.rnw, "1.0", "end")
