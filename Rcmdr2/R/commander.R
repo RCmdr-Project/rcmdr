@@ -1,9 +1,9 @@
 
 # The R Commander and command logger
 
-# last modified 2013-09-18 by J. Fox
+# last modified 2013-09-22 by Milan Bouchet-Valat
 
-# contributions by Milan Bouchet-Valet, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
+# contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
 Commander <- function(){
     library(Rcmdr, quietly=TRUE)
@@ -311,7 +311,8 @@ Commander <- function(){
     if (RStudioP()) {
         options(help_type = "html")
     }
-    else if (!WindowsP()) {
+    # HTML help window is not responsive when opened from dialogs
+    else if (MacOSXP()) {
         options(help_type = "text")
     }
     putRcmdr("restore.device", getOption("device"))
