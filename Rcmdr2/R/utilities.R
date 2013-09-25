@@ -1,4 +1,4 @@
-# last modified 2013-09-22 by J. Fox
+# last modified 2013-09-25 by J. Fox
 
 # utility functions
 
@@ -2819,7 +2819,7 @@ RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor"), help=N
     onFind <- function(){
         initializeDialog(title=gettextRcmdr("Find"))
         textFrame <- tkframe(top)
-        textVar <- tclVar("")
+        textVar <- tclVar(getRcmdr("last.search"))
         textEntry <- ttkentry(textFrame, width="20", textvariable=textVar)
         checkBoxes(frame="optionsFrame", boxes=c("regexpr", "case"), initialValues=c("0", "1"),
             labels=gettextRcmdr(c("Regular-expression search", "Case sensitive")))
@@ -2827,6 +2827,7 @@ RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor"), help=N
             values=c("-forward", "-backward"), title=gettextRcmdr("Search Direction"))
         onOK <- function(){
             text <- tclvalue(textVar)
+            putRcmdr("last.search", text)
             if (text == ""){
                 errorCondition(recall=onFind, message=gettextRcmdr("No search text specified."))
                 return()
@@ -2853,6 +2854,8 @@ RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor"), help=N
             tkdestroy(top)
         }
         .exit <- function(){
+            text <- tclvalue(textVar)
+            putRcmdr("last.search", text)
             return("")
         }
         OKCancelHelp()
@@ -2885,6 +2888,7 @@ RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor"), help=N
     height <- max(floor(screenheight/(2.5*char.size)), 25)   
     editor <- tktext(editorFrame, bg = "white", font = getRcmdr("logFont"), 
         height = height, width = width, wrap = "none", undo=TRUE)
+    putRcmdr("editor.text", editor)
     editorXscroll <- ttkscrollbar(editorFrame, orient = "horizontal", 
         command = function(...) tkxview(editor, ...))
     editorYscroll <- ttkscrollbar(editorFrame, command = function(...) tkyview(editor, 
@@ -2952,6 +2956,7 @@ RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor"), help=N
     tkbind(top, "<Control-C>", onCopy)
     tkbind(top, "<Control-f>", onFind)
     tkbind(top, "<Control-F>", onFind)
+    tkbind(top, "<F3>", onFind)
     tkbind(top, "<Control-a>", onSelectAll)
     tkbind(top, "<Control-A>", onSelectAll)
     tkbind(top, "<Control-w>", onRedo)

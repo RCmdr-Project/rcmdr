@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-09-22 by John Fox
+# last modified 2013-09-25 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -114,7 +114,7 @@ Commander <- function(){
             focused <- LogWindow()
         initializeDialog(title=gettextRcmdr("Find"))
         textFrame <- tkframe(top)
-        textVar <- tclVar("")
+        textVar <- tclVar(getRcmdr("last.search"))
         textEntry <- ttkentry(textFrame, width="20", textvariable=textVar)
         checkBoxes(frame="optionsFrame", boxes=c("regexpr", "case"), initialValues=c("0", "1"),
             labels=gettextRcmdr(c("Regular-expression search", "Case sensitive")))
@@ -122,6 +122,7 @@ Commander <- function(){
             values=c("-forward", "-backward"), title=gettextRcmdr("Search Direction"))
         onOK <- function(){
             text <- tclvalue(textVar)
+            putRcmdr("last.search", text)
             if (text == ""){
                 errorCondition(recall=onFind, message=gettextRcmdr("No search text specified."))
                 return()
@@ -146,6 +147,11 @@ Commander <- function(){
             tkmark.set(focused, "insert", where.txt)
             tksee(focused, where.txt)
             tkdestroy(top)
+        }
+        .exit <- function(){
+            text <- tclvalue(textVar)
+            putRcmdr("last.search", text)
+            return("")
         }
         OKCancelHelp()
         tkgrid(labelRcmdr(textFrame, text=gettextRcmdr("Search for:")), textEntry, sticky="w")
@@ -198,6 +204,7 @@ Commander <- function(){
     putRcmdr("open.dialog.here", NULL)
     putRcmdr("restoreTab", FALSE)
     putRcmdr("cancelDialogReopen", FALSE)
+    putRcmdr("last.search", "")
     # set up Rcmdr default and text (log) fonts, Tk scaling factor
     default.font.size.val <- abs(as.numeric(.Tcl("font actual TkDefaultFont -size")))
     if (is.na(default.font.size.val)) default.font.size.val <- 10
@@ -593,7 +600,7 @@ Commander <- function(){
         tkadd(contextMenu, "command", label=gettextRcmdr("Paste"), command=onPaste)
         tkadd(contextMenu, "command", label=gettextRcmdr("Delete"), command=onDelete)
         tkadd(contextMenu, "separator")
-        tkadd(contextMenu, "command", label=gettextRcmdr("Find..."), command=onFind)
+#        tkadd(contextMenu, "command", label=gettextRcmdr("Find..."), command=onFind)  # doesn't work FIXME
         tkadd(contextMenu, "command", label=gettextRcmdr("Select all"), command=onSelectAll)
         tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Undo"), command=onUndo)
@@ -613,7 +620,7 @@ Commander <- function(){
         tkadd(contextMenu, "command", label=gettextRcmdr("Paste"), command=onPaste)
         tkadd(contextMenu, "command", label=gettextRcmdr("Delete"), command=onDelete)
         tkadd(contextMenu, "separator")
-        tkadd(contextMenu, "command", label=gettextRcmdr("Find..."), command=onFind)
+#        tkadd(contextMenu, "command", label=gettextRcmdr("Find..."), command=onFind) # doesn't work FIXME
         tkadd(contextMenu, "command", label=gettextRcmdr("Select all"), command=onSelectAll)
         tkadd(contextMenu, "separator")
         tkadd(contextMenu, "command", label=gettextRcmdr("Undo"), command=onUndo)
@@ -895,6 +902,7 @@ Commander <- function(){
     tkbind(.commander, "<Control-Tab>", onSubmit)
     tkbind(.commander, "<Control-f>", onFind)
     tkbind(.commander, "<Control-F>", onFind)
+    tkbind(.commander, "<F3>", onFind)
     tkbind(.commander, "<Control-s>", saveLog)
     tkbind(.commander, "<Control-S>", saveLog)
     tkbind(.commander, "<Control-a>", onSelectAll)
