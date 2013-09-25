@@ -2852,6 +2852,9 @@ RcmdrEditor <- function(buffer, title=gettextRcmdr("R Commander Editor"), help=N
             tksee(editor, where.txt)
             tkdestroy(top)
         }
+        .exit <- function(){
+            return("")
+        }
         OKCancelHelp()
         tkgrid(labelRcmdr(textFrame, text=gettextRcmdr("Search for:")), textEntry, sticky="w")
         tkgrid(textFrame, sticky="w")
