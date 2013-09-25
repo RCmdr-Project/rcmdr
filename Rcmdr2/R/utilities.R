@@ -2662,6 +2662,13 @@ MarkdownP <- function(){
 }
 
 compileRmd <- function() {
+    fig.files <- list.files("./figure")
+    fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
+    if (length(fig.files) != 0) {
+        response <- tkmessageBox(message = gettextRcmdr("Delete previously created R Markdown\ngraphics files (recommended)?"),
+            icon = "question", type = "okcancel", default = "ok")
+        if (tclvalue(response) == "ok") unlink(paste("./figure/", fig.files, sep=""))
+    }
     lines <- tclvalue(tkget(RmdWindow(), "1.0", "end"))
     .RmdFile <- getRcmdr("RmdFileName")
     .filename <- sub("\\.Rmd$", "", trim.blanks(.RmdFile))
