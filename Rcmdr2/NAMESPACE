@@ -1,4 +1,4 @@
-# last modified 2013-09-15 by J. Fox
+# last modified 2013-10-02 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -38,8 +38,8 @@ tclvalue, totPercents, trim.blanks, ttkentry, ttkframe, ttkradiobutton, ttkcheck
 ttkscrollbar, TwoLevelFactors, twoLevelFactorsP, 
 UpdateModelNumber, variableListBox, Variables, varPosn, WindowsP, X11P,
     
-beginRmdBlock, endRmdBlock, enterMarkdown, removeNullRmdBlocks, suppressMarkdown,
-beginRnwBlock, endRnwBlock, enterKnitr, removeNullRnwBlocks,
+beginRmdBlock, endRmdBlock, enterMarkdown, removeNullRmdBlocks, removeStrayRmdBlocks, suppressMarkdown,
+beginRnwBlock, endRnwBlock, enterKnitr, removeNullRnwBlocks, removeStrayRnwBlocks,
     
 setBusyCursor, setIdleCursor,
 

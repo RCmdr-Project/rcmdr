@@ -1,4 +1,4 @@
-# last modified 2013-09-25 by J. Fox
+# last modified 2013-10-02 by J. Fox
 
 # utility functions
 
@@ -2610,6 +2610,30 @@ removeNullRmdBlocks <- function(){
     tkyview.moveto(.rmd, 1)
 }
 
+removeStrayRmdBlocks <- function(){
+    .rmd <- RmdWindow()
+    rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
+    rmd <- strsplit(rmd, "\\n")[[1]]
+    starts <- grep("^```\\{r.*\\}$", rmd)
+    ends  <- grep("^```$", rmd)
+    j <- 1
+    if (length(starts) > 0){
+        for (i in 1:length(starts) - 1){
+            if (ends[j] > starts[i + 1]) {
+                rmd[starts[i]] <- ""
+            }
+            else {
+                j <- j + 1
+                next
+            }
+        }
+    }
+    rmd <- paste(rmd, collapse="\n")
+    tkdelete(.rmd, "1.0", "end")
+    tkinsert(.rmd, "end", rmd)
+    tkyview.moveto(.rmd, 1)
+}
+
 enterMarkdown <- function(command){
     if (!getRcmdr("use.markdown")) return()
     .rmd <- RmdWindow()
@@ -2669,6 +2693,7 @@ compileRmd <- function() {
             icon = "question", type = "okcancel", default = "ok")
         if (tclvalue(response) == "ok") unlink(paste("./figure/", fig.files, sep=""))
     }
+    removeStrayRmdBlocks()
     lines <- tclvalue(tkget(RmdWindow(), "1.0", "end"))
     .RmdFile <- getRcmdr("RmdFileName")
     .filename <- sub("\\.Rmd$", "", trim.blanks(.RmdFile))
@@ -2709,6 +2734,30 @@ removeNullRnwBlocks <- function(){
     rnw <- gsub("<<>>=\n@\n$", "", rnw)
     rnw <- gsub("\\\\newpage\n*$", "", rnw)
     rnw <- gsub("\\\\newpage\n*$", "", rnw)
+    tkdelete(.rnw, "1.0", "end")
+    tkinsert(.rnw, "end", rnw)
+    tkyview.moveto(.rnw, 1)
+}
+
+removeStrayRnwBlocks <- function(){
+    .rnw <- RnwWindow()
+    rnw <- tclvalue(tkget(.rnw, "1.0", "end"))
+    rnw <- strsplit(rnw, "\\n")[[1]]
+    starts <- grep("^<<.*>>=$", rnw)
+    ends  <- grep("^@$", rnw)
+    j <- 1
+    if (length(starts) > 0){
+        for (i in 1:length(starts) - 1){
+            if (ends[j] > starts[i + 1]) {
+                rnw[starts[i]] <- ""
+            }
+            else {
+                j <- j + 1
+                next
+            }
+        }
+    }
+    rnw <- paste(rnw, collapse="\n")
     tkdelete(.rnw, "1.0", "end")
     tkinsert(.rnw, "end", rnw)
     tkyview.moveto(.rnw, 1)
@@ -2763,6 +2812,7 @@ compileRnw <- function(){
             icon = "question", type = "okcancel", default = "ok")
         if (tclvalue(response) == "ok") unlink(paste("./figure/", fig.files, sep=""))
     }
+    removeStrayRnwBlocks()
     lines <- tclvalue(tkget(RnwWindow(), "1.0", "end"))
     lines <- paste(lines, "\n\\end{document}\n")
     .RnwFile <- getRcmdr("RnwFileName")

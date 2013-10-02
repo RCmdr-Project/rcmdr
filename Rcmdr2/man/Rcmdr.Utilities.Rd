@@ -98,6 +98,8 @@
 \alias{RcmdrTkmessageBox}
 \alias{removeNullRmdBlocks}
 \alias{removeNullRnwBlocks}
+\alias{removeStrayRmdBlocks}
+\alias{removeStrayRnwBlocks}
 \alias{RExcelSupported}
 \alias{rglLoaded}
 \alias{RmdWindow}
@@ -254,6 +256,8 @@ RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
 removeNullRmdBlocks()
 removeNullRnwBlocks()
+removeStrayRmdBlocks()
+removeStrayRnwBlocks()
 RExcelSupported()
 rglLoaded()
 RmdWindow()
@@ -438,8 +442,10 @@ commanderPosition()
   that will cause the command \emph{not} to be entered in the R Markdown tab. This is useful when a
   command, such as \code{identify}, requires direct user interaction and won't generate useful Markdown.
   \code{enterMarkdown} can be used to enter command blocks directly in the R Markdown tab; this should
-  rarely be required. The functions \code{beginRmdBlock}, \code{endRmdBlock}, and \code{removeNullRmdBlocks}
-  should normally not be called directly.
+  rarely be required. The functions \code{beginRmdBlock}, \code{endRmdBlock}, \code{removeNullRmdBlocks},
+  and \code{removeStrayRmdBlocks} should normally not be called directly. The functions \code{enterKnitr},
+  \code{beginRnwBlock}, \code{endRnwBlock}, \code{removeNullRnwBlocks},
+  and \code{removeStrayRnwBlocks} perform similar functions for Knitr documents.
   
   \emph{Checking for errors: }
   
