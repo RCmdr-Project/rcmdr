@@ -1,4 +1,4 @@
-# last modified 2013-10-02 by J. Fox
+# last modified 2013-10-04 by J. Fox
 
 # utility functions
 
@@ -2616,10 +2616,11 @@ removeStrayRmdBlocks <- function(){
     rmd <- strsplit(rmd, "\\n")[[1]]
     starts <- grep("^```\\{r.*\\}$", rmd)
     ends  <- grep("^```$", rmd)
+    n.ends <- length(ends)
     j <- 1
     if (length(starts) > 0){
-        for (i in 1:length(starts) - 1){
-            if (ends[j] > starts[i + 1]) {
+        for (i in 1:length(starts)){
+            if (j > n.ends || ends[j] > starts[i + 1]) {
                 rmd[starts[i]] <- ""
             }
             else {
@@ -2745,10 +2746,11 @@ removeStrayRnwBlocks <- function(){
     rnw <- strsplit(rnw, "\\n")[[1]]
     starts <- grep("^<<.*>>=$", rnw)
     ends  <- grep("^@$", rnw)
+    n.ends <- length(ends)
     j <- 1
     if (length(starts) > 0){
-        for (i in 1:length(starts) - 1){
-            if (ends[j] > starts[i + 1]) {
+        for (i in 1:length(starts)){
+            if (j > n.ends || ends[j] > starts[i + 1]) {
                 rnw[starts[i]] <- ""
             }
             else {
