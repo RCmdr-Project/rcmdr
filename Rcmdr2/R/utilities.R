@@ -1,4 +1,4 @@
-# last modified 2013-10-04 by J. Fox
+# last modified 2013-10-18 by J. Fox
 
 # utility functions
 
@@ -2619,7 +2619,7 @@ removeStrayRmdBlocks <- function(){
     n.ends <- length(ends)
     j <- 1
     if (length(starts) > 0){
-        for (i in 1:length(starts)){
+        for (i in 1:(length(starts) - 1)){
             if (j > n.ends || ends[j] > starts[i + 1]) {
                 rmd[starts[i]] <- ""
             }
@@ -2749,7 +2749,7 @@ removeStrayRnwBlocks <- function(){
     n.ends <- length(ends)
     j <- 1
     if (length(starts) > 0){
-        for (i in 1:length(starts)){
+        for (i in (length(starts) - 1)){
             if (j > n.ends || ends[j] > starts[i + 1]) {
                 rnw[starts[i]] <- ""
             }
