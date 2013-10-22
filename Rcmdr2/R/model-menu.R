@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2013-08-26 by J. Fox
+# last modified 2013-10-21 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -256,7 +256,7 @@ VIF <- function(){
 effectPlots <- function(){
 	Library("effects")
 	.activeModel <- ActiveModel()
-	if (is.null(.activeModel) || !checkMethod("effect", .activeModel)) return()
+	if (is.null(.activeModel) || !checkMethod("Effect", .activeModel)) return()
 	doItAndPrint('trellis.device(theme="col.whitebg")')
 	command <- paste("plot(allEffects(", .activeModel, "), ask=FALSE)", sep="")
 	justDoIt(command)
