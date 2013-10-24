@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-08-18 by J. Fox
+# last modified 2013-10-24 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -1671,7 +1671,7 @@ saveBitmap <- function () {
         command <- paste("dev.print(", type, ", filename=\"", 
                          filename, "\", width=", width, ", height=", height, ", pointsize=", pointsize, ', units="', units, 
                          if(units == "px") '")' else paste('", res=', res, ')', sep=""), sep = "")
-        doItAndPrint(command)
+        doItAndPrint(command, rmd=FALSE)
         Message(paste(gettextRcmdr("Graph saved to file"), filename), 
                 type = "note")
     }
@@ -1818,7 +1818,7 @@ savePDF <- function () {
         else paste("dev.print(", type, ", file=\"", filename, 
                    "\", width=", width, ", height=", height, ", pointsize=", 
                    pointsize, ")", sep = "")
-        doItAndPrint(command)
+        doItAndPrint(command, rmd=FALSE)
         Message(paste(gettextRcmdr("Graph saved to file"), filename), 
                 type = "note")
     }
@@ -1854,7 +1854,7 @@ saveRglGraph <- function(){
 					parent=CommanderWindow()))
 	if (filename == "") return()
 	command <- paste('rgl.snapshot("', filename, '")', sep="")
-	doItAndPrint(command)
+	doItAndPrint(command, rmd=FALSE)
 	Message(paste(gettextRcmdr("Graph saved to file"), filename), type="note")
 }
 
