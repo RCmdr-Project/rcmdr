@@ -96,6 +96,8 @@
 \alias{RcmdrEditor}
 \alias{RcmdrTclSet}
 \alias{RcmdrTkmessageBox}
+\alias{removeLastRmdBlock}
+\alias{removeLastRnwBlock}
 \alias{removeNullRmdBlocks}
 \alias{removeNullRnwBlocks}
 \alias{removeStrayRmdBlocks}
@@ -254,6 +256,8 @@ RcmdrEditor(buffer, title=gettextRcmdr("R Commander Editor"), help=NULL,
 RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
+removeLastRmdBlock()
+removeLastRnwBlock()
 removeNullRmdBlocks()
 removeNullRnwBlocks()
 removeStrayRmdBlocks()
@@ -374,8 +378,6 @@ commanderPosition()
   \item{preventDoubleClick}{prevent double-clicking from pressing the OK button, even when the
     double.click option is set; necessary for statistical modelling dialogs, which use double-clicking
     to build the model formula.}
-%  \item{preventCrisp}{prevent call to \code{tclServiceMode}, which (rarely) causes
-%    problems with some dialogs.}
   \item{preventCrisp}{this argument is ignored, and is present only for backwards compatibility.}
   \item{process}{a two element list: the first element, \code{label}, supplies the text label for a menu item
     in the \code{RcmdrEditor} File and right-click context menus; the second element, \code{command}, is a call-back function to be evaluated
@@ -443,8 +445,9 @@ commanderPosition()
   command, such as \code{identify}, requires direct user interaction and won't generate useful Markdown.
   \code{enterMarkdown} can be used to enter command blocks directly in the R Markdown tab; this should
   rarely be required. The functions \code{beginRmdBlock}, \code{endRmdBlock}, \code{removeNullRmdBlocks},
-  and \code{removeStrayRmdBlocks} should normally not be called directly. The functions \code{enterKnitr},
-  \code{beginRnwBlock}, \code{endRnwBlock}, \code{removeNullRnwBlocks},
+  \code{removeLastRmdBlock}, and \code{removeStrayRmdBlocks} should normally not be called directly. 
+  The functions \code{enterKnitr},
+  \code{beginRnwBlock}, \code{endRnwBlock}, \code{removeNullRnwBlocks}, \code{removeLastRnwBlock},
   and \code{removeStrayRnwBlocks} perform similar functions for Knitr documents.
   
   \emph{Checking for errors: }

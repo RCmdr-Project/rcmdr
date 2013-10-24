@@ -1,6 +1,6 @@
 msgid "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-09-25 18:00:00\n"
+"POT-Creation-Date: 2013-10-24 17:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4277,7 +4277,13 @@ msgstr ""
 msgid "Edit R Markdown document"
 msgstr ""
 
-msgid "Edit knitr document" 
+msgid "Edit knitr document"
+msgstr ""
+
+msgid "Remove last Markdown command block"
+msgstr ""
+
+msgid "Remove last knitr command block"
 msgstr ""
 
 msgid "Save document"
