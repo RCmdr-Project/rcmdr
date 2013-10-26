@@ -251,8 +251,9 @@ radioButtons(window=top, name=stop("name not supplied"),
     labels=stop("labels not supplied"), 
     title="", title.color=getRcmdr("title.color"), 
     right.buttons=FALSE, command=function(){})   # macro
-RcmdrEditor(buffer, title=gettextRcmdr("R Commander Editor"), help=NULL,
-    process=NULL)
+RcmdrEditor(buffer, title="R Commander Editor", 
+    help=NULL, file.menu=NULL, edit.menu=NULL, context.menu=NULL, 
+    toolbar.buttons=NULL)
 RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title="")
@@ -311,18 +312,30 @@ commanderPosition()
   \item{columnspan}{number of dialog-box columns to be spanned by frame.}
   \item{command}{a character string that evaluates to an R command or (in the case of \code{radioButton}) a
     function to be called when a button is pressed.}
+  \item{context.menu}{\code{NULL} or a list containing one or more two-element lists: 
+    the first element, \code{label}, supplies the text label for a menu item
+    in the \code{RcmdrEditor} right-click context menu; the second element, \code{command}, is a call-back function to be evaluated
+    when the menu item is selected. If \code{NULL} (the default), no item will be added to the file menu.}
   \item{dataSet, dsname}{the quoted name of a data frame in memory.}
   \item{default}{default button: if not specified, "ok" for "okcancel", "yes" for "yesno", and "ok" for "ok";
     or look for a default method; for \code{putDialog}, a list of defaults for the dialog box if there are no
     stored previous values.}
   \item{defaults}{a list of named default values for options in a dialog if no previous selections are stored.}
   \item{dialog}{the quoted name of a dialog box under which previous selections are stored.}
+  \item{edit.menu}{\code{NULL} or a list containing one or more two-element lists: 
+    the first element, \code{label}, supplies the text label for a menu item
+    in the \code{RcmdrEditor} Edit menu; the second element, \code{command}, is a call-back function to be evaluated
+    when the menu item is selected. If \code{NULL} (the default), no item will be added to the file menu.}
   \item{envir}{the environment to be searched; should generally be left at the default.}
   \item{export}{export selection?}
   \item{expr}{expression constituting the body of the macro; typically a compound expression.}
-  \item{flushDialogMemory}{remove saved values of dialog options so that \code{getDialog} returns \code{NULL} for all dialogs.}
   \item{fail}{if \code{TRUE}, the default, \code{getRcmdr} will generate an error if the object sought doesn't exist; 
     if \code{FALSE} and the object doesn't exist, \code{NULL} is returned.}
+  \item{file.menu}{\code{NULL} or a list containing one or more two-element lists: 
+    the first element, \code{label}, supplies the text label for a menu item
+    in the \code{RcmdrEditor} File menu; the second element, \code{command}, is a call-back function to be evaluated
+    when the menu item is selected. If \code{NULL} (the default), no item will be added to the file menu.}
+  \item{flushDialogMemory}{remove saved values of dialog options so that \code{getDialog} returns \code{NULL} for all dialogs.}
   \item{flushModel}{set (or reset) the active model to NULL? Should normally be \code{TRUE} when the active 
     data set is changed; an exception is when variables are simply added to, deleted from, or modified in 
     the data set set.}
@@ -379,9 +392,6 @@ commanderPosition()
     double.click option is set; necessary for statistical modelling dialogs, which use double-clicking
     to build the model formula.}
   \item{preventCrisp}{this argument is ignored, and is present only for backwards compatibility.}
-  \item{process}{a two element list: the first element, \code{label}, supplies the text label for a menu item
-    in the \code{RcmdrEditor} File and right-click context menus; the second element, \code{command}, is a call-back function to be evaluated
-    when the menu item is selected. If \code{NULL} (the default), no item will be added to the these menus.}
   \item{recall}{function to call after error --- usually the function that initiates the dialog.}
   \item{release}{release the focus if the grab.focus option has been set.}
   \item{reportError}{if \code{TRUE}, report an error message.}
@@ -401,6 +411,11 @@ commanderPosition()
   \item{text}{a text string.}
   \item{title}{Window or dialog-box-element title.}
   \item{title.color}{color for title above radio buttons; defaults to \code{"blue"}.} 
+  \item{toolbar.buttons}{\code{NULL} or a list containing one or more three-element lists: 
+    the first element, \code{label}, supplies the text label for a button
+    in the \code{RcmdrEditor} toolbar; the second element, \code{command}, is a call-back function to be evaluated
+    when the button is pressed; the third element is the name of a tk image to display as an icon in the button.
+    If \code{NULL} (the default), no buttons will be added to the toolbar.}
   \item{ttk}{use ttk themed widget for check boxes.}
   \item{type}{quoted type of object to check; used to generate check-replace dialog box;
     or type of message to print in Message window. For \code{varPosn}, type of variable list.}

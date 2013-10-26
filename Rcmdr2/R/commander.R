@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-10-24 by John Fox
+# last modified 2013-10-25 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -68,6 +68,7 @@ Commander <- function(){
     tkimage.create("photo", "::image::viewIcon", file = system.file("etc", "view.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::dataIcon", file = system.file("etc", "data.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::modelIcon", file = system.file("etc", "model.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::removeIcon", file = system.file("etc", "remove.gif", package="Rcmdr"))
     # locate Rcmdr etc directory and directory for menus (usually the same)
     etc <- setOption("etc", system.file("etc", package="Rcmdr"))
     etcMenus <- setOption("etcMenus", etc)
