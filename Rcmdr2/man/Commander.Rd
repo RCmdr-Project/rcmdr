@@ -85,6 +85,11 @@ In addition, the following Control-key combinations work in these tabs and windo
 Right-clicking the mouse (clicking button 3 on a three-button mouse, or \emph{Control}-left-clicking) in the tabs or windows brings up
 a "context" menu with the \emph{Edit}-menu items, plus (in the Script, R Markdown, and knitr tabs) a \emph{Submit} item.
 
+You can open a larger editor window with the document in the Markdown or knitr
+tab by making the corresponding selection from the \emph{Edit} menu, the right-click
+context menu when the cursor is in the tab, or by pressing \emph{Control-E} when the
+cursor is in the tab.
+
 When you
 execute commands from the \emph{Commander} window, you must ensure that the sequence of commands
 is logical. For example, it makes no sense to fit a statistical model to a data set that has

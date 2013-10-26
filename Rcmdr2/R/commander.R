@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-10-25 by John Fox
+# last modified 2013-10-26 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -898,6 +898,10 @@ Commander <- function(){
     tkbind(.rnw, "<Control-ButtonPress-1>", contextMenuRnw)
     tkbind(.output, "<Control-ButtonPress-1>", contextMenuOutput)
     tkbind(.messages, "<Control-ButtonPress-1>", contextMenuMessages)
+    tkbind(.rmd, "<Control-e>", editMarkdown)
+    tkbind(.rmd, "<Control-E>", editMarkdown)
+    tkbind(.rnw, "<Control-e>", editKnitr)
+    tkbind(.rnw, "<Control-E>", editKnitr)
     tkwm.deiconify(.commander)
     tkfocus(.commander)
     if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
