@@ -1,6 +1,6 @@
 # French translations for the Rcmdr package
 # Traductions françaises pour le package Rcmdr
-# Copyright (C) 2005-2012 John Fox
+# Copyright (C) 2005-2013 John Fox
 # This file is distributed under the same license as the Rcmdr package
 # Philippe Grosjean <phgrosjean@sciviews.org>, 2005-2007
 # Milan Bouchet-Valat <nalimilan@club.fr>, 2012-2013.
@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-08-15 18:30:00\n"
-"PO-Revision-Date: 2012-08-15 18:30:00+02\n"
+"POT-Creation-Date: 2013-10-25 21:00:00\n"
+"POT-Creation-Date: 2013-10-25 21:49:00\n"
 "Last-Translator: Milan Bouchet-Valat <nalimilan@club.fr>\n"
 "Language-Team: français <>\n"
 "Language: \n"
@@ -1285,7 +1285,7 @@ msgid "There is no current graphics device to save."
 msgstr "Aucun périphérique graphique d'où sauvegarder."
 
 msgid "Graphics File Type"
-msgstr "Type de fichier graphique"
+msgstr "Type de fichier image"
 
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Fichiers PNG\" {\".png\" \".PNG\"}} {\"Tous les fichiers\" {\"*\"}}"
@@ -2153,7 +2153,7 @@ msgid "File"
 msgstr "Fichier"
 
 msgid "Edit"
-msgstr "Edition"
+msgstr "Édition"
 
 msgid "New data set..."
 msgstr "Nouveau jeu de données..."
@@ -4071,14 +4071,15 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
 "\".XPORT\"}}"
 msgstr ""
-"{\"Tous les fichiers\" {\"*\"}} {\"Fichiers SAS xport\" {\".xpt\" \".XPT\" \".xport\" "
-"\".XPORT\"}}"
+"{\"Tous les fichiers\" {\"*\"}} {\"Fichiers SAS xport\" {\".xpt\" \".XPT\" "
+"\".xport\" \".XPORT\"}}"
 
 msgid ""
 "Convert variable names\n"
 "to lower case"
 msgstr ""
-"Convertir les noms de variables\nen minuscule"
+"Convertir les noms de variables\n"
+"en minuscule"
 
 msgid "from Excel file..."
 msgstr "depuis un fichier Excel..."
@@ -4090,8 +4091,8 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
 "Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"All Files\" {\"*\"}} {\"Fichier MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"Fichier MS "
-"Excel\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"Fichier MS Excel 2007\" {\".xlsx\" \".XLSX\"}} "
+"{\"Fichier MS Excel\" {\".xls\" \".XLS\"}}"
 
 msgid "Interquartile Range"
 msgstr "Écart interquartile"
@@ -4204,7 +4205,7 @@ msgstr "Graphe d'influence des points"
 
 # support for R Markdown and knitr
 msgid "Generate HTML report"
-msgstr "Génerer un rapport HTML"
+msgstr "Générer un rapport HTML"
 
 msgid "Generate PDF report"
 msgstr "Générer un rapport PDF"
@@ -4255,15 +4256,15 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
 "\"}}"
 msgstr ""
-"{\"Tous les fichiers\" {\"*\"}} {\"Fichiers knitr\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
-"\"}}"
+"{\"Tous les fichiers\" {\"*\"}} {\"Fichiers knitr\" {\".Rmd\" \".rmd\" \".Snw"
+"\" \".snw\"}}"
 
 msgid ""
 "Delete previously created knitr\n"
 "graphics files (recommended)?"
 msgstr ""
-"Supprimer le fichier d'images knitr\n"
-"précédemment créé (recommandé) ?"
+"Supprimer les fichiers images knitr\n"
+"précédemment créés (recommandé) ?"
 
 msgid "Ask to exit Commander"
 msgstr "Demander avant de sortir du Commander"
@@ -4452,7 +4453,8 @@ msgstr "Opérateurs (un clic envoie vers la formule) :"
 msgid ""
 "Splines/Polynomials:\n"
 "(select variable and click)"
-msgstr "Splines/Polynômes :\n"
+msgstr ""
+"Splines/Polynômes :\n"
 "(sélectionnez une variable et cliquez)"
 
 msgid "df for splines:"
@@ -4460,3 +4462,53 @@ msgstr "DL pour les splines :"
 
 msgid "deg. for polynomials:"
 msgstr "DL pour les polynômes :"
+
+msgid "R Commander Editor"
+msgstr "Éditeur R Commander"
+
+msgid "Edit R Markdown document"
+msgstr "Éditer le document R Markdown"
+
+msgid "Edit knitr document"
+msgstr "Éditer le document knitr"
+
+# support for R Markdown and knitr
+msgid ""
+"Generate\n"
+"HTML report"
+msgstr "Générer\n"
+"un rapport HTML"
+
+msgid ""
+"Generate\n"
+"PDF report"
+msgstr "Générer\n"
+"un rapport PDF"
+
+msgid "Remove last Markdown command block"
+msgstr "Supprimer le dernier bloc de commandes Markdown"
+
+msgid "Remove last knitr command block"
+msgstr "Supprimer le dernier bloc de commandes knitr"
+
+msgid "Remove last command block"
+msgstr "Supprimer le dernier bloc de commandes"
+
+msgid ""
+"Remove last\n"
+"command block"
+msgstr "Supprimer le dernier\n"
+"bloc de commandes"
+
+msgid "Save document"
+msgstr "Enregistrer le document"
+
+msgid "Editor help"
+msgstr "Aide de l'éditeur"
+
+msgid ""
+"Delete previously created R Markdown\n"
+"graphics files (recommended)?"
+msgstr ""
+"Supprimer les fichiers images R Markdown\n"
+"précédemment créés (recommandé) ?"
