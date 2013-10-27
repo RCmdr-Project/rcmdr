@@ -4292,11 +4292,11 @@ msgstr ""
 msgid "Remove last knitr command block"
 msgstr ""
 
-msgstr "Remove last command block"
-msgid ""
+msgid "Remove last command block"
+msgstr ""
 
-msgstr "Remove last\ncommand block"
-msgid ""
+msgid "Remove last\ncommand block"
+msgstr ""
 
 msgid "Save document"
 msgstr ""
