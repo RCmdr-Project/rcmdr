@@ -3171,14 +3171,8 @@ RcmdrEditor <- function(buffer, title="R Commander Editor",
     tkinsert(editor, "1.0", buffer)
     putRcmdr("buffer", NULL)
     onOK <- function(){
-        answer <- RcmdrTkmessageBox("Save document and exit?", icon="question", type="yesno")
-        if (as.character(answer) == "no") return()
         putRcmdr("buffer", tclvalue(tkget(editor, "1.0", "end")))
         closeDialog()
-    }
-    .exit <- function(){
-        answer <- RcmdrTkmessageBox("Quit and discard edits?", icon="question", type="yesno")
-        if (as.character(answer) == "no") "abort" else ""
     }
     OKCancelHelp(helpSubject = "ScriptEditor")
     editorMenu <- tkmenu(top)
