@@ -909,8 +909,8 @@ editMarkdown <- function(){
         file.menu=list(list(label="Generate HTML report", command=compile)), 
         edit.menu=list(list(label="Remove last command block", command=removeLastBlock)), 
         context.menu=list(list(label="Remove last command block", command=removeLastBlock)), 
-        toolbar.buttons=list(list(label="Generate\nHTML report", command=compile, image="::image::submitIcon"),
-            list(label="Remove last\ncommand block", command=removeLastBlock, image="::image::removeIcon")))
+        toolbar.buttons=list(list(label="Generate HTML report", command=compile, image="::image::submitIcon"),
+            list(label="Remove last command block", command=removeLastBlock, image="::image::removeIcon")))
     edited <- getRcmdr("buffer")
     if (!is.null(edited)){
         tkdelete(.rmd, "1.0", "end")
@@ -957,8 +957,8 @@ editKnitr <- function(){
         file.menu=list(list(label="Generate PDF report", command=compile)), 
         edit.menu=list(list(label="Remove last command block", command=removeLastBlock)), 
         context.menu=list(list(label="Remove last command block", command=removeLastBlock)), 
-        toolbar.buttons=list(list(label="Generate\nPDF report", command=compile, image="::image::submitIcon"),
-            list(label="Remove last\ncommand block", command=removeLastBlock, image="::image::removeIcon")))
+        toolbar.buttons=list(list(label="Generate PDF report", command=compile, image="::image::submitIcon"),
+            list(label="Remove last command block", command=removeLastBlock, image="::image::removeIcon")))
     edited <- getRcmdr("buffer")
     if (!is.null(edited)){
         tkdelete(.rnw, "1.0", "end")

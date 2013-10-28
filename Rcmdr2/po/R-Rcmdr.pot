@@ -4280,12 +4280,6 @@ msgstr ""
 msgid "Edit knitr document"
 msgstr ""
 
-msgid "Generate\nHTML report"
-msgstr ""
-
-msgid "Generate\nPDF report"
-msgstr ""
-
 msgid "Remove last Markdown command block"
 msgstr ""
 
@@ -4295,8 +4289,6 @@ msgstr ""
 msgid "Remove last command block"
 msgstr ""
 
-msgid "Remove last\ncommand block"
-msgstr ""
 
 msgid "Save document"
 msgstr ""
