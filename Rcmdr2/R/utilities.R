@@ -1,4 +1,4 @@
-# last modified 2013-10-25 by J. Fox
+# last modified 2013-10-29 by J. Fox
 
 # utility functions
 
@@ -3174,6 +3174,10 @@ RcmdrEditor <- function(buffer, title="R Commander Editor",
         putRcmdr("buffer", tclvalue(tkget(editor, "1.0", "end")))
         closeDialog()
     }
+    .exit <- function(){
+        answer <- RcmdrTkmessageBox("Discard edits?", icon="question", type="yesno")
+        if (as.character(answer) == "no") "abort" else ""
+    }
     OKCancelHelp(helpSubject = "ScriptEditor")
     editorMenu <- tkmenu(top)
     tkconfigure(top, menu = editorMenu)
@@ -3184,7 +3188,7 @@ RcmdrEditor <- function(buffer, title="R Commander Editor",
         }
         tkadd(fileMenu, "separator")
     }
-    tkadd(fileMenu, "command", label=gettextRcmdr("Save document"), command=onOK)
+    tkadd(fileMenu, "command", label=gettextRcmdr("Exit editor"), command=onOK)
     tkadd(fileMenu, "command", label=gettextRcmdr("Cancel"), command=onCancel)
     tkadd(editorMenu, "cascade", label=gettextRcmdr("File"), menu=fileMenu)
     editMenu <- tkmenu(editorMenu, tearoff=FALSE)

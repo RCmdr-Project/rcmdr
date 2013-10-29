@@ -1,4 +1,4 @@
-# last modified 2013-10-25 by J. Fox
+# last modified 2013-10-29 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -907,10 +907,10 @@ editMarkdown <- function(){
     RcmdrEditor(buffer,  title="Edit R Markdown document",
         help=list(label="Using R Markdown", command=browseRMarkdown),
         file.menu=list(list(label="Generate HTML report", command=compile)), 
-        edit.menu=list(list(label="Remove last command block", command=removeLastBlock)), 
-        context.menu=list(list(label="Remove last command block", command=removeLastBlock)), 
-        toolbar.buttons=list(list(label="Generate HTML report", command=compile, image="::image::submitIcon"),
-            list(label="Remove last command block", command=removeLastBlock, image="::image::removeIcon")))
+#        edit.menu=list(list(label="Remove last command block", command=removeLastBlock)), 
+#        context.menu=list(list(label="Remove last command block", command=removeLastBlock)), 
+        toolbar.buttons=list(list(label="Generate HTML report", command=compile, image="::image::submitIcon")))
+#            list(label="Remove last command block", command=removeLastBlock, image="::image::removeIcon")))
     edited <- getRcmdr("buffer")
     if (!is.null(edited)){
         tkdelete(.rmd, "1.0", "end")
@@ -955,10 +955,10 @@ editKnitr <- function(){
     }
     RcmdrEditor(buffer,  title="Edit knitr document",
         file.menu=list(list(label="Generate PDF report", command=compile)), 
-        edit.menu=list(list(label="Remove last command block", command=removeLastBlock)), 
-        context.menu=list(list(label="Remove last command block", command=removeLastBlock)), 
-        toolbar.buttons=list(list(label="Generate PDF report", command=compile, image="::image::submitIcon"),
-            list(label="Remove last command block", command=removeLastBlock, image="::image::removeIcon")))
+#       edit.menu=list(list(label="Remove last command block", command=removeLastBlock)), 
+#        context.menu=list(list(label="Remove last command block", command=removeLastBlock)), 
+        toolbar.buttons=list(list(label="Generate PDF report", command=compile, image="::image::submitIcon")))
+#            list(label="Remove last command block", command=removeLastBlock, image="::image::removeIcon")))
     edited <- getRcmdr("buffer")
     if (!is.null(edited)){
         tkdelete(.rnw, "1.0", "end")
