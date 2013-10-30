@@ -1503,70 +1503,71 @@ subsetBox <- defmacro(window=top, subset.expression=NULL, model=FALSE,
 
 
 groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=gettextRcmdr("Plot by groups"),
-    plotLinesByGroup=FALSE, positionLegend=FALSE, plotLinesByGroupsText=gettextRcmdr("Plot lines by group"),
-    initialGroup=NULL, initialLinesByGroup=1, window=top,
-    expr={
-        env <- environment()
-        .groups <- if (is.null(initialGroup)) FALSE else initialGroup
-        .linesByGroup <- initialLinesByGroup == 1
-        .groupsLabel <- tclVar(if (!is.null(initialGroup)) initialLabel else paste(initialLabel, "...", sep=""))
-        .factors <- Factors()
-        onGroups <- function(){
-            if (length(.factors) == 0){
-                errorCondition(recall=recall, message=gettextRcmdr("There are no factors in the active data set."))
-                return()
-            }
-            initializeDialog(subdialog, title=gettextRcmdr("Groups"))
-            groupsBox <- variableListBox(subdialog, .factors, title=gettextRcmdr("Groups variable (pick one)"),
-                initialSelection=varPosn(initialGroup, "factor"))
-            if (plotLinesByGroup){
-                linesByGroupFrame <- tkframe(subdialog)
-                linesByGroup <- tclVar(if(initialLinesByGroup == 1) "1" else "0")
-                linesCheckBox <- ttkcheckbutton(linesByGroupFrame, variable=linesByGroup)
-                tkgrid(labelRcmdr(linesByGroupFrame, text=plotLinesByGroupsText), linesCheckBox, sticky="w")
-            }
-            onOKsub <- function() {
-                groups <- getSelection(groupsBox)
-                if (length(groups) == 0){
-                    assign(".groups", FALSE, envir=env)
-                    tclvalue(.groupsLabel) <- paste(gettextRcmdr("Plot by groups"), "...", sep="")
-                    tkconfigure(groupsButton, foreground="black")
-                    if (GrabFocus()) tkgrab.release(subdialog)
-                    tkdestroy(subdialog)
-                    tkwm.deiconify(top)
-                    if (GrabFocus()) tkgrab.set(top)
-                    tkfocus(top)
-                    tkwait.window(top)
-                    return()
-                }
-                assign(".groups", groups, envir=env)
-                tclvalue(.groupsLabel) <- paste(label, groups)
-                tkconfigure(groupsButton, foreground=getRcmdr("title.color"))
-                tkconfigure(groupsButton, font="RcmdrTitleFont")
-                if (plotLinesByGroup) {
-                    lines <- as.character("1" == tclvalue(linesByGroup))
-                    assign(".linesByGroup", lines, envir=env)
-                }
-                if (GrabFocus()) tkgrab.release(subdialog)
-                tkdestroy(subdialog)
-                tkwm.deiconify(top)
-                if (GrabFocus()) tkgrab.set(top)
-                tkfocus(top)
-                tkwait.window(top)
-            }
-            subOKCancelHelp()
-            tkgrid(getFrame(groupsBox), sticky="nw")
-            if (plotLinesByGroup) tkgrid(linesByGroupFrame, sticky="w")
-            tkgrid(subButtonsFrame, sticky="ew")
-            if (positionLegend) tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Position legend with mouse click"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"))
-            dialogSuffix(subdialog, onOK=onOKsub, focus=subdialog)
-        }
-        groupsFrame <- tkframe(window)
-        groupsButton <- tkbutton(groupsFrame, textvariable=.groupsLabel, command=onGroups)
-        if (!is.null(initialGroup)) tkconfigure(groupsButton, foreground=getRcmdr("title.color"), font="RcmdrTitleFont")
-        tkgrid(groupsButton, sticky="we")
-        tkgrid.columnconfigure(groupsFrame, 0, weight=1)
-    })
+                      variables=Factors(), plotLinesByGroup=FALSE, positionLegend=FALSE, plotLinesByGroupsText=gettextRcmdr("Plot lines by group"),
+                      initialGroup=NULL, initialLinesByGroup=1, window=top,
+                      expr={
+                          env <- environment()
+                          .groups <- if (is.null(initialGroup)) FALSE else initialGroup
+                          .linesByGroup <- initialLinesByGroup == 1
+                          .groupsLabel <- tclVar(if (!is.null(initialGroup)) initialLabel else paste(initialLabel, "...", sep=""))
+                          .factors <- variables
+                          onGroups <- function(){
+                              if (length(.factors) == 0){
+                                  errorCondition(recall=recall, message=gettextRcmdr("There are no suitable factors in the active data set."))
+                                  return()
+                              }
+                              initializeDialog(subdialog, title=gettextRcmdr("Groups"))
+                              groupsBox <- variableListBox(subdialog, .factors, title=gettextRcmdr("Groups variable (pick one)"),
+                                                           initialSelection=varPosn(initialGroup, "factor"))
+                              if (plotLinesByGroup){
+                                  linesByGroupFrame <- tkframe(subdialog)
+                                  linesByGroup <- tclVar(if(initialLinesByGroup == 1) "1" else "0")
+                                  linesCheckBox <- ttkcheckbutton(linesByGroupFrame, variable=linesByGroup)
+                                  tkgrid(labelRcmdr(linesByGroupFrame, text=plotLinesByGroupsText), linesCheckBox, sticky="w")
+                              }
+                              onOKsub <- function() {
+                                  groups <- getSelection(groupsBox)
+                                  if (length(groups) == 0){
+                                      assign(".groups", FALSE, envir=env)
+                                      tclvalue(.groupsLabel) <- paste(gettextRcmdr("Plot by groups"), "...", sep="")
+                                      tkconfigure(groupsButton, foreground="black")
+                                      if (GrabFocus()) tkgrab.release(subdialog)
+                                      tkdestroy(subdialog)
+                                      tkwm.deiconify(top)
+                                      if (GrabFocus()) tkgrab.set(top)
+                                      tkfocus(top)
+                                      tkwait.window(top)
+                                      return()
+                                  }
+                                  assign(".groups", groups, envir=env)
+                                  tclvalue(.groupsLabel) <- paste(label, groups)
+                                  tkconfigure(groupsButton, foreground=getRcmdr("title.color"))
+                                  tkconfigure(groupsButton, font="RcmdrTitleFont")
+                                  if (plotLinesByGroup) {
+                                      lines <- as.character("1" == tclvalue(linesByGroup))
+                                      assign(".linesByGroup", lines, envir=env)
+                                  }
+                                  if (GrabFocus()) tkgrab.release(subdialog)
+                                  tkdestroy(subdialog)
+                                  tkwm.deiconify(top)
+                                  if (GrabFocus()) tkgrab.set(top)
+                                  tkfocus(top)
+                                  tkwait.window(top)
+                              }
+                              subOKCancelHelp()
+                              tkgrid(getFrame(groupsBox), sticky="nw")
+                              if (plotLinesByGroup) tkgrid(linesByGroupFrame, sticky="w")
+                              tkgrid(subButtonsFrame, sticky="ew")
+                              if (positionLegend) tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Position legend with mouse click"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"))
+                              dialogSuffix(subdialog, onOK=onOKsub, focus=subdialog)
+                          }
+                          groupsFrame <- tkframe(window)
+                          groupsButton <- tkbutton(groupsFrame, textvariable=.groupsLabel, command=onGroups)
+                          if (!is.null(initialGroup)) tkconfigure(groupsButton, foreground=getRcmdr("title.color"), font="RcmdrTitleFont")
+                          tkgrid(groupsButton, sticky="we")
+                          tkgrid.columnconfigure(groupsFrame, 0, weight=1)
+                      })
+
 
 groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialText=NULL,
     expr={

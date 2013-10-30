@@ -197,6 +197,7 @@ glmP()
 GrabFocus(value)
 groupsBox(recall=NULL, label=gettextRcmdr("Plot by:"), 
     initialLabel=gettextRcmdr("Plot by groups"),
+    variables=Factors(),
     plotLinesByGroup=FALSE, positionLegend=FALSE, 
     plotLinesByGroupsText=gettextRcmdr("Plot lines by group"), 
     initialGroup=NULL, initialLinesByGroup=1, window=top)  # macro

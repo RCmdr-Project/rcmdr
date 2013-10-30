@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-10-24 by J. Fox
+# last modified 2013-10-29 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -199,11 +199,13 @@ stemAndLeaf <- function () {
     Library("aplpack")
     defaults <- list(initial.x = NULL, initial.leafs.auto="1", initial.unit = 0,  initial.m = "auto", 
                      initial.trim = 1, initial.depths = 1, initial.reverse = 1, initial.style = "Tukey",
-                     initial.tab=0) 
+                     initial.tab=0, initial.group = NULL) 
     dialog.values <- getDialog("stemAndLeaf", defaults)
     initializeDialog(title = gettextRcmdr("Stem and Leaf Display"), 
-#                     preventCrisp = TRUE, use.tabs=TRUE)
+                     #                     preventCrisp = TRUE, use.tabs=TRUE)
                      use.tabs=TRUE)
+    initial.group <- dialog.values$initial.group
+    .groups <- if (is.null(initial.group)) FALSE else initial.group
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
                             initialSelection = varPosn (dialog.values$initial.x, "numeric"))
     displayDigits <- tclVar(formatC(10^dialog.values$initial.unit))
@@ -214,7 +216,7 @@ stemAndLeaf <- function () {
             leafsDigitOnce <<- FALSE
             return()
         }
-
+        
         tclvalue(displayDigits) <- formatC(10^as.numeric(tclvalue(leafsDigitValue)), 
                                            format = "fg", big.mark = ",")
         tclvalue(leafsAutoVariable) <- "0"
@@ -257,7 +259,8 @@ stemAndLeaf <- function () {
         putDialog ("stemAndLeaf", list(initial.x = x, initial.leafs.auto=tclvalue(leafsAutoVariable),
                                        initial.unit = as.numeric(tclvalue(leafsDigitValue)),  initial.m = m, 
                                        initial.trim = trim, initial.depths = depths, initial.reverse = reverse, 
-                                       initial.style = style, initial.tab=tab))
+                                       initial.style = style, initial.tab=tab,
+                                       initial.group=if (.groups == FALSE) NULL else .groups))
         closeDialog()
         if (length(x) == 0) {
             errorCondition(recall = stemAndLeaf, message = gettextRcmdr("You must select a variable"))
@@ -278,12 +281,27 @@ stemAndLeaf <- function () {
         style <- if (tclvalue(styleVariable) == "Tukey") 
             ""
         else ", style=\"bare\""
-        command <- paste("stem.leaf(", ActiveDataSet(), "$", 
-                         x, style, unit, m, trim, depths, reverse, ", na.rm=TRUE)", 
-                         sep = "")
+        command <- if (is.null(.groups) || .groups == FALSE){
+            paste("stem.leaf(", ActiveDataSet(), "$", 
+                  x, style, unit, m, trim, depths, reverse, ", na.rm=TRUE)", 
+                  sep = "")
+        }
+        else {
+            levels <- levels(eval(parse(text=paste(ActiveDataSet(), "$", .groups, sep="")), 
+                                  envir=.GlobalEnv))
+            paste("with(", ActiveDataSet(),
+                  ", stem.leaf.backback(", x,"[", .groups, ' == "', levels[1], '"], ',
+                  x,"[", .groups, ' == "', levels[2], '"]',
+                  style, unit, m, trim, depths, reverse, ", na.rm=TRUE))", 
+                  sep = "")
+        }
         doItAndPrint(command)
         tkfocus(CommanderWindow())
     }
+    groupsBox(stemAndLeaf, variables=TwoLevelFactors(), initialGroup=initial.group,
+              initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups")
+              else paste(gettextRcmdr("Plot by:"), initial.group), window=dataTab)
+    OKCancelHelp(helpSubject = "Boxplot", reset = "boxPlot", apply="boxPlot")
     OKCancelHelp(helpSubject = "stem.leaf", reset = "stemAndLeaf", apply = "stemAndLeaf")
     tkgrid(getFrame(xBox), sticky = "nw")
     tkgrid(labelRcmdr(leafsFrame, text = gettextRcmdr("Leafs Digit:  "), 
@@ -294,6 +312,7 @@ stemAndLeaf <- function () {
     tkgrid(styleFrame, sticky = "w")
     tkgrid(otherOptionsFrame, sticky="w")
     tkgrid(leafsFrame, sticky = "w")
+    tkgrid(groupsFrame, sticky = "w")
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 

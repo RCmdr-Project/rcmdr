@@ -1,6 +1,6 @@
-msgid "Project-Id-Version: Rcmdr 2.0-0\n"
+msgid "Project-Id-Version: Rcmdr 2.0-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-10-29 18:00:00\n"
+"POT-Creation-Date: 2013-10-29 22:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4298,6 +4298,8 @@ msgstr ""
 msgid "Delete previously created R Markdown\ngraphics files (recommended)?"
 msgstr ""
 
-
 msgid "Discard edits?"
+msgstr ""
+
+msgid "There are no suitable factors in the active data set."
 msgstr ""
