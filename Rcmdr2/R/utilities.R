@@ -1,4 +1,4 @@
-# last modified 2013-10-29 by J. Fox
+# last modified 2013-10-30 by J. Fox
 
 # utility functions
 
@@ -1503,6 +1503,7 @@ subsetBox <- defmacro(window=top, subset.expression=NULL, model=FALSE,
 
 
 groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=gettextRcmdr("Plot by groups"),
+                      errorText=gettextRcmdr("There are no factors in the active data set."),
                       variables=Factors(), plotLinesByGroup=FALSE, positionLegend=FALSE, plotLinesByGroupsText=gettextRcmdr("Plot lines by group"),
                       initialGroup=NULL, initialLinesByGroup=1, window=top,
                       expr={
@@ -1513,7 +1514,7 @@ groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=
                           .factors <- variables
                           onGroups <- function(){
                               if (length(.factors) == 0){
-                                  errorCondition(recall=recall, message=gettextRcmdr("There are no suitable factors in the active data set."))
+                                  errorCondition(recall=recall, message=errorText)
                                   return()
                               }
                               initializeDialog(subdialog, title=gettextRcmdr("Groups"))

@@ -299,9 +299,11 @@ stemAndLeaf <- function () {
         tkfocus(CommanderWindow())
     }
     groupsBox(stemAndLeaf, variables=TwoLevelFactors(), initialGroup=initial.group,
-              initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups")
-              else paste(gettextRcmdr("Plot by:"), initial.group), window=dataTab)
-    OKCancelHelp(helpSubject = "Boxplot", reset = "boxPlot", apply="boxPlot")
+              label=gettextRcmdr("Back-to-back by:"),
+              initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot back-to-back")
+              else paste(gettextRcmdr("Back-to-back by:"), initial.group), 
+              errorText=gettextRcmdr("There are no two-level factors in the active data set."), 
+              window=dataTab)
     OKCancelHelp(helpSubject = "stem.leaf", reset = "stemAndLeaf", apply = "stemAndLeaf")
     tkgrid(getFrame(xBox), sticky = "nw")
     tkgrid(labelRcmdr(leafsFrame, text = gettextRcmdr("Leafs Digit:  "), 

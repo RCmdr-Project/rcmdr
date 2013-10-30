@@ -1,6 +1,6 @@
 msgid "Project-Id-Version: Rcmdr 2.0-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-10-29 22:00:00\n"
+"POT-Creation-Date: 2013-10-30 13:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4271,6 +4271,8 @@ msgstr ""
 
 # messages added to version 2.0-1
 
+   # messages related to editing/processing R Markdown and knitr documents
+
 msgid "R Commander Editor"
 msgstr ""
 
@@ -4301,5 +4303,13 @@ msgstr ""
 msgid "Discard edits?"
 msgstr ""
 
-msgid "There are no suitable factors in the active data set."
+   # support for back-to-back stem-and-leaf displays
+
+msgid "Back-to-back by:"
+msgstr ""
+
+msgid "Plot back-to-back"
+msgstr ""
+
+msgid "There are no two-level factors in the active data set."
 msgstr ""

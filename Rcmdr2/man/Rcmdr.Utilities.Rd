@@ -197,6 +197,7 @@ glmP()
 GrabFocus(value)
 groupsBox(recall=NULL, label=gettextRcmdr("Plot by:"), 
     initialLabel=gettextRcmdr("Plot by groups"),
+    errorText=gettextRcmdr("There are no factors in the active data set."),
     variables=Factors(),
     plotLinesByGroup=FALSE, positionLegend=FALSE, 
     plotLinesByGroupsText=gettextRcmdr("Plot lines by group"), 
@@ -328,6 +329,7 @@ commanderPosition()
     in the \code{RcmdrEditor} Edit menu; the second element, \code{command}, is a call-back function to be evaluated
     when the menu item is selected. If \code{NULL} (the default), no item will be added to the file menu.}
   \item{envir}{the environment to be searched; should generally be left at the default.}
+  \item{errorText}{error message to print if a suitable factor isn't available.}
   \item{export}{export selection?}
   \item{expr}{expression constituting the body of the macro; typically a compound expression.}
   \item{fail}{if \code{TRUE}, the default, \code{getRcmdr} will generate an error if the object sought doesn't exist; 
