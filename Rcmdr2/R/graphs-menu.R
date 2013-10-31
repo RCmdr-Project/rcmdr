@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-10-29 by J. Fox
+# last modified 2013-10-30 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -299,9 +299,9 @@ stemAndLeaf <- function () {
         tkfocus(CommanderWindow())
     }
     groupsBox(stemAndLeaf, variables=TwoLevelFactors(), initialGroup=initial.group,
-              label=gettextRcmdr("Back-to-back by:"),
-              initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot back-to-back")
-              else paste(gettextRcmdr("Back-to-back by:"), initial.group), 
+              label=gettextRcmdr("Ploy back-to-back by:"),
+              initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot back-to-back by")
+              else paste(gettextRcmdr("Plot back-to-back by:"), initial.group), 
               errorText=gettextRcmdr("There are no two-level factors in the active data set."), 
               window=dataTab)
     OKCancelHelp(helpSubject = "stem.leaf", reset = "stemAndLeaf", apply = "stemAndLeaf")

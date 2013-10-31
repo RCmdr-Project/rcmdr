@@ -1,6 +1,6 @@
 msgid "Project-Id-Version: Rcmdr 2.0-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-10-30 13:30:00\n"
+"POT-Creation-Date: 2013-10-30 22:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4305,7 +4305,7 @@ msgstr ""
 
    # support for back-to-back stem-and-leaf displays
 
-msgid "Back-to-back by:"
+msgid "Plot back-to-back by:"
 msgstr ""
 
 msgid "Plot back-to-back"
