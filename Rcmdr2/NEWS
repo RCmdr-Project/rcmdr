@@ -2,7 +2,7 @@ Changes to Version 2.0-1
 
   o Caching of variable names, factor names, etc., to improve menu refreshes in large data sets (in response to observation of Yoshinobu Kanda).
 
-  o Updated translations (with thanks to the translators): Japanese (Araki Takaharu).
+  o Updated translations (with thanks to the translators): French (Milan Bouchet-Valat), Japanese (Araki Takaharu).
 
   o Most errors now removed from R Markdown and knitr documents.
 
@@ -46,7 +46,7 @@ Changes to Version 2.0-0
 
 Changes to Version 1.9-5
 
-  o R logo now replaces Tk logo on non-Windows as well as Windows platforms (with help of Milan Bouchet-Valet).
+  o R logo now replaces Tk logo on non-Windows as well as Windows platforms (with help of Milan Bouchet-Valat).
 
   o Faster opening of dialog windows under Windows (consequence of above).
 
