@@ -1,4 +1,4 @@
-# last modified 2013-10-30 by J. Fox
+# last modified 2013-11-01 by J. Fox
 
 # utility functions
 
@@ -3041,8 +3041,8 @@ RcmdrEditor <- function(buffer, title="R Commander Editor",
         if (!is.null(context.menu)){
             for (item in context.menu){
                 tkadd(contextMenu, "command", label=gettextRcmdr(item$label), command=item$command)
-                tkadd(contextMenu, "separator")
             }
+            tkadd(contextMenu, "separator")
         }
         tkadd(contextMenu, "command", label=gettextRcmdr("Cut"), command=onCut)
         tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)
