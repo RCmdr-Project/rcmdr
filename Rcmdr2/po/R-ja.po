@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr Japanese Translation\n"
 "POT-Creation-Date: 2010-07-10 19:00\n"
-"PO-Revision-Date: 2013-08-26 08:04+0900\n"
+"PO-Revision-Date: 2013-11-06 14:15+0900\n"
 "Last-Translator: Takaharu Araki <arakit@kansai-u.ac.jp>\n"
 "Language-Team: Rcmdr Japanese Translation <arakit@kansai-u.ac.jp>\n"
 "MIME-Version: 1.0\n"
@@ -695,7 +695,7 @@ msgstr ""
 "水準数(%d)*対比数(%d)とは等しくありません"
 
 msgid "Contrast matrix is not of full column rank"
-msgstr "対比行列が full column rankではない"
+msgstr "対比行列が 列フルランクではない"
 
 msgid "Contrast names must be unique"
 msgstr "対比の名前はユニークに付けてください"
@@ -1409,7 +1409,7 @@ msgstr ""
 "が、行の数 (%d) *列の数 (%d)と異なっています．"
 
 msgid "Hypothesis matrix is not of full row rank."
-msgstr "仮説行列が、full row rank ではありません．"
+msgstr "仮説行列が、行フルランクではありません．"
 
 msgid ""
 "Number of valid entries in rhs vector (%d)\n"
@@ -2282,7 +2282,7 @@ msgid "Kruskal-Wallis test..."
 msgstr "クラスカル－ウォリスの検定..."
 
 msgid "Scale reliability..."
-msgstr "スケールの信頼性..."
+msgstr "尺度の信頼性..."
 
 msgid "Principal-components analysis..."
 msgstr "主成分分析..."
@@ -4261,7 +4261,7 @@ msgid ""
 "graphics files (recommended)?"
 msgstr ""
 "前に作成したknitrグラフィックスファイル\n"
-"を削除（推奨）"
+"を削除？（推奨）"
 
 # setting and saving options
 msgid "Ask to exit Commander"
@@ -4281,6 +4281,9 @@ msgstr "メッセージを保持"
 
 msgid "Use R Markown"
 msgstr "Rマークダウンを利用"
+
+msgid "Use knitr"
+msgstr "knitrの利用"
 
 msgid "Select file"
 msgstr "ファイルの選択"
@@ -4461,3 +4464,52 @@ msgstr "スプラインの自由度："
 
 msgid "deg. for polynomials:"
 msgstr "多項式の次数 :"
+
+# messages added to version 2.0-1
+# messages related to editing/processing R Markdown and knitr documents
+msgid "R Commander Editor"
+msgstr "Rコマンダーのエディタ"
+
+msgid "Edit R Markdown document"
+msgstr "Rマークダウン文書の編集"
+
+msgid "Edit knitr document"
+msgstr "knitr文書の編集"
+
+msgid "Remove last Markdown command block"
+msgstr "マークダウンコマンドの最後のブロックの削除"
+
+msgid "Remove last knitr command block"
+msgstr "knitrコマンドの最後のブロックの削除"
+
+msgid "Remove last command block"
+msgstr "最後のコマンドブロックの削除"
+
+msgid "Exit editor"
+msgstr "エディタの終了"
+
+msgid "Editor help"
+msgstr "エディタのヘルプ"
+
+msgid ""
+"Delete previously created R Markdown\n"
+"graphics files (recommended)?"
+msgstr ""
+"前に作成したRマークダウン\n"
+"グラフィックスファイルを削除しますか（推奨）？"
+
+msgid "Discard edits?"
+msgstr "編集を破棄しますか？"
+
+# support for back-to-back stem-and-leaf displays
+msgid "Plot back-to-back by:"
+msgstr "層別の背中合わせプロット"
+
+msgid "Plot back-to-back"
+msgstr "背中合わせにプロット"
+
+msgid "Save document"
+msgstr "文書を保存"
+
+msgid "Save document and exit?"
+msgstr "文書を保存して終了？"
