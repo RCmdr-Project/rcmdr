@@ -7,10 +7,10 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.0-0\n"
+"Project-Id-Version: Rcmdr 2.0-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-10-25 21:00:00\n"
-"POT-Creation-Date: 2013-10-25 21:49:00\n"
+"POT-Creation-Date: 2013-11-08 15:57:00\n"
+"PO-Revision-Date: 2013-11-08 16:00:00\n"
 "Last-Translator: Milan Bouchet-Valat <nalimilan@club.fr>\n"
 "Language-Team: français <>\n"
 "Language: \n"
@@ -4473,18 +4473,6 @@ msgid "Edit knitr document"
 msgstr "Éditer le document knitr"
 
 # support for R Markdown and knitr
-msgid ""
-"Generate\n"
-"HTML report"
-msgstr "Générer\n"
-"un rapport HTML"
-
-msgid ""
-"Generate\n"
-"PDF report"
-msgstr "Générer\n"
-"un rapport PDF"
-
 msgid "Remove last Markdown command block"
 msgstr "Supprimer le dernier bloc de commandes Markdown"
 
@@ -4494,14 +4482,8 @@ msgstr "Supprimer le dernier bloc de commandes knitr"
 msgid "Remove last command block"
 msgstr "Supprimer le dernier bloc de commandes"
 
-msgid ""
-"Remove last\n"
-"command block"
-msgstr "Supprimer le dernier\n"
-"bloc de commandes"
-
-msgid "Save document"
-msgstr "Enregistrer le document"
+msgid "Exit editor"
+msgstr "Quitter l'éditeur"
 
 msgid "Editor help"
 msgstr "Aide de l'éditeur"
@@ -4512,3 +4494,13 @@ msgid ""
 msgstr ""
 "Supprimer les fichiers images R Markdown\n"
 "précédemment créés (recommandé) ?"
+
+msgid "Discard edits?"
+msgstr "Abandonner les modifications ?"
+
+# support for back-to-back stem-and-leaf displays
+msgid "Plot back-to-back by:"
+msgstr "Graphique couplé par :"
+
+msgid "Plot back-to-back"
+msgstr "Graphique couplé"
