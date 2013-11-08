@@ -4502,5 +4502,5 @@ msgstr "Abandonner les modifications ?"
 msgid "Plot back-to-back by:"
 msgstr "Graphique couplé par :"
 
-msgid "Plot back-to-back"
-msgstr "Graphique couplé"
+msgid "Plot back-to-back by"
+msgstr "Graphique couplé par"
