@@ -4308,5 +4308,5 @@ msgstr ""
 msgid "Plot back-to-back by:"
 msgstr ""
 
-msgid "Plot back-to-back"
+msgid "Plot back-to-back by"
 msgstr ""
