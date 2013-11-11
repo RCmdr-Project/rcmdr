@@ -262,6 +262,8 @@ Commander <- function(){
     setOption("log.commands", TRUE)
     setOption("use.knitr", FALSE)
     setOption("use.markdown", !getRcmdr("use.knitr"))
+    if ((!packageAvailable("markdown")) || (!packageAvailable("knitr"))) putRcmdr("use.markdown", FALSE)
+    if (!packageAvailable("knitr")) putRcmdr("use.knitr", FALSE)
     putRcmdr("startNewCommandBlock", TRUE)
     putRcmdr("startNewKnitrCommandBlock", TRUE)
     putRcmdr("rmd.generated", FALSE)

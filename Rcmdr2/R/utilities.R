@@ -2689,6 +2689,8 @@ MarkdownP <- function(){
 }
 
 compileRmd <- function() {
+    if (!(require(knitr))) return()
+    if (!(require(markdown))) return()
     fig.files <- list.files("./figure")
     fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
     if (length(fig.files) != 0) {
@@ -2809,6 +2811,7 @@ removeLastRnwBlock <- function(){
 }
 
 compileRnw <- function(){
+    if (!require(knitr)) return()
     fig.files <- list.files("./figure")
     fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
     if (length(fig.files) != 0) {
