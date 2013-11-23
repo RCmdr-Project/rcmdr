@@ -4,6 +4,8 @@ Changes to Version 2.0-2
 
   o Updated Japanese translation of Getting Started manual (by  Takaharu Araki).
 
+  o Added editing buttons with tooltips to Rcmdr editor.
+
 Changes to Version 2.0-1
 
   o Caching of variable names, factor names, etc., to improve menu refreshes in large data sets (in response to observation of Yoshinobu Kanda).

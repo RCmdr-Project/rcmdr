@@ -1,8 +1,10 @@
-# last modified 2013-11-10 by J. Fox
+# last modified 2013-11-23 by J. Fox
 
 useDynLib(Rcmdr)
 
 import(tcltk)
+
+importFrom(tcltk2, tk2tip)
 
 importFrom(utils, available.packages, install.packages)
 

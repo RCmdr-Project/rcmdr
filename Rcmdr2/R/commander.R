@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-11-09 by John Fox
+# last modified 2013-11-23 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -69,6 +69,13 @@ Commander <- function(){
     tkimage.create("photo", "::image::dataIcon", file = system.file("etc", "data.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::modelIcon", file = system.file("etc", "model.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::removeIcon", file = system.file("etc", "remove.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::copyIcon", file = system.file("etc", "copy.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::cutIcon", file = system.file("etc", "cut.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::deleteIcon", file = system.file("etc", "delete.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::findIcon", file = system.file("etc", "find.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::pasteIcon", file = system.file("etc", "paste.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::redoIcon", file = system.file("etc", "redo.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::undoIcon", file = system.file("etc", "undo.gif", package="Rcmdr"))
     # locate Rcmdr etc directory and directory for menus (usually the same)
     etc <- setOption("etc", system.file("etc", package="Rcmdr"))
     etcMenus <- setOption("etcMenus", etc)
