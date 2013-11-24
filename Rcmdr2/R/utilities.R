@@ -2620,7 +2620,7 @@ removeStrayRmdBlocks <- function(){
     ends  <- grep("^```$", rmd)
     n.ends <- length(ends)
     j <- 1
-    if (length(starts) > 0){
+    if (length(starts) > 1){
         for (i in 1:(length(starts) - 1)){
             if (j > n.ends || ends[j] > starts[i + 1]) {
                 rmd[starts[i]] <- ""
@@ -2631,6 +2631,7 @@ removeStrayRmdBlocks <- function(){
             }
         }
     }
+    else return()
     rmd <- paste(rmd, collapse="\n")
     tkdelete(.rmd, "1.0", "end")
     tkinsert(.rmd, "end", rmd)
@@ -2752,7 +2753,7 @@ removeStrayRnwBlocks <- function(){
     ends  <- grep("^@$", rnw)
     n.ends <- length(ends)
     j <- 1
-    if (length(starts) > 0){
+    if (length(starts) > 1){
         for (i in (length(starts) - 1)){
             if (j > n.ends || ends[j] > starts[i + 1]) {
                 rnw[starts[i]] <- ""
@@ -2763,6 +2764,7 @@ removeStrayRnwBlocks <- function(){
             }
         }
     }
+    else return()
     rnw <- paste(rnw, collapse="\n")
     tkdelete(.rnw, "1.0", "end")
     tkinsert(.rnw, "end", rnw)
