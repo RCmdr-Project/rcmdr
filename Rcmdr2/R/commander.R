@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-11-23 by John Fox
+# last modified 2013-11-26 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -76,6 +76,10 @@ Commander <- function(){
     tkimage.create("photo", "::image::pasteIcon", file = system.file("etc", "paste.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::redoIcon", file = system.file("etc", "redo.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::undoIcon", file = system.file("etc", "undo.gif", package="Rcmdr"))
+    
+    # set them for ttk widgets (necessary because of use of tcltk2 package)
+    if (!WindowsP()) .Tcl("ttk::style theme use default")
+    
     # locate Rcmdr etc directory and directory for menus (usually the same)
     etc <- setOption("etc", system.file("etc", package="Rcmdr"))
     etcMenus <- setOption("etcMenus", etc)
