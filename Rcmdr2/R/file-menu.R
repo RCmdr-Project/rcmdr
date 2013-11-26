@@ -1,4 +1,4 @@
-# last modified 2013-10-29 by J. Fox
+# last modified 2013-10-26 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -775,6 +775,20 @@ saveOptions <- function(){
     tkbind(top, "<Control-A>", onSelectAll)
     tkbind(top, "<Control-w>", onRedo)
     tkbind(top, "<Control-W>", onRedo)
+    if (MacOSXP()){
+        tkbind(top, "<Meta-x>", onCut)
+        tkbind(top, "<Meta-X>", onCut)
+        tkbind(top, "<Meta-c>", onCopy)
+        tkbind(top, "<Meta-C>", onCopy)
+        tkbind(top, "<Meta-v>", onPaste)
+        tkbind(top, "<Meta-V>", onPaste)
+        tkbind(top, "<Meta-f>", onFind)
+        tkbind(top, "<Meta-F>", onFind)
+        tkbind(top, "<Meta-a>", onSelectAll)
+        tkbind(top, "<Meta-A>", onSelectAll)
+        tkbind(top, "<Meta-w>", onRedo)
+        tkbind(top, "<Meta-W>", onRedo)
+    }
     tkbind(top, "<Alt-BackSpace>", onUndo)
     tkbind(optionsWindow, "<ButtonPress-3>", contextMenu)
     OKCancelHelp(helpSubject="saveOptions")

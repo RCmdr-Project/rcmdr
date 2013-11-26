@@ -1,4 +1,4 @@
-# last modified 2013-11-23 by J. Fox
+# last modified 2013-11-26 by J. Fox
 
 # utility functions
 
@@ -3076,6 +3076,20 @@ RcmdrEditor <- function(buffer, title="R Commander Editor",
     tkbind(top, "<Control-w>", onRedo)
     tkbind(top, "<Control-W>", onRedo)
     tkbind(top, "<Alt-BackSpace>", onUndo)
+    if (MacOSXP()){
+        tkbind(top, "<Meta-x>", onCut)
+        tkbind(top, "<Meta-X>", onCut)
+        tkbind(top, "<Meta-c>", onCopy)
+        tkbind(top, "<Meta-C>", onCopy)
+        tkbind(top, "<Meta-v>", onPaste)
+        tkbind(top, "<Meta-V>", onPaste)
+        tkbind(top, "<Meta-f>", onFind)
+        tkbind(top, "<Meta-F>", onFind)
+        tkbind(top, "<Meta-a>", onSelectAll)
+        tkbind(top, "<Meta-A>", onSelectAll)
+        tkbind(top, "<Meta-w>", onRedo)
+        tkbind(top, "<Meta-W>", onRedo)
+    }
     tkwm.protocol(top, "WM_DELETE_WINDOW", onCancel)
     tkgrid.rowconfigure(top, 1, weight=0)
     tkgrid.rowconfigure(top, 0, weight=1)

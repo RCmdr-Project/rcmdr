@@ -82,6 +82,9 @@ Pressing \emph{Control-A} selects all of the text in the Script tab, R Markdown 
 In addition, the following Control-key combinations work in these tabs and windows: \emph{Control-X}, cut;
 \emph{Control-C}, copy; \emph{Control-V}, insert; \emph{Control-Z} or \emph{Alt-Backspace}, undo; and \emph{Control-W}, redo.
 
+Under Mac OS X, the \emph{command} key may be used in place of the \code{Control} key, though the
+latter works as well.
+
 Right-clicking the mouse (clicking button 3 on a three-button mouse, or \emph{Control}-left-clicking) in the tabs or windows brings up
 a "context" menu with the \emph{Edit}-menu items, plus (in the Script, R Markdown, and knitr tabs) a \emph{Submit} item.
 
