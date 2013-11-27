@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-11-26 by John Fox
+# last modified 2013-11-27 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -214,6 +214,7 @@ Commander <- function(){
     putRcmdr("restoreTab", FALSE)
     putRcmdr("cancelDialogReopen", FALSE)
     putRcmdr("last.search", "")
+    putRcmdr("editor.accessed", FALSE)
     # set up Rcmdr default and text (log) fonts, Tk scaling factor
     default.font.size.val <- abs(as.numeric(.Tcl("font actual TkDefaultFont -size")))
     if (is.na(default.font.size.val)) default.font.size.val <- 10
