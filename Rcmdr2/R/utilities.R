@@ -2842,6 +2842,7 @@ knitrP <- function(){
 
 RcmdrEditor <- function(buffer, title="R Commander Editor", 
     help=NULL, file.menu=NULL, edit.menu=NULL, context.menu=NULL, toolbar.buttons=NULL){
+    tk2tip <- tcltk2::tk2tip
     contextMenu <- function(){
         contextMenu <- tkmenu(tkmenu(editor), tearoff=FALSE)
         if (!is.null(context.menu)){
