@@ -215,21 +215,6 @@ Commander <- function(){
     putRcmdr("cancelDialogReopen", FALSE)
     putRcmdr("last.search", "")
     putRcmdr("editor.accessed", FALSE)
-
-    # Set window background color to match that of Ttk widgets (necessary because of tcltk2)
-    if (WindowsP()) {
-        .Tcl(paste("font configure TkDefaultFont -size ", 
-                   getRcmdr("default.font.size")))
-        .Tcl(paste("font configure TkDefaultFont -family {",  
-                   getRcmdr("default.font.family"), "}", sep=""))
-    }
-    else if (MacOSXP()) {
-        .Tcl("ttk::style theme use default")
-    }
-    else {
-        .Tcl(paste("tk_setPalette", tclvalue(.Tcl("ttk::style lookup TFrame -background"))))
-    }
-
     # set up Rcmdr default and text (log) fonts, Tk scaling factor
     default.font.size.val <- abs(as.numeric(.Tcl("font actual TkDefaultFont -size")))
     if (is.na(default.font.size.val)) default.font.size.val <- 10
