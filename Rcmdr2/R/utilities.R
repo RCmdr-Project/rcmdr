@@ -2843,9 +2843,17 @@ knitrP <- function(){
 RcmdrEditor <- function(buffer, title="R Commander Editor", 
     help=NULL, file.menu=NULL, edit.menu=NULL, context.menu=NULL, toolbar.buttons=NULL){
     tk2tip <- tcltk2::tk2tip
-    # set theme for ttk widgets (necessary because of use of tcltk2 package)
-    if (!getRcmdr("editor.accessed") && !WindowsP()) {
+    # fixup theme/fonts for ttk widgets (necessary because of use of tcltk2 package)
+    if (!getRcmdr("editor.accessed")){
+        if (WindowsP()) {
+            .Tcl(paste("font configure TkDefaultFont -size ", 
+                       getRcmdr("default.font.size")))
+            .Tcl(paste("font configure TkDefaultFont -family {",  
+                       getRcmdr("default.font.family"), "}", sep=""))
+        }
+        else {
       .Tcl("ttk::style theme use default")
+        }
       putRcmdr("editor.accessed", TRUE)
     }
     contextMenu <- function(){
