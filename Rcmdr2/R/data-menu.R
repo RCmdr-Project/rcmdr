@@ -1,4 +1,4 @@
-# last modified 2013-09-13 by J. Fox
+# last modified 2013-12-04 by J. Fox
 
 # Data menu dialogs
 
@@ -603,7 +603,8 @@ readDataFromPackage <- function() {
 		}
 	}
 	onDataHelp <- function(){
-		datasetName <- data(package=package)$results[as.numeric(tkcurselection(datasetBox)) + 1,3]
+#		datasetName <- data(package=package)$results[as.numeric(tkcurselection(datasetBox)) + 1,3]
+    datasetName <- datasets[as.numeric(tkcurselection(datasetBox)) + 1]
 		dsnameValue <- tclvalue(dsname)
 		if (dsnameValue == "") dsnameValue <- datasetName
 		if (length(dsnameValue) == 0) Message(gettextRcmdr("No data set selected."), type="warning")

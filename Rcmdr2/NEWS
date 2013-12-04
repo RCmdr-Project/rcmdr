@@ -8,6 +8,8 @@ Changes to Version 2.0-2
 
   o Added Mac OS X command-key combinations.
 
+  o Small bug fixes.
+
 Changes to Version 2.0-1
 
   o Caching of variable names, factor names, etc., to improve menu refreshes in large data sets (in response to observation of Yoshinobu Kanda).

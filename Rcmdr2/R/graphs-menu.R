@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-10-30 by J. Fox
+# last modified 2013-12-04 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -9,7 +9,8 @@
 
 indexPlot <- function () {
     defaults <- list(initial.x = NULL, initial.type = "spikes", initial.identify = "auto",
-        initial.id.n="2", initial.tab=0, initial.ylab="<auto>", initial.main="<auto>")
+        initial.id.n="2", initial.tab=0, 
+        initial.ylab=gettextRcmdr("<auto>"), initial.main=gettextRcmdr("<auto>"))
     dialog.values <- getDialog("indexPlot", defaults)
     initializeDialog(title = gettextRcmdr("Index Plot"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
@@ -104,8 +105,8 @@ indexPlot <- function () {
 Histogram <- function () {
     defaults <- list(initial.x = NULL, initial.scale = "frequency",
                      initial.bins = gettextRcmdr ("<auto>"), initial.tab=0,
-                     initial.xlab="<auto>", initial.ylab="<auto>",
-                     initial.main="<auto>")
+                     initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"),
+                     initial.main=gettextRcmdr("<auto>"))
     dialog.values <- getDialog("Histogram", defaults)
     initializeDialog(title = gettextRcmdr("Histogram"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
@@ -320,8 +321,8 @@ stemAndLeaf <- function () {
 
 boxPlot <- function () {
     defaults <- list(initial.x = NULL, initial.identify = "y", initial.group=NULL,
-                     initial.xlab="<auto>", initial.ylab="<auto>", initial.main="<auto>", 
-                     initial.tab=0)
+                     initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"), 
+                     initial.main=gettextRcmdr("<auto>"), initial.tab=0)
     dialog.values <- getDialog("boxPlot", defaults)
     initializeDialog(title = gettextRcmdr("Boxplot"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
@@ -428,8 +429,8 @@ scatterPlot <- function () {
                      initial.subset = gettextRcmdr ("<all valid cases>"), initial.ylab = gettextRcmdr ("<auto>"),
                      initial.xlab = gettextRcmdr("<auto>"), initial.pch = gettextRcmdr("<auto>"),
                      initial.cexValue = 1, initial.cex.axisValue = 1, initial.cex.labValue = 1, initialGroup=NULL, initial.lines.by.group=1,
-                     initial.identify="auto", initial.identify.points="2", initial.tab=0,
-                     initial.main="<auto>")
+                     initial.identify=gettextRcmdr("auto"), initial.identify.points="2", initial.tab=0,
+                     initial.main=gettextRcmdr("<auto>"))
     dialog.values <- getDialog("scatterPlot", defaults)
     initial.group <- dialog.values$initial.group
     .linesByGroup <- if (dialog.values$initial.lines.by.group == 1) TRUE else FALSE
@@ -665,7 +666,7 @@ scatterPlotMatrix <- function () {
     defaults <- list(initial.variables = NULL, initial.line = 1, initial.smooth = 1, initial.spread = 0,
                      initial.span = 50, initial.diag = "density", initial.subset = gettextRcmdr ("<all valid cases>"),
                      initialGroup=NULL, initial.lines.by.group=1, initial.id.n="0", initial.tab=0,
-                     initial.main="<auto>")
+                     initial.main=gettextRcmdr("<auto>"))
     dialog.values <- getDialog("scatterPlotMatrix", defaults)
     initial.group <- dialog.values$initial.group
     .linesByGroup <- if (dialog.values$initial.lines.by.group == 1) TRUE else FALSE
@@ -783,8 +784,8 @@ scatterPlotMatrix <- function () {
 }
 
 barGraph <- function () {
-    defaults <- list (initial.variable = NULL, initial.xlab="<auto>",
-                      initial.ylab="<auto>", initial.main="<auto>")
+    defaults <- list (initial.variable = NULL, initial.xlab=gettextRcmdr("<auto>"),
+                      initial.ylab=gettextRcmdr("<auto>"), initial.main=gettextRcmdr("<auto>"))
     dialog.values <- getDialog ("barGraph", defaults)
     initializeDialog(title = gettextRcmdr("Bar Graph"))
     optionsFrame <- tkframe(top)
@@ -853,8 +854,8 @@ barGraph <- function () {
 
 pieChart <- function () {
     Library("colorspace")
-    defaults <- list (initial.variable = NULL, initial.xlab="<auto>",
-                      initial.ylab="<auto>", initial.main="<auto>")
+    defaults <- list (initial.variable = NULL, initial.xlab=gettextRcmdr("<auto>"),
+                      initial.ylab=gettextRcmdr("<auto>"), initial.main=gettextRcmdr("<auto>"))
     dialog.values <- getDialog ("pieChart", defaults)
     initializeDialog(title = gettextRcmdr("Pie Chart"))
     optionsFrame <- tkframe(top)
@@ -979,8 +980,8 @@ QQPlot <- function () {
     defaults <- list(initial.x = NULL, initial.dist = "norm", initial.df = "",
                      initial.chisqdf = "", initial.fdf1 = "", initial.fdf2 = "", initial.othername = "",
                      initial.otherparam = "", initial.identify = "auto", initial.id.n="2",
-                     initial.tab=0, initial.xlab="<auto>", initial.ylab="<auto>",
-                     initial.main="<auto>")
+                     initial.tab=0, initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"),
+                     initial.main=gettextRcmdr("<auto>"))
     dialog.values <- getDialog("QQPlot", defaults)
     initializeDialog(title = gettextRcmdr("Quantile-Comparison (QQ) Plot"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
@@ -1182,8 +1183,8 @@ QQPlot <- function () {
 
 PlotMeans <- function () {
     defaults <- list(initial.groups = NULL, initial.response = NULL, initial.error.bars = "se",
-                     initial.level = "0.95", initial.xlab="<auto>", initial.ylab="<auto>",
-                     initial.main="<auto>", initial.tab=0)
+                     initial.level = "0.95", initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"),
+                     initial.main=gettextRcmdr("<auto>"), initial.tab=0)
     dialog.values <- getDialog("PlotMeans", defaults)
     initializeDialog(title = gettextRcmdr("Plot Means"), use.tabs=TRUE)
     groupBox <- variableListBox(dataTab, Factors(), title = gettextRcmdr("Factors (pick one or two)"),
@@ -1311,8 +1312,8 @@ Scatter3D <- function () {
     }
     defaults <- list (initial.x = NULL, initial.y = NULL, initial.scales = 1, initial.grid = 1, 
                       initial.resids = 0, initial.lin = 1, initial.quad = 0, initial.nonpar = 0, 
-                      initial.additive = 0, initial.ellips = 0, initial.dfNonpar = gettextRcmdr ("<auto>"), 
-                      initial.dfAdd = gettextRcmdr ("<auto>"), initial.bg = "white",
+                      initial.additive = 0, initial.ellips = 0, initial.dfNonpar = gettextRcmdr("<auto>"), 
+                      initial.dfAdd = gettextRcmdr("<auto>"), initial.bg = "white",
                       initialGroup=NULL, initial.lines.by.group=0, initial.identify="not", initial.id.n="2",
                       initial.tab=0)
     dialog.values <- getDialog ("Scatter3D", defaults)
@@ -1894,8 +1895,8 @@ Xyplot <- function() {
                      initial.conditions = FALSE,
                      initial.groups = FALSE,
                      initial.points = 1, initial.lines = 0, initial.tab=0,
-                     initial.xlab="<auto>", initial.ylab="<auto>",
-                     initial.main="<auto>")
+                     initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"),
+                     initial.main=gettextRcmdr("<auto>"))
     dialog.values <- getDialog("Xyplot", defaults)
     initializeDialog(title=gettextRcmdr("XY Conditioning Plot"), use.tabs=TRUE)
     predictorFrame <- tkframe(dataTab)
@@ -2296,7 +2297,8 @@ setPalette <- function() {
 
 stripChart <- function () {
     defaults <- list (initial.group = NULL, initial.response = NULL, initial.plotType = "stack",
-                      initial.xlab="<auto>", initial.ylab="<auto>", initial.main="<auto>", initial.tab=0)
+                      initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"), 
+                      initial.main=gettextRcmdr("<auto>"), initial.tab=0)
     dialog.values <- getDialog("stripChart", defaults)
     initializeDialog(title = gettextRcmdr("Strip Chart"), use.tabs=TRUE)
     groupBox <- variableListBox(dataTab, Factors(), title = gettextRcmdr("Factors (pick zero or more)"),
@@ -2396,7 +2398,7 @@ stripChart <- function () {
 DensityPlot <- function () {
     defaults <- list(initial.x = NULL, initial.bw = gettextRcmdr("<auto>"),
                      initial.kernel="gaussian", initial.adjust=1, initial.group=NULL, initial.tab=0,
-                     initial.xlab="<auto>", initial.ylab="<auto>")
+                     initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"))
     dialog.values <- getDialog("DensityPlot", defaults)
     initializeDialog(title = gettextRcmdr("Nonparametric Density Estimate"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
@@ -2442,7 +2444,7 @@ DensityPlot <- function () {
             errorCondition(recall = DensityPlot, message = gettextRcmdr("You must select a variable"))
             return()
         }
-        if (bw != "<auto>"){
+        if (bw != gettextRcmdr("<auto>")){
             test.bw <- suppressWarnings(as.numeric(bw))
             if (is.na(test.bw) || test.bw <= 0){
                 errorCondition(recall = DensityPlot,
@@ -2463,7 +2465,7 @@ DensityPlot <- function () {
                                        initial.group=if (.groups == FALSE) NULL else .groups,
                                        initial.tab=tab, initial.xlab=tclvalue(xlabVar),
                                        initial.ylab=tclvalue(ylabVar)))
-        if (bw == "<auto>") bw  <- '"SJ"'
+        if (bw == gettextRcmdr("<auto>")) bw  <- '"SJ"'
         closeDialog()
         .activeDataSet <- ActiveDataSet()
         var <- paste(.activeDataSet, "$", x, sep = "")
