@@ -214,9 +214,9 @@ Commander <- function(){
     putRcmdr("restoreTab", FALSE)
     putRcmdr("cancelDialogReopen", FALSE)
     putRcmdr("last.search", "")
- #   putRcmdr("editor.accessed", FALSE)
+#   putRcmdr("editor.accessed", FALSE)
     # set up Rcmdr default and text (log) fonts, Tk scaling factor
-    if (!WindowsP()) tk2theme("clearlooks")
+#   if (!WindowsP()) tk2theme("clearlooks")
     default.font.size.val <- abs(as.numeric(.Tcl("font actual TkDefaultFont -size")))
     if (is.na(default.font.size.val)) default.font.size.val <- 10
     default.font.size <- as.character(setOption("default.font.size", default.font.size.val))

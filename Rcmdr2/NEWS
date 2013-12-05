@@ -2,11 +2,13 @@ Changes to Version 2.0-2
 
   o Moved knitr and markdown packages to Suggests: (suggestion of Dirk Eddelbuettel).
 
-  o Updated Japanese translation of Getting Started manual (by  Takaharu Araki).
+  o Updated Japanese translation of Getting Started manual (by Takaharu Araki).
 
   o Added editing buttons with tooltips to Rcmdr editor.
 
   o Added Mac OS X command-key combinations.
+
+  o Tweaks to ttk theme and font handling (with help of Philippe Grosjean and the tcltk2 package).
 
   o Small bug fixes.
 
