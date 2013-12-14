@@ -12,8 +12,8 @@ user interface) for R, based on the tcltk package.
 \details{
 \tabular{ll}{
 Package: \tab Rcmdr\cr
-Version: \tab 2.0-2\cr
-Date: \tab 2013/12/06\cr
+Version: \tab 2.0-3\cr
+Date: \tab 2013/12/14\cr
 Depends: \tab  R (>= 3.0.0), grDevices, utils, splines\cr
 Imports: \tab tcltk\cr
 Suggests: \tab abind, aplpack, car (>= 2.0-18), colorspace, effects (>= 1.0-7),
@@ -47,7 +47,7 @@ Indonesian, I Made Tirta;
 Italian, Stefano Calza;
 Japanese, Takaharu Araki;
 Korean, Chel Hee Lee, Dae-Heung Jang, and Shin Jong-Hwa;
-Polish, Marcin Kozak;
+Polish, Lukasz Daniel;
 Romanian, Adrian Dusa;
 Russian, Alexey Shipunov;
 Slovenian, Jaro Lajovic and Matjaz Jeran;
