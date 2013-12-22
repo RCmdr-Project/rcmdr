@@ -2334,6 +2334,9 @@ if (!(as.character(tcl("info", "tclversion")) >= "8.5" && getRversion() >= "2.7.
         if(missing(fg)) ttklabel(...) else ttklabel(..., foreground=fg)
 }
 
+# Label looking like that of a TtkLabelFrame
+titleLabel <- function(...) labelRcmdr(..., font="RcmdrTitleFont", fg=getRcmdr("title.color"))
+
 # the following function alters the default behaviour of tclvalue() by trimming leading and trailing blanks
 
 tclvalue <- function(x) trim.blanks(tcltk::tclvalue(x))
