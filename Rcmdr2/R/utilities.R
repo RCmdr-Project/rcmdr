@@ -1085,13 +1085,13 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
         
         if(!WindowsP()) {
             if (!is.null(apply)){
-                tkgrid(cancelButton, OKbutton, applyButton, sticky="w")
-                tkgrid.configure(applyButton, padx=c(6, 0))
+                tkgrid(applyButton, cancelButton, OKbutton, sticky="w")
+                tkgrid.configure(OKbutton, padx=c(6, 0))
             }
             else{
                 tkgrid(cancelButton, OKbutton, sticky="w")
             }
-            tkgrid.configure(OKbutton, padx=c(6, 0))
+            tkgrid.configure(cancelButton, padx=c(6, 6))
         }
         else {
             if (!is.null(apply)){
