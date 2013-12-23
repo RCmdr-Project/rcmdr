@@ -113,6 +113,7 @@
 \alias{subsetBox}
 \alias{suppressMarkdown}
 \alias{tclvalue}
+\alias{titleLabel}
 \alias{tkspinbox}
 \alias{trim.blanks}
 \alias{TwoLevelFactors}
@@ -276,6 +277,7 @@ subOKCancelHelp(window=subdialog, helpSubject=NULL)  # macro
 subsetBox(window = top, subset.expression = NULL, model = FALSE)  # macro
 suppressMarkdown(command)
 tclvalue(x)
+titleLabel(...)
 tkfocus(...)
 tkspinbox(parent, ...)
 trim.blanks(text)
@@ -434,7 +436,9 @@ commanderPosition()
   \item{x}{an R object name, as a character string, or a tcl variable or object, or a vector of
     variable names to be sorted.}
   \item{\dots}{For \code{gettextRcmdr}, text string or vector of text strings
-    to translate; for \code{defmacro}, arguments for the macro; otherwise disregard.}
+    to translate; 
+    for \code{titleLabel}, arguments to be passed to \code{labelRcmdr} and from there to \code{ttklabel};
+    for \code{defmacro}, arguments for the macro; otherwise disregard.}
 }
 
 \details{
@@ -512,7 +516,8 @@ commanderPosition()
   \emph{OK}, \emph{Cancel}, and \emph{Help} buttons for dialogs, \code{OKCancelHelp}, and subdialogs, \code{subOKCancelHelp}.
   The functions \code{putDialog}, \code{getDialog}, and \code{varPosn} support dialog-box memory---i.e., retaining
   selections across invocations of a dialog. The \code{tkspinbox} function is omitted from the tcltk package and
-  may be used to create a spinbox widget.
+  may be used to create a spinbox widget. The \code{titleLabel} function may be used to format a title label to use
+  the standard title label font and color.
   
   \emph{``Themed'' Tk widgets:}
   

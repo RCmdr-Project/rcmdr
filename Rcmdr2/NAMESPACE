@@ -1,4 +1,4 @@
-# last modified 2013-12-04 by J. Fox
+# last modified 2013-12-22 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -33,7 +33,7 @@ radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet,
 RcmdrTkmessageBox, rcorr.adjust,
 reliability, RExcelSupported, RmdWindow, RnwWindow, rowPercents, sortVarNames, stepwise, subOKCancelHelp,
 subsetBox,  
-tclvalue, totPercents, trim.blanks, ttkentry, ttkframe, ttkradiobutton, ttkcheckbutton,
+tclvalue, titleLabel, totPercents, trim.blanks, ttkentry, ttkframe, ttkradiobutton, ttkcheckbutton,
 ttkscrollbar, TwoLevelFactors, twoLevelFactorsP, 
 UpdateModelNumber, variableListBox, Variables, varPosn, WindowsP, X11P,
     

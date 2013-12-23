@@ -954,6 +954,11 @@ defmacro <- function(..., expr){
 OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL, apply=NULL,
     expr={
         memory <- getRcmdr("retain.selections")
+        button.strings <- c("OK", "Cancel", 
+                            if (!is.null(helpSubject)) "Help", 
+                            if (!is.null(reset) && memory) "Reset", 
+                            if (!is.null(apply)) "Apply")
+        width <- max(nchar(gettextRcmdr(button.strings))) + 2
         buttonsFrame <- tkframe(window)
         leftButtonsBox <- tkframe(buttonsFrame)
         rightButtonsBox <- tkframe(buttonsFrame)
@@ -991,7 +996,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             }
         }
         
-        OKbutton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("OK"), foreground="darkgreen", width="12", command=OnOK, default="active",
+        OKbutton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("OK"), foreground="darkgreen", width=width, command=OnOK, default="active",
             image="::image::okIcon", compound="left")
         
         onCancel <- function() {
@@ -1006,7 +1011,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             tkfocus(CommanderWindow())
         }
         
-        cancelButton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("Cancel"), foreground="red", width="12", command=onCancel, # borderwidth=3,
+        cancelButton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("Cancel"), foreground="red", width=width, command=onCancel, # borderwidth=3,
             image="::image::cancelIcon", compound="left")
         
         if (!is.null(helpSubject)){
@@ -1015,7 +1020,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                 if (as.numeric(R.Version()$major) >= 2) print(help(helpSubject))
                 else help(helpSubject)
             }
-            helpButton <- buttonRcmdr(leftButtonsBox, text=gettextRcmdr("Help"), width="12", command=onHelp, # borderwidth=3,
+            helpButton <- buttonRcmdr(leftButtonsBox, text=gettextRcmdr("Help"), width=width, command=onHelp, # borderwidth=3,
                 image="::image::helpIcon", compound="left")
         }
         
@@ -1032,7 +1037,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                 putRcmdr("open.dialog.here", NULL)
                 putRcmdr("restoreTab", FALSE)
             }
-            resetButton <- buttonRcmdr(leftButtonsBox, text=gettextRcmdr("Reset"), width=12, command=onReset,
+            resetButton <- buttonRcmdr(leftButtonsBox, text=gettextRcmdr("Reset"), width=width, command=onReset,
                 image="::image::resetIcon", compound="left")
         }
         
@@ -1079,7 +1084,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                     putRcmdr("open.dialog.here", NULL)
                 }
             }
-            applyButton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("Apply"), foreground="yellow", width="12", command=onApply,
+            applyButton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("Apply"), foreground="yellow", width=width, command=onApply,
                 image="::image::applyIcon", compound="left")
         }
         
@@ -1124,17 +1129,22 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
 
 subOKCancelHelp <- defmacro(window=subdialog, helpSubject=NULL,
     expr={
+        
+        button.strings <- c("OK", "Cancel", 
+                            if (!is.null(helpSubject)) "Help")
+        width <- max(nchar(gettextRcmdr(button.strings))) + 2
+        
         subButtonsFrame <- tkframe(window)
         subLeftButtonsBox <- tkframe(subButtonsFrame)
         subRightButtonsBox <- tkframe(subButtonsFrame)
-        subOKbutton <- buttonRcmdr(subRightButtonsBox, text=gettextRcmdr("OK"), foreground="darkgreen", width="12", command=onOKsub, default="active",
+        subOKbutton <- buttonRcmdr(subRightButtonsBox, text=gettextRcmdr("OK"), foreground="darkgreen", width=width, command=onOKsub, default="active",
             image="::image::okIcon", compound="left")
         onCancelSub <- function() {
             if (GrabFocus()) tkgrab.release(window)
             tkdestroy(window)
             tkfocus(CommanderWindow())
         }
-        subCancelButton <- buttonRcmdr(subRightButtonsBox, text=gettextRcmdr("Cancel"), foreground="red", width="12", command=onCancelSub,
+        subCancelButton <- buttonRcmdr(subRightButtonsBox, text=gettextRcmdr("Cancel"), foreground="red", width=width, command=onCancelSub,
             image="::image::cancelIcon", compound="left") # borderwidth=3, 
         if (!is.null(helpSubject)){
             onHelpSub <- function(){
@@ -1142,7 +1152,7 @@ subOKCancelHelp <- defmacro(window=subdialog, helpSubject=NULL,
                 if (as.numeric(R.Version()$major) >= 2) print(help(helpSubject))
                 else help(helpSubject)
             }
-            subHelpButton <- buttonRcmdr(subLeftButtonsBox, text=gettextRcmdr("Help"), width="12", command=onHelpSub, 
+            subHelpButton <- buttonRcmdr(subLeftButtonsBox, text=gettextRcmdr("Help"), width=width, command=onHelpSub, 
                 image="::image::helpIcon", compound="left")
         }
         if(!WindowsP()) {
