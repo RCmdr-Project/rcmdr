@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-24 by J. Fox
+# last modified 2013-12-24 by J. Fox
 
     # Models menu
 
@@ -202,14 +202,16 @@ generalizedLinearModel <- function(){
 	model <- ttkentry(modelFrame, width="20", textvariable=modelName)
 	linkFamilyFrame <- tkframe(top)
 	familyFrame <- tkframe(linkFamilyFrame)
-	familyBox <- tklistbox(familyFrame, height="4", exportselection="FALSE",
+    max.height <- getRcmdr("variable.list.height")
+	familyBox <- tklistbox(familyFrame, height=min(max.height, length(families)), 
+            exportselection="FALSE",
 			selectmode="single", background="white")
 	familyScroll <- ttkscrollbar(familyFrame,
 			command=function(...) tkyview(familyBox, ...))
 	tkconfigure(familyBox, yscrollcommand=function(...) tkset(familyScroll, ...))
 	for (fam in families) tkinsert(familyBox, "end", fam)
 	linkFrame <- tkframe(linkFamilyFrame)
-	linkBox <- tklistbox(linkFrame, height="4", exportselection="FALSE",
+	linkBox <- tklistbox(linkFrame, height=max.height, exportselection="FALSE",
 			selectmode="single", background="white")
 	subsetBox(model=TRUE)
 	onFamilySelect <- function(){

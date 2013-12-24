@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-12-04 by John Fox
+# last modified 2013-12-24 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -316,7 +316,7 @@ Commander <- function(){
     setOption("quit.R.on.close", FALSE)
     putRcmdr("outputStack", as.list(rep(NA, getRcmdr("length.output.stack"))))
     putRcmdr("commandStack", as.list(rep(NA, getRcmdr("length.command.stack"))))
-    setOption("variable.list.height", 4)
+    setOption("variable.list.height", 6)
     setOption("variable.list.width", c(20, Inf))
     placement <- setOption("placement", "", global=FALSE)
     # platform-specific issues

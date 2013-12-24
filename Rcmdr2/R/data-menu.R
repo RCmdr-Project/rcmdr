@@ -1,4 +1,4 @@
-# last modified 2013-12-04 by J. Fox
+# last modified 2013-12-24 by J. Fox
 
 # Data menu dialogs
 
@@ -446,14 +446,16 @@ readDataFromPackage <- function() {
 					})]
 	packageDatasetFrame <- tkframe(top)
 	packageFrame <- tkframe(packageDatasetFrame)
-	packageBox <- tklistbox(packageFrame, height="4", exportselection="FALSE",
+	max.height <- getRcmdr("variable.list.height")
+	packageBox <- tklistbox(packageFrame, height=min(max.height, length(packages)), 
+            exportselection="FALSE",
 			selectmode="single", background="white")
 	packageScroll <- ttkscrollbar(packageFrame,
 			command=function(...) tkyview(packageBox, ...))
 	tkconfigure(packageBox, yscrollcommand=function(...) tkset(packageScroll, ...))
 	for (p in packages) tkinsert(packageBox, "end", p)
 	datasetFrame <- tkframe(packageDatasetFrame)
-	datasetBox <- tklistbox(datasetFrame, height="4", exportselection="FALSE",
+	datasetBox <- tklistbox(datasetFrame, height=max.height, exportselection="FALSE",
 			selectmode="single", background="white")
 	datasetScroll <- ttkscrollbar(datasetFrame,
 			command=function(...) tkyview(datasetBox, ...))
@@ -465,7 +467,7 @@ readDataFromPackage <- function() {
 		datasets <<- datasets[valid]
 		tkdelete(datasetBox, "0", "end")
 		for (dataset in datasets) tkinsert(datasetBox, "end", dataset)
-		tkconfigure(datasetBox, height=min(4, length(datasets)))
+		tkconfigure(datasetBox, height=min(max.height, length(datasets)))
 		firstChar <- tolower(substr(datasets, 1, 1))
 		len <- length(datasets)
 		onLetter <- function(letter){
