@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2013-12-24 by John Fox
+# last modified 2013-12-26 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -827,12 +827,12 @@ Commander <- function(){
     if (getRcmdr("use.knitr")) tkadd(notebook, RnwFrame, text=gettextRcmdr("knitr Document"), padding=6)
     tkgrid(notebook, sticky="news")
     if (.log.commands && .console.output) tkgrid(submitButton, sticky="w", pady=c(0, 6))
-    tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output"), foreground=getRcmdr("title.color"), font="RcmdrTitleFont"),
+    tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output")),
         if (.log.commands && !.console.output) submitButton, sticky="sw", pady=c(6, 6))
     tkgrid(.output, outputYscroll, sticky="news", columnspan=2)
     tkgrid(outputXscroll, columnspan=1 + (.log.commands && !.console.output))
     if (!.console.output) tkgrid(outputFrame, sticky="news", padx=10, pady=0, columnspan=2)
-    tkgrid(labelRcmdr(messagesFrame, text=gettextRcmdr("Messages"), foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w", pady=c(6, 6))
+    tkgrid(labelRcmdr(messagesFrame, text=gettextRcmdr("Messages")), sticky="w", pady=c(6, 6))
     tkgrid(.messages, messagesYscroll, sticky="news", columnspan=2)
     tkgrid(messagesXscroll)
     if (!.console.output) tkgrid(messagesFrame, sticky="news", padx=10, pady=0, columnspan=2) ##rmh & J. Fox
