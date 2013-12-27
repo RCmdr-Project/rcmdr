@@ -265,9 +265,11 @@ Commander <- function(){
 #        .Tcl(paste("font configure RcmdrTitleFont -family {", default.font.family, " bold}", sep=""))
         tkfont.configure("RcmdrTitleFont", weight="bold")
     }
-    .Tcl("ttk::style configure TLabelframe.Label -font RcmdrTitleFont")
+    
     
     .Tcl(paste("ttk::style configure TLabelframe.Label -foreground", title.color))
+    .Tcl("ttk::style configure TNotebook.Tab -font RcmdrTitleFont")
+    .Tcl(paste("ttk::style configure TNotebook.Tab -foreground", title.color))
     setOption("number.messages", TRUE)
     setOption("log.commands", TRUE)
     setOption("use.knitr", FALSE)
@@ -827,12 +829,13 @@ Commander <- function(){
     if (getRcmdr("use.knitr")) tkadd(notebook, RnwFrame, text=gettextRcmdr("knitr Document"), padding=6)
     tkgrid(notebook, sticky="news")
     if (.log.commands && .console.output) tkgrid(submitButton, sticky="w", pady=c(0, 6))
-    tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output")),
+    tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output"), font="RcmdrTitleFont", foreground=title.color),
         if (.log.commands && !.console.output) submitButton, sticky="sw", pady=c(6, 6))
     tkgrid(.output, outputYscroll, sticky="news", columnspan=2)
     tkgrid(outputXscroll, columnspan=1 + (.log.commands && !.console.output))
     if (!.console.output) tkgrid(outputFrame, sticky="news", padx=10, pady=0, columnspan=2)
-    tkgrid(labelRcmdr(messagesFrame, text=gettextRcmdr("Messages")), sticky="w", pady=c(6, 6))
+    tkgrid(labelRcmdr(messagesFrame, text=gettextRcmdr("Messages"), font="RcmdrTitleFont", foreground=title.color), 
+           sticky="w", pady=c(6, 6))
     tkgrid(.messages, messagesYscroll, sticky="news", columnspan=2)
     tkgrid(messagesXscroll)
     if (!.console.output) tkgrid(messagesFrame, sticky="news", padx=10, pady=0, columnspan=2) ##rmh & J. Fox
