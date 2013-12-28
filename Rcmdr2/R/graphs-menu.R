@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2013-12-04 by J. Fox
+# last modified 2013-12-28 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -106,11 +106,13 @@ Histogram <- function () {
     defaults <- list(initial.x = NULL, initial.scale = "frequency",
                      initial.bins = gettextRcmdr ("<auto>"), initial.tab=0,
                      initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"),
-                     initial.main=gettextRcmdr("<auto>"))
+                     initial.main=gettextRcmdr("<auto>"), initial.group = NULL)
     dialog.values <- getDialog("Histogram", defaults)
     initializeDialog(title = gettextRcmdr("Histogram"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
                             initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+    initial.group <- dialog.values$initial.group
+    .groups <- if (is.null(initial.group)) FALSE else initial.group
     onOK <- function() {
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         x <- getSelection(xBox)
@@ -140,14 +142,22 @@ Histogram <- function () {
         else paste(", main=\"", main, "\"", sep = "")
         putDialog ("Histogram", list (initial.x = x, initial.bins = bins, initial.scale = scale,
                                       initial.tab=tab, initial.xlab=tclvalue(xlabVar), initial.ylab = tclvalue(ylabVar),
-                                      initial.main = tclvalue(mainVar)))
-        command <- paste("Hist(", ActiveDataSet(), "$", x, ", scale=\"",
-                         scale, "\", breaks=", binstext, ", col=\"darkgray\"", xlab, ylab,
-                         main, ")", sep = "")
+                                      initial.main = tclvalue(mainVar), initial.group=if (.groups == FALSE) NULL else .groups))
+        if (is.null(.groups) || .groups == FALSE) {
+            command <- paste("with(", ActiveDataSet(), ", Hist(", x, ', scale="', scale, '", breaks=',
+                             binstext, ', col="darkgray"', xlab, ylab, main, "))", sep="")
+        }
+        else{
+            command <- paste("with(", ActiveDataSet(), ", Hist(", x, ", groups=", .groups, ', scale="',
+                             scale, '", breaks=', binstext, ', col="darkgray"', xlab, ylab, main, "))", sep="")
+        }
         doItAndPrint(command)
         activateMenus()
         tkfocus(CommanderWindow())
     }
+    groupsBox(Histogram, initialGroup=initial.group,
+              initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups")
+              else paste(gettextRcmdr("Plot by:"), initial.group), window=dataTab)
     OKCancelHelp(helpSubject = "Hist", reset = "Histogram", apply="Histogram")
     optionsFrame <- tkframe(optionsTab)
     optFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Options"))
@@ -185,6 +195,7 @@ Histogram <- function () {
     binsVariable <- tclVar(dialog.values$initial.bins)
     binsField <- ttkentry(binsFrame, width = "8", textvariable = binsVariable)
     tkgrid(getFrame(xBox), sticky = "nw")
+    tkgrid(groupsFrame, sticky = "w")
     tkgrid(labelRcmdr(binsFrame, text = gettextRcmdr("Number of bins: ")),
            binsField, sticky = "w")
     tkgrid(binsFrame, sticky = "w")
