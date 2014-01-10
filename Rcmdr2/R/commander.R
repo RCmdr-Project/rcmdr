@@ -218,9 +218,6 @@ Commander <- function(){
     putRcmdr("last.search", "")
 
     # set up Rcmdr default and text (log) fonts, Tk scaling factor
-#     default.font.size.val <- abs(as.numeric(.Tcl("font actual TkDefaultFont -size")))
-#     if (is.na(default.font.size.val)) default.font.size.val <- 10
-#     default.font.size <- as.character(setOption("default.font.size", default.font.size.val))
     default.font.family.val <- tclvalue(.Tcl("font actual TkDefaultFont -family"))
     default.font.family.val <- gsub("\\{", "", gsub("\\}", "", default.font.family.val))
     default.font.family <- setOption("default.font.family", default.font.family.val)
@@ -236,6 +233,11 @@ Commander <- function(){
         .Tcl(paste("font create RcmdrTitleFont", tclvalue(tkfont.actual("TkDefaultFont"))))
     }
     .Tcl(paste("font configure RcmdrTitleFont -family {", default.font.family, "}", sep=""))
+    if (!("RcmdrOutputMessagesFont" %in% as.character(.Tcl("font names")))){
+        .Tcl(paste("font create RcmdrOutputMessagesFont", tclvalue(tkfont.actual("RcmdrTitleFont"))))
+    }
+    .Tcl(paste("font configure RcmdrTitleFont -family {", default.font.family, "}", sep=""))
+    .Tcl(paste("font configure RcmdrOutputMessagesFont -family {", default.font.family, "}", sep=""))
     
     .Tcl(paste("font configure TkDefaultFont -family {",  default.font.family, "}", sep=""))
     log.font.family.val <- tclvalue(.Tcl("font actual TkFixedFont -family"))
@@ -259,6 +261,7 @@ Commander <- function(){
     default.font.size <- setOption("default.font.size", default.font.size.val)
     tkfont.configure("RcmdrDefaultFont", size=default.font.size)
     tkfont.configure("RcmdrTitleFont", size=default.font.size)
+    tkfont.configure("RcmdrOutputMessagesFont", size=default.font.size)
     tkfont.configure("TkDefaultFont", size=default.font.size)
     tkfont.configure("TkTextFont", size=default.font.size)
     tkfont.configure("TkCaptionFont", size=default.font.size)
@@ -850,12 +853,12 @@ Commander <- function(){
     if (getRcmdr("use.knitr")) tkadd(notebook, RnwFrame, text=gettextRcmdr("knitr Document"), padding=6)
     tkgrid(notebook, sticky="news")
     if (.log.commands && .console.output) tkgrid(submitButton, sticky="w", pady=c(0, 6))
-    tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output"), font="RcmdrTitleFont", foreground=title.color),
+    tkgrid(labelRcmdr(outputFrame, text=gettextRcmdr("Output"), font="RcmdrOutputMessagesFont", foreground=title.color),
         if (.log.commands && !.console.output) submitButton, sticky="sw", pady=c(6, 6))
     tkgrid(.output, outputYscroll, sticky="news", columnspan=2)
     tkgrid(outputXscroll, columnspan=1 + (.log.commands && !.console.output))
     if (!.console.output) tkgrid(outputFrame, sticky="news", padx=10, pady=0, columnspan=2)
-    tkgrid(labelRcmdr(messagesFrame, text=gettextRcmdr("Messages"), font="RcmdrTitleFont", foreground=title.color), 
+    tkgrid(labelRcmdr(messagesFrame, text=gettextRcmdr("Messages"), font="RcmdrOutputMessagesFont", foreground=title.color), 
            sticky="w", pady=c(6, 6))
     tkgrid(.messages, messagesYscroll, sticky="news", columnspan=2)
     tkgrid(messagesXscroll)
