@@ -276,6 +276,7 @@ Commander <- function(){
     if (tolower(title.color) == "black" || title.color == "#000000"){
         tkfont.configure("RcmdrTitleFont", weight="bold")
     }
+    else tkfont.configure("RcmdrTitleFont", weight="normal")
     .Tcl(paste("ttk::style configure TLabelframe.Label -foreground", title.color))
     .Tcl("ttk::style configure TNotebook.Tab -font RcmdrDefaultFont")
     .Tcl(paste("ttk::style configure TNotebook.Tab -foreground", title.color))
