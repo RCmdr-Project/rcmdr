@@ -8,6 +8,8 @@ Changes to Version 2.0-3
 
   o Small interface improvements.
 
+  o Fixed bug in French translation preventing loading R Markdown files (reported by Jérémy Mazet).
+
 Changes to Version 2.0-2
 
   o Moved knitr and markdown packages to Suggests: (suggestion of Dirk Eddelbuettel).
