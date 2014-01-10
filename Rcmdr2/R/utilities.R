@@ -1,10 +1,8 @@
-# last modified 2013-11-28 by J. Fox
+# last modified 2014-01-10 by J. Fox
 
 # utility functions
 
 # listing objects etc.
-
-
 
 listDataSets <- function(envir=.GlobalEnv, ...) {
     Vars <- ls(envir = envir, all.names = TRUE) # + PhG
@@ -944,7 +942,7 @@ browseRMarkdown <- function() browseURL("http://www.rstudio.com/ide/docs/authori
 
 # functions for building dialog boxes
 
-# the following function is slightly modified from Thomas Lumley,
+# the following function is slightly modified, with permission, from Thomas Lumley, 
 #   "Programmer's Niche: Macros in R," R-News, Sept. 2001, Vol. 1, No. 3, pp.11-13.
 defmacro <- function(..., expr){
     expr <- substitute(expr)
@@ -990,7 +988,8 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                             if (!is.null(helpSubject)) "Help", 
                             if (!is.null(reset) && memory) "Reset", 
                             if (!is.null(apply)) "Apply")
-        width <- max(nchar(gettextRcmdr(button.strings))) + 2
+        width <- max(nchar(gettextRcmdr(button.strings)))
+        if (WindowsP()) width <- width + 2
         buttonsFrame <- tkframe(window)
         leftButtonsBox <- tkframe(buttonsFrame)
         rightButtonsBox <- tkframe(buttonsFrame)
@@ -1164,8 +1163,8 @@ subOKCancelHelp <- defmacro(window=subdialog, helpSubject=NULL,
         
         button.strings <- c("OK", "Cancel", 
                             if (!is.null(helpSubject)) "Help")
-        width <- max(nchar(gettextRcmdr(button.strings))) + 2
-        
+        width <- max(nchar(gettextRcmdr(button.strings)))
+        if (WindowsP()) width <- width + 2
         subButtonsFrame <- tkframe(window)
         subLeftButtonsBox <- tkframe(subButtonsFrame)
         subRightButtonsBox <- tkframe(subButtonsFrame)
@@ -1279,27 +1278,9 @@ commanderPosition <- function (){
         tclvalue(.Tcl(paste("winfo rooty", ID)))))
 }
 
-# initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp=FALSE,
-#     expr={
-#         if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
-#         window <- tktoplevel(borderwidth=10)
-#         tkwm.title(window, title)
-#         location <- getRcmdr("open.dialog.here")
-#         position <- if (!is.null(location)) location
-#                     else {
-#                         pos <- offset + commanderPosition() 
-#                         if (any(pos < 0)) "-50+50"
-#                         else paste("+", paste(pos, collapse="+"), sep="")
-#                     }
-#         tkwm.geometry(window, position)
-#         tkwm.transient(window, CommanderWindow())
-#     }
-# )
-
 initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp, 
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"),
     expr={
-        #        if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
         if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
         window <- tktoplevel(borderwidth=10)
         if (use.tabs){
@@ -1326,26 +1307,6 @@ closeDialog <- defmacro(window=top, release=TRUE,
     }
 )
 
-# dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows=1, columns=1, focus=top,
-#     bindReturn=TRUE, preventGrabFocus=FALSE, preventDoubleClick=FALSE,
-#     preventCrisp=FALSE,
-#     expr={
-#         #         for (row in 0:(rows-1)) tkgrid.rowconfigure(window, row, weight=0)
-#         #         for (col in 0:(columns-1)) tkgrid.columnconfigure(window, col, weight=0)
-#         .Tcl("update idletasks")
-#         tkwm.resizable(window, 0, 0)
-#         if (bindReturn) tkbind(window, "<Return>", onOK)
-#         tkbind(window, "<Escape>", onCancel)
-#         if (getRcmdr("double.click") && (!preventDoubleClick)) tkbind(window, "<Double-ButtonPress-1>", onOK)
-#         tkwm.deiconify(window)
-#         # focus grabs appear to cause problems for some dialogs
-#         if (GrabFocus() && (!preventGrabFocus)) tkgrab.set(window)
-#         tkfocus(focus)
-#         tkwait.window(window)
-#         if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
-#     }
-# )
-
 dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns, focus=top,
     bindReturn=TRUE, preventGrabFocus=FALSE, preventDoubleClick=FALSE,
     preventCrisp, 
@@ -1371,7 +1332,6 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
         if (GrabFocus() && (!preventGrabFocus)) tkgrab.set(window)
         tkfocus(focus)
         tkwait.window(window)
-        #        if ((!preventCrisp) && getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
         if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
     }
 )
@@ -1498,8 +1458,6 @@ checkBoxes <- defmacro(window=top, frame, boxes, initialValues=NULL, labels, tit
             assign(..variables[i], tclVar(..initialValues[i]))
             ..checkBox <- paste(boxes[i], "CheckBox", sep="")
             assign(..checkBox,
-                #    	tkcheckbutton(eval(parse(text=frame)), variable=eval(parse(text=..variables[i]))))
-                # tkgrid(labelRcmdr(eval(parse(text=frame)), text=labels[i]), eval(parse(text=..checkBox)), sticky="w")
                 ttkcheckbutton(eval(parse(text=frame)), variable=eval(parse(text=..variables[i])), text=labels[i]))
             tkgrid(eval(parse(text=..checkBox)), sticky="w")
         }
@@ -1966,7 +1924,6 @@ checkClass <- defmacro(object, class, message=NULL,
     }
 )
 
-
 # the following function is from John Chambers (plus new test for R 2.4.0)
 
 isS4object <- function(object) {
@@ -2153,7 +2110,6 @@ activateMenus <- function(){
     }
 }
 
-
 # for internationalization
 
 gettextRcmdr <- function(...) gettext(..., domain="R-Rcmdr")
@@ -2177,7 +2133,6 @@ English <- function() {
     if (!is.na(LANG)) length(grep("^en", LANG, ignore.case=TRUE)) > 0
     else LC_CTYPE == "C" || length(grep("^en", LC_CTYPE, ignore.case=TRUE)) > 0
 }
-
 
 # to replace tkmessageBox on non-English Windows systems,
 #  to allow for translation of button text
@@ -2395,7 +2350,6 @@ splitCmd <- function(cmd, width=getOption("width") - 4, at="[ ,]"){
     if (singleQuotes[1] > 0 && (singleQuotes[1] < doubleQuotes[1] || doubleQuotes[1] < 0 ) && (singleQuotes[1] < comment[1] || comment[1] < 0 )){
         nquotes <- length(singleQuotes)
         if (nquotes < 2) stop("unbalanced quotes")
-        #		where[(where > singleQuotes[1]) & (where < singleQuotes[2])] <- NA
         for(i in seq(nquotes/2))
             where[(where > singleQuotes[2 * i - 1]) & (where < singleQuotes[2 * i])] <- NA
         where <- na.omit(where)
@@ -2403,7 +2357,6 @@ splitCmd <- function(cmd, width=getOption("width") - 4, at="[ ,]"){
     else if (doubleQuotes[1] > 0 && (doubleQuotes[1] < singleQuotes[1] || singleQuotes[1] < 0) && (doubleQuotes[1] < comment[1] || comment[1] < 0 )){
         nquotes <- length(doubleQuotes)
         if (nquotes < 2) stop("unbalanced quotes")
-        #		where[(where > doubleQuotes[1]) & (where < doubleQuotes[2])] <- NA
         for(i in seq(nquotes/2))
             where[(where > doubleQuotes[2 * i - 1]) & (where < doubleQuotes[2 * i])] <- NA
         where <- na.omit(where)
@@ -2887,20 +2840,6 @@ knitrP <- function(){
 
 RcmdrEditor <- function(buffer, title="R Commander Editor", 
     help=NULL, file.menu=NULL, edit.menu=NULL, context.menu=NULL, toolbar.buttons=NULL){
-#     tk2tip <- tcltk2::tk2tip
-#     # fixup theme/fonts for ttk widgets (necessary because of use of tcltk2 package)
-#     if (!getRcmdr("editor.accessed")){
-#         if (WindowsP()) {
-#             .Tcl(paste("font configure TkDefaultFont -size ", 
-#                        getRcmdr("default.font.size")))
-#             .Tcl(paste("font configure TkDefaultFont -family {",  
-#                        getRcmdr("default.font.family"), "}", sep=""))
-#         }
-#         else {
-#       .Tcl("ttk::style theme use default")
-#         }
-#       putRcmdr("editor.accessed", TRUE)
-#     }
     contextMenu <- function(){
         contextMenu <- tkmenu(tkmenu(editor), tearoff=FALSE)
         if (!is.null(context.menu)){

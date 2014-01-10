@@ -168,14 +168,11 @@ set none, one, several, or all options. The available options are as follows:
     For example,  \code{"Helvetica"} specifies the sans-serif Helvetica font family.
     IThe default is taken from the \code{TkDefaultFont}. Normally a sans-serif font should be used.}
 
-    \item{\code{default.font.size}}{The size, in points, of the default font. The default is the size of the
-    \code{TkDefaultFont} (if this can be ascertained) or 10 (if it cannot). 
+    \item{\code{default.font.size}}{The size, in points, of the default font. The default is 10 on non-Windows
+    system and the size of the system font on Windows. 
     To set the font size for R input and output, see the \code{log.font.size} option.
-    The \pkg{Rcmdr} \code{scale factor} option to
+    The \pkg{Rcmdr} \code{scale factor} option may also be used to
     control font size.}
-    
-    \item{\code{retain.selections}}{If \code{TRUE} (the default), dialogs remember their previous state, where appropriate,
-     as long as the data set isn't changed; some dialogs, e.g., for probabilities, retain selections even when the data set chanages.}
     
     \item{\code{double.click}}{Set to \code{TRUE} if you want a double-click of the left mouse
     button to press the default button in all dialogs. The default is \code{FALSE}.}
@@ -214,7 +211,7 @@ set none, one, several, or all options. The available options are as follows:
 
     \item{\code{log.font.size}}{The font size, in points, to be used in the script window,
     in the output window, messages window,
-    in recode dialogs, and in compute expressions --- that is, where a monospaced font is used. The default is \code{10}.
+    in recode dialogs, and in compute expressions --- that is, where a monospaced font is used. The default is 10.
     Alternatively the \pkg{Rcmdr} \code{scale factor} option may also be used to
     control font size.}
     
@@ -263,6 +260,9 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{quit.R.on.close}}{if \code{TRUE}, both the Commander and R are exited when the Commander
     window is closed. The default is \code{FALSE}, in which case only the Commander is exited (and can be restarted
     by the command \code{Commander()}).}
+    
+    \item{\code{retain.selections}}{If \code{TRUE} (the default), dialogs remember their previous state, where appropriate,
+     as long as the data set isn't changed; some dialogs, e.g., for probabilities, retain selections even when the data set chanages.}
     
     \item{\code{suppress.menus}}{if \code{TRUE}, the Commander menu bar and tool bar are suppressed, allowing another
     program (such as Excel) to take over these functions. The default (of course) is \code{FALSE}.}
