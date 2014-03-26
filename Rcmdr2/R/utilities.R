@@ -1,4 +1,4 @@
-# last modified 2014-01-10 by J. Fox
+# last modified 2014-03-26 by J. Fox
 
 # utility functions
 
@@ -444,7 +444,15 @@ numSummary <- function(data,
     if(!require(abind)) stop("abind package missing")
     if(!require(e1071)) stop("e1071 package missing")
     data <- as.data.frame(data)
-    if (!missing(groups)) groups <- as.factor(groups)
+    if (!missing(groups)) {
+        groups <- as.factor(groups)
+        counts <- table(groups)
+        if (any(counts == 0)){
+            levels <- levels(groups)
+            warning("the following groups are empty: ", paste(levels[counts == 0], collapse=", "))
+            groups <- factor(groups, levels=levels[counts != 0])
+        }
+    }
     variables <- names(data)
     if (missing(statistics)) statistics <- c("mean", "sd", "quantiles", "IQR")
     statistics <- match.arg(statistics, c("mean", "sd", "IQR", "quantiles", "cv", "skewness", "kurtosis"),
@@ -454,7 +462,6 @@ numSummary <- function(data,
     ngroups <- if(missing(groups)) 1 else length(grps <- levels(groups))
     quantiles <- if ("quantiles" %in% statistics) quantiles else NULL
     quants <- if (length(quantiles) > 1) paste(100*quantiles, "%", sep="") else NULL
-    #    quants <- paste(100*quantiles, "%", sep="")
     nquants <- length(quants)
     stats <- c(c("mean", "sd", "IQR", "cv", "skewness", "kurtosis")[c("mean", "sd", "IQR", "cv", "skewness", "kurtosis") %in% statistics], quants)
     nstats <- length(stats)
