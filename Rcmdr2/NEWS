@@ -4,6 +4,8 @@ Changes to Version 2.0-4
 
   o Fixed numSummary() so that it doesn't fail when there's an empty factor level (problem reported by Alan Mainwaring).
 
+  o ActiveDataSet(NULL) now removes the active data set.
+
 Changes to Version 2.0-3
 
   o Updated Polish translation (with thanks to Lukasz Daniel).
