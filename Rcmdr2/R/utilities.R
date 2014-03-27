@@ -1,4 +1,4 @@
-# last modified 2014-03-26 by J. Fox
+# last modified 2014-03-27 by M. Bouchet-Valat
 
 # utility functions
 
@@ -1989,7 +1989,7 @@ TwoLevelFactors <- function(names){
 
 # The following two functions were modified by Erich Neuwrith
 #  and subsequently by John Fox (23 July 07)
-#  and Milan Bouchet-Valat (25 August 13)
+#  and Milan Bouchet-Valat (27 March 14)
 
 ActiveDataSet <- function(name){
     if (missing(name)) {
@@ -2017,11 +2017,26 @@ ActiveDataSet <- function(name){
     }
     else {
         putRcmdr(".activeDataSet", name)
-        
-        Variables(listVariables(name))
-        Numeric(listNumeric(name))
-        Factors(listFactors(name))
-        TwoLevelFactors(listTwoLevelFactors(name))
+
+        if(!is.null(name)) {
+            Variables(listVariables(name))
+            Numeric(listNumeric(name))
+            Factors(listFactors(name))
+            TwoLevelFactors(listTwoLevelFactors(name))
+        }
+        else {
+            Variables(NULL)
+            Numeric(NULL)
+            Factors(NULL)
+            TwoLevelFactors(NULL)
+            RcmdrTclSet("dataSetName", gettextRcmdr("<No active dataset>"))
+            putRcmdr(".activeModel", NULL)
+            RcmdrTclSet("modelName", gettextRcmdr("<No active model>"))
+            tkconfigure(getRcmdr("dataSetLabel"), foreground="red") 
+            tkconfigure(getRcmdr("modelLabel"), foreground="red") 
+            activateMenus()
+            if (getRcmdr("suppress.menus") && RExcelSupported()) return(NULL)
+        }
     }
 }
 
