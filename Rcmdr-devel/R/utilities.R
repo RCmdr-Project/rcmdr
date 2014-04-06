@@ -1,4 +1,4 @@
-# last modified 2014-03-27 by M. Bouchet-Valat
+# last modified 2014-04-06 by M. Bouchet-Valat
 
 # utility functions
 
@@ -2134,7 +2134,7 @@ activateMenus <- function(){
 
 # for internationalization
 
-gettextRcmdr <- function(...) gettext(..., domain="R-Rcmdr")
+gettextRcmdr <- function(...) gettext(..., domain="R-RcmdrDevel")
 
 gettextMenus <- function(...){
     text <- gettextRcmdr(...)
