@@ -12,8 +12,8 @@ user interface) for R, based on the tcltk package.
 \details{
 \tabular{ll}{
 Package: \tab Rcmdr\cr
-Version: \tab 2.0-5\cr
-Date: \tab 2014/03/27\cr
+Version: \tab 2.1-0\cr
+Date: \tab 2014/07/06\cr
 Depends: \tab  R (>= 3.0.0), grDevices, utils, splines\cr
 Imports: \tab tcltk\cr
 Suggests: \tab abind, aplpack, car (>= 2.0-18), colorspace, effects (>= 1.0-7),
@@ -38,6 +38,7 @@ Extending the R Commander by "plug in" packages.
 
 \section{Translations}{
 The R Commander comes with translations from English into several other languages. I am grateful to the following individuals and groups for preparing these translations:
+Basque, Jose Ramon Rueda;
 Brazilian Portuguese, Adriano Azevedo-Filho and Marilia Sa Carvalho;
 Catalan, Manel Salamero;
 Chinese, Frank C. S. Liu and Cheng-shun Lee;
