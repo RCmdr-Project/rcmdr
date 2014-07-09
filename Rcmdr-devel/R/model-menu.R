@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2013-10-21 by J. Fox
+# last modified 2014-07-08 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -251,18 +251,6 @@ VIF <- function(){
 	.activeModel <- ActiveModel()
 	if (is.null(.activeModel) || !checkMethod("vif", .activeModel)) return()
 	doItAndPrint(paste("vif(", .activeModel, ")", sep=""))
-}
-
-effectPlots <- function(){
-	Library("effects")
-	.activeModel <- ActiveModel()
-	if (is.null(.activeModel) || !checkMethod("Effect", .activeModel)) return()
-	doItAndPrint('trellis.device(theme="col.whitebg")')
-	command <- paste("plot(allEffects(", .activeModel, "), ask=FALSE)", sep="")
-	justDoIt(command)
-	logger(command)
-	activateMenus()
-	NULL
 }
 
 addObservationStatistics <- function () {
@@ -889,3 +877,78 @@ subsetRegression <- function () {
     tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
     dialogSuffix()
 }
+
+effectPlots <- function () {
+  Library("effects")
+  defaults <- list(initial.all.or.pick = "TRUE", initial.predictors = NULL, initial.partial.res = 0)
+  dialog.values <- getDialog("effectPlots", defaults)
+  initializeDialog(title = gettextRcmdr("Model Effect Plots"))
+  predictors <- all.vars(formula(get(activeModel(), envir=.GlobalEnv))[[3]])
+  predictorsFrame <- tkframe(top)
+  radioButtons(predictorsFrame, name = "allEffects", buttons = c("yes", "no"), 
+               values = c("TRUE", "FALSE"),  
+               labels = gettextRcmdr(c("Yes", "No")), title = gettextRcmdr("Plot All High-Order Effects?"),
+               initialValue = dialog.values$initial.all.or.pick)
+  predictorsBox <- variableListBox(predictorsFrame, predictors, selectmode = "multiple", 
+                                   title = gettextRcmdr("Predictors (pick one or more)"), 
+                                   initialSelection = varPosn(dialog.values$initial.predictors, vars=predictors))
+  
+  partialResFrame <- tkframe(top)
+  partialResVariable <- tclVar(dialog.values$initial.partial.res)
+  partialResCheckBox <- ttkcheckbutton(partialResFrame, variable = partialResVariable)
+  onOK <- function() {
+    predictors <- getSelection(predictorsBox)
+    allEffects <- as.logical(tclvalue(allEffectsVariable))
+    partial.residuals <- tclvalue(partialResVariable) == "1"
+    closeDialog() 
+    if (allEffects){
+      command <- paste("plot(allEffects(", activeModel(), if(partial.residuals) ", partial.residuals=TRUE))"
+                       else "))", sep="")
+      doItAndPrint(command)
+      predictors <- NULL
+    }
+    else {
+      if (length(predictors) == 0) {
+        errorCondition(recall = effectPlots, 
+                       message = gettextRcmdr("You must select one or more predictors\n or plot all high-order effects."))
+        return()
+      }
+      if (partial.residuals && (all(predictors %in% Factors()))){
+        errorCondition(recall = effectPlots, 
+                       message = gettextRcmdr("To plot partial residuals,\n there must be a least one numeric predictor."))
+        return()
+      }
+      command <- paste("plot(Effect(c(", paste(paste('"', predictors, '"', sep=""), collapse=", "), "), ", activeModel(),
+                       if (partial.residuals) ", partial.residuals=TRUE))" else "))", sep = "")
+      doItAndPrint(command)
+    }
+    putDialog ("effectPlots", list(initial.all.or.pick=as.character(allEffects), initial.predictors=predictors, 
+                                   initial.partial.res=as.numeric(partial.residuals)))
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "Effect", reset = "effectPlots", apply = "effectPlots")
+  tkgrid(allEffectsFrame, sticky="w")
+  tkgrid(getFrame(predictorsBox), sticky="w")
+  tkgrid(predictorsFrame, sticky="w")
+  if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("lm", "glm")){
+    tkgrid(labelRcmdr(partialResFrame, text=" "))
+    tkgrid(partialResCheckBox, 
+           labelRcmdr(partialResFrame, text=gettextRcmdr("Plot partial residuals")), 
+           sticky="w")
+    tkgrid(partialResFrame, sticky="w")
+  }
+  tkgrid(buttonsFrame, sticky = "w")
+  dialogSuffix()
+}
+
+# effectPlots <- function(){
+#   Library("effects")
+#   .activeModel <- ActiveModel()
+#   if (is.null(.activeModel) || !checkMethod("Effect", .activeModel)) return()
+#   doItAndPrint('trellis.device(theme="col.whitebg")')
+#   command <- paste("plot(allEffects(", .activeModel, "), ask=FALSE)", sep="")
+#   justDoIt(command)
+#   logger(command)
+#   activateMenus()
+#   NULL
+# }

@@ -1,4 +1,4 @@
-# last modified 2013-07-11 by J. Fox
+# last modified 2914-07-08 by J. Fox
 
 if (getRversion() >= "2.15.1")  
     globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
@@ -47,4 +47,4 @@ if (getRversion() >= "2.15.1")
                       'grabFocusVariable', 'doubleClickVariable', 'sortNamesVariable', 'showEditButtonVariable',
                       'SuppressIconImagesVariable', 'retainSelectionsVariable', 'useRglVariable', 'closeOptionsFrame',
                       'outputOptionsFrame', 'otherOptionsFrame', 'kernelVariable', 'kernelFrame', 'otherFrame',
-                      'notebook', 'dataTab', 'optionsTab', 'tableTab', 'statisticsTab'))
+                      'notebook', 'dataTab', 'optionsTab', 'tableTab', 'statisticsTab', 'allEffectsVariable', 'allEffectsFrame'))

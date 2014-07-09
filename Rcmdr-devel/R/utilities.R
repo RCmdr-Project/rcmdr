@@ -1,4 +1,4 @@
-# last modified 2014-04-06 by M. Bouchet-Valat
+# last modified 2014-07-08 by J. Fox
 
 # utility functions
 
@@ -1014,6 +1014,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             setBusyCursor()
             on.exit(setIdleCursor())
             onOK()
+            if (model) putDialog ("effectPlots", NULL)
             if (getRcmdr("use.markdown")){
                 removeNullRmdBlocks()
                 putRcmdr("startNewCommandBlock", TRUE)
@@ -2495,19 +2496,20 @@ getDialog <- function(dialog, defaults=NULL){
     else return (values)
 }
 
-varPosn <- function(variables, type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor")){
+varPosn <- function(variables, vars=NULL, 
+                    type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor")){
     if (is.null(variables)) return(NULL)
     type <- match.arg(type)
-    vars <- switch(type,
-        all = Variables(),
-        factor = Factors(),
-        numeric = Numeric(),
-        nonfactor = setdiff(Variables(), Factors()),
-        twoLevelFactor = TwoLevelFactors()
+    if (is.null(vars)) vars <- switch(type,
+                                      all = Variables(),
+                                      factor = Factors(),
+                                      numeric = Numeric(),
+                                      nonfactor = setdiff(Variables(), Factors()),
+                                      twoLevelFactor = TwoLevelFactors()
     )
     if (any(!variables %in% vars)) NULL
     else apply(outer(variables, vars, "=="), 1, which) - 1
-}
+  }
 
 flushDialogMemory <- function(what){
     if (missing(what)) putRcmdr("dialog.values", list())

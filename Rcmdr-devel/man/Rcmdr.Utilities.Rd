@@ -288,7 +288,7 @@ variableListBox(parentWindow, variableList=Variables(), bg="white",
     selectmode="single", export="FALSE", initialSelection=NULL, 
     listHeight=getRcmdr("variable.list.height"), title)
 Variables(names)
-varPosn(variables, 
+varPosn(variables, vars=NULL,
     type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor"))
 WindowsP()
 X11P()
@@ -430,6 +430,7 @@ commanderPosition()
   	a list of current selections to be stored in support of dialog memory.}
   \item{variableList}{a vector of variable names.}
   \item{variables}{a vector of one or more variable names.}
+  \item{vars}{a vector of one or more variable names; if given \code{type} argument is ignored.}
   \item{what}{optional character vector of one or more dialog names for which the memory is to be flushed; if not 
     specified, all dialog memory will be flushed.}
   \item{window, parentWindow}{a Tk window.}
