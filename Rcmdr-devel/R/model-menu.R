@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2014-07-08 by J. Fox
+# last modified 2014-07-11 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -880,7 +880,8 @@ subsetRegression <- function () {
 
 effectPlots <- function () {
   Library("effects")
-  defaults <- list(initial.all.or.pick = "TRUE", initial.predictors = NULL, initial.partial.res = 0)
+  defaults <- list(initial.all.or.pick = "TRUE", initial.predictors = NULL, 
+                   initial.partial.res = 0, initial.span = 50)
   dialog.values <- getDialog("effectPlots", defaults)
   initializeDialog(title = gettextRcmdr("Model Effect Plots"))
   predictors <- all.vars(formula(get(activeModel(), envir=.GlobalEnv))[[3]])
@@ -895,14 +896,21 @@ effectPlots <- function () {
   
   partialResFrame <- tkframe(top)
   partialResVariable <- tclVar(dialog.values$initial.partial.res)
-  partialResCheckBox <- ttkcheckbutton(partialResFrame, variable = partialResVariable)
+  partialResCheckBoxFrame <- tkframe(partialResFrame)
+  partialResCheckBox <- ttkcheckbutton(partialResCheckBoxFrame, variable = partialResVariable)
+  sliderValue <- tclVar(dialog.values$initial.span)
+  sliderFrame <- tkframe(partialResFrame)
+  slider <- tkscale(sliderFrame, from = 5, to = 100, showvalue = TRUE,
+                    variable = sliderValue, resolution = 5, orient = "horizontal")
   onOK <- function() {
     predictors <- getSelection(predictorsBox)
     allEffects <- as.logical(tclvalue(allEffectsVariable))
     partial.residuals <- tclvalue(partialResVariable) == "1"
+    span <- as.numeric(tclvalue(sliderValue))
     closeDialog() 
     if (allEffects){
-      command <- paste("plot(allEffects(", activeModel(), if(partial.residuals) ", partial.residuals=TRUE))"
+      command <- paste("plot(allEffects(", activeModel(), 
+                       if (partial.residuals) paste(", partial.residuals=TRUE), span=", span/100, ")", sep="")
                        else "))", sep="")
       doItAndPrint(command)
       predictors <- NULL
@@ -919,11 +927,13 @@ effectPlots <- function () {
         return()
       }
       command <- paste("plot(Effect(c(", paste(paste('"', predictors, '"', sep=""), collapse=", "), "), ", activeModel(),
-                       if (partial.residuals) ", partial.residuals=TRUE))" else "))", sep = "")
+                       if (partial.residuals) paste(", partial.residuals=TRUE), span=", span/100, ")", sep="")
+                       else "))", sep = "")
       doItAndPrint(command)
     }
     putDialog ("effectPlots", list(initial.all.or.pick=as.character(allEffects), initial.predictors=predictors, 
-                                   initial.partial.res=as.numeric(partial.residuals)))
+                                   initial.partial.res=as.numeric(partial.residuals),
+                                   initial.span=span))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "Effect", reset = "effectPlots", apply = "effectPlots")
@@ -933,8 +943,12 @@ effectPlots <- function () {
   if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("lm", "glm")){
     tkgrid(labelRcmdr(partialResFrame, text=" "))
     tkgrid(partialResCheckBox, 
-           labelRcmdr(partialResFrame, text=gettextRcmdr("Plot partial residuals")), 
+           labelRcmdr(partialResCheckBoxFrame, text=gettextRcmdr("Plot partial residuals")), 
            sticky="w")
+    tkgrid(partialResCheckBoxFrame, sticky="w")
+    tkgrid(slider, labelRcmdr(sliderFrame, text = gettextRcmdr("Span for smooth")),
+           sticky = "swe", padx=6, pady=6)
+    tkgrid(sliderFrame, sticky="w")
     tkgrid(partialResFrame, sticky="w")
   }
   tkgrid(buttonsFrame, sticky = "w")
