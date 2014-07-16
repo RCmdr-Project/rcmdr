@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2013-10-24 by J. Fox
+# last modified 2014-07-16 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -60,7 +60,7 @@
     item    importMenu      command         "from Minitab data set..."                      importMinitab               ""          "packageAvailable('foreign')"
     item    importMenu      command         "from STATA data set..."                        importSTATA                 ""          "packageAvailable('foreign')"
     item    importMenu      command         "from Excel, Access or dBase data set..."       importRODBCtable            ""          "WindowsP() && packageAvailable('RODBC') && (.Platform$r_arch == 'i386')"
-    item    importMenu      command         "from Excel file..."                            importExcel                 ""      "packageAvailable('XLConnect') && (!WindowsP() | (.Platform$r_arch != 'i386'))"
+    item    importMenu      command         "from Excel file..."                            importExcel                 ""      "packageAvailable('XLConnect') && (!WindowsP() | (.Platform$r_arch != 'i386')) && hasJava()"
     item    dataMenu        cascade         "Import data"                                   importMenu                  ""          ""
     menu    packagesMenu    dataMenu        ""                                              ""                          ""          ""
     item    packagesMenu    command         "List data sets in packages"                    listDataSetsInPackages      ""          ""
