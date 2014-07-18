@@ -1,4 +1,4 @@
-# last modified 2014-04-06 by J. Fox
+# last modified 2014-07-18 by J. Fox
 
 useDynLib(RcmdrDevel)
 
@@ -6,7 +6,7 @@ import(tcltk)
 
 importFrom(utils, available.packages, install.packages)
 
-importFrom(tcltk2, tk2tip, tk2theme)
+importFrom(tcltk2, tk2tip, tk2theme, tk2theme.list)
 
 export(tkfocus, tkspinbox,
 activateMenus, activeDataSet, ActiveDataSet, activeDataSetP, activeModel,

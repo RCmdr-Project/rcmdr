@@ -6,6 +6,8 @@ Changes to Version 2.1-0
 
   o Check for functioning Java on 64-bit Windows to load import-from-Excel menu item (issue reported by Kosar Karimi-Pour).
 
+  o Added option to set ttk theme.
+
 Changes to Version 2.0-5
 
   o New Basque translation (courtesy of Jose Ramon Rueda).

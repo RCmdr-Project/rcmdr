@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2014-04-06 by John Fox
+# last modified 2014-07-18 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -330,8 +330,19 @@ Commander <- function(){
     putRcmdr("commandStack", as.list(rep(NA, getRcmdr("length.command.stack"))))
     setOption("variable.list.height", 6)
     setOption("variable.list.width", c(20, Inf))
+    all.themes <- tk2theme.list()
+    current.theme <- tk2theme()
+    all.themes <- union(all.themes, current.theme)
+    setOption("theme", current.theme)
+    theme <- (getRcmdr("theme"))
+    if (!(theme %in% all.themes)){
+        warning(gettextRcmdr("non-existent theme"), ', "', theme,  '"\n  ', 
+            gettextRcmdr("theme set to"), ' "', current.theme, '"')
+        theme <- current.theme
+    }
+    putRcmdr("theme", theme)
+    tk2theme(theme)
     placement <- setOption("placement", "", global=FALSE)
-    
     # platform-specific issues
     if (getRcmdr("suppress.X11.warnings")) {
         putRcmdr("messages.connection", file(open = "w+"))

@@ -476,8 +476,9 @@ Options <- function(){
                                    "Sort variable names alphabetically", "Show edit button",
                                    "Suppress icon images", "Retain dialog selections", "Use rgl package")
     )
+    scaleFactorFrame <- tkframe(otherTab)
     scaleFactorVar <- tclVar(if (is.null(scale.factor)) 1.0 else scale.factor)
-    scaleFactorSlider <- tkscale(otherTab, from=0.2, to=3.0, showvalue=TRUE, variable=scaleFactorVar,
+    scaleFactorSlider <- tkscale(scaleFactorFrame, from=0.2, to=3.0, showvalue=TRUE, variable=scaleFactorVar,
                                  resolution=0.2, orient="horizontal")
     defaultFontSizeVar <- tclVar(default.font.size)
     defaultFontSizeSlider <- tkscale(fontFrame, from=6, to=20, showvalue=TRUE, variable=defaultFontSizeVar,
@@ -509,7 +510,14 @@ Options <- function(){
         return(NULL)
     }
     rnwTemplateButton <- buttonRcmdr(templateFrame, text=gettextRcmdr("Select file"), command=onSelectRnwTemplate)
+    all.themes <- tk2theme.list()
+    current.theme <- tk2theme()
+    all.themes <- union(current.theme, all.themes)
+    themesBox <- variableListBox(otherTab, all.themes, 
+        title = gettextRcmdr("Theme (pick one)"), 
+        initialSelection = varPosn(current.theme, all.themes))
     onOK <- function(){
+        theme <- getSelection(themesBox)
         closeDialog(top)
         ask.to.exit <- asLogical(tclvalue(askToExitVariable))
         ask.on.exit <- asLogical(tclvalue(askOnExitVariable))
@@ -578,6 +586,7 @@ Options <- function(){
         options$error.text.color <- colors[4]
         options$warning.text.color <- colors[5]
         options$title.color <- colors[6]
+        options$theme <- theme
         options(Rcmdr=options)
         closeCommander()
         Commander()
@@ -608,19 +617,24 @@ Options <- function(){
     tkgrid(labelRcmdr(templateFrame, text="R Markdown template file"), rmdTemplateEntry, templateButton, sticky="w", padx=6)
     tkgrid(templateFrame, columnspan=2, sticky="w")
     tkgrid(labelRcmdr(templateFrame, text="R knitr template file"), rnwTemplateEntry, rnwTemplateButton, sticky="w", padx=6)
-    tkgrid(labelRcmdr(otherTab, text=gettextRcmdr("Scale factor for Tk elements")), scaleFactorSlider, sticky="sw")
-    tkgrid(labelRcmdr(contrastsFrame, text=gettextRcmdr("Unordered factors")), labelRcmdr(contrastsFrame, text="   "),
+    tkgrid(labelRcmdr(scaleFactorFrame, text=gettextRcmdr("Scale factor for Tk elements")), scaleFactorSlider, sticky="sw")
+    tkgrid(scaleFactorFrame, sticky="w")
+    tkgrid(labelRcmdr(otherTab, text=""))
+    tkgrid(labelRcmdr(contrastsFrame, text=""), labelRcmdr(contrastsFrame, text=gettextRcmdr("Unordered factors")), labelRcmdr(contrastsFrame, text="   "),
            labelRcmdr(contrastsFrame, text=gettextRcmdr("Ordered factors")), sticky="w")
-    tkgrid(contrasts1Entry, labelRcmdr(contrastsFrame, text="   "), contrasts2Entry, sticky="w")
-    tkgrid(labelRcmdr(otherTab, text=gettextRcmdr("Contrasts")), contrastsFrame, sticky="sw")
+    tkgrid(labelRcmdr(contrastsFrame, text=gettextRcmdr("Contrasts")), contrasts1Entry, labelRcmdr(contrastsFrame, text="   "), contrasts2Entry, sticky="sw")
+    tkgrid(contrastsFrame, sticky="sw")
     tkgrid(labelRcmdr(otherTab, text=" "), sticky="w")    
     tkgrid(otherOptionsFrame, sticky="w", columnspan=2)
+    tkgrid(labelRcmdr(otherTab, text=""))
+    tkgrid(getFrame(themesBox), sticky="w")
+    tkgrid(labelRcmdr(otherTab, text=""))
     tkadd(notebook, closeTab, text=gettextRcmdr("Exit"), padding=6)
     tkadd(notebook, fontTab, text=gettextRcmdr("Fonts"), padding=6)
     tkadd(notebook, outputTab, text=gettextRcmdr("Output"), padding=6)
     tkadd(notebook, otherTab, text=gettextRcmdr("Other Options"), padding=6)
     tkgrid(notebook)
-    tkconfigure(OKbutton, text=gettextRcmdr("Exit and Restart\nR Commander"), width=18)
+    tkconfigure(OKbutton, text=gettextRcmdr("Restart R Commander"), width=20)
     tkgrid(buttonsFrame, columnspan=3, sticky="ew")
     dialogSuffix()
 }

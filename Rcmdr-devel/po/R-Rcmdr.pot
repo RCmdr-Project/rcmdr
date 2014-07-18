@@ -1,6 +1,6 @@
 msgid "Project-Id-Version: Rcmdr 2.0-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-07-08 10:30:00\n"
+"POT-Creation-Date: 2014-07-18 11:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4331,4 +4331,17 @@ msgid "To plot partial residuals,\n there must be a least one numeric predictor.
 msgstr ""
 
 msgid "Plot partial residuals"
+msgstr ""
+
+  # messages related to ttk theme selection
+
+msgid "non-existent theme"
+msgstr ""
+
+msgid "theme set to"
+msgstr ""
+
+  # modified message
+
+msgid "Restart R Commander"
 msgstr ""

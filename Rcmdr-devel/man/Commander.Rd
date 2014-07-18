@@ -301,6 +301,9 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{suppress.icon.images}}{Set to \code{TRUE} to suppress the icon images in dialog OK, Cancel, Reset, and Help buttons;
     the default is \code{FALSE}.}
     
+    \item{\code{theme}}{A ttk theme to control the overall style of the Commander GUI; should be one of the themes returned by \code{tcltk2::tk2theme.list()}.
+    The default theme varies by operating system, and can be discovered by entering the command \code{tcltk2::tk2theme()} in a fresh R session.}
+    
     \item{\code{title.color}}{Color for the titles of some widgets, such as variable-list boxes; can be given as a color name, such as
     \code{"blue"} or as an RGB value, such as \code{"#0000FF"}.
     The default is the standard color for ttk label frames, unless that is \code{"#000000"} or \code{"black"}, in which case \code{"blue"}" is used instead.}
