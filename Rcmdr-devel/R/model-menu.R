@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2014-07-11 by J. Fox
+# last modified 2014-07-25 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -389,132 +389,127 @@ residualQQPlot <- function () {
 }
 
 testLinearHypothesis <- function(){
-    # coef.multinom <- car:::coef.multinom
-    defaults <- list(previous.model=NULL, nrows=1, table.values=0, rhs.values=0)
-    dialog.values <- getDialog("testLinearHypothesis", defaults=defaults)
-    .activeModel <- ActiveModel()
-    if (is.null(.activeModel) || !checkMethod("linearHypothesis", .activeModel, default=TRUE)) return()
-    if (!is.null(dialog.values$previous.model)){
-        if (dialog.values$previous.model != .activeModel){
-            dialog.values <- defaults
-        }
+  # coef.multinom <- car:::coef.multinom
+  defaults <- list(previous.model=NULL, nrows=1, table.values=0, rhs.values=0)
+  dialog.values <- getDialog("testLinearHypothesis", defaults=defaults)
+  .activeModel <- ActiveModel()
+  if (is.null(.activeModel) || !checkMethod("linearHypothesis", .activeModel, default=TRUE)) return()
+  if (!is.null(dialog.values$previous.model)){
+    if (dialog.values$previous.model != .activeModel){
+      dialog.values <- defaults
     }
-    table.values <- dialog.values$table.values
-    rhs.values <- dialog.values$rhs.values
-    env <- environment()
-    initializeDialog(title=gettextRcmdr("Test Linear Hypothesis"))
-    outerTableFrame <- tkframe(top)
+  }
+  table.values <- dialog.values$table.values
+  rhs.values <- dialog.values$rhs.values
+  env <- environment()
+  initializeDialog(title=gettextRcmdr("Test Linear Hypothesis"))
+  outerTableFrame <- tkframe(top)
+  assign(".tableFrame", tkframe(outerTableFrame), envir=env)
+  setUpTable <- function(...){
+    tkdestroy(get(".tableFrame", envir=env))
     assign(".tableFrame", tkframe(outerTableFrame), envir=env)
-    setUpTable <- function(...){
-        tkdestroy(get(".tableFrame", envir=env))
-        assign(".tableFrame", tkframe(outerTableFrame), envir=env)
-        nrows <- as.numeric(tclvalue(rowsValue))
-        if (length(table.values) == 1 && table.values == 0) {
-            table.values <- matrix(0, nrows, ncols)
-            rhs.values <- rep(0, nrows)
-        }
-        if (nrow(table.values) < nrows){
-            add.rows <- nrows - nrow(table.values)
-            table.values <- rbind(table.values, matrix(0, add.rows, ncols))
-            rhs.values <- c(rhs.values, rep(0, add.rows))
-        }
-        col.names <- names(coef(get(.activeModel)))
-        col.names <- substring(paste(abbreviate(col.names, 12), "            "), 1, 12)
-        make.col.names <- "labelRcmdr(.tableFrame, text='')"
-        for (j in 1:ncols) {
-            make.col.names <- paste(make.col.names, ", ", 
-                                    "labelRcmdr(.tableFrame, text='", col.names[j], "')", sep="")
-        }
-        rhsText <- gettextRcmdr("Right-hand side")
-        make.col.names <- paste(make.col.names, ", labelRcmdr(.tableFrame, text='          ')",
-                                ", labelRcmdr(.tableFrame, text='", rhsText, "')", sep="")
-        eval(parse(text=paste("tkgrid(", make.col.names, ")", sep="")), envir=env)
-        for (i in 1:nrows){   
-            varname <- paste(".tab.", i, ".1", sep="") 
-            rhs.name <- paste(".rhs.", i, sep="")
-            assign(varname, tclVar(table.values[i, 1]) , envir=env)
-            assign(rhs.name, tclVar(rhs.values[i]), envir=env)
-            make.row <- paste("labelRcmdr(.tableFrame, text=", i, ")")
-            make.row <- paste(make.row, ", ", "ttkentry(.tableFrame, width='5', textvariable=", 
-                              varname, ")", sep="")
-            for (j in 2:ncols){
-                varname <- paste(".tab.", i, ".", j, sep="")
-                assign(varname, tclVar(table.values[i, j]), envir=env)
-                make.row <- paste(make.row, ", ", "ttkentry(.tableFrame, width='5', textvariable=", 
-                                  varname, ")", sep="")
-            }
-            make.row <- paste(make.row, ", labelRcmdr(.tableFrame, text='     '),",
-                              "ttkentry(.tableFrame, width='5', textvariable=", rhs.name, ")", sep="")
-            eval(parse(text=paste("tkgrid(", make.row, ")", sep="")), envir=env)
-        }
-        tkgrid(get(".tableFrame", envir=env), sticky="w")
+    nrows <- as.numeric(tclvalue(rowsValue))
+    if (length(table.values) == 1 && table.values == 0) {
+      table.values <- matrix(0, nrows, ncols)
+      rhs.values <- rep(0, nrows)
     }
-    ncols <- length(coef(get(.activeModel)))
-    rowsFrame <- tkframe(top)
-    rowsValue <- tclVar(dialog.values$nrows)
-    rowsSlider <- tkscale(rowsFrame, from=1, to=ncols, showvalue=FALSE, variable=rowsValue,
-                          resolution=1, orient="horizontal", command=setUpTable)
-    rowsShow <- labelRcmdr(rowsFrame, textvariable=rowsValue, width=2, justify="right")
-    onOK <- function(){
-        nrows <- as.numeric(tclvalue(rowsValue))
-        cell <- 0
-        values <- rep(NA, nrows*ncols)
-        rhs <- rep(NA, nrows)
-        for (i in 1:nrows){
-            rhs.name <- paste(".rhs.", i, sep="")
-            rhs[i] <- as.numeric(eval(parse(text=paste("tclvalue(", rhs.name,")", sep=""))))
-            for (j in 1:ncols){
-                cell <- cell+1
-                varname <- paste(".tab.", i, ".", j, sep="")
-                values[cell] <- as.numeric(eval(parse(text=paste("tclvalue(", varname,")", sep=""))))
-            }
-        }
-        values <- na.omit(values)
-        closeDialog()
-        if (length(values) != nrows*ncols){
-            Message(message=sprintf(gettextRcmdr("Number of valid entries in hypothesis matrix(%d)\nnot equal to number of rows (%d) * number of columns (%d)."), 
-                                    length(values), nrows, ncols), type="error")
-            testLinearHypothesis()
-            return()
-        }
-        if (qr(matrix(values, nrows, ncols, byrow=TRUE))$rank < nrows) {
-            Message(message=gettextRcmdr("Hypothesis matrix is not of full row rank."),
-                    type="error")
-            testLinearHypothesis()
-            return()
-        }            
-        rhs <- na.omit(rhs)
-        if (length(rhs) != nrows){
-            errorCondition(recall=testLinearHypothesis, message=sprintf(gettextRcmdr("Number of valid entries in rhs vector (%d)\nis not equal to number of rows (%d)."), length(rhs), nrows))
-            return()
-        }
-        command <- paste("matrix(c(", paste(values, collapse=","), "), ", nrows, ", ", ncols,
-                         ", byrow=TRUE)", sep="")
-        # 		assign(".Hypothesis", justDoIt(command), envir=.GlobalEnv)
-        # 		logger(paste(".Hypothesis <- ", command, sep=""))
-        doItAndPrint(paste(".Hypothesis <- ", command, sep=""))
-        command <- paste("c(", paste(rhs, collapse=","), ")", sep="")
-        # 		assign(".RHS", justDoIt(command), envir=.GlobalEnv)
-        # 		logger(paste(".RHS <- ", command, sep=""))
-        doItAndPrint(paste(".RHS <- ", command, sep=""))
-        rhs.values <- .RHS
-        command <- paste("linearHypothesis(", .activeModel, ", .Hypothesis, rhs=.RHS)", sep="")
-        doItAndPrint(command)
-        justDoIt("remove(.Hypothesis, .RHS, envir=.GlobalEnv)") 
-        logger("remove(.Hypothesis, .RHS)")                                              
-        tkfocus(CommanderWindow())
-        contrast.table <- matrix(values, nrows, ncols, byrow=TRUE)
-        putDialog("testLinearHypothesis", list(previous.model=.activeModel, nrows=nrows, table.values=contrast.table,
-                                               rhs.values=rhs.values))
+    if (nrow(table.values) < nrows){
+      add.rows <- nrows - nrow(table.values)
+      table.values <- rbind(table.values, matrix(0, add.rows, ncols))
+      rhs.values <- c(rhs.values, rep(0, add.rows))
     }
-    OKCancelHelp(helpSubject="linearHypothesis", reset="testLinearHypothesis", apply="testLinearHypothesis")
-    tkgrid(labelRcmdr(rowsFrame, text=gettextRcmdr("Number of Rows:")), rowsSlider, rowsShow, sticky="w")
-    tkgrid(rowsFrame, sticky="w")
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter hypothesis matrix and right-hand side vector:"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-    tkgrid(outerTableFrame, sticky="w")
-    tkgrid(labelRcmdr(top, text=""))
-    tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix()       
+    col.names <- names(coef(get(.activeModel)))
+    col.names <- substring(paste(abbreviate(col.names, 12), "            "), 1, 12)
+    make.col.names <- "labelRcmdr(.tableFrame, text='')"
+    for (j in 1:ncols) {
+      make.col.names <- paste(make.col.names, ", ", 
+                              "labelRcmdr(.tableFrame, text='", col.names[j], "')", sep="")
+    }
+    rhsText <- gettextRcmdr("Right-hand side")
+    make.col.names <- paste(make.col.names, ", labelRcmdr(.tableFrame, text='          ')",
+                            ", labelRcmdr(.tableFrame, text='", rhsText, "')", sep="")
+    eval(parse(text=paste("tkgrid(", make.col.names, ")", sep="")), envir=env)
+    for (i in 1:nrows){   
+      varname <- paste(".tab.", i, ".1", sep="") 
+      rhs.name <- paste(".rhs.", i, sep="")
+      assign(varname, tclVar(table.values[i, 1]) , envir=env)
+      assign(rhs.name, tclVar(rhs.values[i]), envir=env)
+      make.row <- paste("labelRcmdr(.tableFrame, text=", i, ")")
+      make.row <- paste(make.row, ", ", "ttkentry(.tableFrame, width='5', textvariable=", 
+                        varname, ")", sep="")
+      for (j in 2:ncols){
+        varname <- paste(".tab.", i, ".", j, sep="")
+        assign(varname, tclVar(table.values[i, j]), envir=env)
+        make.row <- paste(make.row, ", ", "ttkentry(.tableFrame, width='5', textvariable=", 
+                          varname, ")", sep="")
+      }
+      make.row <- paste(make.row, ", labelRcmdr(.tableFrame, text='     '),",
+                        "ttkentry(.tableFrame, width='5', textvariable=", rhs.name, ")", sep="")
+      eval(parse(text=paste("tkgrid(", make.row, ")", sep="")), envir=env)
+    }
+    tkgrid(get(".tableFrame", envir=env), sticky="w")
+  }
+  ncols <- length(coef(get(.activeModel)))
+  rowsFrame <- tkframe(top)
+  rowsValue <- tclVar(dialog.values$nrows)
+  rowsSlider <- tkscale(rowsFrame, from=1, to=ncols, showvalue=FALSE, variable=rowsValue,
+                        resolution=1, orient="horizontal", command=setUpTable)
+  rowsShow <- labelRcmdr(rowsFrame, textvariable=rowsValue, width=2, justify="right")
+  onOK <- function(){
+    nrows <- as.numeric(tclvalue(rowsValue))
+    cell <- 0
+    values <- rep(NA, nrows*ncols)
+    rhs <- rep(NA, nrows)
+    for (i in 1:nrows){
+      rhs.name <- paste(".rhs.", i, sep="")
+      rhs[i] <- as.numeric(eval(parse(text=paste("tclvalue(", rhs.name,")", sep=""))))
+      for (j in 1:ncols){
+        cell <- cell+1
+        varname <- paste(".tab.", i, ".", j, sep="")
+        values[cell] <- as.numeric(eval(parse(text=paste("tclvalue(", varname,")", sep=""))))
+      }
+    }
+    values <- na.omit(values)
+    closeDialog()
+    if (length(values) != nrows*ncols){
+      Message(message=sprintf(gettextRcmdr("Number of valid entries in hypothesis matrix(%d)\nnot equal to number of rows (%d) * number of columns (%d)."), 
+                              length(values), nrows, ncols), type="error")
+      testLinearHypothesis()
+      return()
+    }
+    if (qr(matrix(values, nrows, ncols, byrow=TRUE))$rank < nrows) {
+      Message(message=gettextRcmdr("Hypothesis matrix is not of full row rank."),
+              type="error")
+      testLinearHypothesis()
+      return()
+    }            
+    rhs <- na.omit(rhs)
+    if (length(rhs) != nrows){
+      errorCondition(recall=testLinearHypothesis, message=sprintf(gettextRcmdr("Number of valid entries in rhs vector (%d)\nis not equal to number of rows (%d)."), length(rhs), nrows))
+      return()
+    }
+    command.1 <- paste(".Hypothesis <- matrix(c(", paste(values, collapse=","), "), ", nrows, ", ", ncols,
+                       ", byrow=TRUE)", sep="")
+    command.2 <- paste(".RHS <- c(", paste(rhs, collapse=","), ")", sep="")
+    justDoIt(paste("putRcmdr('.RHS', c(", paste(rhs, collapse=","), "))", sep=""))
+    command.3 <- paste("linearHypothesis(", .activeModel, ", .Hypothesis, rhs=.RHS)", sep="")
+    doItAndPrint(paste("local({\n", "  ", command.1, "\n",
+                       "  ", command.2, "\n",
+                       "  ", command.3, "\n",
+                       "})", sep=""))                   
+    tkfocus(CommanderWindow())
+    contrast.table <- matrix(values, nrows, ncols, byrow=TRUE)
+    putDialog("testLinearHypothesis", list(previous.model=.activeModel, nrows=nrows, table.values=contrast.table,
+                                           rhs.values=getRcmdr(".RHS")))
+  }
+  OKCancelHelp(helpSubject="linearHypothesis", reset="testLinearHypothesis", apply="testLinearHypothesis")
+  tkgrid(labelRcmdr(rowsFrame, text=gettextRcmdr("Number of Rows:")), rowsSlider, rowsShow, sticky="w")
+  tkgrid(rowsFrame, sticky="w")
+  tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter hypothesis matrix and right-hand side vector:"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+  tkgrid(outerTableFrame, sticky="w")
+  tkgrid(labelRcmdr(top, text=""))
+  tkgrid(buttonsFrame, sticky="w")
+  dialogSuffix()       
 } 
 
 compareModels <- function () {

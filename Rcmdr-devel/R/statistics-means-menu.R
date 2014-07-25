@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-24 by J. Fox
+# last modified 2013-07-25 by J. Fox
 
 # Means menu
 
@@ -184,101 +184,96 @@ singleSampleTTest <- function () {
 }
 
 oneWayAnova <- function () {
-    Library("multcomp")
-    Library("abind")
-    defaults <- list(initial.group = NULL, initial.response = NULL, initial.pairwise = 0)
-    dialog.values <- getDialog("oneWayAnova", defaults)
-    initializeDialog(title = gettextRcmdr("One-Way Analysis of Variance"))
-    UpdateModelNumber()
-    modelName <- tclVar(paste("AnovaModel.", getRcmdr("modelNumber"), 
-                              sep = ""))
-    modelFrame <- tkframe(top)
-    model <- ttkentry(modelFrame, width = "20", textvariable = modelName)
-    dataFrame <- tkframe(top)
-    groupBox <- variableListBox(dataFrame, Factors(), title = gettextRcmdr("Groups (pick one)"), 
-                                initialSelection = varPosn(dialog.values$initial.group, "factor"))
-    responseBox <- variableListBox(dataFrame, Numeric(), title = gettextRcmdr("Response Variable (pick one)"),
-                                   initialSelection = varPosn(dialog.values$initial.response, "numeric"))
-    optionsFrame <- tkframe(top)
-    pairwiseVariable <- tclVar(dialog.values$initial.pairwise)
-    pairwiseCheckBox <- ttkcheckbutton(optionsFrame, variable = pairwiseVariable)
-    onOK <- function() {
-        modelValue <- trim.blanks(tclvalue(modelName))
-        if (!is.valid.name(modelValue)) {
-            UpdateModelNumber(-1)
-            errorCondition(recall = oneWayAnova, message = sprintf(gettextRcmdr("\"%s\" is not a valid name."), 
-                                                                   modelValue))
-            return()
-        }
-        if (is.element(modelValue, listAOVModels())) {
-            if ("no" == tclvalue(checkReplace(modelValue, type = gettextRcmdr("Model")))) {
-                UpdateModelNumber(-1)
-                tkdestroy(top)
-                oneWayAnova()
-                return()
-            }
-        }
-        group <- getSelection(groupBox)
-        response <- getSelection(responseBox)
-        closeDialog()
-        if (length(group) == 0) {
-            errorCondition(recall = oneWayAnova, message = gettextRcmdr("You must select a groups factor."))
-            return()
-        }
-        if (length(response) == 0) {
-            errorCondition(recall = oneWayAnova, message = gettextRcmdr("You must select a response variable."))
-            return()
-        }
-        .activeDataSet <- ActiveDataSet()
-        command <- paste(modelValue, " <- aov(", response, " ~ ", 
-                         group, ", data=", .activeDataSet, ")", sep = "")
-        justDoIt(command)
-        logger(command)
-        doItAndPrint(paste("summary(", modelValue, ")", sep = ""))
-        doItAndPrint(paste("numSummary(", .activeDataSet, "$", 
-                           response, " , groups=", .activeDataSet, "$", group, 
-                           ", statistics=c(\"mean\", \"sd\"))", sep = ""))
-        activeModel(modelValue)
-        putRcmdr("modelWithSubset", FALSE)
-        pairwise <- tclvalue(pairwiseVariable)
-        putDialog ("oneWayAnova", list (initial.group = group, initial.response = response, initial.pairwise = pairwise))
-        if (pairwise == 1) {
-            if (eval(parse(text = paste("length(levels(", .activeDataSet, 
-                                        "$", group, ")) < 3")))) 
-                Message(message = gettextRcmdr("Factor has fewer than 3 levels; pairwise comparisons omitted."), 
-                        type = "warning")
-            else {
-                command <- paste(".Pairs <- glht(", modelValue, 
-                                 ", linfct = mcp(", group, " = \"Tukey\"))", 
-                                 sep = "")
-                justDoIt(command)
-                logger(command)
-                doItAndPrint("summary(.Pairs) # pairwise tests")
-                doItAndPrint("confint(.Pairs) # confidence intervals")
-                doItAndPrint("cld(.Pairs) # compact letter display")
-                justDoIt("old.oma <- par(oma=c(0,5,0,0))")
-                logger("old.oma <- par(oma=c(0,5,0,0))")
-                justDoIt("plot(confint(.Pairs))")
-                logger("plot(confint(.Pairs))")
-                justDoIt("par(old.oma)")
-                logger("par(old.oma)")
-                logger("remove(.Pairs)")
-                remove(.Pairs, envir = .GlobalEnv)
-            }
-        }
-        tkfocus(CommanderWindow())
+  Library("multcomp")
+  Library("abind")
+  defaults <- list(initial.group = NULL, initial.response = NULL, initial.pairwise = 0)
+  dialog.values <- getDialog("oneWayAnova", defaults)
+  initializeDialog(title = gettextRcmdr("One-Way Analysis of Variance"))
+  UpdateModelNumber()
+  modelName <- tclVar(paste("AnovaModel.", getRcmdr("modelNumber"), 
+                            sep = ""))
+  modelFrame <- tkframe(top)
+  model <- ttkentry(modelFrame, width = "20", textvariable = modelName)
+  dataFrame <- tkframe(top)
+  groupBox <- variableListBox(dataFrame, Factors(), title = gettextRcmdr("Groups (pick one)"), 
+                              initialSelection = varPosn(dialog.values$initial.group, "factor"))
+  responseBox <- variableListBox(dataFrame, Numeric(), title = gettextRcmdr("Response Variable (pick one)"),
+                                 initialSelection = varPosn(dialog.values$initial.response, "numeric"))
+  optionsFrame <- tkframe(top)
+  pairwiseVariable <- tclVar(dialog.values$initial.pairwise)
+  pairwiseCheckBox <- ttkcheckbutton(optionsFrame, variable = pairwiseVariable)
+  onOK <- function() {
+    modelValue <- trim.blanks(tclvalue(modelName))
+    if (!is.valid.name(modelValue)) {
+      UpdateModelNumber(-1)
+      errorCondition(recall = oneWayAnova, message = sprintf(gettextRcmdr("\"%s\" is not a valid name."), 
+                                                             modelValue))
+      return()
     }
-    OKCancelHelp(helpSubject = "anova", model = TRUE, reset = "oneWayAnova", apply = "oneWayAnova")
-    tkgrid(labelRcmdr(modelFrame, text = gettextRcmdr("Enter name for model: ")), 
-           model, sticky = "w")
-    tkgrid(modelFrame, sticky = "w", columnspan = 2)
-    tkgrid(getFrame(groupBox), labelRcmdr(dataFrame, text="  "), getFrame(responseBox), sticky = "nw")
-    tkgrid(dataFrame, sticky="w")
-    tkgrid(pairwiseCheckBox, labelRcmdr(optionsFrame, text = gettextRcmdr("Pairwise comparisons of means")), 
-           sticky = "w")
-    tkgrid(optionsFrame, sticky = "w")
-    tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix()
+    if (is.element(modelValue, listAOVModels())) {
+      if ("no" == tclvalue(checkReplace(modelValue, type = gettextRcmdr("Model")))) {
+        UpdateModelNumber(-1)
+        tkdestroy(top)
+        oneWayAnova()
+        return()
+      }
+    }
+    group <- getSelection(groupBox)
+    response <- getSelection(responseBox)
+    closeDialog()
+    if (length(group) == 0) {
+      errorCondition(recall = oneWayAnova, message = gettextRcmdr("You must select a groups factor."))
+      return()
+    }
+    if (length(response) == 0) {
+      errorCondition(recall = oneWayAnova, message = gettextRcmdr("You must select a response variable."))
+      return()
+    }
+    .activeDataSet <- ActiveDataSet()
+    command <- paste(modelValue, " <- aov(", response, " ~ ", 
+                     group, ", data=", .activeDataSet, ")", sep = "")
+    justDoIt(command)
+    logger(command)
+    doItAndPrint(paste("summary(", modelValue, ")", sep = ""))
+    doItAndPrint(paste("with(", .activeDataSet, ", numSummary(",
+                       response, ", groups=", group, 
+                       ", statistics=c(\"mean\", \"sd\")))", sep = ""))
+    activeModel(modelValue)
+    putRcmdr("modelWithSubset", FALSE)
+    pairwise <- tclvalue(pairwiseVariable)
+    putDialog ("oneWayAnova", list (initial.group = group, initial.response = response, initial.pairwise = pairwise))
+    if (pairwise == 1) {
+      if (eval(parse(text = paste("length(levels(", .activeDataSet, 
+                                  "$", group, ")) < 3")))) 
+        Message(message = gettextRcmdr("Factor has fewer than 3 levels; pairwise comparisons omitted."), 
+                type = "warning")
+      else {
+        commands <- character(7)
+        commands[1] <- paste("local({\n  .Pairs <- glht(", modelValue, 
+                             ", linfct = mcp(", group, " = \"Tukey\"))", 
+                             sep = "")
+        commands[2] <- "  print(summary(.Pairs)) # pairwise tests"
+        commands[3] <- "  print(confint(.Pairs)) # confidence intervals"
+        commands[4] <- "  print(cld(.Pairs)) # compact letter display"
+        commands[5] <- "  old.oma <- par(oma=c(0,5,0,0))"
+        commands[6] <- "  plot(confint(.Pairs))"
+        commands[7] <- "  par(old.oma)\n})"
+        doItAndPrint(paste(commands, collapse="\n"))
+      }
+    }
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "anova", model = TRUE, reset = "oneWayAnova", apply = "oneWayAnova")
+  tkgrid(labelRcmdr(modelFrame, text = gettextRcmdr("Enter name for model: ")), 
+         model, sticky = "w")
+  tkgrid(modelFrame, sticky = "w", columnspan = 2)
+  tkgrid(getFrame(groupBox), labelRcmdr(dataFrame, text="  "), getFrame(responseBox), sticky = "nw")
+  tkgrid(dataFrame, sticky="w")
+  tkgrid(pairwiseCheckBox, labelRcmdr(optionsFrame, text = gettextRcmdr("Pairwise comparisons of means")), 
+         sticky = "w")
+  tkgrid(optionsFrame, sticky = "w")
+  tkgrid(buttonsFrame, sticky = "w")
+  dialogSuffix()
 }
 
 multiWayAnova <- function () {

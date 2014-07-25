@@ -1,4 +1,4 @@
-# last modified 2013-12-24 by J. Fox
+# last modified 2013-12-25 by J. Fox
 
 # Data menu dialogs
 
@@ -1460,44 +1460,41 @@ reorderFactor <- function(){
 }
 
 standardize <- function(X){
-	initializeDialog(title=gettextRcmdr("Standardize Variables"))
-	xBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variables (pick one or more)"),
-			selectmode="multiple")
-	onOK <- function(){
-		x <- getSelection(xBox)
-		closeDialog()
-		if (length(x) == 0) {
-			errorCondition(recall=standardize, message=gettextRcmdr("You must select one or more variables."))
-			return()
-		}
-		xx <- paste('"', x, '"', sep="")
-		.activeDataSet <- ActiveDataSet()
-		command <- paste("scale(", .activeDataSet, "[,c(", paste(xx, collapse=","),
-				")])", sep="")
-		result <- justDoIt(command)
-		gassign(".Z", result)
-		logger(paste(".Z <- ", command, sep=""))
-		for (i in 1:length(x)){
-			Z <- paste("Z.", x[i], sep="")
-			if (is.element(Z, Variables())) {
-				if ("no" == tclvalue(checkReplace(Z))){
-					if (GrabFocus()) tkgrab.release(top)
-					tkdestroy(top)
-					next
-				}
-			}
-			justDoIt(paste(.activeDataSet, "$", Z, " <- .Z[,", i, "]", sep=""))
-			logger(paste(.activeDataSet, "$", Z, " <- .Z[,", i, "]", sep=""))
-		}
-		remove(.Z, envir=.GlobalEnv)
-		logger("remove(.Z)")
-		if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject="scale")
-	tkgrid(getFrame(xBox), sticky="w")
-	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix()
+  initializeDialog(title=gettextRcmdr("Standardize Variables"))
+  xBox <- variableListBox(top, Numeric(), title=gettextRcmdr("Variables (pick one or more)"),
+                          selectmode="multiple")
+  onOK <- function(){
+    x <- getSelection(xBox)
+    closeDialog()
+    if (length(x) == 0) {
+      errorCondition(recall=standardize, message=gettextRcmdr("You must select one or more variables."))
+      return()
+    }
+    xx <- paste('"', x, '"', sep="")
+    .activeDataSet <- ActiveDataSet()
+    command <- paste("local({\n  .Z <- scale(", 
+                     .activeDataSet, "[,c(", paste(xx, collapse=","),
+                     ")])", sep="")
+    for (i in 1:length(x)){
+      Z <- paste("Z.", x[i], sep="")
+      if (is.element(Z, Variables())) {
+        if ("no" == tclvalue(checkReplace(Z))){
+          if (GrabFocus()) tkgrab.release(top)
+          tkdestroy(top)
+          next
+        }
+      }
+      command <- paste(command, "\n  ", .activeDataSet, "$", Z, " <<- .Z[,", i, "]", sep="")
+    }
+    command <- paste(command, "\n})")
+    result <- doItAndPrint(command)
+    if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject="scale")
+  tkgrid(getFrame(xBox), sticky="w")
+  tkgrid(buttonsFrame, sticky="w")
+  dialogSuffix()
 }
 
 helpDataSet <- function(){

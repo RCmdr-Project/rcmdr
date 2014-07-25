@@ -1,4 +1,4 @@
-# last modified 2014-07-16 by J. Fox
+# last modified 2014-07-25 by J. Fox
 
 # utility functions
 
@@ -2364,35 +2364,42 @@ tclvalue <- function(x) trim.blanks(tcltk::tclvalue(x))
 # the following function splits a character string at blanks and commas according to width
 
 splitCmd <- function(cmd, width=getOption("width") - 4, at="[ ,]"){
-    if (nchar(cmd) <= width) return(cmd)
-    where <- gregexpr(at, cmd)[[1]]
-    if (where[1] < 0) return(cmd)
-    singleQuotes <- gregexpr("'", cmd)[[1]]
-    doubleQuotes <- gregexpr('"', cmd)[[1]]
-    comment <- regexpr("#", cmd)
-    if (singleQuotes[1] > 0 && (singleQuotes[1] < doubleQuotes[1] || doubleQuotes[1] < 0 ) && (singleQuotes[1] < comment[1] || comment[1] < 0 )){
-        nquotes <- length(singleQuotes)
-        if (nquotes < 2) stop("unbalanced quotes")
-        for(i in seq(nquotes/2))
-            where[(where > singleQuotes[2 * i - 1]) & (where < singleQuotes[2 * i])] <- NA
-        where <- na.omit(where)
-    }  
-    else if (doubleQuotes[1] > 0 && (doubleQuotes[1] < singleQuotes[1] || singleQuotes[1] < 0) && (doubleQuotes[1] < comment[1] || comment[1] < 0 )){
-        nquotes <- length(doubleQuotes)
-        if (nquotes < 2) stop("unbalanced quotes")
-        for(i in seq(nquotes/2))
-            where[(where > doubleQuotes[2 * i - 1]) & (where < doubleQuotes[2 * i])] <- NA
-        where <- na.omit(where)
-    }
-    else if (comment > 0){
-        where[where > comment] <- NA
-        where <- na.omit(where)
-    }
-    if (length(where) == 0) return(cmd)
-    where2 <- where[where <= width]
-    where2 <- if (length(where2) == 0) where[1]
-    else where2[length(where2)]
-    paste(substr(cmd, 1, where2), "\n  ", 
+  if (length(grep("\n", cmd)) >0 ){
+    cmds <- strsplit(cmd, "\n")[[1]]
+    allcmds <- character(length(cmds))
+    for (i in 1:length(cmds))
+      allcmds[i] <- splitCmd(cmds[i], width=width, at=at)
+    return(paste(allcmds, collapse="\n"))
+  }
+  if (nchar(cmd) <= width) return(cmd)
+  where <- gregexpr(at, cmd)[[1]]
+  if (where[1] < 0) return(cmd)
+  singleQuotes <- gregexpr("'", cmd)[[1]]
+  doubleQuotes <- gregexpr('"', cmd)[[1]]
+  comment <- regexpr("#", cmd)
+  if (singleQuotes[1] > 0 && (singleQuotes[1] < doubleQuotes[1] || doubleQuotes[1] < 0 ) && (singleQuotes[1] < comment[1] || comment[1] < 0 )){
+    nquotes <- length(singleQuotes)
+    if (nquotes < 2) stop("unbalanced quotes")
+    for(i in seq(nquotes/2))
+      where[(where > singleQuotes[2 * i - 1]) & (where < singleQuotes[2 * i])] <- NA
+    where <- na.omit(where)
+  }  
+  else if (doubleQuotes[1] > 0 && (doubleQuotes[1] < singleQuotes[1] || singleQuotes[1] < 0) && (doubleQuotes[1] < comment[1] || comment[1] < 0 )){
+    nquotes <- length(doubleQuotes)
+    if (nquotes < 2) stop("unbalanced quotes")
+    for(i in seq(nquotes/2))
+      where[(where > doubleQuotes[2 * i - 1]) & (where < doubleQuotes[2 * i])] <- NA
+    where <- na.omit(where)
+  }
+  else if (comment > 0){
+    where[where > comment] <- NA
+    where <- na.omit(where)
+  }
+  if (length(where) == 0) return(cmd)
+  where2 <- where[where <= width]
+  where2 <- if (length(where2) == 0) where[1]
+  else where2[length(where2)]
+  paste(substr(cmd, 1, where2), "\n  ", 
         Recall(substr(cmd, where2 + 1, nchar(cmd)), width, at), sep="")
 } 
 
