@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2014-07-25 by J. Fox
+# last modified 2014-07-28 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -254,83 +254,79 @@ VIF <- function(){
 }
 
 addObservationStatistics <- function () {
-    .activeDataSet <- ActiveDataSet()
-    .activeModel <- ActiveModel()
-	if (is.null(.activeModel)) 
-		return()
-	addVariable <- function(name) {
-		variable <- paste(name, ".", .activeModel, sep = "")
-		if (is.element(variable, .variables)) {
-			ans <- checkReplace(variable)
-			if (tclvalue(ans) == "no") 
-				return()
-		}
-		command <- paste(name, "(", .activeModel, ")", sep = "")
-		justDoIt(paste(.activeDataSet, "$", variable, " <- ", 
-						command, sep = ""))
-		logger(paste(.activeDataSet, "$", variable, " <- ", command, 
-						sep = ""))
-	}
-	if (getRcmdr("modelWithSubset")) {
-		Message(message = gettextRcmdr("Observation statistics not available\nfor a model fit to a subset of the data."), 
-				type = "error")
-		tkfocus(CommanderWindow())
-		return()
-	}
-	defaults <- list (initial.fitted = 1, initial.residuals = 1, initial.rstudent = 1, 
-			initial.hatvalues = 1, initial.cookd = 1, initial.obsNumbers = 1)
-	dialog.values <- getDialog ("addObservationStatistics", defaults)
-	initializeDialog(title = gettextRcmdr("Add Observation Statistics to Data"))
-	.variables <- Variables()
-	obsNumberExists <- is.element("obsNumber", .variables)
-	activate <- c(checkMethod("fitted", .activeModel, default = TRUE, 
-					reportError = FALSE), checkMethod("residuals", .activeModel, 
-					default = TRUE, reportError = FALSE), checkMethod("rstudent", 
-					.activeModel, reportError = FALSE), checkMethod("hatvalues", 
-					.activeModel, reportError = FALSE), checkMethod("cooks.distance", 
-					.activeModel, reportError = FALSE))
-	checkBoxes(frame = "selectFrame", boxes = c(c("fitted", "residuals", 
-							"rstudent", "hatvalues", "cookd")[activate], "obsNumbers"), 
-			labels = c(gettextRcmdr(c("Fitted values", "Residuals", 
-									"Studentized residuals", "Hat-values", "Cook's distances"))[activate], 
-					gettextRcmdr("Observation indices")), initialValues = c(dialog.values$initial.fitted, 
-					dialog.values$initial.residuals, dialog.values$initial.rstudent, 
-					dialog.values$initial.hatvalues, dialog.values$initial.cookd, dialog.values$initial.obsNumbers))
-	onOK <- function() {
-		closeDialog()
-		if (activate[1] && tclvalue(fittedVariable) == 1) 
-			addVariable("fitted")
-		if (activate[2] && tclvalue(residualsVariable) == 1) 
-			addVariable("residuals")
-		if (activate[3] && tclvalue(rstudentVariable) == 1) 
-			addVariable("rstudent")
-		if (activate[4] && tclvalue(hatvaluesVariable) == 1) 
-			addVariable("hatvalues")
-		if (activate[5] && tclvalue(cookdVariable) == 1) 
-			addVariable("cooks.distance")
-		obsNumbers <- tclvalue(obsNumbersVariable)
-		putDialog ("addObservationStatistics", list (initial.fitted = tclvalue (fittedVariable),
-						initial.residuals = tclvalue (residualsVariable), initial.rstudent = tclvalue(rstudentVariable), 
-						initial.hatvalues = tclvalue (hatvaluesVariable), initial.cookd = tclvalue (cookdVariable), 
-						initial.obsNumbers = obsNumbers))
-		if (tclvalue(obsNumbersVariable) == 1) {
-			proceed <- if (obsNumberExists) 
-						tclvalue(checkReplace("obsNumber"))
-					else "yes"  
-			if (proceed == "yes") {
-				command <- paste(.activeDataSet, "$obsNumber <- 1:nrow(", 
-						.activeDataSet, ")", sep = "")
-				justDoIt(command)
-				logger(command)
-			}
-		}
-		activeDataSet(.activeDataSet, flushModel = FALSE, flushDialogMemory = FALSE)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "influence.measures", reset = "addObservationStatistics")
-	tkgrid(selectFrame, sticky = "w")
-	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix()
+  .activeDataSet <- ActiveDataSet()
+  .activeModel <- ActiveModel()
+  if (is.null(.activeModel)) 
+    return()
+  addVariable <- function(name) {
+    variable <- paste(name, ".", .activeModel, sep = "")
+    if (is.element(variable, .variables)) {
+      ans <- checkReplace(variable)
+      if (tclvalue(ans) == "no") 
+        return()
+    }
+    paste(variable, " <- ", name, "(", .activeModel, ")", sep = "")
+  }
+  if (getRcmdr("modelWithSubset")) {
+    Message(message = gettextRcmdr("Observation statistics not available\nfor a model fit to a subset of the data."), 
+            type = "error")
+    tkfocus(CommanderWindow())
+    return()
+  }
+  defaults <- list (initial.fitted = 1, initial.residuals = 1, initial.rstudent = 1, 
+                    initial.hatvalues = 1, initial.cookd = 1, initial.obsNumbers = 1)
+  dialog.values <- getDialog ("addObservationStatistics", defaults)
+  initializeDialog(title = gettextRcmdr("Add Observation Statistics to Data"))
+  .variables <- Variables()
+  obsNumberExists <- is.element("obsNumber", .variables)
+  activate <- c(checkMethod("fitted", .activeModel, default = TRUE, 
+                            reportError = FALSE), checkMethod("residuals", .activeModel, 
+                                                              default = TRUE, reportError = FALSE), checkMethod("rstudent", 
+                                                                                                                .activeModel, reportError = FALSE), checkMethod("hatvalues", 
+                                                                                                                                                                .activeModel, reportError = FALSE), checkMethod("cooks.distance", 
+                                                                                                                                                                                                                .activeModel, reportError = FALSE))
+  checkBoxes(frame = "selectFrame", boxes = c(c("fitted", "residuals", 
+                                                "rstudent", "hatvalues", "cookd")[activate], "obsNumbers"), 
+             labels = c(gettextRcmdr(c("Fitted values", "Residuals", 
+                                       "Studentized residuals", "Hat-values", "Cook's distances"))[activate], 
+                        gettextRcmdr("Observation indices")), initialValues = c(dialog.values$initial.fitted, 
+                                                                                dialog.values$initial.residuals, dialog.values$initial.rstudent, 
+                                                                                dialog.values$initial.hatvalues, dialog.values$initial.cookd, dialog.values$initial.obsNumbers))
+  command <- paste(.activeDataSet, "<- within(", .activeDataSet, ", {", sep="")
+  onOK <- function() {
+    closeDialog()
+    if (activate[1] && tclvalue(fittedVariable) == 1) 
+      command <- paste(command, "\n  ", addVariable("fitted"), sep="")
+    if (activate[2] && tclvalue(residualsVariable) == 1) 
+      command <- paste(command, "\n  ", addVariable("residuals"), sep="")
+    if (activate[3] && tclvalue(rstudentVariable) == 1) 
+      command <- paste(command, "\n  ", addVariable("rstudent"), sep="")
+    if (activate[4] && tclvalue(hatvaluesVariable) == 1) 
+      command <- paste(command, "\n  ", addVariable("hatvalues"), sep="")
+    if (activate[5] && tclvalue(cookdVariable) == 1) 
+      command <- paste(command, "\n  ", addVariable("cooks.distance"), sep="")
+    obsNumbers <- tclvalue(obsNumbersVariable)
+    putDialog ("addObservationStatistics", list (initial.fitted = tclvalue (fittedVariable),
+                                                 initial.residuals = tclvalue (residualsVariable), initial.rstudent = tclvalue(rstudentVariable), 
+                                                 initial.hatvalues = tclvalue (hatvaluesVariable), initial.cookd = tclvalue (cookdVariable), 
+                                                 initial.obsNumbers = obsNumbers))
+    if (tclvalue(obsNumbersVariable) == 1) {
+      proceed <- if (obsNumberExists) 
+        tclvalue(checkReplace("obsNumber"))
+      else "yes"  
+      if (proceed == "yes") {
+        command <- paste(command, "\n  obsNumber <- 1:nrow(", .activeDataSet, ")", sep = "")
+      }
+    }
+    command <- paste(command, "\n})")
+    result <- doItAndPrint(command)
+    if (class(result) != "try-error")activeDataSet(.activeDataSet, flushModel = FALSE, flushDialogMemory = FALSE)
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "influence.measures", reset = "addObservationStatistics")
+  tkgrid(selectFrame, sticky = "w")
+  tkgrid(buttonsFrame, sticky = "w")
+  dialogSuffix()
 }
 
 residualQQPlot <- function () {
