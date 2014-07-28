@@ -1,4 +1,4 @@
-# last modified 2013-12-25 by J. Fox
+# last modified 2014-07-28 by J. Fox
 
 # Data menu dialogs
 
@@ -95,118 +95,120 @@ selectActiveDataSet <- function(){
 listDataSetsInPackages <- function() doItAndPrint("data()")
 
 RecodeDialog <- function () {
-    processRecode <- function(recode) {
-        parts <- strsplit(recode, "=")[[1]]
-        if (length(grep(",", parts[1])) > 0) 
-            paste("c(", parts[1], ") = ", parts[2], sep = "")
-        else paste(parts, collapse = "=")
+  processRecode <- function(recode) {
+    parts <- strsplit(recode, "=")[[1]]
+    if (length(grep(",", parts[1])) > 0) 
+      paste("c(", parts[1], ") = ", parts[2], sep = "")
+    else paste(parts, collapse = "=")
+  }
+  dataSet <- activeDataSet()
+  defaults <- list (initial.asFactor = 1, initial.variables = NULL, initial.name = gettextRcmdr ("variable"),
+                    initial.recode.directives="")
+  dialog.values <- getDialog ("RecodeDialog", defaults)
+  initializeDialog(title = gettextRcmdr("Recode Variables"))
+  variablesBox <- variableListBox(top, Variables(), selectmode = "multiple", 
+                                  title = gettextRcmdr("Variables to recode (pick one or more)"),
+                                  initialSelection = varPosn (dialog.values$initial.variables, "all"))
+  variablesFrame <- tkframe(top)
+  newVariableName <- tclVar(dialog.values$initial.name)
+  newVariable <- ttkentry(variablesFrame, width = "20", textvariable = newVariableName)
+  recodesFrame <- tkframe(top)
+  recodes <- tktext(recodesFrame, bg = "white", font = getRcmdr("logFont"), 
+                    height = "5", width = "40", wrap = "none")
+  recodesXscroll <- ttkscrollbar(recodesFrame, orient = "horizontal", 
+                                 command = function(...) tkxview(recodes, ...))
+  recodesYscroll <- ttkscrollbar(recodesFrame, command = function(...) tkyview(recodes, 
+                                                                               ...))
+  tkconfigure(recodes, xscrollcommand = function(...) tkset(recodesXscroll, 
+                                                            ...))
+  tkconfigure(recodes, yscrollcommand = function(...) tkset(recodesYscroll, 
+                                                            ...))
+  tkinsert(recodes, "1.0", dialog.values$initial.recode.directives)
+  asFactorFrame <- tkframe(top)
+  asFactorVariable <- tclVar(dialog.values$initial.asFactor)
+  asFactorCheckBox <- ttkcheckbutton(asFactorFrame, variable = asFactorVariable)
+  onOK <- function() {
+    asFactor <- tclvalue(asFactorVariable) == "1"
+    save.recodes <- trim.blanks(tclvalue(tkget(recodes, "1.0", "end")))
+    recode.directives <- gsub("\n", "; ", save.recodes)
+    check.empty <- gsub(";", "", gsub(" ", "", recode.directives))
+    if ("" == check.empty) {
+      errorCondition(recall = RecodeDialog, message = gettextRcmdr("No recode directives specified."))
+      return()
     }
-    dataSet <- activeDataSet()
-    defaults <- list (initial.asFactor = 1, initial.variables = NULL, initial.name = gettextRcmdr ("variable"),
-                      initial.recode.directives="")
-    dialog.values <- getDialog ("RecodeDialog", defaults)
-    initializeDialog(title = gettextRcmdr("Recode Variables"))
-    variablesBox <- variableListBox(top, Variables(), selectmode = "multiple", 
-                                    title = gettextRcmdr("Variables to recode (pick one or more)"),
-                                    initialSelection = varPosn (dialog.values$initial.variables, "all"))
-    variablesFrame <- tkframe(top)
-    newVariableName <- tclVar(dialog.values$initial.name)
-    newVariable <- ttkentry(variablesFrame, width = "20", textvariable = newVariableName)
-    recodesFrame <- tkframe(top)
-    recodes <- tktext(recodesFrame, bg = "white", font = getRcmdr("logFont"), 
-                      height = "5", width = "40", wrap = "none")
-    recodesXscroll <- ttkscrollbar(recodesFrame, orient = "horizontal", 
-                                   command = function(...) tkxview(recodes, ...))
-    recodesYscroll <- ttkscrollbar(recodesFrame, command = function(...) tkyview(recodes, 
-                                                                                 ...))
-    tkconfigure(recodes, xscrollcommand = function(...) tkset(recodesXscroll, 
-                                                              ...))
-    tkconfigure(recodes, yscrollcommand = function(...) tkset(recodesYscroll, 
-                                                              ...))
-    tkinsert(recodes, "1.0", dialog.values$initial.recode.directives)
-    asFactorFrame <- tkframe(top)
-    asFactorVariable <- tclVar(dialog.values$initial.asFactor)
-    asFactorCheckBox <- ttkcheckbutton(asFactorFrame, variable = asFactorVariable)
-    onOK <- function() {
-        asFactor <- tclvalue(asFactorVariable) == "1"
-        save.recodes <- trim.blanks(tclvalue(tkget(recodes, "1.0", "end")))
-        recode.directives <- gsub("\n", "; ", save.recodes)
-        check.empty <- gsub(";", "", gsub(" ", "", recode.directives))
-        if ("" == check.empty) {
-            errorCondition(recall = RecodeDialog, message = gettextRcmdr("No recode directives specified."))
-            return()
-        }
-        if (0 != length(grep("'", recode.directives))) {
-            errorCondition(recall = RecodeDialog, message = gettextRcmdr("Use only double-quotes (\" \") in recode directives"))
-            return()
-        }
-        recode.directives <- strsplit(recode.directives, ";")[[1]]
-        recode.directives <- paste(sapply(recode.directives, 
-                                          processRecode), collapse = ";")
-        recode.directives <- sub(" *; *$", "", recode.directives)
-        variables <- getSelection(variablesBox)
-        closeDialog()
-        if (length(variables) == 0) {
-            errorCondition(recall = RecodeDialog, message = gettextRcmdr("You must select a variable."))
-            return()
-        }
-        multiple <- if (length(variables) > 1) 
-            TRUE
-        else FALSE
-        name <- trim.blanks(tclvalue(newVariableName))
-        #        save.recodes <- gsub("; ", "\\\n", trim.blanks(recode.directives))  
-        putDialog ("RecodeDialog", list (initial.asFactor = asFactor, initial.variables = variables,
-                                         initial.name = name, initial.recode.directives=save.recodes))
-        for (variable in variables) {
-            newVar <- if (multiple) 
-                paste(name, variable, sep = "")
-            else name
-            if (!is.valid.name(newVar)) {
-                errorCondition(recall = RecodeDialog, message = paste("\"", 
-                                                                      newVar, "\" ", gettextRcmdr("is not a valid name."), 
-                                                                      sep = ""))
-                return()
-            }
-            if (is.element(newVar, Variables())) {
-                if ("no" == tclvalue(checkReplace(newVar))) {
-                    RecodeDialog()
-                    return()
-                }
-            }
-            cmd <- paste("Recode(", dataSet, "$", variable, ", '", 
-                         recode.directives, "', as.factor.result=", asFactor, 
-                         ")", sep = "")
-            logger(paste(dataSet, "$", newVar, " <- ", cmd, sep = ""))
-            result <- justDoIt(paste(dataSet, "$", newVar, " <- ", 
-                                     cmd, sep = ""))
-            if (class(result)[1] != "try-error") 
-                activeDataSet(dataSet, flushModel = FALSE, flushDialogMemory = FALSE)
-            else{
-                if (getRcmdr("use.markdown")) removeLastRmdBlock()
-                if (getRcmdr("use.knitr")) removeLastRnwBlock()
-            }
-            tkfocus(CommanderWindow())
-        }
+    if (0 != length(grep("'", recode.directives))) {
+      errorCondition(recall = RecodeDialog, message = gettextRcmdr("Use only double-quotes (\" \") in recode directives"))
+      return()
     }
-    OKCancelHelp(helpSubject = "RecodeDialog", reset = "RecodeDialog", apply = "RecodeDialog")
-    tkgrid(getFrame(variablesBox), sticky = "nw")
-    tkgrid(labelRcmdr(variablesFrame, text = ""))
-    tkgrid(labelRcmdr(variablesFrame, text = gettextRcmdr("New variable name or prefix for multiple recodes: ")), 
-           newVariable, sticky = "w")
-    tkgrid(asFactorCheckBox, labelRcmdr(asFactorFrame, text = gettextRcmdr("Make (each) new variable a factor")), 
-           sticky = "w")
-    tkgrid(labelRcmdr(asFactorFrame, text = ""))
-    tkgrid(labelRcmdr(recodesFrame, text = gettextRcmdr("Enter recode directives"), 
-                      fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
-    tkgrid(recodes, recodesYscroll, sticky = "nw")
-    tkgrid(recodesXscroll)
-    tkgrid(variablesFrame, sticky = "w")
-    tkgrid(asFactorFrame, sticky = "w")
-    tkgrid(recodesFrame, sticky = "w")
-    tkgrid(buttonsFrame, sticky = "w", columnspan = 2)
-    tkgrid.configure(recodesXscroll, sticky = "ew")
-    tkgrid.configure(recodesYscroll, sticky = "ns")
-    dialogSuffix(bindReturn = FALSE)
+    recode.directives <- strsplit(recode.directives, ";")[[1]]
+    recode.directives <- paste(sapply(recode.directives, 
+                                      processRecode), collapse = ";")
+    recode.directives <- sub(" *; *$", "", recode.directives)
+    variables <- getSelection(variablesBox)
+    closeDialog()
+    if (length(variables) == 0) {
+      errorCondition(recall = RecodeDialog, message = gettextRcmdr("You must select a variable."))
+      return()
+    }
+    multiple <- if (length(variables) > 1) 
+      TRUE
+    else FALSE
+    name <- trim.blanks(tclvalue(newVariableName))
+    #        save.recodes <- gsub("; ", "\\\n", trim.blanks(recode.directives))  
+    putDialog ("RecodeDialog", list (initial.asFactor = asFactor, initial.variables = variables,
+                                     initial.name = name, initial.recode.directives=save.recodes))
+    command <- paste(dataSet, " <- within(", dataSet, ", {", sep="")
+    nvar <- length(variables)
+    for (i in 1:nvar) {
+      variable <- variables[nvar - i + 1]
+      newVar <- if (multiple) 
+        paste(name, variable, sep = "")
+      else name
+      if (!is.valid.name(newVar)) {
+        errorCondition(recall = RecodeDialog, message = paste("\"", 
+                                                              newVar, "\" ", gettextRcmdr("is not a valid name."), 
+                                                              sep = ""))
+        return()
+      }
+      if (is.element(newVar, Variables())) {
+        if ("no" == tclvalue(checkReplace(newVar))) {
+          RecodeDialog()
+          return()
+        }
+      }
+      command <- paste(command, "\n  ", newVar, " <- Recode(", variable, ", '", 
+                       recode.directives, "', as.factor.result=", asFactor, 
+                       ")", sep = "")  
+    }
+    command <- paste(command, "\n})", sep="")
+    result <- doItAndPrint(command)
+    if (class(result)[1] != "try-error")
+      activeDataSet(dataSet, flushModel = FALSE, flushDialogMemory = FALSE)
+    #     else{
+    #       if (getRcmdr("use.markdown")) removeLastRmdBlock()
+    #       if (getRcmdr("use.knitr")) removeLastRnwBlock()
+    #    }
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "RecodeDialog", reset = "RecodeDialog", apply = "RecodeDialog")
+  tkgrid(getFrame(variablesBox), sticky = "nw")
+  tkgrid(labelRcmdr(variablesFrame, text = ""))
+  tkgrid(labelRcmdr(variablesFrame, text = gettextRcmdr("New variable name or prefix for multiple recodes: ")), 
+         newVariable, sticky = "w")
+  tkgrid(asFactorCheckBox, labelRcmdr(asFactorFrame, text = gettextRcmdr("Make (each) new variable a factor")), 
+         sticky = "w")
+  tkgrid(labelRcmdr(asFactorFrame, text = ""))
+  tkgrid(labelRcmdr(recodesFrame, text = gettextRcmdr("Enter recode directives"), 
+                    fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
+  tkgrid(recodes, recodesYscroll, sticky = "nw")
+  tkgrid(recodesXscroll)
+  tkgrid(variablesFrame, sticky = "w")
+  tkgrid(asFactorFrame, sticky = "w")
+  tkgrid(recodesFrame, sticky = "w")
+  tkgrid(buttonsFrame, sticky = "w", columnspan = 2)
+  tkgrid.configure(recodesXscroll, sticky = "ew")
+  tkgrid.configure(recodesYscroll, sticky = "ns")
+  dialogSuffix(bindReturn = FALSE)
 }
 
 Compute <- function(){
@@ -285,45 +287,47 @@ Compute <- function(){
 }
 
 deleteVariable <- function(){
-	dataSet <- activeDataSet()
-	initializeDialog(title=gettextRcmdr("Delete Variables"))
-	variablesBox <- variableListBox(top, Variables(),
-			title=gettextRcmdr("Variable(s) to delete (pick one or more)"), selectmode="multiple",
-			initialSelection=NULL)
-	onOK <- function(){
-		variables <- getSelection(variablesBox)
-		closeDialog()
-		if (length(variables) == 0) {
-			errorCondition(recall=deleteVariable, message=gettextRcmdr("You must select one or more variables."))
-			return()
-		}
-		if (length(variables) == 1){
-			response <- tclvalue(RcmdrTkmessageBox(message=sprintf(gettextRcmdr("Delete %s?\nPlease confirm."), variables), icon="warning", type="okcancel", default="cancel"))
-			if (response == "cancel") {
-				onCancel()
-				return()
-			}
-		}
-		else{
-			response <- tclvalue(RcmdrTkmessageBox(message=
-									sprintf(gettextRcmdr("Delete %d variables?\nPlease confirm."), length(variables)),
-							icon="warning", type="okcancel", default="cancel"))
-			if (response == "cancel") {
-				onCancel()
-				return()
-			}
-		}
-		for (variable in variables){
-			eval(parse(text=paste(dataSet, "$", variable, "<- NULL", sep="")), envir=.GlobalEnv)
-			logger(paste(dataSet, "$", variable, " <- NULL", sep=""))
-		}
-		activeDataSet(dataSet, flushModel=FALSE, flushDialogMemory=FALSE)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject="NULL")
-	tkgrid(getFrame(variablesBox), sticky="nw")
-	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix()
+  dataSet <- activeDataSet()
+  initializeDialog(title=gettextRcmdr("Delete Variables"))
+  variablesBox <- variableListBox(top, Variables(),
+                                  title=gettextRcmdr("Variable(s) to delete (pick one or more)"), selectmode="multiple",
+                                  initialSelection=NULL)
+  onOK <- function(){
+    variables <- getSelection(variablesBox)
+    closeDialog()
+    if (length(variables) == 0) {
+      errorCondition(recall=deleteVariable, message=gettextRcmdr("You must select one or more variables."))
+      return()
+    }
+    if (length(variables) == 1){
+      response <- tclvalue(RcmdrTkmessageBox(message=sprintf(gettextRcmdr("Delete %s?\nPlease confirm."), variables), icon="warning", type="okcancel", default="cancel"))
+      if (response == "cancel") {
+        onCancel()
+        return()
+      }
+    }
+    else{
+      response <- tclvalue(RcmdrTkmessageBox(message=
+                                               sprintf(gettextRcmdr("Delete %d variables?\nPlease confirm."), length(variables)),
+                                             icon="warning", type="okcancel", default="cancel"))
+      if (response == "cancel") {
+        onCancel()
+        return()
+      }
+    }
+    command <- paste(dataSet, " <- within(", dataSet, ", {", sep="")
+    for (variable in variables){
+      command <- paste(command, "\n  ", variable, " <- NULL", sep="")
+    }
+    command <- paste(command, "\n})")
+    doItAndPrint(command)
+    activeDataSet(dataSet, flushModel=FALSE, flushDialogMemory=FALSE)
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject="NULL")
+  tkgrid(getFrame(variablesBox), sticky="nw")
+  tkgrid(buttonsFrame, sticky="w")
+  dialogSuffix()
 }
 
 readDataSet <- function() {
@@ -1134,329 +1138,325 @@ importExcel <- function(){
 }
 
 numericToFactor <- function(){
-    initializeDialog(title=gettextRcmdr("Convert Numeric Variables to Factors"))
-    dataFrame <- tkframe(top)
-    variableBox <- variableListBox(dataFrame, Numeric(), selectmode="multiple",
-                                   title=gettextRcmdr("Variables (pick one or more)"))
-    radioButtons(dataFrame, name="levels", buttons=c("names", "numbers"),
-                 labels=gettextRcmdr(c("Supply level names", "Use numbers")), title=gettextRcmdr("Factor Levels"))
-    factorNameFrame <- tkframe(top)
-    factorName <- tclVar(gettextRcmdr("<same as variables>"))
-    factorNameField <- ttkentry(factorNameFrame, width="20", textvariable=factorName)
-    onOK <- function(){
-        variables <- getSelection(variableBox)
-        closeDialog()
-        if (length(variables) == 0) {
-            errorCondition(recall=numericToFactor, message=gettextRcmdr("You must select a variable."))
+  initializeDialog(title=gettextRcmdr("Convert Numeric Variables to Factors"))
+  dataFrame <- tkframe(top)
+  variableBox <- variableListBox(dataFrame, Numeric(), selectmode="multiple",
+                                 title=gettextRcmdr("Variables (pick one or more)"))
+  radioButtons(dataFrame, name="levels", buttons=c("names", "numbers"),
+               labels=gettextRcmdr(c("Supply level names", "Use numbers")), title=gettextRcmdr("Factor Levels"))
+  factorNameFrame <- tkframe(top)
+  factorName <- tclVar(gettextRcmdr("<same as variables>"))
+  factorNameField <- ttkentry(factorNameFrame, width="20", textvariable=factorName)
+  onOK <- function(){
+    variables <- getSelection(variableBox)
+    closeDialog()
+    facname <- trim.blanks(tclvalue(factorName))
+    .activeDataSet <- ActiveDataSet()
+    cmd <- paste("apply(", .activeDataSet, "[c(", paste(
+      paste('"', variables, '"', sep=""),
+      collapse=","), ")], 2, function(x) sort(unique(x)))", sep="")
+    levs <- eval(parse(text=cmd), envir=.GlobalEnv)
+    sameLevels <- (length(variables) == 1) ||
+      ((is.matrix(levs)) && (all(0 == apply(levs, 1, var))))
+    if (length(variables) == 0) {
+      errorCondition(recall=numericToFactor, message=gettextRcmdr("You must select a variable."))}
+    else command <- paste(.activeDataSet, " <- within(", .activeDataSet, ", {", sep="")
+    for (name in variables){
+      fname <- if (facname == gettextRcmdr("<same as variables>")) name
+      else if (length(variables) == 1) facname
+      else paste(facname, name, sep="")
+      if (!is.valid.name(fname)){
+        errorCondition(recall=numericToFactor,
+                       message=paste('"', fname, '" ', gettextRcmdr("is not a valid name."), sep=""))
+        return()
+      }
+      if (is.element(fname, Variables())) {
+        if ("no" == tclvalue(checkReplace(fname))){
+          numericToFactor()
+          return()
+        }
+      }
+      levelsType <- tclvalue(levelsVariable)
+      env <- environment()
+      if (((name == variables[1]) || (!sameLevels)) && (levelsType == "names")){
+        values <- sort(unique(eval(parse(text=paste(.activeDataSet, "$", name, sep="")),
+                                   envir=.GlobalEnv)))
+        nvalues <- length(values)
+        if (nvalues > 30) {
+          errorCondition(recall=numericToFactor,
+                         message=sprintf(gettextRcmdr("Number of levels (%d) too large."), nvalues))
+          return()
+        }
+        initializeDialog(subdialog,
+                         title=paste(gettextRcmdr("Level Names for"),
+                                     if(sameLevels && length(variables) > 1) "Factors" else fname))
+        names <- rep("", nvalues)
+        onOKsub <- function() {
+          closeDialog(subdialog)
+          for (i in 1:nvalues){
+            names[i] <- eval(parse(text=paste("tclvalue(levelName", i, ")", sep="")))
+          }
+          if (length(unique(names)) != nvalues){
+            errorCondition(recall=numericToFactor,
+                           message=gettextRcmdr("Levels names are not unique."))
             return()
+          }
+          if (any(names == "")){
+            errorCondition(recall=numericToFactor,
+                           message=gettextRcmdr("A level name is empty."))
+            return()
+          }
+          assign("labels", paste(paste("'", names, "'", sep=""), collapse=","),
+                 envir=env)
         }
-        facname <- trim.blanks(tclvalue(factorName))
-        .activeDataSet <- ActiveDataSet()
-        cmd <- paste("apply(", .activeDataSet, "[c(", paste(
-            paste('"', variables, '"', sep=""),
-            collapse=","), ")], 2, function(x) sort(unique(x)))", sep="")
-        levs <- eval(parse(text=cmd), envir=.GlobalEnv)
-        sameLevels <- (length(variables) == 1) ||
-            ((is.matrix(levs)) && (all(0 == apply(levs, 1, var))))
-        for (name in variables){
-            fname <- if (facname == gettextRcmdr("<same as variables>")) name
-            else if (length(variables) == 1) facname
-            else paste(facname, name, sep="")
-            if (!is.valid.name(fname)){
-                errorCondition(recall=numericToFactor,
-                               message=paste('"', fname, '" ', gettextRcmdr("is not a valid name."), sep=""))
-                return()
-            }
-            if (is.element(fname, Variables())) {
-                if ("no" == tclvalue(checkReplace(fname))){
-                    numericToFactor()
-                    return()
-                }
-            }
-            levelsType <- tclvalue(levelsVariable)
-            env <- environment()
-            if (((name == variables[1]) || (!sameLevels)) && (levelsType == "names")){
-                values <- sort(unique(eval(parse(text=paste(.activeDataSet, "$", name, sep="")),
-                                           envir=.GlobalEnv)))
-                nvalues <- length(values)
-                if (nvalues > 30) {
-                    errorCondition(recall=numericToFactor,
-                                   message=sprintf(gettextRcmdr("Number of levels (%d) too large."), nvalues))
-                    return()
-                }
-                initializeDialog(subdialog,
-                                 title=paste(gettextRcmdr("Level Names for"),
-                                             if(sameLevels && length(variables) > 1) "Factors" else fname))
-                names <- rep("", nvalues)
-                onOKsub <- function() {
-                    closeDialog(subdialog)
-                    for (i in 1:nvalues){
-                        names[i] <- eval(parse(text=paste("tclvalue(levelName", i, ")", sep="")))
-                    }
-                    if (length(unique(names)) != nvalues){
-                        errorCondition(recall=numericToFactor,
-                                       message=gettextRcmdr("Levels names are not unique."))
-                        return()
-                    }
-                    if (any(names == "")){
-                        errorCondition(recall=numericToFactor,
-                                       message=gettextRcmdr("A level name is empty."))
-                        return()
-                    }
-                    assign("labels", paste(paste("'", names, "'", sep=""), collapse=","),
-                           envir=env)
-                }
-                subOKCancelHelp()
-                tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Numeric value")), labelRcmdr(subdialog, text=gettextRcmdr("Level name")), sticky="w")
-                for (i in 1:nvalues){
-                    valVar <- paste("levelName", i, sep="")
-                    assign(valVar, tclVar(""))
-                    assign(paste("entry", i, sep=""), ttkentry(subdialog, width="20",
-                                                               textvariable=get(valVar)))
-                    tkgrid(labelRcmdr(subdialog, text=values[i]), get(paste("entry", i, sep="")), sticky="w")
-                }
-                tkgrid(subButtonsFrame, sticky="w", columnspan=2)
-                dialogSuffix(subdialog, focus=entry1, onOK=onOKsub)
-            }
-            if (levelsType == "names"){
-                if (!exists("labels", mode="character")) return()
-                command <- paste("factor(", .activeDataSet, "$", name,
-                                 ", labels=c(", labels, "))", sep="")
-                result <- justDoIt(paste(.activeDataSet, "$", fname, " <- ", command, sep=""))
-                logger(paste(.activeDataSet,"$", fname," <- ", command, sep=""))
-                if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet)
-                tkfocus(CommanderWindow())
-            }
-            else{
-                command <- paste("as.factor(", .activeDataSet, "$", name, ")", sep="")
-                result <- justDoIt(paste(.activeDataSet, "$", fname, " <- ", command, sep=""))
-                logger(paste(.activeDataSet, "$", fname," <- ", command, sep=""))
-                if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
-                tkfocus(CommanderWindow())
-            }
+        subOKCancelHelp()
+        tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Numeric value")), labelRcmdr(subdialog, text=gettextRcmdr("Level name")), sticky="w")
+        for (i in 1:nvalues){
+          valVar <- paste("levelName", i, sep="")
+          assign(valVar, tclVar(""))
+          assign(paste("entry", i, sep=""), ttkentry(subdialog, width="20",
+                                                     textvariable=get(valVar)))
+          tkgrid(labelRcmdr(subdialog, text=values[i]), get(paste("entry", i, sep="")), sticky="w")
         }
+        tkgrid(subButtonsFrame, sticky="w", columnspan=2)
+        dialogSuffix(subdialog, focus=entry1, onOK=onOKsub)
+      }
+      if (levelsType == "names"){
+        if (!exists("labels", mode="character")) return()
+        cmd <- paste("factor(", name,
+                     ", labels=c(", labels, "))", sep="")
+        command <- paste(command, "\n  ", fname, " <- ", cmd, sep="")
+      }
+      else{
+        command <- paste(command, "\n  ", fname, " <- as.factor(", name, ")", sep="")
+      }
     }
-    OKCancelHelp(helpSubject="factor")
-    tkgrid(getFrame(variableBox), labelRcmdr(dataFrame, text="  "), levelsFrame, sticky="nw")
-    tkgrid(dataFrame, sticky="w")
-    tkgrid(labelRcmdr(factorNameFrame,
-                      text=gettextRcmdr("New variable name or prefix for multiple variables:  ")),
-           factorNameField, sticky="w")
-    tkgrid(factorNameFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky="ew", columnspan=2)
-    tkgrid.configure(numbersButton, sticky="w")
-    tkgrid.configure(namesButton, sticky="w")
-    dialogSuffix(preventGrabFocus=TRUE)
+    command <- paste(command, "\n})", sep="")
+    result <- doItAndPrint(command)
+    if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject="factor")
+  tkgrid(getFrame(variableBox), labelRcmdr(dataFrame, text="  "), levelsFrame, sticky="nw")
+  tkgrid(dataFrame, sticky="w")
+  tkgrid(labelRcmdr(factorNameFrame,
+                    text=gettextRcmdr("New variable name or prefix for multiple variables:  ")),
+         factorNameField, sticky="w")
+  tkgrid(factorNameFrame, sticky="w")
+  tkgrid(buttonsFrame, sticky="ew", columnspan=2)
+  tkgrid.configure(numbersButton, sticky="w")
+  tkgrid.configure(namesButton, sticky="w")
+  dialogSuffix(preventGrabFocus=TRUE)
 }
 
 binVariable <- function () {
-# Author: Dan Putler (revision by J. Fox, 2 Feb 05)
-	defaults <- list (initial.levels = "specify", initial.bins = "3", initial.varName = NULL, 
-			initial.newVar = gettextRcmdr("variable"), initial.method = "intervals")
-	dialog.values <- getDialog ("binVariable", defaults)
-	env <- environment()
-	initializeDialog(title = gettextRcmdr("Bin a Numeric Variable"))
-	variableFrame <- tkframe(top)
-	variableBox <- variableListBox(variableFrame, Numeric(), 
-			title = gettextRcmdr("Variable to bin (pick one)"), 
-			initialSelection = varPosn (dialog.values$initial.varName, "numeric"))
-	newVariableFrame <- tkframe(variableFrame)
-	newVariableName <- tclVar(dialog.values$initial.newVar)
-	newVariable <- ttkentry(newVariableFrame, width = "18", textvariable = newVariableName)
-	binsFrame <- tkframe(top)
-	binsVariable <- tclVar(dialog.values$initial.bins)
-	slider <- tkscale(binsFrame, from = 2, to = 20, showvalue = TRUE, 
-			variable = binsVariable, resolution = 1, orient = "horizontal")
-	optionsFrame <- tkframe(top)
-	radioButtons(optionsFrame, name = "levels", buttons = c("specify", 
-					"numbers", "ranges"), labels = gettextRcmdr(c("Specify names", 
-							"Numbers", "Ranges")), title = gettextRcmdr("Level Names"),
-			initialValue = dialog.values$initial.levels)
-	radioButtons(optionsFrame, name = "method", buttons = c("intervals", 
-					"proportions", "natural"), labels = gettextRcmdr(c("Equal-width bins", 
-							"Equal-count bins", "Natural breaks\n(from K-means clustering)")), 
-			title = gettextRcmdr("Binning Method"), 
-			initialValue = dialog.values$initial.method)
-	onOK <- function() {
-		levels <- tclvalue(levelsVariable)
-		bins <- as.numeric(tclvalue(binsVariable))
-		varName <- getSelection(variableBox)
-		closeDialog()
-		if (length(varName) == 0) {
-			errorCondition(recall = binVariable, message = gettextRcmdr("You must select a variable."))
-			return()
-		}
-		newVar <- tclvalue(newVariableName)
-		if (is.element(newVar, Variables())) {
-			if ("no" == tclvalue(checkReplace(newVar))) {
-				binVariable()
-				return()
-			}
-		}
-		if (!is.valid.name(newVar)) {
-			errorCondition(message = paste("\"", newVar, "\" ", 
-							gettextRcmdr("is not a valid name."), sep = ""), 
-					recall = binVariable)
-			return()
-		}
-		method <- tclvalue(methodVariable)
-		putDialog ("binVariable", list (initial.levels = levels, initial.bins = bins, initial.varName = varName, 
-						initial.newVar = newVar, initial.method = method))
-		if (levels == "specify") {
-			initializeDialog(subdialog, title = gettextRcmdr("Bin Names"))
-			onOKsub <- function() {
-				closeDialog(subdialog)
-				level <- character(bins)
-				for (i in 1:bins) {
-					level[i] <- eval(parse(text = paste("tclvalue(levelName", 
-											i, ")", sep = "")))
-				}
-				if (length(unique(level)) != length(level)) {
-					errorCondition(window = subdialog, message = gettextRcmdr("Level names must be unique."), 
-							recall = onOK)
-					return()
-				}
-				assign("levelNames", level, envir = env)
-			}
-			subOKCancelHelp()
-			tkgrid(labelRcmdr(subdialog, text = gettextRcmdr("Bin"), 
-							fg = getRcmdr("title.color"), font="RcmdrTitleFont"), labelRcmdr(subdialog, text = gettextRcmdr("Name"), 
-							fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
-			for (i in 1:bins) {
-				valVar <- paste("levelName", i, sep = "")
-				assign(valVar, tclVar(i))
-				assign(paste("entry", i, sep = ""), ttkentry(subdialog, 
-								width = "20", textvariable = get(valVar)))
-				tkgrid(labelRcmdr(subdialog, text = as.character(i)), 
-						get(paste("entry", i, sep = "")), sticky = "w")
-			}
-			tkgrid(subButtonsFrame, sticky = "w", columnspan = 2)
-			dialogSuffix(subdialog, focus = entry1, bindReturn = FALSE)
-		}
-		labels <- if (levels == "numbers") 
-					"FALSE"
-				else if (levels == "ranges") 
-					"NULL"
-				else {
-					if (!exists("levelNames")) {
-						onCancel()
-						binVariable()
-						return()
-					}
-					paste("c('", paste(levelNames, collapse = "','"), 
-							"')", sep = "")
-				}
-		.activeDataSet <- ActiveDataSet()
-		command <- paste(.activeDataSet, "$", newVar, " <- ", 
-				"bin.var(", .activeDataSet, "$", varName, ", bins=", 
-				bins, ", method=", "'", method, "', labels=", labels, 
-				")", sep = "")
-		logger(command)
-		result <- justDoIt(command)
-		if (class(result)[1] != "try-error") 
-			activeDataSet(.activeDataSet, flushModel = FALSE, 
-					flushDialogMemory = FALSE)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "bin.var", reset = "binVariable")
-	tkgrid(labelRcmdr(newVariableFrame, text = gettextRcmdr("New variable name"), 
-					fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
-	tkgrid(newVariable, sticky = "w")
-	tkgrid(getFrame(variableBox), labelRcmdr(variableFrame, text = "    "), 
-			newVariableFrame, sticky = "nw")
-	tkgrid(variableFrame, sticky = "w")
-	tkgrid(labelRcmdr(binsFrame, text = gettextRcmdr("Number of bins:")), 
-			slider, sticky = "s")
-	tkgrid(binsFrame, sticky = "w")
-	tkgrid(levelsFrame, labelRcmdr(optionsFrame, text = "    "), 
-			methodFrame, sticky = "nw")
-	tkgrid(optionsFrame, sticky = "w")
-	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix()
+  # Author: Dan Putler (revision by J. Fox, 2 Feb 05)
+  defaults <- list (initial.levels = "specify", initial.bins = "3", initial.varName = NULL, 
+                    initial.newVar = gettextRcmdr("variable"), initial.method = "intervals")
+  dialog.values <- getDialog ("binVariable", defaults)
+  env <- environment()
+  initializeDialog(title = gettextRcmdr("Bin a Numeric Variable"))
+  variableFrame <- tkframe(top)
+  variableBox <- variableListBox(variableFrame, Numeric(), 
+                                 title = gettextRcmdr("Variable to bin (pick one)"), 
+                                 initialSelection = varPosn (dialog.values$initial.varName, "numeric"))
+  newVariableFrame <- tkframe(variableFrame)
+  newVariableName <- tclVar(dialog.values$initial.newVar)
+  newVariable <- ttkentry(newVariableFrame, width = "18", textvariable = newVariableName)
+  binsFrame <- tkframe(top)
+  binsVariable <- tclVar(dialog.values$initial.bins)
+  slider <- tkscale(binsFrame, from = 2, to = 20, showvalue = TRUE, 
+                    variable = binsVariable, resolution = 1, orient = "horizontal")
+  optionsFrame <- tkframe(top)
+  radioButtons(optionsFrame, name = "levels", buttons = c("specify", 
+                                                          "numbers", "ranges"), labels = gettextRcmdr(c("Specify names", 
+                                                                                                        "Numbers", "Ranges")), title = gettextRcmdr("Level Names"),
+               initialValue = dialog.values$initial.levels)
+  radioButtons(optionsFrame, name = "method", buttons = c("intervals", 
+                                                          "proportions", "natural"), labels = gettextRcmdr(c("Equal-width bins", 
+                                                                                                             "Equal-count bins", "Natural breaks\n(from K-means clustering)")), 
+               title = gettextRcmdr("Binning Method"), 
+               initialValue = dialog.values$initial.method)
+  onOK <- function() {
+    levels <- tclvalue(levelsVariable)
+    bins <- as.numeric(tclvalue(binsVariable))
+    varName <- getSelection(variableBox)
+    closeDialog()
+    if (length(varName) == 0) {
+      errorCondition(recall = binVariable, message = gettextRcmdr("You must select a variable."))
+      return()
+    }
+    newVar <- tclvalue(newVariableName)
+    if (is.element(newVar, Variables())) {
+      if ("no" == tclvalue(checkReplace(newVar))) {
+        binVariable()
+        return()
+      }
+    }
+    if (!is.valid.name(newVar)) {
+      errorCondition(message = paste("\"", newVar, "\" ", 
+                                     gettextRcmdr("is not a valid name."), sep = ""), 
+                     recall = binVariable)
+      return()
+    }
+    method <- tclvalue(methodVariable)
+    putDialog ("binVariable", list (initial.levels = levels, initial.bins = bins, initial.varName = varName, 
+                                    initial.newVar = newVar, initial.method = method))
+    if (levels == "specify") {
+      initializeDialog(subdialog, title = gettextRcmdr("Bin Names"))
+      onOKsub <- function() {
+        closeDialog(subdialog)
+        level <- character(bins)
+        for (i in 1:bins) {
+          level[i] <- eval(parse(text = paste("tclvalue(levelName", 
+                                              i, ")", sep = "")))
+        }
+        if (length(unique(level)) != length(level)) {
+          errorCondition(window = subdialog, message = gettextRcmdr("Level names must be unique."), 
+                         recall = onOK)
+          return()
+        }
+        assign("levelNames", level, envir = env)
+      }
+      subOKCancelHelp()
+      tkgrid(labelRcmdr(subdialog, text = gettextRcmdr("Bin"), 
+                        fg = getRcmdr("title.color"), font="RcmdrTitleFont"), labelRcmdr(subdialog, text = gettextRcmdr("Name"), 
+                                                                                         fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
+      for (i in 1:bins) {
+        valVar <- paste("levelName", i, sep = "")
+        assign(valVar, tclVar(i))
+        assign(paste("entry", i, sep = ""), ttkentry(subdialog, 
+                                                     width = "20", textvariable = get(valVar)))
+        tkgrid(labelRcmdr(subdialog, text = as.character(i)), 
+               get(paste("entry", i, sep = "")), sticky = "w")
+      }
+      tkgrid(subButtonsFrame, sticky = "w", columnspan = 2)
+      dialogSuffix(subdialog, focus = entry1, bindReturn = FALSE)
+    }
+    labels <- if (levels == "numbers") 
+      "FALSE"
+    else if (levels == "ranges") 
+      "NULL"
+    else {
+      if (!exists("levelNames")) {
+        onCancel()
+        binVariable()
+        return()
+      }
+      paste("c('", paste(levelNames, collapse = "','"), 
+            "')", sep = "")
+    }
+    .activeDataSet <- ActiveDataSet()
+    command <- paste(.activeDataSet, "$", newVar, " <- ", 
+                     "with(", .activeDataSet, ", bin.var(", varName, ", bins=", 
+                     bins, ", method=", "'", method, "', labels=", labels, 
+                     "))", sep = "")
+    logger(command)
+    result <- justDoIt(command)
+    if (class(result)[1] != "try-error") 
+      activeDataSet(.activeDataSet, flushModel = FALSE, 
+                    flushDialogMemory = FALSE)
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "bin.var", reset = "binVariable")
+  tkgrid(labelRcmdr(newVariableFrame, text = gettextRcmdr("New variable name"), 
+                    fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
+  tkgrid(newVariable, sticky = "w")
+  tkgrid(getFrame(variableBox), labelRcmdr(variableFrame, text = "    "), 
+         newVariableFrame, sticky = "nw")
+  tkgrid(variableFrame, sticky = "w")
+  tkgrid(labelRcmdr(binsFrame, text = gettextRcmdr("Number of bins:")), 
+         slider, sticky = "s")
+  tkgrid(binsFrame, sticky = "w")
+  tkgrid(levelsFrame, labelRcmdr(optionsFrame, text = "    "), 
+         methodFrame, sticky = "nw")
+  tkgrid(optionsFrame, sticky = "w")
+  tkgrid(buttonsFrame, sticky = "w")
+  dialogSuffix()
 }
 
 reorderFactor <- function(){
-    initializeDialog(title=gettextRcmdr("Reorder Factor Levels"))
-    variableBox <- variableListBox(top, Factors(), title=gettextRcmdr("Factor (pick one)"))
-    orderedFrame <- tkframe(top)
-    orderedVariable <- tclVar("0")
-    orderedCheckBox <- ttkcheckbutton(orderedFrame, variable=orderedVariable)
-    factorName <- tclVar(gettextRcmdr("<same as original>"))
-    factorNameField <- ttkentry(top, width="20", textvariable=factorName)
-    onOK <- function(){
-        variable <- getSelection(variableBox)
-        closeDialog()
-        if (length(variable) == 0) {
-            errorCondition(recall=reorderFactor, message=gettextRcmdr("You must select a variable."))
-            return()
-        }
-        name <- trim.blanks(tclvalue(factorName))
-        if (name == gettextRcmdr("<same as original>")) name <- variable
-        if (!is.valid.name(name)){
-            errorCondition(recall=reorderFactor,
-                           message=paste('"', name, '" ', gettextRcmdr("is not a valid name."), sep=""))
-            return()
-        }
-        if (is.element(name, Variables())) {
-            if ("no" == tclvalue(checkReplace(name))){
-                reorderFactor()
-                return()
-            }
-        }
-        .activeDataSet <- ActiveDataSet()
-        old.levels <- eval(parse(text=paste("levels(", .activeDataSet, "$", variable, ")",
-                                            sep="")), envir=.GlobalEnv)
-        nvalues <- length(old.levels)
-        ordered <- tclvalue(orderedVariable)
-        if (nvalues > 30) {
-            errorCondition(recall=reorderFactor,
-                           message=sprintf(gettextRcmdr("Number of levels (%d) too large."), nvalues))
-            return()
-        }
-        initializeDialog(subdialog, title=gettextRcmdr("Reorder Levels"))
-        order <- 1:nvalues
-        onOKsub <- function() {
-            closeDialog(subdialog)
-            opt <- options(warn=-1)
-            for (i in 1:nvalues){
-                order[i] <- as.numeric(eval(parse(text=paste("tclvalue(levelOrder", i, ")", sep=""))))
-            }
-            options(opt)
-            if (any(sort(order) != 1:nvalues) || any(is.na(order))){
-                errorCondition(recall=reorderFactor,
-                               message=paste(gettextRcmdr("Order of levels must include all integers from 1 to "), nvalues, sep=""))
-                return()
-            }
-            levels <- old.levels[order(order)]
-            ordered <- if (ordered == "1") ", ordered=TRUE" else ""
-            command <- paste("factor(", .activeDataSet, "$", variable,
-                             ", levels=c(", paste(paste("'", levels, "'", sep=""), collapse=","), ")",
-                             ordered, ")", sep="")
-            result <- justDoIt(paste(.activeDataSet, "$", name, " <- ", command, sep=""))
-            logger(paste(.activeDataSet,"$", name," <- ", command, sep=""))
-            if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
-        }
-        subOKCancelHelp()
-        tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Old Levels"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"),
-               labelRcmdr(subdialog, text=gettextRcmdr("New order"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-        for (i in 1:nvalues){
-            valVar <- paste("levelOrder", i, sep="")
-            assign(valVar, tclVar(i))
-            assign(paste("entry", i, sep=""), ttkentry(subdialog, width="2",
-                                                       textvariable=get(valVar)))
-            tkgrid(labelRcmdr(subdialog, text=old.levels[i]), get(paste("entry", i, sep="")), sticky="w")
-        }
-        tkgrid(subButtonsFrame, sticky="w", columnspan=2)
-        dialogSuffix(subdialog, focus=entry1)
+  initializeDialog(title=gettextRcmdr("Reorder Factor Levels"))
+  variableBox <- variableListBox(top, Factors(), title=gettextRcmdr("Factor (pick one)"))
+  orderedFrame <- tkframe(top)
+  orderedVariable <- tclVar("0")
+  orderedCheckBox <- ttkcheckbutton(orderedFrame, variable=orderedVariable)
+  factorName <- tclVar(gettextRcmdr("<same as original>"))
+  factorNameField <- ttkentry(top, width="20", textvariable=factorName)
+  onOK <- function(){
+    variable <- getSelection(variableBox)
+    closeDialog()
+    if (length(variable) == 0) {
+      errorCondition(recall=reorderFactor, message=gettextRcmdr("You must select a variable."))
+      return()
     }
-    OKCancelHelp(helpSubject="factor")
-    tkgrid(getFrame(variableBox), sticky="nw")
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("Name for factor")), sticky="w")
-    tkgrid(factorNameField, sticky="w")
-    tkgrid(orderedCheckBox, labelRcmdr(orderedFrame, text=gettextRcmdr("Make ordered factor")), sticky="w")
-    tkgrid(orderedFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix(preventGrabFocus=TRUE)
+    name <- trim.blanks(tclvalue(factorName))
+    if (name == gettextRcmdr("<same as original>")) name <- variable
+    if (!is.valid.name(name)){
+      errorCondition(recall=reorderFactor,
+                     message=paste('"', name, '" ', gettextRcmdr("is not a valid name."), sep=""))
+      return()
+    }
+    if (is.element(name, Variables())) {
+      if ("no" == tclvalue(checkReplace(name))){
+        reorderFactor()
+        return()
+      }
+    }
+    .activeDataSet <- ActiveDataSet()
+    old.levels <- eval(parse(text=paste("levels(", .activeDataSet, "$", variable, ")",
+                                        sep="")), envir=.GlobalEnv)
+    nvalues <- length(old.levels)
+    ordered <- tclvalue(orderedVariable)
+    if (nvalues > 30) {
+      errorCondition(recall=reorderFactor,
+                     message=sprintf(gettextRcmdr("Number of levels (%d) too large."), nvalues))
+      return()
+    }
+    initializeDialog(subdialog, title=gettextRcmdr("Reorder Levels"))
+    order <- 1:nvalues
+    onOKsub <- function() {
+      closeDialog(subdialog)
+      opt <- options(warn=-1)
+      for (i in 1:nvalues){
+        order[i] <- as.numeric(eval(parse(text=paste("tclvalue(levelOrder", i, ")", sep=""))))
+      }
+      options(opt)
+      if (any(sort(order) != 1:nvalues) || any(is.na(order))){
+        errorCondition(recall=reorderFactor,
+                       message=paste(gettextRcmdr("Order of levels must include all integers from 1 to "), nvalues, sep=""))
+        return()
+      }
+      levels <- old.levels[order(order)]
+      ordered <- if (ordered == "1") ", ordered=TRUE" else ""
+      command <- paste("with(", .activeDataSet, ", factor(", variable,
+                       ", levels=c(", paste(paste("'", levels, "'", sep=""), collapse=","), ")",
+                       ordered, "))", sep="")
+      result <- justDoIt(paste(.activeDataSet, "$", name, " <- ", command, sep=""))
+      logger(paste(.activeDataSet,"$", name," <- ", command, sep=""))
+      if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
+    }
+    subOKCancelHelp()
+    tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Old Levels"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"),
+           labelRcmdr(subdialog, text=gettextRcmdr("New order"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+    for (i in 1:nvalues){
+      valVar <- paste("levelOrder", i, sep="")
+      assign(valVar, tclVar(i))
+      assign(paste("entry", i, sep=""), ttkentry(subdialog, width="2",
+                                                 textvariable=get(valVar)))
+      tkgrid(labelRcmdr(subdialog, text=old.levels[i]), get(paste("entry", i, sep="")), sticky="w")
+    }
+    tkgrid(subButtonsFrame, sticky="w", columnspan=2)
+    dialogSuffix(subdialog, focus=entry1)
+  }
+  OKCancelHelp(helpSubject="factor")
+  tkgrid(getFrame(variableBox), sticky="nw")
+  tkgrid(labelRcmdr(top, text=gettextRcmdr("Name for factor")), sticky="w")
+  tkgrid(factorNameField, sticky="w")
+  tkgrid(orderedCheckBox, labelRcmdr(orderedFrame, text=gettextRcmdr("Make ordered factor")), sticky="w")
+  tkgrid(orderedFrame, sticky="w")
+  tkgrid(buttonsFrame, sticky="w")
+  dialogSuffix(preventGrabFocus=TRUE)
 }
 
 standardize <- function(X){
@@ -1472,10 +1472,10 @@ standardize <- function(X){
     }
     xx <- paste('"', x, '"', sep="")
     .activeDataSet <- ActiveDataSet()
-    command <- paste("local({\n  .Z <- scale(", 
+    command <- paste(.activeDataSet, " <- ", "local({\n  .Z <- scale(", 
                      .activeDataSet, "[,c(", paste(xx, collapse=","),
-                     ")])", sep="")
-    for (i in 1:length(x)){
+                     ")])\n  within(", .activeDataSet, ", {", sep="")
+    for (i in length(x):1){
       Z <- paste("Z.", x[i], sep="")
       if (is.element(Z, Variables())) {
         if ("no" == tclvalue(checkReplace(Z))){
@@ -1484,12 +1484,12 @@ standardize <- function(X){
           next
         }
       }
-      command <- paste(command, "\n  ", .activeDataSet, "$", Z, " <<- .Z[,", i, "]", sep="")
+      command <- paste(command, "\n    ", Z, " <- .Z[,", i, "]", sep="")
     }
-    command <- paste(command, "\n})")
+    command <- paste(command, "\n  })\n})")
     result <- doItAndPrint(command)
     if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
-    tkfocus(CommanderWindow())
+    tkfocus(CommanderWindow()) 
   }
   OKCancelHelp(helpSubject="scale")
   tkgrid(getFrame(xBox), sticky="w")
