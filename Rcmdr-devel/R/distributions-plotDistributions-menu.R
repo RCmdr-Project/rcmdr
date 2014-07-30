@@ -1,6 +1,6 @@
 # Distributions menu dialogs for plots
 
-# last modified 2013-06-24 by J. Fox
+# last modified 2014-07-30 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic  (20 July 06)
 # modified by Miroslav M. Ristic (15 January 11)
@@ -89,14 +89,13 @@ distributionPlot <- function(nameVar){
         } else {
             command <- paste("seq(", min, ", ", max, ", length.out=1000)", sep="")
         }
-        doItAndPrint(paste(".x <- ", command, sep=""))
-        doVar<-"plotDistr(.x, "
-        if (nameVar=="Gumbel") {doVar<-"plotDistr(log(.x), "}
+        command <- paste("local({\n  .x <- ", command, sep="")
+        doVar<-"\n  plotDistr(.x, "
+        if (nameVar=="Gumbel") {doVar<-"\n  plotDistr(log(.x), "}
         if (nameVar=="F") {mainVar<-paste(", Numerator df = ",vars[1],", Denominator df = ",vars[2],sep="")}
-        doItAndPrint(paste(doVar, fn, "(.x", pasteVar,'), cdf=', dist.arg, ', xlab="x", ylab="', fun, 
-            '", main=paste("',fVar$titleName,' Distribution: ',substr(mainVar,2,nchar(mainVar)),'"))', sep=""))
-        remove(.x, envir=.GlobalEnv)
-        logger("remove(.x)")
+        command <- paste(command, "  ", doVar, fn, "(.x", pasteVar,'), cdf=', dist.arg, ', xlab="x", ylab="', fun, 
+            '", main=paste("',fVar$titleName,' Distribution: ',substr(mainVar,2,nchar(mainVar)),'"))\n})', sep="")
+        doItAndPrint(command)
         tkfocus(CommanderWindow())
         putDialog(dialogName, list(initialValues=vars, type=fun), resettable=FALSE)
     }
@@ -161,7 +160,7 @@ discreteDistributionPlot <- function(nameVar){
         min <- eval(parse(text=paste("q",fVar$funName,"(.0005",pasteVar,")",sep="")))
         max <- eval(parse(text=paste("q",fVar$funName,"(.9995",pasteVar,")",sep="")))
         command <- paste(min, ":", max, sep="")
-        doItAndPrint(paste(".x <- ", command, sep=""))
+        command <- paste("local({\n  .x <- ", command, sep="")
         switch(nameVar,
             "binomial" = xlabVar<-"Number of Successes",
             "Poisson" = xlabVar<-"x",
@@ -179,19 +178,20 @@ discreteDistributionPlot <- function(nameVar){
                 mainVar<-paste(mainVar,", ", fVar$paramsLabels[i],"=",vars[i],sep="")
             }   
         }
-        if (fun == "Probability"){
-            doItAndPrint(paste("plotDistr(.x, d",fVar$funName,"(.x", pasteVar,
+        command <- if (fun == "Probability"){
+           paste(command, "\n  plotDistr(.x, d",fVar$funName,"(.x", pasteVar,
                 '), xlab="',xlabVar,'", ylab="Probability Mass", main="',fVar$titleName,
-                ' Distribution: ',substr(mainVar,2,nchar(mainVar)),'", discrete=TRUE)', sep=""))
+                ' Distribution: ',substr(mainVar,2,nchar(mainVar)),'", discrete=TRUE)', sep="")
         }
         else {
-            doItAndPrint(paste("plotDistr(.x, p",fVar$funName,"(.x",
+            paste(command, "\n  plotDistr(.x, p",fVar$funName,"(.x",
                 pasteVar,'), xlab="',xlabVar,
                 '",ylab="Cumulative Probability", main="',
-                fVar$titleName,' Distribution: ',substr(mainVar,2,nchar(mainVar)),'", discrete=TRUE, cdf=TRUE)', sep=""))
+                fVar$titleName,' Distribution: ',substr(mainVar,2,nchar(mainVar)),'", discrete=TRUE, cdf=TRUE)', 
+                sep="")
         }
-        remove(.x, envir=.GlobalEnv)
-        logger("remove(.x)")
+        command <- paste(command, "\n})", sep="")
+        doItAndPrint(command)
         tkfocus(CommanderWindow())
         putDialog(dialogName, list(initialValues=vars, type=fun), resettable=FALSE)
     }

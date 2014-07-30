@@ -1796,113 +1796,108 @@ renameVariables <- function(){
 }
 
 setContrasts <- function(){
-    initializeDialog(title=gettextRcmdr("Set Contrasts for Factor"))
-    variableBox <- variableListBox(top, Factors(), title=gettextRcmdr("Factor (pick one)"))
-    radioButtons(name="contrasts", buttons=c("treatment", "sum", "helmert", "poly", "specify"),
-                 values=c("contr.Treatment", "contr.Sum", "contr.helmert", "contr.poly", "specify"),
-                 labels=gettextRcmdr(c("Treatment (dummy) contrasts", "Sum (deviation) contrasts", "Helmert contrasts",
-                                       "Polynomial contrasts", "Other (specify)")), title=gettextRcmdr("Contrasts"))
-    onOK <- function(){
-        variable <- getSelection(variableBox)
-        closeDialog()
-        if (length(variable) == 0) {
-            errorCondition(recall=setContrasts, message=gettextRcmdr("You must select a variable."))
-            return()
-        }
-        contrasts <- tclvalue(contrastsVariable)
-        if (contrasts != "specify"){
-            command <- paste("contrasts(", ActiveDataSet(), "$", variable, ') <- "', contrasts, '"', sep="")
-            result <- justDoIt(command)
-            logger(command)
-            if (class(result)[1] !=  "try-error") activeDataSet(ActiveDataSet())
-            tkfocus(CommanderWindow())
-        }
-        else{
-            initializeDialog(subdialog, title=gettextRcmdr("Specify Contrasts"))
-            tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Enter Contrast Coefficients"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-            env <- environment()
-            tableFrame <- tkframe(subdialog)
-            row.names <- eval(parse(text=paste("levels(", ActiveDataSet(), "$", variable, ")")))
-            row.names <- substring(paste(abbreviate(row.names, 12), "            "), 1, 12)
-            nrows <- length(row.names)
-            ncols <- nrows - 1
-            make.col.names <- paste("labelRcmdr(tableFrame, text='", gettextRcmdr("Contrast Name:"), "')", sep="")
-            for (j in 1:ncols) {
-                varname <- paste(".col.", j, sep="")
-                assign(varname, tclVar(paste(".", j, sep="")), envir=env)
-                make.col.names <- paste(make.col.names, ", ",
-                                        "ttkentry(tableFrame, width='12', textvariable=", varname, ")", sep="")
-            }
-            eval(parse(text=paste("tkgrid(", make.col.names, ", sticky='w')", sep="")), envir=env)
-            for (i in 1:nrows){
-                make.row <- paste("labelRcmdr(tableFrame, text='", row.names[i], "')")
-                for (j in 1:ncols){
-                    varname <- paste(".tab.", i, ".", j, sep="")
-                    assign(varname, tclVar("0"), envir=env)
-                    make.row <- paste(make.row, ", ", "ttkentry(tableFrame, width='5', textvariable=",
-                                      varname, ")", sep="")
-                }
-                eval(parse(text=paste("tkgrid(", make.row, ", sticky='w')", sep="")), envir=env)
-            }
-            tkgrid(tableFrame, sticky="w")
-            onOKsub <- function(){
-                closeDialog(subdialog)
-                cell <- 0
-                values <- rep(NA, nrows*ncols)
-                for (j in 1:ncols){
-                    for (i in 1:nrows){
-                        cell <- cell + 1
-                        varname <- paste(".tab.", i, ".", j, sep="")
-                        values[cell] <- as.numeric(eval(parse(text=paste("tclvalue(", varname,")", sep=""))))
-                    }
-                }
-                values <- na.omit(values)
-                if (length(values) != nrows*ncols){
-                    errorCondition(subdialog, recall=setContrasts,
-                                   message=sprintf(gettextRcmdr(
-                                       "Number of valid entries in contrast matrix(%d)\nnot equal to number of levels (%d) * number of contrasts (%d)."), length(values), nrows, ncols))
-                    return()
-                }
-                if (qr(matrix(values, nrows, ncols))$rank < ncols) {
-                    errorCondition(subdialog, recall=setContrasts, message=gettextRcmdr("Contrast matrix is not of full column rank"))
-                    return()
-                }
-                contrast.names <- rep("", ncols)
-                for (j in 1:ncols){
-                    varname <- paste(".col.", j, sep="")
-                    contrast.names[j] <- eval(parse(text=paste("tclvalue(", varname,")", sep="")))
-                }
-                if (length(unique(contrast.names)) < ncols) {
-                    errorCondition(subdialog, recall=setContrasts, message=gettextRcmdr("Contrast names must be unique"))
-                    return()
-                }
-                command <- paste("matrix(c(", paste(values, collapse=","), "), ", nrows, ", ", ncols,
-                                 ")", sep="")
-                doItAndPrint(paste(".Contrasts <- ", command, sep=""))
-                command <- paste("colnames(.Contrasts) <- c(",
-                                 paste("'", contrast.names, "'", sep="", collapse=", "), ")", sep="")
-                justDoIt(command)
-                logger(command)
-                command <- paste("contrasts(", ActiveDataSet(), "$", variable, ") <- .Contrasts", sep="")
-                result <- justDoIt(command)
-                logger(command)
-                justDoIt("remove(.Contrasts, envir=.GlobalEnv)")
-                logger("remove(.Contrasts)")
-                if (class(result)[1] !=  "try-error") activeDataSet(ActiveDataSet(), flushModel=FALSE, flushDialogMemory=FALSE)
-                tkfocus(CommanderWindow())
-            }
-            subOKCancelHelp(helpSubject="contrasts")
-            tkgrid(tableFrame, sticky="w")
-            tkgrid(labelRcmdr(subdialog, text=""))
-            tkgrid(subButtonsFrame, sticky="w")
-            dialogSuffix(subdialog, focus=subdialog)
-        }
+  initializeDialog(title=gettextRcmdr("Set Contrasts for Factor"))
+  variableBox <- variableListBox(top, Factors(), title=gettextRcmdr("Factor (pick one)"))
+  radioButtons(name="contrasts", buttons=c("treatment", "sum", "helmert", "poly", "specify"),
+               values=c("contr.Treatment", "contr.Sum", "contr.helmert", "contr.poly", "specify"),
+               labels=gettextRcmdr(c("Treatment (dummy) contrasts", "Sum (deviation) contrasts", "Helmert contrasts",
+                                     "Polynomial contrasts", "Other (specify)")), title=gettextRcmdr("Contrasts"))
+  onOK <- function(){
+    variable <- getSelection(variableBox)
+    closeDialog()
+    if (length(variable) == 0) {
+      errorCondition(recall=setContrasts, message=gettextRcmdr("You must select a variable."))
+      return()
     }
-    OKCancelHelp(helpSubject="contrasts")
-    tkgrid(getFrame(variableBox), sticky="nw")
-    tkgrid(contrastsFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix()
+    contrasts <- tclvalue(contrastsVariable)
+    if (contrasts != "specify"){
+      command <- paste("contrasts(", ActiveDataSet(), "$", variable, ') <- "', contrasts, '"', sep="")
+      result <- justDoIt(command)
+      logger(command)
+      if (class(result)[1] !=  "try-error") activeDataSet(ActiveDataSet())
+      tkfocus(CommanderWindow())
+    }
+    else{
+      initializeDialog(subdialog, title=gettextRcmdr("Specify Contrasts"))
+      tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Enter Contrast Coefficients"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+      env <- environment()
+      tableFrame <- tkframe(subdialog)
+      row.names <- eval(parse(text=paste("levels(", ActiveDataSet(), "$", variable, ")")))
+      row.names <- substring(paste(abbreviate(row.names, 12), "            "), 1, 12)
+      nrows <- length(row.names)
+      ncols <- nrows - 1
+      make.col.names <- paste("labelRcmdr(tableFrame, text='", gettextRcmdr("Contrast Name:"), "')", sep="")
+      for (j in 1:ncols) {
+        varname <- paste(".col.", j, sep="")
+        assign(varname, tclVar(paste(".", j, sep="")), envir=env)
+        make.col.names <- paste(make.col.names, ", ",
+                                "ttkentry(tableFrame, width='12', textvariable=", varname, ")", sep="")
+      }
+      eval(parse(text=paste("tkgrid(", make.col.names, ", sticky='w')", sep="")), envir=env)
+      for (i in 1:nrows){
+        make.row <- paste("labelRcmdr(tableFrame, text='", row.names[i], "')")
+        for (j in 1:ncols){
+          varname <- paste(".tab.", i, ".", j, sep="")
+          assign(varname, tclVar("0"), envir=env)
+          make.row <- paste(make.row, ", ", "ttkentry(tableFrame, width='5', textvariable=",
+                            varname, ")", sep="")
+        }
+        eval(parse(text=paste("tkgrid(", make.row, ", sticky='w')", sep="")), envir=env)
+      }
+      tkgrid(tableFrame, sticky="w")
+      onOKsub <- function(){
+        closeDialog(subdialog)
+        cell <- 0
+        values <- rep(NA, nrows*ncols)
+        for (j in 1:ncols){
+          for (i in 1:nrows){
+            cell <- cell + 1
+            varname <- paste(".tab.", i, ".", j, sep="")
+            values[cell] <- as.numeric(eval(parse(text=paste("tclvalue(", varname,")", sep=""))))
+          }
+        }
+        values <- na.omit(values)
+        if (length(values) != nrows*ncols){
+          errorCondition(subdialog, recall=setContrasts,
+                         message=sprintf(gettextRcmdr(
+                           "Number of valid entries in contrast matrix(%d)\nnot equal to number of levels (%d) * number of contrasts (%d)."), length(values), nrows, ncols))
+          return()
+        }
+        if (qr(matrix(values, nrows, ncols))$rank < ncols) {
+          errorCondition(subdialog, recall=setContrasts, message=gettextRcmdr("Contrast matrix is not of full column rank"))
+          return()
+        }
+        contrast.names <- rep("", ncols)
+        for (j in 1:ncols){
+          varname <- paste(".col.", j, sep="")
+          contrast.names[j] <- eval(parse(text=paste("tclvalue(", varname,")", sep="")))
+        }
+        if (length(unique(contrast.names)) < ncols) {
+          errorCondition(subdialog, recall=setContrasts, message=gettextRcmdr("Contrast names must be unique"))
+          return()
+        }
+        command <- paste("local({\n  .Contrasts <- matrix(c(", paste(values, collapse=","), "), ", nrows, ", ", ncols,
+                         ")", sep="")
+        command <- paste(command, "\n  colnames(.Contrasts) <- c(",
+                         paste("'", contrast.names, "'", sep="", collapse=", "), ")", sep="")
+        command <- paste(command, "\n  contrasts(", ActiveDataSet(), "$", variable, ") <<- .Contrasts", sep="")
+        command <- paste(command, "\n})")
+        result <- doItAndPrint(command)
+        if (class(result)[1] !=  "try-error") activeDataSet(ActiveDataSet(), flushModel=FALSE, flushDialogMemory=FALSE)
+        tkfocus(CommanderWindow())
+      }
+      subOKCancelHelp(helpSubject="contrasts")
+      tkgrid(tableFrame, sticky="w")
+      tkgrid(labelRcmdr(subdialog, text=""))
+      tkgrid(subButtonsFrame, sticky="w")
+      dialogSuffix(subdialog, focus=subdialog)
+    }
+  }
+  OKCancelHelp(helpSubject="contrasts")
+  tkgrid(getFrame(variableBox), sticky="nw")
+  tkgrid(contrastsFrame, sticky="w")
+  tkgrid(buttonsFrame, sticky="w")
+  dialogSuffix()
 }
 
 refreshActiveDataSet <- function() activeDataSet(ActiveDataSet())

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2014-07-27 by J. Fox
+# last modified 2014-07-29 by J. Fox
 
 # Dimensional-analysis menu
 
@@ -242,97 +242,102 @@ factorAnalysis <- function () {
 }
 
 CFA <- function(){
-	Library("sem")
-	defaults <- list(initial.matrix="covariance", initial.factorCor="correlated", initial.identify="factors", 
-        initial.robust=0, initial.tab=0)
-	dialog.values <- getDialog("CFA", defaults)
-	initializeDialog(title=gettextRcmdr("Confirmatory Factor Analysis"), use.tabs=TRUE)
-	onFactor <- function(){
-		vars <- getSelection(xBox)
-		if (length(vars) < 2) {
-			errorCondition(recall=CFA,  message=gettextRcmdr("Fewer than 2 variables selected to load on factor."))
-			return()
-		}
-		fac.name <- tclvalue(factorName)
-		if (!is.valid.name(fac.name)) {
-			errorCondition(recall=CFA,  message=paste(fac.name, gettextRcmdr("is not a valid name.")))
-			return()
-		}
-		variables[[getRcmdr("factorNumber")]] <<- vars
-		factors <- factors[getRcmdr("factorNumber")] <<- fac.name
-		putRcmdr("factorNumber", getRcmdr("factorNumber") + 1)
-		tclvalue(factorName) <- paste("Factor.", getRcmdr("factorNumber"), sep = "")
-		tkselection.clear(xBox$listbox, "0", "end")
-		tclvalue(buttonText) <- paste(gettextRcmdr("Define factor"), getRcmdr("factorNumber"))
-	}
-	xBox <- variableListBox(dataTab, Numeric(), selectmode = "multiple", 
-			title = gettextRcmdr("Select variables\nloading on factor"))
-	optionsFrame <- tkframe(optionsTab)
-	radioButtons(optionsFrame, name = "matrix", buttons = c("covariance", "correlation"),
-			initialValue = dialog.values$initial.matrix, 
-			labels = gettextRcmdr(c("Covariance", "Correlation")), title = gettextRcmdr("Matrix to Analyze"))
-	radioButtons(optionsFrame, name = "factorCor", buttons = c("correlated", "orthogonal"),
-			initialValue = dialog.values$initial.factorCor, 
-			labels = gettextRcmdr(c("Correlated", "Orthogonal")), title = gettextRcmdr("Factor Correlations"))
-	radioButtons(optionsFrame, name = "identify", buttons = c("factors", "loadings"),
-			initialValue = dialog.values$initial.identify, 
-			labels = gettextRcmdr(c("Factor variances set to 1", "First loading on each factor set to 1")), 
-			title = gettextRcmdr("Identifying Constraints"))
-	checkBoxes(window=optionsFrame, frame = "robustFrame", boxes = "robust", initialValues = dialog.values$initial.robust, 
-			labels = gettextRcmdr("Robust standard errors"), title=" ")
-	putRcmdr("factorNumber", 1)
-	buttonText <- tclVar(paste(gettextRcmdr("Define factor"), getRcmdr("factorNumber")))
-	factorFrame <- tkframe(dataTab)
-	factorButton <- buttonRcmdr(factorFrame, textvariable=buttonText, width="15", 
-			command=onFactor, default="active", borderwidth=3)
-	factorName <- tclVar(paste("Factor.", getRcmdr("factorNumber"), sep = ""))
-	factorEntry <- ttkentry(factorFrame, width="20", textvariable=factorName)
-	variables <- list()
-	factors <- vector()
-	onOK <- function(){
-	    tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
-		matrix <- tclvalue(matrixVariable)
-		correlations <- tclvalue(factorCorVariable)
-		identify <- tclvalue(identifyVariable)
-		robust <- tclvalue(robustVariable)
-		closeDialog()
-		putDialog("CFA", list(initial.matrix=matrix, initial.factorCor=correlations, 
-						initial.identify=identify, initial.robust=robust, initial.tab=tab))
-		if (length(factors) == 0) {
-			errorCondition(recall=CFA, message=gettextRcmdr("No factors defined."))
-			return()
-		}
-		putRcmdr("factorNumber", NULL)
-		modelText <- vector(length(factors), mode="character")
-		for (i in 1:length(factors)){
-			modelText[i] <- paste(factors[i], ": ", paste(variables[[i]], collapse=", "), sep="")
-		}
-		allvars <- unique(unlist(variables))
-		if ((length(allvars)/length(factors)) < 2) {
-			errorCondition(recall=CFA,  
-					message=gettextRcmdr("There are too many factors."))
-			return()
-		}
-		doItAndPrint(paste(".model <- c(", paste(paste("'", modelText, "'", sep=""), collapse=", "), ")", sep=""))
-		doItAndPrint(paste(".model <- cfa(file=textConnection(.model)", if(correlations == "correlated") ", " else ", covs=NULL, ",
-						"reference.indicators=", if (identify == "factors") "FALSE" else "TRUE", ")", sep=""))
-		doItAndPrint(paste(".Data <- ", activeDataSet(),
-						"[, c(", paste(paste("'", allvars, "'", sep=""), collapse=", "),  ")]", sep=""))
-		if (matrix == "correlation") doItAndPrint(".Data <- as.data.frame(scale(.Data))")
-		doItAndPrint(paste("summary(sem(.model, data=.Data), robust=", if (robust == 1) "TRUE" else "FALSE", 
-						")", sep=""))
-		justDoIt("remove('.model', '.Data', envir=.GlobalEnv)")
-		logger("remove('.model', '.Data')")
-	}
-	OKCancelHelp(helpSubject="CFA", reset="CFA", apply="CFA")
-	tkgrid(matrixFrame, labelRcmdr(optionsFrame, text="    "), factorCorFrame, sticky="nw")
-	tkgrid(identifyFrame, labelRcmdr(optionsFrame, text="    "),  robustFrame, sticky="w")
-	tkgrid(optionsFrame, sticky="w")
-	tkgrid(getFrame(xBox), sticky="w")
-	tkgrid(labelRcmdr(dataTab, text=""))
-	tkgrid(factorButton, labelRcmdr(factorFrame, text=paste("   ", gettextRcmdr("Name for factor:"))), factorEntry, sticky="nw")
-	tkgrid(factorFrame, sticky="w")
-	tkgrid(labelRcmdr(dataTab, text=""))
-	dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
+  Library("sem")
+  defaults <- list(initial.matrix="covariance", initial.factorCor="correlated", initial.identify="factors", 
+                   initial.robust=0, initial.tab=0)
+  dialog.values <- getDialog("CFA", defaults)
+  initializeDialog(title=gettextRcmdr("Confirmatory Factor Analysis"), use.tabs=TRUE)
+  onFactor <- function(){
+    vars <- getSelection(xBox)
+    if (length(vars) < 2) {
+      errorCondition(recall=CFA,  message=gettextRcmdr("Fewer than 2 variables selected to load on factor."))
+      return()
+    }
+    fac.name <- tclvalue(factorName)
+    if (!is.valid.name(fac.name)) {
+      errorCondition(recall=CFA,  message=paste(fac.name, gettextRcmdr("is not a valid name.")))
+      return()
+    }
+    variables[[getRcmdr("factorNumber")]] <<- vars
+    factors <- factors[getRcmdr("factorNumber")] <<- fac.name
+    putRcmdr("factorNumber", getRcmdr("factorNumber") + 1)
+    tclvalue(factorName) <- paste("Factor.", getRcmdr("factorNumber"), sep = "")
+    tkselection.clear(xBox$listbox, "0", "end")
+    tclvalue(buttonText) <- paste(gettextRcmdr("Define factor"), getRcmdr("factorNumber"))
+  }
+  xBox <- variableListBox(dataTab, Numeric(), selectmode = "multiple", 
+                          title = gettextRcmdr("Select variables\nloading on factor"))
+  optionsFrame <- tkframe(optionsTab)
+  radioButtons(optionsFrame, name = "matrix", buttons = c("covariance", "correlation"),
+               initialValue = dialog.values$initial.matrix, 
+               labels = gettextRcmdr(c("Covariance", "Correlation")), title = gettextRcmdr("Matrix to Analyze"))
+  radioButtons(optionsFrame, name = "factorCor", buttons = c("correlated", "orthogonal"),
+               initialValue = dialog.values$initial.factorCor, 
+               labels = gettextRcmdr(c("Correlated", "Orthogonal")), title = gettextRcmdr("Factor Correlations"))
+  radioButtons(optionsFrame, name = "identify", buttons = c("factors", "loadings"),
+               initialValue = dialog.values$initial.identify, 
+               labels = gettextRcmdr(c("Factor variances set to 1", "First loading on each factor set to 1")), 
+               title = gettextRcmdr("Identifying Constraints"))
+  checkBoxes(window=optionsFrame, frame = "robustFrame", boxes = "robust", initialValues = dialog.values$initial.robust, 
+             labels = gettextRcmdr("Robust standard errors"), title=" ")
+  putRcmdr("factorNumber", 1)
+  buttonText <- tclVar(paste(gettextRcmdr("Define factor"), getRcmdr("factorNumber")))
+  factorFrame <- tkframe(dataTab)
+  factorButton <- buttonRcmdr(factorFrame, textvariable=buttonText, width="15", 
+                              command=onFactor, default="active", borderwidth=3)
+  factorName <- tclVar(paste("Factor.", getRcmdr("factorNumber"), sep = ""))
+  factorEntry <- ttkentry(factorFrame, width="20", textvariable=factorName)
+  variables <- list()
+  factors <- vector()
+  onOK <- function(){
+    tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
+    matrix <- tclvalue(matrixVariable)
+    correlations <- tclvalue(factorCorVariable)
+    identify <- tclvalue(identifyVariable)
+    robust <- tclvalue(robustVariable)
+    closeDialog()
+    putDialog("CFA", list(initial.matrix=matrix, initial.factorCor=correlations, 
+                          initial.identify=identify, initial.robust=robust, initial.tab=tab))
+    if (length(factors) == 0) {
+      errorCondition(recall=CFA, message=gettextRcmdr("No factors defined."))
+      return()
+    }
+    putRcmdr("factorNumber", NULL)
+    modelText <- vector(length(factors), mode="character")
+    for (i in 1:length(factors)){
+      modelText[i] <- paste(factors[i], ": ", paste(variables[[i]], collapse=", "), sep="")
+    }
+    allvars <- unique(unlist(variables))
+    if ((length(allvars)/length(factors)) < 2) {
+      errorCondition(recall=CFA,  
+                     message=gettextRcmdr("There are too many factors."))
+      return()
+    }
+    command <- paste("local({\n  .model <- c(", paste(paste("'", modelText, "'", sep=""), 
+                                                      collapse=", "), ")", sep="")
+    command <- paste(command, "\n  .model <- cfa(file=textConnection(.model)", 
+                     if(correlations == "correlated") ", " else ", covs=NULL, ",
+                     "reference.indicators=", 
+                     if (identify == "factors") "FALSE" else "TRUE", ")", sep="")
+    command <- paste(command, "\n  .Data <- ", activeDataSet(),
+                     "[, c(", paste(paste("'", allvars, "'", sep=""), collapse=", "),  ")]", 
+                     sep="")
+    if (matrix == "correlation") 
+      command <- paste(command, "\n  .Data <- as.data.frame(scale(.Data))")
+    command <- paste(command, "\n  summary(sem(.model, data=.Data), robust=", 
+                     if (robust == 1) "TRUE" else "FALSE", 
+                     ")\n})", sep="")
+    doItAndPrint(command)
+  }
+  OKCancelHelp(helpSubject="CFA", reset="CFA", apply="CFA")
+  tkgrid(matrixFrame, labelRcmdr(optionsFrame, text="    "), factorCorFrame, sticky="nw")
+  tkgrid(identifyFrame, labelRcmdr(optionsFrame, text="    "),  robustFrame, sticky="w")
+  tkgrid(optionsFrame, sticky="w")
+  tkgrid(getFrame(xBox), sticky="w")
+  tkgrid(labelRcmdr(dataTab, text=""))
+  tkgrid(factorButton, labelRcmdr(factorFrame, text=paste("   ", gettextRcmdr("Name for factor:"))), factorEntry, sticky="nw")
+  tkgrid(factorFrame, sticky="w")
+  tkgrid(labelRcmdr(dataTab, text=""))
+  dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 

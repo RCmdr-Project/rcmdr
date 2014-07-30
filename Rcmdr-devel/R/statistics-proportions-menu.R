@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2013-06-24 by J. Fox
+# last modified 2014-07-30 by J. Fox
 
     # Proportions menu
 
@@ -25,23 +25,19 @@ singleProportionTest <- function () {
         putDialog ("singleProportionTest", list (initial.x = x, initial.alternative = alternative, 
             initial.level = level, initial.test = test ,initial.p = p, initial.tab=tab))
         closeDialog()
-        command <- paste("xtabs(~", x, ", data=", ActiveDataSet(), 
+        command <- paste("local({\n  .Table <- xtabs(~", x, ", data=", ActiveDataSet(), 
             ")")
-        doItAndPrint(paste(".Table <-", command))
-        doItAndPrint(".Table")
         if (test == "normal") 
-            doItAndPrint(paste("prop.test(rbind(.Table), alternative='", 
+            doItAndPrint(paste(command, "\n  prop.test(rbind(.Table), alternative='", 
                 alternative, "', p=", p, ", conf.level=", level, 
-                ", correct=FALSE)", sep = ""))
+                ", correct=FALSE)\n})", sep = ""))
         else if (test == "corrected") 
-            doItAndPrint(paste("prop.test(rbind(.Table), alternative='", 
+            doItAndPrint(paste(command, "\n  prop.test(rbind(.Table), alternative='", 
                 alternative, "', p=", p, ", conf.level=", level, 
-                ", correct=TRUE)", sep = ""))
-        else doItAndPrint(paste("binom.test(rbind(.Table), alternative='", 
+                ", correct=TRUE)\n})", sep = ""))
+        else doItAndPrint(paste(command, "\n  binom.test(rbind(.Table), alternative='", 
             alternative, "', p=", p, ", conf.level=", level, 
-            ")", sep = ""))
-        logger("remove(.Table)")
-        remove(.Table, envir = .GlobalEnv)
+            ")\n})", sep = ""))
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject = "prop.test", reset = "singleProportionTest", apply = "singleProportionTest")
@@ -113,19 +109,17 @@ twoSampleProportionsTest <- function () {
         putDialog("twoSampleProportionsTest", list(initial.groups = groups, initial.response = x, 
             initial.test = test, initial.alternative = alternative, initial.confidenceLevel = level,
             initial.label=.groupsLabel, initial.tab=tab))
-        command <- paste("xtabs(~", groups, "+", x, ", data=", 
+        command <- paste("local({  .Table <- xtabs(~", groups, "+", x, ", data=", 
             ActiveDataSet(), ")", sep = "")
-        doItAndPrint(paste(".Table <-", command))
-        doItAndPrint("rowPercents(.Table)")
+        command <- paste(command, '\n  cat("\\nPercentage table:\\n")', sep="")
+        command <- paste(command, "\n  print(rowPercents(.Table))", sep="")
         if (test == "normal") 
-            doItAndPrint(paste("prop.test(.Table, alternative='", 
-                alternative, "', conf.level=", level, ", correct=FALSE)", 
+            doItAndPrint(paste(command, "\n  prop.test(.Table, alternative='", 
+                alternative, "', conf.level=", level, ", correct=FALSE)\n})", 
                 sep = ""))
-        else doItAndPrint(paste("prop.test(.Table, alternative='", 
-            alternative, "', conf.level=", level, ", correct=TRUE)", 
+        else doItAndPrint(paste(command, "\n  prop.test(.Table, alternative='", 
+            alternative, "', conf.level=", level, ", correct=TRUE)\n})", 
             sep = ""))
-        logger("remove(.Table)")
-        remove(.Table, envir = .GlobalEnv)
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject = "prop.test", reset = "twoSampleProportionsTest", apply = "twoSampleProportionsTest")

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2014-07-26 by J. Fox
+# last modified 2014-07-29 by J. Fox
 
 # Summaries menu
 
@@ -135,14 +135,16 @@ frequencyDistribution <- function () {
     closeDialog()
     .activeDataSet <- ActiveDataSet()
     for (variable in x) {
-      command <- paste("with(", .activeDataSet, ", table(", variable, 
-                       "))", sep = "")
-      #             logger(paste(".Table <-", command))
-      #   		assign(".Table", justDoIt(command), envir = .GlobalEnv)
-      doItAndPrint(paste(".Table <-", command))
-      doItAndPrint(paste(".Table  # counts for", variable))
-      doItAndPrint(paste("round(100*.Table/sum(.Table), 2)  # percentages for", 
-                         variable))
+      command <- paste("table(", variable, ")", sep = "")
+      command <- paste("local({\n  .Table <- with(", .activeDataSet, ", ", command, ")", sep="")
+      command <- paste(command, '\n  cat("\\ncounts:\\n")', sep="")
+      command <- paste(command, "\n  print(.Table)", sep="")
+      command <- paste(command, '\n  cat("\\npercentages:\\n")', sep="")
+      command <- paste(command, "\n  print(round(100*.Table/sum(.Table), 2))", sep="")
+      if (goodnessOfFit != 1) {
+        command <- paste(command, "\n})", sep="")
+        doItAndPrint(command)
+      }
     }
     env <- environment()
     if (goodnessOfFit == 1) {
@@ -204,19 +206,14 @@ frequencyDistribution <- function () {
           probs <- probs/sum(probs)
         }
         closeDialog(subwin)
-        command <- paste("c(", paste(probs, collapse = ","), 
-                         ")", sep = "")
-        doItAndPrint(paste(".Probs <-", command))
-        doItAndPrint("chisq.test(.Table, p=.Probs)")
-        logger("remove(.Probs)")
-        remove(.Probs, envir = .GlobalEnv)
+        command <- paste(command, "\n  .Probs <- c(", paste(probs, collapse = ","), ")", sep = "")
+        command <- paste(command, "\n  chisq.test(.Table, p=.Probs)\n})")
+        doItAndPrint(command)
       }
       subOKCancelHelp(subwin)
       tkgrid(subButtonsFrame, sticky = "w")
       dialogSuffix(subwin, onOK = onOKsub, focus = subwin)
     }
-    logger("remove(.Table)")
-    remove(.Table, envir = .GlobalEnv)
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "table", reset = "frequencyDistribution", apply="frequencyDistribution")
