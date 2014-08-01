@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2014-07-28 by J. Fox
+# last modified 2014-08-01 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -872,7 +872,7 @@ subsetRegression <- function () {
 effectPlots <- function () {
   Library("effects")
   defaults <- list(initial.all.or.pick = "TRUE", initial.predictors = NULL, 
-                   initial.partial.res = 0, initial.span = 50)
+                   initial.partial.res = 0, initial.span = 50, initial.style = "stacked")
   dialog.values <- getDialog("effectPlots", defaults)
   initializeDialog(title = gettextRcmdr("Model Effect Plots"))
   predictors <- all.vars(formula(get(activeModel(), envir=.GlobalEnv))[[3]])
@@ -889,6 +889,10 @@ effectPlots <- function () {
   partialResVariable <- tclVar(dialog.values$initial.partial.res)
   partialResCheckBoxFrame <- tkframe(partialResFrame)
   partialResCheckBox <- ttkcheckbutton(partialResCheckBoxFrame, variable = partialResVariable)
+  styleFrame <- tkframe(top)
+  radioButtons(styleFrame, name="styleButtons", buttons = c("stacked", "lines"),
+               labels = gettextRcmdr(c("Stacked areas", "Lines with confidence bands")),
+               title=gettextRcmdr("Style of Graph"), initialValue=dialog.values$initial.style)
   sliderValue <- tclVar(dialog.values$initial.span)
   sliderFrame <- tkframe(partialResFrame)
   slider <- tkscale(sliderFrame, from = 5, to = 100, showvalue = TRUE,
@@ -898,11 +902,14 @@ effectPlots <- function () {
     allEffects <- as.logical(tclvalue(allEffectsVariable))
     partial.residuals <- tclvalue(partialResVariable) == "1"
     span <- as.numeric(tclvalue(sliderValue))
+    style <- tclvalue(styleButtonsVariable)
     closeDialog() 
     if (allEffects){
-      command <- paste("plot(allEffects(", activeModel(), 
-                       if (partial.residuals) paste(", partial.residuals=TRUE), span=", span/100, ")", sep="")
-                       else "))", sep="")
+      command <- if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("multinom", "polr"))
+        paste("plot(allEffects(", activeModel(), '), style="', style, '")', sep="")
+      else paste("plot(allEffects(", activeModel(), 
+                 if (partial.residuals) paste(", partial.residuals=TRUE), span=", span/100, ")", sep="")
+                 else "))", sep="")
       doItAndPrint(command)
       predictors <- NULL
     }
@@ -917,14 +924,17 @@ effectPlots <- function () {
                        message = gettextRcmdr("To plot partial residuals,\n there must be a least one numeric predictor."))
         return()
       }
-      command <- paste("plot(Effect(c(", paste(paste('"', predictors, '"', sep=""), collapse=", "), "), ", activeModel(),
-                       if (partial.residuals) paste(", partial.residuals=TRUE), span=", span/100, ")", sep="")
-                       else "))", sep = "")
+      command <- if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("multinom", "polr"))
+        paste("plot(Effect(c(", paste(paste('"', predictors, '"', sep=""), collapse=", "), "), ", 
+              activeModel(), '), style="', style, '")', sep="")      
+      else paste("plot(Effect(c(", paste(paste('"', predictors, '"', sep=""), collapse=", "), "), ", activeModel(),
+                 if (partial.residuals) paste(", partial.residuals=TRUE), span=", span/100, ")", sep="")
+                 else "))", sep = "")
       doItAndPrint(command)
     }
     putDialog ("effectPlots", list(initial.all.or.pick=as.character(allEffects), initial.predictors=predictors, 
                                    initial.partial.res=as.numeric(partial.residuals),
-                                   initial.span=span))
+                                   initial.span=span, initial.style=style))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "Effect", reset = "effectPlots", apply = "effectPlots")
@@ -941,6 +951,11 @@ effectPlots <- function () {
            sticky = "swe", padx=6, pady=6)
     tkgrid(sliderFrame, sticky="w")
     tkgrid(partialResFrame, sticky="w")
+  }
+  else if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("multinom", "polr")){
+    tkgrid(labelRcmdr(styleFrame, text=" "))
+    tkgrid(styleButtonsFrame, sticky="w")
+    tkgrid(styleFrame, sticky="w")
   }
   tkgrid(buttonsFrame, sticky = "w")
   dialogSuffix()

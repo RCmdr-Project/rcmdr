@@ -47,4 +47,5 @@ if (getRversion() >= "2.15.1")
                       'grabFocusVariable', 'doubleClickVariable', 'sortNamesVariable', 'showEditButtonVariable',
                       'SuppressIconImagesVariable', 'retainSelectionsVariable', 'useRglVariable', 'closeOptionsFrame',
                       'outputOptionsFrame', 'otherOptionsFrame', 'kernelVariable', 'kernelFrame', 'otherFrame',
-                      'notebook', 'dataTab', 'optionsTab', 'tableTab', 'statisticsTab', 'allEffectsVariable', 'allEffectsFrame'))
+                      'notebook', 'dataTab', 'optionsTab', 'tableTab', 'statisticsTab', 'allEffectsVariable', 'allEffectsFrame', 
+                      'styleButtonsVariable', 'styleButtonsFrame'))
