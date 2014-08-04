@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2014-08-14 by John Fox
+# last modified 2014-08-04 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -11,7 +11,7 @@ Commander <- function(){
     require("car")
     # set up RcmdrEnv
     RcmdrEnv.on.path <- getOption("Rcmdr")[["RcmdrEnv.on.path"]]
-    if (is.null(RcmdrEnv.on.path)) RcmdrEnv.on.path <- (getRversion() < "3.0.0")
+    if (is.null(RcmdrEnv.on.path)) RcmdrEnv.on.path <- FALSE
     if (RcmdrEnv.on.path){
         RcmdrEnv <- function() {
             pos <-  match("RcmdrEnv", search())

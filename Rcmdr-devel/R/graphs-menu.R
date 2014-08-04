@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2014-07-26 by J. Fox
+# last modified 2014-08-04 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -1488,7 +1488,7 @@ Scatter3D <- function () {
         }
         
         putRcmdr("rgl", TRUE)
-        command <- paste("identify3d(", .activeDataSet, "$", 
+        command <- paste("Identify3d(", .activeDataSet, "$", 
                          x[1], ", ", .activeDataSet, "$", y, ", ", .activeDataSet, 
                          "$", x[2], groups, ", axis.scales=", scales, ", labels=row.names(", 
                          .activeDataSet, "))", sep = "")
