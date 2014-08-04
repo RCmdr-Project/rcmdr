@@ -213,7 +213,7 @@ is.valid.name(x)
 is.SciViews()
 justDoIt(command)
 knitrP()
-Library(package, pos=4, rmd=TRUE)
+Library(package, pos=length(search()), rmd=TRUE)
 listAllModels(envir=.GlobalEnv, ...)
 listAOVModels(envir=.GlobalEnv, ...)
 listDataSets(envir=.GlobalEnv, ...)
@@ -390,7 +390,7 @@ commanderPosition()
   \item{parent}{parent Tk window.}
   \item{plotLinesByGroup}{include a check box for plotting lines by group?}
   \item{plotLinesByGroupsText}{the label for the plot-lines-by-group check box.}
-  \item{pos}{position on search path at which to load package; default is \code{4}.}
+  \item{pos}{position on search path at which to load package; default is just before the end of the path.}
   \item{positionLegend}{include a check box for a legend?}
   \item{preventGrabFocus}{prevent the dialog box from grabbing the focus.}
   \item{preventDoubleClick}{prevent double-clicking from pressing the OK button, even when the

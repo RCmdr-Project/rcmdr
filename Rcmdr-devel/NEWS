@@ -8,6 +8,8 @@ Changes to Version 2.1-0
 
   o Added option to set ttk theme.
 
+  o More careful loading of packages and their dependencies, now placed near the end of the search path.
+
   o Moved non-GUI-related statistical, graphics, and data management functions to the new RcmdrMisc package (suggestion of Liviu Andronic).
 
 Changes to Version 2.0-5

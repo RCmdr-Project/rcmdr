@@ -241,7 +241,7 @@ confint.polr <- function (object, parm, level=0.95, ...){
 
 confint.multinom <- function (object, parm, level=0.95, ...){
     # adapted from stats:::confint.lm
-    require("abind")
+    Library("abind")
     cf <- coef(object)
     if (is.vector(cf)) cf <- matrix(cf, nrow=1,
         dimnames=list(object$lev[2], names(cf)))
@@ -1814,7 +1814,8 @@ sortVarNames <- function(x){
 
 # to load packages
 
-Library <- function(package, pos=4, rmd=TRUE){
+Library <- function(package, pos=length(search()), rmd=TRUE){
+    dependencies <- tools::package_dependencies(package, db=getRcmdr("installed.packages"), which="Depends")
     loaded <- search()
     loaded <- loaded[grep("^package:", loaded)]
     loaded <- sub("^package:", "", loaded)
@@ -1827,6 +1828,9 @@ Library <- function(package, pos=4, rmd=TRUE){
         })
     }
     if (!(package %in% loaded)){
+        for (pkg in dependencies[[package]]){
+            Library(pkg, pos=pos, rmd=rmd)
+        }
         command <- paste("library(", package, ", pos=", pos, ")", sep="")
         logger(command, rmd=rmd)
         result <- try(eval(parse(text=command), envir=.GlobalEnv), silent=TRUE)
@@ -1839,6 +1843,32 @@ Library <- function(package, pos=4, rmd=TRUE){
     }
     else return(invisible(NULL))
 }
+
+# Library <- function(package, pos=4, rmd=TRUE){
+#     loaded <- search()
+#     loaded <- loaded[grep("^package:", loaded)]
+#     loaded <- sub("^package:", "", loaded)
+#     if (!getRcmdr("suppress.X11.warnings")){
+#         messages.connection <- file(open="w+")
+#         sink(messages.connection, type="message")
+#         on.exit({
+#             sink(type="message")
+#             close(messages.connection)
+#         })
+#     }
+#     if (!(package %in% loaded)){
+#         command <- paste("library(", package, ", pos=", pos, ")", sep="")
+#         logger(command, rmd=rmd)
+#         result <- try(eval(parse(text=command), envir=.GlobalEnv), silent=TRUE)
+#         if (class(result)[1] ==  "try-error"){
+#             Message(message=paste(strsplit(result, ":")[[1]][2]), type="error")
+#             tkfocus(CommanderWindow())
+#             return("error")
+#         }
+#         return(package)
+#     }
+#     else return(invisible(NULL))
+# }
 
 # start help system
 

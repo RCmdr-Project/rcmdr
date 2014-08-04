@@ -7,8 +7,8 @@
 
 Commander <- function(){
     library(RcmdrDevel, quietly=TRUE)
-    require("RcmdrMisc")
-    require("car")
+    if (!require("RcmdrMisc")) warning(gettextRcmdr("the RcmdrMisc package is missing and should be installed\n  many features will not work"))
+    if (!require("car")) warning(gettextRcmdr("the car package is missing and should be installed\n  many features will not work"))
     # set up RcmdrEnv
     RcmdrEnv.on.path <- getOption("Rcmdr")[["RcmdrEnv.on.path"]]
     if (is.null(RcmdrEnv.on.path)) RcmdrEnv.on.path <- FALSE
@@ -201,6 +201,7 @@ Commander <- function(){
     
     # various initializations
     messageTag(reset=TRUE)
+    putRcmdr("installed.packages", installed.packages())
     putRcmdr("RcmdrVersion", RcmdrVersion)
     putRcmdr(".activeDataSet", NULL)
     putRcmdr(".activeModel", NULL)

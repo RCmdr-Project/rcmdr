@@ -1,4 +1,4 @@
-# last modified 2014-07-28 by J. Fox
+# last modified 2014-08-04 by J. Fox
 
 # Data menu dialogs
 
@@ -958,12 +958,10 @@ importSTATA <- function() {
 }
 
 # The following function was contributed by Matthieu Lesnoff
-#  (added with small changes by J. Fox, 20 July 06 & 30 July 08)
+#  (added with small changes by J. Fox)
 
 importRODBCtable <- function(){
-	# load the RODBC package and stops the program if not available
-	if(!require(RODBC))
-		stop(gettextRcmdr("This function requires the RODBC package.\n"))
+	Library("RODBC")
 	# close all databases in case of error
 	on.exit(odbcCloseAll())
 # Enter the name of data set, by default : Dataset
