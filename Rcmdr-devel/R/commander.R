@@ -1,12 +1,13 @@
 
 # The R Commander and command logger
 
-# last modified 2014-07-18 by John Fox
+# last modified 2014-08-14 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
 Commander <- function(){
     library(RcmdrDevel, quietly=TRUE)
+    require("RcmdrMisc")
     require("car")
     # set up RcmdrEnv
     RcmdrEnv.on.path <- getOption("Rcmdr")[["RcmdrEnv.on.path"]]

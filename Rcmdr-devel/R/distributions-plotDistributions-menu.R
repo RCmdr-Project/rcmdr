@@ -209,31 +209,3 @@ discreteDistributionPlot <- function(nameVar){
     }
     dialogSuffix(focus=get(paramsEntry[1]))
 }
-
-plotDistr <- function(x, p, discrete=FALSE, cdf=FALSE, ...){
-    if (discrete){
-        if (cdf){
-            plot(x, p, ..., type="n")
-            abline(h=0:1, col="gray")
-            lines(x, p, ..., type="s")
-        }
-        else {
-            plot(x, p, ..., type="h")
-            points(x, p, pch=16)
-            abline(h=0, col="gray")
-        }
-    }
-    else{
-        if (cdf){
-            plot(x, p, ..., type="n")
-            abline(h=0:1, col="gray")
-            lines(x, p, ..., type="l")
-        }
-        else{
-            plot(x, p, ..., type="n")
-            abline(h=0, col="gray")
-            lines(x, p, ..., type="l")
-        }
-    }
-    return(invisible(NULL))
-}
