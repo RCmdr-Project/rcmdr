@@ -51,7 +51,7 @@
     menu    dataMenu        topMenu         ""                                              ""                          ""          ""
     item    dataMenu        command         "New data set..."                               newDataSet                  ""          "!MacOSXP()"
     item    dataMenu        command         "Load data set..."                              loadDataSet                 ""      ""
-    item	dataMenu		command			"Merge data sets..."							mergeDataSets				"dataSetsP(2)"	"packageAvailable('car')"
+    item	dataMenu		command			"Merge data sets..."							mergeDataSets				"dataSetsP(2)"	"packageAvailable('car') && packageAvailable('RcmdrMisc')"
     item    dataMenu        separator       ""                                              ""                          ""          ""
     menu    importMenu      dataMenu        ""                                              ""                          ""          ""
     item    importMenu      command         "from text file, clipboard, or URL..."          readDataSet                 ""          ""
@@ -86,7 +86,7 @@
     item    variablesMenu   command         "Add observation numbers to data set"           addObsNumbers               "activeDataSetP()"          ""
     item    variablesMenu   command         "Standardize variables..."                      standardize                 "numericP()"                ""
     item    variablesMenu   command         "Convert numeric variables to factors..."       numericToFactor             "numericP()"                ""
-    item    variablesMenu   command         "Bin numeric variable..."                       binVariable                 "numericP()"                ""
+    item    variablesMenu   command         "Bin numeric variable..."                       binVariable                 "numericP()"                "packageAvailable('RcmdrMisc')"
     item    variablesMenu   command         "Reorder factor levels..."                      reorderFactor               "factorsP()"                ""
     item    variablesMenu   command         "Define contrasts for a factor..."              setContrasts                "factorsP()"                ""
     item    variablesMenu   command         "Rename variables..."                           renameVariables             "activeDataSetP()"          ""
@@ -96,17 +96,17 @@
     menu    statisticsMenu  topMenu         ""                                              ""                          ""          ""
     menu    summariesMenu   statisticsMenu  ""                                              ""                          ""          ""
     item    summariesMenu   command         "Active data set"                               summarizeDataSet            "activeDataSetP()"          ""
-    item    summariesMenu   command         "Numerical summaries..."                        numericalSummaries          "numericP()" "packageAvailable('abind')"
+    item    summariesMenu   command         "Numerical summaries..."                        numericalSummaries          "numericP()" "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
     item    summariesMenu   command         "Frequency distributions..."                    frequencyDistribution       "factorsP()"                ""    
     item    summariesMenu   command         "Count missing observations"                    countMissing                "activeDataSetP()"          ""    
     item    summariesMenu   command         "Table of statistics..."                        statisticsTable             "numericP() && factorsP()"  ""
-    item    summariesMenu   command         "Correlation matrix..."                         correlationMatrix           "numericP(2)"               ""
-    item    summariesMenu   command         "Correlation test..."                           correlationTest             "numericP(2)"               ""
+    item    summariesMenu   command         "Correlation matrix..."                         correlationMatrix           "numericP(2)"               "packageAvailable('RcmdrMisc')"
+    item    summariesMenu   command         "Correlation test..."                           correlationTest             "numericP(2)"               "packageAvailable('RcmdrMisc')"
     item    summariesMenu   command         "Shapiro-Wilk test of normality..."             ShapiroTest                 "numericP()"                ""
     menu    tablesMenu      statisticsMenu  ""                                              ""                          ""          ""
-    item    tablesMenu      command         "Two-way table..."                              twoWayTable                 "factorsP(2)" "packageAvailable('abind')"
-    item    tablesMenu      command         "Multi-way table..."                            multiWayTable               "factorsP(3)" "packageAvailable('abind')"
-    item    tablesMenu      command         "Enter and analyze two-way table..."            enterTable                  ""              "packageAvailable('abind')"
+    item    tablesMenu      command         "Two-way table..."                              twoWayTable                 "factorsP(2)" "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
+    item    tablesMenu      command         "Multi-way table..."                            multiWayTable               "factorsP(3)" "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
+    item    tablesMenu      command         "Enter and analyze two-way table..."            enterTable                  ""            "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
     menu    meansMenu       statisticsMenu  ""                                              ""                          ""          ""
     item    meansMenu       command         "Single-sample t-test..."                       singleSampleTTest           "numericP()"          ""
     item    meansMenu       command         "Independent samples t-test..."                 independentSamplesTTest     "numericP() && twoLevelFactorsP()"          ""
@@ -126,15 +126,15 @@
     item    nonparametricMenu command       "Kruskal-Wallis test..."                        KruskalWallisTest           "numericP() && factorsP()"          ""
 	item	nonparametricMenu command		"Friedman rank-sum test..."						FriedmanTest				"numericP(2)"		   ""
     menu    dimensionalMenu statisticsMenu  ""                                              ""                          ""          ""
-    item    dimensionalMenu command         "Scale reliability..."                          Reliability                 "numericP(3)"          ""
+    item    dimensionalMenu command         "Scale reliability..."                          Reliability                 "numericP(3)"          "packageAvailable('RcmdrMisc')"
     item    dimensionalMenu command         "Principal-components analysis..."              principalComponents         "numericP(2)"          ""
     item    dimensionalMenu command         "Factor analysis..."                            factorAnalysis              "numericP(3)"          ""
 	item	dimensionalMenu command			"Confirmatory factor analysis..."				CFA							"numericP(3)"		   "packageAvailable('sem')"
     menu    clusterMenu     dimensionalMenu ""                                              ""                          ""          ""
-    item    clusterMenu     command         "k-means cluster analysis..."                   kmeansClustering            "numericP()"          ""
-    item    clusterMenu     command         "Hierarchical cluster analysis..."              hierarchicalCluster         "numericP()"          ""
-    item    clusterMenu     command         "Summarize hierarchical clustering..."          hclustSummary               "hclustSolutionsP()"          ""
-    item    clusterMenu     command         "Add hierarchical clustering to data set..."    appendHclustGroup           "hclustSolutionsP()"          ""
+    item    clusterMenu     command         "k-means cluster analysis..."                   kmeansClustering            "numericP()"          "packageAvailable('RcmdrMisc')"
+    item    clusterMenu     command         "Hierarchical cluster analysis..."              hierarchicalCluster         "numericP()"          "packageAvailable('RcmdrMisc')"
+    item    clusterMenu     command         "Summarize hierarchical clustering..."          hclustSummary               "hclustSolutionsP()"  "packageAvailable('RcmdrMisc')"
+    item    clusterMenu     command         "Add hierarchical clustering to data set..."    appendHclustGroup           "hclustSolutionsP()"  "packageAvailable('RcmdrMisc')"
     item    dimensionalMenu cascade         "Cluster analysis"                              clusterMenu                 ""          ""
     menu    statModelsMenu  statisticsMenu  ""                                              ""                          ""          ""
     item    statModelsMenu  command         "Linear regression..."                          linearRegressionModel       "numericP(2)"          ""
@@ -154,8 +154,8 @@
     menu    graphsMenu      topMenu         ""                                              ""                          ""          ""
     item    graphsMenu      command         "Color palette..."                              setPalette                  ""          ""
     item    graphsMenu      separator       ""                                              ""                          ""          ""
-    item    graphsMenu      command         "Index plot..."                                 indexPlot                   "numericP()"          ""
-    item    graphsMenu      command         "Histogram..."                                  Histogram                   "numericP()"          ""
+    item    graphsMenu      command         "Index plot..."                                 indexPlot                   "numericP()"          "packageAvailable('RcmdrMisc')"
+    item    graphsMenu      command         "Histogram..."                                  Histogram                   "numericP()"          "packageAvailable('RcmdrMisc')"
     item    graphsMenu      command         "Density estimate..."                           DensityPlot         "numericP()"          ""
     item    graphsMenu      command         "Stem-and-leaf display..."                      stemAndLeaf                 "numericP()"  "packageAvailable('aplpack')"
     item    graphsMenu      command         "Boxplot..."                                    boxPlot                     "numericP()" 		  ""
@@ -163,9 +163,9 @@
     item    graphsMenu      separator       ""                                              ""                          ""          ""
     item    graphsMenu      command         "Scatterplot..."                                scatterPlot                 "numericP(2)" "packageAvailable('car')"
     item    graphsMenu      command         "Scatterplot matrix..."                         scatterPlotMatrix           "numericP(3)" "packageAvailable('car')"
-    item    graphsMenu      command         "Line graph..."                                 linePlot                    "numericP(2)"          ""
+    item    graphsMenu      command         "Line graph..."                                 linePlot                    "numericP(2)" "packageAvailable('RcmdrMisc')"
     item    graphsMenu      command         "XY conditioning plot..."                       Xyplot                      "numericP(2)"          ""
-    item    graphsMenu      command         "Plot of means..."                              PlotMeans                   "numericP() && factorsP()"          ""
+    item    graphsMenu      command         "Plot of means..."                              PlotMeans                   "numericP() && factorsP()"          "packageAvailable('RcmdrMisc')"
     item	graphsMenu		command			"Strip chart..."								stripChart					"numericP()"										""
     item    graphsMenu      separator       ""                                              ""                          ""          ""
     item    graphsMenu      command         "Bar graph..."                                  barGraph                    "factorsP()"          ""
@@ -189,7 +189,7 @@
     item    modelsMenu      separator       ""                                              ""                          ""          ""
     item	modelsMenu		command			"Akaike Information Criterion (AIC)"			aic							"activeModelP()"		  ""
     item	modelsMenu		command			"Bayesian Information Criterion (BIC)"			bic							"activeModelP()"		  ""
-    item	modelsMenu		command			"Stepwise model selection..."						stepwiseRegression			"aicP()" 		 "packageAvailable('MASS')"
+    item	modelsMenu		command			"Stepwise model selection..."						stepwiseRegression			"aicP()" 		 "packageAvailable('RcmdrMisc') && packageAvailable('MASS')"
     item	modelsMenu		command			"Subset model selection..."						subsetRegression			"lmP()"			 "packageAvailable('leaps')"
     item    modelsMenu      separator       ""                                              ""                          ""          ""
     item    modelsMenu      command         "Confidence intervals..."                       confidenceIntervals         "activeModelP()" "packageAvailable('MASS') && packageAvailable('abind')"
@@ -226,7 +226,7 @@
     item    continuousMenu  cascade         "Normal distribution"                           normalMenu                  ""          ""
     item    normalMenu      command         "Normal quantiles..."                           normalQuantiles             ""          ""
     item    normalMenu      command         "Normal probabilities..."                       normalProbabilities         ""          ""
-    item    normalMenu      command         "Plot normal distribution..."                   normalDistributionPlot      ""          ""
+    item    normalMenu      command         "Plot normal distribution..."                   normalDistributionPlot      ""          "packageAvailable('RcmdrMisc')"
     item    normalMenu      command         "Sample from normal distribution..."            normalDistributionSamples   ""          ""
     
     # t distribution
@@ -234,7 +234,7 @@
     item    continuousMenu  cascade         "t distribution"                                tMenu                       ""          ""
     item    tMenu           command         "t quantiles..."                                tQuantiles                  ""          ""
     item    tMenu           command         "t probabilities..."                            tProbabilities              ""          ""
-    item    tMenu           command         "Plot t distribution..."                        tDistributionPlot           ""          ""
+    item    tMenu           command         "Plot t distribution..."                        tDistributionPlot           ""          "packageAvailable('RcmdrMisc')"
     item    tMenu           command         "Sample from t distribution..."                 tDistributionSamples        ""          ""
     
     # Chi-square distribution
@@ -242,7 +242,7 @@
     item    continuousMenu  cascade         "Chi-squared distribution"                      chisqMenu                   ""          ""
     item    chisqMenu       command         "Chi-squared quantiles..."                      chisqQuantiles              ""          ""
     item    chisqMenu       command         "Chi-squared probabilities..."                  chisqProbabilities          ""          ""
-    item    chisqMenu       command         "Plot chi-squared distribution..."              chisqDistributionPlot   ""          ""
+    item    chisqMenu       command         "Plot chi-squared distribution..."              chisqDistributionPlot   ""          "packageAvailable('RcmdrMisc')"
     item    chisqMenu       command         "Sample from chi-squared distribution..."       chisqDistributionSamples ""         ""
     
     # F distribution
@@ -250,7 +250,7 @@
     item    continuousMenu  cascade         "F distribution"                                FMenu                       ""          ""
     item    FMenu           command         "F quantiles..."                                FQuantiles                  ""          ""
     item    FMenu           command         "F probabilities..."                            FProbabilities              ""          ""
-    item    FMenu           command         "Plot F distribution..."                        FDistributionPlot           ""          ""
+    item    FMenu           command         "Plot F distribution..."                        FDistributionPlot           ""          "packageAvailable('RcmdrMisc')"
     item    FMenu           command         "Sample from F distribution..."                 FDistributionSamples        ""          ""
     
     # Exponential distribution
@@ -258,7 +258,7 @@
     item    continuousMenu  cascade         "Exponential distribution"                      exponentialMenu             ""          ""
     item    exponentialMenu command         "Exponential quantiles..."                      exponentialQuantiles        ""          ""
     item    exponentialMenu command         "Exponential probabilities..."                  exponentialProbabilities    ""          ""
-    item    exponentialMenu command         "Plot exponential distribution..."              exponentialDistributionPlot ""          ""
+    item    exponentialMenu command         "Plot exponential distribution..."              exponentialDistributionPlot ""          "packageAvailable('RcmdrMisc')"
     item    exponentialMenu command         "Sample from exponential distribution..."       exponentialDistributionSamples ""       ""
     
     # Uniform distribution
@@ -266,7 +266,7 @@
     item    continuousMenu  cascade          "Uniform distribution"                          uniformMenu                 ""          ""
     item    uniformMenu     command          "Uniform quantiles..."                          uniformQuantiles            ""          ""
     item    uniformMenu     command          "Uniform probabilities..."                      uniformProbabilities        ""          ""
-    item    uniformMenu     command          "Plot uniform distribution..."                  uniformDistributionPlot     ""          ""
+    item    uniformMenu     command          "Plot uniform distribution..."                  uniformDistributionPlot     ""          "packageAvailable('RcmdrMisc')"
     item    uniformMenu     command          "Sample from uniform distribution..."           uniformDistributionSamples  ""          ""
     
     # beta distribution
@@ -274,7 +274,7 @@
     item    continuousMenu  cascade           "Beta distribution"                            betaMenu                    ""          ""
     item    betaMenu        command           "Beta quantiles..."                            betaQuantiles               ""          ""
     item    betaMenu        command           "Beta probabilities..."                        betaProbabilities           ""          ""
-    item    betaMenu        command           "Plot beta distribution..."                    betaDistributionPlot        ""          ""
+    item    betaMenu        command           "Plot beta distribution..."                    betaDistributionPlot        ""          "packageAvailable('RcmdrMisc')"
     item    betaMenu        command           "Sample from beta distribution..."             betaDistributionSamples     ""          ""
     
     # Cauchy distribution
@@ -282,7 +282,7 @@
     item    continuousMenu  cascade           "Cauchy distribution"                          CauchyMenu                  ""          ""
     item    CauchyMenu      command           "Cauchy quantiles..."                          CauchyQuantiles             ""          ""
     item    CauchyMenu      command           "Cauchy probabilities..."                      CauchyProbabilities         ""          ""
-    item    CauchyMenu      command           "Plot Cauchy distribution..."                  CauchyDistributionPlot      ""          ""
+    item    CauchyMenu      command           "Plot Cauchy distribution..."                  CauchyDistributionPlot      ""          "packageAvailable('RcmdrMisc')"
     item    CauchyMenu      command           "Sample from Cauchy distribution..."           CauchyDistributionSamples   ""          ""
     
     # Logistic distribution
@@ -290,7 +290,7 @@
     item    continuousMenu  cascade            "Logistic distribution"                       logisticMenu                ""          ""
     item    logisticMenu    command            "Logistic quantiles..."                       logisticQuantiles           ""          ""
     item    logisticMenu    command            "Logistic probabilities..."                   logisticProbabilities       ""          ""
-    item    logisticMenu    command            "Plot logistic distribution..."               logisticDistributionPlot    ""          ""
+    item    logisticMenu    command            "Plot logistic distribution..."               logisticDistributionPlot    ""          "packageAvailable('RcmdrMisc')"
     item    logisticMenu    command            "Sample from logistic distribution..."        logisticDistributionSamples ""          ""
     
     # Lognormal distribution
@@ -298,7 +298,7 @@
     item    continuousMenu  cascade            "Lognormal distribution"                      lognormalMenu               ""          ""
     item    lognormalMenu   command            "Lognormal quantiles..."                      lognormalQuantiles          ""          ""
     item    lognormalMenu   command            "Lognormal probabilities..."                  lognormalProbabilities      ""          ""
-    item    lognormalMenu   command            "Plot lognormal distribution..."              lognormalDistributionPlot   ""          ""
+    item    lognormalMenu   command            "Plot lognormal distribution..."              lognormalDistributionPlot   ""          "packageAvailable('RcmdrMisc')"
     item    lognormalMenu   command            "Sample from lognormal distribution..."       lognormalDistributionSamples ""         ""
     
     # Gamma distribution
@@ -306,7 +306,7 @@
     item    continuousMenu  cascade            "Gamma distribution"                          gammaMenu                   ""          ""
     item    gammaMenu       command            "Gamma quantiles..."                          gammaQuantiles              ""          ""
     item    gammaMenu       command            "Gamma probabilities..."                      gammaProbabilities          ""          ""
-    item    gammaMenu       command            "Plot gamma distribution..."                  gammaDistributionPlot       ""          ""
+    item    gammaMenu       command            "Plot gamma distribution..."                  gammaDistributionPlot       ""          "packageAvailable('RcmdrMisc')"
     item    gammaMenu       command            "Sample from gamma distribution..."           gammaDistributionSamples    ""          ""
     
     # Weibull distribution
@@ -314,7 +314,7 @@
     item    continuousMenu  cascade            "Weibull distribution"                        WeibullMenu                 ""          ""
     item    WeibullMenu     command            "Weibull quantiles..."                        WeibullQuantiles            ""          ""
     item    WeibullMenu     command            "Weibull probabilities..."                    WeibullProbabilities        ""          ""
-    item    WeibullMenu     command            "Plot Weibull distribution..."                WeibullDistributionPlot     ""          ""
+    item    WeibullMenu     command            "Plot Weibull distribution..."                WeibullDistributionPlot     ""          "packageAvailable('RcmdrMisc')"
     item    WeibullMenu     command            "Sample from Weibull distribution..."         WeibullDistributionSamples  ""          ""
     
     # Gumbel distribution
@@ -322,7 +322,7 @@
     item    continuousMenu  cascade            "Gumbel distribution"                         GumbelMenu                 ""          ""
     item    GumbelMenu      command            "Gumbel quantiles..."                         GumbelQuantiles            ""          ""
     item    GumbelMenu      command            "Gumbel probabilities..."                     GumbelProbabilities        ""          ""
-    item    GumbelMenu      command            "Plot Gumbel distribution..."                 GumbelDistributionPlot     ""          ""
+    item    GumbelMenu      command            "Plot Gumbel distribution..."                 GumbelDistributionPlot     ""          "packageAvailable('RcmdrMisc')"
     item    GumbelMenu      command            "Sample from Gumbel distribution..."          GumbelDistributionSamples  ""          ""
         
     # Binomial distribution
@@ -331,7 +331,7 @@
     item    binomialMenu    command         "Binomial quantiles..."                         binomialQuantiles           ""          ""
     item    binomialMenu    command         "Binomial tail probabilities..."                binomialProbabilities       ""          ""
     item    binomialMenu    command         "Binomial probabilities..."                     binomialMass                ""          ""
-    item    binomialMenu    command         "Plot binomial distribution..."                 binomialDistributionPlot    ""          ""
+    item    binomialMenu    command         "Plot binomial distribution..."                 binomialDistributionPlot    ""          "packageAvailable('RcmdrMisc')"
     item    binomialMenu    command         "Sample from binomial distribution..."          binomialDistributionSamples ""          ""
     
     # Poisson distribution
@@ -340,7 +340,7 @@
     item    PoissonMenu     command         "Poisson quantiles..."                          PoissonQuantiles            ""          ""
     item    PoissonMenu     command         "Poisson tail probabilities..."                 PoissonProbabilities        ""          ""
     item    PoissonMenu     command         "Poisson probabilities..."                      PoissonMass                 ""          ""
-    item    PoissonMenu     command         "Plot Poisson distribution..."                  PoissonDistributionPlot     ""          ""
+    item    PoissonMenu     command         "Plot Poisson distribution..."                  PoissonDistributionPlot     ""          "packageAvailable('RcmdrMisc')"
     item    PoissonMenu     command         "Sample from Poisson distribution..."           PoissonDistributionSamples  ""          ""
     
     # Geometric distribution
@@ -349,7 +349,7 @@
     item    geometricMenu   command         "Geometric quantiles..."                        geomQuantiles               ""          ""
     item    geometricMenu   command         "Geometric tail probabilities..."               geomProbabilities           ""          ""
     item    geometricMenu   command         "Geometric probabilities..."                    geomMass                    ""          ""
-    item    geometricMenu   command         "Plot geometric distribution..."                geomDistributionPlot        ""          ""
+    item    geometricMenu   command         "Plot geometric distribution..."                geomDistributionPlot        ""          "packageAvailable('RcmdrMisc')"
     item    geometricMenu   command         "Sample from geometric distribution..."         geomDistributionSamples     ""          ""
     
     # Hypergeometric distribution
@@ -358,7 +358,7 @@
     item    hyperMenu       command         "Hypergeometric quantiles..."                   hyperQuantiles              ""          ""
     item    hyperMenu       command         "Hypergeometric tail probabilities..."          hyperProbabilities          ""          ""
     item    hyperMenu       command         "Hypergeometric probabilities..."               hyperMass                   ""          ""
-    item    hyperMenu       command         "Plot hypergeometric distribution..."           hyperDistributionPlot       ""          ""
+    item    hyperMenu       command         "Plot hypergeometric distribution..."           hyperDistributionPlot       ""          "packageAvailable('RcmdrMisc')"
     item    hyperMenu       command         "Sample from hypergeometric distribution..."    hyperDistributionSamples    ""          ""
 
     # Negative binomial distribution
@@ -367,7 +367,7 @@
     item    negbinomialMenu command          "Negative binomial quantiles..."               negbinomialQuantiles        ""          ""
     item    negbinomialMenu command          "Negative binomial tail probabilities..."      negbinomialProbabilities    ""          ""
     item    negbinomialMenu command          "Negative binomial probabilities..."           negbinomialMass             ""          ""
-    item    negbinomialMenu command          "Plot negative binomial distribution..."       negbinomialDistributionPlot ""          ""
+    item    negbinomialMenu command          "Plot negative binomial distribution..."       negbinomialDistributionPlot ""          "packageAvailable('RcmdrMisc')"
     item    negbinomialMenu command          "Sample from negative binomial distribution..." negbinomialDistributionSamples ""      ""
                                                                                            
     item    distributionsMenu cascade        "Continuous distributions"                     continuousMenu              ""          ""
