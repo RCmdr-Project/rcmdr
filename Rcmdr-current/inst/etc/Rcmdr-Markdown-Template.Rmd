@@ -10,6 +10,6 @@ Replace with Main Title
 ```{r echo=FALSE}
 # include this code chunk as-is to set options
 opts_chunk$set(comment=NA, prompt=TRUE, out.width=750, fig.height=8, fig.width=8)
-library(Rcmdr)
+library(Rcmdr205)
 ```
 

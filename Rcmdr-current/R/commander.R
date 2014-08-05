@@ -6,7 +6,7 @@
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
 Commander <- function(){
-    library(Rcmdr, quietly=TRUE)
+    library(Rcmdr205, quietly=TRUE)
     require("car")
     # set up RcmdrEnv
     RcmdrEnv.on.path <- getOption("Rcmdr")[["RcmdrEnv.on.path"]]
@@ -30,7 +30,7 @@ Commander <- function(){
         
     }
     RStudioP <- function() nzchar(Sys.getenv("RSTUDIO_USER_IDENTITY")) # to detect RStudio
-    DESCRIPTION <- readLines(file.path(find.package("Rcmdr"), "DESCRIPTION")[1])
+    DESCRIPTION <- readLines(file.path(find.package("Rcmdr205"), "DESCRIPTION")[1])
     RcmdrVersion <- trim.blanks(sub("^Version:", "",
         grep("^Version:", DESCRIPTION, value=TRUE)))
     putRcmdr("quotes", options(useFancyQuotes=FALSE))
@@ -52,33 +52,33 @@ Commander <- function(){
     # define icons
     setOption("suppress.icon.images", FALSE)
     icon.images <- !getRcmdr("suppress.icon.images")
-    tkimage.create("photo", "::image::RlogoIcon", file = system.file("etc", "R-logo.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::RlogoIcon", file = system.file("etc", "R-logo.gif", package="Rcmdr205"))
     tkimage.create("photo", "::image::okIcon", 
-        file = if (icon.images) system.file("etc", "ok.gif", package="Rcmdr") else system.file("etc", "blank.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::cancelIcon", file = if (icon.images) system.file("etc", "cancel.gif", package="Rcmdr") 
-        else system.file("etc", "blank.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::helpIcon", file = if (icon.images) system.file("etc", "help.gif", package="Rcmdr")
-        else system.file("etc", "blank.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::resetIcon", file = if (icon.images) system.file("etc", "reset.gif", package="Rcmdr")
-        else system.file("etc", "blank.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::applyIcon", file = if (icon.images) system.file("etc", "apply.gif", package="Rcmdr")
-        else system.file("etc", "blank.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::submitIcon", file = system.file("etc", "submit.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::editIcon", file = system.file("etc", "edit.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::viewIcon", file = system.file("etc", "view.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::dataIcon", file = system.file("etc", "data.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::modelIcon", file = system.file("etc", "model.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::removeIcon", file = system.file("etc", "remove.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::copyIcon", file = system.file("etc", "copy.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::cutIcon", file = system.file("etc", "cut.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::deleteIcon", file = system.file("etc", "delete.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::findIcon", file = system.file("etc", "find.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::pasteIcon", file = system.file("etc", "paste.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::redoIcon", file = system.file("etc", "redo.gif", package="Rcmdr"))
-    tkimage.create("photo", "::image::undoIcon", file = system.file("etc", "undo.gif", package="Rcmdr"))
+        file = if (icon.images) system.file("etc", "ok.gif", package="Rcmdr205") else system.file("etc", "blank.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::cancelIcon", file = if (icon.images) system.file("etc", "cancel.gif", package="Rcmdr205") 
+        else system.file("etc", "blank.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::helpIcon", file = if (icon.images) system.file("etc", "help.gif", package="Rcmdr205")
+        else system.file("etc", "blank.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::resetIcon", file = if (icon.images) system.file("etc", "reset.gif", package="Rcmdr205")
+        else system.file("etc", "blank.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::applyIcon", file = if (icon.images) system.file("etc", "apply.gif", package="Rcmdr205")
+        else system.file("etc", "blank.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::submitIcon", file = system.file("etc", "submit.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::editIcon", file = system.file("etc", "edit.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::viewIcon", file = system.file("etc", "view.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::dataIcon", file = system.file("etc", "data.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::modelIcon", file = system.file("etc", "model.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::removeIcon", file = system.file("etc", "remove.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::copyIcon", file = system.file("etc", "copy.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::cutIcon", file = system.file("etc", "cut.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::deleteIcon", file = system.file("etc", "delete.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::findIcon", file = system.file("etc", "find.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::pasteIcon", file = system.file("etc", "paste.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::redoIcon", file = system.file("etc", "redo.gif", package="Rcmdr205"))
+    tkimage.create("photo", "::image::undoIcon", file = system.file("etc", "undo.gif", package="Rcmdr205"))
     
     # locate Rcmdr etc directory and directory for menus (usually the same)
-    etc <- setOption("etc", system.file("etc", package="Rcmdr"))
+    etc <- setOption("etc", system.file("etc", package="Rcmdr205"))
     etcMenus <- setOption("etcMenus", etc)
     putRcmdr("etcMenus", etcMenus)
     
@@ -757,7 +757,7 @@ Commander <- function(){
         font=getRcmdr("logFont"), height=log.height, width=log.width, wrap="none", undo=TRUE))
     .rmd <- RmdWindow()
     rmd.template <- setOption("rmd.template", 
-        system.file("etc", "Rcmdr-Markdown-Template.Rmd", package="Rcmdr"))
+        system.file("etc", "Rcmdr-Markdown-Template.Rmd", package="Rcmdr205"))
     template <- paste(readLines(rmd.template), collapse="\n")
     tkinsert(.rmd, "end", template)
     putRcmdr("markdown.output", FALSE)
@@ -773,7 +773,7 @@ Commander <- function(){
         font=getRcmdr("logFont"), height=log.height, width=log.width, wrap="none", undo=TRUE))
     .rnw <- RnwWindow()
     rnw.template <- setOption("rnw.template", 
-        system.file("etc", "Rcmdr-knitr-Template.Rnw", package="Rcmdr"))
+        system.file("etc", "Rcmdr-knitr-Template.Rnw", package="Rcmdr205"))
     template <- paste(readLines(rnw.template), collapse="\n")
     tkinsert(.rnw, "end", template)
     putRcmdr("knitr.output", FALSE)
