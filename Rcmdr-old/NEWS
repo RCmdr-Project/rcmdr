@@ -1,16 +1,92 @@
-Changes to Version 1.9-7
+Changes to Version 2.0-5
 
-  o Package name changed to Rcmdr1 on R-Forge.
+  o New Basque translation (courtesy of Jose Ramon Rueda).
 
-Changes to Version 1.9-6
+Changes to Version 2.0-4
+
+  o Updated Slovenian translation (with thanks to Jaro.Lajovic and Matjaz Jeran).
+
+  o Fixed numSummary() so that it doesn't fail when there's an empty factor level (problem reported by Alan Mainwaring).
+
+  o ActiveDataSet(NULL) now removes the active data set.
+
+Changes to Version 2.0-3
+
+  o Updated Polish translation (with thanks to Lukasz Daniel).
+
+  o titleLabel() to format a label in title font and color; exported for plug-ins.
+
+  o Added histograms by group (suggestion of Sarah Dawson).
+
+  o Small interface improvements.
+
+  o Fixed bug in French translation preventing loading R Markdown files (reported by J. Mazet).
+
+Changes to Version 2.0-2
+
+  o Moved knitr and markdown packages to Suggests: (suggestion of Dirk Eddelbuettel).
+
+  o Updated Japanese translation of Getting Started manual (by Takaharu Araki).
+
+  o Added editing buttons with tooltips to Rcmdr editor.
+
+  o Added Mac OS X command-key combinations.
+
+  o Tweaks to ttk theme and font handling (with help of Philippe Grosjean and the tcltk2 package).
+
+  o Small bug fixes.
+
+Changes to Version 2.0-1
+
+  o Caching of variable names, factor names, etc., to improve menu refreshes in large data sets (in response to observation of Yoshinobu Kanda).
+
+  o Updated translations (with thanks to the translators): French (Milan Bouchet-Valat), Japanese (Takaharu Araki).
+
+  o Most errors now removed from R Markdown and knitr documents.
+
+  o New editor for R Markdown and knitr documents; small addition to Getting Started manual to describe the editor.
+
+  o Stem-and-leaf dialog now supports back-to-back stem-and-leaf displays.
+
+  o Small corrections to the R-Rcmdr.pot file.
+
+  o Small bug fixes.
+
+Changes to Version 2.0-0
+
+  o New package co-author: Milan Bouchet-Valat. 
+
+  o Many changes to style of dialogs: tabs, Reset button, Apply button, small interface improvements.
+
+  o Support for R Markdown, with script and Rmd tabs.
+
+  o Expanded Options dialog and new Save Options dialog.
+
+  o Better handling of default fonts.
+
+  o Improved probability plots. 
+
+  o Introduced plotDistr(), lineplot(), indexplot() convenience functions.
+
+  o New nonparametric density estimate dialog.
+
+  o Use automatic point identification as default in plot dialogs.
 
   o Calls to deprecated functions .find.package() and .path.package() replaced by find.package() and path.package() (suggestion of Brian Ripley).
 
+  o Partial correlations now optionally report pairwise p-values (suggestion of Aaron Swink).
+
+  o Removed Sciviews support code.
+
   o Small fixes.
+
+  o Updated translations (with thanks to the translators): Italian (Stefano Calza), Korean (Jong-Hwa Shin), Romanian (Adrian Dusa), Russian (Alexey Shipunov), Spanish (Manuel Munoz-Marquez).
+
+  o Show menu item for English introductory manual even if a "translation" is available (suggestion of Manuel Munoz-Marquez).
 
 Changes to Version 1.9-5
 
-  o R logo now replaces Tk logo on non-Windows as well as Windows platforms (with help of Milan Bouchet-Valet).
+  o R logo now replaces Tk logo on non-Windows as well as Windows platforms (with help of Milan Bouchet-Valat).
 
   o Faster opening of dialog windows under Windows (consequence of above).
 
@@ -163,4 +239,4 @@ Changes to Version 1.8-0
    
     o Added confirmatory factor analysis.
    
-    o Updated Italiian, Japanese, Romanian, Russian, and Spanish translations (thanks respectively to Stefano Calza, Takaharu Araki, Adrian Dusa, Alexey Shipunov, and Manuel Munoz Marquez).    
+    o Updated Italian, Japanese, Romanian, Russian, and Spanish translations (thanks respectively to Stefano Calza, Takaharu Araki, Adrian Dusa, Alexey Shipunov, and Manuel Munoz Marquez).    

@@ -1,14 +1,15 @@
-# last modified 2013-03-14 by J. Fox
+# last modified 2013-06-02 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 .onAttach <- function(...){
-    if(interactive()){
+    if (interactive()){
         if (!(exists(".RcmdrEnv") && is.environment(RcmdrEnv()) &&
                  exists("commanderWindow", RcmdrEnv()) &&
                  !is.null(get("commanderWindow", RcmdrEnv())))){
             Commander()
             packageStartupMessage(gettext("\nRcmdr Version", domain="R-Rcmdr"), " ",
                                   getRcmdr("RcmdrVersion"), "\n")
+            return()
         }
     }
     else {
@@ -27,9 +28,9 @@
 	save.options <- options(warn=-1)
 	on.exit(options(save.options))
 	required.packages <- rev(c("abind", "aplpack", "car", "colorspace", 
-					"effects", "e1071", "foreign", "grid", "Hmisc", "lattice", "leaps", "lmtest",
-					"MASS", "mgcv", "multcomp", "nlme", "nnet", "relimp", "rgl", "sem"))
-	if (.Platform$OS.type == "windows") required.packages <- c(required.packages, c("RODBC", "XLConnect"))
+					"effects", "e1071", "foreign", "grid", "Hmisc", "knitr", "lattice", "leaps", "lmtest",
+					"markdown", "MASS", "mgcv", "multcomp", "nlme", "nnet", "relimp", "rgl", "sem"))
+	if (WindowsP()) required.packages <- c(required.packages, c("RODBC", "XLConnect"))
 	check <- options("Rcmdr")[[1]]$check.packages
 	if (length(check) > 0 && !check) return()
 	packages.to.check <- required.packages

@@ -70,7 +70,6 @@
 
 
 loggerForExcel <- function(command){
-    if (is.SciViews()) return(svlogger(command))    # +PhG
     .log <- LogWindow()
     .output <- OutputWindow()
     if (getRcmdr("log.commands")) {

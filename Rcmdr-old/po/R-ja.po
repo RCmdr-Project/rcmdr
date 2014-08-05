@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr Japanese Translation\n"
 "POT-Creation-Date: 2010-07-10 19:00\n"
-"PO-Revision-Date: 2012-09-13 13:24+0900\n"
+"PO-Revision-Date: 2013-11-06 14:15+0900\n"
 "Last-Translator: Takaharu Araki <arakit@kansai-u.ac.jp>\n"
 "Language-Team: Rcmdr Japanese Translation <arakit@kansai-u.ac.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Japanese\n"
-"X-Poedit-Country: JAPAN\n"
+"Language: ja_JP\n"
+"X-Generator: Poedit 1.5.7\n"
 
 msgid "KMeans Clustering"
-msgstr "ｋ平均クラスタリング"
+msgstr "k平均クラスタリング"
 
 msgid "Variables (pick one or more)"
 msgstr "変数 (１つ以上選択)"
@@ -359,8 +359,12 @@ msgstr "小数点の記号"
 msgid "You must enter a name for the data set."
 msgstr "データセット名を入力してください．"
 
-msgid "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"テキストファイル\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"すべてのファイル\" {\"*\"}}"
+msgid ""
+"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
+"{\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"テキストファイル\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV"
+"\"}} {\"すべてのファイル\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "ファイル内に変数名あり："
@@ -404,8 +408,12 @@ msgstr "データセット名を入力："
 msgid "Import SPSS Data Set"
 msgstr "SPSSデータセットのインポート"
 
-msgid "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"SPSSの saveファイル\" {\".sav\" \".SAV\"}} {\"SPSSポータブルファイル\" {\".por\" \".POR\"}} {\"全てのファイル\" {\"*\"}}"
+msgid ""
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
+"\".POR\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"SPSSの saveファイル\" {\".sav\" \".SAV\"}} {\"SPSSポータブルファイル"
+"\" {\".por\" \".POR\"}} {\"全てのファイル\" {\"*\"}}"
 
 msgid ""
 "Convert value labels\n"
@@ -426,8 +434,11 @@ msgstr ""
 msgid "Import Minitab Data Set"
 msgstr "Minitab データセットのインポート"
 
-msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Minitab ポータブルファイル\" {\".mtp\" \".MTP\"}} {\"全てのファイル\" {\"*\"}}"
+msgid ""
+"{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"Minitab ポータブルファイル\" {\".mtp\" \".MTP\"}} {\"全てのファイル\" {\"*"
+"\"}}"
 
 msgid ""
 "Minitab data set contains elements of unequal length.\n"
@@ -440,7 +451,8 @@ msgid "Import STATA Data Set"
 msgstr "STATAデータセットのインポート"
 
 msgid "{\"STATA datasets\" {\".dta\" \".DTA\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"STATAデータセット\" {\".dta\" \".DTA\"}} {\"全てのファイル\" {\"*\"}}"
+msgstr ""
+"{\"STATAデータセット\" {\".dta\" \".DTA\"}} {\"全てのファイル\" {\"*\"}}"
 
 msgid "Convert dates to R format"
 msgstr "datesをR形式に変換"
@@ -683,7 +695,7 @@ msgstr ""
 "水準数(%d)*対比数(%d)とは等しくありません"
 
 msgid "Contrast matrix is not of full column rank"
-msgstr "対比行列が full column rankではない"
+msgstr "対比行列が 列フルランクではない"
 
 msgid "Contrast names must be unique"
 msgstr "対比の名前はユニークに付けてください"
@@ -710,7 +722,7 @@ msgid "Upper tail"
 msgstr "上側確率"
 
 msgid "Normal Probabilities"
-msgstr "正規確率"
+msgstr "正規分布の確率"
 
 msgid "No values specified."
 msgstr "値が指定されていません．"
@@ -719,7 +731,7 @@ msgid "Variable value(s)"
 msgstr "変数の値"
 
 msgid "t Quantiles"
-msgstr "ｔ 分布の分位点"
+msgstr "ｔ分布の分位点"
 
 msgid "Degrees of freedom not specified."
 msgstr "自由度を指定していません．"
@@ -728,7 +740,7 @@ msgid "Degrees of freedom"
 msgstr "自由度"
 
 msgid "t Probabilities"
-msgstr "ｔ 分布の確率"
+msgstr "ｔ分布の確率"
 
 msgid "Chi-Squared Quantiles"
 msgstr "カイ２乗分布の分位点"
@@ -1264,8 +1276,12 @@ msgstr "グラフィックファイルのタイプ"
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"PNG ファイル\" {\".png\" \".PNG\"}} {\"全てのファイル\" {\"*\"}}"
 
-msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"JPEG ファイル\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"全てのファイル\" {\"*\"}}"
+msgid ""
+"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*"
+"\"}}"
+msgstr ""
+"{\"JPEG ファイル\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"全てのファイル"
+"\" {\"*\"}}"
 
 msgid "Graph saved to file"
 msgstr "グラフをファイルに保存しました"
@@ -1292,10 +1308,15 @@ msgid "{\"PDF Files\" {\".pdf\" \".PDF\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"PDF ファイル\" {\".pdf\" \".PDF\"}} {\"全てのファイル\" {\"*\"}}"
 
 msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Postscript ファイル\" {\".ps\" \".PS\"}} {\"全てのファイル\" {\"*\"}}"
+msgstr ""
+"{\"Postscript ファイル\" {\".ps\" \".PS\"}} {\"全てのファイル\" {\"*\"}}"
 
-msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Encapsulated Postscriptファイル\" {\".eps\" \".EPS\"}} {\"全てのファイル\" {\"*\"}}"
+msgid ""
+"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*"
+"\"}}"
+msgstr ""
+"{\"Encapsulated Postscriptファイル\" {\".eps\" \".EPS\"}} {\"全てのファイル"
+"\" {\"*\"}}"
 
 msgid "Width (inches)"
 msgstr "幅 (インチ)"
@@ -1310,7 +1331,8 @@ msgid "There is no current RGL graphics device to save."
 msgstr "保存できるRGLの図がありません．"
 
 msgid "{\"PNG Bitmap Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"PNG Bitmap ファイル\" {\".png\" \".PNG\"}} {\"全てのファイル\" {\"*\"}}"
+msgstr ""
+"{\"PNG Bitmap ファイル\" {\".png\" \".PNG\"}} {\"全てのファイル\" {\"*\"}}"
 
 msgid "There is only one model in memory."
 msgstr "メモリにモデルが1つしかありません．"
@@ -1387,7 +1409,7 @@ msgstr ""
 "が、行の数 (%d) *列の数 (%d)と異なっています．"
 
 msgid "Hypothesis matrix is not of full row rank."
-msgstr "仮説行列が、full row rank ではありません．"
+msgstr "仮説行列が、行フルランクではありません．"
 
 msgid ""
 "Number of valid entries in rhs vector (%d)\n"
@@ -1982,8 +2004,10 @@ msgstr "引数： factor1は、因子でないとだめです．"
 msgid "Arguments factor1 and factor2 must be factors."
 msgstr "引数： factor1 と factor2 は、因子でないとだめです．"
 
-msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
-msgstr "factor2 に対するグループ数, %d, は異なる色の数 %d 以上でないとだめです． "
+msgid ""
+"Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgstr ""
+"factor2 に対するグループ数, %d, は異なる色の数 %d 以上でないとだめです． "
 
 msgid "The number of bins exceeds the number of data values"
 msgstr "区間数がデータ数より多い"
@@ -2258,7 +2282,7 @@ msgid "Kruskal-Wallis test..."
 msgstr "クラスカル－ウォリスの検定..."
 
 msgid "Scale reliability..."
-msgstr "スケールの信頼性..."
+msgstr "尺度の信頼性..."
 
 msgid "Principal-components analysis..."
 msgstr "主成分分析..."
@@ -2450,16 +2474,16 @@ msgid "Plot normal distribution..."
 msgstr "正規分布を描く..."
 
 msgid "t distribution"
-msgstr "t 分布"
+msgstr "ｔ分布"
 
 msgid "t quantiles..."
-msgstr "ｔ 分布の分位点..."
+msgstr "ｔ分布の分位点..."
 
 msgid "t probabilities..."
-msgstr "t 分布の確率..."
+msgstr "ｔ分布の確率..."
 
 msgid "Plot t distribution..."
-msgstr "t 分布を描く..."
+msgstr "ｔ分布を描く..."
 
 msgid "Chi-squared distribution"
 msgstr "カイ２乗分布"
@@ -2533,14 +2557,14 @@ msgstr "Rコマンダーについて"
 msgid "df ="
 msgstr "df ="
 
-## messages added to Rcmdr version 1.1-1
+# # messages added to Rcmdr version 1.1-1
 msgid "There is no current RGL graphics device."
 msgstr "最新の RGL グラフィックスデバイスがありません"
 
 msgid "3D graph"
 msgstr "３次元グラフ"
 
-## messages added to Rcmdr version 1.1-6
+# # messages added to Rcmdr version 1.1-6
 msgid " contains non-standard variable names:\n"
 msgstr "標準的でない変数名を含んでいます：\n"
 
@@ -2559,8 +2583,12 @@ msgstr "この関数には RODBC パッケージが必要です．\n"
 msgid "Import from Excel, Access or dBase data set"
 msgstr "Excel またはAccess、dBaseデータセットから読み込む"
 
-msgid "{\"MS Excel file\" {*.xls \".XLS\"}}{\"MS Access database\" {*.mdb \".MDB\"}}{\"dBase-like file\" {*.dbf \".DBF\"}}{\"All Files\" {\"*\"}}"
-msgstr "{\"MS Excel file\" {*.xls \".XLS\"}}{\"MS Access database\" {*.mdb \".MDB\"}}{\"dBase-like file\" {*.dbf \".DBF\"}}{\"All Files\" {\"*\"}}"
+msgid ""
+"{\"MS Excel file\" {*.xls \".XLS\"}}{\"MS Access database\" {*.mdb \".MDB\"}}"
+"{\"dBase-like file\" {*.dbf \".DBF\"}}{\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"MS Excel file\" {*.xls \".XLS\"}}{\"MS Access database\" {*.mdb \".MDB\"}}"
+"{\"dBase-like file\" {*.dbf \".DBF\"}}{\"All Files\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "表を一つ選択"
@@ -2816,7 +2844,7 @@ msgid "Add to Data Set:"
 msgstr "データセットに追加する："
 
 msgid "Sample from t Distribution"
-msgstr "ｔ 分布からのサンプル"
+msgstr "ｔ分布からのサンプル"
 
 msgid "tSamples"
 msgstr "tSamples"
@@ -3252,7 +3280,8 @@ msgstr "頻度分布"
 msgid "Chi-square goodness-of-fit test (for one variable only)"
 msgstr "カイ２乗適合度検定"
 
-msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgid ""
+"Goodness-of-fit test not available when more than one variable is selected."
 msgstr "１つ以上の変数が選択されたとき、適合度検定を利用することはできません．"
 
 msgid "Frequency distributions..."
@@ -3341,7 +3370,7 @@ msgstr "統計量を選択してください．"
 msgid "Variable (pick one or more)"
 msgstr "変数（１つ以上選択）"
 
-## messages added to Rcmdr version 1.3-0
+# # messages added to Rcmdr version 1.3-0
 # handling plug-ins
 msgid "Load Plugins"
 msgstr "プラグインのロード"
@@ -3400,7 +3429,9 @@ msgid "Load data set..."
 msgstr "データセットのロード..."
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"R データファイル\" {\".rda\" \".Rda\" \".RDA\"}} {\"全てのファイル\" {\"*\"}}"
+msgstr ""
+"{\"R データファイル\" {\".rda\" \".Rda\" \".RDA\"}} {\"全てのファイル\" {\"*"
+"\"}}"
 
 msgid "Shapiro-Wilk test of normality..."
 msgstr "シャピロ－ウィルクの正規性の検定..."
@@ -3457,6 +3488,9 @@ msgstr "を強制的にデータフレームに変換しました"
 
 msgid "the dataset %s is no longer available"
 msgstr "データセット %s は利用できません"
+
+msgid "the model %s is no longer available"
+msgstr "モデル  %s は利用できません"
 
 # message added to version 1.3-10
 msgid "The Commander GUI is launched only in interactive sessions"
@@ -3725,8 +3759,12 @@ msgid "Name for aggregated data set:"
 msgstr "集計したデータセット名："
 
 #     miscellaneous
-msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"R データファイル\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"全てのファイル\" {\"*\"}}"
+msgid ""
+"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files"
+"\" {\"*\"}}"
+msgstr ""
+"{\"R データファイル\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"全てのファ"
+"イル\" {\"*\"}}"
 
 msgid "No data set selected."
 msgstr "データセットが選択されていません．"
@@ -3755,7 +3793,8 @@ msgid ""
 "with the single-document interface (SDI); see ?Commander."
 msgstr ""
 "RコマンダーのWindows版ではSDI\n"
-"（シングルドキュメントインターフェース）に設定してください：?Commanderを参照．"
+"（シングルドキュメントインターフェース）に設定してください：?Commanderを参"
+"照．"
 
 # messages added to version 1.6-0
 # for Levene test
@@ -3802,29 +3841,55 @@ msgstr "{\"全てのファイル\" {\"*\"}} {\"Script Files\" {\".R\"}}"
 msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
 msgstr "{\"全てのファイル\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
-msgstr "{\"全てのファイル\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
+"\".csv\" \".CSV\"}}"
+msgstr ""
+"{\"全てのファイル\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \"."
+"DAT\" \".csv\" \".CSV\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
-msgstr "{\"全てのファイル\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
+"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgstr ""
+"{\"全てのファイル\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
+"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
-msgstr "{\"全てのファイル\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr ""
+"{\"全てのファイル\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 msgstr "{\"全てのファイル\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
-msgstr "{\"全てのファイル\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
+"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
+"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
+"\" {\".xls\" \".XLS\"}}"
+msgstr ""
+"{\"全てのファイル\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} "
+"{\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file"
+"\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
-msgstr "{\"全てのファイル\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
+"RDA\"}}"
+msgstr ""
+"{\"全てのファイル\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" "
+"\".RDA\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"全てのファイル\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
-msgstr "{\"全てのファイル\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
+"\"}}"
+msgstr ""
+"{\"全てのファイル\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \"."
+"JPEG\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
 msgstr "{\"全てのファイル\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
@@ -3832,8 +3897,12 @@ msgstr "{\"全てのファイル\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
 msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 msgstr "{\"全てのファイル\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
-msgstr "{\"全てのファイル\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
+"\"}}"
+msgstr ""
+"{\"全てのファイル\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \"."
+"EPS\"}}"
 
 # messages added to version 1.7-0
 msgid "Reset"
@@ -3991,8 +4060,12 @@ msgstr "データセットの選択"
 msgid "Datasets in file (pick one)"
 msgstr "ファイル内のデータセット（1つ選択）"
 
-msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
-msgstr "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
+"\".XPORT\"}}"
+msgstr ""
+"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
+"\".XPORT\"}}"
 
 msgid ""
 "Convert variable names\n"
@@ -4007,8 +4080,12 @@ msgstr "エクセルファイルから..."
 msgid "Import Excel Data Set"
 msgstr "エクセルデータセットのインポート"
 
-msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
-msgstr "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
+msgstr ""
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
 
 msgid "Interquartile Range"
 msgstr "四分位範囲"
@@ -4048,3 +4125,391 @@ msgstr "列数："
 msgid "number of rows:"
 msgstr "行数："
 
+# messages added to version 2.0-0
+msgid "Plot Options"
+msgstr "プロットのオプション"
+
+msgid "Plot Labels"
+msgstr "ラベルを表示"
+
+msgid "Graph title"
+msgstr "グラフのタイトル"
+
+msgid "Plot Labels and Points"
+msgstr "ラベルと点を表示"
+
+msgid "Apply"
+msgstr "適用"
+
+msgid "Pairwise p-values"
+msgstr "ペアワイズのp値"
+
+msgid "Observations to Use"
+msgstr "ノンパラメトリック密度推定"
+
+msgid "Complete observations"
+msgstr "欠測値を含まない観測値"
+
+msgid "Pairwise-complete observations"
+msgstr "完全対の観測値"
+
+msgid "R Script"
+msgstr "Rスクリプト"
+
+msgid "Output"
+msgstr "出力"
+
+msgid "R Commander website"
+msgstr "Rコマンダーのウェブサイト"
+
+msgid "R website"
+msgstr "Rのウェブサイト"
+
+msgid "Using R Markdown"
+msgstr "Rマークダウンを利用する"
+
+msgid "Table"
+msgstr "表"
+
+# point identification in graphs (additional messages)
+msgid "Interactively with mouse"
+msgstr "マウスでインターラクティブに"
+
+msgid "Do not identify"
+msgstr "確認しない"
+
+msgid "number of points to identify must be an integer"
+msgstr "確認する点の数は整数でないといけない"
+
+msgid "Number of points to identify"
+msgstr "確認する点の数"
+
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group "
+msgstr ""
+"各パネルとグループにおける\n"
+"識別したい点の数"
+
+msgid "Added-Variable Plots"
+msgstr "偏回帰プロット"
+
+msgid "Component+Residual Plots"
+msgstr "偏残差プロット"
+
+msgid "Influence Plot"
+msgstr "影響プロット"
+
+# support for R Markdown and knitr
+msgid "Generate HTML report"
+msgstr "HTMLレポートの作成"
+
+msgid "Generate PDF report"
+msgstr "PDFレポートの作成"
+
+msgid "R Markdown"
+msgstr "Rマークダウン"
+
+msgid "knitr Document"
+msgstr "knitrドキュメント"
+
+msgid "Open R Markdown file..."
+msgstr "Rマークダウンファイルを保存..."
+
+msgid "Open knitr file..."
+msgstr "knitrファイルを保存..."
+
+msgid "Save R Markdown file..."
+msgstr "Rマークダウンファイルを保存..."
+
+msgid "Save knitr file..."
+msgstr "knitrファイルの保存"
+
+msgid "Save knitr file?"
+msgstr "knitrファイルを保存しますか？"
+
+msgid "Save current Rmd file?"
+msgstr "現在のRnwファイルを保存しますか？"
+
+msgid "Save current Rnw file?"
+msgstr "現在のRnwファイルを保存しますか？"
+
+msgid "Save R Markdown file as..."
+msgstr "名前をつけてRマークダウンファイルを保存"
+
+msgid "Save knitr file as..."
+msgstr "名前をつけてknitrファイルを保存"
+
+msgid "R Markdown file saved to"
+msgstr "Rマークダウンファイルを次に保存"
+
+msgid "knitr file saved to"
+msgstr "knitrファイルを次に保存"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
+"\"}}"
+msgstr ""
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
+"\"}}"
+
+msgid ""
+"Delete previously created knitr\n"
+"graphics files (recommended)?"
+msgstr ""
+"前に作成したknitrグラフィックスファイル\n"
+"を削除？（推奨）"
+
+# setting and saving options
+msgid "Ask to exit Commander"
+msgstr "終了時に確認する"
+
+msgid "Ask to save documents on exit"
+msgstr "終了時にドキュメントの保存を確認する"
+
+msgid "Quit R on exit"
+msgstr "終了時にRも終了"
+
+msgid "Number messages"
+msgstr "メッセージの数"
+
+msgid "Retain messages"
+msgstr "メッセージを保持"
+
+msgid "Use R Markown"
+msgstr "Rマークダウンを利用"
+
+msgid "Use knitr"
+msgstr "knitrの利用"
+
+msgid "Select file"
+msgstr "ファイルの選択"
+
+msgid "R Markdown template file"
+msgstr "Rマークダウン・テンプレートファイル"
+
+msgid "R knitr template file"
+msgstr "Rのknitrテンプレートファイル"
+
+msgid "Suppress icon images"
+msgstr "アイコンイメージを表示しない"
+
+msgid "Retain dialog selections"
+msgstr "ダイアログの選択を保持"
+
+msgid "Use rgl package"
+msgstr "rglパッケージを利用"
+
+msgid "Dialog text font size (points)"
+msgstr "ダイアログの記号のフォントの大きさ（ポイント）"
+
+msgid "Script and output font size (points)"
+msgstr "スクリプトと出力のフォントの大きさ（ポイント）"
+
+msgid "Dialog font"
+msgstr "ダイアログのフォント"
+
+msgid "Script and output font"
+msgstr "スクリプトと出力のフォント"
+
+msgid "Script text color"
+msgstr "スクリプトの文字色"
+
+msgid "Command text color"
+msgstr "コマンドの文字色"
+
+msgid "Output text color"
+msgstr "出力の文字色"
+
+msgid "Error text color"
+msgstr "エラーの文字色"
+
+msgid "Warning text color"
+msgstr "警告の文字色"
+
+msgid "Dialog subtitles text color"
+msgstr "ダイアログのサブタイトルの色"
+
+msgid "Script window width (characters)"
+msgstr "スクリプトウィンドウの幅（文字数）"
+
+msgid "Script window height (lines)"
+msgstr "スクリプトウィンドウの高さ（行）"
+
+msgid "Output window height (lines)"
+msgstr "出力ウインドウの高さ（行）"
+
+msgid "Messages window height (lines)"
+msgstr "メッセージウインドウの高さ（行）"
+
+msgid "Fonts"
+msgstr "フォント"
+
+msgid "Other Options"
+msgstr "他のオプション"
+
+msgid "Save Commander Options"
+msgstr "コマンダーオプションの保存"
+
+msgid "R Profile saved to"
+msgstr "Rプロファイルを次に保存"
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr "次のコマンドは .Rprofileファイルに保存されます．"
+
+msgid "You may edit this file before saving it."
+msgstr "保存する前にこのファイルを編集することができます．"
+
+msgid "Save Rcmdr options..."
+msgstr "Rcmdrオプションの保存..."
+
+# density estimate dialog
+msgid "Nonparametric Density Estimate"
+msgstr "ノンパラメトリック密度推定"
+
+msgid "Gaussian"
+msgstr "ガウシアン"
+
+msgid "Epanechnikov"
+msgstr "エパネチニコフ"
+
+msgid "Tukey biweight"
+msgstr "テューキーのバイウェイト"
+
+msgid "Kernel Function"
+msgstr "カーネル関数"
+
+msgid "Bandwidth"
+msgstr "バンド幅"
+
+msgid "Multiply bandwidth by"
+msgstr "バンド幅を拡大"
+
+msgid "Density estimate..."
+msgstr "密度推定..."
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr "バンド幅は<auto>か正の数でないといけません"
+
+# index plot dialog
+msgid "Style of plot"
+msgstr "プロットのスタイル"
+
+# export data set dialog
+msgid "Write variable names"
+msgstr "変数名を表示"
+
+msgid "Write row names"
+msgstr "行名を書く"
+
+msgid "Quotes around character values"
+msgstr "記号に引用符をつける"
+
+# numerical summaries dialog
+msgid "Quantiles:"
+msgstr "分位数："
+
+# for splines and polynomials in model formulas
+msgid "spline requires a numeric variable"
+msgstr "スプラインには数値変数が必要です"
+
+msgid "cannot select more than one variable"
+msgstr "2つ以上の変数を選択できません"
+
+msgid "polynomial requires a numeric variable"
+msgstr "多項式には数値変数が必要です"
+
+msgid "B-spline\n"
+msgstr "B-スプライン\n"
+
+msgid ""
+"natural\n"
+"spline"
+msgstr ""
+"自然\n"
+"スプライン"
+
+msgid ""
+"orthogonal\n"
+"polynomial"
+msgstr ""
+"直交\n"
+"多項式"
+
+msgid ""
+"raw\n"
+"polynomial"
+msgstr ""
+"通常の\n"
+"多項式"
+
+msgid "Model Formula"
+msgstr "モデル式"
+
+msgid "Operators (click to formula):  "
+msgstr "オペレータ（クリックして入力）"
+
+msgid ""
+"Splines/Polynomials:\n"
+"(select variable and click)"
+msgstr ""
+"スプライン/多項式：\n"
+"（変数を選択してクリック）"
+
+msgid "df for splines:"
+msgstr "スプラインの自由度："
+
+msgid "deg. for polynomials:"
+msgstr "多項式の次数 :"
+
+# messages added to version 2.0-1
+# messages related to editing/processing R Markdown and knitr documents
+msgid "R Commander Editor"
+msgstr "Rコマンダーのエディタ"
+
+msgid "Edit R Markdown document"
+msgstr "Rマークダウン文書の編集"
+
+msgid "Edit knitr document"
+msgstr "knitr文書の編集"
+
+msgid "Remove last Markdown command block"
+msgstr "マークダウンコマンドの最後のブロックの削除"
+
+msgid "Remove last knitr command block"
+msgstr "knitrコマンドの最後のブロックの削除"
+
+msgid "Remove last command block"
+msgstr "最後のコマンドブロックの削除"
+
+msgid "Exit editor"
+msgstr "エディタの終了"
+
+msgid "Editor help"
+msgstr "エディタのヘルプ"
+
+msgid ""
+"Delete previously created R Markdown\n"
+"graphics files (recommended)?"
+msgstr ""
+"前に作成したRマークダウン\n"
+"グラフィックスファイルを削除しますか（推奨）？"
+
+msgid "Discard edits?"
+msgstr "編集を破棄しますか？"
+
+# support for back-to-back stem-and-leaf displays
+msgid "Plot back-to-back by:"
+msgstr "層別の背中合わせプロット"
+
+msgid "Plot back-to-back"
+msgstr "背中合わせにプロット"
+
+msgid "Save document"
+msgstr "文書を保存"
+
+msgid "Save document and exit?"
+msgstr "文書を保存して終了？"

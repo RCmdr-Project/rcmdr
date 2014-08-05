@@ -1,11 +1,11 @@
-# last modified 2012-08-29 by J. Fox
+# last modified 2013-07-11 by J. Fox
 
 if (getRversion() >= "2.15.1")  
     globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                       '.activeModel', 'varVariable', 'rhsVariable', 'varFrame', 'formulaFrame',
                       'outerOperatorsFrame', 'xBox', 'matrixVariable', 'factorCorVariable',
                       'identifyVariable', 'robustVariable', 'matrixFrame', 'factorCorFrame',
-                      'identifyFrame', 'robustFrame', 'regexprVariable', 'caseVariable',
+                      'identifyFrame', 'idtext', 'robustFrame', 'regexprVariable', 'caseVariable',
                       'directionVariable', 'optionsFrame', 'directionFrame', 'putRExcel',
                       'altHypothesisVariable', 'altHypothesisFrame', '.Responses',
                       'scaleVariable', 'scaleFrame', 'centerVariable', 'centerFrame', 'console.output',
@@ -20,7 +20,7 @@ if (getRversion() >= "2.15.1")
                       'meanVariable', 'sumVariable', 'sdVariable', 'checkBoxFrame', 'percentsVariable',
                       'chisqVariable', 'chisqComponentsVariable', 'expFreqVariable', 'fisherVariable',
                       '.Test', 'percentsFrame', 'testsFrame', 'delimiterFrame', 'delimiterVariable',
-                      'colnamesVariable', 'rownamesVariable', 'quotesVariable', 'subsetVariable',
+                      'colnamesVariable', 'rownamesVariable', 'quotesVariable', 'subsetVariable', 'subsetEntry',
                       'rotationVariable', 'scoresVariable', '.FA', 'subsetFrame', 'rotationFrame',
                       'scoresFrame', 'subwin', '.Probs', 'lhsVariable', 'onHelp', 'lhsEntry',
                       'distanceTypeVariable', 'distanceTypeFrame', 'queryimportRODBCtable',
@@ -41,4 +41,10 @@ if (getRversion() >= "2.15.1")
                       'chisqTestVariable', 'fisherTestVariable', '.commander.done', '.Workbook', '.Datasets', 
                       'getSheets', 'odbcConnectExcel', 'odbcConnectExcel2007', 'odbcConnectAccess', 
                       'odbcConnectAccess2007', 'odbcConnectDbase', 'IQRVariable',  'unitsVariable', 'unitsFrame',
-                      'pointsVariable', 'linesVariable'))
+                      'pointsVariable', 'linesVariable', 'useVariable', 'useFrame',
+                      'askToExitVariable', 'askOnExitVariable', 'quitRVariable', 'consoleOutputVariable',
+                      'numberMessagesVariable', 'retainMessagesVariable', 'useMarkdownVariable', 'useKnitrVariable', 'logCommandsVariable',
+                      'grabFocusVariable', 'doubleClickVariable', 'sortNamesVariable', 'showEditButtonVariable',
+                      'SuppressIconImagesVariable', 'retainSelectionsVariable', 'useRglVariable', 'closeOptionsFrame',
+                      'outputOptionsFrame', 'otherOptionsFrame', 'kernelVariable', 'kernelFrame', 'otherFrame',
+                      'notebook', 'dataTab', 'optionsTab', 'tableTab', 'statisticsTab'))

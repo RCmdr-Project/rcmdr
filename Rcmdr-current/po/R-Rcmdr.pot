@@ -1,6 +1,6 @@
 msgid "Project-Id-Version: Rcmdr 2.0-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-11-08 15:57:00\n"
+"POT-Creation-Date: 2014-08-04 19:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4309,4 +4309,54 @@ msgid "Plot back-to-back by:"
 msgstr ""
 
 msgid "Plot back-to-back by"
+msgstr ""
+
+# messages added for version 2.1-0
+
+msgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
+msgstr ""
+
+msgid "the car package is missing and should be installed\n  many features will not work"
+msgstr ""
+
+  # new effect-plots dialog
+
+msgid "Model Effect Plots"
+msgstr ""
+
+msgid "Plot All High-Order Effects?"
+msgstr ""
+
+msgid "Predictors (pick one or more)"
+msgstr ""
+
+msgid "You must select one or more predictors\n or plot all high-order effects."
+msgstr ""
+
+msgid "To plot partial residuals,\n there must be a least one numeric predictor."
+msgstr ""
+
+msgid "Plot partial residuals"
+msgstr ""
+
+msgid "Style of Graph"
+msgstr ""
+
+msgid "Stacked areas"
+msgstr ""
+
+msgid "Lines with confidence bands"
+msgstr ""
+
+  # messages related to ttk theme selection
+
+msgid "non-existent theme"
+msgstr ""
+
+msgid "theme set to"
+msgstr ""
+
+  # modified message
+
+msgid "Restart R Commander"
 msgstr ""

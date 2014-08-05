@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr-pl 1.9-1\n"
+"Project-Id-Version: Rcmdr-pl 2.0-3\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
@@ -11,7 +11,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: iso-8859-1\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2)\n"
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.5.4\n"
 
 msgid "KMeans Clustering"
 msgstr "Grupowanie metodą k-średnich"
@@ -2299,7 +2300,7 @@ msgid "Factor analysis..."
 msgstr "Analiza czynnikowa..."
 
 msgid "k-means cluster analysis..."
-msgstr "grupowanie metodą k-średnich..."
+msgstr "Grupowanie metodą k-średnich..."
 
 msgid "Hierarchical cluster analysis..."
 msgstr "Analiza hierarchicznego grupowania..."
@@ -4134,3 +4135,395 @@ msgstr "liczba kolumn:"
 
 msgid "number of rows:"
 msgstr "liczba wierszy:"
+
+msgid "Plot Options"
+msgstr "Opcje wykresu"
+
+msgid "Plot Labels"
+msgstr "Etykiety wykresu"
+
+msgid "Graph title"
+msgstr "Tytuł wykresu"
+
+msgid "Plot Labels and Points"
+msgstr "Rysuj etykiety i punkty"
+
+msgid "Apply"
+msgstr "Zastosuj"
+
+msgid "Pairwise p-values"
+msgstr "Sparowane p-wartości"
+
+msgid "Observations to Use"
+msgstr "Obserwacje do wykorzystania"
+
+msgid "Complete observations"
+msgstr "Kompletne obserwacje"
+
+msgid "Pairwise-complete observations"
+msgstr "Obserwacje kompletne parami"
+
+msgid "R Script"
+msgstr "Skrypt R"
+
+msgid "Output"
+msgstr "Wyjście"
+
+msgid "R Commander website"
+msgstr "Strona internetowa programu R Commander"
+
+msgid "R website"
+msgstr "Strona internetowa R"
+
+msgid "Using R Markdown"
+msgstr "Używanie R Markdown"
+
+msgid "Table"
+msgstr "Tablica"
+
+msgid "Interactively with mouse"
+msgstr "Interaktywnie przy pomocy myszki"
+
+msgid "Do not identify"
+msgstr "Nie identyfikuj"
+
+msgid "number of points to identify must be an integer"
+msgstr "liczba punktów do identyfikacji musi być liczbą całkowitą"
+
+msgid "Number of points to identify"
+msgstr "Liczba punktów do identyfikacji"
+
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group "
+msgstr ""
+"Liczba punktów do identyfikacji\n"
+"w każdym panelu oraz grupie"
+
+msgid "Added-Variable Plots"
+msgstr "Wykresy dodanych zmiennych"
+
+msgid "Component+Residual Plots"
+msgstr "Wykresy komponentu+reszty"
+
+msgid "Influence Plot"
+msgstr "Wykres wpływu"
+
+# support for R Markdown and knitr
+msgid "Generate HTML report"
+msgstr "Generuj raport HTML"
+
+msgid "Generate PDF report"
+msgstr "Generuj raport PDF"
+
+msgid "R Markdown"
+msgstr "R Markdown"
+
+msgid "knitr Document"
+msgstr "Dokument knitr"
+
+msgid "Open R Markdown file..."
+msgstr "Otwórz plik R Markdown..."
+
+msgid "Open knitr file..."
+msgstr "Otwórz plik knitr..."
+
+msgid "Save R Markdown file..."
+msgstr "Zapisz plik R Markdown..."
+
+msgid "Save knitr file..."
+msgstr "Zapisz plik knitr..."
+
+msgid "Save knitr file?"
+msgstr "Zapisać plik knitr?"
+
+msgid "Save current Rmd file?"
+msgstr "Zapisać bieżący plik Rmd?"
+
+msgid "Save current Rnw file?"
+msgstr "Zapisać bieżący plik Rnw?"
+
+msgid "Save R Markdown file as..."
+msgstr "Zapisz plik R Markdown jako..."
+
+msgid "Save knitr file as..."
+msgstr "Zapisz plik knitr jako..."
+
+msgid "R Markdown file saved to"
+msgstr "Plik R Markdown zapisany w"
+
+msgid "knitr file saved to"
+msgstr "plik 'knitr' zapisany w"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr ""
+"{\"Wszystkie pliki\" {\"*\"}} {\"Pliki R Markdown\" {\".Rmd\" \".rmd\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
+"\"}}"
+msgstr ""
+"{\"Wszystkie pliki\" {\"*\"}} {\"Pliki knitr\" {\".Rmd\" \".rmd\" \".Snw\" "
+"\".snw\"}}"
+
+msgid ""
+"Delete previously created knitr\n"
+"graphics files (recommended)?"
+msgstr ""
+"Usunąć poprzednio utworzone pliki\n"
+"graficzne knitr (rekomendowane)?"
+
+msgid "Ask to exit Commander"
+msgstr "Pytaj przy wychodzeniu z programu Commander"
+
+msgid "Ask to save documents on exit"
+msgstr "Pytaj czy zapisywać dokumenty przy wyjściu"
+
+msgid "Quit R on exit"
+msgstr "Opuść R przy wyjściu"
+
+msgid "Number messages"
+msgstr "Numeruj wiadomości"
+
+msgid "Retain messages"
+msgstr "Utrzymaj wiadomości"
+
+msgid "Use R Markown"
+msgstr "Użyj R Markdown"
+
+msgid "Use knitr"
+msgstr "Użyj knitr"
+
+msgid "Select file"
+msgstr "Wybierz plik"
+
+msgid "R Markdown template file"
+msgstr "Plik szablonu R Markdown"
+
+msgid "R knitr template file"
+msgstr "Plik szablonu R knitr"
+
+msgid "Suppress icon images"
+msgstr "Ukryj ikonki"
+
+#      "Models -> Subset model selection" dialog and menu item
+msgid "Retain dialog selections"
+msgstr "Zachowaj wybór okien dialogowych"
+
+msgid "Use rgl package"
+msgstr "Użyj pakietu 'rgl'"
+
+# messages added to version 1.8-2
+msgid "Dialog text font size (points)"
+msgstr "Rozmiar czcionki okna dialogowego (punkty)"
+
+# messages added to version 1.8-2
+msgid "Script and output font size (points)"
+msgstr "Rozmiar czcionki skryptu i wyjścia (punkty)"
+
+msgid "Dialog font"
+msgstr "Czcionka okna dialogowego"
+
+msgid "Script and output font"
+msgstr "Czcionka skrytu i wyjścia"
+
+msgid "Script text color"
+msgstr "Kolor treści skryptu"
+
+# messages added to version 1.3-15
+# Note: translate these messages only if the corresponding
+#  translated documents are supplied
+# For the following, you must supply a file named Commander-xx.Rd containing
+# a translation of the file Commander.Rd, where xx is the code for your
+# language. The \n
+# e{} and \alias{} fields in the .Rd file should both be
+# Commander-xx, where again xx is the language code.
+# Example: "Commander-es"
+# Note: Some translated Commander-xx.Rd files have not been compiling properly. As
+# an alternative, you can supply a PDF file named Commander-xx.pdf, and this will
+# be accessed when the user selects Help -> Commander help.
+# If you supply neither Commander-xx.Rd nor Commander-xx.pdf, then
+# the string "Commander" should not be translated.
+msgid "Command text color"
+msgstr "Kolor treści polecenia"
+
+msgid "Output text color"
+msgstr "Kolor treści wyjścia"
+
+msgid "Error text color"
+msgstr "Kolor treści błędu"
+
+msgid "Warning text color"
+msgstr "Kolor treści ostrzeżenia"
+
+msgid "Dialog subtitles text color"
+msgstr "Kolor podtytułów okien dialogowych"
+
+msgid "Script window width (characters)"
+msgstr "Szerokość okna skryptu (znaki)"
+
+msgid "Script window height (lines)"
+msgstr "Wysokość okna skryptu (linie)"
+
+msgid "Output window height (lines)"
+msgstr "Wysokość okna wyjścia (linie)"
+
+msgid "Messages window height (lines)"
+msgstr "Wysokość okna wiadomości (linie)"
+
+msgid "Fonts"
+msgstr "Czcionki"
+
+msgid "Other Options"
+msgstr "Pozostałe opcje"
+
+msgid "Save Commander Options"
+msgstr "Zapisz opcje programu Commander"
+
+msgid "R Profile saved to"
+msgstr "Profil R zapisany w"
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr "Poniższe polecenia zostaną zapisane w pliku .Rprofile."
+
+msgid "You may edit this file before saving it."
+msgstr "Możesz edytować ten plik przed jego zapisaniem."
+
+msgid "Save Rcmdr options..."
+msgstr "Zapisz opcje Rcmdr..."
+
+msgid "Nonparametric Density Estimate"
+msgstr "Nieparametryczne oszacowanie gęstości"
+
+msgid "Gaussian"
+msgstr "gaussowskie"
+
+msgid "Epanechnikov"
+msgstr "Epanecznikowa"
+
+msgid "Tukey biweight"
+msgstr "Dwupunktowe Tukey'a"
+
+msgid "Kernel Function"
+msgstr "Funkcja jądra"
+
+msgid "Bandwidth"
+msgstr "Szerokość pasma"
+
+msgid "Multiply bandwidth by"
+msgstr "Przemnóż szerokość pasma przez"
+
+msgid "Density estimate..."
+msgstr "Oszacowanie gęstości..."
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr "Szerokość pasma musi być <auto> lub być dodatnią liczbą"
+
+# index plot dialog
+msgid "Style of plot"
+msgstr "Styl wykresu"
+
+msgid "Write variable names"
+msgstr "Zapisz nazwy zmiennych"
+
+msgid "Write row names"
+msgstr "Zapisz nazwy wierszy"
+
+msgid "Quotes around character values"
+msgstr "Cudzysłowia wokół wartości tekstowych"
+
+msgid "Quantiles:"
+msgstr "Kwantyle:"
+
+msgid "spline requires a numeric variable"
+msgstr "splajn wymaga zmiennej liczbowej"
+
+msgid "cannot select more than one variable"
+msgstr "nie można wybrać więcej niż jedną zmienną"
+
+msgid "polynomial requires a numeric variable"
+msgstr "wielomian wymaga zmiennej liczbowej"
+
+msgid "B-spline\n"
+msgstr "B-splajn\n"
+
+msgid ""
+"natural\n"
+"spline"
+msgstr ""
+"naturalny\n"
+"splajn"
+
+msgid ""
+"orthogonal\n"
+"polynomial"
+msgstr ""
+"ortogonalny\n"
+"wielomian"
+
+msgid ""
+"raw\n"
+"polynomial"
+msgstr ""
+"czysty\n"
+"wielomian"
+
+msgid "Model Formula"
+msgstr "Formuła modelu"
+
+msgid "Operators (click to formula):"
+msgstr "Operatory (kliknij by dodać do formuły)"
+
+msgid ""
+"Splines/Polynomials:\n"
+"(select variable and click)"
+msgstr ""
+"Splajny/Wielomiany:\n"
+"(wybierz zmienną i kliknij)"
+
+msgid "df for splines:"
+msgstr "st. sw. dla splajnów:"
+
+msgid "deg. for polynomials:"
+msgstr "stopnie dla wielomianów:"
+
+msgid "R Commander Editor"
+msgstr "Edytor R Commander"
+
+msgid "Edit R Markdown document"
+msgstr "Edytuj dokument R Markdown"
+
+msgid "Edit knitr document"
+msgstr "Edytuj dokument knitr"
+
+msgid "Remove last Markdown command block"
+msgstr "Usuń ostatni blok polecenia Markdown"
+
+msgid "Remove last knitr command block"
+msgstr "Usuń ostatni blok polecenia knitr"
+
+msgid "Remove last command block"
+msgstr "Usuń ostatni blok polecenia"
+
+msgid "Exit editor"
+msgstr "Opuść edytor"
+
+msgid "Editor help"
+msgstr "Pomoc edytora"
+
+msgid ""
+"Delete previously created R Markdown\n"
+"graphics files (recommended)?"
+msgstr ""
+"Usunąć poprzednio utworzone pliki\n"
+"graficzne R Markdown (rekomendowane)?"
+
+msgid "Discard edits?"
+msgstr "Odrzucić zmiany?"
+
+# support for back-to-back stem-and-leaf displays
+msgid "Plot back-to-back by:"
+msgstr "Wykres plecy-plecy ze względu na:"
+
+msgid "Plot back-to-back by"
+msgstr "Wykres plecy-plecy ze względu na"

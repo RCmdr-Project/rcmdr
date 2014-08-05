@@ -252,10 +252,10 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{prefixes}}{A four-item character vector to specify the prefixes used when output is directed
     to the R console; the default is \code{c("Rcmdr> ", "Rcmdr+ ", "RcmdrMsg: ", "RcmdrMsg+ ")}.}
     
-    \item{\code{RcmdrEnv.on.path}}{If \code{TRUE} (the default for versions of R
-    prior to version 3.0.0, the environment in which R Commander state information
+    \item{\code{RcmdrEnv.on.path}}{If \code{TRUE} (the default is \code{FALSE}), 
+    the environment in which R Commander state information
     is stored is placed on the search path. Some plug-ins may, at least until
-    they are updated, require this setting.)}
+    they are updated, may require this setting.}
     
     \item{\code{quit.R.on.close}}{if \code{TRUE}, both the Commander and R are exited when the Commander
     window is closed. The default is \code{FALSE}, in which case only the Commander is exited (and can be restarted
@@ -300,6 +300,9 @@ set none, one, several, or all options. The available options are as follows:
     
     \item{\code{suppress.icon.images}}{Set to \code{TRUE} to suppress the icon images in dialog OK, Cancel, Reset, and Help buttons;
     the default is \code{FALSE}.}
+    
+    \item{\code{theme}}{A ttk theme to control the overall style of the Commander GUI; should be one of the themes returned by \code{tcltk2::tk2theme.list()}.
+    The default theme varies by operating system, and can be discovered by entering the command \code{tcltk2::tk2theme()} in a fresh R session.}
     
     \item{\code{title.color}}{Color for the titles of some widgets, such as variable-list boxes; can be given as a color name, such as
     \code{"blue"} or as an RGB value, such as \code{"#0000FF"}.

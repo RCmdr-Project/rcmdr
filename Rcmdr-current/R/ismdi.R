@@ -1,5 +1,7 @@
+# last modified 2014-04-06 by J. Fox
+
 # this function by Uwe Ligges; used with permission
 
 ismdi <- function(){
-    return(mdi = as.logical(.C("ismodemdi", as.integer(0), PACKAGE = "Rcmdr205")[[1]]))
+    return(mdi = as.logical(.C("ismodemdi", as.integer(0), PACKAGE = "Rcmdr")[[1]]))
 }

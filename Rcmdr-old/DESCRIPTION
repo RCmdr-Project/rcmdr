@@ -1,11 +1,11 @@
-Package: Rcmdr1
-Version: 1.9-7
-Date: 2013/03/14
+Package: Rcmdr205
+Version: 2.0-5
+Date: 2014/06/27
 Title: R Commander
 Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaster.ca"),
+    person("Milan", "Bouchet-Valat", role = "aut"),
     person("Liviu", "Andronic", role = "ctb"),
     person("Michael", "Ash", role = "ctb"),
-    person("Milan", "Bouchet-Valat", role = "ctb"),
     person("Theophilius", "Boye", role = "ctb"),
     person("Stefano", "Calza", role = "ctb"),
     person("Andy", "Chang", role = "ctb"),
@@ -24,11 +24,12 @@ Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaste
     person("Dan", "Putler", role = "ctb"),
     person("Brian", "Ripley", role = "ctb"),
     person("Miroslav", "Ristic", role = "ctb"),
-    person("Peter", "Wolf", role = "ctb")
+    person("Peter", "Wolf", role = "ctb"),
+    person("Kevin", "Wright", role="ctb")
    )
-Depends: R (>= 2.15.0), grDevices, utils, car (>= 2.0-15)
-Imports: tcltk
-Suggests: abind, aplpack, colorspace, effects (>= 1.0-7), e1071, foreign, grid, Hmisc, lattice, leaps, lmtest, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, relimp, rgl, RODBC, sem (>= 2.1-1) 
+Depends: R (>= 3.0.0), grDevices, utils, splines
+Imports: tcltk, tcltk2 (>= 1.2-6)
+Suggests: abind, aplpack, car (>= 2.0-18), colorspace, effects (>= 1.0-7), e1071, foreign, grid, Hmisc, knitr, lattice, leaps, lmtest, markdown, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, relimp, rgl, RODBC, sem (>= 2.1-1) 
 ByteCompile: yes
 Description:
   A platform-independent basic-statistics GUI (graphical user interface) for R, based on the tcltk package.

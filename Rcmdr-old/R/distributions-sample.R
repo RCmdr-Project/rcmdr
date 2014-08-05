@@ -1,6 +1,6 @@
 # Distributions menu dialogs for selecting samples
 
-# last modified 2013-01-11 by J. Fox
+# last modified 2013-06-24 by J. Fox
 # modified by Miroslav M. Ristic (15 January 2011)
 
 
@@ -31,6 +31,7 @@ distributionSamples <- function(nameVar) {
 			nobs="100", nsamples="1", mean="1", sum="0", sd="0")
 	initial <- getDialog(dialogName, defaults=defaults)
 	initializeDialog(title=gettextRcmdr(paste("Sample from ",fVar$titleName," Distribution")))
+    entryFrame <- tkframe(top)
 	dsname <- tclVar(initial$dsname)
 	dsFrame <- tkframe(top)
 	entryDsname <- ttkentry(dsFrame, width="20", textvariable=dsname)
@@ -38,12 +39,12 @@ distributionSamples <- function(nameVar) {
 	paramsEntry<-paste(fVar$params,"Entry",sep="")
 	for (i in 1:nnVar) {
 		eval(parse(text=paste(paramsVar[i],"<-tclVar('",initial$initialValues[i],"')",sep="")))
-		eval(parse(text=paste(paramsEntry[i],"<-ttkentry(top, width='6', textvariable=",paramsVar[i],")",sep="")))
+		eval(parse(text=paste(paramsEntry[i],"<-ttkentry(entryFrame, width='6', textvariable=",paramsVar[i],")",sep="")))
 	}
 	obserVar <- tclVar(initial$nobs)
-	obserEntry <- ttkentry(top, width="6", textvariable=obserVar)
+	obserEntry <- ttkentry(entryFrame, width="6", textvariable=obserVar)
 	samplesVar <- tclVar(initial$nsamples)
-	samplesEntry <- ttkentry(top, width="6", textvariable=samplesVar)
+	samplesEntry <- ttkentry(entryFrame, width="6", textvariable=samplesVar)
 	checkBoxes(frame="checkBoxFrame", boxes=c("mean", "sum", "sd"), 
 			initialValues=c(initial$mean, initial$sum, initial$sd), 
 			labels=gettextRcmdr(c("Sample means", "Sample sums",
@@ -146,20 +147,21 @@ distributionSamples <- function(nameVar) {
 						mean=tclvalue(meanVariable), sum=tclvalue(sumVariable), sd=tclvalue(sdVariable)),
 				resettable=FALSE)
 	}
-	OKCancelHelp(helpSubject=paste("r",fVar$funName,sep=""), reset=dialogName)
+	OKCancelHelp(helpSubject=paste("r",fVar$funName,sep=""), reset=dialogName, apply=dialogName)
 	tkgrid(labelRcmdr(dsFrame, text=gettextRcmdr("Enter name for data set:")), entryDsname, 
 			sticky="w")
 	tkgrid(dsFrame, columnspan=2, sticky="w")
 	tkgrid(labelRcmdr(top, text=""))
 	for (i in 1:nnVar) {
-		tkgrid(labelRcmdr(top, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="w")
+		tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="w", padx=6)
 	}
-	tkgrid(labelRcmdr(top, text=gettextRcmdr("Number of samples (rows) ")), samplesEntry, sticky="w")
-	tkgrid(labelRcmdr(top, text=gettextRcmdr("Number of observations (columns) ")), obserEntry, sticky="w")
+	tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr("Number of samples (rows) ")), samplesEntry, sticky="w", padx=6)
+	tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr("Number of observations (columns) ")), obserEntry, sticky="w", padx=6)
+    tkgrid(entryFrame, sticky="w")
 	tkgrid(labelRcmdr(top, text=""))
-	tkgrid(labelRcmdr(top, text=gettextRcmdr("Add to Data Set:"), fg="blue"), sticky="w")
+	tkgrid(labelRcmdr(top, text=gettextRcmdr("Add to Data Set:"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
 	tkgrid(checkBoxFrame, columnspan=2, sticky="w")
 	tkgrid(labelRcmdr(top, text=""))
 	tkgrid(buttonsFrame, columnspan=2, sticky="w")
-	dialogSuffix(rows=10, columns=2, focus=get(paramsEntry[1]))
+	dialogSuffix(focus=get(paramsEntry[1]))
 }

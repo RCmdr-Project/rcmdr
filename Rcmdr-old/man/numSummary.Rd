@@ -43,7 +43,7 @@ statistics to be reported along with information on missing data, if there are a
 
 \examples{
 	\dontrun{
-library(car)
+data(Prestige, package="car")
 Prestige[1, "income"] <- NA
 numSummary(Prestige[,c("income", "education")], 
 	statistics=c("mean", "sd", "quantiles", "cv", "skewness", "kurtosis"))

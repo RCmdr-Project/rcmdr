@@ -1,6 +1,6 @@
 # Distributions menu dialogs
 
-# last modified 2013-06-24 by J. Fox
+# last modified 2014-07-29 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic (20 July 06)
 # Modified by Miroslav Ristic (15 January 11)
@@ -463,100 +463,96 @@ distributionProbabilities <- function(nameVar){
 }
 
 distributionMass  <- function(nameVar) {
-	fVar<-get(paste(nameVar,"Distribution",sep=""))
-	nnVar<-length(fVar$params)
-	dialogName <- paste(nameVar,"Mass", sep="")
-	defaults <- list(initialValues=fVar$initialValues)
-	initial <- getDialog(dialogName, defaults=defaults)
-	checkRange <- function(range){
-		if (nameVar=="binomial") {
-			messageVar<-"Number of trials, %d, is large.\nCreate long output?"
-		} else {
-			messageVar<-"Range of values over which to plot, %d, is large.\nCreate long output?"
-		}
-		RcmdrTkmessageBox(message=sprintf(gettextRcmdr(messageVar),range),
-				icon="warning", type="yesno", default="no")
-	}
-	initializeDialog(title=gettextRcmdr(paste(fVar$titleName,"Probabilities",sep=" ")))
-    entryFrame <- tkframe(top)
-	paramsVar<-paste(fVar$params,"Var",sep="")
-	paramsEntry<-paste(fVar$params,"Entry",sep="")
-	for (i in 1:nnVar) {
-		eval(parse(text=paste(paramsVar[i],"<-tclVar('",initial$initialValues[i],"')",sep="")))
-		eval(parse(text=paste(paramsEntry[i],"<-ttkentry(entryFrame, width='6', textvariable=",paramsVar[i],")",sep="")))
-	}
-	onOK <- function(){
-		nameVarF<-get(paste(nameVar,"Mass",sep=""),mode="function")
-		closeDialog()
-		warn <- options(warn=-1)
-		vars<-numeric(nnVar)
-		for (i in 1:nnVar) {
-			vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
-		}
-		if (length(fVar$paramsRound)>0) {
-			for (j in fVar$paramsRound) {
-				vars[j]<-round(vars[j])
-			}
-		}
-		options(warn)
-		for (i in 1:length(fVar$errorConds)) {
-			if (eval(parse(text=fVar$errorConds[i]))) {
-				errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
-				return()
-			}
-		}
-		if (nameVar=="binomial") {
-			if (vars[1] > 50){
-				if ("no" == tclvalue(checkRange(vars[1]))){
-					if (getRcmdr("grab.focus")) tkgrab.release(top)
-					tkdestroy(top)
-					nameVarF()
-					return()
-				}
-			}
-		} else {
-			pasteVar<-""
-			for (i in 1:nnVar) {
-				pasteVar<-paste(pasteVar,", ",fVar$params[i],"=",vars[i])
-			}
-			xmin <- eval(parse(text=paste("q",fVar$funName,"(.0005",pasteVar,")",sep="")))
-			xmax <- eval(parse(text=paste("q",fVar$funName,"(.9995",pasteVar,")",sep="")))
-			range <- xmax-xmin
-			if (xmax - xmin > 50){
-				if ("no" == tclvalue(checkRange(range))){
-					if (getRcmdr("grab.focus")) tkgrab.release(top)
-					tkdestroy(top)
-					nameVarF()
-					return()
-				}
-			}
-		}
-		if (nameVar=="binomial") {
-			command <- paste("data.frame(Pr=dbinom(0:", vars[1], ", size=", vars[1], 
-					", prob=", vars[2], "))", sep="")
-            doItAndPrint(paste(".Table <- ", command, sep=""))
-			logger(paste("rownames(.Table) <- 0:", vars[1], sep=""))
-			justDoIt(paste("rownames(.Table) <- 0:", vars[1], sep=""))
-		} else {
-			command <- paste("data.frame(Pr=d",fVar$funName,"(", xmin, ":", xmax, pasteVar, "))", sep="")
-			doItAndPrint(paste(".Table <- ", command, sep=""))
-			logger(paste("rownames(.Table) <- ", xmin, ":", xmax, sep=""))
-			justDoIt(paste("rownames(.Table) <- ", xmin, ":", xmax, sep=""))
-		}
-		doItAndPrint(".Table")
-		logger("remove(.Table)")
-		remove(.Table, envir=.GlobalEnv)
-		tkfocus(CommanderWindow())
-		putDialog(dialogName, list(initialValues=vars), resettable=FALSE)
-	}
-	OKCancelHelp(helpSubject=paste("d",fVar$funName,sep=""), reset = dialogName, apply = dialogName)
-	for (i in 1:nnVar) {
-		tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="w", padx=6)
-	}
-    tkgrid(entryFrame, sticky="w")
-	tkgrid(buttonsFrame, columnspan=2, sticky="w")
-	for (i in 1:nnVar) {
-		tkgrid.configure(get(paramsEntry[i]), sticky="w")
-	}
-	dialogSuffix(focus=get(paramsEntry[1]))
+  fVar<-get(paste(nameVar,"Distribution",sep=""))
+  nnVar<-length(fVar$params)
+  dialogName <- paste(nameVar,"Mass", sep="")
+  defaults <- list(initialValues=fVar$initialValues)
+  initial <- getDialog(dialogName, defaults=defaults)
+  checkRange <- function(range){
+    if (nameVar=="binomial") {
+      messageVar<-"Number of trials, %d, is large.\nCreate long output?"
+    } else {
+      messageVar<-"Range of values over which to plot, %d, is large.\nCreate long output?"
+    }
+    RcmdrTkmessageBox(message=sprintf(gettextRcmdr(messageVar),range),
+                      icon="warning", type="yesno", default="no")
+  }
+  initializeDialog(title=gettextRcmdr(paste(fVar$titleName,"Probabilities",sep=" ")))
+  entryFrame <- tkframe(top)
+  paramsVar<-paste(fVar$params,"Var",sep="")
+  paramsEntry<-paste(fVar$params,"Entry",sep="")
+  for (i in 1:nnVar) {
+    eval(parse(text=paste(paramsVar[i],"<-tclVar('",initial$initialValues[i],"')",sep="")))
+    eval(parse(text=paste(paramsEntry[i],"<-ttkentry(entryFrame, width='6', textvariable=",paramsVar[i],")",sep="")))
+  }
+  onOK <- function(){
+    nameVarF<-get(paste(nameVar,"Mass",sep=""),mode="function")
+    closeDialog()
+    warn <- options(warn=-1)
+    vars<-numeric(nnVar)
+    for (i in 1:nnVar) {
+      vars[i]<-as.numeric(tclvalue(get(paramsVar[i])))
+    }
+    if (length(fVar$paramsRound)>0) {
+      for (j in fVar$paramsRound) {
+        vars[j]<-round(vars[j])
+      }
+    }
+    options(warn)
+    for (i in 1:length(fVar$errorConds)) {
+      if (eval(parse(text=fVar$errorConds[i]))) {
+        errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
+        return()
+      }
+    }
+    if (nameVar=="binomial") {
+      if (vars[1] > 50){
+        if ("no" == tclvalue(checkRange(vars[1]))){
+          if (getRcmdr("grab.focus")) tkgrab.release(top)
+          tkdestroy(top)
+          nameVarF()
+          return()
+        }
+      }
+    } else {
+      pasteVar<-""
+      for (i in 1:nnVar) {
+        pasteVar<-paste(pasteVar,", ",fVar$params[i],"=",vars[i], sep="")
+      }
+      xmin <- eval(parse(text=paste("q",fVar$funName,"(.0005",pasteVar,")",sep="")))
+      xmax <- eval(parse(text=paste("q",fVar$funName,"(.9995",pasteVar,")",sep="")))
+      range <- xmax-xmin
+      if (xmax - xmin > 50){
+        if ("no" == tclvalue(checkRange(range))){
+          if (getRcmdr("grab.focus")) tkgrab.release(top)
+          tkdestroy(top)
+          nameVarF()
+          return()
+        }
+      }
+    }
+    if (nameVar=="binomial") {
+      command <- paste("local({\n  .Table <- data.frame(Probability=dbinom(0:", vars[1], 
+                       ", size=", vars[1], 
+                       ", prob=", vars[2], "))", sep="")
+      command <- paste(command, "\n  rownames(.Table) <- 0:", vars[1], sep="")
+    } else {
+      command <- paste("local({\n  .Table <- data.frame(Probability=d",fVar$funName,
+                       "(", xmin, ":", xmax, pasteVar, "))", sep="")
+    }
+    command <- paste(command, "\n  print(.Table)\n})")
+    doItAndPrint(command)
+    tkfocus(CommanderWindow())
+    putDialog(dialogName, list(initialValues=vars), resettable=FALSE)
+  }
+  OKCancelHelp(helpSubject=paste("d",fVar$funName,sep=""), reset = dialogName, apply = dialogName)
+  for (i in 1:nnVar) {
+    tkgrid(labelRcmdr(entryFrame, text=gettextRcmdr(fVar$paramsLabels[i])), get(paramsEntry[i]), sticky="w", padx=6)
+  }
+  tkgrid(entryFrame, sticky="w")
+  tkgrid(buttonsFrame, columnspan=2, sticky="w")
+  for (i in 1:nnVar) {
+    tkgrid.configure(get(paramsEntry[i]), sticky="w")
+  }
+  dialogSuffix(focus=get(paramsEntry[1]))
 }

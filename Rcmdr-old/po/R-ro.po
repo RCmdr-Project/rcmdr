@@ -2,19 +2,17 @@
 # Traducerea in limba romana a pachetului Rcmdr
 # Copyright (C) 2005 John Fox
 # This file is distributed under the same license as the Rcmdr package
-# Dusa Adrian <dusa.adrian@gmail.com>, 2012
-msgid ""
-msgstr ""
-"Project-Id-Version: Rcmdr 1.9-0\n"
+# Dusa Adrian <dusa.adrian@gmail.com>, 2013
+msgid "Project-Id-Version: Rcmdr 2.0-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2012-08-29 15:00:00\n"
-"PO-Revision-Date: 2012-09-02 14:00+0200\n"
+"POT-Creation-Date: 2013-08-5 15:30:00\n"
+"PO-Revision-Date: 2013-08-05 18:00+0200\n"
 "Last-Translator: Adrian Dusa <dusa.adrian@gmail.com>\n"
 "Language-Team: Romanian <dusa.adrian@gmail.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
+msgstr ""
 
 msgid "KMeans Clustering"
 msgstr "Clasificare cu k-means"
@@ -3383,6 +3381,13 @@ msgstr "Interfata grafica este lansata numai in sesiuni interactive"
 # Commander-xx, where again xx is the language code.
 # Example: "Commander-es"
 
+# Note: Some translated Commander-xx.Rd files have not been compiling properly. As
+# an alternative, you can supply a PDF file named Commander-xx.pdf, and this will
+# be accessed when the user selects Help -> Commander help.
+
+# If you supply neither Commander-xx.Rd nor Commander-xx.pdf, then
+# the string "Commander" should not be translated.
+
 msgid "Commander"
 msgstr "Commander"
 
@@ -3650,7 +3655,6 @@ msgstr "Valori p pairwise\npentru corelatii Pearson sau Spearman"
 msgid "The Windows version of the R Commander works best under RGui\nwith the single-document interface (SDI); see ?Commander."
 msgstr "Versiunea Windows a lui R Commander functioneaza cel mai bine in RGui\ncu interfata SDI - Single Document Interface; vezi ?Commander."
 
-
 # messages added to version 1.6-0
 
 	# for Levene test
@@ -3689,7 +3693,6 @@ msgstr "tasta Esc pentru iesire."
 	
 msgid "Start R help system"
 msgstr "Porneste sistemul de help al lui R"
-
 
 # messages added to version 1.6-4 
 #  to correct order of file extensions
@@ -3923,6 +3926,7 @@ msgstr "Alege cel putin un punct sau linie"
 msgid "Plot Type (one or both)"
 msgstr "Tip de grafic (unul sau ambele)"
 
+
 # messages added to version 1.9-1 (missing from 1.9-0)
 
 msgid "Plot legend"
@@ -3947,3 +3951,322 @@ msgstr "numar de coloane:"
 
 msgid "number of rows:"
 msgstr "numar de randuri:"
+
+
+# messages added to version 2.0-0
+
+msgid "Plot Options"
+msgstr "Optiuni plot"
+
+msgid "Plot Labels"
+msgstr "Etichete plot"
+
+msgid "Graph title"
+msgstr "Titlu grafic"
+
+msgid "Plot Labels and Points"
+msgstr "Etichete si puncte plot"
+
+msgid "Apply"
+msgstr "Aplica"
+
+msgid "Pairwise p-values"
+msgstr "Valori p in perechi"
+
+msgid "Observations to Use"
+msgstr "Utilizare observatii"
+
+msgid "Complete observations"
+msgstr "Observatii complete"
+
+msgid "Pairwise-complete observations"
+msgstr "Observatii complete pe perechi"
+
+msgid "R Script"
+msgstr "Script R"
+
+msgid "Output"
+msgstr "Output"
+
+msgid "R Commander website" 
+msgstr "Website R Commander"
+
+msgid "R website"
+msgstr "Website R"
+
+msgid "Using R Markdown"
+msgstr "Utilizare R Markdown"
+
+msgid "Table"
+msgstr "Tabel"
+
+    # point identification in graphs (additional messages)
+
+msgid "Interactively with mouse"
+msgstr "Interactiv cu mouse-ul"
+
+msgid "Do not identify"
+msgstr "Nu identifica"
+
+msgid "number of points to identify must be an integer"
+msgstr "numarul de puncte de identificat trebuie sa fie un numar intreg"
+
+msgid "Number of points to identify"
+msgstr "Numar de puncte de identificat"
+
+msgid "Number of points to identify  \nin each panel and group "
+msgstr "Numar de puncte de identificat \nin fiecare panel si grup"
+
+msgid "Added-Variable Plots"
+msgstr "Plot-uri variabile adaugate"
+
+msgid "Component+Residual Plots"
+msgstr "Ploturi componenta + residual"
+
+msgid "Influence Plot"
+msgstr "Plot de influenta"
+
+    # support for R Markdown and knitr
+
+msgid "Generate HTML report"
+msgstr "Genereaza raport HTML"
+
+msgid "Generate PDF report"
+msgstr "Genereaza raport PDF"
+
+msgid "R Markdown"
+msgstr "R Markdown"
+
+msgid "knitr Document"
+msgstr "Document knitr"
+
+msgid "Open R Markdown file..."
+msgstr "Deschide fisier R Markdown..."
+
+msgid "Open knitr file..."
+msgstr "Deschide fisier knitr..."
+
+msgid "Save R Markdown file..."
+msgstr "Salveaza fisier R Markdown..."
+
+msgid "Save knitr file..."
+msgstr "Salveaza fisier knitr..."
+
+msgid "Save knitr file?"
+msgstr "Salvare fisier knitr?"
+
+msgid "Save current Rmd file?"
+msgstr "Salvare fisier Rmd curent?"
+
+msgid "Save current Rnw file?"
+msgstr "Salvarea fisier Rnw curent?"
+
+msgid "Save R Markdown file as..."
+msgstr "Salveaza fisier R Markdown ca..."
+
+msgid "Save knitr file as..."
+msgstr "Salveaza fisier knitr ca..."
+
+msgid "R Markdown file saved to"
+msgstr "Fisier R Markdown salvat ca"
+
+msgid "knitr file saved to"
+msgstr "Fisier knitr salvat ca"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisiere R Markdown\" {\".Rmd\" \".rmd\"}"
+
+msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisiere knitr\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+
+msgid "Delete previously created knitr\ngraphics files (recommended)?"
+msgstr "Stergere grafice knitr\nanterior create (recomandat)?"
+
+    # setting and saving options
+
+msgid "Ask to exit Commander"
+msgstr "Cerere iesire Commander"
+
+msgid "Ask to save documents on exit"
+msgstr "Cerere salvare documente la iesire"
+
+msgid "Quit R on exit"
+msgstr "Inchidere R la iesire"
+
+msgid "Number messages"
+msgstr "Numarare mesaje"
+
+msgid "Retain messages"
+msgstr "Retine mesajele"
+
+msgid "Use R Markown"
+msgstr "Utilizare R Markown"
+
+msgid "Select file"
+msgstr "Selectare fisier"
+
+msgid "R Markdown template file"
+msgstr "Fisier template R Markown"
+
+msgid "R knitr template file"
+msgstr "Fisier template R knitr"
+
+msgid "Suppress icon images"
+msgstr "Ascundere mesaje icon"
+
+msgid "Retain dialog selections"
+msgstr "Retinere selectii dialoguri"
+
+msgid "Use rgl package"
+msgstr "Utilizare pachet rgl"
+
+msgid "Dialog text font size (points)"
+msgstr "Marime font text dialog (puncte)"
+
+msgid "Script and output font size (points)"
+msgstr "Marime font script si output (puncte)"
+
+msgid "Dialog font"
+msgstr "Font dialog"
+
+msgid "Script and output font"
+msgstr "Font script si output"
+
+msgid "Script text color"
+msgstr "Culoare text script"
+
+msgid "Command text color"
+msgstr "Culoare text fereastra de comanda"
+
+msgid "Output text color"
+msgstr "Culoare font output"
+
+msgid "Error text color"
+msgstr "Culoare text eroare"
+
+msgid "Warning text color"
+msgstr "Culoare text avertisment"
+
+msgid "Dialog subtitles text color"
+msgstr "Culoare text subtitluri dialog"
+
+msgid "Script window width (characters)"
+msgstr "Latime fereastra script (caractere)"
+
+msgid "Script window height (lines)"
+msgstr "Inaltime fereastra script (linii)"
+
+msgid "Output window height (lines)"
+msgstr "Inaltime fereastra output (linii)"
+
+msgid "Messages window height (lines)"
+msgstr "Inaltime fereastra mesaje (linii)"
+
+msgid "Fonts"
+msgstr "Fonturi"
+
+msgid "Other Options"
+msgstr "Alte optiuni"
+
+msgid "Save Commander Options"
+msgstr "Salvare optiuni Commander"
+
+msgid "R Profile saved to"
+msgstr "Profil R salvat in"
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr "Urmatoarele comenzi vor fi salvate in fisierul .Rprofile."
+
+msgid "You may edit this file before saving it."
+msgstr "Acest fisier poate fi editat inainte de salvare"
+
+msgid "Save Rcmdr options..."
+msgstr "Salvare optiuni Rcmdr..."
+
+    # density estimate dialog
+
+msgid "Nonparametric Density Estimate"
+msgstr "Estimare densitate nonparametrica"
+
+msgid "Gaussian"
+msgstr "Gaussiana"
+
+msgid "Epanechnikov"
+msgstr "Epanechnikov"
+
+msgid "Tukey biweight"
+msgstr "Tukey biweight"
+
+msgid "Kernel Function"
+msgstr "Functie Kernel"
+
+msgid "Bandwidth"
+msgstr "Latime de banda"
+
+msgid "Multiply bandwidth by"
+msgstr "Inmultire latime de banda cu"
+
+msgid "Density estimate..."
+msgstr "Estimare densitate..."
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr "Latimea de banda trebuie sa fie <auto> sau un numar pozitiv"
+
+# index plot dialog
+
+msgid "Style of plot"
+msgstr "Stil plot"
+
+# export data set dialog
+
+msgid "Write variable names"
+msgstr "Scrie numele variabilelor"
+
+msgid "Write row names"
+msgstr "Scrie numele randurilor"
+
+msgid "Quotes around character values"
+msgstr "Ghilimele in jurul caracterelor"
+
+# numerical summaries dialog
+
+msgid "Quantiles:"
+msgstr "Quantile:"
+
+# for splines and polynomials in model formulas
+
+msgid "spline requires a numeric variable"
+msgstr "spline cere o variabila numarica"
+
+msgid "cannot select more than one variable"
+msgstr "nu se poate selecta mai mult de o variabila"
+
+msgid "polynomial requires a numeric variable"
+msgstr "polinomiala cere o variabila numerica"
+
+msgid "B-spline\n"
+msgstr "B-spline\n"
+
+msgid "natural\nspline"
+msgstr "spline\nnatural"
+
+msgid "orthogonal\npolynomial"
+msgstr "ortogonal\npolinomial"
+
+msgid "raw\npolynomial"
+msgstr "polinomial\nbrut"
+
+msgid "Model Formula"
+msgstr "Formula model"
+
+msgid "Operators (click to formula):"
+msgstr "Operatori (clic in formula):"
+
+msgid "Splines/Polynomials:\n(select variable and click)"
+msgstr "Spline/Polinomial:\n(selectare variabile si clic)"
+
+msgid "df for splines:"
+msgstr "df pentru spline"
+
+msgid "deg. for polynomials:"
+msgstr "grade pentru polinomiali:"

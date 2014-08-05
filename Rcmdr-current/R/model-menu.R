@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2013-10-21 by J. Fox
+# last modified 2014-08-01 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -253,96 +253,80 @@ VIF <- function(){
 	doItAndPrint(paste("vif(", .activeModel, ")", sep=""))
 }
 
-effectPlots <- function(){
-	Library("effects")
-	.activeModel <- ActiveModel()
-	if (is.null(.activeModel) || !checkMethod("Effect", .activeModel)) return()
-	doItAndPrint('trellis.device(theme="col.whitebg")')
-	command <- paste("plot(allEffects(", .activeModel, "), ask=FALSE)", sep="")
-	justDoIt(command)
-	logger(command)
-	activateMenus()
-	NULL
-}
-
 addObservationStatistics <- function () {
-    .activeDataSet <- ActiveDataSet()
-    .activeModel <- ActiveModel()
-	if (is.null(.activeModel)) 
-		return()
-	addVariable <- function(name) {
-		variable <- paste(name, ".", .activeModel, sep = "")
-		if (is.element(variable, .variables)) {
-			ans <- checkReplace(variable)
-			if (tclvalue(ans) == "no") 
-				return()
-		}
-		command <- paste(name, "(", .activeModel, ")", sep = "")
-		justDoIt(paste(.activeDataSet, "$", variable, " <- ", 
-						command, sep = ""))
-		logger(paste(.activeDataSet, "$", variable, " <- ", command, 
-						sep = ""))
-	}
-	if (getRcmdr("modelWithSubset")) {
-		Message(message = gettextRcmdr("Observation statistics not available\nfor a model fit to a subset of the data."), 
-				type = "error")
-		tkfocus(CommanderWindow())
-		return()
-	}
-	defaults <- list (initial.fitted = 1, initial.residuals = 1, initial.rstudent = 1, 
-			initial.hatvalues = 1, initial.cookd = 1, initial.obsNumbers = 1)
-	dialog.values <- getDialog ("addObservationStatistics", defaults)
-	initializeDialog(title = gettextRcmdr("Add Observation Statistics to Data"))
-	.variables <- Variables()
-	obsNumberExists <- is.element("obsNumber", .variables)
-	activate <- c(checkMethod("fitted", .activeModel, default = TRUE, 
-					reportError = FALSE), checkMethod("residuals", .activeModel, 
-					default = TRUE, reportError = FALSE), checkMethod("rstudent", 
-					.activeModel, reportError = FALSE), checkMethod("hatvalues", 
-					.activeModel, reportError = FALSE), checkMethod("cooks.distance", 
-					.activeModel, reportError = FALSE))
-	checkBoxes(frame = "selectFrame", boxes = c(c("fitted", "residuals", 
-							"rstudent", "hatvalues", "cookd")[activate], "obsNumbers"), 
-			labels = c(gettextRcmdr(c("Fitted values", "Residuals", 
-									"Studentized residuals", "Hat-values", "Cook's distances"))[activate], 
-					gettextRcmdr("Observation indices")), initialValues = c(dialog.values$initial.fitted, 
-					dialog.values$initial.residuals, dialog.values$initial.rstudent, 
-					dialog.values$initial.hatvalues, dialog.values$initial.cookd, dialog.values$initial.obsNumbers))
-	onOK <- function() {
-		closeDialog()
-		if (activate[1] && tclvalue(fittedVariable) == 1) 
-			addVariable("fitted")
-		if (activate[2] && tclvalue(residualsVariable) == 1) 
-			addVariable("residuals")
-		if (activate[3] && tclvalue(rstudentVariable) == 1) 
-			addVariable("rstudent")
-		if (activate[4] && tclvalue(hatvaluesVariable) == 1) 
-			addVariable("hatvalues")
-		if (activate[5] && tclvalue(cookdVariable) == 1) 
-			addVariable("cooks.distance")
-		obsNumbers <- tclvalue(obsNumbersVariable)
-		putDialog ("addObservationStatistics", list (initial.fitted = tclvalue (fittedVariable),
-						initial.residuals = tclvalue (residualsVariable), initial.rstudent = tclvalue(rstudentVariable), 
-						initial.hatvalues = tclvalue (hatvaluesVariable), initial.cookd = tclvalue (cookdVariable), 
-						initial.obsNumbers = obsNumbers))
-		if (tclvalue(obsNumbersVariable) == 1) {
-			proceed <- if (obsNumberExists) 
-						tclvalue(checkReplace("obsNumber"))
-					else "yes"  
-			if (proceed == "yes") {
-				command <- paste(.activeDataSet, "$obsNumber <- 1:nrow(", 
-						.activeDataSet, ")", sep = "")
-				justDoIt(command)
-				logger(command)
-			}
-		}
-		activeDataSet(.activeDataSet, flushModel = FALSE, flushDialogMemory = FALSE)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "influence.measures", reset = "addObservationStatistics")
-	tkgrid(selectFrame, sticky = "w")
-	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix()
+  .activeDataSet <- ActiveDataSet()
+  .activeModel <- ActiveModel()
+  if (is.null(.activeModel)) 
+    return()
+  addVariable <- function(name) {
+    variable <- paste(name, ".", .activeModel, sep = "")
+    if (is.element(variable, .variables)) {
+      ans <- checkReplace(variable)
+      if (tclvalue(ans) == "no") 
+        return()
+    }
+    paste(variable, " <- ", name, "(", .activeModel, ")", sep = "")
+  }
+  if (getRcmdr("modelWithSubset")) {
+    Message(message = gettextRcmdr("Observation statistics not available\nfor a model fit to a subset of the data."), 
+            type = "error")
+    tkfocus(CommanderWindow())
+    return()
+  }
+  defaults <- list (initial.fitted = 1, initial.residuals = 1, initial.rstudent = 1, 
+                    initial.hatvalues = 1, initial.cookd = 1, initial.obsNumbers = 1)
+  dialog.values <- getDialog ("addObservationStatistics", defaults)
+  initializeDialog(title = gettextRcmdr("Add Observation Statistics to Data"))
+  .variables <- Variables()
+  obsNumberExists <- is.element("obsNumber", .variables)
+  activate <- c(checkMethod("fitted", .activeModel, default = TRUE, 
+                            reportError = FALSE), checkMethod("residuals", .activeModel, 
+                                                              default = TRUE, reportError = FALSE), checkMethod("rstudent", 
+                                                                                                                .activeModel, reportError = FALSE), checkMethod("hatvalues", 
+                                                                                                                                                                .activeModel, reportError = FALSE), checkMethod("cooks.distance", 
+                                                                                                                                                                                                                .activeModel, reportError = FALSE))
+  checkBoxes(frame = "selectFrame", boxes = c(c("fitted", "residuals", 
+                                                "rstudent", "hatvalues", "cookd")[activate], "obsNumbers"), 
+             labels = c(gettextRcmdr(c("Fitted values", "Residuals", 
+                                       "Studentized residuals", "Hat-values", "Cook's distances"))[activate], 
+                        gettextRcmdr("Observation indices")), initialValues = c(dialog.values$initial.fitted, 
+                                                                                dialog.values$initial.residuals, dialog.values$initial.rstudent, 
+                                                                                dialog.values$initial.hatvalues, dialog.values$initial.cookd, dialog.values$initial.obsNumbers))
+  command <- paste(.activeDataSet, "<- within(", .activeDataSet, ", {", sep="")
+  onOK <- function() {
+    closeDialog()
+    if (activate[1] && tclvalue(fittedVariable) == 1) 
+      command <- paste(command, "\n  ", addVariable("fitted"), sep="")
+    if (activate[2] && tclvalue(residualsVariable) == 1) 
+      command <- paste(command, "\n  ", addVariable("residuals"), sep="")
+    if (activate[3] && tclvalue(rstudentVariable) == 1) 
+      command <- paste(command, "\n  ", addVariable("rstudent"), sep="")
+    if (activate[4] && tclvalue(hatvaluesVariable) == 1) 
+      command <- paste(command, "\n  ", addVariable("hatvalues"), sep="")
+    if (activate[5] && tclvalue(cookdVariable) == 1) 
+      command <- paste(command, "\n  ", addVariable("cooks.distance"), sep="")
+    obsNumbers <- tclvalue(obsNumbersVariable)
+    putDialog ("addObservationStatistics", list (initial.fitted = tclvalue (fittedVariable),
+                                                 initial.residuals = tclvalue (residualsVariable), initial.rstudent = tclvalue(rstudentVariable), 
+                                                 initial.hatvalues = tclvalue (hatvaluesVariable), initial.cookd = tclvalue (cookdVariable), 
+                                                 initial.obsNumbers = obsNumbers))
+    if (tclvalue(obsNumbersVariable) == 1) {
+      proceed <- if (obsNumberExists) 
+        tclvalue(checkReplace("obsNumber"))
+      else "yes"  
+      if (proceed == "yes") {
+        command <- paste(command, "\n  obsNumber <- 1:nrow(", .activeDataSet, ")", sep = "")
+      }
+    }
+    command <- paste(command, "\n})")
+    result <- doItAndPrint(command)
+    if (class(result) != "try-error")activeDataSet(.activeDataSet, flushModel = FALSE, flushDialogMemory = FALSE)
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "influence.measures", reset = "addObservationStatistics")
+  tkgrid(selectFrame, sticky = "w")
+  tkgrid(buttonsFrame, sticky = "w")
+  dialogSuffix()
 }
 
 residualQQPlot <- function () {
@@ -401,132 +385,127 @@ residualQQPlot <- function () {
 }
 
 testLinearHypothesis <- function(){
-    # coef.multinom <- car:::coef.multinom
-    defaults <- list(previous.model=NULL, nrows=1, table.values=0, rhs.values=0)
-    dialog.values <- getDialog("testLinearHypothesis", defaults=defaults)
-    .activeModel <- ActiveModel()
-    if (is.null(.activeModel) || !checkMethod("linearHypothesis", .activeModel, default=TRUE)) return()
-    if (!is.null(dialog.values$previous.model)){
-        if (dialog.values$previous.model != .activeModel){
-            dialog.values <- defaults
-        }
+  # coef.multinom <- car:::coef.multinom
+  defaults <- list(previous.model=NULL, nrows=1, table.values=0, rhs.values=0)
+  dialog.values <- getDialog("testLinearHypothesis", defaults=defaults)
+  .activeModel <- ActiveModel()
+  if (is.null(.activeModel) || !checkMethod("linearHypothesis", .activeModel, default=TRUE)) return()
+  if (!is.null(dialog.values$previous.model)){
+    if (dialog.values$previous.model != .activeModel){
+      dialog.values <- defaults
     }
-    table.values <- dialog.values$table.values
-    rhs.values <- dialog.values$rhs.values
-    env <- environment()
-    initializeDialog(title=gettextRcmdr("Test Linear Hypothesis"))
-    outerTableFrame <- tkframe(top)
+  }
+  table.values <- dialog.values$table.values
+  rhs.values <- dialog.values$rhs.values
+  env <- environment()
+  initializeDialog(title=gettextRcmdr("Test Linear Hypothesis"))
+  outerTableFrame <- tkframe(top)
+  assign(".tableFrame", tkframe(outerTableFrame), envir=env)
+  setUpTable <- function(...){
+    tkdestroy(get(".tableFrame", envir=env))
     assign(".tableFrame", tkframe(outerTableFrame), envir=env)
-    setUpTable <- function(...){
-        tkdestroy(get(".tableFrame", envir=env))
-        assign(".tableFrame", tkframe(outerTableFrame), envir=env)
-        nrows <- as.numeric(tclvalue(rowsValue))
-        if (length(table.values) == 1 && table.values == 0) {
-            table.values <- matrix(0, nrows, ncols)
-            rhs.values <- rep(0, nrows)
-        }
-        if (nrow(table.values) < nrows){
-            add.rows <- nrows - nrow(table.values)
-            table.values <- rbind(table.values, matrix(0, add.rows, ncols))
-            rhs.values <- c(rhs.values, rep(0, add.rows))
-        }
-        col.names <- names(coef(get(.activeModel)))
-        col.names <- substring(paste(abbreviate(col.names, 12), "            "), 1, 12)
-        make.col.names <- "labelRcmdr(.tableFrame, text='')"
-        for (j in 1:ncols) {
-            make.col.names <- paste(make.col.names, ", ", 
-                                    "labelRcmdr(.tableFrame, text='", col.names[j], "')", sep="")
-        }
-        rhsText <- gettextRcmdr("Right-hand side")
-        make.col.names <- paste(make.col.names, ", labelRcmdr(.tableFrame, text='          ')",
-                                ", labelRcmdr(.tableFrame, text='", rhsText, "')", sep="")
-        eval(parse(text=paste("tkgrid(", make.col.names, ")", sep="")), envir=env)
-        for (i in 1:nrows){   
-            varname <- paste(".tab.", i, ".1", sep="") 
-            rhs.name <- paste(".rhs.", i, sep="")
-            assign(varname, tclVar(table.values[i, 1]) , envir=env)
-            assign(rhs.name, tclVar(rhs.values[i]), envir=env)
-            make.row <- paste("labelRcmdr(.tableFrame, text=", i, ")")
-            make.row <- paste(make.row, ", ", "ttkentry(.tableFrame, width='5', textvariable=", 
-                              varname, ")", sep="")
-            for (j in 2:ncols){
-                varname <- paste(".tab.", i, ".", j, sep="")
-                assign(varname, tclVar(table.values[i, j]), envir=env)
-                make.row <- paste(make.row, ", ", "ttkentry(.tableFrame, width='5', textvariable=", 
-                                  varname, ")", sep="")
-            }
-            make.row <- paste(make.row, ", labelRcmdr(.tableFrame, text='     '),",
-                              "ttkentry(.tableFrame, width='5', textvariable=", rhs.name, ")", sep="")
-            eval(parse(text=paste("tkgrid(", make.row, ")", sep="")), envir=env)
-        }
-        tkgrid(get(".tableFrame", envir=env), sticky="w")
+    nrows <- as.numeric(tclvalue(rowsValue))
+    if (length(table.values) == 1 && table.values == 0) {
+      table.values <- matrix(0, nrows, ncols)
+      rhs.values <- rep(0, nrows)
     }
-    ncols <- length(coef(get(.activeModel)))
-    rowsFrame <- tkframe(top)
-    rowsValue <- tclVar(dialog.values$nrows)
-    rowsSlider <- tkscale(rowsFrame, from=1, to=ncols, showvalue=FALSE, variable=rowsValue,
-                          resolution=1, orient="horizontal", command=setUpTable)
-    rowsShow <- labelRcmdr(rowsFrame, textvariable=rowsValue, width=2, justify="right")
-    onOK <- function(){
-        nrows <- as.numeric(tclvalue(rowsValue))
-        cell <- 0
-        values <- rep(NA, nrows*ncols)
-        rhs <- rep(NA, nrows)
-        for (i in 1:nrows){
-            rhs.name <- paste(".rhs.", i, sep="")
-            rhs[i] <- as.numeric(eval(parse(text=paste("tclvalue(", rhs.name,")", sep=""))))
-            for (j in 1:ncols){
-                cell <- cell+1
-                varname <- paste(".tab.", i, ".", j, sep="")
-                values[cell] <- as.numeric(eval(parse(text=paste("tclvalue(", varname,")", sep=""))))
-            }
-        }
-        values <- na.omit(values)
-        closeDialog()
-        if (length(values) != nrows*ncols){
-            Message(message=sprintf(gettextRcmdr("Number of valid entries in hypothesis matrix(%d)\nnot equal to number of rows (%d) * number of columns (%d)."), 
-                                    length(values), nrows, ncols), type="error")
-            testLinearHypothesis()
-            return()
-        }
-        if (qr(matrix(values, nrows, ncols, byrow=TRUE))$rank < nrows) {
-            Message(message=gettextRcmdr("Hypothesis matrix is not of full row rank."),
-                    type="error")
-            testLinearHypothesis()
-            return()
-        }            
-        rhs <- na.omit(rhs)
-        if (length(rhs) != nrows){
-            errorCondition(recall=testLinearHypothesis, message=sprintf(gettextRcmdr("Number of valid entries in rhs vector (%d)\nis not equal to number of rows (%d)."), length(rhs), nrows))
-            return()
-        }
-        command <- paste("matrix(c(", paste(values, collapse=","), "), ", nrows, ", ", ncols,
-                         ", byrow=TRUE)", sep="")
-        # 		assign(".Hypothesis", justDoIt(command), envir=.GlobalEnv)
-        # 		logger(paste(".Hypothesis <- ", command, sep=""))
-        doItAndPrint(paste(".Hypothesis <- ", command, sep=""))
-        command <- paste("c(", paste(rhs, collapse=","), ")", sep="")
-        # 		assign(".RHS", justDoIt(command), envir=.GlobalEnv)
-        # 		logger(paste(".RHS <- ", command, sep=""))
-        doItAndPrint(paste(".RHS <- ", command, sep=""))
-        rhs.values <- .RHS
-        command <- paste("linearHypothesis(", .activeModel, ", .Hypothesis, rhs=.RHS)", sep="")
-        doItAndPrint(command)
-        justDoIt("remove(.Hypothesis, .RHS, envir=.GlobalEnv)") 
-        logger("remove(.Hypothesis, .RHS)")                                              
-        tkfocus(CommanderWindow())
-        contrast.table <- matrix(values, nrows, ncols, byrow=TRUE)
-        putDialog("testLinearHypothesis", list(previous.model=.activeModel, nrows=nrows, table.values=contrast.table,
-                                               rhs.values=rhs.values))
+    if (nrow(table.values) < nrows){
+      add.rows <- nrows - nrow(table.values)
+      table.values <- rbind(table.values, matrix(0, add.rows, ncols))
+      rhs.values <- c(rhs.values, rep(0, add.rows))
     }
-    OKCancelHelp(helpSubject="linearHypothesis", reset="testLinearHypothesis", apply="testLinearHypothesis")
-    tkgrid(labelRcmdr(rowsFrame, text=gettextRcmdr("Number of Rows:")), rowsSlider, rowsShow, sticky="w")
-    tkgrid(rowsFrame, sticky="w")
-    tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter hypothesis matrix and right-hand side vector:"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-    tkgrid(outerTableFrame, sticky="w")
-    tkgrid(labelRcmdr(top, text=""))
-    tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix()       
+    col.names <- names(coef(get(.activeModel)))
+    col.names <- substring(paste(abbreviate(col.names, 12), "            "), 1, 12)
+    make.col.names <- "labelRcmdr(.tableFrame, text='')"
+    for (j in 1:ncols) {
+      make.col.names <- paste(make.col.names, ", ", 
+                              "labelRcmdr(.tableFrame, text='", col.names[j], "')", sep="")
+    }
+    rhsText <- gettextRcmdr("Right-hand side")
+    make.col.names <- paste(make.col.names, ", labelRcmdr(.tableFrame, text='          ')",
+                            ", labelRcmdr(.tableFrame, text='", rhsText, "')", sep="")
+    eval(parse(text=paste("tkgrid(", make.col.names, ")", sep="")), envir=env)
+    for (i in 1:nrows){   
+      varname <- paste(".tab.", i, ".1", sep="") 
+      rhs.name <- paste(".rhs.", i, sep="")
+      assign(varname, tclVar(table.values[i, 1]) , envir=env)
+      assign(rhs.name, tclVar(rhs.values[i]), envir=env)
+      make.row <- paste("labelRcmdr(.tableFrame, text=", i, ")")
+      make.row <- paste(make.row, ", ", "ttkentry(.tableFrame, width='5', textvariable=", 
+                        varname, ")", sep="")
+      for (j in 2:ncols){
+        varname <- paste(".tab.", i, ".", j, sep="")
+        assign(varname, tclVar(table.values[i, j]), envir=env)
+        make.row <- paste(make.row, ", ", "ttkentry(.tableFrame, width='5', textvariable=", 
+                          varname, ")", sep="")
+      }
+      make.row <- paste(make.row, ", labelRcmdr(.tableFrame, text='     '),",
+                        "ttkentry(.tableFrame, width='5', textvariable=", rhs.name, ")", sep="")
+      eval(parse(text=paste("tkgrid(", make.row, ")", sep="")), envir=env)
+    }
+    tkgrid(get(".tableFrame", envir=env), sticky="w")
+  }
+  ncols <- length(coef(get(.activeModel)))
+  rowsFrame <- tkframe(top)
+  rowsValue <- tclVar(dialog.values$nrows)
+  rowsSlider <- tkscale(rowsFrame, from=1, to=ncols, showvalue=FALSE, variable=rowsValue,
+                        resolution=1, orient="horizontal", command=setUpTable)
+  rowsShow <- labelRcmdr(rowsFrame, textvariable=rowsValue, width=2, justify="right")
+  onOK <- function(){
+    nrows <- as.numeric(tclvalue(rowsValue))
+    cell <- 0
+    values <- rep(NA, nrows*ncols)
+    rhs <- rep(NA, nrows)
+    for (i in 1:nrows){
+      rhs.name <- paste(".rhs.", i, sep="")
+      rhs[i] <- as.numeric(eval(parse(text=paste("tclvalue(", rhs.name,")", sep=""))))
+      for (j in 1:ncols){
+        cell <- cell+1
+        varname <- paste(".tab.", i, ".", j, sep="")
+        values[cell] <- as.numeric(eval(parse(text=paste("tclvalue(", varname,")", sep=""))))
+      }
+    }
+    values <- na.omit(values)
+    closeDialog()
+    if (length(values) != nrows*ncols){
+      Message(message=sprintf(gettextRcmdr("Number of valid entries in hypothesis matrix(%d)\nnot equal to number of rows (%d) * number of columns (%d)."), 
+                              length(values), nrows, ncols), type="error")
+      testLinearHypothesis()
+      return()
+    }
+    if (qr(matrix(values, nrows, ncols, byrow=TRUE))$rank < nrows) {
+      Message(message=gettextRcmdr("Hypothesis matrix is not of full row rank."),
+              type="error")
+      testLinearHypothesis()
+      return()
+    }            
+    rhs <- na.omit(rhs)
+    if (length(rhs) != nrows){
+      errorCondition(recall=testLinearHypothesis, message=sprintf(gettextRcmdr("Number of valid entries in rhs vector (%d)\nis not equal to number of rows (%d)."), length(rhs), nrows))
+      return()
+    }
+    command.1 <- paste(".Hypothesis <- matrix(c(", paste(values, collapse=","), "), ", nrows, ", ", ncols,
+                       ", byrow=TRUE)", sep="")
+    command.2 <- paste(".RHS <- c(", paste(rhs, collapse=","), ")", sep="")
+    justDoIt(paste("putRcmdr('.RHS', c(", paste(rhs, collapse=","), "))", sep=""))
+    command.3 <- paste("linearHypothesis(", .activeModel, ", .Hypothesis, rhs=.RHS)", sep="")
+    doItAndPrint(paste("local({\n", "  ", command.1, "\n",
+                       "  ", command.2, "\n",
+                       "  ", command.3, "\n",
+                       "})", sep=""))                   
+    tkfocus(CommanderWindow())
+    contrast.table <- matrix(values, nrows, ncols, byrow=TRUE)
+    putDialog("testLinearHypothesis", list(previous.model=.activeModel, nrows=nrows, table.values=contrast.table,
+                                           rhs.values=getRcmdr(".RHS")))
+  }
+  OKCancelHelp(helpSubject="linearHypothesis", reset="testLinearHypothesis", apply="testLinearHypothesis")
+  tkgrid(labelRcmdr(rowsFrame, text=gettextRcmdr("Number of Rows:")), rowsSlider, rowsShow, sticky="w")
+  tkgrid(rowsFrame, sticky="w")
+  tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter hypothesis matrix and right-hand side vector:"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+  tkgrid(outerTableFrame, sticky="w")
+  tkgrid(labelRcmdr(top, text=""))
+  tkgrid(buttonsFrame, sticky="w")
+  dialogSuffix()       
 } 
 
 compareModels <- function () {
@@ -889,3 +868,107 @@ subsetRegression <- function () {
     tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
     dialogSuffix()
 }
+
+effectPlots <- function () {
+  Library("effects")
+  defaults <- list(initial.all.or.pick = "TRUE", initial.predictors = NULL, 
+                   initial.partial.res = 0, initial.span = 50, initial.style = "stacked")
+  dialog.values <- getDialog("effectPlots", defaults)
+  initializeDialog(title = gettextRcmdr("Model Effect Plots"))
+  predictors <- all.vars(formula(get(activeModel(), envir=.GlobalEnv))[[3]])
+  predictorsFrame <- tkframe(top)
+  radioButtons(predictorsFrame, name = "allEffects", buttons = c("yes", "no"), 
+               values = c("TRUE", "FALSE"),  
+               labels = gettextRcmdr(c("Yes", "No")), title = gettextRcmdr("Plot All High-Order Effects?"),
+               initialValue = dialog.values$initial.all.or.pick)
+  predictorsBox <- variableListBox(predictorsFrame, predictors, selectmode = "multiple", 
+                                   title = gettextRcmdr("Predictors (pick one or more)"), 
+                                   initialSelection = varPosn(dialog.values$initial.predictors, vars=predictors))
+  
+  partialResFrame <- tkframe(top)
+  partialResVariable <- tclVar(dialog.values$initial.partial.res)
+  partialResCheckBoxFrame <- tkframe(partialResFrame)
+  partialResCheckBox <- ttkcheckbutton(partialResCheckBoxFrame, variable = partialResVariable)
+  styleFrame <- tkframe(top)
+  radioButtons(styleFrame, name="styleButtons", buttons = c("stacked", "lines"),
+               labels = gettextRcmdr(c("Stacked areas", "Lines with confidence bands")),
+               title=gettextRcmdr("Style of Graph"), initialValue=dialog.values$initial.style)
+  sliderValue <- tclVar(dialog.values$initial.span)
+  sliderFrame <- tkframe(partialResFrame)
+  slider <- tkscale(sliderFrame, from = 5, to = 100, showvalue = TRUE,
+                    variable = sliderValue, resolution = 5, orient = "horizontal")
+  onOK <- function() {
+    predictors <- getSelection(predictorsBox)
+    allEffects <- as.logical(tclvalue(allEffectsVariable))
+    partial.residuals <- tclvalue(partialResVariable) == "1"
+    span <- as.numeric(tclvalue(sliderValue))
+    style <- tclvalue(styleButtonsVariable)
+    closeDialog() 
+    if (allEffects){
+      command <- if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("multinom", "polr"))
+        paste("plot(allEffects(", activeModel(), '), style="', style, '")', sep="")
+      else paste("plot(allEffects(", activeModel(), 
+                 if (partial.residuals) paste(", partial.residuals=TRUE), span=", span/100, ")", sep="")
+                 else "))", sep="")
+      doItAndPrint(command)
+      predictors <- NULL
+    }
+    else {
+      if (length(predictors) == 0) {
+        errorCondition(recall = effectPlots, 
+                       message = gettextRcmdr("You must select one or more predictors\n or plot all high-order effects."))
+        return()
+      }
+      if (partial.residuals && (all(predictors %in% Factors()))){
+        errorCondition(recall = effectPlots, 
+                       message = gettextRcmdr("To plot partial residuals,\n there must be a least one numeric predictor."))
+        return()
+      }
+      command <- if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("multinom", "polr"))
+        paste("plot(Effect(c(", paste(paste('"', predictors, '"', sep=""), collapse=", "), "), ", 
+              activeModel(), '), style="', style, '")', sep="")      
+      else paste("plot(Effect(c(", paste(paste('"', predictors, '"', sep=""), collapse=", "), "), ", activeModel(),
+                 if (partial.residuals) paste(", partial.residuals=TRUE), span=", span/100, ")", sep="")
+                 else "))", sep = "")
+      doItAndPrint(command)
+    }
+    putDialog ("effectPlots", list(initial.all.or.pick=as.character(allEffects), initial.predictors=predictors, 
+                                   initial.partial.res=as.numeric(partial.residuals),
+                                   initial.span=span, initial.style=style))
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "Effect", reset = "effectPlots", apply = "effectPlots")
+  tkgrid(allEffectsFrame, sticky="w")
+  tkgrid(getFrame(predictorsBox), sticky="w")
+  tkgrid(predictorsFrame, sticky="w")
+  if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("lm", "glm")){
+    tkgrid(labelRcmdr(partialResFrame, text=" "))
+    tkgrid(partialResCheckBox, 
+           labelRcmdr(partialResCheckBoxFrame, text=gettextRcmdr("Plot partial residuals")), 
+           sticky="w")
+    tkgrid(partialResCheckBoxFrame, sticky="w")
+    tkgrid(slider, labelRcmdr(sliderFrame, text = gettextRcmdr("Span for smooth")),
+           sticky = "swe", padx=6, pady=6)
+    tkgrid(sliderFrame, sticky="w")
+    tkgrid(partialResFrame, sticky="w")
+  }
+  else if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("multinom", "polr")){
+    tkgrid(labelRcmdr(styleFrame, text=" "))
+    tkgrid(styleButtonsFrame, sticky="w")
+    tkgrid(styleFrame, sticky="w")
+  }
+  tkgrid(buttonsFrame, sticky = "w")
+  dialogSuffix()
+}
+
+# effectPlots <- function(){
+#   Library("effects")
+#   .activeModel <- ActiveModel()
+#   if (is.null(.activeModel) || !checkMethod("Effect", .activeModel)) return()
+#   doItAndPrint('trellis.device(theme="col.whitebg")')
+#   command <- paste("plot(allEffects(", .activeModel, "), ask=FALSE)", sep="")
+#   justDoIt(command)
+#   logger(command)
+#   activateMenus()
+#   NULL
+# }

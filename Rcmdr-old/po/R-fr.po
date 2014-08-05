@@ -1,19 +1,19 @@
 # French translations for the Rcmdr package
 # Traductions françaises pour le package Rcmdr
-# Copyright (C) 2005-2012 John Fox
+# Copyright (C) 2005-2014 John Fox
 # This file is distributed under the same license as the Rcmdr package
 # Philippe Grosjean <phgrosjean@sciviews.org>, 2005-2007
-# Milan Bouchet-Valat <nalimilan@club.fr>, 2012.
-#
+# Milan Bouchet-Valat <nalimilan@club.fr>, 2012-2014.
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 1.8-4\n"
+"Project-Id-Version: Rcmdr 2.0-3\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2012-03-20 10:30:00\n"
-"PO-Revision-Date: 2012-12-11 22:11:00+02\n"
+"POT-Creation-Date: 2013-11-08 15:57:00\n"
+"PO-Revision-Date: 2014-01-10 18:00:00\n"
 "Last-Translator: Milan Bouchet-Valat <nalimilan@club.fr>\n"
 "Language-Team: français <>\n"
-"Language: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -191,7 +191,7 @@ msgid "Select all"
 msgstr "Sélectionner tout"
 
 msgid "Edit data set"
-msgstr "Editer"
+msgstr "Éditer"
 
 msgid "View data set"
 msgstr "Visualiser"
@@ -218,7 +218,7 @@ msgid "Messages"
 msgstr "Messages"
 
 msgid "The rgl package is absent; 3D plots are unavailable."
-msgstr "Le paquet rgl est absent ; graphiques 3D indisponibles."
+msgstr "Le paquet rgl est absent ; graphes 3D indisponibles."
 
 msgid "R Commander Version"
 msgstr "R Commander Version"
@@ -423,8 +423,8 @@ msgid ""
 "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
 "\".POR\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Fichiers de sauvegarde SPSS\" {\".sav\" \".SAV\"}} {\"Fichiers portables SPSS\" {\".por\" "
-"\".POR\"}} {\"Tous les fichiers\" {\"*\"}}"
+"{\"Fichiers de sauvegarde SPSS\" {\".sav\" \".SAV\"}} {\"Fichiers portables "
+"SPSS\" {\".por\" \".POR\"}} {\"Tous les fichiers\" {\"*\"}}"
 
 msgid ""
 "Convert value labels\n"
@@ -870,13 +870,13 @@ msgid "{\"Script Files\" {\".R\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Fichiers scripts\" {\".R\"}} {\"Tous les fichiers\" {\"*\"}}"
 
 msgid "Save current log file?"
-msgstr "Sauver le fichier des sorties ?"
+msgstr "Enregistrer le fichier des sorties ?"
 
 msgid "Script saved to"
-msgstr "Script sauvé dans"
+msgstr "Script enregistré dans"
 
 msgid "Output saved to"
-msgstr "Sorties sauvées dans"
+msgstr "Sorties enregistrées dans"
 
 msgid "{\"Output Files\" {\".txt\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Fichiers sorties\" {\".txt\"}} {\"Tous les fichiers\" {\"*\"}}"
@@ -885,16 +885,16 @@ msgid "{\"All Files\" {\"*\"}}"
 msgstr "{\"Tous les fichiers\" {\"*\"}}"
 
 msgid "R workspace saved to"
-msgstr "Environnement R sauvé dans"
+msgstr "Environnement R enregistré dans"
 
 msgid "Exit?"
 msgstr "Voulez-vous sortir ?"
 
 msgid "Save script file?"
-msgstr "Sauver le fichier script ?"
+msgstr "Enregistrer le fichier script ?"
 
 msgid "Save output file?"
-msgstr "Sauver le fichier de sortie ?"
+msgstr "Enregistrer le fichier des sorties ?"
 
 msgid "Commander Options"
 msgstr "Options de R Commander"
@@ -933,7 +933,7 @@ msgid "Sort variable names alphabetically"
 msgstr "Trier les noms de variables par ordre alphabétique"
 
 msgid "Show edit button"
-msgstr "Montrer le bouton 'Editer'"
+msgstr "Afficher le bouton « Éditer »"
 
 msgid ""
 "Exit and Restart\n"
@@ -1279,13 +1279,13 @@ msgid "White"
 msgstr "Blanc"
 
 msgid "Save Graph as Bitmap"
-msgstr "Sauver le graphe comme un bitmap"
+msgstr "Enregistrer le graphe en bitmap"
 
 msgid "There is no current graphics device to save."
 msgstr "Aucun périphérique graphique d'où sauvegarder."
 
 msgid "Graphics File Type"
-msgstr "Type de fichier graphique"
+msgstr "Type de fichier image"
 
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Fichiers PNG\" {\".png\" \".PNG\"}} {\"Tous les fichiers\" {\"*\"}}"
@@ -1298,7 +1298,7 @@ msgstr ""
 "fichiers\" {\"*\"}}"
 
 msgid "Graph saved to file"
-msgstr "Graphe sauvegardé dans le fichier"
+msgstr "Graphe enregistré dans le fichier"
 
 msgid "Width (pixels)"
 msgstr "Largeur (pixels)"
@@ -1307,7 +1307,7 @@ msgid "Height (pixels)"
 msgstr "Hauteur (pixels)"
 
 msgid "Save Graph as PDF/Postscript"
-msgstr "Sauver le graphe comme PDF/Postscript"
+msgstr "Enregistrer le graphe en PDF/Postscript"
 
 msgid "PDF"
 msgstr "PDF"
@@ -2123,22 +2123,22 @@ msgid "Open script file..."
 msgstr "Ouvrir un script..."
 
 msgid "Save script..."
-msgstr "Sauver le script..."
+msgstr "Enregister le script..."
 
 msgid "Save script as..."
-msgstr "Sauver le script sous..."
+msgstr "Enregister le script sous..."
 
 msgid "Save output..."
-msgstr "Sauver les sorties..."
+msgstr "Enregister les sorties..."
 
 msgid "Save output as..."
-msgstr "Sauver les sorties sous..."
+msgstr "Enregister les sorties sous..."
 
 msgid "Save R workspace..."
-msgstr "Sauver l'environnement R..."
+msgstr "Enregister l'environnement R..."
 
 msgid "Save R workspace as..."
-msgstr "Sauver l'environnement R sous..."
+msgstr "Enregister l'environnement R sous..."
 
 msgid "From Commander"
 msgstr "Fermer Commander"
@@ -2153,7 +2153,7 @@ msgid "File"
 msgstr "Fichier"
 
 msgid "Edit"
-msgstr "Edition"
+msgstr "Édition"
 
 msgid "New data set..."
 msgstr "Nouveau jeu de données..."
@@ -3877,8 +3877,8 @@ msgid ""
 msgstr ""
 "{\"Tous les fichiers\" {\"*\"}} {\"Base de données MS Access\" {*.mdb \".MDB"
 "\"}} {\"Base de données MS Access 2007\" {*.mdbx \".MDBX\"}} {\"Fichier de "
-"type dBase\" {*.dbf \".DBF\"}} {\"Fichier MS Excel 2007\" {*.xlsx \".XLSX\"}} "
-"{\"Fichier MS Excel\" {*.xls \".XLS\"}}"
+"type dBase\" {*.dbf \".DBF\"}} {\"Fichier MS Excel 2007\" {*.xlsx \".XLSX"
+"\"}} {\"Fichier MS Excel\" {*.xls \".XLS\"}}"
 
 msgid ""
 "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
@@ -3908,8 +3908,8 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
 "\"}}"
 msgstr ""
-"{\"Tous les fichiers\" {\"*\"}} {\"Fichiers Postscript encapsulés\" {\".eps\" "
-"\".EPS\"}}"
+"{\"Tous les fichiers\" {\"*\"}} {\"Fichiers Postscript encapsulés\" {\".eps"
+"\" \".EPS\"}}"
 
 # messages added to version 1.7-0
 msgid "Reset"
@@ -4015,3 +4015,492 @@ msgstr "Taille de police par défaut (points)"
 
 msgid "data set edit error."
 msgstr "erreur d'édition du jeu de données"
+
+msgid "Identify Outliers"
+msgstr "Identifier les valeurs aberrantes"
+
+msgid "Automatically"
+msgstr "Automatiquement"
+
+msgid "With mouse"
+msgstr "À la souris"
+
+msgid "Width"
+msgstr "Largeur"
+
+msgid "Height"
+msgstr "Hauteur"
+
+msgid "[disabled]"
+msgstr "[désactivé]"
+
+msgid "inches"
+msgstr "pouces"
+
+msgid "inch"
+msgstr "pouce"
+
+msgid "cm"
+msgstr "cm"
+
+msgid "pixels"
+msgstr "pixels"
+
+msgid "Units"
+msgstr "Unités"
+
+msgid "Fixed aspect ratio (height:width)"
+msgstr "Rapport hauteur/largeur fixé"
+
+msgid "Resolution"
+msgstr "Résolution"
+
+msgid "from SAS xport file..."
+msgstr "depuis un fichier SAS xport..."
+
+msgid "Data Set Name"
+msgstr "Nom du jeu de données"
+
+msgid "Select Dataset"
+msgstr "Sélectionnez un jeu de données"
+
+msgid "Datasets in file (pick one)"
+msgstr "Jeux de données dans un fichier (en choisir un)"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
+"\".XPORT\"}}"
+msgstr ""
+"{\"Tous les fichiers\" {\"*\"}} {\"Fichiers SAS xport\" {\".xpt\" \".XPT\" "
+"\".xport\" \".XPORT\"}}"
+
+msgid ""
+"Convert variable names\n"
+"to lower case"
+msgstr ""
+"Convertir les noms de variables\n"
+"en minuscule"
+
+msgid "from Excel file..."
+msgstr "depuis un fichier Excel..."
+
+msgid "Import Excel Data Set"
+msgstr "Importer un jeu de données Excel"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
+msgstr ""
+"{\"All Files\" {\"*\"}} {\"Fichier MS Excel 2007\" {\".xlsx\" \".XLSX\"}} "
+"{\"Fichier MS Excel\" {\".xls\" \".XLS\"}}"
+
+msgid "Interquartile Range"
+msgstr "Écart interquartile"
+
+msgid "Interquartile range"
+msgstr "Écart interquartile"
+
+msgid "Lines"
+msgstr "Lignes"
+
+msgid "Choose at least one of points or lines."
+msgstr "Choisissez « points », « lignes » ou les deux à la fois."
+
+msgid "Plot Type (one or both)"
+msgstr "Type de graphe (un ou les deux)"
+
+msgid "Plot legend"
+msgstr "Légende du graphe"
+
+msgid "Conditions '|' (pick zero or more)"
+msgstr "Conditions « | » (zéro ou plus)"
+
+msgid "Groups 'groups=' (pick zero or more)"
+msgstr "Groupes « groups= » (zéro ou plus)"
+
+msgid "Different panels for different y ~ x combinations"
+msgstr "Utiliser des panneaux séparés pour différentes combinaisons y ~ x"
+
+msgid "Layout"
+msgstr "Disposition"
+
+msgid "number of columns:"
+msgstr "nombre de colonnes :"
+
+msgid "number of rows:"
+msgstr "nombre de lignes :"
+
+msgid "Plot Options"
+msgstr "Options du graphe"
+
+msgid "Plot Labels"
+msgstr "Étiquettes du graphe"
+
+msgid "Graph title"
+msgstr "Titre du graphe"
+
+msgid "Plot Labels and Points"
+msgstr "Étiquettes et points du graphe"
+
+msgid "Apply"
+msgstr "Appliquer"
+
+msgid "Pairwise p-values"
+msgstr "p-values par paires"
+
+msgid "Observations to Use"
+msgstr "Observations à utiliser"
+
+msgid "Complete observations"
+msgstr "Observations complètes"
+
+msgid "Pairwise-complete observations"
+msgstr "Observations avec paires complètes"
+
+msgid "R Script"
+msgstr "Script R"
+
+msgid "Output"
+msgstr "Sortie"
+
+msgid "R Commander website"
+msgstr "Site Web de R Commander"
+
+msgid "R website"
+msgstr "Site Web de R"
+
+msgid "Using R Markdown"
+msgstr "Utiliser le R Markdown"
+
+msgid "Table"
+msgstr "Table"
+
+msgid "Interactively with mouse"
+msgstr "Avec la souris de manière interactive"
+
+msgid "Do not identify"
+msgstr "Ne pas identifier"
+
+msgid "number of points to identify must be an integer"
+msgstr "le nombre de points à identifier doit être un entier"
+
+msgid "Number of points to identify"
+msgstr "Nombre de points à identifier :"
+
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group "
+msgstr ""
+"Nombre de points à identifier\n"
+"dans chaque panneau et groupe"
+
+msgid "Added-Variable Plots"
+msgstr "Graphes de régression partielle"
+
+msgid "Component+Residual Plots"
+msgstr "Graphes composants+résidus"
+
+msgid "Influence Plot"
+msgstr "Graphe d'influence des points"
+
+# support for R Markdown and knitr
+msgid "Generate HTML report"
+msgstr "Générer un rapport HTML"
+
+msgid "Generate PDF report"
+msgstr "Générer un rapport PDF"
+
+msgid "R Markdown"
+msgstr "R Markdown"
+
+msgid "knitr Document"
+msgstr "Document knitr"
+
+msgid "Open R Markdown file..."
+msgstr "Ouvrir un fichier R Markdown..."
+
+msgid "Open knitr file..."
+msgstr "Ouvrir un fichier knitr..."
+
+msgid "Save R Markdown file..."
+msgstr "Enregistrer un fichier R Markdown..."
+
+msgid "Save knitr file..."
+msgstr "Enregister le fichier knitr..."
+
+msgid "Save knitr file?"
+msgstr "Enregister le fichier knitr?"
+
+msgid "Save current Rmd file?"
+msgstr "Enregistrer le fichier Rmd courant ?"
+
+msgid "Save current Rnw file?"
+msgstr "Enregistrer le fichier Rnw courant ?"
+
+msgid "Save R Markdown file as..."
+msgstr "Enregistrer le fichier R Markdown sous..."
+
+msgid "Save knitr file as..."
+msgstr "Enregistrer le fichier knitr sous..."
+
+msgid "R Markdown file saved to"
+msgstr "Fichier R Markdown enregistré dans"
+
+msgid "knitr file saved to"
+msgstr "Fichier knitr entregistré dans"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr "{\"Tous les fichiers\" {\"*\"}} {\"Fichiers R Markdown\" {\".Rmd\" \".rmd\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
+"\"}}"
+msgstr ""
+"{\"Tous les fichiers\" {\"*\"}} {\"Fichiers knitr\" {\".Rmd\" \".rmd\" \".Snw"
+"\" \".snw\"}}"
+
+msgid ""
+"Delete previously created knitr\n"
+"graphics files (recommended)?"
+msgstr ""
+"Supprimer les fichiers images knitr\n"
+"précédemment créés (recommandé) ?"
+
+msgid "Ask to exit Commander"
+msgstr "Demander avant de sortir du Commander"
+
+msgid "Ask to save documents on exit"
+msgstr "Demander d'enregistrer les documents en sortant"
+
+msgid "Quit R on exit"
+msgstr "Quitter R en sortant"
+
+msgid "Number messages"
+msgstr "Numéroter les messages"
+
+msgid "Retain messages"
+msgstr "Conserver les messages"
+
+msgid "Use R Markown"
+msgstr "Utiliser le R Markdown"
+
+msgid "Use knitr"
+msgstr "Utiliser knitr"
+
+msgid "Select file"
+msgstr "Sélectionner un fichier"
+
+msgid "R Markdown template file"
+msgstr "Modèle R Markdown"
+
+msgid "R knitr template file"
+msgstr "Modèle R knitr"
+
+msgid "Suppress icon images"
+msgstr "Supprimer les icônes"
+
+msgid "Retain dialog selections"
+msgstr "Se souvenir des sélections dans les boîtes de dialogue"
+
+msgid "Use rgl package"
+msgstr "Utiliser le paquet rgl"
+
+msgid "Dialog text font size (points)"
+msgstr "Taille de la police des boîtes de dialogue (points)"
+
+msgid "Script and output font size (points)"
+msgstr "Taille de la police des scripts et des sorties (points)"
+
+msgid "Dialog font"
+msgstr "Police des boîtes de dialogue"
+
+msgid "Script and output font"
+msgstr "Police des scripts et des sorties"
+
+msgid "Script text color"
+msgstr "Couleur du texte des scripts"
+
+msgid "Command text color"
+msgstr "Couleur du texte des commandes"
+
+msgid "Output text color"
+msgstr "Couleur du texte des sorties"
+
+msgid "Error text color"
+msgstr "Couleur du texte des erreurs"
+
+msgid "Warning text color"
+msgstr "Couleur du texte des avertissements"
+
+msgid "Dialog subtitles text color"
+msgstr "Couleur des sous-titres des boîtes de dialogue"
+
+msgid "Script window width (characters)"
+msgstr "Largeur de la fenêtre de script (caractères)"
+
+msgid "Script window height (lines)"
+msgstr "Hauteur de la fenêtre de script (lignes)"
+
+msgid "Output window height (lines)"
+msgstr "Hauteur de la fenêtre des sorties (lignes)"
+
+msgid "Messages window height (lines)"
+msgstr "Hauteur de la fenêtre des sorties (lignes)"
+
+msgid "Fonts"
+msgstr "Polices"
+
+msgid "Other Options"
+msgstr "Autres Options"
+
+msgid "Save Commander Options"
+msgstr "Enregistrer les options du Commander"
+
+msgid "R Profile saved to"
+msgstr "Profil R enregistré dans"
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr "Les commandes suivantes seront enregistrées dans le fichier .Rprofile."
+
+msgid "You may edit this file before saving it."
+msgstr "Vous pouvez éditer ce fichier avant de l'enregistrer."
+
+msgid "Save Rcmdr options..."
+msgstr "Enregistrer les options de Rcmdr..."
+
+msgid "Nonparametric Density Estimate"
+msgstr "Estimation non-paramétrique de densité"
+
+msgid "Gaussian"
+msgstr "Gaussien"
+
+msgid "Epanechnikov"
+msgstr "Epanechnikov"
+
+msgid "Tukey biweight"
+msgstr "Tukey à double poids"
+
+msgid "Kernel Function"
+msgstr "Fonction de noyau"
+
+msgid "Bandwidth"
+msgstr "Largeur de bande"
+
+msgid "Multiply bandwidth by"
+msgstr "Multiplier la largeur de bande par"
+
+msgid "Density estimate..."
+msgstr "Estimation de densité..."
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr "La largeur de bande doit être <auto> ou un nombre positif"
+
+# index plot dialog
+msgid "Style of plot"
+msgstr "Style de graphe"
+
+msgid "Write variable names"
+msgstr "Ecrire le nom des variables"
+
+msgid "Write row names"
+msgstr "Ecrire le nom des lignes"
+
+msgid "Quotes around character values"
+msgstr "Chaînes de caractères entre guillemets"
+
+msgid "Quantiles:"
+msgstr "Quantiles :"
+
+msgid "spline requires a numeric variable"
+msgstr "les splines nécessitent des variables numériques"
+
+msgid "cannot select more than one variable"
+msgstr "impossible de sélectionner plus d'une variable"
+
+msgid "polynomial requires a numeric variable"
+msgstr "les polynômes nécessitent des variables numériques"
+
+msgid "B-spline\n"
+msgstr "B-spline\n"
+
+msgid ""
+"natural\n"
+"spline"
+msgstr ""
+"spline\n"
+"naturelle"
+
+msgid ""
+"orthogonal\n"
+"polynomial"
+msgstr ""
+"polynôme\n"
+"orthogonal"
+
+msgid ""
+"raw\n"
+"polynomial"
+msgstr ""
+"polynôme\n"
+"brut"
+
+msgid "Model Formula"
+msgstr "Formule du modèle"
+
+msgid "Operators (click to formula):"
+msgstr "Opérateurs (un clic envoie vers la formule) :"
+
+msgid ""
+"Splines/Polynomials:\n"
+"(select variable and click)"
+msgstr ""
+"Splines/Polynômes :\n"
+"(sélectionnez une variable et cliquez)"
+
+msgid "df for splines:"
+msgstr "DL pour les splines :"
+
+msgid "deg. for polynomials:"
+msgstr "DL pour les polynômes :"
+
+msgid "R Commander Editor"
+msgstr "Éditeur R Commander"
+
+msgid "Edit R Markdown document"
+msgstr "Éditer le document R Markdown"
+
+msgid "Edit knitr document"
+msgstr "Éditer le document knitr"
+
+# support for R Markdown and knitr
+msgid "Remove last Markdown command block"
+msgstr "Supprimer le dernier bloc de commandes Markdown"
+
+msgid "Remove last knitr command block"
+msgstr "Supprimer le dernier bloc de commandes knitr"
+
+msgid "Remove last command block"
+msgstr "Supprimer le dernier bloc de commandes"
+
+msgid "Exit editor"
+msgstr "Quitter l'éditeur"
+
+msgid "Editor help"
+msgstr "Aide de l'éditeur"
+
+msgid ""
+"Delete previously created R Markdown\n"
+"graphics files (recommended)?"
+msgstr ""
+"Supprimer les fichiers images R Markdown\n"
+"précédemment créés (recommandé) ?"
+
+msgid "Discard edits?"
+msgstr "Abandonner les modifications ?"
+
+# support for back-to-back stem-and-leaf displays
+msgid "Plot back-to-back by:"
+msgstr "Graphique couplé par :"
+
+msgid "Plot back-to-back by"
+msgstr "Graphique couplé par"

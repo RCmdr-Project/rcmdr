@@ -1,13 +1,13 @@
-"Project-Id-Version: Rcmdr 1.9-1\n"
+msgid "Project-Id-Version: Rcmdr 2.0-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2012-09-02 11:45:00\n"
+"POT-Creation-Date: 2013-11-08 15:57:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
+msgstr ""
 
 msgid "KMeans Clustering"
 msgstr ""
@@ -3945,4 +3945,368 @@ msgid "number of columns:"
 msgstr ""
 
 msgid "number of rows:"
+msgstr ""
+
+
+# messages added to version 2.0-0
+
+msgid "Plot Options"
+msgstr ""
+
+msgid "Plot Labels"
+msgstr ""
+
+msgid "Graph title"
+msgstr ""
+
+msgid "Plot Labels and Points"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Pairwise p-values"
+msgstr ""
+
+msgid "Observations to Use"
+msgstr ""
+
+msgid "Complete observations"
+msgstr ""
+
+msgid "Pairwise-complete observations"
+msgstr ""
+
+msgid "R Script"
+msgstr ""
+
+msgid "Output"
+msgstr ""
+
+msgid "R Commander website" 
+msgstr ""
+
+msgid "R website"
+msgstr ""
+
+msgid "Using R Markdown"
+msgstr ""
+
+msgid "Table"
+msgstr ""
+
+    # point identification in graphs (additional messages)
+
+msgid "Interactively with mouse"
+msgstr ""
+
+msgid "Do not identify"
+msgstr ""
+
+msgid "number of points to identify must be an integer"
+msgstr ""
+
+msgid "Number of points to identify"
+msgstr ""
+
+msgid "Number of points to identify  \nin each panel and group "
+msgstr ""
+
+msgid "Added-Variable Plots"
+msgstr ""
+
+msgid "Component+Residual Plots"
+msgstr ""
+
+msgid "Influence Plot"
+msgstr ""
+
+    # support for R Markdown and knitr
+
+msgid "Generate HTML report"
+msgstr ""
+
+msgid "Generate PDF report"
+msgstr ""
+
+msgid "R Markdown"
+msgstr ""
+
+msgid "knitr Document"
+msgstr ""
+
+msgid "Open R Markdown file..."
+msgstr ""
+
+msgid "Open knitr file..."
+msgstr ""
+
+msgid "Save R Markdown file..."
+msgstr ""
+
+msgid "Save knitr file..."
+msgstr ""
+
+msgid "Save knitr file?"
+msgstr ""
+
+msgid "Save current Rmd file?"
+msgstr ""
+
+msgid "Save current Rnw file?"
+msgstr ""
+
+msgid "Save R Markdown file as..."
+msgstr ""
+
+msgid "Save knitr file as..."
+msgstr ""
+
+msgid "R Markdown file saved to"
+msgstr ""
+
+msgid "knitr file saved to"
+msgstr ""
+
+msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr ""
+
+msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+msgstr ""
+
+msgid "Delete previously created knitr\ngraphics files (recommended)?"
+msgstr ""
+
+    # setting and saving options
+
+msgid "Ask to exit Commander"
+msgstr ""
+
+msgid "Ask to save documents on exit"
+msgstr ""
+
+msgid "Quit R on exit"
+msgstr ""
+
+msgid "Number messages"
+msgstr ""
+
+msgid "Retain messages"
+msgstr ""
+
+msgid "Use R Markown"
+msgstr ""
+
+msgid "Use knitr"
+msgstr ""
+
+msgid "Select file"
+msgstr ""
+
+msgid "R Markdown template file"
+msgstr ""
+
+msgid "R knitr template file"
+msgstr ""
+
+msgid "Suppress icon images"
+msgstr ""
+
+msgid "Retain dialog selections"
+msgstr ""
+
+msgid "Use rgl package"
+msgstr ""
+
+msgid "Dialog text font size (points)"
+msgstr ""
+
+msgid "Script and output font size (points)"
+msgstr ""
+
+msgid "Dialog font"
+msgstr ""
+
+msgid "Script and output font"
+msgstr ""
+
+msgid "Script text color"
+msgstr ""
+
+msgid "Command text color"
+msgstr ""
+
+msgid "Output text color"
+msgstr ""
+
+msgid "Error text color"
+msgstr ""
+
+msgid "Warning text color"
+msgstr ""
+
+msgid "Dialog subtitles text color"
+msgstr ""
+
+msgid "Script window width (characters)"
+msgstr ""
+
+msgid "Script window height (lines)"
+msgstr ""
+
+msgid "Output window height (lines)"
+msgstr ""
+
+msgid "Messages window height (lines)"
+msgstr ""
+
+msgid "Fonts"
+msgstr ""
+
+msgid "Other Options"
+msgstr ""
+
+msgid "Save Commander Options"
+msgstr ""
+
+msgid "R Profile saved to"
+msgstr ""
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr ""
+
+msgid "You may edit this file before saving it."
+msgstr ""
+
+msgid "Save Rcmdr options..."
+msgstr ""
+
+    # density estimate dialog
+
+msgid "Nonparametric Density Estimate"
+msgstr ""
+
+msgid "Gaussian"
+msgstr ""
+
+msgid "Epanechnikov"
+msgstr ""
+
+msgid "Tukey biweight"
+msgstr ""
+
+msgid "Kernel Function"
+msgstr ""
+
+msgid "Bandwidth"
+msgstr ""
+
+msgid "Multiply bandwidth by"
+msgstr ""
+
+msgid "Density estimate..."
+msgstr ""
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr ""
+
+# index plot dialog
+
+msgid "Style of plot"
+msgstr ""
+
+# export data set dialog
+
+msgid "Write variable names"
+msgstr ""
+
+msgid "Write row names"
+msgstr ""
+
+msgid "Quotes around character values"
+msgstr ""
+
+# numerical summaries dialog
+
+msgid "Quantiles:"
+msgstr ""
+
+# for splines and polynomials in model formulas
+
+msgid "spline requires a numeric variable"
+msgstr ""
+
+msgid "cannot select more than one variable"
+msgstr ""
+
+msgid "polynomial requires a numeric variable"
+msgstr ""
+
+msgid "B-spline\n"
+msgstr ""
+
+msgid "natural\nspline"
+msgstr ""
+
+msgid "orthogonal\npolynomial"
+msgstr ""
+
+msgid "raw\npolynomial"
+msgstr ""
+
+msgid "Model Formula"
+msgstr ""
+
+msgid "Operators (click to formula):"
+msgstr ""
+
+msgid "Splines/Polynomials:\n(select variable and click)"
+msgstr ""
+
+msgid "df for splines:"
+msgstr ""
+
+msgid "deg. for polynomials:"
+msgstr ""
+
+# messages added to version 2.0-1
+
+   # messages related to editing/processing R Markdown and knitr documents
+
+msgid "R Commander Editor"
+msgstr ""
+
+msgid "Edit R Markdown document"
+msgstr ""
+
+msgid "Edit knitr document"
+msgstr ""
+
+msgid "Remove last Markdown command block"
+msgstr ""
+
+msgid "Remove last knitr command block"
+msgstr ""
+
+msgid "Remove last command block"
+msgstr ""
+
+msgid "Exit editor"
+msgstr ""
+
+msgid "Editor help"
+msgstr ""
+
+msgid "Delete previously created R Markdown\ngraphics files (recommended)?"
+msgstr ""
+
+msgid "Discard edits?"
+msgstr ""
+
+   # support for back-to-back stem-and-leaf displays
+
+msgid "Plot back-to-back by:"
+msgstr ""
+
+msgid "Plot back-to-back by"
 msgstr ""

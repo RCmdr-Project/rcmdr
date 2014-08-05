@@ -14,7 +14,7 @@ Commander()
 \bold{Getting Started}
 
 The default R Commander interface consists of (from top to bottom) a menu bar, a toolbar,
-a script window, an output window, and a messages window.
+a code window with script and R Markdown tabs, an output window, and a messages window.
 
 Commands to read, write, transform, and analyze data are entered using the menus in the
 menu bar at the top of the \emph{Commander} window. Most menu items lead to dialog boxes
@@ -24,7 +24,7 @@ what is available.
 Below the menu bar is a toolbar with (from left to right) an information field
 displaying the name of the active data set; buttons for editing and displaying the active
 data set; and an information field showing the active statistical model. There is also
-a \emph{Submit} button for re-executing commands in the script window.
+a \emph{Submit} button for re-executing commands in the Script tab.
 The information fields for the active data set and active model are actually 
 buttons that can be used to select the active data set and model from among, respectively,
 data frames or suitable model objects in memory.
@@ -36,11 +36,16 @@ Minitab data set,  STATA data set, or an Excel, Access, or dBase data set.
 In addition, the active data set can be selected from among R data frames
 resident in memory. You can therefore switch among data sets during a session.
 
-By default, commands are logged to the script window (the
+By default, commands are logged to the Script tab (the
 initially empty text window immediately below the toolbar), and 
-commands and output appear in the output window (the initially empty text window below the
-script window). To alter these and
-other defaults, see the information below on configuration.
+commands and output appear in the Output window (the initially empty text window below the
+Script tab). Commands that don't require direct user interaction (such as interactive
+identification of points on a graph) are also used to create an R Markdown document in
+the tab of the same name. When the R Markdown tab is in front, pressing the "Generate HTML report" button
+compiles the document to create an html page with input and output, which opens in a web browser. To alter these and
+other defaults, see the information below on configuration. Note, for example, that the \pkg{knitr} package
+can be used to create a LaTeX document to be compiled to a PDF report, as an alternative to --- or in addition to ---
+an R Markdown document (see the \code{use.knitr} option below).
  
 Some \pkg{Rcmdr} dialogs (those in the \emph{Statistics -> Fit models} menu) 
 produce linear, generalized
@@ -50,16 +55,16 @@ Items in the \emph{Models} menu apply to the active model. Initially, there is n
 If there are several models in memory, you can select the active model from among them.
 
 If command logging in turned on, R commands that are generated from the menus and dialog boxes are
-entered into the script window in the Commander. You can edit these commands in the normal
-manner and can also type new commands into the script window. Individual commands
-can be continued over more than one line, the several lines of a multi-line command
+entered into the Script and R Markdown tabs in the Commander. You can edit these commands in the normal
+manner and can also type new commands. You can also type explanatory text in the R Markdown tab. Individual commands
+in the Script tab can be continued over more than one line, but the several lines of a multi-line command
 must be submitted simultaneously. (It is not necessary, as in earlier versions of the
-R Commander, to begin continuation lines with white space.) The contents of the script
-window can be saved during or at the end of the session, and a saved script can be loaded into the
-script window. The contents of the output window can also be edited or saved to a text file. Finally,
-editing operations also work in the messages window.
+R Commander, to begin continuation lines with white space.) The contents of the Script and R Markdown
+tabs can be saved during or at the end of the session, and a saved script or R Markdown document can be loaded into the
+respective tabs. The contents of the Output window can also be edited or saved to a text file. Finally,
+editing operations also work in the Messages window.
 
-To re-execute a command or set of commands, select the lines to be executed using
+To re-execute a command or set of commands in the Script tab, select the lines to be executed using
 the mouse and press the \emph{Submit} button at the right of the toolbar
 (or \emph{Control-R}, for "run", or \emph{Control-Tab}). If no text is selected, 
 the \emph{Submit} button (or \emph{Control-R} or \emph{Control-Tab}) 
@@ -67,19 +72,26 @@ submits the line containing the text-insertion cursor. Note that an error will b
 command or commands are incomplete.
 
 Pressing \emph{Control-F} brings up a find-text dialog box (which can also be accessed via 
-\emph{Edit -> Find}) to search for text in the script, output, or messages window. Edit functions such as
-search are performed in the script window unless you first click in the output or messages window to make it the active
-window.
+\emph{Edit -> Find}) to search for text in the Script tab, R Markdown tab, knitr tab, Output window, or Messages window. Edit functions such as
+search are performed in the Script tab unless you first click in another tab or window to make it active.
 
-Pressing \emph{Control-S} will save the script or output window.
+Pressing \emph{Control-S} will save the Script tab, R Markdown tab, knitr tab, or Output window.
 
-Pressing \emph{Control-A} selects all of the text in the script, output, or messages window.
+Pressing \emph{Control-A} selects all of the text in the Script tab, R Markdown tab, knitr tab, Output window, or Messages window.
 
-In addition, the following Control-key combinations work in the script, output, and messages windows: \emph{Control-X}, cut;
+In addition, the following Control-key combinations work in these tabs and windows: \emph{Control-X}, cut;
 \emph{Control-C}, copy; \emph{Control-V}, insert; \emph{Control-Z} or \emph{Alt-Backspace}, undo; and \emph{Control-W}, redo.
 
-Right-clicking the mouse (clicking button 3 on a three-button mouse, or \emph{Control}-left-clicking) in the script, output, or message window brings up
-a "context" menu with the \emph{Edit}-menu items, plus (in the script window) a \emph{Submit} item.
+Under Mac OS X, the \emph{command} key may be used in place of the \code{Control} key, though the
+latter works as well.
+
+Right-clicking the mouse (clicking button 3 on a three-button mouse, or \emph{Control}-left-clicking) in the tabs or windows brings up
+a "context" menu with the \emph{Edit}-menu items, plus (in the Script, R Markdown, and knitr tabs) a \emph{Submit} item.
+
+You can open a larger editor window with the document in the Markdown or knitr
+tab by making the corresponding selection from the \emph{Edit} menu, the right-click
+context menu when the cursor is in the tab, or by pressing \emph{Control-E} when the
+cursor is in the tab.
 
 When you
 execute commands from the \emph{Commander} window, you must ensure that the sequence of commands
@@ -90,6 +102,10 @@ Pressing a letter key (e.g., "a") in a list box will scroll the list box to brin
 starting with that letter to the top of the box. 
 
 You can cancel an R Commander dialog box by pressing the \emph{Esc} key.
+
+Most R Commander dialogs remember their state when this is appropriate, and can be restored to pristine state by pressing the Reset button.
+
+Some R Commander dialogs have an Apply button that will execute the command generated by the dialog and then re-open the dialog in its previous state.
 
 Exit from the Commander via the \emph{File -> Exit} menu or by closing the \emph{Commander} window.
 
@@ -147,19 +163,16 @@ set none, one, several, or all options. The available options are as follows:
     \code{c("contr.Treatment", "contr.poly")}. When the Commander exits, the \code{contrasts}
     option is returned to its pre-existing value. Note that \code{contr.Treatment} is from the \code{car} package.}
     
-    \item{\code{default.font}}{The default font for GUI elements such as menus and text labels, in the form of a 
-    Tk font specification, given in a character string. 
-    For example,  \code{"-family Helvetica -size 12"} specifies a 12-point Helvetica font.
-    If specified, this value takes precedence over the default font size (below). Absent a compelling reason for
-    changing the font, it is generally more convenient simply to change the default font size.}
+    \item{\code{default.font.family}}{The default font for GUI elements such as menus and text labels, in the form of a 
+    Tk font family specification, given in a character string. 
+    For example,  \code{"Helvetica"} specifies the sans-serif Helvetica font family.
+    IThe default is taken from the \code{TkDefaultFont}. Normally a sans-serif font should be used.}
 
-    \item{\code{default.font.size}}{The size, in points, of the default font. The default is 10. 
+    \item{\code{default.font.size}}{The size, in points, of the default font. The default is 10 on non-Windows
+    system and the size of the system font on Windows. 
     To set the font size for R input and output, see the \code{log.font.size} option.
-    It is recommended that Windows users set the \pkg{Rcmdr} \code{scale factor} option to
+    The \pkg{Rcmdr} \code{scale factor} option may also be used to
     control font size.}
-    
-    \item{\code{retain.selections}}{If \code{TRUE} (the default), dialogs remember their previous state, where appropriate,
-     as long as the data set isn't changed; some dialogs, e.g., for probabilities, retain selections even when the data set chanages.}
     
     \item{\code{double.click}}{Set to \code{TRUE} if you want a double-click of the left mouse
     button to press the default button in all dialogs. The default is \code{FALSE}.}
@@ -191,11 +204,15 @@ set none, one, several, or all options. The available options are as follows:
       
     \item{\code{log.commands}}{If \code{TRUE} (the default), commands are echoed to the script window;
     if \code{FALSE}, the script window is not displayed.}
+    
+    \item{\code{log.font.family}}{The font family to be used for text in the script window, output window, messages window,
+    etc., specified as a character vector giving a Tk font family. This should normally be a monospaced font like \code{"Courier"}.
+    The default is taken from the \code{TkFixedFont}.}
 
     \item{\code{log.font.size}}{The font size, in points, to be used in the script window,
-    in the output window,
+    in the output window, messages window,
     in recode dialogs, and in compute expressions --- that is, where a monospaced font is used. The default is 10.
-    It is recommended that Windows users set the \pkg{Rcmdr} \code{scale factor} option to
+    Alternatively the \pkg{Rcmdr} \code{scale factor} option may also be used to
     control font size.}
     
     \item{\code{log.height}}{The height of the script window, in lines. The default is 10. Setting \code{log.height}
@@ -244,9 +261,12 @@ set none, one, several, or all options. The available options are as follows:
     window is closed. The default is \code{FALSE}, in which case only the Commander is exited (and can be restarted
     by the command \code{Commander()}).}
     
+    \item{\code{retain.selections}}{If \code{TRUE} (the default), dialogs remember their previous state, where appropriate,
+     as long as the data set isn't changed; some dialogs, e.g., for probabilities, retain selections even when the data set chanages.}
+    
     \item{\code{suppress.menus}}{if \code{TRUE}, the Commander menu bar and tool bar are suppressed, allowing another
     program (such as Excel) to take over these functions. The default (of course) is \code{FALSE}.}
-            
+    
     \item{\code{suppress.X11.warnings}}{On (some?) Linux and Mac OS X systems, multiple X11 warnings are generated by \pkg{Rcmdr}
     commands after a graphics-device window has been opened. Set this option to \code{TRUE} (the default when running
     interactively under X11) to suppress reporting of these warnings. An undesirable side effect
@@ -259,6 +279,9 @@ set none, one, several, or all options. The available options are as follows:
     are not erased between messages. In any event, a "NOTE" message will not erase a preceding "WARNING" or "ERROR".}
     
     \item{\code{RExcelSupport}}{If \code{TRUE} (the default is \code{FALSE}), menus and output are handled by Excel.}
+    
+    \item{\code{rmd.template}}{The quoted path to a \code{.Rmd} file to serve as a template for
+    R code and output. The default is to use a template included with the package.}
     
     \item{\code{scale.factor}}{A scaling factor to be applied to all Tk elements, such as fonts. This works well
     only in Windows. The default is \code{NULL}.}
@@ -277,6 +300,10 @@ set none, one, several, or all options. The available options are as follows:
     
     \item{\code{suppress.icon.images}}{Set to \code{TRUE} to suppress the icon images in dialog OK, Cancel, Reset, and Help buttons;
     the default is \code{FALSE}.}
+    
+    \item{\code{title.color}}{Color for the titles of some widgets, such as variable-list boxes; can be given as a color name, such as
+    \code{"blue"} or as an RGB value, such as \code{"#0000FF"}.
+    The default is the standard color for ttk label frames, unless that is \code{"#000000"} or \code{"black"}, in which case \code{"blue"}" is used instead.}
         
     \item{\code{tkwait}}{This option addresses a problem that, to my knowledge, is rare, 
     and may occur on some non-Windows systems. If the Commander causes R to hang, 
@@ -288,12 +315,19 @@ set none, one, several, or all options. The available options are as follows:
     under Windows, and it should not be used with the Windows R GUI with buffered output when output is directed to the
     R console.}
     
+    \item{\code{use.knitr}}{If \code{TRUE} (the default is \code{FALSE}), a knitr \code{.Rnw} LaTeX document is created in a tab of the main Commander window;
+    this document can be compiled into \code{.tex} and \code{.pdf} reports via the \code{\link[knitr]{knit2pdf}}
+    function in the \pkg{knitr} package.}
+    
+    \item{\code{use.markdown}}{If \code{TRUE} (the default is the negation of the \code{use.knitr} argument), an R Markdown document
+    is created, which can be compiled into an HTML report.}
+    
     \item{\code{use.rgl}}{If \code{TRUE} (the default), the \code{rgl} package will be loaded if it is present in an
     accessible library; if \code{FALSE}, the \code{rgl} package will be ignored even if it is available. 
     The \code{rgl} package can sometimes cause problems when running R under X11.}
     
     \item{\code{variable.list.height}}{the number of items (typically variables) to display in list boxes; longer lists may be viewed by scrolling. 
-    The default is 4.} 
+    The default is 6.} 
     
     \item{\code{variable.list.width}}{a two-item vector controlling the width of list boxes, in characters, giving the minimum and maximum
     width to display; the default is \code{c(20, Inf)}. If the widest item name falls in this range, then its number of characters
@@ -322,11 +356,11 @@ For more information about R initialization, see \code{?Startup}.
     The R Commander Script window does not provide a true console to R, and may have certain limitations.
     I don't recommend using the R Commander for serious programming or for data analysis that relies
     primarily on scripts --- use a programming editor instead. If you encounter any problems with the
-    Script window, however, I'd appreciate it if you brought them to my attention.
+    Script tab, however, I'd appreciate it if you brought them to my attention.
     }
 
 \section{Known Problems}{
-  Occasionally, under Windows, after typing some text into a dialog box (e.g., a subsetting expression in the Subset  Data Set dialog), 
+  Occasionally, under Windows, after typing some text into a dialog box (e.g., a subsetting expression in the Subset Data Set dialog), 
   buttons in the dialog (e.g., the OK button) will have no effect when they are pressed. Clicking anywhere inside or outside of the dialog 
   box should restore the function of the buttons. As far as I have been able to ascertain, this is a problem with Tcl/Tk for Windows.
   I have not seen this behavior in some time and the problem may have been solved.
@@ -340,8 +374,6 @@ For more information about R initialization, see \code{?Startup}.
   option is reset to its pre-existing value when the Commander exits. Some functions may not
   work properly when the default \code{na.action} is set to \code{na.exclude}.
 
-  This version may be compatible with SciViews:
-   \url{http://www.sciviews.org/SciViews-R}; see \code{\link{Rcmdr.sciviews-specific}}.
   This version should be compatiable with the \pkg{RExcel} package, which can use the R Commander
   menus.
   
@@ -362,7 +394,7 @@ Extending the R Commander by "plug in" packages.
 
 \author{John Fox \email{jfox@mcmaster.ca}}
 
-\seealso{\link{Plugins}, \link{Rcmdr.Utilities}}
+\seealso{\link{Plugins}, \link{Rcmdr.Utilities}, \code{\link[knitr]{knit}}, \code{\link[knitr]{knit2pdf}}}
 
 \examples{
     options(Rcmdr=list(log.font.size=12, default.contrasts=c("contr.Sum", "contr.poly")))

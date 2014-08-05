@@ -213,7 +213,7 @@ is.valid.name(x)
 is.SciViews()
 justDoIt(command)
 knitrP()
-Library(package, pos=4, rmd=TRUE)
+Library(package, pos=length(search()), rmd=TRUE)
 listAllModels(envir=.GlobalEnv, ...)
 listAOVModels(envir=.GlobalEnv, ...)
 listDataSets(envir=.GlobalEnv, ...)
@@ -288,7 +288,7 @@ variableListBox(parentWindow, variableList=Variables(), bg="white",
     selectmode="single", export="FALSE", initialSelection=NULL, 
     listHeight=getRcmdr("variable.list.height"), title)
 Variables(names)
-varPosn(variables, 
+varPosn(variables, vars=NULL,
     type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor"))
 WindowsP()
 X11P()
@@ -390,7 +390,7 @@ commanderPosition()
   \item{parent}{parent Tk window.}
   \item{plotLinesByGroup}{include a check box for plotting lines by group?}
   \item{plotLinesByGroupsText}{the label for the plot-lines-by-group check box.}
-  \item{pos}{position on search path at which to load package; default is \code{4}.}
+  \item{pos}{position on search path at which to load package; default is just before the end of the path.}
   \item{positionLegend}{include a check box for a legend?}
   \item{preventGrabFocus}{prevent the dialog box from grabbing the focus.}
   \item{preventDoubleClick}{prevent double-clicking from pressing the OK button, even when the
@@ -430,6 +430,7 @@ commanderPosition()
   	a list of current selections to be stored in support of dialog memory.}
   \item{variableList}{a vector of variable names.}
   \item{variables}{a vector of one or more variable names.}
+  \item{vars}{a vector of one or more variable names; if given \code{type} argument is ignored.}
   \item{what}{optional character vector of one or more dialog names for which the memory is to be flushed; if not 
     specified, all dialog memory will be flushed.}
   \item{window, parentWindow}{a Tk window.}
