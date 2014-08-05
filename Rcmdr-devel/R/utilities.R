@@ -1525,7 +1525,7 @@ activateMenus <- function(){
 
 # for internationalization
 
-gettextRcmdr <- function(...) gettext(..., domain="R-RcmdrDevel")
+gettextRcmdr <- function(...) gettext(..., domain="R-Rcmdr")
 
 gettextMenus <- function(...){
     text <- gettextRcmdr(...)
