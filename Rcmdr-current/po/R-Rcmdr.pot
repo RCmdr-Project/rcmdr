@@ -1,6 +1,6 @@
 msgid "Project-Id-Version: Rcmdr 2.0-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-08-04 19:00:00\n"
+"POT-Creation-Date: 2014-08-06 09:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4317,6 +4317,11 @@ msgid  "the RcmdrMisc package is missing and should be installed\n  many feature
 msgstr ""
 
 msgid "the car package is missing and should be installed\n  many features will not work"
+msgstr ""
+
+  # for numerical summaries dialog
+
+msgid "Standard Error of Mean"
 msgstr ""
 
   # new effect-plots dialog

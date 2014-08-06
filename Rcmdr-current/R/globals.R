@@ -47,4 +47,4 @@ globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                   'SuppressIconImagesVariable', 'retainSelectionsVariable', 'useRglVariable', 'closeOptionsFrame',
                   'outputOptionsFrame', 'otherOptionsFrame', 'kernelVariable', 'kernelFrame', 'otherFrame',
                   'notebook', 'dataTab', 'optionsTab', 'tableTab', 'statisticsTab', 'allEffectsVariable', 'allEffectsFrame', 
-                  'styleButtonsVariable', 'styleButtonsFrame'))
+                  'styleButtonsVariable', 'styleButtonsFrame', 'se.meanVariable'))
