@@ -20,6 +20,8 @@ Changes to Version 2.1-0
 
   o The linear-model and GLM dialogs now permit the selection of a weight variable (following a query by Bruce Dunham about fitting binomial -- as opposed to binary -- GLMs). New Rcmdr utility, variableComboBox(), to support these features.
 
+  o New model-summary dialog for linear models, allowing selection of sandwich standard errors; similar options provided in linear hypothesis and ANOVA dialogs for linear models (generalizing a suggestion of Liviu Andronic).
+
   o Small changes/improvements.
 
 Changes to Version 2.0-5

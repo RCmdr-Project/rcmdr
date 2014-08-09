@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2014-08-01 by J. Fox
+# last modified 2014-08-09 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -54,10 +54,49 @@ selectActiveModel <- function(){
 	dialogSuffix()
 }
 
+# summarizeModel <- function(){
+# 	.activeModel <- ActiveModel()
+# 	if (is.null(.activeModel) || !checkMethod("summary", .activeModel)) return()
+# 	doItAndPrint(paste("summary(", .activeModel, ", cor=FALSE)", sep=""))
+# }
+
 summarizeModel <- function(){
-	.activeModel <- ActiveModel()
-	if (is.null(.activeModel) || !checkMethod("summary", .activeModel)) return()
-	doItAndPrint(paste("summary(", .activeModel, ", cor=FALSE)", sep=""))
+    .activeModel <- ActiveModel()
+    if (is.null(.activeModel) || !checkMethod("summary", .activeModel)) return()
+    if (class(get(.activeModel))[1] != "lm") doItAndPrint(paste("summary(", .activeModel, ", cor=FALSE)", sep=""))
+    else if (!packageAvailable("car") || !packageAvailable("sandwich")){
+        doItAndPrint(paste("summary(", .activeModel, ")", sep=""))
+    }
+    else{
+        Library("sandwich")
+        defaults <- list(initial.sandwich="0", initial.type="HC3")
+        dialog.values <- getDialog("summarizeModel", defaults)
+        initializeDialog(title = gettextRcmdr("Linear Model Summary"))
+        sandwichVar <- tclVar(dialog.values$initial.sandwich)
+        sandwichFrame <- tkframe(top)
+        sandwichCheckBox <- ttkcheckbutton(sandwichFrame, variable = sandwichVar)
+        radioButtons(name = "type", buttons = c("HC0", "HC1", "HC2", "HC3", "HC4", "HAC"), 
+            labels = c("HC0", "HC1", "HC2", "HC3", "HC4", "HAC"), 
+            title = gettextRcmdr("Sandwich estimator"), initialValue = dialog.values$initial.type)
+        onOK <- function() {
+            sandwich <- tclvalue(sandwichVar)
+            type <- tclvalue(typeVariable)
+            putDialog ("summarizeModel", list(initial.sandwich=sandwich, initial.type = type))
+            closeDialog()
+            command <- if (sandwich == "1") 
+                paste("summarySandwich(", .activeModel, ', type="', tolower(type), '")', sep="")
+            else paste("summary(", .activeModel, ")", sep="")
+            doItAndPrint(command)
+        }
+        OKCancelHelp(helpSubject = "summarySandwich", reset = "summarizeModel", apply="summarizeModel")
+        tkgrid(sandwichCheckBox, labelRcmdr(sandwichFrame, 
+            text=gettextRcmdr("Use sandwich estimator of\ncoefficient standard errors")), 
+            sticky="nw")
+        tkgrid(sandwichFrame, sticky="w")
+        tkgrid(typeFrame, sticky = "w")
+        tkgrid(buttonsFrame, sticky = "w")
+        dialogSuffix()
+    }
 }
 
 plotModel <- function(){
