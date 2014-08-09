@@ -1,4 +1,4 @@
-# last modified 2014-08-04 by J. Fox
+# last modified 2014-08-07 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -35,7 +35,7 @@ RExcelSupported, RmdWindow, RnwWindow, sortVarNames, subOKCancelHelp,
 subsetBox,  
 tclvalue, titleLabel, trim.blanks, ttkentry, ttkframe, ttkradiobutton, ttkcheckbutton,
 ttkscrollbar, TwoLevelFactors, twoLevelFactorsP, 
-UpdateModelNumber, variableListBox, Variables, varPosn, WindowsP, X11P,
+UpdateModelNumber, variableComboBox, variableListBox, Variables, varPosn, WindowsP, X11P,
     
 beginRmdBlock, endRmdBlock, enterMarkdown, removeNullRmdBlocks, removeStrayRmdBlocks, suppressMarkdown,
 beginRnwBlock, endRnwBlock, enterKnitr, removeNullRnwBlocks, removeStrayRnwBlocks, 
@@ -65,6 +65,8 @@ S3method(Confint, multinom)
 S3method(confint, glm)
 S3method(confint, multinom)
 S3method(confint, polr)
+S3method(getFrame, combobox)
+S3method(getSelection, combobox)
 S3method(getFrame, listbox)
 S3method(getSelection, listbox)
 

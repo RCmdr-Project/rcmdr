@@ -31,9 +31,17 @@ Specifying a subset expression allows you to fit the model to a subset of observ
 in the active data set. For example, assuming that \code{gender} is a variable in the
 active data set, entering \code{gender == "Male"} would restrict the model to males.
 
+The weights box allows you to select a variable specifying prior weights from the
+drop-down list. Weights giving numbers of trials may be used, for example, to fit a
+binomial GLM; in this case, the response variable should give the proportion of
+"successes" for each binomial observation. 
+Click in the weights combo box to see a list of numeric variables in the
+current data set; type a letter in the box to move the selection cursor to the next
+variable beginning with that letter.
+
 If the active model is a generalized linear model, and the active data set has not changed, 
 then the initial values of the left-hand-side,
-right-hand-side, family, link, and subset fields are retained from the active model.
+right-hand-side, family, link, weights, and subset fields are retained from the active model.
 }
 
 \author{John Fox \email{jfox@mcmaster.ca}}

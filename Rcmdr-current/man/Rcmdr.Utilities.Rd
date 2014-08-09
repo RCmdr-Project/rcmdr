@@ -43,9 +43,11 @@
 \alias{gassign}
 \alias{getDialog}
 \alias{getFrame}
+\alias{getFrame.combobox}
 \alias{getFrame.listbox}
 \alias{getRcmdr}
 \alias{getSelection}
+\alias{getSelection.combobox}
 \alias{getSelection.listbox}
 \alias{gettextRcmdr}
 \alias{glmP}
@@ -119,6 +121,7 @@
 \alias{TwoLevelFactors}
 \alias{twoLevelFactorsP}
 \alias{UpdateModelNumber}
+\alias{variableComboBox}
 \alias{variableListBox}
 \alias{Variables}
 \alias{varPosn}
@@ -190,7 +193,9 @@ formulaFields(model, hasLhs=TRUE, glm=FALSE)
 flushDialogMemory(what)
 gassign(x, value)
 getDialog(dialog, defaults=NULL)
+\method{getFrame}{combobox}(object)
 \method{getFrame}{listbox}(object)
+\method{getSelection}{combobox}(object)
 \method{getSelection}{listbox}(object)
 getRcmdr(x, mode="any", fail=TRUE)
 gettextRcmdr(...)
@@ -284,6 +289,10 @@ trim.blanks(text)
 TwoLevelFactors(names)
 twoLevelFactorsP(n=1)
 UpdateModelNumber(increment=1)
+variableComboBox(parentWindow, variableList=Variables(),
+    export="FALSE", state="readonly",
+    initialSelection=gettextRcmdr("<no variable selected>"),
+    title="")
 variableListBox(parentWindow, variableList=Variables(), bg="white",
     selectmode="single", export="FALSE", initialSelection=NULL, 
     listHeight=getRcmdr("variable.list.height"), title)
@@ -409,6 +418,8 @@ commanderPosition()
   \item{rows, columns}{numbers of rows and columns of widgets in the dialog box; this is actually no longer used, but
     is still present for backwards compatibility.}
   \item{selectmode}{\code{"single"} or \code{"multiple"}.}
+  \item{state}{state of the combobox widget; default \code{"readonly"} means
+    user can't type in the box; set to \code{"normal"} to permit typing.}
   \item{strict}{if \code{TRUE}, only use first element of class vector.}
   \item{subset.expression}{a quoted expression to subset the data set.}
   \item{tab.names}{text to print as tab labels (default \code{c("Data", "Options")}).}
@@ -509,7 +520,10 @@ commanderPosition()
   a set of check boxes, \code{checkBoxes};
   a set of radio buttons, \code{radioButtons};
   a list box with associated scrollbars and state variable, \code{variableListBox}
-  (and the associated functions \code{getFrame} and \code{getSelection});
+  (and associated methods for the generic functions 
+  \code{getFrame} and \code{getSelection});
+  a drop-down "combo" box, \code{variablecomboBox} 
+  (with \code{getFrame} and \code{getSelection} methods);
   a button and subdialog for selecting a "grouping" variable, \code{groupsBox}; 
   displaying the currently defined groups in a dialog, \code{groupsLabel};
   a dialog-box structure for entering a model formula, \code{modelFormula};

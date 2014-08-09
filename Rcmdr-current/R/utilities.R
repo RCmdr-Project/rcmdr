@@ -1,4 +1,4 @@
-# last modified 2014-08-04 by J. Fox
+# last modified 2014-08-08 by J. Fox
 
 # utility functions
 
@@ -135,26 +135,30 @@ listVariables <- function(dataSet=ActiveDataSet()) {
 }
 
 listFactors <- function(dataSet=ActiveDataSet()) {
-    if(missing(dataSet)) {
-        Factors()
-    }
-    else {
-        variables <- listVariables(dataSet)
-        variables[sapply(variables, function(.x)
-            is.factor(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))))]
-    }
+  if(missing(dataSet)) {
+    Factors()
+  }
+  else {
+    variables <- listVariables(dataSet)
+    variables[sapply(variables, function(.x){
+      .v <- eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))
+      is.factor(.v) || is.logical(.v) || is.character(.v)
+    })]
+  }
 }
 
 listTwoLevelFactors <- function(dataSet=ActiveDataSet()){
-    if(missing(dataSet)) {
-        TwoLevelFactors()
-    }
-    else {
-        factors <- listFactors(dataSet)
-        if(length(factors) == 0) return(NULL)
-        factors[sapply(factors, function(.x)
-            2 == length(levels(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv)))))]
-    }
+  if(missing(dataSet)) {
+    TwoLevelFactors()
+  }
+  else {
+    factors <- listFactors(dataSet)
+    if(length(factors) == 0) return(NULL)
+    factors[sapply(factors, function(.x){
+      .v <- eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))
+      2 == length(levels(.v)) || length(unique(.v)) == 2
+    })]
+  }
 }
 
 listNumeric <- function(dataSet=ActiveDataSet()) {
@@ -734,7 +738,6 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
     }
 )
 
-
 variableListBox <- function(parentWindow, variableList=Variables(), bg="white",
     selectmode="single", export="FALSE", initialSelection=NULL, listHeight=getRcmdr("variable.list.height"), title){
     if (selectmode == "multiple") selectmode <- getRcmdr("multiple.select.mode")
@@ -815,6 +818,70 @@ getFrame <- function(object) UseMethod("getFrame")
 
 getFrame.listbox <- function(object){
     object$frame
+}
+
+variableComboBox <- function(parentWindow, variableList=Variables(),
+                             export="FALSE", state="readonly",
+                             initialSelection=gettextRcmdr("<no variable selected>"),
+                             title=""){
+  variableList <- c(gettextRcmdr("<no variable selected>"), variableList)
+  frame <- tkframe(parentWindow)
+  combovar <- tclVar()
+  tclvalue(combovar) <- initialSelection
+  combobox <- ttkcombobox(frame, values=variableList, textvariable=combovar, 
+                          state=state, export=export)
+  firstChar <- tolower(substr(variableList, 1, 1))
+  onLetter <- function(letter){
+    letter <- tolower(letter)
+    current <- as.numeric(tcl(combobox, "current"))
+    current <- if (current == -1) 1 else current + 1
+    mat <- match(letter, firstChar[-(1:current)])
+    if (is.na(mat)) return()
+    tcl(combobox, "current", current + mat - 1)
+  }
+  onA <- function() onLetter("a")
+  onB <- function() onLetter("b")
+  onC <- function() onLetter("c")
+  onD <- function() onLetter("d")
+  onE <- function() onLetter("e")
+  onF <- function() onLetter("f")
+  onG <- function() onLetter("g")
+  onH <- function() onLetter("h")
+  onI <- function() onLetter("i")
+  onJ <- function() onLetter("j")
+  onK <- function() onLetter("k")
+  onL <- function() onLetter("l")
+  onM <- function() onLetter("m")
+  onN <- function() onLetter("n")
+  onO <- function() onLetter("o")
+  onP <- function() onLetter("p")
+  onQ <- function() onLetter("q")
+  onR <- function() onLetter("r")
+  onS <- function() onLetter("s")
+  onT <- function() onLetter("t")
+  onU <- function() onLetter("u")
+  onV <- function() onLetter("v")
+  onW <- function() onLetter("w")
+  onX <- function() onLetter("x")
+  onY <- function() onLetter("y")
+  onZ <- function() onLetter("z")
+  for (letter in c(letters, LETTERS)){
+    tkbind(combobox, paste("<", letter, ">", sep=""),
+           get(paste("on", toupper(letter), sep="")))
+  }
+  tkgrid(labelRcmdr(frame, text=title, fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w") # , columnspan=2
+  tkgrid(combobox, sticky="nw")
+  result <- list(frame=frame, combobox=combobox, varlist=variableList, combovar=combovar)
+  class(result) <- "combobox"
+  result
+}
+
+getSelection.combobox <- function(object){
+  tclvalue(object$combovar)
+}
+
+getFrame.combobox <- function(object){
+  object$frame
 }
 
 # This function modified based on code by Liviu Andronic (13 Dec 09) and on code by Milan Bouchet-Valat (29 Jun 12):

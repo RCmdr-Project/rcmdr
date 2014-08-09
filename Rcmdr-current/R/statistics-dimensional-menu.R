@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2014-07-29 by J. Fox
+# last modified 2014-08-06 by J. Fox
 
 # Dimensional-analysis menu
 
@@ -244,7 +244,11 @@ factorAnalysis <- function () {
 CFA <- function(){
   Library("sem")
   defaults <- list(initial.matrix="covariance", initial.factorCor="correlated", initial.identify="factors", 
-                   initial.robust=0, initial.tab=0)
+                   initial.robust=0, initial.tab=0,
+                   initial.AIC=1, initial.BIC=1, initial.GFI=0, initial.AGFI=0,
+                   initial.RMSEA=0, initial.NFI=0, initial.NNFI=0,
+                   initial.CFI=0, initial.RNI=0, initial.IFI=0, initial.SRMR=0,
+                   initial.AICc=0, initial.CAIC=0)
   dialog.values <- getDialog("CFA", defaults)
   initializeDialog(title=gettextRcmdr("Confirmatory Factor Analysis"), use.tabs=TRUE)
   onFactor <- function(){
@@ -278,6 +282,20 @@ CFA <- function(){
                initialValue = dialog.values$initial.identify, 
                labels = gettextRcmdr(c("Factor variances set to 1", "First loading on each factor set to 1")), 
                title = gettextRcmdr("Identifying Constraints"))
+  fit.indices.1 <- c("AIC", "BIC", "GFI", "AGFI", "RMSEA", "NFI", "NNFI")
+  fit.indices.2 <- c("CFI", "RNI", "IFI", "SRMR", "AICc", "CAIC")
+  fit.indices <- c(fit.indices.1, fit.indices.2)
+  fitIndicesFrame <- tkframe(optionsTab)
+  checkBoxes(window=fitIndicesFrame, frame="fitIndicesFrame.1", 
+             boxes=fit.indices.1,
+             initialValues=unlist(dialog.values[paste("initial.", fit.indices.1, sep="")]),
+             labels=fit.indices.1,
+             title=gettextRcmdr("Fit Indices"))
+  checkBoxes(window=fitIndicesFrame, frame="fitIndicesFrame.2", 
+             boxes=fit.indices.2,
+             initialValues=unlist(dialog.values[paste("initial.", fit.indices.2, sep="")]),
+             labels=fit.indices.2,
+             title="")
   checkBoxes(window=optionsFrame, frame = "robustFrame", boxes = "robust", initialValues = dialog.values$initial.robust, 
              labels = gettextRcmdr("Robust standard errors"), title=" ")
   putRcmdr("factorNumber", 1)
@@ -295,9 +313,20 @@ CFA <- function(){
     correlations <- tclvalue(factorCorVariable)
     identify <- tclvalue(identifyVariable)
     robust <- tclvalue(robustVariable)
+    for (index in fit.indices){
+      assign(index, tclvalue(eval(parse(text=paste(index, "Variable", sep="")))))
+    }
+    indices <- fit.indices[as.logical(as.numeric(c(AIC, BIC, GFI, AGFI, RMSEA, NFI, 
+                                                   NNFI, CFI, RNI, IFI, SRMR, AICc, CAIC)))]
+    indices <- paste(', fit.indices=c(', paste(paste('"', indices, '"', sep=""), collapse=","),
+                     ')', sep="")
     closeDialog()
     putDialog("CFA", list(initial.matrix=matrix, initial.factorCor=correlations, 
-                          initial.identify=identify, initial.robust=robust, initial.tab=tab))
+                          initial.identify=identify, initial.robust=robust, initial.tab=tab,
+                          initial.AIC=AIC, initial.BIC=BIC, initial.GFI=GFI, initial.AGFI=AGFI,
+                          initial.RMSEA=RMSEA, initial.NFI=NFI, initial.NNFI=NNFI,
+                          initial.CFI=CFI, initial.RNI=RNI, initial.IFI=IFI, initial.SRMR=SRMR,
+                          initial.AICc=AICc, initial.CAIC=CAIC))
     if (length(factors) == 0) {
       errorCondition(recall=CFA, message=gettextRcmdr("No factors defined."))
       return()
@@ -325,7 +354,7 @@ CFA <- function(){
     if (matrix == "correlation") 
       command <- paste(command, "\n  .Data <- as.data.frame(scale(.Data))")
     command <- paste(command, "\n  summary(sem(.model, data=.Data), robust=", 
-                     if (robust == 1) "TRUE" else "FALSE", 
+                     if (robust == 1) "TRUE" else "FALSE", indices,
                      ")\n})", sep="")
     doItAndPrint(command)
   }
@@ -333,6 +362,8 @@ CFA <- function(){
   tkgrid(matrixFrame, labelRcmdr(optionsFrame, text="    "), factorCorFrame, sticky="nw")
   tkgrid(identifyFrame, labelRcmdr(optionsFrame, text="    "),  robustFrame, sticky="w")
   tkgrid(optionsFrame, sticky="w")
+  tkgrid(fitIndicesFrame.1, fitIndicesFrame.2, sticky="nw")
+  tkgrid(fitIndicesFrame, sticky="w")
   tkgrid(getFrame(xBox), sticky="w")
   tkgrid(labelRcmdr(dataTab, text=""))
   tkgrid(factorButton, labelRcmdr(factorFrame, text=paste("   ", gettextRcmdr("Name for factor:"))), factorEntry, sticky="nw")

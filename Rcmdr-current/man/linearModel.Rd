@@ -24,9 +24,15 @@ Specifying a subset expression allows you to fit the model to a subset of observ
 in the active data set. For example, assuming that \code{gender} is a variable in the
 active data set, entering \code{gender == "Male"} would restrict the model to males.
 
+The weights box allows you to perform weight-least-squares (WLS) regression;
+select a weight variable from the drop-down list. 
+Click in the weights combo box to see a list of numeric variables in the
+current data set; type a letter in the box to move the selection cursor to the next
+variable beginning with that letter.
+
 If the active model is a linear model and the active data set has not changed, 
 then the initial values of the left-hand-side,
-right-hand-side, and subset fields are retained from the previous model.
+right-hand-side, weights, and subset fields are retained from the previous model.
 }
 
 \author{John Fox \email{jfox@mcmaster.ca}}

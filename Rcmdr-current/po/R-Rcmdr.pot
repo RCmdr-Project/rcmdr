@@ -1,6 +1,6 @@
 msgid "Project-Id-Version: Rcmdr 2.0-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-08-06 09:30:00\n"
+"POT-Creation-Date: 2014-08-07 19:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4323,6 +4323,27 @@ msgstr ""
 
 msgid "Standard Error of Mean"
 msgstr ""
+
+  # for CFA dialog
+
+msgid "Fit Indices"
+msgstr ""
+
+  # for read Excel file dialog
+
+msgid "Variable names in first row of spreadsheet"
+msgstr ""
+
+msgid "Row names in first column of spreadsheet
+msgstr ""
+
+  # for selecting weights in LM and GLM dialogs
+
+msgid "<no variable selected>"
+msgstr ""
+
+msgid "Weights"
+msgstr""
 
   # new effect-plots dialog
 
