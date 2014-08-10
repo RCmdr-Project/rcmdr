@@ -1,4 +1,4 @@
-# last modified 2014-08-06 by J. Fox
+# last modified 2014-08-10 by J. Fox
 
 # Data menu dialogs
 
@@ -2243,3 +2243,38 @@ Aggregate <- function(){
     tkgrid(buttonsFrame, sticky="w", columnspan=2)
     dialogSuffix()
 }
+
+dropUnusedFactorLevels <- function(){
+    dataSet <- activeDataSet()
+    initializeDialog(title=gettextRcmdr("Drop Unused Factor Levels"))
+    variablesBox <- variableListBox(top, Factors(),
+        title=gettextRcmdr("Factors(s) to drop levels (pick one or more)"), selectmode="multiple",
+        initialSelection=NULL)
+    onOK <- function(){
+        variables <- getSelection(variablesBox)
+        closeDialog()
+        if (length(variables) == 0) {
+            errorCondition(recall=deleteVariable, message=gettextRcmdr("You must select one or more variables."))
+            return()
+        }
+        response <- tclvalue(RcmdrTkmessageBox(message=gettextRcmdr("Drop unused factor levels\nPlease confirm."), 
+            icon="warning", type="okcancel", default="cancel"))
+        if (response == "cancel") {
+            onCancel()
+            return()
+        }
+        command <- paste(dataSet, " <- within(", dataSet, ", {", sep="")
+        for (variable in variables){
+            command <- paste(command, "\n  ", variable, " <- droplevels(", variable, ")", sep="")
+        }
+        command <- paste(command, "\n})")
+        doItAndPrint(command)
+        activeDataSet(dataSet, flushModel=FALSE, flushDialogMemory=FALSE)
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject="droplevels")
+    tkgrid(getFrame(variablesBox), sticky="nw")
+    tkgrid(buttonsFrame, sticky="w")
+    dialogSuffix()
+}
+

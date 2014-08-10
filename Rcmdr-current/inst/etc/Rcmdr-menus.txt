@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2014-08-04 by J. Fox
+# last modified 2014-08-10 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -88,6 +88,7 @@
     item    variablesMenu   command         "Convert numeric variables to factors..."       numericToFactor             "numericP()"                ""
     item    variablesMenu   command         "Bin numeric variable..."                       binVariable                 "numericP()"                "packageAvailable('RcmdrMisc')"
     item    variablesMenu   command         "Reorder factor levels..."                      reorderFactor               "factorsP()"                ""
+    item    variablesMenu   command         "Drop unused factor levels..."                  dropUnusedFactorLevels      "factorsP()"                ""
     item    variablesMenu   command         "Define contrasts for a factor..."              setContrasts                "factorsP()"                ""
     item    variablesMenu   command         "Rename variables..."                           renameVariables             "activeDataSetP()"          ""
     item    variablesMenu   command         "Delete variables from data set ..."            deleteVariable              "activeDataSetP()"          ""
@@ -122,6 +123,7 @@
     item    variancesMenu   command         "Levene's test..."                              LeveneTest                  "numericP() && factorsP()" "packageAvailable('car')"
     menu    nonparametricMenu statisticsMenu    ""                                          ""                          ""          ""
     item    nonparametricMenu command       "Two-sample Wilcoxon test..."                   twoSampleWilcoxonTest       "numericP() && twoLevelFactorsP()"          ""
+    item    nonparametricMenu command       "Single-sample Wilcoxon test..."                onesampleWilcoxonTest       "numericP()"          ""
     item    nonparametricMenu command       "Paired-samples Wilcoxon test..."               pairedWilcoxonTest          "numericP(2)"          ""
     item    nonparametricMenu command       "Kruskal-Wallis test..."                        KruskalWallisTest           "numericP() && factorsP()"          ""
 	item	nonparametricMenu command		"Friedman rank-sum test..."						FriedmanTest				"numericP(2)"		   ""

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2014-07-30 by J. Fox
+# last modified 2014-08-10 by J. Fox
 
 # Nonparametric tests menu
 
@@ -195,5 +195,72 @@ FriedmanTest <- function () {
 	tkgrid(getFrame(responseBox), sticky = "nw")
 	tkgrid(buttonsFrame, sticky = "w")
 	dialogSuffix()
+}
+
+onesampleWilcoxonTest <- function () {
+    defaults <- list(initial.x = NULL, initial.alternative = "two.sided", 
+        initial.test = "default", initial.mu = "0.0", initial.tab=0)
+    dialog.values <- getDialog("onesampleWilcoxonTest", defaults)
+    initializeDialog(title = gettextRcmdr("Single-Sample Wilcoxon Test"), use.tabs=TRUE)
+    .numeric <- Numeric()
+    xBox <- variableListBox(dataTab, .numeric, title = gettextRcmdr("Variable (pick one)"), 
+        initialSelection = varPosn(dialog.values$initial.x, "numeric"))
+    onOK <- function() {
+        tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
+        x <- getSelection(xBox)
+        mu <- tclvalue(muVariable)
+        closeDialog()
+        alternative <- as.character(tclvalue(alternativeVariable))
+        test <- as.character(tclvalue(testVariable))
+        putDialog("onesampleWilcoxonTest", list(initial.x = x,
+            initial.test = test, initial.alternative = alternative, initial.mu = mu, initial.tab=tab))
+        if (length(x) == 0) {
+            errorCondition(recall = onesampleWilcoxonTest, message = gettextRcmdr("You must select a variable."))
+            return()
+        }
+        .activeDataSet <- ActiveDataSet()
+        null <- paste("', mu=", mu, sep="")
+        doItAndPrint(paste("with(", .activeDataSet, ", median(", x, ", na.rm=TRUE))", 
+            sep = ""))
+        doItAndPrint(paste("with(", .activeDataSet, ", mean(", x, ", na.rm=TRUE))", 
+            sep = ""))
+        if (test == "default") {
+            doItAndPrint(paste("with(", .activeDataSet, ", wilcox.test(", 
+                x, ", alternative='", 
+                alternative, null, "))", sep = ""))
+        }
+        else if (test == "exact") {
+            doItAndPrint(paste("with(", .activeDataSet, ", wilcox.test(", 
+                x, ", alternative='", 
+                alternative, null, ", exact=TRUE))", sep = ""))
+        }
+        else {
+            doItAndPrint(paste("with(", .activeDataSet, ", wilcox.test(",  
+                x, ", alternative='", 
+                alternative, null, ", correct=", test == "correct", 
+                ", exact=FALSE))", sep = ""))
+        }
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "wilcox.test", reset = "onesampleWilcoxonTest",
+        apply = "onesampleWilcoxonTest")
+    radioButtons(optionsTab, name = "alternative", buttons = c("twosided", 
+        "less", "greater"), values = c("two.sided", "less", "greater"), 
+        labels = gettextRcmdr(c("Two-sided", "mu < 0", 
+            "mu > 0")), title = gettextRcmdr("Alternative Hypothesis"), 
+        initialValue = dialog.values$initial.alternative)
+    radioButtons(optionsTab, name = "test", buttons = c("default", "exact", 
+        "normal", "correct"), labels = gettextRcmdr(c("Default", 
+            "Exact", "Normal approximation", "Normal approximation with\ncontinuity correction")), 
+        title = gettextRcmdr("Type of Test"), initialValue = dialog.values$initial.test)
+    muFrame <- tkframe(optionsTab)
+    muVariable <- tclVar(dialog.values$initial.mu)
+    muField <- ttkentry(muFrame, width = "8", textvariable = muVariable)
+    tkgrid(labelRcmdr(muFrame, text = gettextRcmdr("Null hypothesis: mu =")), 
+        muField, sticky = "w")
+    tkgrid(muFrame, sticky = "w")
+    tkgrid(getFrame(xBox), labelRcmdr(dataTab, text="  "), sticky = "nw")
+    tkgrid(alternativeFrame, labelRcmdr(optionsTab, text="  "), testFrame, sticky = "nw")
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 

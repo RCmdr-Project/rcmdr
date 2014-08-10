@@ -1,6 +1,6 @@
 msgid "Project-Id-Version: Rcmdr 2.0-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-08-09 19:00:00\n"
+"POT-Creation-Date: 2014-08-10 17:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4372,6 +4372,28 @@ msgid "Stacked areas"
 msgstr ""
 
 msgid "Lines with confidence bands"
+msgstr ""
+
+# new one-sample Wilcoxon test dialog
+
+msgid "Single-Sample Wilcoxon Test"
+msgstr ""
+
+msgid "Single-sample Wilcoxon test..."
+msgstr ""
+
+# new drop unused factor levels dialog
+
+msgid "Drop Unused Factor Levels"
+msgstr ""
+
+msgid "Factors(s) to drop levels (pick one or more)"
+msgstr ""
+
+msgid "Drop unused factor levels\nPlease confirm."
+msgstr ""
+
+msgid "Drop unused factor levels..."
 msgstr ""
 
   # messages related to sandwich variance estimator

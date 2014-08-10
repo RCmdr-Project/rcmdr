@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2014-07-30 by J. Fox
+# last modified 2014-08-10 by J. Fox
 
     # Proportions menu
 
@@ -26,7 +26,7 @@ singleProportionTest <- function () {
             initial.level = level, initial.test = test ,initial.p = p, initial.tab=tab))
         closeDialog()
         command <- paste("local({\n  .Table <- xtabs(~", x, ", data=", ActiveDataSet(), 
-            ")")
+            ')\n  cat("\\nFrequency counts (test is for first level):\\n")\n  print(.Table)')
         if (test == "normal") 
             doItAndPrint(paste(command, "\n  prop.test(rbind(.Table), alternative='", 
                 alternative, "', p=", p, ", conf.level=", level, 

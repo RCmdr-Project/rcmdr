@@ -22,6 +22,10 @@ Changes to Version 2.1-0
 
   o New model-summary dialog for linear models, allowing selection of sandwich standard errors; similar options provided in linear hypothesis and ANOVA dialogs for linear models (generalizing a suggestion of Liviu Andronic).
 
+  o New single-sample Wilcoxon test dialog (suggestion of Manuel Munoz Marquez).
+
+  O New drop unused factor levels dialog (suggestion of Manuel Munoz Marquez).
+
   o Small changes/improvements.
 
 Changes to Version 2.0-5
