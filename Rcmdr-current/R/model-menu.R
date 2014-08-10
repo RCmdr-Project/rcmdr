@@ -63,7 +63,7 @@ selectActiveModel <- function(){
 summarizeModel <- function(){
     .activeModel <- ActiveModel()
     if (is.null(.activeModel) || !checkMethod("summary", .activeModel)) return()
-    if (class(get(.activeModel))[1] != "lm") doItAndPrint(paste("summary(", .activeModel, ", cor=FALSE)", sep=""))
+    if (!lmP()) doItAndPrint(paste("summary(", .activeModel, ", cor=FALSE)", sep=""))
     else if (!packageAvailable("car") || !packageAvailable("sandwich")){
         doItAndPrint(paste("summary(", .activeModel, ")", sep=""))
     }
@@ -74,8 +74,9 @@ summarizeModel <- function(){
         initializeDialog(title = gettextRcmdr("Linear Model Summary"))
         sandwichVar <- tclVar(dialog.values$initial.sandwich)
         sandwichFrame <- tkframe(top)
-        sandwichCheckBox <- ttkcheckbutton(sandwichFrame, variable = sandwichVar)
-        radioButtons(name = "type", buttons = c("HC0", "HC1", "HC2", "HC3", "HC4", "HAC"), 
+        sandwichCheckFrame <- tkframe(sandwichFrame)
+        sandwichCheckBox <- ttkcheckbutton(sandwichCheckFrame, variable = sandwichVar)
+        radioButtons(sandwichFrame, name = "type", buttons = c("HC0", "HC1", "HC2", "HC3", "HC4", "HAC"), 
             labels = c("HC0", "HC1", "HC2", "HC3", "HC4", "HAC"), 
             title = gettextRcmdr("Sandwich estimator"), initialValue = dialog.values$initial.type)
         onOK <- function() {
@@ -90,10 +91,10 @@ summarizeModel <- function(){
         }
         OKCancelHelp(helpSubject = "summarySandwich", reset = "summarizeModel", apply="summarizeModel")
         tkgrid(sandwichCheckBox, labelRcmdr(sandwichFrame, 
-            text=gettextRcmdr("Use sandwich estimator of\ncoefficient standard errors")), 
+            text=gettextRcmdr("Use sandwich estimator of    \ncoefficient standard errors")), 
             sticky="nw")
-        tkgrid(sandwichFrame, sticky="w")
-        tkgrid(typeFrame, sticky = "w")
+        tkgrid(sandwichCheckFrame, typeFrame, sticky="nw")
+        tkgrid(sandwichFrame, sticky = "w")
         tkgrid(buttonsFrame, sticky = "w")
         dialogSuffix()
     }
@@ -228,62 +229,94 @@ InfluencePlot <- function () {
 }
 
 anovaTable <- function () {
-	.activeModel <- ActiveModel()
-	if (is.null(.activeModel)) 
-		return()
-	defaults <- list (initial.type = "II")
-	dialog.values <- getDialog ("anovaTable", defaults)
-	initializeDialog(title = gettextRcmdr("ANOVA Table"))
-	radioButtons(name = "type", buttons = c("I", "II", "III"), 
-			values = c("I", "II", "III"), labels = gettextRcmdr(c("Sequential (\"Type I\")", 
-							"Partial, obeying marginality (\"Type II\")", "Partial, ignoring marginality (\"Type III\")")), 
-			title = gettextRcmdr("Type of Tests"), initialValue = dialog.values$initial.type)
-	onOK <- function() {
-		type <- as.character(tclvalue(typeVariable))
-		putDialog ("anovaTable", list (initial.type = type))
-		closeDialog()
-		if (is.glm <- glmP()) {
-			family <- eval(parse(text = paste(.activeModel, "$family$family", 
-									sep = "")))
-		}
-		if (type == "I") {
-			if (!checkMethod("anova", .activeModel)) {
-				errorCondition(message = gettextRcmdr("There is no appropriate anova method for a model of this class."))
-				return()
-			}
-			if (is.glm) {
-				test <- if (family %in% c("binomial", "poisson")) 
-							"Chisq"
-						else "F"
-				doItAndPrint(paste("anova(", .activeModel, ", test=\"", 
-								test, "\")", sep = ""))
-			}
-			else doItAndPrint(paste("anova(", .activeModel, ")", 
-								sep = ""))
-		}
-		else {
-			if (!checkMethod("Anova", .activeModel)) {
-				errorCondition(message = gettextRcmdr("There is no appropriate Anova method for a model of this class."))
-				return()
-			}
-			if (is.glm) {
-				test <- if (family %in% c("binomial", "poisson")) 
-							"LR"
-						else "F"
-				doItAndPrint(paste("Anova(", .activeModel, ", type=\"", 
-								type, "\", test=\"", test, "\")", sep = ""))
-			}
-			else doItAndPrint(paste("Anova(", .activeModel, ", type=\"", 
-								type, "\")", sep = ""))
-			if (type == "III") 
-				Message(message = gettextRcmdr("Type III tests require careful attention to contrast coding."), 
-						type = "warning")
-		}
-	}
-	OKCancelHelp(helpSubject = "Anova", reset = "anovaTable")
-	tkgrid(typeFrame, sticky = "w")
-	tkgrid(buttonsFrame, sticky = "w")
-	dialogSuffix()
+    .activeModel <- ActiveModel()
+    if (is.null(.activeModel)) 
+        return()
+    defaults <- list (initial.type = "II", initial.sandwich="0", initial.sandwich.type="HC3")
+    dialog.values <- getDialog ("anovaTable", defaults)
+    initializeDialog(title = gettextRcmdr("ANOVA Table"))
+    radioButtons(name = "type", buttons = c("I", "II", "III"), 
+        values = c("I", "II", "III"), labels = gettextRcmdr(c("Sequential (\"Type I\")", 
+            "Partial, obeying marginality (\"Type II\")", "Partial, ignoring marginality (\"Type III\")")), 
+        title = gettextRcmdr("Type of Tests"), initialValue = dialog.values$initial.type)
+    sandwichVar <- tclVar(dialog.values$initial.sandwich)
+    sandwichFrame <- tkframe(top)
+    sandwichCheckFrame <- tkframe(sandwichFrame)
+    sandwichCheckBox <- ttkcheckbutton(sandwichCheckFrame, variable = sandwichVar)
+    radioButtons(sandwichFrame, name = "sandwichType", buttons = c("HC0", "HC1", "HC2", "HC3", "HC4", "HAC"), 
+        labels = c("HC0", "HC1", "HC2", "HC3", "HC4", "HAC"), 
+        title = gettextRcmdr("Sandwich estimator"), initialValue = dialog.values$initial.sandwich.type)
+    onOK <- function() {
+        type <- as.character(tclvalue(typeVariable))
+        sandwich <- tclvalue(sandwichVar)
+        sandwich.type <- tclvalue(sandwichTypeVariable)
+        putDialog ("anovaTable", list(initial.type = type, initial.sandwich=sandwich, 
+            initial.sandwich.type=sandwich.type))
+        closeDialog()
+        if (is.glm <- glmP()) {
+            family <- eval(parse(text = paste(.activeModel, "$family$family", 
+                sep = "")))
+        }
+        if (type == "I") {
+            if (!checkMethod("anova", .activeModel)) {
+                errorCondition(message = gettextRcmdr("There is no appropriate anova method for a model of this class."))
+                return()
+            }
+            if (sandwich == "1" && lmP()) {
+                errorCondition(recall = anovaTable, 
+                    message = gettextRcmdr("sandwich covariance matrix unavailable with type I tests"))
+                return()
+            }
+            if (is.glm) {
+                test <- if (family %in% c("binomial", "poisson")) 
+                    "Chisq"
+                else "F"
+                doItAndPrint(paste("anova(", .activeModel, ", test=\"", 
+                    test, "\")", sep = ""))
+            }
+            else doItAndPrint(paste("anova(", .activeModel, ")", 
+                sep = ""))
+        }
+        else {
+            if (!checkMethod("Anova", .activeModel)) {
+                errorCondition(message = gettextRcmdr("There is no appropriate Anova method for a model of this class."))
+                return()
+            }
+            if (is.glm) {
+                test <- if (family %in% c("binomial", "poisson")) 
+                    "LR"
+                else "F"
+                doItAndPrint(paste("Anova(", .activeModel, ", type=\"", 
+                    type, "\", test=\"", test, "\")", sep = ""))
+            }
+            else if (lmP()){
+                vcov <- if (sandwich == "1"){
+                    if (sandwich.type == "HAC") paste(", vcov=vcovHAC(", .activeModel, ")", sep="")
+                    else paste(", vcov=hccm(", .activeModel, ', type="', tolower(sandwich.type), '")', sep="")
+                }
+                else ""
+                doItAndPrint(paste("Anova(", .activeModel, ", type=\"", 
+                    type, "\"", vcov, ")", sep = ""))
+            }
+            else doItAndPrint(paste("Anova(", .activeModel, ", type=\"", 
+                type, "\")", sep = ""))
+            if (type == "III") 
+                Message(message = gettextRcmdr("Type III tests require careful attention to contrast coding."), 
+                    type = "warning")
+        }
+    }
+    OKCancelHelp(helpSubject = "Anova", reset = "anovaTable")
+    tkgrid(typeFrame, sticky = "w")
+    if (lmP()){
+        tkgrid(labelRcmdr(sandwichFrame, text=""))
+        tkgrid(sandwichCheckBox, labelRcmdr(sandwichFrame, 
+            text=gettextRcmdr("Use sandwich estimator of\ncoefficient covariance matrix   ")), 
+            sticky="nw")
+        tkgrid(sandwichCheckFrame, sandwichTypeFrame, sticky="nw")
+        tkgrid(sandwichFrame, sticky = "w")
+    }
+    tkgrid(buttonsFrame, sticky = "w")
+    dialogSuffix()
 }
 
 VIF <- function(){
