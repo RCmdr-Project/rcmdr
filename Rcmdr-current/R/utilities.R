@@ -1328,6 +1328,10 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
     tkgrid(labelRcmdr(dfDegFrame, text=gettextRcmdr("df for splines: ")), dfSplineSpin,  sticky="se")
     tkgrid(labelRcmdr(dfDegFrame, text=gettextRcmdr("deg. for polynomials: ")), degPolySpin, sticky="se")
     formulaFrame <- tkframe(frame)
+    formulaFrameMain <- tkframe(formulaFrame)
+    onFormulaHelp <- function () print(help("formula"))
+    formulaHelpButton <- buttonRcmdr(formulaFrame, text=gettextRcmdr("Model formula\nhelp"), command=onFormulaHelp,
+        image="::image::helpIcon", compound="left")
     if (hasLhs){
         tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Model Formula"), 
             fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
@@ -1337,26 +1341,28 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, expr={
             splinePolyFrame, dfDegFrame, sticky="nw")
         lhsVariable <- if (currentModel) tclVar(currentFields$lhs) else tclVar("")
         rhsVariable <- if (currentModel) tclVar(currentFields$rhs) else tclVar("")
-        rhsEntry <- ttkentry(formulaFrame, width="75", textvariable=rhsVariable)
-        rhsXscroll <- ttkscrollbar(formulaFrame,
+        rhsEntry <- ttkentry(formulaFrameMain, width="75", textvariable=rhsVariable)
+        rhsXscroll <- ttkscrollbar(formulaFrameMain,
             orient="horizontal", command=function(...) tkxview(rhsEntry, ...))
         tkconfigure(rhsEntry, xscrollcommand=function(...) tkset(rhsXscroll, ...))
-        lhsEntry <- ttkentry(formulaFrame, width="10", textvariable=lhsVariable)
-        lhsScroll <- ttkscrollbar(formulaFrame,
+        lhsEntry <- ttkentry(formulaFrameMain, width="10", textvariable=lhsVariable)
+        lhsScroll <- ttkscrollbar(formulaFrameMain,
             orient="horizontal", command=function(...) tkxview(lhsEntry, ...))
         tkconfigure(lhsEntry, xscrollcommand=function(...) tkset(lhsScroll, ...))
-        tkgrid(lhsEntry, labelRcmdr(formulaFrame, text=" ~    "), rhsEntry, sticky="w")
-        tkgrid(lhsScroll, labelRcmdr(formulaFrame, text=""), rhsXscroll, sticky="w")
+        tkgrid(lhsEntry, labelRcmdr(formulaFrameMain, text=" ~    "), rhsEntry, sticky="w")
+        tkgrid(lhsScroll, labelRcmdr(formulaFrameMain, text=""), rhsXscroll, sticky="w")
         tkgrid.configure(lhsScroll, sticky="ew")
+        tkgrid(formulaFrameMain, labelRcmdr(formulaFrame, text="  "), formulaHelpButton, sticky="nw")
     }
     else{
         rhsVariable <- if (currentModel) tclVar(currentFields$rhs) else tclVar("")
-        rhsEntry <- ttkentry(formulaFrame, width="75", textvariable=rhsVariable)
-        rhsXscroll <- ttkscrollbar(formulaFrame,
+        rhsEntry <- ttkentry(formulaFrameMain, width="75", textvariable=rhsVariable)
+        rhsXscroll <- ttkscrollbar(formulaFrameMain,
             orient="horizontal", command=function(...) tkxview(rhsEntry, ...))
         tkconfigure(rhsEntry, xscrollcommand=function(...) tkset(rhsXscroll, ...))
-        tkgrid(labelRcmdr(formulaFrame, text="   ~ "), rhsEntry, sticky="w")
-        tkgrid(labelRcmdr(formulaFrame, text=""), rhsXscroll, sticky="w")
+        tkgrid(labelRcmdr(formulaFrameMain, text="   ~ "), rhsEntry, sticky="w")
+        tkgrid(labelRcmdr(formulaFrameMain, text=""), rhsXscroll, sticky="w")
+        tkgrid(formulaFrameMain, labelRcmdr(formulaFrame, text="  "), formulaHelpButton, sticky="nw")
     }
     tkgrid.configure(rhsXscroll, sticky="ew")
 })
