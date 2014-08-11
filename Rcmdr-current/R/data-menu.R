@@ -2247,13 +2247,17 @@ Aggregate <- function(){
 dropUnusedFactorLevels <- function(){
     dataSet <- activeDataSet()
     initializeDialog(title=gettextRcmdr("Drop Unused Factor Levels"))
+    allfactorsVariable <- tclVar("0")
+    allFrame <- tkframe(top)
+    allfactorsCheckBox <- ttkcheckbutton(allFrame, variable = allfactorsVariable)
     variablesBox <- variableListBox(top, Factors(),
         title=gettextRcmdr("Factors(s) to drop levels (pick one or more)"), selectmode="multiple",
         initialSelection=NULL)
     onOK <- function(){
+        all <- tclvalue(allfactorsVariable)
         variables <- getSelection(variablesBox)
         closeDialog()
-        if (length(variables) == 0) {
+        if (all == 0 && length(variables) == 0) {
             errorCondition(recall=deleteVariable, message=gettextRcmdr("You must select one or more variables."))
             return()
         }
@@ -2263,16 +2267,22 @@ dropUnusedFactorLevels <- function(){
             onCancel()
             return()
         }
-        command <- paste(dataSet, " <- within(", dataSet, ", {", sep="")
-        for (variable in variables){
-            command <- paste(command, "\n  ", variable, " <- droplevels(", variable, ")", sep="")
+        if (all == 1) command <- paste(dataSet, " <- droplevels(", dataSet, ")", sep="")
+        else{
+            command <- paste(dataSet, " <- within(", dataSet, ", {", sep="")
+            for (variable in variables){
+                command <- paste(command, "\n  ", variable, " <- droplevels(", variable, ")", sep="")
+            }
+            command <- paste(command, "\n})")
         }
-        command <- paste(command, "\n})")
         doItAndPrint(command)
         activeDataSet(dataSet, flushModel=FALSE, flushDialogMemory=FALSE)
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject="droplevels")
+    tkgrid(allfactorsCheckBox, labelRcmdr(allFrame, text=gettextRcmdr("all factors")), sticky="w")
+    tkgrid(allFrame, sticky="w")
+    tkgrid(labelRcmdr(top, text=gettextRcmdr("OR"), fg="red"), sticky="w")
     tkgrid(getFrame(variablesBox), sticky="nw")
     tkgrid(buttonsFrame, sticky="w")
     dialogSuffix()
