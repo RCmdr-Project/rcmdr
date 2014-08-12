@@ -187,6 +187,9 @@ set none, one, several, or all options. The available options are as follows:
     On some systems, grabbing the focus in this manner apparently causes problems. The default is \code{TRUE}. 
     If you experience focus problems, try setting this option to \code{FALSE}.}
     
+    \item{\code{"help_type"}}{This Rcmdr option takes precedence over the global R \code{help_type}
+    option (see \code{\link{options}} and \code{\link{help}}), and by default is set to \code{"html"}.}
+    
     \item{\code{iconify.commander}}{If \code{TRUE}, the \emph{Commander} window is minimized on startup;
     the default is \code{FALSE}.}
     
