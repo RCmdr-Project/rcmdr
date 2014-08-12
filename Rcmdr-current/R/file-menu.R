@@ -1,4 +1,4 @@
-# last modified 2013-10-26 by J. Fox
+# last modified 2014-08-12 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -247,8 +247,10 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
 		close(getRcmdr("messages.connection"))
 	}
 	options(getRcmdr("saveOptions"))
-    options(help_type = getRcmdr("restore.help_type"))
+  options(help_type = getRcmdr("restore.help_type"))
 	options(device = getRcmdr("restore.device"))
+  if (getRcmdr("restore.use.external.help")) 
+    system("defaults delete org.R-project.R use.external.help")
 	tkdestroy(CommanderWindow())
 	putRcmdr("commanderWindow", NULL)
 	putRcmdr("logWindow", NULL)

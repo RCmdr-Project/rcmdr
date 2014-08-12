@@ -1,4 +1,4 @@
-# last modified 2014-08-08 by J. Fox
+# last modified 2014-08-12 by J. Fox
 
 # utility functions
 
@@ -2657,4 +2657,16 @@ hasJava <- function(){
     opts <- options(warn=-1, show.error.messages=FALSE)
     on.exit(options(opts))
     require("rJava", quietly=TRUE)
+}
+
+setupHelp <- function(){
+  if (MacOSXP() && .Platform$GUI == "AQUA"){
+    current <- system("defaults read org.R-project.R", intern=TRUE)
+    use.external.help <- grep("use.external.help", current)
+    if (length(use.external.help) < 1 || 
+          length(grep("YES", current[use.external.help])) < 1){
+      system("defaults write org.R-project.R use.external.help YES")
+      putRcmdr("restore.use.external.help", TRUE)
+    }
+  }
 }
