@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2014-08-12 by John Fox
+# last modified 2014-08-13 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -355,7 +355,7 @@ Commander <- function(){
     }
     putRcmdr("restore.help_type", getOption("help_type"))
     setOption("help_type", "html")
-    putRcmdr("restore.use.external.help", FALSE)
+#    putRcmdr("restore.use.external.help", FALSE)
     putRcmdr("restore.device", getOption("device"))
     if (RStudioP()){
         if (WindowsP()) options(device="windows")
@@ -985,7 +985,7 @@ Commander <- function(){
         putRcmdr(".commander.done", tclVar("0"))
         tkwait.variable(getRcmdr(".commander.done"))
     }
-    setupHelp()
+#    setupHelp()
     Message(paste(gettextRcmdr("R Commander Version "), getRcmdr("RcmdrVersion"), ": ", date(), sep=""))
     if (.Platform$GUI == "Rgui"  && ismdi()) Message(gettextRcmdr(
         "The Windows version of the R Commander works best under RGui\nwith the single-document interface (SDI); see ?Commander."),

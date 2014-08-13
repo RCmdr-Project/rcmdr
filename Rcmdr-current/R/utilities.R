@@ -1,4 +1,4 @@
-# last modified 2014-08-12 by J. Fox
+# last modified 2014-08-13 by J. Fox
 
 # utility functions
 
@@ -733,7 +733,7 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
         # focus grabs appear to cause problems for some dialogs
         if (GrabFocus() && (!preventGrabFocus)) tkgrab.set(window)
         tkfocus(focus)
-        tkwait.window(window)
+#        tkwait.window(window)
         if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
     }
 )
@@ -2659,14 +2659,14 @@ hasJava <- function(){
     require("rJava", quietly=TRUE)
 }
 
-setupHelp <- function(){
-  if (MacOSXP() && .Platform$GUI == "AQUA"){
-    current <- system("defaults read org.R-project.R", intern=TRUE)
-    use.external.help <- grep("use.external.help", current)
-    if (length(use.external.help) < 1 || 
-          length(grep("YES", current[use.external.help])) < 1){
-      system("defaults write org.R-project.R use.external.help YES")
-      putRcmdr("restore.use.external.help", TRUE)
-    }
-  }
-}
+# setupHelp <- function(){
+#   if (MacOSXP() && .Platform$GUI == "AQUA"){
+#     current <- system("defaults read org.R-project.R", intern=TRUE)
+#     use.external.help <- grep("use.external.help", current)
+#     if (length(use.external.help) < 1 || 
+#           length(grep("YES", current[use.external.help])) < 1){
+#       system("defaults write org.R-project.R use.external.help YES")
+#       putRcmdr("restore.use.external.help", TRUE)
+#     }
+#   }
+# }
