@@ -26,7 +26,9 @@ Changes to Version 2.1-0
 
   o New drop unused factor levels dialog (suggestion of Manuel Munoz Marquez).
 
-  o Improved handling of help in Mac OS X.
+  o Improved handling of help in Mac OS X and RStudio.
+
+  o Improved interaction with RStudio graphics device.
 
   o Updated getting-started manual.
 
