@@ -297,8 +297,9 @@ variableListBox(parentWindow, variableList=Variables(), bg="white",
     selectmode="single", export="FALSE", initialSelection=NULL, 
     listHeight=getRcmdr("variable.list.height"), title)
 Variables(names)
-varPosn(variables, vars=NULL,
-    type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor"))
+varPosn(variables,
+    type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor"), 
+    vars=NULL)
 WindowsP()
 X11P()
 
