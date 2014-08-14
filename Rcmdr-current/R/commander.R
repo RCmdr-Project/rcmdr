@@ -355,6 +355,7 @@ Commander <- function(){
     }
     putRcmdr("restore.help_type", getOption("help_type"))
     setOption("help_type", "html")
+    options(help_type=getRcmdr("help_type"))
 #    putRcmdr("restore.use.external.help", FALSE)
     putRcmdr("restore.device", getOption("device"))
     if (RStudioP()){
