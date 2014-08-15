@@ -4334,7 +4334,7 @@ msgstr ""
 msgid "Variable names in first row of spreadsheet"
 msgstr ""
 
-msgid "Row names in first column of spreadsheet
+msgid "Row names in first column of spreadsheet"
 msgstr ""
 
   # for selecting weights in LM and GLM dialogs
