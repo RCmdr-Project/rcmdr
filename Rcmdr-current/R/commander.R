@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2014-08-14 by John Fox
+# last modified 2014-08-15 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -983,7 +983,7 @@ Commander <- function(){
     tkfocus(.commander)
     if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
     tkwait.commander <- options("Rcmdr")[[1]]$tkwait.commander  # to address problem in Debian Linux
-    if ((!is.null(tkwait.commander)) && tkwait) {
+    if ((!is.null(tkwait.commander)) && tkwait.commander) {
         putRcmdr(".commander.done", tclVar("0"))
         tkwait.variable(getRcmdr(".commander.done"))
     }
