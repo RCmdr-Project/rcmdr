@@ -7,10 +7,10 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.0-3\n"
+"Project-Id-Version: Rcmdr 2.1-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-11-08 15:57:00\n"
-"PO-Revision-Date: 2014-01-10 18:00:00\n"
+"POT-Creation-Date: 2014-08-11 17:00:00\n"
+"PO-Revision-Date: 2014-08-15 12:30:00\n"
 "Last-Translator: Milan Bouchet-Valat <nalimilan@club.fr>\n"
 "Language-Team: français <>\n"
 "Language: fr\n"
@@ -4250,7 +4250,8 @@ msgid "knitr file saved to"
 msgstr "Fichier knitr entregistré dans"
 
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
-msgstr "{\"Tous les fichiers\" {\"*\"}} {\"Fichiers R Markdown\" {\".Rmd\" \".rmd\"}}"
+msgstr ""
+"{\"Tous les fichiers\" {\"*\"}} {\"Fichiers R Markdown\" {\".Rmd\" \".rmd\"}}"
 
 msgid ""
 "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
@@ -4504,3 +4505,135 @@ msgstr "Graphique couplé par :"
 
 msgid "Plot back-to-back by"
 msgstr "Graphique couplé par"
+
+# messages added for version 2.1-0
+msgid ""
+"the RcmdrMisc package is missing and should be installed\n"
+"  many features will not work"
+msgstr ""
+"le paquet RcmdrMisc est manquant et devrait être installé\n"
+"  de nombreuses fonctions ne marcheront pas"
+
+msgid ""
+"the car package is missing and should be installed\n"
+"  many features will not work"
+msgstr ""
+"le paquet car est manquant et devrait être installé\n"
+"  many features will not work"
+
+msgid "Standard Error of Mean"
+msgstr "Erreur type de la moyenne"
+
+msgid "Fit Indices"
+msgstr "Indices d'ajustement"
+
+msgid "Variable names in first row of spreadsheet"
+msgstr "Noms des variables dans la première ligne du tableur"
+
+msgid "Row names in first column of spreadsheet"
+msgstr "Noms des lignes dans la première colonne du tableur"
+
+msgid "<no variable selected>"
+msgstr "<aucune variable sélectionnée>"
+
+msgid "Weights"
+msgstr "Poids"
+
+msgid "Model Effect Plots"
+msgstr "Graphes des effets du modèle"
+
+msgid "Plot All High-Order Effects?"
+msgstr "Représenter tous les effets d'ordre élevé ?"
+
+msgid "Predictors (pick one or more)"
+msgstr "Prédicteurs (un ou plusieurs)"
+
+msgid ""
+"You must select one or more predictors\n"
+" or plot all high-order effects."
+msgstr "Vous devez sélectionner une ou plusieurs prédicteurs\n"
+" ou représenter tous les effets d'ordre élevé."
+
+msgid ""
+"To plot partial residuals,\n"
+" there must be a least one numeric predictor."
+msgstr ""
+"Pour représenter les résidus partiels,\n"
+" au moins un prédicteur numérique doit être présent."
+
+# 3D scatterplots dialog
+msgid "Plot partial residuals"
+msgstr "Représenter les résidus partiels"
+
+# index plot dialog
+msgid "Style of Graph"
+msgstr "Style de graphe"
+
+msgid "Stacked areas"
+msgstr "Aires empilées"
+
+msgid "Lines with confidence bands"
+msgstr "Lignes avec intervalles de confiance"
+
+msgid "Single-Sample Wilcoxon Test"
+msgstr "Test de Wilcoxon univarié"
+
+msgid "Single-sample Wilcoxon test..."
+msgstr "Test de Wilcoxon univarié..."
+
+msgid "Drop Unused Factor Levels"
+msgstr "Retirer les niveaux de facteur non utilisés"
+
+msgid "Factors(s) to drop levels (pick one or more)"
+msgstr "Facteur(s) dont retirer les niveaux (un ou plusieurs)"
+
+msgid ""
+"Drop unused factor levels\n"
+"Please confirm."
+msgstr ""
+"Retirer les niveaux non utilisés\n"
+"Veuillez confirmer."
+
+msgid "Drop unused factor levels..."
+msgstr "Retirer les niveaux de facteur non utilisés..."
+
+msgid "all factors"
+msgstr "tous les facteurs"
+
+msgid "Linear Model Summary"
+msgstr "Résumé d'un modèle linéaire"
+
+msgid "Sandwich estimator"
+msgstr "Estimateur sandwich"
+
+msgid ""
+"Use sandwich estimator of    \n"
+"coefficient standard errors"
+msgstr ""
+"Utiliser l'estimateur sandwich de\n"
+"erreurs types des coefficients"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix   "
+msgstr ""
+"Utiliser l'estimateur sandwich de\n"
+"matrice de covariance des coefficients"
+
+msgid "sandwich covariance matrix unavailable with type I tests"
+msgstr "matrice de covariance sandwich non disponible avec les tests de type I"
+
+# messages related to ttk theme selection
+msgid "non-existent theme"
+msgstr "thème inexistant"
+
+msgid "theme set to"
+msgstr "thème changé en"
+
+# modified message
+msgid "Restart R Commander"
+msgstr "Relancer le R Commander"
+
+# formula-help button
+msgid "Model formula\nhelp"
+msgstr "Aide sur\nles formules de modèle"
