@@ -363,6 +363,7 @@ Commander <- function(){
 #         else if (MacOSXP()) options(device="quartz")
 #         else options(device="x11")
 #     }
+    setOption("tkwait.dialog", FALSE)
     
     # source additional .R files, plug-ins preferred
     source.files <- list.files(etc, pattern="\\.[Rr]$")
@@ -981,12 +982,11 @@ Commander <- function(){
     tkwm.deiconify(.commander)
     tkfocus(.commander)
     if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
-    tkwait <- options("Rcmdr")[[1]]$tkwait  # to address problem in Debian Linux
-    if ((!is.null(tkwait)) && tkwait) {
+    tkwait.commander <- options("Rcmdr")[[1]]$tkwait.commander  # to address problem in Debian Linux
+    if ((!is.null(tkwait.commander)) && tkwait) {
         putRcmdr(".commander.done", tclVar("0"))
         tkwait.variable(getRcmdr(".commander.done"))
     }
-#    setupHelp()
     Message(paste(gettextRcmdr("R Commander Version "), getRcmdr("RcmdrVersion"), ": ", date(), sep=""))
     if (.Platform$GUI == "Rgui"  && ismdi()) Message(gettextRcmdr(
         "The Windows version of the R Commander works best under RGui\nwith the single-document interface (SDI); see ?Commander."),

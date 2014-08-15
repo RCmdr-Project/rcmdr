@@ -733,7 +733,7 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
         # focus grabs appear to cause problems for some dialogs
         if (GrabFocus() && (!preventGrabFocus)) tkgrab.set(window)
         tkfocus(focus)
-#        tkwait.window(window)
+        if (getRcmdr("tkwait.dialog")) tkwait.window(window)
         if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
     }
 )

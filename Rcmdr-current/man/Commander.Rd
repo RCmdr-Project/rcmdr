@@ -311,7 +311,7 @@ set none, one, several, or all options. The available options are as follows:
     \code{"blue"} or as an RGB value, such as \code{"#0000FF"}.
     The default is the standard color for ttk label frames, unless that is \code{"#000000"} or \code{"black"}, in which case \code{"blue"}" is used instead.}
         
-    \item{\code{tkwait}}{This option addresses a problem that, to my knowledge, is rare, 
+    \item{\code{tkwait.commander}}{This option addresses a problem that, to my knowledge, is rare, 
     and may occur on some non-Windows systems. If the Commander causes R to hang, 
     then set the \code{tkwait} option to
     \code{TRUE}; otherwise set the option to \code{FALSE} or ignore it. 
@@ -320,6 +320,12 @@ set none, one, several, or all options. The available options are as follows:
     One can still enter commands via the script window, however. In particular, there is no reason to use this option
     under Windows, and it should not be used with the Windows R GUI with buffered output when output is directed to the
     R console.}
+    
+    \item{\code{tkwait.dialog}}{If \code{TRUE} (the default is \code{FALSE}), R will
+    wait until an R Commander dialog is closed. This has the disadvantage of preventing
+    help pages from being displayed until a dialog is closed in the Mac OS X R.app 
+    and in RStudio. This was also the standard behavior of the R Commander in earlier
+    versions and is provided for compatibility with previous behavior.}
     
     \item{\code{use.knitr}}{If \code{TRUE} (the default is \code{FALSE}), a knitr \code{.Rnw} LaTeX document is created in a tab of the main Commander window;
     this document can be compiled into \code{.tex} and \code{.pdf} reports via the \code{\link[knitr]{knit2pdf}}
