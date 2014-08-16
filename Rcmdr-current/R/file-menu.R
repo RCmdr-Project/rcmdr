@@ -1,10 +1,10 @@
-# last modified 2014-08-14 by J. Fox
+# last modified 2014-08-16 by J. Fox
 
 # File (and Edit) menu dialogs
 
 loadLog <- function(){
 	logFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Script Files" {".R"}}'),
-					defaultextension="log",
+					defaultextension="R",
 					parent=CommanderWindow()))
 	if (logFile == "") return()
 	fileCon <- file(logFile, "r")
@@ -23,16 +23,17 @@ loadLog <- function(){
 }
 
 saveLog <- function(logfilename) {
-	.logFileName <- if (missing(logfilename)) getRcmdr("logFileName") else logfilename
-	if (is.null(.logFileName) || (.logFileName == "%logfilename")) {
-		saveLogAs()
-		return()
-	}
-	log <- tclvalue(tkget(LogWindow(), "1.0", "end"))
-	fileCon <- file(.logFileName, "w")
-	cat(log, file = fileCon)
-	close(fileCon)
-	Message(paste(gettextRcmdr("Script saved to"), .logFileName), type="note")
+  .logFileName <- if (missing(logfilename) || (logfilename == "%logfilename")) 
+    getRcmdr("logFileName") else logfilename
+  if (is.null(.logFileName)) {
+    saveLogAs()
+    return()
+  }
+  log <- tclvalue(tkget(LogWindow(), "1.0", "end"))
+  fileCon <- file(.logFileName, "w")
+  cat(log, file = fileCon)
+  close(fileCon)
+  Message(paste(gettextRcmdr("Script saved to"), .logFileName), type="note")
 }
 
 saveLogAs <- function() {
@@ -92,10 +93,9 @@ loadRnw <- function(){
 }
 
 saveRmd <- function(Rmdfilename) {
-    .RmdFileName <- if (missing(Rmdfilename)) getRcmdr("RmdFileName") else Rmdfilename
-    if ((.RmdFileName == "RcmdrMarkdown.Rmd") || 
-            is.null(.RmdFileName) || 
-            (.RmdFileName == "%Rmdfilename")) {
+    .RmdFileName <- if (missing(Rmdfilename) || (Rmdfilename == "%Rmdfilename")) 
+                        getRcmdr("RmdFileName") else Rmdfilename
+    if ((.RmdFileName == "RcmdrMarkdown.Rmd") || is.null(.RmdFileName)) {
         saveRmdAs()
         return()
     }
@@ -107,10 +107,9 @@ saveRmd <- function(Rmdfilename) {
 }
 
 saveRnw <- function(Rnwfilename) {
-    .RnwFileName <- if (missing(Rnwfilename)) getRcmdr("RnwFileName") else Rnwfilename
-    if ((.RnwFileName == "RcmdrKnitr.Rnw") || 
-            is.null(.RnwFileName) || 
-            (.RnwFileName == "%Rnwfilename")) {
+    .RnwFileName <- if (missing(Rnwfilename) || (Rnwfilename == "%Rnwfilename")) 
+      getRcmdr("RnwFileName") else Rnwfilename
+    if ((.RnwFileName == "RcmdrKnitr.Rnw") || is.null(.RnwFileName)) {
         saveRnwAs()
         return()
     }
@@ -494,7 +493,7 @@ Options <- function(){
     rmdTemplateEntry <- ttkentry(templateFrame, width="75", textvariable=rmdTemplateVar)
     onSelectTemplate <- function(){
         templateFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"R Markdown Files" {".Rmd" ".rmd"}}'),
-                                               defaultextension=".Rmd",
+                                               defaultextension="Rmd",
                                                parent=outputTab))
         if (templateFile == "") return()
         tclvalue(rmdTemplateVar) <- templateFile
@@ -505,7 +504,7 @@ Options <- function(){
     rnwTemplateEntry <- ttkentry(templateFrame, width="75", textvariable=rnwTemplateVar)
     onSelectRnwTemplate <- function(){
         rnwTemplateFile <- tclvalue(tkgetOpenFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"knitr Files" {".Rnw" ".rnw" ".Snw" ".snw"}}'),
-                                                  defaultextension=".Rnw",
+                                                  defaultextension="Rnw",
                                                   parent=outputTab))
         if (rnwTemplateFile == "") return()
         tclvalue(rnwTemplateVar) <- rnwTemplateFile
