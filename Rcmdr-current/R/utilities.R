@@ -1,4 +1,4 @@
-# last modified 2014-08-14 by J. Fox
+# last modified 2014-08-17 by J. Fox
 
 # utility functions
 
@@ -713,7 +713,7 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
     bindReturn=TRUE, preventGrabFocus=FALSE, preventDoubleClick=FALSE,
     preventCrisp, 
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), tab.names=c("Data", "Options"),
-    grid.buttons=FALSE, resizable=FALSE,
+    grid.buttons=FALSE, resizable=FALSE, force.wait=FALSE,
     expr={
         if (use.tabs){
             for (i in 1:length(tabs)){
@@ -733,7 +733,7 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
         # focus grabs appear to cause problems for some dialogs
         if (GrabFocus() && (!preventGrabFocus)) tkgrab.set(window)
         tkfocus(focus)
-        if (getRcmdr("tkwait.dialog")) tkwait.window(window)
+        if (getRcmdr("tkwait.dialog") || force.wait) tkwait.window(window)
         if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
     }
 )
@@ -1025,7 +1025,7 @@ groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=
                               if (plotLinesByGroup) tkgrid(linesByGroupFrame, sticky="w")
                               tkgrid(subButtonsFrame, sticky="ew")
                               if (positionLegend) tkgrid(labelRcmdr(subdialog, text=gettextRcmdr("Position legend with mouse click"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"))
-                              dialogSuffix(subdialog, onOK=onOKsub, focus=subdialog)
+                              dialogSuffix(subdialog, onOK=onOKsub, focus=subdialog, force.wait=TRUE)
                           }
                           groupsFrame <- tkframe(window)
                           groupsButton <- tkbutton(groupsFrame, textvariable=.groupsLabel, command=onGroups)

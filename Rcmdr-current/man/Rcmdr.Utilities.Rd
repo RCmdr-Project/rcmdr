@@ -179,7 +179,8 @@ dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows, columns,
 	focus=top, bindReturn=TRUE, 
     preventGrabFocus=FALSE, preventDoubleClick=FALSE, preventCrisp,
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), 
-    tab.names=c("Data", "Options"), grid.buttons=FALSE, resizable=FALSE)  # macro
+    tab.names=c("Data", "Options"), grid.buttons=FALSE, resizable=FALSE,
+    force.wait=FALSE)  # macro
 doItAndPrint(command, log=TRUE, rmd=log)
 endRmdBlock()
 endRnwBlock()
@@ -355,6 +356,10 @@ commanderPosition()
     data set is changed; an exception is when variables are simply added to, deleted from, or modified in 
     the data set set.}
   \item{focus}{Tk window to get the focus.}
+  \item{force.wait}{call \code{tkwait.window} so that processing is suspended until the dialog
+    is closed; overrides the \pkg{Rcmdr} \code{tkwait.dialog} option (see \code{\link{Commander}})
+    if the latter is set to \code{FALSE} (its default). The \code{force.wait} argument should be set to \code{TRUE} for
+    subdialogs.}
   \item{frame}{frame or quoted name for frame depending upon the function.}
   \item{generic}{quoted name of generic function.}
   \item{glm}{\code{TRUE} if the model is a \code{glm} object, \code{FALSE} otherwise.}

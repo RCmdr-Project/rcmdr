@@ -1,4 +1,4 @@
-# last modified 2014-08-10 by J. Fox
+# last modified 2014-08-17 by J. Fox
 
 # Data menu dialogs
 
@@ -390,7 +390,7 @@ readDataSet <- function() {
             tkgrid(urlXscroll, sticky="ew")
             tkgrid(urlFrame, sticky="nw")
             tkgrid(subButtonsFrame, sticky="w")
-            dialogSuffix(subdialog, focus=url, onOK=onOKsub)
+            dialogSuffix(subdialog, focus=url, onOK=onOKsub, force.wait=TRUE)
             tclvalue(urlVar)
         }
         if (file == "") {
@@ -1233,17 +1233,17 @@ numericToFactor <- function(){
           tkgrid(labelRcmdr(subdialog, text=values[i]), get(paste("entry", i, sep="")), sticky="w")
         }
         tkgrid(subButtonsFrame, sticky="w", columnspan=2)
-        dialogSuffix(subdialog, focus=entry1, onOK=onOKsub)
+        dialogSuffix(subdialog, focus=entry1, onOK=onOKsub, force.wait=TRUE)
       }
-      if (levelsType == "names"){
-        if (!exists("labels", mode="character")) return()
-        cmd <- paste("factor(", name,
-                     ", labels=c(", labels, "))", sep="")
-        command <- paste(command, "\n  ", fname, " <- ", cmd, sep="")
-      }
-      else{
-        command <- paste(command, "\n  ", fname, " <- as.factor(", name, ")", sep="")
-      }
+    }
+    if (levelsType == "names"){
+      if (!exists("labels", mode="character")) return()
+      cmd <- paste("factor(", name,
+                   ", labels=c(", labels, "))", sep="")
+      command <- paste(command, "\n  ", fname, " <- ", cmd, sep="")
+    }
+    else{
+      command <- paste(command, "\n  ", fname, " <- as.factor(", name, ")", sep="")
     }
     command <- paste(command, "\n})", sep="")
     result <- doItAndPrint(command)
@@ -1345,7 +1345,7 @@ binVariable <- function () {
                get(paste("entry", i, sep = "")), sticky = "w")
       }
       tkgrid(subButtonsFrame, sticky = "w", columnspan = 2)
-      dialogSuffix(subdialog, focus = entry1, bindReturn = FALSE)
+      dialogSuffix(subdialog, focus = entry1, bindReturn = FALSE, force.wait=TRUE)
     }
     labels <- if (levels == "numbers") 
       "FALSE"
@@ -1461,7 +1461,7 @@ reorderFactor <- function(){
       tkgrid(labelRcmdr(subdialog, text=old.levels[i]), get(paste("entry", i, sep="")), sticky="w")
     }
     tkgrid(subButtonsFrame, sticky="w", columnspan=2)
-    dialogSuffix(subdialog, focus=entry1)
+    dialogSuffix(subdialog, focus=entry1, force.wait=TRUE)
   }
   OKCancelHelp(helpSubject="factor")
   tkgrid(getFrame(variableBox), sticky="nw")
@@ -1801,7 +1801,7 @@ renameVariables <- function(){
 			tkgrid(labelRcmdr(subdialog, text=variables[i]), get(paste("entry", i, sep="")), sticky="w")
 		}
 		tkgrid(subButtonsFrame, sticky="w", columnspan=2)
-		dialogSuffix(subdialog, focus=entry1, onOK=onOKsub)
+		dialogSuffix(subdialog, focus=entry1, onOK=onOKsub, force.wait=TRUE)
 	}
 	OKCancelHelp(helpSubject="names")
 	tkgrid(getFrame(variableBox), sticky="nw")
@@ -1904,7 +1904,7 @@ setContrasts <- function(){
       tkgrid(tableFrame, sticky="w")
       tkgrid(labelRcmdr(subdialog, text=""))
       tkgrid(subButtonsFrame, sticky="w")
-      dialogSuffix(subdialog, focus=subdialog)
+      dialogSuffix(subdialog, focus=subdialog, force.wait=TRUE)
     }
   }
   OKCancelHelp(helpSubject="contrasts")

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2014-08-06 by J. Fox
+# last modified 2014-08-17 by J. Fox
 
 # Dimensional-analysis menu
 
@@ -107,7 +107,7 @@ principalComponents <- function () {
       tkgrid(componentsSlider, componentsShow, sticky = "nw")
       tkgrid(sliderFrame, sticky = "w")
       tkgrid(subButtonsFrame, sticky = "w")
-      dialogSuffix(subdialog, onOK = onOKsub, focus = subdialog)
+      dialogSuffix(subdialog, onOK = onOKsub, focus = subdialog, force.wait=TRUE)
       if ((ncomponents <- getRcmdr("ncomponents")) > 0) {
         prefix <- paste("  ", .activeDataSet, " <<- within(", .activeDataSet, ", {", sep="")
         if (screeplot != "1") prefix <- paste("\n", prefix, sep="")
@@ -195,7 +195,7 @@ factorAnalysis <- function () {
       tkgrid(componentsSlider, componentsShow, sticky = "nw")
       tkgrid(sliderFrame, sticky = "w")
       tkgrid(subButtonsFrame, sticky = "w")
-      dialogSuffix(subdialog, onOK = onOKsub, focus = subdialog)
+      dialogSuffix(subdialog, onOK = onOKsub, focus = subdialog, force.wait=TRUE)
     }
     subset <- if (trim.blanks(subset) == "" || trim.blanks(subset) == gettextRcmdr("<all valid cases>")) 
       ""

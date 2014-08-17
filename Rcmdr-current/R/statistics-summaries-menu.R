@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2014-08-06 by J. Fox
+# last modified 2014-08-17 by J. Fox
 
 # Summaries menu
 
@@ -213,7 +213,7 @@ frequencyDistribution <- function () {
       }
       subOKCancelHelp(subwin)
       tkgrid(subButtonsFrame, sticky = "w")
-      dialogSuffix(subwin, onOK = onOKsub, focus = subwin)
+      dialogSuffix(subwin, onOK = onOKsub, focus = subwin, force.wait=TRUE)
     }
     tkfocus(CommanderWindow())
   }

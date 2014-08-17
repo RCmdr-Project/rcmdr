@@ -316,7 +316,7 @@ set none, one, several, or all options. The available options are as follows:
     then set the \code{tkwait} option to
     \code{TRUE}; otherwise set the option to \code{FALSE} or ignore it. 
     An undesirable side effect of setting
-    the \code{tkwait} option to \code{TRUE} is that the R session command prompt is suppressed until the Commander exits.
+    the \code{tkwait.commander} option to \code{TRUE} is that the R session command prompt is suppressed until the Commander exits.
     One can still enter commands via the script window, however. In particular, there is no reason to use this option
     under Windows, and it should not be used with the Windows R GUI with buffered output when output is directed to the
     R console.}
