@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2014-08-10 by J. Fox
+# last modified 2014-08-17 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -321,7 +321,7 @@ anovaTable <- function () {
 
 VIF <- function(){
 	.activeModel <- ActiveModel()
-	if (is.null(.activeModel) || !checkMethod("vif", .activeModel)) return()
+	if (is.null(.activeModel) || !checkMethod("vif", .activeModel, default=TRUE)) return()
 	doItAndPrint(paste("vif(", .activeModel, ")", sep=""))
 }
 
