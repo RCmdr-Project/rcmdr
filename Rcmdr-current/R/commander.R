@@ -1,14 +1,14 @@
 
 # The R Commander and command logger
 
-# last modified 2014-08-15 by John Fox
+# last modified 2014-08-21 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
 Commander <- function(){
     library(Rcmdr, quietly=TRUE)
-    if (!require("RcmdrMisc")) warning(gettextRcmdr("the RcmdrMisc package is missing and should be installed\n  many features will not work"))
-    if (!require("car")) warning(gettextRcmdr("the car package is missing and should be installed\n  many features will not work"))
+#    if (!require("RcmdrMisc")) warning(gettextRcmdr("the RcmdrMisc package is missing and should be installed\n  many features will not work"))
+#    if (!require("car")) warning(gettextRcmdr("the car package is missing and should be installed\n  many features will not work"))
     # set up RcmdrEnv
     RcmdrEnv.on.path <- getOption("Rcmdr")[["RcmdrEnv.on.path"]]
     if (is.null(RcmdrEnv.on.path)) RcmdrEnv.on.path <- FALSE

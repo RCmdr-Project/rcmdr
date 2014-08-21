@@ -1,8 +1,8 @@
-# last modified 2014-08-07 by J. Fox
+# last modified 2014-08-21 by J. Fox
 
 useDynLib(Rcmdr)
 
-import(tcltk)
+import(splines, tcltk, RcmdrMisc, car)
 
 importFrom(utils, available.packages, install.packages)
 
