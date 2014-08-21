@@ -3,15 +3,27 @@ msgstr ""
 "Project-Id-Version: Rcmdr 2.0.0\n"
 "Report-Msgid-Bugs-To: bugs@r-project.org\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-08-15 11:52+0100\n"
-"Last-Translator: Stefano Calza <stefano.calza@med.unibs.it>\n"
-"Language-Team: Italiano <stefano.calza@med.unibs.it>\n"
+"PO-Revision-Date: 2014-08-19 12:30+0100\n"
+"Last-Translator: Stefano Calza <stefano.calza@unibs.it>\n"
+"Language-Team: Italiano <stefano.calza@unibs.it>\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid ""
+"Project-Id-Version: Rcmdr 2.1-0\n"
+"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
+"POT-Creation-Date: 2014-08-11 17:00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+msgstr ""
 
 msgid "KMeans Clustering"
 msgstr "Analisi dei cluster mediante k-means"
@@ -22,7 +34,8 @@ msgstr "Variabili (una o più)"
 msgid "No variables selected."
 msgstr "Nessuna variabile selezionata"
 
-msgid "&lt;all valid cases&gt;"
+#, fuzzy
+msgid "<all valid cases>"
 msgstr "&lt;tutti i casi validi&gt;"
 
 msgid "Number of clusters:"
@@ -32,7 +45,7 @@ msgid "Number of starting seeds:"
 msgstr "Numero di indici iniziali di randomizzazione:"
 
 msgid "Maximum iterations:"
-msgstr "Numero massimo d'iterazioni:"
+msgstr "Numero massimo di iterazioni:"
 
 msgid "Print cluster summary"
 msgstr "Stampa sommario dell'analisi dei cluster:"
@@ -78,10 +91,10 @@ msgid "Clustering Method"
 msgstr "Metodo di analisi dei cluster"
 
 msgid "Euclidean"
-msgstr "Euclidiana"
+msgstr "Euclidea"
 
 msgid "Squared-Euclidian"
-msgstr "Euclidiana al quadrato"
+msgstr "Euclidea al quadrato"
 
 msgid "Manhattan (City Block)"
 msgstr "Manhattan (City block)"
@@ -189,10 +202,12 @@ msgstr "Edita i dati"
 msgid "View data set"
 msgstr "Visualizza i dati"
 
-msgid "&lt;No active dataset&gt;"
+#, fuzzy
+msgid "<No active dataset>"
 msgstr "&lt;Nessun set di dati attivo&gt;"
 
-msgid "&lt;No active model&gt;"
+#, fuzzy
+msgid "<No active model>"
 msgstr "&lt;Nessun modello attivo&gt;"
 
 msgid "Data set:"
@@ -325,7 +340,7 @@ msgid ""
 "Delete %s?\n"
 "Please confirm."
 msgstr ""
-"Elimare %s ?\n"
+"Eliminare %s ?\n"
 "Conferma."
 
 msgid ""
@@ -451,7 +466,7 @@ msgstr ""
 "Dati non convertiti."
 
 msgid "Import STATA Data Set"
-msgstr "Inporta dati in formato STATA"
+msgstr "Importa dati in formato STATA"
 
 msgid "{\"STATA datasets\" {\".dta\" \".DTA\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
@@ -460,11 +475,12 @@ msgstr ""
 msgid "Convert dates to R format"
 msgstr "Converti i dati in formato R"
 
-msgid "Multiple missing types (&gt;=Stata 8)"
+#, fuzzy
+msgid "Multiple missing types (>=Stata 8)"
 msgstr "Tipi di dati mancanti multipli (&gt;= Stata 8)"
 
 msgid "Convert underscore to period"
-msgstr "Convertire underscore a punto"
+msgstr "Convertire trattino basso (\"underscore\") in punto"
 
 msgid "Warn on missing labels"
 msgstr "Avvisa in caso di etichette mancanti"
@@ -484,7 +500,8 @@ msgstr "Utilizza i numeri"
 msgid "Factor Levels"
 msgstr "Livelli del fattore"
 
-msgid "&lt;same as variable&gt;"
+#, fuzzy
+msgid "<same as variable>"
 msgstr "&lt;lo stesso della variabile&gt;"
 
 msgid "Number of levels (%d) too large."
@@ -515,7 +532,7 @@ msgid "Variable to bin (pick one)"
 msgstr "Variabile da raggruppare in classi (selezionarne una)"
 
 msgid "Specify names"
-msgstr "Specifare il nome"
+msgstr "Specificare il nome"
 
 msgid "Numbers"
 msgstr "Numeri"
@@ -560,7 +577,8 @@ msgstr "Riordina il livelli del fattore"
 msgid "Factor (pick one)"
 msgstr "Fattore (uno solo)"
 
-msgid "&lt;same as original&gt;"
+#, fuzzy
+msgid "<same as original>"
 msgstr "&lt;uguale all'originale&gt;"
 
 msgid "Reorder Levels"
@@ -608,7 +626,8 @@ msgstr "Elimina i dati mancanti"
 msgid "Variables (select one or more)"
 msgstr "Variabili (una o più)"
 
-msgid "&lt;same as active data set&gt;"
+#, fuzzy
+msgid "<same as active data set>"
 msgstr "&lt;uguale al set di dati attivo&gt;"
 
 msgid "No variables were selected."
@@ -623,7 +642,8 @@ msgstr "Nome per il nuovo set di dati"
 msgid "Subset Data Set"
 msgstr "Suddividi il set di dati"
 
-msgid "&lt;all cases&gt;"
+#, fuzzy
+msgid "<all cases>"
 msgstr "&lt;tutti i casi&gt;"
 
 msgid "New data set same as active data set."
@@ -675,7 +695,7 @@ msgid "Helmert contrasts"
 msgstr "Contrasti di Helmert"
 
 msgid "Polynomial contrasts"
-msgstr "Contrast polinomiali"
+msgstr "Contrasti polinomiali"
 
 msgid "Other (specify)"
 msgstr "Altro (specificare)"
@@ -852,7 +872,7 @@ msgid "Poisson Distribution"
 msgstr "Distribuzione di Poisson"
 
 msgid "Mean not specified."
-msgstr "Median non specificata"
+msgstr "Mediana non specificata"
 
 msgid "mean"
 msgstr "media"
@@ -976,8 +996,8 @@ msgstr "Punti"
 msgid "Histogram"
 msgstr "Istogramma"
 
-msgid "&lt;auto&gt;"
-msgstr "&lt;auto&gt;"
+msgid "<auto>"
+msgstr "<auto>"
 
 msgid "Frequency counts"
 msgstr "Frequenze assolute"
@@ -1117,7 +1137,8 @@ msgstr "variabile x (una sola)"
 msgid "y variables (pick one or more)"
 msgstr "variabili y (una o più)"
 
-msgid "&lt;use y-variable names&gt;"
+#, fuzzy
+msgid "<use y-variable names>"
 msgstr "&lt;usa i nomi della variabile y&gt;"
 
 msgid "No x variable selected."
@@ -1359,7 +1380,7 @@ msgid "Current Model:"
 msgstr "Modello attivo:"
 
 msgid "Identify points with mouse?"
-msgstr "Indentificare i punti con il mouse?"
+msgstr "Identificare i punti con il mouse?"
 
 msgid "There is no appropriate Anova method for a model of this class."
 msgstr "Non esiste metodo Anova appropriato per un modello di questa classe"
@@ -1645,11 +1666,12 @@ msgstr "Selezionare una variabile di raggruppamento"
 msgid "Two-sided"
 msgstr "A due code"
 
-msgid "Difference &lt; 0"
-msgstr "Differenza &lt; 0"
+#, fuzzy
+msgid "Difference < 0"
+msgstr "Differenza > 0"
 
-msgid "Difference &gt; 0"
-msgstr "Differenza &lt; 0"
+msgid "Difference > 0"
+msgstr "Differenza > 0"
 
 msgid "Yes"
 msgstr "Sì"
@@ -1676,7 +1698,7 @@ msgid "You must select two variables."
 msgstr "Selezionare due variabili"
 
 msgid "Variables must be different."
-msgstr "Le variabili devovo essere diverse"
+msgstr "Le variabili devono essere diverse"
 
 msgid "Single-Sample t-Test"
 msgstr "t-test per un singolo campione"
@@ -1684,11 +1706,11 @@ msgstr "t-test per un singolo campione"
 msgid "Population mean = mu0"
 msgstr "Media della popolazione mu = 0"
 
-msgid "Population mean &lt; mu0"
-msgstr "Media della popolazione %lt; mu0"
+msgid "Population mean < mu0"
+msgstr "Media della popolazione mu < 0"
 
-msgid "Population mean &gt; mu0"
-msgstr "Media della popolazione &gt; mu0"
+msgid "Population mean > mu0"
+msgstr "Media della popolazione mu > 0"
 
 msgid "Null hypothesis: mu ="
 msgstr "Ipotesi nulla: mu ="
@@ -1793,11 +1815,11 @@ msgstr "Test per una singola Proporzione"
 msgid "Population proportion = p0"
 msgstr "Proporzione della popolazione = p0"
 
-msgid "Population proportion &lt; p0"
-msgstr "Proporzione della popolazione &lt; p0"
+msgid "Population proportion < p0"
+msgstr "Proporzione della popolazione < p0"
 
-msgid "Population proportion &gt; p0"
-msgstr "Proporzione della popolazione &gt; p0"
+msgid "Population proportion > p0"
+msgstr "Proporzione della popolazione > p0"
 
 msgid "Exact binomial"
 msgstr "Test binomiale esatto"
@@ -1859,7 +1881,7 @@ msgid "Negative probabilities not allowed."
 msgstr "Probabilità negative non ammesse."
 
 msgid "Probabilities rescaled to sum to 1."
-msgstr "Probabilità riscalate a sommare a 1."
+msgstr "Probabilità riscalate a somma 1."
 
 msgid "Chi-square goodness-of-fit test"
 msgstr "Test del chi-quadrato per la bontà dell'adattamento"
@@ -1987,7 +2009,7 @@ msgid "There is no active data set."
 msgstr "Nessun set di dati attivo"
 
 msgid "is not a data frame and cannot be attached."
-msgstr "non è un dataframe e non può essere annesso."
+msgstr "non è un data frame e non può essere annesso."
 
 msgid "The dataset %s has %d rows and %d columns."
 msgstr "Il set di dati %s ha %d righe e %d colonne."
@@ -1997,11 +2019,11 @@ msgstr "Nessun modello attivo."
 
 msgid "argument must be a square, symmetric, numeric covariance matrix"
 msgstr ""
-"l'argomento deve essere una matrice di covaranza numerica, quadrata e "
+"l'argomento deve essere una matrice di covarianza numerica, quadrata e "
 "simmetrica."
 
 msgid "there are fewer than 3 items in the scale"
-msgstr "ci sono meno di 3 items nella scala"
+msgstr "ci sono meno di 3 elementi nella scala"
 
 msgid "Argument response must be numeric."
 msgstr "L'argomento di risposta deve essere numerico."
@@ -2068,10 +2090,10 @@ msgstr ""
 "Sovrascrivere %s ?"
 
 msgid "Plot by:"
-msgstr "Graficare per:"
+msgstr "Tracciare per:"
 
 msgid "Plot by groups"
-msgstr "Graficare per gruppi"
+msgstr "Tracciare per gruppi"
 
 msgid "Plot lines by group"
 msgstr "Grafici a linee per gruppi"
@@ -2088,7 +2110,8 @@ msgstr "Variale di raggruppamento (una sola)"
 msgid "Position legend with mouse click"
 msgstr "Posiziona la legenda con un click del mouse"
 
-msgid "&lt;No groups selected&gt;"
+#, fuzzy
+msgid "<No groups selected>"
 msgstr "&lt;Nessun gruppo selezionato&gt;"
 
 msgid "Difference:"
@@ -2441,7 +2464,7 @@ msgid "Breusch-Pagan test for heteroscedasticity..."
 msgstr "Test di Breusch-Pagan per l'eteroscedasticità..."
 
 msgid "Durbin-Watson test for autocorrelation..."
-msgstr "Test di Durbin-Watson per lautocorrelazione..."
+msgstr "Test di Durbin-Watson per l'autocorrelazione..."
 
 msgid "RESET test for nonlinearity..."
 msgstr "Test RESET per la non linearità..."
@@ -2462,7 +2485,7 @@ msgid "Added-variable plots"
 msgstr "Grafico di additività delle variabili"
 
 msgid "Influence plot"
-msgstr "Grafico dei valoti d'influenza"
+msgstr "Grafico dei valori d'influenza"
 
 msgid "Effect plots"
 msgstr "Grafico degli effetti"
@@ -2568,7 +2591,7 @@ msgstr "gdl ="
 
 # # messages added to Rcmdr version 1.1-1
 msgid "There is no current RGL graphics device."
-msgstr "Non c'è alcun dispostivo grafico RGL corrente"
+msgstr "Non c'è alcun dispositivo grafico RGL corrente"
 
 msgid "3D graph"
 msgstr "Grafico 3D"
@@ -2742,10 +2765,10 @@ msgid "Gumbel Distribution"
 msgstr "Distribuzione di Gumbel"
 
 msgid "Shape (log shape)"
-msgstr "Forma (log forma)"
+msgstr "Forma (forma log)"
 
 msgid "Scale (log scale)"
-msgstr "Scala (log scala)"
+msgstr "Scala (scala log)"
 
 msgid "Gumbel Probabilities"
 msgstr "Probabilità della Gumbel"
@@ -3221,7 +3244,7 @@ msgid "Percentages of total"
 msgstr "Percentuale sul totale"
 
 msgid "Components of chi-square statistic"
-msgstr "Compnenti della statistica chi-quadrato"
+msgstr "Componenti della statistica chi-quadrato"
 
 # 3D scatterplots dialog
 msgid "Show squared residuals"
@@ -3254,11 +3277,12 @@ msgstr "Tau di Kendall"
 msgid "Type of Correlation"
 msgstr "Tipo di correlazione"
 
-msgid "Correlation &lt; 0"
-msgstr "Correlazione &lt; 0"
+#, fuzzy
+msgid "Correlation < 0"
+msgstr "Correlazione > 0"
 
-msgid "Correlation &gt; 0"
-msgstr "Correlazione &gt; 0"
+msgid "Correlation > 0"
+msgstr "Correlazione > 0"
 
 msgid "More than 2 variables selected."
 msgstr "Sono state selezionate più di 2 variabili."
@@ -3303,8 +3327,8 @@ msgstr "Distribuzioni di frequenza..."
 msgid "Convert Numeric Variables to Factors"
 msgstr "Converti variabili numeriche in fattori"
 
-msgid "&lt;same as variables&gt;"
-msgstr "&lt;come la variable&gt;"
+msgid "<same as variables>"
+msgstr "&lt;come la variabile&gt;"
 
 msgid "Level Names for"
 msgstr "Nomi per i livelli"
@@ -3779,7 +3803,7 @@ msgid ""
 "Pairwise p-values\n"
 "for Pearson or Spearman correlations"
 msgstr ""
-"P-valaues a coppie\n"
+"P-values a coppie\n"
 "per correlazione di Pearson o Spearman"
 
 msgid ""
@@ -3805,7 +3829,7 @@ msgid ""
 "Identify points with mouse?\n"
 "Right-click to exit."
 msgstr ""
-"Indentificare i punti con il mouse?\n"
+"Identificare i punti con il mouse?\n"
 "Pulsante destro per uscire."
 
 msgid "Use left mouse button to identify points,\n"
@@ -3931,7 +3955,7 @@ msgstr ""
 "sottoinsieme."
 
 msgid "Confirmatory Factor Analysis"
-msgstr "Analisi dei Fattori confermatoria."
+msgstr "Analisi dei Fattori confermativa"
 
 msgid "Fewer than 2 variables selected to load on factor."
 msgstr "Si sono selezionate meno di 2 variabili afferenti ad un fattore."
@@ -4116,7 +4140,7 @@ msgid "Graph title"
 msgstr "Titolo del grafico"
 
 msgid "Plot Labels and Points"
-msgstr "Etichete e punti del grafico"
+msgstr "Etichette e punti del grafico"
 
 msgid "Apply"
 msgstr "Applica"
@@ -4158,7 +4182,7 @@ msgid "Do not identify"
 msgstr "Non identificare"
 
 msgid "number of points to identify must be an integer"
-msgstr "il numero di punti da indentificare deve essere un intero"
+msgstr "il numero di punti da identificare deve essere un intero"
 
 msgid "Number of points to identify"
 msgstr "Numero di componenti da identificare"
@@ -4177,7 +4201,7 @@ msgid "Component+Residual Plots"
 msgstr "Grafico dei componenti+residui"
 
 msgid "Influence Plot"
-msgstr "Grafico dei valoti d'influenza"
+msgstr "Grafico dei valori d'influenza"
 
 # support for R Markdown and knitr
 msgid "Generate HTML report"
@@ -4240,7 +4264,7 @@ msgid ""
 "graphics files (recommended)?"
 msgstr ""
 "Eliminare i files grafici creati\n"
-"precedentemente con knitr (reccomandato)?"
+"precedentemente con knitr (raccomandato)?"
 
 msgid "Ask to exit Commander"
 msgstr "Richiedi di uscire da Commander"
@@ -4260,6 +4284,10 @@ msgstr "Mantieni i messaggi"
 msgid "Use R Markown"
 msgstr "Utilizza R Markown"
 
+#, fuzzy
+msgid "Use knitr"
+msgstr "Utilizza i numeri"
+
 msgid "Select file"
 msgstr "Seleziona il file"
 
@@ -4273,7 +4301,7 @@ msgid "Suppress icon images"
 msgstr "Non mostrare icone"
 
 msgid "Retain dialog selections"
-msgstr "Mantienti le selezioni del dialogo"
+msgstr "Mantieni le selezioni del dialogo"
 
 msgid "Use rgl package"
 msgstr "Utilizza il pacchetto rgl"
@@ -4342,7 +4370,7 @@ msgid "Save Rcmdr options..."
 msgstr "Salva le opzioni di Rcmdr..."
 
 msgid "Nonparametric Density Estimate"
-msgstr "Stima Nonparametrica della Densità"
+msgstr "Stima Non-parametrica della Densità"
 
 msgid "Gaussian"
 msgstr "Gaussiana"
@@ -4365,7 +4393,8 @@ msgstr "Moltiplica la bandwidth per"
 msgid "Density estimate..."
 msgstr "Stima della densit&agrave;"
 
-msgid "Bandwidth must be &lt;auto&gt; or a positive number"
+#, fuzzy
+msgid "Bandwidth must be <auto> or a positive number"
 msgstr "La Bandwidth deve essere &lt;auto&gt; o un numero positivo "
 
 # index plot dialog
@@ -4436,23 +4465,194 @@ msgstr "gdl per splines:"
 msgid "deg. for polynomials:"
 msgstr "grad. per polinomi:"
 
-#~ msgid "<auto>"
-#~ msgstr "<auto>"
+#, fuzzy
+msgid "R Commander Editor"
+msgstr "R Commander"
 
-#~ msgid "Difference > 0"
-#~ msgstr "Differenza > 0"
+#, fuzzy
+msgid "Edit R Markdown document"
+msgstr "Utilizza R Markdown"
 
-#~ msgid "Population mean < mu0"
-#~ msgstr "Media della popolazione mu < 0"
+#, fuzzy
+msgid "Edit knitr document"
+msgstr "Documento knitr"
 
-#~ msgid "Population mean > mu0"
-#~ msgstr "Media della popolazione mu > 0"
+msgid "Remove last Markdown command block"
+msgstr "Rimuovere l'ultimo blocco di comandi Markdown"
 
-#~ msgid "Population proportion < p0"
-#~ msgstr "Proporzione della popolazione < p0"
+msgid "Remove last knitr command block"
+msgstr "Rimuovere l'ultimo blocco di comandi knitr"
 
-#~ msgid "Population proportion > p0"
-#~ msgstr "Proporzione della popolazione > p0"
+msgid "Remove last command block"
+msgstr "Rimuovere l'ultimo blocco di comandi"
 
-#~ msgid "Correlation > 0"
-#~ msgstr "Correlazione > 0"
+msgid "Exit editor"
+msgstr "Esci dall'editor"
+
+msgid "Editor help"
+msgstr "Aiuto sull'editor"
+
+msgid ""
+"Delete previously created R Markdown\n"
+"graphics files (recommended)?"
+msgstr ""
+"Eliminare i files grafici creati\n"
+"precedentemente con knitr (raccomandato)?"
+
+msgid "Discard edits?"
+msgstr "Cancella modifiche?"
+
+# support for back-to-back stem-and-leaf displays
+msgid "Plot back-to-back by:"
+msgstr "Rappresenta back-to-back secondo:"
+
+msgid "Plot back-to-back by"
+msgstr "Rappresenta back-to-back secondo"
+
+# messages added for version 2.1-0
+msgid ""
+"the RcmdrMisc package is missing and should be installed\n"
+"  many features will not work"
+msgstr ""
+"il pacchetto RcmdrMisc non è presente e dovrebbe essere installato\n"
+"  molte funzionalità non funzioneranno"
+
+msgid ""
+"the car package is missing and should be installed\n"
+"  many features will not work"
+msgstr ""
+"il pacchetto car non è presente e dovrebbe essere installato\n"
+"  molte funzionalità non funzioneranno"
+
+#, fuzzy
+msgid "Standard Error of Mean"
+msgstr "Errori standard"
+
+#, fuzzy
+msgid "Fit Indices"
+msgstr "Fitta i modelli"
+
+#, fuzzy
+msgid "Variable names in first row of spreadsheet"
+msgstr "Nomi delle variabili nel file:"
+
+msgid "Row names in first column of spreadsheet"
+msgstr "Nomi delle righe nella prima colonna del foglio di calcolo"
+
+#, fuzzy
+msgid "<no variable selected>"
+msgstr "Nessuna variabile selezionata"
+
+msgid "Model Effect Plots"
+msgstr "Grafici degli effetti"
+
+msgid "Plot All High-Order Effects?"
+msgstr "Rappresentare Tutti gli Effetti di Ordine-Elevato?"
+
+#, fuzzy
+msgid "Predictors (pick one or more)"
+msgstr "Seleziona i Fattori (uno o più)"
+
+#, fuzzy
+msgid ""
+"You must select one or more predictors\n"
+" or plot all high-order effects."
+msgstr "Selezionare una o più variabili."
+
+msgid ""
+"To plot partial residuals,\n"
+" there must be a least one numeric predictor."
+msgstr ""
+"Per rappresentare i residui parziali,\n"
+" deve essere presente almeno un predittore numerico"
+
+# 3D scatterplots dialog
+#, fuzzy
+msgid "Plot partial residuals"
+msgstr "Mostra i residui quadrati"
+
+# index plot dialog
+#, fuzzy
+msgid "Style of Graph"
+msgstr "Stile del grafico"
+
+#, fuzzy
+msgid "Stacked areas"
+msgstr "StackedData"
+
+msgid "Lines with confidence bands"
+msgstr "Linee con bande di confidenza"
+
+#, fuzzy
+msgid "Single-Sample Wilcoxon Test"
+msgstr "Test di Wilcoxon per due campioni"
+
+#, fuzzy
+msgid "Single-sample Wilcoxon test..."
+msgstr "Test di Wilcoxon per campioni appaiati..."
+
+#, fuzzy
+msgid "Drop Unused Factor Levels"
+msgstr "Riordina il livelli del fattore"
+
+#, fuzzy
+msgid "Factors(s) to drop levels (pick one or more)"
+msgstr "Seleziona Variabile/i da eliminare (una o più)"
+
+msgid ""
+"Drop unused factor levels\n"
+"Please confirm."
+msgstr ""
+"Eliminare %s ?\n"
+"Conferma."
+
+#, fuzzy
+msgid "Drop unused factor levels..."
+msgstr "Riordina i livelli di un fattore..."
+
+#, fuzzy
+msgid "all factors"
+msgstr "fattore"
+
+#, fuzzy
+msgid "Linear Model Summary"
+msgstr "Modelli Lineari"
+
+msgid "Sandwich estimator"
+msgstr "Stimatore sandwich"
+
+msgid ""
+"Use sandwich estimator of    \n"
+"coefficient standard errors"
+msgstr ""
+"Utilizzare stimatore sandwich degli\n"
+"errori standard dei coefficienti"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix   "
+msgstr ""
+"Utilizzare stimatore sandwich della\n"
+"matrice di covarianza dei coefficienti"
+
+msgid "sandwich covariance matrix unavailable with type I tests"
+msgstr "matrice di covarianza sandwich non disponibile con tests di tipo I"
+
+# messages related to ttk theme selection
+msgid "non-existent theme"
+msgstr "tema non esistente"
+
+msgid "theme set to"
+msgstr "tema impostato a"
+
+#, fuzzy
+msgid "Restart R Commander"
+msgstr ""
+"Esci e riavvia\n"
+"R Commander"
+
+#, fuzzy
+msgid ""
+"Model formula\n"
+"help"
+msgstr "Formula del modello"
