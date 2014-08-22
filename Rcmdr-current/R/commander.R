@@ -357,12 +357,12 @@ Commander <- function(){
     setOption("help_type", "html")
     options(help_type=getRcmdr("help_type"))
 #    putRcmdr("restore.use.external.help", FALSE)
-#     putRcmdr("restore.device", getOption("device"))
-#     if (RStudioP()){
-#         if (WindowsP()) options(device="windows")
-#         else if (MacOSXP()) options(device="quartz")
-#         else options(device="x11")
-#     }
+    putRcmdr("restore.device", getOption("device"))
+    if (RStudioP()){
+        if (WindowsP()) options(device="windows")
+        else if (MacOSXP()) options(device="quartz")
+        else options(device="x11")
+    }
     setOption("tkwait.dialog", FALSE)
     
     # source additional .R files, plug-ins preferred
