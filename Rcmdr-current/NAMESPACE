@@ -1,4 +1,4 @@
-# last modified 2014-08-21 by J. Fox
+# last modified 2014-08-22 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -7,6 +7,12 @@ import(splines, tcltk, RcmdrMisc, car)
 importFrom(utils, available.packages, install.packages)
 
 importFrom(tcltk2, tk2tip, tk2theme, tk2theme.list)
+
+importFrom(knitr, knit, knit2pdf)
+
+importFrom(markdown, markdownToHTML)
+
+importFrom(abind, abind)
 
 export(tkfocus, tkspinbox,
 activateMenus, activeDataSet, ActiveDataSet, activeDataSetP, activeModel,

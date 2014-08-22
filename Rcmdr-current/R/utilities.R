@@ -1,4 +1,4 @@
-# last modified 2014-08-17 by J. Fox
+# last modified 2014-08-22 by J. Fox
 
 # utility functions
 
@@ -245,7 +245,6 @@ confint.polr <- function (object, parm, level=0.95, ...){
 
 confint.multinom <- function (object, parm, level=0.95, ...){
     # adapted from stats:::confint.lm
-    Library("abind")
     cf <- coef(object)
     if (is.vector(cf)) cf <- matrix(cf, nrow=1,
         dimnames=list(object$lev[2], names(cf)))
@@ -260,7 +259,7 @@ confint.multinom <- function (object, parm, level=0.95, ...){
         ncol=ncol(cf), byrow=TRUE)[,parm, drop=FALSE]
     cf <- cf[,parm, drop=FALSE]
     fac <- qnorm(a)
-    ci <- abind(cf + fac[1]*ses, cf + fac[2]*ses, along=3)
+    ci <- abind::abind(cf + fac[1]*ses, cf + fac[2]*ses, along=3)
     dimnames(ci)[[3]] <- paste(round(100 * a, 1), "%")
     aperm(ci, c(2,3,1))
 }
@@ -2189,8 +2188,8 @@ MarkdownP <- function(){
 }
 
 compileRmd <- function() {
-    if (!(require(knitr))) return()
-    if (!(require(markdown))) return()
+#     if (!(require(knitr))) return()
+#     if (!(require(markdown))) return()
     fig.files <- list.files("./figure")
     fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
     if (length(fig.files) != 0) {
@@ -2203,9 +2202,9 @@ compileRmd <- function() {
     .RmdFile <- getRcmdr("RmdFileName")
     .filename <- sub("\\.Rmd$", "", trim.blanks(.RmdFile))
     writeLines(lines, .RmdFile)
-    knit(.RmdFile, paste(.filename, ".md", sep=""), quiet=TRUE)
+    knitr::knit(.RmdFile, paste(.filename, ".md", sep=""), quiet=TRUE)
     .html.file <- paste(.filename, ".html", sep="")
-    markdownToHTML(paste(.filename, ".md", sep=""), .html.file)
+    markdown::markdownToHTML(paste(.filename, ".md", sep=""), .html.file)
     .html.file.location <- paste("file:///", normalizePath(.html.file), sep="")
     browseURL(.html.file.location)
 }
@@ -2312,7 +2311,7 @@ removeLastRnwBlock <- function(){
 }
 
 compileRnw <- function(){
-    if (!require(knitr)) return()
+#    if (!require(knitr)) return()
     fig.files <- list.files("./figure")
     fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
     if (length(fig.files) != 0) {
@@ -2326,7 +2325,7 @@ compileRnw <- function(){
     .RnwFile <- getRcmdr("RnwFileName")
     .filename <- sub("\\.Rnw$", "", trim.blanks(.RnwFile))
     writeLines(lines, .RnwFile)
-    knit2pdf(.RnwFile)
+    knitr::knit2pdf(.RnwFile)
     .pdf.file <- paste(.filename, ".pdf", sep="")
     .pdf.file.location <- paste("file:///", normalizePath(.pdf.file), sep="")
     browseURL(.pdf.file.location)
