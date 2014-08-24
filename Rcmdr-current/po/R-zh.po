@@ -1,19 +1,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
+"POT-Creation-Date: 2014-08-21 17:30:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Li Cheng Hsun <d966020003@student.nsysu.edu.tw>\n"
 "Language-Team: \n"
+"Language: zh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.8\n"
 
 msgid "KMeans Clustering"
 msgstr "K 平均數集群"
 
 msgid "Variables (pick one or more)"
-msgstr "變數〈選取一個或多個〉"
+msgstr "變數〈選取1個或多個〉"
 
 msgid "No variables selected."
 msgstr "沒有選擇任何變數."
@@ -25,10 +28,10 @@ msgid "Number of clusters:"
 msgstr "集群個數："
 
 msgid "Number of starting seeds:"
-msgstr "初始種子個數："
+msgstr "起使演算子(seeds)個數："
 
 msgid "Maximum iterations:"
-msgstr "最大疊代次數："
+msgstr "最大疊代演算次數："
 
 msgid "Print cluster summary"
 msgstr "列出集群分析摘要"
@@ -40,7 +43,7 @@ msgid ""
 "Assign clusters to\n"
 "the data set"
 msgstr ""
-"將集群分析結果寫入\n"
+"將萃取出之集群寫入\n"
 "此資料集"
 
 msgid "Assignment variable:"
@@ -71,7 +74,7 @@ msgid "Centroid Linkage"
 msgstr "重心連結法"
 
 msgid "Clustering Method"
-msgstr "集群法"
+msgstr "集群方法"
 
 msgid "Euclidean"
 msgstr "Euclidean 直線距離"
@@ -100,7 +103,7 @@ msgid "Hierarchical Cluster Summary"
 msgstr "階層式集群摘要"
 
 msgid "Select One Clustering Solution"
-msgstr "選擇一個集群解"
+msgstr "選擇1個集群解"
 
 msgid "There are no hierachical clustering solutions"
 msgstr "沒有任何階層式集群解"
@@ -113,7 +116,7 @@ msgstr "您沒有選擇任何一個集群解."
 
 # #待確認翻譯
 msgid "Append Cluster Groups to the Active Data Set"
-msgstr "將集群群組分析結果加入作用中資料集"
+msgstr "將萃取出之集群群組加入使用中資料集"
 
 msgid "Assigned cluster label:"
 msgstr "指定集群標記名稱："
@@ -163,7 +166,7 @@ msgid "Clear window"
 msgstr "清空視窗內容"
 
 msgid "Submit"
-msgstr "執行"
+msgstr "執行語法"
 
 msgid "Cut"
 msgstr "剪下"
@@ -190,10 +193,10 @@ msgid "View data set"
 msgstr "檢視資料集"
 
 msgid "<No active dataset>"
-msgstr "<尚未載入任何資料集>"
+msgstr "<未載入任何資料集>"
 
 msgid "<No active model>"
-msgstr "<尚未建立任何模型>"
+msgstr "<尚未使用任何模型>"
 
 msgid "Data set:"
 msgstr "資料集："
@@ -239,13 +242,13 @@ msgid "New Data Set"
 msgstr "開新資料集"
 
 msgid "Dataset"
-msgstr "資料集"
+msgstr "Dataset"
 
 msgid "You must enter the name of a data set."
 msgstr "您必須輸入資料集的名稱."
 
 msgid "is not a valid name."
-msgstr "不是一個有效的名稱."
+msgstr "非有效的名稱."
 
 msgid "Data set"
 msgstr "資料集"
@@ -257,7 +260,7 @@ msgid "Enter name for data set:"
 msgstr "請輸入資料集名稱："
 
 msgid "There is only one dataset in memory."
-msgstr "記憶體中只有一個資料集."
+msgstr "記憶體中只有1個資料集."
 
 msgid "There are no data sets from which to choose."
 msgstr "沒有任何可選擇的資料集."
@@ -266,20 +269,20 @@ msgid "Select Data Set"
 msgstr "選擇資料集"
 
 msgid "Data Sets (pick one)"
-msgstr "資料集〈選取一個〉"
+msgstr "資料集〈選取1個〉"
 
 # 或翻譯為將變數重新編碼
 msgid "Recode Variable"
 msgstr "重新編碼變數"
 
 msgid "Variable to recode (pick one)"
-msgstr "選擇變數以進行重新編碼〈選取一個〉"
+msgstr "選擇變數以進行重新編碼〈選取1個〉"
 
 msgid "variable"
 msgstr "變數"
 
 msgid "You must select a variable."
-msgstr "您必須選擇一個變數."
+msgstr "您必須選擇1個變數."
 
 msgid "No recode directives specified."
 msgstr "您沒有指定任何重新編碼指令."
@@ -295,14 +298,14 @@ msgstr "輸入重新編碼指令"
 
 # #待確認翻譯
 msgid "Make new variable a factor"
-msgstr "將新變數製作為因素〈因子〉"
+msgstr "將新變數製作為因子變數"
 
 # 待確認翻譯
 msgid "Compute New Variable"
-msgstr "重新計算來產生新變數"
+msgstr "產生新變數"
 
 msgid "[factor]"
-msgstr "[因素]〈因子〉"
+msgstr "[因子]"
 
 msgid "Current variables (double-click to expression)"
 msgstr "可使用的變數〈雙擊滑鼠來加入運算式中〉"
@@ -320,10 +323,10 @@ msgid "Delete Variables"
 msgstr "刪除變數"
 
 msgid "Variable(s) to delete (pick one or more)"
-msgstr "刪除變數〈選取一個或多個〉"
+msgstr "刪除變數〈選取1個或多個〉"
 
 msgid "You must select one or more variables."
-msgstr "您必須選擇一個或多個變數."
+msgstr "您必須選擇1個或多個變數."
 
 msgid ""
 "Delete %s?\n"
@@ -366,8 +369,12 @@ msgstr "小數點符號"
 msgid "You must enter a name for the data set."
 msgstr "您必須輸入資料集的名稱."
 
-msgid "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"文字檔\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所有檔案\" {\"*\"}}"
+msgid ""
+"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
+"{\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"文字檔\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所有"
+"檔案\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "檔案中的變數名稱："
@@ -391,10 +398,10 @@ msgid "Data set %s does not exit"
 msgstr "資料集 %s 不存在"
 
 msgid "You must select a package."
-msgstr "您必須選擇一個程式套件."
+msgstr "您必須選擇1個程式套件."
 
 msgid "You must select a data set."
-msgstr "您必須選擇一個資料集."
+msgstr "您必須選擇1個資料集."
 
 msgid "Package (Double-click to select)"
 msgstr "程式套件〈雙擊滑鼠左鍵來選擇〉"
@@ -409,11 +416,15 @@ msgid "Enter name of data set:"
 msgstr "請輸入資料集的名稱："
 
 msgid "Import SPSS Data Set"
-msgstr "匯入 SPSS 資料集"
+msgstr "匯入 SPSS 格式資料"
 
 # #是否只打SAV檔等等
-msgid "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"SPSS 儲存檔\" {\".sav\" \".SAV\"}} {\"SPSS 可攜式檔案\" {\".por\" \".POR\"}} {\"所有檔案\" {\"*\"}}"
+msgid ""
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
+"\".POR\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"SPSS 儲存檔\" {\".sav\" \".SAV\"}} {\"SPSS 可攜式檔案\" {\".por\" \".POR"
+"\"}} {\"所有檔案\" {\"*\"}}"
 
 # #待確認翻譯
 msgid ""
@@ -421,7 +432,7 @@ msgid ""
 "to factor levels"
 msgstr ""
 "轉換數值標記\n"
-"為因素〈因子〉水準"
+"為因子變數之層次"
 
 # #待確認翻譯
 msgid ""
@@ -429,14 +440,15 @@ msgid ""
 "of value labels\n"
 "for factor conversion"
 msgstr ""
-"轉換因素〈因子〉\n"
+"轉換因子變數\n"
 "的數值標記\n"
 "最大數量"
 
 msgid "Import Minitab Data Set"
-msgstr "匯入 Minitab 資料集"
+msgstr "匯入 Minitab 格式資料"
 
-msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Minitab 可攜式檔案\" {\".mtp\" \".MTP\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid ""
@@ -447,7 +459,7 @@ msgstr ""
 "資料集無法進行轉換."
 
 msgid "Import STATA Data Set"
-msgstr "匯入 STATA 資料集"
+msgstr "匯入 STATA 格式資料"
 
 msgid "{\"STATA datasets\" {\".dta\" \".DTA\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"STATA 資料集檔案\" {\".dta\" \".DTA\"}} {\"所有檔案\" {\"*\"}}"
@@ -465,43 +477,43 @@ msgid "Warn on missing labels"
 msgstr "注意是否有遺漏標記"
 
 msgid "Convert Numeric Variable to Factor"
-msgstr "將數值變數轉換為因素〈因子〉"
+msgstr "將數值變數轉換為因子變數"
 
 msgid "Variable (pick one)"
-msgstr "變數〈選取一個〉"
+msgstr "變數〈選取1個〉"
 
 msgid "Supply level names"
-msgstr "指定水準名稱"
+msgstr "指定層次名稱"
 
 msgid "Use numbers"
 msgstr "只使用數值"
 
 msgid "Factor Levels"
-msgstr "因素〈因子〉水準"
+msgstr "因子變數的層次"
 
 msgid "<same as variable>"
 msgstr "<與變數相同>"
 
 msgid "Number of levels (%d) too large."
-msgstr "水準數 (%d) 過大."
+msgstr "層次數 (%d) 過大."
 
 msgid "Level Names"
-msgstr "水準名稱"
+msgstr "層次名稱"
 
 msgid "Levels names are not unique."
-msgstr "水準名稱已存在."
+msgstr "層次名稱已存在."
 
 msgid "A level name is empty."
-msgstr "其中一個水準名稱是空白的."
+msgstr "其中一個層次名稱是空白的."
 
 msgid "Numeric value"
 msgstr "數值"
 
 msgid "Level name"
-msgstr "水準名稱"
+msgstr "層次名稱"
 
 msgid "Name for factor"
-msgstr "因素〈因子〉名稱"
+msgstr "因子變數名稱"
 
 # #待確認翻譯
 msgid "Bin a Numeric Variable"
@@ -540,7 +552,7 @@ msgid "Bin Names"
 msgstr "區間 (Bin) 名稱"
 
 msgid "Level names must be unique."
-msgstr "水準名稱不能重複."
+msgstr "層次名稱不能重複."
 
 msgid "Bin"
 msgstr "區間 (Bin) "
@@ -552,10 +564,10 @@ msgid "Number of bins:"
 msgstr "區間 (Bins) 數："
 
 msgid "Reorder Factor Levels"
-msgstr "重新排序因素〈因子〉水準"
+msgstr "將因子變數層次重新排序"
 
 msgid "Factor (pick one)"
-msgstr "因素〈因子〉〈選取一個〉"
+msgstr "因子變數〈選取1個〉"
 
 msgid "<same as original>"
 msgstr "<與原來的變數名稱相同>"
@@ -574,13 +586,13 @@ msgstr "新順序"
 
 # #待確認功能
 msgid "Make ordered factor"
-msgstr "製作有序因素〈因子〉"
+msgstr "製作有序之因子變數"
 
 msgid "Standardize Variables"
 msgstr "變數標準化"
 
 msgid "Export Active Data Set"
-msgstr "輸出作用中的資料集"
+msgstr "輸出使用中的資料集"
 
 msgid "Write variable names:"
 msgstr "寫入變數名稱："
@@ -595,7 +607,7 @@ msgid "Spaces"
 msgstr "空白"
 
 msgid "Active dataset exported to file"
-msgstr "作用中資料集已輸出至檔案中"
+msgstr "使用中資料集已輸出至檔案中"
 
 msgid "Missing values:"
 msgstr "遺漏值："
@@ -607,7 +619,7 @@ msgid "Variables (select one or more)"
 msgstr "變數〈選取一個或多個〉"
 
 msgid "<same as active data set>"
-msgstr "<與作用中的資料集相同>"
+msgstr "<與使用中的資料集相同>"
 
 msgid "No variables were selected."
 msgstr "您沒有選擇任何變數."
@@ -619,16 +631,16 @@ msgid "Name for new data set"
 msgstr "新資料集名稱"
 
 msgid "Subset Data Set"
-msgstr "子集合資料集"
+msgstr "子樣本資料集"
 
 msgid "<all cases>"
 msgstr "<所有觀察值>"
 
 msgid "New data set same as active data set."
-msgstr "新資料集與作用中的資料集相同."
+msgstr "新資料集與使用中的資料集相同."
 
 msgid "Subset expression"
-msgstr "子集合運算式"
+msgstr "子樣本選取之條件"
 
 msgid "Set Case Names"
 msgstr "設定觀察值名稱"
@@ -662,11 +674,11 @@ msgstr "新名稱"
 
 # #待確認翻譯
 msgid "Set Contrasts for Factor"
-msgstr "設定因素〈因子〉的對比方式"
+msgstr "設定因子變數的對比方式"
 
 # #待確認翻譯
 msgid "Treatment (dummy) contrasts"
-msgstr "處理〈虛擬〉對比"
+msgstr "受處置組〈虛擬〉之對比"
 
 # #待確認功能
 msgid "Sum (deviation) contrasts"
@@ -745,10 +757,10 @@ msgstr "變數值"
 
 # 須確認
 msgid "t Quantiles"
-msgstr "t 分佈(百)分位數"
+msgstr "t 分量(百分位數)"
 
 msgid "Degrees of freedom not specified."
-msgstr "您尚未指定任何自由度."
+msgstr "尚未指定任何自由度."
 
 msgid "Degrees of freedom"
 msgstr "自由度"
@@ -874,7 +886,7 @@ msgid "Save current log file?"
 msgstr "請問您是否要儲存目前的紀錄檔？"
 
 msgid "Script saved to"
-msgstr "另存程式檔"
+msgstr "另存語法檔"
 
 msgid "Output saved to"
 msgstr "另存輸出檔"
@@ -892,7 +904,7 @@ msgid "Exit?"
 msgstr "請問是否要離開？"
 
 msgid "Save script file?"
-msgstr "請問是否要儲存程式檔？"
+msgstr "請問是否要儲存語法檔？"
 
 msgid "Save output file?"
 msgstr "請問您是否要儲存輸出檔？"
@@ -913,24 +925,24 @@ msgid "Log height (lines)"
 msgstr "記錄檔高度〈行數〉"
 
 msgid "Send output to R Console"
-msgstr "傳送輸出結果至 R Console"
+msgstr "傳送輸出結果至 R 主控台"
 
 msgid "Output height (lines)"
 msgstr "輸出結果高度〈行數〉"
 
 msgid "Unordered factors"
-msgstr "無序因素〈因子〉"
+msgstr "無序因子變數"
 
 msgid "Ordered factors"
-msgstr "有序因素〈因子〉"
+msgstr "有序因子變數"
 
 # #待確認翻譯
 msgid "Active window grabs focus"
-msgstr "聚焦於作用中視窗上"
+msgstr "聚焦於使用中之視窗上"
 
 # 需確認功能
 msgid "Double-click presses OK button"
-msgstr "雙擊 OK 按鈕"
+msgstr "雙擊=OK 按鈕"
 
 msgid "Sort variable names alphabetically"
 msgstr "變數依字母順序排序"
@@ -942,7 +954,7 @@ msgid ""
 "Exit and Restart\n"
 "R Commander"
 msgstr ""
-"離開並重新啟動\n"
+"關閉並重新啟動\n"
 "R Commander"
 
 msgid "Scale factor for Tk elements"
@@ -958,10 +970,10 @@ msgid "Load Packages"
 msgstr "載入程式套件"
 
 msgid "Packages (pick one or more)"
-msgstr "程式套件〈選取一個或多個〉"
+msgstr "程式套件〈選取1個或多個〉"
 
 msgid "You must select at least one package."
-msgstr "您至少須選擇一個程式套件."
+msgstr "您至少須選擇1個程式套件."
 
 msgid "Packages loaded:"
 msgstr "已載入程式套件："
@@ -1019,15 +1031,15 @@ msgstr "Tukey 樣式"
 
 # #待確認翻譯
 msgid "Repeated stem digits"
-msgstr "重複莖的數值"
+msgstr "重複的莖之數字(digits)"
 
 # #待確認翻譯
 msgid "Style of Divided Stems"
-msgstr "莖分支的呈現樣式"
+msgstr "莖分支呈現的式樣"
 
 # #或翻譯為修剪
 msgid "Trim outliers"
-msgstr "切除離群值"
+msgstr "截除離群值"
 
 msgid "Show depths"
 msgstr "顯示深度"
@@ -1056,21 +1068,21 @@ msgid "Scatterplot"
 msgstr "散佈圖"
 
 msgid "x-variable (pick one)"
-msgstr "x 變數〈選取一個〉"
+msgstr "x 變數〈選取1個〉"
 
 msgid "y-variable (pick one)"
-msgstr "y 變數〈選取一個〉"
+msgstr "y 變數〈選取1個〉"
 
 msgid "Identify points"
 msgstr "辨識點"
 
 # #待確認翻譯
 msgid "Jitter x-variable"
-msgstr "顯示 x變數波動 (Jitter)"
+msgstr "顯示 x變數的座標擾動 (Jitter)"
 
 # #待確認翻譯
 msgid "Jitter y-variable"
-msgstr "顯示 y變數波動 (Jitter)"
+msgstr "顯示 y 變數的座標擾動 (Jitter)"
 
 msgid "Marginal boxplots"
 msgstr "邊際盒鬚圖 (Marginal boxplots)"
@@ -1095,7 +1107,7 @@ msgid "Scatterplot Matrix"
 msgstr "散佈圖矩陣"
 
 msgid "Select variables (three or more)"
-msgstr "選擇變數〈三個或多個〉"
+msgstr "選擇變數〈3個或多個〉"
 
 msgid "Least-squares lines"
 msgstr "最小平方線"
@@ -1135,10 +1147,10 @@ msgid "Line Plot"
 msgstr "線形圖"
 
 msgid "x variable (pick one)"
-msgstr "x 變數〈選取一個〉"
+msgstr "x 變數〈選取1個〉"
 
 msgid "y variables (pick one or more)"
-msgstr "y 變數〈選取一個或多個〉"
+msgstr "y 變數〈選取1個或多個〉"
 
 msgid "<use y-variable names>"
 msgstr "<使用y 變數名稱>"
@@ -1207,16 +1219,16 @@ msgid "Plot Means"
 msgstr "繪製平均數"
 
 msgid "Factors (pick one or two)"
-msgstr "因素〈因子〉〈選取一個或多個〉"
+msgstr "因子變數〈選取1個或多個〉"
 
 msgid "Response Variable (pick one)"
-msgstr "依變數〈反應變數〉〈選取一個〉"
+msgstr "依變數〈反應變數〉〈選取1個〉"
 
 msgid "No factors selected."
-msgstr "沒有選擇任何因素〈因子〉."
+msgstr "沒有選擇任何因子變數."
 
 msgid "More than two factors selected."
-msgstr "您選擇超過兩個因素〈因子〉."
+msgstr "您選擇超過2個因子變數."
 
 msgid "No response variable selected."
 msgstr "沒有選擇任何依變數〈反應變數〉."
@@ -1246,16 +1258,16 @@ msgid "3D Scatterplot"
 msgstr "3D 散佈圖"
 
 msgid "Explanatory variables (pick two)"
-msgstr "自變數〈解釋變數〉〈選取兩個〉"
+msgstr "自變數〈解釋變數〉〈選取2個〉"
 
 msgid "Response variable (pick one)"
-msgstr "依變數〈反應變數〉〈選取一個〉"
+msgstr "依變數〈反應變數〉〈選取1個〉"
 
 msgid "You must select a response variable."
-msgstr "您必須選擇一個依變數〈反應變數〉."
+msgstr "您只能選擇1個依變數〈反應變數〉."
 
 msgid "You must select 2 explanatory variables."
-msgstr "您必須選擇兩個自變數〈解釋變數〉."
+msgstr "您必須選擇2個自變數〈解釋變數〉."
 
 msgid "Response and explanatory variables must be different."
 msgstr "自變數〈解釋變數〉與依變數〈反應變數〉必須不同."
@@ -1307,8 +1319,11 @@ msgstr "圖檔類型"
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"PNG檔\" {\".png\" \".PNG\"}} {\"所有檔案\" {\"*\"}}"
 
-msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"JPEG檔\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有檔案\" {\"*\"}}"
+msgid ""
+"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*"
+"\"}}"
+msgstr ""
+"{\"JPEG檔\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid "Graph saved to file"
 msgstr "儲存圖檔"
@@ -1337,8 +1352,11 @@ msgstr "{\"PDF檔\" {\".pdf\" \".PDF\"}} {\"所有檔案\" {\"*\"}}"
 msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Postscript檔\" {\".ps\" \".PS\"}} {\"所有檔案\" {\"*\"}}"
 
-msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Encapsulated Postscript檔\" {\".eps\" \".EPS\"}} {\"所有檔案\" {\"*\"}}"
+msgid ""
+"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*"
+"\"}}"
+msgstr ""
+"{\"Encapsulated Postscript檔\" {\".eps\" \".EPS\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid "Width (inches)"
 msgstr "寬度〈英吋〉"
@@ -1356,7 +1374,7 @@ msgid "{\"PNG Bitmap Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"PNG Bitmap檔\" {\".png\" \".PNG\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid "There is only one model in memory."
-msgstr "記憶體中僅有一個模型."
+msgstr "記憶體中僅有1個模型."
 
 msgid "There are no models from which to choose."
 msgstr "沒有任何可選擇的模型."
@@ -1365,7 +1383,7 @@ msgid "Select Model"
 msgstr "選擇模型"
 
 msgid "Models (pick one)"
-msgstr "模型〈選取一個〉"
+msgstr "模型〈選取1個〉"
 
 msgid "There is no dataset associated with this model."
 msgstr "沒有與此模型相關的資料集."
@@ -1377,7 +1395,7 @@ msgid "Current Model:"
 msgstr "使用中的模型："
 
 msgid "Identify points with mouse?"
-msgstr "使用滑鼠來辨識點？"
+msgstr "使用滑鼠來辨識座標點？"
 
 msgid "There is no appropriate Anova method for a model of this class."
 msgstr "沒有適合屬於此類別模型的變異數 ( Anova) 分析法."
@@ -1387,11 +1405,11 @@ msgid ""
 "Observation statistics not available\n"
 "for a model fit to a subset of the data."
 msgstr ""
-"此資料中的一子資料集的模型適配\n"
+"此資料中的一子樣本模型適配\n"
 "觀察值統計量無法使用."
 
 msgid "Add Observation Statistics to Data"
-msgstr "新增觀察值統計量至資料中"
+msgstr "將觀察值統計量新增至資料中"
 
 msgid "Fitted values"
 msgstr "適配值"
@@ -1400,7 +1418,7 @@ msgid "Residuals"
 msgstr "殘差"
 
 msgid "Studentized residuals"
-msgstr "學生化 (Studentized ) 殘差"
+msgstr "Studentized  殘差"
 
 msgid "Hat-values"
 msgstr "槓桿值 (Hat-values)"
@@ -1415,10 +1433,10 @@ msgid "Residual Quantile-Comparison Plot"
 msgstr "殘差分位數比較 (QQ)圖"
 
 msgid "Simulated confidence envelope"
-msgstr "模擬信賴區間包絡曲線 (Simulated confidence envelope)"
+msgstr "模擬之信賴區間包絡曲線 (Simulated confidence envelope)"
 
 msgid "Identify points with mouse"
-msgstr "使用滑鼠來辨識點"
+msgstr "使用滑鼠來辨識座標點"
 
 msgid "Test Linear Hypothesis"
 msgstr "線性假設檢定"
@@ -1444,19 +1462,19 @@ msgid "Number of Rows:"
 msgstr "列數："
 
 msgid "Enter hypothesis matrix and right-hand side vector:"
-msgstr "輸入假設矩陣與右側向量："
+msgstr "將虛無假設資訊輸入下方矩陣與右側向量："
 
 msgid "There are fewer than two models."
-msgstr "可用的模型少於兩個."
+msgstr "可用的模型少於2個."
 
 msgid "Compare Models"
-msgstr "比較兩組模型"
+msgstr "比較2組模型"
 
 msgid "First model (pick one)"
-msgstr "第一個模型〈選取一個〉"
+msgstr "第1個模型〈選取1個〉"
 
 msgid "Second model (pick one)"
-msgstr "第二個模型〈選取模型〉"
+msgstr "第2個模型〈選取模型〉"
 
 msgid "You must select two models."
 msgstr "您必須選擇兩個模型."
@@ -1468,10 +1486,10 @@ msgid "Breusch-Pagan Test"
 msgstr "Breusch-Pagan 檢定"
 
 msgid "Score Test for Nonconstant Error Variance"
-msgstr "非一致性誤差變異數的分數檢定"
+msgstr "殘差變異數是否為常數之分數檢定量"
 
 msgid "Studentized test statistic"
-msgstr "學生化 (Studentized) 檢定統計量"
+msgstr "Studentized 檢定統計量"
 
 msgid "Explanatory variables"
 msgstr "自變數〈解釋變數〉"
@@ -1483,10 +1501,10 @@ msgid "Durbin-Waton Test"
 msgstr "Durbin-Waton 檢定"
 
 msgid "Test for First-Order Error Autocorrelation"
-msgstr "一階 (First-Order) 誤差自相關檢定"
+msgstr "一階 (First-Order) 殘差自相關檢定"
 
 msgid "Alternative Hypothesis"
-msgstr "替代假設"
+msgstr "對立假設"
 
 msgid "RESET Test"
 msgstr "RESET 檢定"
@@ -1498,7 +1516,7 @@ msgid "No powers are checked."
 msgstr "您沒有勾選任何次方選項."
 
 msgid "First principal component"
-msgstr "第一主成份"
+msgstr "第1主成份"
 
 msgid "Type of Test"
 msgstr "檢定類型"
@@ -1526,13 +1544,13 @@ msgstr "信賴水準必須是位於0與1之間的數值."
 
 # 待確認功能
 msgid "Likelihood-ratio statistic"
-msgstr "相似度統計量"
+msgstr "概似比率統計量"
 
 msgid "Wald statistic"
 msgstr "Wald 統計量"
 
 msgid "Test Based On"
-msgstr "檢定基準"
+msgstr "檢定所依之基準"
 
 msgid "Confidence Level:"
 msgstr "信賴水準："
@@ -1591,7 +1609,7 @@ msgid "Scale Reliability"
 msgstr "尺度信度"
 
 msgid "Variables (pick three or more)"
-msgstr "變數〈選取三個或多個〉"
+msgstr "變數〈選取3個或多個〉"
 
 msgid "Fewer than 3 variables selected."
 msgstr "您選擇的變數少於3個."
@@ -1600,7 +1618,7 @@ msgid "Principal Components Analysis"
 msgstr "主成份分析"
 
 msgid "Variables (pick two or more)"
-msgstr "變數〈選取兩個或多個〉"
+msgstr "變數〈選取2個或多個〉"
 
 msgid "Analyze correlation matrix"
 msgstr "分析相關性矩陣"
@@ -1609,7 +1627,7 @@ msgid "Screeplot"
 msgstr "陡坡圖"
 
 msgid "Add principal components to data set"
-msgstr "新增主成份至資料集"
+msgstr "將產生之主成份新增至資料集"
 
 msgid "Fewer than 2 variables selected."
 msgstr "您選擇的變數少於2個."
@@ -1621,7 +1639,7 @@ msgid "Number of components to retain:"
 msgstr "要保留的主成份個數："
 
 msgid "Factor Analysis"
-msgstr "因素〈因子〉分析"
+msgstr "因子分析"
 
 msgid "None"
 msgstr "無"
@@ -1633,31 +1651,31 @@ msgid "Promax"
 msgstr "Promax 轉軸法"
 
 msgid "Factor Rotation"
-msgstr "因素〈因子〉轉軸"
+msgstr "因子轉軸"
 
 msgid "Bartlett's method"
 msgstr "Bartlett 法"
 
 msgid "Regression method"
-msgstr "迴歸法"
+msgstr "迴歸方法"
 
 msgid "Factor Scores"
-msgstr "因素〈因子〉分數"
+msgstr "因子變數之分數"
 
 msgid "Number of Factors"
-msgstr "因素〈因子〉個數"
+msgstr "因子變數個數"
 
 msgid "Number of factors to extract:"
-msgstr "要萃取的因素〈因子〉個數："
+msgstr "要萃取的因子個數："
 
 msgid "Independent Samples t-Test"
 msgstr "獨立樣本 T 檢定"
 
 msgid "Groups (pick one)"
-msgstr "群組〈選取一個〉"
+msgstr "群組〈選取1個〉"
 
 msgid "You must select a groups variable."
-msgstr "您必須選擇一個群組變數."
+msgstr "您必須選擇1個群組變數."
 
 msgid "Two-sided"
 msgstr "雙邊"
@@ -1684,13 +1702,13 @@ msgid "Paired t-Test"
 msgstr "成對樣本 T 檢定"
 
 msgid "First variable (pick one)"
-msgstr "第一個變數〈選取一個〉"
+msgstr "第1個變數(選取1個)"
 
 msgid "Second variable (pick one)"
-msgstr "第二個變數〈選取一個〉"
+msgstr "第2個變數(選取一個)"
 
 msgid "You must select two variables."
-msgstr "您必須選擇兩個變數."
+msgstr "您必須選擇2個變數."
 
 msgid "Variables must be different."
 msgstr "變數必須不同."
@@ -1699,43 +1717,43 @@ msgid "Single-Sample t-Test"
 msgstr "單一樣本 T 檢定"
 
 msgid "Population mean = mu0"
-msgstr "母體平均數 = mu0"
+msgstr "母體平均數 = mu"
 
 msgid "Population mean < mu0"
-msgstr "母體平均數 < mu0"
+msgstr "母體平均數 < mu"
 
 msgid "Population mean > mu0"
-msgstr "母體平均數 > mu0"
+msgstr "母體平均數 > mu"
 
 msgid "Null hypothesis: mu ="
 msgstr "虛無假設： mu ="
 
 msgid "One-Way Analysis of Variance"
-msgstr "單因素〈因子〉變異數分析"
+msgstr "單因子變異數分析"
 
 msgid "You must select a groups factor."
-msgstr "您必須選擇一個群組因素〈因子〉."
+msgstr "您必須選擇1個群組因子."
 
 msgid "Factor has fewer than 3 levels; pairwise comparisons omitted."
-msgstr "因素〈因子〉小於3水準；分析結果省略了成對比較."
+msgstr "因子變數少於3層；分析結果省略了成對比較."
 
 msgid "Pairwise comparisons of means"
 msgstr "平均數成對比較"
 
 msgid "Multi-Way Analysis of Variance"
-msgstr "多因素〈因子〉變異數分析"
+msgstr "多因子變異數分析"
 
 msgid "Factors (pick one or more)"
-msgstr "因素〈因子〉〈選取一個或多個〉"
+msgstr "因子變數〈選取1個或多個〉"
 
 msgid "You must select at least one factor."
-msgstr "您最少須選擇一個因素〈因子〉."
+msgstr "您最少須選擇1個因子變數."
 
 msgid "Linear Regression"
 msgstr "線性迴歸"
 
 msgid "Explanatory variables (pick one or more)"
-msgstr "自變數〈解釋變數〉〈選取一個或多個〉"
+msgstr "自變數〈解釋變數〉〈選取1個或多個〉"
 
 msgid "No explanatory variables selected."
 msgstr "沒有選擇任何自變數〈解釋變數〉."
@@ -1768,13 +1786,13 @@ msgid "Link function"
 msgstr "連結函數"
 
 msgid "Proportional-Odds Logit Model"
-msgstr "比例勝算對數 (Logit) 模型"
+msgstr "Proportional-Odds Logit Model 模型"
 
 msgid "Response variable must be a factor"
-msgstr "依變數〈反應變數〉必須是一個因素〈因子〉"
+msgstr "依變數〈反應變數〉必須是一個因子變數"
 
 msgid "Multinomial Logit Model"
-msgstr "多項式 Logit 模型"
+msgstr "Multinomial  Logit 模型"
 
 msgid "Two-Sample Wilcoxon Test"
 msgstr "雙樣本 Wilcoxon 檢定"
@@ -1857,7 +1875,7 @@ msgid "Frequency Distribution"
 msgstr "次數分配"
 
 msgid "Goodness-of-Fit Test"
-msgstr "適合度檢定"
+msgstr "配適度檢定"
 
 msgid "Invalid entry."
 msgstr "您輸入了無效的字元〈必須為數值形式〉."
@@ -1879,7 +1897,7 @@ msgid "Probabilities rescaled to sum to 1."
 msgstr "機率總和重新調整為1〈您所設定的機率加總不得大於1〉."
 
 msgid "Chi-square goodness-of-fit test"
-msgstr "卡方適合度檢定"
+msgstr "配適度之卡方檢定"
 
 msgid "Table of Statistics"
 msgstr "統計量資料表"
@@ -1928,10 +1946,10 @@ msgid "Row and column variables are the same."
 msgstr "列與欄變數相同."
 
 msgid "expected frequencies are less than 1"
-msgstr "期望次數低於1"
+msgstr "次數期望值低於1"
 
 msgid "expected frequencies are less than 5"
-msgstr "期望次數低於5"
+msgstr "次數期望值低於5"
 
 msgid "Row percentages"
 msgstr "列百分比"
@@ -1946,10 +1964,10 @@ msgid "Compute Percentages"
 msgstr "計算百分比"
 
 msgid "Chi-square test of independence"
-msgstr "卡方獨立性檢定"
+msgstr "獨立性之卡方檢定"
 
 msgid "Print expected frequencies"
-msgstr "列出期望次數"
+msgstr "列出次數期望值"
 
 msgid "Fisher's exact test"
 msgstr "Fisher 精確性檢定"
@@ -1961,7 +1979,7 @@ msgid "Multi-Way Table"
 msgstr "多向關係表 (Multi-Way Table)"
 
 msgid "Control variable(s) (pick one or more)"
-msgstr "控制變數〈選取一個或多個〉"
+msgstr "控制變數〈選取 1 個或多個〉"
 
 msgid "You must select row, column, and control variables"
 msgstr "您必須選取 列, 欄與控制變數"
@@ -1989,7 +2007,7 @@ msgid "Number of Columns:"
 msgstr "欄數："
 
 msgid "Enter counts:"
-msgstr "輸入計數："
+msgstr "輸入數字："
 
 msgid "Two Variances F-Test"
 msgstr "雙變異數 F 檢定"
@@ -2001,17 +2019,17 @@ msgid "Levene's Test"
 msgstr "Levene 檢定"
 
 msgid "There is no active data set."
-msgstr "沒有任何作用中資料集."
+msgstr "沒有任何使用中資料集."
 
 # #待確認功能
 msgid "is not a data frame and cannot be attached."
-msgstr "並非是資料框架，且無法進行附掛."
+msgstr "非是資料框架，故無法進行附掛."
 
 msgid "The dataset %s has %d rows and %d columns."
 msgstr "此 %s 資料集有 %d 個列與 %d 個欄."
 
 msgid "There is no active model."
-msgstr "沒有任何已建立的模型."
+msgstr "沒有任何使用中的模型."
 
 # #待確認翻譯
 msgid "argument must be a square, symmetric, numeric covariance matrix"
@@ -2022,16 +2040,17 @@ msgid "there are fewer than 3 items in the scale"
 msgstr "尺度裡的項目少於3個"
 
 msgid "Argument response must be numeric."
-msgstr "引數：response必須是數值形式."
+msgstr "引數：response變數必須是數值格式."
 
 msgid "Argument factor1 must be a factor."
-msgstr "引數：factor1必須是因素〈因子〉."
+msgstr "引數：factor1必須是因子變數."
 
 msgid "Arguments factor1 and factor2 must be factors."
-msgstr "引數：factor1與factor2必須是因素〈因子〉."
+msgstr "引數：factor1與factor2必須是因子變數."
 
 # #待確認翻譯
-msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgid ""
+"Number of groups for factor2, %d, exceeds number of distinct colours, %d."
 msgstr "factor2的群組數： %d, 超過截然不同的顏色數：, %d."
 
 msgid "The number of bins exceeds the number of data values"
@@ -2041,11 +2060,11 @@ msgid "Number of groups (%d) exceeds number of colors (%d)."
 msgstr "群組數量 (%d) 超過 顏色數量 (%d)."
 
 msgid "groups variable must be a factor."
-msgstr "群組變數必須為一因素〈因子〉."
+msgstr "群組變數必須為因子變數."
 
 # #待確認翻譯
 msgid "cannot plot both multiple surfaces and residuals"
-msgstr "不能同時繪製多曲面與殘差"
+msgstr "不能同時繪製多重曲面與殘差"
 
 # #待確認功能與翻譯
 msgid "not supplied"
@@ -2055,28 +2074,28 @@ msgid "OK"
 msgstr "OK"
 
 msgid "There fewer than %d factors in the active data set."
-msgstr "作用中資料集裡的因素〈因子〉少於 %d 個."
+msgstr "使用中的資料集因子變數少於 %d 個."
 
 msgid "There are no factors in the active data set."
-msgstr "在作用中資料集裡不存在任何因素〈因子〉."
+msgstr "使用中的資料集沒有因子變數."
 
 msgid "There fewer than %d two-level factors in the active data set."
-msgstr "作用中資料集裡的兩水準因素〈因子〉少於 %d 個."
+msgstr "使用中的資料集雙層因子變數少於 %d 個."
 
 msgid "There are no two-level factors in the active data set."
-msgstr "作用中資料集裡不存在任何兩水準因素〈因子〉."
+msgstr "使用中的資料集沒有雙層因子變數."
 
 msgid "There fewer than %d numeric variables in the active data set."
-msgstr "作用中資料集裡的數值變數少於 %d 個."
+msgstr "使用中的資料集數值變數少於 %d 個."
 
 msgid "There are no numeric variables in the active data set."
-msgstr "作用中資料集裡不存在任何數值變數."
+msgstr "使用中的資料集沒有任何數值變數."
 
 msgid "There fewer than %d variables in the active data set."
-msgstr "作用中資料集裡的變數少於 %d 個."
+msgstr "使用中的資料集變數少於 %d 個."
 
 msgid "There are no variables in the active data set."
-msgstr "在作用中資料集裡不存在任何變數."
+msgstr "使用中的資料集不存在任何變數."
 
 msgid ""
 "%s %s already exists.\n"
@@ -2089,13 +2108,13 @@ msgid "Plot by:"
 msgstr "繪圖依據："
 
 msgid "Plot by groups"
-msgstr "依據群組來繪製圖表"
+msgstr "依據群組繪製圖表"
 
 msgid "Plot lines by group"
-msgstr "依據群組來繪製線"
+msgstr "依據群組繪製線"
 
 msgid "There no factors in the active data set."
-msgstr "作用中資料集裡不存在任何因素〈因子〉."
+msgstr "使用中的資料集沒有任何因子變數."
 
 msgid "Groups"
 msgstr "群組"
@@ -2129,13 +2148,13 @@ msgid "The model is not of class \"%s\"."
 msgstr "此模型不屬於 \"%s\" 類別."
 
 msgid "Open script file..."
-msgstr "開啟程式檔..."
+msgstr "開啟語法檔..."
 
 msgid "Save script..."
-msgstr "儲存程式檔..."
+msgstr "儲存語法檔..."
 
 msgid "Save script as..."
-msgstr "另存程式檔..."
+msgstr "另存語法檔..."
 
 msgid "Save output..."
 msgstr "儲存輸出檔..."
@@ -2171,71 +2190,71 @@ msgid "from text file..."
 msgstr "匯入文字檔..."
 
 msgid "from SPSS data set..."
-msgstr "匯入 SPSS資料集..."
+msgstr "匯入 SPSS格式資料..."
 
 msgid "from Minitab data set..."
-msgstr "匯入 Minitab資料集..."
+msgstr "匯入 Minitab格式資料..."
 
 msgid "from STATA data set..."
-msgstr "匯入 STATA資料集..."
+msgstr "匯入 STATA格式資料..."
 
 msgid "Import data"
 msgstr "匯入資料"
 
 msgid "List data sets in packages"
-msgstr "程式套件中附帶的資料集列表"
+msgstr "R 套件中附帶的資料集列表"
 
 msgid "Read data set from an attached package..."
-msgstr "讀取指定程式套件中附帶的資料集..."
+msgstr "讀取指定套件中附帶的資料集..."
 
 msgid "Data in packages"
-msgstr "程式套件中附帶的資料集"
+msgstr "R 套件中的附帶資料集"
 
 msgid "Select active data set..."
-msgstr "選擇已載入的資料集..."
+msgstr "選擇欲使用的資料集..."
 
 msgid "Help on active data set (if available)"
-msgstr "作用中資料集的說明〈如果有的話〉"
+msgstr "使用中資料集的說明〈如果有的話〉"
 
 msgid "Variables in active data set"
-msgstr "作用中資料集裡的變數"
+msgstr "使用中資料集裡的變數"
 
 msgid "Set case names..."
 msgstr "設定觀察值名稱..."
 
 msgid "Subset active data set..."
-msgstr "設定作用中資料集的子集合..."
+msgstr "選取部份樣本..."
 
 msgid "Remove cases with missing data..."
-msgstr "移除具有遺漏資料的觀察值..."
+msgstr "移除有缺值的列(rows)..."
 
 msgid "Export active data set..."
-msgstr "輸出作用中的資料集..."
+msgstr "輸出使用中的資料集..."
 
 msgid "Active data set"
-msgstr "已載入的資料集"
+msgstr "使用中的資料集"
 
 msgid "Recode variable..."
 msgstr "將變數重新編碼..."
 
 msgid "Compute new variable..."
-msgstr "重新計算來產生新變數..."
+msgstr "定義新變數..."
 
 msgid "Standardize variables..."
-msgstr "標準化變數..."
+msgstr "將變數標準化..."
 
 msgid "Convert numeric variable to factor..."
-msgstr "將數值變數轉換為因素〈因子〉..."
+msgstr "將數值變數轉換為因子變數..."
 
 # #待確認翻譯
 msgid "Bin numeric variable..."
 msgstr "以區間分隔數值變數..."
 
 msgid "Reorder factor levels..."
-msgstr "重新排序因素〈因子〉水準..."
+msgstr "重新排序因子變數層次..."
 
 msgid "Define contrasts for a factor..."
-msgstr "定義因素〈因子〉的對比方式..."
+msgstr "定義因子變數的對比方式..."
 
 msgid "Rename variables..."
 msgstr "將變數重新命名..."
@@ -2244,13 +2263,13 @@ msgid "Delete variables from data set ..."
 msgstr "刪除資料集中的變數..."
 
 msgid "Manage variables in active data set"
-msgstr "管理在作用中資料集裡的變數"
+msgstr "管理使用中資料集的變數"
 
 msgid "Data"
 msgstr "資料"
 
 msgid "Numerical summaries..."
-msgstr "數值摘要..."
+msgstr "數據摘要..."
 
 msgid "Frequency distribution..."
 msgstr "次數分配..."
@@ -2277,7 +2296,7 @@ msgid "Independent samples t-test..."
 msgstr "獨立樣本 T 檢定..."
 
 msgid "Paired t-test..."
-msgstr "成對 T 檢定..."
+msgstr "成對樣本 T 檢定..."
 
 msgid "One-way ANOVA..."
 msgstr "單因素〈因子〉變異數分析 (One-way ANOVA)..."
@@ -2313,10 +2332,10 @@ msgid "Scale reliability..."
 msgstr "尺度信度..."
 
 msgid "Principal-components analysis..."
-msgstr "主成分分析..."
+msgstr "主成分分析(PCA)..."
 
 msgid "Factor analysis..."
-msgstr "因素〈因子〉分析.."
+msgstr "因子分析(Factor Analysis).."
 
 msgid "k-means cluster analysis..."
 msgstr "K 平均數集群分析..."
@@ -2328,10 +2347,10 @@ msgid "Summarize hierarchical clustering..."
 msgstr "階層式集群摘要..."
 
 msgid "Add hierarchical clustering to data set..."
-msgstr "新增階層式集群結果至資料集..."
+msgstr "將萃取出之階層式集群增至資料集..."
 
 msgid "Cluster analysis"
-msgstr "集群分析"
+msgstr "集群分析(Cluster analysis)"
 
 msgid "Linear regression..."
 msgstr "線性迴歸..."
@@ -2343,10 +2362,10 @@ msgid "Generalized linear model..."
 msgstr "廣義線性模型 (GLM)..."
 
 msgid "Multinomial logit model..."
-msgstr "多項式 logit 模型..."
+msgstr "Multinomial logit 模型..."
 
 msgid "Proportional-odds logit model..."
-msgstr "比例勝算對數 (Logit) 模型..."
+msgstr "Proportional-odds logit 模型..."
 
 msgid "Statistics"
 msgstr "統計量"
@@ -2355,7 +2374,7 @@ msgid "Summaries"
 msgstr "摘要"
 
 msgid "Contingency tables"
-msgstr "列聯表 (Contingency tables)"
+msgstr "列聯表"
 
 msgid "Means"
 msgstr "平均數"
@@ -2370,7 +2389,7 @@ msgid "Nonparametric tests"
 msgstr "無母數檢定"
 
 msgid "Dimensional analysis"
-msgstr "因次分析法"
+msgstr "多變量方法"
 
 # #或翻譯為統計模型
 msgid "Fit models"
@@ -2389,13 +2408,13 @@ msgid "Boxplot..."
 msgstr "盒鬚圖..."
 
 msgid "Quantile-comparison plot..."
-msgstr "分位數比較 (QQ)圖..."
+msgstr "分量比較 (QQ)圖..."
 
 msgid "Scatterplot..."
 msgstr "散佈圖..."
 
 msgid "Scatterplot matrix..."
-msgstr "散佈圖陣列..."
+msgstr "散佈矩陣圖..."
 
 msgid "3D scatterplot..."
 msgstr "3D 散佈圖..."
@@ -2425,13 +2444,13 @@ msgid "Save graph to file"
 msgstr "儲存圖檔"
 
 msgid "Graphs"
-msgstr "統計圖"
+msgstr "繪圖"
 
 msgid "Select active model..."
-msgstr "選擇已建立的模型..."
+msgstr "選擇使用的模型..."
 
 msgid "Summarize model"
-msgstr "模型摘要"
+msgstr "模型估計結果摘要"
 
 msgid "Add observation statistics to data..."
 msgstr "新增觀察值統計量至資料中..."
@@ -2446,26 +2465,26 @@ msgid "ANOVA table"
 msgstr "變異數分析 (ANOVA) 表"
 
 msgid "Compare two models..."
-msgstr "比較兩組模型..."
+msgstr "比較2組模型..."
 
 msgid "Linear hypothesis..."
 msgstr "線性假設..."
 
 # #待確認功能
 msgid "Numerical diagnostics"
-msgstr "數值診斷"
+msgstr "診斷數值"
 
 msgid "Variance-inflation factors"
-msgstr "變異數膨脹因素〈因子〉"
+msgstr "變異數膨脹因素"
 
 msgid "Breusch-Pagan test for heteroscedasticity..."
-msgstr "Breusch-Pagan 異質變異數檢定..."
+msgstr "Breusch-Pagan 異質變異檢定..."
 
 msgid "Durbin-Watson test for autocorrelation..."
 msgstr "Durbin-Watson 自相關檢定..."
 
 msgid "RESET test for nonlinearity..."
-msgstr "非線性RESET檢定..."
+msgstr "RESET 非線性檢定..."
 
 msgid "Bonferroni outlier test"
 msgstr "Bonferroni 離群值檢定"
@@ -2477,16 +2496,16 @@ msgid "Residual quantile-comparison plot..."
 msgstr "殘差分位數比較 (QQ)圖..."
 
 msgid "Component+residual plots"
-msgstr "部份殘差圖"
+msgstr "成份+殘差圖"
 
 msgid "Added-variable plots"
-msgstr "加變數解釋圖"
+msgstr "附加變數解釋圖"
 
 msgid "Influence plot"
-msgstr "影響圖"
+msgstr "影響圖 (Influence Plot)"
 
 msgid "Effect plots"
-msgstr "效應圖"
+msgstr "效應圖 (Effect plots)"
 
 msgid "Models"
 msgstr "模型"
@@ -2564,10 +2583,10 @@ msgid "Plot Poisson distribution..."
 msgstr "繪製 Poisson 分佈圖..."
 
 msgid "Distributions"
-msgstr "分佈"
+msgstr "機率分佈"
 
 msgid "Load package(s)..."
-msgstr "載入程式套件..."
+msgstr "載入 R 套件..."
 
 msgid "Options..."
 msgstr "選項..."
@@ -2587,12 +2606,12 @@ msgstr "關於 Rcmdr"
 msgid "df ="
 msgstr "自由度 ="
 
-## messages added to Rcmdr version 1.1-1
+# # messages added to Rcmdr version 1.1-1
 msgid "There is no current RGL graphics device."
 msgstr "沒有可用的 RGL 圖形裝置."
 
 msgid "3D graph"
-msgstr "3D 繪圖"
+msgstr "3D 立體繪圖"
 
 #  messages added to Rcmdr version 1.1-6
 msgid " contains non-standard variable names:\n"
@@ -2606,16 +2625,20 @@ msgstr ""
 "\n"
 "這些已變更為：\n"
 
-## messages added to Rcmdr version 1.2-0
+# # messages added to Rcmdr version 1.2-0
 # importRODBCtable dialog
 msgid "This function requires the RODBC package.\n"
 msgstr "此功能需要 RODBC 套件.\n"
 
 msgid "Import from Excel, Access or dBase data set"
-msgstr "匯入 Excel, Access 或 dBase 資料集"
+msgstr "匯入 Excel, Access 或 dBase 資料"
 
-msgid "{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"MS Excel檔\" {*.xls \".XLS\"}} {\"MS Access 資料庫檔\" {*.mdb \".MDB\"}} {\"dBase-like 檔\" {*.dbf \".DBF\"}} {\"所有檔案\" {\"*\"}}"
+msgid ""
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
+"\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"MS Excel檔\" {*.xls \".XLS\"}} {\"MS Access 資料庫檔\" {*.mdb \".MDB\"}} "
+"{\"dBase-like 檔\" {*.dbf \".DBF\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "選擇其中一個工作表"
@@ -2624,7 +2647,7 @@ msgid "No table selected"
 msgstr "您沒有選擇任何工作表"
 
 msgid "from Excel, Access or dBase data set..."
-msgstr "匯入 Excel, Access 或 dBase 資料集..."
+msgstr "匯入 Excel, Access 或 dBase 資料..."
 
 # probability distributions
 msgid "Standard deviation must be positive."
@@ -2655,10 +2678,10 @@ msgid "Lower limit must be less than upper limit."
 msgstr "下限值必須小於上限值."
 
 msgid "Minimum"
-msgstr "最小"
+msgstr "最小值"
 
 msgid "Maximum"
-msgstr "最大"
+msgstr "最大值"
 
 msgid "Beta Distribution"
 msgstr "Beta 分佈"
@@ -2679,7 +2702,7 @@ msgid "Scale must be positive."
 msgstr "尺度必須為正."
 
 msgid "Location"
-msgstr "門檻參數"
+msgstr "Location參數"
 
 msgid "Scale"
 msgstr "尺度"
@@ -3129,7 +3152,7 @@ msgid "Poisson quantiles..."
 msgstr "Poisson 分佈(百)分位數..."
 
 msgid "Poisson tail probabilities..."
-msgstr "Poisson 分佈尾機率..."
+msgstr "Poisson 分佈尾端機率..."
 
 msgid "Sample from Poisson distribution..."
 msgstr "Poisson 分佈隨機樣本..."
@@ -3141,7 +3164,7 @@ msgid "Geometric quantiles..."
 msgstr "幾何分佈(百)分位數..."
 
 msgid "Geometric tail probabilities..."
-msgstr "幾何分佈尾機率..."
+msgstr "幾何分佈尾端機率..."
 
 msgid "Geometric probabilities..."
 msgstr "幾何分佈機率..."
@@ -3159,7 +3182,7 @@ msgid "Hypergeometric quantiles..."
 msgstr "超幾何分佈(百)分位數..."
 
 msgid "Hypergeometric tail probabilities..."
-msgstr "超幾何分佈尾機率..."
+msgstr "超幾何分佈尾端機率..."
 
 msgid "Hypergeometric probabilities..."
 msgstr "超幾何分佈機率..."
@@ -3177,7 +3200,7 @@ msgid "Negative binomial quantiles..."
 msgstr "負二項分佈(百)分位數..."
 
 msgid "Negative binomial tail probabilities..."
-msgstr "負二項式分佈尾機率..."
+msgstr "負二項式分佈尾端機率..."
 
 msgid "Negative binomial probabilities..."
 msgstr "負二項式分佈機率..."
@@ -3196,19 +3219,19 @@ msgstr "離散型分佈"
 
 # Xyplot dialog
 msgid "XY Conditioning Plot"
-msgstr "XY 條件化圖"
+msgstr "XY 條件式關係圖"
 
 msgid "Response variables (pick one or more)"
-msgstr "依變數〈反應變數〉〈選取一個或多個〉"
+msgstr "依變數〈反應變數〉〈選取1個或多個〉"
 
 msgid "Groups (pick zero or more)"
-msgstr "群組〈不選取或選取多個〉"
+msgstr "群組變數〈不選取或選取多個〉"
 
 msgid "Automatically draw key"
 msgstr "自動繪製索引標記"
 
 msgid "Different panels for different responses"
-msgstr "將不同的 xy 變數關聯顯示在不同面板上"
+msgstr "將不同的 xy 變數關聯顯示在不同圖板上"
 
 msgid "Identical"
 msgstr "相同"
@@ -3220,19 +3243,19 @@ msgid "Same range"
 msgstr "相同範圍"
 
 msgid "X-Axis Scales in Different Panels"
-msgstr "在不同面板上的 X 軸尺度"
+msgstr "在不同圖板上的 X 軸尺度"
 
 msgid "Y-Axis Scales in Different Panels"
-msgstr "在不同面板上的 Y 軸尺度"
+msgstr "在不同圖板上的 Y 軸尺度"
 
 msgid "At least one response variable must be selected."
-msgstr "您至少必須選擇一個依變數〈反應變數〉."
+msgstr "至少必須選擇一個被解釋變數〈反應變數〉."
 
 msgid "At least one explanatory variable must be selected."
-msgstr "您至少必須選擇一個依變數〈反應變數〉."
+msgstr "至少必須選擇一個解釋變數."
 
 msgid "XY conditioning plot..."
-msgstr "XY 條件化圖..."
+msgstr " XY 條件式關係圖..."
 
 # contingency tables dialog
 msgid "Percentages of total"
@@ -3240,7 +3263,7 @@ msgstr "總百分比"
 
 # #待確認翻譯
 msgid "Components of chi-square statistic"
-msgstr "卡方統計量的構成要素"
+msgstr "卡方統計量的成份"
 
 # 3D scatterplots dialog
 msgid "Show squared residuals"
@@ -3266,7 +3289,7 @@ msgid "Correlation Test"
 msgstr "相關性檢定"
 
 msgid "Variables (pick two)"
-msgstr "變數〈選取兩個〉"
+msgstr "變數〈選取2個〉"
 
 msgid "Kendall's tau"
 msgstr "Kendall's tau"
@@ -3281,26 +3304,26 @@ msgid "Correlation > 0"
 msgstr "相關性 > 0"
 
 msgid "More than 2 variables selected."
-msgstr "您選擇超過兩個變數."
+msgstr "選擇變數超過2個."
 
 msgid "Correlation test..."
 msgstr "相關性檢定..."
 
 msgid "Recode Variables"
-msgstr "將變數重新編碼"
+msgstr "變數重新編碼"
 
 msgid "Variables to recode (pick one or more)"
-msgstr "選擇變數以重新編碼〈選取一個或多個〉"
+msgstr "選擇變數以重新編碼〈選取1個或多個〉"
 
 msgid "New variable name or prefix for multiple recodes:"
-msgstr "指定重新編碼後的新變數名稱或前置字串："
+msgstr "多重重編碼後的新變數名稱或前置字串："
 
 # #待確認翻譯
 msgid "Make (each) new variable a factor"
-msgstr "將〈每個〉新變數製作為因素〈因子〉"
+msgstr "將〈每個〉新變數製作為因子變數"
 
 msgid "Recode variables..."
-msgstr "將變數重新編碼..."
+msgstr "變數重新編碼..."
 
 # Frequency distributions dialog
 msgid "Frequency Distributions"
@@ -3309,36 +3332,37 @@ msgstr "次數分配"
 msgid "Chi-square goodness-of-fit test (for one variable only)"
 msgstr "卡方適合度檢定〈僅限一個變數〉"
 
-msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgid ""
+"Goodness-of-fit test not available when more than one variable is selected."
 msgstr "當選擇一個以上的變數時，無法進行適合度檢定."
 
 msgid "Frequency distributions..."
 msgstr "次數分配..."
 
 msgid "Convert Numeric Variables to Factors"
-msgstr "將數值變數轉換為因素〈因子〉"
+msgstr "將數值變數轉換為因子變數"
 
 msgid "<same as variables>"
 msgstr "<與變數相同>"
 
 msgid "Level Names for"
-msgstr "水準名稱"
+msgstr "層級名稱"
 
 msgid "Factors"
-msgstr "因素〈因子〉"
+msgstr "因子變數"
 
 msgid "New variable name or prefix for multiple variables:"
 msgstr "指定轉換後的新變數名稱或前置字串："
 
 msgid "Convert numeric variables to factors..."
-msgstr "將數值變數轉換為因素〈因子〉..."
+msgstr "將數值變數轉換為因子變數..."
 
 # Stack dialog
 msgid "Stack Variables"
 msgstr "堆疊變數"
 
 msgid "factor"
-msgstr "因素〈因子〉"
+msgstr "因子變數"
 
 msgid "StackedData"
 msgstr "堆疊資料"
@@ -3353,10 +3377,10 @@ msgid "Name for variable:"
 msgstr "變數名稱："
 
 msgid "Name for factor:"
-msgstr "因素〈因子〉名稱："
+msgstr "因子變數之名稱："
 
 msgid "Stack variables in active data set..."
-msgstr "堆疊作用中資料集裡的變數..."
+msgstr "堆疊使用中資料集內的變數..."
 
 # miscelaneous
 msgid "Identify Points"
@@ -3389,33 +3413,33 @@ msgid "Add observation numbers to data set"
 msgstr "新增觀察值編號至資料集"
 
 msgid "Refresh active data set"
-msgstr "更新已載入的資料"
+msgstr "更新使用中的資料集"
 
 msgid "No statistics selected."
-msgstr "您沒有選擇任何統計量."
+msgstr "尚未選擇任何統計量."
 
 msgid "Right-hand side"
 msgstr "右側"
 
-## messages added to Rcmdr version 1.3-0
+# # messages added to Rcmdr version 1.3-0
 # handling plug-ins
 msgid "Load Plugins"
-msgstr "載入元件"
+msgstr "載入增益集套件"
 
 msgid "Plug-ins (pick one or more)"
-msgstr "元件〈選取一個或多個〉"
+msgstr "增益集套件〈選取1個或多個〉"
 
 msgid "You must select at least one plug-in."
-msgstr "您最少必須選擇一個元件."
+msgstr "您最少必須選擇1個元件."
 
 msgid "Plug-ins loaded:"
-msgstr "已載入元件："
+msgstr "已載入之增益集："
 
 msgid ""
 "The plug-in(s) will not be available until the Commander is restarted.\n"
 "Restart now?"
 msgstr ""
-"此元件必須重新啟動 Commander 才能使用.\n"
+"必須重新啟動 Commander 才能使用.\n"
 "現在是否要重新啟動？"
 
 msgid "objects have different numbers of columns"
@@ -3425,19 +3449,19 @@ msgid "objects have different column names"
 msgstr "物件的欄名稱不同"
 
 msgid "Load Rcmdr plug-in(s)..."
-msgstr "載入 Rcmdr 元件..."
+msgstr "載入 Rcmdr 增益集..."
 
 msgid "the plug-in package %s is missing"
-msgstr "此元件套件 %s 已遺失"
+msgstr "此增益集套件 %s 已遺失"
 
 msgid "the package %s is not an Rcmdr plug-in"
-msgstr "此 %s 套件不是 Rcmdr 的元件"
+msgstr "此 %s 套件不是 Rcmdr 的增益集"
 
 msgid "unrecognized operation, \"%s\", in plugin menu line %i"
-msgstr "無法辨識的操作, \"%s\", 於元件選單第 %i 行"
+msgstr "無法辨識的操作, \"%s\", 於增益集選單第 %i 行"
 
 msgid "unrecognized type, \"%s\", in plugin menu line %i"
-msgstr "無法辨識的類型, \"%s\", 於元件選單第 %i 行"
+msgstr "無法辨識的類型, \"%s\", 於增益集選單第 %i 行"
 
 # miscelaneous additions
 msgid "Color palette..."
@@ -3450,7 +3474,7 @@ msgid "Color palette reset."
 msgstr "重設調色盤."
 
 msgid "Save active data set..."
-msgstr "儲存作用中的資料集..."
+msgstr "儲存使用中的資料集..."
 
 msgid "Load data set..."
 msgstr "載入資料集..."
@@ -3471,7 +3495,7 @@ msgid "Ordinal Regression Model"
 msgstr "次序(Ordinal) 迴歸模型"
 
 msgid "Proportional-odds logit"
-msgstr "比率勝算對數 (logit)"
+msgstr "Proportional-odds logit"
 
 msgid "Ordered probit"
 msgstr "次序機率"
@@ -3486,7 +3510,7 @@ msgid "y-axis label"
 msgstr "Y 軸標記"
 
 msgid "No plotting characters."
-msgstr "沒有設定任何繪圖字符."
+msgstr "沒有設定繪圖字元"
 
 msgid "Plotting Parameters"
 msgstr "繪圖參數"
@@ -3512,6 +3536,10 @@ msgid " has been coerced to a data frame"
 msgstr "已被強制轉換為資料框架"
 
 msgid "the dataset %s is no longer available"
+msgstr "此 %s 資料集不再可使用"
+
+#, fuzzy
+msgid "the model %s is no longer available"
 msgstr "此 %s 資料集不再可使用"
 
 # message added to version 1.3-10
@@ -3555,7 +3583,7 @@ msgid "Partial ignoring marginality (\"Type III\")"
 msgstr "偏平方和 (Partial ignoring marginality) (\"型 III\")"
 
 msgid "Type III tests require careful attention to contrast coding."
-msgstr "型III檢定必須要仔細檢驗對比性編碼."
+msgstr "型III檢定必須要仔細檢驗對比編碼."
 
 msgid "There is no appropriate anova method for a model of this class."
 msgstr "沒有適合屬於此類別模型的變異數分析 (anova) 法"
@@ -3570,7 +3598,7 @@ msgid "Strip Chart"
 msgstr "條狀圖"
 
 msgid "Factors (pick zero or more)"
-msgstr "因素〈因子〉〈不選取或選取多個〉"
+msgstr "因子變數〈不選取或選取多個〉"
 
 msgid "Duplicate Values"
 msgstr "重複值"
@@ -3579,13 +3607,13 @@ msgid "Stack"
 msgstr "堆疊 (stack)"
 
 msgid "Jitter"
-msgstr "波動 (jitter)"
+msgstr "座標擾動 (jitter)"
 
 msgid "Remove Rows from Active Data Set"
-msgstr "移除作用中資料集裡的某些列"
+msgstr "移除使用中資料集裡的某些列"
 
 msgid "Remove row(s) from active data set..."
-msgstr "移除作用中資料集裡的某些列..."
+msgstr "移除使用中資料集裡的某些列..."
 
 msgid "No rows to remove"
 msgstr "沒有任何列可以移除"
@@ -3594,10 +3622,10 @@ msgid "Indices or quoted names of row(s) to remove"
 msgstr "請輸入欲刪除的列索引值〈數字〉或名稱〈字元(須在前後加上引號)〉"
 
 msgid "Akaike Information Criterion (AIC)"
-msgstr "Akaike資訊準則〈AIC〉"
+msgstr "Akaike資訊準則 (AIC)"
 
 msgid "Bayesian Information Criterion (BIC)"
-msgstr "Bayesian資訊準則〈BIC〉"
+msgstr "Bayesian資訊準則 (BIC)"
 
 msgid "Change working directory..."
 msgstr "變更工作目錄..."
@@ -3627,7 +3655,7 @@ msgid "Internet URL"
 msgstr "網際網路位址 URL"
 
 msgid "Friedman rank-sum test..."
-msgstr "Friedman 等級和檢定..."
+msgstr "Friedman  等級和檢定..."
 
 msgid "Friedman Rank Sum Test"
 msgstr "Friedman 等級和檢定"
@@ -3646,7 +3674,7 @@ msgstr "變異數分析 (ANOVA) 表..."
 
 # messages added to version 1.4-2
 msgid "Location not specified."
-msgstr "您沒有指定任何門檻參數."
+msgstr "您沒有指定任何location參數."
 
 # messages added to version 1.5-0
 #     "Models -> Stepwise model selection" dialog and menu item
@@ -3717,22 +3745,22 @@ msgid "Merge Data Sets"
 msgstr "合併資料集"
 
 msgid "First Data Set (pick one)"
-msgstr "第一個資料集〈選取一個〉"
+msgstr "第1個資料集〈選取1個〉"
 
 msgid "Second Data Set (pick one)"
-msgstr "第二個資料集〈選取一個〉"
+msgstr "第2個資料集〈選取1個〉"
 
 msgid "Merge rows"
-msgstr "合併列"
+msgstr "依列合併"
 
 msgid "Merge columns"
-msgstr "合併欄"
+msgstr "依欄合併"
 
 msgid "Direction of Merge"
 msgstr "合併方向"
 
 msgid "You cannot merge a data set with itself."
-msgstr "您不能合併同一個資料集."
+msgstr "您不能合併同樣的資料集."
 
 msgid "Name for merged data set:"
 msgstr "合併後的資料集名稱："
@@ -3746,7 +3774,7 @@ msgstr ""
 
 #  	"Data -> Active data set -> Aggregate variables in active data set" menu item and dialog
 msgid "Aggregate variables in active data set..."
-msgstr "整合在作用中資料集裡的變數..."
+msgstr "整合使用中資料集裡的變數..."
 
 msgid "Aggregate Observations"
 msgstr "整合觀察值"
@@ -3754,17 +3782,17 @@ msgstr "整合觀察值"
 msgid ""
 "Variables to aggregate\n"
 "(pick one or more)"
-msgstr "欲進行整合的變數〈選取一個或多個〉"
+msgstr "欲進行整合的變數〈選取1個或多個〉"
 
 msgid ""
 "Aggregate by\n"
 "(pick one or more)"
 msgstr ""
 "整合依據\n"
-"〈選取一個或多個〉"
+"〈選取1個或多個〉"
 
 msgid "Sum"
-msgstr "總和"
+msgstr "加總"
 
 msgid "You must select at least one variable to aggregate."
 msgstr "您至少必須選取一個變數以進行整合."
@@ -3779,8 +3807,11 @@ msgid "Name for aggregated data set:"
 msgstr "整合後的資料集名稱："
 
 #     miscellaneous
-msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"R 資料檔\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"所有檔案\" {\"*\"}}"
+msgid ""
+"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files"
+"\" {\"*\"}}"
+msgstr ""
+"{\"R 資料檔\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid "No data set selected."
 msgstr "沒有選擇任何資料集."
@@ -3789,10 +3820,10 @@ msgid "Help on selected data set"
 msgstr "所選擇資料集的說明"
 
 msgid "Population mean != mu0"
-msgstr "母體平均數 != mu0"
+msgstr "母體平均數不等於 mu"
 
 msgid "Population proportion != p0"
-msgstr "母體比例 != p0"
+msgstr "母體比例不等於 p"
 
 msgid "Models do not have the same family."
 msgstr "模型間使用的統計分配方式不同."
@@ -3809,7 +3840,8 @@ msgid ""
 "with the single-document interface (SDI); see ?Commander."
 msgstr ""
 "R Commander 的Windows版本\n"
-"最佳運作環境為 RGui 下的單一文件介面 (SDI) 模式; 想了解更多？ 請參閱說明選單中的 Commander 說明."
+"最佳運作環境為 RGui 下的單一文件介面 (SDI) 模式; 想了解更多？ 請參閱說明選單"
+"中的 Commander 說明."
 
 # messages added to version 1.6-0
 # for Levene test
@@ -3836,7 +3868,7 @@ msgstr ""
 
 # for interactive point identification
 msgid "Use left mouse button to identify points,\n"
-msgstr "使用滑鼠左鍵來辨識點,\n"
+msgstr "使用滑鼠左鍵來辨識座標,\n"
 
 msgid "right button to exit."
 msgstr "按滑鼠右鍵離開."
@@ -3848,3 +3880,823 @@ msgstr "按 Esc 鍵離開."
 msgid "Start R help system"
 msgstr "開啟 R 說明系統"
 
+#, fuzzy
+msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
+msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
+
+#, fuzzy
+msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
+msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
+
+#, fuzzy
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
+"\".csv\" \".CSV\"}}"
+msgstr ""
+"{\"文字檔\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所有"
+"檔案\" {\"*\"}}"
+
+# #是否只打SAV檔等等
+#, fuzzy
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
+"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgstr ""
+"{\"SPSS 儲存檔\" {\".sav\" \".SAV\"}} {\"SPSS 可攜式檔案\" {\".por\" \".POR"
+"\"}} {\"所有檔案\" {\"*\"}}"
+
+#, fuzzy
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr "{\"Minitab 可攜式檔案\" {\".mtp\" \".MTP\"}} {\"所有檔案\" {\"*\"}}"
+
+#, fuzzy
+msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+msgstr "{\"STATA 資料集檔案\" {\".dta\" \".DTA\"}} {\"所有檔案\" {\"*\"}}"
+
+#, fuzzy
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
+"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
+"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
+"\" {\".xls\" \".XLS\"}}"
+msgstr ""
+"{\"MS Excel檔\" {*.xls \".XLS\"}} {\"MS Access 資料庫檔\" {*.mdb \".MDB\"}} "
+"{\"dBase-like 檔\" {*.dbf \".DBF\"}} {\"所有檔案\" {\"*\"}}"
+
+#, fuzzy
+msgid ""
+"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
+"RDA\"}}"
+msgstr "{\"R資料檔\" {\".rda\" \".Rda\" \".RDA\"}} {\"所有檔案\" {\"*\"}}"
+
+#, fuzzy
+msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
+msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
+
+#, fuzzy
+msgid ""
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
+"\"}}"
+msgstr ""
+"{\"JPEG檔\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有檔案\" {\"*\"}}"
+
+#, fuzzy
+msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
+msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
+
+#, fuzzy
+msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
+msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
+
+#, fuzzy
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
+"\"}}"
+msgstr ""
+"{\"Encapsulated Postscript檔\" {\".eps\" \".EPS\"}} {\"所有檔案\" {\"*\"}}"
+
+# messages added to version 1.7-0
+msgid "Reset"
+msgstr "重新選擇"
+
+msgid "Coefficient of Variation"
+msgstr "變異係數"
+
+msgid "Skewness"
+msgstr "偏態"
+
+msgid "Kurtosis"
+msgstr "峰態"
+
+msgid "Type 1"
+msgstr "型1"
+
+msgid "Type 2"
+msgstr "型2"
+
+msgid "Type 3"
+msgstr "型3"
+
+#, fuzzy
+msgid "Missing Data"
+msgstr "清除遺漏資料"
+
+msgid "Use complete cases"
+msgstr "使用完整觀察值"
+
+msgid "Use pairwise-complete cases"
+msgstr "使用成對完整觀察值"
+
+# messages added to version 1.7-4
+msgid "Component scores are not available when subset is specified."
+msgstr ""
+
+msgid "Factor scores are not available when subset is specified."
+msgstr ""
+
+msgid "Confirmatory Factor Analysis"
+msgstr "驗證性因子分析"
+
+#, fuzzy
+msgid "Fewer than 2 variables selected to load on factor."
+msgstr "您選擇的變數少於2個."
+
+msgid "Define factor"
+msgstr "定義因子變數"
+
+#, fuzzy
+msgid ""
+"Select variables\n"
+"loading on factor"
+msgstr "選擇包含列名稱的變數"
+
+#, fuzzy
+msgid "Covariance"
+msgstr "變異數"
+
+#, fuzzy
+msgid "Correlation"
+msgstr "相關性 < 0"
+
+msgid "Matrix to Analyze"
+msgstr ""
+
+# Correlation test dialog
+#, fuzzy
+msgid "Correlated"
+msgstr "相關性檢定"
+
+msgid "Orthogonal"
+msgstr "正交"
+
+#, fuzzy
+msgid "Factor Correlations"
+msgstr "因子轉軸"
+
+#, fuzzy
+msgid "There are too many factors."
+msgstr "可用的模型少於2個."
+
+#, fuzzy
+msgid "Identifying Constraints"
+msgstr "辨識點"
+
+msgid "Factor variances set to 1"
+msgstr "將因子變異數設為1"
+
+msgid "First loading on each factor set to 1"
+msgstr ""
+
+msgid "Confirmatory factor analysis..."
+msgstr "驗證式因子分析(CFA).."
+
+#, fuzzy
+msgid "Robust standard errors"
+msgstr "標準誤"
+
+#, fuzzy
+msgid "No factors defined."
+msgstr "沒有選擇任何因子變數."
+
+#, fuzzy
+msgid "Default-font size (points)"
+msgstr "記錄檔字型大小〈點(pt)〉"
+
+#, fuzzy
+msgid "data set edit error."
+msgstr "沒有選擇任何資料集."
+
+#, fuzzy
+msgid "Identify Outliers"
+msgstr "使用滑鼠來辨識離群值"
+
+#, fuzzy
+msgid "Automatically"
+msgstr "自動"
+
+msgid "With mouse"
+msgstr ""
+
+msgid "Width"
+msgstr "寬度"
+
+msgid "Height"
+msgstr "高度"
+
+msgid "[disabled]"
+msgstr ""
+
+#, fuzzy
+msgid "inches"
+msgstr "寬度〈英吋〉"
+
+msgid "inch"
+msgstr "英吋"
+
+msgid "cm"
+msgstr "公分"
+
+#, fuzzy
+msgid "pixels"
+msgstr "寬度〈像素〉"
+
+msgid "Units"
+msgstr "單位"
+
+msgid "Fixed aspect ratio (height:width)"
+msgstr "固定 aspect ratio(高度寬度比)"
+
+msgid "Resolution"
+msgstr ""
+
+msgid "from SAS xport file..."
+msgstr "匯入SAS格式資料..."
+
+#, fuzzy
+msgid "Data Set Name"
+msgstr "資料集"
+
+#, fuzzy
+msgid "Select Dataset"
+msgstr "選擇資料集"
+
+#, fuzzy
+msgid "Datasets in file (pick one)"
+msgstr "資料集〈選取1個〉"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
+"\".XPORT\"}}"
+msgstr ""
+
+# #待確認翻譯
+#, fuzzy
+msgid ""
+"Convert variable names\n"
+"to lower case"
+msgstr ""
+"轉換數值標記\n"
+"為因子變數之層次"
+
+msgid "from Excel file..."
+msgstr "匯入Excel格式資料..."
+
+msgid "Import Excel Data Set"
+msgstr "匯入 Excel 格式資料"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
+msgstr ""
+
+msgid "Interquartile Range"
+msgstr ""
+
+msgid "Interquartile range"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Choose at least one of points or lines."
+msgstr "點或線至少擇1"
+
+msgid "Plot Type (one or both)"
+msgstr ""
+
+# #待確認功能
+#, fuzzy
+msgid "Plot legend"
+msgstr "繪製平均數"
+
+msgid "Conditions '|' (pick zero or more)"
+msgstr "因子變數〈不選或選多個〉"
+
+msgid "Groups 'groups=' (pick zero or more)"
+msgstr "群組變數〈不選或選多個〉"
+
+#, fuzzy
+msgid "Different panels for different y ~ x combinations"
+msgstr "將不同的 xy 變數關聯顯示在不同圖板上"
+
+msgid "Layout"
+msgstr ""
+
+#, fuzzy
+msgid "number of columns:"
+msgstr "欄數："
+
+#, fuzzy
+msgid "number of rows:"
+msgstr "列數："
+
+msgid "Plot Options"
+msgstr "繪圖選項"
+
+# #待確認功能
+msgid "Plot Labels"
+msgstr "繪製標籤"
+
+msgid "Graph title"
+msgstr "圖檔標題"
+
+msgid "Plot Labels and Points"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Pairwise p-values"
+msgstr "成對 P值"
+
+#, fuzzy
+msgid "Observations to Use"
+msgstr "觀察值編號"
+
+msgid "Complete observations"
+msgstr "完整之觀察值"
+
+msgid "Pairwise-complete observations"
+msgstr "成對完整之觀察值"
+
+msgid "R Script"
+msgstr "R 語法檔"
+
+# #或翻譯為結果輸出視窗?
+#, fuzzy
+msgid "Output"
+msgstr "結果輸出視窗"
+
+msgid "R Commander website"
+msgstr "R Commander 官網"
+
+msgid "R website"
+msgstr "R 官網"
+
+msgid "Using R Markdown"
+msgstr "使用 R Markdown"
+
+#, fuzzy
+msgid "Table"
+msgstr "變數"
+
+msgid "Interactively with mouse"
+msgstr "使用滑鼠互動辨識觀察值"
+
+msgid "Do not identify"
+msgstr ""
+
+msgid "number of points to identify must be an integer"
+msgstr ""
+
+msgid "Number of points to identify"
+msgstr "要辨識的座標數目："
+
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group "
+msgstr ""
+
+msgid "Added-Variable Plots"
+msgstr "附加變數解釋圖"
+
+#, fuzzy
+msgid "Component+Residual Plots"
+msgstr "成份+殘差圖"
+
+msgid "Influence Plot"
+msgstr "影響圖(Influence Plot)"
+
+# support for R Markdown and knitr
+msgid "Generate HTML report"
+msgstr "產生 HTML 文件"
+
+msgid "Generate PDF report"
+msgstr ""
+
+msgid "R Markdown"
+msgstr ""
+
+msgid "knitr Document"
+msgstr "knitr 文件"
+
+msgid "Open R Markdown file..."
+msgstr "開啟 R Markdown 檔案..."
+
+msgid "Open knitr file..."
+msgstr "開啟 knitr 語法檔..."
+
+msgid "Save R Markdown file..."
+msgstr "儲存 R Markdown 檔案..."
+
+msgid "Save knitr file..."
+msgstr "儲存 knitr 語法檔"
+
+msgid "Save knitr file?"
+msgstr "是否要儲存 knitr 語法檔？"
+
+msgid "Save current Rmd file?"
+msgstr "請問您是否要儲存目前的 Rmd 紀錄檔？"
+
+msgid "Save current Rnw file?"
+msgstr "請問您是否要儲存目前的 Rnw 紀錄檔？"
+
+msgid "Save R Markdown file as..."
+msgstr "另存 R Markdown 檔案..."
+
+msgid "Save knitr file as..."
+msgstr "另存 knitr 語法檔..."
+
+msgid "R Markdown file saved to"
+msgstr "儲存 R Markdown 檔案於"
+
+msgid "knitr file saved to"
+msgstr "另存 knitr 語法檔"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr "{\"所有檔案\" {\"*\"}} {\"R Markdown 檔案\" {\".Rmd\" \".rmd\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
+"\"}}"
+msgstr ""
+
+msgid ""
+"Delete previously created knitr\n"
+"graphics files (recommended)?"
+msgstr ""
+
+msgid "Ask to exit Commander"
+msgstr "關閉 Commander 時，須確認"
+
+msgid "Ask to save documents on exit"
+msgstr "關閉 Commander 時，詢問是否儲存文件"
+
+msgid "Quit R on exit"
+msgstr "關閉 Commander 時，一併將 R 關閉"
+
+msgid "Number messages"
+msgstr "訊息數"
+
+msgid "Retain messages"
+msgstr "保留訊息"
+
+msgid "Use R Markown"
+msgstr "使用 R Markown"
+
+msgid "Use knitr"
+msgstr "使用 knitr"
+
+msgid "Select file"
+msgstr "選擇檔案"
+
+msgid "R Markdown template file"
+msgstr ""
+
+msgid "R knitr template file"
+msgstr ""
+
+msgid "Suppress icon images"
+msgstr ""
+
+#      "Models -> Subset model selection" dialog and menu item
+msgid "Retain dialog selections"
+msgstr "保留對話選擇..."
+
+msgid "Use rgl package"
+msgstr "使用 rgl 套件："
+
+msgid "Dialog text font size (points)"
+msgstr "對話框字型大小〈點(pt)〉"
+
+msgid "Script and output font size (points)"
+msgstr "語法檔和輸出檔字型大小〈點(pt)〉"
+
+msgid "Dialog font"
+msgstr "對話框預設字型"
+
+#, fuzzy
+msgid "Script and output font"
+msgstr "另存語法檔"
+
+msgid "Script text color"
+msgstr "語法檔字形顏色"
+
+# messages added to version 1.3-15
+# Note: translate these messages only if the corresponding
+#  translated documents are supplied
+# For the following, you must supply a file named Commander-xx.Rd containing
+# a translation of the file Commander.Rd, where xx is the code for your
+# language. The \name{} and \alias{} fields in the .Rd file should both be
+# Commander-xx, where again xx is the language code.
+# Example: "Commander-es"
+# Note: Some translated Commander-xx.Rd files have not been compiling properly. As
+# an alternative, you can supply a PDF file named Commander-xx.pdf, and this will
+# be accessed when the user selects Help -> Commander help.
+# If you supply neither Commander-xx.Rd nor Commander-xx.pdf, then
+# the string "Commander" should not be translated.
+msgid "Command text color"
+msgstr "Commander 字形顏色"
+
+msgid "Output text color"
+msgstr "輸出檔字形顏色"
+
+msgid "Error text color"
+msgstr ""
+
+msgid "Warning text color"
+msgstr ""
+
+msgid "Dialog subtitles text color"
+msgstr ""
+
+msgid "Script window width (characters)"
+msgstr "語法檔視窗寬度(字元數)"
+
+msgid "Script window height (lines)"
+msgstr "語法檔視窗高度 (行數)"
+
+msgid "Output window height (lines)"
+msgstr "輸出結果視窗高度〈行數〉"
+
+msgid "Messages window height (lines)"
+msgstr "訊息視窗高度〈行數〉"
+
+msgid "Fonts"
+msgstr "字形"
+
+msgid "Other Options"
+msgstr "其他選項"
+
+msgid "Save Commander Options"
+msgstr "儲存 Commander 選項"
+
+#, fuzzy
+msgid "R Profile saved to"
+msgstr "另存 R 工作空間"
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr ""
+
+msgid "You may edit this file before saving it."
+msgstr ""
+
+#, fuzzy
+msgid "Save Rcmdr options..."
+msgstr "儲存語法檔..."
+
+msgid "Nonparametric Density Estimate"
+msgstr "無母數密度估計法"
+
+msgid "Gaussian"
+msgstr ""
+
+msgid "Epanechnikov"
+msgstr ""
+
+msgid "Tukey biweight"
+msgstr ""
+
+msgid "Kernel Function"
+msgstr "Kernel 函數"
+
+msgid "Bandwidth"
+msgstr "頻寬"
+
+msgid "Multiply bandwidth by"
+msgstr ""
+
+msgid "Density estimate..."
+msgstr ""
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr "頻寬必須為 <auto> 或正值"
+
+# index plot dialog
+msgid "Style of plot"
+msgstr ""
+
+#, fuzzy
+msgid "Write variable names"
+msgstr "寫入變數名稱："
+
+#, fuzzy
+msgid "Write row names"
+msgstr "寫入列名稱："
+
+#, fuzzy
+msgid "Quotes around character values"
+msgstr "使用引號來包覆字元值："
+
+#, fuzzy
+msgid "Quantiles:"
+msgstr "分位數"
+
+# #待確認翻譯
+msgid "spline requires a numeric variable"
+msgstr ""
+
+#, fuzzy
+msgid "cannot select more than one variable"
+msgstr "您必須選擇1個或多個變數."
+
+# #待確認翻譯
+msgid "polynomial requires a numeric variable"
+msgstr "多項式函數只能是數值變數"
+
+msgid "B-spline\n"
+msgstr ""
+
+msgid ""
+"natural\n"
+"spline"
+msgstr ""
+
+msgid ""
+"orthogonal\n"
+"polynomial"
+msgstr ""
+"正交\n"
+"多項式"
+
+msgid ""
+"raw\n"
+"polynomial"
+msgstr ""
+"原形式\n"
+"多項式"
+
+#, fuzzy
+msgid "Model Formula"
+msgstr "模型公式："
+
+msgid "Operators (click to formula):"
+msgstr "運算子〈雙擊滑鼠左鍵加入公式〉"
+
+msgid ""
+"Splines/Polynomials:\n"
+"(select variable and click)"
+msgstr ""
+
+msgid "df for splines:"
+msgstr ""
+
+msgid "deg. for polynomials:"
+msgstr ""
+
+msgid "R Commander Editor"
+msgstr "R Commander 編輯器"
+
+msgid "Edit R Markdown document"
+msgstr "編輯 R Markdown 文件"
+
+msgid "Edit knitr document"
+msgstr "編輯 knitr文件"
+
+msgid "Remove last Markdown command block"
+msgstr "移除最近 Markdown 命令區塊"
+
+msgid "Remove last knitr command block"
+msgstr ""
+
+msgid "Remove last command block"
+msgstr ""
+
+msgid "Exit editor"
+msgstr ""
+
+msgid "Editor help"
+msgstr ""
+
+msgid ""
+"Delete previously created R Markdown\n"
+"graphics files (recommended)?"
+msgstr ""
+"刪除最近產生之 R Markdown\n"
+"圖檔 (建議選項)?"
+
+msgid "Discard edits?"
+msgstr "忽視所做之編輯"
+
+# support for back-to-back stem-and-leaf displays
+msgid "Plot back-to-back by:"
+msgstr ""
+
+msgid "Plot back-to-back by"
+msgstr ""
+
+msgid "Standard Error of Mean"
+msgstr "平均數之標準誤"
+
+# #或翻譯為統計模型
+msgid "Fit Indices"
+msgstr "模型適配指標"
+
+msgid "Variable names in first row of spreadsheet"
+msgstr "資料表中首列的變數名稱："
+
+msgid "Row names in first column of spreadsheet"
+msgstr "首欄為列名稱"
+
+#, fuzzy
+msgid "<no variable selected>"
+msgstr "沒有選擇任何變數."
+
+#, fuzzy
+msgid "Model Effect Plots"
+msgstr "效應圖"
+
+msgid "Plot All High-Order Effects?"
+msgstr ""
+
+msgid "Predictors (pick one or more)"
+msgstr "用來預測的變數〈選取1個或多個〉"
+
+#, fuzzy
+msgid ""
+"You must select one or more predictors\n"
+" or plot all high-order effects."
+msgstr "您必須選擇1個或多個變數."
+
+msgid ""
+"To plot partial residuals,\n"
+" there must be a least one numeric predictor."
+msgstr ""
+
+# 3D scatterplots dialog
+msgid "Plot partial residuals"
+msgstr "繪製偏殘差(partial residual)"
+
+msgid "Style of Graph"
+msgstr "圖形類型"
+
+msgid "Stacked areas"
+msgstr "資料堆疊區域"
+
+msgid "Lines with confidence bands"
+msgstr "具信賴區間之直線"
+
+msgid "Single-Sample Wilcoxon Test"
+msgstr "單一樣本 Wilcoxon 檢定"
+
+msgid "Single-sample Wilcoxon test..."
+msgstr "單一樣本 Wilcoxon 檢定..."
+
+msgid "Drop Unused Factor Levels"
+msgstr "棄置未使用之因子變數層次"
+
+msgid "Factors(s) to drop levels (pick one or more)"
+msgstr "因子變數欲刪除之層次〈選取1個或多個〉"
+
+msgid ""
+"Drop unused factor levels\n"
+"Please confirm."
+msgstr ""
+"是否要刪除因子變數未使用之層次 %s?\n"
+"請確認."
+
+msgid "Drop unused factor levels..."
+msgstr "棄置未使用之因子變數層次..."
+
+msgid "all factors"
+msgstr "所有的因子變數"
+
+msgid "Linear Model Summary"
+msgstr "線性模型估計結果摘要"
+
+msgid "Sandwich estimator"
+msgstr "三明治(Sandwich) 估計式"
+
+msgid ""
+"Use sandwich estimator of    \n"
+"coefficient standard errors"
+msgstr ""
+"使用三明治(Sandwich) 估計式調整   \n"
+"係數之標準差"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix   "
+msgstr ""
+"使用三明治(Sandwich) 估計式調整   \n"
+"係數之共變異數矩陣"
+
+msgid "sandwich covariance matrix unavailable with type I tests"
+msgstr "型1檢定無三明治(Sandwich)共變異數矩陣"
+
+# messages related to ttk theme selection
+msgid "non-existent theme"
+msgstr "不存在之主題"
+
+msgid "theme set to"
+msgstr "選擇主題"
+
+msgid "Restart R Commander"
+msgstr "離開並重新啟動 R Commander"
+
+#, fuzzy
+msgid ""
+"Model formula\n"
+"help"
+msgstr "模型公式："

@@ -13,7 +13,7 @@ user interface) for R, based on the tcltk package.
 \tabular{ll}{
 Package: \tab Rcmdr\cr
 Version: \tab 2.1-0\cr
-Date: \tab 2014/08/22\cr
+Date: \tab 2014/08/24\cr
 Depends: \tab R (>= 3.0.0), grDevices, utils, splines, RcmdrMisc (>= 1.0-1), 
   car (>= 2.0-21)\cr
 Imports: \tab tcltk, tcltk2 (>= 1.2-6), markdown, knitr, abind\cr
@@ -42,7 +42,7 @@ The R Commander comes with translations from English into several other language
 Basque, Jose Ramon Rueda;
 Brazilian Portuguese, Adriano Azevedo-Filho and Marilia Sa Carvalho;
 Catalan, Manel Salamero;
-Chinese, Frank C. S. Liu and Cheng-shun Lee;
+Chinese, Tsungwu Ho, Frank C. S. Liu, and Cheng-shun Lee;
 French, Philippe Grosjean and Milan Bouchet-Valat;
 German: Gerhard Schoen;
 Indonesian, I Made Tirta;
