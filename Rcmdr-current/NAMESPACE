@@ -1,4 +1,4 @@
-# last modified 2014-08-22 by J. Fox
+# last modified 2014-09-01 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -6,7 +6,7 @@ import(splines, tcltk, RcmdrMisc, car)
 
 importFrom(utils, available.packages, install.packages)
 
-importFrom(tcltk2, tk2tip, tk2theme, tk2theme.list)
+importFrom(tcltk2, tk2tip, tk2theme, tk2theme.list, tk2table)
 
 importFrom(knitr, knit, knit2pdf)
 
@@ -48,6 +48,8 @@ beginRnwBlock, endRnwBlock, enterKnitr, removeNullRnwBlocks, removeStrayRnwBlock
 removeLastRmdBlock, removeLastRnwBlock,
     
 setBusyCursor, setIdleCursor,
+    
+editDataset,
 
 .Tcl, tcl, tclRequire, tclServiceMode, "tclvalue<-",
 tclVar, tkbind, tkcget, tkcheckbutton, tkconfigure,

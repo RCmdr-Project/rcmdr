@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr Japanese Translation\n"
 "POT-Creation-Date: 2010-07-10 19:00\n"
-"PO-Revision-Date: 2013-11-06 14:15+0900\n"
+"PO-Revision-Date: 2014-09-02 07:10+0900\n"
 "Last-Translator: Takaharu Araki <arakit@kansai-u.ac.jp>\n"
 "Language-Team: Rcmdr Japanese Translation <arakit@kansai-u.ac.jp>\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.7\n"
 
 msgid "KMeans Clustering"
-msgstr "k平均クラスタリング"
+msgstr "ｋ平均クラスタリング"
 
 msgid "Variables (pick one or more)"
 msgstr "変数 (１つ以上選択)"
@@ -4513,3 +4513,132 @@ msgstr "文書を保存"
 
 msgid "Save document and exit?"
 msgstr "文書を保存して終了？"
+
+# msgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
+# msgstr ""
+# msgid "the car package is missing and should be installed\n  many features will not work"
+# msgstr ""
+# for numerical summaries dialog
+msgid "Standard Error of Mean"
+msgstr "平均の標準誤差"
+
+# for CFA dialog
+msgid "Fit Indices"
+msgstr "適合性の指標"
+
+# for read Excel file dialog
+msgid "Variable names in first row of spreadsheet"
+msgstr "スプレッドシートの1行目の変数名"
+
+msgid "Row names in first column of spreadsheet"
+msgstr "スプレッドシートの1列目の行名"
+
+# for selecting weights in LM and GLM dialogs
+msgid "<no variable selected>"
+msgstr "<変数が選択されていません>"
+
+# new effect-plots dialog
+msgid "Model Effect Plots"
+msgstr "モデルの効果プロット"
+
+msgid "Plot All High-Order Effects?"
+msgstr "全ての高次効果をプロットしますか？"
+
+msgid "Predictors (pick one or more)"
+msgstr "予測変数（1つ以上選択）"
+
+msgid ""
+"You must select one or more predictors\n"
+" or plot all high-order effects."
+msgstr ""
+"1つ以上の予測変数を選択するか\n"
+"全ての高次効果をプロットする必要がある．"
+
+msgid ""
+"To plot partial residuals,\n"
+" there must be a least one numeric predictor."
+msgstr ""
+"偏残差をプロットするには\n"
+"少なくとも１つの数値予測変数が必要です．"
+
+msgid "Plot partial residuals"
+msgstr "偏残差のプロット"
+
+msgid "Style of Graph"
+msgstr "グラフのスタイル"
+
+msgid "Stacked areas"
+msgstr "層"
+
+msgid "Lines with confidence bands"
+msgstr "信頼幅付きの線"
+
+# new one-sample Wilcoxon test dialog
+msgid "Single-Sample Wilcoxon Test"
+msgstr "1標本Wilcoxon検定"
+
+msgid "Single-sample Wilcoxon test..."
+msgstr "1標本Wilcoxon検定..."
+
+# new drop unused factor levels dialog
+msgid "Drop Unused Factor Levels"
+msgstr "利用されていない因子水準の削除"
+
+msgid "Factors(s) to drop levels (pick one or more)"
+msgstr "水準を落とす因子（1つ以上選択）"
+
+msgid ""
+"Drop unused factor levels\n"
+"Please confirm."
+msgstr ""
+"利用されていない因子水準の削除\n"
+"確認してください．"
+
+msgid "Drop unused factor levels..."
+msgstr "利用されていない因子水準の削除..."
+
+msgid "all factors"
+msgstr "全ての因子"
+
+# messages related to sandwich variance estimator
+msgid "Linear Model Summary"
+msgstr "線型モデルの要約情報"
+
+msgid "Sandwich estimator"
+msgstr "サンドウィッチ推定量"
+
+msgid ""
+"Use sandwich estimator of    \n"
+"coefficient standard errors"
+msgstr ""
+"回帰係数の標準誤差の\n"
+"サンドウィッチ推定量を利用"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix   "
+msgstr ""
+"回帰係数の共分散行列の\n"
+"サンドウィッチ推定量を利用"
+
+msgid "sandwich covariance matrix unavailable with type I tests"
+msgstr "タイプI検定を利用できるサンドウィッチ共分散行列はありません"
+
+# messages related to ttk theme selection
+msgid "non-existent theme"
+msgstr "存在しないテーマ"
+
+msgid "theme set to"
+msgstr "テーマを次に指定"
+
+# modified message
+msgid "Restart R Commander"
+msgstr "R Commanderの再起動"
+
+# formula-help button
+msgid ""
+"Model formula\n"
+"help"
+msgstr ""
+"モデル式の\n"
+"ヘルプ"
