@@ -28,7 +28,9 @@ newDataSet <- function() {
         command <- paste("editDataset(dsname='", dsnameValue, "')", sep="")
         result <- justDoIt(command)
         if (class(result)[1] !=  "try-error"){
-            if (nrow(get(dsnameValue, envir=.GlobalEnv)) == 0){
+            .data <- try(get(dsnameValue, envir=.GlobalEnv), silent=TRUE)
+            if (inherits(.data, "try-error")) return()
+            if (nrow(.data) == 0){
                 errorCondition(recall=newDataSet, message=gettextRcmdr("empty data set."))
                 return()
             }
@@ -36,7 +38,6 @@ newDataSet <- function() {
             tempdir <- tempdir()
             tempdir <- gsub("\\\\", "/", tempdir)
             savefile <- paste(tempdir, "/", dsnameValue, sep="")
-            .data <- get(dsnameValue, envir=.GlobalEnv)
             save(".data", file=savefile)
             if (getRcmdr("use.markdown")) {
                 removeNullRmdBlocks()
