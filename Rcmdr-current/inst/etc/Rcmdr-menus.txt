@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2014-08-10 by J. Fox
+# last modified 2014-09-01 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -49,7 +49,7 @@
     item    editMenu        command         "Clear window"                                  onClear                     ""          ""
     item    topMenu         cascade         "Edit"                                          editMenu                    ""          ""
     menu    dataMenu        topMenu         ""                                              ""                          ""          ""
-    item    dataMenu        command         "New data set..."                               newDataSet                  ""          "!MacOSXP()"
+    item    dataMenu        command         "New data set..."                               newDataSet                  ""          ""
     item    dataMenu        command         "Load data set..."                              loadDataSet                 ""      ""
     item	dataMenu		command			"Merge data sets..."							mergeDataSets				"dataSetsP(2)"	"packageAvailable('car') && packageAvailable('RcmdrMisc')"
     item    dataMenu        separator       ""                                              ""                          ""          ""
