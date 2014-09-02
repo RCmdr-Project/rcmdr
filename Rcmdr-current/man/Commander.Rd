@@ -177,6 +177,10 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{double.click}}{Set to \code{TRUE} if you want a double-click of the left mouse
     button to press the default button in all dialogs. The default is \code{FALSE}.}
     
+    \item{\code{editDataset.threshold}}{If the number of values in the current
+    data set exceed this value (the default is 10000), then the standard R
+    data editor is used in preference to the R Commander \code{editDataset} editor.}
+    
     \item{\code{error.text.color}}{Color for error messages; the default is \code{"red"}.}
     
     \item{\code{etc}}{Set to the path of the directory containing the \pkg{Rcmdr}

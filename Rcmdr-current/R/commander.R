@@ -323,6 +323,7 @@ Commander <- function(){
     setOption("suppress.X11.warnings",
         interactive() && .Platform$GUI == "X11") # to address problem in X11 (Linux or Mac OS X)
     setOption("showData.threshold", 100)
+    setOption("editDataset.threshold", 10000)
     setOption("retain.messages", TRUE)
     setOption("crisp.dialogs",  TRUE)
     setOption("length.output.stack", 10)
@@ -481,7 +482,7 @@ Commander <- function(){
         dsnameValue <- ActiveDataSet()
         save.dataset <- get(dsnameValue, envir=.GlobalEnv)
         size <- prod(dim(save.dataset))
-        if (size < 1 || size > 10000){
+        if (size < 1 || size > getRcmdr("editDataset.threshold")){
             command <- paste("fix(", dsnameValue, ")", sep="")
             result <- justDoIt(command)
             if (class(result)[1] !=  "try-error"){ 			

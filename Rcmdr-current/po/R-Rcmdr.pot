@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.1-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-08-21 17:30:00\n"
+"POT-Creation-Date: 2014-09-01 20:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4437,3 +4437,38 @@ msgstr ""
 
 msgid "Model formula\nhelp"
 msgstr ""
+
+# messages added for version 2.1-1
+
+  # messages for the new dataset editor
+
+msgid "Data Editor"
+msgstr ""
+
+msgid "Delete current row"
+msgstr ""
+
+msgid "Delete current column"
+msgstr ""
+
+msgid "Delete cell"
+msgstr ""
+
+msgid "Cut cell"
+msgstr ""
+
+msgid "Copy cell"
+msgstr ""
+
+msgid ""Paste cell"
+msgstr ""
+
+msgid "Exit and save"
+msgstr ""
+
+msgid "Add row"
+msgstr ""
+
+msgid "Add column"
+msgstr ""
+
