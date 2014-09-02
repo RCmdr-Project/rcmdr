@@ -1,4 +1,4 @@
-# last modified 2014-09-01 by J. Fox
+# last modified 2014-09-02 by J. Fox
 
 # utility functions
 
@@ -2673,6 +2673,7 @@ hasJava <- function(){
 # Rcmdr data editor
 
 editDataset <- function(data, dsname){
+    putRcmdr("dataset.modified", FALSE)
     if (missing(data)){
         if (missing(dsname)) dsname <- "Dataset"
         data <- data.frame(V1="NA")
@@ -2841,6 +2842,7 @@ editDataset <- function(data, dsname){
         Data <- read.table(textConnection(data), header=TRUE)
         gassign(dsname, Data)
         activeDataSet(dsname)
+        putRcmdr("dataset.modified", TRUE)
     }
     OKCancelHelp(helpSubject="editDataset")
     editorMenu <- tkmenu(top)

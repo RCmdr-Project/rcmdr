@@ -1,4 +1,4 @@
-# last modified 2014-09-01 by J. Fox
+# last modified 2014-09-02 by J. Fox
 
 # Data menu dialogs
 
@@ -28,13 +28,12 @@ newDataSet <- function() {
         command <- paste("editDataset(dsname='", dsnameValue, "')", sep="")
         result <- justDoIt(command)
         if (class(result)[1] !=  "try-error"){
+            if (!getRcmdr("dataset.modified")) return()
             .data <- try(get(dsnameValue, envir=.GlobalEnv), silent=TRUE)
-            if (inherits(.data, "try-error")) return()
             if (nrow(.data) == 0){
                 errorCondition(recall=newDataSet, message=gettextRcmdr("empty data set."))
                 return()
             }
-            logger(command, rmd=FALSE)
             tempdir <- tempdir()
             tempdir <- gsub("\\\\", "/", tempdir)
             savefile <- paste(tempdir, "/", dsnameValue, sep="")
