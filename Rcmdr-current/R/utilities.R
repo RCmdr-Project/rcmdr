@@ -1,4 +1,4 @@
-# last modified 2014-09-02 by J. Fox
+# last modified 2014-09-03 by J. Fox
 
 # utility functions
 
@@ -2864,7 +2864,7 @@ editDataset <- function(data, dsname){
         command=pasteCell)
     tkadd(editorMenu, "cascade", label=gettextRcmdr("Edit"), menu=editMenu)   
     helpMenu <- tkmenu(editorMenu, tearoff=FALSE)
-    onEditorHelp <- function() print(help("editDataset", package="utils"))
+    onEditorHelp <- function() print(help("editDataset"))
     tkadd(helpMenu, "command", label=gettextRcmdr("Editor help"), 
         command=onEditorHelp)
     tkadd(editorMenu, "cascade", label=gettextRcmdr("Help"), menu=helpMenu)    
