@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2014-08-17 by J. Fox
+# last modified 2014-09-04 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -104,13 +104,15 @@ indexPlot <- function () {
 
 Histogram <- function () {
     defaults <- list(initial.x = NULL, initial.scale = "frequency",
-                     initial.bins = gettextRcmdr ("<auto>"), initial.tab=0,
-                     initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"),
-                     initial.main=gettextRcmdr("<auto>"))
+        initial.bins = gettextRcmdr ("<auto>"), initial.tab=0,
+        initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"),
+        initial.main=gettextRcmdr("<auto>"), initial.group = NULL)
     dialog.values <- getDialog("Histogram", defaults)
     initializeDialog(title = gettextRcmdr("Histogram"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
-                            initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+        initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+    initial.group <- dialog.values$initial.group
+    .groups <- if (is.null(initial.group)) FALSE else initial.group
     onOK <- function() {
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         x <- getSelection(xBox)
@@ -139,14 +141,23 @@ Histogram <- function () {
             ""
         else paste(", main=\"", main, "\"", sep = "")
         putDialog ("Histogram", list (initial.x = x, initial.bins = bins, initial.scale = scale,
-                                      initial.tab=tab, initial.xlab=tclvalue(xlabVar), initial.ylab = tclvalue(ylabVar),
-                                      initial.main = tclvalue(mainVar)))
-        command <- paste("with(", ActiveDataSet(), ", Hist(", x, ', scale="', scale, '", breaks=',
-                             binstext, ', col="darkgray"', xlab, ylab, main, "))", sep="")
+            initial.tab=tab, initial.xlab=tclvalue(xlabVar), initial.ylab = tclvalue(ylabVar),
+            initial.main = tclvalue(mainVar), initial.group=if (.groups == FALSE) NULL else .groups))
+        if (is.null(.groups) || .groups == FALSE) {
+            command <- paste("with(", ActiveDataSet(), ", Hist(", x, ', scale="', scale, '", breaks=',
+                binstext, ', col="darkgray"', xlab, ylab, main, "))", sep="")
+        }
+        else{
+            command <- paste("with(", ActiveDataSet(), ", Hist(", x, ", groups=", .groups, ', scale="',
+                scale, '", breaks=', binstext, ', col="darkgray"', xlab, ylab, main, "))", sep="")
+        }
         doItAndPrint(command)
         activateMenus()
         tkfocus(CommanderWindow())
     }
+    groupsBox(Histogram, initialGroup=initial.group,
+        initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups")
+        else paste(gettextRcmdr("Plot by:"), initial.group), window=dataTab)
     OKCancelHelp(helpSubject = "Hist", reset = "Histogram", apply="Histogram")
     optionsFrame <- tkframe(optionsTab)
     optFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Options"))
@@ -156,36 +167,37 @@ Histogram <- function () {
     mainVar <- tclVar(dialog.values$initial.main)
     xlabEntry <- ttkentry(parFrame, width = "25", textvariable = xlabVar)
     xlabScroll <- ttkscrollbar(parFrame, orient = "horizontal",
-                               command = function(...) tkxview(xlabEntry, ...))
+        command = function(...) tkxview(xlabEntry, ...))
     tkconfigure(xlabEntry, xscrollcommand = function(...) tkset(xlabScroll,
-                                                                ...))
+        ...))
     tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("x-axis label")), xlabEntry, sticky = "ew", padx=6)
     tkgrid(labelRcmdr(parFrame, text =""), xlabScroll, sticky = "ew", padx=6)
     ylabEntry <- ttkentry(parFrame, width = "25", textvariable = ylabVar)
     ylabScroll <- ttkscrollbar(parFrame, orient = "horizontal",
-                               command = function(...) tkxview(ylabEntry, ...))
+        command = function(...) tkxview(ylabEntry, ...))
     tkconfigure(ylabEntry, xscrollcommand = function(...) tkset(ylabScroll,
-                                                                ...))
+        ...))
     tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("y-axis label")), ylabEntry, sticky = "ew", padx=6)
     tkgrid(labelRcmdr(parFrame, text =""), ylabScroll, sticky = "ew", padx=6)
     mainEntry <- ttkentry(parFrame, width = "25", textvariable = mainVar)
     mainScroll <- ttkscrollbar(parFrame, orient = "horizontal",
-                               command = function(...) tkxview(mainEntry, ...))
+        command = function(...) tkxview(mainEntry, ...))
     tkconfigure(mainEntry, xscrollcommand = function(...) tkset(mainScroll,
-                                                                ...))
+        ...))
     tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("Graph title")), mainEntry, sticky = "ew", padx=6)
     tkgrid(labelRcmdr(parFrame, text=""), mainScroll, sticky = "ew", padx=6)
     axisFrame <- tkframe(optFrame)
     radioButtons(axisFrame, name = "scale", buttons = c("frequency", "percent",
-                                                        "density"), labels = gettextRcmdr(c("Frequency counts",
-                                                                                            "Percentages", "Densities")), title = gettextRcmdr("Axis Scaling"),
-                 initialValue = dialog.values$initial.scale)
+        "density"), labels = gettextRcmdr(c("Frequency counts",
+            "Percentages", "Densities")), title = gettextRcmdr("Axis Scaling"),
+        initialValue = dialog.values$initial.scale)
     binsFrame <- tkframe(optFrame)
     binsVariable <- tclVar(dialog.values$initial.bins)
     binsField <- ttkentry(binsFrame, width = "8", textvariable = binsVariable)
     tkgrid(getFrame(xBox), sticky = "nw")
+    tkgrid(groupsFrame, sticky = "w")
     tkgrid(labelRcmdr(binsFrame, text = gettextRcmdr("Number of bins: ")),
-           binsField, sticky = "w")
+        binsField, sticky = "w")
     tkgrid(binsFrame, sticky = "w")
     tkgrid(scaleFrame, sticky = "w")
     tkgrid(axisFrame, sticky = "w")
