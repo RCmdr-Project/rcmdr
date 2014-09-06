@@ -1,3 +1,7 @@
+Changes to Version 2.1-2
+
+  o Fixed ignoring of Rcmdr option "ask.on.exit" and "ask.to.exit", causing exiting without asking in non-English locales (bug report by Yoshinobu Kanda).
+
 Changes to Version 2.1-1
 
   o Updated Chinese translation (thanks to Tsungwu Ho); Japanese translation (thanks to Takaharu Araki); and Korean translation (thanks to Jong-Hwa Shin).

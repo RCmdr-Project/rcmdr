@@ -1,4 +1,4 @@
-# last modified 2014-09-03 by J. Fox
+# last modified 2014-09-05 by J. Fox
 
 # utility functions
 
@@ -1707,7 +1707,7 @@ RcmdrTkmessageBox <- function(message, icon=c("info", "question", "warning",
         }
     )
     tkgrid(buttonFrame)
-    dialogSuffix(messageBox, focus=messageBox, bindReturn=FALSE)
+    dialogSuffix(messageBox, focus=messageBox, bindReturn=FALSE, force.wait=TRUE)
     result
 }
 
