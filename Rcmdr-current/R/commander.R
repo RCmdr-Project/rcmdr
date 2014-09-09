@@ -1,14 +1,13 @@
 
 # The R Commander and command logger
 
-# last modified 2014-09-01 by John Fox
+# last modified 2014-09-09 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
 Commander <- function(){
     library(Rcmdr, quietly=TRUE)
-#    if (!require("RcmdrMisc")) warning(gettextRcmdr("the RcmdrMisc package is missing and should be installed\n  many features will not work"))
-#    if (!require("car")) warning(gettextRcmdr("the car package is missing and should be installed\n  many features will not work"))
+
     # set up RcmdrEnv
     RcmdrEnv.on.path <- getOption("Rcmdr")[["RcmdrEnv.on.path"]]
     if (is.null(RcmdrEnv.on.path)) RcmdrEnv.on.path <- FALSE
@@ -480,9 +479,9 @@ Commander <- function(){
             return()
         }
         dsnameValue <- ActiveDataSet()
-        save.dataset <- get(dsnameValue, envir=.GlobalEnv)
-        size <- prod(dim(save.dataset))
+        size <- eval(parse(text=paste("prod(dim(", dsnameValue, "))", sep=""))) #  prod(dim(save.dataset))
         if (size < 1 || size > getRcmdr("editDataset.threshold")){
+            save.dataset <- get(dsnameValue, envir=.GlobalEnv)
             command <- paste("fix(", dsnameValue, ")", sep="")
             result <- justDoIt(command)
             if (class(result)[1] !=  "try-error"){ 			
