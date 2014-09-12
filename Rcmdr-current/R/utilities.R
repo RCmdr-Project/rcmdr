@@ -1,4 +1,4 @@
-# last modified 2014-09-05 by J. Fox
+# last modified 2014-09-11 by J. Fox
 
 # utility functions
 
@@ -2684,7 +2684,7 @@ editDataset <- function(data, dsname){
     }
     if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
     top <- tktoplevel(borderwidth = 10)
-    tkwm.title(top, gettextRcmdr("Data Editor"))
+    tkwm.title(top, paste(gettextRcmdr("Data Editor"), ": ", dsname, sep=""))
 #     location <- getRcmdr("open.dialog.here")  # FIXME!
 #     pos <- 10 + commanderPosition()           # Don't do this because window doesn't stay on top
 #     position <- if (any(pos < 0)) "-50+50" 
@@ -2843,6 +2843,10 @@ editDataset <- function(data, dsname){
         gassign(dsname, Data)
         activeDataSet(dsname)
         putRcmdr("dataset.modified", TRUE)
+    }
+    .exit <- function(){
+        answer <- RcmdrTkmessageBox("Discard edits?", icon="question", type="yesno")
+        if (as.character(answer) == "no") "abort" else ""
     }
     OKCancelHelp(helpSubject="editDataset")
     editorMenu <- tkmenu(top)

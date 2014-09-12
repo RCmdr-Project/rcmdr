@@ -329,7 +329,9 @@ set none, one, several, or all options. The available options are as follows:
     wait until an R Commander dialog is closed. This has the disadvantage of preventing
     help pages from being displayed until a dialog is closed in the Mac OS X R.app 
     and in RStudio. This was also the standard behavior of the R Commander in earlier
-    versions and is provided for compatibility with previous behavior.}
+    versions and is provided for compatibility with previous behavior. If this option is \code{TRUE},
+    then the R Commander data editor is disabled in favor of the standard R platform-specific
+    data editor, and the new-data-set menu item is suppressed.}
     
     \item{\code{use.knitr}}{If \code{TRUE} (the default is \code{FALSE}), a knitr \code{.Rnw} LaTeX document is created in a tab of the main Commander window;
     this document can be compiled into \code{.tex} and \code{.pdf} reports via the \code{\link[knitr]{knit2pdf}}

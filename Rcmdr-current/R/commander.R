@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2014-09-09 by John Fox
+# last modified 2014-09-11 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -364,6 +364,7 @@ Commander <- function(){
         else options(device="x11")
     }
     setOption("tkwait.dialog", FALSE)
+    if (getRcmdr("tkwait.dialog")) putRcmdr("editDataset.threshold", 0)
     
     # source additional .R files, plug-ins preferred
     source.files <- list.files(etc, pattern="\\.[Rr]$")
