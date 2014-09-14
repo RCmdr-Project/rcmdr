@@ -1,4 +1,4 @@
-# last modified 2014-09-11 by J. Fox
+# last modified 2014-09-14 by J. Fox
 
 # utility functions
 
@@ -187,7 +187,7 @@ Confint <- function(object, parm, level=0.95, ...) UseMethod("Confint")
 
 Confint.default <- function(object, parm, level = 0.95, ...) {
     ci <- confint(object, parm, level, ...)
-    ci <- cbind(coef(object), ci)
+    ci <- cbind(coef(object)[parm], ci)
     colnames(ci)[1] <- "Estimate"
     ci
 }
@@ -213,7 +213,7 @@ Confint.glm <- function (object, parm, level=0.95, type=c("LR", "Wald"), ...){
         fac <- qnorm(a)
         ci[] <- cf[parm] + ses %o% fac
     }
-    ci <- cbind(cf, ci)
+    ci <- cbind(cf[parm], ci)
     colnames(ci)[1] <- "Estimate"
     fam <- family(object)
     if (fam$family == "binomial" && fam$link == "logit"){
@@ -261,7 +261,7 @@ confint.multinom <- function (object, parm, level=0.95, ...){
     fac <- qnorm(a)
     ci <- abind::abind(cf + fac[1]*ses, cf + fac[2]*ses, along=3)
     dimnames(ci)[[3]] <- paste(round(100 * a, 1), "%")
-    aperm(ci, c(2,3,1))
+    aperm(ci, c(2,3,1))[,,1]
 }
 
 Confint.multinom <- function(object, parm, level = 0.95, ...) confint (object, parm=parm, level=0.95, ...)
