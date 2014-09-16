@@ -1,4 +1,4 @@
-# last modified 2014-09-15 by J. Fox
+# last modified 2014-09-16 by J. Fox
 
 # utility functions
 
@@ -2192,8 +2192,10 @@ MarkdownP <- function(){
 }
 
 compileRmd <- function() {
-#     if (!(require(knitr))) return()
-#     if (!(require(markdown))) return()
+    .RmdFile <- getRcmdr("RmdFileName")
+    rmdDir <- dirname(.RmdFile)
+    saveDir <- setwd(rmdDir)
+    on.exit(setwd(saveDir))
     fig.files <- list.files("./figure")
     fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
     if (length(fig.files) != 0) {
@@ -2203,7 +2205,6 @@ compileRmd <- function() {
     }
     removeStrayRmdBlocks()
     lines <- tclvalue(tkget(RmdWindow(), "1.0", "end"))
-    .RmdFile <- getRcmdr("RmdFileName")
     .filename <- sub("\\.Rmd$", "", trim.blanks(.RmdFile))
     writeLines(lines, .RmdFile)
     knitr::knit(.RmdFile, paste(.filename, ".md", sep=""), quiet=TRUE)
@@ -2315,7 +2316,10 @@ removeLastRnwBlock <- function(){
 }
 
 compileRnw <- function(){
-#    if (!require(knitr)) return()
+    .RnwFile <- getRcmdr("RnwFileName")
+    rnwDir <- dirname(.RnwFile)
+    saveDir <- setwd(rnwDir)
+    on.exit(setwd(saveDir))
     fig.files <- list.files("./figure")
     fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
     if (length(fig.files) != 0) {
@@ -2326,7 +2330,6 @@ compileRnw <- function(){
     removeStrayRnwBlocks()
     lines <- tclvalue(tkget(RnwWindow(), "1.0", "end"))
     lines <- paste(lines, "\n\\end{document}\n")
-    .RnwFile <- getRcmdr("RnwFileName")
     .filename <- sub("\\.Rnw$", "", trim.blanks(.RnwFile))
     writeLines(lines, .RnwFile)
     knitr::knit2pdf(.RnwFile)
