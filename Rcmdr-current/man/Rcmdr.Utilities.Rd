@@ -214,7 +214,8 @@ groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1,
 hclustSolutionsP()
 initializeDialog(window=top, title="", offset=10, preventCrisp,
     use.tabs=FALSE, notebook=notebook, 
-    tabs=c("dataTab", "optionsTab"))  # macro
+    tabs=c("dataTab", "optionsTab"),
+    suppress.window.resize.buttons=TRUE)  # macro
 is.valid.name(x)
 is.SciViews()
 justDoIt(command)
@@ -428,6 +429,8 @@ commanderPosition()
     user can't type in the box; set to \code{"normal"} to permit typing.}
   \item{strict}{if \code{TRUE}, only use first element of class vector.}
   \item{subset.expression}{a quoted expression to subset the data set.}
+  \item{suppress.window.resize.buttons}{if \code{TRUE}, the default, the window maximize/minimize 
+    buttons will not be displayed.}
   \item{tab.names}{text to print as tab labels (default \code{c("Data", "Options")}).}
   \item{tabs}{quoted names of tabs for a tabbed dialog (default \code{c("dataTab", "optionsTab")}).}
   \item{text}{a text string.}

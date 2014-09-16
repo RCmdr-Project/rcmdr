@@ -1,4 +1,4 @@
-# last modified 2014-09-02 by J. Fox
+# last modified 2014-09-15 by J. Fox
 
 # Data menu dialogs
 
@@ -381,6 +381,7 @@ readDataSet <- function() {
             urlXscroll <- ttkscrollbar(urlFrame,
                                        orient="horizontal", command=function(...) tkxview(url, ...))
             tkconfigure(url, xscrollcommand=function(...) tkset(urlXscroll, ...))
+            .subexit <- function() tclvalue(urlVar) <- ""
             subOKCancelHelp()
             tkgrid(url, sticky="w")
             tkgrid(urlXscroll, sticky="ew")

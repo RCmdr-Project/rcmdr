@@ -1,4 +1,4 @@
-# last modified 2014-09-14 by J. Fox
+# last modified 2014-09-15 by J. Fox
 
 # utility functions
 
@@ -572,9 +572,12 @@ subOKCancelHelp <- defmacro(window=subdialog, helpSubject=NULL,
         subOKbutton <- buttonRcmdr(subRightButtonsBox, text=gettextRcmdr("OK"), foreground="darkgreen", width=width, command=onOKsub, default="active",
             image="::image::okIcon", compound="left")
         onCancelSub <- function() {
-            if (GrabFocus()) tkgrab.release(window)
-            tkdestroy(window)
-            tkfocus(CommanderWindow())
+          if (exists(".subexit")){
+            .subexit()
+          }
+          if (GrabFocus()) tkgrab.release(window)
+          tkdestroy(window)
+          tkfocus(CommanderWindow())
         }
         subCancelButton <- buttonRcmdr(subRightButtonsBox, text=gettextRcmdr("Cancel"), foreground="red", width=width, command=onCancelSub,
             image="::image::cancelIcon", compound="left") # borderwidth=3, 
@@ -681,6 +684,7 @@ commanderPosition <- function (){
 
 initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp, 
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"),
+    suppress.window.resize.buttons=TRUE,
     expr={
         if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
         window <- tktoplevel(borderwidth=10)
@@ -697,7 +701,7 @@ initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp,
             else paste("+", paste(pos, collapse="+"), sep="")
         }
         tkwm.geometry(window, position)
-        tkwm.transient(window, CommanderWindow())
+        if (suppress.window.resize.buttons) tkwm.transient(window, CommanderWindow())
     }
 )
 
@@ -2448,7 +2452,7 @@ RcmdrEditor <- function(buffer, title="R Commander Editor",
     onRedo <- function(){
         tcl(editor, "edit", "redo")
     }
-    initializeDialog(title = gettextRcmdr(title))
+    initializeDialog(title = gettextRcmdr(title), suppress.window.resize.buttons=FALSE)
     toolbarFrame <- tkframe(top) 
     cutButton <- buttonRcmdr(toolbarFrame, image="::image::cutIcon", command=onCut)
     copyButton <- buttonRcmdr(toolbarFrame, image="::image::copyIcon", command=onCopy)
@@ -2589,14 +2593,15 @@ RcmdrEditor <- function(buffer, title="R Commander Editor",
         tkbind(top, "<Meta-W>", onRedo)
     }
     tkwm.protocol(top, "WM_DELETE_WINDOW", onCancel)
-    tkgrid.rowconfigure(top, 1, weight=0)
-    tkgrid.rowconfigure(top, 0, weight=1)
+    dialogSuffix(bindReturn = FALSE, resizable=TRUE, focus=editor)
+    tkgrid.rowconfigure(top, 0, weight = 0)
+    tkgrid.rowconfigure(top, 1, weight = 1)
+    tkgrid.rowconfigure(top, 2, weight = 0)
     tkgrid.columnconfigure(top, 0, weight=1)
     tkgrid.rowconfigure(editorFrame, 1, weight=0)
     tkgrid.rowconfigure(editorFrame, 0, weight=1)
     tkgrid.columnconfigure(editorFrame, 0, weight=1)
     tkgrid.columnconfigure(editorFrame, 1, weight=0)
-    dialogSuffix(bindReturn = FALSE, resizable=TRUE, focus=editor)
 }
 
 # the rgb2col function translates #RRGGBB colors to names if a named color exists or otherwise a "close" color (not exported)
@@ -2914,6 +2919,7 @@ editDataset <- function(data, dsname){
     tktag.configure(data.table, "colnames", bg="darkgray")  
     tkgrid(tableFrame, sticky="news")
     tkgrid(buttonsFrame, sticky="w")
+    tkwm.protocol(top, "WM_DELETE_WINDOW", onCancel)
     dialogSuffix(resizable=TRUE)
     tkgrid.rowconfigure(top, 0, weight = 0)
     tkgrid.rowconfigure(top, 1, weight = 1)
