@@ -919,7 +919,8 @@ radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..
 checkBoxes <- defmacro(window=top, frame, boxes, initialValues=NULL, labels, title=NULL, ttk=FALSE,
     expr={
         ..initialValues <- if (is.null(initialValues)) rep("1", length(boxes)) else initialValues
-        assign(frame, if (ttk) ttklabelframe(window, text=title) else tkframe(window))
+        assign(frame, if (ttk) ttklabelframe(window, labelwidget=tklabel(window, text=title, 
+                                          font="RcmdrTitleFont", foreground=getRcmdr("title.color"))) else tkframe(window))
         if (!is.null(title) && !ttk) tkgrid(labelRcmdr(eval(parse(text=frame)), text=title, fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
         ..variables <- paste(boxes, "Variable", sep="")
         for (i in 1:length(boxes)) {
