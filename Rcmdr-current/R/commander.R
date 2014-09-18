@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2014-09-11 by John Fox
+# last modified 2014-09-18 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -229,6 +229,8 @@ Commander <- function(){
     .Tcl(paste("font configure RcmdrDefaultFont -family {", default.font.family, "}", sep=""))
     .Tcl("ttk::style configure TButton -font RcmdrDefaultFont")
     .Tcl("ttk::style configure TLabel -font RcmdrDefaultFont")
+    .Tcl("ttk::style configure TCheckbutton -font RcmdrDefaultFont")
+    .Tcl("ttk::style configure TRadiobutton -font RcmdrDefaultFont")
     
     if (!("RcmdrTitleFont" %in% as.character(.Tcl("font names")))){
         .Tcl(paste("font create RcmdrTitleFont", tclvalue(tkfont.actual("TkDefaultFont"))))
