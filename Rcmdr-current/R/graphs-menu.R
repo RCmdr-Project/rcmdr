@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2014-09-04 by J. Fox
+# last modified 2014-09-18 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -16,8 +16,10 @@ indexPlot <- function () {
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"), 
         initialSelection = varPosn (dialog.values$initial.x, "numeric"))
     optionsFrame <- tkframe(optionsTab)    
-    optFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Options"))
-    parFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Labels"))
+    optFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Options"),
+        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+    parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
+        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
     typeVariable <- tclVar(dialog.values$initial.type)
     styleFrame <- tkframe(optFrame)
     radioButtons(styleFrame, name = "type", buttons = c("spikes", "points"),
@@ -160,8 +162,10 @@ Histogram <- function () {
         else paste(gettextRcmdr("Plot by:"), initial.group), window=dataTab)
     OKCancelHelp(helpSubject = "Hist", reset = "Histogram", apply="Histogram")
     optionsFrame <- tkframe(optionsTab)
-    optFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Options"))
-    parFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Labels"))
+    optFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Options"),
+        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+    parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
+        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
     xlabVar <- tclVar(dialog.values$initial.xlab)
     ylabVar <- tclVar(dialog.values$initial.ylab)
     mainVar <- tclVar(dialog.values$initial.main)
@@ -339,8 +343,10 @@ boxPlot <- function () {
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
                             initialSelection = varPosn (dialog.values$initial.x, "numeric"))
     optionsFrame <- tkframe(optionsTab)
-    optFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Identify Outliers"))
-    parFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Labels"))
+    optFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Identify Outliers"),
+        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+    parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
+        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
     styleFrame <- tkframe(optFrame)
     radioButtons(optFrame, name = "identify", buttons = c("y", "identify", "none"),
                  labels = gettextRcmdr(c("Automatically", "With mouse", "No")),
@@ -453,7 +459,8 @@ scatterPlot <- function () {
     yBox <- variableListBox(dataTab, .numeric, title = gettextRcmdr("y-variable (pick one)"),
                             initialSelection = varPosn (dialog.values$initial.y, "numeric"))
     optionsParFrame <- tkframe(optionsTab)
-    parFrame <- ttklabelframe(optionsParFrame, text=gettextRcmdr("Plot Labels and Points"))
+    parFrame <- ttklabelframe(optionsParFrame, labelwidget=tklabel(optionsParFrame, text=gettextRcmdr("Plot Labels and Points"),
+        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
     checkBoxes(window = optionsParFrame, frame = "optionsFrame",
                boxes = c("jitterX", "jitterY", "logX", "logY",
                          "boxplots", "lsLine", "smoothLine", "spread"), initialValues = c(
@@ -802,7 +809,8 @@ barGraph <- function () {
   optionsFrame <- tkframe(top)
   variableBox <- variableListBox(optionsFrame, Factors(), title = gettextRcmdr("Variable (pick one)"),
                                  initialSelection = varPosn (dialog.values$initial.variable, "factor"))
-  parFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Labels"))
+  parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
+      font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
   xlabVar <- tclVar(dialog.values$initial.xlab)
   ylabVar <- tclVar(dialog.values$initial.ylab)
   mainVar <- tclVar(dialog.values$initial.main)
@@ -872,7 +880,8 @@ pieChart <- function () {
   optionsFrame <- tkframe(top)
   variableBox <- variableListBox(optionsFrame, Factors(), title = gettextRcmdr("Variable (pick one)"),
                                  initialSelection = varPosn (dialog.values$initial.variable, "factor"))
-  parFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Labels"))
+  parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
+      font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
   xlabVar <- tclVar(dialog.values$initial.xlab)
   ylabVar <- tclVar(dialog.values$initial.ylab)
   mainVar <- tclVar(dialog.values$initial.main)
@@ -998,8 +1007,10 @@ QQPlot <- function () {
   xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
                           initialSelection = varPosn (dialog.values$initial.x, "numeric"))
   optionsFrame <- tkframe(optionsTab)
-  optFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Options"))
-  parFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Labels"))
+  optFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Options"),
+      font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+  parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
+      font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
   identifyPointsFrame <- tkframe(optFrame)
   radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse",
                                                                    "not"), labels = gettextRcmdr(c("Automatically",
@@ -1203,8 +1214,10 @@ PlotMeans <- function () {
   responseBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Response Variable (pick one)"),
                                  initialSelection = varPosn (dialog.values$initial.response, "numeric"))
   optionsFrame <- tkframe(optionsTab)
-  optFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Error Bars"))
-  parFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Labels"))
+  optFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Error Bars"),
+      font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+  parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
+      font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
   xlabVar <- tclVar(dialog.values$initial.xlab)
   ylabVar <- tclVar(dialog.values$initial.ylab)
   mainVar <- tclVar(dialog.values$initial.main)
@@ -1938,8 +1951,10 @@ Xyplot <- function() {
                                  initialSelection=if (groups.if) FALSE else
                                      varPosn(dialog.values$initial.groups, "factor"))
     optionsFrame <- tkframe(optionsTab)
-    optFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Options"))
-    parFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Labels"))
+    optFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Options"),
+        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+    parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
+        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
     checkBoxes(window = optFrame, frame="otherFrame",
                boxes=c("auto.key", "outer"),
                initialValues=c(dialog.values$initial.auto.key, dialog.values$initial.outer),
@@ -2317,8 +2332,10 @@ stripChart <- function () {
     responseBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Response Variable (pick one)"),
                                    initialSelection = varPosn (dialog.values$initial.response, "numeric"))
     optionsFrame <- tkframe(optionsTab)
-    optFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Duplicate Values"))
-    parFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Labels"))
+    optFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Duplicate Values"),
+        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+    parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
+        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
     xlabVar <- tclVar(dialog.values$initial.xlab)
     ylabVar <- tclVar(dialog.values$initial.ylab)
     mainVar <- tclVar(dialog.values$initial.main)
@@ -2415,8 +2432,10 @@ DensityPlot <- function () {
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
                             initialSelection = varPosn (dialog.values$initial.x, "numeric"))
     optionsFrame <- tkframe(optionsTab)
-    optFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Kernel Function"))
-    parFrame <- ttklabelframe(optionsFrame, text = gettextRcmdr("Plot Labels"))
+    optFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Kernel Function"),
+        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+    parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
+        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
     kerFrame <- tkframe(optFrame)
     radioButtons(kerFrame, name = "kernel", buttons = c("gaussian", "epanechnikov", "biweight"),
                  labels = gettextRcmdr(c("Gaussian", "Epanechnikov", "Tukey biweight")),
