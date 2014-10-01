@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr-pl 2.0-3\n"
-"POT-Creation-Date: \n"
+"Project-Id-Version: Rcmdr-pl 2.1-2\n"
+"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
+"POT-Creation-Date: 2014-09-01 20:30:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
 "Language-Team: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
@@ -12,7 +13,7 @@ msgstr ""
 "X-Poedit-SourceCharset: iso-8859-1\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.6.9\n"
 
 msgid "KMeans Clustering"
 msgstr "Grupowanie metodą k-średnich"
@@ -1763,7 +1764,7 @@ msgid "Multinomial Logit Model"
 msgstr "Wielomianowy model logitowy"
 
 msgid "Two-Sample Wilcoxon Test"
-msgstr "Test Wilcoxon dwu prób"
+msgstr "Test Wilcoxona dwu prób"
 
 msgid "Default"
 msgstr "Domyślnie"
@@ -4527,3 +4528,165 @@ msgstr "Wykres plecy-plecy ze względu na:"
 
 msgid "Plot back-to-back by"
 msgstr "Wykres plecy-plecy ze względu na"
+
+msgid "Standard Error of Mean"
+msgstr "Błąd standardowy średniej"
+
+msgid "Fit Indices"
+msgstr "Indeksy dopasowań"
+
+msgid "Variable names in first row of spreadsheet"
+msgstr "Nazwy zmiennych w pierwszym wierszu arkusza"
+
+msgid "Row names in first column of spreadsheet"
+msgstr "Nazwy zmiennych w pierwszej kolumnie arkusza"
+
+msgid "<no variable selected>"
+msgstr "<nie wybrano zmiennych>"
+
+msgid "Model Effect Plots"
+msgstr "Wykresy modelu efektu"
+
+msgid "Plot All High-Order Effects?"
+msgstr "Narysować wszystkie efekty wyższego rzędu?"
+
+msgid "Predictors (pick one or more)"
+msgstr "Zmienna niezależna (wybierz jeden lub więcej)"
+
+msgid ""
+"You must select one or more predictors\n"
+" or plot all high-order effects."
+msgstr ""
+"Musisz wybrać jedną lub więcej zmiennych niezależnych\n"
+" lub narysować wszystkie efekty wyższego rzędu."
+
+msgid ""
+"To plot partial residuals,\n"
+" there must be a least one numeric predictor."
+msgstr ""
+"Aby narysować częściowe reszty,\n"
+" musi być przynajmniej jedna zmienna niezależna."
+
+# 3D scatterplots dialog
+msgid "Plot partial residuals"
+msgstr "Rysuj częściowe reszty"
+
+# index plot dialog
+msgid "Style of Graph"
+msgstr "Styl wykresu"
+
+msgid "Stacked areas"
+msgstr "Ułożone obszary"
+
+msgid "Lines with confidence bands"
+msgstr "Linie z pasami ufności"
+
+msgid "Single-Sample Wilcoxon Test"
+msgstr "Test Wilcoxona pojedynczej próby"
+
+msgid "Single-sample Wilcoxon test..."
+msgstr "Test Wilcoxona pojedynczej próby..."
+
+msgid "Drop Unused Factor Levels"
+msgstr "Usuń nieużywane poziomy czynnika"
+
+msgid "Factors(s) to drop levels (pick one or more)"
+msgstr "Czynnik(i) do usunięcia poziomów (wybierz jedną lub więcej)"
+
+msgid ""
+"Drop unused factor levels\n"
+"Please confirm."
+msgstr ""
+"Usuń nieużywane poziomy czynników\n"
+"Proszę potwierdzić."
+
+msgid "Drop unused factor levels..."
+msgstr "Usuń nieużywane poziomy czynnika..."
+
+msgid "all factors"
+msgstr "wszystkie czynniki"
+
+msgid "Linear Model Summary"
+msgstr "Podsumowanie modelu liniowego"
+
+msgid "Sandwich estimator"
+msgstr "Estymator kanapkowy"
+
+msgid ""
+"Use sandwich estimator of    \n"
+"coefficient standard errors"
+msgstr ""
+"Użyj estymatora kanapkowego\n"
+"błędów standardowych współczynników"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix   "
+msgstr ""
+"Użyj estymatora kanapkowego    \n"
+"macierzy kowiariancji współczynników"
+
+msgid "sandwich covariance matrix unavailable with type I tests"
+msgstr "kanapkowa macierz kowariancji jest niedostępna dla testów typu I"
+
+# messages related to ttk theme selection
+msgid "non-existent theme"
+msgstr "nieistniejący motyw"
+
+msgid "theme set to"
+msgstr "motyw ustawiony na"
+
+msgid "Restart R Commander"
+msgstr "Zrestartuj R Commander"
+
+msgid ""
+"Model formula\n"
+"help"
+msgstr ""
+"Formuła modelu\n"
+"pomoc"
+
+msgid "Data Editor"
+msgstr "Edytor danych"
+
+msgid "Delete current row"
+msgstr "Usuń bieżący wiersz"
+
+msgid "Delete current column"
+msgstr "Usuń bieżącą kolumnę"
+
+msgid "Delete cell"
+msgstr "Usuń komórkę"
+
+msgid "Cut cell"
+msgstr "Wytnij komórkę"
+
+msgid "Copy cell"
+msgstr "Kopiuj komórkę"
+
+msgid "Paste cell"
+msgstr "Wklej komórkę"
+
+msgid "Exit and save"
+msgstr "Wyjdź i zapisz"
+
+msgid "Add row"
+msgstr "Dodaj wiersz"
+
+msgid "Add column"
+msgstr "Dodaj kolumnę"
+
+# messages added for version 2.1-0
+#~ msgid ""
+#~ "the RcmdrMisc package is missing and should be installed\n"
+#~ "  many features will not work"
+#~ msgstr ""
+#~ "brakuje pakietu 'RcmdrMisc', który powinien być zainstalowany\n"
+#~ "  wiele funkcjonalności nie będzie działało"
+
+#~ msgid ""
+#~ "the car package is missing and should be installed\n"
+#~ "  many features will not work"
+#~ msgstr ""
+#~ "brakuje pakietu 'car', który powinien być zainstalowany\n"
+#~ "  wiele funkcjonalności nie będzie działało"
