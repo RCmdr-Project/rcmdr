@@ -1,6 +1,6 @@
 # Distributions menu dialogs for selecting samples
 
-# last modified 2014-07-27 by J. Fox
+# last modified 2014-10-02 by J. Fox
 # modified by Miroslav M. Ristic (15 January 2011)
 
 
@@ -120,7 +120,7 @@ distributionSamples <- function(nameVar) {
                ', sep="")', sep="")
     doItAndPrint(command.2)
     any.summaries <- FALSE
-    command.3 <- paste(dsnameValue," <<- within(", dsnameValue, ", {", sep="")
+    command.3 <- paste(dsnameValue," <- within(", dsnameValue, ", {", sep="")
     if (tclvalue(meanVariable) == "1") {
       any.summaries <- TRUE
       command.3 <- paste(command.3, "\n  mean <- rowMeans(", dsnameValue,
