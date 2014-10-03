@@ -1,4 +1,4 @@
-# last modified 2014-09-15 by J. Fox
+# last modified 2014-10-15 by J. Fox
 
 # Data menu dialogs
 
@@ -1887,13 +1887,16 @@ setContrasts <- function(){
           errorCondition(subdialog, recall=setContrasts, message=gettextRcmdr("Contrast names must be unique"))
           return()
         }
-        command <- paste("local({\n  .Contrasts <- matrix(c(", paste(values, collapse=","), "), ", nrows, ", ", ncols,
+        command <- paste(".Contrasts <- matrix(c(", paste(values, collapse=","), "), ", nrows, ", ", ncols,
                          ")", sep="")
-        command <- paste(command, "\n  colnames(.Contrasts) <- c(",
+        doItAndPrint(command)
+        command <- paste("colnames(.Contrasts) <- c(",
                          paste("'", contrast.names, "'", sep="", collapse=", "), ")", sep="")
-        command <- paste(command, "\n  contrasts(", ActiveDataSet(), "$", variable, ") <<- .Contrasts", sep="")
-        command <- paste(command, "\n})")
+        doItAndPrint(command)
+        command <- paste("contrasts(", ActiveDataSet(), "$", variable, ") <- .Contrasts", sep="")
         result <- doItAndPrint(command)
+        logger("remove(.Contrasts)")
+        remove(.Contrasts, envir=.GlobalEnv)
         if (class(result)[1] !=  "try-error") activeDataSet(ActiveDataSet(), flushModel=FALSE, flushDialogMemory=FALSE)
         tkfocus(CommanderWindow())
       }
