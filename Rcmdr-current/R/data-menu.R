@@ -1,4 +1,4 @@
-# last modified 2014-10-15 by J. Fox
+# last modified 2014-10-06 by J. Fox
 
 # Data menu dialogs
 
@@ -1232,15 +1232,15 @@ numericToFactor <- function(){
         tkgrid(subButtonsFrame, sticky="w", columnspan=2)
         dialogSuffix(subdialog, focus=entry1, onOK=onOKsub, force.wait=TRUE)
       }
-    }
-    if (levelsType == "names"){
-      if (!exists("labels", mode="character")) return()
-      cmd <- paste("factor(", name,
-                   ", labels=c(", labels, "))", sep="")
-      command <- paste(command, "\n  ", fname, " <- ", cmd, sep="")
-    }
-    else{
-      command <- paste(command, "\n  ", fname, " <- as.factor(", name, ")", sep="")
+      if (levelsType == "names"){
+        if (!exists("labels", mode="character")) return()
+        cmd <- paste("factor(", name,
+                     ", labels=c(", labels, "))", sep="")
+        command <- paste(command, "\n  ", fname, " <- ", cmd, sep="")
+      }
+      else{
+        command <- paste(command, "\n  ", fname, " <- as.factor(", name, ")", sep="")
+      }
     }
     command <- paste(command, "\n})", sep="")
     result <- doItAndPrint(command)
