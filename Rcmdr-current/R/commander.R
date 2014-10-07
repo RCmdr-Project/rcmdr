@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2014-09-18 by John Fox
+# last modified 2014-10-07 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -1010,6 +1010,9 @@ Commander <- function(){
     if (.Platform$GUI == "Rgui"  && ismdi()) Message(gettextRcmdr(
         "The Windows version of the R Commander works best under RGui\nwith the single-document interface (SDI); see ?Commander."),
         type="warning")
+    if (RappP()  && mavericksP() && appnap() == "on") Message(gettextRcmdr(
+      "The Mac OS X version of the R Commander works best under R.app\nwith app nap turned off. See ?Commander and the Tools menu."),
+      type="warning")
 }
 
 # put commands in script, markdown, and knitr tabs

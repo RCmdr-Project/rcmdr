@@ -1,4 +1,4 @@
-# last modified 2014-10-03 by J. Fox
+# last modified 2014-10-07 by J. Fox
 
 globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                   '.activeModel', 'varVariable', 'rhsVariable', 'varFrame', 'formulaFrame',
@@ -51,4 +51,4 @@ globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                   'styleButtonsVariable', 'styleButtonsFrame', 'se.meanVariable',
                   'AIC', 'BIC', 'GFI', 'AGFI', 'RMSEA', 'NFI', 'NNFI', 'CFI', 'RNI', 'IFI', 'SRMR', 'AICc', 'CAIC',
                   'fitIndicesFrame.1', 'fitIndicesFrame.2', 'sandwichTypeVariable', 'sandwichTypeFrame',
-                  'rgl.cur', 'rgl.bringtotop', '.Contrasts'))
+                  'rgl.cur', 'rgl.bringtotop', '.Contrasts', 'appnapVariable', 'appnapFrame'))

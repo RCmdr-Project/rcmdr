@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2014-09-11 by J. Fox
+# last modified 2014-10-07 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -381,6 +381,7 @@
     item    toolsMenu       command         "Load Rcmdr plug-in(s)..."                        loadPlugins             "length(listPlugins()) > 0" ""
     item    toolsMenu       command         "Options..."                                    Options                     ""          ""
     item    toolsMenu       command         "Save Rcmdr options..."                         saveOptions                 ""          ""
+    item    toolsMenu       command         "Manage Mac OS X app nap for R.app..."          appNap                      ""    "RappP()  && mavericksP()"
     item    topMenu         cascade         "Tools"                                         toolsMenu                   ""          ""
     menu    helpMenu        topMenu         ""                                              ""                          ""          ""
     item    helpMenu        command         "Commander help"                                helpCommander               ""          ""

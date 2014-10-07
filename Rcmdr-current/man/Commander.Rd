@@ -394,10 +394,19 @@ For more information about R initialization, see \code{?Startup}.
 
   This version should be compatiable with the \pkg{RExcel} package, which can use the R Commander
   menus.
-  
+}
+
+\section{Platform-Specific Issues}{
   Under Windows, the \pkg{Rcmdr} package can be run under the \emph{Rgui} in the SDI (single-document
   interface) mode, or under \code{rterm.exe}. You might experience problems running the \pkg{Rcmdr} under
   \code{ESS} with NTEmacs or XEmacs; under other R consoles; or under the Rgui in the MDI (multiple-document interface) mode.
+  
+  Under Mac OS X Mavericks, the R Commander may appear to freeze or hesitate when run under \emph{R.app} if the \emph{R.app} window is hidden
+  and "app nap" is turned on. It is recommended that app nap be turned off for \emph{R.app}, which can be most conveniently done via the
+  R Commander \emph{Tools} menu. The app nap setting is permanent until changed and so the current setting will apply whether or not the
+  R Commander is used. When R is first installed, app nap will be on for \emph{R.app}. The \pkg{tcltk} package requires that X Windows is
+  installed under Mac OS X, and as a consequence the \pkg{Rcmdr} package, which depends on \pkg{tcltk}, will not load if X Windows is
+  absent. X Windows for Mac OS X may be obtained from \url{http://xquartz.macosforge.org}.
 }
 
 \references{

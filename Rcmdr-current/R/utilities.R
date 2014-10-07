@@ -1,4 +1,4 @@
-# last modified 2014-09-16 by J. Fox
+# last modified 2014-10-07 by J. Fox
 
 # utility functions
 
@@ -2934,4 +2934,31 @@ editDataset <- function(data, dsname){
     tkgrid.columnconfigure(tableFrame, 0, weight = 1)
     tkgrid.columnconfigure(tableFrame, 1, weight = 0)
     tkwait.window(top)
+}
+
+# some Mac OS X related functions
+
+RappP <- function() .Platform$GUI == "AQUA"
+
+mavericksP <- function(){
+  info <- Sys.info()
+  info["sysname"] == "Darwin" && info["release"] >= "13.0.0"
+}
+
+appnap <- function(state=c("on", "off", "delete")){
+  if (!mavericksP()) stop("requires OS X 10.9 or greater")
+  save <- options(warn = -1)
+  on.exit(options(save))
+  if (missing(state)){
+    res <- system("defaults read org.R-project.R NSAppSleepDisabled", 
+                  intern=TRUE, ignore.stderr=TRUE)
+    return(c("on", "off")[1 + (length(res) > 0 && res == "1")])
+  }
+  state <- match.arg(state)
+  switch(state,
+         delete = system("defaults delete org.R-project.R NSAppSleepDisabled", ignore.stderr=TRUE),
+         off = system("defaults write org.R-project.R NSAppSleepDisabled -bool YES"),
+         on = system("defaults write org.R-project.R NSAppSleepDisabled -bool NO")
+  )
+  return(state)
 }

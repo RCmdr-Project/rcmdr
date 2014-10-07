@@ -1,4 +1,4 @@
-# last modified 2014-08-22 by J. Fox
+# last modified 2014-10-07 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -994,4 +994,19 @@ editKnitr <- function(){
         tkinsert(.rnw, "end", edited)
         tkyview.moveto(.rnw, 1)
     }
+}
+
+appNap <- function(){
+  initializeDialog(title=gettextRcmdr("Mac OS X app nap for R.app"))
+  radioButtons(name="appnap", buttons=c("off", "on"), labels=gettextRcmdr(c("off (recommended)", "on")),
+               title=gettextRcmdr("Set app nap"), initialValue=appnap())
+  onOK <- function(){
+    setting <- tclvalue(appnapVariable)
+    appnap(setting)
+    closeDialog()
+  }
+  OKCancelHelp(helpSubject="Commander")
+  tkgrid(appnapFrame, sticky="w")
+  tkgrid(buttonsFrame, sticky="ew")
+  dialogSuffix()
 }
