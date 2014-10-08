@@ -1,6 +1,6 @@
 # Distributions menu dialogs
 
-# last modified 2014-07-29 by J. Fox
+# last modified 2014-10-08 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic (20 July 06)
 # Modified by Miroslav Ristic (15 January 11)
@@ -555,4 +555,21 @@ distributionMass  <- function(nameVar) {
     tkgrid.configure(get(paramsEntry[i]), sticky="w")
   }
   dialogSuffix(focus=get(paramsEntry[1]))
+}
+
+setRandomSeed <- function(){
+  initializeDialog(title = gettextRcmdr("Set Random Number Generator Seed"))
+  seed <- sample(1e5, 1)
+  seedValue <- tclVar(seed)
+  seedSlider <- tkscale(top, from = 1, to = 1e5, showvalue = TRUE,
+                    variable = seedValue, resolution = 1, orient = "horizontal")
+  onOK <- function(){
+    seed <- tclvalue(seedValue)
+    doItAndPrint(paste("set.seed(", seed, ")", sep=""))
+    closeDialog()                     
+  }
+  tkgrid(seedSlider, sticky="ew")
+  OKCancelHelp(helpSubject = "set.seed")
+  tkgrid(buttonsFrame, stick = "ew")
+  dialogSuffix()
 }

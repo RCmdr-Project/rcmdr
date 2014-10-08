@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2014-10-07 by J. Fox
+# last modified 2014-10-08 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -222,7 +222,9 @@
     menu    distributionsMenu topMenu       ""                                              ""                          ""          ""
     menu    continuousMenu  distributionsMenu ""                                            ""                          ""          ""
     menu    discreteMenu    distributionsMenu ""                                            ""                          ""           ""
-    
+
+    item    distributionsMenu command       "Set random number generator seed..."           setRandomSeed                                 ""          ""
+
     # Normal distribution
     menu    normalMenu      continuousMenu  ""                                              ""                          ""          ""
     item    continuousMenu  cascade         "Normal distribution"                           normalMenu                  ""          ""
