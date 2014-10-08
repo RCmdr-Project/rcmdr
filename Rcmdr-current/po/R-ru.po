@@ -4188,3 +4188,226 @@ msgstr "df для сплайнов:"
 msgid "deg. for polynomials:"
 msgstr "степень полиномов:"
 
+# messages added to version 2.0-1
+# messages related to editing/processing R Markdown and knitr documents
+msgid "R Commander Editor"
+msgstr "Редактор R Commander"
+
+msgid "Edit R Markdown document"
+msgstr "Редактировать документ R Markdown"
+
+msgid "Edit knitr document"
+msgstr "Редактировать документ knitr"
+
+msgid "Remove last Markdown command block"
+msgstr "Удалить последний командный блок Markdown"
+
+msgid "Remove last knitr command block"
+msgstr "Удалить последний командный блок knitr"
+
+msgid "Remove last command block"
+msgstr "Удалить последний командный блок"
+
+msgid "Exit editor"
+msgstr "Выйти из редактора"
+
+msgid "Editor help"
+msgstr "Помощь редактора"
+
+msgid ""
+"Delete previously created R Markdown\n"
+"graphics files (recommended)?"
+msgstr ""
+"Удалить уже созданные R Markdown\n"
+"графические файлы (рекомендуется)?"
+
+msgid "Discard edits?"
+msgstr "Не сохранять изменения?"
+
+# support for back-to-back stem-and-leaf displays
+msgid "Plot back-to-back by:"
+msgstr "Графики спаренные по:"
+
+msgid "Plot back-to-back by"
+msgstr "Графики спаренные по"
+
+# messages added for version 2.1-0
+# the next two messages no longer needed and can be disregarded if not already translated
+#msgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
+#msgstr ""
+#msgid "the car package is missing and should be installed\n  many features will not work"
+#msgstr ""
+# for numerical summaries dialog
+msgid "Standard Error of Mean"
+msgstr "Стандартная ошибка среднего"
+
+# for CFA dialog
+msgid "Fit Indices"
+msgstr "Сгладить индексы"
+
+# for read Excel file dialog
+msgid "Variable names in first row of spreadsheet"
+msgstr "Имена переменных в первой строке таблицы"
+
+msgid "Row names in first column of spreadsheet"
+msgstr "Имена строк в первой колонке таблицы"
+
+# for selecting weights in LM and GLM dialogs
+msgid "<no variable selected>"
+msgstr "<переменная не выбрана>"
+
+# new effect-plots dialog
+msgid "Model Effect Plots"
+msgstr "Графики эффекта модели"
+
+msgid "Plot All High-Order Effects?"
+msgstr "Нарисовать все эффекты высокого порядка?"
+
+msgid "Predictors (pick one or more)"
+msgstr "Предикторы (выберите один или больше)"
+
+msgid ""
+"You must select one or more predictors\n"
+" or plot all high-order effects."
+msgstr ""
+"Вы должны выбрать один или больше предикторов\n"
+" или нарисовать все эффекты высокого порядка."
+
+msgid ""
+"To plot partial residuals,\n"
+" there must be a least one numeric predictor."
+msgstr ""
+"Чтобы нарисовать частичные остатки,\n"
+" должен быть хотя бы один числовой предиктор."
+
+msgid "Plot partial residuals"
+msgstr "Нарисовать частичные остатки"
+
+msgid "Style of Graph"
+msgstr "Стиль графика"
+
+msgid "Stacked areas"
+msgstr "Области кинденсации"
+
+msgid "Lines with confidence bands"
+msgstr "Линии с доверительными диапазонами"
+
+# new one-sample Wilcoxon test dialog
+msgid "Single-Sample Wilcoxon Test"
+msgstr "Одновыборочный тест Уилкоксона"
+
+msgid "Single-sample Wilcoxon test..."
+msgstr "Одновыборочный тест Уилкоксона..."
+
+# new drop unused factor levels dialog
+msgid "Drop Unused Factor Levels"
+msgstr "Сбросить неиспользуемые уровни фактора"
+
+msgid "Factors(s) to drop levels (pick one or more)"
+msgstr "Факторы для сброса уровней (выберите один или больше)"
+
+msgid ""
+"Drop unused factor levels\n"
+"Please confirm."
+msgstr ""
+"Сбросить неиспользуемые уровни\n"
+"Пожалуйста, подтвердите."
+
+msgid "Drop unused factor levels..."
+msgstr "Сброс неиспользованных уровней фактора..."
+
+msgid "all factors"
+msgstr "все факторы"
+
+# messages related to sandwich variance estimator
+msgid "Linear Model Summary"
+msgstr "Результаты линейного моделирования"
+
+msgid "Sandwich estimator"
+msgstr "Бутербродная оценка"
+
+msgid ""
+"Use sandwich estimator of    \n"
+"coefficient standard errors"
+msgstr ""
+"Использовать бутербродную оценку    \n"
+"стандартных ошибок коэффициента"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix   "
+msgstr ""
+"Использовать бутербродную оценку\n"
+"матрицы ковариации коэффициента   "
+
+msgid "sandwich covariance matrix unavailable with type I tests"
+msgstr "бурербродная матрица ковариации недоступна для тестов I типа"
+
+# messages related to ttk theme selection
+msgid "non-existent theme"
+msgstr "несуществующая тема"
+
+msgid "theme set to"
+msgstr "тема установлена в"
+
+# modified message
+msgid "Restart R Commander"
+msgstr "Перезагрузить R Commander"
+
+# formula-help button
+msgid ""
+"Model formula\n"
+"help"
+msgstr ""
+"Формула модели\n"
+"помощь"
+
+# messages added for version 2.1-1
+# messages for the new dataset editor
+msgid "Data Editor"
+msgstr "Редактор данных"
+
+msgid "Delete current row"
+msgstr "Удалить текущую строку"
+
+msgid "Delete current column"
+msgstr "Удалить текущую колонку"
+
+msgid "Delete cell"
+msgstr "Удалить ячейку"
+
+msgid "Cut cell"
+msgstr "Вырезать ячейку"
+
+msgid "Copy cell"
+msgstr "Скопировать ячейку"
+
+msgid "Paste cell"
+msgstr "Вставить ячейку"
+
+msgid "Exit and save"
+msgstr "Выйти и сохранить"
+
+msgid "Add row"
+msgstr "Добавить строку"
+
+msgid "Add column"
+msgstr "Добавить колонку"
+
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Настроить Mac OS X app nap для R.app..."
+
+msgid "Mac OS X app nap for R.app"
+msgstr "Mac OS X app nap для R.app"
+
+msgid "Set app nap"
+msgstr "Установить app nap"
+
+msgid "off (recommended)"
+msgstr "отключено (рекомендуется)"
+
+msgid "on"
+msgstr "включено"
+

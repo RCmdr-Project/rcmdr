@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.0-3\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-08-05 10:19+0100\n"
+"POT-Creation-Date: 2014-09-01 20:30:00\n"
+"PO-Revision-Date: 2014-10-08 12:28+0100\n"
 "Last-Translator: José Ramón Rueda <joseramon.rueda@ehu.es>\n"
 "Language-Team: EHU R UCA Project <joseramon.rueda@ehu.es>\n"
 "Language: eu\n"
@@ -12,27 +12,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.5\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid ""
-"Project-Id-Version: Rcmdr 2.0-1\n"
-"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-11-08 15:57:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: 8bit\n"
-msgstr ""
-"Project-Id-Version: Rcmdr 2.0-1\n"
-"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2013-11-08 15:57:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: 8bit\n"
 
 msgid "KMeans Clustering"
 msgstr "K-batezbestekoaren arabera taldekatzea"
@@ -258,7 +237,7 @@ msgid "New Data Set"
 msgstr "Datu multzo berria"
 
 msgid "Dataset"
-msgstr "Datu multzoa"
+msgstr "Datu_multzoa"
 
 msgid "You must enter the name of a data set."
 msgstr "Datu multzo baten izena sartu behar da."
@@ -267,7 +246,7 @@ msgid "is not a valid name."
 msgstr "izena ez da baliozkoa."
 
 msgid "Data set"
-msgstr "Datu multzoa"
+msgstr "Datu_multzoa"
 
 msgid "empty data set."
 msgstr "datu multzo hutsa."
@@ -4497,6 +4476,172 @@ msgstr "Marraztu bizkarrez bizkarreko grafikoa honen arabera:"
 
 msgid "Plot back-to-back by"
 msgstr "Marraztu bizkarrez bizkarreko grafikoa honen arabera:"
+
+msgid "Standard Error of Mean"
+msgstr "Batezbestekoaren errore estandarra"
+
+msgid "Fit Indices"
+msgstr "Doitu indizeak"
+
+msgid "Variable names in first row of spreadsheet"
+msgstr "Aldagai-izenak kalkulu-orriaren lehen errenkadan"
+
+msgid "Row names in first column of spreadsheet"
+msgstr "Errenkada-izenak kalkulu-orriaren lehenengo zutabean"
+
+msgid "<no variable selected>"
+msgstr "<ez da aldagairik hautatu>"
+
+msgid "Model Effect Plots"
+msgstr "Efektuen grafikoak"
+
+msgid "Plot All High-Order Effects?"
+msgstr "Marraztu ordena altuko efektu guztiak?"
+
+msgid "Predictors (pick one or more)"
+msgstr "Faktoreak (aukeratu bat edo gehiago)"
+
+msgid ""
+"You must select one or more predictors\n"
+" or plot all high-order effects."
+msgstr ""
+"Faktore bat edo gehiago hautatu behar da\n"
+"edo marraztu ordena altuko efektu guztiak."
+
+msgid ""
+"To plot partial residuals,\n"
+" there must be a least one numeric predictor."
+msgstr ""
+"Hondar partzialak marrazteko,\n"
+"gutxienez zenbakizko faktore bat behar da"
+
+msgid "Plot partial residuals"
+msgstr "Erakutsi hondar partzialak"
+
+msgid "Style of Graph"
+msgstr "Grafikoaren estiloa"
+
+msgid "Stacked areas"
+msgstr "Azalera metatuak"
+
+msgid "Lines with confidence bands"
+msgstr "Lerroak konfiantza-bandekin"
+
+msgid "Single-Sample Wilcoxon Test"
+msgstr "Wilcoxon-en lagin bakarreko testa"
+
+msgid "Single-sample Wilcoxon test..."
+msgstr "Wilcoxon-en lagin bakarreko testa…"
+
+msgid "Drop Unused Factor Levels"
+msgstr "Ezabatu erabili gabeko faktore-mailak"
+
+msgid "Factors(s) to drop levels (pick one or more)"
+msgstr "Mailak ezabatzeko faktorea(k) (aukeratu bat edo gehiago)"
+
+msgid ""
+"Drop unused factor levels\n"
+"Please confirm."
+msgstr ""
+"Ezabatu erabili gabeko faktore-mailak\n"
+"Berretsi."
+
+msgid "Drop unused factor levels..."
+msgstr "Ezabatu erabili gabeko faktore-mailak..."
+
+msgid "all factors"
+msgstr "faktore guztiak"
+
+msgid "Linear Model Summary"
+msgstr "Eredu linealaren laburpena"
+
+msgid "Sandwich estimator"
+msgstr "Sandwich-estimatzailea"
+
+msgid ""
+"Use sandwich estimator of    \n"
+"coefficient standard errors"
+msgstr ""
+"Erabili koefizienteen errore \n"
+"estandarren sandwich-estimatzailea"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix   "
+msgstr ""
+"Erabili koefizienteen kobariantza-\n"
+"matrizearen sandwich-estimatzailea"
+
+msgid "sandwich covariance matrix unavailable with type I tests"
+msgstr "sandwich kobariantza-matrizea ez dago erabilgarri I motako testekin"
+
+# messages related to ttk theme selection
+msgid "non-existent theme"
+msgstr "gai hori ez da existitzen"
+
+msgid "theme set to"
+msgstr "gaia honela ezarri:"
+
+msgid "Restart R Commander"
+msgstr "Berrabiarazi R Commander-a "
+
+msgid ""
+"Model formula\n"
+"help"
+msgstr ""
+"Eredu-formula\n"
+"laguntza"
+
+msgid "Data Editor"
+msgstr "Datu-editorea"
+
+msgid "Delete current row"
+msgstr "Ezabatu uneko errenkada"
+
+msgid "Delete current column"
+msgstr "Ezabatu uneko zutabea"
+
+msgid "Delete cell"
+msgstr "Ezabatu gelaxka"
+
+msgid "Cut cell"
+msgstr "Ebaki gelaxka"
+
+msgid "Copy cell"
+msgstr "Kopiatu gelaxka"
+
+msgid "Paste cell"
+msgstr "Itsatsi gelaxka"
+
+msgid "Exit and save"
+msgstr "Irten eta gorde"
+
+msgid "Add row"
+msgstr "Gehitu errenkada bat"
+
+msgid "Add column"
+msgstr "Gehitu zutabe bat"
+
+#~ msgid ""
+#~ "Project-Id-Version: Rcmdr 2.0-1\n"
+#~ "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
+#~ "POT-Creation-Date: 2013-11-08 15:57:00\n"
+#~ "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+#~ "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+#~ "Language-Team: LANGUAGE <LL@li.org>\n"
+#~ "MIME-Version: 1.0\n"
+#~ "Content-Type: text/plain; charset=CHARSET\n"
+#~ "Content-Transfer-Encoding: 8bit\n"
+#~ msgstr ""
+#~ "Project-Id-Version: Rcmdr 2.0-1\n"
+#~ "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
+#~ "POT-Creation-Date: 2013-11-08 15:57:00\n"
+#~ "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+#~ "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+#~ "Language-Team: LANGUAGE <LL@li.org>\n"
+#~ "MIME-Version: 1.0\n"
+#~ "Content-Type: text/plain; charset=CHARSET\n"
+#~ "Content-Transfer-Encoding: 8bit\n"
 
 #~ msgid "Define facto"
 #~ msgstr "Faktorea definitu"
