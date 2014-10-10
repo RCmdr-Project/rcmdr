@@ -3,11 +3,13 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: I MADE TIRTA <itirta@fmipa.unej.ac.id>\n"
+"Last-Translator: I Made Tirta <itirta.fmipa@unej.ac.id>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
+"X-Generator: Poedit 1.6.9\n"
 
 # Indonesian translations for the Rcmdr package
 # Terjemahan Bahasa Indonesia Paket Rcmdr
@@ -362,8 +364,12 @@ msgstr "Karakter Titik-Desimal "
 msgid "You must enter a name for the data set."
 msgstr "Anda harus memasukkan nama untuk data set."
 
-msgid "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"File Teks\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"Semua File\" {\"*\"}}"
+msgid ""
+"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
+"{\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"File Teks\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
+"{\"Semua File\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "Nama peubah dalam file:"
@@ -407,8 +413,12 @@ msgstr "Tulis nama data set:"
 msgid "Import SPSS Data Set"
 msgstr "Impor Data Set SPSS"
 
-msgid "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"simpan file SPSS\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"Semua File\" {\"*\"}}"
+msgid ""
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
+"\".POR\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"simpan file SPSS\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por"
+"\" \".POR\"}} {\"Semua File\" {\"*\"}}"
 
 msgid ""
 "Convert value labels\n"
@@ -429,7 +439,8 @@ msgstr ""
 msgid "Import Minitab Data Set"
 msgstr "Impor Data Set Minitab"
 
-msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"File portabel\" {\".mtp\" \".MTP\"}} {\"Semua File\" {\"*\"}}"
 
 msgid ""
@@ -642,7 +653,7 @@ msgid "The following variable names are not valid:"
 msgstr "Nama peubah berikut tidak valid:"
 
 msgid "Variable names are not unique"
-msgstr "Nama variabel tidak unik"
+msgstr "Nama peubah tidak unik"
 
 msgid "Old Name"
 msgstr "Nama sebelumnya"
@@ -1269,8 +1280,12 @@ msgstr "Jenis File Grafik"
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"File PNG\" {\".png\" \".PNG\"}} {\"Semua File\" {\"*\"}}"
 
-msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All File\" {\"*\"}}"
-msgstr "{\"File JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Semua File\" {\"*\"}}"
+msgid ""
+"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All File\" {\"*"
+"\"}}"
+msgstr ""
+"{\"File JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Semua File\" {\"*"
+"\"}}"
 
 msgid "Graph saved to file"
 msgstr "Grafik disimpan di file"
@@ -1299,7 +1314,9 @@ msgstr "{\"File PDF\" {\".pdf\" \".PDF\"}} {\"Semua Files\" {\"*\"}}"
 msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"File Poskrip\" {\".ps\" \".PS\"}} {\"Semua File\" {\"*\"}}"
 
-msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*"
+"\"}}"
 msgstr "\"File EPS\" {\".eps\" \".EPS\"}} {\"Semua Files\" {\"*\"}}"
 
 msgid "Width (inches)"
@@ -1675,7 +1692,8 @@ msgid "You must select a groups factor."
 msgstr "Anda harus pilih faktor kelompok."
 
 msgid "Factor has fewer than 3 levels; pairwise comparisons omitted."
-msgstr "Faktor memiliki kurang dari 3 level; perbandingan berpasangan ditiadakan."
+msgstr ""
+"Faktor memiliki kurang dari 3 level; perbandingan berpasangan ditiadakan."
 
 msgid "Pairwise comparisons of means"
 msgstr "Perbandingan berpasangan dari nilai-tengah"
@@ -1985,8 +2003,10 @@ msgstr "Argumen faktor1 harus faktor."
 msgid "Arguments factor1 and factor2 must be factors."
 msgstr "Argumen faktor1 dan faktor2 harus faktor."
 
-msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
-msgstr "Banyaknya kelompok pada faktor 2, %d melampaui banyaknya warna tersedia, %d."
+msgid ""
+"Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgstr ""
+"Banyaknya kelompok pada faktor 2, %d melampaui banyaknya warna tersedia, %d."
 
 msgid "The number of bins exceeds the number of data values"
 msgstr "Banyaknya bin melampauibanyaknya nilai data"
@@ -2536,14 +2556,14 @@ msgstr "Tentang RCmdr"
 msgid "df ="
 msgstr "db ="
 
-## messages added to Rcmdr version 1.1-1
+# # messages added to Rcmdr version 1.1-1
 msgid "There is no current RGL graphics device."
 msgstr "Tidak ada alat grafik RGL."
 
 msgid "3D graph"
 msgstr "Grafik 3D"
 
-## messages added to Rcmdr version 1.1-6
+# # messages added to Rcmdr version 1.1-6
 msgid " contains non-standard variable names:\n"
 msgstr "mengandung nama peubah tak-baku:\n"
 
@@ -2554,7 +2574,7 @@ msgstr ""
 "\n"
 "Ini telah diubah menjadi:\n"
 
-## messages added to Rcmdr version 1.2-0
+# # messages added to Rcmdr version 1.2-0
 # importRODBCtable dialog
 msgid "This function requires the RODBC package.\n"
 msgstr "Fungsi ini memerlukan paket RODBC.\n"
@@ -2562,8 +2582,12 @@ msgstr "Fungsi ini memerlukan paket RODBC.\n"
 msgid "Import from Excel, Access or dBase data set"
 msgstr "Impor dari data set Excel, Access atau dBase"
 
-msgid "{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"File MS Excel\" {*.xls \".XLS\"}} {\"Database MS Access\" {*.mdb \".MDB\"}} {\"File jenis dBase \" {*.dbf \".DBF\"}} {\"Semua File\" {\"*\"}}"
+msgid ""
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
+"\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"File MS Excel\" {*.xls \".XLS\"}} {\"Database MS Access\" {*.mdb \".MDB"
+"\"}} {\"File jenis dBase \" {*.dbf \".DBF\"}} {\"Semua File\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "Pilih satu tabel"
@@ -2894,7 +2918,7 @@ msgid "Sample from Binomial Distribution"
 msgstr "Sampel dari Distribusi Binomial"
 
 msgid "BinomialSamples"
-msgstr ""
+msgstr "BinomialSamples"
 
 msgid "Poisson mean cannot be negative."
 msgstr "Nilai tengah/rerata Poisson tidak bisa negatif"
@@ -2903,25 +2927,25 @@ msgid "Sample from Poisson Distribution"
 msgstr "Sampel dari Distribusi Piosson"
 
 msgid "PoissonSamples"
-msgstr ""
+msgstr "PoissonSamples"
 
 msgid "Sample from Geometric Distribution"
 msgstr "Sampel dari Distribusi Geometrik"
 
 msgid "GeometricSamples"
-msgstr ""
+msgstr "GeometricSamples"
 
 msgid "Sample from Hypergeometric Distribution"
 msgstr "Sampel dari Distribusi Hipergeometrik"
 
 msgid "HypergeometricSamples"
-msgstr ""
+msgstr "HypergeometricSamples"
 
 msgid "Sample from Negative Binomial Distribution"
 msgstr "Sampel dari Distribusi Binomial Negatif"
 
 msgid "NegativeBinomialSamples"
-msgstr ""
+msgstr "NegativeBinomialSamples"
 
 msgid "Sample from normal distribution..."
 msgstr "Sampel dari Distribusi Normal..."
@@ -3255,7 +3279,8 @@ msgstr "Distribusi frekuensi"
 msgid "Chi-square goodness-of-fit test (for one variable only)"
 msgstr "Uji kecocokan Chi-kuadrat (hanya untuk satu peubah)"
 
-msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgid ""
+"Goodness-of-fit test not available when more than one variable is selected."
 msgstr "Uji kecocokan tidak tersedia jika lebih dari satu peubah terpilih."
 
 msgid "Frequency distributions..."
@@ -3344,7 +3369,7 @@ msgstr "Tidak ada statistik terpilih"
 msgid "Right-hand side"
 msgstr "Bagian  kanan"
 
-## messages added to Rcmdr version 1.3-0
+# # messages added to Rcmdr version 1.3-0
 # handling plug-ins
 msgid "Load Plugins"
 msgstr "Aktifkan Plug-in"
@@ -3403,7 +3428,8 @@ msgid "Load data set..."
 msgstr "Aktifkan data set ..."
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"File Data R\" {\".rda\" \".Rda\" \".RDA\"}} {\"Semua File\" {\"*\"}}"
+msgstr ""
+"{\"File Data R\" {\".rda\" \".Rda\" \".RDA\"}} {\"Semua File\" {\"*\"}}"
 
 msgid "Shapiro-Wilk test of normality..."
 msgstr "Uji kenormalan Shapiro-Wilk..."
@@ -3746,12 +3772,888 @@ msgid ""
 "for Pearson or Spearman correlations"
 msgstr ""
 "Nilai-p berpasangan\n"
-"untuk ko9relasi Pearson atau Spearman"
+"untuk korelasi Pearson atau Spearman"
 
 msgid ""
 "The Windows version of the R Commander works best under RGui\n"
-"wit"
+"with the single-document interface (SDI); see ?Commander."
 msgstr ""
 "Versi Window dari R Commander bekerja terbaik pada RGUI\n"
-"wit"
+"dengan Single Document Interface (SDI); lihat ?Commander"
 
+# messages added to version 1.6-0
+# for Levene test
+msgid "median"
+msgstr "median"
+
+msgid "Center"
+msgstr "Pusat"
+
+# for scatterplot
+msgid "Smooth line"
+msgstr "Garis mulus"
+
+msgid "Show spread"
+msgstr "Tunjukkan sebaran"
+
+# for AV plots
+msgid ""
+"Identify points with mouse?\n"
+"Right-click to exit."
+msgstr ""
+"Identifikasi titik-titik dengan mouse?\n"
+" Kling-kanan untuk keluar"
+
+# for interactive point identification
+msgid "Use left mouse button to identify points,\n"
+msgstr "Gunakan tombol mouse kiri untuk mengidentifikasi titik-titik,\n"
+
+msgid "right button to exit."
+msgstr "tombol kanan untuk keluar"
+
+msgid "esc key to exit."
+msgstr "esc untuk keluar"
+
+# menus
+msgid "Start R help system"
+msgstr "Mulai sistem bantuan R"
+
+# messages added to version 1.6-4
+#  to correct order of file extensions
+msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
+msgstr "{\"Semua File\" {\"*\"}} {\"File Skrip\" {\".R\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
+msgstr "{\"Semua Files\" {\"*\"}} {\"Files Luaran\" {\".txt\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
+"\".csv\" \".CSV\"}}"
+msgstr ""
+"{\"Semua File\" {\"*\"}} {\"File Teks\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
+"\".csv\" \".CSV\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
+"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgstr ""
+"{\"Semua File\" {\"*\"}} {\"File portebel SPSS\" {\".por\" \".POR\"}} "
+"{\"File simpanan SPSS\" {\".sav\" \".SAV\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr ""
+"{\"Semua File\" {\"*\"}} {\"File portebel Minitab\" {\".mtp\" \".MTP\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+msgstr "{\"Semua File\" {\"*\"}} {\"dataset STATA \" {\".dta\" \".DTA\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
+"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
+"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
+"\" {\".xls\" \".XLS\"}}"
+msgstr ""
+"{\"Semua File\" {\"*\"}} {\"Database MS Access\" {\".mdb\" \".MDB\"}} "
+"{\"Database MS Access 2007\" {\".accdb\" \".ACCDB\"}} {\"File sejenis dBase"
+"\" {\".dbf\" \".DBF\"}} {\" File MS Excel 2007\" {\".xlsx\" \".XLSX\"}} "
+"{\"File MS Excel\" {\".xls\" \".XLS\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
+"RDA\"}}"
+msgstr ""
+"{\"Semua File\" {\"*\"}} {\"File R Data \" {\".RData\" \".rda\" \".Rda\" \"."
+"RDA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
+msgstr "{\"Semua Files\" {\"*\"}} {\"File PNG\" {\".png\" \".PNG\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
+"\"}}"
+msgstr ""
+"{\"Semua File\" {\"*\"}} {\"File JPEG \" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
+"\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
+msgstr "{\"Semua File\" {\"*\"}} {\"File PDF\" {\".pdf\" \".PDF\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
+msgstr "{\"Semua Files\" {\"*\"}} {\"File Postkcript \" {\".ps\" \".PS\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
+"\"}}"
+msgstr ""
+"{\"Semua File\" {\"*\"}} {\"File Encapsulated Postscript\" {\".eps\" \".EPS"
+"\"}}"
+
+# messages added to version 1.7-0
+msgid "Reset"
+msgstr "Set Ulang"
+
+msgid "Coefficient of Variation"
+msgstr "Koefisien Variasi"
+
+msgid "Skewness"
+msgstr "Kemiringan"
+
+msgid "Kurtosis"
+msgstr "Keruncingan"
+
+msgid "Type 1"
+msgstr "Tipe 1"
+
+msgid "Type 2"
+msgstr "Tipe 2"
+
+msgid "Type 3"
+msgstr "Tipe 3"
+
+msgid "Missing Data"
+msgstr "Data hilang"
+
+msgid "Use complete cases"
+msgstr "Gunakan kasus lengkap"
+
+msgid "Use pairwise-complete cases"
+msgstr "Gunakan kasus lengkap-berpasangan"
+
+# messages added to version 1.7-4
+msgid "Component scores are not available when subset is specified."
+msgstr "Skor komponen tidak tersedia saat subset dispesifikasi"
+
+msgid "Factor scores are not available when subset is specified."
+msgstr "Skor faktor tidak tersedia saat subset dispesifikasi"
+
+# messages added to version 1.8-0
+msgid "Confirmatory Factor Analysis"
+msgstr "Analisis Faktor Konfirmatori"
+
+msgid "Fewer than 2 variables selected to load on factor."
+msgstr "Kurang dari 2 peubah terpilih untuk memanggil faktor"
+
+msgid "Define factor"
+msgstr "Definisikan faktor"
+
+msgid ""
+"Select variables\n"
+"loading on factor"
+msgstr ""
+"Pilih peubah\n"
+"dipanggil pada faktor"
+
+msgid "Covariance"
+msgstr "Kovariansi"
+
+msgid "Correlation"
+msgstr "Korelasi"
+
+msgid "Matrix to Analyze"
+msgstr "Matriks untuk Analisis"
+
+msgid "Correlated"
+msgstr "Berkorelasi"
+
+msgid "Orthogonal"
+msgstr "Ortogonal"
+
+msgid "Factor Correlations"
+msgstr "Korelasi faktor"
+
+msgid "There are too many factors."
+msgstr "Terlalu banyak faktor"
+
+msgid "Identifying Constraints"
+msgstr "Identifikasi Konstrain"
+
+msgid "Factor variances set to 1"
+msgstr "Variansi faktor ditentukan 1"
+
+msgid "First loading on each factor set to 1"
+msgstr "Loading pertama pada setiap faktor ditentukan 1"
+
+msgid "Confirmatory factor analysis..."
+msgstr "analisis faktor konfirmatori"
+
+# messages added to version 1.8-1
+# the following messages were omitted from version 1.8-0
+msgid "Robust standard errors"
+msgstr "kesalahan baku robust/tegar"
+
+msgid "No factors defined."
+msgstr "Tidak ada faktor teridentifikasi"
+
+# message added to version 1.8-2
+msgid "Default-font size (points)"
+msgstr "Ukuran font default (poin)"
+
+# message added to version 1.8-4
+msgid "data set edit error."
+msgstr "kesalahan edit data set"
+
+# messages added to version 1.9-0
+msgid "Identify Outliers"
+msgstr "Indentifikasi Pencilan/Outlier"
+
+msgid "Automatically"
+msgstr "Secara automatik"
+
+msgid "With mouse"
+msgstr "Dengan mouse"
+
+msgid "Width"
+msgstr "Lebar"
+
+msgid "Height"
+msgstr "Tinggi"
+
+msgid "[disabled]"
+msgstr "[tidak difungsikan]"
+
+msgid "inches"
+msgstr "inci"
+
+msgid "inch"
+msgstr "inci"
+
+msgid "cm"
+msgstr "cm"
+
+msgid "pixels"
+msgstr "piksel"
+
+msgid "Units"
+msgstr "unit"
+
+msgid "Fixed aspect ratio (height:width)"
+msgstr "Rasio aspek tetap (tinggi:lebar)"
+
+msgid "Resolution"
+msgstr "Resolusi"
+
+msgid "from SAS xport file..."
+msgstr "Dari File ekspor  SAS ..."
+
+msgid "Data Set Name"
+msgstr "Nama Data Set"
+
+msgid "Select Dataset"
+msgstr "Pilih Dataset"
+
+msgid "Datasets in file (pick one)"
+msgstr "Dataset dalam file (ambil satu)"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
+"\".XPORT\"}}"
+msgstr ""
+"{\"Semua File\" {\"*\"}} {\" Files ekspor SAS \" {\".xpt\" \".XPT\" \".xport"
+"\" \".XPORT\"}}"
+
+msgid ""
+"Convert variable names\n"
+"to lower case"
+msgstr ""
+"Konversi nama peubah\n"
+"ke lower case (huruf kecil)"
+
+msgid "from Excel file..."
+msgstr "dari fike Excel ..."
+
+msgid "Import Excel Data Set"
+msgstr "Impor Data Set Excel"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
+msgstr ""
+"{\"Semua Files\" {\"*\"}} {\"File MS Excel 2007\" {\".xlsx\" \".XLSX\"}} "
+"{\"MS Excel file\" {\".xls\" \".XLS\"}}"
+
+msgid "Interquartile Range"
+msgstr "Jarak Interkuartil"
+
+msgid "Interquartile range"
+msgstr "Jarak Interkuartil"
+
+msgid "Lines"
+msgstr "Garis"
+
+msgid "Choose at least one of points or lines."
+msgstr "Pilih setidaknya satu titik atau garis"
+
+msgid "Plot Type (one or both)"
+msgstr "Tipe Plot (satu atau keduanya)"
+
+# messages added to version 1.9-1 (missing from 1.9-0)
+msgid "Plot legend"
+msgstr "Legenda plot"
+
+# the following were missing from Xyplot()
+msgid "Conditions '|' (pick zero or more)"
+msgstr "Kondisi '|' (pilih nol atau lebih)"
+
+msgid "Groups 'groups=' (pick zero or more)"
+msgstr "Grup 'grup=' (ambil nol atau lebih)"
+
+msgid "Different panels for different y ~ x combinations"
+msgstr "Panel berbeda untuk kombinasi y~x berbeda"
+
+msgid "Layout"
+msgstr "Layout"
+
+msgid "number of columns:"
+msgstr "banyaknya kolom:"
+
+msgid "number of rows:"
+msgstr "banyaknya baris:"
+
+# messages added to version 2.0-0
+msgid "Plot Options"
+msgstr "Opsi Plot"
+
+msgid "Plot Labels"
+msgstr "Label plot"
+
+msgid "Graph title"
+msgstr "Judul graf"
+
+msgid "Plot Labels and Points"
+msgstr "Label Plot dan Titik "
+
+msgid "Apply"
+msgstr "Terapkan"
+
+msgid "Pairwise p-values"
+msgstr "Nilai-p berpasangan"
+
+msgid "Observations to Use"
+msgstr "Observasi yang Dipakai"
+
+msgid "Complete observations"
+msgstr "Observasi lengkap"
+
+msgid "Pairwise-complete observations"
+msgstr "Observasi lengkap-berpasangan"
+
+msgid "R Script"
+msgstr "Skrip R"
+
+msgid "Output"
+msgstr "Luaran"
+
+msgid "R Commander website"
+msgstr "Situs web R Commander"
+
+msgid "R website"
+msgstr "Situs web R"
+
+msgid "Using R Markdown"
+msgstr "Menggunakan R Markdown"
+
+msgid "Table"
+msgstr "Tabel"
+
+# point identification in graphs (additional messages)
+msgid "Interactively with mouse"
+msgstr "Secara interaktif dengan mouse"
+
+msgid "Do not identify"
+msgstr "Jangan identifikasi"
+
+msgid "number of points to identify must be an integer"
+msgstr "banyaknya titik yang diidentifikasi harus bulat"
+
+msgid "Number of points to identify"
+msgstr "Banyaknya titik untuk identifikasi"
+
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group "
+msgstr ""
+"Banyaknya titik untuk identifikasi \n"
+"dalam setiap panel dan grup"
+
+msgid "Added-Variable Plots"
+msgstr "Plot Peubah-Tambahan"
+
+msgid "Component+Residual Plots"
+msgstr "Plot Komponen dan Residu"
+
+msgid "Influence Plot"
+msgstr "Plot Pengaruh"
+
+# support for R Markdown and knitr
+msgid "Generate HTML report"
+msgstr "Membuat laporan HTML"
+
+msgid "Generate PDF report"
+msgstr "Membuat laporan PDF"
+
+msgid "R Markdown"
+msgstr "R Markdown"
+
+msgid "knitr Document"
+msgstr "Dokumen knitr"
+
+msgid "Open R Markdown file..."
+msgstr "Buka file R Markdown ..."
+
+msgid "Open knitr file..."
+msgstr "Buka file knitr ..."
+
+msgid "Save R Markdown file..."
+msgstr "Simpan file R Markdown ..."
+
+msgid "Save knitr file..."
+msgstr "Simpan file knitr ..."
+
+msgid "Save knitr file?"
+msgstr "Simpan file knitr?"
+
+msgid "Save current Rmd file?"
+msgstr "Simpan file Rmd ini?"
+
+msgid "Save current Rnw file?"
+msgstr "Simpan file Rnw ini?"
+
+msgid "Save R Markdown file as..."
+msgstr "Simpan file R Markdown sebagai ..."
+
+msgid "Save knitr file as..."
+msgstr "Simpan file knitr sebagai ..."
+
+msgid "R Markdown file saved to"
+msgstr "File R Markdown disimpan ke"
+
+msgid "knitr file saved to"
+msgstr "File R knitr disimpan ke"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr "{\"Semua File\" {\"*\"}} {\"File R Markdown \" {\".Rmd\" \".rmd\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
+"\"}}"
+msgstr ""
+"{\"Semua Files\" {\"*\"}} {\"File knitr\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
+"\"}}"
+
+msgid ""
+"Delete previously created knitr\n"
+"graphics files (recommended)?"
+msgstr ""
+"Hapus file grafik knitr \n"
+"sebelumnya (direkomendasi)?"
+
+# setting and saving options
+msgid "Ask to exit Commander"
+msgstr "Tanya untuk keluar Commander"
+
+msgid "Ask to save documents on exit"
+msgstr "Tanya untuk simpan dokumen saat keluar"
+
+msgid "Quit R on exit"
+msgstr "Keluar dari R sekalian"
+
+msgid "Number messages"
+msgstr "Banyaknya pesan"
+
+msgid "Retain messages"
+msgstr "Pertahankan pesan"
+
+msgid "Use R Markown"
+msgstr "Gunakan R Markdown"
+
+msgid "Use knitr"
+msgstr "Gunakan knitr"
+
+msgid "Select file"
+msgstr "Pilih file"
+
+msgid "R Markdown template file"
+msgstr "File templat R knitr"
+
+msgid "R knitr template file"
+msgstr "File template knit R"
+
+msgid "Suppress icon images"
+msgstr "Menekan citra ikon"
+
+msgid "Retain dialog selections"
+msgstr "Mempertahankan pilihan dialog"
+
+msgid "Use rgl package"
+msgstr "Gunakan paket rgl"
+
+msgid "Dialog text font size (points)"
+msgstr "Ukran fon teks dialog (poin)"
+
+msgid "Script and output font size (points)"
+msgstr "Ukuran font skrip dan luaran"
+
+msgid "Dialog font"
+msgstr "Fon dialog"
+
+msgid "Script and output font"
+msgstr "Fon skrip dan output"
+
+msgid "Script text color"
+msgstr "Warna teks skrip"
+
+msgid "Command text color"
+msgstr "Warna teks perintah"
+
+msgid "Output text color"
+msgstr "Warna teks luaran"
+
+msgid "Error text color"
+msgstr "Warna teks kesalahan"
+
+msgid "Warning text color"
+msgstr "Warna teks peringatan"
+
+msgid "Dialog subtitles text color"
+msgstr "Warna teks dialog subjudul"
+
+msgid "Script window width (characters)"
+msgstr "Lebar jendela skrip (karakter)"
+
+msgid "Script window height (lines)"
+msgstr "Tinggi jendela skrip (baris)"
+
+msgid "Output window height (lines)"
+msgstr "Tinggi jendela output (baris)"
+
+msgid "Messages window height (lines)"
+msgstr "Tinggi jendela pesan (baris)"
+
+msgid "Fonts"
+msgstr "Fon"
+
+msgid "Other Options"
+msgstr "Opsi lain"
+
+msgid "Save Commander Options"
+msgstr "Simpan Opsi Commander"
+
+msgid "R Profile saved to"
+msgstr "Profile R simpan ke"
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr "Perintah berikut akan disimpan pada file .Rprofile"
+
+msgid "You may edit this file before saving it."
+msgstr "Anda bisa mengedit file ini sebelum menyimpannya"
+
+msgid "Save Rcmdr options..."
+msgstr "Simpan opsi Rcmdr ..."
+
+# density estimate dialog
+msgid "Nonparametric Density Estimate"
+msgstr "Estimasi Densitas Nonparametrik"
+
+msgid "Gaussian"
+msgstr "Gaussian"
+
+msgid "Epanechnikov"
+msgstr "Epanechnikov"
+
+msgid "Tukey biweight"
+msgstr "Tukey biweight"
+
+msgid "Kernel Function"
+msgstr "Fungsi Kernel"
+
+msgid "Bandwidth"
+msgstr "Bandwidth"
+
+msgid "Multiply bandwidth by"
+msgstr "Kalikan bandwidth dengan"
+
+msgid "Density estimate..."
+msgstr "Estimasi densitas ..."
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr "Bandwidth harus <auto> atau bilangan positif"
+
+# index plot dialog
+msgid "Style of plot"
+msgstr "Plot stile"
+
+# export data set dialog
+msgid "Write variable names"
+msgstr "Tulis nama peubah"
+
+msgid "Write row names"
+msgstr "Tulis nama baris"
+
+msgid "Quotes around character values"
+msgstr "Petikan sekitar  karakter"
+
+# numerical summaries dialog
+msgid "Quantiles:"
+msgstr "Kuantile:"
+
+# for splines and polynomials in model formulas
+msgid "spline requires a numeric variable"
+msgstr "spline memerlukan nilai numerik"
+
+msgid "cannot select more than one variable"
+msgstr "tidak bisa memlih lebih dari satu peubah"
+
+msgid "polynomial requires a numeric variable"
+msgstr "polinomial membutuhkan peubah numerik"
+
+msgid "B-spline\n"
+msgstr "B-spline\n"
+
+msgid ""
+"natural\n"
+"spline"
+msgstr ""
+"natural\n"
+"spline"
+
+msgid ""
+"orthogonal\n"
+"polynomial"
+msgstr ""
+"polinomial\n"
+" orthogonal"
+
+msgid ""
+"raw\n"
+"polynomial"
+msgstr ""
+"baris\n"
+"polinomial"
+
+msgid "Model Formula"
+msgstr "Formula Model"
+
+msgid "Operators (click to formula):"
+msgstr "Operator (klik untuk formula):"
+
+msgid ""
+"Splines/Polynomials:\n"
+"(select variable and click)"
+msgstr ""
+"Spline/Polinomial:\n"
+"(pilih peubah dan klik)"
+
+msgid "df for splines:"
+msgstr "df untuk spline:"
+
+msgid "deg. for polynomials:"
+msgstr "derajat  polinomial:"
+
+# messages added to version 2.0-1
+# messages related to editing/processing R Markdown and knitr documents
+msgid "R Commander Editor"
+msgstr "Editor R Commander "
+
+msgid "Edit R Markdown document"
+msgstr "Edit dokumen R Markdown"
+
+msgid "Edit knitr document"
+msgstr "Edit dokumen knitr"
+
+msgid "Remove last Markdown command block"
+msgstr "Hilangkan blok perintah  Markdown terakhir "
+
+msgid "Remove last knitr command block"
+msgstr "Hilangkan blok perintah knitr terakhir"
+
+msgid "Remove last command block"
+msgstr "Hilangkan blok perintah terakhir "
+
+msgid "Exit editor"
+msgstr "Keluar Editor"
+
+msgid "Editor help"
+msgstr "Bantuan Editor"
+
+msgid ""
+"Delete previously created R Markdown\n"
+"graphics files (recommended)?"
+msgstr ""
+"Hapus file grafik  \n"
+"yang dibuat R Markdown (disarankan)?"
+
+msgid "Discard edits?"
+msgstr "Abaikan hasil edit?"
+
+# support for back-to-back stem-and-leaf displays
+msgid "Plot back-to-back by:"
+msgstr "Plot back-to-back dengan:"
+
+msgid "Plot back-to-back by"
+msgstr "Plot back-to-back by:"
+
+# messages added for version 2.1-0
+# the next two messages no longer needed and can be disregarded if not already translated
+# msgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
+# msgstr ""
+# msgid "the car package is missing and should be installed\n  many features will not work"
+# msgstr ""
+# for numerical summaries dialog
+msgid "Standard Error of Mean"
+msgstr "Kesalahan Baku dari Mean"
+
+# for CFA dialog
+msgid "Fit Indices"
+msgstr "Indeks Kecocokan/Fit"
+
+# for read Excel file dialog
+msgid "Variable names in first row of spreadsheet"
+msgstr "Nama peubah pada baris pertama dari  spreadsheet"
+
+msgid "Row names in first column of spreadsheet"
+msgstr "Nama baris pada kolom pertama spreadsheet"
+
+# for selecting weights in LM and GLM dialogs
+msgid "<no variable selected>"
+msgstr "<tidak ada peubah terpilih>"
+
+# new effect-plots dialog
+msgid "Model Effect Plots"
+msgstr "Plot Efek Model"
+
+msgid "Plot All High-Order Effects?"
+msgstr "Plot Semua Efek Order-Tinggi"
+
+msgid "Predictors (pick one or more)"
+msgstr "Prediktor (ambil satu atau semua_"
+
+msgid ""
+"You must select one or more predictors\n"
+" or plot all high-order effects."
+msgstr ""
+"Anda harus memilih satu atau lebih prediktor\n"
+"atau plot semua efek order-tinggi"
+
+msgid ""
+"To plot partial residuals,\n"
+" there must be a least one numeric predictor."
+msgstr ""
+"Untuk menggambar  residu  parsial,\n"
+" harus ada minimal satu prediktor numerik ."
+
+msgid "Plot partial residuals"
+msgstr "Plot residu parsial"
+
+msgid "Style of Graph"
+msgstr "Stile Grafik"
+
+msgid "Stacked areas"
+msgstr "Wilayah stacked"
+
+msgid "Lines with confidence bands"
+msgstr "Baris dengan batas keyakinan"
+
+# new one-sample Wilcoxon test dialog
+msgid "Single-Sample Wilcoxon Test"
+msgstr "Uji  Wilcoxon Sampel Tunggal "
+
+msgid "Single-sample Wilcoxon test..."
+msgstr " Uji  Wilcoxon sampel tunggal ..."
+
+# new drop unused factor levels dialog
+msgid "Drop Unused Factor Levels"
+msgstr "Lepaskan Level Faktor Takterpakai"
+
+msgid "Factors(s) to drop levels (pick one or more)"
+msgstr ""
+"Faktor untuk melepaskan/menghilangkan \n"
+" level (pilih satu atau lebih)"
+
+msgid ""
+"Drop unused factor levels\n"
+"Please confirm."
+msgstr ""
+"Lepaskan  faktor takterpakai\n"
+"Silakan konfirmasi"
+
+msgid "Drop unused factor levels..."
+msgstr "Lepaskan level faktor tak terpakai ..."
+
+msgid "all factors"
+msgstr "semua faktor"
+
+# messages related to sandwich variance estimator
+msgid "Linear Model Summary"
+msgstr "Ringkasan Model Linier"
+
+msgid "Sandwich estimator"
+msgstr "Penduga Sandwich"
+
+msgid ""
+"Use sandwich estimator of    \n"
+"coefficient standard errors"
+msgstr ""
+"Gunakan estimator sandwich\n"
+"kesalahan baku koefisien"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix   "
+msgstr ""
+"Gunakan penduga sandwich dari\n"
+"matriks kovariansi koefisien "
+
+msgid "sandwich covariance matrix unavailable with type I tests"
+msgstr "matriks kovariansi sandwich tidak tersedia dengan uji tipe I"
+
+# messages related to ttk theme selection
+msgid "non-existent theme"
+msgstr "tema tidak ada"
+
+msgid "theme set to"
+msgstr "tema di set ke"
+
+# modified message
+msgid "Restart R Commander"
+msgstr "Mulai-ulang R Commander"
+
+# formula-help button
+msgid ""
+"Model formula\n"
+"help"
+msgstr ""
+"Formula model\n"
+"bantuan"
+
+# messages added for version 2.1-1
+# messages for the new dataset editor
+msgid "Data Editor"
+msgstr "Edior Data"
+
+msgid "Delete current row"
+msgstr "Hapus baris ini"
+
+msgid "Delete current column"
+msgstr "Hapus kolom ini"
+
+msgid "Delete cell"
+msgstr "Hapus sel"
+
+msgid "Cut cell"
+msgstr "Potong sel"
+
+msgid "Copy cell"
+msgstr "Kopi sel"
+
+msgid "Paste cell"
+msgstr "Tempelkan Sel"
+
+msgid "Exit and save"
+msgstr "Keluar dan simpan"
+
+msgid "Add row"
+msgstr "Tambah baris"
+
+msgid "Add column"
+msgstr "Tambah kolom"
