@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2014-10-07 by John Fox
+# last modified 2014-10-10 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -290,8 +290,8 @@ Commander <- function(){
     setOption("log.commands", TRUE)
     setOption("use.knitr", FALSE)
     setOption("use.markdown", !getRcmdr("use.knitr"))
-#    if ((!packageAvailable("markdown")) || (!packageAvailable("knitr"))) putRcmdr("use.markdown", FALSE)
-#    if (!packageAvailable("knitr")) putRcmdr("use.knitr", FALSE)
+    if ((!packageAvailable("markdown")) || (!packageAvailable("knitr"))) putRcmdr("use.markdown", FALSE)
+    if (!packageAvailable("knitr")) putRcmdr("use.knitr", FALSE)
     putRcmdr("startNewCommandBlock", TRUE)
     putRcmdr("startNewKnitrCommandBlock", TRUE)
     putRcmdr("rmd.generated", FALSE)

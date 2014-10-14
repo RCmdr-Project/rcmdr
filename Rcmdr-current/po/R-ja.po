@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr Japanese Translation\n"
 "POT-Creation-Date: 2010-07-10 19:00\n"
-"PO-Revision-Date: 2014-09-02 07:10+0900\n"
+"PO-Revision-Date: 2014-10-14 13:34+0900\n"
 "Last-Translator: Takaharu Araki <arakit@kansai-u.ac.jp>\n"
 "Language-Team: Rcmdr Japanese Translation <arakit@kansai-u.ac.jp>\n"
 "MIME-Version: 1.0\n"
@@ -4642,3 +4642,59 @@ msgid ""
 msgstr ""
 "モデル式の\n"
 "ヘルプ"
+
+# messages added for version 2.1-1
+# messages for the new dataset editor
+msgid "Data Editor"
+msgstr "データエディタ"
+
+msgid "Delete current row"
+msgstr "現在の行の削除"
+
+msgid "Delete current column"
+msgstr "現在の列の削除"
+
+msgid "Delete cell"
+msgstr "セルの削除"
+
+msgid "Cut cell"
+msgstr "セルの切り取り"
+
+msgid "Copy cell"
+msgstr "セルのコピー"
+
+msgid "Paste cell"
+msgstr "セルの貼り付け"
+
+msgid "Exit and save"
+msgstr "修了と保存"
+
+msgid "Add row"
+msgstr "行の追加"
+
+msgid "Add column"
+msgstr "列の追加"
+
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "R.appのためのMac OS Xのapp pnapの管理..."
+
+msgid "Mac OS X app nap for R.app"
+msgstr "R.appのためのMac OS Xのapp nap"
+
+msgid "Set app nap"
+msgstr "app napの設定"
+
+msgid "off (recommended)"
+msgstr "オフ（推奨）"
+
+msgid "on"
+msgstr "オン"
+
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr "乱数生成関数のシード..."
+
+msgid "Set Random Number Generator Seed"
+msgstr "乱数生成関数のシード"

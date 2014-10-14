@@ -1,4 +1,4 @@
-# last modified 2014-09-01 by J. Fox
+# last modified 2014-10-10 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -8,9 +8,9 @@ importFrom(utils, available.packages, install.packages)
 
 importFrom(tcltk2, tk2tip, tk2theme, tk2theme.list, tk2table)
 
-importFrom(knitr, knit, knit2pdf)
+# importFrom(knitr, knit, knit2pdf)
 
-importFrom(markdown, markdownToHTML)
+# importFrom(markdown, markdownToHTML)
 
 importFrom(abind, abind)
 
