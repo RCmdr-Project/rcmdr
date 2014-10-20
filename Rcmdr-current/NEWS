@@ -2,7 +2,9 @@ Changes to Version 2.1-4
 
   o Moved knitr and markdown packages to Suggests: to accommodate Debian (request of Dirk Eddelbuettel).
 
-  o Updated  translations (with thanks): Brazilian Portuguese (Marilia Sa Carvalho and Adriano Azevedo-Filho); Indonesian (I Made Tirta); Japanese (Takaharu Araki).
+  o Updated  translations (with thanks): Brazilian Portuguese (Marilia Sa Carvalho and Adriano Azevedo-Filho); Catalan (Manel Salamero); Indonesian (I Made Tirta); Japanese (Takaharu Araki).
+
+  o Small interface improvements.
 
 Changes to Version 2.1-3
 

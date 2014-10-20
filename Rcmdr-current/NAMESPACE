@@ -1,4 +1,4 @@
-# last modified 2014-10-10 by J. Fox
+# last modified 2014-10-15 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -6,7 +6,7 @@ import(splines, tcltk, RcmdrMisc, car)
 
 importFrom(utils, available.packages, install.packages)
 
-importFrom(tcltk2, tk2tip, tk2theme, tk2theme.list, tk2table)
+importFrom(tcltk2, tk2tip, tk2theme, tk2theme.list, tk2table, is.ttk, tk2style)
 
 # importFrom(knitr, knit, knit2pdf)
 
