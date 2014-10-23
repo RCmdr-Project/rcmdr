@@ -1,4 +1,4 @@
-# last modified 2014-10-15 by J. Fox
+# last modified 2014-10-23 by J. Fox
 
 # utility functions
 
@@ -2661,10 +2661,14 @@ setIdleCursor <- function() {
     tkconfigure(.messages, cursor="xterm")
 }
 
+# hasJava <- function(){
+#     opts <- options(warn=-1, show.error.messages=FALSE)
+#     on.exit(options(opts))
+#     require("rJava", quietly=TRUE)
+# }
+
 hasJava <- function(){
-    opts <- options(warn=-1, show.error.messages=FALSE)
-    on.exit(options(opts))
-    require("rJava", quietly=TRUE)
+  Sys.which("java") != ""
 }
 
 # setupHelp <- function(){
