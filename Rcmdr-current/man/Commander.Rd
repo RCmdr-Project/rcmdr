@@ -391,6 +391,8 @@ For more information about R initialization, see \code{?Startup}.
   when there are missing values. The
   option is reset to its pre-existing value when the Commander exits. Some functions may not
   work properly when the default \code{na.action} is set to \code{na.exclude}.
+  
+  On platforms other than 32-bit Windows, Java must be installed for the R Commander to read data sets directly from Excel spreadsheets. To install Java, see \url{http://www.java.com}.
 
   This version should be compatiable with the \pkg{RExcel} package, which can use the R Commander
   menus.
