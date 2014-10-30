@@ -1,13 +1,14 @@
 # Matjaž Jeran <matjaz.jeran@amis.net>, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.1-0\n"
+"Project-Id-Version: Rcmdr 2.1-3\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-09-01 20:30:00\n"
-"PO-Revision-Date: 2014-10-05 22:52+0200\n"
+"POT-Creation-Date: 2014-10-20 08:30:00\n"
+"PO-Revision-Date: 2014-10-30 09:32+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Translator: Jaro Lajovic <jaro.lajovic@mf.uni-lj.si>\n"
 "Language-Team: Slovenian <kde-i18n-doc@kde.org>\n"
-"Language: sl\n"
+"Language: LL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,7 +72,7 @@ msgid "McQuitty's Method"
 msgstr "McQuittyjeva metoda"
 
 msgid "Median Linkage"
-msgstr "Mediana metoda"
+msgstr "Medianina metoda"
 
 msgid "Centroid Linkage"
 msgstr "Centroidna metoda"
@@ -716,7 +717,7 @@ msgid "Probabilities"
 msgstr "Verjetnosti"
 
 msgid "mu (mean)"
-msgstr "mi (povprečje)"
+msgstr "mu (povprečje)"
 
 msgid "sigma (standard deviation)"
 msgstr "sigma (standardni odklon)"
@@ -993,7 +994,7 @@ msgid "Axis Scaling"
 msgstr "Merilo osi"
 
 msgid "Stem and Leaf Display"
-msgstr "Steblo z listi"
+msgstr "Steblo z listi (Histogram s številkami)"
 
 msgid "Automatic"
 msgstr "Avtomatično"
@@ -1020,7 +1021,7 @@ msgid "Reverse negative leaves"
 msgstr "Obrni negativne liste"
 
 msgid "Leafs Digit:"
-msgstr "Števka listov:"
+msgstr "Števec listov:"
 
 msgid "or set:"
 msgstr "ali nastavite:"
@@ -1678,16 +1679,16 @@ msgid "Single-Sample t-Test"
 msgstr "t-test za en vzorec"
 
 msgid "Population mean = mu0"
-msgstr "Populacijsko povprečje = mi0"
+msgstr "Populacijsko povprečje = mu0"
 
 msgid "Population mean < mu0"
-msgstr "Populacijsko povprečje < mi0"
+msgstr "Populacijsko povprečje < mu0"
 
 msgid "Population mean > mu0"
-msgstr "Populacijsko povprečje > mi0"
+msgstr "Populacijsko povprečje > mu0"
 
 msgid "Null hypothesis: mu ="
-msgstr "Ničelna hipoteza: mi ="
+msgstr "Ničelna hipoteza: mu ="
 
 msgid "One-Way Analysis of Variance"
 msgstr "Enosmerna analiza variance"
@@ -1738,7 +1739,7 @@ msgid "Right-hand side of model empty."
 msgstr "Desna stran modela je prazna."
 
 msgid "Generalized Linear Model"
-msgstr "Posplošen linearni model"
+msgstr "Posplošeni linearni model"
 
 msgid "Family (double-click to select)"
 msgstr "Družina (dvokliknite za izbiro)"
@@ -2318,7 +2319,7 @@ msgid "Linear model..."
 msgstr "Linearni model"
 
 msgid "Generalized linear model..."
-msgstr "Posplošen linearni model"
+msgstr "Posplošeni linearni model..."
 
 msgid "Multinomial logit model..."
 msgstr "Multinomski logit model"
@@ -2360,7 +2361,7 @@ msgid "Histogram..."
 msgstr "Histogram"
 
 msgid "Stem-and-leaf display..."
-msgstr "Steblo z listi"
+msgstr "Steblo z listi (Histogram s številkami) ..."
 
 msgid "Boxplot..."
 msgstr "Okvir z ročaji"
@@ -2396,10 +2397,10 @@ msgid "as PDF/Postscript/EPS..."
 msgstr "kot PDF/Postscript/EPS ..."
 
 msgid "3D RGL graph..."
-msgstr "3D RGL diagram ..."
+msgstr "3D RGL sliko ..."
 
 msgid "Save graph to file"
-msgstr "Shrani diagram v datoteko"
+msgstr "Shrani sliko v datoteko"
 
 msgid "Graphs"
 msgstr "Grafika"
@@ -4184,7 +4185,7 @@ msgid "Interactively with mouse"
 msgstr "interaktivno z miško"
 
 msgid "Do not identify"
-msgstr "Ne identificiraj"
+msgstr "ne identificiraj"
 
 msgid "number of points to identify must be an integer"
 msgstr "število točk za identifikacijo mora biti celo število"
@@ -4427,37 +4428,37 @@ msgid "cannot select more than one variable"
 msgstr "na morem izbrati več kot ene spremenljivke"
 
 msgid "polynomial requires a numeric variable"
-msgstr "polinomski zahteva številsko spremenljivko"
+msgstr "polinom zahteva številsko spremenljivko"
 
 msgid "B-spline\n"
-msgstr "B-zlepki\n"
+msgstr "B-zlepek\n"
 
 msgid ""
 "natural\n"
 "spline"
 msgstr ""
 "naravni\n"
-"zlepki"
+" zlepki"
 
 msgid ""
 "orthogonal\n"
 "polynomial"
 msgstr ""
 "ortogonalni\n"
-"polinomi"
+"  polinomi"
 
 msgid ""
 "raw\n"
 "polynomial"
 msgstr ""
-"surovi\n"
+" surovi\n"
 "polinomi"
 
 msgid "Model Formula"
 msgstr "Formula modela"
 
 msgid "Operators (click to formula):"
-msgstr "Operatorji (klikni za formulo)"
+msgstr "Operatorji (klikni za formulo):"
 
 msgid ""
 "Splines/Polynomials:\n"
@@ -4509,13 +4510,11 @@ msgid "Discard edits?"
 msgstr "Naj zavržem spremembe urejanja?"
 
 # support for back-to-back stem-and-leaf displays
-#, fuzzy
 msgid "Plot back-to-back by:"
-msgstr ""
+msgstr "Skupno hrbtišče s/z:"
 
-#, fuzzy
 msgid "Plot back-to-back by"
-msgstr ""
+msgstr "S skupnim hrbtiščem"
 
 # messages added for version 2.1-0
 # the next two messages no longer needed and can be disregarded if not already translated
@@ -4528,9 +4527,8 @@ msgid "Standard Error of Mean"
 msgstr "Standardna napaka povprečja"
 
 # for CFA dialog
-#, fuzzy
 msgid "Fit Indices"
-msgstr ""
+msgstr "Indikatorji ujemanja"
 
 # for read Excel file dialog
 msgid "Variable names in first row of spreadsheet"
@@ -4547,22 +4545,21 @@ msgid "Weights"
 msgstr "Uteži"
 
 # new effect-plots dialog
-#, fuzzy
 msgid "Model Effect Plots"
-msgstr ""
+msgstr "Diagrami učinka modela"
 
-#, fuzzy
 msgid "Plot All High-Order Effects?"
-msgstr ""
+msgstr "Naj narišem vse učinke višjih stopenj?"
 
 msgid "Predictors (pick one or more)"
 msgstr "Napovedna spremenljivka (izberite eno ali več)"
 
-#, fuzzy
 msgid ""
 "You must select one or more predictors\n"
 " or plot all high-order effects."
 msgstr ""
+"Izbrati morate vsaj eno napovedno spremenljivko\n"
+"ali narisati vse učinke višjih stopenj."
 
 msgid ""
 "To plot partial residuals,\n"
@@ -4632,7 +4629,7 @@ msgstr ""
 "koeficienta kovariančne matrike"
 
 msgid "sandwich covariance matrix unavailable with type I tests"
-msgstr "sendvič kovariantna matrika ni na voljo za preizkuse tipa I"
+msgstr "sendvič kovariančna matrika ni na voljo za preizkuse tipa I"
 
 # messages related to ttk theme selection
 msgid "non-existent theme"
@@ -4673,8 +4670,8 @@ msgstr "Izreži celico"
 msgid "Copy cell"
 msgstr "Kopiraj celico"
 
-msgid "\"Paste cell"
-msgstr "\"Prilepi celico"
+msgid "Paste cell"
+msgstr "Prilepi celico"
 
 msgid "Exit and save"
 msgstr "Zapusti in shrani"
@@ -4685,4 +4682,27 @@ msgstr "Dodaj vrstico"
 msgid "Add column"
 msgstr "Dodaj stolpec"
 
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Upravljaj z Mac OS X zamikom aplikacije R.app..."
+
+msgid "Mac OS X app nap for R.app"
+msgstr "Mac OS X zamik aplikacije R.app..."
+
+msgid "Set app nap"
+msgstr "Nastavi zamik aplikacije"
+
+msgid "off (recommended)"
+msgstr "izključen (priporočeno)"
+
+msgid "on"
+msgstr "vključen"
+
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr "Nastavi brst generatorja slučajnih števil..."
+
+msgid "Set Random Number Generator Seed"
+msgstr "Nastavi brst generatorja slučajnih števil"
 
