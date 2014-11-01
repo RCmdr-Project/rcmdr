@@ -2,6 +2,8 @@ Changes to Version 2.1-5
 
   o Updated Slovenian translation (thanks to Matjaz Jeran).
 
+  o Export RappP() and mavericksP() (request of Erich Neuwirth).
+
 Changes to Version 2.1-4
 
   o Moved knitr and markdown packages to Suggests: to accommodate Debian (request of Dirk Eddelbuettel).

@@ -79,6 +79,7 @@
 \alias{MacOSXP}
 \alias{manualTranslationP}
 \alias{MarkdownP}
+\alias{mavericksP}
 \alias{Message}
 \alias{MessagesWindow}
 \alias{modelFormula}
@@ -95,6 +96,7 @@
 \alias{putDialog}
 \alias{putRcmdr}
 \alias{radioButtons}
+\alias{RappP}
 \alias{RcmdrEditor}
 \alias{RcmdrTclSet}
 \alias{RcmdrTkmessageBox}
@@ -239,6 +241,7 @@ LogWindow()
 MacOSXP()
 manualTranslationP()
 MarkdownP()
+mavericksP()
 Message(message, type=c("note", "error", "warning"))
 MessagesWindow()
 modelFormula(frame=top, hasLhs=TRUE)  # macro
@@ -261,6 +264,7 @@ radioButtons(window=top, name=stop("name not supplied"),
     labels=stop("labels not supplied"), 
     title="", title.color=getRcmdr("title.color"), 
     right.buttons=FALSE, command=function(){})   # macro
+RappP()
 RcmdrEditor(buffer, title="R Commander Editor", 
     help=NULL, file.menu=NULL, edit.menu=NULL, context.menu=NULL, 
     toolbar.buttons=NULL)

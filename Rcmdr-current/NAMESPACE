@@ -1,4 +1,4 @@
-# last modified 2014-10-15 by J. Fox
+# last modified 2014-11-01 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -31,11 +31,11 @@ is.SciViews, is.valid.name, justDoIt, knitrP, labelRcmdr, Library,
 listAllModels, listAOVModels, listDataSets, listFactors, listGeneralizedLinearModels, 
 listLinearModels, listMultinomialLogitModels, listNumeric, listPlugins, 
 listProportionalOddsModels, listTwoLevelFactors, listVariables, 
-lmP, logger, LogWindow, MacOSXP, manualTranslationP, MarkdownP,
+lmP, logger, LogWindow, MacOSXP, manualTranslationP, MarkdownP, mavericksP,
 Message, MessagesWindow, modelFormula, modelsP, multinomP, Numeric,
 numericP, OKCancelHelp, OutputWindow, packageAvailable,
 polrP, popCommand, popOutput, putDialog, putRcmdr, 
-radioButtons, rglLoaded, RcmdrPager, RcmdrTclSet, 
+radioButtons, RappP, rglLoaded, RcmdrPager, RcmdrTclSet, 
 RcmdrTkmessageBox,
 RExcelSupported, RmdWindow, RnwWindow, sortVarNames, subOKCancelHelp,
 subsetBox,  
