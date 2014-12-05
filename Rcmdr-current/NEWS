@@ -4,6 +4,8 @@ Changes to Version 2.1-5
 
   o Export RappP() and mavericksP() (request of Erich Neuwirth).
 
+  o Fixed bug in labeling values of discrete probability mass functions (reported by Vasileios Giagos).
+
 Changes to Version 2.1-4
 
   o Moved knitr and markdown packages to Suggests: to accommodate Debian (request of Dirk Eddelbuettel).

@@ -539,6 +539,7 @@ distributionMass  <- function(nameVar) {
     } else {
       command <- paste("local({\n  .Table <- data.frame(Probability=d",fVar$funName,
                        "(", xmin, ":", xmax, pasteVar, "))", sep="")
+      command <- paste(command, "\n  rownames(.Table) <- ", xmin, ":", xmax, sep="")
     }
     command <- paste(command, "\n  print(.Table)\n})")
     doItAndPrint(command)
