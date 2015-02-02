@@ -1,4 +1,4 @@
-# last modified 2014-11-01 by J. Fox
+# last modified 2015-02-02 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -66,13 +66,13 @@ tkwm.resizable, tkwm.title, tkwm.transient,
 tkxview.moveto, tkxview, tkyview, tkyview.scroll,
 ttklabelframe)
 
-S3method(coef, multinom)
+S3method(Coef, multinom)
 S3method(Confint, glm)
 S3method(Confint, default)
 S3method(Confint, multinom)
-S3method(confint, glm)
-S3method(confint, multinom)
-S3method(confint, polr)
+#S3method(confint, glm)
+#S3method(confint, multinom)
+S3method(Confint, polr)
 S3method(getFrame, combobox)
 S3method(getSelection, combobox)
 S3method(getFrame, listbox)

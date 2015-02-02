@@ -1,4 +1,4 @@
-# last modified 2014-10-23 by J. Fox
+# last modified 2015-02-02 by J. Fox
 
 # utility functions
 
@@ -183,11 +183,16 @@ is.valid.name <- function(x){
 
 # statistical
 
+Coef <- function(object, ...) UseMethod("Coef")
+
+Coef.default <- function(object, ...) coef(object, ...)
+
+
 Confint <- function(object, parm, level=0.95, ...) UseMethod("Confint")
 
 Confint.default <- function(object, parm, level = 0.95, ...) {
     ci <- confint(object, parm, level, ...)
-    ci <- cbind(coef(object)[parm], ci)
+    ci <- cbind(Coef(object)[parm], ci)
     colnames(ci)[1] <- "Estimate"
     ci
 }
@@ -198,7 +203,7 @@ Confint.glm <- function (object, parm, level=0.95, type=c("LR", "Wald"), ...){
     cf <- coef(object)
     pnames <- names(cf)
     if (type == "LR") 
-        ci <- confint.glm(object, parm, level, ...)
+        ci <- confint(object, parm, level, ...)
     else {
         if (missing(parm))
             parm <- seq(along = pnames)
@@ -224,7 +229,7 @@ Confint.glm <- function (object, parm, level=0.95, type=c("LR", "Wald"), ...){
     ci
 }
 
-confint.polr <- function (object, parm, level=0.95, ...){
+Confint.polr <- function (object, parm, level=0.95, ...){
     # adapted from stats:::confint.lm
     cf <- coef(object)
     pnames <- names(cf)
@@ -240,14 +245,37 @@ confint.polr <- function (object, parm, level=0.95, ...){
     ses <- sqrt(diag(vcov(object)))[parm]
     fac <- qnorm(a)
     ci[] <- cf[parm] + ses %o% fac
+    ci <- cbind(cf[parm], ci)
+    colnames(ci)[1] <- "Estimate"
     ci
 }
 
-confint.multinom <- function (object, parm, level=0.95, ...){
+# confint.multinom <- function (object, parm, level=0.95, ...){
+#     # adapted from stats:::confint.lm
+#     cf <- coef(object)
+#     if (is.vector(cf)) cf <- matrix(cf, nrow=1,
+#         dimnames=list(object$lev[2], names(cf)))
+#     pnames <- colnames(cf)
+#     if (missing(parm))
+#         parm <- seq(along = pnames)
+#     else if (is.character(parm))
+#         parm <- match(parm, pnames, nomatch = 0)
+#     a <- (1 - level)/2
+#     a <- c(a, 1 - a)
+#     ses <- matrix(sqrt(diag(vcov(object))),
+#         ncol=ncol(cf), byrow=TRUE)[,parm, drop=FALSE]
+#     cf <- cf[,parm, drop=FALSE]
+#     fac <- qnorm(a)
+#     ci <- abind::abind(cf + fac[1]*ses, cf + fac[2]*ses, along=3)
+#     dimnames(ci)[[3]] <- paste(round(100 * a, 1), "%")
+#     aperm(ci, c(2,3,1))[,,1]
+# }
+
+Confint.multinom <- function(object, parm, level = 0.95, ...) {
     # adapted from stats:::confint.lm
-    cf <- coef(object)
+    cf <- Coef(object)
     if (is.vector(cf)) cf <- matrix(cf, nrow=1,
-        dimnames=list(object$lev[2], names(cf)))
+                                    dimnames=list(object$lev[2], names(cf)))
     pnames <- colnames(cf)
     if (missing(parm))
         parm <- seq(along = pnames)
@@ -256,15 +284,16 @@ confint.multinom <- function (object, parm, level=0.95, ...){
     a <- (1 - level)/2
     a <- c(a, 1 - a)
     ses <- matrix(sqrt(diag(vcov(object))),
-        ncol=ncol(cf), byrow=TRUE)[,parm, drop=FALSE]
+                  ncol=ncol(cf), byrow=TRUE)[,parm, drop=FALSE]
     cf <- cf[,parm, drop=FALSE]
     fac <- qnorm(a)
     ci <- abind::abind(cf + fac[1]*ses, cf + fac[2]*ses, along=3)
     dimnames(ci)[[3]] <- paste(round(100 * a, 1), "%")
-    aperm(ci, c(2,3,1))[,,1]
+    ci <- aperm(ci, c(2,3,1))[,,1]
+    ci <- cbind(cf[parm], ci)
+    colnames(ci)[1] <- "Estimate"
+    ci
 }
-
-Confint.multinom <- function(object, parm, level = 0.95, ...) confint (object, parm=parm, level=0.95, ...)
 
 # Pager
 
@@ -2014,11 +2043,8 @@ gassign <- function(x, value){
     assign(x, value, envir=G)
 }
 
-# because it's no longer possible to access these functions from their packages:
 
-# from car:
-
-coef.multinom <- function (object, ...) 
+Coef.multinom <- function (object, ...) 
 {
     # the following from nnet:
     cf <- function (object, ...) 
@@ -2050,20 +2076,20 @@ coef.multinom <- function (object, ...)
 
 # from MASS:
 
-confint.glm <- function (object, parm, level = 0.95, trace = FALSE, ...) 
-{
-    pnames <- names(coef(object))
-    if (missing(parm)) 
-        parm <- seq_along(pnames)
-    else if (is.character(parm)) 
-        parm <- match(parm, pnames, nomatch = 0L)
-    message("Waiting for profiling to be done...")
-    utils::flush.console()
-    object <- profile(object, which = parm, alpha = (1 - level)/4, 
-        trace = trace)
-    confint(object, parm = parm, level = level, trace = trace, 
-        ...)
-}
+# confint.glm <- function (object, parm, level = 0.95, trace = FALSE, ...) 
+# {
+#     pnames <- names(coef(object))
+#     if (missing(parm)) 
+#         parm <- seq_along(pnames)
+#     else if (is.character(parm)) 
+#         parm <- match(parm, pnames, nomatch = 0L)
+#     message("Waiting for profiling to be done...")
+#     utils::flush.console()
+#     object <- profile(object, which = parm, alpha = (1 - level)/4, 
+#         trace = trace)
+#     confint(object, parm = parm, level = level, trace = trace, 
+#         ...)
+# }
 
 tkfocus <- function(...) tcl("focus", ...)
 

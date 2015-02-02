@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2014-08-17 by J. Fox
+# last modified 2015-02-02 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -485,7 +485,7 @@ testLinearHypothesis <- function(){
             table.values <- rbind(table.values, matrix(0, add.rows, ncols))
             rhs.values <- c(rhs.values, rep(0, add.rows))
         }
-        col.names <- names(coef(get(.activeModel)))
+        col.names <- names(Coef(get(.activeModel)))
         col.names <- substring(paste(abbreviate(col.names, 12), "            "), 1, 12)
         make.col.names <- "labelRcmdr(.tableFrame, text='')"
         for (j in 1:ncols) {
@@ -516,7 +516,7 @@ testLinearHypothesis <- function(){
         }
         tkgrid(get(".tableFrame", envir=env), sticky="w")
     }
-    ncols <- length(coef(get(.activeModel)))
+    ncols <- length(Coef(get(.activeModel)))
     rowsFrame <- tkframe(top)
     rowsValue <- tclVar(dialog.values$nrows)
     rowsSlider <- tkscale(rowsFrame, from=1, to=ncols, showvalue=FALSE, variable=rowsValue,
