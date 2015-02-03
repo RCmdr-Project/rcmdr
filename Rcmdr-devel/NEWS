@@ -8,7 +8,7 @@ Changes to Version 2.2-0
 
 Changes to Version 2.1-6
 
-  o Nothing yet!
+  o Prevent overriding S3 methods in standard packages (request of Brian Ripley).
 
 Changes to Version 2.1-5
 

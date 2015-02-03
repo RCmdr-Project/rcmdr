@@ -1,4 +1,4 @@
-# last modified 2014-11-01 by J. Fox
+# last modified 2015-02-03 by J. Fox
 
 useDynLib(Rcmdr)
 
@@ -7,10 +7,6 @@ import(splines, tcltk, RcmdrMisc, car)
 importFrom(utils, available.packages, install.packages)
 
 importFrom(tcltk2, tk2tip, tk2theme, tk2theme.list, tk2table, is.ttk, tk2style)
-
-# importFrom(knitr, knit, knit2pdf)
-
-# importFrom(markdown, markdownToHTML)
 
 importFrom(abind, abind)
 
@@ -66,13 +62,11 @@ tkwm.resizable, tkwm.title, tkwm.transient,
 tkxview.moveto, tkxview, tkyview, tkyview.scroll,
 ttklabelframe)
 
-S3method(coef, multinom)
+S3method(Coef, multinom)
 S3method(Confint, glm)
 S3method(Confint, default)
 S3method(Confint, multinom)
-S3method(confint, glm)
-S3method(confint, multinom)
-S3method(confint, polr)
+S3method(Confint, polr)
 S3method(getFrame, combobox)
 S3method(getSelection, combobox)
 S3method(getFrame, listbox)
