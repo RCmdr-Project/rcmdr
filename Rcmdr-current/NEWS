@@ -1,3 +1,7 @@
+Changes to Version 2.1-7
+
+  o New simplified Chinese translation (contributed by Shulin Yang).
+
 Changes to Version 2.1-6
 
   o Prevent overriding S3 methods in standard packages (request of Brian Ripley).

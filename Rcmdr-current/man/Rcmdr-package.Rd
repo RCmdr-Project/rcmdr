@@ -12,8 +12,8 @@ user interface) for R, based on the tcltk package.
 \details{
 \tabular{ll}{
 Package: \tab Rcmdr\cr
-Version: \tab 2.1-6\cr
-Date: \tab 2015/02/02\cr
+Version: \tab 2.1-7\cr
+Date: \tab 2015/02/05\cr
 Depends: \tab R (>= 3.0.0), grDevices, utils, splines, RcmdrMisc (>= 1.0-2), 
   car (>= 2.0-21)\cr
 Imports: \tab tcltk, tcltk2 (>= 1.2-6), markdown, knitr, abind\cr
@@ -43,6 +43,7 @@ Basque, Jose Ramon Rueda;
 Brazilian Portuguese, Adriano Azevedo-Filho and Marilia Sa Carvalho;
 Catalan, Manel Salamero;
 Chinese, Tsungwu Ho, Frank C. S. Liu, and Cheng-shun Lee;
+Chinese (Simplified), Shulin Yang;
 French, Philippe Grosjean and Milan Bouchet-Valat;
 Galician, Anton Meixome;
 German: Gerhard Schoen;
