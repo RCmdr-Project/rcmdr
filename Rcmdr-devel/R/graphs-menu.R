@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2014-12-22 by J. Fox
+# last modified 2015-03-07 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -439,15 +439,95 @@ boxPlot <- function () {
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
+DotPlot <- function () {
+    defaults <- list(initial.x = NULL, initial.use.bins = 0,
+                     initial.bins = gettextRcmdr ("<auto>"), initial.tab=0,
+                     initial.xlab=gettextRcmdr("<auto>"),
+                     initial.group = NULL)
+    dialog.values <- getDialog("DotPlot", defaults)
+    initializeDialog(title = gettextRcmdr("Dot Plot"), use.tabs=TRUE)
+    xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
+                            initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+    initial.group <- dialog.values$initial.group
+    .groups <- if (is.null(initial.group)) FALSE else initial.group
+    onOK <- function() {
+        tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
+        x <- getSelection(xBox)
+        closeDialog()
+        if (length(x) == 0) {
+            errorCondition(recall = DotPlot, message = gettextRcmdr("You must select a variable"))
+            return()
+        }
+        use.bins <- tclvalue(useBinsVariable) == "1"
+        bins <- tclvalue(binsVariable)
+        opts <- options(warn = -1)
+        binstext <- if (bins == gettextRcmdr("<auto>"))
+            "\"Sturges\""
+        else as.numeric(bins)
+        binstext <- if (use.bins) paste(', breaks=', binstext, sep="") else ""
+        options(opts)
+        xlab <- trim.blanks(tclvalue(xlabVar))
+        xlab <- if (xlab == gettextRcmdr("<auto>"))
+            ""
+        else paste(", xlab=\"", xlab, "\"", sep = "")
+        putDialog ("DotPlot", list (initial.x = x, initial.bins = bins, initial.use.bins = if (use.bins) "1" else "0",
+                                    initial.tab=tab, initial.xlab=tclvalue(xlabVar), 
+                                    initial.group=if (.groups == FALSE) NULL else .groups))
+        if (is.null(.groups) || .groups == FALSE) {
+            command <- paste("with(", ActiveDataSet(), ", Dotplot(", x, ', bin=', use.bins,
+                             binstext, xlab, "))", sep="")
+        }
+        else{
+            command <- paste("with(", ActiveDataSet(), ", Dotplot(", x, ", by=", .groups, ', bin=',
+                             use.bins, binstext, xlab, "))", sep="")
+        }
+        doItAndPrint(command)
+        activateMenus()
+        tkfocus(CommanderWindow())
+    }
+    groupsBox(DotPlot, initialGroup=initial.group,
+              initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups")
+              else paste(gettextRcmdr("Plot by:"), initial.group), window=dataTab)
+    OKCancelHelp(helpSubject = "Dotplot", reset = "DotPlot", apply="DotPlot", helpPackage="RcmdrMisc")
+    optionsFrame <- tkframe(optionsTab)
+    optFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Options"),
+                                                                font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+    parFrame <- ttklabelframe(optionsFrame)
+    xlabVar <- tclVar(dialog.values$initial.xlab)
+    xlabEntry <- ttkentry(parFrame, width = "25", textvariable = xlabVar)
+    xlabScroll <- ttkscrollbar(parFrame, orient = "horizontal",
+                               command = function(...) tkxview(xlabEntry, ...))
+    tkconfigure(xlabEntry, xscrollcommand = function(...) tkset(xlabScroll,
+                                                                ...))
+    tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("x-axis label")), xlabEntry, sticky = "ew", padx=6)
+    tkgrid(labelRcmdr(parFrame, text =""), xlabScroll, sticky = "ew", padx=6)
+    binsFrame <- tkframe(optFrame)
+    useBinsVariable <- tclVar(dialog.values$initial.use.bins)
+    useBinsCheckBox <- ttkcheckbutton(binsFrame, text = gettextRcmdr("Bin variable"),
+                                      variable = useBinsVariable)
+    binsVariable <- tclVar(dialog.values$initial.bins)
+    binsField <- ttkentry(binsFrame, width = "8", textvariable = binsVariable)
+    tkgrid(getFrame(xBox), sticky = "nw")
+    tkgrid(groupsFrame, sticky = "w")
+    tkgrid(useBinsCheckBox, sticky="w")
+    tkgrid(labelRcmdr(binsFrame, text = gettextRcmdr("Number of bins: ")),
+           binsField, sticky = "w")
+    tkgrid(binsFrame, sticky = "w")
+    tkgrid.configure(binsField, sticky = "e")
+    tkgrid(optFrame, parFrame, sticky = "nswe", padx=6, pady=6)
+    tkgrid(optionsFrame, sticky = "w")
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
+}
+
 scatterPlot <- function () {
     defaults <- list(initial.x = NULL, initial.y = NULL, initial.jitterx = 0, initial.jittery = 0,
-        initial.logstringx = 0, initial.logstringy = 0, initial.box = 1,
-        initial.line = 1, initial.smooth = 1, initial.spread = 1, initial.span = 50,
+        initial.logstringx = 0, initial.logstringy = 0, initial.box = 0,
+        initial.line = 0, initial.smooth = 0, initial.spread = 0, initial.span = 50,
         initial.ellipse=0, initial.levels=".5, .9",
         initial.subset = gettextRcmdr ("<all valid cases>"), initial.ylab = gettextRcmdr ("<auto>"),
         initial.xlab = gettextRcmdr("<auto>"), initial.pch = gettextRcmdr("<auto>"),
         initial.cexValue = 1, initial.cex.axisValue = 1, initial.cex.labValue = 1, initialGroup=NULL, initial.lines.by.group=1,
-        initial.identify=gettextRcmdr("auto"), initial.identify.points="2", initial.tab=0,
+        initial.identify=gettextRcmdr("not"), initial.identify.points="2", initial.tab=0,
         initial.main=gettextRcmdr("<auto>"))
     dialog.values <- getDialog("scatterPlot", defaults)
     initial.group <- dialog.values$initial.group
@@ -707,7 +787,7 @@ scatterPlot <- function () {
 }
 
 scatterPlotMatrix <- function () {
-    defaults <- list(initial.variables = NULL, initial.line = 1, initial.smooth = 1, initial.spread = 0,
+    defaults <- list(initial.variables = NULL, initial.line = 0, initial.smooth = 0, initial.spread = 0,
         initial.span = 50, initial.ellipse=0, initial.levels=".5, .9",
         initial.diag = "density", initial.subset = gettextRcmdr ("<all valid cases>"),
         initialGroup=NULL, initial.lines.by.group=1, initial.id.n="0", initial.tab=0,
@@ -856,39 +936,44 @@ scatterPlotMatrix <- function () {
 
 barGraph <- function () {
     defaults <- list (initial.variable = NULL, initial.xlab=gettextRcmdr("<auto>"),
-        initial.ylab=gettextRcmdr("<auto>"), initial.main=gettextRcmdr("<auto>"))
+                      initial.ylab=gettextRcmdr("<auto>"), initial.main=gettextRcmdr("<auto>"),
+                      initial.group=NULL, initial.style="divided", initial.legend="topright",
+                      initial.tab=0)
     dialog.values <- getDialog ("barGraph", defaults)
-    initializeDialog(title = gettextRcmdr("Bar Graph"))
-    optionsFrame <- tkframe(top)
-    variableBox <- variableListBox(optionsFrame, Factors(), title = gettextRcmdr("Variable (pick one)"),
-        initialSelection = varPosn (dialog.values$initial.variable, "factor"))
+    initializeDialog(title = gettextRcmdr("Bar Graph"), use.tabs=TRUE)
+    optionsFrame <- tkframe(optionsTab)
+    optionsFrame2 <- tkframe(optionsTab)
+    variablesFrame <- tkframe(dataTab)
+    variableBox <- variableListBox(variablesFrame, Factors(), title = gettextRcmdr("Variable (pick one)"),
+                                   initialSelection = varPosn (dialog.values$initial.variable, "factor"))
     parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
-        font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+                                                                font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
     xlabVar <- tclVar(dialog.values$initial.xlab)
     ylabVar <- tclVar(dialog.values$initial.ylab)
     mainVar <- tclVar(dialog.values$initial.main)
     xlabEntry <- ttkentry(parFrame, width = "25", textvariable = xlabVar)
     xlabScroll <- ttkscrollbar(parFrame, orient = "horizontal",
-        command = function(...) tkxview(xlabEntry, ...))
+                               command = function(...) tkxview(xlabEntry, ...))
     tkconfigure(xlabEntry, xscrollcommand = function(...) tkset(xlabScroll,
-        ...))
+                                                                ...))
     tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("x-axis label")), xlabEntry, sticky = "ew", padx=6)
     tkgrid(labelRcmdr(parFrame, text =""), xlabScroll, sticky = "ew", padx=6)
     ylabEntry <- ttkentry(parFrame, width = "25", textvariable = ylabVar)
     ylabScroll <- ttkscrollbar(parFrame, orient = "horizontal",
-        command = function(...) tkxview(ylabEntry, ...))
+                               command = function(...) tkxview(ylabEntry, ...))
     tkconfigure(ylabEntry, xscrollcommand = function(...) tkset(ylabScroll,
-        ...))
+                                                                ...))
     tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("y-axis label")), ylabEntry, sticky = "ew", padx=6)
     tkgrid(labelRcmdr(parFrame, text =""), ylabScroll, sticky = "ew", padx=6)
     mainEntry <- ttkentry(parFrame, width = "25", textvariable = mainVar)
     mainScroll <- ttkscrollbar(parFrame, orient = "horizontal",
-        command = function(...) tkxview(mainEntry, ...))
+                               command = function(...) tkxview(mainEntry, ...))
     tkconfigure(mainEntry, xscrollcommand = function(...) tkset(mainScroll,
-        ...))
+                                                                ...))
     tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("Graph title")), mainEntry, sticky = "ew", padx=6)
     tkgrid(labelRcmdr(parFrame, text=""), mainScroll, sticky = "ew", padx=6)
     onOK <- function() {
+        tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         variable <- getSelection(variableBox)
         xlab <- trim.blanks(tclvalue(xlabVar))
         xlab <- if (xlab == gettextRcmdr("<auto>"))
@@ -902,26 +987,60 @@ barGraph <- function () {
         main <- if (main == gettextRcmdr("<auto>"))
             ""
         else paste(", main=\"", main, "\"", sep = "")
-        putDialog ("barGraph", list (initial.variable = variable, initial.xlab=tclvalue(xlabVar),
-            initial.ylab=tclvalue(ylabVar), initial.main=tclvalue(mainVar)))
+        style <- tclvalue(styleVariable)
+        legend <- tclvalue(legendVariable)
+        putDialog ("barGraph", list(initial.variable = variable, initial.xlab=tclvalue(xlabVar),
+                                    initial.ylab=tclvalue(ylabVar), initial.main=tclvalue(mainVar), 
+                                    initial.group=if (.groups == FALSE) NULL else .groups,
+                                    initial.style=style, initial.legend=legend, initial.tab=tab))
         closeDialog()
         if (length(variable) == 0) {
             errorCondition(recall = barGraph, message = gettextRcmdr("You must select a variable"))
             return()
         }
-        command <- paste("with(", ActiveDataSet(), ", barplot(table(", 
-            variable, ")", xlab, ylab, main, "))",
-            sep = "")
-        logger(command)
-        justDoIt(command)
+        command <- if (.groups == FALSE){
+            paste("with(", ActiveDataSet(), ", Barplot(", 
+                  variable, xlab, ylab, main, "))",
+                  sep = "")
+        }
+        else {
+            if (.groups == variable) {
+                errorCondition(recall=barGraph, message=gettextRcmdr("plotting and grouping variables must be different"))
+                return()
+            }
+            paste("with(", ActiveDataSet(), ", Barplot(", 
+                   variable, ", by=", .groups, ', style="', style, 
+                   '", legend.pos="', legend, '"',
+                   xlab, ylab, main, "))",
+                   sep = "")
+        }
+        doItAndPrint(command)
         activateMenus()
         tkfocus(CommanderWindow())
     }
+    initial.group <- dialog.values$initial.group
+    groupsBox(barGraph, initialGroup=initial.group, 
+              initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups") 
+              else paste(gettextRcmdr("Plot by:"), initial.group), window=variablesFrame)
+    radioButtons(optionsFrame2, name = "style", buttons = c("divided", "parallel"), 
+                 labels = gettextRcmdr(c("Divided (stacked)", "Side-by-side (parallel)")), 
+                 title = gettextRcmdr("Style of Group Bars"),
+                 initialValue = dialog.values$initial.style)
+    radioButtons(optionsFrame2, name = "legend", 
+                 buttons = c("topright", "top", "topleft"), 
+                 labels = gettextRcmdr(c("Right", "Center", "Left")), 
+                 title = gettextRcmdr("Position of Legend"),
+                 initialValue = dialog.values$initial.legend)
     OKCancelHelp(helpSubject = "barplot", reset = "barGraph", apply = "barGraph")
-    tkgrid(getFrame(variableBox), parFrame, sticky = "nw")
-    #    tkgrid(parFrame, sticky = "w")
-    tkgrid(optionsFrame, sticky = "w")
-    dialogSuffix(grid.buttons=TRUE)
+    tkgrid(getFrame(variableBox), sticky="w")
+    tkgrid(tklabel(variablesFrame, text=""))
+    tkgrid(groupsFrame, sticky="w")
+    tkgrid(styleFrame, sticky="w")
+    tkgrid(legendFrame, sticky="w")
+    tkgrid(variablesFrame, sticky="w")
+    tkgrid(parFrame, sticky = "nw")
+    tkgrid(optionsFrame2, optionsFrame, sticky = "nw")
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 pieChart <- function () {
@@ -1388,7 +1507,7 @@ Scatter3D <- function () {
         Library("mgcv")
     }
     defaults <- list (initial.x = NULL, initial.y = NULL, initial.scales = 1, initial.grid = 1, 
-        initial.resids = 0, initial.lin = 1, initial.quad = 0, initial.nonpar = 0, 
+        initial.resids = 0, initial.lin = 0, initial.quad = 0, initial.nonpar = 0, 
         initial.additive = 0, initial.ellips = 0, initial.dfNonpar = gettextRcmdr("<auto>"), 
         initial.dfAdd = gettextRcmdr("<auto>"), initial.bg = "white",
         initialGroup=NULL, initial.lines.by.group=0, initial.identify="not", initial.id.n="2",

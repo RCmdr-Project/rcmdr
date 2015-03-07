@@ -6,6 +6,12 @@ Changes to Version 2.2-0
 
   o Added concentration ellipses to scatterplot and scatterplot-matrix dialogs (suggestion of Kosar Karimi Pour).
 
+  o Changed defaults for scatterplot, scatterplot matrix, 3D scatterplot, to simplify default plots.
+
+  o Bar plots can now be done by groups.
+
+  o Added dot plot dialog.
+
 Changes to Version 2.1-7
 
   o New simplified Chinese translation (contributed by Shulin Yang).

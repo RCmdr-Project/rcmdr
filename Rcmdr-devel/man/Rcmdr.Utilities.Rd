@@ -250,7 +250,7 @@ multinomP()
 Numeric(names)
 numericP(n=1)
 OKCancelHelp(window=top, helpSubject=NULL, model=FALSE, 
-    reset=NULL, apply=NULL)  # macro
+    reset=NULL, apply=NULL, helpPackage=NULL)  # macro
 OutputWindow()
 packageAvailable(name)
 polrP()
@@ -379,6 +379,8 @@ commanderPosition()
     when the menu item is selected. If \code{NULL} (the default), no item will be added to the editor Help menu.}
   \item{helpSubject}{the quoted name of a help subject, to be called as \code{help(helpSubject)}
     when the dialog \emph{Help} button is pressed.}
+  \item{helpPackage}{the quoted name of the package in which to look for help; the default, \code{NULL}, produces a search
+    in all loaded packages --- see \code{\link{help}}.}
   \item{icon}{Message-box icon.}
   \item{increment}{increment to model number; -1 to set back after error.}
   \item{initialGroup}{quoted name of variable to define groups, set as initial selection in Groups variable list; 

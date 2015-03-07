@@ -1,4 +1,4 @@
-# last modified 2015-02-03 by J. Fox
+# last modified 2015-03-07 by J. Fox
 
 # utility functions
 
@@ -438,7 +438,7 @@ defmacro <- function(..., expr){
     ff
 }
 
-OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL, apply=NULL,
+OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL, apply=NULL, helpPackage=NULL,
     expr={
         memory <- getRcmdr("retain.selections")
         button.strings <- c("OK", "Cancel", 
@@ -506,8 +506,8 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
         if (!is.null(helpSubject)){
             onHelp <- function() {
                 if (GrabFocus() && (!WindowsP())) tkgrab.release(window)
-                if (as.numeric(R.Version()$major) >= 2) print(help(helpSubject))
-                else help(helpSubject)
+                if (as.numeric(R.Version()$major) >= 2) print(help(helpSubject, package=helpPackage))
+                else help(helpSubject, package=helpPackage)
             }
             helpButton <- buttonRcmdr(leftButtonsBox, text=gettextRcmdr("Help"), width=width, command=onHelp, # borderwidth=3,
                 image="::image::helpIcon", compound="left")

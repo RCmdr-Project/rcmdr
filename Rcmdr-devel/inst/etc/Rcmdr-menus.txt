@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2014-12-20 by J. Fox
+# last modified 2015-03-07 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -157,6 +157,7 @@
     item    graphsMenu      command         "Color palette..."                              setPalette                  ""          ""
     item    graphsMenu      separator       ""                                              ""                          ""          ""
     item    graphsMenu      command         "Index plot..."                                 indexPlot                   "numericP()"          "packageAvailable('RcmdrMisc')"
+    item    graphsMenu      command         "Dot plot..."                                   DotPlot                     "numericP()"          "packageAvailable('RcmdrMisc')"
     item    graphsMenu      command         "Histogram..."                                  Histogram                   "numericP()"          "packageAvailable('RcmdrMisc')"
     item    graphsMenu      command         "Density estimate..."                           DensityPlot         "numericP()"          ""
     item    graphsMenu      command         "Stem-and-leaf display..."                      stemAndLeaf                 "numericP()"  "packageAvailable('aplpack')"
