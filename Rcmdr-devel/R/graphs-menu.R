@@ -1031,7 +1031,7 @@ barGraph <- function () {
                  labels = gettextRcmdr(c("Right", "Center", "Left")), 
                  title = gettextRcmdr("Position of Legend"),
                  initialValue = dialog.values$initial.legend)
-    OKCancelHelp(helpSubject = "barplot", reset = "barGraph", apply = "barGraph")
+    OKCancelHelp(helpSubject = "Barplot", reset = "barGraph", apply = "barGraph")
     tkgrid(getFrame(variableBox), sticky="w")
     tkgrid(tklabel(variablesFrame, text=""))
     tkgrid(groupsFrame, sticky="w")
