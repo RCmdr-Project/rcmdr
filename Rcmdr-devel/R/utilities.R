@@ -1,4 +1,4 @@
-# last modified 2015-03-07 by J. Fox
+# last modified 2015-03-15 by J. Fox
 
 # utility functions
 
@@ -3067,7 +3067,7 @@ hasProgram <- function(program, version, prefix="--", line=1, compare=`>=`){
 }
 
 RcmdrCapabilities <- function(check=list(c("java", version="1.6", prefix="-"), 
-    "pdflatex", c("pandoc", version="1.12"))){
+    "pdflatex", c("pandoc", version="1.12.3"))){
     result <- vector(length(check), mode="list")
     names(result) <- sapply(check, function(x) x[1])
     for (i in 1:length(check)){
