@@ -1,4 +1,4 @@
-# last modified 2015-03-16 by J. Fox
+# last modified 2015-03-17 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -240,9 +240,9 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
 				icon="question", type="yesno", default="yes")
 		if ("yes" == tclvalue(response3)) saveOutput()
 	}
-#   if (MacOSXP()){
-#     Sys.setenv(PATH=getRcmdr("PATH"))
-#   }
+  if (MacOSXP()){
+    Sys.setenv(PATH=getRcmdr("PATH"))
+  }
 	if (!WindowsP()) options(getRcmdr("oldPager"))
 	if (getRcmdr("suppress.X11.warnings")) {
 		sink(type = "message")
