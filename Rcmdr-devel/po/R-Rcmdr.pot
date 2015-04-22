@@ -4516,9 +4516,6 @@ msgstr ""
 msgid "(already installed)"
 msgstr ""
 
-msgid "Java"
-msgstr ""
-
 msgid "LaTeX"
 msgstr ""
 
