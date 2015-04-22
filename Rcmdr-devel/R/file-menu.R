@@ -1,4 +1,4 @@
-# last modified 2015-03-17 by J. Fox
+# last modified 2015-04-22 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -987,12 +987,11 @@ installSoftware <- function(){
     initializeDialog(title=gettextRcmdr("Install Auxiliary Software"))
     has <- unlist(getRcmdr("capabilities"))
     installed <- c("", gettextRcmdr("(already installed)"))[1 + has]
-    checkBoxes(frame="selectSoftwareFrame", boxes=c("java", "latex", "pandoc"),
+    checkBoxes(frame="selectSoftwareFrame", boxes=c("latex", "pandoc"),
         initialValues=!as.numeric(has),
-        labels=paste(gettextRcmdr(c("Java", "LaTeX", "Pandoc")), installed),
+        labels=paste(gettextRcmdr(c("LaTeX", "Pandoc")), installed),
         title=gettextRcmdr("Software to Install"))
     onOK <- function(){
-        if (tclvalue(javaVariable) == "1") browseURL("http://java.com")
         if (tclvalue(latexVariable) == "1"){
             if (WindowsP()) browseURL("http://miktex.org/download")
             else if (MacOSXP()) browseURL("http://www.tug.org/mactex/")

@@ -2,7 +2,7 @@ Changes to Version 2.2-0
 
   o New RMarkdown document, usable when pandoc (and possibly LaTeX) are installed; can be compiled to HTML, PDF, or Word file.
 
-  o New "Tools > Install auxiliary software" menu for installing Java, pandoc, and LaTeX.
+  o New "Tools > Install auxiliary software" menu for installing pandoc and LaTeX.
 
   o Added concentration ellipses to scatterplot and scatterplot-matrix dialogs (suggestion of Kosar Karimi Pour).
 
@@ -11,6 +11,8 @@ Changes to Version 2.2-0
   o Bar plots can now be done by groups.
 
   o Added dot plot dialog.
+  
+  o Excel files now read on all platforms with readxl package (via RcmdrMisc).
 
 Changes to Version 2.1-7
 

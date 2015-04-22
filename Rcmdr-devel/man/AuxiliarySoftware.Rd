@@ -3,7 +3,7 @@
 
 \title{Install R Commander Auxiliary Software}
 \description{
-  Install Java, Pandoc, and LaTeX to increase the capabilities of the R Commander.
+  Install Pandoc and LaTeX to increase the capabilities of the R Commander.
 }
 
 
@@ -17,13 +17,6 @@ if one or more of these software packages are missing.
 
 Here are the details:
     \itemize{
-    
-    \item \emph{Java}: Java is needed to read Excel spreadsheets directly on all platforms
-    other than 32-bit Windows (that is, on the more common 64-bit Windows, Mac OS X, and Linux/Unix systems).
-    Java is required by the \pkg{XLConnect} package, which is used by the R Commander to read Excel files.
-    Be careful in the installation: If you let it, the Java
-    installer will change the default search engine and home page in your web browser to \url{http://www.ask.com}.
-    I recommend that you uncheck the boxes for these options during the installation. Java is available from \url{http://java.com}. 
     
     \item \emph{Pandoc}: The Pandoc documentation-conversion software is used by the R Commander to
     generate HTML (web), PDF, and Word files from the editable R Markdown document that is created by default during an R Commander

@@ -1,4 +1,4 @@
-# last modified 2014-10-06 by J. Fox
+# last modified 2015-04-22 by J. Fox
 
 # Data menu dialogs
 
@@ -957,196 +957,285 @@ importSTATA <- function() {
 # The following function was contributed by Matthieu Lesnoff
 #  (added with small changes by J. Fox)
 
-importRODBCtable <- function(){
-	Library("RODBC")
-	# close all databases in case of error
-	on.exit(odbcCloseAll())
-# Enter the name of data set, by default : Dataset
-	initializeDialog(title = gettextRcmdr("Import from Excel, Access or dBase data set"))
-	dsname <- tclVar(gettextRcmdr("Dataset"))
-	entryDsname <- ttkentry(top, width = "35", textvariable = dsname)
-	onOK <- function(){
-		closeDialog()
-		setBusyCursor()
-		on.exit(setIdleCursor())
-		dsnameValue <- trim.blanks(tclvalue(dsname))
-		if(dsnameValue == ""){
-			errorCondition(recall = importRODBCtable,
-					message = gettextRcmdr("You must enter the name of a data set."))
-			return()
-		}
-		if(!is.valid.name(dsnameValue)){
-			errorCondition(recall = queryimportRODBCtable,
-					message = paste('"', dsnameValue, '" ',
-							gettextRcmdr("is not a valid name."), sep = ""))
-			return()
-		}
-		if(is.element(dsnameValue, listDataSets())){
-			if("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
-				importRODBCtable()
-				return()
-			}
-		}
-		File <- tclvalue(tkgetOpenFile(filetypes = gettextRcmdr(
-								'{"All Files" {"*"}} {"MS Access database" {".mdb" ".MDB"}} {"MS Access 2007 database" {".accdb" ".ACCDB"}} {"dBase-like file" {".dbf" ".DBF"}} {"MS Excel 2007 file" {".xlsx" ".XLSX"}} {"MS Excel file" {".xls" ".XLS"}}'
-						), parent=CommanderWindow()))
-		if(File == ""){
-			tkfocus(CommanderWindow())
-			return()
-		}
-		sop <- match(".", rev(strsplit(File, NULL)[[1]]))[1]
-		ext <- tolower(substring(File, nchar(File) - sop + 2, nchar(File)))
-		channel <- switch(EXPR = ext,
-				xls = odbcConnectExcel(File),
-				xlsx = odbcConnectExcel2007(File),
-				mdb = odbcConnectAccess(File),
-				accdb = odbcConnectAccess2007(File),
-				dbf = odbcConnectDbase(File))
-		# For Excel and Access cases, need to select a particular sheet or table
-		if(ext != "dbf"){
-			tabdat <- sqlTables(channel)
-			names(tabdat) <- tolower(names(tabdat))
-			if(ext == "mdb" || ext == "accdb")
-				tabdat <- tabdat[tabdat$table_type == "TABLE", 3]
-			if(ext == "xls" || ext == "xlsx"){
-				tabname <- tabdat$table_name
-				tabdat <- ifelse(tabdat$table_type =="TABLE",
-						substring(tabname, 2, nchar(tabname) - 2),
-						substring(tabname, 1, nchar(tabname) - 1))
-			}
-			# if there are several tables
-			if(length(tabdat)>1)
-				fil <- tk_select.list(sort(tabdat),
-						title = gettextRcmdr("Select one table"))
-			else
-				fil <- tabdat
-			if(fil == ""){
-				errorCondition(message=gettextRcmdr("No table selected"))
-				return()
-			}
-			if(ext == "xls" || ext == "xlsx")
-				fil <- paste("[", fil, "$]", sep = "")
-		}
-		# dBase file
-		else{
-			sop <- match(".", rev(strsplit(File, NULL)[[1]]))[1]
-			root <- tolower(substring(File, 1, nchar(File) - sop))
-			revstr <- rev(strsplit(root, NULL)[[1]])
-			sop <- if(is.na(match(c("/", "\\"), revstr)[1]))
-						length(revstr) else match(c("/", "\\"), revstr)[1] - 1
-			toor <- revstr[seq(sop)]
-			fil <- paste(rev(toor), collapse = "")
-		}
-		# Retrieve the data
-		dat <- sqlQuery(channel = channel, query = paste("select * from", fil))
-		names(dat)<- trim.blanks(names(dat))
-		dat <- trim.col.na(dat)
-		odbcCloseAll()
-		gassign(dsnameValue, as.data.frame(dat))
-		command <- paste("sqlQuery(channel = ",channel,", select * from ", fil,")",
-				sep = "")
-		logger(paste(dsnameValue, " <- ", command, sep = ""))
-		activeDataSet(dsnameValue)
-		tkfocus(CommanderWindow())
-	}  ## End of function onOK
-	OKCancelHelp(helpSubject="odbcConnect")
-	tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter name of data set:  ")),
-			entryDsname, sticky="e")
-	tkgrid(buttonsFrame, columnspan="2", sticky="w")
-	tkgrid.configure(entryDsname, sticky="w")
-	dialogSuffix(focus=entryDsname)
-}
+# importRODBCtable <- function(){
+# 	Library("RODBC")
+# 	# close all databases in case of error
+# 	on.exit(odbcCloseAll())
+# # Enter the name of data set, by default : Dataset
+# 	initializeDialog(title = gettextRcmdr("Import from Excel, Access or dBase data set"))
+# 	dsname <- tclVar(gettextRcmdr("Dataset"))
+# 	entryDsname <- ttkentry(top, width = "35", textvariable = dsname)
+# 	onOK <- function(){
+# 		closeDialog()
+# 		setBusyCursor()
+# 		on.exit(setIdleCursor())
+# 		dsnameValue <- trim.blanks(tclvalue(dsname))
+# 		if(dsnameValue == ""){
+# 			errorCondition(recall = importRODBCtable,
+# 					message = gettextRcmdr("You must enter the name of a data set."))
+# 			return()
+# 		}
+# 		if(!is.valid.name(dsnameValue)){
+# 			errorCondition(recall = queryimportRODBCtable,
+# 					message = paste('"', dsnameValue, '" ',
+# 							gettextRcmdr("is not a valid name."), sep = ""))
+# 			return()
+# 		}
+# 		if(is.element(dsnameValue, listDataSets())){
+# 			if("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
+# 				importRODBCtable()
+# 				return()
+# 			}
+# 		}
+# 		File <- tclvalue(tkgetOpenFile(filetypes = gettextRcmdr(
+# 								'{"All Files" {"*"}} {"MS Access database" {".mdb" ".MDB"}} {"MS Access 2007 database" {".accdb" ".ACCDB"}} {"dBase-like file" {".dbf" ".DBF"}} {"MS Excel 2007 file" {".xlsx" ".XLSX"}} {"MS Excel file" {".xls" ".XLS"}}'
+# 						), parent=CommanderWindow()))
+# 		if(File == ""){
+# 			tkfocus(CommanderWindow())
+# 			return()
+# 		}
+# 		sop <- match(".", rev(strsplit(File, NULL)[[1]]))[1]
+# 		ext <- tolower(substring(File, nchar(File) - sop + 2, nchar(File)))
+# 		channel <- switch(EXPR = ext,
+# 				xls = odbcConnectExcel(File),
+# 				xlsx = odbcConnectExcel2007(File),
+# 				mdb = odbcConnectAccess(File),
+# 				accdb = odbcConnectAccess2007(File),
+# 				dbf = odbcConnectDbase(File))
+# 		# For Excel and Access cases, need to select a particular sheet or table
+# 		if(ext != "dbf"){
+# 			tabdat <- sqlTables(channel)
+# 			names(tabdat) <- tolower(names(tabdat))
+# 			if(ext == "mdb" || ext == "accdb")
+# 				tabdat <- tabdat[tabdat$table_type == "TABLE", 3]
+# 			if(ext == "xls" || ext == "xlsx"){
+# 				tabname <- tabdat$table_name
+# 				tabdat <- ifelse(tabdat$table_type =="TABLE",
+# 						substring(tabname, 2, nchar(tabname) - 2),
+# 						substring(tabname, 1, nchar(tabname) - 1))
+# 			}
+# 			# if there are several tables
+# 			if(length(tabdat)>1)
+# 				fil <- tk_select.list(sort(tabdat),
+# 						title = gettextRcmdr("Select one table"))
+# 			else
+# 				fil <- tabdat
+# 			if(fil == ""){
+# 				errorCondition(message=gettextRcmdr("No table selected"))
+# 				return()
+# 			}
+# 			if(ext == "xls" || ext == "xlsx")
+# 				fil <- paste("[", fil, "$]", sep = "")
+# 		}
+# 		# dBase file
+# 		else{
+# 			sop <- match(".", rev(strsplit(File, NULL)[[1]]))[1]
+# 			root <- tolower(substring(File, 1, nchar(File) - sop))
+# 			revstr <- rev(strsplit(root, NULL)[[1]])
+# 			sop <- if(is.na(match(c("/", "\\"), revstr)[1]))
+# 						length(revstr) else match(c("/", "\\"), revstr)[1] - 1
+# 			toor <- revstr[seq(sop)]
+# 			fil <- paste(rev(toor), collapse = "")
+# 		}
+# 		# Retrieve the data
+# 		dat <- sqlQuery(channel = channel, query = paste("select * from", fil))
+# 		names(dat)<- trim.blanks(names(dat))
+# 		dat <- trim.col.na(dat)
+# 		odbcCloseAll()
+# 		gassign(dsnameValue, as.data.frame(dat))
+# 		command <- paste("sqlQuery(channel = ",channel,", select * from ", fil,")",
+# 				sep = "")
+# 		logger(paste(dsnameValue, " <- ", command, sep = ""))
+# 		activeDataSet(dsnameValue)
+# 		tkfocus(CommanderWindow())
+# 	}  ## End of function onOK
+# 	OKCancelHelp(helpSubject="odbcConnect")
+# 	tkgrid(labelRcmdr(top, text=gettextRcmdr("Enter name of data set:  ")),
+# 			entryDsname, sticky="e")
+# 	tkgrid(buttonsFrame, columnspan="2", sticky="w")
+# 	tkgrid.configure(entryDsname, sticky="w")
+# 	dialogSuffix(focus=entryDsname)
+# }
+
+# importExcel <- function(){
+#   Library("XLConnect")
+#   initializeDialog(title = gettextRcmdr("Import Excel Data Set"))
+#   dsname <- tclVar(gettextRcmdr("Dataset"))
+#   dsnameFrame <- tkframe(top)
+#   entryDsname <- ttkentry(dsnameFrame, width = "35", textvariable = dsname)
+#   checkBoxFrame <- tkframe(top)
+#   variableNames <- tclVar("1")
+#   variableNamesCheckBox <- ttkcheckbutton(checkBoxFrame, variable=variableNames)
+#   rowNames <- tclVar("0")
+#   rowNamesCheckBox <- ttkcheckbutton(checkBoxFrame, variable=rowNames)
+#   onOK <- function(){
+#     closeDialog()
+#     setBusyCursor()
+#     on.exit(setIdleCursor())
+#     dsnameValue <- trim.blanks(tclvalue(dsname))
+#     variableNamesValue <- tclvalue(variableNames)
+#     rowNamesValue <- tclvalue(rowNames)
+#     if(dsnameValue == ""){
+#       errorCondition(recall = importExcel,
+#                      message = gettextRcmdr("You must enter the name of a data set."))
+#       return()
+#     }
+#     if(!is.valid.name(dsnameValue)){
+#       errorCondition(recall = importExcel,
+#                      message = paste('"', dsnameValue, '" ',
+#                                      gettextRcmdr("is not a valid name."), sep = ""))
+#       return()
+#     }
+#     if(is.element(dsnameValue, listDataSets())){
+#       if("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
+#         importExcel()
+#         return()
+#       }
+#     }
+#     File <- tclvalue(tkgetOpenFile(filetypes = gettextRcmdr(
+#       '{"All Files" {"*"}} {"MS Excel 2007 file" {".xlsx" ".XLSX"}} {"MS Excel file" {".xls" ".XLS"}}'
+#     ), parent=CommanderWindow()))
+#     if(File == ""){
+#       tkfocus(CommanderWindow())
+#       return()
+#     }
+#     command <- paste('loadWorkbook("', File, '")', sep="")
+#     doItAndPrint(paste(".Workbook <- ", command, sep=""))
+#     worksheets <- getSheets(.Workbook)
+#     if(length(worksheets)>1)
+#       worksheet <- tk_select.list(worksheets,
+#                                   title = gettextRcmdr("Select one table"))
+#     else
+#       worksheet <- worksheets
+#     if(worksheet == ""){
+#       errorCondition(message=gettextRcmdr("No table selected"))
+#       return()
+#     }
+#     command <- paste('readWorksheet(.Workbook, "', worksheet,
+#                      '", header=', if (variableNamesValue == "1") 'TRUE' else 'FALSE',
+#                      ', rownames=', if(rowNamesValue == "1") '1' else 'NULL',
+#                      ')', sep="")
+#     logger(paste(dsnameValue, " <- ", command, sep=""))
+#     result <- justDoIt(command)
+#     if (class(result)[1] !=  "try-error"){
+#       gassign(dsnameValue, result)
+#     }
+#     logger("remove(.Workbook)")
+#     justDoIt("remove(.Workbook, envir=.GlobalEnv)")
+#     if (class(result)[1] !=  "try-error"){
+#       factors <- sapply(get(dsnameValue, envir=.GlobalEnv), is.character)
+#       if (any(factors)){
+#         factors <- which(factors)
+#         command <- paste(dsnameValue, "[, c(", paste(factors, collapse=", "), 
+#                          ")] <- lapply(", dsnameValue, "[, c(", 
+#                          paste(factors, collapse=", "), "), drop=FALSE], as.factor)",
+#                          sep="")
+#         doItAndPrint(command)
+#       }
+#       activeDataSet(dsnameValue)
+#     }
+#   }
+#   OKCancelHelp(helpSubject="readWorksheet")
+#   tkgrid(labelRcmdr(dsnameFrame, text=gettextRcmdr("Enter name of data set: ")),
+#          entryDsname, sticky="w")
+#   tkgrid(dsnameFrame, sticky="w")
+#   tkgrid(variableNamesCheckBox, labelRcmdr(checkBoxFrame, text=gettextRcmdr("Variable names in first row of spreadsheet")),
+#          sticky="w")
+#   tkgrid(rowNamesCheckBox, labelRcmdr(checkBoxFrame, text=gettextRcmdr("Row names in first column of spreadsheet")),
+#          sticky="w")
+#   tkgrid(checkBoxFrame, sticky="w")
+#   tkgrid(buttonsFrame, sticky="w")
+#   dialogSuffix(focus=entryDsname)
+# }
 
 importExcel <- function(){
-  Library("XLConnect")
-  initializeDialog(title = gettextRcmdr("Import Excel Data Set"))
-  dsname <- tclVar(gettextRcmdr("Dataset"))
-  dsnameFrame <- tkframe(top)
-  entryDsname <- ttkentry(dsnameFrame, width = "35", textvariable = dsname)
-  checkBoxFrame <- tkframe(top)
-  variableNames <- tclVar("1")
-  variableNamesCheckBox <- ttkcheckbutton(checkBoxFrame, variable=variableNames)
-  rowNames <- tclVar("0")
-  rowNamesCheckBox <- ttkcheckbutton(checkBoxFrame, variable=rowNames)
-  onOK <- function(){
-    closeDialog()
-    setBusyCursor()
-    on.exit(setIdleCursor())
-    dsnameValue <- trim.blanks(tclvalue(dsname))
-    variableNamesValue <- tclvalue(variableNames)
-    rowNamesValue <- tclvalue(rowNames)
-    if(dsnameValue == ""){
-      errorCondition(recall = importExcel,
-                     message = gettextRcmdr("You must enter the name of a data set."))
-      return()
+    initializeDialog(title = gettextRcmdr("Import Excel Data Set"))
+    dsname <- tclVar(gettextRcmdr("Dataset"))
+    dsnameFrame <- tkframe(top)
+    entryDsname <- ttkentry(dsnameFrame, width = "35", textvariable = dsname)
+    checkBoxFrame <- tkframe(top)
+    variableNames <- tclVar("1")
+    variableNamesCheckBox <- ttkcheckbutton(checkBoxFrame, variable=variableNames)
+    rowNames <- tclVar("0")
+    rowNamesCheckBox <- ttkcheckbutton(checkBoxFrame, variable=rowNames)
+    stringsAsFactors <- tclVar("1")
+    stringsAsFactorsCheckBox <- ttkcheckbutton(checkBoxFrame, variable=stringsAsFactors)
+    missingFrame <- tkframe(top)
+    missingVariable <- tclVar(gettextRcmdr("<empty cell>"))
+    missingEntry <- ttkentry(missingFrame, width="15", textvariable=missingVariable)
+    onOK <- function(){
+        closeDialog()
+        setBusyCursor()
+        on.exit(setIdleCursor())
+        dsnameValue <- trim.blanks(tclvalue(dsname))
+        variableNamesValue <- tclvalue(variableNames)
+        rowNamesValue <- tclvalue(rowNames)
+        stringsAsFactorsValue <- tclvalue(stringsAsFactors)
+        missingValues <- as.character(tclvalue(missingVariable))
+        if (missingValues == gettextRcmdr("<empty cell>")) missingValues <- ""
+        if(dsnameValue == ""){
+            errorCondition(recall = importExcel,
+                message = gettextRcmdr("You must enter the name of a data set."))
+            return()
+        }
+        if(!is.valid.name(dsnameValue)){
+            errorCondition(recall = importExcel,
+                message = paste('"', dsnameValue, '" ',
+                    gettextRcmdr("is not a valid name."), sep = ""))
+            return()
+        }
+        if(is.element(dsnameValue, listDataSets())){
+            if("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
+                importExcel()
+                return()
+            }
+        }
+        File <- tclvalue(tkgetOpenFile(filetypes = gettextRcmdr(
+            '{"All Files" {"*"}} {"MS Excel file" {".xlsx" ".XLSX" ".xls" ".XLS"}}'
+        ), parent=CommanderWindow()))
+        if(File == ""){
+            tkfocus(CommanderWindow())
+            return()
+        }
+        worksheets <- excel_sheets(File)
+        if(length(worksheets) > 1)
+            worksheet <- tk_select.list(worksheets,
+                title = gettextRcmdr("Select one table"))
+        else
+            worksheet <- worksheets
+        if(worksheet == ""){
+            errorCondition(message=gettextRcmdr("No table selected"))
+            return()
+        }
+        command <- paste('readXL("', File, '", rownames=', if (rowNamesValue == "1") "TRUE" else "FALSE",
+            ", header=", if (variableNamesValue == "1") "TRUE" else "FALSE",
+            ', na="', missingValues, '", sheet="', worksheet,
+            '", stringsAsFactors=', if(stringsAsFactorsValue == "1") "TRUE" else "FALSE",
+            ')', sep="")
+        logger(paste(dsnameValue, " <- ", command, sep=""))
+        result <- justDoIt(command)
+        if (class(result)[1] !=  "try-error"){
+            gassign(dsnameValue, result)
+            activeDataSet(dsnameValue)
+        }
     }
-    if(!is.valid.name(dsnameValue)){
-      errorCondition(recall = importExcel,
-                     message = paste('"', dsnameValue, '" ',
-                                     gettextRcmdr("is not a valid name."), sep = ""))
-      return()
-    }
-    if(is.element(dsnameValue, listDataSets())){
-      if("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
-        importExcel()
-        return()
-      }
-    }
-    File <- tclvalue(tkgetOpenFile(filetypes = gettextRcmdr(
-      '{"All Files" {"*"}} {"MS Excel 2007 file" {".xlsx" ".XLSX"}} {"MS Excel file" {".xls" ".XLS"}}'
-    ), parent=CommanderWindow()))
-    if(File == ""){
-      tkfocus(CommanderWindow())
-      return()
-    }
-    command <- paste('loadWorkbook("', File, '")', sep="")
-    doItAndPrint(paste(".Workbook <- ", command, sep=""))
-    worksheets <- getSheets(.Workbook)
-    if(length(worksheets)>1)
-      worksheet <- tk_select.list(worksheets,
-                                  title = gettextRcmdr("Select one table"))
-    else
-      worksheet <- worksheets
-    if(worksheet == ""){
-      errorCondition(message=gettextRcmdr("No table selected"))
-      return()
-    }
-    command <- paste('readWorksheet(.Workbook, "', worksheet,
-                     '", header=', if (variableNamesValue == "1") 'TRUE' else 'FALSE',
-                     ', rownames=', if(rowNamesValue == "1") '1' else 'NULL',
-                     ')', sep="")
-    logger(paste(dsnameValue, " <- ", command, sep=""))
-    result <- justDoIt(command)
-    if (class(result)[1] !=  "try-error"){
-      gassign(dsnameValue, result)
-    }
-    logger("remove(.Workbook)")
-    justDoIt("remove(.Workbook, envir=.GlobalEnv)")
-    if (class(result)[1] !=  "try-error"){
-      factors <- sapply(get(dsnameValue, envir=.GlobalEnv), is.character)
-      if (any(factors)){
-        factors <- which(factors)
-        command <- paste(dsnameValue, "[, c(", paste(factors, collapse=", "), 
-                         ")] <- lapply(", dsnameValue, "[, c(", 
-                         paste(factors, collapse=", "), "), drop=FALSE], as.factor)",
-                         sep="")
-        doItAndPrint(command)
-      }
-      activeDataSet(dsnameValue)
-    }
-  }
-  OKCancelHelp(helpSubject="readWorksheet")
-  tkgrid(labelRcmdr(dsnameFrame, text=gettextRcmdr("Enter name of data set: ")),
-         entryDsname, sticky="w")
-  tkgrid(dsnameFrame, sticky="w")
-  tkgrid(variableNamesCheckBox, labelRcmdr(checkBoxFrame, text=gettextRcmdr("Variable names in first row of spreadsheet")),
-         sticky="w")
-  tkgrid(rowNamesCheckBox, labelRcmdr(checkBoxFrame, text=gettextRcmdr("Row names in first column of spreadsheet")),
-         sticky="w")
-  tkgrid(checkBoxFrame, sticky="w")
-  tkgrid(buttonsFrame, sticky="w")
-  dialogSuffix(focus=entryDsname)
+    OKCancelHelp(helpSubject="readXL")
+    tkgrid(labelRcmdr(dsnameFrame, text=gettextRcmdr("Enter name of data set: ")),
+        entryDsname, sticky="w")
+    tkgrid(dsnameFrame, sticky="w")
+    tkgrid(variableNamesCheckBox, labelRcmdr(checkBoxFrame, text=gettextRcmdr("Variable names in first row of spreadsheet")),
+        sticky="w")
+    tkgrid(rowNamesCheckBox, labelRcmdr(checkBoxFrame, text=gettextRcmdr("Row names in first column of spreadsheet")),
+        sticky="w")
+    tkgrid(stringsAsFactorsCheckBox, labelRcmdr(checkBoxFrame, text=gettextRcmdr("Convert character data to factors")),
+        sticky="w")
+    tkgrid(labelRcmdr(missingFrame, text=gettextRcmdr("Missing data indicator:")), missingEntry, sticky="w")
+    tkgrid(checkBoxFrame, sticky="w")
+    tkgrid(missingFrame, sticky="w")
+    tkgrid(buttonsFrame, sticky="w")
+    dialogSuffix(focus=entryDsname)
 }
+
 
 numericToFactor <- function(){
   initializeDialog(title=gettextRcmdr("Convert Numeric Variables to Factors"))

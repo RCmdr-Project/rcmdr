@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2015-03-07 by J. Fox
+# last modified 2015-04-22 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -59,8 +59,10 @@
     item    importMenu      command         "from SAS xport file..."                        importSAS                   ""           "packageAvailable('foreign')"
     item    importMenu      command         "from Minitab data set..."                      importMinitab               ""          "packageAvailable('foreign')"
     item    importMenu      command         "from STATA data set..."                        importSTATA                 ""          "packageAvailable('foreign')"
-    item    importMenu      command         "from Excel, Access or dBase data set..."       importRODBCtable            ""          "WindowsP() && packageAvailable('RODBC') && (.Platform$r_arch == 'i386')"
-    item    importMenu      command         "from Excel file..."                            importExcel                 ""      "packageAvailable('XLConnect') && (!WindowsP() | (.Platform$r_arch != 'i386')) && hasJava()"
+#    item    importMenu      command         "from Excel, Access or dBase data set..."       importRODBCtable            ""          "WindowsP() && packageAvailable('RODBC') && (.Platform$r_arch == 'i386')"
+#    item    importMenu      command         "from Excel file..."                            importExcel                 ""      "packageAvailable('XLConnect') && (!WindowsP() | (.Platform$r_arch != 'i386')) && hasJava()"
+    item    importMenu      command         "from Excel file..."                            importExcel                 ""      "packageAvailable('readxl')"
+
     item    dataMenu        cascade         "Import data"                                   importMenu                  ""          ""
     menu    packagesMenu    dataMenu        ""                                              ""                          ""          ""
     item    packagesMenu    command         "List data sets in packages"                    listDataSetsInPackages      ""          ""

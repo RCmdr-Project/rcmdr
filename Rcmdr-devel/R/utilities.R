@@ -1,4 +1,4 @@
-# last modified 2015-03-15 by J. Fox
+# last modified 2015-04-22 by J. Fox
 
 # utility functions
 
@@ -2723,9 +2723,9 @@ setIdleCursor <- function() {
 }
 
 
-hasJava <- function(){
-  getRcmdr("capabilities")$java
-}
+# hasJava <- function(){
+#   getRcmdr("capabilities")$java
+# }
 
 # setupHelp <- function(){
 #   if (MacOSXP() && .Platform$GUI == "AQUA"){
@@ -3066,8 +3066,7 @@ hasProgram <- function(program, version, prefix="--", line=1, compare=`>=`){
     compare(result, version)
 }
 
-RcmdrCapabilities <- function(check=list(c("java", version="1.6", prefix="-"), 
-    "pdflatex", c("pandoc", version="1.12.3"))){
+RcmdrCapabilities <- function(check=list(c("pdflatex"), c("pandoc", version="1.12.3"))){
     result <- vector(length(check), mode="list")
     names(result) <- sapply(check, function(x) x[1])
     for (i in 1:length(check)){
