@@ -265,7 +265,7 @@ radioButtons(window=top, name=stop("name not supplied"),
     title="", title.color=getRcmdr("title.color"), 
     right.buttons=FALSE, command=function(){})   # macro
 RappP()
-RcmdrEditor(buffer, title="R Commander Editor", 
+RcmdrEditor(buffer, title="R Commander Editor", ok,
     help=NULL, file.menu=NULL, edit.menu=NULL, context.menu=NULL, 
     toolbar.buttons=NULL)
 RcmdrTclSet(name, value)
@@ -406,6 +406,8 @@ commanderPosition()
   \item{notebook}{notebook windows for a tabbed dialog (default \code{notebook}).}
   \item{object}{an object (depends on context).}
   \item{offset}{in pixels, from top-left of Commander window.}
+  \item{ok}{a function called when the \emph{OK} button is pressed in a \code{RcmdrEditor} window
+    that saves the editor buffer to the appropriate \emph{Tcl} variable.}
   \item{onOK}{function to execute when the \emph{OK} button is pressed.}
   \item{onCancel}{function to execute when the \emph{Cancel} button or \emph{Esc} key is pressed.}
   \item{package}{quoted name of package to load.}

@@ -1,4 +1,4 @@
-# last modified 2015-04-22 by J. Fox
+# last modified 2015-06-14 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -902,37 +902,45 @@ Setwd <- function(){
 
 
 editMarkdown <- function(){
+  .rmd <- RmdWindow()
+  buffer <- tclvalue(tkget(.rmd, "1.0", "end"))
+  compile <- function() {
     .rmd <- RmdWindow()
+    editor <- getRcmdr("editor.text")
+    buffer <- tclvalue(tkget(editor, "1.0", "end"))
+    tkdelete(.rmd, "1.0", "end")
+    tkinsert(.rmd, "end", buffer)
+    compileRmd()
+  }
+  removeLastBlock <- function(){
+    .rmd <- RmdWindow()
+    editor <- getRcmdr("editor.text")
+    buffer <- tclvalue(tkget(editor, "1.0", "end"))
+    tkdelete(.rmd, "1.0", "end")
+    tkinsert(.rmd, "end", buffer)
+    removeLastRmdBlock()
     buffer <- tclvalue(tkget(.rmd, "1.0", "end"))
-    compile <- function() {
-        .rmd <- RmdWindow()
-        editor <- getRcmdr("editor.text")
-        buffer <- tclvalue(tkget(editor, "1.0", "end"))
-        tkdelete(.rmd, "1.0", "end")
-        tkinsert(.rmd, "end", buffer)
-        compileRmd()
-    }
-    removeLastBlock <- function(){
-        .rmd <- RmdWindow()
-        editor <- getRcmdr("editor.text")
-        buffer <- tclvalue(tkget(editor, "1.0", "end"))
-        tkdelete(.rmd, "1.0", "end")
-        tkinsert(.rmd, "end", buffer)
-        removeLastRmdBlock()
-        buffer <- tclvalue(tkget(.rmd, "1.0", "end"))
-        tkdelete(editor, "1.0", "end")
-        tkinsert(editor, "end", buffer)
-    }
-    RcmdrEditor(buffer,  title="Edit R Markdown document",
-        help=list(label="Using R Markdown", command=browseRMarkdown),
-        file.menu=list(list(label="Generate report", command=compile)), 
-        toolbar.buttons=list(list(label="Generate report", command=compile, image="::image::submitIcon")))
-    edited <- getRcmdr("buffer")
-    if (!is.null(edited)){
-        tkdelete(.rmd, "1.0", "end")
-        tkinsert(.rmd, "end", edited)
-        tkyview.moveto(.rmd, 1)
-    }
+    tkdelete(editor, "1.0", "end")
+    tkinsert(editor, "end", buffer)
+  }
+  ok <- function(){
+    .rmd <- RmdWindow()
+    editor <- getRcmdr("editor.text")
+    buffer <- tclvalue(tkget(editor, "1.0", "end"))
+    tkdelete(.rmd, "1.0", "end")
+    tkinsert(.rmd, "end", buffer)
+  }
+  RcmdrEditor(buffer,  title="Edit R Markdown document", ok=ok,
+              help=list(label="Using R Markdown", command=browseRMarkdown),
+              file.menu=list(list(label="Generate report", command=compile)), 
+              toolbar.buttons=list(list(label="Generate report", command=compile, 
+                                        image="::image::submitIcon")))
+#   edited <- getRcmdr("buffer")
+#   if (!is.null(edited)){
+#     tkdelete(.rmd, "1.0", "end")
+#     tkinsert(.rmd, "end", edited)
+#     tkyview.moveto(.rmd, 1)
+#   }
 }
 
 editKnitr <- function(){
@@ -957,15 +965,22 @@ editKnitr <- function(){
         tkdelete(editor, "1.0", "end")
         tkinsert(editor, "end", buffer)
     }
-    RcmdrEditor(buffer,  title="Edit knitr document",
+    ok <- function(){
+      .rnw <- RnwWindow()
+      editor <- getRcmdr("editor.text")
+      buffer <- tclvalue(tkget(editor, "1.0", "end"))
+      tkdelete(.rnw, "1.0", "end")
+      tkinsert(.rnw, "end", buffer)
+    }
+    RcmdrEditor(buffer,  title="Edit knitr document", ok=ok,
         file.menu=list(list(label="Generate PDF report", command=compile)), 
         toolbar.buttons=list(list(label="Generate PDF report", command=compile, image="::image::submitIcon")))
-    edited <- getRcmdr("buffer")
-    if (!is.null(edited)){
-        tkdelete(.rnw, "1.0", "end")
-        tkinsert(.rnw, "end", edited)
-        tkyview.moveto(.rnw, 1)
-    }
+#     edited <- getRcmdr("buffer")
+#     if (!is.null(edited)){
+#         tkdelete(.rnw, "1.0", "end")
+#         tkinsert(.rnw, "end", edited)
+#         tkyview.moveto(.rnw, 1)
+#     }
 }
 
 appNap <- function(){
