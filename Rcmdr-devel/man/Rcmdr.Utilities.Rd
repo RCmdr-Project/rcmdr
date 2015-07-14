@@ -138,6 +138,8 @@
 \alias{ttkscrollbar}
 \alias{tkfocus}
 
+\alias{data}
+
 \title{Rcmdr Utility Functions}
 \description{
   These functions support writing additions to the Rcmdr package, preferably by writing
@@ -175,6 +177,8 @@ checkVariables(n=1)
 closeCommander(ask=TRUE, ask.save=ask)
 closeDialog(window, release=TRUE)  # macro
 CommanderWindow()
+data(..., list = character(), package = NULL, lib.loc = NULL, 
+    verbose = getOption("verbose"), envir = .GlobalEnv)
 dataSetsP(n=1)
 defmacro(..., expr)
 dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows, columns, 
@@ -392,6 +396,8 @@ commanderPosition()
   \item{initialValues}{for a set of related check boxes.}
   \item{label}{label prefix for groups button after a selection is made.}
   \item{labels}{a vector of character strings to label a set of radio buttons or check boxes.}
+  \item{lib.loc}{see documentation for \code{\link[utils]{data}}.}
+  \item{list}{see documentation for \code{\link[utils]{data}}.}
   \item{listHeight}{Maximum number of elements displayed simultaneously in list box.}
   \item{loaded}{if \code{TRUE}, plug-in packages that are loaded are included in the vector of names
     returned.}
@@ -410,7 +416,7 @@ commanderPosition()
     that saves the editor buffer to the appropriate \emph{Tcl} variable.}
   \item{onOK}{function to execute when the \emph{OK} button is pressed.}
   \item{onCancel}{function to execute when the \emph{Cancel} button or \emph{Esc} key is pressed.}
-  \item{package}{quoted name of package to load.}
+  \item{package}{quoted name of package to load; also see documentation for \code{\link[utils]{data}}.}
   \item{parent}{parent Tk window.}
   \item{plotLinesByGroup}{include a check box for plotting lines by group?}
   \item{plotLinesByGroupsText}{the label for the plot-lines-by-group check box.}
@@ -459,6 +465,7 @@ commanderPosition()
   \item{variableList}{a vector of variable names.}
   \item{variables}{a vector of one or more variable names.}
   \item{vars}{a vector of one or more variable names; if given \code{type} argument is ignored.}
+  \item{verbose}{see documentation for \code{\link[utils]{data}}.}
   \item{what}{optional character vector of one or more dialog names for which the memory is to be flushed; if not 
     specified, all dialog memory will be flushed.}
   \item{window, parentWindow}{a Tk window.}
@@ -598,6 +605,7 @@ commanderPosition()
   
   The \code{tkfocus} function is exported for historical reasons.
   
+  The \code{\link[utils]{data}} function, imported from the \pkg{utils} package, is exported for technical reasons.
 }
 
 \references{
