@@ -1,4 +1,4 @@
-# last modified 2015-06-14 by J. Fox
+# last modified 2015-07-22 by J. Fox
 
 # utility functions
 
@@ -3081,3 +3081,8 @@ browsePDF <- function(file) {
     else if (MacOSXP()) system(paste("open -a Preview", shQuote(file)))
     else system(paste(shQuote(getOption("pdfviewer")), shQuote(file)), wait=FALSE)
 }
+
+# function to insure that "levels" of character variables are returned
+
+levels.character <- function(x) sort(unique(x))
+

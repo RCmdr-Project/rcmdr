@@ -15,6 +15,8 @@ Changes to Version 2.2-0
   o Excel files now read on all platforms with readxl package (via RcmdrMisc).
   
   o Package imports conform to new CRAN requirements.
+  
+  o Small fixes/improvements.
 
 Changes to Version 2.1-7
 
