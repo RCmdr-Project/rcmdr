@@ -1,6 +1,6 @@
 # this code originally by Dan Putler, used with permission 
 
-# last modified 2014-08-04 by J. Fox
+# last modified 2015-08-07 by J. Fox
 
 
 listKmeansSolutions <- function(envir=.GlobalEnv, ...) {
@@ -20,7 +20,7 @@ kmeansClustering <- function () {
     defaults <- list(initial.x = NULL, initial.subset  = gettextRcmdr("<all valid cases>"), 
                      initial.nClusters = "2", initial.seeds  = "10", initial.iters = "10", 
                      initial.clusterSummary  = 1, initial.clusterPlot = 1, initial.clusterAssign = 0, 
-                     initial.clusterVariable = gettextRcmdr("KMeans"), initial.tab=0)
+                     initial.clusterVariable = "KMeans", initial.tab=0)
     dialog.values <- getDialog ("kmeansClustering", defaults)
     initializeDialog (title = gettextRcmdr("KMeans Clustering"), use.tabs=TRUE)
     dataFrame <- tkframe(dataTab)
