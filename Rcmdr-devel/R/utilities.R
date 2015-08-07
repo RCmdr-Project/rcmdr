@@ -1,4 +1,4 @@
-# last modified 2015-07-22 by J. Fox
+# last modified 2015-08-07 by J. Fox
 
 # utility functions
 
@@ -393,7 +393,7 @@ browseRcmdrWebsite <- function() browseURL("http://socserv.socsci.mcmaster.ca/jf
 
 browseRWebsite <- function() browseURL("http://www.r-project.org/")
 
-browseRMarkdown <- function() browseURL("http://www.rstudio.com/ide/docs/authoring/using_markdown")
+browseRMarkdown <- function() browseURL("http://rmarkdown.rstudio.com/")
 
 
 
