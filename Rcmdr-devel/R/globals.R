@@ -53,4 +53,4 @@ globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                   'fitIndicesFrame.1', 'fitIndicesFrame.2', 'sandwichTypeVariable', 'sandwichTypeFrame',
                   'rgl.cur', 'rgl.bringtotop', '.Contrasts', 'appnapVariable', 'appnapFrame',
                   'formatButtonsVariable', 'formatButtonsFrame', 'latexVariable', 'pandocVariable', 'selectSoftwareFrame',
-                  'legendVariable', 'legendFrame'))
+                  'legendVariable', 'legendFrame', 'legendPositionVariable', 'legendPositionFrame'))

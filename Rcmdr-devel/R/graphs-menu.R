@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2015-03-07 by J. Fox
+# last modified 2015-08-07 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -528,7 +528,7 @@ scatterPlot <- function () {
         initial.xlab = gettextRcmdr("<auto>"), initial.pch = gettextRcmdr("<auto>"),
         initial.cexValue = 1, initial.cex.axisValue = 1, initial.cex.labValue = 1, initialGroup=NULL, initial.lines.by.group=1,
         initial.identify=gettextRcmdr("not"), initial.identify.points="2", initial.tab=0,
-        initial.main=gettextRcmdr("<auto>"))
+        initial.main=gettextRcmdr("<auto>"), initial.legend.pos="above")
     dialog.values <- getDialog("scatterPlot", defaults)
     initial.group <- dialog.values$initial.group
     .linesByGroup <- if (dialog.values$initial.lines.by.group == 1) TRUE else FALSE
@@ -609,6 +609,10 @@ scatterPlot <- function () {
     cex.labSlider <- tkscale(parFrame, from = 0.5, to = 2.5,
         showvalue = TRUE, variable = cex.labValue, resolution = 0.1,
         orient = "horizontal")
+    radioButtons(window=parFrame, name="legendPosition", buttons=c("above", "topleft", "topright",
+        "bottomleft", "bottomright"), labels=c("Above plot", "Top left", "Top right", "Bottom left",
+            "Bottom right"), title=gettextRcmdr("Legend Position"),
+        initialValue=dialog.values$initial.legend.pos)
     onOK <- function() {
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         x <- getSelection(xBox)
@@ -668,6 +672,7 @@ scatterPlot <- function () {
             ""
         else paste(", main=\"", main, "\"", sep = "")
         pchVal <- gsub(" ", ",", tclvalue(pchVar))
+        legend.pos <- tclvalue(legendPositionVariable)
         closeDialog()
         if ("" == pchVal) {
             errorCondition(recall = scatterPlot, message = gettextRcmdr("No plotting characters."))
@@ -698,7 +703,7 @@ scatterPlot <- function () {
             initial.cex.axisValue = tclvalue(cex.axisValue), initial.cex.labValue = tclvalue(cex.labValue),
             initial.pch = pchVal, initial.group=if (.groups == FALSE) NULL else .groups,
             initial.lines.by.group=if (.linesByGroup) 1 else 0, initial.identify=identify, initial.identify.points=id.n,
-            initial.tab=tab, initial.main=tclvalue(mainVar))
+            initial.tab=tab, initial.main=tclvalue(mainVar), initial.legend.pos=legend.pos)
         )
         .activeDataSet <- ActiveDataSet()
         log <- if (logstring != "")
@@ -747,6 +752,7 @@ scatterPlot <- function () {
                 ", ellipse=", ellipse, ", levels=", levels,
                 jitter, xlab, ylab, main, cex,
                 cex.axis, cex.lab, pch, ", by.groups=", .linesByGroup,
+                if (legend.pos != "above") paste0(', legend.coords="', legend.pos, '"'),
                 ", data=", .activeDataSet, subset, ")", sep = "")
             if (identify == "mouse") command <- suppressMarkdown(command)
             doItAndPrint(command)
@@ -776,6 +782,7 @@ scatterPlot <- function () {
         cex.axisSlider, sticky = "we", padx=6, pady=6)
     tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("Axis-labels text size")),
         cex.labSlider, sticky = "we", padx=6, pady=6)
+    tkgrid(legendPositionFrame, stick="w", pady=6)
     tkgrid(optionsFrame, parFrame, sticky = "nswe", padx=6, pady=6)
     tkgrid(optionsParFrame, sticky = "we")
     tkgrid(ttklabel(dataTab, text=""))
