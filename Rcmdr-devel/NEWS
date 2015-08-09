@@ -16,6 +16,8 @@ Changes to Version 2.2-0
   
   o Package imports conform to new CRAN requirements.
   
+  o Updated translations (with thanks to): Russian (Alexey Shipunov).
+  
   o Small fixes/improvements.
 
 Changes to Version 2.1-7

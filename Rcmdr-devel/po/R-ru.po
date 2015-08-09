@@ -4411,3 +4411,156 @@ msgstr "отключено (рекомендуется)"
 msgid "on"
 msgstr "включено"
 
+# messages added for version 2.2-0
+# messages that were inadvertently missing in previous versions
+msgid "The following variable names are not valid:\n"
+msgstr "Следующие имена переменных неправильные:\n"
+
+msgid "Save R Markdown file?"
+msgstr "Сохранить файл R Markdown?"
+
+msgid "Theme (pick one)"
+msgstr "Тема (выберите одну)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "Оба или ни одного значения разметки должны быть цифрами."
+
+msgid "ANOVA Table"
+msgstr "Таблица ANOVA"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr "Для модели этого класса нет подходящего метода outlierTest."
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Тест нормальности Шапиро-Уилка"
+
+msgid "Hypothesis Test"
+msgstr "Тестирование гипотезы"
+
+msgid "Load Plug-ins"
+msgstr "Загрузить дополнения"
+
+# for report generation
+msgid "Generate report"
+msgstr "Сгенерировать отчет"
+
+msgid "Install Auxiliary Software"
+msgstr "Установка дополнительного софта"
+
+msgid "Install auxiliary software..."
+msgstr "Установка дополнительного софта..."
+
+msgid "(already installed)"
+msgstr "(уже установлено)"
+
+msgid "LaTeX"
+msgstr "LaTeX"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "Софт для установки"
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+"Пожалуйста, прочитайте помощь к этому диалогу\n"
+"перед тем как устанавливать дополнительный софт."
+
+msgid "Select Output Format"
+msgstr "Выберите формат вывода"
+
+msgid ".html (web page)"
+msgstr ".html (web-страница)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (файл PDF)"
+
+msgid ".docx (Word file)"
+msgstr ".docx (файл Word)"
+
+msgid "HTML file written to:"
+msgstr "Файл HTML записан в:"
+
+msgid "PDF file written to:"
+msgstr "Файл PDF записан в:"
+
+msgid "Word file written to:"
+msgstr "Файл Word записан в:"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+"Уровни для эллипсов должны быть цифрами\n"
+"  разделенными пробелами или запятыми."
+
+msgid "Plot concentration ellipse(s)"
+msgstr "График эллипс(ов) концентрации"
+
+msgid "Concentration levels: "
+msgstr "Уровни концентрации:"
+
+msgid "Legend Position"
+msgstr "Позиция легенды"
+
+msgid "Above plot"
+msgstr "Над графиком"
+
+msgid "Top left"
+msgstr "Вверху слева"
+
+msgid "Top right"
+msgstr "Вверху справа"
+
+msgid "Bottom left"
+msgstr "Внизу слева"
+
+msgid "Bottom right"
+msgstr "Внизу справа"
+
+# additions to bargraph dialog
+msgid "Style of Group Bars"
+msgstr "Стиль групповых колонок"
+
+msgid "Divided (stacked)"
+msgstr "Разделенные (друг над другом)"
+
+msgid "Side-by-side (parallel)"
+msgstr "Параллельные (бок о бок)"
+
+msgid "Position of Legend"
+msgstr "Позиция легенды"
+
+msgid "Left"
+msgstr "Слева"
+
+msgid "Right"
+msgstr "Справа"
+
+msgid "plotting and grouping variables must be different"
+msgstr "переменные для графика и для группировки должны быть разными"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "График точек"
+
+msgid "Bin variable"
+msgstr "Интервальная переменная"
+
+msgid "Dot plot..."
+msgstr "График точек..."
+
+# for reading Excel files (new dialog)
+msgid "Convert character data to factors"
+msgstr "Перевести буквенные данные в факторы"
+
+msgid "<empty cell>"
+msgstr "<пусто>"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файл MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+
