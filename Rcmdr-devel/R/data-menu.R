@@ -1,4 +1,4 @@
-# last modified 2015-04-22 by J. Fox
+# last modified 2015-08-11 by J. Fox
 
 # Data menu dialogs
 
@@ -2318,7 +2318,7 @@ Aggregate <- function(){
         by <-paste("list(", paste(paste(byVariables, "=", .activeDataSet, "$", byVariables, sep=""), 
                                   collapse=", "), ")", sep="")
         command <- paste(dsnameValue, " <- aggregate(", .activeDataSet, "[,c(", vars, "), drop=FALSE], by=", by,
-                         ", FUN=", statistic, ")", sep="")
+                         ", FUN=", statistic, ", na.rm=TRUE)", sep="")
         doItAndPrint(command)
         activeDataSet(dsnameValue)
         closeDialog()
