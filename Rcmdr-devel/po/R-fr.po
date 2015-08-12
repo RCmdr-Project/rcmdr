@@ -4,20 +4,21 @@
 # This file is distributed under the same license as the Rcmdr package
 # Philippe Grosjean <phgrosjean@sciviews.org>, 2005-2007
 # Milan Bouchet-Valat <nalimilan@club.fr>, 2012-2014.
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.1-0\n"
+"Project-Id-Version: Rcmdr 2.2-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-08-11 17:00:00\n"
-"PO-Revision-Date: 2014-08-15 12:30:00\n"
-"Last-Translator: Milan Bouchet-Valat <nalimilan@club.fr>\n"
-"Language-Team: français <>\n"
+"POT-Creation-Date: 2015-08-12 10:25+0200\n"
+"PO-Revision-Date: 2015-08-12 11:11+0200\n"
+"Last-Translator: Philippe Grosjean <phgrosjean@sciviews.org>\n"
+"Language-Team: français <> <phgrosjean@sciviews.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Poedit 1.8.4\n"
 
 msgid "KMeans Clustering"
 msgstr "Classification par k-means"
@@ -4506,21 +4507,6 @@ msgstr "Graphique couplé par :"
 msgid "Plot back-to-back by"
 msgstr "Graphique couplé par"
 
-# messages added for version 2.1-0
-msgid ""
-"the RcmdrMisc package is missing and should be installed\n"
-"  many features will not work"
-msgstr ""
-"le paquet RcmdrMisc est manquant et devrait être installé\n"
-"  de nombreuses fonctions ne marcheront pas"
-
-msgid ""
-"the car package is missing and should be installed\n"
-"  many features will not work"
-msgstr ""
-"le paquet car est manquant et devrait être installé\n"
-"  many features will not work"
-
 msgid "Standard Error of Mean"
 msgstr "Erreur type de la moyenne"
 
@@ -4536,9 +4522,6 @@ msgstr "Noms des lignes dans la première colonne du tableur"
 msgid "<no variable selected>"
 msgstr "<aucune variable sélectionnée>"
 
-msgid "Weights"
-msgstr "Poids"
-
 msgid "Model Effect Plots"
 msgstr "Graphes des effets du modèle"
 
@@ -4551,7 +4534,8 @@ msgstr "Prédicteurs (un ou plusieurs)"
 msgid ""
 "You must select one or more predictors\n"
 " or plot all high-order effects."
-msgstr "Vous devez sélectionner une ou plusieurs prédicteurs\n"
+msgstr ""
+"Vous devez sélectionner une ou plusieurs prédicteurs\n"
 " ou représenter tous les effets d'ordre élevé."
 
 msgid ""
@@ -4635,5 +4619,246 @@ msgid "Restart R Commander"
 msgstr "Relancer le R Commander"
 
 # formula-help button
-msgid "Model formula\nhelp"
-msgstr "Aide sur\nles formules de modèle"
+msgid ""
+"Model formula\n"
+"help"
+msgstr ""
+"Aide sur\n"
+"les formules de modèle"
+
+# messages added for version 2.1-1
+# messages for the new dataset editor
+msgid "Data Editor"
+msgstr "Editeur de données"
+
+msgid "Delete current row"
+msgstr "Effacer la ligne"
+
+msgid "Delete current column"
+msgstr "Effacer la colonne"
+
+msgid "Delete cell"
+msgstr "Effacer la cellule"
+
+msgid "Cut cell"
+msgstr "Couper la cellule"
+
+msgid "Copy cell"
+msgstr "Copier la cellule"
+
+msgid "Paste cell"
+msgstr "Coller dans la cellule"
+
+msgid "Exit and save"
+msgstr "Quitter et enregistrer"
+
+msgid "Add row"
+msgstr "Ajouter une ligne"
+
+msgid "Add column"
+msgstr "Ajouter une colonne"
+
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Gestion de Mac OS X nap pour R.app…"
+
+msgid "Mac OS X app nap for R.app"
+msgstr "Mac OS X app nap pour R.app"
+
+msgid "Set app nap"
+msgstr "Spécifier app nap"
+
+msgid "off (recommended)"
+msgstr "désactivé (recommandé)"
+
+msgid "on"
+msgstr "activé"
+
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr "Déterminer le point de départ pour le générateur de nombre aléatoires…"
+
+msgid "Set Random Number Generator Seed"
+msgstr "Point de départ du générateur pseudo-aléatoire"
+
+# messages added for version 2.2-0
+# messages that were inadvertently missing in previous versions
+msgid "The following variable names are not valid:\n"
+msgstr "Les noms de variables suivants sont incorrects:\n"
+
+msgid "Save R Markdown file?"
+msgstr "Sauver le fichier R Markdown?"
+
+msgid "Theme (pick one)"
+msgstr "Thème (choisissez-en un)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr ""
+"Les deux valeurs de mise en page (layout) doivent être des nombres, ou "
+"alors, aucune."
+
+msgid "ANOVA Table"
+msgstr "Table de l’ANOVA"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr ""
+"Il n’y a aucune méthode de détermination des valeurs extrêmes appropriée "
+"pour un modèle de cette classe."
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Test Shapiro-Wilk de Normalité"
+
+msgid "Hypothesis Test"
+msgstr "Test d’hypothèse"
+
+msgid "Load Plug-ins"
+msgstr "Charger les plug-ins"
+
+# for report generation
+msgid "Generate report"
+msgstr "Générer un rapport"
+
+msgid "Install Auxiliary Software"
+msgstr "Installer les logiciels complémentaires"
+
+msgid "Install auxiliary software..."
+msgstr "Installer les logiciels complémentaires…"
+
+msgid "(already installed)"
+msgstr "(déjà installé)"
+
+msgid "LaTeX"
+msgstr "LaTeX"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "Logiciels à intaller"
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+"Veuillez lire l’aide de cette boite de dialogue\n"
+"avant d’installer des logiciels auxiliaires"
+
+msgid "Select Output Format"
+msgstr "Sélectionnez le format de sortie"
+
+msgid ".html (web page)"
+msgstr ".html (page web)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (fichier PDF)"
+
+msgid ".docx (Word file)"
+msgstr ".docx (fichier Word)"
+
+msgid "HTML file written to:"
+msgstr "Fichier HTML créé :"
+
+msgid "PDF file written to:"
+msgstr "Fichier PDF créé :"
+
+msgid "Word file written to:"
+msgstr "Fichier Word créé :"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+"Le niveaux pour les ellipses doivent être des valeurs numériques\n"
+"  séparées par des espaces ou des virgules."
+
+msgid "Plot concentration ellipse(s)"
+msgstr "Graphe d’ellipses de concentration"
+
+msgid "Concentration levels: "
+msgstr "Niveaux de concentration :"
+
+msgid "Legend Position"
+msgstr "Position de la légende"
+
+msgid "Above plot"
+msgstr "Au dessus de graphe"
+
+msgid "Top left"
+msgstr "En haut à gauche"
+
+msgid "Top right"
+msgstr "En haut à droite"
+
+msgid "Bottom left"
+msgstr "En bas à gauche"
+
+msgid "Bottom right"
+msgstr "En bas à droite"
+
+# additions to bargraph dialog
+msgid "Style of Group Bars"
+msgstr "Style des barres de groupes"
+
+msgid "Divided (stacked)"
+msgstr "Divisées (empilement)"
+
+msgid "Side-by-side (parallel)"
+msgstr "Côte-à-côte (en parallèle)"
+
+msgid "Position of Legend"
+msgstr "Position de la légende"
+
+msgid "Left"
+msgstr "A gauche"
+
+msgid "Right"
+msgstr "A droite"
+
+msgid "plotting and grouping variables must be different"
+msgstr ""
+"les variables représentées et servant au regroupement doivent être "
+"différentes"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "Graphe en point (dot plot)"
+
+msgid "Bin variable"
+msgstr "Variable de découpage en classes"
+
+msgid "Dot plot..."
+msgstr "Graphe en points (dot plot)"
+
+# for reading Excel files (new dialog)
+msgid "Convert character data to factors"
+msgstr "Convertir des données caractères en facteurs (factor)"
+
+msgid "<empty cell>"
+msgstr "<cellule vide>"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
+msgstr ""
+"{“Tous les fichiers“ {\"*\"}} {“Fichiers Excel\" {\".xlsx\" \".XLSX\" \".xls"
+"\" \".XLS\"}}"
+
+# messages added for version 2.1-0
+#~ msgid ""
+#~ "the RcmdrMisc package is missing and should be installed\n"
+#~ "  many features will not work"
+#~ msgstr ""
+#~ "le paquet RcmdrMisc est manquant et devrait être installé\n"
+#~ "  de nombreuses fonctions ne marcheront pas"
+
+#~ msgid ""
+#~ "the car package is missing and should be installed\n"
+#~ "  many features will not work"
+#~ msgstr ""
+#~ "le paquet car est manquant et devrait être installé\n"
+#~ "  many features will not work"
+
+#~ msgid "Weights"
+#~ msgstr "Poids"
