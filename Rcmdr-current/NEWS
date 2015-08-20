@@ -1,3 +1,7 @@
+Changes to Version 2.2-1
+
+  o Updated translations (with thanks to): Japanese (Takaharu Araki), Korean (Jong-Hwa Shin).
+
 Changes to Version 2.2-0
 
   o New RMarkdown document, usable when pandoc (and possibly LaTeX) are installed; can be compiled to HTML, PDF, or Word file.

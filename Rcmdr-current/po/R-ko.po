@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr1.9.1\n"
+"Project-Id-Version: Rcmdr_2.2\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-08-21 17:30:00\n"
-"PO-Revision-Date: 2014-08-31 12:29+0900\n"
-"Last-Translator: SHIN Jong-Hwa <shin.jonghwa@r-project.kr>\n"
-"Language-Team: Korean R User Group <shin.jonghwa@r-project.kr>\n"
+"POT-Creation-Date: 2015-08-17 10:57+0900\n"
+"PO-Revision-Date: 2015-08-20 09:14+0900\n"
+"Last-Translator: Jong-Hwa Shin <shin.jonghwa@modernity.or.kr>\n"
+"Language-Team: Korean R User Group <shin.jonghwa@modernity.or.kr>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.8.4\n"
 
 msgid "KMeans Clustering"
 msgstr "K평균 군집화"
@@ -79,10 +79,10 @@ msgid "Clustering Method"
 msgstr "군집화 기법"
 
 msgid "Euclidean"
-msgstr "유클리드-"
+msgstr "Euclidean"
 
 msgid "Squared-Euclidian"
-msgstr "유클리드 제곱"
+msgstr "Euclidian 제곱"
 
 msgid "Manhattan (City Block)"
 msgstr "맨하탄 (도시 블록)"
@@ -301,7 +301,7 @@ msgid "[factor]"
 msgstr "[요인]"
 
 msgid "Current variables (double-click to expression)"
-msgstr "현재의 변수(표현식을 위해서 두번 클릭)"
+msgstr "현재의 변수(표현식을 위해서 두번 누르기)"
 
 msgid "No expression specified."
 msgstr "표현식이 지정되지 않음."
@@ -397,10 +397,10 @@ msgid "You must select a data set."
 msgstr "데이터셋 하나를 선택해야 합니다."
 
 msgid "Package (Double-click to select)"
-msgstr "패키지 (두번 클릭하여 선택)"
+msgstr "패키지 (두번 눌러서 선택)"
 
 msgid "Data set (Double-click to select)"
-msgstr "데이터셋(두번 클릭하여 선택)"
+msgstr "데이터셋(두번 눌러서 선택)"
 
 msgid "OR"
 msgstr "또는"
@@ -891,7 +891,7 @@ msgid "Log commands to script window"
 msgstr "Log commands to script window"
 
 msgid "Log-font size (points)"
-msgstr "로그-폰트 크기 (포인트)"
+msgstr "로그-폰트 크기 (점)"
 
 msgid "Log width (characters)"
 msgstr "로그 넓이 (문자)"
@@ -927,8 +927,8 @@ msgid ""
 "Exit and Restart\n"
 "R Commander"
 msgstr ""
-"끝내기 & 다시시작하기\n"
-"R Commander"
+"R Commander\n"
+"끝내기 & 다시시작하기"
 
 msgid "Scale factor for Tk elements"
 msgstr "Tk 요소를 위한 요인 척도"
@@ -962,13 +962,13 @@ msgid ""
 "with mouse"
 msgstr ""
 "마우스로\n"
-" 관찰치 확인하기"
+" 관찰치 식별하기"
 
 msgid "Spikes"
 msgstr "스파이크"
 
 msgid "Points"
-msgstr "포인트"
+msgstr "점"
 
 msgid "Histogram"
 msgstr "히스토그램"
@@ -1028,7 +1028,7 @@ msgid "Boxplot"
 msgstr "상자그림"
 
 msgid "Identify outliers with mouse"
-msgstr "이상치를 마우스로 확인하기"
+msgstr "마우스로 이상치 식별하기"
 
 msgid "Scatterplot"
 msgstr "산점도"
@@ -1040,7 +1040,7 @@ msgid "y-variable (pick one)"
 msgstr "y-변수 (하나 선택)"
 
 msgid "Identify points"
-msgstr "포인트 정보 확인하기"
+msgstr "점 식별하기"
 
 msgid "Jitter x-variable"
 msgstr "x-변수 조금씩 움직이기"
@@ -1137,7 +1137,7 @@ msgid "Label for y-axis"
 msgstr "y-축 이름표"
 
 msgid "Plot legend (position with mouse click)"
-msgstr "Plot legend (마우스 클릭으로 위치표시)"
+msgstr "범례 그리기 (마우스 눌러서 위치표시)"
 
 msgid "Quantile-Comparison (QQ) Plot"
 msgstr "분위수-비교 (QQ) 그림"
@@ -1156,7 +1156,7 @@ msgstr ""
 "양수가 되어야 합니다."
 
 msgid "Identify observations with mouse"
-msgstr "마우스로 관찰치 확인하기"
+msgstr "마우스로 관찰치 식별하기"
 
 msgid "Distribution"
 msgstr "분포"
@@ -1237,7 +1237,7 @@ msgid "Parallel regression surfaces"
 msgstr "Parallel regression surfaces"
 
 msgid "Show surface grid lines"
-msgstr "Show surface grid lines"
+msgstr "표면 그리드 선 보이기"
 
 msgid "Surfaces to Fit"
 msgstr "Surfaces to Fit"
@@ -1326,7 +1326,7 @@ msgid "Height (inches)"
 msgstr "높이 (인치)"
 
 msgid "Text size (points)"
-msgstr "글 크기 (포인트)"
+msgstr "글 크기 (점)"
 
 msgid "There is no current RGL graphics device to save."
 msgstr "저장할 RGL 그래픽 장치가 현재 없습니다."
@@ -1356,7 +1356,7 @@ msgid "Current Model:"
 msgstr "현재 모델:"
 
 msgid "Identify points with mouse?"
-msgstr "마우스로 포인트 정보를 확인할까요?"
+msgstr "마우스로 점 식별할까요?"
 
 msgid "There is no appropriate Anova method for a model of this class."
 msgstr "이 클래스의 모델을 위한 적절한 분산분석이 없습니다."
@@ -1372,7 +1372,7 @@ msgid "Add Observation Statistics to Data"
 msgstr "데이터에 관찰 통계 추가하기"
 
 msgid "Fitted values"
-msgstr "Fitted values"
+msgstr "적합 값"
 
 msgid "Residuals"
 msgstr "잔차"
@@ -1396,7 +1396,7 @@ msgid "Simulated confidence envelope"
 msgstr "Simulated confidence envelope"
 
 msgid "Identify points with mouse"
-msgstr "마우스로 포인트 정보 확인하기"
+msgstr "마우스로 점 식별하기"
 
 msgid "Test Linear Hypothesis"
 msgstr "선형 가설 검정하기"
@@ -1446,7 +1446,7 @@ msgid "Breusch-Pagan Test"
 msgstr "Breusch-Pagan 검정"
 
 msgid "Score Test for Nonconstant Error Variance"
-msgstr "비상수 오류 분산 점수 검정"
+msgstr "비상수 오차 분산 점수 검정"
 
 msgid "Studentized test statistic"
 msgstr "Studentized 검정 통계치"
@@ -1461,7 +1461,7 @@ msgid "Durbin-Waton Test"
 msgstr "Durbin-Waton 검정"
 
 msgid "Test for First-Order Error Autocorrelation"
-msgstr "First-Order 오차 자기상관 검정"
+msgstr "일차 오차 자기상관 검정"
 
 msgid "Alternative Hypothesis"
 msgstr "대립 가설"
@@ -1527,7 +1527,7 @@ msgid "The following packages used by Rcmdr are missing:"
 msgstr "Rcmdr에 의해 사용되는 다음의 패키지가 없습니다:"
 
 msgid "Without these packages, some features will not be available."
-msgstr "이 패키지들이 없이는, 일부 기능을 사용할 수 없습니다."
+msgstr "이 패키지가 없이는 일부 기능을 사용할 수 없습니다."
 
 msgid "Install these packages?"
 msgstr "이 패키지들을 설치할까요?"
@@ -2077,7 +2077,7 @@ msgid "Groups variable (pick one)"
 msgstr "집단 변수 (하나 선택)"
 
 msgid "Position legend with mouse click"
-msgstr "Position legend with mouse click"
+msgstr "마우스 누르기로 범례 위치정하기"
 
 msgid "<No groups selected>"
 msgstr "<집단이 선택되지 않음>"
@@ -2620,7 +2620,7 @@ msgid "Exponential Distribution"
 msgstr "지수 분포"
 
 msgid "Rate must be positive."
-msgstr "Rate must be positive."
+msgstr "비율은 양수(positive)이어야 합니다."
 
 msgid "Rate"
 msgstr "비율"
@@ -2644,10 +2644,10 @@ msgid "Shapes not specified."
 msgstr "모양이 지정되지 않음."
 
 msgid "Shapes must be positive."
-msgstr "Shapes must be positive."
+msgstr "모양(Shapes)은 양수이어야 합니다."
 
 msgid "Shape"
-msgstr "Shape"
+msgstr "모양(Shape)"
 
 msgid "Cauchy Distribution"
 msgstr "Cauchy 분포"
@@ -2680,7 +2680,7 @@ msgid "Shape not specified."
 msgstr "모양이 지정되지 않음."
 
 msgid "Shape must be positive."
-msgstr "Shape must be positive."
+msgstr "모양(Shape)은 양수이어야 합니다."
 
 msgid "Weibull Distribution"
 msgstr "Weibull 분포"
@@ -2959,7 +2959,7 @@ msgid "Sample from t distribution..."
 msgstr "t 분포의 표본"
 
 msgid "Sample from chi-squared distribution..."
-msgstr "chi제곱 분포의 표본"
+msgstr "chi-제곱 분포의 표본"
 
 msgid "Sample from F distribution..."
 msgstr "F 분포의 표본"
@@ -3174,7 +3174,7 @@ msgstr "이산 분포"
 # Xyplot dialog
 #
 msgid "XY Conditioning Plot"
-msgstr "XY Conditioning Plot"
+msgstr "XY 조건 그림"
 
 msgid "Response variables (pick one or more)"
 msgstr "반응 변수( 하나 이상 선택)"
@@ -3210,7 +3210,7 @@ msgid "At least one explanatory variable must be selected."
 msgstr "적어도 하나의 설명 변수가 선택되어야 합니다."
 
 msgid "XY conditioning plot..."
-msgstr "XY conditioning plot..."
+msgstr "XY 조건 그림..."
 
 # contingency tables dialog
 #
@@ -3348,20 +3348,20 @@ msgstr "활성 데이터셋의 누적 변수..."
 # miscelaneous
 #
 msgid "Identify Points"
-msgstr "포인트 정보 확인하기"
+msgstr "점 식별하기"
 
 msgid ""
 "Use left mouse button to identify points,\n"
 "right button to exit."
 msgstr ""
-"Use left mouse button to identify points,\n"
+"점을 식별하려면 마우스 왼쪽 버튼을 사용하시오,\n"
 "오른쪽 버튼으로 나가시오."
 
 msgid ""
 "Drag right mouse button to identify points,\n"
 "click right button to exit."
 msgstr ""
-"Drag right mouse button to identify points,\n"
+"점을 식별하려면 마우스 오른쪽 버튼을 끄시오,\n"
 "오른쪽 버튼을 눌러서 나가시오."
 
 msgid "Read Data From Text File or Clipboard"
@@ -3417,10 +3417,10 @@ msgid "Load Rcmdr plug-in(s)..."
 msgstr "Rcmdr 플러그인 탑재하기..."
 
 msgid "the plug-in package %s is missing"
-msgstr "the plug-in package %s is missing"
+msgstr "plug-in 패키지 %s이(가) 빠져 있습니다."
 
 msgid "the package %s is not an Rcmdr plug-in"
-msgstr "the package %s is not an Rcmdr plug-in"
+msgstr "패키지 %s은(는) Rcmdr plug-in이 아닙니다"
 
 msgid "unrecognized operation, \"%s\", in plugin menu line %i"
 msgstr "unrecognized operation, \"%s\", in plugin menu line %i"
@@ -3497,18 +3497,18 @@ msgstr "축-이름표 글 크기"
 # message added to version 1.3-3 (because of inadvertent omission)
 #
 msgid "Scale (inverse rate)"
-msgstr "Scale (inverse rate)"
+msgstr "척도 (inverse rate)"
 
 # messages added to version 1.3-5
 #
 msgid " has been coerced to a data frame"
-msgstr " has been coerced to a data frame"
+msgstr "은(는) 데이터 프레임으로 강제되었습니다"
 
 msgid "the dataset %s is no longer available"
-msgstr "%s 데이터셋을 더이상 이용할수 없습니다"
+msgstr "%s 데이터셋을 더이상 이용할 수 없습니다"
 
 msgid "the model %s is no longer available"
-msgstr "%s 모델을 더이상 이용할수 없습니다"
+msgstr "%s 모델을 더이상 이용할 수 없습니다"
 
 # message added to version 1.3-10
 msgid "The Commander GUI is launched only in interactive sessions"
@@ -3543,19 +3543,19 @@ msgid "There is no appropriate anova method for a model of this class."
 msgstr "이 클래스의 모델을 위한 적절한 분산분석이 없습니다."
 
 msgid "Duplicate menu names:"
-msgstr "메뉴 이름 복사하기:"
+msgstr "메뉴 이름 복제하기:"
 
 msgid "Strip chart..."
-msgstr "Strip chart..."
+msgstr "조각 도표(Strip chart)..."
 
 msgid "Strip Chart"
-msgstr "Strip Chart"
+msgstr "조각 도표(Strip Chart)"
 
 msgid "Factors (pick zero or more)"
 msgstr "요인 (선택 가능)"
 
 msgid "Duplicate Values"
-msgstr "값 복사하기"
+msgstr "값 복제하기"
 
 msgid "Stack"
 msgstr "누적"
@@ -3573,7 +3573,7 @@ msgid "No rows to remove"
 msgstr "제거할 열이 없음"
 
 msgid "Indices or quoted names of row(s) to remove"
-msgstr "Indices or quoted names of row(s) to remove"
+msgstr "제거할 색인 또는 인용된 열(row) 이름"
 
 msgid "Akaike Information Criterion (AIC)"
 msgstr "Akaike 정보량 기준 (AIC)"
@@ -3668,7 +3668,7 @@ msgid "Subset Model Selection"
 msgstr "하위 모델 선택"
 
 msgid "Criterion for Model Plot"
-msgstr "Criterion for Model Plot"
+msgstr "Model Plot 범주"
 
 msgid "Mallows Cp"
 msgstr "Mallows Cp"
@@ -3683,17 +3683,17 @@ msgid ""
 "Number of best models\n"
 "of each size:"
 msgstr ""
-"Number of best models\n"
-"of each size:"
+"각 크기에 관한\n"
+"최상의 모델 숫자:"
 
 msgid "Maximum size:"
 msgstr "최대 크기:"
 
 msgid "Merge data sets..."
-msgstr "데이터셋 병합..."
+msgstr "데이터셋 병합하기..."
 
 msgid "Merge Data Sets"
-msgstr "데이터셋 병합"
+msgstr "데이터셋 병합하기"
 
 msgid "First Data Set (pick one)"
 msgstr "첫째 데이터셋 (하나 선택)"
@@ -3720,8 +3720,8 @@ msgid ""
 "Merge only common\n"
 "rows or columns"
 msgstr ""
-"Merge only common\n"
-"rows or columns"
+"공통의 열(row) 또는\n"
+"행(column)만 병합하기"
 
 msgid "Aggregate variables in active data set..."
 msgstr "활성 데이터셋의 합계될 변수..."
@@ -3810,11 +3810,11 @@ msgid ""
 "Identify points with mouse?\n"
 "Right-click to exit."
 msgstr ""
-"마우스로 포인트 정보를 확인할까요?\n"
+"마우스로 점을 식별할까요?\n"
 "오른쪽을 눌러 나가시오."
 
 msgid "Use left mouse button to identify points,\n"
-msgstr "Use left mouse button to identify points,\n"
+msgstr "점을 식별하려면 마우스 왼쪽버튼을 사용하시오,\n"
 
 msgid "right button to exit."
 msgstr "오른쪽 버튼을 누르고 끝내기."
@@ -3973,7 +3973,7 @@ msgid "There are too many factors."
 msgstr "너무 많은 요인이 있습니다."
 
 msgid "Identifying Constraints"
-msgstr "Identifying Constraints"
+msgstr "제약 사항 식별하기"
 
 msgid "Factor variances set to 1"
 msgstr "요인 분산을 1로 고정하기"
@@ -3991,13 +3991,13 @@ msgid "No factors defined."
 msgstr "요인이 정의되지않음."
 
 msgid "Default-font size (points)"
-msgstr "기본-폰트 크기 (포인트)"
+msgstr "기본-폰트 크기 (점)"
 
 msgid "data set edit error."
-msgstr "데이터셋(이) 편집 오류."
+msgstr "데이터셋 편집 오류."
 
 msgid "Identify Outliers"
-msgstr "이상치를 마우스로 확인하기"
+msgstr "마우스로 이상치 식별하기"
 
 msgid "Automatically"
 msgstr "자동적으로"
@@ -4084,16 +4084,16 @@ msgid "Lines"
 msgstr "줄"
 
 msgid "Choose at least one of points or lines."
-msgstr "적어도 하나 이상의 포인트나 줄을 선택하시오."
+msgstr "적어도 하나 이상의 점 또는 선을 선택하시오."
 
 msgid "Plot Type (one or both)"
 msgstr "그림 유형(하나 또는 둘 모두)"
 
 msgid "Plot legend"
-msgstr "Plot legend"
+msgstr "범례 그리기"
 
 msgid "Conditions '|' (pick zero or more)"
-msgstr "조건 '|' (pick zero or more)"
+msgstr "Conditions ‘|’ (pick zero or more)"
 
 msgid "Groups 'groups=' (pick zero or more)"
 msgstr "집단 'groups=' (pick zero or more)"
@@ -4120,7 +4120,7 @@ msgid "Graph title"
 msgstr "그래프 제목"
 
 msgid "Plot Labels and Points"
-msgstr "그림 이름표와 포인트 정보"
+msgstr "그림 이름표와 점 정보"
 
 msgid "Apply"
 msgstr "적용하기"
@@ -4159,20 +4159,20 @@ msgid "Interactively with mouse"
 msgstr "마우스를 이용하여 쌍방향으로"
 
 msgid "Do not identify"
-msgstr "확인하지 마시오"
+msgstr "식별하지 마시오"
 
 msgid "number of points to identify must be an integer"
-msgstr "확인할 포인트 정보 숫자는 정수이어야 합니다"
+msgstr "식별할 점의 숫자는 정수이어야 합니다"
 
 msgid "Number of points to identify"
-msgstr "확인할 포인트 정보 숫자"
+msgstr "식별할 점의 숫자"
 
 msgid ""
 "Number of points to identify  \n"
 "in each panel and group "
 msgstr ""
 "각 패널과 집단에 있는 \n"
-"점(들)의 숫자를 확인하기"
+"점(들)의 숫자 식별하기"
 
 msgid "Added-Variable Plots"
 msgstr "추가-변수 그림"
@@ -4286,10 +4286,10 @@ msgid "Use rgl package"
 msgstr "rgl 패키지 사용하기"
 
 msgid "Dialog text font size (points)"
-msgstr "대화록 글 폰트 크기(포인트)"
+msgstr "대화록 글 폰트 크기(점)"
 
 msgid "Script and output font size (points)"
-msgstr "스크립트와 출력물 폰트 크기(포인트)"
+msgstr "스크립트와 출력물 폰트 크기(점)"
 
 msgid "Dialog font"
 msgstr "대화록 폰트"
@@ -4398,7 +4398,7 @@ msgid "cannot select more than one variable"
 msgstr "하나 이상의 변수를 선택할 수 없습니다"
 
 msgid "polynomial requires a numeric variable"
-msgstr "polynomial requires a numeric variable"
+msgstr "다항은 수치형 변수를 요구합니다"
 
 msgid "B-spline\n"
 msgstr "B-spline\n"
@@ -4428,14 +4428,14 @@ msgid "Model Formula"
 msgstr "모델 공식"
 
 msgid "Operators (click to formula):"
-msgstr "연산자 (공식화하려면 클릭하시오):"
+msgstr "연산자 (눌러서 공식만들기):"
 
 msgid ""
 "Splines/Polynomials:\n"
 "(select variable and click)"
 msgstr ""
-"Splines/Polynomials:\n"
-"(변수를 선택하고 클릭하시오)"
+"Splines/다항:\n"
+"(변수를 선택하고 누르시오)"
 
 msgid "df for splines:"
 msgstr "splines 자유도:"
@@ -4583,7 +4583,7 @@ msgstr ""
 "샌드위치 추정치 사용하기"
 
 msgid "sandwich covariance matrix unavailable with type I tests"
-msgstr "샌드위치 공분산 행렬은 타입 I 검정과 사용할 수 없음"
+msgstr "샌드위치 공분산 행렬은 유형 I 검정과 사용할 수 없음"
 
 # messages related to ttk theme selection
 msgid "non-existent theme"
@@ -4601,6 +4601,217 @@ msgid ""
 msgstr ""
 "모델 공식 \n"
 "도움말"
+
+# messages added for version 2.1-1
+# messages for the new dataset editor
+msgid "Data Editor"
+msgstr "데이터 편집기"
+
+msgid "Delete current row"
+msgstr "현재 열(row) 제거하기"
+
+msgid "Delete current column"
+msgstr "현재 행(column) 제거하기"
+
+msgid "Delete cell"
+msgstr "cell 제거하기"
+
+msgid "Cut cell"
+msgstr "cell 자르기"
+
+msgid "Copy cell"
+msgstr "cell 복사하기"
+
+msgid "Paste cell"
+msgstr "cell 붙이기"
+
+msgid "Exit and save"
+msgstr "나가기 그리고 저장하기"
+
+msgid "Add row"
+msgstr "열(row) 추가하기"
+
+msgid "Add column"
+msgstr "행(column) 추가하기"
+
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Mac OS X app nap for R.app 관리하기…"
+
+msgid "Mac OS X app nap for R.app"
+msgstr "Mac OS X app nap for R.app"
+
+msgid "Set app nap"
+msgstr "app nap 설정하기"
+
+msgid "off (recommended)"
+msgstr "끄기 (추천함)"
+
+msgid "on"
+msgstr "켜기"
+
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr "무작위 숫자 생성기 seed 설정하기…"
+
+msgid "Set Random Number Generator Seed"
+msgstr "무작위 숫자 생성기 Seed 설정하기"
+
+# messages added for version 2.2-0
+# messages that were inadvertently missing in previous versions
+msgid "The following variable names are not valid:\n"
+msgstr "다음의 변수 이름은 유효하지 않습니다:\n"
+
+msgid "Save R Markdown file?"
+msgstr "R Markdown 파일 저장하기?"
+
+msgid "Theme (pick one)"
+msgstr "Theme (하나 선택하기)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "Both or neither layout values must be numbers."
+
+msgid "ANOVA Table"
+msgstr "ANOVA 표"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr "이 등급의 모델에는 적절한 이상치검정(outlierTest) 방법이 없습니다."
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Shapiro-Wilk 정규성 검정"
+
+msgid "Hypothesis Test"
+msgstr "가설 검정"
+
+msgid "Load Plug-ins"
+msgstr "Plug-ins 탑재하기"
+
+# for report generation
+msgid "Generate report"
+msgstr "보고서 생성하기"
+
+msgid "Install Auxiliary Software"
+msgstr "보조 소프트웨어 설치하기"
+
+msgid "Install auxiliary software..."
+msgstr "보조 소프트웨어 설치하기..."
+
+msgid "(already installed)"
+msgstr "(이미 설치됨)"
+
+msgid "LaTeX"
+msgstr "LaTex"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "설치할 소프트웨어"
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+"보조 소프트웨어를 설치하기전에\n"
+"이 대화상자의 도움말을 읽어보시오."
+
+msgid "Select Output Format"
+msgstr "출력 형식 선택하기"
+
+msgid ".html (web page)"
+msgstr ".html(웹 페이지)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf(PDF 파일)"
+
+msgid ".docx (Word file)"
+msgstr ".docx(Word 파일)"
+
+msgid "HTML file written to:"
+msgstr "HTML file written to:"
+
+msgid "PDF file written to:"
+msgstr "PDF file written to:"
+
+msgid "Word file written to:"
+msgstr "Word file written to:"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+"타원의 수준은 공간 또는 쉼표(,)로 분리되는\n"
+"수치형 값이어야 합니다."
+
+msgid "Plot concentration ellipse(s)"
+msgstr "concentration ellipse(s) 그리기"
+
+msgid "Concentration levels: "
+msgstr "집중 수준:"
+
+msgid "Legend Position"
+msgstr "범례 위치"
+
+msgid "Above plot"
+msgstr "Above plot"
+
+msgid "Top left"
+msgstr "왼쪽 위"
+
+msgid "Top right"
+msgstr "오른쪽 위"
+
+msgid "Bottom left"
+msgstr "왼쪽 아래"
+
+msgid "Bottom right"
+msgstr "오른쪽 아래"
+
+# additions to bargraph dialog
+msgid "Style of Group Bars"
+msgstr "집단 막대 모양"
+
+msgid "Divided (stacked)"
+msgstr "분리된 (stacked)"
+
+msgid "Side-by-side (parallel)"
+msgstr "나란히 (병렬)"
+
+msgid "Position of Legend"
+msgstr "범례의 위치"
+
+msgid "Left"
+msgstr "왼쪽"
+
+msgid "Right"
+msgstr "오른쪽"
+
+msgid "plotting and grouping variables must be different"
+msgstr "plotting 그리고 grouping 변수는 달라야 합니다"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "점 그림"
+
+msgid "Bin variable"
+msgstr "구간(Bin) 변수"
+
+msgid "Dot plot..."
+msgstr "점 그림..."
+
+# for reading Excel files (new dialog)
+msgid "Convert character data to factors"
+msgstr "문자 데이터를 요인으로 변환하기"
+
+msgid "<empty cell>"
+msgstr "<비어있는 cell>"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
+msgstr "{“All Files” {“*”}} {“MS Excel file” {“.xlsx” “.XLSX” “.xls” “.XLS”}}"
 
 #~ msgid ""
 #~ "Project-Id-Version: Rcmdr 2.0-0\n"

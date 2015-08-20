@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr Japanese Translation\n"
 "POT-Creation-Date: 2010-07-10 19:00\n"
-"PO-Revision-Date: 2014-10-14 13:34+0900\n"
+"PO-Revision-Date: 2015-08-20 10:12+0900\n"
 "Last-Translator: Takaharu Araki <arakit@kansai-u.ac.jp>\n"
 "Language-Team: Rcmdr Japanese Translation <arakit@kansai-u.ac.jp>\n"
 "MIME-Version: 1.0\n"
@@ -1809,7 +1809,7 @@ msgid ""
 "There are %d variables in the data set %s.\n"
 "Do you want to proceed?"
 msgstr ""
-"There are %d variables in the data set %s.\n"
+"データセット %s には %d 変数があります．\n"
 "続けますか?"
 
 msgid "Numerical Summaries"
@@ -3436,9 +3436,6 @@ msgstr ""
 msgid "Shapiro-Wilk test of normality..."
 msgstr "シャピロ－ウィルクの正規性の検定..."
 
-msgid "Shapiro-Wilk Test for Normality"
-msgstr "シャピロ－ウィルクの正規性の検定"
-
 msgid "Ordinal regression model..."
 msgstr "順序回帰モデル..."
 
@@ -4698,3 +4695,160 @@ msgstr "乱数生成関数のシード..."
 
 msgid "Set Random Number Generator Seed"
 msgstr "乱数生成関数のシード"
+
+# messages added for version 2.2-0
+# messages that were inadvertently missing in previous versions
+msgid "The following variable names are not valid:\n"
+msgstr "次の変数名は有効ではありません:\n"
+
+msgid "Save R Markdown file?"
+msgstr "Rマークダウンファイルを保存しますか？"
+
+msgid "Theme (pick one)"
+msgstr "テーマ（1つ選択）"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "レイアウト値の両者とも数値か数値でない必要があります．"
+
+msgid "ANOVA Table"
+msgstr "分散分析表"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr "このクラスのモデルに対して適切な外れ値の検定はありません．"
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "シャピロ－ウィルクの正規性の検定"
+
+msgid "Hypothesis Test"
+msgstr "仮説検定"
+
+msgid "Load Plug-ins"
+msgstr "プラグインのロード"
+
+# for report generation
+msgid "Generate report"
+msgstr "レポートの生成"
+
+msgid "Install Auxiliary Software"
+msgstr "補助ソフトウェアのインストール"
+
+msgid "Install auxiliary software..."
+msgstr "補助ソフトウェアのインストール..."
+
+msgid "(already installed)"
+msgstr "(既にインストールされている)"
+
+msgid "LaTeX"
+msgstr "LaTeX"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "インストールするソフトウェア"
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+"ソフトウェアをインストールする前に\n"
+"このダイアログのヘルプを参照してください．"
+
+msgid "Select Output Format"
+msgstr "出力形式の選択"
+
+msgid ".html (web page)"
+msgstr ".html (ウェブページ)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (PDFファイル)"
+
+msgid ".docx (Word file)"
+msgstr ".docx (Wordファイル)"
+
+msgid "HTML file written to:"
+msgstr "HTMLファイルを書き込む:"
+
+msgid "PDF file written to:"
+msgstr "PDFファイルを書き込む:"
+
+msgid "Word file written to:"
+msgstr "Wordファイルを書き込む:"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+"楕円の集中度は数値\n"
+"（空白またはコンマで区切って）"
+
+msgid "Plot concentration ellipse(s)"
+msgstr "集中楕円のプロット"
+
+msgid "Concentration levels: "
+msgstr "集中度:"
+
+msgid "Legend Position"
+msgstr "凡例の位置"
+
+msgid "Above plot"
+msgstr "図の上"
+
+msgid "Top left"
+msgstr "左上"
+
+msgid "Top right"
+msgstr "右上"
+
+msgid "Bottom left"
+msgstr "左下"
+
+msgid "Bottom right"
+msgstr "右下"
+
+# additions to bargraph dialog
+msgid "Style of Group Bars"
+msgstr "グループ分けした棒のスタイル"
+
+msgid "Divided (stacked)"
+msgstr "分割（積み上げ）"
+
+msgid "Side-by-side (parallel)"
+msgstr "グループ化（並列）"
+
+msgid "Position of Legend"
+msgstr "凡例の位置"
+
+msgid "Left"
+msgstr "左"
+
+msgid "Right"
+msgstr "右"
+
+msgid "plotting and grouping variables must be different"
+msgstr "プロットする変数とグループ化の変数は異なる必要があります"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "ドットプロット"
+
+msgid "Bin variable"
+msgstr "ビンの変数"
+
+msgid "Dot plot..."
+msgstr "ドットプロット..."
+
+# for reading Excel files (new dialog)
+msgid "Convert character data to factors"
+msgstr "文字列を因子に変換"
+
+msgid "<empty cell>"
+msgstr "<空のセル>"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
+msgstr ""
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
