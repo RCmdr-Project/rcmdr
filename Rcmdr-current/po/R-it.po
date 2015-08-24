@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.0.0\n"
-"Report-Msgid-Bugs-To: bugs@r-project.org\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-08-19 12:30+0100\n"
+"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
+"POT-Creation-Date: 2015-08-07 14:30:00\n"
+"PO-Revision-Date: 2015-08-24 16:35+0100\n"
 "Last-Translator: Stefano Calza <stefano.calza@unibs.it>\n"
 "Language-Team: Italiano <stefano.calza@unibs.it>\n"
 "Language: it_IT\n"
@@ -12,18 +12,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 1.5.4\n"
-
-msgid ""
-"Project-Id-Version: Rcmdr 2.1-0\n"
-"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-08-11 17:00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: 8bit\n"
-msgstr ""
 
 msgid "KMeans Clustering"
 msgstr "Analisi dei cluster mediante k-means"
@@ -4509,21 +4497,6 @@ msgstr "Rappresenta back-to-back secondo:"
 msgid "Plot back-to-back by"
 msgstr "Rappresenta back-to-back secondo"
 
-# messages added for version 2.1-0
-msgid ""
-"the RcmdrMisc package is missing and should be installed\n"
-"  many features will not work"
-msgstr ""
-"il pacchetto RcmdrMisc non è presente e dovrebbe essere installato\n"
-"  molte funzionalità non funzioneranno"
-
-msgid ""
-"the car package is missing and should be installed\n"
-"  many features will not work"
-msgstr ""
-"il pacchetto car non è presente e dovrebbe essere installato\n"
-"  molte funzionalità non funzioneranno"
-
 #, fuzzy
 msgid "Standard Error of Mean"
 msgstr "Errori standard"
@@ -4656,3 +4629,236 @@ msgid ""
 "Model formula\n"
 "help"
 msgstr "Formula del modello"
+
+#, fuzzy
+msgid "Data Editor"
+msgstr "Esci dall'editor"
+
+msgid "Delete current row"
+msgstr "Cancella la riga corrente"
+
+msgid "Delete current column"
+msgstr "Cancella la colonna corrente"
+
+#, fuzzy
+msgid "Delete cell"
+msgstr "Cancella"
+
+msgid "Cut cell"
+msgstr "Taglia cella"
+
+#, fuzzy
+msgid "Copy cell"
+msgstr "Copia"
+
+#, fuzzy
+msgid "Paste cell"
+msgstr "Incolla"
+
+msgid "Exit and save"
+msgstr "Esci e salva"
+
+msgid "Add row"
+msgstr "Aggiungi riga"
+
+#, fuzzy
+msgid "Add column"
+msgstr "Unisci le colonne"
+
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Gestici app nap in Mac OS X per R.app"
+
+msgid "Mac OS X app nap for R.app"
+msgstr "Mac OS X app nap per R.app"
+
+msgid "Set app nap"
+msgstr "Imposta app nap"
+
+msgid "off (recommended)"
+msgstr "disattivato (raccomandato)"
+
+#, fuzzy
+msgid "on"
+msgstr "Nessuna/o"
+
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr "Imposta il seme per generatore di numeri casuali..."
+
+msgid "Set Random Number Generator Seed"
+msgstr "Imposta il seme per generatore di numeri casuali"
+
+#, fuzzy
+msgid "The following variable names are not valid:\n"
+msgstr "I seguenti nomi delle variabili non sono validi:"
+
+#, fuzzy
+msgid "Save R Markdown file?"
+msgstr "Salva il file di R Markdown..."
+
+#, fuzzy
+msgid "Theme (pick one)"
+msgstr "Modelli (selezionarne uno)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "I valori di layout devono essere o entrambi valori numerici o nessuno."
+
+#, fuzzy
+msgid "ANOVA Table"
+msgstr "Tabella dell'ANOVA"
+
+#, fuzzy
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr ""
+"Nessun metodo appropriato per il test degli outlier per un modello di questa "
+"classe."
+
+#, fuzzy
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Test di Normalità di Shapiro-Wilk"
+
+#, fuzzy
+msgid "Hypothesis Test"
+msgstr "Test d'ipotesi"
+
+#, fuzzy
+msgid "Load Plug-ins"
+msgstr "Carica plugins"
+
+#, fuzzy
+msgid "Generate report"
+msgstr "Genera report PDF"
+
+msgid "Install Auxiliary Software"
+msgstr "Installa Software Ausiliario"
+
+msgid "Install auxiliary software..."
+msgstr "Installa software ausiliario..."
+
+msgid "(already installed)"
+msgstr "(già installato)"
+
+msgid "LaTeX"
+msgstr "LaTeX"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "Software da installare"
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+"Si prega di leggere l'help per questo dialogo\n"
+" prima di installare software ausiliario."
+
+msgid "Select Output Format"
+msgstr "Selezionare il formato di output"
+
+msgid ".html (web page)"
+msgstr ".html (pagina web)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (file PDF)"
+
+msgid ".docx (Word file)"
+msgstr ".docx (file Word)"
+
+msgid "HTML file written to:"
+msgstr "File HTML scritto a:"
+
+msgid "PDF file written to:"
+msgstr "File PDF scritto a:"
+
+msgid "Word file written to:"
+msgstr "File di Word scritto a:"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+"I livelli per le ellissi devono essere dei valori numerici\n"
+" separati da spazi o virgole."
+
+#, fuzzy
+msgid "Plot concentration ellipse(s)"
+msgstr "Disegna l'ellissoide del 50% di concentrazione"
+
+msgid "Concentration levels: "
+msgstr "Livelli di concentrazione:"
+
+msgid "Legend Position"
+msgstr "Posizione della legenda"
+
+msgid "Above plot"
+msgstr "Sopra il grafico"
+
+msgid "Top left"
+msgstr "In alto a sinistra"
+
+msgid "Top right"
+msgstr "In alto a destra"
+
+msgid "Bottom left"
+msgstr "In basso a sinistra"
+
+msgid "Bottom right"
+msgstr "In basso a destra"
+
+# index plot dialog
+#, fuzzy
+msgid "Style of Group Bars"
+msgstr "Stile del grafico"
+
+msgid "Divided (stacked)"
+msgstr "Diviso (impilato)"
+
+msgid "Side-by-side (parallel)"
+msgstr "Affiancato (parallelo)"
+
+#, fuzzy
+msgid "Position of Legend"
+msgstr "Direzione dell'unione"
+
+msgid "Left"
+msgstr "Sinistra"
+
+#, fuzzy
+msgid "Right"
+msgstr "Altezza"
+
+#, fuzzy
+msgid "plotting and grouping variables must be different"
+msgstr "Le variabili x e y devono essere dverse"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "Diagramma di dispersione a punti (dot plot)"
+
+#, fuzzy
+msgid "Bin variable"
+msgstr "variabile"
+
+#, fuzzy
+msgid "Dot plot..."
+msgstr "Grafico a scatola e baffi..."
+
+#, fuzzy
+msgid "Convert character data to factors"
+msgstr "Converti variabili numeriche in fattori..."
+
+msgid "<empty cell>"
+msgstr "<cella vuota>"
+
+#, fuzzy
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
+msgstr ""
+"{\"Tutti i files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} "
+"{\"MS Excel file\" {\".xls\" \".XLS\"}}"

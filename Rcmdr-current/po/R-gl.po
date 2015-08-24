@@ -244,7 +244,7 @@ msgid "New Data Set"
 msgstr "Novo conxunto de datos"
 
 msgid "Dataset"
-msgstr "Conxunto de datos"
+msgstr "Conxunto_de_datos"
 
 msgid "You must enter the name of a data set."
 msgstr "Debe escribir o nome do conxunto de datos."
@@ -853,10 +853,10 @@ msgid "Output saved to"
 msgstr "Resultado gardado en"
 
 msgid "{\"Output Files\" {\".txt\"}} {\"All Files\" {\"*\"}}"
-msgstr "{«Ficheiros de resultado» {«.txt»}} {«Todos os ficheiros» {«*»}}"
+msgstr "{\"Ficheiros de resultado\" {\".txt\"}} {\"Todos os ficheiros\" {\"*\"}}"
 
 msgid "{\"All Files\" {\"*\"}}"
-msgstr "{«Todos os ficheiros» {«*»}}"
+msgstr "{\"Todos os ficheiros\" {\"*\"}}"
 
 msgid "R workspace saved to"
 msgstr "Espazo de traballo R gardado en"
@@ -2052,7 +2052,7 @@ msgstr ""
 "para un modelo desta clase."
 
 msgid "The model is not of class \"%s\"."
-msgstr "O modelo non é de clase «%s»."
+msgstr "O modelo non é de clase \"%s\"."
 
 msgid "Open script file..."
 msgstr "Abrir guión de execución..."
@@ -3359,10 +3359,10 @@ msgid "the package %s is not an Rcmdr plug-in"
 msgstr "o paquete %s non é un engadido do Rcmdr"
 
 msgid "unrecognized operation, \"%s\", in plugin menu line %i"
-msgstr "Operación non recoñecida, «%s», na liña %i do menú do engadido"
+msgstr "Operación non recoñecida, \"%s\", na liña %i do menú do engadido"
 
 msgid "unrecognized type, \"%s\", in plugin menu line %i"
-msgstr "Tipo non recoñecido «%s», na liña %i do menú do engadido"
+msgstr "Tipo non recoñecido \"%s\", na liña %i do menú do engadido"
 
 # miscelaneous additions
 # miscelaneous additions
@@ -3383,8 +3383,8 @@ msgstr "Cargar o conxunto de datos..."
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{«Ficheiros da datos de R» {«.rda» «.Rda» «.RDA»}} {«Todos os ficheiros» "
-"{«*»}}"
+"{\"Ficheiros da datos de R\" {\".rda\" \".Rda\" \".RDA\"}} {\"Todos os ficheiros\" "
+"{\"*\"}}"
 
 msgid "Shapiro-Wilk test of normality..."
 msgstr "Test de normalidade de Shapiro-Wilk..."
@@ -3484,7 +3484,7 @@ msgid "Type of Tests"
 msgstr "Tipo de tests"
 
 msgid "Sequential (\"Type I\")"
-msgstr "Secuencial («Tipo I»)"
+msgstr "Secuencial (\"Tipo I\")"
 
 msgid "Partial obeying marginality (\"Type II\")"
 msgstr "Parcial considerando a marxinalidade (\"Tipo II\")"
@@ -3717,8 +3717,8 @@ msgstr "Nome do conxunto de datos agregado:"
 #     miscellaneous 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{«Ficheiros de datos de R» {«.rda» «.Rda» «.RDA» «.RData»}} {«Todos os "
-"ficheiros» {«*»}}"
+"{\"Ficheiros de datos de R\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Todos os "
+"ficheiros\" {\"*\"}}"
 
 msgid "No data set selected."
 msgstr "Non hai ningún conxunto de datos seleccionado."
@@ -3783,60 +3783,60 @@ msgstr "Iniciar o sistema de axuda de R"
 # messages added to version 1.6-4 
 #  to correct order of file extensions
 msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
-msgstr "{«Todos os ficheiros» {«*»}} {«Ficheiros de guión de execución» {«.R»}}"
+msgstr "{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros de guión de execución\" {\".R\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
-msgstr "{«Todos os ficheiros» {«*»}} {«Ficheiros de resultado» {«.txt»}}"
+msgstr "{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros de resultado\" {\".txt\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
 msgstr ""
-"{«Todos os ficheiros» {«*»}} {«Ficheiros de texto» {«.txt» «.TXT» «.dat» "
-"«.DAT» «.csv» «.CSV»}}"
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros de texto\" {\".txt\" \".TXT\" \".dat\" "
+"\".DAT\" \".csv\" \".CSV\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
 msgstr ""
-"{«Todos os ficheiros» {«*»}} {«Ficheiros portábeis de SPSS» {«.por» «.POR»}} "
-"{«Ficheiros gardados de SPSS» {«.sav» «.SAV»}}"
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros portábeis de SPSS\" {\".por\" \".POR\"}} "
+"{\"Ficheiros gardados de SPSS\" {\".sav\" \".SAV\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
 msgstr ""
-"{«Todos os ficheiros» {«*»}} {«Ficheiros portábeis de Minitab» {«.mtp» "
-"«.MTP»}}"
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros portábeis de Minitab\" {\".mtp\" "
+"\".MTP\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 msgstr ""
-"{«Todos os ficheiros» {«*»}} {«Conxunto de datos STATA» {«.dta» «.DTA»}}"
+"{\"Todos os ficheiros\" {\"*\"}} {\"Conxunto de datos STATA\" {\".dta\" \".DTA\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{«Todos os ficheiros» {«*»}} {«Base de datos MS Access» {«.mdb» «.MDB»}} "
-"{«Base de datos MS Access 2007» {«.accdb» «.ACCDB»}} {«Ficheiro tipo dBase» "
-"{«.dbf» «.DBF»}} {«Ficheiro de MS Excel 2007» {«.xlsx» «.XLSX»}} {«Ficheiro "
-"de MS Excel» {«.xls» «.XLS»}}"
+"{\"Todos os ficheiros\" {\"*\"}} {\"Base de datos MS Access\" {\".mdb\" \".MDB\"}} "
+"{\"Base de datos MS Access 2007\" {\".accdb\" \".ACCDB\"}} {\"Ficheiro tipo dBase\" "
+"{\".dbf\" \".DBF\"}} {\"Ficheiro de MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"Ficheiro "
+"de MS Excel\" {\".xls\" \".XLS\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
 msgstr ""
-"{«Todos os ficheiros» {«*»}} {«Ficheiros de datos de R» {«.RData» «.rda» "
-"«.Rda» «.RDA»}}"
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros de datos de R\" {\".RData\" \".rda\" "
+"\".Rda\" \".RDA\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
-msgstr "{«Todos os ficheiros» {«*»}} {«Ficheiros PNG» {«.png» «.PNG»}}"
+msgstr "{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros PNG\" {\".png\" \".PNG\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
 msgstr ""
-"{«Todos os ficheiros» {«*»}} {«Ficheiros JPEG» {«.jpg» «.JPG» «.jpeg» "
-"«.JPEG»}}"
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros JPEG\" {\".jpg\" \".JPG\" \".jpeg\" "
+"\".JPEG\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
-msgstr "{«Todos os ficheiros» {«*»}} {«Ficheiros PDF» {«.pdf» «.PDF»}}"
+msgstr "{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros PDF\" {\".pdf\" \".PDF\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
-msgstr "{«Todos os ficheiros» {«*»}} {«Ficheiros Postscript» {«.ps» «.PS»}}"
+msgstr "{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros Postscript\" {\".ps\" \".PS\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
 msgstr ""
-"{«Todos os ficheiros» {«*»}} {«Ficheiros encapsulados de Postscript» {«.eps» "
-"«.EPS»}}"
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros encapsulados de Postscript\" {\".eps\" "
+"\".EPS\"}}"
 
 # messages added to version 1.7-0
 msgid "Reset"
@@ -3998,8 +3998,8 @@ msgstr "Conxuntos de datos en ficheiro (tomar un)"
 
 msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
 msgstr ""
-"{«Todos os ficheiros» {«*»}} {«ficheiros de exportación SAS» {«.xpt» «.XPT» "
-"«.xport» «.XPORT»}}"
+"{\"Todos os ficheiros\" {\"*\"}} {\"ficheiros de exportación SAS\" {\".xpt\" \".XPT\" "
+"\".xport\" \".XPORT\"}}"
 
 msgid "Convert variable names\nto lower case"
 msgstr ""
@@ -4014,8 +4014,8 @@ msgstr "Importar conxunto de datos Excel"
 
 msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{«Todos os ficheiros» {«*»}} {«Ficheiro de MS Excel 2007» {«.xlsx» «.XLSX»}} "
-"{«Ficheiro de MS Excel» {«.xls» «.XLS»}}"
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiro de MS Excel 2007\" {\".xlsx\" \".XLSX\"}} "
+"{\"Ficheiro de MS Excel\" {\".xls\" \".XLS\"}}"
 
 msgid "Interquartile Range"
 msgstr "Rango intercuartílico"
@@ -4176,12 +4176,12 @@ msgstr "Gardouse o ficheiro knitr en"
 
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
 msgstr ""
-"{«Todos os ficheiros» {«*»}} {«Ficheiros de Markdown de R» {«.Rmd» «.rmd»}}"
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros de Markdown de R\" {\".Rmd\" \".rmd\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
 msgstr ""
-"{«Todos os ficheiros» {«*»}} {«Ficheiros de knitr» {«.Rmd» «.rmd» «.Snw» "
-"«.snw»}}"
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros de knitr\" {\".Rmd\" \".rmd\" \".Snw\" "
+"\".snw\"}}"
 
 msgid "Delete previously created knitr\ngraphics files (recommended)?"
 msgstr ""
@@ -4566,7 +4566,7 @@ msgstr "Cortar cela"
 msgid "Copy cell"
 msgstr "Copiar cela"
 
-msgid ""Paste cell"
+msgid "Paste cell"
 msgstr ""
 
 msgid "Exit and save"
