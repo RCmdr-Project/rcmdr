@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr-pl 2.1-2\n"
+"Project-Id-Version: Rcmdr-pl 2.2-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-09-01 20:30:00\n"
+"POT-Creation-Date: 2015-08-07 14:30:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
 "Language-Team: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-SourceCharset: iso-8859-1\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.5.4\n"
 
 msgid "KMeans Clustering"
 msgstr "Grupowanie metodą k-średnich"
@@ -4676,17 +4676,182 @@ msgstr "Dodaj wiersz"
 msgid "Add column"
 msgstr "Dodaj kolumnę"
 
-# messages added for version 2.1-0
-#~ msgid ""
-#~ "the RcmdrMisc package is missing and should be installed\n"
-#~ "  many features will not work"
-#~ msgstr ""
-#~ "brakuje pakietu 'RcmdrMisc', który powinien być zainstalowany\n"
-#~ "  wiele funkcjonalności nie będzie działało"
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Zarządzaj app nap (Mac OS X) dla R.app..."
 
-#~ msgid ""
-#~ "the car package is missing and should be installed\n"
-#~ "  many features will not work"
-#~ msgstr ""
-#~ "brakuje pakietu 'car', który powinien być zainstalowany\n"
-#~ "  wiele funkcjonalności nie będzie działało"
+msgid "Mac OS X app nap for R.app"
+msgstr "App nap (Mac OS X) dla R.app"
+
+msgid "Set app nap"
+msgstr "Ustaw app nap"
+
+msgid "off (recommended)"
+msgstr "wył. (zalecane)"
+
+msgid "on"
+msgstr "wł."
+
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr "Ustaw ziarno generatora liczb losowych..."
+
+msgid "Set Random Number Generator Seed"
+msgstr "Ustaw ziarno generatora liczb losowych"
+
+msgid "The following variable names are not valid:\n"
+msgstr "Poniższe nazwy zmiennych nie są poprawne:\n"
+
+msgid "Save R Markdown file?"
+msgstr "Zapisać plik R Markdown?"
+
+msgid "Theme (pick one)"
+msgstr "Motyw (wybierz jeden)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "Albo obie, albo żadna z wartości nie może być liczbą."
+
+msgid "ANOVA Table"
+msgstr "Tablica ANOVA"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr ""
+"Brak odpowiedniej metody testu wartości oddalonych dla modelu tej klasy."
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Test Shapiro-Wilka normalności"
+
+msgid "Hypothesis Test"
+msgstr "Test hipotezy"
+
+#  messages added to Rcmdr version 1.3-0
+# handling plug-ins
+msgid "Load Plug-ins"
+msgstr "Załaduj wtyczki"
+
+msgid "Generate report"
+msgstr "Generuj raport"
+
+msgid "Install Auxiliary Software"
+msgstr "Zainstaluj dodatkowe oprogramowanie"
+
+msgid "Install auxiliary software..."
+msgstr "Zainstaluj dodatkowe oprogramowanie..."
+
+msgid "(already installed)"
+msgstr "(już zainstalowane)"
+
+msgid "LaTeX"
+msgstr "LaTeX"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "Oprogramowanie do instalacji"
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+"Proszę przeczytać plik pomocy\n"
+"przed instalowaniem dodatkowego oprogramowania."
+
+msgid "Select Output Format"
+msgstr "Wybierz format wyjściowy"
+
+msgid ".html (web page)"
+msgstr ".html (strona www)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (plik PDF)"
+
+msgid ".docx (Word file)"
+msgstr ".docx (plik Word)"
+
+msgid "HTML file written to:"
+msgstr "Plik HTML zapisany w:"
+
+msgid "PDF file written to:"
+msgstr "Plik PDF zapisany w:"
+
+msgid "Word file written to:"
+msgstr "Plik Word zapisany w:"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+"Poziomy dla elips muszą być liczbami\n"
+" rozdzielonymi spacjami lub przecinkami"
+
+msgid "Plot concentration ellipse(s)"
+msgstr "Wykres elipsoid koncentracji"
+
+msgid "Concentration levels: "
+msgstr "Poziomy koncentracji"
+
+msgid "Legend Position"
+msgstr "Położenie legendy"
+
+msgid "Above plot"
+msgstr "Nad wykresem"
+
+msgid "Top left"
+msgstr "Górny lewy róg"
+
+msgid "Top right"
+msgstr "Górny prawy róg"
+
+msgid "Bottom left"
+msgstr "Dolny lewy róg"
+
+msgid "Bottom right"
+msgstr "Dolny prawy róg"
+
+# index plot dialog
+msgid "Style of Group Bars"
+msgstr "Styl paska grup"
+
+msgid "Divided (stacked)"
+msgstr "Podzielone (ułożone)"
+
+msgid "Side-by-side (parallel)"
+msgstr "Obok siebie (równolegle)"
+
+msgid "Position of Legend"
+msgstr "Położenie legendy"
+
+msgid "Left"
+msgstr "Po lewej"
+
+msgid "Right"
+msgstr "Po prawej"
+
+msgid "plotting and grouping variables must be different"
+msgstr "zmienne wykresu oraz grupowania muszą być różne"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "Wykres punktowy"
+
+msgid "Bin variable"
+msgstr "Zmienna przedziału"
+
+msgid "Dot plot..."
+msgstr "Wykres punktowy..."
+
+msgid "Convert character data to factors"
+msgstr "Konwertuj zmienne numeryczne na czynniki"
+
+msgid "<empty cell>"
+msgstr "<pusta komórka>"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
+msgstr ""
+"{\"Wszystkie pliki\" {\"*\"}} {\"plik MS Excel\" {\".xlsx\" \".XLSX\" \".xls"
+"\" \".XLS\"}}"
