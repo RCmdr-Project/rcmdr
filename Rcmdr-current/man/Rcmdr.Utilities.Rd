@@ -248,7 +248,7 @@ MarkdownP()
 mavericksP()
 Message(message, type=c("note", "error", "warning"))
 MessagesWindow()
-modelFormula(frame=top, hasLhs=TRUE)  # macro
+modelFormula(frame=top, hasLhs=TRUE, rhsExtras=NULL)  # macro
 modelsP(n=1)
 multinomP()
 Numeric(names)
@@ -434,6 +434,9 @@ commanderPosition()
   \item{resettable}{should dialog state be reset when the data set changes? The default is 
   code{TRUE}.}
   \item{resizable}{should the dialog be resizable by the user? The default is \code{FALSE}.}
+  \item{rhsExtras}{show controls for splines and polynomials for a model formula; for backwards
+    compatibility, defaults to \code{TRUE} for a two-sided formula and \code{FALSE} for a
+    one-sided formula.}
   \item{right.buttons}{radio button placed to right of button-labels; defaults to \code{FALSE}.}
   \item{rmd}{enter the command in the R Markdown tab.}
   \item{rows, columns}{numbers of rows and columns of widgets in the dialog box; this is actually no longer used, but

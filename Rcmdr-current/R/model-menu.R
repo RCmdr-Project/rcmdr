@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2015-02-03 by J. Fox
+# last modified 2015-08-27 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -723,7 +723,7 @@ BreuschPaganTest <- function () {
                                                                                                          "Explanatory variables", "Other (specify)")), title = gettextRcmdr("Variance Formula"), 
                  initialValue = dialog.values$initial.var)
     tkgrid(varFrame, sticky = "w")
-    modelFormula(optionsFrame, hasLhs = FALSE)
+    modelFormula(optionsFrame, hasLhs = FALSE, rhsExtras=TRUE)
     tkgrid(formulaFrame, sticky = "w")
     tkgrid(outerOperatorsFrame)
     tkgrid(getFrame(xBox), sticky = "w")
