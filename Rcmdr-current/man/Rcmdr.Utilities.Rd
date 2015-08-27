@@ -248,7 +248,8 @@ MarkdownP()
 mavericksP()
 Message(message, type=c("note", "error", "warning"))
 MessagesWindow()
-modelFormula(frame=top, hasLhs=TRUE, rhsExtras=NULL)  # macro
+modelFormula(frame=top, hasLhs=TRUE, rhsExtras=NULL,
+    formulaLabel=gettextRcmdr("Model Formula"))  # macro
 modelsP(n=1)
 multinomP()
 Numeric(names)
@@ -369,6 +370,7 @@ commanderPosition()
     is closed; overrides the \pkg{Rcmdr} \code{tkwait.dialog} option (see \code{\link{Commander}})
     if the latter is set to \code{FALSE} (its default). The \code{force.wait} argument should be set to \code{TRUE} for
     subdialogs.}
+  \item{formulaLabel}{text label printed above the formula widget.}
   \item{frame}{frame or quoted name for frame depending upon the function.}
   \item{generic}{quoted name of generic function.}
   \item{glm}{\code{TRUE} if the model is a \code{glm} object, \code{FALSE} otherwise.}

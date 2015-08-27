@@ -1129,7 +1129,8 @@ groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialTex
         tkbind(groupsBox$listbox, "<ButtonRelease-1>", onSelect)
     })
 
-modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, expr={
+modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=gettextRcmdr("Model Formula"),
+                         expr={
   .rhsExtras <- if (is.null(rhsExtras)) hasLhs else rhsExtras
   checkAddOperator <- function(rhs){
     rhs.chars <- rev(strsplit(rhs, "")[[1]])
@@ -1420,6 +1421,9 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, expr={
   }
   else{
     if (.rhsExtras){
+      tkgrid(labelRcmdr(outerOperatorsFrame, text=formulaLabel, 
+                        fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+      tkgrid(labelRcmdr(outerOperatorsFrame, text="Operators (click to formula):  "), operatorsFrame, sticky="nw")
       tkgrid(bsplineButton, nsplineButton, polyButton, RawPolyButton, sticky="nw")
       tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Splines/Polynomials:\n(select variable and click)")), 
              splinePolyFrame, dfDegFrame, sticky="nw")

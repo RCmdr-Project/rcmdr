@@ -723,7 +723,7 @@ BreuschPaganTest <- function () {
                                                                                                          "Explanatory variables", "Other (specify)")), title = gettextRcmdr("Variance Formula"), 
                  initialValue = dialog.values$initial.var)
     tkgrid(varFrame, sticky = "w")
-    modelFormula(optionsFrame, hasLhs = FALSE, rhsExtras=TRUE)
+    modelFormula(optionsFrame, hasLhs = FALSE, rhsExtras=TRUE, formulaLabel="")
     tkgrid(formulaFrame, sticky = "w")
     tkgrid(outerOperatorsFrame)
     tkgrid(getFrame(xBox), sticky = "w")
