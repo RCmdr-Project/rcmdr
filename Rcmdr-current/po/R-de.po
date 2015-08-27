@@ -1,15 +1,15 @@
 # German translations for the Rcmdr package
 # Deutsche Übersetzung für das Rcmdr Paket
-# Copyright (C) 2005-2013 John Fox et al
+# Copyright (C) 2005-2015 John Fox et al
 # This file is distributed under the same license as the Rcmdr package
 # Gerhard Schön <gerhard.schoen@berlin.de>, 2007
-# Friedrich.Leisch <Friedrich.Leisch@R-project.org>, 2013-2014
+# Friedrich.Leisch <Friedrich.Leisch@R-project.org>, 2013-2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.0-1\n"
+"Project-Id-Version: Rcmdr 2.2-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-08-14 12:23+0200\n"
+"POT-Creation-Date: 2015-08-25 11:07+0200\n"
+"PO-Revision-Date: 2015-08-27 13:26+0200\n"
 "Last-Translator: Friedrich Leisch <Friedrich.Leisch@R-project.org>\n"
 "Language-Team: Austrian\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.3\n"
 
 msgid "KMeans Clustering"
 msgstr "K-Means Clusteranalyse"
@@ -35,7 +35,7 @@ msgid "Number of clusters:"
 msgstr "Anzahl der Cluster:"
 
 msgid "Number of starting seeds:"
-msgstr "Anzahl der Start-Zufallszahlen:"
+msgstr "Anzahl der Zufallsstarts:"
 
 msgid "Maximum iterations:"
 msgstr "Maximale Iterationen:"
@@ -54,7 +54,7 @@ msgstr ""
 "Datenmatrix speichern"
 
 msgid "Assignment variable:"
-msgstr "Name der Variable mit Clusterzugehörigkeit"
+msgstr "Name der Variable mit Clusterzugehörigkeit:"
 
 msgid "Hierarchical Clustering"
 msgstr "Hierarchisches Clustern"
@@ -96,7 +96,7 @@ msgid "No Transformation"
 msgstr "Keine Transformation"
 
 msgid "Distance Measure"
-msgstr "Distanzfunktion"
+msgstr "Distanzmaß"
 
 msgid "Clustering solution name:"
 msgstr "Name der Cluster-Lösung:"
@@ -1726,7 +1726,7 @@ msgid "You must select at least one factor."
 msgstr "Mehrfaktorielle Varianzanalyse"
 
 msgid "Linear Regression"
-msgstr "Lineare Einfachregression"
+msgstr "Lineare Regression"
 
 msgid "Explanatory variables (pick one or more)"
 msgstr "Unabhängige Variablen (eine oder mehrere auswählen)"
@@ -2139,10 +2139,10 @@ msgid "Save output as..."
 msgstr "Ausgabedatei speichern unter ..."
 
 msgid "Save R workspace..."
-msgstr "Datendatei speichern ..."
+msgstr "Workspace speichern ..."
 
 msgid "Save R workspace as..."
-msgstr "Datendatei speichern unter ..."
+msgstr "Workspace speichern unter ..."
 
 msgid "From Commander"
 msgstr "des Commanders"
@@ -2368,7 +2368,7 @@ msgstr "Dimensionsreduktion und Klassifizieren "
 
 # war so übersetzt
 msgid "Fit models"
-msgstr "Fitte Modelle"
+msgstr "Modelle anpassen"
 
 msgid "Index plot..."
 msgstr "Index-Plot ..."
@@ -3558,10 +3558,10 @@ msgid "Duplicate menu names:"
 msgstr "Dupliziere Menünamen:"
 
 msgid "Strip chart..."
-msgstr "Punktediagramm ..."
+msgstr "Strip chart ..."
 
 msgid "Strip Chart"
-msgstr "Punktediagramm"
+msgstr "Strip Chart"
 
 msgid "Factors (pick zero or more)"
 msgstr "Faktoren (0 oder mehr)"
@@ -4099,7 +4099,7 @@ msgid "Interquartile range"
 msgstr "Interquartilsabstand"
 
 msgid "Lines"
-msgstr "Zeilen"
+msgstr "Linien"
 
 msgid "Choose at least one of points or lines."
 msgstr "Wähle zumindest eines von Punkten oder Linien."
@@ -4508,21 +4508,6 @@ msgstr "Rücken an Rücken mit:"
 msgid "Plot back-to-back by"
 msgstr "Rücken an Rücken mit"
 
-# messages added for version 2.1-0
-msgid ""
-"the RcmdrMisc package is missing and should be installed\n"
-"  many features will not work"
-msgstr ""
-"Das Paket RcmdrMisc ist nicht vorhanden und sollte installiert werden,\n"
-"viele Features funktionieren nicht."
-
-msgid ""
-"the car package is missing and should be installed\n"
-"  many features will not work"
-msgstr ""
-"Das Paket car ist nicht vorhanden und sollte installiert werden,\n"
-"viele Features funktionieren nicht."
-
 msgid "Standard Error of Mean"
 msgstr "Standardfehler des Mittel"
 
@@ -4639,3 +4624,228 @@ msgid ""
 msgstr ""
 "Modellgleichung\n"
 "Hilfe"
+
+msgid "Data Editor"
+msgstr "Daten Editor"
+
+msgid "Delete current row"
+msgstr "Aktuelle Zeile löschen"
+
+msgid "Delete current column"
+msgstr "Aktuelle Spalte löschen"
+
+msgid "Delete cell"
+msgstr "Zelle löschen"
+
+msgid "Cut cell"
+msgstr "Zelle ausschneiden"
+
+msgid "Copy cell"
+msgstr "Zelle kopieren"
+
+msgid "Paste cell"
+msgstr "Zelle einfügen"
+
+msgid "Exit and save"
+msgstr "Speichern und beenden"
+
+msgid "Add row"
+msgstr "Zeile hinzufügen"
+
+msgid "Add column"
+msgstr "Spalte hinzufügen"
+
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Mac OS X app napp für R.app managen..."
+
+msgid "Mac OS X app nap for R.app"
+msgstr "Mac OS X app nap für R.app"
+
+msgid "Set app nap"
+msgstr "Setze app nap"
+
+msgid "off (recommended)"
+msgstr "aus (empfohlen)"
+
+msgid "on"
+msgstr "an"
+
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr "Setze Seed des Zufallszahlengenerators..."
+
+msgid "Set Random Number Generator Seed"
+msgstr "Setze Seed des Zufallszahlengenerators"
+
+msgid "The following variable names are not valid:\n"
+msgstr "Der folgende Variablenname ist ungültig:\n"
+
+msgid "Save R Markdown file?"
+msgstr "R Markdown Datei speichern?"
+
+msgid "Theme (pick one)"
+msgstr "Theme (eines auswählen)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "Beide oder keine der Layoutvariablen müssen Zahlen sein."
+
+msgid "ANOVA Table"
+msgstr "ANOVA Tabelle"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr ""
+"Es gibt keine geeignete Ausreißertest-Methode für ein Modell dieser Klasse."
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Shapiro-Wilk-Test auf Normalverteilung"
+
+msgid "Hypothesis Test"
+msgstr "Hypothesentest"
+
+# # messages added to Rcmdr version 1.3-0
+# handling plug-ins
+msgid "Load Plug-ins"
+msgstr "Lade Plugins"
+
+msgid "Generate report"
+msgstr "Erstelle Bericht"
+
+msgid "Install Auxiliary Software"
+msgstr "Installiere Zusatzsoftware"
+
+msgid "Install auxiliary software..."
+msgstr "Installiere Zusatzsoftware..."
+
+msgid "(already installed)"
+msgstr "(bereits installiert)"
+
+msgid "LaTeX"
+msgstr "LaTeX"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "Zu installierende Software"
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+"Bitte lesen Sie die Hilfeseite für dieses Menü\n"
+"bevor Sie Zusatzsoftware installieren."
+
+msgid "Select Output Format"
+msgstr "Wähle Ausgabeformat"
+
+msgid ".html (web page)"
+msgstr ".html (Webseite)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (PDF Datei)"
+
+msgid ".docx (Word file)"
+msgstr ".docx (Word Datei)"
+
+msgid "HTML file written to:"
+msgstr "HTML Datei geschrieben nach:"
+
+msgid "PDF file written to:"
+msgstr "PDF Datei geschrieben nach:"
+
+msgid "Word file written to:"
+msgstr "Word Datei geschrieben nach:"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+"Levels für Ellipsen müssen Zahlen\n"
+"getrennt durch Leerzeichen oder Kommas sein."
+
+msgid "Plot concentration ellipse(s)"
+msgstr "Zeichne Ellipsen"
+
+msgid "Concentration levels: "
+msgstr "Concentration levels: "
+
+msgid "Legend Position"
+msgstr "Position der Legende"
+
+msgid "Above plot"
+msgstr "Uber Plot"
+
+msgid "Top left"
+msgstr "Oben links"
+
+msgid "Top right"
+msgstr "Oben rechts"
+
+msgid "Bottom left"
+msgstr "Unten links"
+
+msgid "Bottom right"
+msgstr "Unten rechts"
+
+# index plot dialog
+msgid "Style of Group Bars"
+msgstr "Art der Balkengrafik"
+
+msgid "Divided (stacked)"
+msgstr "Gestapelt"
+
+msgid "Side-by-side (parallel)"
+msgstr "Parallel nebeneinander"
+
+msgid "Position of Legend"
+msgstr "Position der Legende"
+
+msgid "Left"
+msgstr "Links"
+
+msgid "Right"
+msgstr "Rechts"
+
+msgid "plotting and grouping variables must be different"
+msgstr "Plot- und Gruppierungsvariablen müssen unterschiedlich sein"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "Dot Plot"
+
+msgid "Bin variable"
+msgstr "Variable klassieren"
+
+msgid "Dot plot..."
+msgstr "Dot Plot ..."
+
+msgid "Convert character data to factors"
+msgstr "Konvertiere Zeichen-Variablen in Faktoren"
+
+msgid "<empty cell>"
+msgstr "<leere Zelle>"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
+msgstr ""
+"{\"Alle Dateien\" {\"*\"}} {\"MS Excel Datei\" {\".xlsx\" \".XLSX\" \".xls\" "
+"\".XLS\"}}"
+
+# messages added for version 2.1-0
+#~ msgid ""
+#~ "the RcmdrMisc package is missing and should be installed\n"
+#~ "  many features will not work"
+#~ msgstr ""
+#~ "Das Paket RcmdrMisc ist nicht vorhanden und sollte installiert werden,\n"
+#~ "viele Features funktionieren nicht."
+
+#~ msgid ""
+#~ "the car package is missing and should be installed\n"
+#~ "  many features will not work"
+#~ msgstr ""
+#~ "Das Paket car ist nicht vorhanden und sollte installiert werden,\n"
+#~ "viele Features funktionieren nicht."
