@@ -2,16 +2,16 @@
 # Traducerea in limba romana a pachetului Rcmdr
 # Copyright (C) 2005 John Fox
 # This file is distributed under the same license as the Rcmdr package
-# Adrian Dusa <dusa.adrian@gmail.com>, 2014
+# Adrian Dusa <dusa.adrian@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.1-0\n"
+"Project-Id-Version: Rcmdr 2.2-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-08-11 17:00:00\n"
-"PO-Revision-Date: 2014-08-21 10:50+0200\n"
+"POT-Creation-Date: 2015-08-07 14:30:00\n"
+"PO-Revision-Date: 2015-08-31 12:30:00+0200\n"
 "Last-Translator: Adrian Dusa <dusa.adrian@gmail.com>\n"
-"Language: Romanian\n"
 "Language-Team: Romanian <dusa.adrian@gmail.com>\n"
+"Language: Romanian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4435,3 +4435,219 @@ msgstr "Repornire R Commander"
 
 msgid "Model formula\nhelp"
 msgstr "Formula model\najutor"
+
+
+# messages added for version 2.1-1
+
+  # messages for the new dataset editor
+
+msgid "Data Editor"
+msgstr "Editor de date"
+
+msgid "Delete current row"
+msgstr "Sterge linia"
+
+msgid "Delete current column"
+msgstr "Sterge coloana"
+
+msgid "Delete cell"
+msgstr "Sterge celula"
+
+msgid "Cut cell"
+msgstr "Decupeaza celula"
+
+msgid "Copy cell"
+msgstr "Copiaza celula"
+
+msgid "Paste cell"
+msgstr "Lipeste celula"
+
+msgid "Exit and save"
+msgstr "Iesire si salvare"
+
+msgid "Add row"
+msgstr "Adauga rand"
+
+msgid "Add column"
+msgstr "Adauga coloana"
+
+# messages added for version 2.1-3
+
+  # to manage app nap under Mac OS X Mavericks
+
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Management Mac OS X app nap pentru R.app..."
+
+msgid "Mac OS X app nap for R.app"
+msgstr "Mac OS X app nap pentru R.app"
+
+msgid "Set app nap"
+msgstr "Specificare app nap"
+
+msgid "off (recommended)"
+msgstr "dezactivare (recomandat)"
+
+msgid "on"
+msgstr "activare"
+
+  # set random seed dialog
+
+msgid "Set random number generator seed..."
+msgstr "Specificare punct de plecare pentru generatorul de numere aleatoare"
+
+msgid "Set Random Number Generator Seed"
+msgstr "Specificare Punct de Plecare pentru Generatorul de Numere Aleatoare"
+
+
+# messages added for version 2.2-0
+
+  # messages that were inadvertently missing in previous versions
+
+msgid "The following variable names are not valid:\n"
+msgstr "Urmatoarele nume de variabile sunt incorecte:\n"
+
+msgid "Save R Markdown file?"
+msgstr "Salvare fisier R mArkdown?"
+
+msgid "Theme (pick one)"
+msgstr "Tema (alege una)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "Ambele valori de punere in pagina trebuie sa fie numere, sau niciuna"
+
+msgid "ANOVA Table"
+msgstr "Tabel ANOVA"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr "Nu este nicio metoda de determinare a valorilor extreme pentru un model de aceasta clasa."
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Test Shapiro-Wilk pentru normalitate"
+
+msgid "Hypothesis Test"
+msgstr "Testare ipoteza"
+
+msgid "Load Plug-ins"
+msgstr "Incarca plugin-uri"
+
+  # for report generation
+
+msgid "Generate report"
+msgstr "Generare raport"
+
+msgid "Install Auxiliary Software"
+msgstr "Instalare software auxiliar"
+
+msgid "Install auxiliary software..."
+msgstr "Instalare software auxiliar..."
+
+msgid "(already installed)"
+msgstr "(deja instalat)"
+
+msgid "LaTeX"
+msgstr "LaTeX"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "Software de instalat"
+
+msgid "Please read the help for this dialog\nbefore installing auxiliary software."
+msgstr "A se citi help-ul pentru acest dialog\ninaintea instalarii software-ului auxiliar"
+
+msgid "Select Output Format"
+msgstr "Selectare format output"
+
+msgid ".html (web page)"
+msgstr ".html (pagina web)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (fisier PDF)"
+
+msgid ".docx (Word file)"
+msgstr ".docx (fisier Word)"
+
+msgid "HTML file written to:"
+msgstr "Fisier HTML creat in:"
+
+msgid "PDF file written to:"
+msgstr "Fisier PDF creat in:"
+
+msgid "Word file written to:"
+msgstr "Fisier Word creat in:"
+
+
+  # additions to scatterplot and scatterplot-matrix dialogs
+
+msgid "Levels for ellipses must be numeric values\n  separated by spaces or commas."
+msgstr "Nivelurile pentru elipse trebuie a fie valori numerice\n separate prin spatii sau virgule"
+
+msgid "Plot concentration ellipse(s)"
+msgstr "Grafic de elipse de concentrare"
+
+msgid "Concentration levels: "
+msgstr "Niveluri de concentrare: "
+
+msgid "Legend Position"
+msgstr "Pozitie legenda"
+
+msgid "Above plot"
+msgstr "Deasupra graficului"
+
+msgid "Top left"
+msgstr "Stanga sus"
+
+msgid "Top right"
+msgstr "Dreapta sus"
+
+msgid "Bottom left"
+msgstr "Stanga jos"
+
+msgid "Bottom right"
+msgstr "Dreapta jos"
+
+  # additions to bargraph dialog
+
+msgid "Style of Group Bars"
+msgstr "Stil grupuri de bare"
+
+msgid "Divided (stacked)"
+msgstr "Divizate (suprapuse)"
+
+msgid "Side-by-side (parallel)"
+msgstr "Una langa alta (paralele)"
+
+msgid "Position of Legend"
+msgstr "Pozitie legenda"
+
+msgid "Left"
+msgstr "Stanga"
+
+msgid "Right"
+msgstr "Dreapta"
+
+msgid "plotting and grouping variables must be different"
+msgstr "variabilele din grafic si cele de grupare trebuie sa fie diferite"
+
+  # dot plot dialog
+
+msgid "Dot Plot"
+msgstr "Grafic cu puncte (dot plot)"
+
+msgid "Bin variable"
+msgstr "Variabila de impartire pe clase"
+
+msgid "Dot plot..."
+msgstr "Grafic cu puncte (dot plot)..."
+
+  # for reading Excel files (new dialog)
+  
+msgid "Convert character data to factors"
+msgstr "Convertire variabile caracter in categoriale"
+
+msgid "<empty cell>"
+msgstr "<celula goala>"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisier MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
