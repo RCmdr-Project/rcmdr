@@ -1,16 +1,17 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.0-1\n"
+"Project-Id-Version: Rcmdr 2.1-5\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-08-11 17:00:00\n"
-"PO-Revision-Date: 2014-08-13 23:20+0100\n"
+"POT-Creation-Date: 2015-08-07 14:30:00\n"
+"PO-Revision-Date: 2015-09-01 11:27+0100\n"
 "Last-Translator: Manuel Munoz-Marquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <ginteloy@uca.es>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "KMeans Clustering"
 msgstr "Agrupación por k-medias"
@@ -2481,7 +2482,7 @@ msgid "Normal quantiles..."
 msgstr "Cuantiles normales..."
 
 msgid "Normal probabilities..."
-msgstr "Probabilidades normales..."
+msgstr "Probabilidades normales acumuladas..."
 
 msgid "Plot normal distribution..."
 msgstr "Gráfica de la distribución normal..."
@@ -2493,7 +2494,7 @@ msgid "t quantiles..."
 msgstr "Cuantiles t..."
 
 msgid "t probabilities..."
-msgstr "Probabilidades t..."
+msgstr "Probabilidades t acumuladas..."
 
 msgid "Plot t distribution..."
 msgstr "Gráfica de la distribución t..."
@@ -2505,7 +2506,7 @@ msgid "Chi-squared quantiles..."
 msgstr "Cuantiles Chi-cuadrado..."
 
 msgid "Chi-squared probabilities..."
-msgstr "Probabilidades Chi-cuadrado..."
+msgstr "Probabilidades Chi-cuadrado acumuladas..."
 
 msgid "Plot chi-squared distribution..."
 msgstr "Gráfica de la distribución Chi-cuadrado..."
@@ -2517,7 +2518,7 @@ msgid "F quantiles..."
 msgstr "Cuantiles F..."
 
 msgid "F probabilities..."
-msgstr "Probabilidades F..."
+msgstr "Probabilidades F acumuladas..."
 
 msgid "Plot F distribution..."
 msgstr "Gráfica de la distribución F..."
@@ -2976,7 +2977,7 @@ msgid "Exponential quantiles..."
 msgstr "Cuantiles exponenciales..."
 
 msgid "Exponential probabilities..."
-msgstr "Probabilidades exponenciales..."
+msgstr "Probabilidades exponenciales acumuladas..."
 
 msgid "Plot exponential distribution..."
 msgstr "Gráfica de la distribución exponencial..."
@@ -2991,7 +2992,7 @@ msgid "Uniform quantiles..."
 msgstr "Cuantiles uniformes..."
 
 msgid "Uniform probabilities..."
-msgstr "Probabilidades uniformes..."
+msgstr "Probabilidades uniformes acumuladas..."
 
 msgid "Plot uniform distribution..."
 msgstr "Gráfica de la distribución uniforme..."
@@ -3006,7 +3007,7 @@ msgid "Beta quantiles..."
 msgstr "Cuantiles beta..."
 
 msgid "Beta probabilities..."
-msgstr "Probabilidades beta..."
+msgstr "Probabilidades beta acumuladas..."
 
 msgid "Plot beta distribution..."
 msgstr "Gráfica de la distribución beta..."
@@ -3021,7 +3022,7 @@ msgid "Cauchy quantiles..."
 msgstr "Cuantiles de Cauchy..."
 
 msgid "Cauchy probabilities..."
-msgstr "Probabilidades de Cauchy..."
+msgstr "Probabilidades de Cauchy acumuladas..."
 
 msgid "Plot Cauchy distribution..."
 msgstr "Gráfica de la distribución de Cauchy..."
@@ -3036,7 +3037,7 @@ msgid "Logistic quantiles..."
 msgstr "Cuantiles logísticos..."
 
 msgid "Logistic probabilities..."
-msgstr "Probabilidades logísticas..."
+msgstr "Probabilidades logísticas acumuladas..."
 
 msgid "Plot logistic distribution..."
 msgstr "Gráfica de la distribución logística..."
@@ -3051,7 +3052,7 @@ msgid "Lognormal quantiles..."
 msgstr "Cuantiles lognormal..."
 
 msgid "Lognormal probabilities..."
-msgstr "Probabilidades lognormal..."
+msgstr "Probabilidades lognormal acumuladas..."
 
 msgid "Plot lognormal distribution..."
 msgstr "Gráfica de la distribución lognormal..."
@@ -3066,7 +3067,7 @@ msgid "Gamma quantiles..."
 msgstr "Cuantiles gamma..."
 
 msgid "Gamma probabilities..."
-msgstr "Probabilidades gamma..."
+msgstr "Probabilidades gamma acumuladas..."
 
 msgid "Plot gamma distribution..."
 msgstr "Gráfica de la distribución gamma..."
@@ -3081,7 +3082,7 @@ msgid "Weibull quantiles..."
 msgstr "Cuantiles Weibull..."
 
 msgid "Weibull probabilities..."
-msgstr "Probabilidades Weibull..."
+msgstr "Probabilidades Weibull acumuladas..."
 
 msgid "Plot Weibull distribution..."
 msgstr "Gráfica de la distribución Weibull..."
@@ -3096,7 +3097,7 @@ msgid "Gumbel quantiles..."
 msgstr "Cuantiles Gumbel..."
 
 msgid "Gumbel probabilities..."
-msgstr "Probabilidades Gumbel..."
+msgstr "Probabilidades Gumbel acumuladas..."
 
 msgid "Plot Gumbel distribution..."
 msgstr "Gráfica de la distribución Gumbel..."
@@ -3767,8 +3768,8 @@ msgid ""
 "The Windows version of the R Commander works best under RGui\n"
 "with the single-document interface (SDI); see ?Commander."
 msgstr ""
-"La versión de Windows de R Commander funciona mejor bago RGui\n"
-"con la interface de documento único (SDI); vea ?Commander"
+"La versión de Windows de R Commander funciona mejor bajo RGui\n"
+"con la interfaz de documento único (SDI); vea ?Commander"
 
 msgid "median"
 msgstr "Mediana"
@@ -4048,7 +4049,7 @@ msgstr ""
 "a minúsculas"
 
 msgid "from Excel file..."
-msgstr "desde un archivo de Ecel..."
+msgstr "desde un archivo de Excel..."
 
 msgid "Import Excel Data Set"
 msgstr "Importar un conjunto de datos Excel"
@@ -4466,25 +4467,10 @@ msgstr "Descartar cambios?"
 
 # support for back-to-back stem-and-leaf displays
 msgid "Plot back-to-back by:"
-msgstr ""
+msgstr "Dibujar lado a lado por:"
 
 msgid "Plot back-to-back by"
-msgstr ""
-
-# messages added for version 2.1-0
-msgid ""
-"the RcmdrMisc package is missing and should be installed\n"
-"  many features will not work"
-msgstr ""
-"el paquete RcmdrMisc no está y debería estar instalado\n"
-" algunas prestaciones no funcionarán"
-
-msgid ""
-"the car package is missing and should be installed\n"
-"  many features will not work"
-msgstr ""
-"el paquete car no está y debería estar instalado\n"
-" algunas prestaciones no funcionarán"
+msgstr "Dibujar lado a lado por"
 
 msgid "Standard Error of Mean"
 msgstr "Errores típicos de las media"
@@ -4495,7 +4481,7 @@ msgstr "Ajuste de índices"
 msgid "Variable names in first row of spreadsheet"
 msgstr "Nombre de las filas en la primera columna de la hoja de cálculo"
 
-msgid "Row names in first column of spreadshee"
+msgid "Row names in first column of spreadsheet"
 msgstr "Nombre de las filas en la primera columna de la hoja de cálculo"
 
 msgid "<no variable selected>"
@@ -4601,83 +4587,205 @@ msgstr ""
 "Fórmula del modelo\n"
 "ayuda"
 
-#~ msgid "Define facto"
-#~ msgstr "Defina factor"
+msgid "Data Editor"
+msgstr "Editor de datos"
 
-#~ msgid "Approximate number of bins for histograms"
-#~ msgstr "Número aproximado de intervalos para el histograma"
+msgid "Delete current row"
+msgstr "Borrar la fila actual"
 
-#~ msgid "Central limit theorem..."
-#~ msgstr "Teorema Central del límite..."
+msgid "Delete current column"
+msgstr "Borrar la columna actual"
 
-#~ msgid "Central Limit Theorem"
-#~ msgstr "Teorema Central del Límite"
+msgid "Delete cell"
+msgstr "Borrar celda"
 
-#~ msgid "Confidence interval for the mean..."
-#~ msgstr "Intervalo de confianza para la media..."
+msgid "Cut cell"
+msgstr "Cortar celda"
 
-#~ msgid "Confidence Intervals for the Mean"
-#~ msgstr "Intervalo de Confianza para la Media"
+msgid "Copy cell"
+msgstr "Copiar celda"
 
-#~ msgid "Demos"
-#~ msgstr "Demostraciones"
+msgid "Paste cell"
+msgstr "Pegar celda"
 
-#~ msgid "Flip a coin"
-#~ msgstr "Lanzar una moneda"
+msgid "Exit and save"
+msgstr "Salir y guardar"
 
-#~ msgid "Roll a die"
-#~ msgstr "Lanzar un dado"
+msgid "Add row"
+msgstr "Añadir fila"
 
-#~ msgid "Sample size"
-#~ msgstr "Tamaño muestral"
+msgid "Add column"
+msgstr "Añadir columna"
 
-#~ msgid "Simple linear regression"
-#~ msgstr "Regresión lineal simple"
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Administrar Mac OS X app nap para R.app..."
 
-#~ msgid "Simple correlation"
-#~ msgstr "Correlación simple"
+msgid "Mac OS X app nap for R.app"
+msgstr "Mac OS X app nap para R.app"
 
-#~ msgid "True Difference"
-#~ msgstr "Verdadera diferencia"
+msgid "Set app nap"
+msgstr "Establecer app nap"
 
-#~ msgid "Alpha level"
-#~ msgstr "Nivel alfa"
+msgid "off (recommended)"
+msgstr "desactivado (recomendado)"
 
-#~ msgid "menu defintion error:"
-#~ msgstr "error de definición de menú:"
+msgid "on"
+msgstr "activado"
 
-#~ msgid "from Excel, Access or dBase data set ..."
-#~ msgstr "desde Excel, Access o dBase..."
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr "Establecer la semilla del generador de números aleatorios..."
 
-#~ msgid "Gumbel Quantiles"
-#~ msgstr "Cuantiles Gumbel"
+msgid "Set Random Number Generator Seed"
+msgstr "Establecer la Semilla del Generador de Números Aleatorios"
 
-#~ msgid "Population standar deviation"
-#~ msgstr "Desviación típica poblacional"
+msgid "The following variable names are not valid:\n"
+msgstr "Los siguientes nombres de variables no son válidos:\n"
 
-#~ msgid "Population standar deviation known"
-#~ msgstr "Desviación típica poblacional conocida"
+msgid "Save R Markdown file?"
+msgstr "¿Guardar fichero R Markdown?"
 
-#~ msgid "Population mean"
-#~ msgstr "Media poblacional"
+msgid "Theme (pick one)"
+msgstr "Modelos (elige uno)"
 
-#~ msgid "You must selection a groups factor."
-#~ msgstr "Debe seleccionar un factor."
+msgid "Both or neither layout values must be numbers."
+msgstr ""
 
-#~ msgid "You must selection a response variable."
-#~ msgstr "Debe seleccionar una variable de explicada."
+msgid "ANOVA Table"
+msgstr "Tabla ANOVA"
 
-#~ msgid "You must selection at least one factor."
-#~ msgstr "Debe seleccionar al menos un factor."
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr ""
+"No hay ningún método outlierTest apropiado para un modelo de este tipo."
 
-#~ msgid "Single-sample t-test from n,mx,vx..."
-#~ msgstr "Test t para una muestra, a partir de n, mx, vx..."
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Test de normalidad de Shapiro-Wilk"
 
-#~ msgid "Shape 1"
-#~ msgstr "Parámetro de forma 1"
+msgid "Hypothesis Test"
+msgstr "Test de hipótesis"
 
-#~ msgid "Shape 2"
-#~ msgstr "Parámetro de forma 2"
+msgid "Load Plug-ins"
+msgstr "Cargar Plugins"
 
-#~ msgid "Power of the test"
-#~ msgstr "Potencia del test"
+msgid "Generate report"
+msgstr "Generar informe"
+
+msgid "Install Auxiliary Software"
+msgstr ""
+
+msgid "Install auxiliary software..."
+msgstr ""
+
+msgid "(already installed)"
+msgstr ""
+
+msgid "LaTeX"
+msgstr ""
+
+msgid "Pandoc"
+msgstr ""
+
+msgid "Software to Install"
+msgstr ""
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+
+msgid "Select Output Format"
+msgstr ""
+
+msgid ".html (web page)"
+msgstr ""
+
+msgid ".pdf (PDF file)"
+msgstr ""
+
+msgid ".docx (Word file)"
+msgstr ""
+
+msgid "HTML file written to:"
+msgstr ""
+
+msgid "PDF file written to:"
+msgstr ""
+
+msgid "Word file written to:"
+msgstr ""
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+
+msgid "Plot concentration ellipse(s)"
+msgstr "Dibujar elipsoides de concentración"
+
+msgid "Concentration levels: "
+msgstr ""
+
+msgid "Legend Position"
+msgstr ""
+
+msgid "Above plot"
+msgstr ""
+
+msgid "Top left"
+msgstr ""
+
+msgid "Top right"
+msgstr ""
+
+msgid "Bottom left"
+msgstr ""
+
+msgid "Bottom right"
+msgstr ""
+
+msgid "Style of Group Bars"
+msgstr "Estilo del gráfico de barras por grupo"
+
+msgid "Divided (stacked)"
+msgstr ""
+
+msgid "Side-by-side (parallel)"
+msgstr "Lado-a-lado (paralelas)"
+
+msgid "Position of Legend"
+msgstr "Posición de la leyenda"
+
+msgid "Left"
+msgstr "Izquierda"
+
+msgid "Right"
+msgstr "Derecho"
+
+msgid "plotting and grouping variables must be different"
+msgstr "Las variables a dibujar y la de grupo deben ser diferentes"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "Diagrama de punto"
+
+msgid "Bin variable"
+msgstr "Variable binaria"
+
+msgid "Dot plot..."
+msgstr "Diagrama de puntos..."
+
+msgid "Convert character data to factors"
+msgstr "Convertir dato de carácter en factores..."
+
+msgid "<empty cell>"
+msgstr "<celda vacía>"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
+msgstr ""
+"{\"Todos los ficheros\" {\"*\"}} {\"Ficheros MS Excel\" {\".xlsx\" \".XLSX\" "
+"\".xls\" \".XLS\"}}"
