@@ -25,6 +25,12 @@ Here are the details:
     package, which is capable only of producing HTML output. Pandoc is available from 
     \url{http://johnmacfarlane.net/pandoc/installing.html}.
     
+    On Windows systems, Pandoc installs into a non-standard location in your user directory, 
+    typically \code{C:\\Users\\<your user id>\\AppData\\Local\\Pandoc\\}, and then places this subdirectory
+    on your system path. You may have to reboot for the change to your path to take effect, and I
+    have found it necessary on two Windows 10 systems to re-run the Pandoc installer, first to uninstall 
+    Pandoc, and then to re-install it before it would be work.
+    
     \item \emph{LaTeX}: The LaTeX technical-typesetting system is required by the R Commander for 
     PDF output from R Markdown or knitr documents produced during interactive R Commander sessions. In the
     absence of LaTeX, direct PDF output is unavailable. Complete LaTeX systems are available for the various
