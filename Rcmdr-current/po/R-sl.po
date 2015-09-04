@@ -1,20 +1,19 @@
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2014.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.1-3\n"
+"Project-Id-Version: Rcmdr 2.2-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-10-20 08:30:00\n"
-"PO-Revision-Date: 2014-10-30 09:32+0100\n"
+"POT-Creation-Date: 2015-08-07 14:30:00\n"
+"PO-Revision-Date: 2015-09-04 21:58+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Translator: Jaro Lajovic <jaro.lajovic@mf.uni-lj.si>\n"
-"Language-Team: Slovenian <kde-i18n-doc@kde.org>\n"
-"Language: LL\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"X-Generator: Poedit 1.8.4\n"
 
 msgid "KMeans Clustering"
 msgstr "Razvrščanje z voditelji"
@@ -365,11 +364,10 @@ msgid "You must enter a name for the data set."
 msgstr "Vnesti morate ime nabora podatkov."
 
 msgid ""
-"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
-"{\"All Files\" {\"*\"}}"
+"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Besedilne datoteke\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV"
-"\"}} {\"Vse datoteke\" {\"*\"}}"
+"{\"Besedilne datoteke\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"Vse datoteke"
+"\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "Imena spremenljivk so v datoteki:"
@@ -414,11 +412,11 @@ msgid "Import SPSS Data Set"
 msgstr "Uvoz podatkov v zapisu SPSS"
 
 msgid ""
-"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
-"\".POR\"}} {\"All Files\" {\"*\"}}"
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All "
+"Files\" {\"*\"}}"
 msgstr ""
-"{\"Datoteke SPSS\" {\".sav\" \".SAV\"}} {\"Prenosne datoteke SPSS\" {\".por"
-"\" \".POR\"}} {\"Vse datoteke\" {\"*\"}}"
+"{\"Datoteke SPSS\" {\".sav\" \".SAV\"}} {\"Prenosne datoteke SPSS\" {\".por\" \".POR\"}} {\"Vse "
+"datoteke\" {\"*\"}}"
 
 msgid ""
 "Convert value labels\n"
@@ -439,11 +437,8 @@ msgstr ""
 msgid "Import Minitab Data Set"
 msgstr "Uvoz podatkov v zapisu Minitab"
 
-msgid ""
-"{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
-msgstr ""
-"{\"Prenosne datoteke Minitab\" {\".mtp\" \".MTP\"}} {\"Vse datoteke\" {\"*"
-"\"}}"
+msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Prenosne datoteke Minitab\" {\".mtp\" \".MTP\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid ""
 "Minitab data set contains elements of unequal length.\n"
@@ -456,8 +451,7 @@ msgid "Import STATA Data Set"
 msgstr "Uvoz podatkov v zapisu STATA"
 
 msgid "{\"STATA datasets\" {\".dta\" \".DTA\"}} {\"All Files\" {\"*\"}}"
-msgstr ""
-"{\"Nabori podatkov STATA\" {\".dta\" \".DTA\"}} {\"Vse datoteke\" {\"*\"}}"
+msgstr "{\"Nabori podatkov STATA\" {\".dta\" \".DTA\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid "Convert dates to R format"
 msgstr "Pretvori datume v R-ov zapis"
@@ -511,10 +505,10 @@ msgid "Name for factor"
 msgstr "Ime za faktor"
 
 msgid "Bin a Numeric Variable"
-msgstr "Številsko spremenljivko v predale"
+msgstr "Številsko spremenljivko v razrede"
 
 msgid "Variable to bin (pick one)"
-msgstr "Spremenljivka za razvrstitev v predale (izberite eno)"
+msgstr "Spremenljivka za razvrstitev v razrede (izberite eno)"
 
 msgid "Specify names"
 msgstr "Določi imena"
@@ -526,10 +520,10 @@ msgid "Ranges"
 msgstr "Razponi"
 
 msgid "Equal-width bins"
-msgstr "Predali enake širine"
+msgstr "Razredi enake širine"
 
 msgid "Equal-count bins"
-msgstr "Predali z enakim številom"
+msgstr "Razredi z enakim številom"
 
 msgid ""
 "Natural breaks\n"
@@ -539,22 +533,22 @@ msgstr ""
 "(iz razvrščanja z voditelji)"
 
 msgid "Binning Method"
-msgstr "Metoda razmestitve v predale"
+msgstr "Metoda razmestitve v razrede"
 
 msgid "Bin Names"
-msgstr "Imena predalov"
+msgstr "Imena razredov"
 
 msgid "Level names must be unique."
 msgstr "Imena ravni morajo biti enolično določena."
 
 msgid "Bin"
-msgstr "Predal"
+msgstr "Razred"
 
 msgid "Name"
 msgstr "Ime"
 
 msgid "Number of bins:"
-msgstr "Število predalov:"
+msgstr "Število razredov:"
 
 msgid "Reorder Factor Levels"
 msgstr "Prerazporedi ravni faktorjev"
@@ -1191,7 +1185,7 @@ msgid "Response Variable (pick one)"
 msgstr "Odvisna spremenljivka (izberite eno)"
 
 msgid "No factors selected."
-msgstr "Izbran ni noben faktor."
+msgstr "Izbranega ni nobenega faktorja."
 
 msgid "More than two factors selected."
 msgstr "Izbrana sta več kot dva faktorja."
@@ -1283,12 +1277,9 @@ msgstr "Tip grafične datoteke"
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Datoteke PNG\" {\".png\" \".PNG\"}} {\"Vse datoteke\" {\"*\"}}"
 
-msgid ""
-"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*"
-"\"}}"
+msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Datoteke JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Vse datoteke"
-"\" \"\" {\"*\"}}"
+"{\"Datoteke JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Vse datoteke\" \"\" {\"*\"}}"
 
 msgid "Graph saved to file"
 msgstr "Diagram shranjen v datoteko"
@@ -1317,9 +1308,7 @@ msgstr "{\"Datoteke PDF\" {\".pdf\" \".PDF\"}} {\"Vse datoteke\" {\"*\"}}"
 msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Datoteke postscript\" {\".ps\" \".PS\"}} {\"Vse datoteke\" {\"*\"}}"
 
-msgid ""
-"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*"
-"\"}}"
+msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Oviti postscript\" {\".eps\" \".EPS\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid "Width (inches)"
@@ -1806,8 +1795,7 @@ msgid "Two-Sample Proportions Test"
 msgstr "Test deležev za dva vzorca"
 
 msgid "Groups and response variables must be different."
-msgstr ""
-"Spremenljivka za skupine in odvisna spremenljivka morata biti različni."
+msgstr "Spremenljivka za skupine in odvisna spremenljivka morata biti različni."
 
 msgid ""
 "There are %d variables in the data set %s.\n"
@@ -1945,13 +1933,10 @@ msgid "Control variable(s) (pick one or more)"
 msgstr "Kontrolne spremenljivke (izberite eno ali več)"
 
 msgid "You must select row, column, and control variables"
-msgstr ""
-"Izbrati morate spremenljivke v vrsticah, stolpcih in kontrolne spremenljivke"
+msgstr "Izbrati morate spremenljivke v vrsticah, stolpcih in kontrolne spremenljivke"
 
 msgid "Row, column, and control variables must be different."
-msgstr ""
-"Spremenljivke v vrsticah, stolpcih in kontrolne spremenljivke morajo biti "
-"različne."
+msgstr "Spremenljivke v vrsticah, stolpcih in kontrolne spremenljivke morajo biti različne."
 
 msgid "Enter Two-Way Table"
 msgstr "Vnos dvorazsežne tabele"
@@ -1997,8 +1982,7 @@ msgid "There is no active model."
 msgstr "Ni aktivnega modela."
 
 msgid "argument must be a square, symmetric, numeric covariance matrix"
-msgstr ""
-"argument mora biti kvadratna, simetrična, številska kovariančna matrika"
+msgstr "argument mora biti kvadratna, simetrična, številska kovariančna matrika"
 
 msgid "there are fewer than 3 items in the scale"
 msgstr "lestvica ima manj kot 3 stopnje"
@@ -2012,12 +1996,11 @@ msgstr "Argument faktor1 mora biti faktor."
 msgid "Arguments factor1 and factor2 must be factors."
 msgstr "Argumenta faktor1 in faktor2 morata biti faktorja."
 
-msgid ""
-"Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
 msgstr "Število skupin za faktor2, %d, presega število različnih barv, %d."
 
 msgid "The number of bins exceeds the number of data values"
-msgstr "Število predalov presega število vrednosti v podatkih"
+msgstr "Število razredov presega število vrednosti v podatkih"
 
 msgid "Number of groups (%d) exceeds number of colors (%d)."
 msgstr "Število skupin (%d) presega število barv (%d)."
@@ -2208,7 +2191,7 @@ msgid "Convert numeric variable to factor..."
 msgstr "Pretvorba številske spremenljivke v faktor ..."
 
 msgid "Bin numeric variable..."
-msgstr "Številsko spremenljivko v predale ..."
+msgstr "Številsko spremenljivko v razrede ..."
 
 msgid "Reorder factor levels..."
 msgstr "Prerazporeditev ravni faktorjev ..."
@@ -2591,11 +2574,11 @@ msgid "Import from Excel, Access or dBase data set"
 msgstr "Uvozi iz nabora podatkov v Excelu, Accessu ali dBase"
 
 msgid ""
-"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
-"\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like "
+"file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Datoteka MS Excel\" {*.xls \".XLS\"}} {\"Datoteka MS Access\" {*.mdb \"."
-"MDB\"}} {\"Datoteka kot dBase\" {*.dbf \".DBF\"}} {\"Vse datoteke\" {\"*\"}}"
+"{\"Datoteka MS Excel\" {*.xls \".XLS\"}} {\"Datoteka MS Access\" {*.mdb \".MDB\"}} {\"Datoteka "
+"kot dBase\" {*.dbf \".DBF\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "Izberite eno tabelo"
@@ -3287,10 +3270,8 @@ msgstr "Frekvenčne porazdelitve"
 msgid "Chi-square goodness-of-fit test (for one variable only)"
 msgstr "Testiranje skladnosti s hi-kvadrat (samo za eno spremenljivko)"
 
-msgid ""
-"Goodness-of-fit test not available when more than one variable is selected."
-msgstr ""
-"Testiranje skladnosti je na voljo le, če je izbrana samo ena spremenljivka."
+msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgstr "Testiranje skladnosti je na voljo le, če je izbrana samo ena spremenljivka."
 
 msgid "Frequency distributions..."
 msgstr "Frekvenčne porazdelitve..."
@@ -3437,9 +3418,7 @@ msgid "Load data set..."
 msgstr "Naloži nabor podatkov..."
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
-msgstr ""
-"{\"R-ove podatkovne datoteke\" {\".rda\" \".Rda\" \".RDA\"}} {\"Vse datoteke"
-"\" {\"*\"}}"
+msgstr "{\"R-ove podatkovne datoteke\" {\".rda\" \".Rda\" \".RDA\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid "Shapiro-Wilk test of normality..."
 msgstr "Shapiro-Wilkov test normalnosti..."
@@ -3767,12 +3746,8 @@ msgid "Name for aggregated data set:"
 msgstr "Ime za agregirani nabor podatkov:"
 
 #     miscellaneous
-msgid ""
-"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files"
-"\" {\"*\"}}"
-msgstr ""
-"{\"R-ove datoteke\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Vse datoteke"
-"\" {\"*\"}}"
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"R-ove datoteke\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid "No data set selected."
 msgstr "Izbran ni noben nabor podatkov."
@@ -3849,56 +3824,43 @@ msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
 msgstr "{\"Vse datoteke\" {\"*\"}} {\"Izhodne datoteke\" {\".txt\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
-"\".csv\" \".CSV\"}}"
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Besedilne datoteke\" {\".txt\" \".TXT\" \".dat"
-"\" \".DAT\" \".csv\" \".CSV\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"Besedilne datoteke\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv"
+"\" \".CSV\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
-"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\"."
+"sav\" \".SAV\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"SPSS-ove datoteke za prenos\" {\".por\" \".POR"
-"\"}} {\"Datoteke SPSS save\" {\".sav\" \".SAV\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"SPSS-ove datoteke za prenos\" {\".por\" \".POR\"}} {\"Datoteke "
+"SPSS save\" {\".sav\" \".SAV\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
-msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Minitabove datoteke za prenos\" {\".mtp\" \"."
-"MTP\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr "{\"Vse datoteke\" {\"*\"}} {\"Minitabove datoteke za prenos\" {\".mtp\" \".MTP\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
-msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Nabori podatkov STATA\" {\".dta\" \".DTA\"}}"
+msgstr "{\"Vse datoteke\" {\"*\"}} {\"Nabori podatkov STATA\" {\".dta\" \".DTA\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
-"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
-"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
-"\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database"
+"\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file"
+"\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Podatkovna baza MS Access\" {\".mdb\" \".MDB"
-"\"}} {\"Podatkovna baza MS Access\" {\".accdb\" \".ACCDB\"}} {\"dBase-"
-"podobna datoteka\" {\".dbf\" \".DBF\"}} {\"Datoteka MS Excel 2007\" {\".xlsx"
-"\" \".XLSX\"}} {\"Datoteka MS Excel\" {\".xls\" \".XLS\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"Podatkovna baza MS Access\" {\".mdb\" \".MDB\"}} {\"Podatkovna "
+"baza MS Access\" {\".accdb\" \".ACCDB\"}} {\"dBase-podobna datoteka\" {\".dbf\" \".DBF\"}} "
+"{\"Datoteka MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"Datoteka MS Excel\" {\".xls\" \".XLS\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
-"RDA\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"R-ove datoteke s podatki\" {\".RData\" \".rda"
-"\" \".Rda\" \".RDA\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"R-ove datoteke s podatki\" {\".RData\" \".rda\" \".Rda\" \".RDA"
+"\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"Vse datoteke\" {\"*\"}} {\"Datoteke PNG\" {\".png\" \".PNG\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
-"\"}}"
-msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Datoteke JPEG\" {\".jpg\" \".JPG\" \".jpeg\" "
-"\".JPEG\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgstr "{\"Vse datoteke\" {\"*\"}} {\"Datoteke JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
 msgstr "{\"Vse datoteke\" {\"*\"}} {\"Datoteke PDF\" {\".pdf\" \".PDF\"}}"
@@ -3906,12 +3868,8 @@ msgstr "{\"Vse datoteke\" {\"*\"}} {\"Datoteke PDF\" {\".pdf\" \".PDF\"}}"
 msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 msgstr "{\"Vse datoteke\" {\"*\"}} {\"Postscript-datoteke\" {\".ps\" \".PS\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
-"\"}}"
-msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Datoteke oviti Postscript\" {\".eps\" \".EPS"
-"\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgstr "{\"Vse datoteke\" {\"*\"}} {\"Datoteke oviti Postscript\" {\".eps\" \".EPS\"}}"
 
 # messages added to version 1.7-0
 msgid "Reset"
@@ -4069,12 +4027,9 @@ msgstr "Izberite množico podatkov"
 msgid "Datasets in file (pick one)"
 msgstr "Množice podatkov v datoteki (izberite eno)"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
-"\".XPORT\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"datoteke SAS xport\" {\".xpt\" \".XPT\" \"."
-"xport\" \".XPORT\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"datoteke SAS xport\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
 
 msgid ""
 "Convert variable names\n"
@@ -4090,11 +4045,11 @@ msgid "Import Excel Data Set"
 msgstr "Uvozi Excelove podatke"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
-"Excel file\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\"."
+"xls\" \".XLS\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Datoteka MS Excel 2007\" {\".xlsx\" \".XLSX"
-"\"}} {\"Datoteka MS Excel\" {\".xls\" \".XLS\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"Datoteka MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"Datoteka MS "
+"Excel\" {\".xls\" \".XLS\"}}"
 
 msgid "Interquartile Range"
 msgstr "Interkvartilni razpon"
@@ -4254,15 +4209,10 @@ msgid "knitr file saved to"
 msgstr "datoteka knitr je shranjena na"
 
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
-msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"datoteke R Markdown\" {\".Rmd\" \".rmd\"}}"
+msgstr "{\"Vse datoteke\" {\"*\"}} {\"datoteke R Markdown\" {\".Rmd\" \".rmd\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
-"\"}}"
-msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"datoteke knitr\" {\".Rmd\" \".rmd\" \".Snw\" "
-"\".snw\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"\"}}"
+msgstr "{\"Vse datoteke\" {\"*\"}} {\"datoteke knitr\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
 
 msgid ""
 "Delete previously created knitr\n"
@@ -4541,18 +4491,15 @@ msgstr "Imena vrstic v prvem stolpcu preglednice"
 msgid "<no variable selected>"
 msgstr "<nobene spremenljivke ni izbrane>"
 
-msgid "Weights"
-msgstr "Uteži"
-
 # new effect-plots dialog
 msgid "Model Effect Plots"
-msgstr "Diagrami učinka modela"
+msgstr "Diagrami učinkov modela"
 
 msgid "Plot All High-Order Effects?"
 msgstr "Naj narišem vse učinke višjih stopenj?"
 
 msgid "Predictors (pick one or more)"
-msgstr "Napovedna spremenljivka (izberite eno ali več)"
+msgstr "Napovedne spremenljivke (izberite eno ali več)"
 
 msgid ""
 "You must select one or more predictors\n"
@@ -4566,7 +4513,7 @@ msgid ""
 " there must be a least one numeric predictor."
 msgstr ""
 "Za diagram ostankov\n"
-"mora biti vsaj ena številska napovedna spremenljivka."
+"mora biti vsaj ena napovedna spremenljivka številska."
 
 msgid "Plot partial residuals"
 msgstr "Nariši delne ostanke"
@@ -4582,27 +4529,27 @@ msgstr "Črte s pasovi zaupanja"
 
 # new one-sample Wilcoxon test dialog
 msgid "Single-Sample Wilcoxon Test"
-msgstr "Wilcoxonov preizkus posameznega vzorca"
+msgstr "Wilcoxonov preizkus enega vzorca"
 
 msgid "Single-sample Wilcoxon test..."
-msgstr "Wilcoxonov preizkus posameznega vzorca..."
+msgstr "Wilcoxonov preizkus enega vzorca..."
 
 # new drop unused factor levels dialog
 msgid "Drop Unused Factor Levels"
-msgstr "Umakni neuporabljene nivoje faktorja"
+msgstr "Umakni neuporabljene ravni faktorja"
 
 msgid "Factors(s) to drop levels (pick one or more)"
-msgstr "Faktor(ji) za umik nivojev (izberite enega ali več)"
+msgstr "Faktor(ji) za umik ravni (izberite enega ali več)"
 
 msgid ""
 "Drop unused factor levels\n"
 "Please confirm."
 msgstr ""
-"Umakni neuporabljene nivoje faktorja\n"
+"Umakni neuporabljene ravni faktorja\n"
 "Prosim potrdite."
 
 msgid "Drop unused factor levels..."
-msgstr "Umakni neuporabljene nivoje faktorja"
+msgstr "Umakni neuporabljene ravni faktorja"
 
 msgid "all factors"
 msgstr "vsi faktorji"
@@ -4618,14 +4565,14 @@ msgid ""
 "Use sandwich estimator of    \n"
 "coefficient standard errors"
 msgstr ""
-"Uporabi sendvič oceno \n"
+"Uporabi sendvič oceno\n"
 "koeficienta standardnih napak"
 
 msgid ""
 "Use sandwich estimator of\n"
-"coefficient covariance matrix   "
+"coefficient covariance matrix"
 msgstr ""
-"Uporabi sendvič oceno \n"
+"Uporabi sendvič oceno\n"
 "koeficienta kovariančne matrike"
 
 msgid "sandwich covariance matrix unavailable with type I tests"
@@ -4685,13 +4632,13 @@ msgstr "Dodaj stolpec"
 # messages added for version 2.1-3
 # to manage app nap under Mac OS X Mavericks
 msgid "Manage Mac OS X app nap for R.app..."
-msgstr "Upravljaj z Mac OS X zamikom aplikacije R.app..."
+msgstr "Upravljaj z Mac OS X zakasnitvijo aplikacije R.app..."
 
 msgid "Mac OS X app nap for R.app"
-msgstr "Mac OS X zamik aplikacije R.app..."
+msgstr "Mac OS X zakasnitev aplikacije R.app..."
 
 msgid "Set app nap"
-msgstr "Nastavi zamik aplikacije"
+msgstr "Nastavi zakasnitev aplikacije"
 
 msgid "off (recommended)"
 msgstr "izključen (priporočeno)"
@@ -4706,3 +4653,155 @@ msgstr "Nastavi brst generatorja slučajnih števil..."
 msgid "Set Random Number Generator Seed"
 msgstr "Nastavi brst generatorja slučajnih števil"
 
+# messages added for version 2.2-0
+# messages that were inadvertently missing in previous versions
+msgid "The following variable names are not valid:\n"
+msgstr "Naslednja imena spremenljivk niso veljavna:\n"
+
+msgid "Save R Markdown file?"
+msgstr "Shranim datoteko R markdown?"
+
+msgid "Theme (pick one)"
+msgstr "Izberite eno temo"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "Biti morata obe ali pa nobena oznaka številska."
+
+msgid "ANOVA Table"
+msgstr "Tabela ANOVA"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr "Ne obstaja ustrezen test za osamelce za ta razred modelov."
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Shapiro-Wilkov test normalnosti"
+
+msgid "Hypothesis Test"
+msgstr "Test hipoteze"
+
+msgid "Load Plug-ins"
+msgstr "Naloži vtičnike"
+
+# for report generation
+msgid "Generate report"
+msgstr "Tvori poročilo"
+
+msgid "Install Auxiliary Software"
+msgstr "Namesti pomožno programje"
+
+msgid "Install auxiliary software..."
+msgstr "Namesti pomožno programje..."
+
+msgid "(already installed)"
+msgstr "(že nameščeno)"
+
+msgid "LaTeX"
+msgstr "LaTeX"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "Programje za namestitev"
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+"Prosim, preberite navodila za ta dialog\n"
+"pred namestitvijo pomožnega programja."
+
+msgid "Select Output Format"
+msgstr "Izberite format izhoda"
+
+msgid ".html (web page)"
+msgstr ".html (spletna stran)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (datoteka PDF)"
+
+msgid ".docx (Word file)"
+msgstr ".docx (Wordova datoteka)"
+
+msgid "HTML file written to:"
+msgstr "datoteka html je zapisana na:"
+
+msgid "PDF file written to:"
+msgstr "PDF datoteka je zapisana na:"
+
+msgid "Word file written to:"
+msgstr "Wordova datoteka zapisana na:"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+"Ravni elips morajo biti številske vrednosti,\n"
+"ki so ločene s presledki ali vejicami."
+
+msgid "Plot concentration ellipse(s)"
+msgstr "Nariši elipse koncentracij"
+
+msgid "Concentration levels: "
+msgstr "Ravni koncentracij: "
+
+msgid "Legend Position"
+msgstr "Mesto za legendo"
+
+msgid "Above plot"
+msgstr "Nad grafom"
+
+msgid "Top left"
+msgstr "Zgoraj levo"
+
+msgid "Top right"
+msgstr "Zgoraj desno"
+
+msgid "Bottom left"
+msgstr "Spodaj levo"
+
+msgid "Bottom right"
+msgstr "Spodaj desno"
+
+# additions to bargraph dialog
+msgid "Style of Group Bars"
+msgstr "Slog stolpcev po skupinah"
+
+msgid "Divided (stacked)"
+msgstr "Razdeljeni (naloženi drug na drugem)"
+
+msgid "Side-by-side (parallel)"
+msgstr "En poleg drugega (vzporedno)"
+
+msgid "Position of Legend"
+msgstr "Položaj legende"
+
+msgid "Left"
+msgstr "Levo"
+
+msgid "Right"
+msgstr "Desno"
+
+msgid "plotting and grouping variables must be different"
+msgstr "spremenljivke za risanje in grupiranje morajo biti različne"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "Točkovni diagram"
+
+msgid "Bin variable"
+msgstr "Spremenljivke z vrednostmi v razredih"
+
+msgid "Dot plot..."
+msgstr "Točkovni diagram..."
+
+# for reading Excel files (new dialog)
+msgid "Convert character data to factors"
+msgstr "Prevedi znakovne spremenljivke v faktorje"
+
+msgid "<empty cell>"
+msgstr "<prazna celica>"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+msgstr "{\"Vse datoteke\" {\"*\"}} {\"MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"

@@ -610,8 +610,8 @@ scatterPlot <- function () {
         showvalue = TRUE, variable = cex.labValue, resolution = 0.1,
         orient = "horizontal")
     radioButtons(window=parFrame, name="legendPosition", buttons=c("above", "topleft", "topright",
-        "bottomleft", "bottomright"), labels=c("Above plot", "Top left", "Top right", "Bottom left",
-            "Bottom right"), title=gettextRcmdr("Legend Position"),
+        "bottomleft", "bottomright"), labels=gettextRcmdr(c("Above plot", "Top left", "Top right", "Bottom left",
+            "Bottom right")), title=gettextRcmdr("Legend Position"),
         initialValue=dialog.values$initial.legend.pos)
     onOK <- function() {
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
