@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.1-5\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2015-08-07 14:30:00\n"
-"PO-Revision-Date: 2015-09-01 11:27+0100\n"
+"POT-Creation-Date: 2015-09-06 13:15:00\n"
+"PO-Revision-Date: 2015-09-07 11:10+0100\n"
 "Last-Translator: Manuel Munoz-Marquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <ginteloy@uca.es>\n"
 "Language: es\n"
@@ -4154,13 +4154,6 @@ msgstr "número de puntos a identificar debe ser un entero"
 msgid "Number of points to identify"
 msgstr "Número de puntos a identificar"
 
-msgid ""
-"Number of points to identify  \n"
-"in each panel and group "
-msgstr ""
-"Número de puntos a identificar \n"
-"en cada panel y grupo"
-
 msgid "Added-Variable Plots"
 msgstr "Gráfica de variables agregadas"
 
@@ -4560,13 +4553,6 @@ msgstr ""
 "Usar el estimador sandwich de \n"
 "los errores estandáres de los coeficientes"
 
-msgid ""
-"Use sandwich estimator of\n"
-"coefficient covariance matrix   "
-msgstr ""
-"Usar el estimador sandwich de \n"
-"de los coeficientes de la matriz de covarianza"
-
 msgid "sandwich covariance matrix unavailable with type I tests"
 msgstr "la matriz de covarianza sandwich no está disponible con el test tipo I"
 
@@ -4645,13 +4631,13 @@ msgid "The following variable names are not valid:\n"
 msgstr "Los siguientes nombres de variables no son válidos:\n"
 
 msgid "Save R Markdown file?"
-msgstr "¿Guardar fichero R Markdown?"
+msgstr "Guardar fichero R Markdown?"
 
 msgid "Theme (pick one)"
-msgstr "Modelos (elige uno)"
+msgstr "Tema (elija uno)"
 
 msgid "Both or neither layout values must be numbers."
-msgstr ""
+msgstr "Ambos o ninguno los valores de diseño deben ser números."
 
 msgid "ANOVA Table"
 msgstr "Tabla ANOVA"
@@ -4673,103 +4659,104 @@ msgid "Generate report"
 msgstr "Generar informe"
 
 msgid "Install Auxiliary Software"
-msgstr ""
+msgstr "Instalar software auxiliar"
 
 msgid "Install auxiliary software..."
-msgstr ""
+msgstr "Instalar software auxiliar..."
 
 msgid "(already installed)"
-msgstr ""
+msgstr "(ya instalado)"
 
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTeX"
 
 msgid "Pandoc"
-msgstr ""
+msgstr "Pandoc"
 
 msgid "Software to Install"
-msgstr ""
+msgstr "Software a instalar"
 
 msgid ""
 "Please read the help for this dialog\n"
 "before installing auxiliary software."
 msgstr ""
+"Por favor, lea la ayuda de este diálogo\n"
+"antes de instalar software auxiliar."
 
 msgid "Select Output Format"
-msgstr ""
+msgstr "Seleccione el formato de salida"
 
 msgid ".html (web page)"
-msgstr ""
+msgstr ".html (página web)"
 
 msgid ".pdf (PDF file)"
-msgstr ""
+msgstr ".pdf (fichero PDF)"
 
 msgid ".docx (Word file)"
-msgstr ""
+msgstr ".docx (fichero Word)"
 
 msgid "HTML file written to:"
-msgstr ""
+msgstr "Guardar el fichero HTML en:"
 
 msgid "PDF file written to:"
-msgstr ""
+msgstr "Guardar el fichero PDF en:"
 
 msgid "Word file written to:"
-msgstr ""
+msgstr "Guardar el fichero Word en:"
 
 # additions to scatterplot and scatterplot-matrix dialogs
 msgid ""
 "Levels for ellipses must be numeric values\n"
 "  separated by spaces or commas."
 msgstr ""
+"Los niveles para las elipses deben ser numéricos\n"
+" separados por espacios o comas."
 
 msgid "Plot concentration ellipse(s)"
-msgstr "Dibujar elipsoides de concentración"
-
-msgid "Concentration levels: "
-msgstr ""
+msgstr "Dibujar elipsoide de concentración"
 
 msgid "Legend Position"
-msgstr ""
+msgstr "Posición del texto"
 
 msgid "Above plot"
-msgstr ""
+msgstr "Encima del gráfico"
 
 msgid "Top left"
-msgstr ""
+msgstr "Izquierda arriba"
 
 msgid "Top right"
-msgstr ""
+msgstr "Derecha arriba"
 
 msgid "Bottom left"
-msgstr ""
+msgstr "Izquierda abajo"
 
 msgid "Bottom right"
-msgstr ""
+msgstr "Derecha abajo"
 
 msgid "Style of Group Bars"
-msgstr "Estilo del gráfico de barras por grupo"
+msgstr "Estilo del grupo de barras"
 
 msgid "Divided (stacked)"
-msgstr ""
+msgstr "Dividido (apilado)"
 
 msgid "Side-by-side (parallel)"
-msgstr "Lado-a-lado (paralelas)"
+msgstr "Lado a lado (paralelo)"
 
 msgid "Position of Legend"
-msgstr "Posición de la leyenda"
+msgstr "Posición del texto"
 
 msgid "Left"
 msgstr "Izquierda"
 
 msgid "Right"
-msgstr "Derecho"
+msgstr "Derecha"
 
 msgid "plotting and grouping variables must be different"
-msgstr "Las variables a dibujar y la de grupo deben ser diferentes"
+msgstr "Las variables a dibujar y las de grupo han de ser diferentes"
 
 # dot plot dialog
 msgid "Dot Plot"
-msgstr "Diagrama de punto"
+msgstr "Gráfico de punto"
 
 msgid "Bin variable"
 msgstr "Variable binaria"
@@ -4778,7 +4765,7 @@ msgid "Dot plot..."
 msgstr "Diagrama de puntos..."
 
 msgid "Convert character data to factors"
-msgstr "Convertir dato de carácter en factores..."
+msgstr "Convertir variables de carácter en factores"
 
 msgid "<empty cell>"
 msgstr "<celda vacía>"
@@ -4787,5 +4774,22 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
 "XLS\"}}"
 msgstr ""
-"{\"Todos los ficheros\" {\"*\"}} {\"Ficheros MS Excel\" {\".xlsx\" \".XLSX\" "
-"\".xls\" \".XLS\"}}"
+"{\"Todos los ficheros\" {\"*\"}} {\"Ficheros MS Excel\" {\".xlsx\" \".XLSX"
+"\"}} {\"Ficheros MS Excel\" {\".xls\" \".XLS\"}}"
+
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group"
+msgstr ""
+"Número de puntos a identificar \n"
+"en cada panel y grupo"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix"
+msgstr ""
+"Usar el estimador sandwich de\n"
+"los coeficientes de la matriz de covarianza"
+
+msgid "Concentration levels:"
+msgstr "Niveles de concentración:"

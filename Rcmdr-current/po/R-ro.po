@@ -4011,9 +4011,6 @@ msgstr "numarul de puncte de identificat trebuie sa fie un numar intreg"
 msgid "Number of points to identify"
 msgstr "Numar de puncte de identificat"
 
-msgid "Number of points to identify  \nin each panel and group "
-msgstr "Numar de puncte de identificat \nin fiecare panel si grup"
-
 msgid "Added-Variable Plots"
 msgstr "Ploturi variabile adaugate"
 
@@ -4412,9 +4409,6 @@ msgstr "Estimator sandwich"
 msgid "Use sandwich estimator of    \ncoefficient standard errors"
 msgstr "Utilizare estimator sandwich\npentru coeficienti erori standard"
 
-msgid "Use sandwich estimator of\ncoefficient covariance matrix   "
-msgstr "Utilizare estimator sandwich\npentru matricea de covarianta a coeficientilor"
-
 msgid "sandwich covariance matrix unavailable with type I tests"
 msgstr "Matrice covarianta sandwich nedisponibila pentru testele de tipul I"
 
@@ -4586,9 +4580,6 @@ msgstr "Nivelurile pentru elipse trebuie a fie valori numerice\n separate prin s
 msgid "Plot concentration ellipse(s)"
 msgstr "Grafic de elipse de concentrare"
 
-msgid "Concentration levels: "
-msgstr "Niveluri de concentrare: "
-
 msgid "Legend Position"
 msgstr "Pozitie legenda"
 
@@ -4651,3 +4642,15 @@ msgstr "<celula goala>"
 
 msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
 msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisier MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+
+  # corrected messages in version 2.2-1
+
+msgid "Number of points to identify  \nin each panel and group"
+msgstr "Numar de puncte de identificat \nin fiecare panel si grup"
+
+msgid "Use sandwich estimator of\ncoefficient covariance matrix"
+msgstr "Utilizare estimator sandwich\npentru matricea de covarianta a coeficientilor"
+
+msgid "Concentration levels:"
+msgstr "Niveluri de concentrare:"
+

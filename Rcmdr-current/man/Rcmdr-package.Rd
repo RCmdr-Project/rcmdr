@@ -13,7 +13,7 @@ user interface) for R, based on the tcltk package.
 \tabular{ll}{
 Package: \tab Rcmdr\cr
 Version: \tab 2.2-1\cr
-Date: \tab 2015-09-06\cr
+Date: \tab 2015-09-07\cr
 Depends: \tab R (>= 3.0.0), grDevices, utils, splines, RcmdrMisc (>= 1.0-3), 
   car (>= 2.0-26)\cr
 Imports: \tab tcltk, tcltk2 (>= 1.2-6), abind, graphics, methods, stats\cr
@@ -48,6 +48,7 @@ Chinese (Simplified), Shulin Yang;
 French, Philippe Grosjean and Milan Bouchet-Valat;
 Galician, Anton Meixome;
 German: Friedrich Leisch and Gerhard Schoen;
+Greek: Vasileios Dimitropoulos, Anastasios Vikatos, and Andreas Vikatos;
 Indonesian, I Made Tirta;
 Italian, Stefano Calza;
 Japanese, Takaharu Araki;
