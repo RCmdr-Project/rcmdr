@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-08-21 17:30:00\n"
+"POT-Creation-Date: 2015-09-07 10:22+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Li Cheng Hsun <d966020003@student.nsysu.edu.tw>\n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.8\n"
+"X-Generator: Poedit 1.8.4\n"
 
 msgid "KMeans Clustering"
 msgstr "K 平均數集群"
@@ -370,11 +370,11 @@ msgid "You must enter a name for the data set."
 msgstr "您必須輸入資料集的名稱."
 
 msgid ""
-"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
-"{\"All Files\" {\"*\"}}"
+"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files"
+"\" {\"*\"}}"
 msgstr ""
-"{\"文字檔\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所有"
-"檔案\" {\"*\"}}"
+"{\"文字檔\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所有檔案\" {\"*"
+"\"}}"
 
 msgid "Variable names in file:"
 msgstr "檔案中的變數名稱："
@@ -420,11 +420,11 @@ msgstr "匯入 SPSS 格式資料"
 
 # #是否只打SAV檔等等
 msgid ""
-"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
-"\".POR\"}} {\"All Files\" {\"*\"}}"
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
+"{\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"SPSS 儲存檔\" {\".sav\" \".SAV\"}} {\"SPSS 可攜式檔案\" {\".por\" \".POR"
-"\"}} {\"所有檔案\" {\"*\"}}"
+"{\"SPSS 儲存檔\" {\".sav\" \".SAV\"}} {\"SPSS 可攜式檔案\" {\".por\" \".POR\"}} {\"所有檔"
+"案\" {\"*\"}}"
 
 # #待確認翻譯
 msgid ""
@@ -447,8 +447,7 @@ msgstr ""
 msgid "Import Minitab Data Set"
 msgstr "匯入 Minitab 格式資料"
 
-msgid ""
-"{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Minitab 可攜式檔案\" {\".mtp\" \".MTP\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid ""
@@ -1281,7 +1280,7 @@ msgstr "顯示曲面格線"
 
 # #待確認翻譯
 msgid "Surfaces to Fit"
-msgstr "曲面適配"
+msgstr "曲面配適"
 
 msgid "Linear least-squares"
 msgstr "線性最小平方"
@@ -1319,11 +1318,8 @@ msgstr "圖檔類型"
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"PNG檔\" {\".png\" \".PNG\"}} {\"所有檔案\" {\"*\"}}"
 
-msgid ""
-"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*"
-"\"}}"
-msgstr ""
-"{\"JPEG檔\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有檔案\" {\"*\"}}"
+msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"JPEG檔\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid "Graph saved to file"
 msgstr "儲存圖檔"
@@ -1352,11 +1348,8 @@ msgstr "{\"PDF檔\" {\".pdf\" \".PDF\"}} {\"所有檔案\" {\"*\"}}"
 msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Postscript檔\" {\".ps\" \".PS\"}} {\"所有檔案\" {\"*\"}}"
 
-msgid ""
-"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*"
-"\"}}"
-msgstr ""
-"{\"Encapsulated Postscript檔\" {\".eps\" \".EPS\"}} {\"所有檔案\" {\"*\"}}"
+msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Encapsulated Postscript檔\" {\".eps\" \".EPS\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid "Width (inches)"
 msgstr "寬度〈英吋〉"
@@ -1405,14 +1398,14 @@ msgid ""
 "Observation statistics not available\n"
 "for a model fit to a subset of the data."
 msgstr ""
-"此資料中的一子樣本模型適配\n"
+"此資料中的一子樣本模型配適\n"
 "觀察值統計量無法使用."
 
 msgid "Add Observation Statistics to Data"
 msgstr "將觀察值統計量新增至資料中"
 
 msgid "Fitted values"
-msgstr "適配值"
+msgstr "配適值"
 
 msgid "Residuals"
 msgstr "殘差"
@@ -2049,8 +2042,7 @@ msgid "Arguments factor1 and factor2 must be factors."
 msgstr "引數：factor1與factor2必須是因子變數."
 
 # #待確認翻譯
-msgid ""
-"Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
 msgstr "factor2的群組數： %d, 超過截然不同的顏色數：, %d."
 
 msgid "The number of bins exceeds the number of data values"
@@ -2393,7 +2385,7 @@ msgstr "多變量方法"
 
 # #或翻譯為統計模型
 msgid "Fit models"
-msgstr "模型適配"
+msgstr "模型配適"
 
 msgid "Index plot..."
 msgstr "索引圖..."
@@ -2634,11 +2626,11 @@ msgid "Import from Excel, Access or dBase data set"
 msgstr "匯入 Excel, Access 或 dBase 資料"
 
 msgid ""
-"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
-"\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-"
+"like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"MS Excel檔\" {*.xls \".XLS\"}} {\"MS Access 資料庫檔\" {*.mdb \".MDB\"}} "
-"{\"dBase-like 檔\" {*.dbf \".DBF\"}} {\"所有檔案\" {\"*\"}}"
+"{\"MS Excel檔\" {*.xls \".XLS\"}} {\"MS Access 資料庫檔\" {*.mdb \".MDB\"}} {\"dBase-like "
+"檔\" {*.dbf \".DBF\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "選擇其中一個工作表"
@@ -3332,8 +3324,7 @@ msgstr "次數分配"
 msgid "Chi-square goodness-of-fit test (for one variable only)"
 msgstr "卡方適合度檢定〈僅限一個變數〉"
 
-msgid ""
-"Goodness-of-fit test not available when more than one variable is selected."
+msgid "Goodness-of-fit test not available when more than one variable is selected."
 msgstr "當選擇一個以上的變數時，無法進行適合度檢定."
 
 msgid "Frequency distributions..."
@@ -3807,11 +3798,8 @@ msgid "Name for aggregated data set:"
 msgstr "整合後的資料集名稱："
 
 #     miscellaneous
-msgid ""
-"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files"
-"\" {\"*\"}}"
-msgstr ""
-"{\"R 資料檔\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"所有檔案\" {\"*\"}}"
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"R 資料檔\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid "No data set selected."
 msgstr "沒有選擇任何資料集."
@@ -3840,8 +3828,8 @@ msgid ""
 "with the single-document interface (SDI); see ?Commander."
 msgstr ""
 "R Commander 的Windows版本\n"
-"最佳運作環境為 RGui 下的單一文件介面 (SDI) 模式; 想了解更多？ 請參閱說明選單"
-"中的 Commander 說明."
+"最佳運作環境為 RGui 下的單一文件介面 (SDI) 模式; 想了解更多？ 請參閱說明選單中的 "
+"Commander 說明."
 
 # messages added to version 1.6-0
 # for Levene test
@@ -3890,24 +3878,23 @@ msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
 msgid ""
-"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
-"\".csv\" \".CSV\"}}"
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \"."
+"CSV\"}}"
 msgstr ""
-"{\"文字檔\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所有"
-"檔案\" {\"*\"}}"
+"{\"文字檔\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所有檔案\" {\"*"
+"\"}}"
 
 # #是否只打SAV檔等等
 #, fuzzy
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
-"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files"
+"\" {\".sav\" \".SAV\"}}"
 msgstr ""
-"{\"SPSS 儲存檔\" {\".sav\" \".SAV\"}} {\"SPSS 可攜式檔案\" {\".por\" \".POR"
-"\"}} {\"所有檔案\" {\"*\"}}"
+"{\"SPSS 儲存檔\" {\".sav\" \".SAV\"}} {\"SPSS 可攜式檔案\" {\".por\" \".POR\"}} {\"所有檔"
+"案\" {\"*\"}}"
 
 #, fuzzy
-msgid ""
-"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
 msgstr "{\"Minitab 可攜式檔案\" {\".mtp\" \".MTP\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
@@ -3916,18 +3903,15 @@ msgstr "{\"STATA 資料集檔案\" {\".dta\" \".DTA\"}} {\"所有檔案\" {\"*\"
 
 #, fuzzy
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
-"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
-"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
-"\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 "
+"database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel "
+"2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"MS Excel檔\" {*.xls \".XLS\"}} {\"MS Access 資料庫檔\" {*.mdb \".MDB\"}} "
-"{\"dBase-like 檔\" {*.dbf \".DBF\"}} {\"所有檔案\" {\"*\"}}"
+"{\"MS Excel檔\" {*.xls \".XLS\"}} {\"MS Access 資料庫檔\" {*.mdb \".MDB\"}} {\"dBase-like "
+"檔\" {*.dbf \".DBF\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
-msgid ""
-"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
-"RDA\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
 msgstr "{\"R資料檔\" {\".rda\" \".Rda\" \".RDA\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
@@ -3935,11 +3919,8 @@ msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
-msgid ""
-"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
-"\"}}"
-msgstr ""
-"{\"JPEG檔\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有檔案\" {\"*\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgstr "{\"JPEG檔\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
@@ -3950,11 +3931,8 @@ msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
-msgid ""
-"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
-"\"}}"
-msgstr ""
-"{\"Encapsulated Postscript檔\" {\".eps\" \".EPS\"}} {\"所有檔案\" {\"*\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgstr "{\"Encapsulated Postscript檔\" {\".eps\" \".EPS\"}} {\"所有檔案\" {\"*\"}}"
 
 # messages added to version 1.7-0
 msgid "Reset"
@@ -3990,10 +3968,10 @@ msgstr "使用成對完整觀察值"
 
 # messages added to version 1.7-4
 msgid "Component scores are not available when subset is specified."
-msgstr ""
+msgstr "在子資料沒有主成份分數"
 
 msgid "Factor scores are not available when subset is specified."
-msgstr ""
+msgstr "在子資料沒有因子分數"
 
 msgid "Confirmatory Factor Analysis"
 msgstr "驗證性因子分析"
@@ -4020,7 +3998,7 @@ msgid "Correlation"
 msgstr "相關性 < 0"
 
 msgid "Matrix to Analyze"
-msgstr ""
+msgstr "欲分析之矩陣"
 
 # Correlation test dialog
 #, fuzzy
@@ -4108,7 +4086,7 @@ msgid "Fixed aspect ratio (height:width)"
 msgstr "固定 aspect ratio(高度寬度比)"
 
 msgid "Resolution"
-msgstr ""
+msgstr "解析度"
 
 msgid "from SAS xport file..."
 msgstr "匯入SAS格式資料..."
@@ -4126,8 +4104,7 @@ msgid "Datasets in file (pick one)"
 msgstr "資料集〈選取1個〉"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
-"\".XPORT\"}}"
+"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
 msgstr ""
 
 # #待確認翻譯
@@ -4146,24 +4123,24 @@ msgid "Import Excel Data Set"
 msgstr "匯入 Excel 格式資料"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
-"Excel file\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
+"\" {\".xls\" \".XLS\"}}"
 msgstr ""
 
 msgid "Interquartile Range"
-msgstr ""
+msgstr "分量間距"
 
 msgid "Interquartile range"
-msgstr ""
+msgstr "分量間距"
 
 msgid "Lines"
-msgstr ""
+msgstr "行數"
 
 msgid "Choose at least one of points or lines."
 msgstr "點或線至少擇1"
 
 msgid "Plot Type (one or both)"
-msgstr ""
+msgstr "圖形類別"
 
 # #待確認功能
 #, fuzzy
@@ -4245,7 +4222,7 @@ msgid "Interactively with mouse"
 msgstr "使用滑鼠互動辨識觀察值"
 
 msgid "Do not identify"
-msgstr ""
+msgstr "無法辨認"
 
 msgid "number of points to identify must be an integer"
 msgstr ""
@@ -4273,10 +4250,10 @@ msgid "Generate HTML report"
 msgstr "產生 HTML 文件"
 
 msgid "Generate PDF report"
-msgstr ""
+msgstr "產生PDF報告"
 
 msgid "R Markdown"
-msgstr ""
+msgstr "R的Markdown文件"
 
 msgid "knitr Document"
 msgstr "knitr 文件"
@@ -4317,9 +4294,7 @@ msgstr "另存 knitr 語法檔"
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
 msgstr "{\"所有檔案\" {\"*\"}} {\"R Markdown 檔案\" {\".Rmd\" \".rmd\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
-"\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
 msgstr ""
 
 msgid ""
@@ -4352,10 +4327,10 @@ msgid "Select file"
 msgstr "選擇檔案"
 
 msgid "R Markdown template file"
-msgstr ""
+msgstr "R的Markdown文件模版"
 
 msgid "R knitr template file"
-msgstr ""
+msgstr "R的 knitr 模版"
 
 msgid "Suppress icon images"
 msgstr ""
@@ -4468,7 +4443,7 @@ msgid "Multiply bandwidth by"
 msgstr ""
 
 msgid "Density estimate..."
-msgstr ""
+msgstr "密度估計"
 
 msgid "Bandwidth must be <auto> or a positive number"
 msgstr "頻寬必須為 <auto> 或正值"
@@ -4564,7 +4539,7 @@ msgid "Remove last command block"
 msgstr ""
 
 msgid "Exit editor"
-msgstr ""
+msgstr "退出編輯器"
 
 msgid "Editor help"
 msgstr ""
@@ -4591,7 +4566,7 @@ msgstr "平均數之標準誤"
 
 # #或翻譯為統計模型
 msgid "Fit Indices"
-msgstr "模型適配指標"
+msgstr "模型配適指標"
 
 msgid "Variable names in first row of spreadsheet"
 msgstr "資料表中首列的變數名稱："
@@ -4608,7 +4583,7 @@ msgid "Model Effect Plots"
 msgstr "效應圖"
 
 msgid "Plot All High-Order Effects?"
-msgstr ""
+msgstr "繪製「高-低」效果？"
 
 msgid "Predictors (pick one or more)"
 msgstr "用來預測的變數〈選取1個或多個〉"
@@ -4671,9 +4646,7 @@ msgstr "三明治(Sandwich) 估計式"
 msgid ""
 "Use sandwich estimator of    \n"
 "coefficient standard errors"
-msgstr ""
-"使用三明治(Sandwich) 估計式調整   \n"
-"係數之標準差"
+msgstr "使用三明治(Sandwich) 估計式調整係數之標準差"
 
 msgid ""
 "Use sandwich estimator of\n"
@@ -4700,3 +4673,208 @@ msgid ""
 "Model formula\n"
 "help"
 msgstr "模型公式："
+
+# messages added for version 2.1-1
+# messages for the new dataset editor
+msgid "Data Editor"
+msgstr "資料編輯器"
+
+msgid "Delete current row"
+msgstr "刪除列"
+
+msgid "Delete current column"
+msgstr "刪除行"
+
+msgid "Delete cell"
+msgstr "刪除格子"
+
+msgid "Cut cell"
+msgstr "剪下格子"
+
+msgid "Copy cell"
+msgstr "複製格子"
+
+msgid "Paste cell"
+msgstr "貼上格子"
+
+msgid "Exit and save"
+msgstr "退出並儲存"
+
+msgid "Add row"
+msgstr "新增列"
+
+msgid "Add column"
+msgstr "新增行"
+
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr ""
+
+msgid "Mac OS X app nap for R.app"
+msgstr ""
+
+msgid "Set app nap"
+msgstr ""
+
+msgid "off (recommended)"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr ""
+
+msgid "Set Random Number Generator Seed"
+msgstr ""
+
+# messages added for version 2.2-0
+# messages that were inadvertently missing in previous versions
+msgid "The following variable names are not valid:\n"
+msgstr "下數變數名無效：\n"
+
+msgid "Save R Markdown file?"
+msgstr "儲存 R 的 Markdown 檔案？"
+
+msgid "Theme (pick one)"
+msgstr "主題(擇一)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr ""
+
+msgid "ANOVA Table"
+msgstr "ANOVA列表"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr "沒有適合的離群值檢定"
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Shapiro-Wilk 常態分配檢定量"
+
+msgid "Hypothesis Test"
+msgstr "假設檢定"
+
+msgid "Load Plug-ins"
+msgstr "載入增益集"
+
+# for report generation
+msgid "Generate report"
+msgstr "產生報表"
+
+msgid "Install Auxiliary Software"
+msgstr ""
+
+msgid "Install auxiliary software..."
+msgstr ""
+
+msgid "(already installed)"
+msgstr ""
+
+msgid "LaTeX"
+msgstr ""
+
+msgid "Pandoc"
+msgstr ""
+
+msgid "Software to Install"
+msgstr ""
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+
+msgid "Select Output Format"
+msgstr ""
+
+msgid ".html (web page)"
+msgstr ""
+
+msgid ".pdf (PDF file)"
+msgstr ""
+
+msgid ".docx (Word file)"
+msgstr ""
+
+msgid "HTML file written to:"
+msgstr ""
+
+msgid "PDF file written to:"
+msgstr ""
+
+msgid "Word file written to:"
+msgstr ""
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+
+msgid "Plot concentration ellipse(s)"
+msgstr ""
+
+msgid "Concentration levels: "
+msgstr ""
+
+msgid "Legend Position"
+msgstr ""
+
+msgid "Above plot"
+msgstr "以上圖"
+
+msgid "Top left"
+msgstr "頂端偏左"
+
+msgid "Top right"
+msgstr "頂端偏右"
+
+msgid "Bottom left"
+msgstr "下方偏左"
+
+msgid "Bottom right"
+msgstr "下方偏右"
+
+# additions to bargraph dialog
+msgid "Style of Group Bars"
+msgstr ""
+
+msgid "Divided (stacked)"
+msgstr ""
+
+msgid "Side-by-side (parallel)"
+msgstr ""
+
+msgid "Position of Legend"
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "Right"
+msgstr ""
+
+msgid "plotting and grouping variables must be different"
+msgstr "繪製資料和分群變數不可相同"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "點陣圖"
+
+msgid "Bin variable"
+msgstr ""
+
+msgid "Dot plot..."
+msgstr "點陣圖..."
+
+# for reading Excel files (new dialog)
+msgid "Convert character data to factors"
+msgstr "將類別變數轉成因子"
+
+msgid "<empty cell>"
+msgstr ""
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+msgstr ""

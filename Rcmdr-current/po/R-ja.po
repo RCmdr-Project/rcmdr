@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr Japanese Translation\n"
 "POT-Creation-Date: 2010-07-10 19:00\n"
-"PO-Revision-Date: 2015-08-20 10:12+0900\n"
+"PO-Revision-Date: 2015-09-08 12:12+0900\n"
 "Last-Translator: Takaharu Araki <arakit@kansai-u.ac.jp>\n"
 "Language-Team: Rcmdr Japanese Translation <arakit@kansai-u.ac.jp>\n"
 "MIME-Version: 1.0\n"
@@ -4852,3 +4852,26 @@ msgid ""
 msgstr ""
 "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
 "XLS\"}}"
+
+# corrected messages in version 2.2-1
+# The following messages had trailing blanks. These messages were deleted from
+#   their previous locations in this .pot file and transferred here in corrected form,
+#   with the trailing blanks removed.
+# I suggest that you likewise delete the earlier versions of these messages from
+#   your .po file and provide corrected translations here, without trailing blanks.
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group"
+msgstr ""
+"各パネルとグループで\n"
+"確認する点の数"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix"
+msgstr ""
+"共分散行列の\n"
+"サンドウィッチ推定量を利用"
+
+msgid "Concentration levels:"
+msgstr "集中度:"
