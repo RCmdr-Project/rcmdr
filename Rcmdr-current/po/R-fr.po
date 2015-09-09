@@ -4862,3 +4862,21 @@ msgstr ""
 
 #~ msgid "Weights"
 #~ msgstr "Poids"
+
+# corrected messages in version 2.2-1
+
+ # The following messages had trailing blanks. These messages were deleted from
+ #   their previous locations in this .pot file and transferred here in corrected form,
+ #   with the trailing blanks removed.
+
+ # I suggest that you likewise delete the earlier versions of these messages from 
+ #   your .po file and provide corrected translations here, without trailing blanks.
+
+msgid "Number of points to identify  \nin each panel and group"
+msgstr "Nombre de points à identifier\ndans chaque panneau et groupe"
+
+msgid "Use sandwich estimator of\ncoefficient covariance matrix"
+msgstr "Utiliser l'estimateur sandwich de\nmatrice de covariance des coefficients"
+
+msgid "Concentration levels:"
+msgstr "Niveaux de concentration :"
