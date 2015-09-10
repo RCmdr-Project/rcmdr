@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Rcmdr 2.2-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: 2015-08-25 11:07+0200\n"
-"PO-Revision-Date: 2015-08-27 13:26+0200\n"
+"PO-Revision-Date: 2015-09-10 15:00+0200\n"
 "Last-Translator: Friedrich Leisch <Friedrich.Leisch@R-project.org>\n"
 "Language-Team: Austrian\n"
 "Language: de\n"
@@ -4186,13 +4186,6 @@ msgstr "Anzahl der zu identifizierenden Punkte muss eine ganze Zahl sein"
 msgid "Number of points to identify"
 msgstr "Anzahl der zu identifizierenden Punkte"
 
-msgid ""
-"Number of points to identify  \n"
-"in each panel and group "
-msgstr ""
-"Anzahl der zu identifizierenden Punkte\n"
-"pro Panel und Gruppe"
-
 # Recode dialog
 msgid "Added-Variable Plots"
 msgstr "Added-Variable Plots"
@@ -4598,13 +4591,6 @@ msgstr ""
 "Verwende Sandwich Schätzer\n"
 "für Standardfehler der Koeffizienten"
 
-msgid ""
-"Use sandwich estimator of\n"
-"coefficient covariance matrix   "
-msgstr ""
-"Verwende Sandwich Schätzer\n"
-"Kovarianzmatrix der Koeffizienten"
-
 msgid "sandwich covariance matrix unavailable with type I tests"
 msgstr "Sandwich Kovarianzmatrix nicht verfügbar bei Typ I Tests"
 
@@ -4769,9 +4755,6 @@ msgstr ""
 msgid "Plot concentration ellipse(s)"
 msgstr "Zeichne Ellipsen"
 
-msgid "Concentration levels: "
-msgstr "Concentration levels: "
-
 msgid "Legend Position"
 msgstr "Position der Legende"
 
@@ -4835,17 +4818,29 @@ msgstr ""
 "{\"Alle Dateien\" {\"*\"}} {\"MS Excel Datei\" {\".xlsx\" \".XLSX\" \".xls\" "
 "\".XLS\"}}"
 
-# messages added for version 2.1-0
-#~ msgid ""
-#~ "the RcmdrMisc package is missing and should be installed\n"
-#~ "  many features will not work"
-#~ msgstr ""
-#~ "Das Paket RcmdrMisc ist nicht vorhanden und sollte installiert werden,\n"
-#~ "viele Features funktionieren nicht."
+# corrected messages in version 2.2-1
+#
+# The following messages had trailing blanks. These messages were
+# deleted from their previous locations in this .pot file and
+# transferred here in corrected form, with the trailing blanks
+# removed.
+#
+# I suggest that you likewise delete the earlier versions of these
+# messages from your .po file and provide corrected translations
+# here, without trailing blanks.
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group"
+msgstr ""
+"Anzahl der zu identifizierenden Punkte\n"
+"pro Panel und Gruppe"
 
-#~ msgid ""
-#~ "the car package is missing and should be installed\n"
-#~ "  many features will not work"
-#~ msgstr ""
-#~ "Das Paket car ist nicht vorhanden und sollte installiert werden,\n"
-#~ "viele Features funktionieren nicht."
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix"
+msgstr ""
+"Verwende Sandwich Schätzer\n"
+"Kovarianzmatrix der Koeffizienten"
+
+msgid "Concentration levels:"
+msgstr "Concentration levels:"
