@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.8.4\n"
 
 # Indonesian translations for the Rcmdr package
 # Terjemahan Bahasa Indonesia Paket Rcmdr
@@ -66,7 +66,7 @@ msgid "Complete Linkage"
 msgstr "Pertalian lengkap"
 
 msgid "Average Linkage"
-msgstr "Rerata pertalian"
+msgstr "Pertalian Rata-rata "
 
 msgid "McQuitty's Method"
 msgstr "Metode McQuitty"
@@ -365,11 +365,9 @@ msgid "You must enter a name for the data set."
 msgstr "Anda harus memasukkan nama untuk data set."
 
 msgid ""
-"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
-"{\"All Files\" {\"*\"}}"
+"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"File Teks\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
-"{\"Semua File\" {\"*\"}}"
+"{\"File Teks\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"Semua File\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "Nama peubah dalam file:"
@@ -414,11 +412,11 @@ msgid "Import SPSS Data Set"
 msgstr "Impor Data Set SPSS"
 
 msgid ""
-"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
-"\".POR\"}} {\"All Files\" {\"*\"}}"
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All "
+"Files\" {\"*\"}}"
 msgstr ""
-"{\"simpan file SPSS\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por"
-"\" \".POR\"}} {\"Semua File\" {\"*\"}}"
+"{\"simpan file SPSS\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
+"{\"Semua File\" {\"*\"}}"
 
 msgid ""
 "Convert value labels\n"
@@ -439,8 +437,7 @@ msgstr ""
 msgid "Import Minitab Data Set"
 msgstr "Impor Data Set Minitab"
 
-msgid ""
-"{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"File portabel\" {\".mtp\" \".MTP\"}} {\"Semua File\" {\"*\"}}"
 
 msgid ""
@@ -653,7 +650,7 @@ msgid "The following variable names are not valid:"
 msgstr "Nama peubah berikut tidak valid:"
 
 msgid "Variable names are not unique"
-msgstr "Nama peubah tidak unik"
+msgstr "Nama variabel tidak unik"
 
 msgid "Old Name"
 msgstr "Nama sebelumnya"
@@ -1280,12 +1277,8 @@ msgstr "Jenis File Grafik"
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"File PNG\" {\".png\" \".PNG\"}} {\"Semua File\" {\"*\"}}"
 
-msgid ""
-"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All File\" {\"*"
-"\"}}"
-msgstr ""
-"{\"File JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Semua File\" {\"*"
-"\"}}"
+msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All File\" {\"*\"}}"
+msgstr "{\"File JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Semua File\" {\"*\"}}"
 
 msgid "Graph saved to file"
 msgstr "Grafik disimpan di file"
@@ -1314,9 +1307,7 @@ msgstr "{\"File PDF\" {\".pdf\" \".PDF\"}} {\"Semua Files\" {\"*\"}}"
 msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"File Poskrip\" {\".ps\" \".PS\"}} {\"Semua File\" {\"*\"}}"
 
-msgid ""
-"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*"
-"\"}}"
+msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
 msgstr "\"File EPS\" {\".eps\" \".EPS\"}} {\"Semua Files\" {\"*\"}}"
 
 msgid "Width (inches)"
@@ -1692,8 +1683,7 @@ msgid "You must select a groups factor."
 msgstr "Anda harus pilih faktor kelompok."
 
 msgid "Factor has fewer than 3 levels; pairwise comparisons omitted."
-msgstr ""
-"Faktor memiliki kurang dari 3 level; perbandingan berpasangan ditiadakan."
+msgstr "Faktor memiliki kurang dari 3 level; perbandingan berpasangan ditiadakan."
 
 msgid "Pairwise comparisons of means"
 msgstr "Perbandingan berpasangan dari nilai-tengah"
@@ -1992,7 +1982,7 @@ msgid "argument must be a square, symmetric, numeric covariance matrix"
 msgstr "Argumen harus matriks simetrik, matriks kovarian numerik"
 
 msgid "there are fewer than 3 items in the scale"
-msgstr "Ada kurangdari 3 item dalam skala"
+msgstr "Ada kurang dari 3 item dalam skala"
 
 msgid "Argument response must be numeric."
 msgstr "Respon argumen harus numerik."
@@ -2003,10 +1993,8 @@ msgstr "Argumen faktor1 harus faktor."
 msgid "Arguments factor1 and factor2 must be factors."
 msgstr "Argumen faktor1 dan faktor2 harus faktor."
 
-msgid ""
-"Number of groups for factor2, %d, exceeds number of distinct colours, %d."
-msgstr ""
-"Banyaknya kelompok pada faktor 2, %d melampaui banyaknya warna tersedia, %d."
+msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgstr "Banyaknya kelompok pada faktor 2, %d melampaui banyaknya warna tersedia, %d."
 
 msgid "The number of bins exceeds the number of data values"
 msgstr "Banyaknya bin melampauibanyaknya nilai data"
@@ -2583,11 +2571,11 @@ msgid "Import from Excel, Access or dBase data set"
 msgstr "Impor dari data set Excel, Access atau dBase"
 
 msgid ""
-"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
-"\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like "
+"file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"File MS Excel\" {*.xls \".XLS\"}} {\"Database MS Access\" {*.mdb \".MDB"
-"\"}} {\"File jenis dBase \" {*.dbf \".DBF\"}} {\"Semua File\" {\"*\"}}"
+"{\"File MS Excel\" {*.xls \".XLS\"}} {\"Database MS Access\" {*.mdb \".MDB\"}} {\"File jenis "
+"dBase \" {*.dbf \".DBF\"}} {\"Semua File\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "Pilih satu tabel"
@@ -2642,7 +2630,7 @@ msgid "Shapes must be positive."
 msgstr "Bentuk harus positif."
 
 msgid "Shape"
-msgstr "Bantuk"
+msgstr "Bentuk"
 
 msgid "Cauchy Distribution"
 msgstr "Distribusi Cauchy"
@@ -2735,7 +2723,7 @@ msgid "Shape (log shape)"
 msgstr "Bentuk (log bentuk)"
 
 msgid "Scale (log scale)"
-msgstr "Skala (log skala)"
+msgstr "Skala (skala log)"
 
 msgid "Gumbel Probabilities"
 msgstr "Peluang Gumbel"
@@ -3279,8 +3267,7 @@ msgstr "Distribusi frekuensi"
 msgid "Chi-square goodness-of-fit test (for one variable only)"
 msgstr "Uji kecocokan Chi-kuadrat (hanya untuk satu peubah)"
 
-msgid ""
-"Goodness-of-fit test not available when more than one variable is selected."
+msgid "Goodness-of-fit test not available when more than one variable is selected."
 msgstr "Uji kecocokan tidak tersedia jika lebih dari satu peubah terpilih."
 
 msgid "Frequency distributions..."
@@ -3428,8 +3415,7 @@ msgid "Load data set..."
 msgstr "Aktifkan data set ..."
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
-msgstr ""
-"{\"File Data R\" {\".rda\" \".Rda\" \".RDA\"}} {\"Semua File\" {\"*\"}}"
+msgstr "{\"File Data R\" {\".rda\" \".Rda\" \".RDA\"}} {\"Semua File\" {\"*\"}}"
 
 msgid "Shapiro-Wilk test of normality..."
 msgstr "Uji kenormalan Shapiro-Wilk..."
@@ -3478,7 +3464,7 @@ msgstr "Ukuran teks label sumbu"
 
 # message added to version 1.3-3 (because of inadvertent omission)
 msgid "Scale (inverse rate)"
-msgstr "Skala (laju inversi"
+msgstr "Skala (laju inversi)"
 
 # messages added to version 1.3-5
 msgid " has been coerced to a data frame"
@@ -3827,54 +3813,40 @@ msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
 msgstr "{\"Semua Files\" {\"*\"}} {\"Files Luaran\" {\".txt\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
-"\".csv\" \".CSV\"}}"
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
 msgstr ""
-"{\"Semua File\" {\"*\"}} {\"File Teks\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
-"\".csv\" \".CSV\"}}"
+"{\"Semua File\" {\"*\"}} {\"File Teks\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
-"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\"."
+"sav\" \".SAV\"}}"
 msgstr ""
-"{\"Semua File\" {\"*\"}} {\"File portebel SPSS\" {\".por\" \".POR\"}} "
-"{\"File simpanan SPSS\" {\".sav\" \".SAV\"}}"
+"{\"Semua File\" {\"*\"}} {\"File portebel SPSS\" {\".por\" \".POR\"}} {\"File simpanan SPSS"
+"\" {\".sav\" \".SAV\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
-msgstr ""
-"{\"Semua File\" {\"*\"}} {\"File portebel Minitab\" {\".mtp\" \".MTP\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr "{\"Semua File\" {\"*\"}} {\"File portebel Minitab\" {\".mtp\" \".MTP\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 msgstr "{\"Semua File\" {\"*\"}} {\"dataset STATA \" {\".dta\" \".DTA\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
-"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
-"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
-"\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database"
+"\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file"
+"\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"Semua File\" {\"*\"}} {\"Database MS Access\" {\".mdb\" \".MDB\"}} "
-"{\"Database MS Access 2007\" {\".accdb\" \".ACCDB\"}} {\"File sejenis dBase"
-"\" {\".dbf\" \".DBF\"}} {\" File MS Excel 2007\" {\".xlsx\" \".XLSX\"}} "
-"{\"File MS Excel\" {\".xls\" \".XLS\"}}"
+"{\"Semua File\" {\"*\"}} {\"Database MS Access\" {\".mdb\" \".MDB\"}} {\"Database MS Access "
+"2007\" {\".accdb\" \".ACCDB\"}} {\"File sejenis dBase\" {\".dbf\" \".DBF\"}} {\" File MS Excel "
+"2007\" {\".xlsx\" \".XLSX\"}} {\"File MS Excel\" {\".xls\" \".XLS\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
-"RDA\"}}"
-msgstr ""
-"{\"Semua File\" {\"*\"}} {\"File R Data \" {\".RData\" \".rda\" \".Rda\" \"."
-"RDA\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgstr "{\"Semua File\" {\"*\"}} {\"File R Data \" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"Semua Files\" {\"*\"}} {\"File PNG\" {\".png\" \".PNG\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
-"\"}}"
-msgstr ""
-"{\"Semua File\" {\"*\"}} {\"File JPEG \" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
-"\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgstr "{\"Semua File\" {\"*\"}} {\"File JPEG \" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
 msgstr "{\"Semua File\" {\"*\"}} {\"File PDF\" {\".pdf\" \".PDF\"}}"
@@ -3882,12 +3854,8 @@ msgstr "{\"Semua File\" {\"*\"}} {\"File PDF\" {\".pdf\" \".PDF\"}}"
 msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 msgstr "{\"Semua Files\" {\"*\"}} {\"File Postkcript \" {\".ps\" \".PS\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
-"\"}}"
-msgstr ""
-"{\"Semua File\" {\"*\"}} {\"File Encapsulated Postscript\" {\".eps\" \".EPS"
-"\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgstr "{\"Semua File\" {\"*\"}} {\"File Encapsulated Postscript\" {\".eps\" \".EPS\"}}"
 
 # messages added to version 1.7-0
 msgid "Reset"
@@ -3932,7 +3900,7 @@ msgid "Confirmatory Factor Analysis"
 msgstr "Analisis Faktor Konfirmatori"
 
 msgid "Fewer than 2 variables selected to load on factor."
-msgstr "Kurang dari 2 peubah terpilih untuk memanggil faktor"
+msgstr "Kurang dari 2 variabel terpilih untuk memanggil faktor"
 
 msgid "Define factor"
 msgstr "Definisikan faktor"
@@ -3941,7 +3909,7 @@ msgid ""
 "Select variables\n"
 "loading on factor"
 msgstr ""
-"Pilih peubah\n"
+"Pilih variabel\n"
 "dipanggil pada faktor"
 
 msgid "Covariance"
@@ -4045,18 +4013,15 @@ msgstr "Pilih Dataset"
 msgid "Datasets in file (pick one)"
 msgstr "Dataset dalam file (ambil satu)"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
-"\".XPORT\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
 msgstr ""
-"{\"Semua File\" {\"*\"}} {\" Files ekspor SAS \" {\".xpt\" \".XPT\" \".xport"
-"\" \".XPORT\"}}"
+"{\"Semua File\" {\"*\"}} {\" Files ekspor SAS \" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
 
 msgid ""
 "Convert variable names\n"
 "to lower case"
 msgstr ""
-"Konversi nama peubah\n"
+"Konversi nama variabel\n"
 "ke lower case (huruf kecil)"
 
 msgid "from Excel file..."
@@ -4066,11 +4031,11 @@ msgid "Import Excel Data Set"
 msgstr "Impor Data Set Excel"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
-"Excel file\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\"."
+"xls\" \".XLS\"}}"
 msgstr ""
-"{\"Semua Files\" {\"*\"}} {\"File MS Excel 2007\" {\".xlsx\" \".XLSX\"}} "
-"{\"MS Excel file\" {\".xls\" \".XLS\"}}"
+"{\"Semua Files\" {\"*\"}} {\"File MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\"."
+"xls\" \".XLS\"}}"
 
 msgid "Interquartile Range"
 msgstr "Jarak Interkuartil"
@@ -4177,7 +4142,7 @@ msgstr ""
 "dalam setiap panel dan grup"
 
 msgid "Added-Variable Plots"
-msgstr "Plot Peubah-Tambahan"
+msgstr "Plot Variabel-Tambahan"
 
 msgid "Component+Residual Plots"
 msgstr "Plot Komponen dan Residu"
@@ -4234,12 +4199,8 @@ msgstr "File R knitr disimpan ke"
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
 msgstr "{\"Semua File\" {\"*\"}} {\"File R Markdown \" {\".Rmd\" \".rmd\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
-"\"}}"
-msgstr ""
-"{\"Semua Files\" {\"*\"}} {\"File knitr\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
-"\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+msgstr "{\"Semua Files\" {\"*\"}} {\"File knitr\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
 
 msgid ""
 "Delete previously created knitr\n"
@@ -4385,7 +4346,7 @@ msgstr "Plot stile"
 
 # export data set dialog
 msgid "Write variable names"
-msgstr "Tulis nama peubah"
+msgstr "Tulis nama variabel"
 
 msgid "Write row names"
 msgstr "Tulis nama baris"
@@ -4402,10 +4363,10 @@ msgid "spline requires a numeric variable"
 msgstr "spline memerlukan nilai numerik"
 
 msgid "cannot select more than one variable"
-msgstr "tidak bisa memlih lebih dari satu peubah"
+msgstr "tidak bisa memlih lebih dari satu variabel"
 
 msgid "polynomial requires a numeric variable"
-msgstr "polinomial membutuhkan peubah numerik"
+msgstr "polinomial membutuhkan variabel numerik"
 
 msgid "B-spline\n"
 msgstr "B-spline\n"
@@ -4442,7 +4403,7 @@ msgid ""
 "(select variable and click)"
 msgstr ""
 "Spline/Polinomial:\n"
-"(pilih peubah dan klik)"
+"(pilih variabel dan klik)"
 
 msgid "df for splines:"
 msgstr "df untuk spline:"
@@ -4509,14 +4470,14 @@ msgstr "Indeks Kecocokan/Fit"
 
 # for read Excel file dialog
 msgid "Variable names in first row of spreadsheet"
-msgstr "Nama peubah pada baris pertama dari  spreadsheet"
+msgstr "Nama variabel pada baris pertama dari  spreadsheet"
 
 msgid "Row names in first column of spreadsheet"
 msgstr "Nama baris pada kolom pertama spreadsheet"
 
 # for selecting weights in LM and GLM dialogs
 msgid "<no variable selected>"
-msgstr "<tidak ada peubah terpilih>"
+msgstr "<tidak ada variabel terpilih>"
 
 # new effect-plots dialog
 msgid "Model Effect Plots"
@@ -4657,3 +4618,180 @@ msgstr "Tambah baris"
 
 msgid "Add column"
 msgstr "Tambah kolom"
+
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Atur Mac OS X app nap untuk R.app"
+
+msgid "Mac OS X app nap for R.app"
+msgstr "Mac OS X app nap untuk R.app"
+
+msgid "Set app nap"
+msgstr "Atur app nap"
+
+msgid "off (recommended)"
+msgstr "off (direkomendasikan)"
+
+msgid "on"
+msgstr "on"
+
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr "Atur bibit pembangkit bilangan acak..."
+
+msgid "Set Random Number Generator Seed"
+msgstr "Atur Bibit Pembangkit Bilangan Acak"
+
+# messages added for version 2.2-0
+# messages that were inadvertently missing in previous versions
+msgid "The following variable names are not valid:\n"
+msgstr "Nama-nama peubah berikut tidak valid:\n"
+
+msgid "Save R Markdown file?"
+msgstr "Simpan file R Markdown?"
+
+msgid "Theme (pick one)"
+msgstr "Theme (ambil satu)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "Keduanya atau tak satupun nilai layout mesti bilangan"
+
+msgid "ANOVA Table"
+msgstr "Tabel ANOVA"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr "Tidak ada metode Uji Pencilan untuk model di kelas ini."
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Uji Shapiro-Wilk untuk Normalitas"
+
+msgid "Hypothesis Test"
+msgstr "Uji Hipotesis"
+
+msgid "Load Plug-ins"
+msgstr "Aktifkan Plug-ins"
+
+# for report generation
+msgid "Generate report"
+msgstr "Laporan umum"
+
+msgid "Install Auxiliary Software"
+msgstr "Instal Software Tambahan"
+
+msgid "Install auxiliary software..."
+msgstr "Instal software tambahan..."
+
+msgid "(already installed)"
+msgstr "(sudah terinstal)"
+
+msgid "LaTeX"
+msgstr "LaTeX"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "Software untuk diinstal"
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+"Silakan baca bantuan untuk dialog ini\n"
+"sebelum menginstal software tambahan."
+
+msgid "Select Output Format"
+msgstr "Pilih format luaran"
+
+msgid ".html (web page)"
+msgstr ".html (laman web)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (file pdf)"
+
+msgid ".docx (Word file)"
+msgstr ".docx (file Word)"
+
+msgid "HTML file written to:"
+msgstr "File HTML ditulis pada:"
+
+msgid "PDF file written to:"
+msgstr "File HTML ditulis pada:"
+
+msgid "Word file written to:"
+msgstr "File Word ditulis pada:"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+"Tingkatan untuk ellipsis harus berupa bilangan\n"
+"dipisahlan oleh spasi atau koma."
+
+msgid "Plot concentration ellipse(s)"
+msgstr "Plot ellips konsentrasi"
+
+msgid "Concentration levels: "
+msgstr "Level konsentrasi:"
+
+msgid "Legend Position"
+msgstr "Posisi legenda"
+
+msgid "Above plot"
+msgstr "Di atas grafik"
+
+msgid "Top left"
+msgstr "Kiri atas"
+
+msgid "Top right"
+msgstr "Kanan Atas"
+
+msgid "Bottom left"
+msgstr "Kiri bawah"
+
+msgid "Bottom right"
+msgstr "Kanan bawah"
+
+# additions to bargraph dialog
+msgid "Style of Group Bars"
+msgstr "Stile untuk Bar (batang) Grup"
+
+msgid "Divided (stacked)"
+msgstr "Dibagi (stacked)"
+
+msgid "Side-by-side (parallel)"
+msgstr "Bersisian (parallel)"
+
+msgid "Position of Legend"
+msgstr "Posisi Legenda"
+
+msgid "Left"
+msgstr "Kiri"
+
+msgid "Right"
+msgstr "Kanan"
+
+msgid "plotting and grouping variables must be different"
+msgstr "Peubah untuk grafik dan pengelompokan harus berbeda"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "Plot Titk (dot)"
+
+msgid "Bin variable"
+msgstr "Peubah bin"
+
+msgid "Dot plot..."
+msgstr "Plot titik ..."
+
+# for reading Excel files (new dialog)
+msgid "Convert character data to factors"
+msgstr "Konversi data karakter menjadi factor."
+
+msgid "<empty cell>"
+msgstr "<sel kosong>"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+msgstr "{\"Semua File {\"*\"}} {\"File MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
