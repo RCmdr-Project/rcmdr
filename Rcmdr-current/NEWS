@@ -2,7 +2,7 @@ Changes to Version 2.2-1
 
   o New Greek translation (contributed by Vasileios Dimitropoulos, Anastasios Vikatos, and Andreas Vikatos, with help from Chel Hee Lee).
 
-  o Updated translations (with thanks to): Catalan (Manel Salamero), Chinese (Tsung-wu Ho), simplified Chinese (Shulin Yang), French (Philippe Grosjean), Galician (for Rcmdr 2.1-x, Rafael Rodriguez Gayoso), German (Fritz Leisch), Indonesian (I Made Tirta), Italian (Stefano Calza), Japanese (Takaharu Araki), Korean (Jong-Hwa Shin), Polish (Lukasz Daniel), Romanian (Adrian Dusa), Slovenian (Matjaz Jeran), Spanish (Manuel Munoz Marquez).
+  o Updated translations (with thanks to): Brazilian Portuguese (Marilia Sa Carvalho), Catalan (Manel Salamero), Chinese (Tsung-wu Ho), simplified Chinese (Shulin Yang), French (Philippe Grosjean), Galician (for Rcmdr 2.1-x, Rafael Rodriguez Gayoso), German (Fritz Leisch), Indonesian (I Made Tirta), Italian (Stefano Calza), Japanese (Takaharu Araki), Korean (Jong-Hwa Shin), Polish (Lukasz Daniel), Romanian (Adrian Dusa), Slovenian (Matjaz Jeran), Spanish (Manuel Munoz Marquez).
   
   o Modified modelFormula() utility to permit polynomial and splines in one-sided formulas. Used this in Breusch-Pagan test dialog.
 
