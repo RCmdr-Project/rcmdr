@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.0-3\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2014-09-01 20:30:00\n"
-"PO-Revision-Date: 2014-10-08 12:28+0100\n"
+"POT-Creation-Date: 2015-08-07 14:30:00\n"
+"PO-Revision-Date: 2015-09-14 09:05+0100\n"
 "Last-Translator: José Ramón Rueda <joseramon.rueda@ehu.es>\n"
 "Language-Team: EHU R UCA Project <joseramon.rueda@ehu.es>\n"
 "Language: eu\n"
@@ -4621,6 +4621,184 @@ msgstr "Gehitu errenkada bat"
 
 msgid "Add column"
 msgstr "Gehitu zutabe bat"
+
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Erabili Mac OS X app nap R.app-erako…"
+
+msgid "Mac OS X app nap for R.app"
+msgstr "Mac OS X app nap R.app-erako"
+
+msgid "Set app nap"
+msgstr "Ezarri app nap"
+
+msgid "off (recommended)"
+msgstr "ez aktibatuta (gomendatuta)"
+
+msgid "on"
+msgstr "aktibatuta"
+
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr "Ezarri zenbaki-aleatorio sortzailearen hazia…"
+
+msgid "Set Random Number Generator Seed"
+msgstr "Ezarri zenbaki-aleatorio sortzailearen hazia"
+
+msgid "The following variable names are not valid:\n"
+msgstr "Aldagai-izen hauek ez dira baliozkoak:\n"
+
+msgid "Save R Markdown file?"
+msgstr "Gorde R Markdown fitxategia?"
+
+msgid "Theme (pick one)"
+msgstr "Ereduak (aukeratu bat)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "Zenbakiak izan behar dira atal-balio biak edo bat ere ez"
+
+msgid "ANOVA Table"
+msgstr "ANOVA taula"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr ""
+"Ez dago ezohiko balioaren test-metodo egokirik mota horretako eredu "
+"batentzat."
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Shapiro-Wilk normalitate-testa"
+
+msgid "Hypothesis Test"
+msgstr "Hipotesi-testak"
+
+msgid "Load Plug-ins"
+msgstr "Kargatu plugin-ak"
+
+msgid "Generate report"
+msgstr "Sortu txostena"
+
+msgid "Install Auxiliary Software"
+msgstr "Instalatu programa laguntzailea"
+
+msgid "Install auxiliary software..."
+msgstr "Instalatu programa laguntzailea..."
+
+msgid "(already installed)"
+msgstr "(dagoeneko instalaturik)"
+
+msgid "LaTeX"
+msgstr "LaTeX "
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "Instalatzeko programa"
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+"Mesedez irakurri laguntza-testua\n"
+" programa laguntzailea instalatu baino lehen"
+
+msgid "Select Output Format"
+msgstr "Aukeratu emaitza-formatua"
+
+msgid ".html (web page)"
+msgstr ".html (web-orria)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (PDF fitxategia) "
+
+msgid ".docx (Word file)"
+msgstr ".docx (Word fitxategia) "
+
+msgid "HTML file written to:"
+msgstr "HTML fitxategia hara bidalita:"
+
+msgid "PDF file written to:"
+msgstr "PDF fitxategia hara bidalita:"
+
+msgid "Word file written to:"
+msgstr "Word fitxategia hara bidalita:"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+"Elipse mailak hutsune edo koma separaturiko zenbakizko balio\n"
+" izan behar dira"
+
+msgid "Plot concentration ellipse(s)"
+msgstr "Marraztu kontzentrazio-elipsea(k)"
+
+msgid "Concentration levels: "
+msgstr "Kontzentrazio mailak: "
+
+msgid "Legend Position"
+msgstr "Testuaren kokapena"
+
+msgid "Above plot"
+msgstr "Grafikoaren gainean"
+
+msgid "Top left"
+msgstr "Goiko ezkerrean "
+
+msgid "Top right"
+msgstr "Goiko eskuinean"
+
+msgid "Bottom left"
+msgstr "Beheko eskerrean"
+
+msgid "Bottom right"
+msgstr "Beheko eskuinean"
+
+msgid "Style of Group Bars"
+msgstr "Talde-barren estiloa"
+
+msgid "Divided (stacked)"
+msgstr "Zatituta (pilaturik)"
+
+msgid "Side-by-side (parallel)"
+msgstr "Alboan (paraleloak)"
+
+msgid "Position of Legend"
+msgstr "Testuaren kokapena"
+
+msgid "Left"
+msgstr "Ezkerrean"
+
+msgid "Right"
+msgstr "Eskuinean"
+
+msgid "plotting and grouping variables must be different"
+msgstr "marrazteko eta taldekatzeko aldagaiek desberdinak izan behar dute"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "Barreiadura-diagrama"
+
+msgid "Bin variable"
+msgstr "Zenbakizko-aldagaia zatikatu"
+
+msgid "Dot plot..."
+msgstr "Barreiadura-diagrama..."
+
+msgid "Convert character data to factors"
+msgstr "Zenbakizko aldagaiak faktore bihurtu"
+
+msgid "<empty cell>"
+msgstr "<gelaxka hutsa>"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
+msgstr ""
+"{\"Fitxategi guztiak\" {\"*\"}} {\"MS Excel fitxategia\" {\".xlsx\" \".XLSX"
+"\" \".xls\" \".XLS\"}}"
 
 #~ msgid ""
 #~ "Project-Id-Version: Rcmdr 2.0-1\n"
