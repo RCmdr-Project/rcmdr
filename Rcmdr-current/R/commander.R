@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2015-09-13 by John Fox
+# last modified 2015-10-12 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -1341,10 +1341,10 @@ pushOutput <- function(element) {
     putRcmdr("outputStack", stack)
 }
 
-popOutput <- function(){
+popOutput <- function(keep=FALSE){
     stack <- getRcmdr("outputStack")
     lastOutput <- stack[[1]]
-    putRcmdr("outputStack", c(stack[-1], NA))
+    if (!keep) putRcmdr("outputStack", c(stack[-1], NA))
     lastOutput
 }
 
@@ -1354,9 +1354,9 @@ pushCommand <- function(element) {
     putRcmdr("commandStack", stack)
 }
 
-popCommand <- function(){
+popCommand <- function(keep=FALSE){
     stack <- getRcmdr("commandStack")
     lastCommand <- stack[[1]]
-    putRcmdr("commandStack", c(stack[-1], NA))
+    if (!keep) putRcmdr("commandStack", c(stack[-1], NA))
     lastCommand
 }
