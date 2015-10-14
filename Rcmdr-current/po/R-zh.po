@@ -279,7 +279,7 @@ msgid "Variable to recode (pick one)"
 msgstr "選擇變數以進行重新編碼〈選取1個〉"
 
 msgid "variable"
-msgstr "變數"
+msgstr "variable"
 
 msgid "You must select a variable."
 msgstr "您必須選擇1個變數."
@@ -314,7 +314,7 @@ msgid "No expression specified."
 msgstr "您沒有指定任何運算式."
 
 msgid "Variable"
-msgstr "變數"
+msgstr "Variable"
 
 msgid "Expression to compute"
 msgstr "計算公式"
@@ -407,7 +407,7 @@ msgid "Package (Double-click to select)"
 msgstr "程式套件〈雙擊滑鼠左鍵來選擇〉"
 
 msgid "Data set (Double-click to select)"
-msgstr "資料集〈雙擊滑鼠左鍵來選擇〉"
+msgstr "資料集〈雙擊滑鼠鍵來選擇〉"
 
 msgid "OR"
 msgstr "或"
@@ -1807,13 +1807,13 @@ msgstr ""
 "連續性校正"
 
 msgid "Paired Wilcoxon Test"
-msgstr "成對Wilcoxon 檢定"
+msgstr "Wilcoxon 成對資料檢定"
 
 msgid "The two variables must be different."
 msgstr "必須選擇兩個不同的變數."
 
 msgid "Kruskal-Wallis Rank Sum Test"
-msgstr "Kruskal-Wallis 等級和檢定"
+msgstr "Kruskal-Wallis Rank Sum 檢定"
 
 msgid "Single-Sample Proportion Test"
 msgstr "單樣本比例檢定"
@@ -2291,10 +2291,10 @@ msgid "Paired t-test..."
 msgstr "成對樣本 T 檢定..."
 
 msgid "One-way ANOVA..."
-msgstr "單因素〈因子〉變異數分析 (One-way ANOVA)..."
+msgstr "單因子變異數分析 (One-way ANOVA)..."
 
 msgid "Multi-way ANOVA..."
-msgstr "多因素〈因子〉變異數分析 (Multi-way ANOVA)..."
+msgstr "多因子變異數分析 (Multi-way ANOVA)..."
 
 msgid "Single-sample proportion test..."
 msgstr "單一樣本比例檢定..."
@@ -2369,13 +2369,13 @@ msgid "Contingency tables"
 msgstr "列聯表"
 
 msgid "Means"
-msgstr "平均數"
+msgstr "平均數檢定"
 
 msgid "Proportions"
-msgstr "比例"
+msgstr "比率資料分析"
 
 msgid "Variances"
-msgstr "變異數"
+msgstr "變異數檢定"
 
 msgid "Nonparametric tests"
 msgstr "無母數檢定"
@@ -2829,7 +2829,7 @@ msgid "k (number of balls drawn from the urn)"
 msgstr "k〈要從袋中取出的球數〉"
 
 msgid "Hypergeometric Probabilities"
-msgstr "超幾何分佈機率"
+msgstr "超幾何分佈機率質量"
 
 msgid "Negative Binomial Quantiles"
 msgstr "負二項分佈(百)分位數"
@@ -2844,7 +2844,7 @@ msgid "Target number of successes"
 msgstr "成功目標數"
 
 msgid "Negative Binomial Probabilities"
-msgstr "負二項分佈機率"
+msgstr "負二項分佈機率質量"
 
 msgid "Geometric Distribution"
 msgstr "幾何分佈"
@@ -2856,10 +2856,10 @@ msgid "Negative Binomial Distribution"
 msgstr "負二項式分佈"
 
 msgid "Sample from Normal Distribution"
-msgstr "常態分佈隨機樣本"
+msgstr "常態分佈隨機抽樣"
 
 msgid "NormalSamples"
-msgstr "常態分佈樣本"
+msgstr "NormalSamples"
 
 msgid "Sample means"
 msgstr "樣本平均數"
@@ -2886,121 +2886,121 @@ msgid "Add to Data Set:"
 msgstr "新增至資料集："
 
 msgid "Sample from t Distribution"
-msgstr "t 分佈隨機樣本"
+msgstr "t 分佈隨機抽樣"
 
 msgid "tSamples"
-msgstr "t 分佈樣本"
+msgstr "tSamples"
 
 msgid "Sample from Chi-squared Distribution"
-msgstr "卡方分佈隨機樣本"
+msgstr "卡方分佈隨機抽樣"
 
 msgid "ChisquareSamples"
-msgstr "卡方分佈樣本"
+msgstr "ChisquareSamples"
 
 msgid "Sample from F Distribution"
-msgstr "F 分佈隨機樣本"
+msgstr "F 分佈隨機抽樣"
 
 msgid "FSamples"
-msgstr "F 分佈樣本"
+msgstr "FSamples"
 
 msgid "Sample from Exponential Distribution"
-msgstr "指數分佈隨機樣本"
+msgstr "指數分佈隨機抽樣"
 
 msgid "ExponentialSamples"
-msgstr "指數分佈樣本"
+msgstr "ExponentialSamples"
 
 msgid "Sample from Uniform Distribution"
-msgstr "均勻分布隨機樣本"
+msgstr "均勻分布隨機抽樣"
 
 msgid "UniformSamples"
-msgstr "均勻分佈樣本"
+msgstr "UniformSamples"
 
 msgid "Sample from Beta Distribution"
-msgstr "Beta 分佈隨機樣本"
+msgstr "Beta 分佈隨機抽樣"
 
 msgid "BetaSamples"
-msgstr "Beta 分布樣本"
+msgstr "BetaSamples"
 
 msgid "Sample from Cauchy Distribution"
-msgstr "Cauchy 分佈隨機樣本"
+msgstr "Cauchy 分佈隨機抽樣"
 
 msgid "CauchySamples"
-msgstr "Cauchy 分佈樣本"
+msgstr "CauchySamples"
 
 msgid "Sample from Logistic Distribution"
-msgstr "Logistic 分佈隨機樣本"
+msgstr "Logistic 分佈隨機抽樣"
 
 msgid "LogisticSamples"
-msgstr "Logistic 分佈樣本"
+msgstr "CauchySamples"
 
 msgid "Sample from Log-Normal Distribution"
-msgstr "對數常態分佈隨機樣本"
+msgstr "對數常態分佈隨機抽樣"
 
 msgid "LogNormalSamples"
-msgstr "對數常態分佈樣本"
+msgstr "LogNormalSamples"
 
 msgid "Sample from Gamma Distribution"
-msgstr "Gamma 分佈隨機樣本"
+msgstr "Gamma 分佈隨機抽樣"
 
 msgid "GammaSamples"
-msgstr "Gamma 分佈樣本"
+msgstr "GammaSamples"
 
 msgid "Sample from Weibull Distribution"
-msgstr "Weibull 分佈隨機樣本"
+msgstr "Weibull 分佈隨機抽樣"
 
 msgid "WeibullSamples"
-msgstr "Weibull 分佈樣本"
+msgstr "WeibullSamples"
 
 msgid "Sample from Gumbel Distribution"
-msgstr "Gumbel 分布隨機樣本"
+msgstr "Gumbel 分布隨機抽樣"
 
 msgid "GumbelSamples"
-msgstr "Gumbel 分佈樣本"
+msgstr "GumbelSamples"
 
 msgid "Sample from Binomial Distribution"
-msgstr "二項式分佈隨機樣本"
+msgstr "二項式分佈隨機抽樣"
 
 msgid "BinomialSamples"
-msgstr "二項式分佈樣本"
+msgstr "BinomialSamples"
 
 msgid "Poisson mean cannot be negative."
 msgstr "Poisson 平均數不能為負."
 
 msgid "Sample from Poisson Distribution"
-msgstr "Poisson 分佈隨機樣本"
+msgstr "Poisson 分佈隨機抽樣"
 
 msgid "PoissonSamples"
-msgstr "Poisson 分佈樣本"
+msgstr "PoissonSamples"
 
 msgid "Sample from Geometric Distribution"
-msgstr "幾何分佈隨機樣本"
+msgstr "幾何分佈隨機抽樣"
 
 msgid "GeometricSamples"
-msgstr "幾何分佈樣本"
+msgstr "GeometricSamples"
 
 msgid "Sample from Hypergeometric Distribution"
-msgstr "超幾何分佈隨機樣本"
+msgstr "超幾何分佈隨機抽樣"
 
 msgid "HypergeometricSamples"
-msgstr "幾何分佈樣本"
+msgstr "HypergeometricSamples"
 
 msgid "Sample from Negative Binomial Distribution"
-msgstr "負二項分佈隨機樣本"
+msgstr "負二項分佈隨機抽樣"
 
 msgid "NegativeBinomialSamples"
-msgstr "負二項分佈樣本"
+msgstr "NegativeBinomialSamples"
 
 msgid "Sample from normal distribution..."
-msgstr "常態分佈隨機樣本..."
+msgstr "常態分佈隨機抽樣..."
 
 msgid "Sample from t distribution..."
-msgstr "t 分佈隨機樣本..."
+msgstr "t 分佈隨機抽樣..."
 
 msgid "Sample from chi-squared distribution..."
-msgstr "卡方分佈隨機樣本..."
+msgstr "卡方分佈隨機抽樣..."
 
 msgid "Sample from F distribution..."
-msgstr "F 分佈隨機樣本..."
+msgstr "F 分佈隨機抽樣..."
 
 msgid "Exponential distribution"
 msgstr "指數分佈"
@@ -3015,7 +3015,7 @@ msgid "Plot exponential distribution..."
 msgstr "繪製指數分佈圖..."
 
 msgid "Sample from exponential distribution..."
-msgstr "指數分佈隨機樣本..."
+msgstr "指數分佈隨機抽樣..."
 
 msgid "Uniform distribution"
 msgstr "均勻分佈"
@@ -3030,7 +3030,7 @@ msgid "Plot uniform distribution..."
 msgstr "繪製均勻分佈圖..."
 
 msgid "Sample from uniform distribution..."
-msgstr "均勻分布隨機樣本..."
+msgstr "均勻分布隨機抽樣..."
 
 msgid "Beta distribution"
 msgstr "Beta 分佈"
@@ -3045,7 +3045,7 @@ msgid "Plot beta distribution..."
 msgstr "繪製 beta 分佈圖..."
 
 msgid "Sample from beta distribution..."
-msgstr "beta 分佈隨機樣本..."
+msgstr "beta 分佈隨機抽樣..."
 
 msgid "Cauchy distribution"
 msgstr "Cauchy 分佈"
@@ -3060,7 +3060,7 @@ msgid "Plot Cauchy distribution..."
 msgstr "繪製 Cauchy 分佈圖..."
 
 msgid "Sample from Cauchy distribution..."
-msgstr "Cauchy 分佈隨機樣本..."
+msgstr "Cauchy 分佈隨機抽樣..."
 
 msgid "Logistic distribution"
 msgstr "Logistic 分佈"
@@ -3075,7 +3075,7 @@ msgid "Plot logistic distribution..."
 msgstr "繪製 Logistic 分佈圖..."
 
 msgid "Sample from logistic distribution..."
-msgstr "Logistic 分佈隨機樣本..."
+msgstr "Logistic 分佈隨機抽樣..."
 
 msgid "Lognormal distribution"
 msgstr "對數常態分佈"
@@ -3090,7 +3090,7 @@ msgid "Plot lognormal distribution..."
 msgstr "繪製對數常態分佈圖..."
 
 msgid "Sample from lognormal distribution..."
-msgstr "對數常態分佈隨機樣本..."
+msgstr "對數常態分佈隨機抽樣..."
 
 msgid "Gamma distribution"
 msgstr "Gamma 分佈"
@@ -3105,7 +3105,7 @@ msgid "Plot gamma distribution..."
 msgstr "繪製 Gamma 分佈圖..."
 
 msgid "Sample from gamma distribution..."
-msgstr "gamma 分佈隨機樣本..."
+msgstr "gamma 分佈隨機抽樣..."
 
 msgid "Weibull distribution"
 msgstr "Weibull 分佈"
@@ -3120,7 +3120,7 @@ msgid "Plot Weibull distribution..."
 msgstr "繪製 Weibull 分佈圖..."
 
 msgid "Sample from Weibull distribution..."
-msgstr "Weibull 分佈隨機樣本..."
+msgstr "Weibull 分佈隨機抽樣..."
 
 msgid "Gumbel distribution"
 msgstr "Gumbel 分佈"
@@ -3135,19 +3135,19 @@ msgid "Plot Gumbel distribution..."
 msgstr "繪製 Gumbel 分佈圖..."
 
 msgid "Sample from Gumbel distribution..."
-msgstr "Gumbel 分佈隨機樣本..."
+msgstr "Gumbel 分佈隨機抽樣..."
 
 msgid "Sample from binomial distribution..."
-msgstr "二項式分佈隨機樣本..."
+msgstr "二項式分佈隨機抽樣..."
 
 msgid "Poisson quantiles..."
 msgstr "Poisson 分佈(百)分位數..."
 
 msgid "Poisson tail probabilities..."
-msgstr "Poisson 分佈尾端機率..."
+msgstr "Poisson 分佈累積機率..."
 
 msgid "Sample from Poisson distribution..."
-msgstr "Poisson 分佈隨機樣本..."
+msgstr "Poisson 分佈隨機抽樣..."
 
 msgid "Geometric distribution"
 msgstr "幾何分佈"
@@ -3156,16 +3156,16 @@ msgid "Geometric quantiles..."
 msgstr "幾何分佈(百)分位數..."
 
 msgid "Geometric tail probabilities..."
-msgstr "幾何分佈尾端機率..."
+msgstr "幾何分佈累積機率..."
 
 msgid "Geometric probabilities..."
-msgstr "幾何分佈機率..."
+msgstr "幾何分佈機率質量..."
 
 msgid "Plot geometric distribution..."
 msgstr "繪製幾何分佈圖..."
 
 msgid "Sample from geometric distribution..."
-msgstr "幾何分佈隨機樣本..."
+msgstr "幾何分佈隨機抽樣..."
 
 msgid "Hypergeometric distribution"
 msgstr "超幾何分佈"
@@ -3174,16 +3174,16 @@ msgid "Hypergeometric quantiles..."
 msgstr "超幾何分佈(百)分位數..."
 
 msgid "Hypergeometric tail probabilities..."
-msgstr "超幾何分佈尾端機率..."
+msgstr "超幾何分佈累積機率..."
 
 msgid "Hypergeometric probabilities..."
-msgstr "超幾何分佈機率..."
+msgstr "超幾何分佈機率質量..."
 
 msgid "Plot hypergeometric distribution..."
 msgstr "繪製超幾何分佈圖..."
 
 msgid "Sample from hypergeometric distribution..."
-msgstr "超幾何分佈隨機樣本..."
+msgstr "超幾何分佈隨機抽樣..."
 
 msgid "Negative binomial distribution"
 msgstr "負二項式分佈"
@@ -3192,16 +3192,16 @@ msgid "Negative binomial quantiles..."
 msgstr "負二項分佈(百)分位數..."
 
 msgid "Negative binomial tail probabilities..."
-msgstr "負二項式分佈尾端機率..."
+msgstr "負二項式分佈累積機率..."
 
 msgid "Negative binomial probabilities..."
-msgstr "負二項式分佈機率..."
+msgstr "負二項式分佈機率質量..."
 
 msgid "Plot negative binomial distribution..."
 msgstr "繪製負二項式分佈圖..."
 
 msgid "Sample from negative binomial distribution..."
-msgstr "負二項式分佈隨機樣本..."
+msgstr "負二項式分佈隨機抽樣..."
 
 msgid "Continuous distributions"
 msgstr "連續型分佈"
@@ -3350,13 +3350,13 @@ msgstr "將數值變數轉換為因子變數..."
 
 # Stack dialog
 msgid "Stack Variables"
-msgstr "堆疊變數"
+msgstr "將變數堆疊"
 
 msgid "factor"
-msgstr "因子變數"
+msgstr "factor"
 
 msgid "StackedData"
-msgstr "堆疊資料"
+msgstr "stackedData"
 
 msgid "You must select at least two variables."
 msgstr "您至少必須選取兩個變數."
@@ -3365,10 +3365,10 @@ msgid "Name for stacked data set:"
 msgstr "堆疊後資料集的名稱："
 
 msgid "Name for variable:"
-msgstr "變數名稱："
+msgstr "新數值變數名稱："
 
 msgid "Name for factor:"
-msgstr "因子變數之名稱："
+msgstr "新因子變數名稱："
 
 msgid "Stack variables in active data set..."
 msgstr "堆疊使用中資料集內的變數..."
@@ -3595,7 +3595,7 @@ msgid "Duplicate Values"
 msgstr "重複值"
 
 msgid "Stack"
-msgstr "堆疊 (stack)"
+msgstr "堆疊變數"
 
 msgid "Jitter"
 msgstr "座標擾動 (jitter)"
@@ -4091,9 +4091,8 @@ msgstr "解析度"
 msgid "from SAS xport file..."
 msgstr "匯入SAS格式資料..."
 
-#, fuzzy
 msgid "Data Set Name"
-msgstr "資料集"
+msgstr "資料集名稱"
 
 #, fuzzy
 msgid "Select Dataset"
