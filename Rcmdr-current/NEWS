@@ -5,6 +5,8 @@ Changes to Version 2.2-2
   o Fixes to French translation (by Milan Bouchet-Valat) and Chinese translation (by Tsung-wu Ho).
   
   o Added keep argument to popOutput() (suggestion of Liviu Andronic); similar argument added to popCommand().
+  
+  o Use new-style R icon.
 
 Changes to Version 2.2-1
 
