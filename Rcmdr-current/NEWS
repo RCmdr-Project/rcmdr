@@ -7,6 +7,8 @@ Changes to Version 2.2-2
   o Added keep argument to popOutput() (suggestion of Liviu Andronic); similar argument added to popCommand().
   
   o Use new-style R icon.
+  
+  o Binomial and quasibinomial GLMs with logit link now print exponentiated coefficients ("odds" ratios), as do poisson and quasipoisson GLMs with log link (generalizing a suggestion of Jose Ramon Rueda).
 
 Changes to Version 2.2-1
 

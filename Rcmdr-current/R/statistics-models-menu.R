@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2014-08-08 by J. Fox
+# last modified 2015-10-16 by J. Fox
 
     # Models menu
 
@@ -290,6 +290,14 @@ generalizedLinearModel <- function(){
     doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
     doItAndPrint(paste("summary(", modelValue, ")", sep=""))
     activeModel(modelValue)
+    if ((family == "binomial" || family =="quasibinomial") && link == "logit"){
+      doItAndPrint(paste0("exp(coef(", modelValue,
+            '))  # Exponentiated coefficients ("odds ratios")'))
+    }
+    if ((family == "poisson" || family =="quasipoisson") && link == "log"){
+      doItAndPrint(paste0("exp(coef(", modelValue,
+                          '))  # Exponentiated coefficients'))
+    }
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject="generalizedLinearModel", model=TRUE, reset="resetGLM", apply="generalizedLinearModel")

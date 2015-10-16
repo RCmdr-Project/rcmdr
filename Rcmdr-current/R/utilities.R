@@ -1,4 +1,4 @@
-# last modified 2015-08-27 by J. Fox
+# last modified 2015-10-16 by J. Fox
 
 # utility functions
 
@@ -249,7 +249,9 @@ Confint.glm <- function (object, parm, level=0.95, type=c("LR", "Wald"), ...){
     ci <- cbind(cf[parm], ci)
     colnames(ci)[1] <- "Estimate"
     fam <- family(object)
-    if (fam$family == "binomial" && fam$link == "logit"){
+    if (((fam$family == "binomial" || fam$family == "quasibinomial")  && fam$link == "logit")
+      || ((fam$family == "poisson" || fam$family == "quasipoisson")  && fam$link == "log"))
+      {
         expci <- exp(ci)
         colnames(expci)[1] <- "exp(Estimate)"
         ci <- cbind(ci, expci)
