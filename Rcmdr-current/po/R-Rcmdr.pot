@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.2-1\n"
+"Project-Id-Version: Rcmdr 2.2-2\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2015-09-06 13:15:00\n"
+"POT-Creation-Date: 2015-10-16 12:05:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -230,8 +230,8 @@ msgstr ""
 msgid "New Data Set"
 msgstr ""
 
-msgid "Dataset"
-msgstr ""
+#msgid "Dataset"
+#msgstr ""
 
 msgid "You must enter the name of a data set."
 msgstr ""
@@ -266,8 +266,8 @@ msgstr ""
 msgid "Variable to recode (pick one)"
 msgstr ""
 
-msgid "variable"
-msgstr ""
+#msgid "variable"
+#msgstr ""
 
 msgid "You must select a variable."
 msgstr ""
@@ -2685,8 +2685,8 @@ msgstr ""
 msgid "Sample from Normal Distribution"
 msgstr ""
 
-msgid "NormalSamples"
-msgstr ""
+#msgid "NormalSamples"
+#msgstr ""
 
 msgid "Sample means"
 msgstr ""
@@ -2715,80 +2715,80 @@ msgstr ""
 msgid "Sample from t Distribution"
 msgstr ""
 
-msgid "tSamples"
-msgstr ""
+#msgid "tSamples"
+#msgstr ""
 
 msgid "Sample from Chi-squared Distribution"
 msgstr ""
 
-msgid "ChisquareSamples"
-msgstr ""
+#msgid "ChisquareSamples"
+#msgstr ""
 
 msgid "Sample from F Distribution"
 msgstr ""
 
-msgid "FSamples"
-msgstr ""
+#msgid "FSamples"
+#msgstr ""
 
 msgid "Sample from Exponential Distribution"
 msgstr ""
 
-msgid "ExponentialSamples"
-msgstr ""
+#msgid "ExponentialSamples"
+#msgstr ""
 
 msgid "Sample from Uniform Distribution"
 msgstr ""
 
-msgid "UniformSamples"
-msgstr ""
+#msgid "UniformSamples"
+#msgstr ""
 
 msgid "Sample from Beta Distribution"
 msgstr ""
 
-msgid "BetaSamples"
-msgstr ""
+#msgid "BetaSamples"
+#msgstr ""
 
 msgid "Sample from Cauchy Distribution"
 msgstr ""
 
-msgid "CauchySamples"
-msgstr ""
+#msgid "CauchySamples"
+#msgstr ""
 
 msgid "Sample from Logistic Distribution"
 msgstr ""
  
-msgid "LogisticSamples"
-msgstr ""
+#msgid "LogisticSamples"
+#msgstr ""
 
 msgid "Sample from Log-Normal Distribution"
 msgstr ""
 
-msgid "LogNormalSamples"
-msgstr ""
+#msgid "LogNormalSamples"
+#msgstr ""
 
 msgid "Sample from Gamma Distribution"
 msgstr ""
 
-msgid "GammaSamples"
-msgstr ""
+#msgid "GammaSamples"
+#msgstr ""
 
 msgid "Sample from Weibull Distribution"
 msgstr ""
 
-msgid "WeibullSamples"
-msgstr ""
+#msgid "WeibullSamples"
+#msgstr ""
 
 msgid "Sample from Gumbel Distribution"
 msgstr ""
 
-msgid "GumbelSamples"
-msgstr ""
+#msgid "GumbelSamples"
+#msgstr ""
 
 msgid "Sample from Binomial Distribution"
 msgstr ""
 
-msgid "BinomialSamples"
-msgstr ""
+#msgid "BinomialSamples"
+#msgstr ""
 
 msgid "Poisson mean cannot be negative." 
 msgstr ""
@@ -2796,26 +2796,26 @@ msgstr ""
 msgid "Sample from Poisson Distribution"
 msgstr ""
 
-msgid "PoissonSamples"
-msgstr ""
+#msgid "PoissonSamples"
+#msgstr ""
 
 msgid "Sample from Geometric Distribution"
 msgstr ""
 
-msgid "GeometricSamples"
-msgstr ""
+#msgid "GeometricSamples"
+#msgstr ""
 
 msgid "Sample from Hypergeometric Distribution"
 msgstr ""
 
-msgid "HypergeometricSamples"
-msgstr ""
+#msgid "HypergeometricSamples"
+#msgstr ""
 
 msgid "Sample from Negative Binomial Distribution"
 msgstr ""
 
-msgid "NegativeBinomialSamples"
-msgstr ""
+#msgid "NegativeBinomialSamples"
+#msgstr ""
 
 msgid "Sample from normal distribution..." 
 msgstr ""
@@ -3191,8 +3191,8 @@ msgstr ""
 msgid "factor"
 msgstr ""
 
-msgid "StackedData"
-msgstr ""
+#msgid "StackedData"
+#msgstr ""
 
 msgid "You must select at least two variables."
 msgstr ""

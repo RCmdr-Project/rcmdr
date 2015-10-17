@@ -1,10 +1,10 @@
-# last modified 2015-08-11 by J. Fox
+# last modified 2015-10-16 by J. Fox
 
 # Data menu dialogs
 
 newDataSet <- function() {
     initializeDialog(title=gettextRcmdr("New Data Set"))
-    dsname <- tclVar(gettextRcmdr("Dataset"))
+    dsname <- tclVar("Dataset")
     entryDsname <- ttkentry(top, width="20", textvariable=dsname)
     onOK <- function(){
         dsnameValue <- trim.blanks(tclvalue(dsname))
@@ -98,7 +98,7 @@ RecodeDialog <- function () {
     else paste(parts, collapse = "=")
   }
   dataSet <- activeDataSet()
-  defaults <- list (initial.asFactor = 1, initial.variables = NULL, initial.name = gettextRcmdr ("variable"),
+  defaults <- list (initial.asFactor = 1, initial.variables = NULL, initial.name = "variable",
                     initial.recode.directives="")
   dialog.values <- getDialog ("RecodeDialog", defaults)
   initializeDialog(title = gettextRcmdr("Recode Variables"))
@@ -220,7 +220,7 @@ Compute <- function(){
         tkicursor(compute, "end")
         tkxview.moveto(compute, "1")
     }
-    defaults <- list(initial.name = gettextRcmdr("variable"), initial.expression = "")
+    defaults <- list(initial.name = "variable", initial.expression = "")
     dialog.values <- getDialog("Compute", defaults)
     dataSet <- activeDataSet()
     initializeDialog(title=gettextRcmdr("Compute New Variable"))
@@ -329,7 +329,7 @@ deleteVariable <- function(){
 readDataSet <- function() {
     initializeDialog(title=gettextRcmdr("Read Text Data From File, Clipboard, or URL"))
     optionsFrame <- tkframe(top)
-    dsname <- tclVar(gettextRcmdr("Dataset"))
+    dsname <- tclVar("Dataset")
     entryDsname <- ttkentry(optionsFrame, width="20", textvariable=dsname)
     radioButtons(optionsFrame, "location", buttons=c("local", "clipboard", "url"), 
                  labels=gettextRcmdr(c("Local file system", "Clipboard", "Internet URL")), title=gettextRcmdr("Location of Data File"))
@@ -656,7 +656,7 @@ importSAS <- function() {
         if (is.data.frame(.Datasets)){
             getdsname <- function(){
                 initializeDialog(title=gettextRcmdr("Data Set Name"))
-                dsname <- tclVar(gettextRcmdr("Dataset"))
+                dsname <- tclVar("Dataset")
                 entryDsname <- ttkentry(top, width="20", textvariable=dsname)
                 onOK <- function(){
                     closeDialog()
@@ -749,7 +749,7 @@ importSPSS <- function() {
     Library("foreign")
     initializeDialog(title=gettextRcmdr("Import SPSS Data Set"))
     dsnameFrame <- tkframe(top)
-    dsname <- tclVar(gettextRcmdr("Dataset"))
+    dsname <- tclVar("Dataset")
     entryDsname <- ttkentry(dsnameFrame, width="20", textvariable=dsname)
     asFactorFrame <- tkframe(top)
     asFactor <- tclVar("1")
@@ -821,7 +821,7 @@ importSPSS <- function() {
 importMinitab <- function() {
 	Library("foreign")
 	initializeDialog(title=gettextRcmdr("Import Minitab Data Set"))
-	dsname <- tclVar(gettextRcmdr("Dataset"))
+	dsname <- tclVar("Dataset")
 	entryDsname <- ttkentry(top, width="20", textvariable=dsname)
 	onOK <- function(){
 		closeDialog()
@@ -879,7 +879,7 @@ importMinitab <- function() {
 importSTATA <- function() {
     Library("foreign")
     initializeDialog(title=gettextRcmdr("Import STATA Data Set"))
-    dsname <- tclVar(gettextRcmdr("Dataset"))
+    dsname <- tclVar("Dataset")
     dsnameFrame <- tkframe(top)
     entryDsname <- ttkentry(dsnameFrame, width="20", textvariable=dsname)
     optionsFrame <- tkframe(top)
@@ -1150,7 +1150,7 @@ importSTATA <- function() {
 
 importExcel <- function(){
     initializeDialog(title = gettextRcmdr("Import Excel Data Set"))
-    dsname <- tclVar(gettextRcmdr("Dataset"))
+    dsname <- tclVar("Dataset")
     dsnameFrame <- tkframe(top)
     entryDsname <- ttkentry(dsnameFrame, width = "35", textvariable = dsname)
     checkBoxFrame <- tkframe(top)
@@ -1352,7 +1352,7 @@ numericToFactor <- function(){
 binVariable <- function () {
   # Author: Dan Putler (revision by J. Fox, 2 Feb 05)
   defaults <- list (initial.levels = "specify", initial.bins = "3", initial.varName = NULL, 
-                    initial.newVar = gettextRcmdr("variable"), initial.method = "intervals")
+                    initial.newVar = "variable", initial.method = "intervals")
   dialog.values <- getDialog ("binVariable", defaults)
   env <- environment()
   initializeDialog(title = gettextRcmdr("Bin a Numeric Variable"))
@@ -2023,11 +2023,11 @@ Stack <- function(){
 	initializeDialog(title=gettextRcmdr("Stack Variables"))
 	variableBox <- variableListBox(top, Numeric(), selectmode="multiple",
 			title=gettextRcmdr("Variables (pick two or more)"))
-	factorName <- tclVar(gettextRcmdr("factor"))
+	factorName <- tclVar("factor")
 	factorNameField <- ttkentry(top, width="20", textvariable=factorName)
-	variableName <- tclVar(gettextRcmdr("variable"))
+	variableName <- tclVar("variable")
 	variableNameField <- ttkentry(top, width="20", textvariable=variableName)
-	datasetName <- tclVar(gettextRcmdr("StackedData"))
+	datasetName <- tclVar("StackedData")
 	datasetNameField <- ttkentry(top, width="20", textvariable=datasetName)
 	onOK <- function(){
 		variables <- getSelection(variableBox)
