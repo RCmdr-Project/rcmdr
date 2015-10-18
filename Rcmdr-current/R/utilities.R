@@ -1,4 +1,4 @@
-# last modified 2015-10-16 by J. Fox
+# last modified 2015-10-17 by J. Fox
 
 # utility functions
 
@@ -1654,9 +1654,11 @@ multinomP <- function() activeModelP() && class(get(ActiveModel()))[1] == 'multi
 
 hclustSolutionsP <- function() length(listHclustSolutions()) > 0
 
-MacOSXP <- function() {
+MacOSXP <- function(release) {
     sys <- Sys.info()
-    !is.null(sys) && length(grep("[Dd]arwin", sys["sysname"]) > 0)
+    OSX <- !is.null(sys) && length(grep("[Dd]arwin", sys["sysname"]) > 0)
+    if (missing(release)) OSX
+    else (OSX && release <= sys["release"])
 }
 
 packageAvailable <- function(name) 0 != length(find.package(name, quiet=TRUE))

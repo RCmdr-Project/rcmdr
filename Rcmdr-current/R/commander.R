@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2015-10-12 by John Fox
+# last modified 2015-10-18 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -375,16 +375,24 @@ Commander <- function(){
     setOption("tkwait.dialog", FALSE)
     if (getRcmdr("tkwait.dialog")) putRcmdr("editDataset.threshold", 0)
     if (MacOSXP()){
-#       PATH <- system2("/usr/libexec/path_helper", "-s", stdout=TRUE)
-#       PATH <- sub("\"; export PATH;$", "", sub("^PATH=\\\"", "", PATH))
-#       Sys.setenv(PATH=PATH)
-      PATH <- Sys.getenv("PATH")
-      PATH <- unlist(strsplit(PATH, .Platform$path.sep, fixed=TRUE))
-      if (length(grep("^/usr/texbin$", PATH)) == 0) {
-        PATH[length(PATH) + 1] <- "/usr/texbin"
-        Sys.setenv(PATH=paste(PATH, collapse=.Platform$path.sep))
-      }
-   }
+        #       PATH <- system2("/usr/libexec/path_helper", "-s", stdout=TRUE)
+        #       PATH <- sub("\"; export PATH;$", "", sub("^PATH=\\\"", "", PATH))
+        #       Sys.setenv(PATH=PATH)
+        PATH <- Sys.getenv("PATH")
+        PATH <- unlist(strsplit(PATH, .Platform$path.sep, fixed=TRUE))
+        if (MacOSXP("15.0.0")){
+            if (length(grep("^/Library/TeX/texbin$", PATH)) == 0) {
+                PATH[length(PATH) + 1] <- "/Library/TeX/texbin"
+                Sys.setenv(PATH=paste(PATH, collapse=.Platform$path.sep))
+            }
+        }
+        else{
+            if (length(grep("^/usr/texbin$", PATH)) == 0) {
+                PATH[length(PATH) + 1] <- "/usr/texbin"
+                Sys.setenv(PATH=paste(PATH, collapse=.Platform$path.sep))
+            }
+        }
+    }
     
     # source additional .R files, plug-ins preferred
     source.files <- list.files(etc, pattern="\\.[Rr]$")

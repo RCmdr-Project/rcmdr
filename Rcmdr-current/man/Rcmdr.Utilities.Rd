@@ -242,7 +242,7 @@ listVariables(dataSet=ActiveDataSet())
 lmP()
 logger(command, rmd=TRUE)
 LogWindow()
-MacOSXP()
+MacOSXP(release)
 manualTranslationP()
 MarkdownP()
 mavericksP()
@@ -431,7 +431,8 @@ commanderPosition()
     to build the model formula.}
   \item{preventCrisp}{this argument is ignored, and is present only for backwards compatibility.}
   \item{recall}{function to call after error --- usually the function that initiates the dialog.}
-  \item{release}{release the focus if the grab.focus option has been set.}
+  \item{release}{release the focus if the grab.focus option has been set. In
+  \code{MacOSXP}, the minimum release (version) required.}
   \item{reportError}{if \code{TRUE}, report an error message.}
   \item{reset}{quoted name of dialog function, to be invoked with all defaults by Reset button.}
   \item{resettable}{should dialog state be reset when the data set changes? The default is 

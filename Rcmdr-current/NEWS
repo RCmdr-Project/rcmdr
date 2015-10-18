@@ -11,6 +11,8 @@ Changes to Version 2.2-2
   o Binomial and quasibinomial GLMs with logit link now print exponentiated coefficients ("odds" ratios), as do poisson and quasipoisson GLMs with log link (generalizing a suggestion of Jose Ramon Rueda).
   
   o Names of R objects to be created are no longer translated (e.g., "Dataset", "NormalSamples") into other languages to avoid potential problems (issue reported by Tsung-wu Ho).
+  
+  o Recognize new location for LaTeX in Mac OS X El Capitan.
 
 Changes to Version 2.2-1
 
