@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2014-07-26 by J. Fox
+# last modified 2015-11-25 by J. Fox
 
 # Means menu
 
@@ -331,9 +331,10 @@ multiWayAnova <- function () {
     doItAndPrint(paste("with(", .activeDataSet, ", (tapply(", response, 
                        ", list(", groups.list, "), sd, na.rm=TRUE))) # std. deviations", 
                        sep = ""))
-    doItAndPrint(paste("with(", .activeDataSet, ", (tapply(", response, 
-                       ", list(", groups.list, "), function(x) sum(!is.na(x))))) # counts", 
-                       sep = ""))
+    # doItAndPrint(paste("with(", .activeDataSet, ", (tapply(", response, 
+    #                    ", list(", groups.list, "), function(x) sum(!is.na(x))))) # counts", 
+    #                    sep = ""))
+    doItAndPrint(paste("xtabs(~ ", paste(groups, collapse=" + "), ", data=", .activeDataSet, ")", sep=""))
     activeModel(modelValue)
     putRcmdr("modelWithSubset", FALSE)
     tkfocus(CommanderWindow())
