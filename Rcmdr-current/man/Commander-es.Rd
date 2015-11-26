@@ -193,8 +193,7 @@ Por ejemplo, para declaraciones de composiciones de R incluidas entre llaves \co
 
 \section{Problemas Conocidos}{Ocasionalmente, bajo Windows, \enc{después}{despues} de teclear algún texto en un cuadro de \enc{diálogo}{dialogo} (ej. subconjunto de expresiones en el \enc{diálogo}{dialogo} de subconjunto de conjunto de datos), algunos botones en el \enc{diálogo}{dialogo} (ej. el \enc{botón}{boton} Aceptar) pueden no tener efecto cuando sean presionados. Pulsando en cualquier sitio, dentro o fuera del cuadro de \enc{diálogo}{dialogo}, \enc{debería}{deberia} restaurarse las funciones de los botones. Por lo que se ha podido comprobar, \enc{éste}{este} es un problema con Tcl/Tk de Windows.} 
 
-\note{Esta \enc{versión}{version} debe ser compatible con SciViews, que actualmente
-  \enc{sólo}{solo} funciona bajo sistemas Windows: \url{http://www.sciviews.org/SciViews-R}; mirar \code{Rcmdr.sciviews-specific}. Bajo Windows, el paquete \code{Rcmdr} puede \enc{también}{tambien} funcionar bajo de Rgui en modo SDI (interfaz de único documento) o bajo \code{rterm.exe}; puede ser que experimente problemas ejecutando \code{Rcmdr} bajo \code{ESS} con NTEmacs o XEmacs. 
+\note{Bajo Windows, el paquete \code{Rcmdr} puede \enc{también}{tambien} funcionar bajo de Rgui en modo SDI (interfaz de único documento) o bajo \code{rterm.exe}; puede ser que experimente problemas ejecutando \code{Rcmdr} bajo \code{ESS} con NTEmacs o XEmacs. 
 }
 
 \author{John Fox \email{jfox@mcmaster.ca} (de la \enc{versión}{version} inglesa) 
