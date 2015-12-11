@@ -1,4 +1,4 @@
-# last modified 2015-10-17 by J. Fox
+# last modified 2015-12-10 by J. Fox
 
 # utility functions
 
@@ -808,7 +808,7 @@ variableListBox <- function(parentWindow, variableList=Variables(), bg="white",
     minmax <- getRcmdr("variable.list.width")
     listbox <- tklistbox(frame, height=min(listHeight, length(variableList)),
         selectmode=selectmode, background=bg, exportselection=export, 
-        width=min(max(minmax[1], nchar(variableList)), minmax[2]))
+        width=min(max(minmax[1], nchar(variableList))))
     scrollbar <- ttkscrollbar(frame, command=function(...) tkyview(listbox, ...))
     tkconfigure(listbox, yscrollcommand=function(...) tkset(scrollbar, ...))
     for (var in variableList) tkinsert(listbox, "end", var)
