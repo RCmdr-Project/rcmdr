@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2014-08-10 by J. Fox
+# last modified 2015-12-15 by J. Fox
 
     # Proportions menu
 
@@ -10,7 +10,7 @@ singleProportionTest <- function () {
     dialog.values <- getDialog ("singleProportionTest", defaults)
     initializeDialog(title = gettextRcmdr("Single-Sample Proportion Test"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, TwoLevelFactors(), title = gettextRcmdr("Variable (pick one)"),
-        initialSelection = varPosn(dialog.values$initial.x,"factor"))
+        initialSelection = varPosn(dialog.values$initial.x,"twoLevelFactor"))
     onOK <- function() {
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         x <- getSelection(xBox)
