@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2015-11-25 by J. Fox
+# last modified 2015-12-16 by J. Fox
 
 # Means menu
 
@@ -321,9 +321,9 @@ multiWayAnova <- function () {
     }
     .activeDataSet <- ActiveDataSet()
     groups.list <- paste(paste(groups, sep = ""), collapse = ", ")
-    doItAndPrint(paste(modelValue, " <- (lm(", response, 
+    doItAndPrint(paste(modelValue, " <- lm(", response, 
                        " ~ ", paste(groups, collapse = "*"), ", data=", 
-                       .activeDataSet, "))", sep = ""))
+                       .activeDataSet, ", contrasts=list(", paste(paste(groups, '="contr.Sum"'), collapse=", "), "))", sep = ""))
     doItAndPrint(paste("Anova(", modelValue, ")", sep = ""))
     doItAndPrint(paste("with(", .activeDataSet, ", (tapply(", response, 
                        ", list(", groups.list, "), mean, na.rm=TRUE))) # means", 
@@ -334,7 +334,7 @@ multiWayAnova <- function () {
     # doItAndPrint(paste("with(", .activeDataSet, ", (tapply(", response, 
     #                    ", list(", groups.list, "), function(x) sum(!is.na(x))))) # counts", 
     #                    sep = ""))
-    doItAndPrint(paste("xtabs(~ ", paste(groups, collapse=" + "), ", data=", .activeDataSet, ")", sep=""))
+    doItAndPrint(paste("xtabs(~ ", paste(groups, collapse=" + "), ", data=", .activeDataSet, ") # counts", sep=""))
     activeModel(modelValue)
     putRcmdr("modelWithSubset", FALSE)
     tkfocus(CommanderWindow())
