@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2015-10-18 by John Fox
+# last modified 2016-02-17 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -216,11 +216,14 @@ Commander <- function(){
     putRcmdr("modelNumber", 0)
     putRcmdr("reset.model", FALSE)
     putRcmdr("rgl", FALSE)
+    putRcmdr("rgl.command", FALSE)
     putRcmdr("Identify3d", NULL)
     putRcmdr("open.dialog.here", NULL)
     putRcmdr("restoreTab", FALSE)
     putRcmdr("cancelDialogReopen", FALSE)
     putRcmdr("last.search", "")
+    
+    setOption("use.rgl", TRUE)
 
     # set up Rcmdr default and text (log) fonts, Tk scaling factor
     default.font.family.val <- tclvalue(.Tcl("font actual TkDefaultFont -family"))
@@ -811,6 +814,8 @@ Commander <- function(){
         system.file("etc", if (getRcmdr("capabilities")$pandoc) "Rcmdr-RMarkdown-Template.Rmd"
             else "Rcmdr-Markdown-Template.Rmd", package="Rcmdr"))
     template <- paste(readLines(rmd.template), collapse="\n")
+    if (getRcmdr("use.rgl")) template <- paste0(template, 
+      "\n\n```{r echo=FALSE}\n# include this code chunk as-is to enable 3D graphs\nlibrary(rgl)\nknitr::knit_hooks$set(webgl = hook_webgl)\n```\n\n")
     tkinsert(.rmd, "end", template)
     putRcmdr("markdown.output", FALSE)
     RmdXscroll <- ttkscrollbar(RmdFrame, orient="horizontal",

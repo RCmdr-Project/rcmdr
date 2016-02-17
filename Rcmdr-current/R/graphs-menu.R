@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2015-08-07 by J. Fox
+# last modified 2016-02-17 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -1513,6 +1513,7 @@ Scatter3D <- function () {
         Library("rgl")
         Library("mgcv")
     }
+    putRcmdr("rgl.command", TRUE)
     defaults <- list (initial.x = NULL, initial.y = NULL, initial.scales = 1, initial.grid = 1, 
         initial.resids = 0, initial.lin = 0, initial.quad = 0, initial.nonpar = 0, 
         initial.additive = 0, initial.ellips = 0, initial.dfNonpar = gettextRcmdr("<auto>"), 
@@ -1666,7 +1667,7 @@ Scatter3D <- function () {
                 parallel, ", bg=\"", bg, "\", axis.scales=", scales, 
                 ", grid=", grid, ", ellipsoid=", ellips, identify.text,
                 ")", sep = "")
-            command <- suppressMarkdown(command)
+            if (identify == "mouse") command <- suppressMarkdown(command)
             doItAndPrint(command)
         }
         else {
@@ -1675,10 +1676,9 @@ Scatter3D <- function () {
                 parallel, ", bg=\"", bg, "\", axis.scales=", scales, 
                 ", grid=", grid, ", ellipsoid=", ellips, identify.text,
                 ")", sep = "")
-            command <- suppressMarkdown(command)
+            if (identify == "mouse") command <- suppressMarkdown(command)
             doItAndPrint(command)
         }
-        
         putRcmdr("rgl", TRUE)
         command <- paste("Identify3d(", .activeDataSet, "$", 
             x[1], ", ", .activeDataSet, "$", y, ", ", .activeDataSet, 

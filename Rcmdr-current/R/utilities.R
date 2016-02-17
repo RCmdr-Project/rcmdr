@@ -1,4 +1,4 @@
-# last modified 2015-12-10 by J. Fox
+# last modified 2016-02-17 by J. Fox
 
 # utility functions
 
@@ -485,6 +485,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                 }
                 removeNullRnwBlocks()
             }
+            putRcmdr("rgl.command", FALSE)
         }
         
         OKbutton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("OK"), foreground="darkgreen", width=width, command=OnOK, default="active",
@@ -499,6 +500,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
             if (GrabFocus()) tkgrab.release(window)
             tkdestroy(window)
+            putRcmdr("rgl.command", FALSE)
             tkfocus(CommanderWindow())
         }
         
@@ -549,6 +551,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
                 setBusyCursor()
                 on.exit(setIdleCursor())
                 onOK()
+                putRcmdr("rgl.command", FALSE)
                 if (getRcmdr("use.markdown")){
                     removeNullRmdBlocks()
                     putRcmdr("startNewCommandBlock", TRUE)
@@ -2104,6 +2107,15 @@ X11P <- function(){
 
 # the following functions to support R Markdown
 
+trimTrailingNewLines <- function(string){
+  repeat{
+    where <- regexpr("\n\n[ ]*$", string)
+    if (where == -1) break
+    string <- paste0(substr(string, 1, where - 1), substr(string, where + 2, nchar(string)))
+  }
+  paste0(string, "\n")
+}
+
 suppressMarkdown <- function(command){
     attr(command, "suppressRmd") <- TRUE
     command
@@ -2114,7 +2126,8 @@ beginRmdBlock <- function(){
     last2 <- tclvalue(tkget(.rmd, "end -2 chars", "end"))
     if (last2 != "\n\n") tkinsert(.rmd, "end", "\n")
     tkinsert(.rmd, "end", "\n")
-    tkinsert(.rmd, "end", "```{r}\n")
+    if (getRcmdr("rgl.command") && getRcmdr("use.rgl")) tkinsert(.rmd, "end", "```{r, webgl=TRUE}\n")
+      else tkinsert(.rmd, "end", "```{r}\n")
 }
 
 endRmdBlock <- function(){
@@ -2122,6 +2135,7 @@ endRmdBlock <- function(){
     rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
     rmd <- paste(substring(rmd, 1, nchar(rmd) - 1), "```\n", sep="")
     rmd <- trimHangingEndRmdBlock(rmd)
+    rmd <- trimTrailingNewLines(rmd)
     tkdelete(.rmd, "1.0", "end")
     tkinsert(.rmd, "end", rmd)
     tkyview.moveto(.rmd, 1)
@@ -2181,7 +2195,7 @@ trimHangingEndRmdBlock <- function(string){
     n.ends <- length(loc.ends)
     if (n.ends > 1){
         substr <- substring(string, loc.ends[n.ends - 1], loc.ends[n.ends])
-        if (!grepl("```\\{r\\}", substr)){
+        if (!grepl("```\\{r\\}|```\\{r, webgl=TRUE\\}", substr)){
             string <- cutstring(string, loc.ends[n.ends], loc.ends[n.ends] + 3)
         }
     }
@@ -2191,7 +2205,7 @@ trimHangingEndRmdBlock <- function(string){
 removeLastRmdBlock <- function(){
     .rmd <- RmdWindow()    
     rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
-    start <- gregexpr("```\\{r\\}\n", rmd)
+    start <- gregexpr("```\\{r\\}\n|```\\{r, webgl=TRUE\\}\n", rmd)
     if (start[[1]][1] > 0){
         start <- start[[1]]
         start <- start[length(start)]
@@ -2199,10 +2213,21 @@ removeLastRmdBlock <- function(){
         end <- gregexpr("```\n", tail)
         end <- if (end[[1]][1] > 0) end[[1]][1] + 3 else nchar(tail)
         rmd <- cutstring(rmd, start, start + end)
+        rmd <- trimTrailingNewLines(rmd)
         tkdelete(.rmd, "1.0", "end")
         tkinsert(.rmd, "end", rmd)
         tkyview.moveto(.rmd, 1)
     }
+}
+
+removeRglRmdBlocks <- function(string){
+  repeat{
+    match <- regexpr("```\\{r, webgl=TRUE\\}\n", string)
+    if (match == -1) return(trimTrailingNewLines(string))
+    substring <- cutstring(string, end=match)
+    match.end <- regexpr("```\n", substring)
+    string <- cutstring(string, match, match + match.end + 3)
+  }
 }
 
 cutstring <- function(x, start=1, end=nchar(x)){
@@ -2269,6 +2294,8 @@ compileRmd <- function() {
                 browseURL(.html.file.location)
             },
             pdf = {
+                lines <- removeRglRmdBlocks(lines)
+                writeLines(lines, .RmdFile)
                 rmarkdown::render(.RmdFile, rmarkdown::pdf_document())
                 .pdf.file <- paste(.filename, ".pdf", sep="")
                 .pdf.file.location <- paste("file:///", normalizePath(.pdf.file), sep="")
@@ -2276,6 +2303,8 @@ compileRmd <- function() {
                 browseURL(.pdf.file.location)
             },
             docx = {
+              lines <- removeRglRmdBlocks(lines)
+              writeLines(lines, .RmdFile)
                 rmarkdown::render(.RmdFile, rmarkdown::word_document())
                 .docx.file <- paste(.filename, ".docx", sep="")
                 Message(paste(gettextRcmdr("Word file written to:"), normalizePath(.docx.file)), type="note")
@@ -2308,6 +2337,7 @@ endRnwBlock <- function(){
     rnw <- tclvalue(tkget(.rnw, "1.0", "end"))
     rnw <- paste(substring(rnw, 1, nchar(rnw) - 1), "@\n", sep="")
     rnw <- trimHangingEndRnwBlock(rnw)
+    rmw <- trimTrailingNewLines(rnw)
     tkdelete(.rnw, "1.0", "end")
     tkinsert(.rnw, "end", rnw)
     tkyview.moveto(.rnw, 1)    
@@ -2387,6 +2417,7 @@ removeLastRnwBlock <- function(){
         end <- gregexpr("@\n", tail)
         end <- if (end[[1]][1] > 0) end[[1]][1] + 1 else nchar(tail)
         rnw <- cutstring(rnw, start, start + end)
+        rnw <- trimTrailingNewLines(rnw)
         tkdelete(.rnw, "1.0", "end")
         tkinsert(.rnw, "end", rnw)
         tkyview.moveto(.rnw, 1)
