@@ -4,6 +4,10 @@ Changes to Version 2.2-4
   
   o Embeds 3D rgl graphs in HTML output from R Markdown.
   
+  o Improvements to the Rcmdr data editor.
+  
+  o New version of ismdi() doesn't need compiled code (thanks to Duncan Murdoch), eliminating all compiled code from the Rcmdr package.
+  
   o Small improvements and bug fixes.
 
 Changes to Version 2.2-3

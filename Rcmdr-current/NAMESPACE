@@ -1,6 +1,4 @@
-# last modified 2015-07-14 by J. Fox
-
-useDynLib(Rcmdr)
+# last modified 2016-02-22 by J. Fox
 
 import(splines, tcltk, RcmdrMisc, car)
 importFrom(utils, available.packages, install.packages, assignInMyNamespace, 

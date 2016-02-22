@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2016-02-17 by John Fox
+# last modified 2016-02-22 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -1037,7 +1037,7 @@ Commander <- function(){
     }
     Message(paste(gettextRcmdr("R Commander Version "), " ", getRcmdr("RcmdrVersion"), ": ", date(), sep=""))
     if (.Platform$GUI == "Rgui"  && ismdi()) Message(gettextRcmdr(
-        "The Windows version of the R Commander works best under RGui\nwith the single-document interface (SDI); see ?Commander."),
+        "The Windows version of the R Commander works best under\nRGui with the single-document interface (SDI); see ?Commander."),
         type="warning")
     if (RappP()  && mavericksP() && appnap() == "on") Message(gettextRcmdr(
       "The Mac OS X version of the R Commander works best under R.app\nwith app nap turned off. See ?Commander and the Tools menu."),

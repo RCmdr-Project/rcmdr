@@ -49,7 +49,9 @@ editing data frames that are not too large (say smaller than about 10,000 values
       
       \item Enlarge the data set by pressing the \emph{Add row} or \emph{Add column} button 
       at the top of the data editor; the new row or column will initially be filled with 
-      \code{NA}s and will have an auto-generated row or column name.
+      \code{NA}s and will have an auto-generated row or column name. Pressing the \emph{Enter}
+      or \emph{Return} key will also add a row; pressing the \emph{Tab} key will also add
+      a column.
       
       \item Right-clicking (or \emph{Control}-clicking, or under Mac OS X 
       \emph{Command}-clicking) brings up a context menu, permitting several operations
@@ -57,8 +59,8 @@ editing data frames that are not too large (say smaller than about 10,000 values
       
       \item Similarly, several actions are available via the \emph{Edit} menu.
       
-      \item The key-combinations \emph{Control-c} and \emph{Control-v} may also be used
-      respectively to copy and paste cell values. (Under Mac OS X, \emph{Command-c} and
+      \item The key-combinations  \emph{Control-x}, and \emph{Control-v}, may also be used
+      respectively to cut, copy, and paste cell values. (Under Mac OS X, \emph{Command-x}, \emph{Command-c}, and
       \emph{Command-v} also work.)
       
       \item Pressing the \emph{OK} button or selecting \emph{Exit and save} from the
