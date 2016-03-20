@@ -1,4 +1,4 @@
-# last modified 2016-02-22 by J. Fox
+# last modified 2016-03-20 by J. Fox
 
 # utility functions
 
@@ -1560,12 +1560,28 @@ ActiveDataSet <- function(name){
     else {
         putRcmdr(".activeDataSet", name)
 
-        if(!is.null(name)) {
-            Variables(listVariables(name))
-            Numeric(listNumeric(name))
-            Factors(listFactors(name))
-            TwoLevelFactors(listTwoLevelFactors(name))
+      if(!is.null(name)) {
+        Variables(listVariables(name))
+        Numeric(listNumeric(name))
+        Factors(listFactors(name))
+        TwoLevelFactors(listTwoLevelFactors(name))
+        open.showData.windows <- getRcmdr("open.showData.windows")
+        if (!is.null(open.showData.windows) && name %in% names(open.showData.windows)){
+          ID <- open.showData.windows[[name]]$ID
+          posn <- as.numeric(c(tclvalue(.Tcl(paste("winfo x", ID))),
+                       tclvalue(.Tcl(paste("winfo y", ID)))))
+          posn <- paste("+", paste(posn, collapse = "+"), sep = "")
+          tkdestroy(open.showData.windows[[name]])
+          suppress <- if(getRcmdr("suppress.X11.warnings")) ", suppress.X11.warnings=FALSE" else ""
+          view.height <- max(as.numeric(getRcmdr("output.height")) + as.numeric(getRcmdr("log.height")), 10)
+          command <- paste("showData(", name, ", placement='", posn, "', font=getRcmdr('logFont'), maxwidth=",
+                           getRcmdr("log.width"), ", maxheight=", view.height, suppress, ")", sep="")
+          window <- justDoIt(command)
+          open.showData.windows[[ActiveDataSet()]] <- window
+          putRcmdr("open.showData.windows", open.showData.windows)
         }
+        
+      }
         else {
             Variables(NULL)
             Numeric(NULL)

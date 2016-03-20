@@ -1,4 +1,4 @@
-# last modified 2015-06-14 by J. Fox
+# last modified 2016-03-20 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -259,6 +259,13 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
     putRcmdr("RmdWindow", NULL)
 	putRcmdr("messagesWindow", NULL)
 	putRcmdr("outputWindow", NULL)
+	open.showData.windows <- getRcmdr("open.showData.windows")
+	if (length(open.showData.windows) > 0){
+	  for (window in open.showData.windows){
+	    tkdestroy(window)
+	  }
+	  putRcmdr("open.showData.windows", list())
+	}
 	options(getRcmdr("quotes"))
 	tkwait <- options("Rcmdr")[[1]]$tkwait  # to address problem in Debian Linux
 	if ((!is.null(tkwait)) && tkwait) putRcmdr(".commander.done", tclVar("1"))

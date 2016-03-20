@@ -59,6 +59,7 @@
 \alias{tkyview.scroll}
 \alias{ttklabelframe}
 \alias{ttkcheckbutton}
+\alias{showData}
 
 \title{
 \pkg{tcltk} Functions Re-exported by the \pkg{Rcmdr} Package.
@@ -67,6 +68,8 @@
 For technical reasons involving \pkg{Rcmdr} plug-in packages, the \pkg{Rcmdr} package
 re-exports a number of functions from the \pkg{tcltk} package that are used by \pkg{Rcmdr}
 utilities.
+
+It also re-exports the \code{showdata} function from the \pkg{relimp} package, which is uses internally to display data sets.
 }
 
 \author{John Fox \email{jfox@mcmaster.ca}}

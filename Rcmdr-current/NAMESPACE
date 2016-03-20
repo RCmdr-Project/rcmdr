@@ -1,4 +1,4 @@
-# last modified 2016-02-22 by J. Fox
+# last modified 2016-03-20 by J. Fox
 
 import(splines, tcltk, RcmdrMisc, car)
 importFrom(utils, available.packages, install.packages, assignInMyNamespace, 
@@ -12,6 +12,8 @@ importFrom(grDevices, col2rgb, colorConverter, colorspaces, convertColor,
 importFrom(methods, getClass, isVirtualClass, show)
 importFrom(stats, coef, confint, family, formula, model.matrix, na.omit, 
     optim, optimize, qnorm, var, vcov)
+importFrom(relimp, showData)
+export(showData)
 
 export(tkfocus, tkspinbox,
 activateMenus, activeDataSet, ActiveDataSet, activeDataSetP, activeModel,
