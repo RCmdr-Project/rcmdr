@@ -10,6 +10,8 @@ Changes to Version 2.2-4
   
   o showData() data set displays now updated automatically.
   
+  o Added .rtf output to options for RMarkdown reports.
+  
   o Small improvements and bug fixes.
 
 Changes to Version 2.2-3

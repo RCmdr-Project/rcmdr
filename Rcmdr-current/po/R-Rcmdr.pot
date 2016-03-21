@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.2-2\n"
+"Project-Id-Version: Rcmdr 2.2-4\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2015-10-16 12:05:00\n"
+"POT-Creation-Date: 2016-03-21 19:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4661,4 +4661,15 @@ msgid "Use sandwich estimator of\ncoefficient covariance matrix"
 msgstr ""
 
 msgid "Concentration levels:"
+msgstr ""
+
+
+# additional messages in version 2.2-4
+
+  # .rtf output from RMarkdown reports
+  
+msgid ".rtf (rich text file)"
+msgstr ""
+
+msgid "Rich text file written to:"
 msgstr ""

@@ -1,4 +1,4 @@
-# last modified 2016-03-20 by J. Fox
+# last modified 2016-03-21 by J. Fox
 
 # utility functions
 
@@ -2263,10 +2263,10 @@ compileRmd <- function() {
         putRcmdr("abort.compile.rmd", TRUE)
         hasLatex <- getRcmdr("capabilities")$pdflatex
         radioButtons(name="formatButtons", 
-            buttons=c("html", if (hasLatex) "pdf", "docx"), 
+            buttons=c("html", if (hasLatex) "pdf", "docx", "rtf"), 
             initialValue=format,
             labels=c(gettextRcmdr(".html (web page)"), 
-                if (hasLatex) gettextRcmdr(".pdf (PDF file)"), gettextRcmdr(".docx (Word file)")))
+                if (hasLatex) gettextRcmdr(".pdf (PDF file)"), gettextRcmdr(".docx (Word file)"), gettextRcmdr(".rtf (rich text file)")))
         onOK <- function(){
             putRcmdr("abort.compile.rmd", FALSE)
             format <- tclvalue(formatButtonsVariable)
@@ -2324,6 +2324,13 @@ compileRmd <- function() {
                 rmarkdown::render(.RmdFile, rmarkdown::word_document())
                 .docx.file <- paste(.filename, ".docx", sep="")
                 Message(paste(gettextRcmdr("Word file written to:"), normalizePath(.docx.file)), type="note")
+            },
+            rtf = {
+              lines <- removeRglRmdBlocks(lines)
+              writeLines(lines, .RmdFile)
+              rmarkdown::render(.RmdFile, rmarkdown::rtf_document())
+              .rtf.file <- paste(.filename, ".rtf", sep="")
+              Message(paste(gettextRcmdr("Rich text file written to:"), normalizePath(.rtf.file)), type="note")
             }
         )
     }

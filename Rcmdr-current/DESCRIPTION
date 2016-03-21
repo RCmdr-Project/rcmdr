@@ -1,6 +1,6 @@
 Package: Rcmdr
 Version: 2.2-4
-Date: 2016-03-20
+Date: 2016-03-21
 Title: R Commander
 Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaster.ca"),
     person("Milan", "Bouchet-Valat", role = "aut"),
@@ -29,7 +29,7 @@ Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaste
    )
 Depends: R (>= 3.0.0), grDevices, utils, splines, RcmdrMisc (>= 1.0-3), car (>= 2.1-2)
 Imports: tcltk, tcltk2 (>= 1.2-6), abind, graphics, methods, stats, relimp (>= 1.0-5)
-Suggests: aplpack, colorspace, effects (>= 3.0-1), e1071, foreign, grid, Hmisc, knitr, lattice, leaps, lmtest, markdown, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, readxl, rgl, rglwidget, rmarkdown, sem (>= 2.1-1) 
+Suggests: aplpack, colorspace, effects (>= 3.0-1), e1071, foreign, grid, Hmisc, knitr, lattice, leaps, lmtest, markdown, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, readxl, rgl, rglwidget, rmarkdown (>= 0.9.5), sem (>= 2.1-1) 
 ByteCompile: yes
 Description:
   A platform-independent basic-statistics GUI (graphical user interface) for R, based on the tcltk package.
