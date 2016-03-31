@@ -1,0 +1,4797 @@
+# Hellenic translations for the Rcmdr package
+# Ελληνική μετάφραση του πακέτου Rcmdr
+# Copyright (C) 2005-2015 John Fox et al
+# This file is distributed under the same license as the Rcmdr package
+# Anastasios Vikatos <anastasios.vikatos@gmail.com>, 2015
+# Andreas Vikatos <kindatwins@gmail.com>, 2015
+# Vasileios Dimitropoulos <vasileios.dimitropoulos@gmail.com>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: Rcmdr 2.2-0\n"
+"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
+"POT-Creation-Date: 2015-09-06 13:15:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Greek\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "KMeans Clustering"
+msgstr "Ομαδοποίηση K-Means"
+
+msgid "Variables (pick one or more)"
+msgstr "Mεταβλητές (επιλέξτε μία ή παραπάνω)"
+
+msgid "No variables selected."
+msgstr "Καμία μεταβλητή δεν επιλέχθηκε."
+
+msgid "<all valid cases>"
+msgstr "<Όλες οι περιπτώσεις είναι έγκυρες>"
+
+msgid "Number of clusters:"
+msgstr "Αριθμός ομαδοποιήσεων:"
+
+msgid "Number of starting seeds:"
+msgstr "Αριθμός των αρχικών σημείων:"
+
+msgid "Maximum iterations:"
+msgstr "Μέγιστες επαναλήψεις:"
+
+msgid "Print cluster summary"
+msgstr "Εκτύπωση συνοπτικής ομαδοποίησης"
+
+msgid "Bi-plot of clusters"
+msgstr "Ομαδοποιήση Bi-plot"
+
+msgid ""
+"Assign clusters to\n"
+"the data set"
+msgstr ""
+"Εκχώρηση ομαδοποιήσεων στο\n"
+" το σύνολο δεδομένων"
+
+msgid "Assignment variable:"
+msgstr "Εκχώρηση μεταβλητής:"
+
+msgid "Hierarchical Clustering"
+msgstr "Ιεραρχική Ομαδοποίηση"
+
+msgid "Ward's Method"
+msgstr "Μέθοδος Ward"
+
+msgid "Single Linkage"
+msgstr "Μονός Σύνδεσμος"
+
+msgid "Complete Linkage"
+msgstr "Πλήρης Σύνδεσμος"
+
+msgid "Average Linkage"
+msgstr "Mέσος Σύνδεσμος"
+
+msgid "McQuitty's Method"
+msgstr "Μέθοδος McQuitty"
+
+msgid "Median Linkage"
+msgstr "Διάμεσος Σύνδεσμος"
+
+msgid "Centroid Linkage"
+msgstr "Κεντροειδής Σύνδεσμος"
+
+msgid "Clustering Method"
+msgstr "Μέθοδος Ομαδοποίησης"
+
+msgid "Euclidean"
+msgstr "Ευκλείδεια"
+
+msgid "Squared-Euclidian"
+msgstr "Πυθαγόριο Θεώρημα"
+
+msgid "Manhattan (City Block)"
+msgstr "Μανχάταν (City Block)"
+
+msgid "No Transformation"
+msgstr "Χωρίς Μετασχηματισμό"
+
+msgid "Distance Measure"
+msgstr "Μέτρηση Απόστασης"
+
+msgid "Clustering solution name:"
+msgstr "Όνομα Λύσης Ομαδοποίησης:"
+
+msgid "Plot Dendrogram"
+msgstr "Γράφημα Δενδρογράμματος"
+
+msgid "Hierarchical Cluster Summary"
+msgstr "Ιεραρχική Περίληψη Ομαδοποίησης"
+
+msgid "Select One Clustering Solution"
+msgstr "Επιλέξτε μία Λύση Ομαδοποίησης"
+
+msgid "There are no hierachical clustering solutions"
+msgstr "Δεν υπάρχουν ιεραρχικές λύσεις ομαδοποίησης"
+
+msgid "No hierachical clustering solutions are associated with this data set."
+msgstr "Μη ιεραρχική ομαδοποίηση λύσεων που σχετίζονται με αυτό το σύνολο δεδομένων."
+
+msgid "A clustering solution has not been selected."
+msgstr "Μια λύση ομαδοποίησης δεν έχει επιλεχθεί."
+
+msgid "Append Cluster Groups to the Active Data Set"
+msgstr "Προσάρτηση σύμπλεγμα ομάδων σε ενεργό σύνολο δεδομένων"
+
+msgid "Assigned cluster label:"
+msgstr "Όνομα της μεταβλητής:"
+
+msgid "Find"
+msgstr "Βρείτε"
+
+msgid "Regular-expression search"
+msgstr "Αναζήτηση τακτικής έκφρασης"
+
+msgid "Case sensitive"
+msgstr "Υπόθεση ευαισθησίας"
+
+msgid "Forward"
+msgstr "Μπροστά"
+
+msgid "Backward"
+msgstr "Πίσω"
+
+msgid "Search Direction"
+msgstr "Αναζήτηση Κατεύθηνσης"
+
+msgid "No search text specified."
+msgstr "Δεν υπάρχει κείμενο αναζήτησης που έχει καθορισθεί."
+
+msgid "Text not found."
+msgstr "Το κείμενο δεν βρέθηκε."
+
+msgid "Search for:"
+msgstr "Αναζήτηση για:"
+
+msgid "R Commander"
+msgstr "R Commander"
+
+msgid "Sourced:"
+msgstr "Προέλευση:"
+
+msgid "menu definition error:"
+msgstr "Εσφαλμένος ορισμός μενού:"
+
+msgid "Nothing is selected."
+msgstr "Δεν έχει επιλεχθεί κάτι."
+
+msgid "Clear window"
+msgstr "Καθαρισμός παραθύρου"
+
+msgid "Submit"
+msgstr "Υποβολή"
+
+msgid "Cut"
+msgstr "Αποκοπή"
+
+msgid "Copy"
+msgstr "Αντιγραφή"
+
+msgid "Paste"
+msgstr "Επικόλληση"
+
+msgid "Delete"
+msgstr "Διαγραφή"
+
+msgid "Find..."
+msgstr "Βρείτε..."
+
+msgid "Select all"
+msgstr "Επιλογή όλων"
+
+msgid "Edit data set"
+msgstr "Επεξεργασία δεδομένων"
+
+msgid "View data set"
+msgstr "Προβολή δεδομένων"
+
+msgid "<No active dataset>"
+msgstr "<Κανένα ενεργό δεδομένο>"
+
+msgid "<No active model>"
+msgstr "<Κανένα ενεργό μοντέλο>"
+
+msgid "Data set:"
+msgstr "Σύνολο δεδομένων:"
+
+msgid "Model:"
+msgstr "Μοντέλο:"
+
+msgid "Script Window"
+msgstr "Σενάριο Παραθύρου"
+
+msgid "Output Window"
+msgstr "Παράθυρο Εξόδου/Αποτελέσματος"
+
+msgid "Messages"
+msgstr "Μηνύματα"
+
+msgid "The rgl package is absent; 3D plots are unavailable."
+msgstr "Το πακέτο rlg απουσιάζει; Τα 3D-Plots δεν είναι διαθέσιμα."
+
+msgid "R Commander Version"
+msgstr "Έκδοση R Commander"
+
+msgid "First and last 5 warnings:"
+msgstr "Πρώτες και τελευταίες πέντε (5) προειδοποιήσεις:"
+
+msgid "ERROR:"
+msgstr "ΣΦΆΛΜΑ:"
+
+msgid "WARNING:"
+msgstr "ΠΡΟΕΙΔΟΠΟΊΗΣΗ:"
+
+msgid "ERROR"
+msgstr "ΣΦΆΛΜΑ"
+
+msgid "WARNING"
+msgstr "ΠΡΟΕΙΔΟΠΟΊΗΣΗ"
+
+msgid "NOTE"
+msgstr "ΣΗΜΕΊΩΣΗ"
+
+msgid "New Data Set"
+msgstr "Νέο σύνολο δεδομένων"
+
+msgid "Dataset"
+msgstr "Σύνολο δεδομένων"
+
+msgid "You must enter the name of a data set."
+msgstr "Πρέπει να δώσετε ένα όνομα για αυτό το δεδομένο."
+
+msgid "is not a valid name."
+msgstr "δεν είναι έγκυρο το όνομα."
+
+msgid "Data set"
+msgstr "Σύνολο δεδομένων"
+
+msgid "empty data set."
+msgstr "άδεια δεδομένα."
+
+msgid "Enter name for data set:"
+msgstr "Εισάγετε ένα όνομα δεδομένου:"
+
+msgid "There is only one dataset in memory."
+msgstr "Υπάρχει μόνο ένα δεδομένο στην μνήμη."
+
+msgid "There are no data sets from which to choose."
+msgstr "Δεν υπάρχουν δεδομένα τα οποία μπορείτε να επιλέξετε."
+
+msgid "Select Data Set"
+msgstr "Επιλογή δεδομένου"
+
+msgid "Data Sets (pick one)"
+msgstr "Δεδομένα (επιλέξτε ένα)"
+
+msgid "Recode Variable"
+msgstr "Επανακωδικοποίηση μεταβλητής"
+
+msgid "Variable to recode (pick one)"
+msgstr "Μεταβλητή προς επανακωδικοποίηση (επιλέξτε μια)"
+
+msgid "variable"
+msgstr "Μεταβλητή."
+
+msgid "You must select a variable."
+msgstr "Μπορείτε να επιλέξετε μια μεταβλητή."
+
+msgid "No recode directives specified."
+msgstr "Δεν έχουν καθοριστεί οι οδηγίες RECODE."
+
+msgid "Use only double-quotes (\" \") in recode directives"
+msgstr "Χρησιμοποιείτε μόνο διπλά εισαγωγικά (\" \") στις οδηγίες RECODE"
+
+msgid "New variable name"
+msgstr "Νέο όνομα μεταβλητής"
+
+msgid "Enter recode directives"
+msgstr "Εισάγετε RECODE οδηγίες"
+
+msgid "Make new variable a factor"
+msgstr "Κάνετε νέα μεταβλητή τον παράγοντα"
+
+msgid "Compute New Variable"
+msgstr "Υπολογίστε νέα μεταβλητή"
+
+msgid "[factor]"
+msgstr "[παράγοντας]"
+
+msgid "Current variables (double-click to expression)"
+msgstr "Τρέχουσες μεταβλητές (διπλό κλικ στην έκφραση)"
+
+msgid "No expression specified."
+msgstr "Η έκφραση δεν διευκρινίζεται."
+
+msgid "Variable"
+msgstr "Μεταβλητή"
+
+msgid "Expression to compute"
+msgstr "Έκφραση για τον υπολογισμό"
+
+msgid "Delete Variables"
+msgstr "Διαγραφή Μεταβλητών"
+
+msgid "Variable(s) to delete (pick one or more)"
+msgstr "Μεταβλητή(-τές) για διαγραφή (επιλέξτε μία ή παραπάνω)"
+
+msgid "You must select one or more variables."
+msgstr "Θα πρέπει να επιλέξετε μία ή παραπάνω μεταβλητές."
+
+msgid ""
+"Delete %s?\n"
+"Please confirm."
+msgstr ""
+"Διαγραφή %s;\n"
+"Παρακαλώ επιβεβαιώστε."
+
+msgid ""
+"Delete %d variables?\n"
+"Please confirm."
+msgstr ""
+"Διαγραφή %d μεταβλητων;\n"
+"Παρακαλώ επιβεβαιώστε."
+
+msgid "Read Data From Text File"
+msgstr "Ανάγνωση δεδομένων από αρχείο κειμένου"
+
+msgid "White space"
+msgstr "Χώρος White"
+
+msgid "Commas"
+msgstr "Κόμματα"
+
+msgid "Tabs"
+msgstr "Καρτέλες"
+
+msgid "Field Separator"
+msgstr "Διαχωριστής πεδίου"
+
+msgid "Period [.]"
+msgstr "Περίοδος [.]"
+
+msgid "Comma [,]"
+msgstr "Κόμα [,]"
+
+msgid "Decimal-Point Character"
+msgstr "Χαρακτήρας Decimal-Point"
+
+msgid "You must enter a name for the data set."
+msgstr "Θα πρέπει να εισάγετε ένα όνομα για το σύνολο δεδομένων"
+
+msgid "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Αρχεία Κειμένου\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"Όλα τα αρχεία\" {\"*\"}}"
+
+msgid "Variable names in file:"
+msgstr "Ονόματα μεταβλητών αρχείου:"
+
+msgid "Missing data indicator:"
+msgstr "Λείπει ο δείκτης των δεδομένων:"
+
+msgid "Other"
+msgstr "Άλλα"
+
+msgid "Specify:"
+msgstr "Ορίστε:"
+
+msgid "Read Data From Package"
+msgstr "Διαβάστε δεδομένα από τα πακέτα"
+
+msgid "Select package:"
+msgstr "Διαλέξτε πακέτο:"
+
+msgid "Data set %s does not exit"
+msgstr "Το σύνολο δεδομένων %s δεν υπάρχει"
+
+msgid "You must select a package."
+msgstr "Πρέπει να επιλέξετε ένα πακέτο."
+
+msgid "You must select a data set."
+msgstr "Πρέπει να επιλέξετε ένα σύνολο δεδομένων."
+
+msgid "Package (Double-click to select)"
+msgstr "Πακέτο (Διπλό κλίκ για επιλογή)"
+
+msgid "Data set (Double-click to select)"
+msgstr "Δεδομένα (Διπλό κλίκ για επιλογή)"
+
+msgid "OR"
+msgstr "Ή"
+
+msgid "Enter name of data set:"
+msgstr "Εισάγετε όνομα των δεδομένων:"
+
+msgid "Import SPSS Data Set"
+msgstr "Εισάγετε δεδομένα SPSS"
+
+msgid "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"SPSS αποθήκευση αρχείων\" {\".sav\" \".SAV\"}} {\"SPSS φορητά αρχεία\" {\".por\" \".POR\"}} {\"Όλα τα αρχεία\" {\"*\"}}"
+
+msgid ""
+"Convert value labels\n"
+"to factor levels"
+msgstr "Μετατροπή αξίας ετικετών σε επίπεδο παράγοντα"
+
+msgid ""
+"Maximum number\n"
+"of value labels\n"
+"for factor conversion"
+msgstr ""
+"Μέγιστος αριθμός\n"
+"της αξίας των ονομάτων\n"
+"για παράγοντα μετατροπής"
+
+msgid "Import Minitab Data Set"
+msgstr "Εισαγωγή δεδομένων Minitab"
+
+msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"φορητά αρχεία Minitab\" {\".mtp\" \".MTP\"}} {\"Όλα τα αρχεία\" {\"*\"}}"
+
+msgid ""
+"Minitab data set contains elements of unequal length.\n"
+"Data set cannot be converted."
+msgstr ""
+"Το σύνολο δεδομένων Minitab περιέχει στοιχεία άνισου μήκους.\n"
+"Το σύνολο δεδομένων δεν μπορεί να μετατραπεί."
+
+msgid "Import STATA Data Set"
+msgstr "Εισάγετε σύνολο δεδομένων STATA"
+
+msgid "{\"STATA datasets\" {\".dta\" \".DTA\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Δεδομένα STATA\" {\".dta\" \".DTA\"}} {\"Όλα τα αρχεία\" {\"*\"}}"
+
+msgid "Convert dates to R format"
+msgstr "Μετατροπή ημερομηνιών σε μορφή R"
+
+msgid "Multiple missing types (>=Stata 8)"
+msgstr "Πολλαπλοί τύποι απουσιάζουν (>=Stata 8)"
+
+msgid "Convert underscore to period"
+msgstr "Μετατροπή υπογράμμισης σε περίοδο"
+
+msgid "Warn on missing labels"
+msgstr "Προειδοποίηση σε απούσες ετικέτες"
+
+msgid "Convert Numeric Variable to Factor"
+msgstr "Μετατροπή Αριθμητικής Μεταβλητής σε Παράγοντα"
+
+msgid "Variable (pick one)"
+msgstr "Μεταβλητή (επιλέξτε μια)"
+
+msgid "Supply level names"
+msgstr "Ονόματα επιπέδου προσφοράς"
+
+msgid "Use numbers"
+msgstr "Χρησιμοποιείστε αριθμούς"
+
+msgid "Factor Levels"
+msgstr "Παράγοντας Επιπέδων"
+
+msgid "<same as variable>"
+msgstr "<το ίδιο σαν μεταβλητή>"
+
+msgid "Number of levels (%d) too large."
+msgstr "Ο αριθμός των επιπέδων (%d) είναι πολύ μεγάλος."
+
+msgid "Level Names"
+msgstr "Ονόματα Επιπέδων"
+
+msgid "Levels names are not unique."
+msgstr "Τα ονόματα επιπέδων δεν είναι μοναδικά."
+
+msgid "A level name is empty."
+msgstr "Το όνομα του επιπέδου είναι άδειο."
+
+msgid "Numeric value"
+msgstr "Αριθμητική αξία"
+
+msgid "Level name"
+msgstr "Όνομα επιπέδου"
+
+msgid "Name for factor"
+msgstr "Όνομα του παράγοντα"
+
+msgid "Bin a Numeric Variable"
+msgstr "Αποθήκευση μιας Αριθμητική Μεταβλητής"
+
+msgid "Variable to bin (pick one)"
+msgstr "Μεταβλητή για αποθήκευση (επιλέξτε μία)"
+
+msgid "Specify names"
+msgstr "Καθορίστε τα ονόματα"
+
+msgid "Numbers"
+msgstr "Αριθμοί"
+
+msgid "Ranges"
+msgstr "Σειρές"
+
+msgid "Equal-width bins"
+msgstr "Equal-width bins"
+
+msgid "Equal-count bins"
+msgstr "Equal-count bins"
+
+msgid ""
+"Natural breaks\n"
+"(from K-means clustering)"
+msgstr ""
+"Natural breaks\n"
+"(from K-means clustering)"
+
+msgid "Binning Method"
+msgstr "Μέθοδος Αποθήκευσης"
+
+msgid "Bin Names"
+msgstr "Αποθήκευση Ονομάτων"
+
+msgid "Level names must be unique."
+msgstr "Τα ονόματα των επιπέδων πρέπει να είναι μοναδικά."
+
+msgid "Bin"
+msgstr "Αποθήκευση"
+
+msgid "Name"
+msgstr "Όνομα"
+
+msgid "Number of bins:"
+msgstr "Αριθμός των αποθηκεύσεων:"
+
+msgid "Reorder Factor Levels"
+msgstr "Αναδιάταξη Παράγοντα των Επιπέδων"
+
+msgid "Factor (pick one)"
+msgstr "Παράγοντας (επιλέξτε έναν)"
+
+msgid "<same as original>"
+msgstr "<το ίδιο σαν το αυθεντικό>"
+
+msgid "Reorder Levels"
+msgstr "Αναδιάταξη Επιπέδων"
+
+msgid "Order of levels must include all integers from 1 to"
+msgstr "Η διάταξη των επιπέδων πρέπει να περιλαμβλανει όλους τους ακέραιους απο το 1 στο"
+
+msgid "Old Levels"
+msgstr "Παλιότερα Επίπεδα"
+
+msgid "New order"
+msgstr "Νέα εντολή"
+
+msgid "Make ordered factor"
+msgstr "Κάντε διατεταγμένο παράγοντα"
+
+msgid "Standardize Variables"
+msgstr "Τυποποιήστε μεταβλητές"
+
+msgid "Export Active Data Set"
+msgstr "Εξαγωγή Ενεργών Δεδομένων"
+
+msgid "Write variable names:"
+msgstr "Γράψτε τα ονόματα των μεταβλητών:"
+
+msgid "Write row names:"
+msgstr "Γράψτε την σειρά ονομάτων:"
+
+msgid "Quotes around character values:"
+msgstr "Εισαγωγικά γύρω απο την αξία του χαρακτήρα:"
+
+msgid "Spaces"
+msgstr "Χώροι"
+
+msgid "Active dataset exported to file"
+msgstr "Ενεργά δεδομένά θα εξαχθούν στο αρχείο"
+
+msgid "Missing values:"
+msgstr "Τιμές που λείπουν:"
+
+msgid "Remove Missing Data"
+msgstr "Κατάργηση δεδομένων που λείπουν"
+
+msgid "Variables (select one or more)"
+msgstr "Μεταβλητές (επιλέξτε μία ή παραπάνω)"
+
+msgid "<same as active data set>"
+msgstr "<ίδιο σαν ενεργό σύνολο δεδομένων>"
+
+msgid "No variables were selected."
+msgstr "Καμία μεταβλητή δεν έχει επιλεχθεί."
+
+msgid "Include all variables"
+msgstr "Να συμπεριλάβει όλες τις μεταβλητές"
+
+msgid "Name for new data set"
+msgstr "Όνομα για νέα δεδομένα"
+
+msgid "Subset Data Set"
+msgstr "Υποσύνολο Δεδομένων"
+
+msgid "<all cases>"
+msgstr "<όλες οι περιπτώσεις>"
+
+msgid "New data set same as active data set."
+msgstr "Νέο σύνολο δεδομένων σαν ενεργό σύνολο δεδομένων"
+
+msgid "Subset expression"
+msgstr "Έκφραση Υποσυνόλου"
+
+msgid "Set Case Names"
+msgstr "Ορίστε Ονόματα Περιπτώσεων"
+
+msgid "Select variable containing row names"
+msgstr "Επιλέξτε μεταβλητή που περιέχει σειρά από ονόματα"
+
+msgid "Case names must be unique."
+msgstr "Τα ονόματα των περιπτώσεων πρέπει να είναι μοναδικά."
+
+msgid "Rename Variables"
+msgstr "Μετανομασία Μεταβλητών"
+
+msgid "Variable Names"
+msgstr "Ονόματα Μεταβλητών"
+
+msgid "A variable name is empty."
+msgstr "Το όνομα της μεταβλητής είναι άδειο."
+
+msgid "The following variable names are not valid:"
+msgstr "Τα παρόν ονόματα των μεταβλητών δεν είναι έγκυρα:"
+
+msgid "Variable names are not unique"
+msgstr "Τα ονόματα των μεταβλητών δεν είναι μοναδικά"
+
+msgid "Old Name"
+msgstr "Παλιό Όνομα"
+
+msgid "New name"
+msgstr "Νέο όνομα"
+
+msgid "Set Contrasts for Factor"
+msgstr "Ορίστε Αντιθέσεις(Γραμμικούς συνδυασμούς) για τους Παράγοντες"
+
+msgid "Treatment (dummy) contrasts"
+msgstr "Καταπολέμηση αντιθέσεων(Γραμμικών συνδυασμών)"
+
+msgid "Sum (deviation) contrasts"
+msgstr "Άθροισμα (απόκλιση) αντιθέσεων(Γραμμικών συνδυασμών)"
+
+msgid "Helmert contrasts"
+msgstr "Αντίθεση(Γραμμικοί συνδυασμοί) Helmert"
+
+msgid "Polynomial contrasts"
+msgstr "Αντιθέσεις(Γραμμικοί συνδυασμοί) πολυωνύμου"
+
+msgid "Other (specify)"
+msgstr "Άλλα (ορίστε)"
+
+msgid "Contrasts"
+msgstr "Αντιθέσεις(Γραμμικοί συνδυασμοί)"
+
+msgid "Specify Contrasts"
+msgstr "Καθορίστε Αντιθέσεις(Γραμμικούς συνδυασμούς)"
+
+msgid "Enter Contrast Coefficients"
+msgstr "Εισάγετε Συντελεστές Αντιθέσεων(Γραμμικών συνδυασμών)"
+
+msgid "Contrast Name:"
+msgstr "Όνομα Αντίθεσης(Γραμμικού συνδυασμού):"
+
+msgid ""
+"Number of valid entries in contrast matrix(%d)\n"
+"not equal to number of levels (%d) * number of contrasts (%d)."
+msgstr ""
+"Αριθμός έγκυρων καταχωρήσεων σε αντίθεση matrix(%d)\n"
+"δεν είναι ίσο με τον αριθμό των επιπέδων (%d) * αριθμός των αντιθέσεων(Γραμμικών συνδυασμών) (%d)."
+
+msgid "Contrast matrix is not of full column rank"
+msgstr "Ο Γραμμικός συνδυασμός του matrix δεν είναι πλήρης"
+
+msgid "Contrast names must be unique"
+msgstr "Τα ονόματα των Αντιθέσεων(Γραμμικών συνδυασμών) πρέπει να είναι μοναδικά"
+
+msgid "Normal Quantiles"
+msgstr "Κανονικά ποσοστημόρια"
+
+msgid "No probabilities specified."
+msgstr "Δεν έχει καθοριστεί καμία πιθανότητα."
+
+msgid "Probabilities"
+msgstr "Πιθανότητες"
+
+msgid "mu (mean)"
+msgstr "mu (Μέσος όρος)"
+
+msgid "sigma (standard deviation)"
+msgstr "sigma (τυπική απόκλιση)"
+
+msgid "Lower tail"
+msgstr "Κάτω ουρά"
+
+msgid "Upper tail"
+msgstr "Πάνω ουρά"
+
+msgid "Normal Probabilities"
+msgstr "Κανονική Πιθανότητα(GAUSS)"
+
+msgid "No values specified."
+msgstr "Δεν έχουν καθοριστεί τιμές."
+
+msgid "Variable value(s)"
+msgstr "Τιμή μεταβλητής(-ων)"
+
+msgid "t Quantiles"
+msgstr "t ποσοστημορίων"
+
+msgid "Degrees of freedom not specified."
+msgstr "Δεν καθορίζονται βαθμοί ελευθερίας."
+
+msgid "Degrees of freedom"
+msgstr "Βαθμοί ελευθερίας"
+
+msgid "t Probabilities"
+msgstr "t Πιθανότητες"
+
+msgid "Chi-Squared Quantiles"
+msgstr "χ^2 Ποσοστημορίων"
+
+msgid "Chi-Squared Probabilities"
+msgstr "χ^2 Πιθανοτήτων"
+
+msgid "F Quantiles"
+msgstr "F Ποσοστημόρια"
+
+msgid "Probabilities not specified"
+msgstr "Δεν έχουν καθοριστεί οι Πιθανότητες"
+
+msgid "Numerator degrees of freedom"
+msgstr "Βαθμός ελευθερίας Αριμθητή"
+
+msgid "Denominator degrees of freedom"
+msgstr "Βαθμός ελευθερίας Παρανομαστής"
+
+msgid "F Probabilities"
+msgstr "F Πιθανότητες"
+
+msgid "Values not specified."
+msgstr "Δεν καθορίζονται Αξίες."
+
+msgid "Binomial Quantiles"
+msgstr "Διωνυμική Ποσοστημορίων"
+
+msgid "Probabilities not specified."
+msgstr "Δεν έχουν καθοριστεί Πιθανότητες."
+
+msgid "Binomial trials not specified."
+msgstr "Διωνυμικές δοκιμές δεν έχουν καθοριστεί."
+
+msgid "Probability of success not specified."
+msgstr "Δεν έχει καθοριστεί η επιτυχία στην πιθανότητα."
+
+msgid "Binomial trials"
+msgstr "Διωνυμικές δοκιμές"
+
+msgid "Probability of success"
+msgstr "Πιθανότητα επιτυχίας"
+
+msgid "Cumulative Binomial Probabilities"
+msgstr "Αθροιστικές Διωνυμικές Πιθανότητες"
+
+msgid ""
+"Number of trials, %d, is large.\n"
+"Create long output?"
+msgstr ""
+"Ο αριθμός των δοκιμών, %d, είναι μεγάλος.\n"
+"Δημιουργείτε μεγάλο αποτέλεσμα;"
+
+msgid "Binomial Probabilities"
+msgstr "Διωνυμικές Πιθανότητες"
+
+msgid ""
+"Range of values over which to plot, %d, is large.\n"
+"Create long output?"
+msgstr ""
+"Οι σειρές των τιμών που σχεδιάζετε, %d, είναι μεγάλες.\n"
+"Δημιουργείτε μεγάλο αποτέλεσμα;"
+
+msgid "Poisson Probabilities"
+msgstr "Πιθανότητες Poisson"
+
+msgid "Poisson mean not specified."
+msgstr "Δεν έχει καθοριστεί ο μέσος όρος Poisson."
+
+msgid "Mean"
+msgstr "Μέσος όρος"
+
+msgid "Normal Distribution"
+msgstr "Κανονική Κατανομή"
+
+msgid "Plot density function"
+msgstr "Γραφική παράσταση της συνάρτησης πυκνότητας"
+
+msgid "Plot distribution function"
+msgstr "Γραφική συνάρτηση κατανομής"
+
+msgid "t Distribution"
+msgstr "Κατανομή t"
+
+msgid "Chi-squared Distribution"
+msgstr "Κατανομή χ^2"
+
+msgid "F Distribution"
+msgstr "Κατανομή F"
+
+msgid "Numerator degrees of freedom not specified."
+msgstr "Δεν έχει καθοριστεί βαθμός ελευθερίας αριμθητή."
+
+msgid "Denominator degrees of freedom not specified."
+msgstr "Δεν έχει καθοριστεί βαθμός ελευθερίας παρονομαστή."
+
+msgid "Binomial Distribution"
+msgstr "Διωνυμική Κατανομή"
+
+msgid "Plot probability mass function"
+msgstr "Γραφική συνάρτηση μάζας πιθανότητας"
+
+msgid "Poisson Distribution"
+msgstr "Κατανομή Poisson"
+
+msgid "Mean not specified."
+msgstr "Δεν έχει καθοριστεί ο μέσος όρος."
+
+msgid "mean"
+msgstr "μέσος όρος"
+
+msgid "{\"Script Files\" {\".R\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Σενάριο Αρχείων\" {\".R\"}} {\"Όλα τα αχρεία\" {\"*\"}}"
+
+msgid "Save current log file?"
+msgstr "Αποθήκευση τρέχοντος αρχείου καταγραφής?"
+
+msgid "Script saved to"
+msgstr "Το σενάριο αποθηκεύτηκε στο"
+
+msgid "Output saved to"
+msgstr "Η έξοδος αποθηκεύτηκε στο"
+
+msgid "{\"Output Files\" {\".txt\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Τα αρχεία εξόδου\" {\".txt\"}} {\"All Files\" {\"*\"}}"
+
+msgid "{\"All Files\" {\"*\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}}"
+
+msgid "R workspace saved to"
+msgstr "Το R workspace αποθηκεύτηκε στo"
+
+msgid "Exit?"
+msgstr "Έξοδος?"
+
+msgid "Save script file?"
+msgstr "Αποθήκευση αρχείου σεναρίου;"
+
+msgid "Save output file?"
+msgstr "Αποθήκευση αρχείου εξόδου;"
+
+msgid "Commander Options"
+msgstr "Επιλογές Commander"
+
+msgid "Log commands to script window"
+msgstr "Είσοδος εντολών στο παράθυρο του σεναρίου"
+
+msgid "Log-font size (points)"
+msgstr "Σύνδεση μεγέθους γραμματοσειράς (μονάδες)"
+
+msgid "Log width (characters)"
+msgstr "Σύνδεση πλάτους (χαρακτήρες)"
+
+msgid "Log height (lines)"
+msgstr "Σύνδεση ύψους (γραμμές)"
+
+msgid "Send output to R Console"
+msgstr "Στείλτε το αποτέλεσμα στην R κονσόλα"
+
+msgid "Output height (lines)"
+msgstr "Ύψος εξόδου (γραμμές)"
+
+msgid "Unordered factors"
+msgstr "Μη αριθμημένοι Παράγοντες"
+
+msgid "Ordered factors"
+msgstr "Αριθμημένοι Παράγοντες"
+
+msgid "Active window grabs focus"
+msgstr "Ενεργό παράθυρο αρπάζει την εστίαση"
+
+msgid "Double-click presses OK button"
+msgstr "Με διπλό αριστερό κλίκ πατάει το ΟΚ κουμπί"
+
+msgid "Sort variable names alphabetically"
+msgstr "Ταξινόμηση των ονομάτων των μεταβλητών με αλφαβητική σειρά"
+
+msgid "Show edit button"
+msgstr "Εμφάνιση κουμπιού επεξεργασίας"
+
+msgid ""
+"Exit and Restart\n"
+"R Commander"
+msgstr ""
+"Έξοδος και Επανεκκίνηση\n"
+" του R Commander"
+
+msgid "Scale factor for Tk elements"
+msgstr "Συντελεστής κλίμακας για τα στοιχεία Tk"
+
+msgid "Default font"
+msgstr "Προκαθορισμένο μέγεθος γραμματοσειράς"
+
+msgid "No packages available to load."
+msgstr "Κανένα πακέτο δεν είναι διαθέσιμο για φόρτωση."
+
+msgid "Load Packages"
+msgstr "Φόρτωση Πακέτων"
+
+msgid "Packages (pick one or more)"
+msgstr "Πακέτα (επιλέξτε ένα ή παραπάνω)"
+
+msgid "You must select at least one package."
+msgstr "Πρέπει να επιλέξετε τουλάχιστον ένα πακέτο."
+
+msgid "Packages loaded:"
+msgstr "Φόρτωση πακέτων:"
+
+msgid "Index Plot"
+msgstr "Περιεχόμενο Plot"
+
+msgid "You must select a variable"
+msgstr "Πρέπει να επιλέξετε μια μεταβλητή"
+
+msgid ""
+"Identify observations\n"
+"with mouse"
+msgstr ""
+"Προσδιορίστε παρατηρήσεις\n"
+"με το ποντίκι"
+
+msgid "Spikes"
+msgstr "Αιχμές"
+
+msgid "Points"
+msgstr "Πόντοι"
+
+msgid "Histogram"
+msgstr "Ιστόγραμμα"
+
+msgid "<auto>"
+msgstr "<αυτόματα>"
+
+msgid "Frequency counts"
+msgstr "Μετρήσεις συχνότητας"
+
+msgid "Percentages"
+msgstr "Ποσοστά"
+
+msgid "Densities"
+msgstr "Πυκνότητες"
+
+msgid "Axis Scaling"
+msgstr "Άξονας Κλιμάκωσης"
+
+msgid "Stem and Leaf Display"
+msgstr "Διάγραμμα Stem and Leaf"
+
+msgid "Automatic"
+msgstr "Αυτόματο"
+
+msgid "Parts Per Stem"
+msgstr "Μέρη ανά στέλεχος"
+
+msgid "Tukey"
+msgstr "Tukey"
+
+msgid "Repeated stem digits"
+msgstr "Επαναλαμβανόμενα στέλεχη ψηφίων"
+
+msgid "Style of Divided Stems"
+msgstr "Στυλ από Divided Stems"
+
+msgid "Trim outliers"
+msgstr "Περικοπή των ακραίων τιμών"
+
+msgid "Show depths"
+msgstr "Εμφάνιση βάθους"
+
+msgid "Reverse negative leaves"
+msgstr "Αναστροφή των αρνητικών φύλλων"
+
+msgid "Leafs Digit:"
+msgstr "Leafs Ψηφίο:"
+
+msgid "or set:"
+msgstr "ή ορίστε"
+
+msgid "Options"
+msgstr "Επιλογές"
+
+msgid "Boxplot"
+msgstr "Boxplot"
+
+msgid "Identify outliers with mouse"
+msgstr "Προσδιορισμός των ακραίων τιμών με το ποντίκι"
+
+msgid "Scatterplot"
+msgstr "Διάγραμμα Scatter"
+
+msgid "x-variable (pick one)"
+msgstr "X-μεταβλητή (επιλέξτε μία)"
+
+msgid "y-variable (pick one)"
+msgstr "Y-μεταβλητή (επιλέξτε μία)"
+
+msgid "Identify points"
+msgstr "Προσδιορίστε πόντους"
+
+msgid "Jitter x-variable"
+msgstr "X μεταβλητή Jitter"
+
+msgid "Jitter y-variable"
+msgstr "Y μεταβλητή Jitter"
+
+msgid "Marginal boxplots"
+msgstr "Οριακά boxplots"
+
+msgid "Least-squares line"
+msgstr "Γραμμή ελαχίστων τετραγώνων"
+
+msgid "Smooth Line"
+msgstr "Ομαλή Γραμμή"
+
+msgid "You must select two variables"
+msgstr "Πρέπει να επιλέξετε δύο μεταβλητές"
+
+msgid "x and y variables must be different"
+msgstr "Η μεταβλητές X, Y πρέπει να είναι διαφορετικές"
+
+msgid "Span for smooth"
+msgstr "Εξομάλυνση εύρος ζώνης"
+
+msgid "Scatterplot Matrix"
+msgstr "Scatter Διάγραμμα Matrix"
+
+msgid "Select variables (three or more)"
+msgstr "Επιλέξτε μεταβλητή (τρείς ή περισσότερες)"
+
+msgid "Least-squares lines"
+msgstr "Γραμμές ελαχίστων τετραγώνων"
+
+msgid "Smooth lines"
+msgstr "Ομαλή Γραμμή"
+
+msgid "Density plots"
+msgstr "Διάγραμμα πυκνότητας"
+
+msgid "Histograms"
+msgstr "Ιστογράμματα"
+
+msgid "Boxplots"
+msgstr "Boxplots"
+
+msgid "Normal QQ plots"
+msgstr "Κανονικά QQ plots"
+
+msgid "Nothing (empty)"
+msgstr "Τίποτα (άδειο)"
+
+msgid "On Diagonal"
+msgstr "Σε Διαγώνια"
+
+msgid "Fewer than 3 variable selected."
+msgstr "Επιλέχθηκαν πάνω από τρεις μεταβλητές."
+
+msgid "Bar Graph"
+msgstr "Ραβδογράφημα"
+
+msgid "Pie Chart"
+msgstr "Διάγραμμα Πίτα"
+
+msgid "Line Plot"
+msgstr "Γραμμή Plot"
+
+msgid "x variable (pick one)"
+msgstr "X μεταβλητή (επιλέξτε μία)"
+
+msgid "y variables (pick one or more)"
+msgstr "Y μεταβλητή (επιλέξτε μία ή περισσότερες)"
+
+msgid "<use y-variable names>"
+msgstr "<χρησιμοποιήστε όνομα μεταβλητής Y>"
+
+msgid "No x variable selected."
+msgstr "Καμία μεταβλητή X δεν έχει επιλεχθεί."
+
+msgid "No y variables selected."
+msgstr "Καμία μεταβλητή Y δεν έχει επιλεχθεί."
+
+msgid "x and y variables must be different."
+msgstr "Η μεταβλητή X και η μεταβλητή Y πρέπει να είναι διαφορετικές."
+
+msgid ""
+"x-values are not in order.\n"
+"Continue?"
+msgstr ""
+"Οι τιμές Χ δεν έχουν ορισθεί.\n"
+"Συνέχεια;"
+
+msgid "Label for y-axis"
+msgstr "Ετικέτα για τον άξονα Y"
+
+msgid "Plot legend (position with mouse click)"
+msgstr "Plot legend (θέση με κλικ του ποντικιού)"
+
+msgid "Quantile-Comparison (QQ) Plot"
+msgstr "Σύγκριση Quantile (QQ) Plot"
+
+msgid "df for t must be a positive number."
+msgstr "df για t πρέπει να είναι θετικός αριθμός."
+
+msgid "df for chi-square must be a positive number."
+msgstr "df για χ^2 πρέπει να είναι θετικός αριθμός."
+
+msgid ""
+"numerator and denominator \n"
+"df for F must be positive numbers."
+msgstr ""
+"αριθμητής και παρονομαστής \n"
+"df για F πρέπει να είναι θετικοί αριθμοί."
+
+msgid "Identify observations with mouse"
+msgstr "Προσδιορίστε παρατηρήσεις με το ποντίκι"
+
+msgid "Distribution"
+msgstr "Διανομή"
+
+msgid "Normal"
+msgstr "Κανονικά"
+
+msgid "Chi-square"
+msgstr "χ^2"
+
+msgid "Numerator df ="
+msgstr "Αριθμητής df ="
+
+msgid "Denominator df ="
+msgstr "Παρονομαστής df ="
+
+msgid "Parameters:"
+msgstr "Παράμετροι:"
+
+msgid "Plot Means"
+msgstr "Μέσος όρος Plot"
+
+msgid "Factors (pick one or two)"
+msgstr "Παράγοντες (επιλέξτε έναν ή δύο)"
+
+msgid "Response Variable (pick one)"
+msgstr "Μεταβλητή απόκρισης (επιλέξτε μία)"
+
+msgid "No factors selected."
+msgstr "Κανένας παράγοντας δεν επιλέχθηκε."
+
+msgid "More than two factors selected."
+msgstr "Πάνω από δύο παράγοντες έχουν επιλεχθεί."
+
+msgid "No response variable selected."
+msgstr "Καμία ανταπόκριση μεταβλητής δεν έχει επιλεχθεί"
+
+msgid "Error Bars"
+msgstr "Γραμμές Σφάλματος"
+
+msgid "blue"
+msgstr "μπλέ"
+
+msgid "Standard errors"
+msgstr "Τυπικά σφάλματα"
+
+msgid "Standard deviations"
+msgstr "Οι τυπικές αποκλίσεις"
+
+msgid "Confidence intervals"
+msgstr "Διαστήματα εμπιστοσύνης"
+
+msgid "Level of confidence:"
+msgstr "Επίπεδο εμπιστοσύνης:"
+
+msgid "No error bars"
+msgstr "Καμία Γραμμή Σφάλματος"
+
+msgid "3D Scatterplot"
+msgstr "3D Scatterplot"
+
+msgid "Explanatory variables (pick two)"
+msgstr "Ερμηνευτικές μεταβλητές (επιλέξτε δύο)"
+
+msgid "Response variable (pick one)"
+msgstr "Μεταβλητή απόκρισης (επιλέξτε μία)"
+
+msgid "You must select a response variable."
+msgstr "Θα πρέπει να επιλέξετε μια μεταβλητή απόκρισης."
+
+msgid "You must select 2 explanatory variables."
+msgstr "Θα πρέπει να επιλέξετε 2 ερμηνευτικές μεταβλητές."
+
+msgid "Response and explanatory variables must be different."
+msgstr "Μεταβλητές απόκρισης και επεξηγηματικών πρέπει να είναι διαφορετικές."
+
+msgid "Parallel regression surfaces"
+msgstr "Παράλληλες επιφάνειες παλινδρόμησης"
+
+msgid "Show surface grid lines"
+msgstr "Εμφάνιση γραμμών πλέγματος επιφάνειας"
+
+msgid "Surfaces to Fit"
+msgstr "Προσαρμοσμένες Επιφάνειες"
+
+msgid "Linear least-squares"
+msgstr "Γραμμική ελαχίστων τετραγώνων"
+
+msgid "Quadratic least-squares"
+msgstr "Τετραγωνική ελαχίστων τετραγώνων"
+
+msgid "Smooth regression"
+msgstr "Ομαλή παλινδρόμηση"
+
+msgid "Additive regression"
+msgstr "Πρόσθετη παλινδρόμηση"
+
+msgid "df(each term) ="
+msgstr "df(κάθε όρους) ="
+
+msgid "Background Color"
+msgstr "Χρώμα του φόντου"
+
+msgid "Black"
+msgstr "Μαύρο"
+
+msgid "White"
+msgstr "Άσπρο"
+
+msgid "Save Graph as Bitmap"
+msgstr "Αποθήκευση γραφήματος ως Bitmap"
+
+msgid "There is no current graphics device to save."
+msgstr "Δεν υπάρχει καμία τρέχουσα συσκευή γραφικών για να αποθηκεύσετε."
+
+msgid "Graphics File Type"
+msgstr "Τύπος γραφικού αρχείου"
+
+msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"PNG αρχεία\" {\".png\" \".PNG\"}} {\"Όλα τα αρχεία\" {\"*\"}}"
+
+msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"JPEG αρχεία\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Όλα τα αρχεία\" {\"*\"}}"
+
+msgid "Graph saved to file"
+msgstr "Το γράφημα αποθηκεύτηκε στο αρχείο"
+
+msgid "Width (pixels)"
+msgstr "Πλάτος (pixels)"
+
+msgid "Height (pixels)"
+msgstr "Ύψος (pixels)"
+
+msgid "Save Graph as PDF/Postscript"
+msgstr "Αποθηκεύστε το γράφημα ως PDF/Postscript"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "Postscript"
+msgstr "Postscript"
+
+msgid "Encapsulated Postscript"
+msgstr "Ενθυλακωμένα Postscript"
+
+msgid "{\"PDF Files\" {\".pdf\" \".PDF\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"PDF αρχεία\" {\".pdf\" \".PDF\"}} {\"Όλα τα αρχεία\" {\"*\"}}"
+
+msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Postscript αρχεία\" {\".ps\" \".PS\"}} {\"Όλα τα αρχεία\" {\"*\"}}"
+
+msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Ενθυλακωμένα Postscript αρχεία\" {\".eps\" \".EPS\"}} {\"Όλα τα αρχεία\" {\"*\"}}"
+
+msgid "Width (inches)"
+msgstr "Πλάτος (ίντσες)"
+
+msgid "Height (inches)"
+msgstr "Ύψος (ίντσες)"
+
+msgid "Text size (points)"
+msgstr "Μέγεθος κειμένου (μονάδες)"
+
+msgid "There is no current RGL graphics device to save."
+msgstr "Δεν υπάρχει καμία τρέχουσα συσκευή γραφικών RGL για να αποθηκεύσετε."
+
+msgid "{\"PNG Bitmap Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"PNG Bitmap αρχεία\" {\".png\" \".PNG\"}} {\"Όλα τα αρχεία\" {\"*\"}}"
+
+msgid "There is only one model in memory."
+msgstr "Υπάρχει μόνο ένα μοντέλο στη μνήμη."
+
+msgid "There are no models from which to choose."
+msgstr "Δεν υπάρχουν μοντέλα απο τα οποία μπορείτε να επιλέξετε."
+
+msgid "Select Model"
+msgstr "Επιλέξτε Μοντέλο"
+
+msgid "Models (pick one)"
+msgstr "Μοντέλο (επιλέξτε ένα)"
+
+msgid "There is no dataset associated with this model."
+msgstr "Δεν υπάρχουν δεδομένα που να συνδέονται με αυτό το μοντέλο."
+
+msgid "The dataset associated with this model, %s, is not in memory."
+msgstr "Δεδομένα που να συνδέονται με αυτό το μοντέλο, %s, δεν βρίσκονται στην μνήμη."
+
+msgid "Current Model:"
+msgstr "Τρέχον Μοντέλο:"
+
+msgid "Identify points with mouse?"
+msgstr "Προσδιορίζετε τα σημεία με το ποντίκι;"
+
+msgid "There is no appropriate Anova method for a model of this class."
+msgstr "Δεν υπάρχει κατάλληλη μέθοδος Anova για ένα μοντέλο αυτής της κατηγορίας."
+
+msgid ""
+"Observation statistics not available\n"
+"for a model fit to a subset of the data."
+msgstr ""
+"Οι στατιστικές παρατηρήσεις δεν είναι διαθέσιμες\n"
+"για ένα μοντέλο που προσαρμόζεται σε μία υποκατηγορία των δεδομένων."
+
+msgid "Add Observation Statistics to Data"
+msgstr "Προσθέστε Στατιστικές Παρατηρήσις Δεδομένων"
+
+msgid "Fitted values"
+msgstr "Προσαρμοσμένες τιμές"
+
+msgid "Residuals"
+msgstr "Κατάλοιπα"
+
+msgid "Studentized residuals"
+msgstr "Κατάλοιπα Studentized"
+
+msgid "Hat-values"
+msgstr "Τιμές Hat"
+
+msgid "Cook's distances"
+msgstr "Αποστάσεις Cook's"
+
+msgid "Observation indices"
+msgstr "Παρατήρηση δεικτών"
+
+msgid "Residual Quantile-Comparison Plot"
+msgstr "Τετραγωνισμένα κατάλοιπα-σύγκριση Plot"
+
+msgid "Simulated confidence envelope"
+msgstr "Προσομοιωμένος φάκελος εμπιστωσύνης"
+
+msgid "Identify points with mouse"
+msgstr "Προσδιορίστε τα σημεία με το ποντίκι"
+
+msgid "Test Linear Hypothesis"
+msgstr "Test γραμμικής υπόθεσης"
+
+msgid ""
+"Number of valid entries in hypothesis matrix(%d)\n"
+"not equal to number of rows (%d) * number of columns (%d)."
+msgstr ""
+"Αριθμός έγκυρων καταχωρήσεων σε υπόθεση matrix(%d)\n"
+"δεν είναι αριθμός γραμμών (%d) * αριθμός στυλών (%d)."
+
+msgid "Hypothesis matrix is not of full row rank."
+msgstr "Υπόθεση matrix δεν είναι γεμάτη γραμμές"
+
+msgid ""
+"Number of valid entries in rhs vector (%d)\n"
+"is not equal to number of rows (%d)."
+msgstr ""
+"Αριθμός έγκυρων καταχωρήσεων σε rhs διάνυσμα (%d)\n"
+"δεν είναι ίσος αριθμός γραμμών (%d)."
+
+msgid "Number of Rows:"
+msgstr "Αριθμός Γραμμών:"
+
+msgid "Enter hypothesis matrix and right-hand side vector:"
+msgstr "Εισάγετε την υπόθεση matrix και δεξιά πλευρά διανύσματος:"
+
+msgid "There are fewer than two models."
+msgstr "Υπάρχουν λιγότερα από δύο μοντέλα."
+
+msgid "Compare Models"
+msgstr "Σύγκριση Μοντέλων"
+
+msgid "First model (pick one)"
+msgstr "Πρώτο μοντέλο (επιλέξτε ένα)"
+
+msgid "Second model (pick one)"
+msgstr "Δεύτερο μοντέλο (επιλέξτε ένα)"
+
+msgid "You must select two models."
+msgstr "Μπορείτε να επιλέξετε δύο μοντέλα."
+
+msgid "Models are not of the same class."
+msgstr "Τα Μοντέλα δεν είναι της ίδιας κατηγορίας."
+
+msgid "Breusch-Pagan Test"
+msgstr "Breusch-Pagan Test"
+
+msgid "Score Test for Nonconstant Error Variance"
+msgstr "Score Test for Nonconstant Error Variance"
+
+msgid "Studentized test statistic"
+msgstr "Studentized test statistic"
+
+msgid "Explanatory variables"
+msgstr "Eρμηνευτικές μεταβλητές"
+
+msgid "Variance Formula"
+msgstr "Τύπος διακύμανσης"
+
+msgid "Durbin-Waton Test"
+msgstr "Durbin-Waton Test"
+
+msgid "Test for First-Order Error Autocorrelation"
+msgstr "Test for First-Order Error Autocorrelation"
+
+msgid "Alternative Hypothesis"
+msgstr "Εναλλακτική Υπόθεση"
+
+msgid "RESET Test"
+msgstr "ΕΠΑΝΑΦΟΡΑ Τεστ"
+
+msgid "Test for Nonlinearity"
+msgstr "Έλεγχος της μη γραμμικότητας"
+
+msgid "No powers are checked."
+msgstr "Δεν ελέγχονται οι δυνάμεις."
+
+msgid "First principal component"
+msgstr "Πρώτη κύρια συνιστώσα"
+
+msgid "Type of Test"
+msgstr "Το είδος της δοκιμής"
+
+msgid "Powers to Include"
+msgstr "Συμπεριλαβή Δυνάμεων"
+
+msgid "2 (squares)"
+msgstr "2 (τετράγωνα)"
+
+msgid "3 (cubes)"
+msgstr "3 (κύβος)"
+
+msgid "There is no appropriate outlier.test method for a model of this class."
+msgstr "Δεν υπάρχει κατάλληλη μέθοδος outlier.test για ένα μοντέλο αυτής της κατηγορίας."
+
+msgid "Confidence Intervals"
+msgstr "Διαστήματα Εμπιστοσύνης"
+
+msgid "Confidence Intervals for Individual Coefficients"
+msgstr "Διαστήματα Εμπιστοσύνης για τους Ατομικούς Συντελεστές"
+
+msgid "Confidence level must be a number between 0 and 1."
+msgstr "Επίπεδο εμπιστοσύνης πρέπει να είναι ένας αριθμός μεταξύ 0 και 1."
+
+msgid "Likelihood-ratio statistic"
+msgstr "Στατιστική πιθανότητα αναλογίας"
+
+msgid "Wald statistic"
+msgstr "Στατιστική Wald"
+
+msgid "Test Based On"
+msgstr "Test Based On"
+
+msgid "Confidence Level:"
+msgstr "Επίπεδο εμπιστοσύνης:"
+
+msgid "Rcmdr Version"
+msgstr "Έκδοση Rcmdr"
+
+msgid "The tcltk package is absent. The R Commander cannot function."
+msgstr "Το πακέτο tcltk λείπει.Η R Commander δεν μπορεί να λειτουργίσει."
+
+msgid "R-Rcmdr"
+msgstr "R-Rcmdr"
+
+msgid "The following packages used by Rcmdr are missing:"
+msgstr "Τα ακόλουθα πακέτα που χρησιμοποιούνται από Rcmdr λείπουν:"
+
+msgid "Without these packages, some features will not be available."
+msgstr "Χωρίς αυτά τα πακέτα, ορισμένες λειτουργίες δεν θα είναι διαθέσιμες."
+
+msgid "Install these packages?"
+msgstr "Εγκατάσταση αυτών των πακέτων;"
+
+msgid "Install Missing Packages"
+msgstr "Εγκαταστήστε τα πακέτα που λείπουν"
+
+msgid "Browse..."
+msgstr "Περιήγηση..."
+
+msgid "Install Packages From:"
+msgstr "Εγκατάσταση πακέτων από:"
+
+msgid ""
+"Specify package  \n"
+"directory:"
+msgstr ""
+"Καθορίστε πακέτο \n"
+"καταλόγου"
+
+msgid ""
+"Local package directory\n"
+"(must include PACKAGES index file)"
+msgstr ""
+"Ο Τοπικός κατάλογος πακέτου\n"
+"(πρέπει να περιλαμβάνει πακέτα αρχείου)"
+
+msgid "The following packages were not found at the specified location:"
+msgstr "Τα παρακάτω πακέτα δεν βρέθηκαν στη συγκεκριμένη θέση:"
+
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+msgid "Help"
+msgstr "Βοήθεια"
+
+msgid "Scale Reliability"
+msgstr "Κλίμακα Αξιοπιστίας"
+
+msgid "Variables (pick three or more)"
+msgstr "Μεταβλητές (επιλέξτε τρία ή περισσότερα)"
+
+msgid "Fewer than 3 variables selected."
+msgstr "Λιγότερες από 3 μεταβλητές επιλέχθηκαν."
+
+msgid "Principal Components Analysis"
+msgstr "Ανάλυση σε Κύριες Συνιστώσες"
+
+msgid "Variables (pick two or more)"
+msgstr "Μεταβλητές (επιλέξτε δύο ή περισσότερα)"
+
+msgid "Analyze correlation matrix"
+msgstr "Αναλύστε πίνακα συσχέτησης"
+
+msgid "Screeplot"
+msgstr "Screeplot"
+
+msgid "Add principal components to data set"
+msgstr "Προσθήκη κύριων συστατικών για την ομάδα δεδομένων"
+
+msgid "Fewer than 2 variables selected."
+msgstr "Λιγότερες από 2 μεταβλητές"
+
+msgid "Number of Components"
+msgstr "Αριθμός Στοιχείων"
+
+msgid "Number of components to retain:"
+msgstr "Αριθμός στοιχείων για να διατηρήσει:"
+
+msgid "Factor Analysis"
+msgstr "Παραγοντική Ανάλυση"
+
+msgid "None"
+msgstr "Κανένα"
+
+msgid "Varimax"
+msgstr "Varimax"
+
+msgid "Promax"
+msgstr "Promax"
+
+msgid "Factor Rotation"
+msgstr "Factor Rotation"
+
+msgid "Bartlett's method"
+msgstr "Μέθοδος Bartlett's"
+
+msgid "Regression method"
+msgstr "Μέθοδος Παλιδρόμησης"
+
+msgid "Factor Scores"
+msgstr "Factor Scores"
+
+msgid "Number of Factors"
+msgstr "Αριθμός των Παραγόντων"
+
+msgid "Number of factors to extract:"
+msgstr "Αριθμός παραγόντων για την εξαγωγή:"
+
+msgid "Independent Samples t-Test"
+msgstr "Ανεξάρτητα Samples t-Test"
+
+msgid "Groups (pick one)"
+msgstr "Ομάδες (επιλέξτε μία)"
+
+msgid "You must select a groups variable."
+msgstr "Μπορείτε να επιλέξετε μία ομάδα μεταβλητών."
+
+msgid "Two-sided"
+msgstr "Two-sided"
+
+msgid "Difference < 0"
+msgstr "Διαφορά < 0"
+
+msgid "Difference > 0"
+msgstr "Διαφορά > 0"
+
+msgid "Yes"
+msgstr "Ναι"
+
+msgid "No"
+msgstr "Οχι"
+
+msgid "Assume equal variances?"
+msgstr "Υποθέτετε ίσες διακυμάνσεις;"
+
+msgid "Confidence Level"
+msgstr "Επίπεδο Εμπιστοσύνης"
+
+msgid "Paired t-Test"
+msgstr "Συζευγμένο t-Test"
+
+msgid "First variable (pick one)"
+msgstr "Πρώτη μεταβλητή (επιλέξτε μία)"
+
+msgid "Second variable (pick one)"
+msgstr "Δεύτερη μεταβλητή (επιλέξτε μία)"
+
+msgid "You must select two variables."
+msgstr "Μπορείτε να επιλέξετε δύο μεταβλητές."
+
+msgid "Variables must be different."
+msgstr "Οι Μεταβλητές πρέπει να είναι διαφορετικές."
+
+msgid "Single-Sample t-Test"
+msgstr "Single-Sample t-Test"
+
+msgid "Population mean = mu0"
+msgstr "Μέσος όρος πληθυσμού = mu0"
+
+msgid "Population mean < mu0"
+msgstr "Μέσος όρος πληθυσμού < mu0"
+
+msgid "Population mean > mu0"
+msgstr "Μέσος όρος πληθυσμού > mu0"
+
+msgid "Null hypothesis: mu ="
+msgstr "Μηδενική υπόθεση: mu ="
+
+msgid "One-Way Analysis of Variance"
+msgstr "One-Way Ανάλυση Διακύμανσης"
+
+msgid "You must select a groups factor."
+msgstr "Πρέπει να επιλέξετε μία ομάδα παραγόντων."
+
+msgid "Factor has fewer than 3 levels; pairwise comparisons omitted."
+msgstr "Ο Παράγοντας έχει λιγότερα από 3 επίπεδα, οι συγκρίσεις των ζευγών παραλείπονται"
+
+msgid "Pairwise comparisons of means"
+msgstr "Κατά ζεύγη συγκρίσεων των μέσων όρων"
+
+msgid "Multi-Way Analysis of Variance"
+msgstr "Multi-Way Ανάλυση Διακύμανσης"
+
+msgid "Factors (pick one or more)"
+msgstr "Παράγοντες (επιλέξτε έναν ή παραπάνω)"
+
+msgid "You must select at least one factor."
+msgstr "Πρέπει να επιλέξετε τουλάχιστον έναν παράγοντα."
+
+msgid "Linear Regression"
+msgstr "Γραμμική Παλινδρόμηση"
+
+msgid "Explanatory variables (pick one or more)"
+msgstr "Επεξηγηματικές μεταβλητές (επιλέξτε μία ή περισσότερες)"
+
+msgid "No explanatory variables selected."
+msgstr "Δεν έχουν επιλεχθεί επεξηγηματικές μεταβλητές."
+
+msgid "\"%s\" is not a valid name."
+msgstr "\"%s\" δεν είναι έγκυρο όνομα."
+
+msgid "Model"
+msgstr "Μοντέλο"
+
+msgid "Enter name for model:"
+msgstr "Πληκτρολογήστε το όνομα για το μοντέλο:"
+
+msgid "Linear Model"
+msgstr "Γραμμικό Μοντέλο"
+
+msgid "Left-hand side of model empty."
+msgstr "Η Αριστερή πλευρά του μοντέλου είναι άδεια."
+
+msgid "Right-hand side of model empty."
+msgstr "η Δεξιά πλευρά του μοντέλου είναι άδεια"
+
+msgid "Generalized Linear Model"
+msgstr "Γενικευμένη Γραμμικού Μοντέλου"
+
+msgid "Family (double-click to select)"
+msgstr "Οικογένεια (διπλό κλικ για να επιλέξετε)"
+
+msgid "Link function"
+msgstr "Λειτουργία συνδέσμου"
+
+msgid "Proportional-Odds Logit Model"
+msgstr "Αναλογικής Αποδόσεις Logit Model"
+
+msgid "Response variable must be a factor"
+msgstr "Η Μεταβλητή απόκρισης πρέπει να είναι ένας παράγοντας"
+
+msgid "Multinomial Logit Model"
+msgstr "Πολυωνυμικό Logit Model"
+
+msgid "Two-Sample Wilcoxon Test"
+msgstr "Two-Sample Wilcoxon Test"
+
+msgid "Default"
+msgstr "Προεπιλογή"
+
+msgid "Exact"
+msgstr "Ακριβής"
+
+msgid "Normal approximation"
+msgstr "Κανονική προσέγγιση"
+
+msgid ""
+"Normal approximation with\n"
+"continuity correction"
+msgstr ""
+"Κανονική προσέγγιση με\n"
+"διόρθωση συνέχειας"
+
+msgid "Paired Wilcoxon Test"
+msgstr "Paired Wilcoxon Test"
+
+msgid "The two variables must be different."
+msgstr "Οι δύο μεταβλητές πρέπει να είναι διαφορετικές."
+
+msgid "Kruskal-Wallis Rank Sum Test"
+msgstr "Kruskal-Wallis Rank Sum Test"
+
+msgid "Single-Sample Proportion Test"
+msgstr "Single-Sample Proportion Test"
+
+msgid "Population proportion = p0"
+msgstr "Ποσοστό πληθυσμού = p0"
+
+msgid "Population proportion < p0"
+msgstr "Ποσοστό πληθυσμού < p0"
+
+msgid "Population proportion > p0"
+msgstr "Ποσοστό πληθυσμού > p0"
+
+msgid "Exact binomial"
+msgstr "Ακριβής διωνυμικό"
+
+msgid "Null hypothesis: p ="
+msgstr "Μηδενική υπόθεση: p ="
+
+msgid "Two-Sample Proportions Test"
+msgstr "Δύο Δείγμα Ποσοστών Test"
+
+msgid "Groups and response variables must be different."
+msgstr "Ομάδες και μεταβλητές απόκρισης πρέπει να είναι διαφορετικές."
+
+msgid ""
+"There are %d variables in the data set %s.\n"
+"Do you want to proceed?"
+msgstr ""
+"Υπάρχουν %d μεταβλητές στο σύνολο δεδομένων %s.\n"
+" Θέλετε να συνεχίσετε;"
+
+msgid "Numerical Summaries"
+msgstr "Αριθμητική Περιλήψεις"
+
+msgid "Standard Deviation"
+msgstr "Τυπική Απόκλιση"
+
+msgid "Summarize by:"
+msgstr "Συνοψίζοντας:"
+
+msgid "Summarize by groups"
+msgstr "Συνοψίζοντας σε ομάδες"
+
+msgid "Quantiles"
+msgstr "Ποσοστημόρια"
+
+msgid "quantiles:"
+msgstr "ποσοστημόρια:"
+
+msgid "Frequency Distribution"
+msgstr "Κατανομή συχνότητας"
+
+msgid "Goodness-of-Fit Test"
+msgstr "Έλεγχος κατάστασης του τέστ"
+
+msgid "Invalid entry."
+msgstr "Μη έγκυρη καταχώριση."
+
+msgid "Missing entry."
+msgstr "Η καταχώριση λείπει."
+
+msgid ""
+"Number of valid entries (%d)\n"
+"not equal to number levels (%d)."
+msgstr ""
+"Ο αριθμός έγκυρων καταχωρήσεων (%d)\n"
+"δεν είναι ίσος με τον αριθμό των επιπέδων (%d)."
+
+msgid "Negative probabilities not allowed."
+msgstr "Αρνητική πιθανότητα δεν επιτρέπεται."
+
+msgid "Probabilities rescaled to sum to 1."
+msgstr "Το άθροισμα των πιθανοτήτων συνοψίζεται στο 1."
+
+msgid "Chi-square goodness-of-fit test"
+msgstr "χ^2 goodness-of-fit test"
+
+msgid "Table of Statistics"
+msgstr "Στατιστικός Πίνακας"
+
+msgid "Median"
+msgstr "Διάμεσος"
+
+msgid "Standard deviation"
+msgstr "Τυπική απόκλιση"
+
+msgid "Statistic"
+msgstr "Στατιστική"
+
+msgid "Correlation Matrix"
+msgstr "Συσχέτιση Matrix"
+
+msgid "Pearson product-moment"
+msgstr "Pearson product-moment"
+
+msgid "Spearman rank-order"
+msgstr "Spearman rank-order"
+
+msgid "Partial"
+msgstr "Μερική"
+
+msgid "Type of Correlations"
+msgstr "Τύποι συσχετίσεων"
+
+msgid ""
+"Fewer than 3 variables selected\n"
+"for partial correlations."
+msgstr ""
+"Λιγότερες από 3 μεταβλητές επιλέγονται\n"
+"για μερικές συσχετίσεις."
+
+msgid "Two-Way Table"
+msgstr "Πίνακας Two-Way"
+
+msgid "Row variable (pick one)"
+msgstr "Μεταβλητή γραμμής (επιλέξτε μία)"
+
+msgid "Column variable (pick one)"
+msgstr "Μεταβλητή στήλης (επιλέξτε μία)"
+
+msgid "Row and column variables are the same."
+msgstr "Οι μεταβλητές γραμμής και στήλης είναι ίδιες."
+
+msgid "expected frequencies are less than 1"
+msgstr "αναμένεται οι συχνότητες να είναι λιγότερο από το 1"
+
+msgid "expected frequencies are less than 5"
+msgstr "αναμένεται οι συχνότητες να είναι λιγότερο από το 5"
+
+msgid "Row percentages"
+msgstr "Ποσοστό γραμμής"
+
+msgid "Column percentages"
+msgstr "Ποσοστό στήλης"
+
+msgid "No percentages"
+msgstr "Χωρίς ποσοστά"
+
+msgid "Compute Percentages"
+msgstr "Υπολογίστε τα Ποσοστά"
+
+msgid "Chi-square test of independence"
+msgstr "χ^2 τέστ ανεξαρτησίας"
+
+msgid "Print expected frequencies"
+msgstr "Εκτύπωση αναμενόμενων συχνοτήτων"
+
+msgid "Fisher's exact test"
+msgstr "Ακριβές τεστ του Fisher"
+
+msgid "Hypothesis Tests"
+msgstr "Τέστ Υπόθεσης"
+
+msgid "Multi-Way Table"
+msgstr "Πίνακας Multi-Way"
+
+msgid "Control variable(s) (pick one or more)"
+msgstr "Μεταβλητή-ες ελέγχου (επιλέξτε μία ή παραπάνω)"
+
+msgid "You must select row, column, and control variables"
+msgstr "Πρέπει να επιλέξετε γραμμή, στήλη, και μεταβλητές ελέγχου"
+
+msgid "Row, column, and control variables must be different."
+msgstr "Γραμμή, στήλη και μεταβλητές ελέγχου πρέπει να είναι διαφορετικές."
+
+msgid "Enter Two-Way Table"
+msgstr "Εισάγετε πίνακα Two-Way"
+
+msgid ""
+"Number of valid entries (%d)\n"
+"not equal to number of rows (%d) * number of columns (%d)."
+msgstr ""
+"Ο αριθμός έγκυρων καταχωρήσεων (%d)\n"
+"δεν είναι ίσος με τον αριθμό των γραμμών (%d) * τον αριθμό των στηλών (%d)."
+
+msgid "Row names are not unique."
+msgstr "Τα ονόματα των γραμμών δεν είναι μοναδικά."
+
+msgid "Column names are not unique."
+msgstr "Τα ονόματα των στηλών δεν είναι το μοναδικά."
+
+msgid "Number of Columns:"
+msgstr "Αριθμός στηλών:"
+
+msgid "Enter counts:"
+msgstr "Εισάγετε μετρήσεις:"
+
+msgid "Two Variances F-Test"
+msgstr "Δύο διακυμάνσεις F-Test"
+
+msgid "Bartlett's Test"
+msgstr "Τεστ Bartlett"
+
+msgid "Levene's Test"
+msgstr "Τεστ Levene"
+
+msgid "There is no active data set."
+msgstr "Δεν υπάρχει ενεργό σύνολο δεδομένων."
+
+msgid "is not a data frame and cannot be attached."
+msgstr "δεν είναι ένα πλαίσιο δεδομένων και δεν μπορούν να συνδεθούν."
+
+msgid "The dataset %s has %d rows and %d columns."
+msgstr "Το σύνολο των δεδομένων %s έχει %d γραμμές και %d στήλες."
+
+msgid "There is no active model."
+msgstr "Δεν υπάρχει ενεργό μοντέλο."
+
+msgid "argument must be a square, symmetric, numeric covariance matrix"
+msgstr "το επιχείρημα αυτό πρέπει να είναι ένας τετράγωνος, συμμετρικός, αριθμητικός πίνακας συνδιακύμανσης"
+
+msgid "there are fewer than 3 items in the scale"
+msgstr "υπάρχουν λιγότερα από 3 στοιχεία στην κλίμακα"
+
+msgid "Argument response must be numeric."
+msgstr "Η απάντηση επιχείρημα αυτή πρέπει να είναι αριθμητική."
+
+msgid "Argument factor1 must be a factor."
+msgstr "Το επιχείρημα factor1 πρέπει να είναι ένας παράγοντας."
+
+msgid "Arguments factor1 and factor2 must be factors."
+msgstr "Το επιχείρημα factor1 και factor2 πρέπει να είναι παράγοντες."
+
+msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgstr "Ο αριθμός των ομάδων για factor2, %d, υπερβαίνει τον αριθμό των διαφορετικών χρωμάτων, %d."
+
+msgid "The number of bins exceeds the number of data values"
+msgstr "Ο αριθμός των κάδων υπερβαίνει τον αριθμό των τιμών των δεδομένων"
+
+msgid "Number of groups (%d) exceeds number of colors (%d)."
+msgstr "Ο αριθμός των ομάδων (%d) υπερβαίνει τον αριθμό των χρωμάτων (%d)."
+
+msgid "groups variable must be a factor."
+msgstr "οι ομάδες μεταβλητής πρέπει να είναι ένας παράγοντας."
+
+msgid "cannot plot both multiple surfaces and residuals"
+msgstr "δεν μπορεί να σχεδιάσει τόσο πολλές επιφάνειες και κατάλοιπα"
+
+msgid "not supplied"
+msgstr "δεν παρέχονται"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "There fewer than %d factors in the active data set."
+msgstr "Υπάρχουν λιγότερα από %d παράγοντες στο ενεργό σύνολο δεδομένων."
+
+msgid "There are no factors in the active data set."
+msgstr "Δεν υπάρχουν στοιχεία στο ενεργό σύνολο δεδομένων."
+
+msgid "There fewer than %d two-level factors in the active data set."
+msgstr "Υπάρχουν λιγότεροι από %d παράγοντες δύο επιπέδων στο ενεργό σύνολο δεδομένων."
+
+msgid "There are no two-level factors in the active data set."
+msgstr "Δεν υπάρχουν στοιχεία σε δύο επίπεδα στο ενεργό σύνολο δεδομένων."
+
+msgid "There fewer than %d numeric variables in the active data set."
+msgstr "Υπάρχουν λιγότερες από %d αριθμητικές μεταβλητές στο ενεργό σύνολο δεδομένων."
+
+msgid "There are no numeric variables in the active data set."
+msgstr "Δεν υπάρχουν αριθμητικές μεταβλητές στο ενεργό σύνολο δεδομένων."
+
+msgid "There fewer than %d variables in the active data set."
+msgstr "Υπάρχουν λιγότερες από %d μεταβλητές στο ενεργό σύνολο δεδομένων."
+
+msgid "There are no variables in the active data set."
+msgstr "Δεν υπάρχουν μεταβλητές στο ενεργό σύνολο δεδομένων."
+
+msgid ""
+"%s %s already exists.\n"
+"Overwrite %s?"
+msgstr ""
+"%s %s υπάρχει ήδη.\n"
+"Αντικατάσταση %s;"
+
+msgid "Plot by:"
+msgstr "Γράφημα από:"
+
+msgid "Plot by groups"
+msgstr "Γράφημα από ομάδες:"
+
+msgid "Plot lines by group"
+msgstr "Γράφημα γραμμών από ομάδες:"
+
+msgid "There no factors in the active data set."
+msgstr "Δεν υπάρχουν παράγοντες στο ενεργό σύνολο δεδομένων."
+
+msgid "Groups"
+msgstr "Ομάδες"
+
+msgid "Groups variable (pick one)"
+msgstr "Μεταβλητή ομάδων (επιλέξτε μία)"
+
+msgid "Position legend with mouse click"
+msgstr "Θέση legend με το κλικ του ποντικιού"
+
+msgid "<No groups selected>"
+msgstr "<Δεν επιλέχτηκαν ομάδες>"
+
+msgid "Difference:"
+msgstr "Διαφορά:"
+
+msgid "Variables (double-click to formula)"
+msgstr "Μεταβλητές (διπλό κλικ στον τύπο)"
+
+msgid "Model Formula:"
+msgstr "Τύπος Μοντέλου:"
+
+msgid ""
+"No appropriate %s method exists\n"
+"for a model of this class."
+msgstr ""
+"Δεν υπάρχει κατάλληλη μέθοδος %s\n"
+"για ένα μοντέλο αυτής της κατηγορίας."
+
+msgid "The model is not of class \"%s\"."
+msgstr "Το μοντέλο δεν είναι της κατηγορίας \"%s\"."
+
+msgid "Open script file..."
+msgstr "Άνοιγμα αρχείου σεναρίου ..."
+
+msgid "Save script..."
+msgstr "Αποθήκευση σεναρίου..."
+
+msgid "Save script as..."
+msgstr "Αποθήκευση σεναρίου ως..."
+
+msgid "Save output..."
+msgstr "Αποθήκευση εξόδου..."
+
+msgid "Save output as..."
+msgstr "Αποθήκευση εξόδου ως..."
+
+msgid "Save R workspace..."
+msgstr "Αποθήκευση R workspace..."
+
+msgid "Save R workspace as..."
+msgstr "Αποθήκευση R workspace ως..."
+
+msgid "From Commander"
+msgstr "Από Commander"
+
+msgid "From Commander and R"
+msgstr "Από Commander και R"
+
+msgid "Exit"
+msgstr "Έξοδος"
+
+msgid "File"
+msgstr "Αρχείο"
+
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+msgid "New data set..."
+msgstr "Νέο σύνολο δεδομένων..."
+
+msgid "from text file..."
+msgstr "από το αρχείο κειμένου..."
+
+msgid "from SPSS data set..."
+msgstr "από το σύνολο δεδομένων SPSS..."
+
+msgid "from Minitab data set..."
+msgstr "από το σύνολο δεδομένων Minitab..."
+
+msgid "from STATA data set..."
+msgstr "από το σύνολο δεδομένων STATA..."
+
+msgid "Import data"
+msgstr "Εισαγωγή δεδομένων"
+
+msgid "List data sets in packages"
+msgstr "Λίστα σύνολων δεδομένων σε πακέτα"
+
+msgid "Read data set from an attached package..."
+msgstr "Διαβάστε τα δεδομένα από ένα συνδεδεμένο πακέτο..."
+
+msgid "Data in packages"
+msgstr "Τα δεδομένα σε πακέτα"
+
+msgid "Select active data set..."
+msgstr "Επιλέξτε ενεργό σύνολο δεδομένων..."
+
+msgid "Help on active data set (if available)"
+msgstr "Βοήθεια για το ενεργό σύνολο δεδομένων (εάν είναι διαθέσιμο)"
+
+msgid "Variables in active data set"
+msgstr "Οι Μεταβλητές στο ενεργό σύνολο δεδομένων"
+
+msgid "Set case names..."
+msgstr "Ορίστε τα ονόματα υπόθεσης..."
+
+msgid "Subset active data set..."
+msgstr "Υποσύνολο ενεργού συνόλου δεδομένων..."
+
+msgid "Remove cases with missing data..."
+msgstr "Αφαιρέστε τις περιπτώσεις με τα δεδομένα που λείπουν..."
+
+msgid "Export active data set..."
+msgstr "Εξαγωγή ενεργού συνόλου δεδομένων..."
+
+msgid "Active data set"
+msgstr "Ενεργό σύνολο δεδομένων"
+
+msgid "Recode variable..."
+msgstr "Επανακωδικοποίηση μεταβλητής..."
+
+msgid "Compute new variable..."
+msgstr "Υπολογίστε μία μεταβλητή..."
+
+msgid "Standardize variables..."
+msgstr "Τυποποιήστε μεταβλητές..."
+
+msgid "Convert numeric variable to factor..."
+msgstr "Μετατροπή αριθμητικής μεταβλητής στον παράγοντα..."
+
+msgid "Bin numeric variable..."
+msgstr "Αποθήκευση αριθμητικής μεταβλητής..."
+
+msgid "Reorder factor levels..."
+msgstr "Αναδιάταξη επιπέδων παράγοντα..."
+
+msgid "Define contrasts for a factor..."
+msgstr "Ορίστε αντιθέσεις για έναν παράγοντα..."
+
+msgid "Rename variables..."
+msgstr "Μετονομασία μεταβλητών..."
+
+msgid "Delete variables from data set ..."
+msgstr "Διαγραφή μεταβλητών από το σύνολο δεδομένων..."
+
+msgid "Manage variables in active data set"
+msgstr "Διαχειριστείτε μεταβλητές στο ενεργό σύνολο δεδομένων"
+
+msgid "Data"
+msgstr "δεδομένα"
+
+msgid "Numerical summaries..."
+msgstr "αριθμητικές περιλήψεις..."
+
+msgid "Frequency distribution..."
+msgstr "Κατανομή συχνότητας..."
+
+msgid "Table of statistics..."
+msgstr "Πίνακας των στατιστικών..."
+
+msgid "Correlation matrix..."
+msgstr "Συσχέτιση matrix..."
+
+msgid "Two-way table..."
+msgstr "Two-way table..."
+
+msgid "Multi-way table..."
+msgstr "Multi-way table..."
+
+msgid "Enter and analyze two-way table..."
+msgstr "Εισάγετε και να αναλύστε  two-way table..."
+
+msgid "Single-sample t-test..."
+msgstr "Single-sample t-test..."
+
+msgid "Independent samples t-test..."
+msgstr "Ανεξάρτητο samples t-test..."
+
+msgid "Paired t-test..."
+msgstr "Paired t-test..."
+
+msgid "One-way ANOVA..."
+msgstr "One-way ANOVA..."
+
+msgid "Multi-way ANOVA..."
+msgstr "Multi-way ANOVA..."
+
+msgid "Single-sample proportion test..."
+msgstr "Τεστ αναλογίας Single-sample..."
+
+msgid "Two-sample proportions test..."
+msgstr "Τεστ αναλογίας Two-sample..."
+
+msgid "Two-variances F-test..."
+msgstr "Δύο διακυμάνσεις F-test..."
+
+msgid "Bartlett's test..."
+msgstr "Τεστ Bartlett's..."
+
+msgid "Levene's test..."
+msgstr "Τεστ Levene's..."
+
+msgid "Two-sample Wilcoxon test..."
+msgstr "Τεστ Two-sample Wilcoxon..."
+
+msgid "Paired-samples Wilcoxon test..."
+msgstr "Τεστ Paired-samples Wilcoxon..."
+
+msgid "Kruskal-Wallis test..."
+msgstr "Τεστ Kruskal-Wallis..."
+
+msgid "Scale reliability..."
+msgstr "Αξιοπιστία κλίμακας..."
+
+msgid "Principal-components analysis..."
+msgstr "Ανάλυση κυρίων συνιστωσών..."
+
+msgid "Factor analysis..."
+msgstr "Παραγοντική ανάλυση..."
+
+msgid "k-means cluster analysis..."
+msgstr "Συστάδα ανάλυσης k-means..."
+
+msgid "Hierarchical cluster analysis..."
+msgstr "Ιεραρχική ανάλυση διασποράς..."
+
+msgid "Summarize hierarchical clustering..."
+msgstr "Συνοψίστε ιεραρχική ομαδοποίηση..."
+
+msgid "Add hierarchical clustering to data set..."
+msgstr "Προσθήκη ιεραρχικής ομαδοποίησης σε σύνολο δεδομένων..."
+
+msgid "Cluster analysis"
+msgstr "Συστάδα ανάλυσης"
+
+msgid "Linear regression..."
+msgstr "Γραμμική παλινδρόμηση..."
+
+msgid "Linear model..."
+msgstr "Γραμμικό μοντέλο..."
+
+msgid "Generalized linear model..."
+msgstr "Γενικευμένο γραμμικό μοντέλο..."
+
+msgid "Multinomial logit model..."
+msgstr "Πολυωνυμικό μοντέλο logit"
+
+msgid "Proportional-odds logit model..."
+msgstr "Αναλογικές πιθανότητες μοντέλου logit..."
+
+msgid "Statistics"
+msgstr "Στατιστικά"
+
+msgid "Summaries"
+msgstr "Περιλήψεις"
+
+msgid "Contingency tables"
+msgstr "Πίνακες έκτακτης ανάγκης"
+
+msgid "Means"
+msgstr "Μέσα"
+
+msgid "Proportions"
+msgstr "Αναλογίες"
+
+msgid "Variances"
+msgstr "Αποκλίσεις"
+
+msgid "Nonparametric tests"
+msgstr "Μη παραμετρικές δοκιμές"
+
+msgid "Dimensional analysis"
+msgstr "Διαστατική ανάλυση"
+
+msgid "Fit models"
+msgstr "Fit models"
+
+msgid "Index plot..."
+msgstr "Index plot..."
+
+msgid "Histogram..."
+msgstr "Ιστόγραμμα..."
+
+msgid "Stem-and-leaf display..."
+msgstr "Stem-and-leaf display..."
+
+msgid "Boxplot..."
+msgstr "Boxplot..."
+
+msgid "Quantile-comparison plot..."
+msgstr "Quantile-comparison plot..."
+
+msgid "Scatterplot..."
+msgstr "Scatterplot..."
+
+msgid "Scatterplot matrix..."
+msgstr "Scatterplot matrix..."
+
+msgid "3D scatterplot..."
+msgstr "3D scatterplot..."
+
+msgid "Line graph..."
+msgstr "Γράφημα γραμμής..."
+
+msgid "Plot of means..."
+msgstr "Plot of means..."
+
+msgid "Bar graph..."
+msgstr "Ραβδόγραμμα..."
+
+msgid "Pie chart..."
+msgstr "Διάγραμμα πίτας"
+
+msgid "as bitmap..."
+msgstr "ως bitmap..."
+
+msgid "as PDF/Postscript/EPS..."
+msgstr "ως PDF/Postscript/EPS..."
+
+msgid "3D RGL graph..."
+msgstr "Γράφημα 3D RGL..."
+
+msgid "Save graph to file"
+msgstr "Αποθήκευση γραφήματος σε αρχείο"
+
+msgid "Graphs"
+msgstr "Γραφήματα"
+
+msgid "Select active model..."
+msgstr "Επιλέξτε ενεργό μοντέλο..."
+
+msgid "Summarize model"
+msgstr "Συνοψίστε μοντέλο"
+
+msgid "Add observation statistics to data..."
+msgstr "Προσθήκη στατιστικών παρατηρήσεων στα δεδομένα..."
+
+msgid "Confidence intervals..."
+msgstr "Διαστήματα εμπιστοσύνης..."
+
+msgid "Hypothesis tests"
+msgstr "Έλεγχοι υποθέσεων"
+
+msgid "ANOVA table"
+msgstr "ANOVA table"
+
+msgid "Compare two models..."
+msgstr "Συγκρίνετε τα δύο μοντέλα..."
+
+msgid "Linear hypothesis..."
+msgstr "Γραμμική υπόθεση..."
+
+msgid "Numerical diagnostics"
+msgstr "Αριθμητικά διαγνωστικά"
+
+msgid "Variance-inflation factors"
+msgstr "Παράγοντες διακύμανσης του πληθωρισμού"
+
+msgid "Breusch-Pagan test for heteroscedasticity..."
+msgstr "Δοκιμή για ετεροσκεδαστικότητα Breusch-Pagan..."
+
+msgid "Durbin-Watson test for autocorrelation..."
+msgstr "δοκιμή για αυτοσυσχέτισης Durbin-Watson..."
+
+msgid "RESET test for nonlinearity..."
+msgstr "ΕΠΑΝΑΦΟΡΑ δοκιμής για μη γραμμικότητα..."
+
+msgid "Bonferroni outlier test"
+msgstr "Τεστ Bonferroni outlier"
+
+msgid "Basic diagnostic plots"
+msgstr "Bασικά διαγνωστικά plots"
+
+msgid "Residual quantile-comparison plot..."
+msgstr "Υπολειμματική σύγκρισης plot..."
+
+msgid "Component+residual plots"
+msgstr "Συστατικά+ υπολειμματικά plots"
+
+msgid "Added-variable plots"
+msgstr "Προστέθηκε μεταβλητή plots"
+
+msgid "Influence plot"
+msgstr "Επιρροή plot"
+
+msgid "Effect plots"
+msgstr "Αποτέλεσμα plots"
+
+msgid "Models"
+msgstr "Μοντέλα"
+
+msgid "Normal distribution"
+msgstr "Κανονική κατανομή"
+
+msgid "Normal quantiles..."
+msgstr "κανονικά ποσοστημόρια..."
+
+msgid "Normal probabilities..."
+msgstr "Κανονικές πιθανότητες..."
+
+msgid "Plot normal distribution..."
+msgstr "Κανονική κατανομή Plot..."
+
+msgid "t distribution"
+msgstr "Κατανομή t"
+
+msgid "t quantiles..."
+msgstr "Ποσοστημόρια t..."
+
+msgid "t probabilities..."
+msgstr "Πιθανότητες t..."
+
+msgid "Plot t distribution..."
+msgstr "Κατανομή Plot t..."
+
+msgid "Chi-squared distribution"
+msgstr "χ^2 κατανομή"
+
+msgid "Chi-squared quantiles..."
+msgstr "χ^2 ποσοστημόρια..."
+
+msgid "Chi-squared probabilities..."
+msgstr "χ^2 Πιθανότητες..."
+
+msgid "Plot chi-squared distribution..."
+msgstr "χ^2 κατανομή Plot..."
+
+msgid "F distribution"
+msgstr "κατανομή F"
+
+msgid "F quantiles..."
+msgstr "Ποσοστημόρια F..."
+
+msgid "F probabilities..."
+msgstr "Πιθανότητες F..."
+
+msgid "Plot F distribution..."
+msgstr "Πιθανότητες Plot F"
+
+msgid "Binomial distribution"
+msgstr "Διωνυμική κατανομή"
+
+msgid "Binomial quantiles..."
+msgstr "Διωνυμικά ποσοστημόρα..."
+
+msgid "Binomial tail probabilities..."
+msgstr "Διωνυμικές πιθανότητες ουράς..."
+
+msgid "Binomial probabilities..."
+msgstr "Διωνυμικές πιθανότες..."
+
+msgid "Plot binomial distribution..."
+msgstr "Διωνυμικές πιθανότες Plot..."
+
+msgid "Poisson distribution"
+msgstr "Διωνυμική Poisson"
+
+msgid "Poisson probabilities..."
+msgstr "Πιθανότες Poisson..."
+
+msgid "Plot Poisson distribution..."
+msgstr "Διωνυμική Poisson Plot..."
+
+msgid "Distributions"
+msgstr "Διωνυμικές"
+
+msgid "Load package(s)..."
+msgstr "Φόρτωση πακέτου(-των)..."
+
+msgid "Options..."
+msgstr "Επιλογές..."
+
+msgid "Tools"
+msgstr "Εργαλεία"
+
+msgid "Commander help"
+msgstr "Βοήθεια Commander"
+
+msgid "Introduction to the R Commander"
+msgstr "Εισαγωγή στην R Commander"
+
+msgid "About Rcmdr"
+msgstr "Σχετικά με την Rcmdr"
+
+msgid "df ="
+msgstr "df ="
+
+# # messages added to Rcmdr version 1.1-1
+msgid "There is no current RGL graphics device."
+msgstr "Δεν υπάρχει καμία τρέχουσα συσκευή γραφικών RGL."
+
+msgid "3D graph"
+msgstr "3D γράφημα"
+
+# # messages added to Rcmdr version 1.1-6
+msgid " contains non-standard variable names:\n"
+msgstr " περιέχει μη τυποποιημένα ονόματα των μεταβλητών:\n"
+
+msgid ""
+"\n"
+"These have been changed to:\n"
+msgstr ""
+"\n"
+"Αυτά έχουν αλλάξει:\n"
+
+# # messages added to Rcmdr version 1.2-0
+# importRODBCtable dialog
+msgid "This function requires the RODBC package.\n"
+msgstr "Αυτή η συνάρτηση απαιτεί το πακέτο RODBC.\n"
+
+msgid "Import from Excel, Access or dBase data set"
+msgstr "Εισαγωγή από σύνολο δεδομένων του Excel, Access ή dBase"
+
+msgid "{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+
+msgid "Select one table"
+msgstr "Επιλέξτε ένα πίνακα"
+
+msgid "No table selected"
+msgstr "Κανένας πίνακας δεν έχει επιλεχθεί"
+
+msgid "from Excel, Access or dBase data set..."
+msgstr "Σύνολο δεδομένων από Excel, Access ή dBase..."
+
+# probability distributions
+msgid "Standard deviation must be positive."
+msgstr "Η Τυπική απόκλιση πρέπει να είναι θετική"
+
+msgid "Degrees of freedom must be positive."
+msgstr "Οι Βαθμοί ελευθερίας πρέπει να είναι θετικοί."
+
+msgid "Numerator degrees of freedom must be positive."
+msgstr "Ο βαθμός ελευθερίας του Αριθμητή πρέπει να είναι θετικός."
+
+msgid "Denominator degrees of freedom must be positive."
+msgstr "Ο βαθμός ελευθερίας του παρονομαστή πρέπει να είναι θετική."
+
+msgid "Exponential Distribution"
+msgstr "Εκθετική κατανομή"
+
+msgid "Rate must be positive."
+msgstr "Η Βαθμολόγηση πρέπει να είναι θετική."
+
+msgid "Rate"
+msgstr "Βαθμολόγηση"
+
+msgid "Uniform Distribution"
+msgstr "Ομοιόμορφη κατανομή"
+
+msgid "Lower limit must be less than upper limit."
+msgstr "Το Κατώτερο όριο πρέπει να είναι μικρότερο από το ανώτατο όριο."
+
+msgid "Minimum"
+msgstr "Ελάχιστο"
+
+msgid "Maximum"
+msgstr "Μέγιστο"
+
+msgid "Beta Distribution"
+msgstr "Beta Διανομή"
+
+msgid "Shapes not specified."
+msgstr "Τα Σχήματα που δεν κατονομάζονται."
+
+msgid "Shapes must be positive."
+msgstr "Τα Σχήματα πρέπει να είναι θετική."
+
+msgid "Shape"
+msgstr "Σχήμα"
+
+msgid "Cauchy Distribution"
+msgstr "Cauchy Διανομή"
+
+msgid "Scale must be positive."
+msgstr "Η Κλίμακα πρέπει να είναι θετική"
+
+msgid "Location"
+msgstr "Τοποθεσία"
+
+msgid "Scale"
+msgstr "Κλίμακα"
+
+msgid "Logistic Distribution"
+msgstr "Logistic Διανομή"
+
+msgid "Lognormal Distribution"
+msgstr "Λογαριθμοκανονική Διανομή"
+
+msgid "Mean (log scale)"
+msgstr "Μέσος (λογαριθμική κλίμακα)"
+
+msgid "Standard deviation (log scale)"
+msgstr "Τυπική απόκλιση (λογαριθμική κλίμακα)"
+
+msgid "Gamma Distribution"
+msgstr "Κατανομή γάμμα Gamma"
+
+msgid "Shape not specified."
+msgstr "Το Σχήμα που δεν κατονομάζεται."
+
+msgid "Shape must be positive."
+msgstr "Το Σχήμα πρέπει να είναι θετικό."
+
+msgid "Weibull Distribution"
+msgstr "Κατανομή Weibull"
+
+msgid "Exponential Quantiles"
+msgstr "Εκθετική ποσοστημορίων"
+
+msgid "Exponential Probabilities"
+msgstr "Eκθετικές Πιθανότητες"
+
+msgid "Uniform Quantiles"
+msgstr "Ενιαία ποσοστημόρια"
+
+msgid "Uniform Probabilities"
+msgstr "Ενιαίες Πιθανότητες"
+
+msgid "Beta Quantiles"
+msgstr "Ποσοστημόρια Beta"
+
+msgid "Beta Probabilities"
+msgstr "Πιθανότητες Beta"
+
+msgid "Cauchy Quantiles"
+msgstr "Ποσοστημόρια Cauchy"
+
+msgid "Cauchy Probabilities"
+msgstr "Πιθανότητες Cauchy"
+
+msgid "Logistic Quantiles"
+msgstr "Λογιστικά Ποσοστημόρια"
+
+msgid "Logistic Probabilities"
+msgstr "Λογιστικές Πιθανότητες"
+
+msgid "Lognormal Quantiles"
+msgstr "Λογαριθμοκανονικά ποσοστημόρια"
+
+msgid "Lognormal Probabilities"
+msgstr "Λογαριθμοκανονικές Πιθανότητες"
+
+msgid "Gamma Quantiles"
+msgstr "Ποσοστημόρια Gamma"
+
+msgid "Gamma Probabilities"
+msgstr "Πιθανότητες Gamma"
+
+msgid "Weibull Quantiles"
+msgstr "Ποσοστημόρια Weibull"
+
+msgid "Weibull Probabilities"
+msgstr "Πιθανότητες Weibull"
+
+msgid "Gumbel Distribution"
+msgstr "Κατανομή Gumbel"
+
+msgid "Shape (log shape)"
+msgstr "Σχήμα (λογαριθμικό σχήμα)"
+
+msgid "Scale (log scale)"
+msgstr "Κλίμακα (λογαριθμική κλίμακα)"
+
+msgid "Gumbel Probabilities"
+msgstr "Πιθανότητες Gumbel"
+
+msgid "Probability of success must be between 0 and 1."
+msgstr "Η Πιθανότητα επιτυχίας πρέπει να είναι μεταξύ 0 και 1"
+
+msgid "Poisson Quantiles"
+msgstr "Ποσοστημόρια Poisson"
+
+msgid "Geometric Quantiles"
+msgstr "Γεωμετρικά Ποσοστημόρια"
+
+msgid "Geometric Probabilities"
+msgstr "Γεωμετρικές Πιθανότητες"
+
+msgid "Hypergeometric Quantiles"
+msgstr "Υπεργεωμετρικών Ποσοστημορίων"
+
+msgid "The m parameter was not specified."
+msgstr "Η παράμετρος m δεν έχει καθοριστεί."
+
+msgid "The m parameter cannot be negative."
+msgstr "Η παράμετρος m δεν μπορεί να είναι αρνητική."
+
+msgid "The n parameter was not specified."
+msgstr "Η παράμετρος n δεν έχει καθοριστεί."
+
+msgid "The n parameter cannot be negative."
+msgstr "Η παράμετρος n δεν μπορεί να είναι αρνητική."
+
+msgid "The k parameter was not specified."
+msgstr "Η παράμετρος k δεν έχει καθοριστεί."
+
+msgid "The k parameter cannot be greater than m + n."
+msgstr "Η παράμετρος k δεν μπορεί να είναι μεγαλύτερη από m + n."
+
+msgid "The k parameter cannot be negative."
+msgstr "Η παράμετρος k δεν μπορεί να είναι αρνητική."
+
+msgid "m (number of white balls in the urn)"
+msgstr "m (ο αριθμός άσπρων μπάλων στο δοχείο urn)"
+
+msgid "n (number of black balls in the urn)"
+msgstr "n (ο αριθμός μαύρων μπάλων στο δοχείο urn)"
+
+msgid "k (number of balls drawn from the urn)"
+msgstr "k (ο αριθμός των μπάλων στο δοχείο urn)"
+
+msgid "Hypergeometric Probabilities"
+msgstr "Υπεργεωμετρικών Πιθανότητες"
+
+msgid "Negative Binomial Quantiles"
+msgstr "Αρνητικά Διωνυμικά ποσοστημόρια"
+
+msgid "Target number of successes not specified."
+msgstr "Ο Στόχος του αριθμού των επιτυχιών που δεν κατονομάζονται."
+
+msgid "Target number of successes cannot be negative."
+msgstr "Ο Στόχος του αριθμού των επιτυχιών δεν μπορεί να είναι αρνητικός."
+
+msgid "Target number of successes"
+msgstr "Στόχος αριθμού των επιτυχιών"
+
+msgid "Negative Binomial Probabilities"
+msgstr "Αρνητιέςή Διωνυμικές Πιθανότητες"
+
+msgid "Geometric Distribution"
+msgstr "Γεωμετρική Κατανομή"
+
+msgid "Hypergeometric Distribution"
+msgstr "Εκθετική Κατανομή"
+
+msgid "Negative Binomial Distribution"
+msgstr "Αρνητική Διωνυμική κατανομή"
+
+msgid "Sample from Normal Distribution"
+msgstr "Δείγμα από Κανονική Κατανομή"
+
+msgid "NormalSamples"
+msgstr "NormalSamples"
+
+msgid "Sample means"
+msgstr "Μέσο Δείγμα"
+
+msgid "Sample sums"
+msgstr "Δειγματικά ποσά"
+
+msgid "Sample standard deviations"
+msgstr "Πρότυπο δείγμα αποκλίσεων"
+
+msgid "Sample size must be positive."
+msgstr "Το μέγεθος του δείγματος πρέπει να είναι θετικός."
+
+msgid "Number of samples must be positive."
+msgstr "Ο Αριθμός δειγμάτων πρέπει να είναι θετικός."
+
+msgid "Number of samples (rows)"
+msgstr "Αριθμός δειγμάτων (σειρές)"
+
+msgid "Number of observations (columns)"
+msgstr "Αριθμός παρατηρήσεων (στήλες)"
+
+msgid "Add to Data Set:"
+msgstr "Προσθήκη στα δεδομένων:"
+
+msgid "Sample from t Distribution"
+msgstr "Δείγμα από Κατανομή t"
+
+msgid "tSamples"
+msgstr "tSamples"
+
+msgid "Sample from Chi-squared Distribution"
+msgstr "Δείγμα από χ^2 Κατανομή"
+
+msgid "ChisquareSamples"
+msgstr "Δείγματα χ^2"
+
+msgid "Sample from F Distribution"
+msgstr "Δείγμα από Κατανομή F"
+
+msgid "FSamples"
+msgstr "FSamples"
+
+msgid "Sample from Exponential Distribution"
+msgstr "Δείγμα από Εκθετική Κατανομή"
+
+msgid "ExponentialSamples"
+msgstr "Εκθετικό Δείγματα"
+
+msgid "Sample from Uniform Distribution"
+msgstr "Δείγμα από Ομοιόμορφη Κατανομή"
+
+msgid "UniformSamples"
+msgstr "Ομοιόμορφο Δείγματα"
+
+msgid "Sample from Beta Distribution"
+msgstr "Δείγμα από Κατανομή Beta"
+
+msgid "BetaSamples"
+msgstr "Δείγματα Beta"
+
+msgid "Sample from Cauchy Distribution"
+msgstr "Δείγμα από Κατανομή Cauchy"
+
+msgid "CauchySamples"
+msgstr "Cauchy Δείγματα"
+
+msgid "Sample from Logistic Distribution"
+msgstr "Δείγμα από Λογιστική Κατανομή"
+
+msgid "LogisticSamples"
+msgstr "Λογιστικά Δείγματα"
+
+msgid "Sample from Log-Normal Distribution"
+msgstr "Δείγμα από Λογαριθμική-κανονική Κατανομή"
+
+msgid "LogNormalSamples"
+msgstr "Λογαριθμική-κανονική Δείγματα"
+
+msgid "Sample from Gamma Distribution"
+msgstr "Δείγμα από Κατανομή Gamma"
+
+msgid "GammaSamples"
+msgstr "Gamma Δείγματα"
+
+msgid "Sample from Weibull Distribution"
+msgstr "Δείγμα από Κατανομή Weibull"
+
+msgid "WeibullSamples"
+msgstr "Weibull Δείγματα"
+
+msgid "Sample from Gumbel Distribution"
+msgstr "Δείγμα από Κατανομή Gumbel"
+
+msgid "GumbelSamples"
+msgstr "Gumbel Δείγματα"
+
+msgid "Sample from Binomial Distribution"
+msgstr "Δείγμα από Διωνυμική Κατανομή"
+
+msgid "BinomialSamples"
+msgstr "Διωνυμικά Δείγματα"
+
+msgid "Poisson mean cannot be negative."
+msgstr "Ο όρος Poisson δεν μπορεί να είναι αρνητικός"
+
+msgid "Sample from Poisson Distribution"
+msgstr "Δείγμα από Κατανομή Poisson"
+
+msgid "PoissonSamples"
+msgstr "Poisson Δείγματα"
+
+msgid "Sample from Geometric Distribution"
+msgstr "Δείγμα από Γεωμετρική Κατανομή"
+
+msgid "GeometricSamples"
+msgstr "Γεωμετρικά Δείγματα"
+
+msgid "Sample from Hypergeometric Distribution"
+msgstr "Δείγμα από Εκθετική Κατανομή "
+
+msgid "HypergeometricSamples"
+msgstr "Εκθετικά Δείγματα"
+
+msgid "Sample from Negative Binomial Distribution"
+msgstr "Δείγμα από Αρνητική Διωνυμική Κατανομή"
+
+msgid "NegativeBinomialSamples"
+msgstr "Αρνητικά Διωνυμικά Δείγματα"
+
+msgid "Sample from normal distribution..."
+msgstr "Δείγμα από κανονική κατανομή..."
+
+msgid "Sample from t distribution..."
+msgstr "Δείγμα από κατανομή t..."
+
+msgid "Sample from chi-squared distribution..."
+msgstr "Δείγμα από κατανομή χ^2..."
+
+msgid "Sample from F distribution..."
+msgstr "Δείγμα από κατανομή F..."
+
+msgid "Exponential distribution"
+msgstr "Εκθετική κατανομή"
+
+msgid "Exponential quantiles..."
+msgstr "Εκθετικά ποσοστημόρια..."
+
+msgid "Exponential probabilities..."
+msgstr "Εκθετικές πιθανότητες..."
+
+msgid "Plot exponential distribution..."
+msgstr "Εκθετική κατανομή Plot..."
+
+msgid "Sample from exponential distribution..."
+msgstr "Δείγμα από εκθετική κατανομή..."
+
+msgid "Uniform distribution"
+msgstr "Ομοιόμορφη κατανομή"
+
+msgid "Uniform quantiles..."
+msgstr "Ενιαία ποσοστημόρια..."
+
+msgid "Uniform probabilities..."
+msgstr "Ενιαίες πιθανότητες..."
+
+msgid "Plot uniform distribution..."
+msgstr "Ομοιόμορφη κατανομή Plot"
+
+msgid "Sample from uniform distribution..."
+msgstr "Δείγμα από ομοιόμορφη κατανομή..."
+
+msgid "Beta distribution"
+msgstr "κατανομή Beta"
+
+msgid "Beta quantiles..."
+msgstr "ποσοστημόρια Beta..."
+
+msgid "Beta probabilities..."
+msgstr "πιθανότητες Beta..."
+
+msgid "Plot beta distribution..."
+msgstr "κατανομή Plot beta..."
+
+msgid "Sample from beta distribution..."
+msgstr "Δείγμα από κατανομή beta..."
+
+msgid "Cauchy distribution"
+msgstr "κατανομή Cauchy"
+
+msgid "Cauchy quantiles..."
+msgstr "ποσοστημόρια Cauchy"
+
+msgid "Cauchy probabilities..."
+msgstr "πιθανότητες Cauchy..."
+
+msgid "Plot Cauchy distribution..."
+msgstr "κατανομή Plot Cauchy..."
+
+msgid "Sample from Cauchy distribution..."
+msgstr "Δείγμα από κατανομή Cauchy..."
+
+msgid "Logistic distribution"
+msgstr "Λογιστικές κατανομές"
+
+msgid "Logistic quantiles..."
+msgstr "Λογιστικά ποσοστημόρια..."
+
+msgid "Logistic probabilities..."
+msgstr "Λογιστικές πιθανότητες..."
+
+msgid "Plot logistic distribution..."
+msgstr "Λογιστικές κατανομές Plot..."
+
+msgid "Sample from logistic distribution..."
+msgstr "Δείγμα από λογιστικές κατανομές..."
+
+msgid "Lognormal distribution"
+msgstr "Λογαριθμοκανονική κατανομή"
+
+msgid "Lognormal quantiles..."
+msgstr "Λογαριθμοκανονικά ποσοστημόρια..."
+
+msgid "Lognormal probabilities..."
+msgstr "Λογαριθμοκανονικές πιθανότητες..."
+
+msgid "Plot lognormal distribution..."
+msgstr "Λογαριθμοκανονική κατανομή Plot..."
+
+msgid "Sample from lognormal distribution..."
+msgstr "Δείγμα από λογαριθμοκανονική κατανομή..."
+
+msgid "Gamma distribution"
+msgstr "κατανομή Gamma"
+
+msgid "Gamma quantiles..."
+msgstr "ποσοστημόρια Gamma..."
+
+msgid "Gamma probabilities..."
+msgstr "πιθανότητες Gamma..."
+
+msgid "Plot gamma distribution..."
+msgstr "κατανομή Plot gamma..."
+
+msgid "Sample from gamma distribution..."
+msgstr "Δείγμα από κατανομή gamma..."
+
+msgid "Weibull distribution"
+msgstr "κατανομή Weibull"
+
+msgid "Weibull quantiles..."
+msgstr "ποσοστημόρια Weibull..."
+
+msgid "Weibull probabilities..."
+msgstr "πιθανότητες Weibull..."
+
+msgid "Plot Weibull distribution..."
+msgstr "κατανομή Plot Weibull..."
+
+msgid "Sample from Weibull distribution..."
+msgstr "Δείγμα από κατανομή Weibull..."
+
+msgid "Gumbel distribution"
+msgstr "κατανομή Gumbel"
+
+msgid "Gumbel quantiles..."
+msgstr "ποσοστημόρια Gumbel..."
+
+msgid "Gumbel probabilities..."
+msgstr "πιθανότητες Gumbel..."
+
+msgid "Plot Gumbel distribution..."
+msgstr "κατανομή Plot Gumbel..."
+
+msgid "Sample from Gumbel distribution..."
+msgstr "Δείγμα από κατανομή Gumbel..."
+
+msgid "Sample from binomial distribution..."
+msgstr "Δείγμα από διωνυμική κατανομή..."
+
+msgid "Poisson quantiles..."
+msgstr "ποσοστημόρια Poisson..."
+
+msgid "Poisson tail probabilities..."
+msgstr "πιθανότητες ουράς Poisson..."
+
+msgid "Sample from Poisson distribution..."
+msgstr "Δείγμα από κατανομή Poisson..."
+
+msgid "Geometric distribution"
+msgstr "Γεωμετρική κατανομή"
+
+msgid "Geometric quantiles..."
+msgstr "Γεωμετρικά ποσοστημόρια..."
+
+msgid "Geometric tail probabilities..."
+msgstr "Γεωμετρικές ουρές πιθανοτήτων..."
+
+msgid "Geometric probabilities..."
+msgstr "Γεωμετρικές πιθανότητες..."
+
+msgid "Plot geometric distribution..."
+msgstr "Plot Γεωμετρικής κατανομής..."
+
+msgid "Sample from geometric distribution..."
+msgstr "Δείγμα από γεωμετρική κατανομή..."
+
+msgid "Hypergeometric distribution"
+msgstr "Εκθετική κατανομή"
+
+msgid "Hypergeometric quantiles..."
+msgstr "υπεργεωμετρικά ποσοστημόρια..."
+
+msgid "Hypergeometric tail probabilities..."
+msgstr "υπεργεωμετρικές ουρές πιθανοτήτων..."
+
+msgid "Hypergeometric probabilities..."
+msgstr "Υπεργεωμετρικές πιθανότητες..."
+
+msgid "Plot hypergeometric distribution..."
+msgstr "υπεργεωμετρική κατανομή Plot..."
+
+msgid "Sample from hypergeometric distribution..."
+msgstr "Δείγμα από υπεργεωμετρική κατανομή..."
+
+msgid "Negative binomial distribution"
+msgstr "Αρνητική διωνυμική κατανομή"
+
+msgid "Negative binomial quantiles..."
+msgstr "Αρνητική διωνυμική ποσοστημορίων ..."
+
+msgid "Negative binomial tail probabilities..."
+msgstr "Αρνητική διωνυμική πιθανότητα ουράς..."
+
+msgid "Negative binomial probabilities..."
+msgstr "Αρνητικές διωνυμικές πιθανότητες ..."
+
+msgid "Plot negative binomial distribution..."
+msgstr "Οικόπεδο αρνητικής διωνυμικής κατανομής ..."
+
+msgid "Sample from negative binomial distribution..."
+msgstr "Δείγμα από αρνητική διωνυμική κατανομή..."
+
+msgid "Continuous distributions"
+msgstr "Συνεχείς Κατανομές"
+
+msgid "Discrete distributions"
+msgstr "Διακριτές κατανομές"
+
+# Xyplot dialog
+msgid "XY Conditioning Plot"
+msgstr "Κλιματισμός XY Plot"
+
+msgid "Response variables (pick one or more)"
+msgstr "Μεταβλητές απόκρισης (επιλέξτε ένα ή περισσότερα)"
+
+msgid "Groups (pick zero or more)"
+msgstr "Ομάδες (πάρτε το μηδέν ή περισσότερα)"
+
+msgid "Automatically draw key"
+msgstr "Automatically draw key"
+
+msgid "Different panels for different responses"
+msgstr "Διαφορετικούς πίνακες για διαφορετικές απαντήσεις"
+
+msgid "Identical"
+msgstr "Πανομοιότυπη"
+
+msgid "Free"
+msgstr "Δωρεάν"
+
+msgid "Same range"
+msgstr "ίδιο εύρος"
+
+msgid "X-Axis Scales in Different Panels"
+msgstr "Χ-άξονα κλίμακες σε διαφορετικούς πίνακες"
+
+msgid "Y-Axis Scales in Different Panels"
+msgstr "Υ-άξονα κλίμακες σε διαφορετικούς πίνακες"
+
+msgid "At least one response variable must be selected."
+msgstr "Πρέπει να επιλεγεί τουλάχιστον μία μεταβλητή απόκριση."
+
+msgid "At least one explanatory variable must be selected."
+msgstr "Πρέπει να επιλέξετε τουλάχιστον μία ερμηνευτική μεταβλητή."
+
+msgid "XY conditioning plot..."
+msgstr "XY κλιματισμού οικόπεδο..."
+
+# contingency tables dialog
+msgid "Percentages of total"
+msgstr "Ποσοστά επί του συνόλου"
+
+msgid "Components of chi-square statistic"
+msgstr "Συνιστώσες του χ^2 στατιστικής"
+
+# 3D scatterplots dialog
+msgid "Show squared residuals"
+msgstr "Εμφάνιση τετραγώνων των καταλοίπων"
+
+msgid "Show axis scales"
+msgstr "Εμφάνιση κλίμακες άξονα"
+
+msgid "Plot 50% concentration ellipsoid"
+msgstr "Plot 50% ελλειψοειδές συγκέντρωση"
+
+# scatterplot matrices dialog
+msgid "One-dimensional scatterplots"
+msgstr "Μονοδιάστατα διαγράμματα διασποράς"
+
+# count NAs (menu item)
+msgid "Count missing observations"
+msgstr "Μετρήστε τις παρατηρήσεις που λείπουν"
+
+# Correlation test dialog
+msgid "Correlation Test"
+msgstr "Δοκιμή συσχέτιση"
+
+msgid "Variables (pick two)"
+msgstr "Μεταβλητές (επιλέξτε δύο)"
+
+msgid "Kendall's tau"
+msgstr "Kendall's tau"
+
+msgid "Type of Correlation"
+msgstr "Τύπος Συσχέτιση"
+
+msgid "Correlation < 0"
+msgstr "Συσχέτιση <0"
+
+msgid "Correlation > 0"
+msgstr "Συσχέτιση> 0"
+
+msgid "More than 2 variables selected."
+msgstr "Έχουν επιλεγεί περισσότερες από 2 μεταβλητές."
+
+msgid "Correlation test..."
+msgstr "Τέστ Συσχέτισης..."
+
+# Recode dialog
+msgid "Recode Variables"
+msgstr "Επανακωδικοποιήσει μεταβλητών"
+
+msgid "Variables to recode (pick one or more)"
+msgstr "Οι μεταβλητές για να επανακωδικοποιήσει (επιλέξτε ένα ή περισσότερα)"
+
+msgid "New variable name or prefix for multiple recodes:"
+msgstr "Νέο όνομα μεταβλητής ή το πρόθεμα για πολλαπλές επανακωδικοποιήσεις:"
+
+msgid "Make (each) new variable a factor"
+msgstr "Κάντε (το καθένα) νέα μεταβλητή ένας παράγοντας"
+
+msgid "Recode variables..."
+msgstr "Επανακωδικοποιήσει μεταβλητών..."
+
+# Frequency distributions dialog
+msgid "Frequency Distributions"
+msgstr "Κατανομές συχνότητας"
+
+msgid "Chi-square goodness-of-fit test (for one variable only)"
+msgstr "χ^2 goodness-of-fit test (μόνο για μία μεταβλητή)"
+
+msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgstr "Goodness-of-fit test δεν είναι διαθέσιμη όταν έχει επιλεγεί περισσότερες από μία μεταβλητές."
+
+msgid "Frequency distributions..."
+msgstr "Κατανομές συχνότητας..."
+
+# Numeric to factor dialog
+msgid "Convert Numeric Variables to Factors"
+msgstr "Μετατροπή αριθμητικών μεταβλητών σε παράγοντες"
+
+msgid "<same as variables>"
+msgstr "<ίδια ως μεταβλητές>"
+
+msgid "Level Names for"
+msgstr "Ονόματα επίπεδου για"
+
+msgid "Factors"
+msgstr "Παράγοντες"
+
+msgid "New variable name or prefix for multiple variables:"
+msgstr "Νέο όνομα μεταβλητής ή το πρόθεμα για πολλαπλές μεταβλητές:"
+
+msgid "Convert numeric variables to factors..."
+msgstr "Μετατρέψτε αριθμητικές μεταβλητές σε παράγοντες..."
+
+# Stack dialog
+msgid "Stack Variables"
+msgstr "Μεταβλητές σε στοίβα"
+
+msgid "factor"
+msgstr "Παράγοντας"
+
+msgid "StackedData"
+msgstr "Στοιβάζονται δεδομένα"
+
+msgid "You must select at least two variables."
+msgstr "Πρέπει να επιλέξετε τουλάχιστον δύο μεταβλητές."
+
+msgid "Name for stacked data set:"
+msgstr "Όνομα για στοιβάημένο σύνολο δεδομένων:"
+
+msgid "Name for variable:"
+msgstr "Όνομα για τη μεταβλητή:"
+
+msgid "Name for factor:"
+msgstr "Όνομα του παράγοντα:"
+
+msgid "Stack variables in active data set..."
+msgstr "Stack μεταβλητές στο ενεργό σύνολο δεδομένων..."
+
+# miscelaneous
+msgid "Identify Points"
+msgstr "Προσδιορίστε τα σημεία"
+
+msgid ""
+"Use left mouse button to identify points,\n"
+"right button to exit."
+msgstr ""
+"Χρησιμοποιήστε το αριστερό πλήκτρο του ποντικιού για να εντοπιστούν τα σημεία,\n"
+"το δεξί πλήκτρο για να εξέλθετε."
+
+msgid ""
+"Drag right mouse button to identify points,\n"
+"click right button to exit."
+msgstr ""
+"Σύρετε δεξί πλήκτρο του ποντικιού για να εντοπιστούν τα σημεία,\n"
+"πατήστε το δεξί πλήκτρο για να εξέλθετε."
+
+msgid "Read Data From Text File or Clipboard"
+msgstr "Ανάγνωση δεδομένων από αρχείο κειμένου ή πρόχειρο"
+
+msgid "Read data from clipboard:"
+msgstr "Διαβάστε τα δεδομένα από το πρόχειρο:"
+
+msgid "from text file or clipboard..."
+msgstr "από το αρχείο κειμένου ή πρόχειρο ..."
+
+msgid "Add observation numbers to data set"
+msgstr "Προσθέστε αριθμούς παρατήρηση σύνολο δεδομένων"
+
+msgid "Refresh active data set"
+msgstr "Ανανέωση ενεργού συνόλου δεδομένων"
+
+msgid "No statistics selected."
+msgstr "Δεν έχουν επιλεγεί στατιστικά ."
+
+msgid "Right-hand side"
+msgstr "Δεξιά πλευρά"
+
+# # messages added to Rcmdr version 1.3-0
+# handling plug-ins
+msgid "Load Plugins"
+msgstr "Προσθήκη φορτίου"
+
+msgid "Plug-ins (pick one or more)"
+msgstr "Plug-ins (επιλέξτε ένα ή περισσότερα)"
+
+msgid "You must select at least one plug-in."
+msgstr "Πρέπει να επιλέξετε τουλάχιστον ένα plug-in"
+
+msgid "Plug-ins loaded:"
+msgstr "Φορτωμένα Plug-ins:"
+
+msgid ""
+"The plug-in(s) will not be available until the Commander is restarted.\n"
+"Restart now?"
+msgstr ""
+"Τα plug-in (s) δεν θα είναι διαθέσιμα μέχρι να γίνει επανεκκίνηση του Commander.\n"
+" Επανεκκίνηση τώρα;"
+
+msgid "objects have different numbers of columns"
+msgstr "ΤΑ αντικείμενα έχουν διαφορετικό αριθμό στηλών"
+
+msgid "objects have different column names"
+msgstr "Τα αντικείμενα έχουν διαφορετικό όνομα στήλης"
+
+msgid "Load Rcmdr plug-in(s)..."
+msgstr "Φόρτωση των Rcmdr plug-in(s)..."
+
+msgid "the plug-in package %s is missing"
+msgstr "Το plug-in πακέτο %s λείπει"
+
+msgid "the package %s is not an Rcmdr plug-in"
+msgstr "Το πακέτο %s δεν είναι ένα Rcmdr plug-in"
+
+msgid "unrecognized operation, \"%s\", in plugin menu line %i"
+msgstr "άγνωστη λειτουργία, \"%s\", στη γραμμή μενού plugin %i"
+
+msgid "unrecognized type, \"%s\", in plugin menu line %i"
+msgstr "άγνωστος τύπος, \"%s\", στη γραμμή μενού plugin %i"
+
+# miscelaneous additions
+msgid "Color palette..."
+msgstr "Παλέτα χρωμάτων..."
+
+msgid "Set Color Palette"
+msgstr "Ορισμός παλέτας χρωμάτων"
+
+msgid "Color palette reset."
+msgstr "Επαναφορά παλέτας χρώμάτων."
+
+msgid "Save active data set..."
+msgstr "Αποθηκεύστε ενεργό σύνολο δεδομένων..."
+
+msgid "Load data set..."
+msgstr "Δεδομένα φορτίου που..."
+
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"Όλα τα αρχεία\" {\"*\"}}"
+
+msgid "Shapiro-Wilk test of normality..."
+msgstr "Shapiro Wilk-δοκιμή της ομαλότητας..."
+
+msgid "Shapiro-Wilk Test of Normality"
+msgstr "Shapiro Wilkk-δοκιμή της ομαλότητας"
+
+msgid "Ordinal regression model..."
+msgstr "Διατεταγμένο μοντέλο παλινδρόμησης..."
+
+msgid "Ordinal Regression Model"
+msgstr "Διατεταγμένο μοντέλο παλινδρόμησης"
+
+msgid "Proportional-odds logit"
+msgstr "Αναλογικές πιθανότητες logit"
+
+msgid "Ordered probit"
+msgstr "Διατεταγμένο probit"
+
+msgid "Type of Model"
+msgstr "Τύπος μοντέλου"
+
+msgid "x-axis label"
+msgstr "Ετικέτα άξονα χ"
+
+msgid "y-axis label"
+msgstr "Ετικέτα άξονα ψ"
+
+msgid "No plotting characters."
+msgstr "Δεν συνωμοτούν οι χαρακτήρες."
+
+msgid "Plotting Parameters"
+msgstr "Χάραξη παραμέτρων"
+
+msgid "Plotting characters"
+msgstr "Χάραξη χαρακτήρων"
+
+msgid "Point size"
+msgstr "Μέγεθος σημείου"
+
+msgid "Axis text size"
+msgstr "Άξονας μέγεθος του κειμένου"
+
+msgid "Axis-labels text size"
+msgstr "Άξονας σημάτων μέγεθος του κειμένου"
+
+# message added to version 1.3-3 (because of inadvertent omission)
+msgid "Scale (inverse rate)"
+msgstr "Κλίμακα (αντίστροφο ποσοστό)"
+
+# messages added to version 1.3-5
+msgid " has been coerced to a data frame"
+msgstr "έχει εξαναγκαστεί σε ένα πλαίσιο δεδομένων"
+
+msgid "the dataset %s is no longer available"
+msgstr "το σύνολο δεδομένων %s δεν είναι πλέον διαθέσιμο"
+
+msgid "the model %s is no longer available"
+msgstr "το μοντέλο %s δεν είναι πλέον διαθέσιμο"
+
+# message added to version 1.3-10
+msgid "The Commander GUI is launched only in interactive sessions"
+msgstr "The Commander GUI κυκλοφορεί μόνο σε διαδραστικές συνεδρίες"
+
+# messages added to version 1.3-15
+# Note: translate these messages only if the corresponding
+#  translated documents are supplied
+# For the following, you must supply a file named Commander-xx.Rd containing
+# a translation of the file Commander.Rd, where xx is the code for your
+# language. The \name{} and \alias{} fields in the .Rd file should both be
+# Commander-xx, where again xx is the language code.
+# Example: "Commander-es"
+# Note: Some translated Commander-xx.Rd files have not been compiling properly. As
+# an alternative, you can supply a PDF file named Commander-xx.pdf, and this will
+# be accessed when the user selects Help -> Commander help.
+# If you supply neither Commander-xx.Rd nor Commander-xx.pdf, then
+# the string "Commander" should not be translated. 
+msgid "Commander"
+msgstr "Commander"
+
+# For the following you must supply a PDF document containing a translation
+# of "Getting-Started-with-the-Rcmdr.pdf". I suggest using a translation
+# including -xx, where xx is the code for your language.
+# Example: "Empezando-con-Rcmdr-es"
+msgid "Getting-Started-with-the-Rcmdr"
+msgstr "Πρώτα-βήματα-με-το-Rcmdr"
+
+# messages added to version 1.4-0
+msgid "Type of Tests"
+msgstr "Τύποι δοκιμασιών"
+
+msgid "Sequential (\"Type I\")"
+msgstr "Διαδοχική (\"Type I\")"
+
+msgid "Partial obeying marginality (\"Type II\")"
+msgstr "Μερική περιθωριοποίηση (\"Type II\")"
+
+msgid "Partial ignoring marginality (\"Type III\")"
+msgstr "Μερική αγνοώηση περιθωριοποίησης (\"τύπου ΙΙΙ\")"
+
+msgid "Type III tests require careful attention to contrast coding."
+msgstr "Δοκιμές τύπου ΙΙΙ απαιτούν ιδιαίτερη προσοχή για να αντίθεση κωδικοποίησης."
+
+msgid "There is no appropriate anova method for a model of this class."
+msgstr "Δεν υπάρχει κατάλληλη μέθοδος anova για ένα μοντέλο αυτής της κατηγορίας."
+
+msgid "Duplicate menu names:"
+msgstr "Πανομοιότυπα ονόματα μενού:"
+
+msgid "Strip chart..."
+msgstr "Διάγραμμα  Strip ..."
+
+msgid "Strip Chart"
+msgstr "Διάγραμμα της Strip"
+
+msgid "Factors (pick zero or more)"
+msgstr "Παράγοντες (πάρτε το μηδέν ή περισσότερα)"
+
+msgid "Duplicate Values"
+msgstr "Διπλές τιμές"
+
+msgid "Stack"
+msgstr "Stack"
+
+msgid "Jitter"
+msgstr "Jitter"
+
+msgid "Remove Rows from Active Data Set"
+msgstr "Αφαίρεση γραμμών από τα ενεργά σύνολα δεδομένων"
+
+msgid "Remove row(s) from active data set..."
+msgstr "Αφαίρεση γραμμή(ών) από τα ενεργά σύνολα δεδομένων..."
+
+msgid "No rows to remove"
+msgstr "Δεν υπάρχουν γραμμές για αφαίρεση"
+
+msgid "Indices or quoted names of row(s) to remove"
+msgstr "Δείκτες εισηγμένοι ή ονόματα της σειράς(ων) για αφαίρεση"
+
+msgid "Akaike Information Criterion (AIC)"
+msgstr "Akaike Πληροφορίες Κριτηρίου (AIC)"
+
+msgid "Bayesian Information Criterion (BIC)"
+msgstr "Bayesian Πληροφορίες Κριτηρίου (BIC)"
+
+msgid "Change working directory..."
+msgstr "Αλλάξτε τον κατάλογο εργασίας..."
+
+msgid "Log x-axis"
+msgstr "Συνδέσθε τον άξονα χ"
+
+msgid "Log y-axis"
+msgstr "Συνδέσθε τον άξονα ψ"
+
+msgid "from text file, clipboard, or URL..."
+msgstr "από το αρχείο κειμένου, πρόχειρο, ή URL..."
+
+msgid "Read Text Data From File, Clipboard, or URL"
+msgstr "Διαβάστε δεδομένα κειμένου από αρχείο, πρόχειρο, ή URL"
+
+msgid "Location of Data File"
+msgstr "Θέση του αρχείου δεδομένων"
+
+msgid "Local file system"
+msgstr "Τοπικό σύστημα αρχείων"
+
+msgid "Clipboard"
+msgstr "Πρόχειρο"
+
+msgid "Internet URL"
+msgstr "URL στο Internet"
+
+msgid "Friedman rank-sum test..."
+msgstr "Δοκιμή Friedman rank-sum..."
+
+msgid "Friedman Rank Sum Test"
+msgstr "Δοκιμή Friedman Rank Sum"
+
+msgid "Repeated-Measures Variables (pick two or more)"
+msgstr "Επαναληπτικές μετρήσεις μεταβλητές (πάρτε δύο ή περισσότερες)"
+
+msgid "Undo"
+msgstr "Αναίρεση"
+
+msgid "Redo"
+msgstr "Επανάληψη"
+
+msgid "ANOVA table..."
+msgstr "Πίνακας ANOVA..."
+
+# messages added to version 1.4-2
+msgid "Location not specified."
+msgstr "Θέση που δεν κατονομάζονται."
+
+# messages added to version 1.5-0
+#     "Models -> Stepwise model selection" dialog and menu item
+msgid "Stepwise model selection..."
+msgstr "Σταδιακή επιλογή μοντέλου..."
+
+msgid "Stepwise Model Selection"
+msgstr "Σταδιακή επιλογή μοντέλου"
+
+msgid "Direction"
+msgstr "Κατεύθυνση"
+
+msgid "backward/forward"
+msgstr "Πίσω/Μπροστά"
+
+msgid "forward/backward"
+msgstr "Μπορστά/Πίσω"
+
+msgid "backward"
+msgstr "Πίσω"
+
+msgid "forward"
+msgstr "Μπροστά"
+
+msgid "Criterion"
+msgstr "Κριτήριο"
+
+msgid "BIC"
+msgstr "BIC"
+
+msgid "AIC"
+msgstr "AIC"
+
+#      "Models -> Subset model selection" dialog and menu item
+msgid "Subset model selection..."
+msgstr "Υποσύνολο επιλογής μοντέλου..."
+
+msgid "Subset Model Selection"
+msgstr "Υποσύνολο επιλογής μοντέλου"
+
+msgid "Criterion for Model Plot"
+msgstr "Κριτήριο για το μοντέλο Plot"
+
+msgid "Mallows Cp"
+msgstr "Mallows Cp"
+
+msgid "Adjusted R-sq."
+msgstr "Προσαρμοσμένη R-sq."
+
+msgid "R-squared"
+msgstr "R-squared"
+
+msgid ""
+"Number of best models\n"
+"of each size:"
+msgstr ""
+"Αριθμός καλύτερων μοντέλων\n"
+"κάθε μεγέθους:"
+
+msgid "Maximum size:"
+msgstr "Μέγιστο μέγεθος:"
+
+#  	"Data -> Merge data sets" menu item and dialog
+msgid "Merge data sets..."
+msgstr "Συγχώνευση σύνολο δεδομένων..."
+
+msgid "Merge Data Sets"
+msgstr "Συγχώνευση συνόλων δεδομένων"
+
+msgid "First Data Set (pick one)"
+msgstr "Πρώτη ομάδα δεδομένων (επιλέξτε μια)"
+
+msgid "Second Data Set (pick one)"
+msgstr "Δεύτερη ομάδα δεδομένων (επιλέξτε μια)"
+
+msgid "Merge rows"
+msgstr "Συγχώνευση γραμμών"
+
+msgid "Merge columns"
+msgstr "Συγχώνευση στήλων"
+
+msgid "Direction of Merge"
+msgstr "Κατεύθυνση συγχώνευσης"
+
+msgid "You cannot merge a data set with itself."
+msgstr "Δεν μπορείτε να συγχωνεύσετε ένα σύνολο δεδομένων με τον εαυτό του."
+
+msgid "Name for merged data set:"
+msgstr "Όνομα για νέα ομάδα δεδομένων:"
+
+msgid ""
+"Merge only common\n"
+"rows or columns"
+msgstr ""
+"Συγχώνευση μόνο κοινών\n"
+" γραμμών ή στηλών"
+
+#  	"Data -> Active data set -> Aggregate variables in active data set" menu item and dialog
+msgid "Aggregate variables in active data set..."
+msgstr "Οι συνολικές μεταβλητές στο ενεργό σύνολο δεδομένων ..."
+
+msgid "Aggregate Observations"
+msgstr "Συγκεντρωτικές παρατηρήσεις"
+
+msgid ""
+"Variables to aggregate\n"
+"(pick one or more)"
+msgstr ""
+"Μεταβλητές να συσσωματώνονται\n"
+"(επιλέξτε ένα ή περισσότερα)"
+
+msgid ""
+"Aggregate by\n"
+"(pick one or more)"
+msgstr ""
+"Συγκεντρωτικά από\n"
+" (επιλέξτε ένα ή περισσότερα)"
+
+msgid "Sum"
+msgstr "Άθροισμα"
+
+msgid "You must select at least one variable to aggregate."
+msgstr "Πρέπει να επιλέξετε τουλάχιστον μία μεταβλητή για τη συγκέντρωση."
+
+msgid "You must select at least one variable to aggregate by."
+msgstr "Πρέπει να επιλέξετε τουλάχιστον μία μεταβλητή για τη συγκέντρωση κατά."
+
+msgid "Variables to aggregate and those to aggregate by must be different."
+msgstr "Οι μεταβλητές που πρέπει να συγκεντρώσουν και εκείνα για το σύνολο της  πρέπει να είναι διαφορετικό."
+
+msgid "Name for aggregated data set:"
+msgstr "Όνομα για συγκεντρωτικά σύνολα δεδομένων:"
+
+#     miscellaneous 
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Όλα τα αρχεία\" {\"*\"}}"
+
+msgid "No data set selected."
+msgstr "Δεν έχουν οριστεί δεδομένα που έχουν επιλεγεί."
+
+msgid "Help on selected data set"
+msgstr "Βοήθεια για επιλεγμένο σύνολο δεδομένων"
+
+msgid "Population mean != mu0"
+msgstr "Μέσος όρος Πληθυσμού != mu0"
+
+msgid "Population proportion != p0"
+msgstr "Μέσος όρος Πληθυσμού != p0"
+
+msgid "Models do not have the same family."
+msgstr "Τα μοντέλα δεν έχουν την ίδια οικογένεια."
+
+msgid ""
+"Pairwise p-values\n"
+"for Pearson or Spearman correlations"
+msgstr ""
+"Pairwise p-values\n"
+"for Pearson or Spearman correlations"
+
+msgid ""
+"The Windows version of the R Commander works best under RGui\n"
+"with the single-document interface (SDI); see ?Commander."
+msgstr ""
+"Η έκδοση των Windows του R διοικητή λειτουργεί καλύτερα κάτω από RGui \n"
+" με το περιβάλλον εργασίας ενός εγγράφου (SDI)? δείτε;Commander."
+
+# messages added to version 1.6-0
+# for Levene test
+msgid "median"
+msgstr "Διάμεσος"
+
+msgid "Center"
+msgstr "Κέντρο"
+
+# for scatterplot
+msgid "Smooth line"
+msgstr "Ομαλή γραμμή"
+
+msgid "Show spread"
+msgstr "Εμφάνιση εξάπλωση"
+
+# for AV plots
+msgid ""
+"Identify points with mouse?\n"
+"Right-click to exit."
+msgstr ""
+"Προσδιορίστε τα σημεία με το ποντίκι;\n"
+" δεξί κλικ για να βγείτε."
+
+# for interactive point identification
+msgid "Use left mouse button to identify points,\n"
+msgstr "Χρησιμοποιήστε το αριστερό πλήκτρο του ποντικιού για να εντοπιστούν τα σημεία,\n"
+
+msgid "right button to exit."
+msgstr "Δεξί πλήκτρο για να εξέλθετε."
+
+msgid "esc key to exit."
+msgstr "Πλήκτρο ESC για να βγείτε."
+
+# menus
+msgid "Start R help system"
+msgstr "Ξεκινήστε R σύστημα βοήθειας"
+
+# messages added to version 1.6-4 
+#  to correct order of file extensions
+msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"Script Files\" {\".R\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+
+# messages added to version 1.7-0
+msgid "Reset"
+msgstr "Επαναφορά"
+
+msgid "Coefficient of Variation"
+msgstr "Συντελεστής μεταβλητότητας"
+
+msgid "Skewness"
+msgstr "Ασυμμετρία(Skewness)"
+
+msgid "Kurtosis"
+msgstr "Κυρτότητα(Kurtosis)"
+
+msgid "Type 1"
+msgstr "Τύπος 1"
+
+msgid "Type 2"
+msgstr "Τύπος 2"
+
+msgid "Type 3"
+msgstr "Τύπος 3"
+
+msgid "Missing Data"
+msgstr "Λείπουν δεδομένα"
+
+msgid "Use complete cases"
+msgstr "Χρησιμοποιήστε πλήρη τις υποθέσεις"
+
+msgid "Use pairwise-complete cases"
+msgstr "Χρήση υπόθεσης pairwise-complete"
+
+# messages added to version 1.7-4
+msgid "Component scores are not available when subset is specified."
+msgstr "Συστατικό αποτελέσματα δεν είναι διαθέσιμο όταν υποσύνολο έχει καθοριστεί."
+
+msgid "Factor scores are not available when subset is specified."
+msgstr "Παράγοντας αποτελέσματα δεν είναι διαθέσιμος όταν υποσύνολο έχει καθοριστεί."
+
+# messages added to version 1.8-0
+msgid "Confirmatory Factor Analysis"
+msgstr "Επιβεβαιωτικής παραγοντικής ανάλυσης"
+
+msgid "Fewer than 2 variables selected to load on factor."
+msgstr "Λιγότερες από 2 μεταβλητές που επιλέγονται για να φορτώσει σε παράγοντα."
+
+msgid "Define factor"
+msgstr "Ορίστε παράγοντα"
+
+msgid ""
+"Select variables\n"
+"loading on factor"
+msgstr ""
+"Επιλέξτε μεταβλητές \n"
+" φόρτωσης επί του παράγοντα"
+
+msgid "Covariance"
+msgstr "Συνδιακύμανση"
+
+msgid "Correlation"
+msgstr "Συσχέτιση"
+
+msgid "Matrix to Analyze"
+msgstr "Matrix για να αναλύσει"
+
+msgid "Correlated"
+msgstr "Συσχετίζεται"
+
+msgid "Orthogonal"
+msgstr "Ορθογώνια"
+
+msgid "Factor Correlations"
+msgstr "Παράγοντας συσχετίσεων"
+
+msgid "There are too many factors."
+msgstr "Υπάρχουν πάρα πολλοί παράγοντες."
+
+msgid "Identifying Constraints"
+msgstr "Προσδιορίζοντας περιορισμούς"
+
+msgid "Factor variances set to 1"
+msgstr "Ο παράγοντας διακύμανσης ορίζεται σε 1"
+
+msgid "First loading on each factor set to 1"
+msgstr "Πρώτη φόρτιση σε κάθε συντελεστή ορίζεται σε 1"
+
+msgid "Confirmatory factor analysis..."
+msgstr "επιβεβαίωσης παραγοντικής ανάλυσης..."
+
+# messages added to version 1.8-1
+# the following messages were omitted from version 1.8-0
+msgid "Robust standard errors"
+msgstr "Ανθεκτικά τυπικά σφάλματα"
+
+msgid "No factors defined."
+msgstr "Δεν υπάρχουν παράγοντες που ορίζονται."
+
+# message added to version 1.8-2
+msgid "Default-font size (points)"
+msgstr "Προκαθορισμένο μέγεθος γραμματοσειράς (μονάδες)"
+
+# message added to version 1.8-4
+msgid "data set edit error."
+msgstr "Λάθος επεξεργασία δεδομένων ."
+
+# messages added to version 1.9-0
+msgid "Identify Outliers"
+msgstr "Προσδιορίστε τις ακραίες τιμές"
+
+msgid "Automatically"
+msgstr "Αυτόματα"
+
+msgid "With mouse"
+msgstr "Με το ποντίκι"
+
+msgid "Width"
+msgstr "Πλάτος"
+
+msgid "Height"
+msgstr "Ύψος"
+
+msgid "[disabled]"
+msgstr "[απενεργοποιημένο]"
+
+msgid "inches"
+msgstr "ίντσες"
+
+msgid "inch"
+msgstr "ίντσα"
+
+msgid "cm"
+msgstr "cm"
+
+msgid "pixels"
+msgstr "pixels"
+
+msgid "Units"
+msgstr "Μονάδες"
+
+msgid "Fixed aspect ratio (height:width)"
+msgstr "Σταθερή αναλογία διαστάσεων (ύψος:πλάτος)"
+
+msgid "Resolution"
+msgstr "Ανάλυση"
+
+msgid "from SAS xport file..."
+msgstr "από το αρχείο SAS xport..."
+
+msgid "Data Set Name"
+msgstr "Όνομα συνόλου δεδομένων"
+
+msgid "Select Dataset"
+msgstr "Επιλέξτε δεδομένα"
+
+msgid "Datasets in file (pick one)"
+msgstr "Τα δεδομένα στο αρχείο (επιλέξτε ένα)"
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+
+msgid ""
+"Convert variable names\n"
+"to lower case"
+msgstr ""
+"Μετατροπή τα ονόματα των μεταβλητών\n"
+"σε χαμηλότερο επίπεδο"
+
+msgid "from Excel file..."
+msgstr "από το αρχείο Excel..."
+
+msgid "Import Excel Data Set"
+msgstr "Εισαγωγή δεδομένων Excel"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"Αρχείο MS Excel\" {\".xls\" \".XLS\"}}"
+
+msgid "Interquartile Range"
+msgstr "Ενδοτεταρτημοριακό Εύρος"
+
+msgid "Interquartile range"
+msgstr "Ενδοτεταρτημοριακό εύρος"
+
+msgid "Lines"
+msgstr "Γραμμές"
+
+msgid "Choose at least one of points or lines."
+msgstr "Επιλέξτε τουλάχιστον ένα από τα σημεία ή γραμμές."
+
+msgid "Plot Type (one or both)"
+msgstr "Τύπος γραφήματος (ένα ή και τα δύο)"
+
+# messages added to version 1.9-1 (missing from 1.9-0)
+msgid "Plot legend"
+msgstr "Γράφημα legend"
+
+# the following were missing from Xyplot()
+msgid "Conditions '|' (pick zero or more)"
+msgstr "Προϋποθέσεις '|' (πάρε μηδέν ή παραπάνω)"
+
+msgid "Groups 'groups=' (pick zero or more)"
+msgstr "Ομάδες 'ομάδες=' (pick zero or more)"
+
+msgid "Different panels for different y ~ x combinations"
+msgstr "Διαφορετικούς πίνακες για διαφορετικούς συνδυασμούς y ~ x"
+
+msgid "Layout"
+msgstr "Διάταξη"
+
+msgid "number of columns:"
+msgstr "αριθμός των στηλών:"
+
+msgid "number of rows:"
+msgstr "αριθμό των γραμμών:"
+
+# messages added to version 2.0-0
+msgid "Plot Options"
+msgstr "Επιλογές γραφημάτων"
+
+msgid "Plot Labels"
+msgstr "Ετικέτες γραφημάτων"
+
+msgid "Graph title"
+msgstr "Τίτλος του γραφήματος"
+
+msgid "Plot Labels and Points"
+msgstr "Ετικέτες γραφημάτων και Σημεία"
+
+msgid "Apply"
+msgstr "Εφαρμογή"
+
+msgid "Pairwise p-values"
+msgstr "Pairwise p-values"
+
+msgid "Observations to Use"
+msgstr "Παρατηρήσεις για χρήση"
+
+msgid "Complete observations"
+msgstr "Συμπληρώστε παρατηρήσεις"
+
+msgid "Pairwise-complete observations"
+msgstr "Pairwise-Συμπληρώστε παρατηρήσεις"
+
+msgid "R Script"
+msgstr "Σενάριο R"
+
+msgid "Output"
+msgstr "Εξαγωγή"
+
+msgid "R Commander website"
+msgstr "Ιστότοπος R Commander"
+
+msgid "R website"
+msgstr "Ιστότοπος R"
+
+msgid "Using R Markdown"
+msgstr "Χρήση R Markdown"
+
+msgid "Table"
+msgstr "Πίνακας"
+
+# point identification in graphs (additional messages)
+msgid "Interactively with mouse"
+msgstr "Διαδραστικά με το ποντίκι"
+
+msgid "Do not identify"
+msgstr "Δεν το εντοπίζει"
+
+msgid "number of points to identify must be an integer"
+msgstr "Ο αριθμός των σημείων για τον προσδιορισμό πρέπει να είναι ακέραιος"
+
+msgid "Number of points to identify"
+msgstr "Ο αριθμός των σημείων για τον εντοπισμό"
+
+msgid "Added-Variable Plots"
+msgstr "Added-Variable Plots"
+
+msgid "Component+Residual Plots"
+msgstr "Γραφήματα Στοιχείων+Καταλοίπων"
+
+msgid "Influence Plot"
+msgstr "Γράφημα Επίδρασης"
+
+# support for R Markdown and knitr
+msgid "Generate HTML report"
+msgstr "Δημιουργία αναφοράς HTML"
+
+msgid "Generate PDF report"
+msgstr "Δημιουργία αναφοράς PDF"
+
+msgid "R Markdown"
+msgstr "R Markdown"
+
+msgid "knitr Document"
+msgstr "Έγγραφο knitr"
+
+msgid "Open R Markdown file..."
+msgstr "Άνοιγμα αρχείου R Markdown..."
+
+msgid "Open knitr file..."
+msgstr "Άνοιγμα αρχείου knitr..."
+
+msgid "Save R Markdown file..."
+msgstr "Αποθήκευση αρχείου R Markdown..."
+
+msgid "Save knitr file..."
+msgstr "Αποθήκευση αρχείου knitr..."
+
+msgid "Save knitr file?"
+msgstr "Αποθήκευση αρχείου knitr;"
+
+msgid "Save current Rmd file?"
+msgstr "Αποθήκευση τρέχων αρχείου Rmd;"
+
+msgid "Save current Rnw file?"
+msgstr "Αποθήκευση τρέχων αρχείου Rnw;"
+
+msgid "Save R Markdown file as..."
+msgstr "Αποθήκευση τρέχων αρχείου R Markdown..."
+
+msgid "Save knitr file as..."
+msgstr "Αποθήκευση αρχείου knitr ως..."
+
+msgid "R Markdown file saved to"
+msgstr "Το αρχείο R Markdown αποθηκεύτηκε στο"
+
+msgid "knitr file saved to"
+msgstr "το αρχείο knitr αποθηκεύτηκε στο"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"Τα αρχεία R Markdown\" {\".Rmd\" \".rmd\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"Τα αρχεία knitr\" {\".Rmd\" \".rmd\"}}"
+
+msgid ""
+"Delete previously created knitr\n"
+"graphics files (recommended)?"
+msgstr ""
+"Διαγραφή προηγούμενου δημιουργημένου knitr\n"
+"αρχεία γραφικών (συνιστάται);"
+
+# setting and saving options
+msgid "Ask to exit Commander"
+msgstr "Ζητήστε να βγείτε απο τον Commander"
+
+msgid "Ask to save documents on exit"
+msgstr "Ζητήστε να αποθηκεύσετε έγγραφα κατά την έξοδο"
+
+msgid "Quit R on exit"
+msgstr "Παραίτηση R στην έξοδο"
+
+msgid "Number messages"
+msgstr "Αριθμός μηνυμάτων"
+
+msgid "Retain messages"
+msgstr "Διατήρηση μηνυμάτων"
+
+msgid "Use R Markown"
+msgstr "Χρήση R Markdown"
+
+msgid "Use knitr"
+msgstr "Χρήση knitr"
+
+msgid "Select file"
+msgstr "Επιλογή αρχείου"
+
+msgid "R Markdown template file"
+msgstr "Πρότυπο αρχείο R Markdown"
+
+msgid "R knitr template file"
+msgstr "Πρότυπο αρχείο R Markdown R knitr"
+
+msgid "Suppress icon images"
+msgstr "Απόκρυψη εικόνων icon"
+
+msgid "Retain dialog selections"
+msgstr "Διατήρηση επιλογών διαλόγου"
+
+msgid "Use rgl package"
+msgstr "Χρήση πακέτο rgl"
+
+msgid "Dialog text font size (points)"
+msgstr "Μέγεθος γραμματοσειράς κειμένου διαλόγου (μονάδες)"
+
+msgid "Script and output font size (points)"
+msgstr "Μέγεθος γραμματοσειράς σεναρίου και αποτελέσματος (μονάδες)"
+
+msgid "Dialog font"
+msgstr "Γραμματοσειρά διαλόγου"
+
+msgid "Script and output font"
+msgstr "Σενάριο και γραμματοσειρά αποτελέσματος"
+
+msgid "Script text color"
+msgstr "Χρώμα του κειμένου σεναρίου"
+
+msgid "Command text color"
+msgstr "Χρώμα του κειμένου Command"
+
+msgid "Output text color"
+msgstr "Χρώμα του κειμένου Εξόδου"
+
+msgid "Error text color"
+msgstr "Χρώμα του κειμένου Σφάλματος"
+
+msgid "Warning text color"
+msgstr "Χρώμα του κειμένου Προειδοποίησης"
+
+msgid "Dialog subtitles text color"
+msgstr "Χρώμα του κειμένου διαλόγου υπότιτλων"
+
+msgid "Script window width (characters)"
+msgstr "Πλάτος του παραθύρου Script (χαρακτήρες)"
+
+msgid "Script window height (lines)"
+msgstr "Ύψος του παραθύρου Script (γραμμές)"
+
+msgid "Output window height (lines)"
+msgstr "Ύψος του παραθύρου εξόδου (γραμμές)"
+
+msgid "Messages window height (lines)"
+msgstr "Ύψος του παραθύρου Μηνύματα (γραμμές)"
+
+msgid "Fonts"
+msgstr "Γραμματοσειρές"
+
+msgid "Other Options"
+msgstr "Άλλες επιλογές"
+
+msgid "Save Commander Options"
+msgstr "Αποθήκευση Επιλογών Commander"
+
+msgid "R Profile saved to"
+msgstr "Το R Προφίλ αποθηκεύεται στο"
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr "Οι ακόλουθες εντολές θα αποθηκευτούν στο αρχείο .Rprofile."
+
+msgid "You may edit this file before saving it."
+msgstr "Μπορείτε να επεξεργαστείτε αυτό το αρχείο πριν το αποθηκεύσετε."
+
+msgid "Save Rcmdr options..."
+msgstr "Αποθήκευση επιλογών Rcmdr..."
+
+# density estimate dialog
+msgid "Nonparametric Density Estimate"
+msgstr "Μη παραμετρική Εκτίμηση Πυκνότητας"
+
+msgid "Gaussian"
+msgstr "Gaussian"
+
+msgid "Epanechnikov"
+msgstr "Epanechnikov"
+
+msgid "Tukey biweight"
+msgstr "Tukey biweight"
+
+msgid "Kernel Function"
+msgstr "Λειτουργία Πυρήνα"
+
+msgid "Bandwidth"
+msgstr "Εύρος ζώνης(Bandwidth)"
+
+msgid "Multiply bandwidth by"
+msgstr "Πολλαπλό εύρος ζώνης(Multiply bandwidth by)"
+
+msgid "Density estimate..."
+msgstr "Εκτίμηση Πυκνότητας..."
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr "Το Εύρος Ζώνης (Bandwidth) πρέπει να είναι <Αυτόματο> ή ένας θετικός αριθμός"
+
+# index plot dialog
+msgid "Style of plot"
+msgstr "Στυλ Γραφήματος"
+
+# export data set dialog
+msgid "Write variable names"
+msgstr "Γράψτε τα ονόματα των μεταβλητών"
+
+msgid "Write row names"
+msgstr "Γράψτε τα ονόματα των γραμμών"
+
+msgid "Quotes around character values"
+msgstr "Εισαγωγικά γύρω από την τιμή του χαρακτήρα"
+
+# numerical summaries dialog
+msgid "Quantiles:"
+msgstr "Ποσοστημόρια:"
+
+# for splines and polynomials in model formulas
+msgid "spline requires a numeric variable"
+msgstr "Η καμπύλη(spline) απαιτεί μια αριθμητική μεταβλητή"
+
+msgid "cannot select more than one variable"
+msgstr "Δεν μπορείτε να επιλέξετε περισσότερες από μία μεταβλητές"
+
+msgid "polynomial requires a numeric variable"
+msgstr "Το πολυώνυμο απαιτεί μια αριθμητική μεταβλητή"
+
+msgid "B-spline\n"
+msgstr "B-spline\n"
+
+msgid ""
+"natural\n"
+"spline"
+msgstr ""
+"natural\n"
+"spline"
+
+msgid ""
+"orthogonal\n"
+"polynomial"
+msgstr ""
+"Ορθογώνιο\n"
+"πολυώνυμο"
+
+msgid ""
+"raw\n"
+"polynomial"
+msgstr ""
+"γραμμή\n"
+"πολυώνυμο"
+
+msgid "Model Formula"
+msgstr "Τύπος Μοντέλου"
+
+msgid "Operators (click to formula):"
+msgstr "Operators (κλίκ στον τύπο):"
+
+msgid ""
+"Splines/Polynomials:\n"
+"(select variable and click)"
+msgstr ""
+"Splines/Πολυώνυμα:\n"
+"(επιλέξτε μεταβλητή και κάντε κλικ)"
+
+msgid "df for splines:"
+msgstr "df for splines:"
+
+msgid "deg. for polynomials:"
+msgstr "deg. για Πολυώνυμα:"
+
+# messages added to version 2.0-1
+# messages related to editing/processing R Markdown and knitr documents
+msgid "R Commander Editor"
+msgstr "Επεξεργαστής R Commander"
+
+msgid "Edit R Markdown document"
+msgstr "Επεξεργασία εγγράφου R Markdown"
+
+msgid "Edit knitr document"
+msgstr "Επεξεργασία εγγράφου knitr"
+
+msgid "Remove last Markdown command block"
+msgstr "Αφαίρεση τελευταίου Markdown μπλοκ εντολών"
+
+msgid "Remove last knitr command block"
+msgstr "Αφαίρεση τελευταίου knitr μπλοκ εντολών"
+
+msgid "Remove last command block"
+msgstr "Κατάργηση τελευταίο μπλοκ εντολών"
+
+msgid "Exit editor"
+msgstr "Έξοδος επεξεργαστή"
+
+msgid "Editor help"
+msgstr "Βοήθεια Επεξεργαστή"
+
+msgid ""
+"Delete previously created R Markdown\n"
+"graphics files (recommended)?"
+msgstr ""
+"Διαγραφή προηγούμενου δημιουργημένου αρχείου R Markdown\n"
+"αρχεία γραφικών (συνιστάται);"
+
+msgid "Discard edits?"
+msgstr "Απόρριψη αλλαγών;"
+
+# support for back-to-back stem-and-leaf displays
+msgid "Plot back-to-back by:"
+msgstr "Γράφημα back-to-back από:"
+
+msgid "Plot back-to-back by"
+msgstr "Γράφημα back-to-back από"
+
+# messages added for version 2.1-0
+# the next two messages no longer needed and can be disregarded if not already translated
+# msgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
+# msgstr ""
+# msgid "the car package is missing and should be installed\n  many features will not work"
+# msgstr ""
+# for numerical summaries dialog
+msgid "Standard Error of Mean"
+msgstr "Τυπικό σφάλμα των Μέσων όρων"
+
+# for CFA dialog
+msgid "Fit Indices"
+msgstr "Δείκτες Fit"
+
+# for read Excel file dialog
+msgid "Variable names in first row of spreadsheet"
+msgstr "Τα ονόματα των μεταβλητών στη πρώτη γραμμή του υπολογιστικού φύλλου"
+
+msgid "Row names in first column of spreadsheet"
+msgstr "Τα ονόματα των γραμμών στην πρώτη στήλη του υπολογιστικού φύλλου"
+
+# for selecting weights in LM and GLM dialogs
+msgid "<no variable selected>"
+msgstr "<καμία μεταβλητή δεν έχει επιλεγεί>"
+
+msgid "Weights"
+msgstr "Βάρη"
+
+# new effect-plots dialog
+msgid "Model Effect Plots"
+msgstr "Γραφήματα Μοντέλου Effect"
+
+msgid "Plot All High-Order Effects?"
+msgstr "Γράφημα όλων των High-Order Effects;"
+
+msgid "Predictors (pick one or more)"
+msgstr "Προγνωστικοί παράγοντες (επιλέξτε ένα ή παραπάνω)"
+
+msgid ""
+"You must select one or more predictors\n"
+" or plot all high-order effects."
+msgstr ""
+"Πρέπει να επιλέξετε έναν ή περισσότερους παράγοντες πρόβλεψης\n"
+" ή να γίνει ένα γράφημα με όλα τα high-order effects."
+
+msgid ""
+"To plot partial residuals,\n"
+" there must be a least one numeric predictor."
+msgstr ""
+"Για να σχεδιάσετε μερικά κατάλοιπα,\n"
+" πρέπει να υπάρχει τουλάχιστον ένα αριθμητικό προγνωστικό."
+
+msgid "Plot partial residuals"
+msgstr "Γράφημα μερικών καταλοίπων"
+
+msgid "Style of Graph"
+msgstr "Στυλ γραφήματος"
+
+msgid "Stacked areas"
+msgstr "Στοιβαγμένες περιοχές"
+
+msgid "Lines with confidence bands"
+msgstr "Γραμμές με τα διαστήματα εμπιστοσύνης"
+
+# new one-sample Wilcoxon test dialog
+msgid "Single-Sample Wilcoxon Test"
+msgstr "Single-Sample Wilcoxon Test"
+
+msgid "Single-sample Wilcoxon test..."
+msgstr "Single-sample Wilcoxon test..."
+
+# new drop unused factor levels dialog
+msgid "Drop Unused Factor Levels"
+msgstr "Διαγράψτε μη χρησιμοποιηθέντα επίπεδα παραγόντων"
+
+msgid "Factors(s) to drop levels (pick one or more)"
+msgstr "Παράγοντες(s) για να ρίξετε τα επίπεδα (επιλέξτε έναν ή παραπάνω)"
+
+msgid ""
+"Drop unused factor levels\n"
+"Please confirm."
+msgstr ""
+"Διαγράψτε μη χρησιμοποιηθέντα επίπεδα παραγόντων\n"
+"Παρακαλώ επιβεβαιώστε."
+
+msgid "Drop unused factor levels..."
+msgstr "Διαγράψτε μη χρησιμοποιηθέντα επίπεδα παραγόντων..."
+
+msgid "all factors"
+msgstr "όλοι οι παράγοντες"
+
+# messages related to sandwich variance estimator
+msgid "Linear Model Summary"
+msgstr "Περίληψη Γραμμικού Μοντέλου"
+
+msgid "Sandwich estimator"
+msgstr "Εκτιμητής Sandwich"
+
+msgid ""
+"Use sandwich estimator of    \n"
+"coefficient standard errors"
+msgstr ""
+"Χρήση εκτιμητή sandwich του    \n"
+"συντελεστή τυπικού σφάλματος"
+
+msgid "sandwich covariance matrix unavailable with type I tests"
+msgstr "Η μήτρα συνδιακύμανσης σάντουιτς δεν είναι διαθέσιμη με τέστ τύπου Ι"
+
+# messages related to ttk theme selection
+msgid "non-existent theme"
+msgstr "Ανύπαρκτο θέμα"
+
+msgid "theme set to"
+msgstr "Το θέμα θα οριστεί σε"
+
+# modified message
+msgid "Restart R Commander"
+msgstr "Επανεκκίνηση R Commander"
+
+# formula-help button
+msgid ""
+"Model formula\n"
+"help"
+msgstr ""
+"Τύπος μοντέλου\n"
+"βοήθεια"
+
+# messages added for version 2.1-1
+# messages for the new dataset editor
+msgid "Data Editor"
+msgstr "Επεξεργασία δεδομένων"
+
+msgid "Delete current row"
+msgstr "Διαγραφή τρέχουσας γραμμής"
+
+msgid "Delete current column"
+msgstr "Διαγραφή τρέχουσας στήλης"
+
+msgid "Delete cell"
+msgstr "Διαγραφή κελιού"
+
+msgid "Cut cell"
+msgstr "Αποκοπή κελιού"
+
+msgid "Copy cell"
+msgstr "Αντιγραφή κελιού"
+
+msgid "Paste cell"
+msgstr "Επικόλληση κελιού"
+
+msgid "Exit and save"
+msgstr "Έξοδος και αποθήκευση"
+
+msgid "Add row"
+msgstr "Πρόσθεση γραμμής"
+
+msgid "Add column"
+msgstr "Πρόσθεση στήλης"
+
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Διαχείριση Mac OS X app nap για R.app..."
+
+msgid "Mac OS X app nap for R.app"
+msgstr "Mac OS X app nap για R.app"
+
+msgid "Set app nap"
+msgstr "Ορίστε app nap"
+
+msgid "off (recommended)"
+msgstr "Κλειστό (συνιστάται)"
+
+msgid "on"
+msgstr "Ανοιχτό"
+
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr "Ορίστε την γεννήτρια τυχαίων αριθμών..."
+
+msgid "Set Random Number Generator Seed"
+msgstr "Ορίστε την γεννήτρια τυχαίων αριθμών"
+
+# messages added for version 2.2-0
+# messages that were inadvertently missing in previous versions
+msgid "The following variable names are not valid:\n"
+msgstr "Τα ονόματα των ακόλουθων μεταβλητών δεν είναι έγκυρα:\n"
+
+msgid "Save R Markdown file?"
+msgstr "Αποθήκευση αρχείου R Markdown;"
+
+msgid "Theme (pick one)"
+msgstr "Θέμα (επιλέξτε ένα)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "Οι τιμές πρέπει να είναι αριθμοί."
+
+msgid "ANOVA Table"
+msgstr "Πίνακας ANOVA"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr "Δεν υπάρχει κατάλληλο outlierTest για ένα μοντέλο αυτής της τάξης."
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Τέστ κανονικότητας Shapiro-Wilk"
+
+msgid "Hypothesis Test"
+msgstr "Υποθετικά Τέστ"
+
+msgid "Load Plug-ins"
+msgstr "Φόρτωση Plug-ins"
+
+# messages added for version 2.2-0
+# for report generation
+msgid "Generate report"
+msgstr "Δημιουργία αναφοράς"
+
+msgid "Install Auxiliary Software"
+msgstr "Εγκατάσταση Βοηθητικό Λογισμικό(Auxiliary Software)"
+
+msgid "Install auxiliary software..."
+msgstr "Εγκατάσταση Βοηθητικό Λογισμικό(Auxiliary Software)..."
+
+msgid "(already installed)"
+msgstr "(ήδη εγκατεστημένο)"
+
+msgid "LaTeX"
+msgstr "LaTeX"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "Λογισμικό για την εγκατάσταση"
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+"Παρακαλώ διαβάστε την βοήθεια γι'αυτό το διάλογο\n"
+"πριν την εγκατάσταση του βοηθητικού λογισμικού."
+
+msgid "Select Output Format"
+msgstr "Επιλέξτε Μορφή Εξόδου"
+
+msgid ".html (web page)"
+msgstr ".html (ιστοσελίδα)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (Αρχείο PDF)"
+
+msgid ".docx (Word file)"
+msgstr ".docx (Αρχείο Word)"
+
+msgid "HTML file written to:"
+msgstr "Αρχείο HTML γράψτε στο:"
+
+msgid "PDF file written to:"
+msgstr "Αρχείο PDF γράψτε στο:"
+
+msgid "Word file written to:"
+msgstr "Αρχείο Word γράψτε στο:"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+"Τα επίπεδα για ελλείψεις πρέπει να είναι αριθμητικές τιμές\n"
+" διαχωρισμένες με κενά ή κόμματα."
+
+msgid "Plot concentration ellipse(s)"
+msgstr "Γράφημα έλλειψη συγκέντρωσης"
+
+msgid "Legend Position"
+msgstr "Θέση Legend"
+
+msgid "Above plot"
+msgstr "Παραπάνω γράφημα"
+
+msgid "Top left"
+msgstr "Πάνω αριστερά"
+
+msgid "Top right"
+msgstr "Πάνω δεξιά"
+
+msgid "Bottom left"
+msgstr "Κάτω αριστερά"
+
+msgid "Bottom right"
+msgstr "Κάτω δεξιά"
+
+# additions to bargraph dialog
+msgid "Style of Group Bars"
+msgstr "Στυλ Μπάρας"
+
+msgid "Divided (stacked)"
+msgstr "Divided (στοιβαγμένα)"
+
+msgid "Side-by-side (parallel)"
+msgstr "Side-by-side (παράλληλα)"
+
+msgid "Position of Legend"
+msgstr "Θέση του Legend"
+
+msgid "Left"
+msgstr "Αριστερά"
+
+msgid "Right"
+msgstr "Δεξιά"
+
+msgid "plotting and grouping variables must be different"
+msgstr "Σχεδίαση και ομαδοποίηση των μεταβλητών πρέπει να είναι διαφορετικά"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "Dot Plot"
+
+msgid "Bin variable"
+msgstr "Bin variable"
+
+msgid "Dot plot..."
+msgstr "Dot plot..."
+
+# for reading Excel files (new dialog)
+msgid "Convert character data to factors"
+msgstr "Μετατροπή χαρακτήρων δεδομένων σε παράγοντες"
+
+msgid "<empty cell>"
+msgstr "<κενό κελί>"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+msgstr "{\"Όλα τα αρχεία\" {\"*\"}} {\"Αρχείο MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+
+# corrected messages in version 2.2-1
+# The following messages had trailing blanks. These messages were deleted from
+#   their previous locations in this .pot file and transferred here in corrected form,
+#   with the trailing blanks removed.
+# I suggest that you likewise delete the earlier versions of these messages from 
+#   your .po file and provide corrected translations here, without trailing blanks.
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group"
+msgstr ""
+"Ο αριθμός των σημείων για τον εντοπισμό \n"
+"σε κάθε πάνελ και ομάδα"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix"
+msgstr ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix   "
+
+msgid "Concentration levels:"
+msgstr "Επίπεδα συγκέντρωσης:"
+
+# corrected messages in version 2.2-1
+# The following messages had trailing blanks. These messages were deleted from
+#   their previous locations in this .pot file and transferred here in corrected form,
+#   with the trailing blanks removed.
+# I suggest that you likewise delete the earlier versions of these messages from 
+#   your .po file and provide corrected translations here, without trailing blanks.
+
