@@ -1070,7 +1070,7 @@ Bootstrap <- function () {
         return()
     defaults <- list (initial.level = "0.95", initial.samples="999", initial.type="bca", initial.method="case")
     dialog.values <- getDialog ("Bootstrap", defaults)
-    initializeDialog(title = gettextRcmdr("Bootstrap Confidence Intervals"))
+    initializeDialog(title = gettextRcmdr("Bootstrap"))
     tkgrid(labelRcmdr(top, text = gettextRcmdr("Bootstrap Confidence Intervals for Coefficients"), 
                       fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
     onOK <- function() {
@@ -1115,10 +1115,10 @@ Bootstrap <- function () {
     bootstrapSamples <- tclVar(dialog.values$initial.samples)
     samplesField <- ttkentry(samplesFrame, width = "6", 
                              textvariable = bootstrapSamples)
-    tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence level: ")), 
+    tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence level:")), 
            confidenceField, sticky = "w")
     tkgrid(confidenceFrame, sticky = "w")
-    tkgrid(labelRcmdr(samplesFrame, text = gettextRcmdr("Number of bootstrap samples: ")), 
+    tkgrid(labelRcmdr(samplesFrame, text = gettextRcmdr("Number of bootstrap samples:")), 
            samplesField, sticky = "w")
     tkgrid(samplesFrame, sticky = "w")
     radioButtons(name="type", buttons = c("bca", "norm", "basic", "perc"), initialValue=dialog.values$initial.type,
@@ -1142,7 +1142,7 @@ DeltaMethodConfInt <- function () {
     defaults <- list(initial.level="0.95", initial.expression="")
     dialog.values <- getDialog ("DeltaMethodConfInt", defaults)
     initializeDialog(title = gettextRcmdr("Delta Method"))
-    tkgrid(labelRcmdr(top, text = gettextRcmdr("Confidence Intervals by the Delta Method\n"), 
+    tkgrid(labelRcmdr(top, text = paste0(gettextRcmdr("Confidence Interval by the Delta Method"), "\n"), 
                       fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
     onOK <- function() {
         opts <- options(warn = -1)
@@ -1180,11 +1180,10 @@ DeltaMethodConfInt <- function () {
     tkgrid(table, tableYscroll, sticky="ns")
     tkgrid(tableFrame, sticky="w")
     tkgrid(labelRcmdr(top, text=""))
-    
     confidenceFrame <- tkframe(top)
     confidenceLevel <- tclVar(dialog.values$initial.level)
     confidenceField <- ttkentry(confidenceFrame, width = "6", textvariable = confidenceLevel)
-    tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence level: ")), 
+    tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence level:")), 
            confidenceField, sticky = "w")
     tkgrid(confidenceFrame, sticky = "w")
     expressionFrame <- tkframe(top)
@@ -1193,15 +1192,15 @@ DeltaMethodConfInt <- function () {
     expressionXscroll <- ttkscrollbar(expressionFrame,
                                       orient="horizontal", command=function(...) tkxview(expressionBox, ...))
     tkconfigure(expressionBox, xscrollcommand=function(...) tkset(expressionXscroll, ...))
-    tkgrid(labelRcmdr(expressionFrame, text=paste(gettextRcmdr("\nExpression to evaluate; use parameter names:"),
+    tkgrid(labelRcmdr(expressionFrame, text=paste0("\n", gettextRcmdr("Expression to evaluate; use parameter names:"), " ",
                                                   if (p <= 3) paste(nms, collapse=", ") 
                                                   else paste0(paste(nms[1:3], collapse=", "), ", ..."))), 
            sticky="w")
     tkgrid(expressionBox, sticky="w")
     tkgrid(expressionXscroll, sticky="ew")
     tkgrid(expressionFrame, sticky="nw")
-    
     tkgrid(buttonsFrame, sticky = "w")
     dialogSuffix()
+    tkfocus(expressionBox)
 }
 

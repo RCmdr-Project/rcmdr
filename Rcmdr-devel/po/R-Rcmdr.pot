@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.3-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2016-03-31 10:30:00\n"
+"POT-Creation-Date: 2016-04-01 14:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4672,4 +4672,59 @@ msgid ".rtf (rich text file)"
 msgstr ""
 
 msgid "Rich text file written to:"
+msgstr ""
+
+ # bootstrapping dialog
+ 
+msgid "Bootstrap confidence intervals..."
+msgstr ""
+
+msgid "Bootstrap"
+msgstr ""
+
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr ""
+
+msgid "Number of bootstrap samples:"
+msgstr ""
+
+msgid "Number of samples must be a positive integer."
+msgstr ""
+
+msgid "Type of Confidence Intervals"
+msgstr ""
+
+msgid "BCa (adjusted percentile)"
+msgstr ""
+
+msgid "Normal theory"
+msgstr ""
+
+msgid "Basic bootstrap"
+msgstr ""
+
+msgid "Percentile"
+msgstr ""
+
+msgid "Resampling Method"
+msgstr ""
+
+msgid "Case resampling"
+msgstr ""
+
+msgid "Residual resampling"
+msgstr ""
+
+ # delta method dialog
+ 
+msgid "Delta method confidence interval..."
+msgstr ""
+
+msgid "Delta Method"
+msgstr ""
+
+msgid "Confidence Interval by the Delta Method"
+msgstr ""
+
+msgid "Expression to evaluate; use parameter names:"
 msgstr ""

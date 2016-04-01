@@ -199,7 +199,7 @@
     item    modelsMenu      separator       ""                                              ""                          ""          ""
     item    modelsMenu      command         "Confidence intervals..."                       confidenceIntervals         "activeModelP()" "packageAvailable('MASS') && packageAvailable('abind')"
     item    modelsMenu      command         "Bootstrap confidence intervals..."             Bootstrap                   "activeModelP() && (glmP() || lmP())" "packageAvailable('boot')"
-    item    modelsMenu      command         "Delta method confidence intervals..."          DeltaMethodConfInt          "activeModelP() && (!multinomP())" ""
+    item    modelsMenu      command         "Delta method confidence interval..."           DeltaMethodConfInt          "activeModelP() && (!multinomP())" ""
     menu    hypothesisMenu  modelsMenu      ""                                              ""                          ""          ""
     item    modelsMenu      cascade         "Hypothesis tests"                              hypothesisMenu              ""          ""
     item    hypothesisMenu  command         "ANOVA table..."                                anovaTable                  "activeModelP()" "packageAvailable('car')"
