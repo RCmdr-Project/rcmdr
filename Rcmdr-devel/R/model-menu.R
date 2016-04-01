@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2015-09-04 by J. Fox
+# last modified 2016-04-01 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -1064,14 +1064,144 @@ effectPlots <- function () {
   dialogSuffix()
 }
 
-# effectPlots <- function(){
-#   Library("effects")
-#   .activeModel <- ActiveModel()
-#   if (is.null(.activeModel) || !checkMethod("Effect", .activeModel)) return()
-#   doItAndPrint('trellis.device(theme="col.whitebg")')
-#   command <- paste("plot(allEffects(", .activeModel, "), ask=FALSE)", sep="")
-#   justDoIt(command)
-#   logger(command)
-#   activateMenus()
-#   NULL
-# }
+Bootstrap <- function () {
+    .activeModel <- ActiveModel()
+    if (is.null(.activeModel)) 
+        return()
+    defaults <- list (initial.level = "0.95", initial.samples="999", initial.type="bca", initial.method="case")
+    dialog.values <- getDialog ("Bootstrap", defaults)
+    initializeDialog(title = gettextRcmdr("Bootstrap Confidence Intervals"))
+    tkgrid(labelRcmdr(top, text = gettextRcmdr("Bootstrap Confidence Intervals for Coefficients"), 
+                      fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
+    onOK <- function() {
+        opts <- options(warn = -1)
+        on.exit(options(opts))
+        level <- tclvalue(confidenceLevel)
+        level <- as.numeric(level)
+        closeDialog()
+        if ((is.na(level)) || !is.numeric(level) || (level < 0) || (level > 1)) {
+            Message(gettextRcmdr("Confidence level must be a number between 0 and 1."),
+                    type="error")
+            Bootstrap()
+            return()
+        }
+        samples <- tclvalue(bootstrapSamples)
+        samples <- as.numeric(samples)
+        if ((is.na(samples)) || !is.numeric(samples) || (samples < 0) || (samples != floor(samples))) {
+            Message(gettextRcmdr("Number of samples must be a positive integer."),
+                    type="error")
+            Bootstrap()
+            return()
+        }
+        method <- if (lm){
+            tclvalue(methodVariable)
+        }
+        else defaults$initial.method
+        type <- tclvalue(typeVariable)
+        putDialog ("Bootstrap", list (initial.level = level, initial.samples = samples, initial.type=type, initial.method = method))
+        command <- if (lm) 
+            paste0('confint(Boot(', .activeModel, ', R=', samples, ', method="', method, '"), level=', level, 
+                   ', type="', type, '")' )
+        else paste0("confint(Boot(", .activeModel, ', R=', samples, '), level=', level, 
+                    ', type="', type, '")' )
+        doItAndPrint(command)
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "Boot", reset = "Bootstrap", apply = "Bootstrap")
+    confidenceFrame <- tkframe(top)
+    confidenceLevel <- tclVar(dialog.values$initial.level)
+    confidenceField <- ttkentry(confidenceFrame, width = "6", textvariable = confidenceLevel)
+    samplesFrame <- tkframe(top)
+    bootstrapSamples <- tclVar(dialog.values$initial.samples)
+    samplesField <- ttkentry(samplesFrame, width = "6", 
+                             textvariable = bootstrapSamples)
+    tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence level: ")), 
+           confidenceField, sticky = "w")
+    tkgrid(confidenceFrame, sticky = "w")
+    tkgrid(labelRcmdr(samplesFrame, text = gettextRcmdr("Number of bootstrap samples: ")), 
+           samplesField, sticky = "w")
+    tkgrid(samplesFrame, sticky = "w")
+    radioButtons(name="type", buttons = c("bca", "norm", "basic", "perc"), initialValue=dialog.values$initial.type,
+                 labels = gettextRcmdr(c("BCa (adjusted percentile)", "Normal theory", "Basic bootstrap", "Percentile")),
+                 title=gettextRcmdr("Type of Confidence Intervals"))
+    tkgrid(typeFrame, sticky="w")
+    lm <- lmP()
+    if (lm) {
+        radioButtons(name = "method", buttons = c("case", "residual"), initialValue=dialog.values$initial.method,
+                     labels = gettextRcmdr(c("Case resampling", "Residual resampling")), title = gettextRcmdr("Resampling Method"))
+        tkgrid(methodFrame, sticky="w")
+    }
+    tkgrid(buttonsFrame, sticky = "w")
+    dialogSuffix()
+}
+
+DeltaMethodConfInt <- function () {
+    .activeModel <- ActiveModel()
+    if (is.null(.activeModel)) 
+        return()
+    defaults <- list(initial.level="0.95", initial.expression="")
+    dialog.values <- getDialog ("DeltaMethodConfInt", defaults)
+    initializeDialog(title = gettextRcmdr("Delta Method"))
+    tkgrid(labelRcmdr(top, text = gettextRcmdr("Confidence Intervals by the Delta Method\n"), 
+                      fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
+    onOK <- function() {
+        opts <- options(warn = -1)
+        on.exit(options(opts))
+        level <- tclvalue(confidenceLevel)
+        level <- as.numeric(level)
+        expression <- tclvalue(expressionVar)
+        closeDialog()
+        if ((is.na(level)) || !is.numeric(level) || (level < 0) || (level > 1)) {
+            Message(gettextRcmdr("Confidence level must be a number between 0 and 1."),
+                    type="error")
+            DeltaMethodConfInt()
+            return()
+        }
+        putDialog ("DeltaMethodConfInt", list(initial.level=level, initial.expression=expression))
+        command <- paste0('DeltaMethod(', .activeModel, ', "', expression, '", level=', level, ')')
+        doItAndPrint(command)
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "DeltaMethod", reset = "DeltaMethodConfInt", apply = "DeltaMethodConfInt")
+    coefs <- coef(get(.activeModel, envir=.GlobalEnv))
+    p <- length(coefs)
+    pars <- names(coefs)
+    nms <- if (pars[1] == "(Intercept)") paste0("b", 0:(p - 1)) else paste0("b", 1:p)
+    mat <- cbind(c("Parameter", pars), c("Name", nms))
+    parTable <- tclArray()
+    for (i in 1:(p + 1))
+        for (j in 1:2)
+            parTable[[i - 1, j - 1]] <- strsplit(mat[i, j], " ", fixed = TRUE)[[1]]
+    tableFrame <- tkframe(top)
+    table <- tk2table(tableFrame, variable = parTable, rows = p + 1, cols = 2, height=min(5, p + 1),
+                      titlerows = 1, selectmode = "extended", colwidth = 25, background = "white")
+    tableYscroll <- ttkscrollbar(tableFrame, orient="vertical", command=function(...) tkyview(table, ...))
+    tkconfigure(table, yscrollcommand=function(...) tkset(tableYscroll, ...))
+    tkgrid(table, tableYscroll, sticky="ns")
+    tkgrid(tableFrame, sticky="w")
+    tkgrid(labelRcmdr(top, text=""))
+    
+    confidenceFrame <- tkframe(top)
+    confidenceLevel <- tclVar(dialog.values$initial.level)
+    confidenceField <- ttkentry(confidenceFrame, width = "6", textvariable = confidenceLevel)
+    tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence level: ")), 
+           confidenceField, sticky = "w")
+    tkgrid(confidenceFrame, sticky = "w")
+    expressionFrame <- tkframe(top)
+    expressionVar <- tclVar(dialog.values$initial.expression)
+    expressionBox <- ttkentry(expressionFrame, font=getRcmdr("logFont"), width="55", textvariable=expressionVar)
+    expressionXscroll <- ttkscrollbar(expressionFrame,
+                                      orient="horizontal", command=function(...) tkxview(expressionBox, ...))
+    tkconfigure(expressionBox, xscrollcommand=function(...) tkset(expressionXscroll, ...))
+    tkgrid(labelRcmdr(expressionFrame, text=paste(gettextRcmdr("\nExpression to evaluate; use parameter names:"),
+                                                  if (p <= 3) paste(nms, collapse=", ") 
+                                                  else paste0(paste(nms[1:3], collapse=", "), ", ..."))), 
+           sticky="w")
+    tkgrid(expressionBox, sticky="w")
+    tkgrid(expressionXscroll, sticky="ew")
+    tkgrid(expressionFrame, sticky="nw")
+    
+    tkgrid(buttonsFrame, sticky = "w")
+    dialogSuffix()
+}
+
