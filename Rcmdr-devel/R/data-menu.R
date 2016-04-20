@@ -1,4 +1,4 @@
-# last modified 2015-10-16 by J. Fox
+# last modified 2016-04-20 by J. Fox
 
 # Data menu dialogs
 
@@ -2374,6 +2374,79 @@ dropUnusedFactorLevels <- function(){
     tkgrid(allFrame, sticky="w")
     tkgrid(labelRcmdr(top, text=gettextRcmdr("OR"), fg="red"), sticky="w")
     tkgrid(getFrame(variablesBox), sticky="nw")
+    tkgrid(buttonsFrame, sticky="w")
+    dialogSuffix()
+}
+
+viewData <- function(){
+    dataSet <- activeDataSet()
+    initializeDialog(title=gettextRcmdr("View Data"))
+    allVariablesFrame <- tkframe(top)
+    allVariables <- tclVar("1")
+    allVariablesCheckBox <- ttkcheckbutton(allVariablesFrame, variable=allVariables)
+    variablesBox <- variableListBox(top, Variables(), selectmode="multiple",
+                                    initialSelection=NULL, title=gettextRcmdr("Variables (select one or more)"))
+    subsetVariable <- tclVar(gettextRcmdr("<all cases>"))
+    subsetFrame <- tkframe(top)
+    subsetEntry <- ttkentry(subsetFrame, width="20", textvariable=subsetVariable)
+    subsetScroll <- ttkscrollbar(subsetFrame, orient="horizontal",
+                                 command=function(...) tkxview(subsetEntry, ...))
+    tkconfigure(subsetEntry, xscrollcommand=function(...) tkset(subsetScroll, ...))
+    onOK <- function(){
+        selectVars <- if (tclvalue(allVariables) == "1") ""
+        else {
+            x <- getSelection(variablesBox)
+            if (0 > length(x)) {
+                errorCondition(recall=subsetDataSet,
+                               message=gettextRcmdr("No variables were selected."))
+                return()
+            }
+            paste(", select=c(", paste(x, collapse=","), ")", sep="")
+        }
+        closeDialog()
+        cases <- tclvalue(subsetVariable)
+        selectCases <- if (cases == gettextRcmdr("<all cases>")) ""
+        else paste(", subset=", cases, sep="")
+        view.height <- max(getRcmdr("output.height") + getRcmdr("log.height"), 10)
+        ncols <- ncol(get(ActiveDataSet()))
+        suppress <- if(getRcmdr("suppress.X11.warnings")) ", suppress.X11.warnings=FALSE" else ""
+        result <- try(assign(ActiveDataSet(), eval(parse(text=paste("subset(", ActiveDataSet(), 
+                                                      selectCases, selectVars, ")", sep="")))),
+                      silent=TRUE)
+        if (class(result)[1] ==  "try-error"){
+            errorCondition(recall=viewData,
+                           message=gettextRcmdr("Bad subset expression."))
+            return()
+        }
+        if (nrow(get(ActiveDataSet())) == 0){
+            errorCondition(recall=viewData,
+                           message=gettextRcmdr("No data to show."))
+            return()
+        }
+        command <- if (ncols <= getRcmdr("showData.threshold")){
+            paste("showData(", ActiveDataSet(), ", 
+                  placement='-20+200', font=getRcmdr('logFont'), maxwidth=",
+                  getRcmdr("log.width"), ", maxheight=", view.height, suppress, ")", sep="")
+        }
+        else paste("View(", ActiveDataSet(), ")", sep="")
+        result <- try(eval(parse(text=command)), silent=TRUE)
+        if (class(result)[1] ==  "try-error"){
+            errorCondition(recall=viewData,
+                           message=gettextRcmdr("View data error."))
+            return()
+        }
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject="showData", helpPackage="relimp")
+    tkgrid(allVariablesCheckBox, labelRcmdr(allVariablesFrame, text=gettextRcmdr("Include all variables")),
+           sticky="w")
+    tkgrid(allVariablesFrame, sticky="w")
+    tkgrid(labelRcmdr(top, text=gettextRcmdr("   OR"), fg="red"), sticky="w")
+    tkgrid(getFrame(variablesBox), sticky="nw")
+    tkgrid(labelRcmdr(subsetFrame, text=gettextRcmdr("Subset expression")), sticky="w")
+    tkgrid(subsetEntry, sticky="w")
+    tkgrid(subsetScroll, sticky="ew")
+    tkgrid(subsetFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="w")
     dialogSuffix()
 }

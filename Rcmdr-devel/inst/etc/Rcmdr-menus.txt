@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2016-04-01 by J. Fox
+# last modified 2016-04-20 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -69,6 +69,7 @@
     item    packagesMenu    command         "Read data set from an attached package..."     readDataFromPackage         ""          ""
     item    dataMenu        cascade         "Data in packages"                              packagesMenu                ""          ""
     menu    activeMenu      dataMenu        ""                                              ""                          ""          ""
+    item    activeMenu      command         "View data..."                                  viewData                    "activeDataSetP()"          ""
     item    activeMenu      command         "Select active data set..."                     selectActiveDataSet         "dataSetsP()"          ""
     item    activeMenu      command         "Refresh active data set"                       refreshActiveDataSet        "activeDataSetP()"          ""
     item    activeMenu      command         "Help on active data set (if available)"        helpDataSet                 "activeDataSetP()"          ""
