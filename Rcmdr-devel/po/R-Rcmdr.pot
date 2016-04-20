@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.3-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2016-04-20 10:00:00\n"
+"POT-Creation-Date: 2016-04-20 14:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4746,3 +4746,34 @@ msgstr ""
 msgid "View data error."
 msgstr ""
 
+ # sort active data set dialog
+ 
+msgid "Sort active data set..."
+msgstr ""
+
+msgid "Sort Active Data Set"
+msgstr ""
+
+msgid "Sort Keys (select one or more)"
+msgstr ""
+
+msgid "Sort Direction"
+msgstr ""
+
+msgid "Increasing"
+msgstr ""
+
+msgid "Decreasing"
+msgstr ""
+
+msgid "Reorder Sort Keys"
+msgstr ""
+
+msgid "Order of keys must include all integers from 1 to"
+msgstr ""
+
+msgid "Sort Keys"
+msgstr ""
+
+msgid "Order"
+msgstr ""
