@@ -1759,7 +1759,7 @@ subsetDataSet <- function(){
         selectVars <- if (tclvalue(allVariables) == "1") ""
         else {
             x <- getSelection(variablesBox)
-            if (0 > length(x)) {
+            if (0 == length(x)) {
                 errorCondition(recall=subsetDataSet,
                                message=gettextRcmdr("No variables were selected."))
                 return()
@@ -2379,25 +2379,32 @@ dropUnusedFactorLevels <- function(){
 }
 
 viewData <- function(){
+    defaults <- list (initial.allVariables = "1", initial.variables = NULL, 
+                      initial.subset=gettextRcmdr("<all cases>"))
+    dialog.values <- getDialog ("viewData", defaults)
     dataSet <- activeDataSet()
     initializeDialog(title=gettextRcmdr("View Data"))
     allVariablesFrame <- tkframe(top)
-    allVariables <- tclVar("1")
+    allVariables <- tclVar(dialog.values$initial.allVariables)
     allVariablesCheckBox <- ttkcheckbutton(allVariablesFrame, variable=allVariables)
     variablesBox <- variableListBox(top, Variables(), selectmode="multiple",
-                                    initialSelection=NULL, title=gettextRcmdr("Variables (select one or more)"))
-    subsetVariable <- tclVar(gettextRcmdr("<all cases>"))
+                                    initialSelection= varPosn (dialog.values$initial.variables), 
+                                    title=gettextRcmdr("Variables (select one or more)"))
+    subsetVariable <- tclVar(gettextRcmdr(dialog.values$initial.subset))
     subsetFrame <- tkframe(top)
     subsetEntry <- ttkentry(subsetFrame, width="20", textvariable=subsetVariable)
     subsetScroll <- ttkscrollbar(subsetFrame, orient="horizontal",
                                  command=function(...) tkxview(subsetEntry, ...))
     tkconfigure(subsetEntry, xscrollcommand=function(...) tkset(subsetScroll, ...))
     onOK <- function(){
-        selectVars <- if (tclvalue(allVariables) == "1") ""
+        selectVars <- if (tclvalue(allVariables) == "1") {
+            x <- ""
+            x
+        }
         else {
             x <- getSelection(variablesBox)
-            if (0 > length(x)) {
-                errorCondition(recall=subsetDataSet,
+            if (0 == length(x)) {
+                errorCondition(recall=viewData,
                                message=gettextRcmdr("No variables were selected."))
                 return()
             }
@@ -2435,9 +2442,11 @@ viewData <- function(){
                            message=gettextRcmdr("View data error."))
             return()
         }
+        putDialog ("viewData", list(initial.allVariables = tclvalue(allVariables), 
+                                    initial.variables = if (x[1] == "") NULL else x, initial.subset=cases))
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject="showData", helpPackage="relimp")
+    OKCancelHelp(helpSubject="showData", helpPackage="relimp", reset="viewData")
     tkgrid(allVariablesCheckBox, labelRcmdr(allVariablesFrame, text=gettextRcmdr("Include all variables")),
            sticky="w")
     tkgrid(allVariablesFrame, sticky="w")
