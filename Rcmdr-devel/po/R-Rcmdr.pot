@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.3-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2016-04-20 14:00:00\n"
+"POT-Creation-Date: 2016-04-28 22:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4776,4 +4776,9 @@ msgid "Sort Keys"
 msgstr ""
 
 msgid "Order"
+msgstr ""
+
+ # added to plot means dialog
+ 
+msgid "Connect profiles of means"
 msgstr ""
