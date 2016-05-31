@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2015-12-16 by J. Fox
+# last modified 2016-05-31 by J. Fox
 
 # Means menu
 
@@ -186,7 +186,7 @@ singleSampleTTest <- function () {
 oneWayAnova <- function () {
   Library("multcomp")
   Library("abind")
-  defaults <- list(initial.group = NULL, initial.response = NULL, initial.pairwise = 0)
+  defaults <- list(initial.group = NULL, initial.response = NULL, initial.pairwise = 0, initial.welch=0)
   dialog.values <- getDialog("oneWayAnova", defaults)
   initializeDialog(title = gettextRcmdr("One-Way Analysis of Variance"))
   UpdateModelNumber()
@@ -202,6 +202,8 @@ oneWayAnova <- function () {
   optionsFrame <- tkframe(top)
   pairwiseVariable <- tclVar(dialog.values$initial.pairwise)
   pairwiseCheckBox <- ttkcheckbutton(optionsFrame, variable = pairwiseVariable)
+  welchVariable <- tclVar(dialog.values$initial.welch)
+  welchCheckBox <- ttkcheckbutton(optionsFrame, variable = welchVariable)
   onOK <- function() {
     modelValue <- trim.blanks(tclvalue(modelName))
     if (!is.valid.name(modelValue)) {
@@ -241,7 +243,9 @@ oneWayAnova <- function () {
     activeModel(modelValue)
     putRcmdr("modelWithSubset", FALSE)
     pairwise <- tclvalue(pairwiseVariable)
-    putDialog ("oneWayAnova", list (initial.group = group, initial.response = response, initial.pairwise = pairwise))
+    welch <- tclvalue(welchVariable)
+    putDialog ("oneWayAnova", list (initial.group = group, initial.response = response, initial.pairwise = pairwise,
+                                    initial.welch=welch))
     if (pairwise == 1) {
       if (eval(parse(text = paste("length(levels(", .activeDataSet, 
                                   "$", group, ")) < 3")))) 
@@ -261,6 +265,11 @@ oneWayAnova <- function () {
         doItAndPrint(paste(commands, collapse="\n"))
       }
     }
+    if (welch == 1){
+        command <- paste("oneway.test(", response, " ~ ", 
+                         group, ", data=", .activeDataSet, ") # Welch test", sep = "")
+        doItAndPrint(command)
+    }
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "anova", model = TRUE, reset = "oneWayAnova", apply = "oneWayAnova")
@@ -270,6 +279,8 @@ oneWayAnova <- function () {
   tkgrid(getFrame(groupBox), labelRcmdr(dataFrame, text="  "), getFrame(responseBox), sticky = "nw")
   tkgrid(dataFrame, sticky="w")
   tkgrid(pairwiseCheckBox, labelRcmdr(optionsFrame, text = gettextRcmdr("Pairwise comparisons of means")), 
+         sticky = "w")
+  tkgrid(welchCheckBox, labelRcmdr(optionsFrame, text = gettextRcmdr("Welch F-test not assuming equal variances")), 
          sticky = "w")
   tkgrid(optionsFrame, sticky = "w")
   tkgrid(buttonsFrame, sticky = "w")
