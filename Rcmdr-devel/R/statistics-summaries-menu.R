@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2016-06-01 by J. Fox
+# last modified 2016-06-02 by J. Fox
 
 # Summaries menu
 
@@ -457,7 +457,8 @@ normalityTest <- function () {
     initializeDialog(title = gettextRcmdr("Test of Normality"))
     variableBox <- variableListBox(top, Numeric(), title = gettextRcmdr("Variable (pick one)"),
                                    initialSelection = varPosn (dialog.values$initial.var, "numeric"))
-    radioButtons(top, name = "test", 
+    optionsFrame <- tkframe(top)
+    radioButtons(optionsFrame, name = "test", 
                  buttons = c(if (nrows <= 5000) "sw", "anderson", "cramer", "lilliefors", if (nrows <= 5000) "sf", "pearson"),
                  labels = c(if (nrows <= 5000) gettextRcmdr("Shapiro-Wilk"), 
                             gettextRcmdr("Anderson-Darling"), 
@@ -467,7 +468,7 @@ normalityTest <- function () {
                             gettextRcmdr("Pearson chi-square")),
                  title = gettextRcmdr("Normality Test"),
                  initialValue = dialog.values$initial.test)
-    binsFrame <- tkframe(top)
+    binsFrame <- tkframe(optionsFrame)
     binsVariable <- tclVar(dialog.values$initial.bins)
     binsField <- ttkentry(binsFrame, width = "8", textvariable = binsVariable)
     onOK <- function() {
@@ -503,10 +504,10 @@ normalityTest <- function () {
     }
     OKCancelHelp(helpSubject = "normalityTest", reset = "normalityTest", apply = "normalityTest")
     tkgrid(getFrame(variableBox), sticky = "nw")
-    tkgrid(testFrame, sticky="w")
     tkgrid(labelRcmdr(binsFrame, text=gettextRcmdr("Number of bins\nfor Pearson chi-square")), 
-           binsField, padx=3, sticky="nw")
-    tkgrid(binsFrame, sticky="w")
+           binsField, padx=3, sticky="sw")
+    tkgrid(testFrame, binsFrame, sticky="sw")
+    tkgrid(optionsFrame, sticky="sw")
     tkgrid(buttonsFrame, sticky = "w")
     dialogSuffix()
 }
