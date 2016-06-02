@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.3-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2016-05-31 14:30:00\n"
+"POT-Creation-Date: 2016-06-01 18:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4786,4 +4786,39 @@ msgstr ""
  # adding to one-way ANOVA dialog
  
 msgid "Welch F-test not assuming equal variances"
+msgstr ""
+
+ # the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+ 
+msgid "Test of normality..."
+msgstr ""
+
+msgid "Test of Normality"
+msgstr ""
+
+msgid "Shapiro-Wilk"
+msgstr ""
+
+msgid "Anderson-Darling"
+msgstr ""
+
+msgid "Cramer-von Mises"
+msgstr ""
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr ""
+
+msgid "Shapiro-Francia"
+msgstr ""
+
+msgid "Pearson chi-square"
+msgstr ""
+
+msgid "Normality Test"
+msgstr ""
+
+msgid "Number of bins must be a number >= 4"
+msgstr ""
+
+msgid "Number of bins\nfor Pearson chi-square"
 msgstr ""

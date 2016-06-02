@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2016-03-20 by John Fox
+# last modified 2016-05-31 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -208,6 +208,8 @@ Commander <- function(){
     putRcmdr("RcmdrVersion", RcmdrVersion)
     putRcmdr(".activeDataSet", NULL)
     putRcmdr(".activeModel", NULL)
+    putRcmdr("nrow", NULL)
+    putRcmdr("ncol", NULL)
     putRcmdr("logFileName", NULL)
     putRcmdr("RmdFileName", "RcmdrMarkdown.Rmd")
     putRcmdr("RnwFileName", "RcmdrKnitr.Rnw")

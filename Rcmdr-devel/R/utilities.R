@@ -1,4 +1,4 @@
-# last modified 2016-03-21 by J. Fox
+# last modified 2016-05-31 by J. Fox
 
 # utility functions
 
@@ -95,8 +95,12 @@ activeDataSet <- function(dsname, flushModel=TRUE, flushDialogMemory=TRUE){
     }
     if (flushDialogMemory) putRcmdr("dialog.values", list())
     ActiveDataSet(dsname)
+    nrow <- nrow(get(dsname, envir=.GlobalEnv))
+    ncol <- ncol(get(dsname, envir=.GlobalEnv))
+    putRcmdr("nrow", nrow)
+    putRcmdr("ncol", ncol)
     Message(sprintf(gettextRcmdr("The dataset %s has %d rows and %d columns."), dsname,
-        nrow(get(dsname, envir=.GlobalEnv)), ncol(get(dsname, envir=.GlobalEnv))), type="note")
+        nrow, ncol), type="note")
     if (any(badnames)) Message(message=paste(dsname, gettextRcmdr(" contains non-standard variable names:\n"),
         paste(varnames[badnames], collapse=", "),
         gettextRcmdr("\nThese have been changed to:\n"), paste(newnames[badnames], collapse=", "),
@@ -1549,6 +1553,8 @@ ActiveDataSet <- function(name){
                 TwoLevelFactors(NULL)
                 RcmdrTclSet("dataSetName", gettextRcmdr("<No active dataset>"))
                 putRcmdr(".activeModel", NULL)
+                putRcmdr("nrow", NULL)
+                putRcmdr("ncol", NULL)
                 RcmdrTclSet("modelName", gettextRcmdr("<No active model>"))
                 tkconfigure(getRcmdr("dataSetLabel"), foreground="red") 
                 tkconfigure(getRcmdr("modelLabel"), foreground="red") 
@@ -1589,6 +1595,8 @@ ActiveDataSet <- function(name){
             TwoLevelFactors(NULL)
             RcmdrTclSet("dataSetName", gettextRcmdr("<No active dataset>"))
             putRcmdr(".activeModel", NULL)
+            putRcmdr("nrow", NULL)
+            putRcmdr("ncol", NULL)
             RcmdrTclSet("modelName", gettextRcmdr("<No active model>"))
             tkconfigure(getRcmdr("dataSetLabel"), foreground="red") 
             tkconfigure(getRcmdr("modelLabel"), foreground="red") 

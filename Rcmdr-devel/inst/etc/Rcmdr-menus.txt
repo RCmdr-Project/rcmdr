@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2016-04-20 by J. Fox
+# last modified 2016-06-01 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -107,7 +107,8 @@
     item    summariesMenu   command         "Table of statistics..."                        statisticsTable             "numericP() && factorsP()"  ""
     item    summariesMenu   command         "Correlation matrix..."                         correlationMatrix           "numericP(2)"               "packageAvailable('RcmdrMisc')"
     item    summariesMenu   command         "Correlation test..."                           correlationTest             "numericP(2)"               "packageAvailable('RcmdrMisc')"
-    item    summariesMenu   command         "Shapiro-Wilk test of normality..."             ShapiroTest                 "numericP()"                ""
+#    item    summariesMenu   command         "Shapiro-Wilk test of normality..."             ShapiroTest                 "numericP()"                ""
+    item    summariesMenu   command         "Test of normality..."                          normalityTest               "numericP()"                "packageAvailable('nortest')"
     menu    tablesMenu      statisticsMenu  ""                                              ""                          ""          ""
     item    tablesMenu      command         "Two-way table..."                              twoWayTable                 "factorsP(2)" "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
     item    tablesMenu      command         "Multi-way table..."                            multiWayTable               "factorsP(3)" "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
