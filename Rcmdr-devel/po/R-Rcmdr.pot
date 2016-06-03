@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.3-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2016-06-01 18:30:00\n"
+"POT-Creation-Date: 2016-06-02 18:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4821,4 +4821,17 @@ msgid "Number of bins must be a number >= 4"
 msgstr ""
 
 msgid "Number of bins\nfor Pearson chi-square"
+msgstr ""
+
+ # small changes to the read text data dialog
+ 
+msgid "Commas [,]"
+msgstr ""
+
+msgid "Semicolons [;]"
+msgstr ""
+
+ # additional error check in load data set dialog
+ 
+msgid "There is more than one object in the file, with the following names:\n"
 msgstr ""

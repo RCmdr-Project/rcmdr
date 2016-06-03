@@ -1,4 +1,4 @@
-# last modified 2016-04-20 by J. Fox
+# last modified 2016-06-02 by J. Fox
 
 # Data menu dialogs
 
@@ -335,8 +335,8 @@ readDataSet <- function() {
                  labels=gettextRcmdr(c("Local file system", "Clipboard", "Internet URL")), title=gettextRcmdr("Location of Data File"))
     headerVariable <- tclVar("1")
     headerCheckBox <- ttkcheckbutton(optionsFrame, variable=headerVariable)
-    radioButtons(optionsFrame, "delimiter", buttons=c("whitespace", "commas", "tabs"),
-                 labels=gettextRcmdr(c("White space", "Commas", "Tabs")), title=gettextRcmdr("Field Separator"))
+    radioButtons(optionsFrame, "delimiter", buttons=c("whitespace", "commas", "semicolons", "tabs"),
+                 labels=gettextRcmdr(c("White space", "Commas [,]", "Semicolons [;]", "Tabs")), title=gettextRcmdr("Field Separator"))
     otherDelimiterFrame <- tkframe(delimiterFrame)
     otherButton <- ttkradiobutton(otherDelimiterFrame, variable=delimiterVariable, value="other", text=gettextRcmdr("Other"))
     otherVariable <- tclVar("")
@@ -399,6 +399,7 @@ readDataSet <- function() {
         delimiter <- tclvalue(delimiterVariable)
         del <- if (delimiter == "whitespace") ""
         else if (delimiter == "commas") ","
+        else if (delimiter == "semicolons") ";"
         else if (delimiter == "tabs") "\\t"
         else tclvalue(otherVariable)
         miss <- tclvalue(missingVariable)
@@ -442,6 +443,7 @@ readDataFromPackage <- function() {
 						ds <- data(package=package)$results
 						if (nrow(ds) == 0) return(FALSE)
 						ds <- ds[, "Item"]
+						# ds <- trim.blanks(sub("\\(.*\\)", "", ds))
 						valid <- sapply(ds, is.valid.name)
 						length(ds[valid]) > 0
 					})]
@@ -1619,7 +1621,8 @@ exportDataSet <- function() {
     missingFrame <- tkframe(optionsFrame)
     missingVariable <- tclVar("NA")
     missingEntry <- ttkentry(missingFrame, width="8", textvariable=missingVariable)
-    radioButtons(name="delimiter", buttons=c("spaces", "tabs", "commas"), labels=gettextRcmdr(c("Spaces", "Tabs", "Commas")),
+    radioButtons(name="delimiter", buttons=c("spaces", "tabs", "commas", "semicolons"), 
+                 labels=gettextRcmdr(c("Spaces", "Tabs", "Commas [,]", "Semicolons [;]")),
                  title=gettextRcmdr("Field Separator"))
     otherButton <- ttkradiobutton(delimiterFrame, variable=delimiterVariable, value="other", text=gettextRcmdr("Other"))
     otherVariable <- tclVar("")
@@ -1634,6 +1637,7 @@ exportDataSet <- function() {
         sep <- if (delim == "tabs") "\\t"
         else if (delim == "spaces") " "
         else if (delim == "commas") ","
+        else if (delim == "semicolons") ";"
         else trim.blanks(tclvalue(otherVariable))
         saveFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Text Files" {".txt" ".TXT" ".dat" ".DAT" ".csv" ".CSV"}}'),
                                            defaultextension="txt",
@@ -2094,7 +2098,14 @@ loadDataSet <- function() {
 	command <- paste('load("', file,'")', sep="")
 	dsname <- justDoIt(command)
 	logger(command)
-	if (class(dsname)[1] !=  "try-error") activeDataSet(dsname)
+	if (class(dsname)[1] !=  "try-error") {
+	    if (length(dsname) > 1) {
+	        Message(message=paste(gettextRcmdr("There is more than one object in the file, with the following names:\n"),
+	                                     paste(dsname, collapse=", ")), type="error")
+	        return()
+	    }
+	    activeDataSet(dsname)
+	}
 	tkfocus(CommanderWindow())
 }
 
