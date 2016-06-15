@@ -1,4 +1,4 @@
-# last modified 2016-05-31 by J. Fox
+# last modified 2016-06-14 by J. Fox
 
 # utility functions
 
@@ -2843,7 +2843,9 @@ editDataset <- function(data, dsname){
   nr <- nrow(data)
   nc <- ncol(data)
   for (j in 1:nc){
-    data[, j] <- as.character(data[, j])
+    data.column <- as.character(data[, j])
+    data.column[is.na(data.column)] <- "NA"
+    data[, j] <- data.column
   }
   colnames <- colnames(data)
   rownames <- rownames(data)
