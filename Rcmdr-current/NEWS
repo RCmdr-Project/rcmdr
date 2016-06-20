@@ -1,3 +1,7 @@
+Changes to Version 2.2-6
+
+  o Fix to inconsequential bug in color-selection code.
+
 Changes to Version 2.2-5
 
   o Fixed data editor to work properly with NAs in existing data sets.
