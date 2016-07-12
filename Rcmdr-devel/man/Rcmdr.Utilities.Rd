@@ -58,6 +58,7 @@
 \alias{initializeDialog}
 \alias{is.SciViews}
 \alias{is.valid.name}
+\alias{is.valid.number}
 \alias{justDoIt}
 \alias{knitrP}
 \alias{Library}
@@ -223,6 +224,7 @@ initializeDialog(window=top, title="", offset=10, preventCrisp,
     tabs=c("dataTab", "optionsTab"),
     suppress.window.resize.buttons=TRUE)  # macro
 is.valid.name(x)
+is.valid.number(string)
 is.SciViews()
 justDoIt(command)
 knitrP()
@@ -449,6 +451,8 @@ commanderPosition()
   \item{state}{state of the combobox widget; default \code{"readonly"} means
     user can't type in the box; set to \code{"normal"} to permit typing.}
   \item{strict}{if \code{TRUE}, only use first element of class vector.}
+  \item{string}{a character string, or vector of strings, to be tested whether it can be coerced to a number or numbers;
+    returns either \code{TRUE} or \code{FALSE}.}
   \item{subset.expression}{a quoted expression to subset the data set.}
   \item{suppress.window.resize.buttons}{if \code{TRUE}, the default, the window maximize/minimize 
     buttons will not be displayed.}
@@ -518,7 +522,8 @@ commanderPosition()
   \emph{Checking for errors: }
   
   The function \code{is.valid.name} checks whether a character string specifies a valid name
-  for an R object. The functions \code{checkActiveDataSet}, \code{checkActiveModel},
+  for an R object. The function \code{is.valid.number} checks whether a character string  (or vector) can be coerced to a
+  number (or numbers). The functions \code{checkActiveDataSet}, \code{checkActiveModel},
   \code{checkFactors}, \code{checkNumeric}, \code{checkTwoLevelFactors}, and \code{checkVariables}
   check for the existence of objects and write an error message to the log if they are absent
   (or insufficiently numerous, in the case of different kinds of variables). The function 

@@ -1,4 +1,4 @@
-# last modified 2016-06-14 by J. Fox
+# last modified 2016-07-12 by J. Fox
 
 # utility functions
 
@@ -184,6 +184,12 @@ is.valid.name <- function(x){
     length(x) == 1 && is.character(x) && x == make.names(x)
 }
 
+is.valid.number <- function(string){
+    warn <- options(warn=-1)
+    on.exit(warn)
+    number <- as.numeric(string)
+    if (any(is.na(number))) FALSE else TRUE
+}
 
 # statistical
 
