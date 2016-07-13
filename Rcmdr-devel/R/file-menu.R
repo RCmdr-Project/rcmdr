@@ -361,33 +361,7 @@ Options <- function(){
              initialValues=c(console.output, log.commands, number.messages, retain.messages, use.markdown, use.knitr),
              labels=gettextRcmdr("Send output to R Console", "Log commands to script window", "Number messages", 
                                  "Retain messages", "Use R Markown", "Use knitr"))
-  # cval <- function(x,y) -sum((x-y)^2)
-  # contrasting <- function(x)
-  #   optim(rep(127, 3),cval,lower=0,upper=255,method="L-BFGS-B",y=x)$par
-  # # the following local function from Thomas Lumley via r-help
-  # convert <- function (color){
-  #   rgb <- col2rgb(color)/255
-  #   L <- c(0.2, 0.6, 0) %*% rgb
-  #   ifelse(L >= 0.2, "#000060", "#FFFFA0")
-  # }
   env <- environment()
-  # pal <- c(log.text.color, command.text.color, output.text.color, error.text.color, warning.text.color, title.color)
-  # pickColor <- function(initialcolor, parent){
-  #   newcolor <- tclvalue(.Tcl(paste("tk_chooseColor", .Tcl.args(title = "Select a Color",
-  #                                                               initialcolor=initialcolor, parent=parent))))
-  #   if (newcolor == "") initialcolor else newcolor
-  # }
-  # hexcolor <- colorConverter(toXYZ = function(hex,...) {
-  #     rgb <- t(col2rgb(hex))/255
-  #     colorspaces$sRGB$toXYZ(rgb,...) },
-  #     fromXYZ = function(xyz,...) {
-  #         rgb <- colorspaces$sRGB$fromXYZ(xyz,...)
-  #         rgb <- round(rgb,5)
-  #         if (min(rgb) < 0 || max(rgb) > 1) as.character(NA)
-  #         else rgb(rgb[1],rgb[2],rgb[3])},
-  #     white = "D65", name = "#rrggbb")
-  # cols <- t(col2rgb(pal))
-  # hex <- convertColor(cols, from="sRGB", to=hexcolor, scale.in=255, scale.out=NULL)
   hex <- col2hex(c(log.text.color, command.text.color, output.text.color, 
                    error.text.color, warning.text.color, title.color))
   for (i in 1:6) assign(paste("hex", i, sep="."), hex[i], envir=env)
