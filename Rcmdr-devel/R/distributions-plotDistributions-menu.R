@@ -179,18 +179,18 @@ distributionPlot <- function(nameVar){
             save.to2 <- to2
             if (valuesOrQuantiles == "quantiles"){
                 if (as.numeric(from1) < 0 || as.numeric(from1) >= 1 || as.numeric(to1) <= 0 || as.numeric(to1) > 1 ){
-                    errorCondition(recall=nameVarF, message=gettextRcmdr("quantiles must be between 0 and 1"))
+                    errorCondition(recall=nameVarF, message=gettextRcmdr("Quantiles must be between 0 and 1."))
                     return()
                 }
                 from1 <- eval(parse(text=paste("q",fVar$funName,"(", from1, pasteVar, ")", sep="")))
                 to1 <- eval(parse(text=paste("q",fVar$funName,"(", to1, pasteVar, ")", sep="")))
                 if (from2 != "") {
                     if (as.numeric(from2) < 0 || as.numeric(from2) >= 1 || as.numeric(to2) <= 0 || as.numeric(to2) > 1 ){
-                        errorCondition(recall=nameVarF, message=gettextRcmdr("quantiles must be between 0 and 1"))
+                        errorCondition(recall=nameVarF, message=gettextRcmdr("Quantiles must be between 0 and 1."))
                         return()
                     }
-                    from2 <- eval(parse(text=paste("q",fVar$funName,"(", from2 ,")",sep="")))
-                    to2 <- eval(parse(text=paste("q",fVar$funName,"(", to2 ,")",sep="")))
+                    from2 <- eval(parse(text=paste("q",fVar$funName,"(", from2, pasteVar,")",sep="")))
+                    to2 <- eval(parse(text=paste("q",fVar$funName,"(", to2, pasteVar ,")",sep="")))
                 }
             }
             paste(command, "  ", doVar, fn, "(.x", pasteVar,'), cdf=', dist.arg, ', xlab="x", ylab="', fun, 

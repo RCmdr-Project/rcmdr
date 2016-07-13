@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.3-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2016-06-02 18:00:00\n"
+"POT-Creation-Date: 2016-07-13 17:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4834,4 +4834,42 @@ msgstr ""
  # additional error check in load data set dialog
  
 msgid "There is more than one object in the file, with the following names:\n"
+msgstr ""
+
+ # new messages for distribution plot dialogs produced by distributionPlot()
+ 
+msgid "Optionally specify regions by"
+msgstr ""
+ 
+msgid "x-values"
+msgstr ""
+
+msgid "quantiles"
+msgstr ""
+
+msgid "is not a valid number."
+msgstr ""
+
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr ""
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr ""
+
+msgid "Quantiles must be between 0 and 1."
+msgstr ""
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr ""
+
+msgid "Region 1: from"
+msgstr ""
+
+msgid "Region 2: from"
+msgstr ""
+
+msgid "to"
+msgstr ""
+
+msgid "color"
 msgstr ""
