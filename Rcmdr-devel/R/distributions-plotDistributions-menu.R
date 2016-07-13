@@ -115,9 +115,9 @@ distributionPlot <- function(nameVar){
         showRegions <- tclvalue(showRegionsVariable)
         valuesOrQuantiles <- tclvalue(valuesOrQuantilesVariable)
         command <- if (showRegions == 0 || fun != "Density"){
+            save.from1 <- save.to1 <- save.from2 <- save.to2 <- ""
             paste(command, "  ", doVar, fn, "(.x", pasteVar,'), cdf=', dist.arg, ', xlab="x", ylab="', fun, 
                   '", main=paste("',fVar$titleName,' Distribution: ',substr(mainVar,2,nchar(mainVar)),'"))\n})', sep="")
-            save.from1 <- save.to1 <- save.from2 <- save.to2 <- ""
         }
         else {
             from1 <- tclvalue(from1variable)
@@ -178,7 +178,7 @@ distributionPlot <- function(nameVar){
             }
             paste(command, "  ", doVar, fn, "(.x", pasteVar,'), cdf=', dist.arg, ', xlab="x", ylab="', fun, 
                   '", main=paste("',fVar$titleName,' Distribution: ',substr(mainVar,2,nchar(mainVar)), '"), ',
-                  "regions=list(c(", from1, ", ", to1, ")", if (from2 != "") paste(", c(", from2, ",", to2, ")", sep=""), ")",
+                  "regions=list(c(", from1, ", ", to1, ")", if (from2 != "") paste(", c(", from2, ", ", to2, ")", sep=""), ")",
                   ')\n})', sep="")
         }
         doItAndPrint(command)
@@ -197,17 +197,17 @@ distributionPlot <- function(nameVar){
     for (i in 1:nnVar) {
         tkgrid.configure(get(paramsEntry[i]), sticky="w")
     }
-    tkgrid(labelRcmdr(regionsFrame, text=gettextRcmdr("Fill Regions Under the Density Function"), 
-                      fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-    tkgrid(labelRcmdr(regionsCheckBoxFrame, text=gettextRcmdr("Fill regions ")), regionsCheckBox, sticky="w")
+    tkgrid(labelRcmdr(top, text=""))
+    tkgrid(regionsCheckBox, labelRcmdr(regionsCheckBoxFrame, 
+                      text=gettextRcmdr("Fill regions under the density function")), sticky="w")
     tkgrid(regionsCheckBoxFrame, sticky="w")
     tkgrid(valuesOrQuantilesFrame, sticky="w")
-    tkgrid(labelRcmdr(regionsFrame, text=gettextRcmdr("Regions to Fill (specify one or two"), 
+    tkgrid(labelRcmdr(regionsFrame, text=gettextRcmdr("Regions to Fill (specify one or two)"), 
                       fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
     tkgrid(labelRcmdr(region1Frame, text=gettextRcmdr("Region 1: from ")), from1box, 
-           labelRcmdr(region1Frame, text=gettextRcmdr("to ")), to1box, sticky="w")
+           labelRcmdr(region1Frame, text=gettextRcmdr(" to ")), to1box, sticky="w")
     tkgrid(labelRcmdr(region2Frame, text=gettextRcmdr("Region 2: from ")), from2box, 
-           labelRcmdr(region2Frame, text=gettextRcmdr("to ")), to2box, sticky="w")
+           labelRcmdr(region2Frame, text=gettextRcmdr(" to ")), to2box, sticky="w")
     tkgrid(region1Frame, sticky="w")
     tkgrid(region2Frame, sticky="w")
     tkgrid(regionsFrame, sticky="w")
