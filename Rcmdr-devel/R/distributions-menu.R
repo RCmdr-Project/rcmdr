@@ -1,6 +1,6 @@
 # Distributions menu dialogs
 
-# last modified 2014-10-08 by J. Fox
+# last modified 2016-07-14 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic (20 July 06)
 # Modified by Miroslav Ristic (15 January 11)
@@ -187,16 +187,22 @@ WeibullQuantiles <- function() {distributionQuantiles("Weibull")}
 WeibullProbabilities <-function() {distributionProbabilities("Weibull")}
 
 GumbelDistribution <- list(titleName="Gumbel",
-		funName="weibull",
-		params=c("shape","scale"),
-		paramsLabels=c("Shape (log scale)","Scale (log scale)"),
-		initialValues=c("","1"),
-		errorTexts=c("Shape not specified.",
-				"Shape must be positive.",
-				"Scale must be positive."),
-		errorConds=c("is.na(vars[1])",
-				"vars[1]<=0",
-				"is.na(vars[2]) || vars[2] <= 0"),
+		# funName="weibull",
+		# params=c("shape","scale"),
+		# paramsLabels=c("Shape (log scale)","Scale (log scale)"),
+		# initialValues=c("","1"),
+		# errorTexts=c("Shape not specified.",
+		# 		"Shape must be positive.",
+		# 		"Scale must be positive."),
+		# errorConds=c("is.na(vars[1])",
+		# 		"vars[1]<=0",
+		# 		"is.na(vars[2]) || vars[2] <= 0"),
+		funName="gumbel",
+		params=c("location", "scale"),
+		paramsLabels=c("Location", "Scale"),
+		initialValues=c("0", "1"),
+		errorTexts="Scale must be positive.",
+		errorConds="vars[2]<=0",
 		paramsRound=c()
 )
 
@@ -358,13 +364,13 @@ distributionQuantiles <- function(nameVar){
 		for (i in 1:nnVar) {
 			pasteVar<-paste(pasteVar,fVar$params[i],"=",vars[i],", ",sep="")
 		}
-		if (nameVar=="Gumbel") {
-			doItAndPrint(paste("log(q",fVar$funName,"(c(", quantiles, "), ",pasteVar,
-							"lower.tail=", tail == "lower",")) # Gumbel distribution", sep=""))
-		} else {
+		# if (nameVar=="Gumbel") {
+		# 	doItAndPrint(paste("log(q",fVar$funName,"(c(", quantiles, "), ",pasteVar,
+		# 					"lower.tail=", tail == "lower",")) # Gumbel distribution", sep=""))
+		# } else {
 			doItAndPrint(paste("q",fVar$funName,"(c(", quantiles, "), ",
 							pasteVar,"lower.tail=", tail == "lower",")", sep=""))
-		}
+		# }
 		putDialog(dialogName, list(initialValues=vars, tail=tclvalue(tailVar), quantiles=tclvalue(quantilesVar)), resettable=FALSE)
 		tkfocus(CommanderWindow())
 	}
@@ -435,13 +441,13 @@ distributionProbabilities <- function(nameVar){
 		for (i in 1:nnVar) {
 			pasteVar<-paste(pasteVar,fVar$params[i],"=",vars[i],", ",sep="")
 		}
-		if (nameVar=="Gumbel") {
-			doItAndPrint(paste("p",fVar$funName,"(exp(c(", probabilities, ")), ",
-							pasteVar,"lower.tail=", tail == "lower",") #Gumbel Distribution", sep=""))
-		} else {
+		# if (nameVar=="Gumbel") {
+		# 	doItAndPrint(paste("p",fVar$funName,"(exp(c(", probabilities, ")), ",
+		# 					pasteVar,"lower.tail=", tail == "lower",") #Gumbel Distribution", sep=""))
+		# } else {
 			doItAndPrint(paste("p",fVar$funName,"(c(", probabilities, "), ",
 							pasteVar,"lower.tail=", tail == "lower",")", sep=""))
-		}
+		# }
 		tkfocus(CommanderWindow())
 		putDialog(dialogName, list(initialValues=vars, tail=tclvalue(tailVar), probabilities=tclvalue(probabilitiesVar)), resettable=FALSE)
 	}

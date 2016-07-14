@@ -1,9 +1,9 @@
 # Distributions menu dialogs for plots
 
-# last modified 2016-07-13 by J. Fox
+# last modified 2016-07-14 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic  (20 July 06)
-# modified by Miroslav M. Ristic (15 January 11)
+#   modified by Miroslav M. Ristic (15 January 11)
 
 normalDistributionPlot <- function() {distributionPlot("normal")}
 tDistributionPlot <- function() {distributionPlot("t")}
@@ -50,7 +50,7 @@ distributionPlot <- function(nameVar){
     distributionButton <- ttkradiobutton(buttonFrame, variable=functionVar, value="Cumulative Probability")
     regionsFrame <- tkframe(top)
     radioButtons(regionsFrame, "valuesOrQuantiles", buttons=c("values", "quantiles"), 
-                 labels=gettextRcmdr(c("x-values", "quantiles")), title=gettextRcmdr("Optionally specify regions by"),
+                 labels=gettextRcmdr(c("x-values", "quantiles")), title=gettextRcmdr("Optionally specify regions under the density function by"),
                  initialValue = initial$valuesOrQuantiles)
     from1variable <- tclVar(initial$from1)
     from2variable <- tclVar(initial$from2)
@@ -117,21 +117,21 @@ distributionPlot <- function(nameVar){
         for (i in 1:nnVar) {
             mainVar<-paste(mainVar,", ",fVar$paramsLabels[i],"=",vars[i],sep="")
         }
-        if (nameVar=="Gumbel") {
-            min <- eval(parse(text=paste("round(log(q",fVar$funName,"(.0005",pasteVar,")),3)",sep="")))
-            max <- eval(parse(text=paste("round(log(q",fVar$funName,"(.9995",pasteVar,")),3)",sep="")))
-        } else {
+        # if (nameVar=="Gumbel") {
+        #     min <- eval(parse(text=paste("round(log(q",fVar$funName,"(.0005",pasteVar,")),3)",sep="")))
+        #     max <- eval(parse(text=paste("round(log(q",fVar$funName,"(.9995",pasteVar,")),3)",sep="")))
+        # } else {
             min <- eval(parse(text=paste("round(q",fVar$funName,"(.0005",pasteVar,"),3)",sep="")))
             max <- eval(parse(text=paste("round(q",fVar$funName,"(.9995",pasteVar,"),3)",sep="")))
-        }
-        if (nameVar=="Gumbel") {
-            command <- paste("exp(seq(", min, ", ", max, ", length.out=1000))", sep="")
-        } else {
+        # }
+        # if (nameVar=="Gumbel") {
+        #     command <- paste("exp(seq(", min, ", ", max, ", length.out=1000))", sep="")
+        # } else {
             command <- paste("seq(", min, ", ", max, ", length.out=1000)", sep="")
-        }
+        # }
         command <- paste("local({\n  .x <- ", command, sep="")
         doVar<-"\n  plotDistr(.x, "
-        if (nameVar=="Gumbel") {doVar<-"\n  plotDistr(log(.x), "}
+        # if (nameVar=="Gumbel") {doVar<-"\n  plotDistr(log(.x), "}
         if (nameVar=="F") {mainVar<-paste(", Numerator df = ",vars[1],", Denominator df = ",vars[2],sep="")}
         valuesOrQuantiles <- tclvalue(valuesOrQuantilesVariable)
         save.col <- c(hex.1, hex.2)

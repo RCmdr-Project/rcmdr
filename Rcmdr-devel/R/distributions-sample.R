@@ -1,6 +1,6 @@
 # Distributions menu dialogs for selecting samples
 
-# last modified 2015-10-16 by J. Fox
+# last modified 2016-07-14 by J. Fox
 # modified by Miroslav M. Ristic (15 January 2011)
 
 
@@ -103,11 +103,12 @@ distributionSamples <- function(nameVar) {
     for (i in 1:nnVar) {
       pasteVar<-paste(pasteVar,", ",fVar$params[i],"=",vars[i],sep="")
     }
-    command.1 <- if (nameVar=="Gumbel") {
-      paste(dsnameValue, " <- as.data.frame(matrix(log(rweibull(", samples, "*", obser, ", shape=", vars[1], ", scale=", vars[2], ")), ncol=", obser, "))", sep="")
-    } else {
+    command.1 <- 
+    #     if (nameVar=="Gumbel") {
+    #   paste(dsnameValue, " <- as.data.frame(matrix(log(rweibull(", samples, "*", obser, ", shape=", vars[1], ", scale=", vars[2], ")), ncol=", obser, "))", sep="")
+    # } else {
       paste(dsnameValue, " <- as.data.frame(matrix(r",fVar$funName,"(", samples, "*", obser, pasteVar, "), ncol=", obser, "))", sep="")   
-    }
+    # }
     doItAndPrint(command.1)
     command.1 <- if (samples == 1) 
       paste("rownames(", dsnameValue, ') <- "sample"', sep="")
