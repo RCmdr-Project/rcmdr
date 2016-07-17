@@ -1,6 +1,6 @@
 # Distributions menu dialogs for plots
 
-# last modified 2016-07-14 by J. Fox
+# last modified 2016-07-17 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic  (20 July 06)
 #   modified by Miroslav M. Ristic (15 January 11)
@@ -34,7 +34,8 @@ distributionPlot <- function(nameVar){
     nnVar<-length(fVar$params)
     dialogName <- paste(nameVar,"DistributionPlot", sep="")
     defaults <- list(initialValues=fVar$initialValues, type="Density", # showRegions="0", 
-                     valuesOrQuantiles="values", from1="", from2="", to1="", to2="", col=c("gray", "gray"))
+                     valuesOrQuantiles="values", from1="", from2="", to1="", to2="", col=c("gray", "gray"),
+                     legendPosition="topright")
     initial <- getDialog(dialogName, defaults=defaults)
     initializeDialog(title=gettextRcmdr(paste(fVar$titleName,"Distribution",sep=" ")))
     entriesFrame <- tkframe(top)
@@ -86,6 +87,10 @@ distributionPlot <- function(nameVar){
                             assign("hex.2", color, envir=env)
                         }
     )
+    radioButtons(regionsFrame, "legendPosition", buttons=c("topright", "topleft", "top"), 
+                 labels=gettextRcmdr(c("Top right", "Top left", "Top center")), 
+                 title=gettextRcmdr("Position of Legend"),
+                 initialValue = initial$legendPosition)
     onOK <- function(){
         nameVarF<-get(paste(nameVar,"DistributionPlot",sep=""),mode="function")
         closeDialog()
@@ -134,6 +139,7 @@ distributionPlot <- function(nameVar){
         # if (nameVar=="Gumbel") {doVar<-"\n  plotDistr(log(.x), "}
         if (nameVar=="F") {mainVar<-paste(", Numerator df = ",vars[1],", Denominator df = ",vars[2],sep="")}
         valuesOrQuantiles <- tclvalue(valuesOrQuantilesVariable)
+        legendPosition <- tclvalue(legendPositionVariable)
         save.col <- c(hex.1, hex.2)
         from1 <- trim.blanks(tclvalue(from1variable))
         command <- if (from1 == "" || fun != "Density"){     # showRegions == 0 || fun != "Density"){
@@ -196,14 +202,15 @@ distributionPlot <- function(nameVar){
             paste(command, "  ", doVar, fn, "(.x", pasteVar,'), cdf=', dist.arg, ', xlab="x", ylab="', fun, 
                   '", main=paste("',fVar$titleName,' Distribution: ',substr(mainVar,2,nchar(mainVar)), '"), ',
                   "regions=list(c(", from1, ", ", to1, ")", if (from2 != "") paste(", c(", from2, ", ", to2, ")", sep=""), ")",
-                  ", col=c('", hex.1, "', '", hex.2, "')",
+                  ", col=c('", hex.1, "', '", hex.2, "'), legend.pos='", legendPosition, "'",
                   ')\n})', sep="")
         }
         doItAndPrint(command)
         tkfocus(CommanderWindow())
         putDialog(dialogName, list(initialValues=vars, type=fun, #showRegions=showRegions, 
                                    valuesOrQuantiles=valuesOrQuantiles,
-                                   from1=save.from1, from2=save.from2, to1=save.to1, to2=save.to2, col=save.col), 
+                                   from1=save.from1, from2=save.from2, to1=save.to1, to2=save.to2, col=save.col,
+                                   legendPosition=legendPosition), 
                   resettable=FALSE)
     }
     OKCancelHelp(helpSubject="plotDistr", reset=dialogName, apply=dialogName)
@@ -229,6 +236,7 @@ distributionPlot <- function(nameVar){
            labelRcmdr(region2Frame, text=gettextRcmdr(" color ")), button2, colorField2, sticky="w")
     tkgrid(region1Frame, sticky="w")
     tkgrid(region2Frame, sticky="w")
+    tkgrid(legendPositionFrame, sticky="w")
     tkgrid(regionsFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="ew")
     dialogSuffix(focus=get(paramsEntry[1]))
