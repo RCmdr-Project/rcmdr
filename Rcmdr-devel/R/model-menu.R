@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2016-04-01 by J. Fox
+# last modified 2016-07-19 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -1204,3 +1204,34 @@ DeltaMethodConfInt <- function () {
     tkfocus(expressionBox)
 }
 
+compareCoefficients <- function () {
+    defaults <- list(initial.models = NULL)
+    dialog.values <- getDialog ("compareCoefficients", defaults)  
+    models <- listAllModels()
+    if (length(models) < 2) {
+        Message(message = gettextRcmdr("There are fewer than two models."), 
+                type = "error")
+        tkfocus(CommanderWindow())
+        return()
+    }
+    initializeDialog(title = gettextRcmdr("Compare Model Coefficients"))
+    modelsBox <- variableListBox(top, models, title = gettextRcmdr("Select models (pick two or more)"),
+                                 selectmode = "multiple",
+                                 initialSelection = varPosn(dialog.values$initial.models, vars=models))
+    onOK <- function() {
+        models <- getSelection(modelsBox)
+        closeDialog()
+        if (length(models) < 2) {
+            errorCondition(recall = compareCoefficients, message = gettextRcmdr("You must select at least two models."))
+            return()
+        }
+        putDialog ("compareCoefficients", list(initial.models=models))
+        command <- paste0("compareCoefs(", paste(models, collapse=", "), ")")
+        doItAndPrint(command)
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject = "compareCoefs", reset = "compareCoefficients", apply = "compareCoefficients")
+    tkgrid(getFrame(modelsBox), sticky = "nw")
+    tkgrid(buttonsFrame, columnspan = 2, sticky = "w")
+    dialogSuffix()
+}

@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2016-06-01 by J. Fox
+# last modified 2016-07-19 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -193,6 +193,7 @@
     menu    modelsMenu      topMenu         ""                                              ""                          ""          ""
     item    modelsMenu      command         "Select active model..."                        selectActiveModel           "modelsP()"          ""
     item    modelsMenu      command         "Summarize model"                               summarizeModel              "activeModelP()"          ""
+    item    modelsMenu      command         "Compare model coefficients..."                 compareCoefficients         "modelsP(2)"               ""
     item    modelsMenu      command         "Add observation statistics to data..."         addObservationStatistics    "activeModelP()"          ""
     item    modelsMenu      separator       ""                                              ""                          ""          ""
     item	modelsMenu		command			"Akaike Information Criterion (AIC)"			aic							"activeModelP()"		  ""
