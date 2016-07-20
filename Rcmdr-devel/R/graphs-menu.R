@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2016-07-13 by J. Fox
+# last modified 2016-07-19 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -2378,6 +2378,7 @@ Xyplot <- function() {
 pickColor <- function(initialcolor, parent){
     newcolor <- tclvalue(.Tcl(paste("tk_chooseColor", .Tcl.args(title = "Select a Color",
                                                                 initialcolor=initialcolor, parent=parent))))
+    newcolor <- toupper(newcolor)
     if (newcolor == "") initialcolor else newcolor
 }
 
