@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr-pl 2.2-1\n"
+"Project-Id-Version: Rcmdr-pl 2.3-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2015-09-07 11:31+0200\n"
+"POT-Creation-Date: 2016-08-09 21:57+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
 "Language-Team: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
@@ -10,10 +10,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: iso-8859-1\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n"
-"%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.8.3\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 msgid "KMeans Clustering"
 msgstr "Grupowanie metodą k-średnich"
@@ -110,7 +110,8 @@ msgid "There are no hierachical clustering solutions"
 msgstr "Brak rozwiązań hierarchicznego grupowania"
 
 msgid "No hierachical clustering solutions are associated with this data set."
-msgstr "Brak powiązanych rozwiązań hierarchicznego grupowania z tym zbiorem danych."
+msgstr ""
+"Brak powiązanych rozwiązań hierarchicznego grupowania z tym zbiorem danych."
 
 msgid "A clustering solution has not been selected."
 msgstr "Rozwiązanie grupowania nie zostało wybrane."
@@ -238,9 +239,6 @@ msgstr "UWAGA"
 msgid "New Data Set"
 msgstr "Nowy zbiór danych"
 
-msgid "Dataset"
-msgstr "Zbiór danych"
-
 msgid "You must enter the name of a data set."
 msgstr "Musisz podać nazwę zbioru danych."
 
@@ -274,9 +272,6 @@ msgstr "Przekoduj zmienną"
 msgid "Variable to recode (pick one)"
 msgstr "Zmienna do przekodowania (wybierz jedną)"
 
-msgid "variable"
-msgstr "zmienna"
-
 msgid "You must select a variable."
 msgstr "Musisz wybrać zmienną."
 
@@ -284,7 +279,8 @@ msgid "No recode directives specified."
 msgstr "Brak wypisanych dyrektyw przekodowania"
 
 msgid "Use only double-quotes (\" \") in recode directives"
-msgstr "Używaj tylko podwójnych cudzysłowiów (\" \") w dyrektywach przekodowania"
+msgstr ""
+"Używaj tylko podwójnych cudzysłowiów (\" \") w dyrektywach przekodowania"
 
 msgid "New variable name"
 msgstr "Nazwa nowej zmiennej"
@@ -364,11 +360,11 @@ msgid "You must enter a name for the data set."
 msgstr "Musisz wprowadzić nazwę dla zbioru danych."
 
 msgid ""
-"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files"
-"\" {\"*\"}}"
+"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
+"{\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Pliki tekstowe\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"Wszystkie "
-"pliki\" {\"*\"}}"
+"{\"Pliki tekstowe\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
+"{\"Wszystkie pliki\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "Nazwy zmiennych w pliku:"
@@ -413,11 +409,11 @@ msgid "Import SPSS Data Set"
 msgstr "Importuj zbiór danych SPSS"
 
 msgid ""
-"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
-"{\"All Files\" {\"*\"}}"
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
+"\".POR\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Pliki SPSS\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
-"{\"Wszystkie pliki\" {\"*\"}}"
+"{\"Pliki SPSS\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \"."
+"POR\"}} {\"Wszystkie pliki\" {\"*\"}}"
 
 msgid ""
 "Convert value labels\n"
@@ -438,8 +434,11 @@ msgstr ""
 msgid "Import Minitab Data Set"
 msgstr "Importuj zbiór danych Minitab"
 
-msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Pliki przenośne Minitab\" {\".mtp\" \".MTP\"}} {\"Wszystkie pliki\" {\"*\"}}"
+msgid ""
+"{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"Pliki przenośne Minitab\" {\".mtp\" \".MTP\"}} {\"Wszystkie pliki\" {\"*"
+"\"}}"
 
 msgid ""
 "Minitab data set contains elements of unequal length.\n"
@@ -452,7 +451,8 @@ msgid "Import STATA Data Set"
 msgstr "Importuj zbiór danych STATA"
 
 msgid "{\"STATA datasets\" {\".dta\" \".DTA\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Zbiory danych STATA\" {\".dta\" \".DTA\"}} {\"Wszystkie pliki\" {\"*\"}}"
+msgstr ""
+"{\"Zbiory danych STATA\" {\".dta\" \".DTA\"}} {\"Wszystkie pliki\" {\"*\"}}"
 
 msgid "Convert dates to R format"
 msgstr "Konwertuj daty do formatu R"
@@ -1278,9 +1278,12 @@ msgstr "Typ pliku grafiki"
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Pliki PNG\" {\".png\" \".PNG\"}} {\"Wszystkie pliki\" {\"*\"}}"
 
-msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*"
+"\"}}"
 msgstr ""
-"{\"Pliki JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Wszystkie pliki\" {\"*\"}}"
+"{\"Pliki JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Wszystkie pliki"
+"\" {\"*\"}}"
 
 msgid "Graph saved to file"
 msgstr "Wykres zapisany do pliku"
@@ -1309,9 +1312,12 @@ msgstr "{\"Pliki PDF\" {\".pdf\" \".PDF\"}} {\"Wszystkie pliki\" {\"*\"}}"
 msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Pliki Postscript\" {\".ps\" \".PS\"}} {\"Wszystkie pliki\" {\"*\"}}"
 
-msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*"
+"\"}}"
 msgstr ""
-"{\"Pliki Encapsulated Postscript\" {\".eps\" \".EPS\"}} {\"wszystkie pliki\" {\"*\"}}"
+"{\"Pliki Encapsulated Postscript\" {\".eps\" \".EPS\"}} {\"wszystkie pliki"
+"\" {\"*\"}}"
 
 msgid "Width (inches)"
 msgstr "Szerokość (cale)"
@@ -1326,7 +1332,8 @@ msgid "There is no current RGL graphics device to save."
 msgstr "Nie ma bieżącego urządzenia graficznego RGL do zapisu."
 
 msgid "{\"PNG Bitmap Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Pliki PNG Bitmap\" {\".png\" \".PNG\"}} {\"Wszystkie pliki\" {\"*\"}}"
+msgstr ""
+"{\"Pliki PNG Bitmap\" {\".png\" \".PNG\"}} {\"Wszystkie pliki\" {\"*\"}}"
 
 msgid "There is only one model in memory."
 msgstr "Jest tylko jeden model w pamięci."
@@ -1416,7 +1423,8 @@ msgid "Number of Rows:"
 msgstr "Liczba wierszy:"
 
 msgid "Enter hypothesis matrix and right-hand side vector:"
-msgstr "Wprowadź macierz hipotezy oraz wektor znajdujący się po prawej stronie:"
+msgstr ""
+"Wprowadź macierz hipotezy oraz wektor znajdujący się po prawej stronie:"
 
 msgid "There are fewer than two models."
 msgstr "Jest mniej niż dwa modele."
@@ -1485,7 +1493,8 @@ msgid "3 (cubes)"
 msgstr "3 (sześciany)"
 
 msgid "There is no appropriate outlier.test method for a model of this class."
-msgstr "Brak odpowiedniej metody testu wartości oddalonych dla modelu tej klasy."
+msgstr ""
+"Brak odpowiedniej metody testu wartości oddalonych dla modelu tej klasy."
 
 msgid "Confidence Intervals"
 msgstr "Przedziały ufności"
@@ -1512,7 +1521,8 @@ msgid "Rcmdr Version"
 msgstr "Wersja Rcmdr"
 
 msgid "The tcltk package is absent. The R Commander cannot function."
-msgstr "Pakiet tcltk jest nieobecny. Program R Commander nie może funkcjonować."
+msgstr ""
+"Pakiet tcltk jest nieobecny. Program R Commander nie może funkcjonować."
 
 msgid "R-Rcmdr"
 msgstr "R-Rcmdr"
@@ -1984,7 +1994,8 @@ msgid "There is no active model."
 msgstr "Brak aktywnego modelu."
 
 msgid "argument must be a square, symmetric, numeric covariance matrix"
-msgstr "argumentem musi być kwadratowa, symetryczna, liczbowa macierz kowariancji"
+msgstr ""
+"argumentem musi być kwadratowa, symetryczna, liczbowa macierz kowariancji"
 
 msgid "there are fewer than 3 items in the scale"
 msgstr "jest mniej niż 3 pozycje na skali"
@@ -1998,7 +2009,8 @@ msgstr "Argument czynnik1 musi być czynnikiem."
 msgid "Arguments factor1 and factor2 must be factors."
 msgstr "Argumenty czynnik1 oraz czynnik2 muszą być czynnikami."
 
-msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgid ""
+"Number of groups for factor2, %d, exceeds number of distinct colours, %d."
 msgstr "Liczba grup dla czynnika2, %d, przewyższa liczbę różnych kolorów, %d."
 
 msgid "The number of bins exceeds the number of data values"
@@ -2576,11 +2588,11 @@ msgid "Import from Excel, Access or dBase data set"
 msgstr "Importu z pliku Excel, Acces lub zbioru danych dBase"
 
 msgid ""
-"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-"
-"like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
+"\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Plik MS Excel\" {*.xls \".XLS\"}} {\"Baza danych MS Access\" {*.mdb \".MDB\"}} "
-"{\"Pliki typu dBase\" {*.dbf \".DBF\"}} {\"Wszystkie pliki\" {\"*\"}}"
+"{\"Plik MS Excel\" {*.xls \".XLS\"}} {\"Baza danych MS Access\" {*.mdb \".MDB"
+"\"}} {\"Pliki typu dBase\" {*.dbf \".DBF\"}} {\"Wszystkie pliki\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "Wybierz jedną tabelę"
@@ -2808,9 +2820,6 @@ msgstr "Rozkład Pascala"
 msgid "Sample from Normal Distribution"
 msgstr "Próba z rozkładu normalnego"
 
-msgid "NormalSamples"
-msgstr "NormalSamples"
-
 msgid "Sample means"
 msgstr "Średnie dla próby"
 
@@ -2838,80 +2847,41 @@ msgstr "Dodaj do zbioru danych:"
 msgid "Sample from t Distribution"
 msgstr "Próba z rozkładu t-Studenta"
 
-msgid "tSamples"
-msgstr "tSamples"
-
 msgid "Sample from Chi-squared Distribution"
 msgstr "Próba z rozkładu chi-kwadrat"
-
-msgid "ChisquareSamples"
-msgstr "ChisquareSamples"
 
 msgid "Sample from F Distribution"
 msgstr "Próba z rozkładu Fishera"
 
-msgid "FSamples"
-msgstr "FSamples"
-
 msgid "Sample from Exponential Distribution"
 msgstr "Próba z rozkładu eksponencjalnego"
-
-msgid "ExponentialSamples"
-msgstr "ExponentialSamples"
 
 msgid "Sample from Uniform Distribution"
 msgstr "Próba z rozkładu jednorodnego"
 
-msgid "UniformSamples"
-msgstr "UniformSamples"
-
 msgid "Sample from Beta Distribution"
 msgstr "Próba z rozkładu beta"
-
-msgid "BetaSamples"
-msgstr "BetaSamples"
 
 msgid "Sample from Cauchy Distribution"
 msgstr "Próba z rozkładu Cauchy'ego"
 
-msgid "CauchySamples"
-msgstr "CauchySamples"
-
 msgid "Sample from Logistic Distribution"
 msgstr "Próba z rozkładu logistycznego"
-
-msgid "LogisticSamples"
-msgstr "LogisticSamples"
 
 msgid "Sample from Log-Normal Distribution"
 msgstr "Próba z rozkładu logarytmicznie normalnego"
 
-msgid "LogNormalSamples"
-msgstr "LogNormalSamples"
-
 msgid "Sample from Gamma Distribution"
 msgstr "Próba z rozkładu gamma"
-
-msgid "GammaSamples"
-msgstr "GammaSamples"
 
 msgid "Sample from Weibull Distribution"
 msgstr "Próba z rozkładu Weibulla"
 
-msgid "WeibullSamples"
-msgstr "WeibullSamples"
-
 msgid "Sample from Gumbel Distribution"
 msgstr "Próba z rozkładu Gumbela"
 
-msgid "GumbelSamples"
-msgstr "GumbelSamples"
-
 msgid "Sample from Binomial Distribution"
 msgstr "Próba z rozkładu dwumianowego"
-
-msgid "BinomialSamples"
-msgstr "BinomialSamples"
 
 msgid "Poisson mean cannot be negative."
 msgstr "Średnia w rozkładzie Poissona nie może być ujemna."
@@ -2919,26 +2889,14 @@ msgstr "Średnia w rozkładzie Poissona nie może być ujemna."
 msgid "Sample from Poisson Distribution"
 msgstr "Próba z rozkładu Poissona"
 
-msgid "PoissonSamples"
-msgstr "PoissonSamples"
-
 msgid "Sample from Geometric Distribution"
 msgstr "Próba z rozkładu geometrycznego"
-
-msgid "GeometricSamples"
-msgstr "GeometricSamples"
 
 msgid "Sample from Hypergeometric Distribution"
 msgstr "Próbaq z rozkładu hipergeometrycznego"
 
-msgid "HypergeometricSamples"
-msgstr "HypergeometricSamples"
-
 msgid "Sample from Negative Binomial Distribution"
 msgstr "Próba z rozkładu Pascala (ujemnego rozkładu dwumianowego)"
-
-msgid "NegativeBinomialSamples"
-msgstr "NegativeBinomialSamples"
 
 msgid "Sample from normal distribution..."
 msgstr "Próba z rozkładu normalnego..."
@@ -3272,9 +3230,11 @@ msgstr "Rozkłady częstości"
 msgid "Chi-square goodness-of-fit test (for one variable only)"
 msgstr "Test dobroci dopasowania chi-kwadrat (tylko dla jednej zmiennej)"
 
-msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgid ""
+"Goodness-of-fit test not available when more than one variable is selected."
 msgstr ""
-"Test dobroci dopasowania nie jest dostępny gdy więcej niż jedna zmienna jest zaznaczona."
+"Test dobroci dopasowania nie jest dostępny gdy więcej niż jedna zmienna jest "
+"zaznaczona."
 
 msgid "Frequency distributions..."
 msgstr "Rozkłady częstości..."
@@ -3304,9 +3264,6 @@ msgstr "Zbij zmienne"
 
 msgid "factor"
 msgstr "czynnik"
-
-msgid "StackedData"
-msgstr "ZbiteDane"
 
 msgid "You must select at least two variables."
 msgstr "Musisz wybrać przynajmniej dwie zmienne."
@@ -3380,7 +3337,8 @@ msgid ""
 "The plug-in(s) will not be available until the Commander is restarted.\n"
 "Restart now?"
 msgstr ""
-"Wtyczka lub wtyczki nie będą dostępne dopóki Commander nie zostanie zrestartowany.\n"
+"Wtyczka lub wtyczki nie będą dostępne dopóki Commander nie zostanie "
+"zrestartowany.\n"
 "Uruchomić ponownie teraz?"
 
 msgid "objects have different numbers of columns"
@@ -3421,7 +3379,8 @@ msgid "Load data set..."
 msgstr "Załaduj zbiór danych..."
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Pliki R Data\" {\".rda\" \".Rda\" \".RDA\"}} {\"Wszystkie pliki\" {\"*\"}}"
+msgstr ""
+"{\"Pliki R Data\" {\".rda\" \".Rda\" \".RDA\"}} {\"Wszystkie pliki\" {\"*\"}}"
 
 msgid "Shapiro-Wilk test of normality..."
 msgstr "Test Shapiro-Wilka normalności..."
@@ -3484,7 +3443,8 @@ msgstr "model %s nie jest już dostępny"
 
 # message added to version 1.3-10
 msgid "The Commander GUI is launched only in interactive sessions"
-msgstr "GUI programu Commander uruchamiane jest jedynie w interaktywnych sesjach"
+msgstr ""
+"GUI programu Commander uruchamiane jest jedynie w interaktywnych sesjach"
 
 # messages added to version 1.3-15
 # Note: translate these messages only if the corresponding
@@ -3750,9 +3710,12 @@ msgid "Name for aggregated data set:"
 msgstr "Nazwa dla zagregowanego zbioru danych:"
 
 #     miscellaneous
-msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files"
+"\" {\"*\"}}"
 msgstr ""
-"{\"Pliki R Data\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Wszystkie pliki\" {\"*\"}}"
+"{\"Pliki R Data\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Wszystkie pliki"
+"\" {\"*\"}}"
 
 msgid "No data set selected."
 msgstr "Nie wybrano zbioru danych."
@@ -3829,45 +3792,55 @@ msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
 msgstr "{\"Wszystkie pliki\" {\"*\"}} {\"Pliki wyjściowe\" {\".txt\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \"."
-"CSV\"}}"
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
+"\".csv\" \".CSV\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"Pliki tekstowe\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \"."
-"csv\" \".CSV\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"Pliki tekstowe\" {\".txt\" \".TXT\" \".dat"
+"\" \".DAT\" \".csv\" \".CSV\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files"
-"\" {\".sav\" \".SAV\"}}"
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
+"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"przenośne pliki SPSS\" {\".por\" \".POR\"}} {\"pliki "
-"zapisu SPSS\" {\".sav\" \".SAV\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"przenośne pliki SPSS\" {\".por\" \".POR\"}} "
+"{\"pliki zapisu SPSS\" {\".sav\" \".SAV\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
-msgstr "{\"Wszystkie pliki\" {\"*\"}} {\"przenośne pliki Minitab\" {\".mtp\" \".MTP\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr ""
+"{\"Wszystkie pliki\" {\"*\"}} {\"przenośne pliki Minitab\" {\".mtp\" \".MTP"
+"\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 msgstr "{\"Wszystkie pliki\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 "
-"database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel "
-"2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
+"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
+"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
+"\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"baza danych MS Access\" {\".mdb\" \".MDB\"}} {\"baza "
-"danych MS Access 2007\" {\".accdb\" \".ACCDB\"}} {\"plik typu dBase\" {\".dbf\" \".DBF"
-"\"}} {\"plik MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"plik MS Excel\" {\".xls\" \".XLS"
-"\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"baza danych MS Access\" {\".mdb\" \".MDB"
+"\"}} {\"baza danych MS Access 2007\" {\".accdb\" \".ACCDB\"}} {\"plik typu "
+"dBase\" {\".dbf\" \".DBF\"}} {\"plik MS Excel 2007\" {\".xlsx\" \".XLSX\"}} "
+"{\"plik MS Excel\" {\".xls\" \".XLS\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
+"RDA\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda"
+"\" \".RDA\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"Wszystkie pliki\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
+"\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" "
+"\".JPEG\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
 msgstr "{\"Wszystkie pliki\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
@@ -3875,9 +3848,12 @@ msgstr "{\"Wszystkie pliki\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
 msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 msgstr "{\"Wszystkie pliki\" {\"*\"}} {\"Pliki Postscript\" {\".ps\" \".PS\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
+"\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"Pliki Encapsulated Postscript\" {\".eps\" \".EPS\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"Pliki Encapsulated Postscript\" {\".eps\" "
+"\".EPS\"}}"
 
 # messages added to version 1.7-0
 msgid "Reset"
@@ -3912,7 +3888,8 @@ msgstr "Używaj przypadków kompletnych parami"
 
 # messages added to version 1.7-4
 msgid "Component scores are not available when subset is specified."
-msgstr "Wyniki zliczania komponentu nie są dostępne gdy wskazany jest podzbiór."
+msgstr ""
+"Wyniki zliczania komponentu nie są dostępne gdy wskazany jest podzbiór."
 
 msgid "Factor scores are not available when subset is specified."
 msgstr "Wyniki zliczania czynników nie są dostępne gdy wskazany jest podzbiór."
@@ -4035,10 +4012,11 @@ msgid "Datasets in file (pick one)"
 msgstr "Zbiory danych w pliku (wybierz jeden)"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
+"\".XPORT\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"pliki SAS xport\" {\".xpt\" \".XPT\" \".xport\" \".XPORT"
-"\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"pliki SAS xport\" {\".xpt\" \".XPT\" \"."
+"xport\" \".XPORT\"}}"
 
 msgid ""
 "Convert variable names\n"
@@ -4054,11 +4032,11 @@ msgid "Import Excel Data Set"
 msgstr "Importuj zbiór danych Excel"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
-"\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"plik MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"plik MS "
-"Excel\" {\".xls\" \".XLS\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"plik MS Excel 2007\" {\".xlsx\" \".XLSX\"}} "
+"{\"plik MS Excel\" {\".xls\" \".XLS\"}}"
 
 msgid "Interquartile Range"
 msgstr "Rozstęp ćwiartkowy"
@@ -4209,11 +4187,15 @@ msgid "knitr file saved to"
 msgstr "plik 'knitr' zapisany w"
 
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
-msgstr "{\"Wszystkie pliki\" {\"*\"}} {\"Pliki R Markdown\" {\".Rmd\" \".rmd\"}}"
-
-msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"Pliki knitr\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"Pliki R Markdown\" {\".Rmd\" \".rmd\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
+"\"}}"
+msgstr ""
+"{\"Wszystkie pliki\" {\"*\"}} {\"Pliki knitr\" {\".Rmd\" \".rmd\" \".Snw\" "
+"\".snw\"}}"
 
 msgid ""
 "Delete previously created knitr\n"
@@ -4657,7 +4639,8 @@ msgid "ANOVA Table"
 msgstr "Tablica ANOVA"
 
 msgid "There is no appropriate outlierTest method for a model of this class."
-msgstr "Brak odpowiedniej metody testu wartości oddalonych dla modelu tej klasy."
+msgstr ""
+"Brak odpowiedniej metody testu wartości oddalonych dla modelu tej klasy."
 
 msgid "Shapiro-Wilk Test for Normality"
 msgstr "Test Shapiro-Wilka normalności"
@@ -4786,9 +4769,12 @@ msgstr "Konwertuj zmienne numeryczne na czynniki"
 msgid "<empty cell>"
 msgstr "<pusta komórka>"
 
-msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"plik MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"plik MS Excel\" {\".xlsx\" \".XLSX\" \".xls"
+"\" \".XLS\"}}"
 
 # corrected messages in version 2.2-1
 # The following messages had trailing blanks. These messages were deleted from
@@ -4812,6 +4798,285 @@ msgstr ""
 
 msgid "Concentration levels:"
 msgstr "Poziomy koncentracji:"
+
+# additional messages in version 2.3-0
+# .rtf output from RMarkdown reports
+msgid ".rtf (rich text file)"
+msgstr ".rtf (rich text file)"
+
+msgid "Rich text file written to:"
+msgstr "Plik RTF zapisany do:"
+
+# bootstrapping dialog
+msgid "Bootstrap confidence intervals..."
+msgstr "Przedziały ufności bootstrap..."
+
+msgid "Bootstrap"
+msgstr "Bootstrap"
+
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "Przedział ufności bootstrap dla współczynników"
+
+msgid "Number of bootstrap samples:"
+msgstr "Liczba próbek bootstrap:"
+
+msgid "Number of samples must be a positive integer."
+msgstr "Liczba próbek musi być dodatnią liczbą całkowitą."
+
+msgid "Type of Confidence Intervals"
+msgstr "Typ przedziałów ufności"
+
+msgid "BCa (adjusted percentile)"
+msgstr "BCa (skorygowany percentyl)"
+
+msgid "Normal theory"
+msgstr "Normalna teoria"
+
+msgid "Basic bootstrap"
+msgstr "Podstawowy bootstrap"
+
+msgid "Percentile"
+msgstr "Percentyl"
+
+msgid "Resampling Method"
+msgstr "Metoda ponownego próbkowania"
+
+msgid "Case resampling"
+msgstr "Ponowne próbkowanie przypadków"
+
+msgid "Residual resampling"
+msgstr "Ponowne próbkowanie reszt"
+
+# delta method dialog
+msgid "Delta method confidence interval..."
+msgstr "Przedział ufności metody delta..."
+
+msgid "Delta Method"
+msgstr "Metoda Delta"
+
+msgid "Confidence Interval by the Delta Method"
+msgstr "Przedział ufności za pomocą Metody Delta"
+
+msgid "Expression to evaluate; use parameter names:"
+msgstr "Wyrażenie do wyliczenia; użyj nazw parametrów;"
+
+# view data dialog
+msgid "View data..."
+msgstr "Przejrzyj dane..."
+
+msgid "View Data"
+msgstr "Przejrzyj dane"
+
+msgid "Bad subset expression."
+msgstr "Niepoprawne wyrażenie podzbioru."
+
+msgid "No data to show."
+msgstr "Brak danych do pokazania."
+
+msgid "View data error."
+msgstr "Błąd podglądu danych."
+
+# sort active data set dialog
+msgid "Sort active data set..."
+msgstr "Sortuj aktywny zbiór danych..."
+
+msgid "Sort Active Data Set"
+msgstr "Sortuj aktywny zbiór danych"
+
+msgid "Sort Keys (select one or more)"
+msgstr "Sortuj Klucze (wybierz jeden lub więcej)"
+
+msgid "Sort Direction"
+msgstr "Kierunek sortowania"
+
+msgid "Increasing"
+msgstr "Rosnąco"
+
+msgid "Decreasing"
+msgstr "Malejąco"
+
+msgid "Reorder Sort Keys"
+msgstr "Uporządkój klucze sortowania"
+
+msgid "Order of keys must include all integers from 1 to"
+msgstr "Kolejność kluczy musi uwzględniać wszystkie liczby całkowite od 1 do"
+
+msgid "Sort Keys"
+msgstr "Sortuj klucze"
+
+msgid "Order"
+msgstr "Kolejność"
+
+# added to plot means dialog
+msgid "Connect profiles of means"
+msgstr "Połącz profile średnich"
+
+# adding to one-way ANOVA dialog
+msgid "Welch F-test not assuming equal variances"
+msgstr "F-test Welcha nie zakładając równości wariancji"
+
+# the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+msgid "Test of normality..."
+msgstr "Test normalności..."
+
+msgid "Test of Normality"
+msgstr "Test normalności"
+
+msgid "Shapiro-Wilk"
+msgstr "Shapiro-Wilk"
+
+msgid "Anderson-Darling"
+msgstr "Anderson-Darling"
+
+msgid "Cramer-von Mises"
+msgstr "Cramer-von Mises"
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr "Lilliefors (Kolmogorov-Smirnov)"
+
+msgid "Shapiro-Francia"
+msgstr "Shapiro-Francia"
+
+msgid "Pearson chi-square"
+msgstr "chi-kwadrat Pearsona"
+
+msgid "Normality Test"
+msgstr "Test normalności"
+
+msgid "Number of bins must be a number >= 4"
+msgstr "Liczba przedziałów musi być liczbą >= 4"
+
+msgid ""
+"Number of bins\n"
+"for Pearson chi-square"
+msgstr ""
+"Liczba przedziałów\n"
+"dla chi-kwadrat Pearsona"
+
+# small changes to the read text data dialog
+msgid "Commas [,]"
+msgstr "Przecinki [,]"
+
+msgid "Semicolons [;]"
+msgstr "Średniki [;]"
+
+# additional error check in load data set dialog
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr ""
+"W pliku znajduje się więcej niż jeden obiekt, z następującymi nazwami:\n"
+
+# new messages for distribution plot dialogs produced by distributionPlot()
+msgid "Optionally specify regions under the density function by"
+msgstr "Opcjonalnie określ obszary pod funkcją gęstości poprzez"
+
+msgid "x-values"
+msgstr "wartości x"
+
+msgid "quantiles"
+msgstr "kwantyle"
+
+msgid "is not a valid number."
+msgstr "nie jest poprawną liczbą."
+
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "Musisz okeślić 'from' oraz 'to' dla co najmniej jednego zakresu."
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr "W określanym zakresie, 'to' musi być większe niż 'from'."
+
+msgid "Quantiles must be between 0 and 1."
+msgstr "Kwantyle muszą być pomiędzy 0 a 1."
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr "Obszary do wypełnienia (określ jeden lub dwa, lub pozostaw puste)"
+
+msgid "Region 1: from"
+msgstr "Obszar 1: z"
+
+msgid "Region 2: from"
+msgstr "Obszar 2: z"
+
+msgid "to"
+msgstr "do"
+
+msgid "color"
+msgstr "kolor"
+
+msgid "Top center"
+msgstr "Środek na górze"
+
+# new compare model coefficients dialog
+msgid "Compare model coefficients..."
+msgstr "Porównaj współczynniki modelu..."
+
+msgid "Compare Model Coefficients"
+msgstr "Porównaj współczynniki modelu"
+
+msgid "You must select at least two models."
+msgstr "Musisz wybrać co najmniej dwa modele."
+
+#~ msgid "Dataset"
+#~ msgstr "Zbiór danych"
+
+#~ msgid "variable"
+#~ msgstr "zmienna"
+
+#~ msgid "NormalSamples"
+#~ msgstr "NormalSamples"
+
+#~ msgid "tSamples"
+#~ msgstr "tSamples"
+
+#~ msgid "ChisquareSamples"
+#~ msgstr "ChisquareSamples"
+
+#~ msgid "FSamples"
+#~ msgstr "FSamples"
+
+#~ msgid "ExponentialSamples"
+#~ msgstr "ExponentialSamples"
+
+#~ msgid "UniformSamples"
+#~ msgstr "UniformSamples"
+
+#~ msgid "BetaSamples"
+#~ msgstr "BetaSamples"
+
+#~ msgid "CauchySamples"
+#~ msgstr "CauchySamples"
+
+#~ msgid "LogisticSamples"
+#~ msgstr "LogisticSamples"
+
+#~ msgid "LogNormalSamples"
+#~ msgstr "LogNormalSamples"
+
+#~ msgid "GammaSamples"
+#~ msgstr "GammaSamples"
+
+#~ msgid "WeibullSamples"
+#~ msgstr "WeibullSamples"
+
+#~ msgid "GumbelSamples"
+#~ msgstr "GumbelSamples"
+
+#~ msgid "BinomialSamples"
+#~ msgstr "BinomialSamples"
+
+#~ msgid "PoissonSamples"
+#~ msgstr "PoissonSamples"
+
+#~ msgid "GeometricSamples"
+#~ msgstr "GeometricSamples"
+
+#~ msgid "HypergeometricSamples"
+#~ msgstr "HypergeometricSamples"
+
+#~ msgid "NegativeBinomialSamples"
+#~ msgstr "NegativeBinomialSamples"
+
+#~ msgid "StackedData"
+#~ msgstr "ZbiteDane"
 
 #~ msgid ""
 #~ "Number of points to identify  \n"
