@@ -1,4 +1,3 @@
-# messages added to version 2.0-0msgid "Plot Options"msgstr ""msgid "Plot Labels"msgstr ""msgid "Graph title"msgstr ""msgid "Plot Labels and Points"msgstr ""msgid "Apply"msgstr ""msgid "Pairwise p-values"msgstr ""msgid "Observations to Use"msgstr ""msgid "Complete observations"msgstr ""msgid "Pairwise-complete observations"msgstr ""msgid "R Script"msgstr ""msgid "Output"msgstr ""msgid "R Commander website" msgstr ""msgid "R website"msgstr ""msgid "Using R Markdown"msgstr ""msgid "Table"msgstr ""    # point identification in graphs (additional messages)msgid "Interactively with mouse"msgstr ""msgid "Do not identify"msgstr ""msgid "number of points to identify must be an integer"msgstr ""msgid "Number of points to identify"msgstr ""msgid "Number of points to identify  \nin each panel and group "msgstr ""msgid "Added-Variable Plots"msgstr ""msgid "Component+Residual Plots"msgstr ""msgid "Influence Plot"msgstr ""    # support for R Markdown and knitrmsgid "Generate HTML report"msgstr ""msgid "Generate PDF report"msgstr ""msgid "R Markdown"msgstr ""msgid "knitr Document"msgstr ""msgid "Open R Markdown file..."msgstr ""msgid "Open knitr file..."msgstr ""msgid "Save R Markdown file..."msgstr ""msgid "Save knitr file..."msgstr ""msgid "Save knitr file?"msgstr ""msgid "Save current Rmd file?"msgstr ""msgid "Save current Rnw file?"msgstr ""msgid "Save R Markdown file as..."msgstr ""msgid "Save knitr file as..."msgstr ""msgid "R Markdown file saved to"msgstr ""msgid "knitr file saved to"msgstr ""msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"msgstr ""msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"msgstr ""msgid "Delete previously created knitr\ngraphics files (recommended)?"msgstr ""    # setting and saving optionsmsgid "Ask to exit Commander"msgstr ""msgid "Ask to save documents on exit"msgstr ""msgid "Quit R on exit"msgstr ""msgid "Number messages"msgstr ""msgid "Retain messages"msgstr ""msgid "Use R Markown"msgstr ""msgid "Select file"msgstr ""msgid "R Markdown template file"msgstr ""msgid "R knitr template file"msgstr ""msgid "Suppress icon images"msgstr ""msgid "Retain dialog selections"msgstr ""msgid "Use rgl package"
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -9,9 +8,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Russian\n"
-"X-Poedit-Country: RUSSIAN FEDERATION\n"
 "X-Poedit-SourceCharset: iso-8859-1\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 msgid "KMeans Clustering"
 msgstr "Метод K средних"
@@ -954,7 +953,7 @@ msgid ""
 "with mouse"
 msgstr ""
 "Определить наблюдения\n"
-" при помощи мыши"
+"при помощи мыши"
 
 msgid "Spikes"
 msgstr "Пики"
@@ -2536,14 +2535,14 @@ msgstr "Введение в R Commander"
 msgid "About Rcmdr"
 msgstr "О R Commander"
 
-## messages added to Rcmdr version 1.1-1
+# # messages added to Rcmdr version 1.1-1
 msgid "There is no current RGL graphics device."
 msgstr "Нет текущего RGL-устройства"
 
 msgid "3D graph"
 msgstr "3D-график"
 
-## messages added to Rcmdr version 1.1-6
+# # messages added to Rcmdr version 1.1-6
 msgid " contains non-standard variable names:\n"
 msgstr " содержит нестандартные имена переменных:\n"
 
@@ -2554,7 +2553,7 @@ msgstr ""
 "\n"
 "Были изменены на:\n"
 
-## messages added to Rcmdr version 1.2-0
+# # messages added to Rcmdr version 1.2-0
 # importRODBCtable dialog
 msgid "This function requires the RODBC package.\n"
 msgstr "Эта функция требует пакет RODBC.\n"
@@ -3344,7 +3343,7 @@ msgstr "Статистика не выбрана."
 msgid "Right-hand side"
 msgstr "Правая сторона"
 
-## messages added to Rcmdr version 1.3-0
+# # messages added to Rcmdr version 1.3-0
 # handling plug-ins
 msgid "Load Plugins"
 msgstr "Загрузка дополнений"
@@ -4233,10 +4232,10 @@ msgstr "Графики спаренные по"
 
 # messages added for version 2.1-0
 # the next two messages no longer needed and can be disregarded if not already translated
-#msgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
-#msgstr ""
-#msgid "the car package is missing and should be installed\n  many features will not work"
-#msgstr ""
+# msgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
+# msgstr ""
+# msgid "the car package is missing and should be installed\n  many features will not work"
+# msgstr ""
 # for numerical summaries dialog
 msgid "Standard Error of Mean"
 msgstr "Стандартная ошибка среднего"
@@ -4335,10 +4334,10 @@ msgstr ""
 
 msgid ""
 "Use sandwich estimator of\n"
-"coefficient covariance matrix   "
+"coefficient covariance matrix"
 msgstr ""
 "Использовать бутербродную оценку\n"
-"матрицы ковариации коэффициента   "
+"матрицы ковариации коэффициента"
 
 msgid "sandwich covariance matrix unavailable with type I tests"
 msgstr "бурербродная матрица ковариации недоступна для тестов I типа"
@@ -4501,7 +4500,7 @@ msgstr ""
 msgid "Plot concentration ellipse(s)"
 msgstr "График эллипс(ов) концентрации"
 
-msgid "Concentration levels: "
+msgid "Concentration levels:"
 msgstr "Уровни концентрации:"
 
 msgid "Legend Position"
@@ -4564,3 +4563,231 @@ msgstr "<пусто>"
 msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
 msgstr "{\"Все файлы\" {\"*\"}} {\"Файл MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
 
+# corrected messages in version 2.2-1
+# The following messages had trailing blanks. These messages were deleted from
+#   their previous locations in this .pot file and transferred here in corrected form,
+#   with the trailing blanks removed.
+# I suggest that you likewise delete the earlier versions of these messages from
+#   your .po file and provide corrected translations here, without trailing blanks.
+# # AS: two others have been corrected in place
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group"
+msgstr ""
+"Количество точек для определения  \n"
+"в каждой панели и группе"
+
+# additional messages in version 2.3-0
+# .rtf output from RMarkdown reports
+msgid ".rtf (rich text file)"
+msgstr ".rtf (rich text file)"
+
+msgid "Rich text file written to:"
+msgstr "RTF записан в:"
+
+# bootstrapping dialog
+msgid "Bootstrap confidence intervals..."
+msgstr "Доверительные интервалы бутстрепа..."
+
+msgid "Bootstrap"
+msgstr "Бутстреп"
+
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "Доверительные интервалы бутстрепа для коэффициентов"
+
+msgid "Number of bootstrap samples:"
+msgstr "Количество выборок бутстрепа:"
+
+msgid "Number of samples must be a positive integer."
+msgstr "Количество выборок должно быть положительным целым."
+
+msgid "Type of Confidence Intervals"
+msgstr "Тип доверительных интервалов"
+
+msgid "BCa (adjusted percentile)"
+msgstr "BCa (уточненный процентиль)"
+
+msgid "Normal theory"
+msgstr "Теория нормальности"
+
+msgid "Basic bootstrap"
+msgstr "Базовый бутстреп"
+
+msgid "Percentile"
+msgstr "Процентиль"
+
+msgid "Resampling Method"
+msgstr "Метод выборки"
+
+msgid "Case resampling"
+msgstr "Выборка объектов"
+
+msgid "Residual resampling"
+msgstr "Остаточная выборка"
+
+# delta method dialog
+msgid "Delta method confidence interval..."
+msgstr "Дельта-метод доверительного интервала..."
+
+msgid "Delta Method"
+msgstr "Дельта-метод"
+
+msgid "Confidence Interval by the Delta Method"
+msgstr "Доверительный интервал дельта-методом"
+
+msgid "Expression to evaluate; use parameter names:"
+msgstr "Выражение для вычисления; имена параметров:"
+
+# view data dialog
+msgid "View data..."
+msgstr "Просмотреть данные..."
+
+msgid "View Data"
+msgstr "Просмотреть данные"
+
+msgid "Bad subset expression."
+msgstr "Неправильное выражение для подвыборки."
+
+msgid "No data to show."
+msgstr "Нельзя показать, нет данных."
+
+msgid "View data error."
+msgstr "Ошибка просмотра данных."
+
+# sort active data set dialog
+msgid "Sort active data set..."
+msgstr "Сортировать активный набор данных..."
+
+msgid "Sort Active Data Set"
+msgstr "Сортировать активный набор данных"
+
+msgid "Sort Keys (select one or more)"
+msgstr "Ключи сортировки (выберите один или больше)"
+
+msgid "Sort Direction"
+msgstr "Направление сортировки"
+
+msgid "Increasing"
+msgstr "Увеличение"
+
+msgid "Decreasing"
+msgstr "Уменьшение"
+
+msgid "Reorder Sort Keys"
+msgstr "Переставить ключи сортировки"
+
+msgid "Order of keys must include all integers from 1 to"
+msgstr "Порядок ключей должен включать все целые числа от 1 до"
+
+msgid "Sort Keys"
+msgstr "Ключи сортировки"
+
+msgid "Order"
+msgstr "Порядок"
+
+# added to plot means dialog
+msgid "Connect profiles of means"
+msgstr "Связать профили средних"
+
+# adding to one-way ANOVA dialog
+msgid "Welch F-test not assuming equal variances"
+msgstr "Welch F-test не предполагает равных дисперсий"
+
+# the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+msgid "Test of normality..."
+msgstr "Тест нормальности..."
+
+msgid "Test of Normality"
+msgstr "Тест нормальности"
+
+msgid "Shapiro-Wilk"
+msgstr "Shapiro-Wilk"
+
+msgid "Anderson-Darling"
+msgstr "Anderson-Darling"
+
+msgid "Cramer-von Mises"
+msgstr "Cramer-von Mises"
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr "Lilliefors (Колмогоров-Смирнов)"
+
+msgid "Shapiro-Francia"
+msgstr "Shapiro-Francia"
+
+msgid "Pearson chi-square"
+msgstr "Pearson хи-квадрат"
+
+msgid "Normality Test"
+msgstr "Тест нормальности"
+
+msgid "Number of bins must be a number >= 4"
+msgstr "Количество интервалов дожно быть >= 4"
+
+msgid ""
+"Number of bins\n"
+"for Pearson chi-square"
+msgstr ""
+"Количество интервалов\n"
+"для Pearson хи-квадрат"
+
+# small changes to the read text data dialog
+msgid "Commas [,]"
+msgstr "Запятые [,]"
+
+msgid "Semicolons [;]"
+msgstr "Точки с запятой [;]"
+
+# additional error check in load data set dialog
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr "В файле больше одного объекта с именами:\n"
+
+# new messages for distribution plot dialogs produced by distributionPlot()
+msgid "Optionally specify regions under the density function by"
+msgstr "Как вариант, определите регионы в функции плотности через"
+
+msgid "x-values"
+msgstr "x-values"
+
+msgid "quantiles"
+msgstr "квантили"
+
+msgid "is not a valid number."
+msgstr "неправильный номер."
+
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "Надо определить 'from' и 'to' хотя бы для одного интервала."
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr "В этом интервале 'to' должно быть больше 'from'."
+
+msgid "Quantiles must be between 0 and 1."
+msgstr "Квантили должны быть между 0 и 1."
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr "Регионы для заполнения (определите один или два, или оставьте пустым)"
+
+msgid "Region 1: from"
+msgstr "Регион 1: from"
+
+msgid "Region 2: from"
+msgstr "Регион 2: from"
+
+msgid "to"
+msgstr "до"
+
+msgid "color"
+msgstr "цвет"
+
+msgid "Top center"
+msgstr "Центр верха"
+
+# new compare model coefficients dialog
+msgid "Compare model coefficients..."
+msgstr "Сравнить коэффициенты модели..."
+
+msgid "Compare Model Coefficients"
+msgstr "Сравнить коэффициенты модели"
+
+msgid "You must select at least two models."
+msgstr "Вы должны выбрать по крайней мере две модели."
