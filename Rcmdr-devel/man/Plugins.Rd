@@ -11,7 +11,7 @@
 An R Commander plug-in is an ordinary R package that (1) provides extensions to 
 the R Commander menus is a file named \code{menus.txt} located in the package's 
 \code{etc} directory; (2) provides call-back functions required by these menus;
-and (3) in an \code{Models:} field in the
+and (3) in an \code{RcmdrModels:} field in the
 package's \code{DESCRIPTION} file, augments the list of model objects 
 recognized by the R Commander. The menus provided by a plug-in package are
 merged with the standard Commander menus. It is also possible to remove menus
@@ -29,15 +29,19 @@ plug-in.
 An illustrative R Commander plug-in package, \pkg{RcmdrPlugin.TeachingDemos}, is
 available on CRAN.
 
-For more details, see my (slightly out-of-date) article on ``Extending the Rcmdr by 
+For more details, see my (out-of-date) article on ``Extending the Rcmdr by 
 Plug-in Packages'' in the December 2007 issue of \emph{R News} 
-<\url{http://www.r-project.org/doc/Rnews/Rnews_2007-3.pdf}>. There is also more recent information
+<\url{http://www.r-project.org/doc/Rnews/Rnews_2007-3.pdf}>. There is also more recent
+(but also out-of-date) information
 about writing plug-ins in Fox and Carvalho (2012), 
 ``The RcmdrPlugin.survival Package: Extending the R Commander Interface to Survival Analysis,''
 \emph{Journal of Statistical Software}, 49:7, 1--32.
 <\url{http://www.jstatsoft.org/v49/i07}>.
+
+A variety of utility functions is available to support R Commander plug-in packages;
+see \code{\link{Rcmdr.Utilities}}.
 }
 
-\seealso{\code{\link{Commander}}}
+\seealso{\code{\link{Commander}}, \code{\link{Rcmdr.Utilities}}}
 
 \keyword{misc}

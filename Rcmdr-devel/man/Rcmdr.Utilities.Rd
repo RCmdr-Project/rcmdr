@@ -490,8 +490,9 @@ commanderPosition()
 
 \details{
 
-  There are several groups of functions exported by the \code{Rcmdr} package and documented briefly here.
-  To see how these functions work, it is simplest to examine the dialog-generating functions in the \code{Rcmdr} package.
+  There are several groups of functions exported by the \pkg{Rcmdr} package and documented briefly here.
+  To see how these functions work, it is simplest to examine the dialog-generating functions in the \pkg{Rcmdr} package.
+  Also see the \pkg{RcmdrPlugin.survival} package for examples.
 
   \emph{Executing and logging commands: }
   
@@ -508,7 +509,7 @@ commanderPosition()
   Ocassionally, it's necessary to assign an object directly in the global environment, and
   this can be done with the \code{gassign} function. 
   
-  Normally commands generate an R Markdown block.
+  Normally commands also generate an R Markdown block.
   \code{suppressMarkdown} takes a command in character-string form and adds an attribute to it 
   that will cause the command \emph{not} to be entered in the R Markdown tab. This is useful when a
   command, such as \code{identify}, requires direct user interaction and won't generate useful Markdown.
@@ -589,13 +590,13 @@ commanderPosition()
   \code{TRUE} or \code{FALSE} depending upon whether some condition obtains. For example, \code{lmP()} 
   returns \code{TRUE} if there is an active model that is a linear model; and \code{factorsP(2)}
   returns \code{TRUE} if there are at least two factors in the active data set. 
-  \code{WindowsP()} and \code{X11P()} return \code{TRUE} respectively if the R Commander is running under Windows or
-  X-Windows.
+  \code{WindowsP()}, \code{MacOSXP()}, and \code{X11P()} return \code{TRUE} if the R Commander is running under Windows, Mac OS X, or
+  X-Windows, consecutively.
   
   \emph{Translating text:}
   
   The \code{gettextRcmdr} function simply passes its argument(s) to
-   \code{\link[base]{gettext}}, adding the argument \code{domain="R-Rcmdr"}.
+   \code{\link[base]{gettext}}, adding the argument \code{domain="R-Rcmdr"} It is not meant to be used in plug-in packages.
    
   \emph{Miscellaneous:}
   
@@ -603,7 +604,7 @@ commanderPosition()
   \code{installPlugin} installs an Rcmdr plug-in from a ZIP file or directory; this function may be used to
   create self-installing plug-ins in the form of packages. The function \code{nobs} returns the number of 
   observations on which a statistical model is based. The function \code{formulaFields} returns information
-  about the left-hand side, right-hand side, data, subject, and (for GLMs) family and link, of a model object.
+  about the left-hand side, right-hand side, data, subset, and (for GLMs) family and link, of a model object.
   The function \code{sortVarNames} sorts variable names, including those containing numerals, into a more
   "natural" order than does the standard \code{sort} function. The function \code{Library} may be used to
   load packages; it checks whether a package is already loaded, and if not by default puts it in position
@@ -613,7 +614,8 @@ commanderPosition()
   
   Some of these functions, marked \code{# macro} under \emph{Usage}, are "macro-like" in their behaviour, in that they 
   execute in the environment from which they are called. These were defined with an adaptation (used with permission) of
-  Thomas Lumley's \code{defmacro} function, described in Lumley (2001).
+  Thomas Lumley's \code{defmacro} function, described in Lumley (2001), and are used in the R Commander to deal with
+  scoping issues related to Tcl/Tk.
   
   The \code{tkfocus} function is exported for historical reasons.
   

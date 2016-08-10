@@ -13,6 +13,9 @@ Commander()
 
 \bold{Getting Started}
 
+For more detailed information about getting started, see \emph{Help -> Introduction to the R Commander}
+from the R Commander menus or Fox (2017).
+
 The default R Commander interface consists of (from top to bottom) a menu bar, a toolbar,
 a code window with script and R Markdown tabs, an output window, and a messages window.
 
@@ -32,7 +35,7 @@ data frames or suitable model objects in memory.
 Almost all commands require an active data set. When the Commander starts, there is no active
 data set, as indicated in the data set information field. A data set becomes the active data set
 when it is read into memory from an R package or imported from a text file, SPSS data set,
-Minitab data set,  STATA data set, or an Excel, Access, or dBase data set. 
+Minitab data set,  STATA data set, SAS XPORT data set; or an Excel spreadsheet. 
 In addition, the active data set can be selected from among R data frames
 resident in memory. You can therefore switch among data sets during a session.
 
@@ -82,7 +85,7 @@ Pressing \emph{Control-A} selects all of the text in the Script tab, R Markdown 
 In addition, the following Control-key combinations work in these tabs and windows: \emph{Control-X}, cut;
 \emph{Control-C}, copy; \emph{Control-V}, insert; \emph{Control-Z} or \emph{Alt-Backspace}, undo; and \emph{Control-W}, redo.
 
-Under Mac OS X, the \emph{command} key may be used in place of the \code{Control} key, though the
+Under Mac OS X, the \emph{command} key may be used in place of the \emph{Control} key, though the
 latter works as well.
 
 Right-clicking the mouse (clicking button 3 on a three-button mouse, or \emph{Control}-left-clicking) in the tabs or windows brings up
@@ -140,7 +143,7 @@ set none, one, several, or all options. The available options are as follows:
 	if this option is set to \code{FALSE}, then the subsequent option is also set to \code{FALSE}.}
 	
     \item{\code{ask.on.exit}}{if \code{TRUE} (the default), then the user is asked whether to save
-    the script file and the output file when the \pkg{Rcmdr} exits.}
+    the script file, R Markdown file, and output file when the \pkg{Rcmdr} exits.}
 
     \item{\code{attach.data.set}}{if \code{TRUE} (the default is \code{FALSE}), the active data set is attached to the
     search path.}
@@ -166,12 +169,12 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{default.font.family}}{The default font for GUI elements such as menus and text labels, in the form of a 
     Tk font family specification, given in a character string. 
     For example,  \code{"Helvetica"} specifies the sans-serif Helvetica font family.
-    IThe default is taken from the \code{TkDefaultFont}. Normally a sans-serif font should be used.}
+    The default is taken from the \code{TkDefaultFont}. Normally a sans-serif font should be used.}
 
     \item{\code{default.font.size}}{The size, in points, of the default font. The default is 10 on non-Windows
     system and the size of the system font on Windows. 
     To set the font size for R input and output, see the \code{log.font.size} option.
-    The \pkg{Rcmdr} \code{scale factor} option may also be used to
+    The \pkg{Rcmdr} \code{scale.factor} option may also be used to
     control font size.}
     
     \item{\code{double.click}}{Set to \code{TRUE} if you want a double-click of the left mouse
@@ -191,7 +194,7 @@ set none, one, several, or all options. The available options are as follows:
     On some systems, grabbing the focus in this manner apparently causes problems. The default is \code{TRUE}. 
     If you experience focus problems, try setting this option to \code{FALSE}.}
     
-    \item{\code{"help_type"}}{This Rcmdr option takes precedence over the global R \code{help_type}
+    \item{\code{help_type}}{This Rcmdr option takes precedence over the global R \code{help_type}
     option (see \code{\link{options}} and \code{\link{help}}), and by default is set to \code{"html"}.}
     
     \item{\code{iconify.commander}}{If \code{TRUE}, the \emph{Commander} window is minimized on startup;
@@ -203,11 +206,6 @@ set none, one, several, or all options. The available options are as follows:
     
     \item{\code{length.command.stack}}{The R Commander also maintains a list of commands that is managed similarly; the default length
     of this stack is also 10.}
-    
-%%    \item{\code{load.at.startup}}{A character vector of names of packages to be loaded 
-%%    when the \pkg{Rcmdr} package is loaded; the default is to load only the \code{car} package. 
-%%    Other required packages will be loaded as needed. If it is available, the 
-%%    \code{car} package will be loaded at when the Commander starts in any event.}
       
     \item{\code{log.commands}}{If \code{TRUE} (the default), commands are echoed to the script window;
     if \code{FALSE}, the script window is not displayed.}
@@ -259,36 +257,25 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{prefixes}}{A four-item character vector to specify the prefixes used when output is directed
     to the R console; the default is \code{c("Rcmdr> ", "Rcmdr+ ", "RcmdrMsg: ", "RcmdrMsg+ ")}.}
     
-    \item{\code{RcmdrEnv.on.path}}{If \code{TRUE} (the default is \code{FALSE}), 
-    the environment in which R Commander state information
-    is stored is placed on the search path. Some plug-ins may, at least until
-    they are updated, may require this setting.}
-    
     \item{\code{quit.R.on.close}}{if \code{TRUE}, both the Commander and R are exited when the Commander
     window is closed. The default is \code{FALSE}, in which case only the Commander is exited (and can be restarted
     by the command \code{Commander()}).}
     
-    \item{\code{retain.selections}}{If \code{TRUE} (the default), dialogs remember their previous state, where appropriate,
-     as long as the data set isn't changed; some dialogs, e.g., for probabilities, retain selections even when the data set chanages.}
-    
-    \item{\code{suppress.menus}}{if \code{TRUE}, the Commander menu bar and tool bar are suppressed, allowing another
-    program (such as Excel) to take over these functions. The default (of course) is \code{FALSE}.}
-    
-    \item{\code{suppress.X11.warnings}}{On (some?) Linux and Mac OS X systems, multiple X11 warnings are generated by \pkg{Rcmdr}
-    commands after a graphics-device window has been opened. Set this option to \code{TRUE} (the default when running
-    interactively under X11) to suppress reporting of these warnings. An undesirable side effect
-    is that then \emph{all} warnings and error messages are intercepted by the \pkg{Rcmdr},
-    even those for commands entered at the R command prompt. Messages produced by such commands will be printed
-    in the Commander Messages window after the next \pkg{Rcmdr}-generated command.
-    Some X11 warnings may be printed when you exit from the Commander.}
+    \item{\code{RcmdrEnv.on.path}}{If \code{TRUE} (the default is \code{FALSE}), 
+    the environment in which R Commander state information
+    is stored is placed on the search path. Some plug-ins, at least until
+    they are updated, may require this setting.}
     
     \item{\code{retain.messages}}{If \code{TRUE} (the default), the contents of the message window
     are not erased between messages. In any event, a "NOTE" message will not erase a preceding "WARNING" or "ERROR".}
     
+    \item{\code{retain.selections}}{If \code{TRUE} (the default), dialogs remember their previous state, where appropriate,
+     as long as the data set isn't changed; some dialogs, e.g., for probabilities, retain selections even when the data set chanages.}
+    
     \item{\code{RExcelSupport}}{If \code{TRUE} (the default is \code{FALSE}), menus and output are handled by Excel.}
     
     \item{\code{rmd.output.format}}{The output file type for R Markdown documents if pandoc is installed; one of \code{"html"}
-    (the default), \code{"pdf"} (requires LaTeX), or \code{"docx"} (Word).}
+    (the default), \code{"pdf"} (requires LaTeX), \code{"docx"} (Word), or \code{"rtf"} (rich text file).}
     
     \item{\code{rmd.template}}{The quoted path to a \code{.Rmd} file to serve as a template for
     R code and output. The default is to use a template included with the package.}
@@ -311,12 +298,23 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{suppress.icon.images}}{Set to \code{TRUE} to suppress the icon images in dialog OK, Cancel, Reset, and Help buttons;
     the default is \code{FALSE}.}
     
+    \item{\code{suppress.menus}}{if \code{TRUE}, the Commander menu bar and tool bar are suppressed, allowing another
+    program (such as Excel) to take over these functions. The default (of course) is \code{FALSE}.}
+    
+    \item{\code{suppress.X11.warnings}}{On (some?) Linux and Mac OS X systems, multiple X11 warnings are generated by \pkg{Rcmdr}
+    commands after a graphics-device window has been opened. Set this option to \code{TRUE} (the default when running
+    interactively under X11) to suppress reporting of these warnings. An undesirable side effect
+    is that then \emph{all} warnings and error messages are intercepted by the \pkg{Rcmdr},
+    even those for commands entered at the R command prompt. Messages produced by such commands will be printed
+    in the Commander Messages window after the next \pkg{Rcmdr}-generated command.
+    Some X11 warnings may be printed when you exit from the Commander.}
+    
     \item{\code{theme}}{A ttk theme to control the overall style of the Commander GUI; should be one of the themes returned by \code{tcltk2::tk2theme.list()}.
     The default theme varies by operating system, and can be discovered by entering the command \code{tcltk2::tk2theme()} in a fresh R session.}
     
     \item{\code{title.color}}{Color for the titles of some widgets, such as variable-list boxes; can be given as a color name, such as
     \code{"blue"} or as an RGB value, such as \code{"#0000FF"}.
-    The default is the standard color for ttk label frames, unless that is \code{"#000000"} or \code{"black"}, in which case \code{"blue"}" is used instead.}
+    The default is the standard color for ttk label frames, unless that is \code{"#000000"} or \code{"black"}, in which case \code{"blue"} is used instead.}
         
     \item{\code{tkwait.commander}}{This option addresses a problem that, to my knowledge, is rare, 
     and may occur on some non-Windows systems. If the Commander causes R to hang, 
@@ -341,7 +339,7 @@ set none, one, several, or all options. The available options are as follows:
     function in the \pkg{knitr} package.}
     
     \item{\code{use.markdown}}{If \code{TRUE} (the default is the negation of the \code{use.knitr} argument), an R Markdown document
-    is created, which can be compiled into an HTML report.}
+    is created, which can be compiled into an HTML, PDF, Word, or rich text file report.}
     
     \item{\code{use.rgl}}{If \code{TRUE} (the default), the \code{rgl} package will be loaded if it is present in an
     accessible library; if \code{FALSE}, the \code{rgl} package will be ignored even if it is available. 
@@ -380,14 +378,6 @@ For more information about R initialization, see \code{?Startup}.
     Script tab, however, I'd appreciate it if you brought them to my attention.
     }
 
-\section{Known Problems}{
-  Occasionally, under Windows, after typing some text into a dialog box (e.g., a subsetting expression in the Subset Data Set dialog), 
-  buttons in the dialog (e.g., the OK button) will have no effect when they are pressed. Clicking anywhere inside or outside of the dialog 
-  box should restore the function of the buttons. As far as I have been able to ascertain, this is a problem with Tcl/Tk for Windows.
-  I have not seen this behavior in some time and the problem may have been solved.
-}
-
-
 \note{
   On startup, the R Commander sets \code{options(na.action=na.exclude)}; this is done so that
   observation statistics such as residuals can be properly added to the active data set
@@ -402,9 +392,15 @@ For more information about R initialization, see \code{?Startup}.
 \section{Platform-Specific Issues}{
   Under Windows, the \pkg{Rcmdr} package can be run under the \emph{Rgui} in the SDI (single-document
   interface) mode, or under \code{rterm.exe}. You might experience problems running the \pkg{Rcmdr} under
-  \code{ESS} with NTEmacs or XEmacs; under other R consoles; or under the Rgui in the MDI (multiple-document interface) mode.
+  \code{ESS} with NTEmacs or XEmacs, or under other R consoles. The R Commander can be run under the \emph{Rgui} in 
+  MDI (multiple-document interface) mode but it is relatively inconvenient to do so and isn't recommended.
   
-  Under Mac OS X Mavericks, the R Commander may appear to freeze or hesitate when run under \emph{R.app} if the \emph{R.app} window is hidden
+  Occasionally, under Windows, after typing some text into a dialog box (e.g., a subsetting expression in the Subset Data Set dialog), 
+  buttons in the dialog (e.g., the OK button) will have no effect when they are pressed. Clicking anywhere inside or outside of the dialog 
+  box should restore the function of the buttons. As far as I have been able to ascertain, this is a problem with Tcl/Tk for Windows.
+  I have not seen this behavior in some time and the problem may have been solved.
+  
+  Under Mac OS X Mavericks and later, the R Commander may appear to freeze or hesitate when run under \emph{R.app} if the \emph{R.app} window is hidden
   and "app nap" is turned on. It is recommended that app nap be turned off for \emph{R.app}, which can be most conveniently done via the
   R Commander \emph{Tools} menu. The app nap setting is permanent until changed and so the current setting will apply whether or not the
   R Commander is used. When R is first installed, app nap will be on for \emph{R.app}. The \pkg{tcltk} package requires that X Windows is
@@ -413,6 +409,10 @@ For more information about R initialization, see \code{?Startup}.
 }
 
 \references{
+Fox, J. (2017)
+\emph{Using the R Commander: A Point-and-Click Interface for R.}
+Chapman and Hall/CRC Press.
+
 Fox, J. (2005) 
 The R Commander: A Basic Statistics Graphical User Interface to R. 
 \emph{Journal of Statistical Software}, \bold{14(9)}: 1--42.

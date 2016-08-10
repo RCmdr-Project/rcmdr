@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2016-07-19 by J. Fox
+# last modified 2016-08-10 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -1214,10 +1214,11 @@ compareCoefficients <- function () {
         tkfocus(CommanderWindow())
         return()
     }
+    initial.models <- if (length(models) == 2) 0:1 else varPosn(dialog.values$initial.models, vars=models)
     initializeDialog(title = gettextRcmdr("Compare Model Coefficients"))
     modelsBox <- variableListBox(top, models, title = gettextRcmdr("Select models (pick two or more)"),
                                  selectmode = "multiple",
-                                 initialSelection = varPosn(dialog.values$initial.models, vars=models))
+                                 initialSelection = initial.models)
     onOK <- function() {
         models <- getSelection(modelsBox)
         closeDialog()
