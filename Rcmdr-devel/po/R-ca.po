@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.2-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2015-09-11 13:45+0100\n"
-"PO-Revision-Date: 2015-09-11 14:37+0100\n"
+"POT-Creation-Date: 2016-08-11 18:25+0100\n"
+"PO-Revision-Date: 2016-08-11 19:38+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: LL\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Eazy Po 0.9.5.2\n"
+"X-Generator: Eazy Po 0.9.5.3\n"
 
 msgid "KMeans Clustering"
 msgstr "Clusters k-mitjanes"
@@ -215,7 +215,7 @@ msgid "Messages"
 msgstr "Missatges"
 
 msgid "The rgl package is absent; 3D plots are unavailable."
-msgstr "El paquet rgl no hi és; els gràfics 3D no estan disponibles."
+msgstr "Paquet rgl absent; gràfics 3D no disponibles."
 
 msgid "R Commander Version"
 msgstr "Versió de l'R Commander"
@@ -277,10 +277,9 @@ msgstr "Recodifica una variable"
 msgid "Variable to recode (pick one)"
 msgstr "Variable a recodificar (triï'n una)"
 
-#, fuzzy
 #| msgid "Variable"
 msgid "variable"
-msgstr "Variable"
+msgstr "variable"
 
 msgid "You must select a variable."
 msgstr "Cal triar una variable."
@@ -312,10 +311,9 @@ msgstr "Variables actuals (faci un clic doble per enviar a l'expressió)"
 msgid "No expression specified."
 msgstr "No s'ha especificat cap expressió."
 
-#, fuzzy
 #| msgid "variable"
 msgid "Variable"
-msgstr "variable"
+msgstr "Variable"
 
 msgid "Expression to compute"
 msgstr "Expressió a calcular"
@@ -329,18 +327,16 @@ msgstr "Variable(s) a esborrar (triï'n una o més)"
 msgid "You must select one or more variables."
 msgstr "Cal seleccionar una o més variables."
 
-#, fuzzy
 #| msgid ""
 msgid "Delete %s?\nPlease confirm."
 msgstr ""
-"Elimino %s ?\n"
+"Elimina %s ?\n"
 "Confirmi-ho si us plau."
 
-#, fuzzy
 #| msgid ""
 msgid "Delete %d variables?\nPlease confirm."
 msgstr ""
-"Elimino %d variables ?\n"
+"Elimina %d variables ?\n"
 "Confirmi-ho si us plau."
 
 msgid "Read Data From Text File"
@@ -800,12 +796,16 @@ msgstr "Probabilitats binomials acumulades"
 
 msgid "Number of trials, %d, is large.\nCreate long output?"
 msgstr ""
+"El nombre d-assaigs, %d, és gran.\n"
+"Crear una sortida gran?"
 
 msgid "Binomial Probabilities"
 msgstr "Probabilitats binomials"
 
 msgid "Range of values over which to plot, %d, is large.\nCreate long output?"
 msgstr ""
+"El rang de valors sobre els quals graficar, %d, és gran.\n"
+"Crear una sortida gran?"
 
 msgid "Poisson Probabilities"
 msgstr "Probabilitats de Poisson"
@@ -926,6 +926,8 @@ msgstr "Mostra el botó d'edició'"
 
 msgid "Exit and Restart\nR Commander"
 msgstr ""
+"Surt i reinicialitza\n"
+"R Commander"
 
 msgid "Scale factor for Tk elements"
 msgstr "Factor d'escalament dels elements Tk"
@@ -956,6 +958,8 @@ msgstr "Cal triar una variable"
 
 msgid "Identify observations\nwith mouse"
 msgstr ""
+"Identifica observacions\n"
+"amb el ratolí"
 
 msgid "Spikes"
 msgstr "Línies verticals"
@@ -1121,12 +1125,11 @@ msgstr "No s'ha seleccionat la variable y."
 msgid "x and y variables must be different."
 msgstr "Les variables x i y han de ser diferents."
 
-#, fuzzy
 #| msgid ""
 msgid "x-values are not in order.\nContinue?"
 msgstr ""
 "Els valors x no estan ordenats.\n"
-" Continuar malgrat tot?"
+" Continuar?"
 
 msgid "Label for y-axis"
 msgstr "Etiqueta de l'eix y"
@@ -1143,12 +1146,11 @@ msgstr "Els gl han de ser un número positiu."
 msgid "df for chi-square must be a positive number."
 msgstr "els gl pel Khi-quadrat han de ser un número positiu."
 
-#, fuzzy
 #| msgid ""
 msgid "numerator and denominator \ndf for F must be positive numbers."
 msgstr ""
-"els gl del numerador i del denominador\n"
-"han de ser positius per la F."
+"els gl del numerador i del denominador de F\n"
+"han de ser números positius."
 
 msgid "Identify observations with mouse"
 msgstr "Identifica les observacions amb el ratolí"
@@ -1399,21 +1401,19 @@ msgstr "Identifica els punts amb el ratolí"
 msgid "Test Linear Hypothesis"
 msgstr "Contrasta hipòtesis lineals"
 
-#, fuzzy
 #| msgid ""
 msgid "Number of valid entries in hypothesis matrix(%d)\nnot equal to number of rows (%d) * number of columns (%d)."
 msgstr ""
 "El nombre d'entrades vàlides en la matriu d'hipòtesis (%d)\n"
-"no és igual al nombre de fileres (%d) * nombre de les columnes (%d)."
+"no és igual al nombre de fileres (%d) * nombre de columnes (%d)."
 
 msgid "Hypothesis matrix is not of full row rank."
 msgstr "La matriu d'hipòtesis no és de rang complert."
 
-#, fuzzy
 #| msgid ""
 msgid "Number of valid entries in rhs vector (%d)\nis not equal to number of rows (%d)."
 msgstr ""
-"El nombre d'entrades correctes en el vector de la dreta (%d)\n"
+"El nombre d'entrades correctes en el vector rhs (%d)\n"
 "no és igual al nombre de files (%d)."
 
 msgid "Number of Rows:"
@@ -1769,6 +1769,8 @@ msgstr "Aproximació normal"
 
 msgid "Normal approximation with\ncontinuity correction"
 msgstr ""
+"Aproximació normal amb\n"
+"correcció per continuïtat"
 
 msgid "Paired Wilcoxon Test"
 msgstr "Test de Wilcoxon per dades aparellades"
@@ -1844,6 +1846,8 @@ msgstr "Falta entrar valor."
 
 msgid "Number of valid entries (%d)\nnot equal to number levels (%d)."
 msgstr ""
+"El nombre d'entrades vàlides (%d)\n"
+"no es igual al nombre de nivells (%d)."
 
 msgid "Negative probabilities not allowed."
 msgstr "No s'admeten probabilitats negatives."
@@ -2573,7 +2577,10 @@ msgstr "conté noms de variables no estàndards:\n"
 
 msgid "\nThese have been changed to:\n"
 msgstr ""
+"\n"
+"Han estat canviats a:\n"
 
+# importRODBCtable dialog
 ## messages added to Rcmdr version 1.2-0
 msgid "This function requires the RODBC package.\n"
 msgstr "Aquesta funció necessita el paquet RODBC.\n"
@@ -2597,6 +2604,7 @@ msgstr "No hi ha cap taula seleccionada"
 msgid "from Excel, Access or dBase data set..."
 msgstr "des d'una taula de dades d'Excell, Access o dBase..."
 
+# probability distributions
 msgid "Standard deviation must be positive."
 msgstr "La desviacions estàndard ha de ser positiva."
 
@@ -3164,6 +3172,7 @@ msgstr "Distribucions continues"
 msgid "Discrete distributions"
 msgstr "Distribucions discretes"
 
+# Xyplot dialog
 msgid "XY Conditioning Plot"
 msgstr "Gràfic de relació XY"
 
@@ -3203,12 +3212,14 @@ msgstr "Com a mínim cal seleccionar una variable explicativa."
 msgid "XY conditioning plot..."
 msgstr "Gràfic condicional XY..."
 
+# contingency tables dialog
 msgid "Percentages of total"
 msgstr "Percentatges del total"
 
 msgid "Components of chi-square statistic"
 msgstr "Components de l'estadístic Khi quadrat"
 
+# 3D scatterplots dialog
 msgid "Show squared residuals"
 msgstr "Mostra residuus al quadrat"
 
@@ -3218,12 +3229,15 @@ msgstr "Mostra les escales dels eixos"
 msgid "Plot 50% concentration ellipsoid"
 msgstr "Traça l'el·lipsoide de concentració del 50%"
 
+# scatterplot matrices dialog
 msgid "One-dimensional scatterplots"
 msgstr "Gràfic de dispersió unidimensional"
 
+# count NAs (menu item)
 msgid "Count missing observations"
 msgstr "Compte les observacions que falten"
 
+# Correlation test dialog
 msgid "Correlation Test"
 msgstr "Test de correlació"
 
@@ -3248,6 +3262,7 @@ msgstr "Hi ha més de 2 variables seleccionades."
 msgid "Correlation test..."
 msgstr "Test de correlació..."
 
+# Recode dialog
 msgid "Recode Variables"
 msgstr "Recodificar variables"
 
@@ -3263,6 +3278,7 @@ msgstr "Fes (cada) nova variable del tipus factor"
 msgid "Recode variables..."
 msgstr "Recodifica variables..."
 
+# Frequency distributions dialog
 msgid "Frequency Distributions"
 msgstr "Distribucions de freqüències"
 
@@ -3277,6 +3293,7 @@ msgstr ""
 msgid "Frequency distributions..."
 msgstr "Distribucions de freqüències..."
 
+# Numeric to factor dialog
 msgid "Convert Numeric Variables to Factors"
 msgstr "Converteix variables numériques en factors"
 
@@ -3295,6 +3312,7 @@ msgstr "Nou nom de variable o prefix per múltiples variables:"
 msgid "Convert numeric variables to factors..."
 msgstr "Converteix variables numèriques en factors..."
 
+# Stack dialog
 msgid "Stack Variables"
 msgstr "Apila variables"
 
@@ -3319,6 +3337,7 @@ msgstr "Nom pel factor:"
 msgid "Stack variables in active data set..."
 msgstr "Apila variables en la taula de dades activa..."
 
+# miscelaneous
 #, fuzzy
 #| msgid "Identify points"
 msgid "Identify Points"
@@ -3326,9 +3345,13 @@ msgstr "Identifica els punts"
 
 msgid "Use left mouse button to identify points,\nright button to exit."
 msgstr ""
+"Empri el botó esquerra del ratolí per identificar punts,\n"
+"el dret per sortir."
 
 msgid "Drag right mouse button to identify points,\nclick right button to exit."
 msgstr ""
+"Arrossegui amb el botó dret del ratolí per\n"
+"identificar punts, premi el buto dret per sortir"
 
 msgid "Read Data From Text File or Clipboard"
 msgstr "Llegeix dades des d'un fitxer de text o del portapapers"
@@ -3351,6 +3374,7 @@ msgstr "No hi ha cap estadística seleccionada."
 msgid "Right-hand side"
 msgstr "Terme de la dreta"
 
+# handling plug-ins
 ## messages added to Rcmdr version 1.3-0
 msgid "Load Plugins"
 msgstr "Carrega plugins"
@@ -3364,12 +3388,11 @@ msgstr "Cal triar com a mínim un plugin."
 msgid "Plug-ins loaded:"
 msgstr "Plugins carregats:"
 
-#, fuzzy
 #| msgid ""
 msgid "The plug-in(s) will not be available until the Commander is restarted.\nRestart now?"
 msgstr ""
-"El(s) plugin(s) no estaran disponibles fins reiniciar el Commander."
-"\nReinicio ara?"
+"El(s) plugin(s) no estaran disponibles fins reiniciar el Commander.\n"
+"Reiniciar ara?"
 
 msgid "objects have different numbers of columns"
 msgstr "els objectes tenen un nombre diferent de columnes"
@@ -3392,6 +3415,7 @@ msgstr "operació no reconeguda, \"%s\", a la línia %i del menú del plugin"
 msgid "unrecognized type, \"%s\", in plugin menu line %i"
 msgstr "tipus no reconegut, \"%s\", a la línia %i del menú del plugin"
 
+# miscelaneous additions
 msgid "Color palette..."
 msgstr "Paleta de colors..."
 
@@ -3457,9 +3481,11 @@ msgstr "Grandària del text de l'eix"
 msgid "Axis-labels text size"
 msgstr "Grandària de les etiquetes de l'eix"
 
+# message added to version 1.3-3 (because of inadvertent omission)
 msgid "Scale (inverse rate)"
 msgstr "Escala (raó inversa)"
 
+# messages added to version 1.3-5
 msgid " has been coerced to a data frame"
 msgstr "ha estat coaccionada a una taula de dades"
 
@@ -3469,15 +3495,34 @@ msgstr "la taula de dades %s ja no està disponible"
 msgid "the model %s is no longer available"
 msgstr "el model %s ja no està disponible"
 
+# message added to version 1.3-10
 msgid "The Commander GUI is launched only in interactive sessions"
 msgstr "El GUI del Commander només s'inicia a les sessions interactives"
 
+# messages added to version 1.3-15
+# Note: translate these messages only if the corresponding
+# translated documents are supplied
+# For the following, you must supply a file named Commander-xx.Rd containing
+# a translation of the file Commander.Rd, where xx is the code for your
+# language. The \name{} and \alias{} fields in the .Rd file should both be
+# Commander-xx, where again xx is the language code.
+# Example: "Commander-es"
+# Note: Some translated Commander-xx.Rd files have not been compiling properly. As
+# an alternative, you can supply a PDF file named Commander-xx.pdf, and this will
+# be accessed when the user selects Help -> Commander help.
+# If you supply neither Commander-xx.Rd nor Commander-xx.pdf, then
+# the string "Commander" should not be translated.
 msgid "Commander"
 msgstr "Commander"
 
+# For the following you must supply a PDF document containing a translation
+# of "Getting-Started-with-the-Rcmdr.pdf". I suggest using a translation
+# including -xx, where xx is the code for your language.
+# Example: "Empezando-con-Rcmdr-es"
 msgid "Getting-Started-with-the-Rcmdr"
 msgstr "Iniciant-el-Rcmdr"
 
+# messages added to version 1.4-0
 msgid "Type of Tests"
 msgstr "Tipus de tests"
 
@@ -3580,9 +3625,12 @@ msgstr "Restaura"
 msgid "ANOVA table..."
 msgstr "Taula de l'ANOVA..."
 
+# messages added to version 1.4-2
 msgid "Location not specified."
 msgstr "Localització no especificada."
 
+# messages added to version 1.5-0
+# "Models -> Stepwise model selection" dialog and menu item
 msgid "Stepwise model selection..."
 msgstr "Selecció del model pas a pas..."
 
@@ -3613,6 +3661,7 @@ msgstr "BIC"
 msgid "AIC"
 msgstr "AIC"
 
+# "Models -> Subset model selection" dialog and menu item
 msgid "Subset model selection..."
 msgstr "Selecció del model de subconjunts..."
 
@@ -3641,6 +3690,7 @@ msgstr ""
 msgid "Maximum size:"
 msgstr "Grandària màxima:"
 
+# "Data -> Merge data sets" menu item and dialog
 msgid "Merge data sets..."
 msgstr "Fusiona taules de dades..."
 
@@ -3668,13 +3718,13 @@ msgstr "No pot fusionar una taula de dades amb si mateixa."
 msgid "Name for merged data set:"
 msgstr "Nom per la taula de dades fusionada:"
 
-#, fuzzy
 #| msgid ""
 msgid "Merge only common\nrows or columns"
 msgstr ""
 "Fusiona només fileres\n"
-"o columnes idèntiques"
+"o columnes comunes"
 
+# "Data -> Active data set -> Aggregate variables in active data set" menu item and dialog
 msgid "Aggregate variables in active data set..."
 msgstr "Agrega variables a la taula de dades activa..."
 
@@ -3710,6 +3760,7 @@ msgstr "Las variables a agregar i les que les reben han de ser diferents."
 msgid "Name for aggregated data set:"
 msgstr "Nom per la taula de dades agregada:"
 
+# miscellaneous
 #, fuzzy
 #| msgid ""
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
@@ -3746,18 +3797,22 @@ msgstr ""
 "La versió de Windows de l'R Commander funciona millor sota l'RGui\n"
 "amb la interfície de document únic (SDI); vegeiu ?Commander."
 
+# messages added to version 1.6-0
+# for Levene test
 msgid "median"
 msgstr "mediana"
 
 msgid "Center"
 msgstr "Centre"
 
+# for scatterplot
 msgid "Smooth line"
 msgstr "Línia suavitzada"
 
 msgid "Show spread"
 msgstr "Mostra la dispersió"
 
+# for AV plots
 #, fuzzy
 #| msgid ""
 msgid "Identify points with mouse?\nRight-click to exit."
@@ -3765,6 +3820,7 @@ msgstr ""
 "Voleu identificar punts amb el ratolí?\n"
 "Fes clic al botó dret per sortir."
 
+# for interactive point identification
 msgid "Use left mouse button to identify points,\n"
 msgstr "Empreu el butó esquerre del ratolí per identificar punts,\n"
 
@@ -3774,9 +3830,12 @@ msgstr "butó dret per sortir."
 msgid "esc key to exit."
 msgstr "tecla 'esc' per sortir."
 
+# menus
 msgid "Start R help system"
 msgstr "Inicií el sistema d'ajuda de l'R"
 
+# messages added to version 1.6-4
+# to correct order of file extensions
 msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
 msgstr "{\"tots els fitxers\" {\"*\"}} {\"Fitxers d'instruccions\" {\".R\"}}"
 
@@ -3844,6 +3903,7 @@ msgstr ""
 "{\"Tots els fitxers\" {\"*\"}} {\"Fitxers Postscript encapsulats\" {\".eps\" "
 "\".EPS\"}}"
 
+# messages added to version 1.7-0
 msgid "Reset"
 msgstr "Inicialitza"
 
@@ -3874,6 +3934,7 @@ msgstr "Empra casos complets"
 msgid "Use pairwise-complete cases"
 msgstr "Usa casos complerts dos a dos"
 
+# messages added to version 1.7-4
 msgid "Component scores are not available when subset is specified."
 msgstr ""
 "Els valors dels components no estan disponibles quan s'especifica un "
@@ -3883,6 +3944,7 @@ msgid "Factor scores are not available when subset is specified."
 msgstr ""
 "Els valors dels factors no estan disponibles quan s'especifica un subconjunt."
 
+# messages added to version 1.8-0
 msgid "Confirmatory Factor Analysis"
 msgstr "Anàlisi factorial confirmatòria"
 
@@ -3932,18 +3994,23 @@ msgstr "La primera càrrega de cada factor establerta a 1"
 msgid "Confirmatory factor analysis..."
 msgstr "Anàlisi fctorial confirmatòria..."
 
+# messages added to version 1.8-1
+# the following messages were omitted from version 1.8-0
 msgid "Robust standard errors"
 msgstr "Errors estàndards robusts"
 
 msgid "No factors defined."
 msgstr "No s'ha definit cap factor."
 
+# message added to version 1.8-2
 msgid "Default-font size (points)"
 msgstr "Grandària de la lletra (punts)"
 
+# message added to version 1.8-4
 msgid "data set edit error."
 msgstr "Error de l'editor de dades."
 
+# messages added to version 1.9-0
 msgid "Identify Outliers"
 msgstr "Identificació de vlors atípics"
 
@@ -4002,11 +4069,10 @@ msgstr ""
 "{\"Tots els fitxers\" {\"*\"}} {\"Fitxers SAS xport\" {\".xpt\" \".XPT\" \"."
 "xport\" \".XPORT\"}}"
 
-#, fuzzy
 #| msgid ""
 msgid "Convert variable names\nto lower case"
 msgstr ""
-"converteix el nom de la variable\n"
+"converteix el nom de la variables\n"
 "a minúscules"
 
 msgid "from Excel file..."
@@ -4037,9 +4103,11 @@ msgstr "Triï com a mínim un punt o línia."
 msgid "Plot Type (one or both)"
 msgstr "tipus de gràfic (un o els dos)"
 
+# messages added to version 1.9-1 (missing from 1.9-0)
 msgid "Plot legend"
 msgstr "Llegenda del gràfic"
 
+# the following were missing from Xyplot()
 msgid "Conditions '|' (pick zero or more)"
 msgstr "condicions '|' (triïn una o zero)"
 
@@ -4058,6 +4126,7 @@ msgstr "nombre de columnes:"
 msgid "number of rows:"
 msgstr "nombre de fileres:"
 
+# messages added to version 2.0-0
 msgid "Plot Options"
 msgstr "Opcions del gràfic"
 
@@ -4103,6 +4172,7 @@ msgstr "Emprant R Markdown"
 msgid "Table"
 msgstr "Taula"
 
+# point identification in graphs (additional messages)
 msgid "Interactively with mouse"
 msgstr "Interactivament amb el ratolí"
 
@@ -4115,6 +4185,12 @@ msgstr "el nombre de punts a identificar ha de ser un sencer"
 msgid "Number of points to identify"
 msgstr "Nombre de punts a identificar"
 
+# corrected messages in version 2.2-1
+# The following messages had trailing blanks. These messages were deleted from
+# their previous locations in this .pot file and transferred here in corrected form,
+# with the trailing blanks removed.
+# I suggest that you likewise delete the earlier versions of these messages from
+# your .po file and provide corrected translations here, without trailing blanks.
 #, fuzzy
 #| msgid ""
 msgid "Number of points to identify  \nin each panel and group "
@@ -4137,6 +4213,7 @@ msgstr "Gràfic components+residus"
 msgid "Influence Plot"
 msgstr "Gràfic d'influència"
 
+# support for R Markdown and knitr
 msgid "Generate HTML report"
 msgstr "Genera un report HTML"
 
@@ -4199,6 +4276,7 @@ msgstr ""
 "Elimina les fitxers gràfics\n"
 "knitr creats prèviament(recomanat)?"
 
+# setting and saving options
 msgid "Ask to exit Commander"
 msgstr "Pregunta al sortir del Commander"
 
@@ -4301,6 +4379,7 @@ msgstr "Pot editar aquest fitxer abans de desar-lo."
 msgid "Save Rcmdr options..."
 msgstr "Salva les opcions del Rcmdr..."
 
+# density estimate dialog
 msgid "Nonparametric Density Estimate"
 msgstr "estimació de densitat noparamètrica"
 
@@ -4328,9 +4407,11 @@ msgstr "Estimador de densitat..."
 msgid "Bandwidth must be <auto> or a positive number"
 msgstr "El paràmetre de suavització ha de ser <auto> o un número positiu"
 
+# index plot dialog
 msgid "Style of plot"
 msgstr "Estil del gràfic"
 
+# export data set dialog
 msgid "Write variable names"
 msgstr "Escriu el nom de les variables"
 
@@ -4340,11 +4421,12 @@ msgstr "Escriu el nom de les columnes"
 msgid "Quotes around character values"
 msgstr "Pose cometes al voltant dels valors no numèrics"
 
-#, fuzzy
+# numerical summaries dialog
 #| msgid "quantiles:"
 msgid "Quantiles:"
-msgstr "quantils:"
+msgstr "Quantils:"
 
+# for splines and polynomials in model formulas
 msgid "spline requires a numeric variable"
 msgstr "spline requereix una variable numèrica"
 
@@ -4397,6 +4479,8 @@ msgstr "gl per splines:"
 msgid "deg. for polynomials:"
 msgstr "grau per polinomials:"
 
+# messages added to version 2.0-1
+# messages related to editing/processing R Markdown and knitr documents
 msgid "R Commander Editor"
 msgstr "Editor de l'R Commander"
 
@@ -4431,12 +4515,16 @@ msgstr ""
 msgid "Discard edits?"
 msgstr "Descartar el que s-ha editat?"
 
+# support for back-to-back stem-and-leaf displays
 msgid "Plot back-to-back by:"
 msgstr "Disposar els gràfics un al costat d'altre segons:"
 
 msgid "Plot back-to-back by"
 msgstr "Disposar els gràfics un al costat d'altre segons"
 
+# messages added for version 2.1-0
+# the next two messages no longer needed and can be disregarded if not already translated
+# for numerical summaries dialog
 #m sgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
 #m sgstr ""
 #m sgid "the car package is missing and should be installed\n  many features will not work"
@@ -4444,21 +4532,25 @@ msgstr "Disposar els gràfics un al costat d'altre segons"
 msgid "Standard Error of Mean"
 msgstr "Error estàandard de la mitjana"
 
+# for CFA dialog
 msgid "Fit Indices"
 msgstr "Índexs d-ajustament"
 
+# for read Excel file dialog
 msgid "Variable names in first row of spreadsheet"
 msgstr "Noms de les variables en la primera filera del full de càlcul"
 
 msgid "Row names in first column of spreadsheet"
 msgstr "Noms de les fileres a la primera columna del full de càlcul"
 
+# for selecting weights in LM and GLM dialogs
 msgid "<no variable selected>"
 msgstr "<cap variable seleccionada>"
 
 msgid "Weights"
 msgstr "Ponderacions"
 
+# new effect-plots dialog
 msgid "Model Effect Plots"
 msgstr "Gràfic dels efectes del model"
 
@@ -4494,12 +4586,14 @@ msgstr "Àrees apilades"
 msgid "Lines with confidence bands"
 msgstr "L'inies amb bandes de confiança"
 
+# new one-sample Wilcoxon test dialog
 msgid "Single-Sample Wilcoxon Test"
 msgstr "Test de Wilcoxon per una mostra"
 
 msgid "Single-sample Wilcoxon test..."
 msgstr "Test de Wilcoxon per una mostra..."
 
+# new drop unused factor levels dialog
 msgid "Drop Unused Factor Levels"
 msgstr "Elimina els nivells no emprats de factors"
 
@@ -4519,6 +4613,7 @@ msgstr "Eliminar els nivells no emprats de factors..."
 msgid "all factors"
 msgstr "tots els factors"
 
+# messages related to sandwich variance estimator
 msgid "Linear Model Summary"
 msgstr "Resum del model lineal"
 
@@ -4540,15 +4635,18 @@ msgstr "Empra estimador de sandvitx de\nla matriu de coeficients de varincia"
 msgid "sandwich covariance matrix unavailable with type I tests"
 msgstr "la matriu sandvitx de covariància no està disponible pel test tipus I"
 
+# messages related to ttk theme selection
 msgid "non-existent theme"
 msgstr "el tema no existeix"
 
 msgid "theme set to"
 msgstr "tema fixat a"
 
+# modified message
 msgid "Restart R Commander"
 msgstr "Reinicia R Commander"
 
+# formula-help button
 #, fuzzy
 #| msgid ""
 msgid "Model formula\nhelp"
@@ -4556,6 +4654,8 @@ msgstr ""
 "Formula del model\n"
 "ajuda"
 
+# messages added for version 2.1-1
+# messages for the new dataset editor
 msgid "Data Editor"
 msgstr "Editor de dades"
 
@@ -4586,6 +4686,8 @@ msgstr "Afegeix una filera"
 msgid "Add column"
 msgstr "Afegeix una columna"
 
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
 msgid "Manage Mac OS X app nap for R.app..."
 msgstr "Gestiona Mac OS X app nap per R.app..."
 
@@ -4601,12 +4703,15 @@ msgstr "tancat (recomanat)"
 msgid "on"
 msgstr "obert"
 
+# set random seed dialog
 msgid "Set random number generator seed..."
 msgstr "Fixar la llavor del generador de n'umeros aleatoris..."
 
 msgid "Set Random Number Generator Seed"
 msgstr "Fixa la llavor del generador de n'umeros aleatoris"
 
+# messages added for version 2.2-0
+# messages that were inadvertently missing in previous versions
 # messages added for version 2.2-0
 # messages that were inadvertently missing in previous versions
 msgid "The following variable names are not valid:\n"
@@ -4636,6 +4741,7 @@ msgstr "Test d'hipòtesi"
 msgid "Load Plug-ins"
 msgstr "Carrega connectors"
 
+# for report generation
 # for report generation
 msgid "Generate report"
 msgstr "Genera informe"
@@ -4685,10 +4791,11 @@ msgid "Word file written to:"
 msgstr "Fitfer Word escrit a:"
 
 # additions to scatterplot and scatterplot-matrix dialogs
+# additions to scatterplot and scatterplot-matrix dialogs
 msgid "Levels for ellipses must be numeric values\n  separated by spaces or commas."
 msgstr ""
-"Els nivells de les el·lipses han de se numèrics\n"
-"separats per espais o comes."
+"Els nivells de les el·lipses han de ser valors\n"
+"numèrics separats per espais o comes."
 
 msgid "Plot concentration ellipse(s)"
 msgstr "Gràfic el·lipse(s) concentració"
@@ -4715,6 +4822,7 @@ msgid "Bottom right"
 msgstr "Avall i dreta"
 
 # additions to bargraph dialog
+# additions to bargraph dialog
 msgid "Style of Group Bars"
 msgstr "Estil de barres agrupades"
 
@@ -4737,15 +4845,17 @@ msgid "plotting and grouping variables must be different"
 msgstr "les variables a graficar i a agrupar han de ser diferents"
 
 # dot plot dialog
+# dot plot dialog
 msgid "Dot Plot"
-msgstr "Fes el gràfics"
+msgstr "Gràfic de punts"
 
 msgid "Bin variable"
 msgstr "Empaqueta variables"
 
 msgid "Dot plot..."
-msgstr "Fes el gràfic..."
+msgstr "Gràfic de punts..."
 
+# for reading Excel files (new dialog)
 # for reading Excel files (new dialog)
 msgid "Convert character data to factors"
 msgstr "Converteix caràcters a factors"
@@ -4755,3 +4865,214 @@ msgstr "<cel·la buida>"
 
 msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
 msgstr "{\"Tots els fitxers\" {\"*\"}} {\"Fitxer MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+
+# additional messages in version 2.3-0
+# .rtf output from RMarkdown reports
+#~ msgid ".rtf (rich text file)"
+#~ msgstr ""
+
+#~ msgid "Rich text file written to:"
+#~ msgstr ""
+
+# bootstrapping dialog
+#~ msgid "Bootstrap confidence intervals..."
+#~ msgstr ""
+
+#~ msgid "Bootstrap"
+#~ msgstr ""
+
+#~ msgid "Bootstrap Confidence Intervals for Coefficients"
+#~ msgstr ""
+
+#~ msgid "Number of bootstrap samples:"
+#~ msgstr ""
+
+#~ msgid "Number of samples must be a positive integer."
+#~ msgstr ""
+
+#~ msgid "Type of Confidence Intervals"
+#~ msgstr ""
+
+#~ msgid "BCa (adjusted percentile)"
+#~ msgstr ""
+
+#~ msgid "Normal theory"
+#~ msgstr ""
+
+#~ msgid "Basic bootstrap"
+#~ msgstr ""
+
+#~ msgid "Percentile"
+#~ msgstr ""
+
+#~ msgid "Resampling Method"
+#~ msgstr ""
+
+#~ msgid "Case resampling"
+#~ msgstr ""
+
+#~ msgid "Residual resampling"
+#~ msgstr ""
+
+# delta method dialog
+#~ msgid "Delta method confidence interval..."
+#~ msgstr ""
+
+#~ msgid "Delta Method"
+#~ msgstr ""
+
+#~ msgid "Confidence Interval by the Delta Method"
+#~ msgstr ""
+
+#~ msgid "Expression to evaluate; use parameter names:"
+#~ msgstr ""
+
+# view data dialog
+#~ msgid "View data..."
+#~ msgstr ""
+
+#~ msgid "View Data"
+#~ msgstr ""
+
+#~ msgid "Bad subset expression."
+#~ msgstr ""
+
+#~ msgid "No data to show."
+#~ msgstr ""
+
+#~ msgid "View data error."
+#~ msgstr ""
+
+# sort active data set dialog
+#~ msgid "Sort active data set..."
+#~ msgstr ""
+
+#~ msgid "Sort Active Data Set"
+#~ msgstr ""
+
+#~ msgid "Sort Keys (select one or more)"
+#~ msgstr ""
+
+#~ msgid "Sort Direction"
+#~ msgstr ""
+
+#~ msgid "Increasing"
+#~ msgstr ""
+
+#~ msgid "Decreasing"
+#~ msgstr ""
+
+#~ msgid "Reorder Sort Keys"
+#~ msgstr ""
+
+#~ msgid "Order of keys must include all integers from 1 to"
+#~ msgstr ""
+
+#~ msgid "Sort Keys"
+#~ msgstr ""
+
+#~ msgid "Order"
+#~ msgstr ""
+
+# added to plot means dialog
+#~ msgid "Connect profiles of means"
+#~ msgstr ""
+
+# adding to one-way ANOVA dialog
+#~ msgid "Welch F-test not assuming equal variances"
+#~ msgstr ""
+
+# the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+#~ msgid "Test of normality..."
+#~ msgstr ""
+
+#~ msgid "Test of Normality"
+#~ msgstr ""
+
+#~ msgid "Shapiro-Wilk"
+#~ msgstr ""
+
+#~ msgid "Anderson-Darling"
+#~ msgstr ""
+
+#~ msgid "Cramer-von Mises"
+#~ msgstr ""
+
+#~ msgid "Lilliefors (Kolmogorov-Smirnov)"
+#~ msgstr ""
+
+#~ msgid "Shapiro-Francia"
+#~ msgstr ""
+
+#~ msgid "Pearson chi-square"
+#~ msgstr ""
+
+#~ msgid "Normality Test"
+#~ msgstr ""
+
+#~ msgid "Number of bins must be a number >= 4"
+#~ msgstr ""
+
+#~ msgid "Number of bins\nfor Pearson chi-square"
+#~ msgstr ""
+
+# small changes to the read text data dialog
+#~ msgid "Commas [,]"
+#~ msgstr ""
+
+#~ msgid "Semicolons [;]"
+#~ msgstr ""
+
+# additional error check in load data set dialog
+#~ msgid "There is more than one object in the file, with the following names:\n"
+#~ msgstr ""
+
+# new messages for distribution plot dialogs produced by distributionPlot()
+#~ msgid "Optionally specify regions under the density function by"
+#~ msgstr ""
+
+#~ msgid "x-values"
+#~ msgstr ""
+
+#~ msgid "quantiles"
+#~ msgstr ""
+
+#~ msgid "is not a valid number."
+#~ msgstr ""
+
+#~ msgid "You must specify 'from' and 'to' for at least one range."
+#~ msgstr ""
+
+#~ msgid "In specifying a range, 'to' must be greater than 'from'."
+#~ msgstr ""
+
+#~ msgid "Quantiles must be between 0 and 1."
+#~ msgstr ""
+
+#~ msgid "Regions to Fill (specify one or two, or leave blank)"
+#~ msgstr ""
+
+#~ msgid "Region 1: from"
+#~ msgstr ""
+
+#~ msgid "Region 2: from"
+#~ msgstr ""
+
+#~ msgid "to"
+#~ msgstr ""
+
+#~ msgid "color"
+#~ msgstr ""
+
+#~ msgid "Top center"
+#~ msgstr ""
+
+# new compare model coefficients dialog
+#~ msgid "Compare model coefficients..."
+#~ msgstr ""
+
+#~ msgid "Compare Model Coefficients"
+#~ msgstr ""
+
+#~ msgid "You must select at least two models."
+#~ msgstr ""
