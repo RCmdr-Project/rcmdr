@@ -3384,6 +3384,13 @@ msgstr "Interfata grafica este lansata numai in sesiuni interactive"
 # Commander-xx, where again xx is the language code.
 # Example: "Commander-es"
 
+# Note: Some translated Commander-xx.Rd files have not been compiling properly. As
+# an alternative, you can supply a PDF file named Commander-xx.pdf, and this will
+# be accessed when the user selects Help -> Commander help.
+
+# If you supply neither Commander-xx.Rd nor Commander-xx.pdf, then
+# the string "Commander" should not be translated. 
+
 msgid "Commander"
 msgstr "Commander"
 
@@ -3651,7 +3658,6 @@ msgstr "Valori p pairwise\npentru corelatii Pearson sau Spearman"
 msgid "The Windows version of the R Commander works best under RGui\nwith the single-document interface (SDI); see ?Commander."
 msgstr "Versiunea Windows a lui R Commander functioneaza cel mai bine in RGui\ncu interfata SDI - Single Document Interface; vezi ?Commander."
 
-
 # messages added to version 1.6-0
 
 	# for Levene test
@@ -3690,7 +3696,6 @@ msgstr "tasta Esc pentru iesire."
 	
 msgid "Start R help system"
 msgstr "Porneste sistemul de help al lui R"
-
 
 # messages added to version 1.6-4 
 #  to correct order of file extensions
@@ -3923,6 +3928,7 @@ msgstr "Alege cel putin un punct sau linie"
 
 msgid "Plot Type (one or both)"
 msgstr "Tip de grafic (unul sau ambele)"
+
 
 # messages added to version 1.9-1 (missing from 1.9-0)
 
@@ -4312,11 +4318,13 @@ msgstr "Plot spate-in-spate cu"
 
 # messages added for version 2.1-0
 
-msgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
-msgstr "pachetul RcmdrMisc lipseste si trebuie instalat\n  multe lucruri nu vor merge"
+# the next two messages no longer needed and can be disregarded if not already translated
 
-msgid "the car package is missing and should be installed\n  many features will not work"
-msgstr "pachetul car lipseste si trebuie instalat\n  multe lucruri nu vor merge"
+#msgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
+#msgstr "pachetul RcmdrMisc lipseste si trebuie instalat\n  multe lucruri nu vor merge"
+
+#msgid "the car package is missing and should be installed\n  many features will not work"
+#msgstr "pachetul car lipseste si trebuie instalat\n  multe lucruri nu vor merge"
 
   # for numerical summaries dialog
 
@@ -4429,7 +4437,6 @@ msgstr "Repornire R Commander"
 
 msgid "Model formula\nhelp"
 msgstr "Formula model\najutor"
-
 
 # messages added for version 2.1-1
 
@@ -4643,7 +4650,15 @@ msgstr "<celula goala>"
 msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
 msgstr "{\"Toate fisierele\" {\"*\"}} {\"Fisier MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
 
-  # corrected messages in version 2.2-1
+
+# corrected messages in version 2.2-1
+
+  # The following messages had trailing blanks. These messages were deleted from
+  #   their previous locations in this .pot file and transferred here in corrected form,
+  #   with the trailing blanks removed.
+  
+  # I suggest that you likewise delete the earlier versions of these messages from 
+  #   your .po file and provide corrected translations here, without trailing blanks.
 
 msgid "Number of points to identify  \nin each panel and group"
 msgstr "Numar de puncte de identificat \nin fiecare panel si grup"
@@ -4653,4 +4668,232 @@ msgstr "Utilizare estimator sandwich\npentru matricea de covarianta a coeficient
 
 msgid "Concentration levels:"
 msgstr "Niveluri de concentrare:"
+
+
+# additional messages in version 2.3-0
+
+  # .rtf output from RMarkdown reports
+  
+msgid ".rtf (rich text file)"
+msgstr ".rtf (rich text file)"
+
+msgid "Rich text file written to:"
+msgstr "Fisier .rtf scris in:"
+
+ # bootstrapping dialog
+ 
+msgid "Bootstrap confidence intervals..."
+msgstr "Intervale de incredere boostrap..."
+
+msgid "Bootstrap"
+msgstr "Bootstrap"
+
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "Intervale de incredere boostrap pentru coeficienti"
+
+msgid "Number of bootstrap samples:"
+msgstr "Numar de esantioane bootstrap:"
+
+msgid "Number of samples must be a positive integer."
+msgstr "Numarul de esantioane trebuie sa fie intreg pozitiv."
+
+msgid "Type of Confidence Intervals"
+msgstr "Tip de intervale de incredere"
+
+msgid "BCa (adjusted percentile)"
+msgstr "BCa (percentile ajustate)"
+
+msgid "Normal theory"
+msgstr "Teoria normala"
+
+msgid "Basic bootstrap"
+msgstr "Bootstrap simplu"
+
+msgid "Percentile"
+msgstr "Percentile"
+
+msgid "Resampling Method"
+msgstr "Metoda de reesantionare"
+
+msgid "Case resampling"
+msgstr "Reesantionarea cazurilor"
+
+msgid "Residual resampling"
+msgstr "Reesantionarea reziduurilor"
+
+ # delta method dialog
+ 
+msgid "Delta method confidence interval..."
+msgstr "Interval de incredere metoda delta..."
+
+msgid "Delta Method"
+msgstr "Metoda Delta"
+
+msgid "Confidence Interval by the Delta Method"
+msgstr "Interval de incredere prin Metoda Delta"
+
+msgid "Expression to evaluate; use parameter names:"
+msgstr "Expresie de evaluat; nume parametri:"
+
+ # view data dialog
+ 
+msgid "View data..."
+msgstr "Vizualizare date..."
+
+msgid "View Data"
+msgstr "Vizualizare date"
+
+msgid "Bad subset expression."
+msgstr "Expresie subset gresita."
+
+msgid "No data to show."
+msgstr "Nu exista date de vizualizat."
+
+msgid "View data error."
+msgstr "Eroare vizualizare date."
+
+ # sort active data set dialog
+ 
+msgid "Sort active data set..."
+msgstr "Sortare set de date activ..."
+
+msgid "Sort Active Data Set"
+msgstr "Sortare set de date activ"
+
+msgid "Sort Keys (select one or more)"
+msgstr "Chei de sortare (una sau mai multe)"
+
+msgid "Sort Direction"
+msgstr "Directie de sortare"
+
+msgid "Increasing"
+msgstr "Crescatoare"
+
+msgid "Decreasing"
+msgstr "Descrescatoare"
+
+msgid "Reorder Sort Keys"
+msgstr "Reordonare chei de sortare"
+
+msgid "Order of keys must include all integers from 1 to"
+msgstr "Ordinea cheilor trebuie sa includa toti intregii de la 1 la"
+
+msgid "Sort Keys"
+msgstr "Chei de sortare"
+
+msgid "Order"
+msgstr "Ordine"
+
+ # added to plot means dialog
+ 
+msgid "Connect profiles of means"
+msgstr "Conectare profile de medii"
+
+ # adding to one-way ANOVA dialog
+ 
+msgid "Welch F-test not assuming equal variances"
+msgstr "Testul F Welch fara variante egale asumate"
+
+ # the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+ 
+msgid "Test of normality..."
+msgstr "Test de normalitate..."
+
+msgid "Test of Normality"
+msgstr "Test de Normalitate"
+
+msgid "Shapiro-Wilk"
+msgstr "Shapiro-Wilk"
+
+msgid "Anderson-Darling"
+msgstr "Anderson-Darling"
+
+msgid "Cramer-von Mises"
+msgstr "Cramer-von Mises"
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr "Lilliefors (Kolmogorov-Smirnov)"
+
+msgid "Shapiro-Francia"
+msgstr "Shapiro-Francia"
+
+msgid "Pearson chi-square"
+msgstr "Pearson chi-patrat"
+
+msgid "Normality Test"
+msgstr "Test de Normalitate"
+
+msgid "Number of bins must be a number >= 4"
+msgstr "Numarul de bare trebuie sa fie >= 4"
+
+msgid "Number of bins\nfor Pearson chi-square"
+msgstr "Numar de bare\npentru Pearson chi-patrat"
+
+ # small changes to the read text data dialog
+ 
+msgid "Commas [,]"
+msgstr "Virgula [,]"
+
+msgid "Semicolons [;]"
+msgstr "Punct virgula [;]"
+
+ # additional error check in load data set dialog
+ 
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr "Exista mai mult de un obiect in fisier, cu urmatoarele nume:\n"
+
+ # new messages for distribution plot dialogs produced by distributionPlot()
+ 
+msgid "Optionally specify regions under the density function by"
+msgstr "Specificare optionala a regiunilor sub functia de densitate cu"
+ 
+msgid "x-values"
+msgstr "x-values"
+
+msgid "quantiles"
+msgstr "quantile"
+
+msgid "is not a valid number."
+msgstr "nu e un numar valid."
+
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "Trebuie specificat 'de la' si 'pana la' pentru cel putin o amplitudine."
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr "In specificarea unei amplitudini, 'pana la' trebuie sa fie mai mare decat 'de la'."
+
+msgid "Quantiles must be between 0 and 1."
+msgstr "Quantilele trebuie sa fie intre 0 si 1."
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr "Regiunile de umplut (una sau doua, sau lasa gol)"
+
+msgid "Region 1: from"
+msgstr "Regiunea 1: de la"
+
+msgid "Region 2: from"
+msgstr "Regiunea 2: de la"
+
+msgid "to"
+msgstr "pana la"
+
+msgid "color"
+msgstr "culoare"
+
+msgid "Top center"
+msgstr "Centru sus"
+
+  # new compare model coefficients dialog
+  
+msgid "Compare model coefficients..."
+msgstr "Compara coeficienti model..."
+
+msgid "Compare Model Coefficients"
+msgstr "Compara Coeficienti Model"
+
+msgid "Select models (pick two or more)"
+msgstr "Selectare model (unul sau doua)"
+
+msgid "You must select at least two models."
+msgstr "Trebuie selectate cele putin doua modele."
 
