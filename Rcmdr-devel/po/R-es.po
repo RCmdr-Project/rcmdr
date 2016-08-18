@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.1-5\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2015-09-06 13:15:00\n"
-"PO-Revision-Date: 2015-09-07 11:10+0100\n"
+"POT-Creation-Date: 2016-08-11 09:14+0200\n"
+"PO-Revision-Date: 2016-08-18 10:16+0200\n"
 "Last-Translator: Manuel Munoz-Marquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <ginteloy@uca.es>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "KMeans Clustering"
@@ -238,9 +238,6 @@ msgstr "NOTA"
 msgid "New Data Set"
 msgstr "Nuevo conjunto de datos"
 
-msgid "Dataset"
-msgstr "Datos"
-
 msgid "You must enter the name of a data set."
 msgstr "Debe introducir el nombre del conjunto de datos."
 
@@ -273,9 +270,6 @@ msgstr "Recodificar variable"
 
 msgid "Variable to recode (pick one)"
 msgstr "Variable a recodificar (seleccionar una)"
-
-msgid "variable"
-msgstr "variable"
 
 msgid "You must select a variable."
 msgstr "Debe seleccionar una variable."
@@ -2826,9 +2820,6 @@ msgstr "Distribución binomial negativa"
 msgid "Sample from Normal Distribution"
 msgstr "Muestra de una distribución normal"
 
-msgid "NormalSamples"
-msgstr "MuestrasNormales"
-
 msgid "Sample means"
 msgstr "Media de cada muestra"
 
@@ -2856,80 +2847,41 @@ msgstr "Añadir al conjunto de datos:"
 msgid "Sample from t Distribution"
 msgstr "Muestra de una distribución t"
 
-msgid "tSamples"
-msgstr "Muestras-t"
-
 msgid "Sample from Chi-squared Distribution"
 msgstr "Muestra de una distribución Chi-cuadrado"
-
-msgid "ChisquareSamples"
-msgstr "MuestrasChicuadrado"
 
 msgid "Sample from F Distribution"
 msgstr "Muestra de una distribución F"
 
-msgid "FSamples"
-msgstr "Muestras-F"
-
 msgid "Sample from Exponential Distribution"
 msgstr "Muestra de una distribución exponencial"
-
-msgid "ExponentialSamples"
-msgstr "MuestrasExponenciales"
 
 msgid "Sample from Uniform Distribution"
 msgstr "Muestra de una distribución uniforme"
 
-msgid "UniformSamples"
-msgstr "MuestrasUniformes"
-
 msgid "Sample from Beta Distribution"
 msgstr "Muestra de una distribución beta"
-
-msgid "BetaSamples"
-msgstr "MuestrasBeta"
 
 msgid "Sample from Cauchy Distribution"
 msgstr "Muestra de una distribución de Cauchy"
 
-msgid "CauchySamples"
-msgstr "MuestrasCauchy"
-
 msgid "Sample from Logistic Distribution"
 msgstr "Muestra de una distribución logística"
-
-msgid "LogisticSamples"
-msgstr "MuestrasLogisticas"
 
 msgid "Sample from Log-Normal Distribution"
 msgstr "Muestra de una distribución lognormal"
 
-msgid "LogNormalSamples"
-msgstr "MuestrasLognormales"
-
 msgid "Sample from Gamma Distribution"
 msgstr "Muestra de una distribución Gamma"
-
-msgid "GammaSamples"
-msgstr "MuestrasGamma"
 
 msgid "Sample from Weibull Distribution"
 msgstr "Muestra de una distribución Weibull"
 
-msgid "WeibullSamples"
-msgstr "MuestrasWeibull"
-
 msgid "Sample from Gumbel Distribution"
 msgstr "Muestra de una distribución Gumbel"
 
-msgid "GumbelSamples"
-msgstr "MuestrasGumbel"
-
 msgid "Sample from Binomial Distribution"
 msgstr "Muestra de una distribución binomial"
-
-msgid "BinomialSamples"
-msgstr "MuestrasBinomiales"
 
 msgid "Poisson mean cannot be negative."
 msgstr "La media de la distribución de Poisson no puede ser negativa."
@@ -2937,26 +2889,14 @@ msgstr "La media de la distribución de Poisson no puede ser negativa."
 msgid "Sample from Poisson Distribution"
 msgstr "Muestra de una distribución de Poisson"
 
-msgid "PoissonSamples"
-msgstr "MuestrasPoisson"
-
 msgid "Sample from Geometric Distribution"
 msgstr "Muestra de una distribución geométrica"
-
-msgid "GeometricSamples"
-msgstr "MuestrasGeometricas"
 
 msgid "Sample from Hypergeometric Distribution"
 msgstr "Muestra de una distribución hipergeométrica"
 
-msgid "HypergeometricSamples"
-msgstr "MuestrasHipergeometricas"
-
 msgid "Sample from Negative Binomial Distribution"
 msgstr "Muestra de una distribución binomial negativa"
-
-msgid "NegativeBinomialSamples"
-msgstr "MuestrasBinomialNegativas"
 
 msgid "Sample from normal distribution..."
 msgstr "Muestra de una distribución normal..."
@@ -3313,9 +3253,6 @@ msgstr "Apilar variables"
 
 msgid "factor"
 msgstr "factor"
-
-msgid "StackedData"
-msgstr "DatosApilados"
 
 msgid "You must select at least two variables."
 msgstr "Debe seleccionar al menos dos variables"
@@ -4472,7 +4409,7 @@ msgid "Fit Indices"
 msgstr "Ajuste de índices"
 
 msgid "Variable names in first row of spreadsheet"
-msgstr "Nombre de las filas en la primera columna de la hoja de cálculo"
+msgstr "Nombre de las filas en la primera fila de la hoja de cálculo"
 
 msgid "Row names in first column of spreadsheet"
 msgstr "Nombre de las filas en la primera columna de la hoja de cálculo"
@@ -4793,3 +4730,281 @@ msgstr ""
 
 msgid "Concentration levels:"
 msgstr "Niveles de concentración:"
+
+# additional messages in version 2.3-0
+# .rtf output from RMarkdown reports
+msgid ".rtf (rich text file)"
+msgstr ".rtf (archivo de texto enriquecido)"
+
+msgid "Rich text file written to:"
+msgstr "Archivo de texto enriquecido donde guardar:"
+
+# bootstrapping dialog
+msgid "Bootstrap confidence intervals..."
+msgstr "Intervalo de confianza bootstrap..."
+
+msgid "Bootstrap"
+msgstr "Bootstrap"
+
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "Intervalo de Confianza Bootstrap para los Coeficientes"
+
+msgid "Number of bootstrap samples:"
+msgstr "Número de muestras bootstrap:"
+
+msgid "Number of samples must be a positive integer."
+msgstr "El número de muestras debe ser un entero positivo."
+
+msgid "Type of Confidence Intervals"
+msgstr "Tipo de Intervalo de Confianza"
+
+msgid "BCa (adjusted percentile)"
+msgstr "BCa (percentil ajustado)"
+
+msgid "Normal theory"
+msgstr "Normal teórica"
+
+msgid "Basic bootstrap"
+msgstr "Bootstrap básico"
+
+msgid "Percentile"
+msgstr "Percentile"
+
+msgid "Resampling Method"
+msgstr "Método de remuestreo"
+
+msgid "Case resampling"
+msgstr "Remuestreando casos"
+
+msgid "Residual resampling"
+msgstr "Remuestreando residuos"
+
+# delta method dialog
+msgid "Delta method confidence interval..."
+msgstr "Intervalo de confianza método delta"
+
+msgid "Delta Method"
+msgstr "Método Delta"
+
+msgid "Confidence Interval by the Delta Method"
+msgstr "Intervalo de Confianza por el Método Delta"
+
+msgid "Expression to evaluate; use parameter names:"
+msgstr "Expresión a evaluar; use nombres paramétricos:"
+
+# view data dialog
+msgid "View data..."
+msgstr "Visualizar datos..."
+
+msgid "View Data"
+msgstr "Visualizar datos"
+
+msgid "Bad subset expression."
+msgstr "Expresión de subconjunto incorrecta."
+
+msgid "No data to show."
+msgstr "Sin datos que mostrar."
+
+msgid "View data error."
+msgstr "Visualiar datos de error."
+
+# sort active data set dialog
+msgid "Sort active data set..."
+msgstr "Ordenar el conjunto de datos activo..."
+
+msgid "Sort Active Data Set"
+msgstr "Ordenar Conjunto de Datos Activo"
+
+msgid "Sort Keys (select one or more)"
+msgstr "Claves de Orden (seleccione una o más)"
+
+msgid "Sort Direction"
+msgstr "Sentido de Ordenación"
+
+msgid "Increasing"
+msgstr "Creciente"
+
+msgid "Decreasing"
+msgstr "Decreciente"
+
+msgid "Reorder Sort Keys"
+msgstr "Reordenar Claves de Ordenación"
+
+msgid "Order of keys must include all integers from 1 to"
+msgstr "El orden de las claves debe incluir todos los enteros entre 1 y"
+
+msgid "Sort Keys"
+msgstr "Claves de Ordenación"
+
+msgid "Order"
+msgstr "Orden"
+
+# added to plot means dialog
+msgid "Connect profiles of means"
+msgstr "Conectar perfiles de medias"
+
+# adding to one-way ANOVA dialog
+msgid "Welch F-test not assuming equal variances"
+msgstr "Welch F-test sin suponer igualdas de varianzas"
+
+# the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+msgid "Test of normality..."
+msgstr "Test de normailidad..."
+
+msgid "Test of Normality"
+msgstr "Test de Normalidad"
+
+msgid "Shapiro-Wilk"
+msgstr "Shapiro-Wilk"
+
+msgid "Anderson-Darling"
+msgstr "Anderson-Darling"
+
+msgid "Cramer-von Mises"
+msgstr "Cramer-von Mises"
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr "Lilliefors (Kolmogorov-Smirnov)"
+
+msgid "Shapiro-Francia"
+msgstr "Shapiro-Francia"
+
+msgid "Pearson chi-square"
+msgstr "Chi cuadrado de Pearson"
+
+msgid "Normality Test"
+msgstr "Test de Normalidad"
+
+msgid "Number of bins must be a number >= 4"
+msgstr "El número de divisiones debe ser un número >= 4"
+
+msgid ""
+"Number of bins\n"
+"for Pearson chi-square"
+msgstr ""
+"El número de divisiones\n"
+"para chi cuadrado de Pearson"
+
+# small changes to the read text data dialog
+msgid "Commas [,]"
+msgstr "Comas [,]"
+
+msgid "Semicolons [;]"
+msgstr "Punto y coma [;]"
+
+# additional error check in load data set dialog
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr "Hay más de un objeto en el fichero, con el nombre siguiente:\n"
+
+# new messages for distribution plot dialogs produced by distributionPlot()
+msgid "Optionally specify regions under the density function by"
+msgstr "Opcionalmente especifique las regiones bajo la función de densidad por"
+
+msgid "x-values"
+msgstr "x-valores"
+
+msgid "quantiles"
+msgstr "cuantiles"
+
+msgid "is not a valid number."
+msgstr "no es un número válido."
+
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "Debe especificar 'desde' y 'hasta' para al menos un rango."
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr "En la especificación del rago, 'hasta' debe ser mayor que 'desde'."
+
+msgid "Quantiles must be between 0 and 1."
+msgstr "Los cuantiles deben estar entre 0 y 1."
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr "Regiones a Rellenar (especifique una o dos, o deje en blanco)"
+
+msgid "Region 1: from"
+msgstr "Región 1: desde"
+
+msgid "Region 2: from"
+msgstr "Región 2: desde"
+
+msgid "to"
+msgstr "a"
+
+msgid "color"
+msgstr "color"
+
+msgid "Top center"
+msgstr "Arriba centro"
+
+# new compare model coefficients dialog
+msgid "Compare model coefficients..."
+msgstr "Comparar coeficientes del modelo..."
+
+msgid "Compare Model Coefficients"
+msgstr "Comparar Coefficientes del Modelo"
+
+msgid "You must select at least two models."
+msgstr "Debe seleccionar al menos dos modelos."
+
+#~ msgid "Dataset"
+#~ msgstr "Datos"
+
+#~ msgid "variable"
+#~ msgstr "variable"
+
+#~ msgid "NormalSamples"
+#~ msgstr "MuestrasNormales"
+
+#~ msgid "tSamples"
+#~ msgstr "Muestras-t"
+
+#~ msgid "ChisquareSamples"
+#~ msgstr "MuestrasChicuadrado"
+
+#~ msgid "FSamples"
+#~ msgstr "Muestras-F"
+
+#~ msgid "ExponentialSamples"
+#~ msgstr "MuestrasExponenciales"
+
+#~ msgid "UniformSamples"
+#~ msgstr "MuestrasUniformes"
+
+#~ msgid "BetaSamples"
+#~ msgstr "MuestrasBeta"
+
+#~ msgid "CauchySamples"
+#~ msgstr "MuestrasCauchy"
+
+#~ msgid "LogisticSamples"
+#~ msgstr "MuestrasLogisticas"
+
+#~ msgid "LogNormalSamples"
+#~ msgstr "MuestrasLognormales"
+
+#~ msgid "GammaSamples"
+#~ msgstr "MuestrasGamma"
+
+#~ msgid "WeibullSamples"
+#~ msgstr "MuestrasWeibull"
+
+#~ msgid "GumbelSamples"
+#~ msgstr "MuestrasGumbel"
+
+#~ msgid "BinomialSamples"
+#~ msgstr "MuestrasBinomiales"
+
+#~ msgid "PoissonSamples"
+#~ msgstr "MuestrasPoisson"
+
+#~ msgid "GeometricSamples"
+#~ msgstr "MuestrasGeometricas"
+
+#~ msgid "HypergeometricSamples"
+#~ msgstr "MuestrasHipergeometricas"
+
+#~ msgid "NegativeBinomialSamples"
+#~ msgstr "MuestrasBinomialNegativas"
+
+#~ msgid "StackedData"
+#~ msgstr "DatosApilados"
