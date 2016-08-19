@@ -1,16 +1,16 @@
 # French translations for the Rcmdr package
 # Traductions françaises pour le package Rcmdr
-# Copyright (C) 2005-2014 John Fox
+# Copyright (C) 2005-2016 John Fox
 # This file is distributed under the same license as the Rcmdr package
 # Philippe Grosjean <phgrosjean@sciviews.org>, 2005-2007
-# Milan Bouchet-Valat <nalimilan@club.fr>, 2012-2014.
+# Milan Bouchet-Valat <nalimilan@club.fr>, 2012-2016.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.2-0\n"
+"Project-Id-Version: Rcmdr 2.3-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2015-08-12 10:25+0200\n"
-"PO-Revision-Date: 2015-09-25 16:00+0200\n"
+"POT-Creation-Date: 2016-07-19 21:00:00\n"
+"PO-Revision-Date: 2016-08-19 15:30+0200\n"
 "Last-Translator: Milan Bouchet-Valat <nalimilan@club.fr>\n"
 "Language-Team: français <> <phgrosjean@sciviews.org>\n"
 "Language: fr\n"
@@ -18,7 +18,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 1.8.4\n"
 
 msgid "KMeans Clustering"
 msgstr "Classification par k-means"
@@ -245,9 +244,6 @@ msgstr "NOTE"
 msgid "New Data Set"
 msgstr "Nouveau tableau de données"
 
-msgid "Dataset"
-msgstr "Dataset"
-
 msgid "You must enter the name of a data set."
 msgstr "Vous devez entrer un nom pour le tableau de données."
 
@@ -280,9 +276,6 @@ msgstr "Recoder une variable"
 
 msgid "Variable to recode (pick one)"
 msgstr "Variable à recoder (une)"
-
-msgid "variable"
-msgstr "variable"
 
 msgid "You must select a variable."
 msgstr "Vous devez sélectionner une variable."
@@ -2836,9 +2829,6 @@ msgstr "Distribution binomiale négative"
 msgid "Sample from Normal Distribution"
 msgstr "Échantillon d'une distribution normale"
 
-msgid "NormalSamples"
-msgstr "EchantillonsNormaux"
-
 msgid "Sample means"
 msgstr "Moyennes des échantillons"
 
@@ -2866,80 +2856,41 @@ msgstr "Ajouter au jeu de données :"
 msgid "Sample from t Distribution"
 msgstr "Échantillon d'une distribution t"
 
-msgid "tSamples"
-msgstr "Echantillonst"
-
 msgid "Sample from Chi-squared Distribution"
 msgstr "Échantillon d'une distribution du Chi-deux"
-
-msgid "ChisquareSamples"
-msgstr "EchantillonsChiDeux"
 
 msgid "Sample from F Distribution"
 msgstr "Échantillon d'une distribution F"
 
-msgid "FSamples"
-msgstr "EchantillonsF"
-
 msgid "Sample from Exponential Distribution"
 msgstr "Échantillon d'une distribution exponentielle"
-
-msgid "ExponentialSamples"
-msgstr "EchantillonsExpo"
 
 msgid "Sample from Uniform Distribution"
 msgstr "Échantillon d'une distribution uniforme"
 
-msgid "UniformSamples"
-msgstr "EchantillonsUniforme"
-
 msgid "Sample from Beta Distribution"
 msgstr "Échantillon d'une distribution Beta"
-
-msgid "BetaSamples"
-msgstr "EchantillonsBeta"
 
 msgid "Sample from Cauchy Distribution"
 msgstr "Échantillon d'une distribution de Cauchy"
 
-msgid "CauchySamples"
-msgstr "EchantillonsCauchy"
-
 msgid "Sample from Logistic Distribution"
 msgstr "Échantillon d'une distribution logistique"
-
-msgid "LogisticSamples"
-msgstr "EchantillonsLogistique"
 
 msgid "Sample from Log-Normal Distribution"
 msgstr "Échantillon d'une distribution log-normale"
 
-msgid "LogNormalSamples"
-msgstr "EchantillonsLogNormale"
-
 msgid "Sample from Gamma Distribution"
 msgstr "Échantillon d'une distribution Gamma"
-
-msgid "GammaSamples"
-msgstr "EchantillonsGamma"
 
 msgid "Sample from Weibull Distribution"
 msgstr "Échantillon d'une distribution de Weibull"
 
-msgid "WeibullSamples"
-msgstr "EchantillonsWeibull"
-
 msgid "Sample from Gumbel Distribution"
 msgstr "Échantillon d'une distribution de Gumbel"
 
-msgid "GumbelSamples"
-msgstr "EchantillonsGumbel"
-
 msgid "Sample from Binomial Distribution"
 msgstr "Échantillon d'une distribution binomiale"
-
-msgid "BinomialSamples"
-msgstr "EchantillonsBinomiale"
 
 msgid "Poisson mean cannot be negative."
 msgstr "La moyenne Poisson ne peut être une valeur négative."
@@ -2947,26 +2898,14 @@ msgstr "La moyenne Poisson ne peut être une valeur négative."
 msgid "Sample from Poisson Distribution"
 msgstr "Échantillon d'une distribution de Poisson"
 
-msgid "PoissonSamples"
-msgstr "EchantillonsPoisson"
-
 msgid "Sample from Geometric Distribution"
 msgstr "Échantillon d'une distribution géométrique"
-
-msgid "GeometricSamples"
-msgstr "EchantillonsGeo"
 
 msgid "Sample from Hypergeometric Distribution"
 msgstr "Échantillon d'une distribution hypergéométrique"
 
-msgid "HypergeometricSamples"
-msgstr "EchantillonsHypergeo"
-
 msgid "Sample from Negative Binomial Distribution"
 msgstr "Échantillon d'une distribution binomiale négative"
-
-msgid "NegativeBinomialSamples"
-msgstr "EchantillonsBinomNeg"
 
 msgid "Sample from normal distribution..."
 msgstr "Échantillon d'une distribution normale..."
@@ -3334,9 +3273,6 @@ msgstr "Empiler des variables"
 
 msgid "factor"
 msgstr "facteur"
-
-msgid "StackedData"
-msgstr "DonneesEmpilees"
 
 msgid "You must select at least two variables."
 msgstr "Vous devez sélectionner au moins deux variables."
@@ -4188,13 +4124,6 @@ msgstr "le nombre de points à identifier doit être un entier"
 msgid "Number of points to identify"
 msgstr "Nombre de points à identifier :"
 
-msgid ""
-"Number of points to identify  \n"
-"in each panel and group "
-msgstr ""
-"Nombre de points à identifier\n"
-"dans chaque panneau et groupe"
-
 msgid "Added-Variable Plots"
 msgstr "Graphes de régression partielle"
 
@@ -4522,6 +4451,9 @@ msgstr "Noms des lignes dans la première colonne du tableur"
 msgid "<no variable selected>"
 msgstr "<aucune variable sélectionnée>"
 
+msgid "Weights"
+msgstr "Hauteur"
+
 msgid "Model Effect Plots"
 msgstr "Graphes des effets du modèle"
 
@@ -4596,13 +4528,6 @@ msgid ""
 msgstr ""
 "Utiliser l'estimateur sandwich de\n"
 "erreurs types des coefficients"
-
-msgid ""
-"Use sandwich estimator of\n"
-"coefficient covariance matrix   "
-msgstr ""
-"Utiliser l'estimateur sandwich de\n"
-"matrice de covariance des coefficients"
 
 msgid "sandwich covariance matrix unavailable with type I tests"
 msgstr "matrice de covariance sandwich non disponible avec les tests de type I"
@@ -4776,9 +4701,6 @@ msgstr ""
 msgid "Plot concentration ellipse(s)"
 msgstr "Graphe d’ellipses de concentration"
 
-msgid "Concentration levels: "
-msgstr "Niveaux de concentration :"
-
 msgid "Legend Position"
 msgstr "Position de la légende"
 
@@ -4845,32 +4767,7 @@ msgstr ""
 "{\"Tous les fichiers\" {\"*\"}} {\"Fichiers Excel\" {\".xlsx\" \".XLSX\" \".xls"
 "\" \".XLS\"}}"
 
-# messages added for version 2.1-0
-#~ msgid ""
-#~ "the RcmdrMisc package is missing and should be installed\n"
-#~ "  many features will not work"
-#~ msgstr ""
-#~ "le paquet RcmdrMisc est manquant et devrait être installé\n"
-#~ "  de nombreuses fonctions ne marcheront pas"
-
-#~ msgid ""
-#~ "the car package is missing and should be installed\n"
-#~ "  many features will not work"
-#~ msgstr ""
-#~ "le paquet car est manquant et devrait être installé\n"
-#~ "  many features will not work"
-
-#~ msgid "Weights"
-#~ msgstr "Poids"
-
 # corrected messages in version 2.2-1
-
- # The following messages had trailing blanks. These messages were deleted from
- #   their previous locations in this .pot file and transferred here in corrected form,
- #   with the trailing blanks removed.
-
- # I suggest that you likewise delete the earlier versions of these messages from 
- #   your .po file and provide corrected translations here, without trailing blanks.
 
 msgid "Number of points to identify  \nin each panel and group"
 msgstr "Nombre de points à identifier\ndans chaque panneau et groupe"
@@ -4880,3 +4777,230 @@ msgstr "Utiliser l'estimateur sandwich de\nmatrice de covariance des coefficient
 
 msgid "Concentration levels:"
 msgstr "Niveaux de concentration :"
+
+# additional messages in version 2.3-0
+
+  # .rtf output from RMarkdown reports
+  
+msgid ".rtf (rich text file)"
+msgstr ".rtf (fichier texte enrichi)"
+
+msgid "Rich text file written to:"
+msgstr "Fichier texte enrichi créé :"
+
+ # bootstrapping dialog
+ 
+msgid "Bootstrap confidence intervals..."
+msgstr "Intervalles de confiance bootstrap..."
+
+msgid "Bootstrap"
+msgstr "Bootstrap"
+
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "Intervalles de confiance bootstrap pour les coefficients"
+
+msgid "Number of bootstrap samples:"
+msgstr "Nombre d'échantillons bootstrap :"
+
+msgid "Number of samples must be a positive integer."
+msgstr "Le nombre d'échantillons doit être un entier positif."
+
+msgid "Type of Confidence Intervals"
+msgstr "Type d'intervalles de confiance"
+
+msgid "BCa (adjusted percentile)"
+msgstr "BCa (percentile ajusté)"
+
+msgid "Normal theory"
+msgstr "Théorie normale"
+
+msgid "Basic bootstrap"
+msgstr "Bootstrap basique"
+
+msgid "Percentile"
+msgstr "Percentile"
+
+msgid "Resampling Method"
+msgstr "Méthode de rééchantillonnage"
+
+msgid "Case resampling"
+msgstr "Rééchantillonnage des observations"
+
+msgid "Residual resampling"
+msgstr "Rééchantillonnage des résidus"
+
+ # delta method dialog
+ 
+msgid "Delta method confidence interval..."
+msgstr "Intervalle de confiance par méthode delta..."
+
+msgid "Delta Method"
+msgstr "Méthode delta"
+
+msgid "Confidence Interval by the Delta Method"
+msgstr "Intervalle de confiance par méthode delta"
+
+msgid "Expression to evaluate; use parameter names:"
+msgstr "Expression à évaluer ; utiliser les noms des paramètres :"
+
+ # view data dialog
+ 
+msgid "View data..."
+msgstr "Afficher les données..."
+
+msgid "View Data"
+msgstr "Affichage des données"
+
+msgid "Bad subset expression."
+msgstr "Mauvaise expression de sélection."
+
+msgid "No data to show."
+msgstr "Pas de données à afficher."
+
+msgid "View data error."
+msgstr "Erreur d'affichage des données"
+
+ # sort active data set dialog
+ 
+msgid "Sort active data set..."
+msgstr "Trier le jeu de données actif..."
+
+msgid "Sort Active Data Set"
+msgstr "Trier le jeu de données actif"
+
+msgid "Sort Keys (select one or more)"
+msgstr "Clés de tri (en choisir une ou plus)"
+
+msgid "Sort Direction"
+msgstr "Ordre de tri"
+
+msgid "Increasing"
+msgstr "Croissant"
+
+msgid "Decreasing"
+msgstr "Décroissant"
+
+msgid "Reorder Sort Keys"
+msgstr "Réordonner les clés de tri"
+
+msgid "Order of keys must include all integers from 1 to"
+msgstr "L'ordre des clés doit inclure tous les entiers entre 1 et"
+
+msgid "Sort Keys"
+msgstr "Clés de tri"
+
+msgid "Order"
+msgstr "Ordre"
+
+ # added to plot means dialog
+ 
+msgid "Connect profiles of means"
+msgstr "Connecter les profils des moyennes"
+
+ # adding to one-way ANOVA dialog
+ 
+msgid "Welch F-test not assuming equal variances"
+msgstr "Test F de Welch sans supposer l'égalité des variances"
+
+ # the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+ 
+msgid "Test of normality..."
+msgstr "Test de normalité..."
+
+msgid "Test of Normality"
+msgstr "Test de normalité"
+
+msgid "Shapiro-Wilk"
+msgstr "Shapiro-Wilk"
+
+msgid "Anderson-Darling"
+msgstr "Anderson-Darling"
+
+msgid "Cramer-von Mises"
+msgstr "Cramer-von Mises"
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr "Lilliefors (Kolmogorov-Smirnov)"
+
+msgid "Shapiro-Francia"
+msgstr "Shapiro-Francia"
+
+msgid "Pearson chi-square"
+msgstr "Khi-2 de Pearson"
+
+msgid "Normality Test"
+msgstr "Test de normalité"
+
+msgid "Number of bins must be a number >= 4"
+msgstr "Le nombre de classes doit être un nombre >= 4."
+
+msgid "Number of bins\nfor Pearson chi-square"
+msgstr "Nombre de classes\npour le Khi-2 de Pearson"
+
+ # small changes to the read text data dialog
+ 
+msgid "Commas [,]"
+msgstr "Virgules [,]"
+
+msgid "Semicolons [;]"
+msgstr "Semicolons [;]"
+
+ # additional error check in load data set dialog
+ 
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr "Le fichier contient plusieurs objets, qui portent les noms suivants :\n"
+
+ # new messages for distribution plot dialogs produced by distributionPlot()
+ 
+msgid "Optionally specify regions under the density function by"
+msgstr "Facultatif : specifier les régions sous la fonction de densité par"
+ 
+msgid "x-values"
+msgstr "valeurs x"
+
+msgid "quantiles"
+msgstr "quantiles"
+
+msgid "is not a valid number."
+msgstr "n'est pas un nombre valide."
+
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "Vous devez spécifier 'de' et 'à' pour au moins un intervalle."
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr "Pour la spécification d'un intervale, 'à' doit être supérieur à 'de'"
+
+msgid "Quantiles must be between 0 and 1."
+msgstr "Les quantiles doivent être entre 0 et 1."
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr "Régions à remplir (en spécifier une ou deux, ou laisser vide)"
+
+msgid "Region 1: from"
+msgstr "Région 1 : de"
+
+msgid "Region 2: from"
+msgstr "Région 2  : de"
+
+msgid "to"
+msgstr "à"
+
+msgid "color"
+msgstr "couleur"
+
+msgid "Top center"
+msgstr "En haut au centre"
+
+  # new compare model coefficients dialog
+  
+msgid "Compare model coefficients..."
+msgstr "Comparer les coefficients des modèles..."
+
+msgid "Compare Model Coefficients"
+msgstr "Comparer les coefficients des modèles"
+
+msgid "Select models (pick two or more)"
+msgstr "Sélectionnez des modèles (en choisir deux ou plus)"
+
+msgid "You must select at least two models."
+msgstr "Vous devez sélectionner au moins deux modèles."
