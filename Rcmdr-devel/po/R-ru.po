@@ -4791,3 +4791,6 @@ msgstr "Сравнить коэффициенты модели"
 
 msgid "You must select at least two models."
 msgstr "Вы должны выбрать по крайней мере две модели."
+
+msgid "Select models (pick two or more)"
+msgstr "Выберите две (или больше) модели"
