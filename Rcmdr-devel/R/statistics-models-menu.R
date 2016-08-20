@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2015-10-16 by J. Fox
+# last modified 2016-08-20 by J. Fox
 
     # Models menu
 
@@ -219,12 +219,12 @@ generalizedLinearModel <- function(){
   linkFamilyFrame <- tkframe(top)
   familyFrame <- tkframe(linkFamilyFrame)
   max.height <- getRcmdr("variable.list.height")
-  familyBox <- tklistbox(familyFrame, height=min(max.height, length(families)), 
+  familyBox <- tklistbox(familyFrame, height=length(families), # height=min(max.height, length(families)), 
                          exportselection="FALSE",
                          selectmode="single", background="white")
-  familyScroll <- ttkscrollbar(familyFrame,
-                               command=function(...) tkyview(familyBox, ...))
-  tkconfigure(familyBox, yscrollcommand=function(...) tkset(familyScroll, ...))
+  # familyScroll <- ttkscrollbar(familyFrame,
+  #                              command=function(...) tkyview(familyBox, ...))
+  # tkconfigure(familyBox, yscrollcommand=function(...) tkset(familyScroll, ...))
   for (fam in families) tkinsert(familyBox, "end", fam)
   linkFrame <- tkframe(linkFamilyFrame)
   linkBox <- tklistbox(linkFrame, height=max.height, exportselection="FALSE",
@@ -312,12 +312,13 @@ generalizedLinearModel <- function(){
   tkgrid(subsetWeightFrame, sticky="w")  
   tkgrid(labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Family (double-click to select)"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"),
          labelRcmdr(linkFamilyFrame, text="   "), labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Link function"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-  tkgrid(familyBox, familyScroll, sticky="nw")
+#  tkgrid(familyBox, familyScroll, sticky="nw")
+  tkgrid(familyBox, sticky="nw")
   tkgrid(linkBox, sticky="nw")
   tkgrid(familyFrame, labelRcmdr(linkFamilyFrame, text="   "), linkFrame, sticky="nw")
   tkgrid(linkFamilyFrame, sticky="w")
   tkgrid(buttonsFrame, sticky="w")
-  tkgrid.configure(familyScroll, sticky="ns")
+#  tkgrid.configure(familyScroll, sticky="ns")
   fam <- if (currentModel) which(currentFields$family == families) - 1
   else 1
   tkselection.set(familyBox, fam)
