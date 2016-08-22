@@ -13,9 +13,9 @@ msgstr ""
 
 # Indonesian translations for the Rcmdr package
 # Terjemahan Bahasa Indonesia Paket Rcmdr
-# Copyright (C) 2007 John Fox
+# Copyright (C) 2007, 2016 John Fox
 # This file is distributed under the same license as the Rcmdr package
-# I Made Tirta <itirta@unej.ac.id>, 2007
+# I Made Tirta <itirta.fmipa@unej.ac.id>, 2016
 msgid "KMeans Clustering"
 msgstr "Pengugusan KMeans"
 
@@ -4795,3 +4795,244 @@ msgstr "<sel kosong>"
 
 msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
 msgstr "{\"Semua File {\"*\"}} {\"File MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+
+# corrected messages in version 2.2-1
+# The following messages had trailing blanks. These messages were deleted from
+#   their previous locations in this .pot file and transferred here in corrected form,
+#   with the trailing blanks removed.
+# I suggest that you likewise delete the earlier versions of these messages from
+#   your .po file and provide corrected translations here, without trailing blanks.
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group"
+msgstr ""
+"Banyaknya titik untuk mengidentifikasi \n"
+"dalam setiap panel dan kelompok"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix"
+msgstr ""
+"Gunakan penduga sandwich dari \n"
+"matriks kovarian koefisien"
+
+msgid "Concentration levels:"
+msgstr "Level konsentrasi:"
+
+# additional messages in version 2.3-0
+# .rtf output from RMarkdown reports
+msgid ".rtf (rich text file)"
+msgstr ".rtf (format rich text file)"
+
+msgid "Rich text file written to:"
+msgstr "File RTF disimpan di:"
+
+# bootstrapping dialog
+msgid "Bootstrap confidence intervals..."
+msgstr "Interval keyakinan bootstrap ..."
+
+msgid "Bootstrap"
+msgstr "Bootstrap"
+
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "Interval Keyakinan Bootstrap untuk Koefisien"
+
+msgid "Number of bootstrap samples:"
+msgstr "Banyaknya sampel bootstrap:"
+
+msgid "Number of samples must be a positive integer."
+msgstr "Banyaknya sampel harus bilangan bulat positif."
+
+msgid "Type of Confidence Intervals"
+msgstr "Jenis Interval Keyakinan"
+
+msgid "BCa (adjusted percentile)"
+msgstr "BCa (persentil yang tersesuaikan)"
+
+msgid "Normal theory"
+msgstr "Teori Normal"
+
+msgid "Basic bootstrap"
+msgstr "Bootstrap dasar"
+
+msgid "Percentile"
+msgstr "Persentil"
+
+msgid "Resampling Method"
+msgstr "Metode Resampling (Sampling Ulang)"
+
+msgid "Case resampling"
+msgstr "Kasus sampling ulang"
+
+msgid "Residual resampling"
+msgstr "Sisa sampling ulang"
+
+# delta method dialog
+msgid "Delta method confidence interval..."
+msgstr "Interval keyakinan metode Delta"
+
+msgid "Delta Method"
+msgstr "Metode Delta"
+
+msgid "Confidence Interval by the Delta Method"
+msgstr "Interval Keyakinan dengan Metode Delta"
+
+msgid "Expression to evaluate; use parameter names:"
+msgstr "Ekspresi untuk dievaluasi; gunakan nama parameter:"
+
+# view data dialog
+msgid "View data..."
+msgstr "Lihat data..."
+
+msgid "View Data"
+msgstr "Lihat Data"
+
+msgid "Bad subset expression."
+msgstr "Ekspresi bagian yang jelek."
+
+msgid "No data to show."
+msgstr "Tidak ada data untuk ditampilkan."
+
+msgid "View data error."
+msgstr "Lihat kesalahan data."
+
+# sort active data set dialog
+msgid "Sort active data set..."
+msgstr "Urutkan kumpulan data aktif ..."
+
+msgid "Sort Active Data Set"
+msgstr "Urutkan Kumpulan Data Aktif"
+
+msgid "Sort Keys (select one or more)"
+msgstr "Urutkan Kunci (pilih satu atau lebih)"
+
+msgid "Sort Direction"
+msgstr "Arah Urutan"
+
+msgid "Increasing"
+msgstr "Naik"
+
+msgid "Decreasing"
+msgstr "Turun"
+
+msgid "Reorder Sort Keys"
+msgstr "Urut Ulang Urutan Kunci"
+
+msgid "Order of keys must include all integers from 1 to"
+msgstr "Urutan kunci harus menyertakan bilangan bulat dari 1 sampai "
+
+msgid "Sort Keys"
+msgstr "Urut Kunci"
+
+msgid "Order"
+msgstr "Urutan"
+
+# added to plot means dialog
+msgid "Connect profiles of means"
+msgstr "Hubungkan profil rerata (mean)"
+
+# adding to one-way ANOVA dialog
+msgid "Welch F-test not assuming equal variances"
+msgstr "Uji-F Welch tidak mengasumsikan kesamaan variansi"
+
+# the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+msgid "Test of normality..."
+msgstr "Uji kenormalan ..."
+
+msgid "Test of Normality"
+msgstr "Uji Kenormalan"
+
+msgid "Shapiro-Wilk"
+msgstr "Shapiro-Wilk"
+
+msgid "Anderson-Darling"
+msgstr "Anderson-Darling"
+
+msgid "Cramer-von Mises"
+msgstr "Cramer-von Mises"
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr "Lilliefors (Kolmogorov-Smirnov)"
+
+msgid "Shapiro-Francia"
+msgstr "Shapiro-Francia"
+
+msgid "Pearson chi-square"
+msgstr "Chi-kuadrat Pearson"
+
+msgid "Normality Test"
+msgstr "Uji Kenormalan"
+
+msgid "Number of bins must be a number >= 4"
+msgstr "Banyaknya bin harus bilangan >=4"
+
+msgid ""
+"Number of bins\n"
+"for Pearson chi-square"
+msgstr ""
+"Banyaknya bin \n"
+"untuk Chi-kuadrat Pearson"
+
+# small changes to the read text data dialog
+msgid "Commas [,]"
+msgstr "Koma [,]"
+
+msgid "Semicolons [;]"
+msgstr "Titik koma [;]"
+
+# additional error check in load data set dialog
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr "Ada lebih dari satu objek dalam file (berkas), dengan nama berikut:\n"
+
+# new messages for distribution plot dialogs produced by distributionPlot()
+msgid "Optionally specify regions under the density function by"
+msgstr "Secara opsional tentukan daerah dibawah fungsi kepadatan dengan "
+
+msgid "x-values"
+msgstr "Nilai-x"
+
+msgid "quantiles"
+msgstr "kuantil"
+
+msgid "is not a valid number."
+msgstr "bukan angka valid."
+
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "Anda harus tentukan 'dari' dan 'ke' untuk setidaknya satu rentang."
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr "Dalam menentukan rentang, 'ke' harus lebih besar dari 'dari'"
+
+msgid "Quantiles must be between 0 and 1."
+msgstr "Kuantil harus diantara 0 dan 1."
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr "Daerah yang harus diisi (tentukan satu atau dua, atau biarkan kososng)"
+
+msgid "Region 1: from"
+msgstr "Daerah 1: dari"
+
+msgid "Region 2: from"
+msgstr "Daerah 2: dari"
+
+msgid "to"
+msgstr "ke (sampai dengan) "
+
+msgid "color"
+msgstr "warna"
+
+msgid "Top center"
+msgstr "Tengah atas"
+
+# new compare model coefficients dialog
+msgid "Compare model coefficients..."
+msgstr "Bandingkan koefisien model ..."
+
+msgid "Compare Model Coefficients"
+msgstr "Bandingkan Koefisien Model"
+
+msgid "Select models (pick two or more)"
+msgstr "Pilih model (ambil dua atau lebih)"
+
+msgid "You must select at least two models."
+msgstr "Anda harus memilih setidaknya dua model."
