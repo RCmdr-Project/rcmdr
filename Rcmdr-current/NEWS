@@ -1,5 +1,9 @@
 Changes to Version 2.3-0
 
+  o Removed dependency of rglwidgets, no longer necessary.
+
+Changes to Version 2.3-0
+
   o Added .rtf output to options for RMarkdown reports.
   
   o Added bootstrap dialog for "lm"s and "glm"s.
