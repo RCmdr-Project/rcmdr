@@ -1,7 +1,31 @@
  citHeader("To cite the 'Rcmdr' package in publications use:")
  
-  bibentry(
-     bibtype = "Article",
+year <- sub("-.*", "", meta$Date)
+note <- sprintf("R package version %s", meta$Version)
+ 
+ citEntry(
+    entry = "Manual",
+    title = "{Rcmdr: R Commander}",
+    author = "John Fox and Milan Bouchet-Valat",
+    year = year,
+    note = note,
+    url = "http://www.r-project.org, http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/",
+    textVersion = paste0("Fox, J., and Bouchet-Valat, M. (", year, "). Rcmdr: R Commander. ", note, ".")
+  )
+ 
+ citEntry(
+     entry = "Book",
+     title = "Using the {R Commander}: A Point-and-Click Interface for {R}",
+     author = as.person("John Fox [aut]"),
+     year = "2017",
+     publisher = "Chapman and Hall/CRC Press",
+     address = "Boca Raton {FL}",
+     url = "http://socserv.mcmaster.ca/jfox/Books/RCommander/",
+     textVersion="Fox, J. (2017). Using the R Commander: A Point-and-Click Interface or R. Boca Raton FL: Chapman and Hall/CRC Press."
+  )
+ 
+  citEntry(
+     entry = "Article",
      title = "The {R} {C}ommander: A Basic Statistics Graphical User Interface to {R}",
      author = as.person("John Fox [aut]"),
      year = "2005",
