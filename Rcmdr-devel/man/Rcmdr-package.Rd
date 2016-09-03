@@ -13,7 +13,7 @@ user interface) for R, based on the tcltk package.
 \tabular{ll}{
 Package: \tab Rcmdr\cr
 Version: \tab 2.4-0\cr
-Date: \tab 2016-09-02\cr
+Date: \tab 2016-09-03\cr
 Depends: \tab R (>= 3.3.0), grDevices, utils, splines, RcmdrMisc (>= 1.0-5), 
   car (>= 2.1-3)\cr
 Imports: \tab tcltk, tcltk2 (>= 1.2-11), abind, graphics, methods, stats, relimp (>= 1.0-5)\cr
@@ -29,6 +29,10 @@ http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/\cr
 }
 
 \references{
+Fox, J. (2017)
+\emph{Using the R Commander: A Point-and-Click Interface for R}.
+Chapman and Hall/CRC Press.
+
 Fox, J. (2005) 
 The R Commander: A Basic Statistics Graphical User Interface to R. 
 \emph{Journal of Statistical Software}, \bold{14(9)}: 1--42.
