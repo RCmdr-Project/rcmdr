@@ -1,6 +1,6 @@
 Changes to version 2.4-0
 
-  o Nothing yet!
+  o The R Commander editor for Markdown and knitr documents is now a non-modal dialog, so may remain open while you work.
   
 Changes to Version 2.3-1
 

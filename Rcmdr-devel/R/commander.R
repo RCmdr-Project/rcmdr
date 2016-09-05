@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2016-05-31 by John Fox
+# last modified 2016-09-05 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -224,6 +224,9 @@ Commander <- function(){
     putRcmdr("restoreTab", FALSE)
     putRcmdr("cancelDialogReopen", FALSE)
     putRcmdr("last.search", "")
+    
+    putRcmdr("Markdown.editor.open", FALSE)
+    putRcmdr("knitr.editor.open", FALSE)
     
     setOption("use.rgl", TRUE)
 
@@ -1063,6 +1066,10 @@ logger <- function(command, rmd=TRUE){
     .rmd <- RmdWindow()
     .rnw <- RnwWindow()
     .output <- OutputWindow()
+    .markdown.editor.open <- getRcmdr("Markdown.editor.open")
+    .markdown.editor <- MarkdownEditorWindow()
+    .knitr.editor.open <- getRcmdr("knitr.editor.open")
+    .knitr.editor <- knitrEditorWindow()
     Rmd <- rmd && is.null(attr(command, "suppressRmd")) && (getRcmdr("use.markdown") || getRcmdr("use.knitr"))
     command <- splitCmd(command)
     if (getRcmdr("log.commands")) {
@@ -1077,6 +1084,10 @@ logger <- function(command, rmd=TRUE){
                     tkinsert(.rmd, "end", paste(command, "\n", sep=""))
                     tkyview.moveto(.rmd, 1)
                     putRcmdr("markdown.output", TRUE)
+                    if (.markdown.editor.open){
+                        tkinsert(.markdown.editor, "end", paste(command, "\n", sep=""))
+                        tkyview.moveto(.markdown.editor, 1)
+                    }
                     endRmdBlock()
                 }
                 else{
@@ -1084,6 +1095,10 @@ logger <- function(command, rmd=TRUE){
                     tkyview.moveto(.rmd, 1)
                     putRcmdr("markdown.output", TRUE)
                     putRcmdr("rmd.generated", TRUE)
+                    if (.markdown.editor.open){
+                        tkinsert(.markdown.editor, "end", paste(command, "\n", sep=""))
+                        tkyview.moveto(.markdown.editor, 1)
+                    }
                 }
             }
             if (getRcmdr("use.knitr")){
@@ -1092,6 +1107,10 @@ logger <- function(command, rmd=TRUE){
                     tkinsert(.rnw, "end", paste(command, "\n", sep=""))
                     tkyview.moveto(.rnw, 1)
                     putRcmdr("knitr.output", TRUE)
+                    if (.knitr.editor.open){
+                        tkinsert(.knitr.editor, "end", paste(command, "\n", sep=""))
+                        tkyview.moveto(.knitr.editor, 1)
+                    }
                     endRnwBlock()
                 }
                 else{
@@ -1099,6 +1118,10 @@ logger <- function(command, rmd=TRUE){
                     tkyview.moveto(.rnw, 1)
                     putRcmdr("knitr.output", TRUE)
                     putRcmdr("rnw.generated", TRUE)
+                    if (.knitr.editor.open){
+                        tkinsert(.knitr.editor, "end", paste(command, "\n", sep=""))
+                        tkyview.moveto(.knitr.editor, 1)
+                    }
                 }
             }
         }
