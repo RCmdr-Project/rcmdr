@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.0-3\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2015-08-07 14:30:00\n"
-"PO-Revision-Date: 2015-09-14 09:05+0100\n"
+"POT-Creation-Date: 2016-08-25 19:17+0200\n"
+"PO-Revision-Date: 2016-09-13 14:46+0100\n"
 "Last-Translator: José Ramón Rueda <joseramon.rueda@ehu.es>\n"
 "Language-Team: EHU R UCA Project <joseramon.rueda@ehu.es>\n"
 "Language: eu\n"
@@ -236,9 +236,6 @@ msgstr "OHARRA"
 msgid "New Data Set"
 msgstr "Datu multzo berria"
 
-msgid "Dataset"
-msgstr "Datu_multzoa"
-
 msgid "You must enter the name of a data set."
 msgstr "Datu multzo baten izena sartu behar da."
 
@@ -271,9 +268,6 @@ msgstr "Berkodetu aldagaia"
 
 msgid "Variable to recode (pick one)"
 msgstr "Birkodetzeko aldagaia (aukeratu bat)"
-
-msgid "variable"
-msgstr "aldagaia"
 
 msgid "You must select a variable."
 msgstr "Aldagai bat hautatu behar duzu."
@@ -2832,9 +2826,6 @@ msgstr "Banaketa binomial negatiboa"
 msgid "Sample from Normal Distribution"
 msgstr "Banaketa normaleko lagina"
 
-msgid "NormalSamples"
-msgstr "LaginNormalak"
-
 msgid "Sample means"
 msgstr "Laginaren batezbestekoa"
 
@@ -2862,80 +2853,41 @@ msgstr "Gehitu datu multzoari:"
 msgid "Sample from t Distribution"
 msgstr "t banaketako lagina"
 
-msgid "tSamples"
-msgstr "tLaginak"
-
 msgid "Sample from Chi-squared Distribution"
 msgstr "Khi karratuaren banaketako lagina"
-
-msgid "ChisquareSamples"
-msgstr "KhikarratuarenLaginak"
 
 msgid "Sample from F Distribution"
 msgstr "F banaketako lagina"
 
-msgid "FSamples"
-msgstr "FLaginak"
-
 msgid "Sample from Exponential Distribution"
 msgstr "Banaketa esponentzialeko lagina"
-
-msgid "ExponentialSamples"
-msgstr "LaginEsponentzialak"
 
 msgid "Sample from Uniform Distribution"
 msgstr "Banaketa uniformeko lagina"
 
-msgid "UniformSamples"
-msgstr "LaginUniformeak"
-
 msgid "Sample from Beta Distribution"
 msgstr "Beta banaketako lagina"
-
-msgid "BetaSamples"
-msgstr "BetaLaginak"
 
 msgid "Sample from Cauchy Distribution"
 msgstr "Cauchy-ren banaketako lagina"
 
-msgid "CauchySamples"
-msgstr "CauchyLaginak"
-
 msgid "Sample from Logistic Distribution"
 msgstr "Banaketa logistikoko lagina"
-
-msgid "LogisticSamples"
-msgstr "LaginLogistikoak"
 
 msgid "Sample from Log-Normal Distribution"
 msgstr "Banaketa log-normaleko lagina"
 
-msgid "LogNormalSamples"
-msgstr "LaginLogNormalak"
-
 msgid "Sample from Gamma Distribution"
 msgstr "Gamma banaketako lagina"
-
-msgid "GammaSamples"
-msgstr "GammaLaginak"
 
 msgid "Sample from Weibull Distribution"
 msgstr "Weibull-en banaketako lagina"
 
-msgid "WeibullSamples"
-msgstr "WeibullLaginak"
-
 msgid "Sample from Gumbel Distribution"
 msgstr "Gumbel-en banaketako lagina"
 
-msgid "GumbelSamples"
-msgstr "GumbelLaginak"
-
 msgid "Sample from Binomial Distribution"
 msgstr "Banaketa binomialeko lagina"
-
-msgid "BinomialSamples"
-msgstr "LaginBinomialak"
 
 msgid "Poisson mean cannot be negative."
 msgstr "Poisson-en batezbestekoa ezin da negatiboa izan. "
@@ -2943,26 +2895,14 @@ msgstr "Poisson-en batezbestekoa ezin da negatiboa izan. "
 msgid "Sample from Poisson Distribution"
 msgstr "Poisson-en banaketako lagina"
 
-msgid "PoissonSamples"
-msgstr "PoissonenLaginak"
-
 msgid "Sample from Geometric Distribution"
 msgstr "Banaketa geometrikoko lagina"
-
-msgid "GeometricSamples"
-msgstr "LaginGeometrikoak"
 
 msgid "Sample from Hypergeometric Distribution"
 msgstr "Banaketa hipergeometrikoko lagina"
 
-msgid "HypergeometricSamples"
-msgstr "LaginHipergeometrikoak"
-
 msgid "Sample from Negative Binomial Distribution"
 msgstr "Banaketa binomial negatiboko lagina"
-
-msgid "NegativeBinomialSamples"
-msgstr "LaginBinomialNegatiboak"
 
 msgid "Sample from normal distribution..."
 msgstr "Atera lagina banaketa normaletik ..."
@@ -3321,9 +3261,6 @@ msgstr "Metatu aldagaiak"
 
 msgid "factor"
 msgstr "faktore"
-
-msgid "StackedData"
-msgstr "DatuMetatuak"
 
 msgid "You must select at least two variables."
 msgstr "Gutxienez bi aldagai hautatu behar dira."
@@ -4159,13 +4096,6 @@ msgstr "identifikatzeko puntu kopuruak zenbaki osoa izan behar du"
 msgid "Number of points to identify"
 msgstr "Identifikatzeko puntu kopurua"
 
-msgid ""
-"Number of points to identify  \n"
-"in each panel and group "
-msgstr ""
-"Identifikatzeko puntu kopurua\n"
-"panel eta talde bakoitzean"
-
 msgid "Added-Variable Plots"
 msgstr "Aldagai metatuen grafikoak"
 
@@ -4565,13 +4495,6 @@ msgstr ""
 "Erabili koefizienteen errore \n"
 "estandarren sandwich-estimatzailea"
 
-msgid ""
-"Use sandwich estimator of\n"
-"coefficient covariance matrix   "
-msgstr ""
-"Erabili koefizienteen kobariantza-\n"
-"matrizearen sandwich-estimatzailea"
-
 msgid "sandwich covariance matrix unavailable with type I tests"
 msgstr "sandwich kobariantza-matrizea ez dago erabilgarri I motako testekin"
 
@@ -4735,9 +4658,6 @@ msgstr ""
 msgid "Plot concentration ellipse(s)"
 msgstr "Marraztu kontzentrazio-elipsea(k)"
 
-msgid "Concentration levels: "
-msgstr "Kontzentrazio mailak: "
-
 msgid "Legend Position"
 msgstr "Testuaren kokapena"
 
@@ -4799,6 +4719,328 @@ msgid ""
 msgstr ""
 "{\"Fitxategi guztiak\" {\"*\"}} {\"MS Excel fitxategia\" {\".xlsx\" \".XLSX"
 "\" \".xls\" \".XLS\"}}"
+
+# corrected messages in version 2.2-1
+# The following messages had trailing blanks. These messages were deleted from
+#   their previous locations in this .pot file and transferred here in corrected form,
+#   with the trailing blanks removed.
+# I suggest that you likewise delete the earlier versions of these messages from
+#   your .po file and provide corrected translations here, without trailing blanks.
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group"
+msgstr "Panel eta talde bakoitzeko identifikatzeko puntuak "
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix"
+msgstr ""
+"Erabili \n"
+"kobariantza koefizienteko matrizeko sandwich-estimatzailea"
+
+msgid "Concentration levels:"
+msgstr "Kontzentrazio mailak:"
+
+# additional messages in version 2.3-0
+# .rtf output from RMarkdown reports
+msgid ".rtf (rich text file)"
+msgstr ".rtf (rich text file)"
+
+msgid "Rich text file written to:"
+msgstr "Rich text file hara bidalita:"
+
+# bootstrapping dialog
+msgid "Bootstrap confidence intervals..."
+msgstr "Berlaginketaren konfiantza tarteak..."
+
+msgid "Bootstrap"
+msgstr "Berlaginketa (Bootstrap)"
+
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "Koefizienteentzako berlaginketaren konfiantza tarteak"
+
+msgid "Number of bootstrap samples:"
+msgstr "Berlaginketa lagin zenbakia:"
+
+msgid "Number of samples must be a positive integer."
+msgstr "Lagin zenbakiak zenbaki positiboa izan behar du."
+
+msgid "Type of Confidence Intervals"
+msgstr "Konfiantza tarte motak"
+
+msgid "BCa (adjusted percentile)"
+msgstr "BCa (pertzentil doitua)"
+
+msgid "Normal theory"
+msgstr "Teoria normala"
+
+msgid "Basic bootstrap"
+msgstr "Oinarrizko berlaginketa (bootstrap)"
+
+msgid "Percentile"
+msgstr "Pertzentila"
+
+msgid "Resampling Method"
+msgstr "Berlaginketa metodoa"
+
+msgid "Case resampling"
+msgstr "Kasu berlaginketa"
+
+msgid "Residual resampling"
+msgstr "Hondar berlaginketa"
+
+# delta method dialog
+msgid "Delta method confidence interval..."
+msgstr "Konfiantza tartea delta metodoaren arabera..."
+
+msgid "Delta Method"
+msgstr "Delta metodoa"
+
+msgid "Confidence Interval by the Delta Method"
+msgstr "Konfiantza tartea delta metodoaren arabera"
+
+msgid "Expression to evaluate; use parameter names:"
+msgstr "Ebaluatzeko adierazpena; erabili parametro izenak:"
+
+# view data dialog
+msgid "View data..."
+msgstr "Ikusi datuak..."
+
+msgid "View Data"
+msgstr "Ikusi datuak"
+
+msgid "Bad subset expression."
+msgstr "Azpimultzoak egiteko adierazpen desegokia."
+
+msgid "No data to show."
+msgstr "Ez dago ikusteko daturik."
+
+msgid "View data error."
+msgstr "Ikusi datu akatsa."
+
+# sort active data set dialog
+msgid "Sort active data set..."
+msgstr "Sailkatu uneko datu multzoa..."
+
+msgid "Sort Active Data Set"
+msgstr "Sailkatu uneko datu multzoa"
+
+msgid "Sort Keys (select one or more)"
+msgstr "Sailkatzeko irizpideak (aukeratu bat edo gehiago)"
+
+msgid "Sort Direction"
+msgstr "Sailkatzeko norabidea"
+
+msgid "Increasing"
+msgstr "Handituz"
+
+msgid "Decreasing"
+msgstr "Gutxituz"
+
+msgid "Reorder Sort Keys"
+msgstr "Berrantolatu sailkatzeko irizpideak"
+
+msgid "Order of keys must include all integers from 1 to"
+msgstr ""
+"Sailkatzeko irizpide tartean zenbaki oso guztiak sartu behar dira 1-tetik  n-"
+"ra"
+
+msgid "Sort Keys"
+msgstr "Sailkatzeko irizpideak"
+
+msgid "Order"
+msgstr "Ordenatu"
+
+# added to plot means dialog
+msgid "Connect profiles of means"
+msgstr "Konektatu batezbestekoen profilak"
+
+# adding to one-way ANOVA dialog
+msgid "Welch F-test not assuming equal variances"
+msgstr "Welch F-testa bariantzak berdinak direla ematen ez badugu"
+
+# the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+msgid "Test of normality..."
+msgstr "Normaltasun testa..."
+
+msgid "Test of Normality"
+msgstr "Normaltasun testa"
+
+msgid "Shapiro-Wilk"
+msgstr "Shapiro-Wilk"
+
+msgid "Anderson-Darling"
+msgstr "Anderson-Darling"
+
+msgid "Cramer-von Mises"
+msgstr "Cramer-von Mises"
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr "Lilliefors (Kolmogorov-Smirnov)"
+
+msgid "Shapiro-Francia"
+msgstr "Shapiro-Francia"
+
+msgid "Pearson chi-square"
+msgstr "Pearson khi karratua"
+
+msgid "Normality Test"
+msgstr "Normaltasun testa"
+
+msgid "Number of bins must be a number >= 4"
+msgstr "Klase kategoriek >= 4 izan behar du "
+
+msgid ""
+"Number of bins\n"
+"for Pearson chi-square"
+msgstr ""
+"Klase kategoriak\n"
+" \n"
+"Pearson khi-karraturako"
+
+# small changes to the read text data dialog
+msgid "Commas [,]"
+msgstr "Komak [,]"
+
+msgid "Semicolons [;]"
+msgstr "Puntu eta komak [;]"
+
+# additional error check in load data set dialog
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr "Badago objektu bat baino gehiago fitxategian, hurrengo izenekin:\n"
+
+# new messages for distribution plot dialogs produced by distributionPlot()
+msgid "Optionally specify regions under the density function by"
+msgstr ""
+"Aukerakoa da dentsitate funtziopean dauden eremuak zehaztea zera erabiltzen"
+
+msgid "x-values"
+msgstr "x-balioak"
+
+msgid "quantiles"
+msgstr "koantilak"
+
+msgid "is not a valid number."
+msgstr "zenbakia ez da baliozkoa."
+
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "Gutxienez tarte baterako -tik eta -ra balioak zehaztu behar dira."
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr ""
+"Tarte bat zehaztekotan, goiko balioa (-ra) behekoa (-tik) baino handiago "
+"izan behar da."
+
+msgid "Quantiles must be between 0 and 1."
+msgstr "Koantilak 0 eta 1-en artean izan behar dira."
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr "Zehazteko eremuak (espezifikatu bat edo bi, edo utzi bete gabe)"
+
+msgid "Region 1: from"
+msgstr "1 eremua:  -tik"
+
+msgid "Region 2: from"
+msgstr "2 eremua:  -tik"
+
+msgid "to"
+msgstr "-ra"
+
+msgid "color"
+msgstr "kolorea"
+
+msgid "Top center"
+msgstr "Goiko erdian"
+
+# new compare model coefficients dialog
+msgid "Compare model coefficients..."
+msgstr "Konparatu ereduaren koefizienteak..."
+
+msgid "Compare Model Coefficients"
+msgstr "Konparatu ereduaren koefizienteak"
+
+msgid "You must select at least two models."
+msgstr "Hautatu behar da bi eredu gutxienez."
+
+#~ msgid "Dataset"
+#~ msgstr "Datu_multzoa"
+
+#~ msgid "variable"
+#~ msgstr "aldagaia"
+
+#~ msgid "NormalSamples"
+#~ msgstr "LaginNormalak"
+
+#~ msgid "tSamples"
+#~ msgstr "tLaginak"
+
+#~ msgid "ChisquareSamples"
+#~ msgstr "KhikarratuarenLaginak"
+
+#~ msgid "FSamples"
+#~ msgstr "FLaginak"
+
+#~ msgid "ExponentialSamples"
+#~ msgstr "LaginEsponentzialak"
+
+#~ msgid "UniformSamples"
+#~ msgstr "LaginUniformeak"
+
+#~ msgid "BetaSamples"
+#~ msgstr "BetaLaginak"
+
+#~ msgid "CauchySamples"
+#~ msgstr "CauchyLaginak"
+
+#~ msgid "LogisticSamples"
+#~ msgstr "LaginLogistikoak"
+
+#~ msgid "LogNormalSamples"
+#~ msgstr "LaginLogNormalak"
+
+#~ msgid "GammaSamples"
+#~ msgstr "GammaLaginak"
+
+#~ msgid "WeibullSamples"
+#~ msgstr "WeibullLaginak"
+
+#~ msgid "GumbelSamples"
+#~ msgstr "GumbelLaginak"
+
+#~ msgid "BinomialSamples"
+#~ msgstr "LaginBinomialak"
+
+#~ msgid "PoissonSamples"
+#~ msgstr "PoissonenLaginak"
+
+#~ msgid "GeometricSamples"
+#~ msgstr "LaginGeometrikoak"
+
+#~ msgid "HypergeometricSamples"
+#~ msgstr "LaginHipergeometrikoak"
+
+#~ msgid "NegativeBinomialSamples"
+#~ msgstr "LaginBinomialNegatiboak"
+
+#~ msgid "StackedData"
+#~ msgstr "DatuMetatuak"
+
+#~ msgid ""
+#~ "Number of points to identify  \n"
+#~ "in each panel and group "
+#~ msgstr ""
+#~ "Identifikatzeko puntu kopurua\n"
+#~ "panel eta talde bakoitzean"
+
+#~ msgid ""
+#~ "Use sandwich estimator of\n"
+#~ "coefficient covariance matrix   "
+#~ msgstr ""
+#~ "Erabili koefizienteen kobariantza-\n"
+#~ "matrizearen sandwich-estimatzailea"
+
+#~ msgid "Concentration levels: "
+#~ msgstr "Kontzentrazio mailak: "
 
 #~ msgid ""
 #~ "Project-Id-Version: Rcmdr 2.0-1\n"

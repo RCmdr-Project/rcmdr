@@ -3,6 +3,8 @@ Changes to Version 2.3-1
   o Removed dependency of rglwidgets, no longer necessary.
   
   o Fixes to Catalan translation (from Manel Salamero).
+  
+  o Updated Basque translation (thanks to Joserra Rueda).
 
 Changes to Version 2.3-0
 
