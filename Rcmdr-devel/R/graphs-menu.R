@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2016-07-19 by J. Fox
+# last modified 2016-09-20 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -945,6 +945,7 @@ barGraph <- function () {
     defaults <- list (initial.variable = NULL, initial.xlab=gettextRcmdr("<auto>"),
                       initial.ylab=gettextRcmdr("<auto>"), initial.main=gettextRcmdr("<auto>"),
                       initial.group=NULL, initial.style="divided", initial.legend="topright",
+                      initial.scale="frequency", initial.colors="default", initial.conditional="conditional",
                       initial.tab=0)
     dialog.values <- getDialog ("barGraph", defaults)
     initializeDialog(title = gettextRcmdr("Bar Graph"), use.tabs=TRUE)
@@ -987,27 +988,37 @@ barGraph <- function () {
             paste(", xlab=\"", variable, "\"", sep = "")
         else paste(", xlab=\"", xlab, "\"", sep = "")
         ylab <- trim.blanks(tclvalue(ylabVar))
-        ylab <- if (ylab == gettextRcmdr("<auto>"))
-            paste(", ylab=\"Frequency\"", sep = "")
+        scale <- tclvalue(scaleVariable)
+        ylab <- if (ylab == gettextRcmdr("<auto>")){
+            if (scale == "frequency")
+                paste(", ylab=\"Frequency\"", sep = "")
+            else paste(", ylab=\"Percent\"", sep = "")
+        }
         else paste(", ylab=\"", ylab, "\"", sep = "")
         main <- trim.blanks(tclvalue(mainVar))
         main <- if (main == gettextRcmdr("<auto>"))
             ""
         else paste(", main=\"", main, "\"", sep = "")
         style <- tclvalue(styleVariable)
+        conditional <- tclvalue(conditionalVariable)
+        colors <- tclvalue(colorsVariable)
         legend <- tclvalue(legendVariable)
         putDialog ("barGraph", list(initial.variable = variable, initial.xlab=tclvalue(xlabVar),
                                     initial.ylab=tclvalue(ylabVar), initial.main=tclvalue(mainVar), 
                                     initial.group=if (.groups == FALSE) NULL else .groups,
-                                    initial.style=style, initial.legend=legend, initial.tab=tab))
+                                    initial.scale=scale, initial.style=style, 
+                                    initial.conditional=conditional, initial.colors=colors,
+                                    initial.legend=legend, initial.tab=tab))
         closeDialog()
         if (length(variable) == 0) {
             errorCondition(recall = barGraph, message = gettextRcmdr("You must select a variable"))
             return()
         }
+        scale <- if (scale == "frequency") "" else ', scale="percent"'
         command <- if (.groups == FALSE){
+            col <- if (colors == "default") "" else ", col=palette()[2]"
             paste("with(", ActiveDataSet(), ", Barplot(", 
-                  variable, xlab, ylab, main, "))",
+                  variable, xlab, ylab, main, col, scale, "))",
                   sep = "")
         }
         else {
@@ -1015,10 +1026,13 @@ barGraph <- function () {
                 errorCondition(recall=barGraph, message=gettextRcmdr("plotting and grouping variables must be different"))
                 return()
             }
+            nlevels <- length(levels(eval(parse(text=paste0(ActiveDataSet(), "$", .groups)), envir=.GlobalEnv)))
+            col <- if (colors == "default") "" else paste0(', col=palette()[2:', nlevels + 1,  ']')
+            conditional <- if (conditional=="conditional") "" else ', conditional=FALSE'
             paste("with(", ActiveDataSet(), ", Barplot(", 
                    variable, ", by=", .groups, ', style="', style, 
                    '", legend.pos="', legend, '"',
-                   xlab, ylab, main, "))",
+                   xlab, ylab, main, col, scale, conditional, "))",
                    sep = "")
         }
         doItAndPrint(command)
@@ -1029,10 +1043,22 @@ barGraph <- function () {
     groupsBox(barGraph, initialGroup=initial.group, 
               initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups") 
               else paste(gettextRcmdr("Plot by:"), initial.group), window=variablesFrame)
+    radioButtons(optionsFrame2, name = "scale", buttons = c("frequency", "percent"), 
+                 labels = gettextRcmdr(c("Frequency counts", "Percentages")), 
+                 title = gettextRcmdr("Axis Scaling"),
+                 initialValue = dialog.values$initial.scale)
     radioButtons(optionsFrame2, name = "style", buttons = c("divided", "parallel"), 
                  labels = gettextRcmdr(c("Divided (stacked)", "Side-by-side (parallel)")), 
                  title = gettextRcmdr("Style of Group Bars"),
                  initialValue = dialog.values$initial.style)
+    radioButtons(optionsFrame2, name = "conditional", buttons = c("conditional", "total"), 
+                 labels = gettextRcmdr(c("Conditional", "Total")), 
+                 title = gettextRcmdr("Percentages for Group Bars"),
+                 initialValue = dialog.values$initial.conditional)
+    radioButtons(optionsFrame2, name = "colors", buttons = c("default", "palette"), 
+                 labels = gettextRcmdr(c("Default", "From color palette")), 
+                 title = gettextRcmdr("Color Selection"),
+                 initialValue = dialog.values$initial.colors)
     radioButtons(optionsFrame2, name = "legend", 
                  buttons = c("topright", "top", "topleft"), 
                  labels = gettextRcmdr(c("Right", "Center", "Left")), 
@@ -1042,7 +1068,10 @@ barGraph <- function () {
     tkgrid(getFrame(variableBox), sticky="w")
     tkgrid(tklabel(variablesFrame, text=""))
     tkgrid(groupsFrame, sticky="w")
+    tkgrid(scaleFrame, sticky="w")
+    tkgrid(colorsFrame, sticky="w")
     tkgrid(styleFrame, sticky="w")
+    tkgrid(conditionalFrame, sticky="w")
     tkgrid(legendFrame, sticky="w")
     tkgrid(variablesFrame, sticky="w")
     tkgrid(parFrame, sticky = "nw")
@@ -1053,12 +1082,17 @@ barGraph <- function () {
 pieChart <- function () {
     Library("colorspace")
     defaults <- list (initial.variable = NULL, initial.xlab=gettextRcmdr("<auto>"),
-        initial.ylab=gettextRcmdr("<auto>"), initial.main=gettextRcmdr("<auto>"))
+        initial.ylab=gettextRcmdr("<auto>"), initial.main=gettextRcmdr("<auto>"), initial.colors="default")
     dialog.values <- getDialog ("pieChart", defaults)
     initializeDialog(title = gettextRcmdr("Pie Chart"))
     optionsFrame <- tkframe(top)
-    variableBox <- variableListBox(optionsFrame, Factors(), title = gettextRcmdr("Variable (pick one)"),
+    leftOptionsFrame <- tkframe(optionsFrame)
+    variableBox <- variableListBox(leftOptionsFrame, Factors(), title = gettextRcmdr("Variable (pick one)"),
         initialSelection = varPosn (dialog.values$initial.variable, "factor"))
+    radioButtons(leftOptionsFrame, name = "colors", buttons = c("default", "palette"), 
+                 labels = gettextRcmdr(c("Default", "From color palette")), 
+                 title = gettextRcmdr("Color Selection"),
+                 initialValue = dialog.values$initial.colors)
     parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
         font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
     xlabVar <- tclVar(dialog.values$initial.xlab)
@@ -1087,6 +1121,10 @@ pieChart <- function () {
     tkgrid(labelRcmdr(parFrame, text=""), mainScroll, sticky = "ew", padx=6)
     onOK <- function() {
         variable <- getSelection(variableBox)
+        colors <- tclvalue(colorsVariable)
+        nlevels <- length(levels(eval(parse(text=paste0(ActiveDataSet(), "$", variable)), envir=.GlobalEnv)))
+        col <- if (colors == "default") paste0(', col=rainbow_hcl(', nlevels,  ')')
+            else paste0(', col=palette()[2:', nlevels + 1,  ']')
         xlab <- trim.blanks(tclvalue(xlabVar))
         xlab <- if (xlab == gettextRcmdr("<auto>"))
             paste(", xlab=\"\"", sep = "")
@@ -1099,7 +1137,8 @@ pieChart <- function () {
         main <- if (main == gettextRcmdr("<auto>"))
             paste(", main=\"", variable, "\"", sep = "")
         else paste(", main=\"", main, "\"", sep = "")
-        putDialog ("pieChart", list (initial.variable = variable, initial.xlab=tclvalue(xlabVar),
+        putDialog ("pieChart", list (initial.variable = variable, 
+            initial.colors=colors, initial.xlab=tclvalue(xlabVar),
             initial.ylab=tclvalue(ylabVar), initial.main=tclvalue(mainVar)))
         closeDialog()
         if (length(variable) == 0) {
@@ -1107,18 +1146,19 @@ pieChart <- function () {
             return()
         }
         .activeDataSet <- ActiveDataSet()
-        command <- (paste("with(", .activeDataSet, ", pie(table(", 
+        command <- paste("with(", .activeDataSet, ", pie(table(", 
             variable, "), labels=levels(",
-            variable, ")", xlab, ylab, main, ", col=rainbow_hcl(length(levels(",
-            variable, ")))))", sep = ""))
+            variable, ")", xlab, ylab, main, col,
+            "))", sep = "")
         logger(command)
         justDoIt(command)
         activateMenus()
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject = "pie", reset = "pieChart", apply = "pieChart")
-    tkgrid(getFrame(variableBox), parFrame, sticky = "nw")
-    tkgrid(parFrame, sticky = "nw")
+    tkgrid(getFrame(variableBox), sticky="w")
+    tkgrid(colorsFrame, sticky="w")
+    tkgrid(leftOptionsFrame, parFrame, sticky = "nw")
     tkgrid(optionsFrame, sticky = "w")
     dialogSuffix(grid.buttons=TRUE)
 }

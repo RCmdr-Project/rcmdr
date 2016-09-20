@@ -4907,3 +4907,20 @@ msgstr ""
 
 msgid "Cancel discarding edits"
 msgstr ""
+
+  # additions to the barplot dialog
+  
+msgid "Percentages for Group Bars"
+msgstr ""
+  
+msgid "Conditional"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Color Selection"
+msgstr ""
+
+msgid "From color palette"
+msgstr ""
