@@ -944,7 +944,7 @@ scatterPlotMatrix <- function () {
 barGraph <- function () {
     defaults <- list (initial.variable = NULL, initial.xlab=gettextRcmdr("<auto>"),
                       initial.ylab=gettextRcmdr("<auto>"), initial.main=gettextRcmdr("<auto>"),
-                      initial.group=NULL, initial.style="divided", initial.legend="topright",
+                      initial.group=NULL, initial.style="divided", initial.legend="above",
                       initial.scale="frequency", initial.colors="default", initial.conditional="conditional",
                       initial.tab=0)
     dialog.values <- getDialog ("barGraph", defaults)
@@ -1060,8 +1060,8 @@ barGraph <- function () {
                  title = gettextRcmdr("Color Selection"),
                  initialValue = dialog.values$initial.colors)
     radioButtons(optionsFrame2, name = "legend", 
-                 buttons = c("topright", "top", "topleft"), 
-                 labels = gettextRcmdr(c("Right", "Center", "Left")), 
+                 buttons = c("above", "topright", "top", "topleft"), 
+                 labels = gettextRcmdr(c("Above plot", "Right", "Center", "Left")), 
                  title = gettextRcmdr("Position of Legend"),
                  initialValue = dialog.values$initial.legend)
     OKCancelHelp(helpSubject = "Barplot", reset = "barGraph", apply = "barGraph")
