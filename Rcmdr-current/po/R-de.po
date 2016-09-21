@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.2-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2015-08-25 11:07+0200\n"
-"PO-Revision-Date: 2015-09-10 15:00+0200\n"
+"POT-Creation-Date: 2016-09-21 15:51+0200\n"
+"PO-Revision-Date: 2016-09-21 16:33+0200\n"
 "Last-Translator: Friedrich Leisch <Friedrich.Leisch@R-project.org>\n"
 "Language-Team: Austrian\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
-"X-Generator: Poedit 1.8.3\n"
+"X-Generator: Poedit 1.8.9\n"
 
 msgid "KMeans Clustering"
 msgstr "K-Means Clusteranalyse"
@@ -242,9 +242,6 @@ msgstr "HINWEIS"
 msgid "New Data Set"
 msgstr "Neue Datenmatrix"
 
-msgid "Dataset"
-msgstr "Datenmatrix"
-
 msgid "You must enter the name of a data set."
 msgstr "Der Name der Datenmatrix muss angegeben werden."
 
@@ -277,9 +274,6 @@ msgstr "Rekodiere Variable"
 
 msgid "Variable to recode (pick one)"
 msgstr "Zu rekodierende Variable (eine auswählen)"
-
-msgid "variable"
-msgstr "Praefix."
 
 msgid "You must select a variable."
 msgstr "Bitte eine Variable auswählen."
@@ -2843,9 +2837,6 @@ msgstr "Negative Binomialverteilung"
 msgid "Sample from Normal Distribution"
 msgstr "Zufallsstichprobe aus einer Normalverteilung"
 
-msgid "NormalSamples"
-msgstr "NormalverteilteStichproben"
-
 msgid "Sample means"
 msgstr "Arithmetisches Mittel der Stichprobenwerte"
 
@@ -2873,80 +2864,41 @@ msgstr "Zur Datenmatrix hinzufügen:"
 msgid "Sample from t Distribution"
 msgstr "Zufallsstichprobe aus einer t-Verteilung"
 
-msgid "tSamples"
-msgstr "tStichproben"
-
 msgid "Sample from Chi-squared Distribution"
 msgstr "Zufallsstichprobe aus einer Chi-Quadrat-Verteilung"
-
-msgid "ChisquareSamples"
-msgstr "Chi2Stichprobe"
 
 msgid "Sample from F Distribution"
 msgstr "Zufallsstichprobe aus einer F-Verteilung"
 
-msgid "FSamples"
-msgstr "FStichproben"
-
 msgid "Sample from Exponential Distribution"
 msgstr "Zufallsstichprobe aus einer Exponentialverteilung"
-
-msgid "ExponentialSamples"
-msgstr "ExponentialStichproben"
 
 msgid "Sample from Uniform Distribution"
 msgstr "Zufallsstichprobe aus einer Gleichverteilung"
 
-msgid "UniformSamples"
-msgstr "GleichverteilteStichproben"
-
 msgid "Sample from Beta Distribution"
 msgstr "Zufallsstichprobe aus einer Betaverteilung"
-
-msgid "BetaSamples"
-msgstr "BetaStichproben"
 
 msgid "Sample from Cauchy Distribution"
 msgstr "Zufallsstichprobe aus einer Cauchy-Verteilung"
 
-msgid "CauchySamples"
-msgstr "CauchyStichproben"
-
 msgid "Sample from Logistic Distribution"
 msgstr "Zufallsstichprobe aus einer Logistischen Verteilung"
-
-msgid "LogisticSamples"
-msgstr "LogistischeStichproben"
 
 msgid "Sample from Log-Normal Distribution"
 msgstr "Zufallsstichprobe einer Log-Normalverteilung"
 
-msgid "LogNormalSamples"
-msgstr "LognormalStichproben"
-
 msgid "Sample from Gamma Distribution"
 msgstr "Zufallsstichprobe aus einer Gammaverteilung"
-
-msgid "GammaSamples"
-msgstr "GammaStichproben"
 
 msgid "Sample from Weibull Distribution"
 msgstr "Zufallsstichprobe aus einer Weibull-Verteilung"
 
-msgid "WeibullSamples"
-msgstr "Weibull Stichproben"
-
 msgid "Sample from Gumbel Distribution"
 msgstr "Zufallsstichprobe aus einer Gumbel-Verteilung"
 
-msgid "GumbelSamples"
-msgstr "GumbelStichproben"
-
 msgid "Sample from Binomial Distribution"
 msgstr "Zufallsstichprobe aus einer Binomialverteilung"
-
-msgid "BinomialSamples"
-msgstr "BinomialStichproben"
 
 msgid "Poisson mean cannot be negative."
 msgstr ""
@@ -2955,26 +2907,14 @@ msgstr ""
 msgid "Sample from Poisson Distribution"
 msgstr "Zufallsstichprobe einer Poisson-Verteilung"
 
-msgid "PoissonSamples"
-msgstr "PoissonStichproben"
-
 msgid "Sample from Geometric Distribution"
 msgstr "Zufallsstichprobe aus einer Geometrischen Verteilung"
-
-msgid "GeometricSamples"
-msgstr "Geometrische Stichproben"
 
 msgid "Sample from Hypergeometric Distribution"
 msgstr "Zufallsstichprobe aus einer Hypergeometrischen Verteilung"
 
-msgid "HypergeometricSamples"
-msgstr "HypergeometrischeStichproben"
-
 msgid "Sample from Negative Binomial Distribution"
 msgstr "Zufallsstichprobe aus einer Negativen Binomialverteilung"
-
-msgid "NegativeBinomialSamples"
-msgstr "NegativeBinomialStichproben"
 
 msgid "Sample from normal distribution..."
 msgstr "Zufallsstichprobe aus einer Normalverteilung ..."
@@ -3340,9 +3280,6 @@ msgstr "Variablen stapeln"
 
 msgid "factor"
 msgstr "Faktor"
-
-msgid "StackedData"
-msgstr "StackedData"
 
 msgid "You must select at least two variables."
 msgstr "Sie müssen mindestens zwei Variablen auswälen."
@@ -4844,3 +4781,271 @@ msgstr ""
 
 msgid "Concentration levels:"
 msgstr "Concentration levels:"
+
+msgid ".rtf (rich text file)"
+msgstr ".rtf (rich text file)"
+
+msgid "Rich text file written to:"
+msgstr "RTF Datei geschrieben nach:"
+
+msgid "Bootstrap confidence intervals..."
+msgstr "Bootstrap Konfidenzintervalle ..."
+
+msgid "Bootstrap"
+msgstr "Bootstrap"
+
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "Bootstrap Konfidenzintervalle für Koeffizienten"
+
+msgid "Number of bootstrap samples:"
+msgstr "Anzahl der Bootstrap Stichproben:"
+
+msgid "Number of samples must be a positive integer."
+msgstr "Die Stichprobengröße muß positiv und ganzzahlig sein."
+
+msgid "Type of Confidence Intervals"
+msgstr "Typ der Konfidenzintervalle"
+
+msgid "BCa (adjusted percentile)"
+msgstr "BCa (adjustierte Perzentile)"
+
+msgid "Normal theory"
+msgstr "Theoretische Normalverteilung"
+
+msgid "Basic bootstrap"
+msgstr "Normaler Bootstrap"
+
+msgid "Percentile"
+msgstr "Perzentile"
+
+msgid "Resampling Method"
+msgstr "Resampling Methode"
+
+msgid "Case resampling"
+msgstr "Beobachtungen resamplen"
+
+msgid "Residual resampling"
+msgstr "Residuen resamplen"
+
+msgid "Delta method confidence interval..."
+msgstr "Delta Methode Konfidenzintervalle ..."
+
+msgid "Delta Method"
+msgstr "Delta Methode"
+
+msgid "Confidence Interval by the Delta Method"
+msgstr "Konfidenzintervalle durch Delta Methode"
+
+msgid "Expression to evaluate; use parameter names:"
+msgstr "Ausdruck der evaluiert werden soll; verwende Parameter-Namen"
+
+msgid "View data..."
+msgstr "Datenmatrix betrachten..."
+
+msgid "View Data"
+msgstr "Datenmatrix betrachten"
+
+msgid "Bad subset expression."
+msgstr "Fehlerhafte Anweisung für die Teilmenge"
+
+msgid "No data to show."
+msgstr "Keine Datenmatrix ausgewählt."
+
+msgid "View data error."
+msgstr "Fehler beim Datenmatrix betrachten"
+
+msgid "Sort active data set..."
+msgstr "Sortiere aktive Datenmatrix ..."
+
+msgid "Sort Active Data Set"
+msgstr "Sortiere aktive Datenmatrix"
+
+msgid "Sort Keys (select one or more)"
+msgstr "Sortierungsvariablen (eine oder mehrere auswählen)"
+
+msgid "Sort Direction"
+msgstr "Sortierrichtung"
+
+msgid "Increasing"
+msgstr "Wachsend"
+
+msgid "Decreasing"
+msgstr "Fallend"
+
+msgid "Reorder Sort Keys"
+msgstr "Neuordnen der Sortierschlüssel"
+
+msgid "Order of keys must include all integers from 1 to"
+msgstr "Die Reihenfolge der Schlüssel muss alle Ziffern enthalten von 1 bis"
+
+msgid "Sort Keys"
+msgstr "Sortiere nach Schlüssel"
+
+msgid "Order"
+msgstr "Ordnung"
+
+# added to plot means dialog
+msgid "Connect profiles of means"
+msgstr "Verbinde Mittelwertprofile"
+
+msgid "Welch F-test not assuming equal variances"
+msgstr "Welch F-test mit ungleichen Varianzen"
+
+msgid "Test of normality..."
+msgstr "Test auf Normalverteilung..."
+
+msgid "Test of Normality"
+msgstr "Test auf Normalverteilung"
+
+msgid "Shapiro-Wilk"
+msgstr "Shapiro-Wilk"
+
+msgid "Anderson-Darling"
+msgstr "Anderson-Darling"
+
+msgid "Cramer-von Mises"
+msgstr "Cramer-von Mises"
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr "Lilliefors (Kolmogorov-Smirnov)"
+
+msgid "Shapiro-Francia"
+msgstr "Shapiro-Francia"
+
+msgid "Pearson chi-square"
+msgstr "Pearson Chi-Quadrat"
+
+msgid "Normality Test"
+msgstr "Test auf Normalverteilung"
+
+msgid "Number of bins must be a number >= 4"
+msgstr "Anzahl der Kategorien muss >=4 sein"
+
+msgid ""
+"Number of bins\n"
+"for Pearson chi-square"
+msgstr ""
+"Anzahl Kategorien\n"
+"für Pearson Chi-Quadrat"
+
+msgid "Commas [,]"
+msgstr "Kommas [,]"
+
+msgid "Semicolons [;]"
+msgstr "Strichpunkt [;]"
+
+# additional error check in load data set dialog
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr "Es gibt mehr als ein Objekt in der Datei, mit folgenden Namen:\n"
+
+# new messages for distribution plot dialogs produced by distributionPlot()
+msgid "Optionally specify regions under the density function by"
+msgstr "Optionale Spezifikation der Region unter der Dichte durch"
+
+msgid "x-values"
+msgstr "x-Werte"
+
+msgid "quantiles"
+msgstr "Quantile"
+
+msgid "is not a valid number."
+msgstr "ist keine gültige Zahl."
+
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "Sie müssen 'von' und 'bis' für mindestens ein Intervall auswählen."
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr "Bei Angabe eines eines Intervalls muss 'von' kleiner als 'bis' sein."
+
+msgid "Quantiles must be between 0 and 1."
+msgstr "Quantil muss zwischen 0 und 1 liegen."
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr "Region die gefüllt werden soll (leer, eine oder zwei)"
+
+msgid "Region 1: from"
+msgstr "Region 1: von"
+
+msgid "Region 2: from"
+msgstr "Region 2: von"
+
+msgid "to"
+msgstr "bis"
+
+msgid "color"
+msgstr "Farbe"
+
+msgid "Top center"
+msgstr "Oben zentriert"
+
+msgid "Compare model coefficients..."
+msgstr "Vergleiche Modellkoeffizienten..."
+
+msgid "Compare Model Coefficients"
+msgstr "Vergleiche Modellkoeffizienten"
+
+msgid "You must select at least two models."
+msgstr "Sie müssen mindestens zwei Modelle auswählen."
+
+#~ msgid "Dataset"
+#~ msgstr "Datenmatrix"
+
+#~ msgid "variable"
+#~ msgstr "Praefix."
+
+#~ msgid "NormalSamples"
+#~ msgstr "NormalverteilteStichproben"
+
+#~ msgid "tSamples"
+#~ msgstr "tStichproben"
+
+#~ msgid "ChisquareSamples"
+#~ msgstr "Chi2Stichprobe"
+
+#~ msgid "FSamples"
+#~ msgstr "FStichproben"
+
+#~ msgid "ExponentialSamples"
+#~ msgstr "ExponentialStichproben"
+
+#~ msgid "UniformSamples"
+#~ msgstr "GleichverteilteStichproben"
+
+#~ msgid "BetaSamples"
+#~ msgstr "BetaStichproben"
+
+#~ msgid "CauchySamples"
+#~ msgstr "CauchyStichproben"
+
+#~ msgid "LogisticSamples"
+#~ msgstr "LogistischeStichproben"
+
+#~ msgid "LogNormalSamples"
+#~ msgstr "LognormalStichproben"
+
+#~ msgid "GammaSamples"
+#~ msgstr "GammaStichproben"
+
+#~ msgid "WeibullSamples"
+#~ msgstr "Weibull Stichproben"
+
+#~ msgid "GumbelSamples"
+#~ msgstr "GumbelStichproben"
+
+#~ msgid "BinomialSamples"
+#~ msgstr "BinomialStichproben"
+
+#~ msgid "PoissonSamples"
+#~ msgstr "PoissonStichproben"
+
+#~ msgid "GeometricSamples"
+#~ msgstr "Geometrische Stichproben"
+
+#~ msgid "HypergeometricSamples"
+#~ msgstr "HypergeometrischeStichproben"
+
+#~ msgid "NegativeBinomialSamples"
+#~ msgstr "NegativeBinomialStichproben"
+
+#~ msgid "StackedData"
+#~ msgstr "StackedData"
