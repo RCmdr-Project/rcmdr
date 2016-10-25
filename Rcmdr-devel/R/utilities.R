@@ -1652,7 +1652,11 @@ lmP <- function() activeModelP() && any(class(get(ActiveModel()))[1] == c('lm', 
 
 glmP <- function() activeModelP() && class(get(ActiveModel()))[1] == 'glm'
 
-aicP <- function() activeModelP() && exists.method("extractAIC", get(ActiveModel()))
+logLikP <- function() activeModelP() && exists.method("logLik", get(ActiveModel()))
+
+anovaP <- function() activeModelP() && exists.method("anova", get(ActiveModel()))
+
+EffectP <- function() activeModelP() && exists.method("Effect", get(ActiveModel()), default=FALSE)
 
 polrP <- function() activeModelP() && class(get(ActiveModel()))[1] == 'polr'
 

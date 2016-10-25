@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2016-08-10 by J. Fox
+# last modified 2016-09-23 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -973,7 +973,7 @@ subsetRegression <- function () {
 }
 
 effectPlots <- function () {
-  Library("effects")
+#  Library("effects")
   defaults <- list(initial.all.or.pick = "TRUE", initial.predictors = NULL, 
                    initial.partial.res = 0, initial.span = 50, initial.style = "stacked")
   dialog.values <- getDialog("effectPlots", defaults)

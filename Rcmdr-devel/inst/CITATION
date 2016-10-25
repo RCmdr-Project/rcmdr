@@ -9,7 +9,7 @@ note <- sprintf("R package version %s", meta$Version)
     author = "John Fox and Milan Bouchet-Valat",
     year = year,
     note = note,
-    url = "http://www.r-project.org, http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/",
+    url = "http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/",
     textVersion = paste0("Fox, J., and Bouchet-Valat, M. (", year, "). Rcmdr: R Commander. ", note, ".")
   )
  

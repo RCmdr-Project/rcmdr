@@ -576,7 +576,7 @@ readDataFromPackage <- function() {
 			options(save.options)
 			if (class(check) == "try-error"){
 				errorCondition(recall=readDataFromPackage,
-						message=sprintf(gettextRcmdr("Data set %s does not exit"), dsnameValue))
+						message=sprintf(gettextRcmdr("Data set %s does not exist"), dsnameValue))
 				return()
 			}
 			activeDataSet(dsnameValue)

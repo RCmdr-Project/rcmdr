@@ -9,7 +9,7 @@
 \alias{activeModel}
 \alias{ActiveModel}
 \alias{activeModelP}
-\alias{aicP}
+\alias{anovaP}
 \alias{beginRmdBlock}
 \alias{beginRnwBlock}
 \alias{checkActiveDataSet}
@@ -30,6 +30,7 @@
 \alias{defmacro}
 \alias{dialogSuffix}
 \alias{doItAndPrint}
+\alias{EffectP}
 \alias{endRmdBlock}
 \alias{endRnwBlock}
 \alias{enterMarkdown}
@@ -76,6 +77,7 @@
 \alias{listVariables}
 \alias{lmP}
 \alias{logger}
+\alias{logLikP}
 \alias{LogWindow}
 \alias{MacOSXP}
 \alias{manualTranslationP}
@@ -158,7 +160,7 @@ activeDataSetP()
 activeModel(model)
 ActiveModel(name)
 activeModelP()
-aicP()
+anovaP()
 beginRmdBlock()
 beginRnwBlock()
 checkActiveDataSet()
@@ -189,6 +191,7 @@ dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows, columns,
     tab.names=c("Data", "Options"), grid.buttons=FALSE, resizable=FALSE,
     force.wait=FALSE)  # macro
 doItAndPrint(command, log=TRUE, rmd=log)
+EffectP()
 endRmdBlock()
 endRnwBlock()
 enterMarkdown(command)
@@ -243,6 +246,7 @@ listTwoLevelFactors(dataSet=ActiveDataSet())
 listVariables(dataSet=ActiveDataSet())
 lmP()
 logger(command, rmd=TRUE)
+logLikP()
 LogWindow()
 MacOSXP(release)
 manualTranslationP()

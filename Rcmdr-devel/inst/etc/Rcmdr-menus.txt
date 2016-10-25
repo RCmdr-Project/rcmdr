@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2016-07-19 by J. Fox
+# last modified 2016-09-24 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -196,13 +196,13 @@
     item    modelsMenu      command         "Compare model coefficients..."                 compareCoefficients         "modelsP(2)"               ""
     item    modelsMenu      command         "Add observation statistics to data..."         addObservationStatistics    "activeModelP()"          ""
     item    modelsMenu      separator       ""                                              ""                          ""          ""
-    item	modelsMenu		command			"Akaike Information Criterion (AIC)"			aic							"activeModelP()"		  ""
-    item	modelsMenu		command			"Bayesian Information Criterion (BIC)"			bic							"activeModelP()"		  ""
-    item	modelsMenu		command			"Stepwise model selection..."						stepwiseRegression			"aicP()" 		 "packageAvailable('RcmdrMisc') && packageAvailable('MASS')"
+    item	modelsMenu		command			"Akaike Information Criterion (AIC)"			aic							"logLikP()"		  ""
+    item	modelsMenu		command			"Bayesian Information Criterion (BIC)"			bic							"logLikP()"		  ""
+    item	modelsMenu		command			"Stepwise model selection..."						stepwiseRegression			"logLikP()" 		 "packageAvailable('RcmdrMisc') && packageAvailable('MASS')"
     item	modelsMenu		command			"Subset model selection..."						subsetRegression			"lmP()"			 "packageAvailable('leaps')"
     item    modelsMenu      separator       ""                                              ""                          ""          ""
     item    modelsMenu      command         "Confidence intervals..."                       confidenceIntervals         "activeModelP()" "packageAvailable('MASS') && packageAvailable('abind')"
-    item    modelsMenu      command         "Bootstrap confidence intervals..."             Bootstrap                   "activeModelP() && (glmP() || lmP())" "packageAvailable('boot')"
+    item    modelsMenu      command         "Bootstrap confidence intervals..."             Bootstrap                   "activeModelP()" "packageAvailable('boot')"
     item    modelsMenu      command         "Delta method confidence interval..."           DeltaMethodConfInt          "activeModelP() && (!multinomP())" ""
     menu    hypothesisMenu  modelsMenu      ""                                              ""                          ""          ""
     item    modelsMenu      cascade         "Hypothesis tests"                              hypothesisMenu              ""          ""
@@ -212,19 +212,19 @@
     item    modelsMenu      separator       ""                                              ""                          ""          ""
     menu    diagnosticsMenu modelsMenu      ""                                              ""                          ""          ""
     item    modelsMenu      cascade         "Numerical diagnostics"                         diagnosticsMenu             ""          ""
-    item    diagnosticsMenu command         "Variance-inflation factors"                    VIF                         "(lmP() || glmP())" "packageAvailable('car')"
+    item    diagnosticsMenu command         "Variance-inflation factors"                    VIF                         "lmP() || glmP()" "packageAvailable('car')"
     item    diagnosticsMenu command         "Breusch-Pagan test for heteroscedasticity..."  BreuschPaganTest            "lmP()" "packageAvailable('lmtest')"
     item    diagnosticsMenu command         "Durbin-Watson test for autocorrelation..."     DurbinWatsonTest            "lmP()" "packageAvailable('lmtest')"
     item    diagnosticsMenu command         "RESET test for nonlinearity..."                RESETtest                   "lmP()" "packageAvailable('lmtest')"
-    item    diagnosticsMenu command         "Bonferroni outlier test"                       OutlierTest                 "(lmP() || glmP())" "packageAvailable('car')"
+    item    diagnosticsMenu command         "Bonferroni outlier test"                       OutlierTest                 "lmP() || glmP()" "packageAvailable('car')"
     menu    modelsGraphsMenu      modelsMenu      ""                                              ""                          ""          ""
     item    modelsMenu      cascade         "Graphs"                                        modelsGraphsMenu                  ""          ""
     item    modelsGraphsMenu      command         "Basic diagnostic plots"                        plotModel                   "lmP() || glmP()"          ""
     item    modelsGraphsMenu      command         "Residual quantile-comparison plot..."          residualQQPlot              "lmP()" "packageAvailable('car')"
-    item    modelsGraphsMenu      command         "Component+residual plots"                      CRPlots                     "(lmP() || glmP())" "packageAvailable('car')"
-    item    modelsGraphsMenu      command         "Added-variable plots"                          AVPlots                     "(lmP() || glmP())" "packageAvailable('car')"
-    item    modelsGraphsMenu      command         "Influence plot"                                InfluencePlot               "(lmP() || glmP())" "packageAvailable('car')"
-    item    modelsGraphsMenu      command         "Effect plots"                                  effectPlots                 "(lmP() || glmP()) || polrP() || multinomP()" "packageAvailable('effects')"
+    item    modelsGraphsMenu      command         "Component+residual plots"                      CRPlots                     "lmP() || glmP()" "packageAvailable('car')"
+    item    modelsGraphsMenu      command         "Added-variable plots"                          AVPlots                     "lmP() || glmP()" "packageAvailable('car')"
+    item    modelsGraphsMenu      command         "Influence plot"                                InfluencePlot               "lmP() || glmP()" "packageAvailable('car')"
+    item    modelsGraphsMenu      command         "Effect plots"                                  effectPlots                 "EffectP()" "packageAvailable('effects')"
     item    topMenu         cascade         "Models"                                        modelsMenu                  ""          ""
 
     # Distributions
