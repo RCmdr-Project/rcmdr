@@ -1,3 +1,9 @@
+Changes to Version 2.3-2
+
+  o Fixes to Spanish translation (from Manual Munoz Marquez).
+  
+  o Updated Spanish translation of Getting Started manual (thanks to Manual Munoz Marquez).
+
 Changes to Version 2.3-1
 
   o Removed dependency of rglwidgets, no longer necessary.
