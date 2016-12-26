@@ -1,19 +1,18 @@
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2015.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.2-2\n"
+"Project-Id-Version: Rcmdr 2.3-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2015-10-16 12:05:00\n"
-"PO-Revision-Date: 2015-11-21 11:27+0100\n"
+"POT-Creation-Date: 2016-07-19 21:00:00\n"
+"PO-Revision-Date: 2016-12-21 22:18+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
-"Translator: Jaro Lajovic <jaro.lajovic@mf.uni-lj.si>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Lokalize 2.0\n"
 
 msgid "KMeans Clustering"
@@ -357,12 +356,12 @@ msgid "You must enter a name for the data set."
 msgstr "Vnesti morate ime nabora podatkov."
 
 msgid ""
-"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
-"{\"All Files\" {\"*\"}}"
+"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+" {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Besedilne datoteke\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" "
-"\".CSV\"}} {\"Vse datoteke"
-"\" {\"*\"}}"
+"{\"Besedilne datoteke\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\""
+" \".CSV\"}} {\"Vse "
+"datoteke\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "Imena spremenljivk so v datoteki:"
@@ -407,12 +406,12 @@ msgid "Import SPSS Data Set"
 msgstr "Uvoz podatkov v zapisu SPSS"
 
 msgid ""
-"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
-"\".POR\"}} {\"All Files\" {\"*\"}}"
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\""
+" \".POR\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Datoteke SPSS\" {\".sav\" \".SAV\"}} {\"Prenosne datoteke SPSS\" {\".por\" "
-"\".POR\"}} {\"Vse "
-"datoteke\" {\"*\"}}"
+"{\"Datoteke SPSS\" {\".sav\" \".SAV\"}} {\"Prenosne datoteke SPSS\" {\".por\""
+" \".POR\"}} "
+"{\"Vse datoteke\" {\"*\"}}"
 
 msgid "Convert value labels\nto factor levels"
 msgstr ""
@@ -434,8 +433,8 @@ msgstr ""
 "{\"Prenosne datoteke Minitab\" {\".mtp\" \".MTP\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid ""
-"Minitab data set contains elements of unequal length.\nData set cannot be "
-"converted."
+"Minitab data set contains elements of unequal length.\nData set cannot be"
+" converted."
 msgstr ""
 "Nabor podatkov Minitab vsebuje elemente neenake dolžine.\n"
 "Nabora podatkov ni mogoče pretvoriti."
@@ -654,7 +653,7 @@ msgid "Set Contrasts for Factor"
 msgstr "Določite kontrast za faktor"
 
 msgid "Treatment (dummy) contrasts"
-msgstr "Kontrasti obravnavanj (dummy)"
+msgstr "Kontrasti obravnavanj (slepi)"
 
 msgid "Sum (deviation) contrasts"
 msgstr "Vsota kontrastov"
@@ -681,8 +680,8 @@ msgid "Contrast Name:"
 msgstr "Ime kontrasta:"
 
 msgid ""
-"Number of valid entries in contrast matrix(%d)\nnot equal to number of levels "
-"(%d) * number of contrasts (%d)."
+"Number of valid entries in contrast matrix(%d)\nnot equal to number of levels"
+" (%d) * number of contrasts (%d)."
 msgstr ""
 "Število veljavnih vnosov v matriki kontrastov (%d)\n"
 "ni enako zmnožku število ravni (%d) * število kontrastov (%d)."
@@ -1258,11 +1257,11 @@ msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Datoteke PNG\" {\".png\" \".PNG\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid ""
-"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" "
-"{\"*\"}}"
+"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\""
+" {\"*\"}}"
 msgstr ""
-"{\"Datoteke JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Vse datoteke\" "
-"\"\" {\"*\"}}"
+"{\"Datoteke JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Vse datoteke\""
+" \"\" {\"*\"}}"
 
 msgid "Graph saved to file"
 msgstr "Diagram shranjen v datoteko"
@@ -1292,8 +1291,8 @@ msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Datoteke postscript\" {\".ps\" \".PS\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid ""
-"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" "
-"{\"*\"}}"
+"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\""
+" {\"*\"}}"
 msgstr "{\"Oviti postscript\" {\".eps\" \".EPS\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid "Width (inches)"
@@ -1378,8 +1377,8 @@ msgid "Test Linear Hypothesis"
 msgstr "Test linearne hipoteze"
 
 msgid ""
-"Number of valid entries in hypothesis matrix(%d)\nnot equal to number of rows "
-"(%d) * number of columns (%d)."
+"Number of valid entries in hypothesis matrix(%d)\nnot equal to number of rows"
+" (%d) * number of columns (%d)."
 msgstr ""
 "Število veljavnih vnosov v matriki hipoteze (%d)\n"
 "ni enako zmnožku število vrstic (%d) * število stolpcev (%d)."
@@ -1388,8 +1387,8 @@ msgid "Hypothesis matrix is not of full row rank."
 msgstr "Matrika hipoteze ni polnega vrstičnega ranga."
 
 msgid ""
-"Number of valid entries in rhs vector (%d)\nis not equal to number of rows (%"
-"d)."
+"Number of valid entries in rhs vector (%d)\nis not equal to number of rows ("
+"%d)."
 msgstr ""
 "Število veljavnih vnosov v vektorju desne strani (%d)\n"
 "ni enako številu vrstic (%d)."
@@ -1773,8 +1772,7 @@ msgid "Two-Sample Proportions Test"
 msgstr "Test deležev za dva vzorca"
 
 msgid "Groups and response variables must be different."
-msgstr ""
-"Spremenljivka za skupine in odvisna spremenljivka morata biti različni."
+msgstr "Skupine in odvisne spremenljivke morajo biti različne."
 
 msgid "There are %d variables in the data set %s.\nDo you want to proceed?"
 msgstr ""
@@ -1911,15 +1909,15 @@ msgstr ""
 
 msgid "Row, column, and control variables must be different."
 msgstr ""
-"Spremenljivke v vrsticah, stolpcih in kontrolne spremenljivke morajo biti "
-"različne."
+"Spremenljivke v vrsticah, stolpcih in kontrolne spremenljivke morajo biti"
+" različne."
 
 msgid "Enter Two-Way Table"
 msgstr "Vnos dvorazsežne tabele"
 
 msgid ""
-"Number of valid entries (%d)\nnot equal to number of rows (%d) * number of "
-"columns (%d)."
+"Number of valid entries (%d)\nnot equal to number of rows (%d) * number of"
+" columns (%d)."
 msgstr ""
 "Število veljavnih vnosov (%d)\n"
 "ni enako zmnožku: število vrstic (%d) * število stolpcev (%d)."
@@ -2546,11 +2544,11 @@ msgid "Import from Excel, Access or dBase data set"
 msgstr "Uvozi iz nabora podatkov v Excelu, Accessu ali dBase"
 
 msgid ""
-"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb "
-"\".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb"
+" \".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Datoteka MS Excel\" {*.xls \".XLS\"}} {\"Datoteka MS Access\" {*.mdb "
-"\".MDB\"}} {\"Datoteka "
+"{\"Datoteka MS Excel\" {*.xls \".XLS\"}} {\"Datoteka MS Access\" {*.mdb"
+" \".MDB\"}} {\"Datoteka "
 "kot dBase\" {*.dbf \".DBF\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid "Select one table"
@@ -3327,8 +3325,8 @@ msgid "Plug-ins loaded:"
 msgstr "Naloženi dodatki:"
 
 msgid ""
-"The plug-in(s) will not be available until the Commander is "
-"restarted.\nRestart now?"
+"The plug-in(s) will not be available until the Commander is"
+" restarted.\nRestart now?"
 msgstr ""
 "Dodatki ne bodo na voljo, dokler znova ne zaženete Commanderja.\n"
 "Ga želite ponovno zagnati zdaj?"
@@ -3372,8 +3370,8 @@ msgstr "Naloži nabor podatkov..."
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"R-ove podatkovne datoteke\" {\".rda\" \".Rda\" \".RDA\"}} {\"Vse "
-"datoteke\" {\"*\"}}"
+"{\"R-ove podatkovne datoteke\" {\".rda\" \".Rda\" \".RDA\"}} {\"Vse"
+" datoteke\" {\"*\"}}"
 
 msgid "Shapiro-Wilk test of normality..."
 msgstr "Shapiro-Wilkov test normalnosti..."
@@ -3694,14 +3692,14 @@ msgstr "Ime za agregirani nabor podatkov:"
 
 #     miscellaneous
 msgid ""
-"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" "
-"{\"*\"}}"
+"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\""
+" {\"*\"}}"
 msgstr ""
-"{\"R-ove datoteke\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Vse "
-"datoteke\" {\"*\"}}"
+"{\"R-ove datoteke\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Vse"
+" datoteke\" {\"*\"}}"
 
 msgid "No data set selected."
-msgstr "Izbran ni noben nabor podatkov."
+msgstr "Izbranega ni nobenega nabora podatkov."
 
 msgid "Help on selected data set"
 msgstr "Pomoč o izbranem naboru podatkov."
@@ -3721,8 +3719,8 @@ msgstr ""
 "za Pearsonove ali Spearmanove korelacije"
 
 msgid ""
-"The Windows version of the R Commander works best under RGui\nwith the "
-"single-document interface (SDI); see ?Commander."
+"The Windows version of the R Commander works best under RGui\nwith the"
+" single-document interface (SDI); see ?Commander."
 msgstr ""
 "Različica R Commanderja za Windows deluje najbolje, če je RGui\n"
 "v načinu vmesnika z enim dokumentom (SDI); glejte ?Commander."
@@ -3771,61 +3769,61 @@ msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
 msgstr "{\"Vse datoteke\" {\"*\"}} {\"Izhodne datoteke\" {\".txt\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
-"\".csv\" \".CSV\"}}"
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\""
+" \".csv\" \".CSV\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Besedilne datoteke\" {\".txt\" \".TXT\" "
-"\".dat\" \".DAT\" \".csv"
+"{\"Vse datoteke\" {\"*\"}} {\"Besedilne datoteke\" {\".txt\" \".TXT\""
+" \".dat\" \".DAT\" \".csv"
 "\" \".CSV\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS "
-"save files\" {\".sav\" \".SAV\"}}"
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS"
+" save files\" {\".sav\" \".SAV\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"SPSS-ove datoteke za prenos\" {\".por\" "
-"\".POR\"}} {\"Datoteke "
+"{\"Vse datoteke\" {\"*\"}} {\"SPSS-ove datoteke za prenos\" {\".por\""
+" \".POR\"}} {\"Datoteke "
 "SPSS save\" {\".sav\" \".SAV\"}}"
 
 msgid ""
 "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Minitabove datoteke za prenos\" {\".mtp\" "
-"\".MTP\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"Minitabove datoteke za prenos\" {\".mtp\""
+" \".MTP\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 msgstr ""
 "{\"Vse datoteke\" {\"*\"}} {\"Nabori podatkov STATA\" {\".dta\" \".DTA\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
-"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" "
-"{\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
-"Excel file\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS"
+" Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\""
+" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS"
+" Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Podatkovna baza MS Access\" {\".mdb\" "
-"\".MDB\"}} {\"Podatkovna "
-"baza MS Access\" {\".accdb\" \".ACCDB\"}} {\"dBase-podobna datoteka\" "
-"{\".dbf\" \".DBF\"}} "
-"{\"Datoteka MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"Datoteka MS Excel\" "
-"{\".xls\" \".XLS\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"Podatkovna baza MS Access\" {\".mdb\""
+" \".MDB\"}} {\"Podatkovna "
+"baza MS Access\" {\".accdb\" \".ACCDB\"}} {\"dBase-podobna datoteka\""
+" {\".dbf\" \".DBF\"}} "
+"{\"Datoteka MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"Datoteka MS Excel\""
+" {\".xls\" \".XLS\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" "
-"\".RDA\"}}"
+"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\""
+" \".RDA\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"R-ove datoteke s podatki\" {\".RData\" \".rda\" "
-"\".Rda\" \".RDA"
+"{\"Vse datoteke\" {\"*\"}} {\"R-ove datoteke s podatki\" {\".RData\" \".rda\""
+" \".Rda\" \".RDA"
 "\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"Vse datoteke\" {\"*\"}} {\"Datoteke PNG\" {\".png\" \".PNG\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" "
-"\".JPEG\"}}"
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\""
+" \".JPEG\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Datoteke JPEG\" {\".jpg\" \".JPG\" \".jpeg\" "
-"\".JPEG\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"Datoteke JPEG\" {\".jpg\" \".JPG\" \".jpeg\""
+" \".JPEG\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
 msgstr "{\"Vse datoteke\" {\"*\"}} {\"Datoteke PDF\" {\".pdf\" \".PDF\"}}"
@@ -3834,8 +3832,8 @@ msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 msgstr "{\"Vse datoteke\" {\"*\"}} {\"Postscript-datoteke\" {\".ps\" \".PS\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" "
-"\".EPS\"}}"
+"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\""
+" \".EPS\"}}"
 msgstr ""
 "{\"Vse datoteke\" {\"*\"}} {\"Datoteke oviti Postscript\" {\".eps\" \".EPS\"}}"
 
@@ -3939,7 +3937,7 @@ msgstr "Privzeta velikost črkopisa (v pikah)"
 
 # message added to version 1.8-4
 msgid "data set edit error."
-msgstr "napaka pri urejanju množice"
+msgstr "napaka pri urejanju podatkov"
 
 # messages added to version 1.9-0
 msgid "Identify Outliers"
@@ -3994,11 +3992,11 @@ msgid "Datasets in file (pick one)"
 msgstr "Množice podatkov v datoteki (izberite eno)"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
-"\".XPORT\"}}"
+"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\""
+" \".XPORT\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"datoteke SAS xport\" {\".xpt\" \".XPT\" "
-"\".xport\" \".XPORT\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"datoteke SAS xport\" {\".xpt\" \".XPT\""
+" \".xport\" \".XPORT\"}}"
 
 msgid "Convert variable names\nto lower case"
 msgstr ""
@@ -4012,11 +4010,11 @@ msgid "Import Excel Data Set"
 msgstr "Uvozi Excelove podatke"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
-"Excel file\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS"
+" Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Datoteka MS Excel 2007\" {\".xlsx\" \".XLSX\"}} "
-"{\"Datoteka MS "
+"{\"Vse datoteke\" {\"*\"}} {\"Datoteka MS Excel 2007\" {\".xlsx\" \".XLSX\"}}"
+" {\"Datoteka MS "
 "Excel\" {\".xls\" \".XLS\"}}"
 
 msgid "Interquartile Range"
@@ -4176,11 +4174,11 @@ msgstr ""
 "{\"Vse datoteke\" {\"*\"}} {\"datoteke R Markdown\" {\".Rmd\" \".rmd\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" "
-"\".snw\"}}"
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\""
+" \".snw\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"datoteke za knitr\" {\".Rmd\" \".rmd\" \".Snw\" "
-"\".snw\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"datoteke za knitr\" {\".Rmd\" \".rmd\" \".Snw\""
+" \".snw\"}}"
 
 msgid "Delete previously created knitr\ngraphics files (recommended)?"
 msgstr ""
@@ -4664,7 +4662,7 @@ msgid ".pdf (PDF file)"
 msgstr ".pdf (datoteka PDF)"
 
 msgid ".docx (Word file)"
-msgstr ".docx (Wordova datoteka)"
+msgstr ".docx (Word datoteka)"
 
 msgid "HTML file written to:"
 msgstr "datoteka html je zapisana na:"
@@ -4743,11 +4741,11 @@ msgid "<empty cell>"
 msgstr "<prazna celica>"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" "
-"\".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\""
+" \".XLS\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" "
-"\".XLS\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"MS Excel\" {\".xlsx\" \".XLSX\" \".xls\""
+" \".XLS\"}}"
 
 # corrected messages in version 2.2-1
 # The following messages had trailing blanks. These messages were deleted from
@@ -4767,5 +4765,221 @@ msgstr ""
 
 msgid "Concentration levels:"
 msgstr "Ravni koncentracije:"
+
+# additional messages in version 2.3-0
+# .rtf output from RMarkdown reports
+msgid ".rtf (rich text file)"
+msgstr ".rtf (obogatena besedilna datoteka)"
+
+msgid "Rich text file written to:"
+msgstr "Obogatena besedilna datoteka napisana na: "
+
+# bootstrapping dialog
+msgid "Bootstrap confidence intervals..."
+msgstr "Intervali zaupanja za zankanje..."
+
+msgid "Bootstrap"
+msgstr "zankanje"
+
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "Intervali zaupanja za koeficiente metode zankanja"
+
+msgid "Number of bootstrap samples:"
+msgstr "Število vzorcev za zankanje:"
+
+msgid "Number of samples must be a positive integer."
+msgstr "Število vzorcev mora biti pozitivno celo število."
+
+msgid "Type of Confidence Intervals"
+msgstr "Zvrst intervalov zaupanja"
+
+msgid "BCa (adjusted percentile)"
+msgstr "BCa (prilagojeni odstotki)"
+
+msgid "Normal theory"
+msgstr "Normalna teorija"
+
+msgid "Basic bootstrap"
+msgstr "Osnovno zankanje"
+
+msgid "Percentile"
+msgstr "Odstotki"
+
+msgid "Resampling Method"
+msgstr "Metoda ponovnega vzorčenja"
+
+msgid "Case resampling"
+msgstr "Primer ponovnega vzorčenja"
+
+msgid "Residual resampling"
+msgstr "Ponovno vzorčenje ostankov"
+
+# delta method dialog
+msgid "Delta method confidence interval..."
+msgstr "Interval zaupanja metode Delta ..."
+
+msgid "Delta Method"
+msgstr "Metoda Delta"
+
+msgid "Confidence Interval by the Delta Method"
+msgstr "Interval zaupanja po metodi Delta"
+
+msgid "Expression to evaluate; use parameter names:"
+msgstr "Izraz za izračun; uporabite imena parametrov:"
+
+# view data dialog
+msgid "View data..."
+msgstr "Ogled podatkov..."
+
+msgid "View Data"
+msgstr "Ogled Podatkov"
+
+msgid "Bad subset expression."
+msgstr "Napačen opis podmnožice."
+
+msgid "No data to show."
+msgstr "Ni nobenih podatkov za prikaz."
+
+msgid "View data error."
+msgstr "Napaka pri ogledu podatkov."
+
+# sort active data set dialog
+msgid "Sort active data set..."
+msgstr "Uredi aktivno množico podatkov..."
+
+msgid "Sort Active Data Set"
+msgstr "Sortiraj aktivno množico podatkov"
+
+msgid "Sort Keys (select one or more)"
+msgstr "Ključi sortiranja (izberite enega ali več)"
+
+msgid "Sort Direction"
+msgstr "Smer sortiranja"
+
+msgid "Increasing"
+msgstr "Naraščajoče"
+
+msgid "Decreasing"
+msgstr "Padajoče"
+
+msgid "Reorder Sort Keys"
+msgstr "Preurejanje ključev sortiranja"
+
+msgid "Order of keys must include all integers from 1 to"
+msgstr "Zaporedje ključev mora vsebovati števila od 1 do "
+
+msgid "Sort Keys"
+msgstr "Uredi ključe"
+
+msgid "Order"
+msgstr "Sortiraj"
+
+# added to plot means dialog
+msgid "Connect profiles of means"
+msgstr "Poveži profile povprečij"
+
+# adding to one-way ANOVA dialog
+msgid "Welch F-test not assuming equal variances"
+msgstr "Welchev F-preizkus brez pogoja enakih varianc"
+
+# the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+msgid "Test of normality..."
+msgstr "Preizkus normalnosti ..."
+
+msgid "Test of Normality"
+msgstr "Preizkus normalnosti"
+
+msgid "Shapiro-Wilk"
+msgstr "Shapiro-Wilk"
+
+msgid "Anderson-Darling"
+msgstr "Anderson-Darling"
+
+msgid "Cramer-von Mises"
+msgstr "Cramer-von Misses"
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr "Lilliefors (Kolmogorov-Smirnov)"
+
+msgid "Shapiro-Francia"
+msgstr "Shapiro-Francia"
+
+msgid "Pearson chi-square"
+msgstr "Pearsonov hi-kvadrat"
+
+msgid "Normality Test"
+msgstr "Preizkus normalnosti"
+
+msgid "Number of bins must be a number >= 4"
+msgstr "Število razredov mora biti >= 4"
+
+msgid "Number of bins\nfor Pearson chi-square"
+msgstr ""
+"Število razredov\n"
+"za Pearsonov hi-kvadrat"
+
+# small changes to the read text data dialog
+msgid "Commas [,]"
+msgstr "Vejice [,]"
+
+msgid "Semicolons [;]"
+msgstr "Podpičja [;]"
+
+# additional error check in load data set dialog
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr "V datoteki je več kot en predmet, z naslednjimi imeni;\n"
+
+# new messages for distribution plot dialogs produced by distributionPlot()
+msgid "Optionally specify regions under the density function by"
+msgstr "Neobvezno opišite regije pod funkcijo gostote z"
+
+msgid "x-values"
+msgstr "vrednostmi x "
+
+msgid "quantiles"
+msgstr "kvantili"
+
+msgid "is not a valid number."
+msgstr "ni število."
+
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "Opisati morate 'od' in 'do' za vsaj en interval."
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr "Ob opisu intervala mora biti 'do' večje od 'od'."
+
+msgid "Quantiles must be between 0 and 1."
+msgstr "Kvantili morajo biti med 0 in 1."
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr "Vnesite regije (vnesite eno ali dve ali pustite prazno)"
+
+msgid "Region 1: from"
+msgstr "Regija 1: od"
+
+msgid "Region 2: from"
+msgstr "Regija 2: od"
+
+msgid "to"
+msgstr "do"
+
+msgid "color"
+msgstr "barva"
+
+msgid "Top center"
+msgstr "V sredi na vrhu"
+
+# new compare model coefficients dialog
+msgid "Compare model coefficients..."
+msgstr "Primerjaj koeficiente modelov..."
+
+msgid "Compare Model Coefficients"
+msgstr "Primerjaj koeficiente modelov"
+
+msgid "Select models (pick two or more)"
+msgstr "Izberite modele (vnesite dva ali več)"
+
+msgid "You must select at least two models."
+msgstr "Izbrati morate vsaj dva modela."
 
 
