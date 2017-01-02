@@ -1,6 +1,6 @@
 Package: Rcmdr
 Version: 2.3-2
-Date: 2016-12-26
+Date: 2017-01-02
 Title: R Commander
 Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaster.ca"),
     person("Milan", "Bouchet-Valat", role = "aut"),
@@ -34,4 +34,4 @@ ByteCompile: yes
 Description:
   A platform-independent basic-statistics GUI (graphical user interface) for R, based on the tcltk package.
 License: GPL (>= 2)
-URL: http://www.r-project.org, http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/
+URL: https://www.r-project.org, http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/
