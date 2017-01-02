@@ -23,7 +23,7 @@ Suggests: \tab aplpack, boot, colorspace, e1071, foreign,
   rgl (>= 0.96.0), rmarkdown, sem (>= 3.1-7) \cr
 ByteCompile: \tab yes\cr
 License: \tab GPL (>= 2)\cr
-URL: \tab http://www.r-project.org,
+URL: \tab https://www.r-project.org,
 http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/\cr
 }
 }

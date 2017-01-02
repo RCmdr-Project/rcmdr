@@ -29,17 +29,10 @@ plug-in.
 An illustrative R Commander plug-in package, \pkg{RcmdrPlugin.TeachingDemos}, is
 available on CRAN.
 
-For more details, see my (out-of-date) article on ``Extending the Rcmdr by 
-Plug-in Packages'' in the December 2007 issue of \emph{R News} 
-<\url{http://www.r-project.org/doc/Rnews/Rnews_2007-3.pdf}>. There is also more recent
-(but also out-of-date) information
-about writing plug-ins in Fox and Carvalho (2012), 
-``The RcmdrPlugin.survival Package: Extending the R Commander Interface to Survival Analysis,''
-\emph{Journal of Statistical Software}, 49:7, 1--32.
-<\url{http://www.jstatsoft.org/v49/i07}>.
-
 A variety of utility functions is available to support R Commander plug-in packages;
 see \code{\link{Rcmdr.Utilities}}.
+
+For more details, see Fox, \emph{Writing R Commander Plug-in Packages} at \url{http://socserv.mcmaster.ca/jfox/Books/RCommander/Writing-Rcmdr-Plugins.pdf}.
 }
 
 \seealso{\code{\link{Commander}}, \code{\link{Rcmdr.Utilities}}}
