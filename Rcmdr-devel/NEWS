@@ -8,6 +8,10 @@ Changes to version 2.4-0
   
   o Small improvements to activation of menu items.
   
+  o Rcmdr showData.threshold option now tests number of rows as well as number of columns.
+  
+  o Introduced Rcmdr scientific.notation option to suppress scientific notation; corresponds to R scipen option, and default is 5 (as opposed to 0 in R).
+  
 Changes to Version 2.3-2
 
   o Fixes to Spanish translation (from Manual Munoz Marquez).

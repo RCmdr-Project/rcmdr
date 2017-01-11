@@ -1,4 +1,4 @@
-# last modified 2016-09-05 by J. Fox
+# last modified 2017-01-11 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -301,6 +301,8 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
 	    tkdestroy(getRcmdr("knitr.editor.toplevel.window"))
 	}
 	options(getRcmdr("quotes"))
+	options(getRcmdr("max.print"))
+	options(scipen=getRcmdr("scipen"))
 	tkwait <- options("Rcmdr")[[1]]$tkwait  # to address problem in Debian Linux
 	if ((!is.null(tkwait)) && tkwait) putRcmdr(".commander.done", tclVar("1"))
 	return(invisible(response))

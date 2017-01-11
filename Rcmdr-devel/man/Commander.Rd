@@ -282,10 +282,18 @@ set none, one, several, or all options. The available options are as follows:
     
     \item{\code{scale.factor}}{A scaling factor to be applied to all Tk elements, such as fonts. This works well
     only in Windows. The default is \code{NULL}.}
+    
+    \item{\code{scientific.notation}}{Higher numbers cause ordinary (decimal) notation to be increasingly preferred to scientific notation
+    for representing very small and very large numbers; correspond to the \code{scipen} option in R: see \code{\link{options}}. The default
+    is \code{5}, while the standard default in R is \code{0} (meaning that scientific notation is used whenever the resulting printed
+    representation of a number if small in scientific than in standard notation).}
 
-    \item{\code{showData.threshold}}{If the number of variables in the active data set exceeds this value (default, 100),
+    \item{\code{showData.threshold}}{a vector with 2 entries, defaulting to \code{c(20000, 100)}. 
+    If the number of cases in the active data set exceeds the first number (default, 20,000)
+    or the number of variables exceeds the second number (default, 100),
     then \code{View()} rather than \code{showData()} is used to display the data set. The reason for the option is that \code{showData()} is very slow
-    when the number of variables is large; setting the threshold to 0 suppresses the use of showData altogether.}
+    when the number of cases or variables is large; setting the threshold to \code{c(0, 0)} suppresses the use of \code{showData} altogether. 
+    It's necessary to use \code{showData} however for the view of the active data set to be updated dynamically when, e.g., a variable is added.}
          
     \item{\code{show.edit.button}}{Set to \code{TRUE} (the default) if you want an \emph{Edit} button in the Commander
     window, permitting you to edit the active data set. Windows users may wish to set this option to \code{FALSE}

@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2016-09-05 by John Fox
+# last modified 2017-01-11 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -34,6 +34,8 @@ Commander <- function(){
     RcmdrVersion <- trim.blanks(sub("^Version:", "",
         grep("^Version:", DESCRIPTION, value=TRUE)))
     putRcmdr("quotes", options(useFancyQuotes=FALSE))
+    putRcmdr("max.print", options(max.print=2^30))
+    putRcmdr("scipen", getOption("scipen"))
     putRcmdr("messageNumber", 0)
     if (exists(".RcmdrEnv") && is.environment(RcmdrEnv()) &&
             exists("commanderWindow", RcmdrEnv()) &&
@@ -287,6 +289,7 @@ Commander <- function(){
     .Tcl("ttk::style configure TRadiobutton -font RcmdrDefaultFont")
     
     # set various options
+    options(scipen=setOption("scientific.notation", 5))
     setOption("default.contrasts", c("contr.Treatment", "contr.poly"))
     standard.title.color <- as.character(.Tcl("ttk::style lookup TLabelframe.Label -foreground"))
     title.color <- setOption("title.color", standard.title.color) 
@@ -338,7 +341,7 @@ Commander <- function(){
     setOption("multiple.select.mode", "extended")
     setOption("suppress.X11.warnings",
         interactive() && .Platform$GUI == "X11") # to address problem in X11 (Linux or Mac OS X)
-    setOption("showData.threshold", 100)
+    setOption("showData.threshold", c(20000, 100))
     setOption("editDataset.threshold", 10000)
     setOption("retain.messages", TRUE)
     setOption("crisp.dialogs",  TRUE)
@@ -564,8 +567,11 @@ Commander <- function(){
         }
         suppress <- if(getRcmdr("suppress.X11.warnings")) ", suppress.X11.warnings=FALSE" else ""
         view.height <- max(as.numeric(output.height) + as.numeric(log.height), 10)
-        ncols <- ncol(get(ActiveDataSet()))
-        command <- if (ncols <= getRcmdr("showData.threshold")){
+        dim <- dim(get(ActiveDataSet()))
+        nrows <- dim[1]
+        ncols <- dim[2]
+        threshold <- getRcmdr("showData.threshold")
+        command <- if (nrows <= threshold[1] && ncols <= threshold[2]){
             paste("showData(", ActiveDataSet(), ", placement='-20+200', font=getRcmdr('logFont'), maxwidth=",
                 log.width, ", maxheight=", view.height, suppress, ")", sep="")
         }

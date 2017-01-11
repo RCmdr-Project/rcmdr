@@ -1,4 +1,4 @@
-# last modified 2016-06-02 by J. Fox
+# last modified 2017-01-11 by J. Fox
 
 # Data menu dialogs
 
@@ -2426,7 +2426,10 @@ viewData <- function(){
         selectCases <- if (cases == gettextRcmdr("<all cases>")) ""
         else paste(", subset=", cases, sep="")
         view.height <- max(getRcmdr("output.height") + getRcmdr("log.height"), 10)
-        ncols <- ncol(get(dataSet))
+        dim <- dim(get(ActiveDataSet()))
+        nrows <- dim[1]
+        ncols <- dim[2]
+        threshold <- getRcmdr("showData.threshold")
         suppress <- if(getRcmdr("suppress.X11.warnings")) ", suppress.X11.warnings=FALSE" else ""
         result <- try(assign(dataSet, eval(parse(text=paste("subset(", dataSet, 
                                                       selectCases, selectVars, ")", sep="")))),
@@ -2436,12 +2439,12 @@ viewData <- function(){
                            message=gettextRcmdr("Bad subset expression."))
             return()
         }
-        if (nrow(get(dataSet)) == 0){
+        if (nrows == 0){
             errorCondition(recall=viewData,
                            message=gettextRcmdr("No data to show."))
             return()
         }
-        command <- if (ncols <= getRcmdr("showData.threshold")){
+        command <- if (nrows <= threshold[1] && ncols <= threshold[2]){
             paste("showData(", dataSet, ", 
                   placement='-20+200', font=getRcmdr('logFont'), maxwidth=",
                   getRcmdr("log.width"), ", maxheight=", view.height, suppress, ")", sep="")

@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2016-09-20 by J. Fox
+# last modified 2017-01-11 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -1425,7 +1425,7 @@ QQPlot <- function () {
 PlotMeans <- function () {
     defaults <- list(initial.groups = NULL, initial.response = NULL, initial.error.bars = "se",
         initial.level = "0.95", initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"),
-        initial.main=gettextRcmdr("<auto>"), initial.connect="1", initial.tab=0)
+        initial.main=gettextRcmdr("<auto>"), initial.connect="1", initial.legend="farright", initial.tab=0)
     dialog.values <- getDialog("PlotMeans", defaults)
     initializeDialog(title = gettextRcmdr("Plot Means"), use.tabs=TRUE)
     groupBox <- variableListBox(dataTab, Factors(), title = gettextRcmdr("Factors (pick one or two)"),
@@ -1455,6 +1455,10 @@ PlotMeans <- function () {
         ...))
     connectFrame <- tkframe(optionsFrame)
     connectCheckBox <- ttkcheckbutton(connectFrame, variable = connectvar)
+    radioButtons(connectFrame, name="legend", buttons=c("farright", "topleft", "top", "topright"),
+                 initialValue=dialog.values$initial.legend,
+                 labels=gettextRcmdr(c("To right of graph", "Top left", "Top center", "Top right")),
+                 title=gettextRcmdr("Position of Legend"))
     tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("y-axis label")), ylabEntry, sticky = "ew", padx=6)
     tkgrid(labelRcmdr(parFrame, text =""), ylabScroll, sticky = "ew", padx=6)
     mainEntry <- ttkentry(parFrame, width = "25", textvariable = mainVar)
@@ -1468,6 +1472,7 @@ PlotMeans <- function () {
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         groups <- getSelection(groupBox)
         response <- getSelection(responseBox)
+        legend.pos <- tclvalue(legendVariable)
         closeDialog()
         if (0 == length(groups)) {
             errorCondition(recall = PlotMeans, message = gettextRcmdr("No factors selected."))
@@ -1503,7 +1508,8 @@ PlotMeans <- function () {
             initial.error.bars = error.bars,
             initial.level = tclvalue(levelVariable),
             initial.xlab=tclvalue(xlabVar), initial.ylab=tclvalue(ylabVar),
-            initial.main=tclvalue(mainVar), initial.connect=connect, initial.tab=tab))
+            initial.main=tclvalue(mainVar), initial.connect=connect,
+            initial.legend=legend.pos, initial.tab=tab))
         if (length(groups) == 1)
             doItAndPrint(paste("with(", .activeDataSet, ", plotMeans(", 
                 response, ", ", groups[1],
@@ -1519,7 +1525,8 @@ PlotMeans <- function () {
                 response, ", ", groups[1],
                 ", ", groups[2], ", error.bars=\"",
                 error.bars, "\"", level, xlab, ylab, main, 
-                ", connect=", if (connect == "1") "TRUE" else "FALSE", "))", sep = ""))
+                ", connect=", if (connect == "1") "TRUE" else "FALSE",
+                ", legend.pos=\"", legend.pos, "\"))", sep = ""))
         }
         activateMenus()
         tkfocus(CommanderWindow())
@@ -1547,7 +1554,9 @@ PlotMeans <- function () {
     tkgrid(noneButton, labelRcmdr(optFrame, text = gettextRcmdr("No error bars")),
         sticky = "w")
     tkgrid(optFrame, parFrame, sticky = "nswe", padx=6, pady=6)
+    tkgrid(legendFrame, sticky="w")
     tkgrid(labelRcmdr(connectFrame, text=gettextRcmdr("Connect profiles of means")), connectCheckBox, sticky="w")
+    tkgrid(labelRcmdr(connectFrame, text=""), sticky="w")
     tkgrid(connectFrame, sticky="w")
     tkgrid(optionsFrame, sticky = "w")
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
