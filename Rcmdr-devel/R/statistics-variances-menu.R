@@ -47,8 +47,8 @@ twoVariancesFTest <- function () {
   OKCancelHelp(helpSubject = "var.test", reset = "twoVariancesFTest", apply = "twoVariancesFTest")
   radioButtons(optionsTab, name = "alternative", buttons = c("twosided", 
                                                              "less", "greater"), values = c("two.sided", "less", "greater"), 
-               labels = gettextRcmdr(c("Two-sided", "Difference < 0", 
-                                       "Difference > 0")), title = gettextRcmdr("Alternative Hypothesis"), 
+               labels = gettextRcmdr(c("Two-sided", "Ratio < 1", 
+                                       "Ratio > 1")), title = gettextRcmdr("Alternative Hypothesis"), 
                initialValue = dialog.values$initial.alternative,)
   confidenceFrame <- tkframe(optionsTab)
   confidenceLevel <- tclVar(dialog.values$initial.confidenceLevel)
@@ -57,7 +57,7 @@ twoVariancesFTest <- function () {
   tkgrid(getFrame(groupBox), labelRcmdr(variablesFrame, text = "    "), 
          getFrame(responseBox), sticky = "nw")
   tkgrid(variablesFrame, sticky = "w")
-  groupsLabel(optionsTab, groupsBox = groupBox, initialText=dialog.values$initial.label)
+  groupsLabel(optionsTab, groupsBox = groupBox, initialText=dialog.values$initial.label, ratio=TRUE)
   tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level:  "), 
                     fg = getRcmdr("title.color"), font="RcmdrTitleFont"), confidenceField, sticky = "w")
   tkgrid(alternativeFrame, sticky = "w")

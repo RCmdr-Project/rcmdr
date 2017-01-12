@@ -220,7 +220,7 @@ groupsBox(recall=NULL, label=gettextRcmdr("Plot by:"),
     plotLinesByGroupsText=gettextRcmdr("Plot lines by group"), 
     initialGroup=NULL, initialLinesByGroup=1, window=top)  # macro
 groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1, 
-    initialText=NULL)  # macro
+    initialText=NULL, ratio=FALSE)  # macro
 hclustSolutionsP()
 initializeDialog(window=top, title="", offset=10, preventCrisp,
     use.tabs=FALSE, notebook=notebook, 
@@ -439,6 +439,7 @@ commanderPosition()
   \item{recall}{function to call after error --- usually the function that initiates the dialog.}
   \item{release}{release the focus if the grab.focus option has been set. In
   \code{MacOSXP}, the minimum release (version) required.}
+  \item{ratio}{If \code{FALSE}, the default, the test will be expressed as a test for a difference (e.g., a difference in means); if \code{TRUE}, as a test for a ratio (e.g., a ratio of variances).}
   \item{reportError}{if \code{TRUE}, report an error message.}
   \item{reset}{quoted name of dialog function, to be invoked with all defaults by Reset button.}
   \item{resettable}{should dialog state be reset when the data set changes? The default is 

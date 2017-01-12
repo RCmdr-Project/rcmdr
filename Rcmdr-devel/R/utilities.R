@@ -1,4 +1,4 @@
-# last modified 2016-09-05 by J. Fox
+# last modified 2017-01-12 by J. Fox
 
 # utility functions
 
@@ -1090,7 +1090,7 @@ groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=
                       })
 
 
-groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialText=NULL,
+groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialText=NULL, ratio=FALSE,
     expr={
         initial.label <- if (exists("dialog.values")) dialog.values$initial.label else NULL
         if  (is.null(initial.label)) {
@@ -1099,7 +1099,7 @@ groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialTex
             else {
                 levels <- eval(parse(text = paste("levels(", ActiveDataSet(), 
                     "$", group, ")", sep = "")))
-                paste(levels[1], "-", levels[2])
+                paste(levels[1], if (ratio) "/" else "-", levels[2])
             }
         }
         groupsFrame <- tkframe(frame)
@@ -1107,7 +1107,7 @@ groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialTex
         else if (is.null(initial.label)) gettextRcmdr("<No groups selected>") 
         else initial.label
         groupsLabel <- labelRcmdr(groupsFrame, text=.groupsLabel)
-        tkgrid(labelRcmdr(groupsFrame, text=gettextRcmdr("Difference: "), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), groupsLabel, sticky="w")
+        tkgrid(labelRcmdr(groupsFrame, text=if (ratio) gettextRcmdr("Ratio: ") else gettextRcmdr("Difference: "), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), groupsLabel, sticky="w")
         tkgrid(groupsFrame, sticky="w", columnspan=columnspan)
         onSelect <- function(){
             group <- getSelection(groupsBox)
@@ -1116,7 +1116,7 @@ groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialTex
             }
             else {
                 levels <- eval(parse(text=paste("levels(", ActiveDataSet(), "$", group, ")", sep="")))
-                .groupsLabel <<- paste(levels[1], "-", levels[2])
+                .groupsLabel <<- paste(levels[1], if (ratio) "/" else "-", levels[2])
             }
             tkconfigure(groupsLabel, text=.groupsLabel)
         }
