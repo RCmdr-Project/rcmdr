@@ -1,4 +1,4 @@
-# last modified 2017-01-11 by J. Fox
+# last modified 2017-01-12 by J. Fox
 
 # Data menu dialogs
 
@@ -1450,7 +1450,7 @@ binVariable <- function () {
     }
     .activeDataSet <- ActiveDataSet()
     command <- paste(.activeDataSet, "$", newVar, " <- ", 
-                     "with(", .activeDataSet, ", bin.var(", varName, ", bins=", 
+                     "with(", .activeDataSet, ", binVariable(", varName, ", bins=", 
                      bins, ", method=", "'", method, "', labels=", labels, 
                      "))", sep = "")
     logger(command)

@@ -14,6 +14,10 @@ Changes to version 2.4-0
   
   o Improved labeling of two-variances test dialog (suggestion of Beatriz Lacruz).
   
+  o Improvements to Rcmdr data editor in handling blanks and quotes.
+  
+  o Moved the following standard packages from Imports: to Depends: graphics, methods, stats.
+  
 Changes to Version 2.3-2
 
   o Fixes to Spanish translation (from Manual Munoz Marquez).

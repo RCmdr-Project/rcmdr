@@ -37,7 +37,7 @@ editing data frames that are not too large (say smaller than about 10,000 values
       values will produce factors or (if they contain only the values
       \code{TRUE} and \code{FALSE}) logical variables.
       
-      \item When entering values with embedded blanks, enclose the values in quotes
+      \item When entering values with embedded blanks, it is permissible but not necessary to enclose the values in quotes
       (e.g, \code{"some PS"} or \code{'less than HS'}).
       
       \item Clicking in a cell and typing a new value replaces the previous value.
