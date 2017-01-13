@@ -57,6 +57,7 @@
     item    importMenu      command         "from text file, clipboard, or URL..."          readDataSet                 ""          ""
     item    importMenu      command         "from SPSS data set..."                         importSPSS                  ""          "packageAvailable('foreign')"
     item    importMenu      command         "from SAS xport file..."                        importSAS                   ""           "packageAvailable('foreign')"
+    item    importMenu      command         "from SAS b7dat file..."                        importSASb7dat                   ""           "packageAvailable('RcmdrMisc')"
     item    importMenu      command         "from Minitab data set..."                      importMinitab               ""          "packageAvailable('foreign')"
     item    importMenu      command         "from STATA data set..."                        importSTATA                 ""          "packageAvailable('foreign')"
 #    item    importMenu      command         "from Excel, Access or dBase data set..."       importRODBCtable            ""          "WindowsP() && packageAvailable('RODBC') && (.Platform$r_arch == 'i386')"

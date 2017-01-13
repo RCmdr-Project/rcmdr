@@ -4954,3 +4954,19 @@ msgstr ""
 msgid "Name for Column Variable (optional):"
 msgstr ""
 
+  # for import Stata and SAS b7dat data set dialogs
+
+msgid "Convert character variables to factors"
+msgstr ""
+
+msgid "First column contains row names"
+msgstr ""
+
+msgid "Import SAS b7dat Data Set"
+msgstr ""
+
+msgid "from SAS b7dat file..."
+msgstr ""
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr ""

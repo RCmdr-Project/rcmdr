@@ -1,4 +1,4 @@
-# last modified 2017-01-12 by J. Fox
+# last modified 2017-01-13 by J. Fox
 
 # Data menu dialogs
 
@@ -747,6 +747,67 @@ importSAS <- function() {
     tkfocus(CommanderWindow())
 }
 
+importSASb7dat <- function() {
+    initializeDialog(title=gettextRcmdr("Import SAS b7dat Data Set"))
+    dsname <- tclVar("Dataset")
+    dsnameFrame <- tkframe(top)
+    entryDsname <- ttkentry(dsnameFrame, width="20", textvariable=dsname)
+    optionsFrame <- tkframe(top)
+    asFactor <- tclVar("1")
+    asFactorCheckBox <- ttkcheckbutton(optionsFrame, variable=asFactor)
+    asDate <- tclVar("1")
+    rownames <- tclVar("0")
+    rownamesCheckBox <- ttkcheckbutton(optionsFrame, variable=rownames)
+    onOK <- function(){
+        closeDialog()
+        setBusyCursor()
+        on.exit(setIdleCursor())
+        dsnameValue <- trim.blanks(tclvalue(dsname))
+        if (dsnameValue == ""){
+            errorCondition(recall=importSASb7dat,
+                           message=gettextRcmdr("You must enter the name of a data set."))
+            return()
+        }
+        if (!is.valid.name(dsnameValue)){
+            errorCondition(recall=importSASb7dat,
+                           message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
+            return()
+        }
+        if (is.element(dsnameValue, listDataSets())) {
+            if ("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
+                importSASb7dat()
+                return()
+            }
+        }
+        file <- tclvalue(tkgetOpenFile(
+            filetypes=gettextRcmdr('{"All Files" {"*"}} {"SAS b7dat dataset" {".sas7bdat" ".SAS7BDAT"}}')))
+        if (file == "") {
+            tkfocus(CommanderWindow())
+            return()
+        }
+        factor <- tclvalue(asFactor) == "1"
+        has.rownames <- tclvalue(rownames) ==  "1"
+        command <- paste('readSAS("', file, '", stringsAsFactors=', factor, ", rownames=", has.rownames, ")", sep="")
+        logger(paste(dsnameValue, " <- ", command, sep=""))
+        result <- justDoIt(command)
+        if (class(result)[1] !=  "try-error"){
+            gassign(dsnameValue, result)
+            activeDataSet(dsnameValue)
+        }
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject="readSAS")
+    tkgrid(labelRcmdr(dsnameFrame, text=gettextRcmdr("Enter name for data set:  ")), entryDsname, sticky="w")
+    tkgrid(dsnameFrame, columnspan=2, sticky="w")
+    tkgrid(asFactorCheckBox, labelRcmdr(optionsFrame, text=gettextRcmdr("Convert character variables to factors"), justify="left"),
+           sticky="nw")
+    tkgrid(rownamesCheckBox, labelRcmdr(optionsFrame, text=gettextRcmdr("First column contains row names"), justify="left"),
+           sticky="w")
+    tkgrid(optionsFrame, sticky="w")
+    tkgrid(buttonsFrame, columnspan="2", sticky="ew")
+    dialogSuffix(focus=entryDsname)
+}
+
 importSPSS <- function() {
     Library("foreign")
     initializeDialog(title=gettextRcmdr("Import SPSS Data Set"))
@@ -879,7 +940,6 @@ importMinitab <- function() {
 # the following function was contributed by Michael Ash (modified by J. Fox)
 
 importSTATA <- function() {
-    Library("foreign")
     initializeDialog(title=gettextRcmdr("Import STATA Data Set"))
     dsname <- tclVar("Dataset")
     dsnameFrame <- tkframe(top)
@@ -889,12 +949,8 @@ importSTATA <- function() {
     asFactorCheckBox <- ttkcheckbutton(optionsFrame, variable=asFactor)
     asDate <- tclVar("1")
     asDateCheckBox <- ttkcheckbutton(optionsFrame, variable=asDate)
-    asMissingType <- tclVar("1")
-    asMissingTypeCheckBox <- ttkcheckbutton(optionsFrame, variable=asMissingType)
-    asConvertUnderscore <- tclVar("1")
-    asConvertUnderscoreCheckBox <- ttkcheckbutton(optionsFrame, variable=asConvertUnderscore)
-    asWarnMissingLabels <- tclVar("1")
-    asWarnMissingLabelsCheckBox <- ttkcheckbutton(optionsFrame, variable=asWarnMissingLabels)
+    rownames <- tclVar("0")
+    rownamesCheckBox <- ttkcheckbutton(optionsFrame, variable=rownames)
     onOK <- function(){
         closeDialog()
         setBusyCursor()
@@ -924,12 +980,9 @@ importSTATA <- function() {
         }
         convert.date <- tclvalue(asDate) == "1"
         factor <- tclvalue(asFactor) == "1"
-        missingtype <- tclvalue(asMissingType) == "1"
-        convertunderscore <- tclvalue(asConvertUnderscore) == "1"
-        warnmissinglabels <- tclvalue(asWarnMissingLabels) == "1"
-        command <- paste('read.dta("', file,'", convert.dates=', convert.date,
-                         ", convert.factors=", factor, ", missing.type=", missingtype,
-                         ", convert.underscore=", convertunderscore, ", warn.missing.labels=TRUE)", sep="")
+        has.rownames <- tclvalue(rownames) ==  "1"
+        command <- paste('readStata("', file,'", convert.dates=', convert.date,
+                         ", stringsAsFactors=", factor, ", rownames=", has.rownames, ")", sep="")
         logger(paste(dsnameValue, " <- ", command, sep=""))
         result <- justDoIt(command)
         if (class(result)[1] !=  "try-error"){
@@ -938,18 +991,14 @@ importSTATA <- function() {
         }
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject="read.dta")
+    OKCancelHelp(helpSubject="readStata")
     tkgrid(labelRcmdr(dsnameFrame, text=gettextRcmdr("Enter name for data set:  ")), entryDsname, sticky="w")
     tkgrid(dsnameFrame, columnspan=2, sticky="w")
-    tkgrid(asFactorCheckBox, labelRcmdr(optionsFrame, text=gettextRcmdr("Convert value labels\nto factor levels"), justify="left"),
+    tkgrid(asFactorCheckBox, labelRcmdr(optionsFrame, text=gettextRcmdr("Convert character variables to factors"), justify="left"),
            sticky="nw")
     tkgrid(asDateCheckBox, labelRcmdr(optionsFrame, text=gettextRcmdr("Convert dates to R format"), justify="left"),
            sticky="w")
-    tkgrid(asMissingTypeCheckBox, labelRcmdr(optionsFrame, text=gettextRcmdr("Multiple missing types (>=Stata 8)"), justify="left"),
-           sticky="w")
-    tkgrid(asConvertUnderscoreCheckBox, labelRcmdr(optionsFrame, text=gettextRcmdr("Convert underscore to period"), justify="left"),
-           sticky="w")
-    tkgrid(asWarnMissingLabelsCheckBox, labelRcmdr(optionsFrame, text=gettextRcmdr("Warn on missing labels"), justify="left"),
+    tkgrid(rownamesCheckBox, labelRcmdr(optionsFrame, text=gettextRcmdr("First column contains row names"), justify="left"),
            sticky="w")
     tkgrid(optionsFrame, sticky="w")
     tkgrid(buttonsFrame, columnspan="2", sticky="ew")
