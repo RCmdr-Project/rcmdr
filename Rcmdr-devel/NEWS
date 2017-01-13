@@ -18,6 +18,8 @@ Changes to version 2.4-0
   
   o Moved the following standard packages from Imports: to Depends: graphics, methods, stats.
   
+  o Allow entry of variable names in enter table dialog (suggestion of Beatriz Lacruz).
+  
 Changes to Version 2.3-2
 
   o Fixes to Spanish translation (from Manual Munoz Marquez).
