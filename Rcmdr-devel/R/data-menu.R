@@ -809,7 +809,6 @@ importSASb7dat <- function() {
 }
 
 importSPSS <- function() {
-    Library("foreign")
     initializeDialog(title=gettextRcmdr("Import SPSS Data Set"))
     dsnameFrame <- tkframe(top)
     dsname <- tclVar("Dataset")
@@ -818,11 +817,11 @@ importSPSS <- function() {
     asFactor <- tclVar("1")
     asFactorCheckBox <- ttkcheckbutton(asFactorFrame, variable=asFactor)
     toLowerFrame <- tkframe(top)
-    toLower <- tclVar("1")
+    toLower <- tclVar("0")
     toLowerCheckBox <- ttkcheckbutton(toLowerFrame, variable=toLower)
-    maxLevelsFrame <- tkframe(top)
-    maxLevels <- tclVar("Inf")
-    entryMaxLevels <- ttkentry(maxLevelsFrame, width="5", textvariable=maxLevels)
+    rowNamesFrame <- tkframe(top)
+    rownames <- tclVar("0")
+    rownamesCheckBox <- ttkcheckbutton(rowNamesFrame, variable=rownames)
     onOK <- function(){
         closeDialog()
         setBusyCursor()
@@ -851,35 +850,105 @@ importSPSS <- function() {
             return()
         }
         factor <- tclvalue(asFactor) == "1"
-        levels <- as.numeric(tclvalue(maxLevels))
-        command <- paste('read.spss("', file,'", use.value.labels=', factor,
-                         ", max.value.labels=", levels, ", to.data.frame=TRUE)", sep="")
+        lower <- tclvalue(toLower) == "1"
+        rows <- tclvalue(rownames) == "1"
+        command <- paste('readSPSS("', file,'", rownames=', rows, ", stringsAsFactors=", factor, ", tolower=", lower, ")", sep="")
         logger(paste(dsnameValue, " <- ", command, sep=""))
         result <- justDoIt(command)
         if (class(result)[1] !=  "try-error"){
             gassign(dsnameValue, result)
-            if (tclvalue(toLower) == "1") 
-                doItAndPrint(paste("colnames(", dsnameValue, ") <- tolower(colnames(",
-                                   dsnameValue, "))", sep=""))
             activeDataSet(dsnameValue)
         }
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject="read.spss")
+    OKCancelHelp(helpSubject="readSPSS")
     tkgrid(labelRcmdr(dsnameFrame, text=gettextRcmdr("Enter name for data set:  ")), entryDsname, sticky="w")
     tkgrid(dsnameFrame, sticky="w")
-    tkgrid(asFactorCheckBox, labelRcmdr(asFactorFrame, text=gettextRcmdr("Convert value labels\nto factor levels"), justify="left"),
+    tkgrid(asFactorCheckBox, labelRcmdr(asFactorFrame, text=gettextRcmdr("Convert character variables to factors"), justify="left"),
            sticky="nw")
     tkgrid(asFactorFrame, sticky="w")
-    tkgrid(toLowerCheckBox, labelRcmdr(toLowerFrame, text=gettextRcmdr("Convert variable names\nto lower case"), justify="left"),
+    tkgrid(rownamesCheckBox, labelRcmdr(rowNamesFrame, text=gettextRcmdr("First column contains row names"), justify="left"),
+           sticky="w")
+    tkgrid(rowNamesFrame, sticky="w")
+    tkgrid(toLowerCheckBox, labelRcmdr(toLowerFrame, text=gettextRcmdr("Convert variable names to lower case"), justify="left"),
            sticky="nw")
     tkgrid(toLowerFrame, sticky="w")
-    tkgrid(labelRcmdr(maxLevelsFrame, text=gettextRcmdr("Maximum number\nof value labels\nfor factor conversion"), justify="left"),
-           entryMaxLevels, sticky="nw")
-    tkgrid(maxLevelsFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="ew")
     dialogSuffix(focus=entryDsname)
 }
+
+# importSPSS <- function() {
+#     Library("foreign")
+#     initializeDialog(title=gettextRcmdr("Import SPSS Data Set"))
+#     dsnameFrame <- tkframe(top)
+#     dsname <- tclVar("Dataset")
+#     entryDsname <- ttkentry(dsnameFrame, width="20", textvariable=dsname)
+#     asFactorFrame <- tkframe(top)
+#     asFactor <- tclVar("1")
+#     asFactorCheckBox <- ttkcheckbutton(asFactorFrame, variable=asFactor)
+#     toLowerFrame <- tkframe(top)
+#     toLower <- tclVar("1")
+#     toLowerCheckBox <- ttkcheckbutton(toLowerFrame, variable=toLower)
+#     maxLevelsFrame <- tkframe(top)
+#     maxLevels <- tclVar("Inf")
+#     entryMaxLevels <- ttkentry(maxLevelsFrame, width="5", textvariable=maxLevels)
+#     onOK <- function(){
+#         closeDialog()
+#         setBusyCursor()
+#         on.exit(setIdleCursor())
+#         dsnameValue <- trim.blanks(tclvalue(dsname))
+#         if (dsnameValue == ""){
+#             errorCondition(recall=importSPSS,
+#                            message=gettextRcmdr("You must enter the name of a data set."))
+#             return()
+#         }
+#         if (!is.valid.name(dsnameValue)){
+#             errorCondition(recall=importSPSS,
+#                            message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
+#             return()
+#         }
+#         if (is.element(dsnameValue, listDataSets())) {
+#             if ("no" == tclvalue(checkReplace(dsnameValue, gettextRcmdr("Data set")))){
+#                 importSPSS()
+#                 return()
+#             }
+#         }
+#         file <- tclvalue(tkgetOpenFile(
+#             filetypes=gettextRcmdr('{"All Files" {"*"}} {"SPSS portable files" {".por" ".POR"}} {"SPSS save files" {".sav" ".SAV"}}')))
+#         if (file == "") {
+#             tkfocus(CommanderWindow())
+#             return()
+#         }
+#         factor <- tclvalue(asFactor) == "1"
+#         levels <- as.numeric(tclvalue(maxLevels))
+#         command <- paste('read.spss("', file,'", use.value.labels=', factor,
+#                          ", max.value.labels=", levels, ", to.data.frame=TRUE)", sep="")
+#         logger(paste(dsnameValue, " <- ", command, sep=""))
+#         result <- justDoIt(command)
+#         if (class(result)[1] !=  "try-error"){
+#             gassign(dsnameValue, result)
+#             if (tclvalue(toLower) == "1") 
+#                 doItAndPrint(paste("colnames(", dsnameValue, ") <- tolower(colnames(",
+#                                    dsnameValue, "))", sep=""))
+#             activeDataSet(dsnameValue)
+#         }
+#         tkfocus(CommanderWindow())
+#     }
+#     OKCancelHelp(helpSubject="read.spss")
+#     tkgrid(labelRcmdr(dsnameFrame, text=gettextRcmdr("Enter name for data set:  ")), entryDsname, sticky="w")
+#     tkgrid(dsnameFrame, sticky="w")
+#     tkgrid(asFactorCheckBox, labelRcmdr(asFactorFrame, text=gettextRcmdr("Convert value labels\nto factor levels"), justify="left"),
+#            sticky="nw")
+#     tkgrid(asFactorFrame, sticky="w")
+#     tkgrid(toLowerCheckBox, labelRcmdr(toLowerFrame, text=gettextRcmdr("Convert variable names\nto lower case"), justify="left"),
+#            sticky="nw")
+#     tkgrid(toLowerFrame, sticky="w")
+#     tkgrid(labelRcmdr(maxLevelsFrame, text=gettextRcmdr("Maximum number\nof value labels\nfor factor conversion"), justify="left"),
+#            entryMaxLevels, sticky="nw")
+#     tkgrid(maxLevelsFrame, sticky="w")
+#     tkgrid(buttonsFrame, sticky="ew")
+#     dialogSuffix(focus=entryDsname)
+# }
 
 importMinitab <- function() {
 	Library("foreign")

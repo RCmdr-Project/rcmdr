@@ -20,7 +20,7 @@ Changes to version 2.4-0
   
   o Allow entry of variable names in enter table dialog (suggestion of Beatriz Lacruz).
   
-  o Improved import of Stata files and provision to import SAS b7dat files.
+  o Improved import of Stata and SPSS data files and provision to import SAS b7dat files.
   
 Changes to Version 2.3-2
 
