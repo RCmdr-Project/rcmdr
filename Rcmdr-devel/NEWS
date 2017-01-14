@@ -22,6 +22,8 @@ Changes to version 2.4-0
   
   o Improved import of Stata and SPSS data files and provision to import SAS b7dat files.
   
+  o Added right-click context menus to text entry boxes.
+  
 Changes to Version 2.3-2
 
   o Fixes to Spanish translation (from Manual Munoz Marquez).

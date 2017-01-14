@@ -1,4 +1,4 @@
-# last modified 2017-01-12 by J. Fox
+# last modified 2017-01-14 by J. Fox
 
 # utility functions
 
@@ -1902,6 +1902,55 @@ if (!(as.character(tcl("info", "tclversion")) >= "8.5" && getRversion() >= "2.7.
     buttonRcmdr <- function(..., borderwidth, fg, foreground, relief) ttkbutton(...)
     labelRcmdr <- function(..., fg)
         if(missing(fg)) ttklabel(...) else ttklabel(..., foreground=fg)
+    # add context menu to ttk text entry boxes
+    ttkentry <- function(parent, ...) {
+        widget <- tcltk::ttkentry(parent, ...)
+        wid <- widget$ID
+        onCopy <- function(){
+            if ("0" == tclvalue(.Tcl(paste(wid, "selection present")))) return()
+            sel.1 <- tclvalue(.Tcl(paste(wid, "index sel.first")))
+            sel.2 <- tclvalue(.Tcl(paste(wid, "index sel.last")))
+            text <- tclvalue(tkget(widget))
+            text <- substr(text, as.numeric(sel.1) + 1, as.numeric(sel.2) + 1)
+            tkclipboard.clear()
+            tkclipboard.append(text)
+        }
+        onDelete <- function(){
+            if ("0" == tclvalue(.Tcl(paste(wid, "selection present")))) return()
+            sel.1 <- tclvalue(.Tcl(paste(wid, "index sel.first")))
+            sel.2 <- tclvalue(.Tcl(paste(wid, "index sel.last")))
+            .Tcl(paste(wid, "delete", sel.1, sel.2))
+        }
+        onCut <- function(){
+            onCopy()
+            onDelete()
+        }
+        onPaste <- function(){
+            onDelete()
+            text <- tclvalue(.Tcl("selection get -selection CLIPBOARD"))
+            if (length(text) == 0) return()
+            .Tcl(paste(wid, "insert", "insert", text))
+        }
+        onSelectAll <- function() {
+            .Tcl(paste(wid, "selection range 0 end"))
+            tkfocus(widget)
+        }
+        contextMenuEntry <- function(){
+            contextMenu <- tkmenu(tkmenu(widget), tearoff=FALSE)
+            tkadd(contextMenu, "command", label=gettextRcmdr("Cut"), command=onCut)
+            tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)
+            tkadd(contextMenu, "command", label=gettextRcmdr("Paste"), command=onPaste)
+            tkadd(contextMenu, "command", label=gettextRcmdr("Delete"), command=onDelete)
+            tkadd(contextMenu, "command", label=gettextRcmdr("Select all"), command=onSelectAll)
+            tkpopup(contextMenu, tkwinfo("pointerx", widget), tkwinfo("pointery", widget))
+        }
+        tkbind(widget, "<ButtonPress-3>", contextMenuEntry)
+        tkbind(widget, "<Control-ButtonPress-1>", contextMenuEntry)
+        if (MacOSXP()){
+            tkbind(widget, "<Meta-ButtonPress-1>", contextMenuEntry)
+        }
+        widget
+    }
 }
 
 # Label looking like that of a TtkLabelFrame
