@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2017-01-11 by John Fox
+# last modified 2017-01-16 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -1038,6 +1038,8 @@ Commander <- function(){
         tkbind(.commander, "<Meta-A>", onSelectAll)
         tkbind(.commander, "<Meta-w>", onRedo)
         tkbind(.commander, "<Meta-W>", onRedo)
+        tkbind(.commander, "<Meta-z>", onUndo)
+        tkbind(.commander, "<Meta-Z>", onUndo)
         tkbind(.log, "<Meta-ButtonPress-1>", contextMenuLog)
         tkbind(.rmd, "<Meta-ButtonPress-1>", contextMenuRmd)
         tkbind(.rnw, "<Meta-ButtonPress-1>", contextMenuRnw)

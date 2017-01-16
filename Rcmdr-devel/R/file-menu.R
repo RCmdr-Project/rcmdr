@@ -1,4 +1,4 @@
-# last modified 2017-01-11 by J. Fox
+# last modified 2017-01-16 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -825,6 +825,8 @@ saveOptions <- function(){
         tkbind(top, "<Meta-A>", onSelectAll)
         tkbind(top, "<Meta-w>", onRedo)
         tkbind(top, "<Meta-W>", onRedo)
+        tkbind(top, "<Meta-z>", onUndo)
+        tkbind(top, "<Meta-Z>", onUndo)
     }
     tkbind(top, "<Alt-BackSpace>", onUndo)
     tkbind(optionsWindow, "<ButtonPress-3>", contextMenu)
