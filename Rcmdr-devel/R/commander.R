@@ -1040,6 +1040,8 @@ Commander <- function(){
         tkbind(.commander, "<Meta-W>", onRedo)
         tkbind(.commander, "<Meta-z>", onUndo)
         tkbind(.commander, "<Meta-Z>", onUndo)
+        tkbind(.commander, "<Shift-Meta-z>", onRedo)
+        tkbind(.commander, "<Shift-Meta-Z>", onRedo)
         tkbind(.log, "<Meta-ButtonPress-1>", contextMenuLog)
         tkbind(.rmd, "<Meta-ButtonPress-1>", contextMenuRmd)
         tkbind(.rnw, "<Meta-ButtonPress-1>", contextMenuRnw)

@@ -2925,6 +2925,8 @@ RcmdrEditor <- function(buffer, title="R Commander Editor", ok,
     tkbind(top, "<Meta-W>", onRedo)
     tkbind(top, "<Meta-z>", onUndo)
     tkbind(top, "<Meta-Z>", onUndo)
+    tkbind(top, "<Shift-Meta-z>", onRedo)
+    tkbind(top, "<Shift-Meta-Z>", onRedo)
   }
   tkwm.protocol(top, "WM_DELETE_WINDOW", onCancel)
   dialogSuffix(bindReturn = FALSE, resizable=TRUE, focus=editor, preventGrabFocus=TRUE)

@@ -827,6 +827,8 @@ saveOptions <- function(){
         tkbind(top, "<Meta-W>", onRedo)
         tkbind(top, "<Meta-z>", onUndo)
         tkbind(top, "<Meta-Z>", onUndo)
+        tkbind(top, "<Shift-Meta-z>", onRedo)
+        tkbind(top, "<Shift-Meta-Z>", onRedo)
     }
     tkbind(top, "<Alt-BackSpace>", onUndo)
     tkbind(optionsWindow, "<ButtonPress-3>", contextMenu)
