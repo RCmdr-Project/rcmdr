@@ -1,4 +1,4 @@
-# last modified 2017-01-16 by J. Fox
+# last modified 2017-01-17 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -965,8 +965,8 @@ editMarkdown <- function(){
   RcmdrEditor(buffer,  title="Edit R Markdown document", ok=ok,
               help=list(label="Using R Markdown", command=browseRMarkdown),
               file.menu=list(list(label="Generate report", command=compile), list(label="Save current edits", command=saveEdits)), 
-              toolbar.buttons=list(list(label="Generate report", command=compile, 
-                                        image="::image::submitIcon")))
+              toolbar.buttons=list(list(label="Generate report", command=compile, image="::image::submitIcon"),
+                                   list(label="Save edits", command=saveEdits, image="::image::saveEditsIcon")))
 }
 
 editKnitr <- function(){
@@ -1009,7 +1009,8 @@ editKnitr <- function(){
     }
     RcmdrEditor(buffer,  title="Edit knitr document", ok=ok,
         file.menu=list(list(label="Generate PDF report", command=compile), list(label="Save current edits", command=saveEdits)), 
-        toolbar.buttons=list(list(label="Generate PDF report", command=compile, image="::image::submitIcon")))
+        toolbar.buttons=list(list(label="Generate PDF report", command=compile, image="::image::submitIcon"),
+                             list(label="Save edits", command=saveEdits, image="::image::saveEditsIcon")))
 }
 
 appNap <- function(){
