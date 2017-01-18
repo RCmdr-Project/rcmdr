@@ -23,7 +23,7 @@
 and updated from Fox (2005). Please address correspondence to
 \texttt{jfox@mcmaster.ca}. }}
 \author{John Fox and Milan Bouchet-Valat}
-\date{Version 2.4-0 (last modified: 2017-01-17)}
+\date{Version 2.4-0 (last modified: 2017-01-18)}
 \maketitle
 
 \section{Introduction}
@@ -282,6 +282,7 @@ gt <- function(x) {
  | |- \Sexpr{gm('from text file, clipboard, or URL')}
  | |- \Sexpr{gm('from SPSS data set')}
  | |- \Sexpr{gm('from SAS xport file')}
+ | |- \Sexpr{gm('from SAS b7dat file')}
  | |- \Sexpr{gm('from Minitab data set')}
  | |- \Sexpr{gm('from STATA data set')}
  | |- \Sexpr{gm('from Excel file')}
