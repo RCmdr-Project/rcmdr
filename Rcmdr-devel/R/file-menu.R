@@ -1,4 +1,4 @@
-# last modified 2017-01-17 by J. Fox
+# last modified 2017-01-18 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -340,6 +340,7 @@ Options <- function(){
   else if (!log.commands) 0 else 10
   output.height <- if (!is.null(current$output.height)) current$output.height
   else if (console.output) 0 else 2*log.height
+  scientific.notation <- getRcmdr("scientific.notation")
   contrasts <- setOption("default.contrasts", c("contr.Treatment", "contr.poly"))
   grab.focus <- getRcmdr("grab.focus")
   double.click <- getRcmdr("double.click")
@@ -484,7 +485,11 @@ Options <- function(){
                                 resolution=5, orient="horizontal")
   messagesHeightVar <- tclVar(messages.height)
   messagesHeightSlider <- tkscale(outputSliderFrame, from=0, to=10, showvalue=TRUE, variable=messagesHeightVar,
-                                  resolution=1, orient="horizontal")       
+                                  resolution=1, orient="horizontal")
+  scientificNotationSliderFrame <- tkframe(outputTab)
+  scientificNotationVar <- tclVar(scientific.notation)
+  scientificNotartionSlider <- tkscale(scientificNotationSliderFrame, from=0, to=10, showvalue=TRUE, variable=scientificNotationVar,
+                                  resolution=1, orient="horizontal")
   contrasts1 <- tclVar(contrasts[1])
   contrasts2 <- tclVar(contrasts[2])
   contrastsFrame <- tkframe(otherTab)
@@ -564,6 +569,7 @@ Options <- function(){
     log.height <- as.numeric(tclvalue(logHeightVar))
     log.commands <- asLogical(tclvalue(logCommandsVariable)) && (log.height != 0)
     output.height <- as.numeric(tclvalue(outputHeightVar))
+    scientific.notation <- as.numeric(tclvalue(scientificNotationVar))
     console.output <- asLogical(tclvalue(consoleOutputVariable)) || (output.height == 0)
     contrasts <- c(tclvalue(contrasts1), tclvalue(contrasts2))
     grab.focus <- asLogical(tclvalue(grabFocusVariable))
@@ -592,6 +598,7 @@ Options <- function(){
     options$log.height <- log.height
     options$log.commands <- log.commands
     options$output.height <- output.height
+    options$scientific.notation <- scientific.notation
     options$console.output <- console.output
     options$default.contrasts <- contrasts
     options$grab.focus <- grab.focus
@@ -635,6 +642,9 @@ Options <- function(){
   tkgrid(labelRcmdr(outputSliderFrame, text=gettextRcmdr("Output window height (lines)")), outputHeightSlider, sticky="sw", padx=6)
   tkgrid(labelRcmdr(outputSliderFrame, text=gettextRcmdr("Messages window height (lines)")), messagesHeightSlider, sticky="sw", padx=6)
   tkgrid(outputSliderFrame, sticky="w")
+  tkgrid(labelRcmdr(scientificNotationSliderFrame, text=gettextRcmdr("Suppress scientific notation\n(higher = more suppression)")), 
+         scientificNotartionSlider, sticky="sw", padx=6)
+  tkgrid(scientificNotationSliderFrame, sticky="w")
   tkgrid(labelRcmdr(outputTab, text=" "), sticky="w")    
   tkgrid(outputOptionsFrame, sticky="nw", columnspan = 3)
   tkgrid(labelRcmdr(templateFrame, text="R Markdown template file"), rmdTemplateEntry, templateButton, sticky="w", padx=6)

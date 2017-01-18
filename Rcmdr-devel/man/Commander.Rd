@@ -285,8 +285,8 @@ set none, one, several, or all options. The available options are as follows:
     
     \item{\code{scientific.notation}}{Higher numbers cause ordinary (decimal) notation to be increasingly preferred to scientific notation
     for representing very small and very large numbers; correspond to the \code{scipen} option in R: see \code{\link{options}}. The default
-    is \code{5}, while the standard default in R is \code{0} (meaning that scientific notation is used whenever the resulting printed
-    representation of a number if small in scientific than in standard notation).}
+    is \code{5}, while the standard default in R is \code{0} (where 0 means that scientific notation is used whenever the resulting printed
+    representation of a number is smaller in scientific than in standard notation).}
 
     \item{\code{showData.threshold}}{a vector with 2 entries, defaulting to \code{c(20000, 100)}. 
     If the number of cases in the active data set exceeds the first number (default, 20,000)
