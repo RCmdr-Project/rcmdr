@@ -220,7 +220,8 @@ Commander} dialog box has a \emph{Help} button (see below).
 
 The complete menu \textquotedblleft tree\textquotedblright\ for the \textbf{R
 Commander} (version 2.4-0) is shown below. Most menu items lead to dialog
-boxes, as illustrated later in this manual. Menu items are inactive
+boxes, as illustrated later in this manual, and, as is conventional, such menu items are followed by \texttt{...}. 
+Menu items are inactive
 (\textquotedblleft grayed out\textquotedblright) if they are inapplicable to
 the current context. For example, if a data set contains no factors
 (categorical variables), the menu items for contingency tables will be
@@ -229,19 +230,15 @@ circumstances. For example, the \textbf{knitr} menu items in the
 \emph{File} menu will be displayed only if the \emph{knitr} tab is
 activated, and the \emph{Install auxiliary software} item in the \emph{Tools}
 menu is activated only if the optional \LaTeX{} or \textbf{Pandoc} software
-are missing. The menus also include dividers, which are not shown here, and menu items leading to
-dialog boxes are, as is conventional, followed by \texttt{...}, also not
-shown.}
+are missing. The menus also include dividers, which are not shown here.}
 
 <<echo=F>>=
 library('Rcmdr')
 gm <- function(x) {
-  t <- gettext(paste0(x, '...'), domain='R-Rcmdr')
-  substr(t, 1, nchar(t) -3)
+  gettext(paste0(x, '...'), domain='R-Rcmdr')
   }
 gt <- function(x) {
-  t <- gettext(x, domain='R-Rcmdr')
-  t
+  gettext(x, domain='R-Rcmdr')
   }
 @
 \begin{verbatim}

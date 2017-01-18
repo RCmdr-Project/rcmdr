@@ -4,12 +4,10 @@
 <<echo=F>>=
 library('Rcmdr')
 gm <- function(x) {
-  t <- gettext(paste0(x, '...'), domain='R-Rcmdr')
-  substr(t, 1, nchar(t) -3)
+  gettext(paste0(x, '...'), domain='R-Rcmdr')
   }
 gt <- function(x) {
-  t <- gettext(x, domain='R-Rcmdr')
-  t
+  gettext(x, domain='R-Rcmdr')
   }
 @
 \begin{verbatim}
