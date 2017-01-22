@@ -1,4 +1,4 @@
-# last modified 2017-01-16 by J. Fox
+# last modified 2017-01-22 by J. Fox
 
 # utility functions
 
@@ -2135,6 +2135,8 @@ X11P <- function(){
     .Platform$GUI == "X11"
 }
 
+RStudioP <- function() nzchar(Sys.getenv("RSTUDIO_USER_IDENTITY")) # to detect RStudio
+
 # the following functions to support R Markdown
 
 MarkdownEditorWindow <- function(){
@@ -3646,3 +3648,11 @@ browsePDF <- function(file) {
 
 levels.character <- function(x) sort(unique(x))
 
+# the following macro is used to apply Rcmdr options with specified defaults
+#   if global == TRUE, store option
+
+setOption <- defmacro(option, default, global=TRUE, expr= {
+    opt <- if (is.null(current[option][[1]])) default else current[option][[1]]
+    if (global) putRcmdr(option, opt)
+    opt
+})
