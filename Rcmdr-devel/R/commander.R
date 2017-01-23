@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2017-01-22 by John Fox
+# last modified 2017-01-23 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -382,6 +382,8 @@ processMenus <- function(Plugins){
                             which((Menus[, "type"] == "menu")
                                   & (Menus[, "menuOrItem"] == line[1, "menuOrItem"]))
                         else max(which)
+                        if (line[1, "operationOrParent"] == "separator" && line[1, "commandOrMenu"] != "") 
+                            where <- max(which(line[1, "commandOrMenu"] == Menus[, "commandOrMenu"]))
                     }
                     else if (line[1, "operationOrParent"] == "cascade"){
                         where <- if (line[1, "menuOrItem"] != "topMenu")

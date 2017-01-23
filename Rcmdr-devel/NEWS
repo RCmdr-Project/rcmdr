@@ -30,6 +30,8 @@ Changes to version 2.4-0
   
   o Refactored Commander() code.
   
+  o Separators in plug-in menus can now be placed more precisely, if necessary (following a problem reported by Manuel Munoz Marquez).
+  
 Changes to Version 2.3-2
 
   o Fixes to Spanish translation (from Manual Munoz Marquez).
