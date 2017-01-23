@@ -7,8 +7,7 @@
 
 
 Commander <- function(){
-    library(Rcmdr, quietly=TRUE)
-    
+
     # set global options (to be restored on exit from Rcmdr GUI)
     
     putRcmdr("quotes", options(useFancyQuotes=FALSE))
@@ -32,6 +31,8 @@ Commander <- function(){
     Menus <- processMenus(Plugins)
     
     setupGUI(Menus)
+    
+    library(Rcmdr, quietly=TRUE)
     
 }
 
