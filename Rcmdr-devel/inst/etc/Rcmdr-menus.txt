@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2016-09-24 by J. Fox
+# last modified 2017-01-24 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -165,6 +165,7 @@
     item    graphsMenu      command         "Index plot..."                                 indexPlot                   "numericP()"          "packageAvailable('RcmdrMisc')"
     item    graphsMenu      command         "Dot plot..."                                   DotPlot                     "numericP()"          "packageAvailable('RcmdrMisc')"
     item    graphsMenu      command         "Histogram..."                                  Histogram                   "numericP()"          "packageAvailable('RcmdrMisc')"
+    item    graphsMenu      command         "Plot discrete numeric variable..."             DiscretePlot                "numericP()"          "packageAvailable('RcmdrMisc')"
     item    graphsMenu      command         "Density estimate..."                           DensityPlot         "numericP()"          ""
     item    graphsMenu      command         "Stem-and-leaf display..."                      stemAndLeaf                 "numericP()"  "packageAvailable('aplpack')"
     item    graphsMenu      command         "Boxplot..."                                    boxPlot                     "numericP()" 		  ""
@@ -222,10 +223,10 @@
     item    modelsMenu      cascade         "Graphs"                                        modelsGraphsMenu                  ""          ""
     item    modelsGraphsMenu      command         "Basic diagnostic plots"                        plotModel                   "lmP() || glmP()"          ""
     item    modelsGraphsMenu      command         "Residual quantile-comparison plot..."          residualQQPlot              "lmP()" "packageAvailable('car')"
-    item    modelsGraphsMenu      command         "Component+residual plots"                      CRPlots                     "lmP() || glmP()" "packageAvailable('car')"
-    item    modelsGraphsMenu      command         "Added-variable plots"                          AVPlots                     "lmP() || glmP()" "packageAvailable('car')"
-    item    modelsGraphsMenu      command         "Influence plot"                                InfluencePlot               "lmP() || glmP()" "packageAvailable('car')"
-    item    modelsGraphsMenu      command         "Effect plots"                                  effectPlots                 "EffectP()" "packageAvailable('effects')"
+    item    modelsGraphsMenu      command         "Component+residual plots..."                      CRPlots                     "lmP() || glmP()" "packageAvailable('car')"
+    item    modelsGraphsMenu      command         "Added-variable plots..."                          AVPlots                     "lmP() || glmP()" "packageAvailable('car')"
+    item    modelsGraphsMenu      command         "Influence plot..."                                InfluencePlot               "lmP() || glmP()" "packageAvailable('car')"
+    item    modelsGraphsMenu      command         "Effect plots..."                                  effectPlots                 "EffectP()" "packageAvailable('effects')"
     item    topMenu         cascade         "Models"                                        modelsMenu                  ""          ""
 
     # Distributions

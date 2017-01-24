@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.4-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2017-01-18 17:00:00\n"
+"POT-Creation-Date: 2017-01-24 16:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2318,16 +2318,16 @@ msgstr ""
 msgid "Residual quantile-comparison plot..."
 msgstr ""
 
-msgid "Component+residual plots"
+msgid "Component+residual plots..."
 msgstr ""
 
-msgid "Added-variable plots"
+msgid "Added-variable plots..."
 msgstr ""
 
-msgid "Influence plot"
+msgid "Influence plot..."
 msgstr ""
 
-msgid "Effect plots"
+msgid "Effect plots..."
 msgstr ""
 
 msgid "Models"
@@ -4978,3 +4978,15 @@ msgstr ""
   
 msgid "Suppress scientific notation\n(higher = more suppression)"
 msgstr ""
+
+  # new plot discrete numeric variable dialog
+  
+msgid "Plot discrete numeric variable..."
+msgstr ""
+
+msgid "Plot Discrete Numeric Variable"
+msgstr ""
+
+msgid "%s has %d unique values\nDo you want to proceed?"
+msgstr ""
+

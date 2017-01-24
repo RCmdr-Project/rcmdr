@@ -23,7 +23,7 @@
 and updated from Fox (2005). Please address correspondence to
 \texttt{jfox@mcmaster.ca}. }}
 \author{John Fox and Milan Bouchet-Valat}
-\date{Version 2.4-0 (last modified: 2017-01-18)}
+\date{Version 2.4-0 (last modified: 2017-01-24)}
 \maketitle
 
 \section{Introduction}
@@ -321,7 +321,7 @@ gt <- function(x) {
  | |- \Sexpr{gt('Count missing observations')}
  | |- \Sexpr{gm('Table of statistics')}
  | |- \Sexpr{gm('Correlation matrix')}
- | |- \Sexpr{gt('Correlation Test')}
+ | |- \Sexpr{gm('Correlation test')}
  | |- \Sexpr{gm('Test of normality')}
  |-\Sexpr{gt('Contingency tables')} 
  | |- \Sexpr{gm('Two-way table')}
@@ -366,12 +366,13 @@ gt <- function(x) {
  |- \Sexpr{gm('Color palette')}
  |- \Sexpr{gm('Index plot')}
  |- \Sexpr{gm('Dot plot')}
- |- \Sexpr{gt('Histogram')}
+ |- \Sexpr{gm('Histogram')}
+ |- \Sexpr{gm('Plot discrete numeric variable...')}
  |- \Sexpr{gm('Density estimate')}
  |- \Sexpr{gm('Stem-and-leaf display')}
- |- \Sexpr{gt('Boxplot')}
+ |- \Sexpr{gm('Boxplot')}
  |- \Sexpr{gm('Quantile-comparison plot')}
- |- \Sexpr{gt('Scatterplot')}
+ |- \Sexpr{gm('Scatterplot')}
  |- \Sexpr{gm('Scatterplot matrix')}
  |- \Sexpr{gm('Line graph')}
  |- \Sexpr{gm('XY conditioning plot')}
@@ -396,11 +397,11 @@ gt <- function(x) {
  |- \Sexpr{gt('Bayesian Information Criterion (BIC)')}
  |- \Sexpr{gm('Stepwise model selection')}
  |- \Sexpr{gm('Subset model selection')}
- |- \Sexpr{gt('Confidence intervals')}
+ |- \Sexpr{gm('Confidence intervals...')}
  |- \Sexpr{gm('Bootstrap confidence intervals')}
  |- \Sexpr{gm('Delta method confidence interval')}
  |- \Sexpr{gt('Hypothesis tests')} 
- | |- \Sexpr{gt('ANOVA table')}
+ | |- \Sexpr{gm('ANOVA table')}
  | |- \Sexpr{gm('Compare two models')}
  | |- \Sexpr{gm('Linear hypothesis')}
  |- \Sexpr{gt('Numerical diagnostics')} 
@@ -412,10 +413,10 @@ gt <- function(x) {
  |- \Sexpr{gt('Graphs')} 
  | |- \Sexpr{gt('Basic diagnostic plots')}
  | |- \Sexpr{gm('Residual quantile-comparison plot')}
- | |- \Sexpr{gt('Component+residual plots')}
- | |- \Sexpr{gt('Added-variable plots')}
- | |- \Sexpr{gt('Influence plot')}
- | |- \Sexpr{gt('Effect plots')}
+ | |- \Sexpr{gm('Component+residual plots')}
+ | |- \Sexpr{gm('Added-variable plots')}
+ | |- \Sexpr{gm('Influence plot')}
+ | |- \Sexpr{gm('Effect plots')}
 \Sexpr{gt('Distributions')} 
  |- \Sexpr{gm('Set random number generator seed')}
  |- \Sexpr{gt('Continuous distributions')} 
@@ -518,7 +519,7 @@ gt <- function(x) {
 \Sexpr{gt('Tools')} 
  |- \Sexpr{gm('Load package(s)')}
  |- \Sexpr{gm('Load Rcmdr plug-in(s)')}
- |- \Sexpr{gt('Options')}
+ |- \Sexpr{gm('Options')}
  |- \Sexpr{gm('Save Rcmdr options')}
  |- \Sexpr{gm('Manage Mac OS X app nap for R.app')}
  |- \Sexpr{gm('Install auxiliary software')}

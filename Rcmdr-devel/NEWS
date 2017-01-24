@@ -4,6 +4,8 @@ Changes to version 2.4-0
   
   o Improvement to the barplot dialog (suggestions of Beatriz Lacruz).
   
+  o Added dialog for plotting the distribution of a discrete numeric variable (suggestion of Beatriz Lacruz).
+  
   o Allow color selection in pie charts.
   
   o Small improvements to activation of menu items.
