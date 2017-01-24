@@ -2790,7 +2790,6 @@ DiscretePlot <- function () {
             response <- RcmdrTkmessageBox(message=sprintf(gettextRcmdr("%s has %d unique values\nDo you want to proceed?"), x, nvalues),
                                           icon="question", type="okcancel", default="cancel")
             if ("cancel" == tclvalue(response)) {
-                DiscretePlot()
                 return()
             }
         }
