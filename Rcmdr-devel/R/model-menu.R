@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2016-09-23 by J. Fox
+# last modified 2017-02-01 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -351,12 +351,13 @@ addObservationStatistics <- function () {
   initializeDialog(title = gettextRcmdr("Add Observation Statistics to Data"))
   .variables <- Variables()
   obsNumberExists <- is.element("obsNumber", .variables)
-  activate <- c(checkMethod("fitted", .activeModel, default = TRUE, 
-                            reportError = FALSE), checkMethod("residuals", .activeModel, 
-                                                              default = TRUE, reportError = FALSE), checkMethod("rstudent", 
-                                                                                                                .activeModel, reportError = FALSE), checkMethod("hatvalues", 
-                                                                                                                                                                .activeModel, reportError = FALSE), checkMethod("cooks.distance", 
-                                                                                                                                                                                                                .activeModel, reportError = FALSE))
+  # activate <- c(checkMethod("fitted", .activeModel, default = TRUE, 
+  #                           reportError = FALSE), checkMethod("residuals", .activeModel, 
+  #                                                             default = TRUE, reportError = FALSE), checkMethod("rstudent", 
+  #                                                                                                               .activeModel, reportError = FALSE), checkMethod("hatvalues", 
+  #                                                                                                                                                               .activeModel, reportError = FALSE), checkMethod("cooks.distance", 
+  #                                                                                                                                                                                                              .activeModel, reportError = FALSE))
+  activate <- c(modelCapability("fit"), modelCapability("res"), modelCapability("rst"), modelCapability("hat"), modelCapability("cook"))
   checkBoxes(frame = "selectFrame", boxes = c(c("fitted", "residuals", 
                                                 "rstudent", "hatvalues", "cookd")[activate], "obsNumbers"), 
              labels = c(gettextRcmdr(c("Fitted values", "Residuals", 
@@ -369,14 +370,19 @@ addObservationStatistics <- function () {
     closeDialog()
     if (activate[1] && tclvalue(fittedVariable) == 1) 
       command <- paste(command, "\n  ", addVariable("fitted"), sep="")
+    else fittedVariable <- tclVar(0)
     if (activate[2] && tclvalue(residualsVariable) == 1) 
       command <- paste(command, "\n  ", addVariable("residuals"), sep="")
+    else residualsVariable <- tclVar(0)
     if (activate[3] && tclvalue(rstudentVariable) == 1) 
       command <- paste(command, "\n  ", addVariable("rstudent"), sep="")
+    else rstudentVariable <- tclVar(0)
     if (activate[4] && tclvalue(hatvaluesVariable) == 1) 
       command <- paste(command, "\n  ", addVariable("hatvalues"), sep="")
+    else hatvaluesVariable <- tclVar(0)
     if (activate[5] && tclvalue(cookdVariable) == 1) 
       command <- paste(command, "\n  ", addVariable("cooks.distance"), sep="")
+    else cookdVariable <- tclVar(0)
     obsNumbers <- tclvalue(obsNumbersVariable)
     putDialog ("addObservationStatistics", list (initial.fitted = tclvalue (fittedVariable),
                                                  initial.residuals = tclvalue (residualsVariable), initial.rstudent = tclvalue(rstudentVariable), 

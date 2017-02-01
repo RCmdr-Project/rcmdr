@@ -85,6 +85,7 @@
 \alias{mavericksP}
 \alias{Message}
 \alias{MessagesWindow}
+\alias{modelCapability}
 \alias{modelFormula}
 \alias{modelsP}
 \alias{multinomP}
@@ -254,6 +255,7 @@ MarkdownP()
 mavericksP()
 Message(message, type=c("note", "error", "warning"))
 MessagesWindow()
+modelCapability(capability)
 modelFormula(frame=top, hasLhs=TRUE, rhsExtras=NULL,
     formulaLabel=gettextRcmdr("Model Formula"))  # macro
 modelsP(n=1)
@@ -339,6 +341,10 @@ commanderPosition()
   \item{buffer}{a text string, typically representing the contents of a text widget, such as an R Markdown or
     knitr document.}
   \item{buttons}{vector of quoted names for buttons in a set of related radio buttons.}
+  \item{capability}{character string giving the name of a column in the R Commander model-capabilities table,
+    including the name of a column added by a plug-in; see \code{model-capabilities.txt} in the \pkg{Rcmdr}
+    sources for the standard table; e.g., \code{"sum"} indicates the availability of an applicable \code{summary()}
+    method for the current model.}
   \item{class}{quoted name of class.}
   \item{columnspan}{number of dialog-box columns to be spanned by frame.}
   \item{command}{a character string that evaluates to an R command or (in the case of \code{radioButton}) a
@@ -554,6 +560,10 @@ commanderPosition()
   The function \code{exists.method} checks whether a method exists for a particular generic that is
   appropriate for a particular object, and returns \code{TRUE} or \code{FALSE}. The function \code{is.SciViews} always returns \code{FALSE}
   since the SciViews GUI is no longer supported.
+  
+  The function \code{modelCapability()} returns \code{TRUE} if there is an active statistical model and if it has the specified capability.
+  For example, \code{modelCapability("sum")} returns \code{TRUE} if the model-capabilities table indicates that there's an applicable
+  \code{summary()} method for the active model. Otherwise, \code{FALSE} is returned. If the specified capability doesn't exist, a warning is printed.
   
   \emph{Building dialog boxes: }
   

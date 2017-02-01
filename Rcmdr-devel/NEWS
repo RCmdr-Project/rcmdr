@@ -34,6 +34,8 @@ Changes to version 2.4-0
   
   o Separators in plug-in menus can now be placed more precisely, if necessary (following a problem reported by Manuel Munoz Marquez).
   
+  o Reworked handling of statistical models in plug-ins.
+  
 Changes to Version 2.3-2
 
   o Fixes to Spanish translation (from Manual Munoz Marquez).

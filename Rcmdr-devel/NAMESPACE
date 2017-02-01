@@ -1,4 +1,4 @@
-# last modified 2016-10-25 by J. Fox
+# last modified 2017-01-30 by J. Fox
 
 import(splines, tcltk, RcmdrMisc, car, effects)
 importFrom(utils, available.packages, install.packages, assignInMyNamespace, 
@@ -68,7 +68,9 @@ tkxview.moveto, tkxview, tkyview, tkyview.scroll,
 ttklabelframe,
 data,
 
-anovaP, EffectP, logLikP
+anovaP, EffectP, logLikP,
+
+modelCapability
 )
 
 S3method(Coef, multinom)
