@@ -362,9 +362,9 @@ addObservationStatistics <- function () {
                                                 "rstudent", "hatvalues", "cookd")[activate], "obsNumbers"), 
              labels = c(gettextRcmdr(c("Fitted values", "Residuals", 
                                        "Studentized residuals", "Hat-values", "Cook's distances"))[activate], 
-                        gettextRcmdr("Observation indices")), initialValues = c(dialog.values$initial.fitted, 
+                        gettextRcmdr("Observation indices")), initialValues = c(c(dialog.values$initial.fitted, 
                                                                                 dialog.values$initial.residuals, dialog.values$initial.rstudent, 
-                                                                                dialog.values$initial.hatvalues, dialog.values$initial.cookd, dialog.values$initial.obsNumbers))
+                                                                                dialog.values$initial.hatvalues, dialog.values$initial.cookd)[activate], dialog.values$initial.obsNumbers))
   command <- paste(.activeDataSet, "<- within(", .activeDataSet, ", {", sep="")
   onOK <- function() {
     closeDialog()
