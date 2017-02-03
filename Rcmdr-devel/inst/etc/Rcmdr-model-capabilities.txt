@@ -1,5 +1,5 @@
 # Capabilities for standard Rcmdr model classes
-# last modified 2017-01-30 by J. Fox
+# last modified 2017-02-03 by J. Fox
 
 # column  menu-item                           function [package]
 #-------  ---------                           ------------------
@@ -12,7 +12,8 @@
 # con     Confidence intervals                confint()
 # boot    Bootstrap confidence intervals      Boot() [car]
 # del     Delta method confidence intervals   deltaMethod() [car]
-# ano     ANOVA table                         anova() and Anova() [car]
+# aov     ANOVA table                         anova() 
+# Aov     ANOVA table                         Anova() [car]
 # compm   Compare two models                  anova()
 # lin     Linear hypothesis                   linearHypothesis() [car]
 # vif     Variance-inflation factors          vif() [car]
@@ -35,12 +36,12 @@
 # hat     hat-values                          hatvalues()
 # cook    Cook's distances                    cooks.distance()
 
-              sum   compc aic   bic   stp   sub   con   boot  del   ano   compm lin   vif   bpt   dwt   rse   bon   plt   qqp   crp   avp   infp  effp  fit   res   rst   hat   cook
+              sum   compc aic   bic   stp   sub   con   boot  del   aov   Aov   compm lin   vif   bpt   dwt   rse   bon   plt   qqp   crp   avp   infp  effp  fit   res   rst   hat   cook
 
-lm            TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-aov           TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-glm           TRUE  TRUE  TRUE  TRUE  TRUE  FALSE TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  FALSE FALSE FALSE TRUE  TRUE  FALSE TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-multinom      TRUE  TRUE  TRUE  TRUE  TRUE  FALSE TRUE  FALSE TRUE  TRUE  TRUE  TRUE  FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-polr          TRUE  TRUE  TRUE  TRUE  TRUE  FALSE TRUE  FALSE TRUE  TRUE  TRUE  TRUE  FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE TRUE  TRUE  FALSE FALSE FALSE FALSE
+lm            TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+aov           TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+glm           TRUE  TRUE  TRUE  TRUE  TRUE  FALSE TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  FALSE FALSE FALSE TRUE  TRUE  FALSE TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+multinom      TRUE  TRUE  TRUE  TRUE  TRUE  FALSE TRUE  FALSE TRUE  FALSE TRUE  TRUE  TRUE  FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+polr          TRUE  TRUE  TRUE  TRUE  TRUE  FALSE TRUE  FALSE TRUE  FALSE TRUE  TRUE  TRUE  FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE TRUE  TRUE  FALSE FALSE FALSE FALSE
 
-default       TRUE  FALSE FALSE FALSE FALSE FALSE TRUE  FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+default       TRUE  FALSE FALSE FALSE FALSE FALSE TRUE  FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE

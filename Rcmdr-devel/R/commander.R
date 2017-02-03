@@ -348,7 +348,7 @@ processPlugins <- function(modelClasses){
 
 
 processModelCapabilities <- function(Plugins){
-    modelCapabilities <- read.table(file.path(getRcmdr("etc"), "model-capabilities.txt"), header=TRUE)
+    modelCapabilities <- read.table(file.path(getRcmdr("etc"), "Rcmdr-model-capabilities.txt"), header=TRUE)
     n.plugins <- length(Plugins)
     if (n.plugins > 0){
         modelCapabilitiesList <- vector(n.plugins + 1, mode="list")

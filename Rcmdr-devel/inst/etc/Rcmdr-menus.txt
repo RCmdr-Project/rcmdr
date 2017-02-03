@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2017-01-30 by J. Fox
+# last modified 2017-02-03 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -208,7 +208,7 @@
     item    modelsMenu      command         "Delta method confidence interval..."           DeltaMethodConfInt          "modelCapability('del')" ""
     menu    hypothesisMenu  modelsMenu      ""                                              ""                          ""          ""
     item    modelsMenu      cascade         "Hypothesis tests"                              hypothesisMenu              ""          ""
-    item    hypothesisMenu  command         "ANOVA table..."                                anovaTable                  "modelCapability('ano')" "packageAvailable('car')"
+    item    hypothesisMenu  command         "ANOVA table..."                                anovaTable                  "modelCapability('aov') || modelCapability('Aov')" "packageAvailable('car')"
     item    hypothesisMenu  command         "Compare two models..."                         compareModels               "modelCapability('compm') && modelsP(2)"          ""
     item    hypothesisMenu  command         "Linear hypothesis..."                          testLinearHypothesis        "modelCapability('lin')" "packageAvailable('car')"
     item    modelsMenu      separator       ""                                              ""                          ""          ""

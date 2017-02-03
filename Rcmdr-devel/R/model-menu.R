@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2017-02-01 by J. Fox
+# last modified 2017-02-03 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -232,12 +232,14 @@ anovaTable <- function () {
     .activeModel <- ActiveModel()
     if (is.null(.activeModel)) 
         return()
-    defaults <- list (initial.type = "II", initial.sandwich="0", initial.sandwich.type="HC3")
+    aov <- modelCapability("aov")
+    Aov <- modelCapability("Aov")
+    defaults <- list (initial.type = if (Aov) "II" else "I", initial.sandwich="0", initial.sandwich.type="HC3")
     dialog.values <- getDialog ("anovaTable", defaults)
     initializeDialog(title = gettextRcmdr("ANOVA Table"))
-    radioButtons(name = "type", buttons = c("I", "II", "III"), 
-        values = c("I", "II", "III"), labels = gettextRcmdr(c("Sequential (\"Type I\")", 
-            "Partial obeying marginality (\"Type II\")", "Partial ignoring marginality (\"Type III\")")), 
+    radioButtons(name = "type", buttons = c(if (aov) "I", if(Aov) c("II", "III")), 
+        values = c(if (aov) "I", if (Aov) c("II", "III")), labels = gettextRcmdr(c(if (aov) "Sequential (\"Type I\")", 
+            if (Aov) c("Partial obeying marginality (\"Type II\")", "Partial ignoring marginality (\"Type III\")"))), 
         title = gettextRcmdr("Type of Tests"), initialValue = dialog.values$initial.type)
     sandwichVar <- tclVar(dialog.values$initial.sandwich)
     sandwichFrame <- tkframe(top)
