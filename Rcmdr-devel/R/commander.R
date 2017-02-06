@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2017-02-01 by John Fox
+# last modified 2017-02-06 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -354,6 +354,7 @@ processModelCapabilities <- function(Plugins){
         modelCapabilitiesList <- vector(n.plugins + 1, mode="list")
         modelCapabilitiesList[[1]] <- modelCapabilities
         for (i in 1:n.plugins){
+          if (file.exists(file.path(path.package(package=Plugins[i])[1], "etc/model-capabilities.txt")))
             modelCapabilitiesList[[i + 1]] <- read.table(file.path(path.package(package=Plugins[i])[1], 
                                                                    "etc/model-capabilities.txt"),
                                                          header=TRUE)
@@ -1493,6 +1494,7 @@ popCommand <- function(keep=FALSE){
 # handle model capabilities
 
 mergeCapabilities <- function(allCapabilities){
+    allCapabilities <- allCapabilities[!sapply(allCapabilities, is.null)]
     allrows <- unlist(lapply(allCapabilities, rownames))
     if (length(allrows) > length(unique(allrows))) 
         stop(gettextRcmdr("redundant model class or classes in plug-in package model capabilities table"))
@@ -1500,24 +1502,5 @@ mergeCapabilities <- function(allCapabilities){
     all <- unique(unlist(capabilities))
     for (i in 1:length(allCapabilities)) allCapabilities[[i]][, setdiff(all, capabilities[[i]])] <- FALSE
     do.call(rbind, allCapabilities)
-}
-
-    # this function is exported:
-
-modelCapability <- function(capability){  
-    modelCapabilities <- getRcmdr("modelCapabilities")
-    model <- ActiveModel()
-    if (is.null(model)) return(FALSE)
-    class <- class(get(model, envir=.GlobalEnv))[1]
-    result <- modelCapabilities[class, capability]
-    if (is.null(result)) {
-        warning(paste(gettextRcmdr("no such model capability:"), capability,
-                      "\nreport problem to plug-in package author"))
-        return(FALSE)
-    }
-    if (is.na(result)) result <- modelCapabilities["default", capability]
-    if (is.na(result)) result <- FALSE
-    if (!is.logical(result)) stop(gettextRcmdr("non-logical value in model capabilities table"))
-    result
 }
 

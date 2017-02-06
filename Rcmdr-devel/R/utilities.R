@@ -1,4 +1,4 @@
-# last modified 2017-01-22 by J. Fox
+# last modified 2017-02-06 by J. Fox
 
 # utility functions
 
@@ -3656,3 +3656,23 @@ setOption <- defmacro(option, default, global=TRUE, expr= {
     if (global) putRcmdr(option, opt)
     opt
 })
+
+# the following function determines capabilities for Models menu items
+
+modelCapability <- function(capability){  
+  modelCapabilities <- getRcmdr("modelCapabilities")
+  model <- ActiveModel()
+  if (is.null(model)) return(FALSE)
+  class <- class(get(model, envir=.GlobalEnv))[1]
+  result <- modelCapabilities[class, capability]
+  if (is.null(result)) {
+    warning(paste(gettextRcmdr("no such model capability:"), capability,
+                  "\nreport problem to plug-in package author"))
+    return(FALSE)
+  }
+  if (is.na(result)) result <- modelCapabilities["default", capability]
+  if (is.na(result)) result <- FALSE
+  if (!is.logical(result)) stop(gettextRcmdr("non-logical value in model capabilities table"))
+  result
+}
+
