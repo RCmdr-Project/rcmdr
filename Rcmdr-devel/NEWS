@@ -28,7 +28,6 @@ Changes to version 2.4-0
   
   o Getting Started manual is now supplied as a vignette (with help from Manuel Munoz Marquez).
   
-  o Small interface improvements.
   
   o Refactored Commander() code.
   
@@ -37,6 +36,10 @@ Changes to version 2.4-0
   o Reworked handling of statistical models in plug-ins.
   
   o Boostrap dialog will now plot bootstrap samples.
+  
+  o Parameter estimate correlations are now reported with VIFs.
+  
+  o Small interface improvements.
   
 Changes to Version 2.3-2
 

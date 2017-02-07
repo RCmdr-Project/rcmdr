@@ -325,6 +325,7 @@ VIF <- function(){
 	.activeModel <- ActiveModel()
 	if (is.null(.activeModel) || !checkMethod("vif", .activeModel, default=TRUE)) return()
 	doItAndPrint(paste("vif(", .activeModel, ")", sep=""))
+	doItAndPrint(paste("round(cov2cor(vcov(", .activeModel, ")), 3) # Correlations of parameter estimates", sep=""))
 }
 
 addObservationStatistics <- function () {
