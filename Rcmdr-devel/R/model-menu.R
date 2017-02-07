@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2017-02-03 by J. Fox
+# last modified 2017-02-07 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -1076,7 +1076,7 @@ Bootstrap <- function () {
     .activeModel <- ActiveModel()
     if (is.null(.activeModel)) 
         return()
-    defaults <- list (initial.level = "0.95", initial.samples="999", initial.type="bca", initial.method="case")
+    defaults <- list (initial.level = "0.95", initial.samples="999", initial.type="bca", initial.method="case", initial.plot="1")
     dialog.values <- getDialog ("Bootstrap", defaults)
     initializeDialog(title = gettextRcmdr("Bootstrap"))
     tkgrid(labelRcmdr(top, text = gettextRcmdr("Bootstrap Confidence Intervals for Coefficients"), 
@@ -1106,13 +1106,25 @@ Bootstrap <- function () {
         }
         else defaults$initial.method
         type <- tclvalue(typeVariable)
-        putDialog ("Bootstrap", list (initial.level = level, initial.samples = samples, initial.type=type, initial.method = method))
+        plot.samples <- tclvalue(plotVar)
+        putDialog ("Bootstrap", list (initial.level = level, initial.samples = samples, initial.type=type, initial.method = method, 
+                                      initial.plot=plot.samples))
         command <- if (lm) 
-            paste0('confint(Boot(', .activeModel, ', R=', samples, ', method="', method, '"), level=', level, 
-                   ', type="', type, '")' )
-        else paste0("confint(Boot(", .activeModel, ', R=', samples, '), level=', level, 
-                    ', type="', type, '")' )
+            paste0('Boot(', .activeModel, ', R=', samples, ', method="', method, '")')
+        else paste0("Boot(", .activeModel, ', R=', samples, ')')
+        
+        if (plot.samples == "0"){
+            command <- paste0("confint(", command, ',  level=', level, ', type="', type, '")')
+            doItAndPrint(command)
+            return()
+        }
+        
+        command <- paste0(".bs.samples <- ", command, "\n",
+                          "plotBoot(.bs.samples)")
         doItAndPrint(command)
+        doItAndPrint(paste0('confint(.bs.samples, level=', level, ', type="', type, '")'))
+        logger("remove(.bs.samples)")
+        justDoIt("remove(.bs.samples, envir=.GlobalEnv)")
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject = "Boot", reset = "Bootstrap", apply = "Bootstrap")
@@ -1139,6 +1151,11 @@ Bootstrap <- function () {
                      labels = gettextRcmdr(c("Case resampling", "Residual resampling")), title = gettextRcmdr("Resampling Method"))
         tkgrid(methodFrame, sticky="w")
     }
+    plotVar <- tclVar(dialog.values$initial.plot)
+    plotFrame <- tkframe(top)
+    plotCheckBox <- ttkcheckbutton(plotFrame, variable = plotVar)
+    tkgrid(tklabel(plotFrame, text=gettextRcmdr("Plot bootstrap samples"), fg=getRcmdr("title.color")), plotCheckBox, sticky="w")
+    tkgrid(plotFrame, sticky="w")
     tkgrid(buttonsFrame, sticky = "w")
     dialogSuffix()
 }

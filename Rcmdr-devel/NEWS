@@ -36,6 +36,8 @@ Changes to version 2.4-0
   
   o Reworked handling of statistical models in plug-ins.
   
+  o Boostrap dialog will now plot bootstrap samples.
+  
 Changes to Version 2.3-2
 
   o Fixes to Spanish translation (from Manual Munoz Marquez).
