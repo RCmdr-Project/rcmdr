@@ -28,7 +28,6 @@ Changes to version 2.4-0
   
   o Getting Started manual is now supplied as a vignette (with help from Manuel Munoz Marquez).
   
-  
   o Refactored Commander() code.
   
   o Separators in plug-in menus can now be placed more precisely, if necessary (following a problem reported by Manuel Munoz Marquez).
@@ -38,6 +37,8 @@ Changes to version 2.4-0
   o Boostrap dialog will now plot bootstrap samples.
   
   o Parameter estimate correlations are now reported with VIFs.
+  
+  o Index plot dialog will now plot more than one variable (suggestion of Manuel Munoz Marquez).
   
   o Small interface improvements.
   
