@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.4-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2017-02-07 12:30:00\n"
+"POT-Creation-Date: 2017-03-05 12:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4993,4 +4993,9 @@ msgstr ""
   # for boostrapping dialog
   
 msgid "Plot bootstrap samples"
+msgstr ""
+
+  # for numerical summaries dialog
+  
+msgid "Binned Frequency Counts"
 msgstr ""

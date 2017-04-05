@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2016-06-02 by J. Fox
+# last modified 2017-04-05 by J. Fox
 
 # Summaries menu
 
@@ -22,35 +22,38 @@ numericalSummaries <- function(){
     Library("abind")
     Library("e1071")
     defaults <- list(initial.x=NULL, initial.mean="1", initial.sd="1", initial.se.mean="0", initial.IQR="1", initial.cv="0",
-        initial.quantiles.variable="1", 
-        initial.quantiles="0, .25, .5, .75, 1", 
-        initial.skewness="0", initial.kurtosis="0", initial.type="2",
-        initial.group=NULL, initial.tab=0)
+                     initial.quantiles.variable="1", 
+                     initial.quantiles="0, .25, .5, .75, 1", 
+                     initial.skewness="0", initial.kurtosis="0", initial.type="2",
+                     initial.counts="0",
+                     initial.group=NULL, initial.tab=0)
     dialog.values <- getDialog("numericalSummaries", defaults)
     initial.group <- dialog.values$initial.group
     initializeDialog(title=gettextRcmdr("Numerical Summaries"), use.tabs=TRUE, tabs=c("dataTab", "statisticsTab"))
     xBox <- variableListBox(dataTab, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick one or more)"),
-        initialSelection=varPosn(dialog.values$initial.x, "numeric"))
-    checkBoxes(window = statisticsTab, frame="checkBoxFrame", boxes=c("mean", "sd", "se.mean", "IQR", "cv"), 
-        initialValues=c(dialog.values$initial.mean, dialog.values$initial.sd, dialog.values$initial.se.mean, dialog.values$initial.IQR, dialog.values$initial.cv), 
-        labels=gettextRcmdr(c("Mean", "Standard Deviation", "Standard Error of Mean", "Interquartile Range", "Coefficient of Variation")))
+                            initialSelection=varPosn(dialog.values$initial.x, "numeric"))
+    checkBoxes(window = statisticsTab, frame="checkBoxFrame", boxes=c("mean", "sd", "se.mean", "IQR", "cv", "counts"), 
+               initialValues=c(dialog.values$initial.mean, dialog.values$initial.sd, dialog.values$initial.se.mean, 
+                               dialog.values$initial.IQR, dialog.values$initial.cv, dialog.values$initial.counts), 
+               labels=gettextRcmdr(c("Mean", "Standard Deviation", "Standard Error of Mean", "Interquartile Range", 
+                                     "Coefficient of Variation", "Binned Frequency Counts")))
     skFrame <- tkframe(statisticsTab)
     checkBoxes(window = skFrame, frame="skCheckBoxFrame", boxes=c("skewness", "kurtosis"), 
-        initialValues=c(dialog.values$initial.skewness, dialog.values$initial.kurtosis), 
-        labels=gettextRcmdr(c("Skewness", "Kurtosis")))
+               initialValues=c(dialog.values$initial.skewness, dialog.values$initial.kurtosis), 
+               labels=gettextRcmdr(c("Skewness", "Kurtosis")))
     radioButtons(window = skFrame, name="typeButtons", buttons=c("b1", "b2", "b3"), values=c("1", "2", "3"), 
-        initialValue=dialog.values$initial.type,
-        labels=gettextRcmdr(c("Type 1", "Type 2", "Type 3")))
+                 initialValue=dialog.values$initial.type,
+                 labels=gettextRcmdr(c("Type 1", "Type 2", "Type 3")))
     quantilesVariable <- tclVar(dialog.values$initial.quantiles.variable)
     quantilesFrame <- tkframe(statisticsTab)
     quantilesCheckBox <- tkcheckbutton(quantilesFrame, variable=quantilesVariable, 
-        text=gettextRcmdr("Quantiles:"))
+                                       text=gettextRcmdr("Quantiles:"))
     quantiles <- tclVar(dialog.values$initial.quantiles)
     quantilesEntry <- ttkentry(quantilesFrame, width="20", textvariable=quantiles)
     groupsBox(recall=numericalSummaries, label=gettextRcmdr("Summarize by:"), 
-        initialLabel=if (is.null(initial.group)) gettextRcmdr("Summarize by groups") 
-        else paste(gettextRcmdr("Summarize by:"), initial.group), 
-        initialGroup=initial.group, window = dataTab)
+              initialLabel=if (is.null(initial.group)) gettextRcmdr("Summarize by groups") 
+              else paste(gettextRcmdr("Summarize by:"), initial.group), 
+              initialGroup=initial.group, window = dataTab)
     onOK <- function(){
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         x <- getSelection(xBox)
@@ -60,12 +63,14 @@ numericalSummaries <- function(){
         se.meanVar <- tclvalue(se.meanVariable)
         IQRVar <- tclvalue(IQRVariable)
         cvVar <- tclvalue(cvVariable)
+        countsVar <- tclvalue(countsVariable)
         quantsVar <- tclvalue(quantilesVariable)
         skewnessVar <- tclvalue(skewnessVariable)
         kurtosisVar <- tclvalue(kurtosisVariable)
         typeVar <- tclvalue(typeButtonsVariable)
         putDialog("numericalSummaries", list(
-            initial.x=x, initial.mean=meanVar, initial.sd=sdVar, initial.se.mean=se.meanVar, initial.IQR=IQRVar, initial.cv=cvVar,
+            initial.x=x, initial.mean=meanVar, initial.sd=sdVar, initial.se.mean=se.meanVar, initial.IQR=IQRVar, 
+            initial.cv=cvVar, initial.counts=countsVar,
             initial.quantiles.variable=quantsVar, initial.quantiles=quants,
             initial.skewness=skewnessVar, initial.kurtosis=kurtosisVar, initial.type=typeVar,
             initial.group=if (.groups != FALSE) .groups else NULL, initial.tab=tab
@@ -79,24 +84,44 @@ numericalSummaries <- function(){
         .activeDataSet <- ActiveDataSet()
         vars <- if (length(x) == 1) paste('"', x, '"', sep="") 
         else paste("c(", paste('"', x, '"', collapse=", ", sep=""), ")", sep="")
-        vars <- paste(.activeDataSet, "[,", vars, "]", sep="")
+        ds.vars <- paste(.activeDataSet, "[,", vars, "]", sep="")
         stats <- paste("c(",
-            paste(c('"mean"', '"sd"', '"se(mean)"', '"IQR"', '"quantiles"', '"cv"', '"skewness"', '"kurtosis"')
-                [c(meanVar, sdVar, se.meanVar, IQRVar, quantsVar, cvVar, skewnessVar, kurtosisVar) == 1], 
-                collapse=", "), ")", sep="")
-        if (stats == "c()"){
+                       paste(c('"mean"', '"sd"', '"se(mean)"', '"IQR"', '"quantiles"', '"cv"', '"skewness"', '"kurtosis"')
+                             [c(meanVar, sdVar, se.meanVar, IQRVar, quantsVar, cvVar, skewnessVar, kurtosisVar) == 1], 
+                             collapse=", "), ")", sep="")
+        if (stats == "c()" && countsVar != 1){
             errorCondition(recall=numericalSummaries, message=gettextRcmdr("No statistics selected."))
             return()
         }
         type.text <- if (skewnessVar == 1 || kurtosisVar == 1) paste(', type="', typeVar, '"', sep="") else ""
-        command <- if (.groups != FALSE) {
-            grps <- paste(.activeDataSet, "$", .groups, sep="")
-            paste("numSummary(", vars, ", groups=", grps, ", statistics=", stats, 
-                ", quantiles=", quants, type.text, ")", sep="")
+        if (.groups != FALSE) grps <- paste(.activeDataSet, "$", .groups, sep="")
+        if (stats != "c()"){
+            command <- if (.groups != FALSE) {
+                paste("numSummary(", ds.vars, ", groups=", grps, ", statistics=", stats, 
+                      ", quantiles=", quants, type.text, ")", sep="")
+            }
+            else  paste("numSummary(", ds.vars, ", statistics=", stats, 
+                        ", quantiles=", quants, type.text, ")", sep="")
+            doItAndPrint(command) 
         }
-        else  paste("numSummary(", vars, ", statistics=", stats, 
-            ", quantiles=", quants, type.text, ")", sep="")
-        doItAndPrint(command) 
+        if (countsVar == 1){
+            if (.groups != FALSE){
+                levels <- eval(parse(text=paste0("levels(", grps, ")")), envir=.GlobalEnv)
+                for (level in levels){
+                    doItAndPrint(paste0("cat(\n ", .groups, "=", level, "\n)"))
+                    for (var in x){
+                        command <- paste0("binnedCounts(", .activeDataSet, "[", grps, " == ", "'", level, "', '", var, "'])")
+                        doItAndPrint(command)
+                    }
+                }
+            }
+            else {
+                for (var in x){
+                    command <- paste0("binnedCounts(", .activeDataSet, "$", var,")")
+                    doItAndPrint(command)
+                }
+            }
+        }
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject="numSummary", reset="numericalSummaries", apply ="numericalSummaries")
@@ -108,7 +133,7 @@ numericalSummaries <- function(){
     tkgrid(quantilesFrame)
     tkgrid(groupsFrame, sticky = "w", padx=6)
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE, tabs=c("dataTab", "statisticsTab"), 
-        tab.names=c("Data", "Statistics"))
+                 tab.names=c("Data", "Statistics"))
 }
 
 frequencyDistribution <- function () {

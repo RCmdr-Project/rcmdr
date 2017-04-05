@@ -1,4 +1,4 @@
-# last modified 2016-09-20 by J. Fox
+# last modified 2017-04-05 by J. Fox
 
 globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                   '.activeModel', 'varVariable', 'rhsVariable', 'varFrame', 'formulaFrame',
@@ -55,4 +55,5 @@ globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                   'formatButtonsVariable', 'formatButtonsFrame', 'latexVariable', 'pandocVariable', 'selectSoftwareFrame',
                   'legendVariable', 'legendFrame', 'legendPositionVariable', 'legendPositionFrame',
                   'valuesOrQuantilesVariable', 'valuesOrQuantilesFrame',
-                  'conditionalVariable', 'colorsVariable', 'colorsFrame', 'conditionalFrame'))
+                  'conditionalVariable', 'colorsVariable', 'colorsFrame', 'conditionalFrame',
+                  'countsVariable'))

@@ -40,6 +40,8 @@ Changes to version 2.4-0
   
   o Index plot dialog will now plot more than one variable (suggestion of Manuel Munoz Marquez).
   
+  o Numerical summaries dialog has new option to show binned distribution of frequency counts (suggestion of Manuel Munoz Marquez).
+  
   o Small interface improvements.
   
 Changes to Version 2.3-2
