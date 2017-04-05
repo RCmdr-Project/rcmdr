@@ -84,7 +84,7 @@ numericalSummaries <- function(){
         .activeDataSet <- ActiveDataSet()
         vars <- if (length(x) == 1) paste('"', x, '"', sep="") 
         else paste("c(", paste('"', x, '"', collapse=", ", sep=""), ")", sep="")
-        ds.vars <- paste(.activeDataSet, "[,", vars, "]", sep="")
+        ds.vars <- paste(.activeDataSet, "[,", vars, ", drop=FALSE]", sep="")
         stats <- paste("c(",
                        paste(c('"mean"', '"sd"', '"se(mean)"', '"IQR"', '"quantiles"', '"cv"', '"skewness"', '"kurtosis"')
                              [c(meanVar, sdVar, se.meanVar, IQRVar, quantsVar, cvVar, skewnessVar, kurtosisVar) == 1], 
@@ -108,18 +108,14 @@ numericalSummaries <- function(){
             if (.groups != FALSE){
                 levels <- eval(parse(text=paste0("levels(", grps, ")")), envir=.GlobalEnv)
                 for (level in levels){
-                    doItAndPrint(paste0("cat(\n ", .groups, "=", level, "\n)"))
-                    for (var in x){
-                        command <- paste0("binnedCounts(", .activeDataSet, "[", grps, " == ", "'", level, "', '", var, "'])")
-                        doItAndPrint(command)
-                    }
+                    command <- paste0("binnedCounts(", .activeDataSet, "[", grps, " == ", "'", level, "', ", 
+                                      vars, ", drop=FALSE])\n  # ", .groups, " = ", level)
+                    doItAndPrint(command)
                 }
             }
             else {
-                for (var in x){
-                    command <- paste0("binnedCounts(", .activeDataSet, "$", var,")")
-                    doItAndPrint(command)
-                }
+                command <- paste0("binnedCounts(", ds.vars, ")")
+                doItAndPrint(command)
             }
         }
         tkfocus(CommanderWindow())
