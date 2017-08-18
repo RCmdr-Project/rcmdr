@@ -13,19 +13,18 @@ user interface) for R, based on the tcltk package.
 \tabular{ll}{
 Package: \tab Rcmdr\cr
 Version: \tab 2.4-0\cr
-Date: \tab 2017-04-17\cr
-Depends: \tab R (>= 3.3.0), grDevices, graphics, methods, stats, 
-  utils, splines, RcmdrMisc (>= 1.0-5), 
-  car (>= 2.1-3), effects (>= 3.0-1)\cr
-Imports: \tab tcltk, tcltk2 (>= 1.2-11), abind, relimp (>= 1.0-5)\cr
-Suggests: \tab aplpack, boot, colorspace, e1071, foreign, 
-  grid, Hmisc, knitr, lattice, leaps, lmtest, markdown, MASS, mgcv, 
-  multcomp (>= 1.4-5), nlme, nnet, nortest, readxl, relimp,  
-  rgl (>= 0.96.0), rmarkdown, sem (>= 3.1-7) \cr
+Date: \tab 2017-08-18\cr
+Depends: \tab R (>= 3.2.0), grDevices, graphics, methods, stats, utils, splines, 
+  RcmdrMisc (>= 1.0-6), car (>= 2.1-3), effects (>= 3.0-1)\cr
+Imports: \tab tcltk, tcltk2 (>= 1.2-6), abind, relimp (>= 1.0-5)\cr
+Suggests: \tab aplpack, boot, colorspace, e1071, foreign, grid, Hmisc, knitr, lattice, 
+  leaps, lmtest, markdown, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, nortest, 
+  readxl, rgl (>= 0.96.0), rmarkdown (>= 0.9.5), sem (>= 2.1-1) \cr
 ByteCompile: \tab yes\cr
 License: \tab GPL (>= 2)\cr
 URL: \tab https://www.r-project.org,
-http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/\cr
+http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/, 
+http://socserv.mcmaster.ca/jfox/Books/RCommander/ \cr
 }
 }
 

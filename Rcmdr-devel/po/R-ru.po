@@ -4794,3 +4794,106 @@ msgstr "Вы должны выбрать по крайней мере две модели."
 
 msgid "Select models (pick two or more)"
 msgstr "Выберите две (или больше) модели"
+
+# enhancements to the Rcmdr script editor
+msgid "Only one instance of the R Commander script editor may be open at a time."
+msgstr "Нельзя запустить больше одного экземпляра R Commander одновременно."
+
+msgid "Save current edits"
+msgstr "Сохранить текущие изменения"
+
+msgid "Save edits"
+msgstr "Сохранить изменения"
+
+msgid "Exit editor saving edits"
+msgstr "Выйти из редактора, сохранив изменения"
+
+msgid "Cancel discarding edits"
+msgstr "Отменить изменения"
+
+# additions to the barplot dialog
+msgid "Percentages for Group Bars"
+msgstr "Проценты для групповых колонок"
+
+msgid "Conditional"
+msgstr "Условные"
+
+msgid "Total"
+msgstr "Общие"
+
+msgid "Color Selection"
+msgstr "Выбор цвета"
+
+msgid "From color palette"
+msgstr "Из палитры цветов"
+
+# correct typo
+msgid "Data set %s does not exist"
+msgstr "Таблица данных %s не существует"
+
+# addition to plot means dialog (position of legend)
+msgid "To right of graph"
+msgstr "Справа от графика"
+
+# For two-variances F-test dialog
+msgid "Ratio:"
+msgstr "Отношение:"
+
+msgid "Ratio < 1"
+msgstr "Отношение < 1"
+
+msgid "Ratio > 1"
+msgstr "Отношение > 1"
+
+# For enter and analyze contingency table dialog
+msgid "Name for Row Variable (optional):"
+msgstr "Название строковой переменной (необязательно):"
+
+msgid "Name for Column Variable (optional):"
+msgstr "Название колоночной переменной (необязательно):"
+
+# for import Stata and SAS b7dat data set dialogs
+msgid "Convert character variables to factors"
+msgstr "Конвертировать переменные в факторы"
+
+msgid "First column contains row names"
+msgstr "Первая колонка содержит названия строк"
+
+msgid "Import SAS b7dat Data Set"
+msgstr "Импортировать данные SAS b7dat"
+
+msgid "from SAS b7dat file..."
+msgstr "из файла SAS b7dat..."
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"данные SAS b7dat\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+
+# addition to the Commander Options dialog
+msgid ""
+"Suppress scientific notation\n"
+"(higher = more suppression)"
+msgstr ""
+"Уменьшить научную нотацию\n"
+"(больше = сильнее уменьшить)"
+
+# new plot discrete numeric variable dialog
+msgid "Plot discrete numeric variable..."
+msgstr "Начертить дискретную числовую переменную..."
+
+msgid "Plot Discrete Numeric Variable"
+msgstr "Начертить дискретную числовую переменную"
+
+msgid ""
+"%s has %d unique values\n"
+"Do you want to proceed?"
+msgstr ""
+"у %s есть %d уникальных значений\n"
+"Вы хотите продолжать?"
+
+# for boostrapping dialog
+msgid "Plot bootstrap samples"
+msgstr "Начертить выборку бутстрепа"
+
+# for numerical summaries dialog
+msgid "Binned Frequency Counts"
+msgstr "Группированные значения частот"
