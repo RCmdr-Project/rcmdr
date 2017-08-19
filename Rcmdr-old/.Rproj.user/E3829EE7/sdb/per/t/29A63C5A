@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\\name{Rcmdr-package}\n\\alias{Rcmdr-package}\n\\alias{Rcmdr}\n\\docType{package}\n\\title{\nR Commander\n}\n\\description{\nA platform-independent basic-statistics GUI (graphical\nuser interface) for R, based on the tcltk package.\n}\n\\details{\n\\tabular{ll}{\nPackage: \\tab Rcmdr\\cr\nVersion: \\tab 2.3-2\\cr\nDate: \\tab 2017-01-02\\cr\nDepends: \\tab R (>= 3.3.0), grDevices, utils, splines, RcmdrMisc (>= 1.0-5), \n  car (>= 2.1-3)\\cr\nImports: \\tab tcltk, tcltk2 (>= 1.2-11), abind, graphics, methods, stats, relimp (>= 1.0-5)\\cr\nSuggests: \\tab aplpack, boot, colorspace, effects (>= 3.1-1), e1071, foreign, \n  grid, Hmisc, knitr, lattice, leaps, lmtest, markdown, MASS, mgcv, \n  multcomp (>= 1.4-5), nlme, nnet, nortest, readxl, relimp,  \n  rgl (>= 0.96.0), rmarkdown, sem (>= 3.1-7) \\cr\nByteCompile: \\tab yes\\cr\nLicense: \\tab GPL (>= 2)\\cr\nURL: \\tab https://www.r-project.org,\nhttp://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/\\cr\n}\n}\n\n\\references{\nFox, J. (2017)\n\\emph{Using the R Commander: A Point-and-Click Interface for R}.\nChapman and Hall/CRC Press.\n\nFox, J. (2005) \nThe R Commander: A Basic Statistics Graphical User Interface to R. \n\\emph{Journal of Statistical Software}, \\bold{14(9)}: 1--42.\n\nFox, J. (2007)\nExtending the R Commander by \"plug in\" packages. \n\\emph{R News}, \\bold{7(3)}: 46--52.\n}\n\n\\section{Translations}{\nThe R Commander comes with translations from English into several other languages. I am grateful to the following individuals and groups for preparing these translations:\nBasque, Jose Ramon Rueda;\nBrazilian Portuguese, Adriano Azevedo-Filho and Marilia Sa Carvalho;\nCatalan, Manel Salamero;\nChinese, Tsungwu Ho, Frank C. S. Liu, and Cheng-shun Lee;\nChinese (Simplified), Shulin Yang;\nFrench, Philippe Grosjean and Milan Bouchet-Valat;\nGalician, Anton Meixome;\nGerman: Friedrich Leisch and Gerhard Schoen;\nGreek: Vasileios Dimitropoulos, Anastasios Vikatos, and Andreas Vikatos;\nIndonesian, I Made Tirta;\nItalian, Stefano Calza;\nJapanese, Takaharu Araki;\nKorean, Chel Hee Lee, Dae-Heung Jang, and Shin Jong-Hwa;\nPolish, Lukasz Daniel;\nRomanian, Adrian Dusa;\nRussian, Alexey Shipunov;\nSlovenian, Jaro Lajovic and Matjaz Jeran;\nSpanish, Spanish R-UCA Project, http://knuth.uca.es/R.\n}\n\n\\author{\nJohn Fox <jfox@mcmaster.ca> and Milan Bouchet-Valat, with contributions from Liviu Andronic, Michael Ash, Theophilius Boye, Stefano Calza, Andy Chang, Philippe Grosjean, Richard Heiberger, G. Jay Kerns, Renaud Lancelot, Matthieu Lesnoff, Uwe Ligges, Samir Messad, Martin Maechler, Robert Muenchen, Duncan Murdoch, Erich Neuwirth, Dan Putler, Brian Ripley, Miroslav Ristic,  Peter Wolf, and Kevin Wright.\n\nMaintainer: John Fox <jfox@mcmaster.ca>\n}\n\\keyword{ package }\n",
+    "created" : 1477409786069.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2051736081",
+    "id" : "29A63C5A",
+    "lastKnownWriteTime" : 1483373776,
+    "last_content_update" : 1483373776424,
+    "path" : "D:/R-package-sources/Rcmdr-svn/Rcmdr-current/man/Rcmdr-package.Rd",
+    "project_path" : "man/Rcmdr-package.Rd",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_doc"
+}
