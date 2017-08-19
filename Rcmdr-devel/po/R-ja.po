@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.3-0 Japanese Translation\n"
-"POT-Creation-Date: 2016-07-19 21:00:00\n"
-"PO-Revision-Date: 2016-08-20 12:33+0900\n"
-"Last-Translator: Takaharu Araki <arakit@kansai-u.ac.jp>\n"
+"Project-Id-Version: Rcmdr 2.4-0 Japanese Translation\n"
+"POT-Creation-Date: 2017-04-17 10:30:00\n"
+"PO-Revision-Date: 2017-08-19 11:02+0900\n"
 "Language-Team: Rcmdr Japanese Translation <arakit@kansai-u.ac.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja_JP\n"
 "X-Generator: Poedit 1.8.8\n"
+"Last-Translator: \n"
 
 msgid "KMeans Clustering"
 msgstr "ｋ平均クラスタリング"
@@ -5059,3 +5059,109 @@ msgstr "モデルの選択（2つ以上）"
 
 msgid "You must select at least two models."
 msgstr "少なくとも2つのモデルを選択してください．"
+
+# additional messages in version 2.4-0
+# enhancements to the Rcmdr script editor
+msgid "Only one instance of the R Commander script editor may be open at a time."
+msgstr "Rコマンダーのスクリプトエディタを同時に開くことができるのは1つのみです．"
+
+msgid "Save current edits"
+msgstr "現在の編集内容の保存"
+
+msgid "Save edits"
+msgstr "編集結果の保存"
+
+msgid "Exit editor saving edits"
+msgstr "変種結果を保存して編集を終了"
+
+msgid "Cancel discarding edits"
+msgstr "編集結果の廃棄のとりやめ"
+
+# additions to the barplot dialog
+msgid "Percentages for Group Bars"
+msgstr "グループバーのパーセント"
+
+msgid "Conditional"
+msgstr "条件付"
+
+msgid "Total"
+msgstr "計"
+
+msgid "Color Selection"
+msgstr "色の選択"
+
+msgid "From color palette"
+msgstr "色パレットから"
+
+# correct typo
+msgid "Data set %s does not exist"
+msgstr "データセット %s はありません"
+
+# addition to plot means dialog (position of legend)
+msgid "To right of graph"
+msgstr "グラフの右に"
+
+# For two-variances F-test dialog
+msgid "Ratio:"
+msgstr "比："
+
+msgid "Ratio < 1"
+msgstr "比＜1"
+
+msgid "Ratio > 1"
+msgstr "比＞1"
+
+# For enter and analyze contingency table dialog
+msgid "Name for Row Variable (optional):"
+msgstr "行変数の名前（オプショナル）"
+
+msgid "Name for Column Variable (optional):"
+msgstr "列変数の名前（オプショナル）:"
+
+# for import Stata and SAS b7dat data set dialogs
+msgid "Convert character variables to factors"
+msgstr "文字変数を因子に変換"
+
+msgid "First column contains row names"
+msgstr "1列目に行名を含む"
+
+msgid "Import SAS b7dat Data Set"
+msgstr "SAS b7datデータセットのインポート"
+
+msgid "from SAS b7dat file..."
+msgstr "SAS b7dataデータセットから..."
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr ""
+"{\"全てのファイル\" {\"*\"}} {\"SAS b7dat データセット\" {\".sas7bdat\" \".SAS7BDAT"
+"\"}}"
+
+# addition to the Commander Options dialog
+msgid ""
+"Suppress scientific notation\n"
+"(higher = more suppression)"
+msgstr ""
+"指数表記の抑制\n"
+"（高い＝抑制を強く）"
+
+# new plot discrete numeric variable dialog
+msgid "Plot discrete numeric variable..."
+msgstr "離散数値変数のプロット..."
+
+msgid "Plot Discrete Numeric Variable"
+msgstr "離散数値変数のプロット"
+
+msgid ""
+"%s has %d unique values\n"
+"Do you want to proceed?"
+msgstr ""
+"%s は %d のユニークな値を持つ\n"
+"処理を続行しますか?"
+
+# for boostrapping dialog
+msgid "Plot bootstrap samples"
+msgstr "ブートストラップサンプルのプロット"
+
+# for numerical summaries dialog
+msgid "Binned Frequency Counts"
+msgstr "各グループの頻度"
