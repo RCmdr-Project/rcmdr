@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr-pl 2.3-0\n"
+"Project-Id-Version: Rcmdr-pl 2.4-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2016-08-09 21:57+0200\n"
+"POT-Creation-Date: 2017-08-20 11:42+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
 "Language-Team: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.1\n"
 
 msgid "KMeans Clustering"
 msgstr "Grupowanie metodą k-średnich"
@@ -2450,17 +2450,17 @@ msgstr "Podstawowe wykresy diagnostyczne"
 msgid "Residual quantile-comparison plot..."
 msgstr "Wykres porównawczy kwantyli (QQ) dla reszt..."
 
-msgid "Component+residual plots"
-msgstr "Wykresy komponentu+reszty"
+msgid "Component+residual plots..."
+msgstr "Wykresy komponentu+reszty..."
 
-msgid "Added-variable plots"
-msgstr "Wykresy dodanych zmiennych"
+msgid "Added-variable plots..."
+msgstr "Wykresy dodanych zmiennych..."
 
-msgid "Influence plot"
-msgstr "Wykres wpływu"
+msgid "Influence plot..."
+msgstr "Wykres wpływu..."
 
-msgid "Effect plots"
-msgstr "Wykresy efektu"
+msgid "Effect plots..."
+msgstr "Wykresy efektu..."
 
 msgid "Models"
 msgstr "Modele"
@@ -4953,6 +4953,12 @@ msgstr ""
 "Liczba przedziałów\n"
 "dla chi-kwadrat Pearsona"
 
+msgid "Test by groups"
+msgstr "Test według grup"
+
+msgid "Test by:"
+msgstr "Test według:"
+
 # small changes to the read text data dialog
 msgid "Commas [,]"
 msgstr "Przecinki [,]"
@@ -5012,8 +5018,116 @@ msgstr "Porównaj współczynniki modelu..."
 msgid "Compare Model Coefficients"
 msgstr "Porównaj współczynniki modelu"
 
+msgid "Select models (pick two or more)"
+msgstr "Wybierz modele (wybierz dwa lub więcej)"
+
 msgid "You must select at least two models."
 msgstr "Musisz wybrać co najmniej dwa modele."
+
+# additional messages in version 2.4-0
+# enhancements to the Rcmdr script editor
+msgid ""
+"Only one instance of the R Commander script editor may be open at a time."
+msgstr ""
+"Tylko jedna instancja edytora skryptu R Commander może byż otwarta w tym "
+"samym czasie."
+
+msgid "Save current edits"
+msgstr "Zapisz bieżące edycje"
+
+msgid "Save edits"
+msgstr "Zapisz edycje"
+
+msgid "Exit editor saving edits"
+msgstr "Opuść edytor zapisując edycje"
+
+msgid "Cancel discarding edits"
+msgstr "Anuluj odrzucając edycje"
+
+# contingency tables dialog
+msgid "Percentages for Group Bars"
+msgstr "Procenty dla grup"
+
+# Xyplot dialog
+msgid "Conditional"
+msgstr "Warunkowy"
+
+msgid "Total"
+msgstr "Całość"
+
+msgid "Color Selection"
+msgstr "Wybór koloru"
+
+# miscelaneous additions
+msgid "From color palette"
+msgstr "Z palety kolorów"
+
+msgid "Data set %s does not exist"
+msgstr "Zbiór danych %s nie istnieje"
+
+msgid "To right of graph"
+msgstr "Na prawo od wykresu"
+
+# For two-variances F-test dialog
+msgid "Ratio:"
+msgstr "Stosunek:"
+
+msgid "Ratio < 1"
+msgstr "Stosunek < 1"
+
+msgid "Ratio > 1"
+msgstr "Stosunek > 1"
+
+msgid "Name for Row Variable (optional):"
+msgstr "Nazwa dla wiersza (opcjonalna):"
+
+msgid "Name for Column Variable (optional):"
+msgstr "Nazwa dla kolumny (opcjonalna)"
+
+msgid "Convert character variables to factors"
+msgstr "Konwertuj zmienne tekstowe na czynniki"
+
+msgid "First column contains row names"
+msgstr "Pierwsza kolumna zawiera nazwy wierszy"
+
+msgid "Import SAS b7dat Data Set"
+msgstr "Importuj zbiór danych SAS b7dat"
+
+msgid "from SAS b7dat file..."
+msgstr "z pliku SAS b7dat..."
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr ""
+"{\"Wszystkie pliki\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \"."
+"SAS7BDAT\"}}"
+
+# addition to the Commander Options dialog
+msgid ""
+"Suppress scientific notation\n"
+"(higher = more suppression)"
+msgstr ""
+"Ogranicz notację naukową\n"
+"(wyższa = większe ograniczenie)"
+
+msgid "Plot discrete numeric variable..."
+msgstr "Rysuj dyskretną zmienną numeryczną..."
+
+msgid "Plot Discrete Numeric Variable"
+msgstr "Rysuj dyskretną zmienną numeryczną"
+
+msgid ""
+"%s has %d unique values\n"
+"Do you want to proceed?"
+msgstr ""
+"%s posiada %d unikalnych wartości\n"
+"Czy chcesz kontynuować?"
+
+msgid "Plot bootstrap samples"
+msgstr "Rysuj próbki bootstrap"
+
+msgid "Binned Frequency Counts"
+msgstr "Zliczenia przedziałowanych częstości"
 
 #~ msgid "Dataset"
 #~ msgstr "Zbiór danych"
