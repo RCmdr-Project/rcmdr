@@ -1,20 +1,17 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.3-0\n"
+"Project-Id-Version: Rcmdr 2.4-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2016-08-11 09:14+0200\n"
-"PO-Revision-Date: 2016-09-15 15:06+0200\n"
+"POT-Creation-Date: 2017-08-23 10:16+0200\n"
+"PO-Revision-Date: 2017-08-23 10:30+0200\n"
 "Last-Translator: Manuel Munoz-Marquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <manuel.munoz@uca.es>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-
-msgid "Select models (pick two or more)"
-msgstr "Elija los modelos (seleccione dos o más)"
 
 msgid "KMeans Clustering"
 msgstr "Agrupación por k-medias"
@@ -2251,7 +2248,7 @@ msgid "Multi-way table..."
 msgstr "Tabla de entradas múltiples..."
 
 msgid "Enter and analyze two-way table..."
-msgstr "Introducir y analizar un tabla de doble entrada..."
+msgstr "Introducir y analizar una tabla de doble entrada..."
 
 msgid "Single-sample t-test..."
 msgstr "Test t para una muestra..."
@@ -2457,17 +2454,17 @@ msgstr "Gráficas básicas de diagnóstico"
 msgid "Residual quantile-comparison plot..."
 msgstr "Gráfica de comparación de cuantiles de los residuos..."
 
-msgid "Component+residual plots"
-msgstr "Gráfica de componentes+residuos"
+msgid "Component+residual plots..."
+msgstr "Gráfica de componentes+residuos..."
 
-msgid "Added-variable plots"
-msgstr "Gráfica de variables agregadas"
+msgid "Added-variable plots..."
+msgstr "Gráfica de variables agregadas..."
 
-msgid "Influence plot"
-msgstr "Gráfica de influencia"
+msgid "Influence plot..."
+msgstr "Gráfica de influencia..."
 
-msgid "Effect plots"
-msgstr "Gráfica de los efectos"
+msgid "Effect plots..."
+msgstr "Gráfica de los efectos..."
 
 msgid "Models"
 msgstr "Modelos"
@@ -4406,16 +4403,16 @@ msgid "Plot back-to-back by"
 msgstr "Dibujar lado a lado por"
 
 msgid "Standard Error of Mean"
-msgstr "Errores típicos de las media"
+msgstr "Error típico de la media"
 
 msgid "Fit Indices"
 msgstr "Ajuste de índices"
 
 msgid "Variable names in first row of spreadsheet"
-msgstr "Nombre de las filas en la primera fila de la hoja de cálculo"
+msgstr "Nombre de las variables en la primera fila de la hoja de cálculo"
 
 msgid "Row names in first column of spreadsheet"
-msgstr "Nombre de las filas en la primera columna de la hoja de cálculo"
+msgstr "Nombre de las variables en la primera columna de la hoja de cálculo"
 
 msgid "<no variable selected>"
 msgstr "<ninguna variable seleccionada>"
@@ -4888,6 +4885,12 @@ msgstr ""
 "El número de divisiones\n"
 "para chi cuadrado de Pearson"
 
+msgid "Test by groups"
+msgstr "Test por grupos"
+
+msgid "Test by:"
+msgstr "Test según:"
+
 # small changes to the read text data dialog
 msgid "Commas [,]"
 msgstr "Comas [,]"
@@ -4946,8 +4949,122 @@ msgstr "Comparar coeficientes del modelo..."
 msgid "Compare Model Coefficients"
 msgstr "Comparar Coefficientes del Modelo"
 
+msgid "Select models (pick two or more)"
+msgstr "Elija los modelos (seleccione dos o más)"
+
 msgid "You must select at least two models."
 msgstr "Debe seleccionar al menos dos modelos."
+
+# additional messages in version 2.4-0
+# enhancements to the Rcmdr script editor
+msgid ""
+"Only one instance of the R Commander script editor may be open at a time."
+msgstr ""
+"Únicamente una instancia del editor de instrucciones puede ser abierta al "
+"mismo tiempo."
+
+msgid "Save current edits"
+msgstr "Guardar cambios actuales"
+
+msgid "Save edits"
+msgstr "Guardar cambios"
+
+msgid "Exit editor saving edits"
+msgstr "Salir del editor guardando los cambios"
+
+msgid "Cancel discarding edits"
+msgstr "Cancelar descartando los cambios"
+
+#| msgid "Percentages of total"
+msgid "Percentages for Group Bars"
+msgstr "Porcentajes para Barras Agrupadas"
+
+#| msgid "XY Conditioning Plot"
+msgid "Conditional"
+msgstr "Condicional"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Color Selection"
+msgstr "Selección de Color"
+
+#| msgid "Color palette..."
+msgid "From color palette"
+msgstr "Desde la paleta de colores"
+
+msgid "Data set %s does not exist"
+msgstr "El conjunto de datos %s no existe"
+
+#| msgid "Top right"
+msgid "To right of graph"
+msgstr "A la derecha del gráfico"
+
+# For two-variances F-test dialog
+msgid "Ratio:"
+msgstr "Cociente:"
+
+msgid "Ratio < 1"
+msgstr "Cociente < 1"
+
+msgid "Ratio > 1"
+msgstr "Cociente > 1"
+
+#| msgid "Name for variable:"
+msgid "Name for Row Variable (optional):"
+msgstr "Nombre para la Variable  Fila (Opcional):"
+
+msgid "Name for Column Variable (optional):"
+msgstr "Nombre para la Variable Columna (opcional):"
+
+msgid "Convert character variables to factors"
+msgstr "Convertir variables de carácter en factores"
+
+#| msgid "Select variable containing row names"
+msgid "First column contains row names"
+msgstr "La primera columna contiene los nombres de las filas"
+
+msgid "Import SAS b7dat Data Set"
+msgstr "Importar datos SAS b7dat"
+
+#| msgid "from SAS xport file..."
+msgid "from SAS b7dat file..."
+msgstr "desde un archivo SAS b7dat..."
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr ""
+"{\"Todos los archivos\" {\"*\"}} {\"Conjuntos de datos SAS b7dat\" {\"."
+"sas7bdat\" \".SAS7BDAT\"}}"
+
+# addition to the Commander Options dialog
+msgid ""
+"Suppress scientific notation\n"
+"(higher = more suppression)"
+msgstr ""
+"Suprimir notación científica\n"
+"(mayor = más supresión)"
+
+#| msgid "Bin numeric variable..."
+msgid "Plot discrete numeric variable..."
+msgstr "Dibujar una variable numérica discreta..."
+
+#| msgid "Bin a Numeric Variable"
+msgid "Plot Discrete Numeric Variable"
+msgstr "Dibujar una Variable Numérica Discreta"
+
+msgid ""
+"%s has %d unique values\n"
+"Do you want to proceed?"
+msgstr ""
+"%s tiene %d valores únicos\n"
+"¿Desea continuar?"
+
+msgid "Plot bootstrap samples"
+msgstr "Dibujar muestras bootstrap"
+
+msgid "Binned Frequency Counts"
+msgstr "Recuentos binarios de frecuencias"
 
 #~ msgid "Dataset"
 #~ msgstr "Datos"
