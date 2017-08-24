@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R Commander\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2015-08-25 16:35+0800\n"
+"POT-Creation-Date: 2017-04-17 10:30:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Shulin Yang <shulin.yang.9@gmail.com>\n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 2.0.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "KMeans Clustering"
@@ -236,9 +236,6 @@ msgstr "注意"
 msgid "New Data Set"
 msgstr "开新数据集"
 
-msgid "Dataset"
-msgstr "Dataset"
-
 msgid "You must enter the name of a data set."
 msgstr "必须输入数据集的名称."
 
@@ -271,9 +268,6 @@ msgstr "重新编码变量"
 
 msgid "Variable to recode (pick one)"
 msgstr "选择变量以进行重新编码〈选取1个〉"
-
-msgid "variable"
-msgstr "变量"
 
 msgid "You must select a variable."
 msgstr "必须选择1个变量."
@@ -362,11 +356,11 @@ msgid "You must enter a name for the data set."
 msgstr "必须输入数据集的名称."
 
 msgid ""
-"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All "
-"Files\" {\"*\"}}"
+"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
+"{\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"文本文件\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所有文件"
-"\" {\"*\"}}"
+"{\"文本文件\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所"
+"有文件\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "文件中的变量名称："
@@ -411,11 +405,11 @@ msgid "Import SPSS Data Set"
 msgstr "导入 SPSS 格式数据"
 
 msgid ""
-"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \"."
-"POR\"}} {\"All Files\" {\"*\"}}"
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
+"\".POR\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"SPSS 储存文件\" {\".sav\" \".SAV\"}} {\"SPSS 便携式文件\" {\".por\" \".POR\"}} "
-"{\"所有文件\" {\"*\"}}"
+"{\"SPSS 储存文件\" {\".sav\" \".SAV\"}} {\"SPSS 便携式文件\" {\".por\" \".POR"
+"\"}} {\"所有文件\" {\"*\"}}"
 
 msgid ""
 "Convert value labels\n"
@@ -436,7 +430,8 @@ msgstr ""
 msgid "Import Minitab Data Set"
 msgstr "导入 Minitab 格式数据"
 
-msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Minitab 便携式文件\" {\".mtp\" \".MTP\"}} {\"所有文件\" {\"*\"}}"
 
 msgid ""
@@ -562,7 +557,7 @@ msgid "Reorder Levels"
 msgstr "重新排序水平"
 
 msgid "Order of levels must include all integers from 1 to"
-msgstr "水平顺序值必须包含以下范围的所有整数： 1 至 "
+msgstr "水平顺序值必须包含从1开始的整数"
 
 msgid "Old Levels"
 msgstr "原始水平值"
@@ -805,7 +800,7 @@ msgstr ""
 "是否生成较长的输出？"
 
 msgid "Poisson Probabilities"
-msgstr "Poisson 分布概率"
+msgstr "泊松分布概率"
 
 msgid "Poisson mean not specified."
 msgstr "您尚未指定任何 Poisson 平均数."
@@ -844,7 +839,7 @@ msgid "Plot probability mass function"
 msgstr "绘制概率质量函数图"
 
 msgid "Poisson Distribution"
-msgstr "Poisson 分布"
+msgstr "泊松分布"
 
 msgid "Mean not specified."
 msgstr "您尚未指定任何平均数."
@@ -1277,7 +1272,8 @@ msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"PNG文件\" {\".png\" \".PNG\"}} {\"所有文件\" {\"*\"}}"
 
 msgid ""
-"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
+"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*"
+"\"}}"
 msgstr ""
 "{\"JPEG文件\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有文件\" {\"*\"}}"
 
@@ -1309,7 +1305,8 @@ msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Postscript文件\" {\".ps\" \".PS\"}} {\"所有文件\" {\"*\"}}"
 
 msgid ""
-"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
+"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*"
+"\"}}"
 msgstr ""
 "{\"Encapsulated Postscript文件\" {\".eps\" \".EPS\"}} {\"所有文件\" {\"*\"}}"
 
@@ -1512,7 +1509,7 @@ msgid "Rcmdr Version"
 msgstr "Rcmdr 版本"
 
 msgid "The tcltk package is absent. The R Commander cannot function."
-msgstr "tcltk 程序包不存在，R Commander 无法正常运作."
+msgstr "tcltk 程序包不存在，R Commander 无法正常运作。"
 
 msgid "R-Rcmdr"
 msgstr "R-Rcmdr"
@@ -1739,13 +1736,13 @@ msgid "Link function"
 msgstr "链接函数"
 
 msgid "Proportional-Odds Logit Model"
-msgstr "Proportional-Odds Logit Model 模型"
+msgstr "比例优势逻辑模型"
 
 msgid "Response variable must be a factor"
 msgstr "因变量〈反应变量〉必须是一个因子变量"
 
 msgid "Multinomial Logit Model"
-msgstr "Multinomial  Logit 模型"
+msgstr "多元逻辑模型"
 
 msgid "Two-Sample Wilcoxon Test"
 msgstr "双样本 Wilcoxon 检验"
@@ -1998,8 +1995,9 @@ msgstr "自变量：factor1必须是因子变量."
 msgid "Arguments factor1 and factor2 must be factors."
 msgstr "自变量：factor1与factor2必须是因子变量."
 
-msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
-msgstr "factor2的群组数： %d, 超过截然不同的颜色数：, %d."
+msgid ""
+"Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgstr "factor2的群组数, %d, 超过可区别的颜色数量：, %d。"
 
 msgid "The number of bins exceeds the number of data values"
 msgstr "区间个数大于数据数值个数"
@@ -2283,7 +2281,7 @@ msgid "Factor analysis..."
 msgstr "因子分析(Factor Analysis).."
 
 msgid "k-means cluster analysis..."
-msgstr "K 平均数聚类分析..."
+msgstr "k 平均数聚类分析..."
 
 msgid "Hierarchical cluster analysis..."
 msgstr "层次式聚类分析..."
@@ -2307,10 +2305,10 @@ msgid "Generalized linear model..."
 msgstr "广义线性模型 (GLM)..."
 
 msgid "Multinomial logit model..."
-msgstr "Multinomial logit 模型..."
+msgstr "多元逻辑模型..."
 
 msgid "Proportional-odds logit model..."
-msgstr "Proportional-odds logit 模型..."
+msgstr "比例优势逻辑模型..."
 
 msgid "Statistics"
 msgstr "统计量"
@@ -2438,16 +2436,16 @@ msgstr "基本诊断图"
 msgid "Residual quantile-comparison plot..."
 msgstr "残差分位数比较 (QQ)图..."
 
-msgid "Component+residual plots"
-msgstr "成份+残差图"
+msgid "Component+residual plots..."
+msgstr "组分 + 残差图..."
 
-msgid "Added-variable plots"
-msgstr "附加变量图"
+msgid "Added-variable plots..."
+msgstr "附加变量图..."
 
-msgid "Influence plot"
+msgid "Influence plot..."
 msgstr "影响图 (Influence Plot)"
 
-msgid "Effect plots"
+msgid "Effect plots..."
 msgstr "效应图 (Effect plots)"
 
 msgid "Models"
@@ -2517,13 +2515,13 @@ msgid "Plot binomial distribution..."
 msgstr "绘制二项式分布图..."
 
 msgid "Poisson distribution"
-msgstr "Poisson 分布"
+msgstr "泊松分布"
 
 msgid "Poisson probabilities..."
-msgstr "Poisson 分布概率..."
+msgstr "泊松分布概率..."
 
 msgid "Plot Poisson distribution..."
-msgstr "绘制 Poisson 分布图..."
+msgstr "绘制 泊松分布图..."
 
 msgid "Distributions"
 msgstr "概率分布"
@@ -2572,11 +2570,11 @@ msgid "Import from Excel, Access or dBase data set"
 msgstr "导入 Excel, Access 或 dBase 数据"
 
 msgid ""
-"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} "
-"{\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
+"\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"MS Excel文件\" {*.xls \".XLS\"}} {\"MS Access 数据库文件\" {*.mdb \".MDB\"}} "
-"{\"dBase-like 文件\" {*.dbf \".DBF\"}} {\"所有文件\" {\"*\"}}"
+"{\"MS Excel文件\" {*.xls \".XLS\"}} {\"MS Access 数据库文件\" {*.mdb \".MDB"
+"\"}} {\"dBase-like 文件\" {*.dbf \".DBF\"}} {\"所有文件\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "选择其中一个工作表"
@@ -2732,7 +2730,7 @@ msgid "Probability of success must be between 0 and 1."
 msgstr "成功概率必须位在 0 与 1 之间."
 
 msgid "Poisson Quantiles"
-msgstr "Poisson 分布(百)分位数"
+msgstr "泊松分布(百)分位数"
 
 msgid "Geometric Quantiles"
 msgstr "几何分布(百)分位数"
@@ -2747,22 +2745,22 @@ msgid "The m parameter was not specified."
 msgstr "您没有指定任何 m 参数."
 
 msgid "The m parameter cannot be negative."
-msgstr "m 参数不能为负."
+msgstr "m 参数不能为负。"
 
 msgid "The n parameter was not specified."
 msgstr "您没有指定任何 n 参数."
 
 msgid "The n parameter cannot be negative."
-msgstr "n 参数不能为负."
+msgstr "n 参数不能为负。"
 
 msgid "The k parameter was not specified."
 msgstr "您没有指定任何 k 参数."
 
 msgid "The k parameter cannot be greater than m + n."
-msgstr "k 参数不能大于 m + n."
+msgstr "k 参数不能大于 m + n。"
 
 msgid "The k parameter cannot be negative."
-msgstr "k 参数不能为负."
+msgstr "k 参数不能为负。"
 
 msgid "m (number of white balls in the urn)"
 msgstr "m〈袋中白球个数〉"
@@ -2803,9 +2801,6 @@ msgstr "负二项式分布"
 msgid "Sample from Normal Distribution"
 msgstr "正态分布随机样本"
 
-msgid "NormalSamples"
-msgstr "正态分布样本"
-
 msgid "Sample means"
 msgstr "样本平均数"
 
@@ -2831,115 +2826,64 @@ msgid "Add to Data Set:"
 msgstr "新增至数据集："
 
 msgid "Sample from t Distribution"
-msgstr "t 分布随机样本"
-
-msgid "tSamples"
 msgstr "t 分布样本"
 
 msgid "Sample from Chi-squared Distribution"
 msgstr "卡方分布随机样本"
 
-msgid "ChisquareSamples"
-msgstr "卡方分布样本"
-
 msgid "Sample from F Distribution"
 msgstr "F 分布随机样本"
-
-msgid "FSamples"
-msgstr "F 分布样本"
 
 msgid "Sample from Exponential Distribution"
 msgstr "指数分布随机样本"
 
-msgid "ExponentialSamples"
-msgstr "指数分布样本"
-
 msgid "Sample from Uniform Distribution"
 msgstr "均匀分布随机样本"
-
-msgid "UniformSamples"
-msgstr "均匀分布样本"
 
 msgid "Sample from Beta Distribution"
 msgstr "Beta 分布随机样本"
 
-msgid "BetaSamples"
-msgstr "Beta 分布样本"
-
 msgid "Sample from Cauchy Distribution"
 msgstr "Cauchy 分布随机样本"
-
-msgid "CauchySamples"
-msgstr "Cauchy 分布样本"
 
 msgid "Sample from Logistic Distribution"
 msgstr "Logistic 分布随机样本"
 
-msgid "LogisticSamples"
-msgstr "Logistic 分布样本"
-
 msgid "Sample from Log-Normal Distribution"
 msgstr "对数正态分布随机样本"
-
-msgid "LogNormalSamples"
-msgstr "对数正态分布样本"
 
 msgid "Sample from Gamma Distribution"
 msgstr "Gamma 分布随机样本"
 
-msgid "GammaSamples"
-msgstr "Gamma 分布样本"
-
 msgid "Sample from Weibull Distribution"
 msgstr "Weibull 分布随机样本"
-
-msgid "WeibullSamples"
-msgstr "Weibull 分布样本"
 
 msgid "Sample from Gumbel Distribution"
 msgstr "Gumbel 分布随机样本"
 
-msgid "GumbelSamples"
-msgstr "Gumbel 分布样本"
-
 msgid "Sample from Binomial Distribution"
 msgstr "二项式分布随机样本"
-
-msgid "BinomialSamples"
-msgstr "二项式分布样本"
 
 msgid "Poisson mean cannot be negative."
 msgstr "Poisson 平均数不能为负."
 
 msgid "Sample from Poisson Distribution"
-msgstr "Poisson 分布随机样本"
-
-msgid "PoissonSamples"
-msgstr "Poisson 分布样本"
+msgstr "泊松分布随机样本"
 
 msgid "Sample from Geometric Distribution"
 msgstr "几何分布随机样本"
 
-msgid "GeometricSamples"
-msgstr "几何分布样本"
-
 msgid "Sample from Hypergeometric Distribution"
 msgstr "超几何分布随机样本"
 
-msgid "HypergeometricSamples"
-msgstr "几何分布样本"
-
 msgid "Sample from Negative Binomial Distribution"
 msgstr "负二项分布随机样本"
-
-msgid "NegativeBinomialSamples"
-msgstr "负二项分布样本"
 
 msgid "Sample from normal distribution..."
 msgstr "正态分布随机样本..."
 
 msgid "Sample from t distribution..."
-msgstr "t 分布随机样本..."
+msgstr "t 分布样本..."
 
 msgid "Sample from chi-squared distribution..."
 msgstr "卡方分布随机样本..."
@@ -2990,7 +2934,7 @@ msgid "Plot beta distribution..."
 msgstr "绘制 beta 分布图..."
 
 msgid "Sample from beta distribution..."
-msgstr "beta 分布随机样本..."
+msgstr "beta 分布样本..."
 
 msgid "Cauchy distribution"
 msgstr "Cauchy 分布"
@@ -3050,7 +2994,7 @@ msgid "Plot gamma distribution..."
 msgstr "绘制 Gamma 分布图..."
 
 msgid "Sample from gamma distribution..."
-msgstr "gamma 分布随机样本..."
+msgstr "gamma 分布样本..."
 
 msgid "Weibull distribution"
 msgstr "Weibull 分布"
@@ -3086,13 +3030,13 @@ msgid "Sample from binomial distribution..."
 msgstr "二项式分布随机样本..."
 
 msgid "Poisson quantiles..."
-msgstr "Poisson 分布(百)分位数..."
+msgstr "泊松分布(百)分位数..."
 
 msgid "Poisson tail probabilities..."
-msgstr "Poisson 分布尾端概率..."
+msgstr "泊松分布尾端概率..."
 
 msgid "Sample from Poisson distribution..."
-msgstr "Poisson 分布随机样本..."
+msgstr "泊松分布随机样本..."
 
 msgid "Geometric distribution"
 msgstr "几何分布"
@@ -3191,7 +3135,7 @@ msgid "At least one explanatory variable must be selected."
 msgstr "至少必须选择一个解释变量."
 
 msgid "XY conditioning plot..."
-msgstr " XY 条件式关系图..."
+msgstr "XY 条件式关系图..."
 
 msgid "Percentages of total"
 msgstr "总百分比"
@@ -3259,7 +3203,8 @@ msgstr "频数分配"
 msgid "Chi-square goodness-of-fit test (for one variable only)"
 msgstr "卡方拟合优度检验〈仅限一个变量〉"
 
-msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgid ""
+"Goodness-of-fit test not available when more than one variable is selected."
 msgstr "当选择一个以上的变量时，无法进行拟合优度检验."
 
 msgid "Frequency distributions..."
@@ -3288,9 +3233,6 @@ msgstr "堆栈变量"
 
 msgid "factor"
 msgstr "因子变量"
-
-msgid "StackedData"
-msgstr "堆栈数据"
 
 msgid "You must select at least two variables."
 msgstr "至少必须选取两个变量."
@@ -3416,7 +3358,7 @@ msgid "Ordinal Regression Model"
 msgstr "有序(Ordinal) 回归模型"
 
 msgid "Proportional-odds logit"
-msgstr "Proportional-odds logit"
+msgstr "比例优势逻辑"
 
 msgid "Ordered probit"
 msgstr "次序概率"
@@ -3431,7 +3373,7 @@ msgid "y-axis label"
 msgstr "y 轴标签"
 
 msgid "No plotting characters."
-msgstr "没有设定绘图字符"
+msgstr "没有设定绘图字符。"
 
 msgid "Plotting Parameters"
 msgstr "绘图参数"
@@ -3452,7 +3394,7 @@ msgid "Scale (inverse rate)"
 msgstr "尺度〈反比率〉"
 
 msgid " has been coerced to a data frame"
-msgstr "已被强制转换为数据框架"
+msgstr " 已被强制转换为数据框架"
 
 msgid "the dataset %s is no longer available"
 msgstr "此 %s 数据集不再可用"
@@ -3467,25 +3409,25 @@ msgid "Commander"
 msgstr "Commander"
 
 msgid "Getting-Started-with-the-Rcmdr"
-msgstr "Getting-Started-with-the-Rcmdr"
+msgstr "Rcmdr入门"
 
 msgid "Type of Tests"
 msgstr "检验类型"
 
 msgid "Sequential (\"Type I\")"
-msgstr "顺序平方和 (Sequential) (\"型 I\")"
+msgstr "顺序平方和 (Sequential) (\"I型\")"
 
 msgid "Partial obeying marginality (\"Type II\")"
-msgstr "减平方和 (Partial obeying marginality) (\"型 II\")"
+msgstr "减平方和 (Partial obeying marginality) (\"II型\")"
 
 msgid "Partial ignoring marginality (\"Type III\")"
-msgstr "偏平方和 (Partial ignoring marginality) (\"型 III\")"
+msgstr "偏平方和 (Partial ignoring marginality) (\"III型\")"
 
 msgid "Type III tests require careful attention to contrast coding."
 msgstr "III型检验必须要仔细检验对比编码."
 
 msgid "There is no appropriate anova method for a model of this class."
-msgstr "没有适合属于此类别模型的方差分析 (anova) 法"
+msgstr "没有适合属于此类别模型的方差分析 (anova) 法。"
 
 msgid "Duplicate menu names:"
 msgstr "重复的菜单名称："
@@ -3700,9 +3642,11 @@ msgid "Name for aggregated data set:"
 msgstr "汇总后的数据集名称："
 
 msgid ""
-"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files"
+"\" {\"*\"}}"
 msgstr ""
-"{\"R 数据文件\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"所有文件\" {\"*\"}}"
+"{\"R 数据文件\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"所有文件\" {\"*"
+"\"}}"
 
 msgid "No data set selected."
 msgstr "没有选择任何数据集."
@@ -3711,28 +3655,28 @@ msgid "Help on selected data set"
 msgstr "所选择数据集的帮助"
 
 msgid "Population mean != mu0"
-msgstr "总体平均数不等于 mu"
+msgstr "总体平均数不等于 mu0"
 
 msgid "Population proportion != p0"
-msgstr "总体比例不等于 p"
+msgstr "总体比例不等于 p0"
 
 msgid "Models do not have the same family."
-msgstr "模型间使用的统计分配方式不同."
+msgstr "模型归属不同。"
 
 msgid ""
 "Pairwise p-values\n"
 "for Pearson or Spearman correlations"
 msgstr ""
 "成对 P 值\n"
-"使用于 Pearson 或 Spearman 相关中"
+"对 Pearson 或 Spearman 相关"
 
 msgid ""
 "The Windows version of the R Commander works best under RGui\n"
 "with the single-document interface (SDI); see ?Commander."
 msgstr ""
 "R Commander 的Windows版本\n"
-"最佳运行环境为 RGui 下的单一窗口接口 (SDI) 模式; 想了解更多？ 请参阅帮助菜单中的 "
-"Commander 帮助."
+"最佳运行环境为 RGui 下的单一窗口接口 (SDI) 模式; 想了解更多？ 请参阅帮助菜单"
+"中的 Commander 帮助."
 
 msgid "median"
 msgstr "中位数"
@@ -3772,46 +3716,50 @@ msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
 msgstr "{\"所有文档\" {\"*\"}} {\"输出文档\" {\".txt\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \"."
-"csv\" \".CSV\"}}"
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
+"\".csv\" \".CSV\"}}"
 msgstr ""
-"{\"所有文档\" {\"*\"}} {\"文本文档\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv"
-"\" \".CSV\"}}"
+"{\"所有文档\" {\"*\"}} {\"文本文档\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \"."
+"csv\" \".CSV\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS "
-"save files\" {\".sav\" \".SAV\"}}"
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
+"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
 msgstr ""
 "{\"所有文档\" {\"*\"}} {\"SPSS便携文档\" {\".por\" \".POR\"}} {\"SPSS存储文档"
 "\" {\".sav\" \".SAV\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
 msgstr "{\"所有文档\" {\"*\"}} {\"Minitab便携文档\" {\".mtp\" \".MTP\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 msgstr "{\"所有\" {\"*\"}} {\"STATA数据集\" {\".dta\" \".DTA\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access "
-"2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF"
-"\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" "
-"\".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
+"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
+"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
+"\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"所有文档\" {\"*\"}} {\"微软Access数据库\" {\".mdb\" \".MDB\"}} {\"微软Access "
-"2007 数据库\" {\".accdb\" \".ACCDB\"}} {\"dBase数据库文档\" {\".dbf\" \".DBF\"}} "
-"{\"微软Excel 2007 文档\" {\".xlsx\" \".XLSX\"}} {\"微软Excel 文档\" {\".xls\" \"."
-"XLS\"}}"
+"{\"所有文档\" {\"*\"}} {\"微软Access数据库\" {\".mdb\" \".MDB\"}} {\"微软"
+"Access 2007 数据库\" {\".accdb\" \".ACCDB\"}} {\"dBase数据库文档\" {\".dbf\" "
+"\".DBF\"}} {\"微软Excel 2007 文档\" {\".xlsx\" \".XLSX\"}} {\"微软Excel 文档"
+"\" {\".xls\" \".XLS\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
+"RDA\"}}"
 msgstr ""
-"{\"所有文档\" {\"*\"}} {\"R数据文档\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+"{\"所有文档\" {\"*\"}} {\"R数据文档\" {\".RData\" \".rda\" \".Rda\" \".RDA"
+"\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"所有文件\" {\"*\"}} {\"PNG文件\" {\".png\" \".PNG\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
+"\"}}"
 msgstr ""
 "{\"所有文件\" {\"*\"}} {\"JPEG文件\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
 
@@ -3822,7 +3770,8 @@ msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 msgstr "{\"所有文档\" {\"*\"}} {\"Postscript文档\" {\".ps\" \".PS\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
+"\"}}"
 msgstr "{\"所有文档\" {\"*\"}} {\"EPS文档\" {\".eps\" \".EPS\"}}"
 
 msgid "Reset"
@@ -3897,7 +3846,7 @@ msgid "Factor Correlations"
 msgstr "因子相关性"
 
 msgid "There are too many factors."
-msgstr "因子数过多"
+msgstr "因子数过多。"
 
 msgid "Identifying Constraints"
 msgstr "标明限制条件"
@@ -3951,7 +3900,7 @@ msgid "cm"
 msgstr "厘米"
 
 msgid "pixels"
-msgstr "像素〉、"
+msgstr "像素"
 
 msgid "Units"
 msgstr "单位"
@@ -3975,11 +3924,11 @@ msgid "Datasets in file (pick one)"
 msgstr "文件中的数据集〈选取1个〉"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \"."
-"XPORT\"}}"
+"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
+"\".XPORT\"}}"
 msgstr ""
-"{\"所有文档\" {\"*\"}} {\"SAS xport 文档\" {\".xpt\" \".XPT\" \".xport\" \".XPORT"
-"\"}}"
+"{\"所有文档\" {\"*\"}} {\"SAS xport 文档\" {\".xpt\" \".XPT\" \".xport\" \"."
+"XPORT\"}}"
 
 msgid ""
 "Convert variable names\n"
@@ -3998,8 +3947,8 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
 "Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"所有文件\" {\"*\"}} {\"微软 Excel 2007 文档\" {\".xlsx\" \".XLSX\"}} {\"微软 "
-"Excel 文档\" {\".xls\" \".XLS\"}}"
+"{\"所有文件\" {\"*\"}} {\"微软 Excel 2007 文档\" {\".xlsx\" \".XLSX\"}} {\"微"
+"软 Excel 文档\" {\".xls\" \".XLS\"}}"
 
 msgid "Interquartile Range"
 msgstr "四分位距"
@@ -4011,7 +3960,7 @@ msgid "Lines"
 msgstr "线"
 
 msgid "Choose at least one of points or lines."
-msgstr "点或线至少择1"
+msgstr "至少选择1个点或1条线。"
 
 msgid "Plot Type (one or both)"
 msgstr "图型类型（一类或两类）"
@@ -4092,7 +4041,7 @@ msgid "number of points to identify must be an integer"
 msgstr "要辨识的点的数量必须为整数"
 
 msgid "Number of points to identify"
-msgstr "要识别的坐标数目："
+msgstr "要识别的点的数量"
 
 msgid "Added-Variable Plots"
 msgstr "附加变量图"
@@ -4152,7 +4101,8 @@ msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
 msgstr "{\"所有文件\" {\"*\"}} {\"R Markdown 文件\" {\".Rmd\" \".rmd\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
+"\"}}"
 msgstr ""
 "{\"所有文档\" {\"*\"}} {\"knitr 文档\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
 
@@ -4170,7 +4120,7 @@ msgid "Ask to save documents on exit"
 msgstr "退出 Commander 时，询问是否储存文件"
 
 msgid "Quit R on exit"
-msgstr "退出 Commander，同时退出 R "
+msgstr "退出 Commander时同时退出 R"
 
 msgid "Number messages"
 msgstr "信息数"
@@ -4197,10 +4147,10 @@ msgid "Suppress icon images"
 msgstr "不显示图标图像"
 
 msgid "Retain dialog selections"
-msgstr "保留对话选择..."
+msgstr "保留对话选择"
 
 msgid "Use rgl package"
-msgstr "使用 rgl 程序包："
+msgstr "使用 rgl 程序包"
 
 msgid "Dialog text font size (points)"
 msgstr "对话框字号〈点(pt)〉"
@@ -4263,7 +4213,7 @@ msgid "You may edit this file before saving it."
 msgstr "您可在保存前编辑该文档。"
 
 msgid "Save Rcmdr options..."
-msgstr "储存 Rcmdr 选项"
+msgstr "Rcmdr储存选项"
 
 msgid "Nonparametric Density Estimate"
 msgstr "非参数密度估计法"
@@ -4275,10 +4225,10 @@ msgid "Epanechnikov"
 msgstr "伊潘涅切科夫"
 
 msgid "Tukey biweight"
-msgstr "Tukey biweight"
+msgstr "Tukey双权"
 
 msgid "Kernel Function"
-msgstr "Kernel 函数"
+msgstr "核函数"
 
 msgid "Bandwidth"
 msgstr "带宽"
@@ -4302,7 +4252,7 @@ msgid "Write row names"
 msgstr "写入行名称"
 
 msgid "Quotes around character values"
-msgstr "使用引号括住字符值："
+msgstr "使用引号括住字符值"
 
 msgid "Quantiles:"
 msgstr "分位数:"
@@ -4391,7 +4341,7 @@ msgstr ""
 "图形文件 (建议选项)?"
 
 msgid "Discard edits?"
-msgstr "放弃所做的编辑"
+msgstr "不保存改动？"
 
 # support for back-to-back stem-and-leaf displays
 msgid "Plot back-to-back by:"
@@ -4407,7 +4357,7 @@ msgid "Fit Indices"
 msgstr "模型拟合指数"
 
 msgid "Variable names in first row of spreadsheet"
-msgstr "数据表中首行的变量名称："
+msgstr "数据表中首行的变量名称"
 
 msgid "Row names in first column of spreadsheet"
 msgstr "首列为行名称"
@@ -4416,7 +4366,7 @@ msgid "<no variable selected>"
 msgstr "<没有选择任何变量>"
 
 msgid "Model Effect Plots"
-msgstr "模型效应图 "
+msgstr "模型效应图"
 
 msgid "Plot All High-Order Effects?"
 msgstr "绘制所有高阶效应?"
@@ -4451,10 +4401,10 @@ msgid "Lines with confidence bands"
 msgstr "具置信区间的直线"
 
 msgid "Single-Sample Wilcoxon Test"
-msgstr "单一样本 Wilcoxon 检验"
+msgstr "单样本 Wilcoxon 检验"
 
 msgid "Single-sample Wilcoxon test..."
-msgstr "单一样本 Wilcoxon 检验..."
+msgstr "单样本 Wilcoxon 检验..."
 
 msgid "Drop Unused Factor Levels"
 msgstr "移除未使用的因子变量水平"
@@ -4574,7 +4524,7 @@ msgid "Both or neither layout values must be numbers."
 msgstr "两个布局值必须是或全非数字。"
 
 msgid "ANOVA Table"
-msgstr "ANOVA表"
+msgstr "方差分析表"
 
 msgid "There is no appropriate outlierTest method for a model of this class."
 msgstr "没有适合属于此类别模型的异常值检验方法。"
@@ -4704,10 +4654,11 @@ msgid "<empty cell>"
 msgstr "<空单元格>"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS"
-"\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
 msgstr ""
-"{\"所有文档\" {\"*\"}} {\"微软Excel文档\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+"{\"所有文档\" {\"*\"}} {\"微软Excel文档\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
 
 # corrected messages in version 2.2-1
 # The following messages had trailing blanks. These messages were deleted from
@@ -4720,7 +4671,7 @@ msgid ""
 "in each panel and group"
 msgstr ""
 "每组及面板中\n"
-"要辨识的点："
+"要辨识的点的数量"
 
 msgid ""
 "Use sandwich estimator of\n"
@@ -4731,3 +4682,377 @@ msgstr ""
 
 msgid "Concentration levels:"
 msgstr "置信椭圆水平："
+
+msgid ".rtf (rich text file)"
+msgstr ".rtf (多格式文本)"
+
+msgid "Rich text file written to:"
+msgstr "rtf文档已写入到："
+
+msgid "Bootstrap confidence intervals..."
+msgstr "自助法置信区间..."
+
+msgid "Bootstrap"
+msgstr "自助汗"
+
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "自助法的系数置信区间"
+
+msgid "Number of bootstrap samples:"
+msgstr "自助法样本数："
+
+msgid "Number of samples must be a positive integer."
+msgstr "样本数必须为正数。"
+
+msgid "Type of Confidence Intervals"
+msgstr "置信区间类型"
+
+msgid "BCa (adjusted percentile)"
+msgstr "BCa (调整百分位)"
+
+msgid "Normal theory"
+msgstr "正态理论"
+
+msgid "Basic bootstrap"
+msgstr "基本自助法"
+
+msgid "Percentile"
+msgstr "百分位"
+
+msgid "Resampling Method"
+msgstr "重取样方法"
+
+msgid "Case resampling"
+msgstr "个案重取样"
+
+msgid "Residual resampling"
+msgstr "残差重取样"
+
+msgid "Delta method confidence interval..."
+msgstr "Delta法置信区间..."
+
+msgid "Delta Method"
+msgstr "Delta法"
+
+msgid "Confidence Interval by the Delta Method"
+msgstr "Delta法的置信区间"
+
+msgid "Expression to evaluate; use parameter names:"
+msgstr "要处理的表达式；使用参数名称："
+
+msgid "View data..."
+msgstr "察看数据集..."
+
+msgid "View Data"
+msgstr "察看数据"
+
+msgid "Bad subset expression."
+msgstr "子集的表达式错误。"
+
+msgid "No data to show."
+msgstr "无可显示数据。"
+
+msgid "View data error."
+msgstr "查看数据错误。"
+
+msgid "Sort active data set..."
+msgstr "对当前数据集排序..."
+
+msgid "Sort Active Data Set"
+msgstr "对当前数据集排序"
+
+msgid "Sort Keys (select one or more)"
+msgstr "排序变量(选取一个或多个)"
+
+msgid "Sort Direction"
+msgstr "排序方向"
+
+msgid "Increasing"
+msgstr "升序"
+
+msgid "Decreasing"
+msgstr "降序"
+
+msgid "Reorder Sort Keys"
+msgstr "排序变量重新排序"
+
+msgid "Order of keys must include all integers from 1 to"
+msgstr "键值顺序必须包含从1开始的整数"
+
+msgid "Sort Keys"
+msgstr "排序关键字"
+
+msgid "Order"
+msgstr "排序"
+
+# added to plot means dialog
+msgid "Connect profiles of means"
+msgstr "均值的连接配置文件"
+
+msgid "Welch F-test not assuming equal variances"
+msgstr "Welch F-检验没有假设方差齐性"
+
+msgid "Test of normality..."
+msgstr "正态分布检验..."
+
+msgid "Test of Normality"
+msgstr "正态分布检验"
+
+msgid "Shapiro-Wilk"
+msgstr "Shapiro-Wilk"
+
+msgid "Anderson-Darling"
+msgstr "Anderson-Darling检验"
+
+msgid "Cramer-von Mises"
+msgstr "Cramer-von Mises检验"
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr "Lilliefors (Kolmogorov-Smirnov)"
+
+msgid "Shapiro-Francia"
+msgstr "Shapiro-Francia检验"
+
+msgid "Pearson chi-square"
+msgstr "Pearson卡方"
+
+msgid "Normality Test"
+msgstr "正态分布检验"
+
+msgid "Number of bins must be a number >= 4"
+msgstr "组数必需>=4"
+
+msgid ""
+"Number of bins\n"
+"for Pearson chi-square"
+msgstr "Perason卡方组数"
+
+msgid "Test by groups"
+msgstr "分组检验"
+
+msgid "Test by:"
+msgstr "检验方法："
+
+msgid "Commas [,]"
+msgstr "逗号 [,]"
+
+msgid "Semicolons [;]"
+msgstr "分号 [;]"
+
+# additional error check in load data set dialog
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr "文件中含有多个对象，名称如下：\n"
+
+# new messages for distribution plot dialogs produced by distributionPlot()
+msgid "Optionally specify regions under the density function by"
+msgstr "设置密度函数的可选区域"
+
+msgid "x-values"
+msgstr "x-值"
+
+msgid "quantiles"
+msgstr "分位数"
+
+msgid "is not a valid number."
+msgstr "非有效的数字。"
+
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "对至少一个范围选择起始和结束点。"
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr "设置范围时，结束值必需大于起始值。"
+
+msgid "Quantiles must be between 0 and 1."
+msgstr "分位必须介于 0 与 1 之间。"
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr "要填充区域（可设置一个，两个，或为空）"
+
+msgid "Region 1: from"
+msgstr "区域1：起始"
+
+msgid "Region 2: from"
+msgstr "区域2：结束"
+
+msgid "to"
+msgstr "到"
+
+msgid "color"
+msgstr "颜色"
+
+msgid "Top center"
+msgstr "顶部中间"
+
+msgid "Compare model coefficients..."
+msgstr "比较模型系数..."
+
+msgid "Compare Model Coefficients"
+msgstr "比较模型系数"
+
+msgid "Select models (pick two or more)"
+msgstr "选择模型(选取2个或多个)"
+
+msgid "You must select at least two models."
+msgstr "必须选择至少两个模型。"
+
+# additional messages in version 2.4-0
+# enhancements to the Rcmdr script editor
+msgid ""
+"Only one instance of the R Commander script editor may be open at a time."
+msgstr "每次只能打开一个R Commander脚本窗口。"
+
+msgid "Save current edits"
+msgstr "保存当前编辑内容"
+
+msgid "Save edits"
+msgstr "保存"
+
+msgid "Exit editor saving edits"
+msgstr "保存并退出编辑器"
+
+msgid "Cancel discarding edits"
+msgstr "取消放弃编辑"
+
+msgid "Percentages for Group Bars"
+msgstr "分组柱条百分比"
+
+msgid "Conditional"
+msgstr "条件"
+
+msgid "Total"
+msgstr "总计"
+
+msgid "Color Selection"
+msgstr "颜色选择"
+
+msgid "From color palette"
+msgstr "从调色板"
+
+msgid "Data set %s does not exist"
+msgstr "数据集 %s 不存在"
+
+msgid "To right of graph"
+msgstr "图像顶部右侧"
+
+# For two-variances F-test dialog
+msgid "Ratio:"
+msgstr "比率："
+
+msgid "Ratio < 1"
+msgstr "比例<1"
+
+msgid "Ratio > 1"
+msgstr "比例>1"
+
+msgid "Name for Row Variable (optional):"
+msgstr "行变量名称(可选)"
+
+msgid "Name for Column Variable (optional):"
+msgstr "列变量名称(可选)："
+
+msgid "Convert character variables to factors"
+msgstr "将字符变量转换为因子"
+
+msgid "First column contains row names"
+msgstr "第一列包含行名称"
+
+msgid "Import SAS b7dat Data Set"
+msgstr "导入SAS b7dat数据..."
+
+msgid "from SAS b7dat file..."
+msgstr "从SAS b7dat数据导入..."
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr ""
+"{\"所有文件\" {\"*\"}} {\"SAS b7dat数据集\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+
+# addition to the Commander Options dialog
+msgid ""
+"Suppress scientific notation\n"
+"(higher = more suppression)"
+msgstr ""
+"压缩科学符号\n"
+"(值越高 = 压缩越大)"
+
+msgid "Plot discrete numeric variable..."
+msgstr "绘制离散数字变量"
+
+msgid "Plot Discrete Numeric Variable"
+msgstr "绘制离散数字变量"
+
+msgid ""
+"%s has %d unique values\n"
+"Do you want to proceed?"
+msgstr ""
+"%s含有%d个唯一值.\n"
+"继续?"
+
+msgid "Plot bootstrap samples"
+msgstr "绘制自助法样本"
+
+msgid "Binned Frequency Counts"
+msgstr "分组频率计数"
+
+#~ msgid "Dataset"
+#~ msgstr "Dataset"
+
+#~ msgid "variable"
+#~ msgstr "变量"
+
+#~ msgid "NormalSamples"
+#~ msgstr "正态分布样本"
+
+#~ msgid "tSamples"
+#~ msgstr "t 分布样本"
+
+#~ msgid "ChisquareSamples"
+#~ msgstr "卡方分布样本"
+
+#~ msgid "FSamples"
+#~ msgstr "F 分布样本"
+
+#~ msgid "ExponentialSamples"
+#~ msgstr "指数分布样本"
+
+#~ msgid "UniformSamples"
+#~ msgstr "均匀分布样本"
+
+#~ msgid "BetaSamples"
+#~ msgstr "Beta 分布样本"
+
+#~ msgid "CauchySamples"
+#~ msgstr "Cauchy 分布样本"
+
+#~ msgid "LogisticSamples"
+#~ msgstr "Logistic 分布样本"
+
+#~ msgid "LogNormalSamples"
+#~ msgstr "对数正态分布样本"
+
+#~ msgid "GammaSamples"
+#~ msgstr "Gamma 分布样本"
+
+#~ msgid "WeibullSamples"
+#~ msgstr "Weibull 分布样本"
+
+#~ msgid "GumbelSamples"
+#~ msgstr "Gumbel 分布样本"
+
+#~ msgid "BinomialSamples"
+#~ msgstr "二项式分布样本"
+
+#~ msgid "PoissonSamples"
+#~ msgstr "泊松分布样本"
+
+#~ msgid "GeometricSamples"
+#~ msgstr "几何分布样本"
+
+#~ msgid "HypergeometricSamples"
+#~ msgstr "几何分布样本"
+
+#~ msgid "NegativeBinomialSamples"
+#~ msgstr "负二项分布样本"
+
+#~ msgid "StackedData"
+#~ msgstr "堆栈数据"
