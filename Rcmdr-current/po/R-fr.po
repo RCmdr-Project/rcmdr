@@ -1,16 +1,16 @@
 # French translations for the Rcmdr package
 # Traductions françaises pour le package Rcmdr
-# Copyright (C) 2005-2016 John Fox
+# Copyright (C) 2005-2017 John Fox
 # This file is distributed under the same license as the Rcmdr package
 # Philippe Grosjean <phgrosjean@sciviews.org>, 2005-2007
-# Milan Bouchet-Valat <nalimilan@club.fr>, 2012-2016.
+# Milan Bouchet-Valat <nalimilan@club.fr>, 2012-2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.3-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2016-07-19 21:00:00\n"
-"PO-Revision-Date: 2016-08-19 15:30+0200\n"
+"POT-Creation-Date: 2017-04-17 10:30:00\n"
+"PO-Revision-Date: 2017-08-28 11:30+0200\n"
 "Last-Translator: Milan Bouchet-Valat <nalimilan@club.fr>\n"
 "Language-Team: français <> <phgrosjean@sciviews.org>\n"
 "Language: fr\n"
@@ -5004,3 +5004,111 @@ msgstr "Sélectionnez des modèles (en choisir deux ou plus)"
 
 msgid "You must select at least two models."
 msgstr "Vous devez sélectionner au moins deux modèles."
+
+# additional messages in version 2.4-0
+
+  # enhancements to the Rcmdr script editor
+
+msgid "Only one instance of the R Commander script editor may be open at a time."
+msgstr "Une seule instance de l'éditeur de script R Commander peut être ouverte à la fois."
+
+msgid "Save current edits"
+msgstr "Enregistrer les modifications actuelles"
+
+msgid "Save edits"
+msgstr "Enregistrer les modifications"
+
+msgid "Exit editor saving edits"
+msgstr "Quitter l'éditeur en enregistrant les modifications"
+
+msgid "Cancel discarding edits"
+msgstr "Annuler en perdant les modifications"
+
+  # additions to the barplot dialog
+  
+msgid "Percentages for Group Bars"
+msgstr "Pourcentages pour les barres de groupes"
+  
+msgid "Conditional"
+msgstr "Conditionnel"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Color Selection"
+msgstr "Sélection des couleurs"
+
+msgid "From color palette"
+msgstr "À partir de la palette de couleurs"
+
+  # correct typo
+  
+msgid "Data set %s does not exist"
+msgstr "Le jeu de données %s n'existe pas"
+
+  # addition to plot means dialog (position of legend)
+  
+msgid "To right of graph"
+msgstr "À droite du graphique"
+
+  # For two-variances F-test dialog
+  
+msgid "Ratio:"
+msgstr "Ratio :"
+
+msgid "Ratio < 1"
+msgstr "Ratio < 1"
+
+msgid "Ratio > 1"
+msgstr "Ratio > 1"
+
+  # For enter and analyze contingency table dialog
+  
+msgid "Name for Row Variable (optional):"
+msgstr "Nom de la variable en lignes (facultatif) :"
+
+msgid "Name for Column Variable (optional):"
+msgstr "Nom de la variable en colonnes (facultatif) :"
+
+  # for import Stata and SAS b7dat data set dialogs
+
+msgid "Convert character variables to factors"
+msgstr "Convertir les variables caractère en facteurs"
+
+msgid "First column contains row names"
+msgstr "La première colonne contient les noms de lignes"
+
+msgid "Import SAS b7dat Data Set"
+msgstr "Importer un jeu de données SAS b7dat"
+
+msgid "from SAS b7dat file..."
+msgstr "deupis un fichier SAS b7dat..."
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr "{\"Tous les fichiers\" {\"*\"}} {\"jeu de données SAS b7dat\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+
+  # addition to the Commander Options dialog
+  
+msgid "Suppress scientific notation\n(higher = more suppression)"
+msgstr "Éviter la notation scientifique\n(plus élevé = éviter plus)"
+
+  # new plot discrete numeric variable dialog
+  
+msgid "Plot discrete numeric variable..."
+msgstr "Graphe d'une variable numérique discrète..."
+
+msgid "Plot Discrete Numeric Variable"
+msgstr "Graphe d'une variable numérique discrète"
+
+msgid "%s has %d unique values\nDo you want to proceed?"
+msgstr "%s a %d valeurs uniques\nÊtes-vous sûr de vouloir continuer ?"
+
+  # for boostrapping dialog
+  
+msgid "Plot bootstrap samples"
+msgstr "Dessiner un graphe des échantillons bootstrap"
+
+  # for numerical summaries dialog
+  
+msgid "Binned Frequency Counts"
+msgstr "Nombre d'occurrences par intervalles"
