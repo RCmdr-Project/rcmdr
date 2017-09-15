@@ -1,6 +1,6 @@
 # Distributions menu dialogs for selecting samples
 
-# last modified 2016-07-14 by J. Fox
+# last modified 2017-09-14 by J. Fox
 # modified by Miroslav M. Ristic (15 January 2011)
 
 
@@ -30,7 +30,7 @@ distributionSamples <- function(nameVar) {
   defaults <- list(initialValues=fVar$initialValues, dsname=paste(fVar$titleName,"Samples",sep=""),
                    nobs="100", nsamples="1", mean="1", sum="0", sd="0")
   initial <- getDialog(dialogName, defaults=defaults)
-  initializeDialog(title=gettextRcmdr(paste("Sample from ",fVar$titleName," Distribution")))
+  initializeDialog(title=gettextRcmdr(paste0("Sample from ",fVar$titleName," Distribution")))
   entryFrame <- tkframe(top)
   dsname <- tclVar(initial$dsname)
   dsFrame <- tkframe(top)

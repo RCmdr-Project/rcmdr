@@ -1,5 +1,9 @@
 Changes to version 2.4-0
 
+  o Small fixes.
+
+Changes to version 2.4-0
+
   o The R Commander editor for Markdown and knitr documents is now a non-modal dialog, so may remain open while you work.
   
   o Improvement to the barplot dialog (suggestions of Beatriz Lacruz).
