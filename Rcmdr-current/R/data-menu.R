@@ -1758,10 +1758,10 @@ exportDataSet <- function() {
         else if (delim == "semicolons") ";"
         else trim.blanks(tclvalue(otherVariable))
         saveFile <- tclvalue(tkgetSaveFile(filetypes=gettextRcmdr('{"All Files" {"*"}} {"Text Files" {".txt" ".TXT" ".dat" ".DAT" ".csv" ".CSV"}}'),
-                                           defaultextension="txt",
+                                           defaultextension=if (delim == "commas") ".csv" else ".txt",
                                            initialfile=paste(dsname, if (delim == "commas") ".csv" else ".txt", sep=""),
                                            parent=CommanderWindow()))
-        saveFile <- removeRedundantExtension(saveFile, c("txt", "csv"))
+        saveFile <- removeRedundantExtension(saveFile)
         if (saveFile == "") {
             tkfocus(CommanderWindow())
             return()
@@ -2232,7 +2232,7 @@ saveDataSet <- function() {
 	file <- tclvalue(tkgetSaveFile(filetypes=
 							gettextRcmdr('{"All Files" {"*"}} {"R Data Files" {".RData" ".rda" ".Rda" ".RDA"}}'),
 					defaultextension=".RData", initialfile=paste(activeDataSet(), ".RData", sep="")))
-	file <- removeRedundantExtension(file, "RData")
+	file <- removeRedundantExtension(file)
 	if (file == "") return()
 	file <- sub(".RData.RData$", ".RData", file)
 	setBusyCursor()

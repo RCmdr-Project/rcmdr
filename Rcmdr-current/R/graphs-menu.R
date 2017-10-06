@@ -1957,7 +1957,7 @@ saveBitmap <- function () {
         }
         filename <- tclvalue(tkgetSaveFile(filetypes = filetypes, 
             defaultextension = ext, initialfile = initial, parent = CommanderWindow()))
-        filename <- removeRedundantExtension(filename, ext)
+        filename <- removeRedundantExtension(filename)
         if (filename == "") 
             return()
         command <- paste("dev.print(", type, ", filename=\"", 
@@ -2101,7 +2101,7 @@ savePDF <- function () {
         }
         filename <- tclvalue(tkgetSaveFile(filetypes = filetypes, 
             defaultextension = ext, initialfile = initial, parent = CommanderWindow()))
-        filename <- removeRedundantExtension(filename, ext)
+        filename <- removeRedundantExtension(filename)
         if (filename == "") 
             return()
         command <- if (type == "eps") 
@@ -2145,7 +2145,7 @@ saveRglGraph <- function(){
         defaultextension=ext,
         initialfile=initial,
         parent=CommanderWindow()))
-    filename <- removeRedundantExtension(filename, ext)
+    filename <- removeRedundantExtension(filename)
     if (filename == "") return()
     command <- paste('rgl.snapshot("', filename, '")', sep="")
     doItAndPrint(command, rmd=FALSE)

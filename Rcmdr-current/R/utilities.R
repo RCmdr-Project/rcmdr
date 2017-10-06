@@ -3678,9 +3678,17 @@ modelCapability <- function(capability){
 
 # work around for bug in Tk getSaveFile
 
-removeRedundantExtension <- function(file, exts){
-  for (ext in exts){
-    file <- sub(paste0(".", ext, ".", ext, "$"), paste0(".", ext), file)
-  }
+# removeRedundantExtension <- function(file, exts){
+#   for (ext in exts){
+#     file <- sub(paste0(".", ext, ".", ext, "$"), paste0(".", ext), file)
+#   }
+#   file
+# }
+
+removeRedundantExtension <- function(file){
+  find.ext <- regexpr("\\.(?:.(?!\\.))+$", file, perl=TRUE)
+  if (find.ext == -1) return(file)
+  ext <- substring(file, find.ext, find.ext + attr(find.ext, "match.length"))
+  file <- sub(paste0(ext, ext, "$"), ext, file)
   file
 }

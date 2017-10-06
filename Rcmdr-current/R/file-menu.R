@@ -41,7 +41,7 @@ saveLogAs <- function() {
 					defaultextension="R",
 					initialfile="RCommander.R",
 					parent=CommanderWindow()))
-	logFile <- removeRedundantExtension(logFile, "R")
+	logFile <- removeRedundantExtension(logFile)
 	if (logFile == "") return()
 	log <- tclvalue(tkget(LogWindow(), "1.0", "end"))
 	fileCon <- file(logFile, "w")
@@ -142,7 +142,7 @@ saveRmdAs <- function() {
         defaultextension="Rmd",
         initialfile="RCommanderMarkdown.Rmd",
         parent=CommanderWindow()))
-    RmdFile <- removeRedundantExtension(RmdFile, "Rmd")
+    RmdFile <- removeRedundantExtension(RmdFile)
     if (RmdFile == "") return()
     if (getRcmdr("Markdown.editor.open")){
         .rmd.window <- RmdWindow()
@@ -164,7 +164,7 @@ saveRnwAs <- function() {
                                       defaultextension="Rnw",
                                       initialfile="RCommanderKnitr.Rnw",
                                       parent=CommanderWindow()))
-    RnwFile <- removeRedundantExtension(RnwFile, "Rnw")
+    RnwFile <- removeRedundantExtension(RnwFile)
     if (RnwFile == "") return()
     if (getRcmdr("knitr.editor.open")){
         .rnw.window <- RnwWindow()
@@ -201,7 +201,7 @@ saveOutputAs <- function() {
 					defaultextension="txt",
 					initialfile="RCommander.txt",
 					parent=CommanderWindow()))
-	outputFile <- removeRedundantExtension(outputFile, "txt")
+	outputFile <- removeRedundantExtension(outputFile)
 	if (outputFile == "") return()
 	output <- tclvalue(tkget(OutputWindow(), "1.0", "end"))
 	fileCon <- file(outputFile, "w")
