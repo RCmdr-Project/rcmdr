@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2017-04-04 by J. Fox
+# last modified 2017-10-06 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -1957,6 +1957,7 @@ saveBitmap <- function () {
         }
         filename <- tclvalue(tkgetSaveFile(filetypes = filetypes, 
             defaultextension = ext, initialfile = initial, parent = CommanderWindow()))
+        filename <- removeRedundantExtension(filename, ext)
         if (filename == "") 
             return()
         command <- paste("dev.print(", type, ", filename=\"", 
@@ -2100,6 +2101,7 @@ savePDF <- function () {
         }
         filename <- tclvalue(tkgetSaveFile(filetypes = filetypes, 
             defaultextension = ext, initialfile = initial, parent = CommanderWindow()))
+        filename <- removeRedundantExtension(filename, ext)
         if (filename == "") 
             return()
         command <- if (type == "eps") 
@@ -2143,6 +2145,7 @@ saveRglGraph <- function(){
         defaultextension=ext,
         initialfile=initial,
         parent=CommanderWindow()))
+    filename <- removeRedundantExtension(filename, ext)
     if (filename == "") return()
     command <- paste('rgl.snapshot("', filename, '")', sep="")
     doItAndPrint(command, rmd=FALSE)

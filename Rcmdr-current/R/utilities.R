@@ -1,4 +1,4 @@
-# last modified 2017-02-13 by J. Fox
+# last modified 2017-10-06 by J. Fox
 
 # utility functions
 
@@ -3676,3 +3676,11 @@ modelCapability <- function(capability){
   result
 }
 
+# work around for bug in Tk getSaveFile
+
+removeRedundantExtension <- function(file, exts){
+  for (ext in exts){
+    file <- sub(paste0(".", ext, ".", ext, "$"), paste0(".", ext), file)
+  }
+  file
+}

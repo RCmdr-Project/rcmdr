@@ -1,4 +1,4 @@
-# last modified 2017-01-13 by J. Fox
+# last modified 2017-10-06 by J. Fox
 
 # Data menu dialogs
 
@@ -1761,6 +1761,7 @@ exportDataSet <- function() {
                                            defaultextension="txt",
                                            initialfile=paste(dsname, if (delim == "commas") ".csv" else ".txt", sep=""),
                                            parent=CommanderWindow()))
+        saveFile <- removeRedundantExtension(saveFile, c("txt", "csv"))
         if (saveFile == "") {
             tkfocus(CommanderWindow())
             return()
@@ -2231,7 +2232,9 @@ saveDataSet <- function() {
 	file <- tclvalue(tkgetSaveFile(filetypes=
 							gettextRcmdr('{"All Files" {"*"}} {"R Data Files" {".RData" ".rda" ".Rda" ".RDA"}}'),
 					defaultextension=".RData", initialfile=paste(activeDataSet(), ".RData", sep="")))
+	file <- removeRedundantExtension(file, "RData")
 	if (file == "") return()
+	file <- sub(".RData.RData$", ".RData", file)
 	setBusyCursor()
 	on.exit(setIdleCursor())
 	command <- paste('save("', activeDataSet(), '", file="', file, '")', sep="")
