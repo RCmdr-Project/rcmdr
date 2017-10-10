@@ -1,6 +1,8 @@
 Changes to version 2.4-0
 
-  o Work around for Tk getSaveFile bug affecting Windows (reported by Manuel Munoz Marquez)
+  o Work around for Tk getSaveFile bug affecting Windows (reported by Manuel Munoz Marquez).
+  
+  o Updated Korean translation (thanks to Jong-Hwa Shin).
 
   o Small fixes.
 
