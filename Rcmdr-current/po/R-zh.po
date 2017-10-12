@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2015-09-07 10:22+0800\n"
+"POT-Creation-Date: 2017-10-12 10:36+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Li Cheng Hsun <d966020003@student.nsysu.edu.tw>\n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 2.0.1\n"
 
 msgid "KMeans Clustering"
 msgstr "K 平均數集群"
@@ -241,9 +241,6 @@ msgstr "注意"
 msgid "New Data Set"
 msgstr "開新資料集"
 
-msgid "Dataset"
-msgstr "Dataset"
-
 msgid "You must enter the name of a data set."
 msgstr "您必須輸入資料集的名稱."
 
@@ -277,9 +274,6 @@ msgstr "重新編碼變數"
 
 msgid "Variable to recode (pick one)"
 msgstr "選擇變數以進行重新編碼〈選取1個〉"
-
-msgid "variable"
-msgstr "variable"
 
 msgid "You must select a variable."
 msgstr "您必須選擇1個變數."
@@ -370,11 +364,11 @@ msgid "You must enter a name for the data set."
 msgstr "您必須輸入資料集的名稱."
 
 msgid ""
-"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files"
-"\" {\"*\"}}"
+"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
+"{\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"文字檔\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所有檔案\" {\"*"
-"\"}}"
+"{\"文字檔\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所有"
+"檔案\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "檔案中的變數名稱："
@@ -420,11 +414,11 @@ msgstr "匯入 SPSS 格式資料"
 
 # #是否只打SAV檔等等
 msgid ""
-"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
-"{\"All Files\" {\"*\"}}"
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
+"\".POR\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"SPSS 儲存檔\" {\".sav\" \".SAV\"}} {\"SPSS 可攜式檔案\" {\".por\" \".POR\"}} {\"所有檔"
-"案\" {\"*\"}}"
+"{\"SPSS 儲存檔\" {\".sav\" \".SAV\"}} {\"SPSS 可攜式檔案\" {\".por\" \".POR"
+"\"}} {\"所有檔案\" {\"*\"}}"
 
 # #待確認翻譯
 msgid ""
@@ -447,7 +441,8 @@ msgstr ""
 msgid "Import Minitab Data Set"
 msgstr "匯入 Minitab 格式資料"
 
-msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Minitab 可攜式檔案\" {\".mtp\" \".MTP\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid ""
@@ -1318,8 +1313,11 @@ msgstr "圖檔類型"
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"PNG檔\" {\".png\" \".PNG\"}} {\"所有檔案\" {\"*\"}}"
 
-msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"JPEG檔\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有檔案\" {\"*\"}}"
+msgid ""
+"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*"
+"\"}}"
+msgstr ""
+"{\"JPEG檔\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid "Graph saved to file"
 msgstr "儲存圖檔"
@@ -1348,8 +1346,11 @@ msgstr "{\"PDF檔\" {\".pdf\" \".PDF\"}} {\"所有檔案\" {\"*\"}}"
 msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Postscript檔\" {\".ps\" \".PS\"}} {\"所有檔案\" {\"*\"}}"
 
-msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Encapsulated Postscript檔\" {\".eps\" \".EPS\"}} {\"所有檔案\" {\"*\"}}"
+msgid ""
+"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*"
+"\"}}"
+msgstr ""
+"{\"Encapsulated Postscript檔\" {\".eps\" \".EPS\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid "Width (inches)"
 msgstr "寬度〈英吋〉"
@@ -2042,7 +2043,8 @@ msgid "Arguments factor1 and factor2 must be factors."
 msgstr "引數：factor1與factor2必須是因子變數."
 
 # #待確認翻譯
-msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgid ""
+"Number of groups for factor2, %d, exceeds number of distinct colours, %d."
 msgstr "factor2的群組數： %d, 超過截然不同的顏色數：, %d."
 
 msgid "The number of bins exceeds the number of data values"
@@ -2487,16 +2489,24 @@ msgstr "基本診斷圖"
 msgid "Residual quantile-comparison plot..."
 msgstr "殘差分位數比較 (QQ)圖..."
 
-msgid "Component+residual plots"
+#, fuzzy
+#| msgid "Component+residual plots"
+msgid "Component+residual plots..."
 msgstr "成份+殘差圖"
 
-msgid "Added-variable plots"
+#, fuzzy
+#| msgid "Added-variable plots"
+msgid "Added-variable plots..."
 msgstr "附加變數解釋圖"
 
-msgid "Influence plot"
+#, fuzzy
+#| msgid "Influence plot"
+msgid "Influence plot..."
 msgstr "影響圖 (Influence Plot)"
 
-msgid "Effect plots"
+#, fuzzy
+#| msgid "Effect plots"
+msgid "Effect plots..."
 msgstr "效應圖 (Effect plots)"
 
 msgid "Models"
@@ -2626,11 +2636,11 @@ msgid "Import from Excel, Access or dBase data set"
 msgstr "匯入 Excel, Access 或 dBase 資料"
 
 msgid ""
-"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-"
-"like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
+"\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"MS Excel檔\" {*.xls \".XLS\"}} {\"MS Access 資料庫檔\" {*.mdb \".MDB\"}} {\"dBase-like "
-"檔\" {*.dbf \".DBF\"}} {\"所有檔案\" {\"*\"}}"
+"{\"MS Excel檔\" {*.xls \".XLS\"}} {\"MS Access 資料庫檔\" {*.mdb \".MDB\"}} "
+"{\"dBase-like 檔\" {*.dbf \".DBF\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "選擇其中一個工作表"
@@ -2858,9 +2868,6 @@ msgstr "負二項式分佈"
 msgid "Sample from Normal Distribution"
 msgstr "常態分佈隨機抽樣"
 
-msgid "NormalSamples"
-msgstr "NormalSamples"
-
 msgid "Sample means"
 msgstr "樣本平均數"
 
@@ -2888,80 +2895,41 @@ msgstr "新增至資料集："
 msgid "Sample from t Distribution"
 msgstr "t 分佈隨機抽樣"
 
-msgid "tSamples"
-msgstr "tSamples"
-
 msgid "Sample from Chi-squared Distribution"
 msgstr "卡方分佈隨機抽樣"
-
-msgid "ChisquareSamples"
-msgstr "ChisquareSamples"
 
 msgid "Sample from F Distribution"
 msgstr "F 分佈隨機抽樣"
 
-msgid "FSamples"
-msgstr "FSamples"
-
 msgid "Sample from Exponential Distribution"
 msgstr "指數分佈隨機抽樣"
-
-msgid "ExponentialSamples"
-msgstr "ExponentialSamples"
 
 msgid "Sample from Uniform Distribution"
 msgstr "均勻分布隨機抽樣"
 
-msgid "UniformSamples"
-msgstr "UniformSamples"
-
 msgid "Sample from Beta Distribution"
 msgstr "Beta 分佈隨機抽樣"
-
-msgid "BetaSamples"
-msgstr "BetaSamples"
 
 msgid "Sample from Cauchy Distribution"
 msgstr "Cauchy 分佈隨機抽樣"
 
-msgid "CauchySamples"
-msgstr "CauchySamples"
-
 msgid "Sample from Logistic Distribution"
 msgstr "Logistic 分佈隨機抽樣"
-
-msgid "LogisticSamples"
-msgstr "CauchySamples"
 
 msgid "Sample from Log-Normal Distribution"
 msgstr "對數常態分佈隨機抽樣"
 
-msgid "LogNormalSamples"
-msgstr "LogNormalSamples"
-
 msgid "Sample from Gamma Distribution"
 msgstr "Gamma 分佈隨機抽樣"
-
-msgid "GammaSamples"
-msgstr "GammaSamples"
 
 msgid "Sample from Weibull Distribution"
 msgstr "Weibull 分佈隨機抽樣"
 
-msgid "WeibullSamples"
-msgstr "WeibullSamples"
-
 msgid "Sample from Gumbel Distribution"
 msgstr "Gumbel 分布隨機抽樣"
 
-msgid "GumbelSamples"
-msgstr "GumbelSamples"
-
 msgid "Sample from Binomial Distribution"
 msgstr "二項式分佈隨機抽樣"
-
-msgid "BinomialSamples"
-msgstr "BinomialSamples"
 
 msgid "Poisson mean cannot be negative."
 msgstr "Poisson 平均數不能為負."
@@ -2969,26 +2937,14 @@ msgstr "Poisson 平均數不能為負."
 msgid "Sample from Poisson Distribution"
 msgstr "Poisson 分佈隨機抽樣"
 
-msgid "PoissonSamples"
-msgstr "PoissonSamples"
-
 msgid "Sample from Geometric Distribution"
 msgstr "幾何分佈隨機抽樣"
-
-msgid "GeometricSamples"
-msgstr "GeometricSamples"
 
 msgid "Sample from Hypergeometric Distribution"
 msgstr "超幾何分佈隨機抽樣"
 
-msgid "HypergeometricSamples"
-msgstr "HypergeometricSamples"
-
 msgid "Sample from Negative Binomial Distribution"
 msgstr "負二項分佈隨機抽樣"
-
-msgid "NegativeBinomialSamples"
-msgstr "NegativeBinomialSamples"
 
 msgid "Sample from normal distribution..."
 msgstr "常態分佈隨機抽樣..."
@@ -3324,7 +3280,8 @@ msgstr "次數分配"
 msgid "Chi-square goodness-of-fit test (for one variable only)"
 msgstr "卡方適合度檢定〈僅限一個變數〉"
 
-msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgid ""
+"Goodness-of-fit test not available when more than one variable is selected."
 msgstr "當選擇一個以上的變數時，無法進行適合度檢定."
 
 msgid "Frequency distributions..."
@@ -3354,9 +3311,6 @@ msgstr "將變數堆疊"
 
 msgid "factor"
 msgstr "factor"
-
-msgid "StackedData"
-msgstr "stackedData"
 
 msgid "You must select at least two variables."
 msgstr "您至少必須選取兩個變數."
@@ -3798,8 +3752,11 @@ msgid "Name for aggregated data set:"
 msgstr "整合後的資料集名稱："
 
 #     miscellaneous
-msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"R 資料檔\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"所有檔案\" {\"*\"}}"
+msgid ""
+"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files"
+"\" {\"*\"}}"
+msgstr ""
+"{\"R 資料檔\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"所有檔案\" {\"*\"}}"
 
 msgid "No data set selected."
 msgstr "沒有選擇任何資料集."
@@ -3828,8 +3785,8 @@ msgid ""
 "with the single-document interface (SDI); see ?Commander."
 msgstr ""
 "R Commander 的Windows版本\n"
-"最佳運作環境為 RGui 下的單一文件介面 (SDI) 模式; 想了解更多？ 請參閱說明選單中的 "
-"Commander 說明."
+"最佳運作環境為 RGui 下的單一文件介面 (SDI) 模式; 想了解更多？ 請參閱說明選單"
+"中的 Commander 說明."
 
 # messages added to version 1.6-0
 # for Levene test
@@ -3878,23 +3835,24 @@ msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
 msgid ""
-"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \"."
-"CSV\"}}"
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
+"\".csv\" \".CSV\"}}"
 msgstr ""
-"{\"文字檔\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所有檔案\" {\"*"
-"\"}}"
+"{\"文字檔\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所有"
+"檔案\" {\"*\"}}"
 
 # #是否只打SAV檔等等
 #, fuzzy
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files"
-"\" {\".sav\" \".SAV\"}}"
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
+"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
 msgstr ""
-"{\"SPSS 儲存檔\" {\".sav\" \".SAV\"}} {\"SPSS 可攜式檔案\" {\".por\" \".POR\"}} {\"所有檔"
-"案\" {\"*\"}}"
+"{\"SPSS 儲存檔\" {\".sav\" \".SAV\"}} {\"SPSS 可攜式檔案\" {\".por\" \".POR"
+"\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
-msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
 msgstr "{\"Minitab 可攜式檔案\" {\".mtp\" \".MTP\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
@@ -3903,15 +3861,18 @@ msgstr "{\"STATA 資料集檔案\" {\".dta\" \".DTA\"}} {\"所有檔案\" {\"*\"
 
 #, fuzzy
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 "
-"database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel "
-"2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
+"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
+"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
+"\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"MS Excel檔\" {*.xls \".XLS\"}} {\"MS Access 資料庫檔\" {*.mdb \".MDB\"}} {\"dBase-like "
-"檔\" {*.dbf \".DBF\"}} {\"所有檔案\" {\"*\"}}"
+"{\"MS Excel檔\" {*.xls \".XLS\"}} {\"MS Access 資料庫檔\" {*.mdb \".MDB\"}} "
+"{\"dBase-like 檔\" {*.dbf \".DBF\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
-msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
+"RDA\"}}"
 msgstr "{\"R資料檔\" {\".rda\" \".Rda\" \".RDA\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
@@ -3919,8 +3880,11 @@ msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
-msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
-msgstr "{\"JPEG檔\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有檔案\" {\"*\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
+"\"}}"
+msgstr ""
+"{\"JPEG檔\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
@@ -3931,8 +3895,11 @@ msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
-msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
-msgstr "{\"Encapsulated Postscript檔\" {\".eps\" \".EPS\"}} {\"所有檔案\" {\"*\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
+"\"}}"
+msgstr ""
+"{\"Encapsulated Postscript檔\" {\".eps\" \".EPS\"}} {\"所有檔案\" {\"*\"}}"
 
 # messages added to version 1.7-0
 msgid "Reset"
@@ -4054,7 +4021,7 @@ msgid "Automatically"
 msgstr "自動"
 
 msgid "With mouse"
-msgstr ""
+msgstr "使用滑鼠"
 
 msgid "Width"
 msgstr "寬度"
@@ -4063,7 +4030,7 @@ msgid "Height"
 msgstr "高度"
 
 msgid "[disabled]"
-msgstr ""
+msgstr "[停用]"
 
 #, fuzzy
 msgid "inches"
@@ -4103,8 +4070,11 @@ msgid "Datasets in file (pick one)"
 msgstr "資料集〈選取1個〉"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
+"\".XPORT\"}}"
 msgstr ""
+"{\"SAS xport 檔案\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}} {\"所有檔案"
+"\" {\"*\"}}"
 
 # #待確認翻譯
 #, fuzzy
@@ -4122,9 +4092,11 @@ msgid "Import Excel Data Set"
 msgstr "匯入 Excel 格式資料"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
-"\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
+"{\"MS Excel 2007檔案\" {\".xlsx\" \".XLSX\"}} {\"MS Excel檔案\" {\".xls\" \"."
+"XLS\"}}  {\"所有檔案\" {\"*\"}}"
 
 msgid "Interquartile Range"
 msgstr "分量間距"
@@ -4157,7 +4129,7 @@ msgid "Different panels for different y ~ x combinations"
 msgstr "將不同的 xy 變數關聯顯示在不同圖板上"
 
 msgid "Layout"
-msgstr ""
+msgstr "頁面設計"
 
 #, fuzzy
 msgid "number of columns:"
@@ -4178,10 +4150,10 @@ msgid "Graph title"
 msgstr "圖檔標題"
 
 msgid "Plot Labels and Points"
-msgstr ""
+msgstr "繪出標籤和資料點"
 
 msgid "Apply"
-msgstr ""
+msgstr "採用"
 
 msgid "Pairwise p-values"
 msgstr "成對 P值"
@@ -4228,11 +4200,6 @@ msgstr ""
 
 msgid "Number of points to identify"
 msgstr "要辨識的座標數目："
-
-msgid ""
-"Number of points to identify  \n"
-"in each panel and group "
-msgstr ""
 
 msgid "Added-Variable Plots"
 msgstr "附加變數解釋圖"
@@ -4293,8 +4260,12 @@ msgstr "另存 knitr 語法檔"
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
 msgstr "{\"所有檔案\" {\"*\"}} {\"R Markdown 檔案\" {\".Rmd\" \".rmd\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
+"\"}}"
 msgstr ""
+"{\"knitr 檔案\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}} {\"所有檔案\" {\"*"
+"\"}} "
 
 msgid ""
 "Delete previously created knitr\n"
@@ -4377,10 +4348,10 @@ msgid "Output text color"
 msgstr "輸出檔字形顏色"
 
 msgid "Error text color"
-msgstr ""
+msgstr "錯誤訊息顏色"
 
 msgid "Warning text color"
-msgstr ""
+msgstr "警示訊息顏色"
 
 msgid "Dialog subtitles text color"
 msgstr ""
@@ -4414,7 +4385,7 @@ msgid "The following commands will be saved in the file .Rprofile."
 msgstr ""
 
 msgid "You may edit this file before saving it."
-msgstr ""
+msgstr "儲存前請編輯"
 
 #, fuzzy
 msgid "Save Rcmdr options..."
@@ -4449,7 +4420,7 @@ msgstr "頻寬必須為 <auto> 或正值"
 
 # index plot dialog
 msgid "Style of plot"
-msgstr ""
+msgstr "圖樣風格"
 
 #, fuzzy
 msgid "Write variable names"
@@ -4469,7 +4440,7 @@ msgstr "分位數"
 
 # #待確認翻譯
 msgid "spline requires a numeric variable"
-msgstr ""
+msgstr "spline 處理必須是數值變數"
 
 #, fuzzy
 msgid "cannot select more than one variable"
@@ -4512,12 +4483,14 @@ msgid ""
 "Splines/Polynomials:\n"
 "(select variable and click)"
 msgstr ""
+"Splines/Polynomials:\n"
+"(選擇變數並點擊)"
 
 msgid "df for splines:"
-msgstr ""
+msgstr "splines 之自由度:"
 
 msgid "deg. for polynomials:"
-msgstr ""
+msgstr "多項式之階次:"
 
 msgid "R Commander Editor"
 msgstr "R Commander 編輯器"
@@ -4541,7 +4514,7 @@ msgid "Exit editor"
 msgstr "退出編輯器"
 
 msgid "Editor help"
-msgstr ""
+msgstr "編輯器說明"
 
 msgid ""
 "Delete previously created R Markdown\n"
@@ -4647,13 +4620,6 @@ msgid ""
 "coefficient standard errors"
 msgstr "使用三明治(Sandwich) 估計式調整係數之標準差"
 
-msgid ""
-"Use sandwich estimator of\n"
-"coefficient covariance matrix   "
-msgstr ""
-"使用三明治(Sandwich) 估計式調整   \n"
-"係數之共變異數矩陣"
-
 msgid "sandwich covariance matrix unavailable with type I tests"
 msgstr "型1檢定無三明治(Sandwich)共變異數矩陣"
 
@@ -4724,10 +4690,10 @@ msgstr ""
 
 # set random seed dialog
 msgid "Set random number generator seed..."
-msgstr ""
+msgstr "設定隨機變數生成種子"
 
 msgid "Set Random Number Generator Seed"
-msgstr ""
+msgstr "設定隨機變數生成種子"
 
 # messages added for version 2.2-0
 # messages that were inadvertently missing in previous versions
@@ -4778,7 +4744,7 @@ msgid "Pandoc"
 msgstr ""
 
 msgid "Software to Install"
-msgstr ""
+msgstr "軟體裝置"
 
 msgid ""
 "Please read the help for this dialog\n"
@@ -4786,25 +4752,25 @@ msgid ""
 msgstr ""
 
 msgid "Select Output Format"
-msgstr ""
+msgstr "選擇輸出格式"
 
 msgid ".html (web page)"
-msgstr ""
+msgstr ".html (網頁檔)"
 
 msgid ".pdf (PDF file)"
-msgstr ""
+msgstr ".pdf (PDF 檔)"
 
 msgid ".docx (Word file)"
-msgstr ""
+msgstr ".docx (Word 檔)"
 
 msgid "HTML file written to:"
-msgstr ""
+msgstr "寫入之HTML檔名:"
 
 msgid "PDF file written to:"
-msgstr ""
+msgstr "寫入之PDF檔名:"
 
 msgid "Word file written to:"
-msgstr ""
+msgstr "寫入之Word檔名:"
 
 # additions to scatterplot and scatterplot-matrix dialogs
 msgid ""
@@ -4813,9 +4779,6 @@ msgid ""
 msgstr ""
 
 msgid "Plot concentration ellipse(s)"
-msgstr ""
-
-msgid "Concentration levels: "
 msgstr ""
 
 msgid "Legend Position"
@@ -4875,5 +4838,537 @@ msgstr "將類別變數轉成因子"
 msgid "<empty cell>"
 msgstr ""
 
-msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
 msgstr ""
+"{\"MS Excel 檔案\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}{\"所有檔案\" {\"*"
+"\"}} "
+
+#, fuzzy
+#| msgid "Number of points to identify"
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group"
+msgstr "要辨識的座標數目："
+
+#, fuzzy
+#| msgid ""
+#| "Use sandwich estimator of\n"
+#| "coefficient covariance matrix   "
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix"
+msgstr ""
+"使用三明治(Sandwich) 估計式調整   \n"
+"係數之共變異數矩陣"
+
+# #待確認功能
+#, fuzzy
+#| msgid "Plot 50% concentration ellipsoid"
+msgid "Concentration levels:"
+msgstr "繪製 50% 集中橢圓"
+
+#, fuzzy
+#| msgid "from text file..."
+msgid ".rtf (rich text file)"
+msgstr "匯入文字檔..."
+
+msgid "Rich text file written to:"
+msgstr "寫入之 rtf 檔名:"
+
+#, fuzzy
+#| msgid "Confidence intervals..."
+msgid "Bootstrap confidence intervals..."
+msgstr "信賴區間..."
+
+msgid "Bootstrap"
+msgstr "拔靴"
+
+#, fuzzy
+#| msgid "Confidence Intervals for Individual Coefficients"
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "個別係數的信賴區間"
+
+#, fuzzy
+#| msgid "Number of starting seeds:"
+msgid "Number of bootstrap samples:"
+msgstr "起使演算子(seeds)個數："
+
+#, fuzzy
+#| msgid "Number of samples must be positive."
+msgid "Number of samples must be a positive integer."
+msgstr "樣本數必須為正."
+
+#, fuzzy
+#| msgid "Confidence Intervals"
+msgid "Type of Confidence Intervals"
+msgstr "信賴區間"
+
+msgid "BCa (adjusted percentile)"
+msgstr ""
+
+#, fuzzy
+#| msgid "Normal"
+msgid "Normal theory"
+msgstr "常態"
+
+msgid "Basic bootstrap"
+msgstr ""
+
+#, fuzzy
+#| msgid "Percentages"
+msgid "Percentile"
+msgstr "百分比"
+
+#, fuzzy
+#| msgid "Clustering Method"
+msgid "Resampling Method"
+msgstr "集群方法"
+
+msgid "Case resampling"
+msgstr ""
+
+#, fuzzy
+#| msgid "Residuals"
+msgid "Residual resampling"
+msgstr "殘差"
+
+#, fuzzy
+#| msgid "Confidence intervals..."
+msgid "Delta method confidence interval..."
+msgstr "信賴區間..."
+
+#, fuzzy
+#| msgid "Ward's Method"
+msgid "Delta Method"
+msgstr "Ward 法(最小變異法)"
+
+#, fuzzy
+#| msgid "Confidence Intervals"
+msgid "Confidence Interval by the Delta Method"
+msgstr "信賴區間"
+
+msgid "Expression to evaluate; use parameter names:"
+msgstr ""
+
+#, fuzzy
+#| msgid "New data set..."
+msgid "View data..."
+msgstr "新資料集..."
+
+#, fuzzy
+#| msgid "View data set"
+msgid "View Data"
+msgstr "檢視資料集"
+
+#, fuzzy
+#| msgid "Subset expression"
+msgid "Bad subset expression."
+msgstr "子樣本選取之條件"
+
+#, fuzzy
+#| msgid "No data set selected."
+msgid "No data to show."
+msgstr "沒有選擇任何資料集."
+
+#, fuzzy
+#| msgid "View data set"
+msgid "View data error."
+msgstr "檢視資料集"
+
+#, fuzzy
+#| msgid "Export active data set..."
+msgid "Sort active data set..."
+msgstr "輸出使用中的資料集..."
+
+#, fuzzy
+#| msgid "Export Active Data Set"
+msgid "Sort Active Data Set"
+msgstr "輸出使用中的資料集"
+
+#, fuzzy
+#| msgid "Variables (select one or more)"
+msgid "Sort Keys (select one or more)"
+msgstr "變數〈選取一個或多個〉"
+
+#, fuzzy
+#| msgid "Search Direction"
+msgid "Sort Direction"
+msgstr "搜尋方向"
+
+msgid "Increasing"
+msgstr "遞增"
+
+msgid "Decreasing"
+msgstr "遞減"
+
+#, fuzzy
+#| msgid "Reorder Factor Levels"
+msgid "Reorder Sort Keys"
+msgstr "將因子變數層次重新排序"
+
+#, fuzzy
+#| msgid "Order of levels must include all integers from 1 to"
+msgid "Order of keys must include all integers from 1 to"
+msgstr "水準順序值必須包含以下範圍的所有整數： 1 至 "
+
+msgid "Sort Keys"
+msgstr ""
+
+msgid "Order"
+msgstr ""
+
+# added to plot means dialog
+msgid "Connect profiles of means"
+msgstr ""
+
+#, fuzzy
+#| msgid "Assume equal variances?"
+msgid "Welch F-test not assuming equal variances"
+msgstr "是否假設變異數相等？"
+
+#, fuzzy
+#| msgid "Shapiro-Wilk test of normality..."
+msgid "Test of normality..."
+msgstr "Shapiro-Wilk 常態分佈檢定..."
+
+#, fuzzy
+#| msgid "Shapiro-Wilk Test of Normality"
+msgid "Test of Normality"
+msgstr "Shapiro-Wilk 常態分佈檢定"
+
+msgid "Shapiro-Wilk"
+msgstr ""
+
+msgid "Anderson-Darling"
+msgstr ""
+
+msgid "Cramer-von Mises"
+msgstr ""
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr ""
+
+msgid "Shapiro-Francia"
+msgstr ""
+
+#, fuzzy
+#| msgid "Chi-square"
+msgid "Pearson chi-square"
+msgstr "卡方"
+
+#, fuzzy
+#| msgid "Normal Quantiles"
+msgid "Normality Test"
+msgstr "常態分佈(百)分位數"
+
+#, fuzzy
+#| msgid "Argument response must be numeric."
+msgid "Number of bins must be a number >= 4"
+msgstr "引數：response變數必須是數值格式."
+
+msgid ""
+"Number of bins\n"
+"for Pearson chi-square"
+msgstr ""
+
+#, fuzzy
+#| msgid "Plot by groups"
+msgid "Test by groups"
+msgstr "依據群組繪製圖表"
+
+#, fuzzy
+#| msgid "Plot by:"
+msgid "Test by:"
+msgstr "繪圖依據："
+
+#, fuzzy
+#| msgid "Comma [,]"
+msgid "Commas [,]"
+msgstr "逗號 [,]"
+
+msgid "Semicolons [;]"
+msgstr ""
+
+# additional error check in load data set dialog
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr ""
+
+# new messages for distribution plot dialogs produced by distributionPlot()
+msgid "Optionally specify regions under the density function by"
+msgstr ""
+
+#, fuzzy
+#| msgid "Hat-values"
+msgid "x-values"
+msgstr "槓桿值 (Hat-values)"
+
+#, fuzzy
+#| msgid "quantiles:"
+msgid "quantiles"
+msgstr "分位數："
+
+#, fuzzy
+#| msgid "is not a valid name."
+msgid "is not a valid number."
+msgstr "非有效的名稱."
+
+#, fuzzy
+#| msgid "You must select at least one package."
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "您至少須選擇1個程式套件."
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr ""
+
+#, fuzzy
+#| msgid "Probability of success must be between 0 and 1."
+msgid "Quantiles must be between 0 and 1."
+msgstr "成功機率必須位在 0 與 1 之間."
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr ""
+
+msgid "Region 1: from"
+msgstr ""
+
+msgid "Region 2: from"
+msgstr ""
+
+msgid "to"
+msgstr ""
+
+msgid "color"
+msgstr "色彩"
+
+#, fuzzy
+#| msgid "Top left"
+msgid "Top center"
+msgstr "頂端偏左"
+
+#, fuzzy
+#| msgid "Compare two models..."
+msgid "Compare model coefficients..."
+msgstr "比較2組模型..."
+
+#, fuzzy
+#| msgid "Compare Models"
+msgid "Compare Model Coefficients"
+msgstr "比較2組模型"
+
+#, fuzzy
+#| msgid "Variables (pick two or more)"
+msgid "Select models (pick two or more)"
+msgstr "變數〈選取2個或多個〉"
+
+#, fuzzy
+#| msgid "You must select two models."
+msgid "You must select at least two models."
+msgstr "您必須選擇兩個模型."
+
+# additional messages in version 2.4-0
+# enhancements to the Rcmdr script editor
+msgid ""
+"Only one instance of the R Commander script editor may be open at a time."
+msgstr ""
+
+#, fuzzy
+#| msgid "Save current Rmd file?"
+msgid "Save current edits"
+msgstr "請問您是否要儲存目前的 Rmd 紀錄檔？"
+
+msgid "Save edits"
+msgstr ""
+
+#, fuzzy
+#| msgid "Exit editor"
+msgid "Exit editor saving edits"
+msgstr "退出編輯器"
+
+#, fuzzy
+#| msgid "Discard edits?"
+msgid "Cancel discarding edits"
+msgstr "忽視所做之編輯"
+
+# contingency tables dialog
+#, fuzzy
+#| msgid "Percentages of total"
+msgid "Percentages for Group Bars"
+msgstr "總百分比"
+
+# Xyplot dialog
+#, fuzzy
+#| msgid "XY Conditioning Plot"
+msgid "Conditional"
+msgstr "XY 條件式關係圖"
+
+msgid "Total"
+msgstr ""
+
+#, fuzzy
+msgid "Color Selection"
+msgstr "相關性 < 0"
+
+# miscelaneous additions
+#, fuzzy
+#| msgid "Color palette..."
+msgid "From color palette"
+msgstr "調色盤..."
+
+#, fuzzy
+#| msgid "Data set %s does not exit"
+msgid "Data set %s does not exist"
+msgstr "資料集 %s 不存在"
+
+#, fuzzy
+#| msgid "Top right"
+msgid "To right of graph"
+msgstr "頂端偏右"
+
+# For two-variances F-test dialog
+msgid "Ratio:"
+msgstr "比率:"
+
+msgid "Ratio < 1"
+msgstr "比率 < 1"
+
+msgid "Ratio > 1"
+msgstr "比率 > 1"
+
+#, fuzzy
+#| msgid "Name for variable:"
+msgid "Name for Row Variable (optional):"
+msgstr "新數值變數名稱："
+
+#, fuzzy
+#| msgid "Column variable (pick one)"
+msgid "Name for Column Variable (optional):"
+msgstr "欄變數〈選取一個〉"
+
+# for reading Excel files (new dialog)
+#, fuzzy
+#| msgid "Convert character data to factors"
+msgid "Convert character variables to factors"
+msgstr "將類別變數轉成因子"
+
+#, fuzzy
+#| msgid "Select variable containing row names"
+msgid "First column contains row names"
+msgstr "選擇包含列名稱的變數"
+
+#, fuzzy
+#| msgid "Import SPSS Data Set"
+msgid "Import SAS b7dat Data Set"
+msgstr "匯入 SPSS 格式資料"
+
+#, fuzzy
+#| msgid "from SAS xport file..."
+msgid "from SAS b7dat file..."
+msgstr "匯入SAS格式資料..."
+
+#, fuzzy
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr "{\"STATA 資料集檔案\" {\".dta\" \".DTA\"}} {\"所有檔案\" {\"*\"}}"
+
+# addition to the Commander Options dialog
+msgid ""
+"Suppress scientific notation\n"
+"(higher = more suppression)"
+msgstr ""
+
+# #待確認翻譯
+#, fuzzy
+#| msgid "Bin numeric variable..."
+msgid "Plot discrete numeric variable..."
+msgstr "以區間分隔數值變數..."
+
+# #待確認翻譯
+#, fuzzy
+#| msgid "Bin a Numeric Variable"
+msgid "Plot Discrete Numeric Variable"
+msgstr "以區間 (bin) 分隔數值變數"
+
+#, fuzzy
+#| msgid ""
+#| "There are %d variables in the data set %s.\n"
+#| "Do you want to proceed?"
+msgid ""
+"%s has %d unique values\n"
+"Do you want to proceed?"
+msgstr ""
+"共有 %d 個變數在 %s 資料集中.\n"
+"您確定要進行運算嗎?"
+
+# for boostrapping dialog
+msgid "Plot bootstrap samples"
+msgstr ""
+
+#, fuzzy
+#| msgid "Frequency counts"
+msgid "Binned Frequency Counts"
+msgstr "次數統計"
+
+#~ msgid "Dataset"
+#~ msgstr "Dataset"
+
+#~ msgid "variable"
+#~ msgstr "variable"
+
+#~ msgid "NormalSamples"
+#~ msgstr "NormalSamples"
+
+#~ msgid "tSamples"
+#~ msgstr "tSamples"
+
+#~ msgid "ChisquareSamples"
+#~ msgstr "ChisquareSamples"
+
+#~ msgid "FSamples"
+#~ msgstr "FSamples"
+
+#~ msgid "ExponentialSamples"
+#~ msgstr "ExponentialSamples"
+
+#~ msgid "UniformSamples"
+#~ msgstr "UniformSamples"
+
+#~ msgid "BetaSamples"
+#~ msgstr "BetaSamples"
+
+#~ msgid "CauchySamples"
+#~ msgstr "CauchySamples"
+
+#~ msgid "LogisticSamples"
+#~ msgstr "CauchySamples"
+
+#~ msgid "LogNormalSamples"
+#~ msgstr "LogNormalSamples"
+
+#~ msgid "GammaSamples"
+#~ msgstr "GammaSamples"
+
+#~ msgid "WeibullSamples"
+#~ msgstr "WeibullSamples"
+
+#~ msgid "GumbelSamples"
+#~ msgstr "GumbelSamples"
+
+#~ msgid "BinomialSamples"
+#~ msgstr "BinomialSamples"
+
+#~ msgid "PoissonSamples"
+#~ msgstr "PoissonSamples"
+
+#~ msgid "GeometricSamples"
+#~ msgstr "GeometricSamples"
+
+#~ msgid "HypergeometricSamples"
+#~ msgstr "HypergeometricSamples"
+
+#~ msgid "NegativeBinomialSamples"
+#~ msgstr "NegativeBinomialSamples"
+
+#~ msgid "StackedData"
+#~ msgstr "stackedData"
