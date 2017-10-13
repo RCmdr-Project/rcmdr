@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.2-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2016-09-21 15:51+0200\n"
-"PO-Revision-Date: 2016-09-21 16:33+0200\n"
+"POT-Creation-Date: 2017-04-17 10:30:00\n"
+"PO-Revision-Date: 2017-10-13 09:42+0200\n"
 "Last-Translator: Friedrich Leisch <Friedrich.Leisch@R-project.org>\n"
 "Language-Team: Austrian\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 2.0.4\n"
 
 msgid "KMeans Clustering"
 msgstr "K-Means Clusteranalyse"
@@ -123,7 +123,7 @@ msgid "Append Cluster Groups to the Active Data Set"
 msgstr "Clusterzugehörigkeit als Variable in die Datenmatrix einfügen"
 
 msgid "Assigned cluster label:"
-msgstr "Name der Variablen"
+msgstr "Zugewiesene Cluster Label:"
 
 msgid "Find"
 msgstr "Finde"
@@ -630,7 +630,7 @@ msgid "<all cases>"
 msgstr "<alle Fälle>"
 
 msgid "New data set same as active data set."
-msgstr "Die neue Datenmatrix ist mit der aktiven Datenmatrix identisch"
+msgstr "Die neue Datenmatrix ist mit der aktiven Datenmatrix identisch."
 
 msgid "Subset expression"
 msgstr "Anweisung für dieTeilmenge"
@@ -858,7 +858,7 @@ msgid "Mean not specified."
 msgstr "Arithmetisches Mittel nicht angegeben."
 
 msgid "mean"
-msgstr "arithmetisches Mittel "
+msgstr "arithmetisches Mittel"
 
 msgid "{\"Script Files\" {\".R\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Script Files\" {\".R\"}} {\"All Files\" {\"*\"}}"
@@ -912,10 +912,10 @@ msgid "Output height (lines)"
 msgstr "Höhe des Ausgabefensters (Anzahl Zeilen)"
 
 msgid "Unordered factors"
-msgstr "nicht sortierter Faktor"
+msgstr "Nicht sortierter Faktor"
 
 msgid "Ordered factors"
-msgstr "sortierter Faktor"
+msgstr "Sortierter Faktor"
 
 msgid "Active window grabs focus"
 msgstr "Der Fokus befindet sich im aktiven Fenster"
@@ -1159,7 +1159,7 @@ msgid ""
 "df for F must be positive numbers."
 msgstr ""
 "Zähler und Nenner für F\n"
-"müssen positive Zahlen sein"
+"müssen positive Zahlen sein."
 
 msgid "Identify observations with mouse"
 msgstr "Wähle Beobachtungen mit der Maus aus"
@@ -1267,10 +1267,10 @@ msgid "Background Color"
 msgstr "Hintergrundfarbe"
 
 msgid "Black"
-msgstr "schwarz"
+msgstr "Schwarz"
 
 msgid "White"
-msgstr "weiß"
+msgstr "Weiß"
 
 msgid "Save Graph as Bitmap"
 msgstr "Speichere Abbildung als Bitmap"
@@ -1375,7 +1375,7 @@ msgid ""
 "for a model fit to a subset of the data."
 msgstr ""
 "Regressionsstatistiken für Modellschätzung\n"
-"aus Teilmenge der Daten nicht verfügbar"
+"aus Teilmenge der Daten nicht verfügbar."
 
 msgid "Add Observation Statistics to Data"
 msgstr "Füge Regressionsstatistiken zu den Daten hinzu"
@@ -1387,10 +1387,10 @@ msgid "Residuals"
 msgstr "Residuen"
 
 msgid "Studentized residuals"
-msgstr "studentisierte Residuen"
+msgstr "Studentisierte Residuen"
 
 msgid "Hat-values"
-msgstr "geschätzte Werte (hat-values)"
+msgstr "Geschätzte Werte (hat-values)"
 
 msgid "Cook's distances"
 msgstr "Cooks D"
@@ -1547,10 +1547,10 @@ msgid "Install Missing Packages"
 msgstr "Installiere fehlende Pakete"
 
 msgid "Browse..."
-msgstr "durchsuchen ..."
+msgstr "Durchsuchen..."
 
 msgid "Install Packages From:"
-msgstr "Installiere Paket von ..."
+msgstr "Installiere Paket von:"
 
 msgid ""
 "Specify package  \n"
@@ -1604,7 +1604,7 @@ msgid "Number of Components"
 msgstr "Anzahl der Komponenten"
 
 msgid "Number of components to retain:"
-msgstr "Anzahl der zu speichernden Komponenten"
+msgstr "Anzahl der zu speichernden Komponenten:"
 
 msgid "Factor Analysis"
 msgstr "Faktorenanalyse"
@@ -1646,7 +1646,7 @@ msgid "You must select a groups variable."
 msgstr "Sie müssen eine Gruppierungsvariable auswählen."
 
 msgid "Two-sided"
-msgstr "zweiseitig"
+msgstr "Zweiseitig"
 
 msgid "Difference < 0"
 msgstr "Differenz < 0"
@@ -1694,7 +1694,7 @@ msgid "Population mean > mu0"
 msgstr "Arithmetisches Mittel der Population > mu0"
 
 msgid "Null hypothesis: mu ="
-msgstr "Nullhypothese: mu = "
+msgstr "Nullhypothese: mu ="
 
 msgid "One-Way Analysis of Variance"
 msgstr "Ein-Weg-Varianzanalyse"
@@ -1717,7 +1717,7 @@ msgid "Factors (pick one or more)"
 msgstr "Faktoren (einen oder mehrere auswählen)"
 
 msgid "You must select at least one factor."
-msgstr "Mehrfaktorielle Varianzanalyse"
+msgstr "Sie müssen mindestens einen Faktor auswählen."
 
 msgid "Linear Regression"
 msgstr "Lineare Regression"
@@ -1843,7 +1843,7 @@ msgid "quantiles:"
 msgstr "Quantile:"
 
 msgid "Frequency Distribution"
-msgstr "Häufigkeitsverteilungen ..."
+msgstr "Häufigkeitsverteilungen"
 
 msgid "Goodness-of-Fit Test"
 msgstr "Goodness-of-Fit Test"
@@ -2009,7 +2009,7 @@ msgid "there are fewer than 3 items in the scale"
 msgstr "es sind weniger als 3 Items vorhanden"
 
 msgid "Argument response must be numeric."
-msgstr "Zielvariable (Argument response) muß numerisch sein"
+msgstr "Zielvariable (Argument response) muß numerisch sein."
 
 msgid "Argument factor1 must be a factor."
 msgstr "Argument Faktor1 muss Faktor sein."
@@ -2042,7 +2042,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "There fewer than %d factors in the active data set."
-msgstr "Es sind weniger als %d Faktoren im aktiven Data Set"
+msgstr "Es sind weniger als %d Faktoren in der aktiven Datenmatrix."
 
 msgid "There are no factors in the active data set."
 msgstr "Es gibt keine Faktoren in der aktuellen Datenmatrix."
@@ -2139,10 +2139,10 @@ msgid "Save R workspace as..."
 msgstr "Workspace speichern unter ..."
 
 msgid "From Commander"
-msgstr "des Commanders"
+msgstr "Des Commanders"
 
 msgid "From Commander and R"
-msgstr "des Commanders und Rs"
+msgstr "Des Commanders und R"
 
 msgid "Exit"
 msgstr "Beenden"
@@ -2259,13 +2259,13 @@ msgid "Enter and analyze two-way table..."
 msgstr "Analyse einer selbst eingegebenen Kreuztabelle ..."
 
 msgid "Single-sample t-test..."
-msgstr "t-Test für eine Stichprobe ..."
+msgstr "t-Test für eine Stichprobe..."
 
 msgid "Independent samples t-test..."
-msgstr "t-Test für unabhängige Stichproben ..."
+msgstr "t-Test für unabhängige Stichproben..."
 
 msgid "Paired t-test..."
-msgstr "t-Test für gepaarte Stichproben ..."
+msgstr "t-Test für gepaarte Stichproben..."
 
 msgid "One-way ANOVA..."
 msgstr "Einfaktorielle Varianzanalyse ..."
@@ -2358,7 +2358,7 @@ msgid "Nonparametric tests"
 msgstr "Nichtparametrische Tests"
 
 msgid "Dimensional analysis"
-msgstr "Dimensionsreduktion und Klassifizieren "
+msgstr "Dimensionsreduktion und Klassifizieren"
 
 # war so übersetzt
 msgid "Fit models"
@@ -2463,17 +2463,17 @@ msgstr "Grundlegende diagnostische Grafiken"
 msgid "Residual quantile-comparison plot..."
 msgstr "Residuen Quantil-Vergleichsgrafik ..."
 
-msgid "Component+residual plots"
-msgstr "Komponenten+Residuen Diagramm"
+msgid "Component+residual plots..."
+msgstr "Komponenten+Residuen Diagramm..."
 
-msgid "Added-variable plots"
-msgstr "Bedingte Komponentendiagramme"
+msgid "Added-variable plots..."
+msgstr "Bedingte Komponentendiagramme..."
 
-msgid "Influence plot"
-msgstr "Einfluss-Grafik"
+msgid "Influence plot..."
+msgstr "Einfluss-Grafik..."
 
-msgid "Effect plots"
-msgstr "Effekt Plots"
+msgid "Effect plots..."
+msgstr "Effekt Grafik..."
 
 msgid "Models"
 msgstr "Modelle"
@@ -2548,7 +2548,7 @@ msgid "Poisson probabilities..."
 msgstr "Wahrscheinlichkeiten der Poisson-Verteilung..."
 
 msgid "Plot Poisson distribution..."
-msgstr "Grafik der Poisson-Verteilung"
+msgstr "Grafik der Poisson-Verteilung..."
 
 msgid "Distributions"
 msgstr "Verteilungen"
@@ -2581,9 +2581,8 @@ msgstr "Es gibt derzeit kein RGL Grafikfenster."
 msgid "3D graph"
 msgstr "3D-Grafik"
 
-# # messages added to Rcmdr version 1.1-6
 msgid " contains non-standard variable names:\n"
-msgstr "enthält ungültige Variablennamen:\n"
+msgstr " enthält ungültige Variablennamen:\n"
 
 msgid ""
 "\n"
@@ -2630,7 +2629,7 @@ msgid "Denominator degrees of freedom must be positive."
 msgstr "Nenner der Freiheitsgrade muß positiv sein."
 
 msgid "Exponential Distribution"
-msgstr "Exponentialverteilung "
+msgstr "Exponentialverteilung"
 
 msgid "Rate must be positive."
 msgstr "Der Anteil muss positiv sein."
@@ -2681,7 +2680,7 @@ msgid "Lognormal Distribution"
 msgstr "Log-Normalverteilung"
 
 msgid "Mean (log scale)"
-msgstr "arithmetisches Mittel (logarithmierter Maßstab)"
+msgstr "Arithmetisches Mittel (logarithmierter Maßstab)"
 
 msgid "Standard deviation (log scale)"
 msgstr "Standardabweichung (logarithmierter Maßstab)"
@@ -3133,7 +3132,7 @@ msgid "Continuous distributions"
 msgstr "Stetige Verteilungen"
 
 msgid "Discrete distributions"
-msgstr "Diskrete Verteilungen "
+msgstr "Diskrete Verteilungen"
 
 msgid "XY Conditioning Plot"
 msgstr "Bedingte Streudiagramme"
@@ -3232,7 +3231,7 @@ msgid "Variables to recode (pick one or more)"
 msgstr "Zu rekodierende Variable(n) (eine oder mehrere auswählen)"
 
 msgid "New variable name or prefix for multiple recodes:"
-msgstr "Neuer Variablenname oder Präfix für mehrere Rekodierungen"
+msgstr "Neuer Variablenname oder Präfix für mehrere Rekodierungen:"
 
 msgid "Make (each) new variable a factor"
 msgstr "Mache (jede) neue Variable zu einem Faktor"
@@ -3291,7 +3290,7 @@ msgid "Name for variable:"
 msgstr "Name der Variablen:"
 
 msgid "Name for factor:"
-msgstr "Name des Faktors"
+msgstr "Name des Faktors:"
 
 msgid "Stack variables in active data set..."
 msgstr "Variablen übereinander plazieren ..."
@@ -3312,7 +3311,7 @@ msgid ""
 "click right button to exit."
 msgstr ""
 "Ziehe rechte Maustaste um Punkte zu identifizieren,\n"
-"klicke rechte Taste zum Beenden"
+"klicke rechte Taste zum Beenden."
 
 msgid "Read Data From Text File or Clipboard"
 msgstr "Einlesen der Daten aus einer Textdatei oder der Zwischenablage"
@@ -3403,13 +3402,13 @@ msgid "Shapiro-Wilk test of normality..."
 msgstr "Shapiro-Wilk-Test auf Normalverteilung ..."
 
 msgid "Shapiro-Wilk Test of Normality"
-msgstr "Shapiro-Wilk-Test auf Normalverteilung ..."
+msgstr "Shapiro-Wilk-Test auf Normalverteilung"
 
 msgid "Ordinal regression model..."
 msgstr "Ordinale Regression ..."
 
 msgid "Ordinal Regression Model"
-msgstr "Ordinale Regression ..."
+msgstr "Ordinale Regression"
 
 msgid "Proportional-odds logit"
 msgstr "Proportionales Odds-Logit-Modell"
@@ -3450,7 +3449,7 @@ msgstr "Skala (Inverse von Rate)"
 
 # messages added to version 1.3-5
 msgid " has been coerced to a data frame"
-msgstr "wurde zu einem data frame umgewandelt"
+msgstr " wurde zu einem data frame umgewandelt"
 
 msgid "the dataset %s is no longer available"
 msgstr "die Datenmatrix %s ist nicht weiter verfügbar"
@@ -3508,11 +3507,11 @@ msgstr "Duplizierte Werte"
 
 # Strip chart
 msgid "Stack"
-msgstr "stapeln"
+msgstr "Stapel"
 
 # Strip chart
 msgid "Jitter"
-msgstr "verrauschen"
+msgstr "Verrauschen"
 
 msgid "Remove Rows from Active Data Set"
 msgstr "Lösche Zeilen aus der aktuellen Datenmatrix"
@@ -3801,7 +3800,7 @@ msgstr ""
 
 msgid ""
 "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
-msgstr "{\"All Files\" {\"*\"}} {\"Minitab Datendatei\" {\".mtp\" \".MTP\"}} "
+msgstr "{\"All Files\" {\"*\"}} {\"Minitab Datendatei\" {\".mtp\" \".MTP\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 msgstr ""
@@ -3833,7 +3832,7 @@ msgid ""
 "\"}}"
 msgstr ""
 "{\"Alle Dateien\" {\"*\"}}{\"JPEG Dateien\" {\".jpg\" \".JPG\" \".jpeg\" \"."
-"JPEG\"}} "
+"JPEG\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
 msgstr "{\"Alle Dateien\" {\"*\"}} {\"PDF Dokumente\" {\".pdf\" \".PDF\"}}"
@@ -3846,7 +3845,7 @@ msgid ""
 "\"}}"
 msgstr ""
 "{\"Alle Dateien\" {\"*\"}} {\"Encapsulated Postscript Dateien\" {\".eps\" \"."
-"EPS\"}} "
+"EPS\"}}"
 
 # messages added to version 1.7-0
 msgid "Reset"
@@ -4088,7 +4087,7 @@ msgstr "Zu verwendende Beobachtungen"
 
 # count NAs (menu item)
 msgid "Complete observations"
-msgstr "vollständige Beobachtungen"
+msgstr "Vollständige Beobachtungen"
 
 msgid "Pairwise-complete observations"
 msgstr "Paarweise vollständige Beobachtungen"
@@ -4150,16 +4149,16 @@ msgid "Open R Markdown file..."
 msgstr "R Markdown Datei öffnen ..."
 
 msgid "Open knitr file..."
-msgstr "knitr Datei öffnen ..."
+msgstr "Knitr Datei öffnen ..."
 
 msgid "Save R Markdown file..."
 msgstr "R Markdown Datei speichern ..."
 
 msgid "Save knitr file..."
-msgstr "knitr Datei speichern"
+msgstr "Knitr Datei speichern..."
 
 msgid "Save knitr file?"
-msgstr "knitr Datei speichern?"
+msgstr "Knitr Datei speichern?"
 
 msgid "Save current Rmd file?"
 msgstr "Aktuelle Rmd-Datei speichern?"
@@ -4171,7 +4170,7 @@ msgid "Save R Markdown file as..."
 msgstr "R Markdown Datei speichern unter ..."
 
 msgid "Save knitr file as..."
-msgstr "knitr Datei speichern unter ..."
+msgstr "Knitr Datei speichern unter ..."
 
 msgid "R Markdown file saved to"
 msgstr "R Markdown Datei gespeichert nach"
@@ -4328,7 +4327,7 @@ msgid "Density estimate..."
 msgstr "Dichteschätzung ..."
 
 msgid "Bandwidth must be <auto> or a positive number"
-msgstr "Bandbreite muss <auto> oder eine positive Zahl sein."
+msgstr "Bandbreite muss <auto> oder eine positive Zahl sein"
 
 # index plot dialog
 msgid "Style of plot"
@@ -4350,7 +4349,7 @@ msgid "spline requires a numeric variable"
 msgstr "Spline verlangt numerische Variable"
 
 msgid "cannot select more than one variable"
-msgstr "Es kann nicht mehr als eine Variable gewählt werden."
+msgstr "Es kann nicht mehr als eine Variable gewählt werden"
 
 msgid "polynomial requires a numeric variable"
 msgstr "Polynom verlangt numerische Variable"
@@ -4405,7 +4404,7 @@ msgid "Edit R Markdown document"
 msgstr "R Markdown Dokument editieren"
 
 msgid "Edit knitr document"
-msgstr "knitr Dokument editieren"
+msgstr "Knitr Dokument editieren"
 
 msgid "Remove last Markdown command block"
 msgstr "Entferne letzten Markdown Kommandoblock"
@@ -4837,7 +4836,7 @@ msgid "Confidence Interval by the Delta Method"
 msgstr "Konfidenzintervalle durch Delta Methode"
 
 msgid "Expression to evaluate; use parameter names:"
-msgstr "Ausdruck der evaluiert werden soll; verwende Parameter-Namen"
+msgstr "Ausdruck der evaluiert werden soll; verwende Parameter-Namen:"
 
 msgid "View data..."
 msgstr "Datenmatrix betrachten..."
@@ -4846,13 +4845,13 @@ msgid "View Data"
 msgstr "Datenmatrix betrachten"
 
 msgid "Bad subset expression."
-msgstr "Fehlerhafte Anweisung für die Teilmenge"
+msgstr "Fehlerhafte Anweisung für die Teilmenge."
 
 msgid "No data to show."
 msgstr "Keine Datenmatrix ausgewählt."
 
 msgid "View data error."
-msgstr "Fehler beim Datenmatrix betrachten"
+msgstr "Datenfehler betrachten."
 
 msgid "Sort active data set..."
 msgstr "Sortiere aktive Datenmatrix ..."
@@ -4928,6 +4927,12 @@ msgstr ""
 "Anzahl Kategorien\n"
 "für Pearson Chi-Quadrat"
 
+msgid "Test by groups"
+msgstr "Test für die Gruppen"
+
+msgid "Test by:"
+msgstr "Teste mit:"
+
 msgid "Commas [,]"
 msgstr "Kommas [,]"
 
@@ -4984,8 +4989,113 @@ msgstr "Vergleiche Modellkoeffizienten..."
 msgid "Compare Model Coefficients"
 msgstr "Vergleiche Modellkoeffizienten"
 
+msgid "Select models (pick two or more)"
+msgstr "Variablen (2 oder mehr auswählen)"
+
 msgid "You must select at least two models."
 msgstr "Sie müssen mindestens zwei Modelle auswählen."
+
+# additional messages in version 2.4-0
+# enhancements to the Rcmdr script editor
+msgid ""
+"Only one instance of the R Commander script editor may be open at a time."
+msgstr ""
+"Nur eine Instanz des R Commander Script Editors kann gleichzeitig offen sein."
+
+msgid "Save current edits"
+msgstr "Aktuelle Änderungen speichern"
+
+msgid "Save edits"
+msgstr "Änderungen speichern"
+
+msgid "Exit editor saving edits"
+msgstr "Speichern und Editor beenden"
+
+msgid "Cancel discarding edits"
+msgstr "Änderungen verwerfen"
+
+# contingency tables dialog
+msgid "Percentages for Group Bars"
+msgstr "Prozentwerte für Gruppenbalken"
+
+msgid "Conditional"
+msgstr "Bedingt"
+
+msgid "Total"
+msgstr "Gesamt"
+
+msgid "Color Selection"
+msgstr "Farbwahl"
+
+msgid "From color palette"
+msgstr "Von Farbpalette"
+
+msgid "Data set %s does not exist"
+msgstr "Die Datenmatrix '%s' ist nicht vorhanden"
+
+msgid "To right of graph"
+msgstr "Oben rechts"
+
+# For two-variances F-test dialog
+msgid "Ratio:"
+msgstr "Verhältnis:"
+
+msgid "Ratio < 1"
+msgstr "Quotient < 1"
+
+msgid "Ratio > 1"
+msgstr "Quotient > 1"
+
+msgid "Name for Row Variable (optional):"
+msgstr "Name der Zeilenariable (optional):"
+
+msgid "Name for Column Variable (optional):"
+msgstr "Namen der Spaltenvariable (optional):"
+
+msgid "Convert character variables to factors"
+msgstr "Konvertiere Zeichen-Variablen in Faktoren"
+
+msgid "First column contains row names"
+msgstr "Erste Spalte enthält Zeilennamen"
+
+msgid "Import SAS b7dat Data Set"
+msgstr "SAS b7dat Datendatei importieren"
+
+msgid "from SAS b7dat file..."
+msgstr "aus SAS b7dat Datei..."
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr ""
+"{\"Alle Dateien\" {\"*\"}} {\"SAS b7dat Datensatz\" {\".sas7bdat\" \"."
+"SAS7BDAT\"}}"
+
+# addition to the Commander Options dialog
+msgid ""
+"Suppress scientific notation\n"
+"(higher = more suppression)"
+msgstr ""
+"Unterdrücke wissenschaftliche Notation\n"
+"(höher = mehr Unterdrückung)"
+
+msgid "Plot discrete numeric variable..."
+msgstr "Zeichne diskrete numerische Variable ..."
+
+msgid "Plot Discrete Numeric Variable"
+msgstr "Zeichne diskrete numerische Variable"
+
+msgid ""
+"%s has %d unique values\n"
+"Do you want to proceed?"
+msgstr ""
+"%s hat %d unterschiedliche Werte\n"
+"Möchten Sie fortsetzen?"
+
+msgid "Plot bootstrap samples"
+msgstr "Zeichne Bootstrap Stichproben"
+
+msgid "Binned Frequency Counts"
+msgstr "Häufigkeitsauszählung"
 
 #~ msgid "Dataset"
 #~ msgstr "Datenmatrix"

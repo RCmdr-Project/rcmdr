@@ -2,7 +2,7 @@ Changes to version 2.4-1
 
   o Work around for Tk getSaveFile bug affecting Windows, causing doubled-up file extensions, e.g., .txt.txt (reported by Manuel Munoz Marquez).
   
-  o Updated translations (with thanks to): Korean (Jong-Hwa Shin), Chinese (Tsung-wu Ho).
+  o Updated translations (with thanks to): Chinese (Tsung-wu Ho), German (Friedrich Leisch), Korean (Jong-Hwa Shin).
 
   o Small fixes.
 
