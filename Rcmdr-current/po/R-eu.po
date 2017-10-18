@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.0-3\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2016-08-25 19:17+0200\n"
-"PO-Revision-Date: 2016-09-13 14:46+0100\n"
+"POT-Creation-Date: 2017-09-04 18:34+0200\n"
+"PO-Revision-Date: 2017-10-18 12:18+0200\n"
 "Last-Translator: José Ramón Rueda <joseramon.rueda@ehu.es>\n"
 "Language-Team: EHU R UCA Project <joseramon.rueda@ehu.es>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 2.0.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "KMeans Clustering"
@@ -2458,17 +2458,17 @@ msgstr "Oinarrizko diagnostiko-grafikoak"
 msgid "Residual quantile-comparison plot..."
 msgstr "Hondar-koantilak alderatzeko grafikoa..."
 
-msgid "Component+residual plots"
-msgstr "Osagai+hondar grafikoak"
+msgid "Component+residual plots..."
+msgstr "Osagai+hondar grafikoak..."
 
-msgid "Added-variable plots"
-msgstr "Aldagai gehituen grafikoak"
+msgid "Added-variable plots..."
+msgstr "Aldagai gehituaren grafikoak..."
 
-msgid "Influence plot"
-msgstr "Influentziaren grafikoa"
+msgid "Influence plot..."
+msgstr "Eragin-grafikoa..."
 
-msgid "Effect plots"
-msgstr "Efektuen grafikoak"
+msgid "Effect plots..."
+msgstr "Efektu-grafikoak..."
 
 msgid "Models"
 msgstr "Ereduak"
@@ -4898,6 +4898,12 @@ msgstr ""
 " \n"
 "Pearson khi-karraturako"
 
+msgid "Test by groups"
+msgstr "Taldeka kontrastatu"
+
+msgid "Test by:"
+msgstr "Kontrastatu honetaz:"
+
 # small changes to the read text data dialog
 msgid "Commas [,]"
 msgstr "Komak [,]"
@@ -4959,8 +4965,133 @@ msgstr "Konparatu ereduaren koefizienteak..."
 msgid "Compare Model Coefficients"
 msgstr "Konparatu ereduaren koefizienteak"
 
+msgid "Select models (pick two or more)"
+msgstr "Aukeratu ereduak (bi edo gehiago)"
+
 msgid "You must select at least two models."
 msgstr "Hautatu behar da bi eredu gutxienez."
+
+# additional messages in version 2.4-0
+# enhancements to the Rcmdr script editor
+msgid ""
+"Only one instance of the R Commander script editor may be open at a time."
+msgstr ""
+"Aldi berean script editorearen R Commanderren lan esparru bat bakarrik ireki "
+"daiteke."
+
+msgid "Save current edits"
+msgstr "Gorde uneko aldaketak"
+
+msgid "Save edits"
+msgstr "Gorde aldaketak"
+
+msgid "Exit editor saving edits"
+msgstr "Irten editoretik aldaketak gordeta"
+
+msgid "Cancel discarding edits"
+msgstr "Baliogabetu aldaketak gorde gabe"
+
+# additions to the barplot dialog
+msgid "Percentages for Group Bars"
+msgstr "Talde-barren ehunekoak"
+
+msgid "Conditional"
+msgstr "Baldintzapekoa"
+
+msgid "Total"
+msgstr "Guztira"
+
+msgid "Color Selection"
+msgstr "Kolore aukeraketa"
+
+msgid "From color palette"
+msgstr "Kolore-sortatik"
+
+# correct typo
+msgid "Data set %s does not exist"
+msgstr "%s datu multzoa ez dago"
+
+# addition to plot means dialog (position of legend)
+msgid "To right of graph"
+msgstr "Grafikoaren eskuin aldera"
+
+# For two-variances F-test dialog
+msgid "Ratio:"
+msgstr "Ratioa:"
+
+msgid "Ratio < 1"
+msgstr "Ratioa < 1"
+
+msgid "Ratio > 1"
+msgstr "Ratioa > 1"
+
+# For enter and analyze contingency table dialog
+msgid "Name for Row Variable (optional):"
+msgstr "Lerro aldagaiaren izena (aukerakoa)"
+
+msgid "Name for Column Variable (optional):"
+msgstr "Zutabe aldagaiaren izena (aukerakoa)"
+
+# for import Stata and SAS b7dat data set dialogs
+msgid "Convert character variables to factors"
+msgstr "Aldagai kualitatiboak faktore bihurtu"
+
+msgid "First column contains row names"
+msgstr "Lehenengo zutabean lerro izenak daude"
+
+msgid "Import SAS b7dat Data Set"
+msgstr "Inportatu SAS b7dat Datu Multzoa"
+
+msgid "from SAS b7dat file..."
+msgstr "SAS b7dat fitxategitik..."
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr ""
+"{\"Fitxategi guztiak\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \"."
+"SAS7BDAT\"}}"
+
+# addition to the Commander Options dialog
+msgid ""
+"Suppress scientific notation\n"
+"(higher = more suppression)"
+msgstr ""
+"Ezabatu notazio zientifikoa\n"
+"(handiagoa = ezabapen gehiago)"
+
+# new plot discrete numeric variable dialog
+msgid "Plot discrete numeric variable..."
+msgstr "Marraztu aldagai kuantitatibo diskretua..."
+
+msgid "Plot Discrete Numeric Variable"
+msgstr "Marraztu aldagai kuantitatibo diskretua"
+
+msgid ""
+"%s has %d unique values\n"
+"Do you want to proceed?"
+msgstr ""
+"%s ditu %d balio bakarrak\n"
+"Jarraitu nahi duzu?"
+
+# for boostrapping dialog
+msgid "Plot bootstrap samples"
+msgstr "Marraztu berlaginketako laginak"
+
+# for numerical summaries dialog
+msgid "Binned Frequency Counts"
+msgstr "Klaseko maiztasun kontaketak "
+
+#~ msgid "Component+residual plots"
+#~ msgstr "Osagai+hondar grafikoak"
+
+#~ msgid "Added-variable plots"
+#~ msgstr "Aldagai gehituen grafikoak"
+
+#~ msgid "Influence plot"
+#~ msgstr "Influentziaren grafikoa"
+
+#~ msgid "Effect plots"
+#~ msgstr "Efektuen grafikoak"
 
 #~ msgid "Dataset"
 #~ msgstr "Datu_multzoa"

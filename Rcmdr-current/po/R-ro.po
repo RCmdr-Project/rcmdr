@@ -4897,3 +4897,112 @@ msgstr "Selectare model (unul sau doua)"
 msgid "You must select at least two models."
 msgstr "Trebuie selectate cele putin doua modele."
 
+
+# additional messages in version 2.4-0
+
+  # enhancements to the Rcmdr script editor
+
+msgid "Only one instance of the R Commander script editor may be open at a time."
+msgstr "Nu se poate deschide decat o singura instanta de editor in R Commander"
+
+msgid "Save current edits"
+msgstr "Salveaza editarile curente"
+
+msgid "Save edits"
+msgstr "Salveaza editarile"
+
+msgid "Exit editor saving edits"
+msgstr "Iesire din editor cu salvarea editarilor"
+
+msgid "Cancel discarding edits"
+msgstr "Anulare pierdere modificari"
+
+  # additions to the barplot dialog
+  
+msgid "Percentages for Group Bars"
+msgstr "Procente pentru barele de grupuri"
+  
+msgid "Conditional"
+msgstr "Conditional"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Color Selection"
+msgstr "Selectie culoare"
+
+msgid "From color palette"
+msgstr "Din paleta de culori"
+
+  # correct typo
+  
+msgid "Data set %s does not exist"
+msgstr "Setul de date %s nu exista"
+
+  # addition to plot means dialog (position of legend)
+  
+msgid "To right of graph"
+msgstr "in dreapta graficului"
+
+  # For two-variances F-test dialog
+  
+msgid "Ratio:"
+msgstr "Ratio"
+
+msgid "Ratio < 1"
+msgstr "Ratio < 1"
+
+msgid "Ratio > 1"
+msgstr "Ratio > 1"
+
+  # For enter and analyze contingency table dialog
+  
+msgid "Name for Row Variable (optional):"
+msgstr "Numele variabilei pe randuri (optional)"
+
+msgid "Name for Column Variable (optional):"
+msgstr "Numele variabilei pe coloane (optional)"
+
+  # for import Stata and SAS b7dat data set dialogs
+
+msgid "Convert character variables to factors"
+msgstr "Convertire variabile caracter in factori"
+
+msgid "First column contains row names"
+msgstr "Prima coloana contine numele de randuri"
+
+msgid "Import SAS b7dat Data Set"
+msgstr "Importare set de date SAS b7dat"
+
+msgid "from SAS b7dat file..."
+msgstr "din fisier SAS b7dat..."
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr "{\"Toate fisierele\" {\"*\"}} {\"Set de date SAS b7dat\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+
+  # addition to the Commander Options dialog
+  
+msgid "Suppress scientific notation\n(higher = more suppression)"
+msgstr "Evitare notatie stiintifica"
+
+  # new plot discrete numeric variable dialog
+  
+msgid "Plot discrete numeric variable..."
+msgstr "Grafic variabila numerica discreta..."
+
+msgid "Plot Discrete Numeric Variable"
+msgstr "Grafic variabila numerica discreta"
+
+msgid "%s has %d unique values\nDo you want to proceed?"
+msgstr "%s are %d valori unice\nContinuare?"
+
+  # for boostrapping dialog
+  
+msgid "Plot bootstrap samples"
+msgstr "Grafic esantioane bootstrap"
+
+  # for numerical summaries dialog
+  
+msgid "Binned Frequency Counts"
+msgstr "Frevente intervale"
+
