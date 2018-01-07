@@ -1,3 +1,7 @@
+Changes to version 2.4-2
+
+  o Updated Slovenian translation (thanks to Matjaz Jeran).
+
 Changes to version 2.4-1
 
   o Work around for Tk getSaveFile bug affecting Windows, causing doubled-up file extensions, e.g., .txt.txt (reported by Manuel Munoz Marquez).
