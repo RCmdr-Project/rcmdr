@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.4-0\n"
+"Project-Id-Version: Rcmdr 2.4-2\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2017-04-17 10:30:00\n"
+"POT-Creation-Date: 2018-02-20 15:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5004,4 +5004,15 @@ msgstr ""
   # for numerical summaries dialog
   
 msgid "Binned Frequency Counts"
+msgstr ""
+
+# additional messages in version 2.4-2
+
+msgid "Sample from ChiSquared Distribution"
+msgstr ""
+
+msgid "Sample from Lognormal Distribution"
+msgstr ""
+
+msgid "Sample from NegativeBinomial Distribution"
 msgstr ""
