@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.4-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2017-08-23 10:16+0200\n"
-"PO-Revision-Date: 2017-08-23 10:30+0200\n"
+"POT-Creation-Date: 2018-02-20 15:30:00\n"
+"PO-Revision-Date: 2018-02-23 11:07+0100\n"
 "Last-Translator: Manuel Munoz-Marquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <manuel.munoz@uca.es>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "KMeans Clustering"
@@ -4975,11 +4975,9 @@ msgstr "Salir del editor guardando los cambios"
 msgid "Cancel discarding edits"
 msgstr "Cancelar descartando los cambios"
 
-#| msgid "Percentages of total"
 msgid "Percentages for Group Bars"
 msgstr "Porcentajes para Barras Agrupadas"
 
-#| msgid "XY Conditioning Plot"
 msgid "Conditional"
 msgstr "Condicional"
 
@@ -4989,14 +4987,12 @@ msgstr "Total"
 msgid "Color Selection"
 msgstr "Selección de Color"
 
-#| msgid "Color palette..."
 msgid "From color palette"
 msgstr "Desde la paleta de colores"
 
 msgid "Data set %s does not exist"
 msgstr "El conjunto de datos %s no existe"
 
-#| msgid "Top right"
 msgid "To right of graph"
 msgstr "A la derecha del gráfico"
 
@@ -5010,7 +5006,6 @@ msgstr "Cociente < 1"
 msgid "Ratio > 1"
 msgstr "Cociente > 1"
 
-#| msgid "Name for variable:"
 msgid "Name for Row Variable (optional):"
 msgstr "Nombre para la Variable  Fila (Opcional):"
 
@@ -5020,14 +5015,12 @@ msgstr "Nombre para la Variable Columna (opcional):"
 msgid "Convert character variables to factors"
 msgstr "Convertir variables de carácter en factores"
 
-#| msgid "Select variable containing row names"
 msgid "First column contains row names"
 msgstr "La primera columna contiene los nombres de las filas"
 
 msgid "Import SAS b7dat Data Set"
 msgstr "Importar datos SAS b7dat"
 
-#| msgid "from SAS xport file..."
 msgid "from SAS b7dat file..."
 msgstr "desde un archivo SAS b7dat..."
 
@@ -5045,11 +5038,9 @@ msgstr ""
 "Suprimir notación científica\n"
 "(mayor = más supresión)"
 
-#| msgid "Bin numeric variable..."
 msgid "Plot discrete numeric variable..."
 msgstr "Dibujar una variable numérica discreta..."
 
-#| msgid "Bin a Numeric Variable"
 msgid "Plot Discrete Numeric Variable"
 msgstr "Dibujar una Variable Numérica Discreta"
 
@@ -5065,6 +5056,15 @@ msgstr "Dibujar muestras bootstrap"
 
 msgid "Binned Frequency Counts"
 msgstr "Recuentos binarios de frecuencias"
+
+msgid "Sample from ChiSquared Distribution"
+msgstr "Muestra de una distribución Chi-cuadrado"
+
+msgid "Sample from Lognormal Distribution"
+msgstr "Muestra de una distribución lognormal"
+
+msgid "Sample from NegativeBinomial Distribution"
+msgstr "Muestra de una distribución binomial negativa"
 
 #~ msgid "Dataset"
 #~ msgstr "Datos"

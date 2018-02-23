@@ -5008,6 +5008,8 @@ msgstr ""
 
 # additional messages in version 2.4-2
 
+  # these messages were inadvertently omitted
+
 msgid "Sample from ChiSquared Distribution"
 msgstr ""
 

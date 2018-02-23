@@ -1,8 +1,8 @@
 Changes to version 2.4-2
 
-  o Updated Slovenian translation (thanks to Matjaz Jeran).
-  
-  o A few updates to R-Rcmdr.pot
+  o Updated Slovenian and Spanish translations (thanks to Matjaz Jeran andManuel Munoz Marquez).
+
+  o A few updates to R-Rcmdr.pot supplying previously missing messages for translation.
 
 Changes to version 2.4-1
 
