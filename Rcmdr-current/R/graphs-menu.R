@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2017-10-06 by J. Fox
+# last modified 2018-03-19 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -644,8 +644,8 @@ scatterPlot <- function () {
         identify <- tclvalue(identifyVariable)
         id.n <- tclvalue(id.n.Var)
         identify.text <- switch(identify,
-            auto = paste(", id.method='mahal', id.n =", id.n),
-            mouse = ", id.method='identify'",
+            auto = paste0(", id=list(method='mahal', n=", id.n, ")"),
+            mouse = ", id=list(method='identify')",
             not = "")
         box <- tclvalue(boxplotsVariable)
         line <- tclvalue(lsLineVariable)
@@ -730,9 +730,7 @@ scatterPlot <- function () {
         box <- if ("1" == tclvalue(boxplotsVariable))
             "'xy'"
         else "FALSE"
-        line <- if ("1" == tclvalue(lsLineVariable))
-            "lm"
-        else "FALSE"
+        line <- if ("1" == tclvalue(lsLineVariable)) "TRUE" else "FALSE"
         smooth <- as.character("1" == tclvalue(smoothLineVariable))
         spread <- as.character("1" == tclvalue(spreadVariable))
         cex <- if (cex == 1)
@@ -746,9 +744,10 @@ scatterPlot <- function () {
         else paste(", cex.lab=", cex.lab, sep = "")
         if (.groups == FALSE) {
             command <- paste("scatterplot(", y, "~", x, log,
-                ", reg.line=", line, ", smooth=", smooth, ", spread=",
-                spread, identify.text, ", boxplots=", box, ", span=", span/100, 
-                ", ellipse=", ellipse, ", levels=", levels,
+                ", regLine=", line,
+                if (smooth == "TRUE") paste0(", smooth=list(span=", span/100, ", spread=", spread, ")") else ", smooth=FALSE",
+                identify.text, ", boxplots=", box,
+                if (ellipse == "TRUE") paste0(", ellipse=list(levels=", levels, ')') else "",
                 jitter, xlab, ylab, main, cex, cex.axis,
                 cex.lab, pch, ", data=", .activeDataSet, subset,
                 ")", sep = "")
@@ -757,13 +756,14 @@ scatterPlot <- function () {
         }
         else {
             command <- paste("scatterplot(", y, "~", x, " | ",
-                .groups, log, ", reg.line=", line, ", smooth=", smooth,
-                ", spread=", spread, identify.text, ", boxplots=", box,
-                ", span=", span/100, 
-                ", ellipse=", ellipse, ", levels=", levels,
+                .groups, log, 
+                ", regLine=", line,
+                if (smooth == "TRUE") paste0(", smooth=list(span=", span/100, ", spread=", spread, ")") else ", smooth=FALSE",
+                identify.text, ", boxplots=", box,
+                if (ellipse == "TRUE") paste0(", ellipse=list(levels=", levels, ')') else "",
                 jitter, xlab, ylab, main, cex,
                 cex.axis, cex.lab, pch, ", by.groups=", .linesByGroup,
-                if (legend.pos != "above") paste0(', legend.coords="', legend.pos, '"'),
+                if (legend.pos != "above") paste0(', legend=list(coords="', legend.pos, '")'),
                 ", data=", .activeDataSet, subset, ")", sep = "")
             if (identify == "mouse") command <- suppressMarkdown(command)
             doItAndPrint(command)

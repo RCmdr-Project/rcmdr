@@ -1,3 +1,7 @@
+Changes to version 2.4-3
+
+  o Updated several dialogs (scatterplot) for version 3.0-0 of the car package and version 4.0-1 of the effects package.
+
 Changes to version 2.4-2
 
   o Updated Slovenian and Spanish translations (thanks to Matjaz Jeran andManuel Munoz Marquez).
