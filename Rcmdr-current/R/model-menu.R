@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2017-02-07 by J. Fox
+# last modified 2018-03-20 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -113,119 +113,119 @@ plotModel <- function(){
 }
 
 CRPlots <- function(){
-    .activeModel <- ActiveModel()
-    if (is.null(.activeModel) || !checkMethod("crPlot", .activeModel)) return()
-    
-    defaults <- list(initial.span=50)
-    dialog.values <- getDialog("CRPlots", defaults)
-    initializeDialog(title = gettextRcmdr("Component+Residual Plots"))
-    sliderValue <- tclVar(dialog.values$initial.span)
-    sliderFrame <- tkframe(top)
-    slider <- tkscale(sliderFrame, from = 5, to = 100, showvalue = TRUE, 
-                      variable = sliderValue, resolution = 5, orient = "horizontal")
-    onOK <- function(){
-        span <- as.numeric(tclvalue(sliderValue))
-        closeDialog()
-        putDialog ("CRPlots", list(initial.span=span))
-        doItAndPrint(paste("crPlots(", .activeModel, ", span=", span/100, ")", sep=""))
-        activateMenus()
-        tkfocus(CommanderWindow())
-    }
-    OKCancelHelp(helpSubject = "crPlots", reset = "CRPlots", apply = "CRPlots")
-    tkgrid(labelRcmdr(sliderFrame, text=gettextRcmdr("Span for smooth")), slider, sticky="sw")
-    tkgrid(sliderFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix()
+  .activeModel <- ActiveModel()
+  if (is.null(.activeModel) || !checkMethod("crPlot", .activeModel)) return()
+  
+  defaults <- list(initial.span=50)
+  dialog.values <- getDialog("CRPlots", defaults)
+  initializeDialog(title = gettextRcmdr("Component+Residual Plots"))
+  sliderValue <- tclVar(dialog.values$initial.span)
+  sliderFrame <- tkframe(top)
+  slider <- tkscale(sliderFrame, from = 5, to = 100, showvalue = TRUE, 
+                    variable = sliderValue, resolution = 5, orient = "horizontal")
+  onOK <- function(){
+    span <- as.numeric(tclvalue(sliderValue))
+    closeDialog()
+    putDialog ("CRPlots", list(initial.span=span))
+    doItAndPrint(paste("crPlots(", .activeModel, ", smooth=list(span=", span/100, "))", sep=""))
+    activateMenus()
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "crPlots", reset = "CRPlots", apply = "CRPlots")
+  tkgrid(labelRcmdr(sliderFrame, text=gettextRcmdr("Span for smooth")), slider, sticky="sw")
+  tkgrid(sliderFrame, sticky="w")
+  tkgrid(buttonsFrame, sticky="w")
+  dialogSuffix()
 }
 
 AVPlots <- function () {
-    .activeModel <- ActiveModel()
-    if (is.null(.activeModel) || !checkMethod("avPlot", .activeModel)) 
-        return()
-    defaults <- list (initial.identify = "auto", initial.id.n="2")
-    dialog.values <- getDialog ("AVPlots", defaults)
-    initializeDialog(title = gettextRcmdr("Added-Variable Plots"))
-    identifyPointsFrame <- tkframe(top)
-    radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse", 
-                                                                     "not"), labels = gettextRcmdr(c("Automatically", 
-                                                                                                     "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
-                 initialValue = dialog.values$initial.identify)    
-    id.n.Var <- tclVar(dialog.values$initial.id.n) 
-    npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
-    onOK <- function() {
-        id.n <- tclvalue(id.n.Var)
-        identify <- tclvalue(identifyVariable)
-        method <- if (identify == "mouse") "identify" else "mahal"
-        id.n.use <- if (identify == "not") 0 else id.n   
-        closeDialog()
-        if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-            errorCondition(recall = AVPlots, message = gettextRcmdr("number of points to identify must be an integer"))
-            return()
-        }
-        putDialog ("AVPlots", list (initial.identify = identify, initial.id.n=id.n))
-        if (identify == "mouse") {
-            RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
-                                                                         gettextRcmdr(if (MacOSXP()) 
-                                                                             "esc key to exit."
-                                                                                      else "right button to exit."), sep = ""), icon = "info", 
-                              type = "ok")
-        }
-        command <- paste("avPlots(", .activeModel, ', id.method="', method, '", id.n=', id.n.use,  ")", sep = "")
-        if (identify == "mouse") command <- suppressMarkdown(command)
-        doItAndPrint(command)
-        activateMenus()
-        tkfocus(CommanderWindow())
+  .activeModel <- ActiveModel()
+  if (is.null(.activeModel) || !checkMethod("avPlot", .activeModel)) 
+    return()
+  defaults <- list (initial.identify = "auto", initial.id.n="2")
+  dialog.values <- getDialog ("AVPlots", defaults)
+  initializeDialog(title = gettextRcmdr("Added-Variable Plots"))
+  identifyPointsFrame <- tkframe(top)
+  radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse", 
+                                                                   "not"), labels = gettextRcmdr(c("Automatically", 
+                                                                                                   "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
+               initialValue = dialog.values$initial.identify)    
+  id.n.Var <- tclVar(dialog.values$initial.id.n) 
+  npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
+  onOK <- function() {
+    id.n <- tclvalue(id.n.Var)
+    identify <- tclvalue(identifyVariable)
+    method <- if (identify == "mouse") "identify" else "mahal"
+    id.n.use <- if (identify == "not") 0 else id.n   
+    closeDialog()
+    if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
+      errorCondition(recall = AVPlots, message = gettextRcmdr("number of points to identify must be an integer"))
+      return()
     }
-    OKCancelHelp(helpSubject = "avPlots", reset = "AVPlots", apply = "AVPlots")
-    tkgrid(identifyFrame, sticky="w")
-    tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
-    tkgrid(identifyPointsFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix()
+    putDialog ("AVPlots", list (initial.identify = identify, initial.id.n=id.n))
+    if (identify == "mouse") {
+      RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
+                                                                   gettextRcmdr(if (MacOSXP()) 
+                                                                     "esc key to exit."
+                                                                     else "right button to exit."), sep = ""), icon = "info", 
+                        type = "ok")
+    }
+    command <- paste("avPlots(", .activeModel, ', id=list(method="', method, '", n=', id.n.use,  "))", sep = "")
+    if (identify == "mouse") command <- suppressMarkdown(command)
+    doItAndPrint(command)
+    activateMenus()
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "avPlots", reset = "AVPlots", apply = "AVPlots")
+  tkgrid(identifyFrame, sticky="w")
+  tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
+  tkgrid(identifyPointsFrame, sticky="w")
+  tkgrid(buttonsFrame, sticky = "w")
+  dialogSuffix()
 }
 
 InfluencePlot <- function () {
-    .activeModel <- ActiveModel()
-    if (is.null(.activeModel) || !checkMethod("influencePlot", .activeModel)) 
-        return()
-    defaults <- list (initial.identify = "auto", initial.id.n="2")
-    dialog.values <- getDialog ("InfluencePlot", defaults)
-    initializeDialog(title = gettextRcmdr("Influence Plot"))
-    identifyPointsFrame <- tkframe(top)
-    radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse"), labels = gettextRcmdr(c("Automatically", 
-                                                                                                               "Interactively with mouse")), title = gettextRcmdr("Identify Points"), 
-                 initialValue = dialog.values$initial.identify)    
-    id.n.Var <- tclVar(dialog.values$initial.id.n) 
-    npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
-    onOK <- function() {
-        id.n <- tclvalue(id.n.Var)
-        identify <- tclvalue(identifyVariable)
-        method <- if (identify == "mouse") "identify" else "noteworthy"
-        closeDialog()
-        if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-            errorCondition(recall = InfluencePlot, message = gettextRcmdr("number of points to identify must be an integer"))
-            return()
-        }
-        putDialog ("InfluencePlot", list (initial.identify = identify, initial.id.n=id.n))
-        if (identify == "mouse") {
-            RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
-                                                                         gettextRcmdr(if (MacOSXP()) 
-                                                                             "esc key to exit."
-                                                                                      else "right button to exit."), sep = ""), icon = "info", 
-                              type = "ok")
-        }
-        command <- paste("influencePlot(", .activeModel, ', id.method="', method, '", id.n=', id.n,  ")", sep = "")
-        if (identify == "mouse") command <- suppressMarkdown(command)
-        doItAndPrint(command)
-        activateMenus()
-        tkfocus(CommanderWindow())
+  .activeModel <- ActiveModel()
+  if (is.null(.activeModel) || !checkMethod("influencePlot", .activeModel)) 
+    return()
+  defaults <- list (initial.identify = "auto", initial.id.n="2")
+  dialog.values <- getDialog ("InfluencePlot", defaults)
+  initializeDialog(title = gettextRcmdr("Influence Plot"))
+  identifyPointsFrame <- tkframe(top)
+  radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse"), labels = gettextRcmdr(c("Automatically", 
+                                                                                                             "Interactively with mouse")), title = gettextRcmdr("Identify Points"), 
+               initialValue = dialog.values$initial.identify)    
+  id.n.Var <- tclVar(dialog.values$initial.id.n) 
+  npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
+  onOK <- function() {
+    id.n <- tclvalue(id.n.Var)
+    identify <- tclvalue(identifyVariable)
+    method <- if (identify == "mouse") "identify" else "noteworthy"
+    closeDialog()
+    if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
+      errorCondition(recall = InfluencePlot, message = gettextRcmdr("number of points to identify must be an integer"))
+      return()
     }
-    OKCancelHelp(helpSubject = "influencePlot", reset = "InfluencePlot", apply = "InfluencePlot")
-    tkgrid(identifyFrame, sticky="w")
-    tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
-    tkgrid(identifyPointsFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix()
+    putDialog ("InfluencePlot", list (initial.identify = identify, initial.id.n=id.n))
+    if (identify == "mouse") {
+      RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
+                                                                   gettextRcmdr(if (MacOSXP()) 
+                                                                     "esc key to exit."
+                                                                     else "right button to exit."), sep = ""), icon = "info", 
+                        type = "ok")
+    }
+    command <- paste("influencePlot(", .activeModel, ', id=list(method="', method, '", n=', id.n,  "))", sep = "")
+    if (identify == "mouse") command <- suppressMarkdown(command)
+    doItAndPrint(command)
+    activateMenus()
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "influencePlot", reset = "InfluencePlot", apply = "InfluencePlot")
+  tkgrid(identifyFrame, sticky="w")
+  tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
+  tkgrid(identifyPointsFrame, sticky="w")
+  tkgrid(buttonsFrame, sticky = "w")
+  dialogSuffix()
 }
 
 anovaTable <- function () {
@@ -411,58 +411,58 @@ addObservationStatistics <- function () {
 }
 
 residualQQPlot <- function () {
-    .activeModel <- ActiveModel()
-    if (is.null(.activeModel) || !checkMethod("qqPlot", .activeModel)) 
-        return()
-    defaults <- list (initial.simulate = 1, initial.identify = "auto", initial.id.n="2")
-    dialog.values <- getDialog ("residualQQPlot", defaults)
-    initializeDialog(title = gettextRcmdr("Residual Quantile-Comparison Plot"))
-    selectFrame <- tkframe(top)
-    simulateVar <- tclVar(dialog.values$initial.simulate)
-    simulateCheckBox <- ttkcheckbutton(selectFrame, variable = simulateVar)
-    identifyPointsFrame <- tkframe(top)
-    radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse", 
-                                                                     "not"), labels = gettextRcmdr(c("Automatically", 
-                                                                                                     "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
-                 initialValue = dialog.values$initial.identify)    
-    id.n.Var <- tclVar(dialog.values$initial.id.n) 
-    npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
-    onOK <- function() {
-        simulate <- tclvalue (simulateVar)  
-        id.n <- tclvalue(id.n.Var)
-        identify <- tclvalue(identifyVariable)
-        method <- if (identify == "mouse") "identify" else "y"
-        id.n.use <- if (identify == "not") 0 else id.n   
-        closeDialog()
-        if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-            errorCondition(recall = residualQQPlot, message = gettextRcmdr("number of points to identify must be an integer"))
-            return()
-        }
-        putDialog ("residualQQPlot", list (initial.simulate = simulate, initial.identify = identify, initial.id.n=id.n))
-        simulate <- tclvalue(simulateVar) == 1
-        if (identify == "mouse") {
-            RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
-                                                                         gettextRcmdr(if (MacOSXP()) 
-                                                                             "esc key to exit."
-                                                                                      else "right button to exit."), sep = ""), icon = "info", 
-                              type = "ok")
-        }
-        command <- paste("qqPlot(", .activeModel, ", simulate=", 
-                         simulate, ', id.method="', method, '", id.n=', id.n.use,  ")", sep = "")
-        if (identify == "mouse") command <- suppressMarkdown(command)
-        doItAndPrint(command)
-        activateMenus()
-        tkfocus(CommanderWindow())
+  .activeModel <- ActiveModel()
+  if (is.null(.activeModel) || !checkMethod("qqPlot", .activeModel)) 
+    return()
+  defaults <- list (initial.simulate = 1, initial.identify = "auto", initial.id.n="2")
+  dialog.values <- getDialog ("residualQQPlot", defaults)
+  initializeDialog(title = gettextRcmdr("Residual Quantile-Comparison Plot"))
+  selectFrame <- tkframe(top)
+  simulateVar <- tclVar(dialog.values$initial.simulate)
+  simulateCheckBox <- ttkcheckbutton(selectFrame, variable = simulateVar)
+  identifyPointsFrame <- tkframe(top)
+  radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse", 
+                                                                   "not"), labels = gettextRcmdr(c("Automatically", 
+                                                                                                   "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
+               initialValue = dialog.values$initial.identify)    
+  id.n.Var <- tclVar(dialog.values$initial.id.n) 
+  npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)      
+  onOK <- function() {
+    simulate <- tclvalue (simulateVar)  
+    id.n <- tclvalue(id.n.Var)
+    identify <- tclvalue(identifyVariable)
+    method <- if (identify == "mouse") "identify" else "y"
+    id.n.use <- if (identify == "not") 0 else id.n   
+    closeDialog()
+    if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
+      errorCondition(recall = residualQQPlot, message = gettextRcmdr("number of points to identify must be an integer"))
+      return()
     }
-    OKCancelHelp(helpSubject = "qqPlot.lm", reset = "residualQQPlot", apply = "residualQQPlot")
-    tkgrid(labelRcmdr(selectFrame, text = gettextRcmdr("Simulated confidence envelope")), 
-           simulateCheckBox, sticky = "w")
-    tkgrid(selectFrame, sticky = "w")
-    tkgrid(identifyFrame, sticky="w")
-    tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
-    tkgrid(identifyPointsFrame, sticky="w")
-    tkgrid(buttonsFrame, sticky = "w")
-    dialogSuffix()
+    putDialog ("residualQQPlot", list (initial.simulate = simulate, initial.identify = identify, initial.id.n=id.n))
+    simulate <- tclvalue(simulateVar) == 1
+    if (identify == "mouse") {
+      RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
+                                                                   gettextRcmdr(if (MacOSXP()) 
+                                                                     "esc key to exit."
+                                                                     else "right button to exit."), sep = ""), icon = "info", 
+                        type = "ok")
+    }
+    command <- paste("qqPlot(", .activeModel, ", simulate=", 
+                     simulate, ', id=list(method="', method, '", n=', id.n.use,  "))", sep = "")
+    if (identify == "mouse") command <- suppressMarkdown(command)
+    doItAndPrint(command)
+    activateMenus()
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "qqPlot.lm", reset = "residualQQPlot", apply = "residualQQPlot")
+  tkgrid(labelRcmdr(selectFrame, text = gettextRcmdr("Simulated confidence envelope")), 
+         simulateCheckBox, sticky = "w")
+  tkgrid(selectFrame, sticky = "w")
+  tkgrid(identifyFrame, sticky="w")
+  tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
+  tkgrid(identifyPointsFrame, sticky="w")
+  tkgrid(buttonsFrame, sticky = "w")
+  dialogSuffix()
 }
 
 testLinearHypothesis <- function(){
@@ -982,7 +982,6 @@ subsetRegression <- function () {
 }
 
 effectPlots <- function () {
-#  Library("effects")
   defaults <- list(initial.all.or.pick = "TRUE", initial.predictors = NULL, 
                    initial.partial.res = 0, initial.span = 50, initial.style = "stacked")
   dialog.values <- getDialog("effectPlots", defaults)
@@ -1018,9 +1017,9 @@ effectPlots <- function () {
     closeDialog() 
     if (allEffects){
       command <- if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("multinom", "polr"))
-        paste("plot(allEffects(", activeModel(), '), style="', style, '")', sep="")
+        paste("plot(allEffects(", activeModel(), '), axes=list(y=list(style="', style, '")))', sep="")
       else paste("plot(allEffects(", activeModel(), 
-                 if (partial.residuals) paste(", partial.residuals=TRUE), span=", span/100, ")", sep="")
+                 if (partial.residuals) paste(", residuals=TRUE), partial.residuals=list(span=", span/100, "))", sep="")
                  else "))", sep="")
       doItAndPrint(command)
       predictors <- NULL
@@ -1038,9 +1037,9 @@ effectPlots <- function () {
       }
       command <- if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("multinom", "polr"))
         paste("plot(Effect(c(", paste(paste('"', predictors, '"', sep=""), collapse=", "), "), ", 
-              activeModel(), '), style="', style, '")', sep="")      
+              activeModel(), '), axes=list(y=list(style="', style, '")))', sep="")      
       else paste("plot(Effect(c(", paste(paste('"', predictors, '"', sep=""), collapse=", "), "), ", activeModel(),
-                 if (partial.residuals) paste(", partial.residuals=TRUE), span=", span/100, ")", sep="")
+                 if (partial.residuals) paste(", residuals=TRUE), partial.residuals=list(span=", span/100, "))", sep="")
                  else "))", sep = "")
       doItAndPrint(command)
     }
