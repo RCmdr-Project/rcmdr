@@ -322,7 +322,7 @@ varPosn(variables,
 WindowsP()
 X11P()
 
-# the following functions are exported for technical reasons,
+# the following function is exported for technical reasons,
 # but are not meant to be called directly
 
 commanderPosition()
@@ -493,10 +493,12 @@ commanderPosition()
   \item{window, parentWindow}{a Tk window.}
   \item{x}{an R object name, as a character string, or a tcl variable or object, or a vector of
     variable names to be sorted.}
-  \item{\dots}{For \code{gettextRcmdr}, text string or vector of text strings
-    to translate; 
+  \item{\dots}{For \code{gettextRcmdr}, text string or vector of text strings to translate; 
     for \code{titleLabel}, arguments to be passed to \code{labelRcmdr} and from there to \code{ttklabel};
-    for \code{defmacro}, arguments for the macro; otherwise disregard.}
+    for \code{defmacro}, arguments for the macro; 
+    for \code{data} (which is re-exported from the \pkg{utils} package for technical reasons) 
+      see the documentation for \code{\link[utils]{data}}; 
+    otherwise you should disregard this argument.}
 }
 
 \details{

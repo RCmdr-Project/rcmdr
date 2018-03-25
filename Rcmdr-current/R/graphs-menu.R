@@ -856,7 +856,7 @@ scatterPlotMatrix <- function () {
     smooth <- as.character("1" == tclvalue(smoothLineVariable))
     spread <- as.character("1" == tclvalue(spreadVariable))
     id.n <- tclvalue(id.n.Var)
-    identify.text <- if (id.n != "0") paste0(", id=list(method='mahal', n=", id.n, ")") else ""
+    identify.text <- if (id.n != "0") paste0(', id=list(method="mahal", n=', id.n, ")") else ""
     if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
       errorCondition(recall = scatterPlotMatrix,
                      message = gettextRcmdr("number of points to identify must be an integer"))
