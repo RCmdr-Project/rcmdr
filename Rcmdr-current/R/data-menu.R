@@ -1,4 +1,4 @@
-# last modified 2017-10-06 by J. Fox
+# last modified 2018-04-11 by J. Fox
 
 # Data menu dialogs
 
@@ -173,7 +173,7 @@ RecodeDialog <- function () {
         }
       }
       command <- paste(command, "\n  ", newVar, " <- Recode(", variable, ", '", 
-                       recode.directives, "', as.factor.result=", asFactor, 
+                       recode.directives, "', as.factor=", asFactor, 
                        ")", sep = "")  
     }
     command <- paste(command, "\n})", sep="")

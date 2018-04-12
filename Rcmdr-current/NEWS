@@ -1,3 +1,7 @@
+Changes in version 2.4-4
+
+  o Fixed bug in recode dialog due to inconsistency with Recode() in car 3.0-0 (reported by Stylianos Serghiou).
+
 Changes to version 2.4-3
 
   o Updated several dialogs (scatterplot, scatterplot matrix, density plot, boxplot, QQ plot, 3D scatterplot, residual QQ plot, C+R plots, AV plots, influence plot, effect plots) for version 3.0-0 of the car package and version 4.0-1 of the effects package.
