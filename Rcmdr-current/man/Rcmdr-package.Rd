@@ -13,7 +13,7 @@ user interface) for R, based on the tcltk package.
 \tabular{ll}{
 Package: \tab Rcmdr\cr
 Version: \tab 2.4-4\cr
-Date: \tab 2018-04-11\cr
+Date: \tab 2018-04-16\cr
 Depends: \tab R (>= 3.4.0), grDevices, graphics, methods, stats, utils, splines, 
   RcmdrMisc (>= 1.0-6), car (>= 3.0-0), effects (>= 4.0-1)\cr
 Imports: \tab tcltk, tcltk2 (>= 1.2-6), abind, relimp (>= 1.0-5)\cr

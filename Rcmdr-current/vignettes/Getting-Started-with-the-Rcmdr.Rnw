@@ -124,8 +124,6 @@ the \textbf{R Commander} installation notes.}%
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=6.560400in,
-natwidth=9.080100in,
 height=3.4388in,
 width=4.7497in
 ]%
@@ -138,8 +136,6 @@ package.}%
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=10.800300in,
-natwidth=9.293400in,
 height=5.6272in,
 width=4.846in
 ]%
@@ -954,8 +950,6 @@ default name of the data set is \texttt{Dataset}. We have changed the name to
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=7.053500in,
-natwidth=7.546700in,
 height=3.6961in,
 width=3.9535in
 ]%
@@ -967,8 +961,6 @@ width=3.9535in
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=9.599800in,
-natwidth=13.159800in,
 height=5.0203in,
 width=6.8709in
 ]%
@@ -1106,8 +1098,6 @@ $\emph{\ Load packages}.%
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=3.813200in,
-natwidth=5.106700in,
 height=2.0108in,
 width=2.6833in
 ]%
@@ -1153,8 +1143,6 @@ to a dialog box, as is more typical of \textbf{R Commander} menus.%
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=10.800300in,
-natwidth=9.293400in,
 height=5.6446in,
 width=4.8609in
 ]%
@@ -1166,8 +1154,6 @@ width=4.8609in
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=4.466600in,
-natwidth=6.533000in,
 height=2.352in,
 width=3.4255in
 ]%
@@ -1203,8 +1189,6 @@ the \emph{Output} pane):
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=4.466600in,
-natwidth=6.533000in,
 height=2.352in,
 width=3.4255in
 ]%
@@ -1242,8 +1226,6 @@ typically appear and the dialog box will reopen.%
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=6.400100in,
-natwidth=7.813200in,
 height=3.3574in,
 width=4.0913in
 ]%
@@ -1255,8 +1237,6 @@ width=4.0913in
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=4.466600in,
-natwidth=6.533000in,
 height=2.352in,
 width=3.4255in
 ]%
@@ -1320,8 +1300,6 @@ scatterplot...} appear in a special \emph{RGL device} window.}%
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=3.933600in,
-natwidth=6.533000in,
 height=2.073in,
 width=3.4255in
 ]%
@@ -1333,8 +1311,6 @@ width=3.4255in
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=9.733500in,
-natwidth=9.173000in,
 height=4.4076in,
 width=4.1569in
 ]%
@@ -1369,8 +1345,6 @@ resulting list. Recall that the \texttt{Prestige} data were read from the
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=5.667100in,
-natwidth=9.333300in,
 height=2.9747in,
 width=4.8817in
 ]%
@@ -1503,8 +1477,6 @@ items in the \emph{Help} menu require an active Internet connection.}%
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=5.119900in,
-natwidth=9.439600in,
 height=2.6907in,
 width=4.9373in
 ]%
@@ -1641,8 +1613,6 @@ able to write text in the editor as you go. See the editor help for more informa
 \begin{figure}[ptb]%
 \centering
 \includegraphics[
-natheight=10.306300in,
-natwidth=9.826400in,
 height=5.3873in,
 width=5.1374in
 ]%

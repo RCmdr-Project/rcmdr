@@ -1,6 +1,8 @@
 Changes in version 2.4-4
 
   o Fixed bug in recode dialog due to inconsistency with Recode() in car 3.0-0 (reported by Stylianos Serghiou).
+  
+  o Removed natwidth, natheight parameters from \includegraphics{} in Getting Started manual to avoid omission of figures from CRAN build of manual.
 
 Changes to version 2.4-3
 
