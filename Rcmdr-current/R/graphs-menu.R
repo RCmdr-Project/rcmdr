@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2018-03-20 by J. Fox
+# last modified 2018-07-21 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -1225,211 +1225,224 @@ linePlot <- function () {
 }
 
 QQPlot <- function () {
-  # this function modified by Martin Maechler
-  defaults <- list(initial.x = NULL, initial.dist = "norm", initial.df = "",
-                   initial.chisqdf = "", initial.fdf1 = "", initial.fdf2 = "", initial.othername = "",
-                   initial.otherparam = "", initial.identify = "auto", initial.id.n="2",
-                   initial.tab=0, initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"),
-                   initial.main=gettextRcmdr("<auto>"))
-  dialog.values <- getDialog("QQPlot", defaults)
-  initializeDialog(title = gettextRcmdr("Quantile-Comparison (QQ) Plot"), use.tabs=TRUE)
-  xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
-                          initialSelection = varPosn (dialog.values$initial.x, "numeric"))
-  optionsFrame <- tkframe(optionsTab)
-  optFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Options"),
-                                                              font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
-  parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
-                                                              font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
-  identifyPointsFrame <- tkframe(optFrame)
-  radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse",
-                                                                   "not"), labels = gettextRcmdr(c("Automatically",
-                                                                                                   "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"),
-               initialValue = dialog.values$initial.identify)
-  id.n.Var <- tclVar(dialog.values$initial.id.n)
-  npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)
-  xlabVar <- tclVar(dialog.values$initial.xlab)
-  ylabVar <- tclVar(dialog.values$initial.ylab)
-  mainVar <- tclVar(dialog.values$initial.main)
-  xlabEntry <- ttkentry(parFrame, width = "25", textvariable = xlabVar)
-  xlabScroll <- ttkscrollbar(parFrame, orient = "horizontal",
-                             command = function(...) tkxview(xlabEntry, ...))
-  tkconfigure(xlabEntry, xscrollcommand = function(...) tkset(xlabScroll,
-                                                              ...))
-  tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("x-axis label")), xlabEntry, sticky = "ew", padx=6)
-  tkgrid(labelRcmdr(parFrame, text =""), xlabScroll, sticky = "ew", padx=6)
-  ylabEntry <- ttkentry(parFrame, width = "25", textvariable = ylabVar)
-  ylabScroll <- ttkscrollbar(parFrame, orient = "horizontal",
-                             command = function(...) tkxview(ylabEntry, ...))
-  tkconfigure(ylabEntry, xscrollcommand = function(...) tkset(ylabScroll,
-                                                              ...))
-  tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("y-axis label")), ylabEntry, sticky = "ew", padx=6)
-  tkgrid(labelRcmdr(parFrame, text =""), ylabScroll, sticky = "ew", padx=6)
-  mainEntry <- ttkentry(parFrame, width = "25", textvariable = mainVar)
-  mainScroll <- ttkscrollbar(parFrame, orient = "horizontal",
-                             command = function(...) tkxview(mainEntry, ...))
-  tkconfigure(mainEntry, xscrollcommand = function(...) tkset(mainScroll,
-                                                              ...))
-  tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("Graph title")), mainEntry, sticky = "ew", padx=6)
-  tkgrid(labelRcmdr(parFrame, text=""), mainScroll, sticky = "ew", padx=6)
-  onOK <- function() {
-    tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
-    x <- getSelection(xBox)
-    initial.dist <-dist <- tclvalue(distVariable)
-    tdf <- tclvalue(tDfVariable)
-    chisqdf <- tclvalue(chisqDfVariable)
-    fdf1 <- tclvalue(FDf1Variable)
-    fdf2 <- tclvalue(FDf2Variable)
-    othername <- tclvalue(otherNameVariable)
-    otherparam <- tclvalue(otherParamsVariable)
-    id.n <- tclvalue(id.n.Var)
-    identify <- tclvalue(identifyVariable)
-    method <- if (identify == "mouse") "identify" else "y"
-    id.n.use <- if (identify == "not") 0 else id.n
-    closeDialog()
-    if (0 == length(x)) {
-      errorCondition(recall = QQPlot, message = gettextRcmdr("You must select a variable."))
-      return()
+    # this function modified by Martin Maechler
+    defaults <- list(initial.x = NULL, initial.dist = "norm", initial.df = "",
+                     initial.chisqdf = "", initial.fdf1 = "", initial.fdf2 = "", initial.othername = "",
+                     initial.otherparam = "", initial.identify = "auto", initial.id.n="2",
+                     initial.tab=0, initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"),
+                     initial.main=gettextRcmdr("<auto>"), initial.group = NULL)
+    dialog.values <- getDialog("QQPlot", defaults)
+    initial.group <- dialog.values$initial.group
+    .groups <- if (is.null(initial.group)) FALSE else initial.group
+    initializeDialog(title = gettextRcmdr("Quantile-Comparison (QQ) Plot"), use.tabs=TRUE)
+    xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
+                            initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+    optionsFrame <- tkframe(optionsTab)
+    optFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Options"),
+                                                                font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+    parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
+                                                                font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+    identifyPointsFrame <- tkframe(optFrame)
+    radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse",
+                                                                     "not"), labels = gettextRcmdr(c("Automatically",
+                                                                                                     "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"),
+                 initialValue = dialog.values$initial.identify)
+    id.n.Var <- tclVar(dialog.values$initial.id.n)
+    npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var)
+    xlabVar <- tclVar(dialog.values$initial.xlab)
+    ylabVar <- tclVar(dialog.values$initial.ylab)
+    mainVar <- tclVar(dialog.values$initial.main)
+    xlabEntry <- ttkentry(parFrame, width = "25", textvariable = xlabVar)
+    xlabScroll <- ttkscrollbar(parFrame, orient = "horizontal",
+                               command = function(...) tkxview(xlabEntry, ...))
+    tkconfigure(xlabEntry, xscrollcommand = function(...) tkset(xlabScroll,
+                                                                ...))
+    tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("x-axis label")), xlabEntry, sticky = "ew", padx=6)
+    tkgrid(labelRcmdr(parFrame, text =""), xlabScroll, sticky = "ew", padx=6)
+    ylabEntry <- ttkentry(parFrame, width = "25", textvariable = ylabVar)
+    ylabScroll <- ttkscrollbar(parFrame, orient = "horizontal",
+                               command = function(...) tkxview(ylabEntry, ...))
+    tkconfigure(ylabEntry, xscrollcommand = function(...) tkset(ylabScroll,
+                                                                ...))
+    tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("y-axis label")), ylabEntry, sticky = "ew", padx=6)
+    tkgrid(labelRcmdr(parFrame, text =""), ylabScroll, sticky = "ew", padx=6)
+    mainEntry <- ttkentry(parFrame, width = "25", textvariable = mainVar)
+    mainScroll <- ttkscrollbar(parFrame, orient = "horizontal",
+                               command = function(...) tkxview(mainEntry, ...))
+    tkconfigure(mainEntry, xscrollcommand = function(...) tkset(mainScroll,
+                                                                ...))
+    tkgrid(labelRcmdr(parFrame, text = gettextRcmdr("Graph title")), mainEntry, sticky = "ew", padx=6)
+    tkgrid(labelRcmdr(parFrame, text=""), mainScroll, sticky = "ew", padx=6)
+    onOK <- function() {
+        tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
+        x <- getSelection(xBox)
+        initial.dist <-dist <- tclvalue(distVariable)
+        tdf <- tclvalue(tDfVariable)
+        chisqdf <- tclvalue(chisqDfVariable)
+        fdf1 <- tclvalue(FDf1Variable)
+        fdf2 <- tclvalue(FDf2Variable)
+        othername <- tclvalue(otherNameVariable)
+        otherparam <- tclvalue(otherParamsVariable)
+        id.n <- tclvalue(id.n.Var)
+        identify <- tclvalue(identifyVariable)
+        method <- if (identify == "mouse") "identify" else "y"
+        id.n.use <- if (identify == "not") 0 else id.n
+        closeDialog()
+        if (0 == length(x)) {
+            errorCondition(recall = QQPlot, message = gettextRcmdr("You must select a variable."))
+            return()
+        }
+        save <- options(warn = -1)
+        on.exit(save)
+        retryMe <- function(msg) {
+            Message(message = msg, type = "error")
+            QQPlot()
+        }
+        switch(dist, norm = {
+            args <- "dist=\"norm\""
+        }, t = {
+            df <- tclvalue(tDfVariable)
+            df.num <- as.numeric(df)
+            if (is.na(df.num) || df.num < 1) {
+                retryMe(gettextRcmdr("df for t must be a positive number."))
+                return()
+            }
+            args <- paste("dist=\"t\", df=", df, sep = "")
+        }, chisq = {
+            df <- tclvalue(chisqDfVariable)
+            df.num <- as.numeric(df)
+            if (is.na(df.num) || df.num < 1) {
+                retryMe(gettextRcmdr("df for chi-square must be a positive number."))
+                return()
+            }
+            args <- paste("dist=\"chisq\", df=", df, sep = "")
+        }, f = {
+            df1 <- tclvalue(FDf1Variable)
+            df2 <- tclvalue(FDf2Variable)
+            df.num1 <- as.numeric(df1)
+            df.num2 <- as.numeric(df2)
+            if (is.na(df.num1) || df.num1 < 1 || is.na(df.num2) ||
+                df.num2 < 1) {
+                retryMe(gettextRcmdr("numerator and denominator \ndf for F must be positive numbers."))
+                return()
+            }
+            args <- paste("dist=\"f\", df1=", df1, ", df2=",
+                          df2, sep = "")
+        }, {
+            dist <- tclvalue(otherNameVariable)
+            params <- tclvalue(otherParamsVariable)
+            args <- paste("dist=\"", dist, "\", ", params, sep = "")
+        })
+        if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
+            errorCondition(recall = QQPlot, message = gettextRcmdr("number of points to identify must be an integer"))
+            return()
+        }
+        xlab <- trim.blanks(tclvalue(xlabVar))
+        xlab <- if (xlab == gettextRcmdr("<auto>"))
+            ""
+        else paste(", xlab=\"", xlab, "\"", sep = "")
+        ylab <- trim.blanks(tclvalue(ylabVar))
+        ylab <- if (ylab == gettextRcmdr("<auto>"))
+            ""
+        else paste(", ylab=\"", ylab, "\"", sep = "")
+        main <- trim.blanks(tclvalue(mainVar))
+        main <- if (main == gettextRcmdr("<auto>"))
+            ""
+        else paste(", main=\"", main, "\"", sep = "")
+        putDialog ("QQPlot", list (initial.x = x, initial.dist = initial.dist,
+                                   initial.identify = identify, initial.df = tdf, initial.chisqdf = chisqdf,
+                                   initial.fdf1 = fdf1, initial.fdf2 = fdf2, initial.othername = othername,
+                                   initial.otherparam = otherparam, initial.identify = identify, initial.id.n=id.n,
+                                   initial.tab=tab, initial.xlab=tclvalue(xlabVar),
+                                   initial.ylab=tclvalue(ylabVar), initial.main=tclvalue(mainVar),
+                                   initial.group=if (.groups == FALSE) NULL else .groups))
+        .activeDataSet <- ActiveDataSet()
+        if (identify == "mouse") {
+            RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"),
+                                                                         gettextRcmdr(if (MacOSXP())
+                                                                             "esc key to exit."
+                                                                             else "right button to exit."), sep = ""), icon = "info",
+                              type = "ok")
+        }
+        command <- if (is.null(.groups) || .groups == FALSE) {
+            paste("with(", .activeDataSet, ", qqPlot", "(", 
+                  x, ", ", args, ', id=list(method="', method, '", n=', id.n.use, ", labels=rownames(", .activeDataSet, "))", xlab,
+                  ylab, main, "))", sep = "")
+        } else {
+            paste("with(", .activeDataSet, ", qqPlot", "(", 
+                  x, ", ", args, ', id=list(method="', method, '", n=', id.n.use, ", labels=rownames(", .activeDataSet, "))", xlab,
+                  ylab, main, ", groups=", .groups, "))", sep = "")
+        }
+        if (identify == "mouse") command <- suppressMarkdown(command)
+        doItAndPrint(command)
+        activateMenus()
+        tkfocus(CommanderWindow())
     }
-    save <- options(warn = -1)
-    on.exit(save)
-    retryMe <- function(msg) {
-      Message(message = msg, type = "error")
-      QQPlot()
-    }
-    switch(dist, norm = {
-      args <- "dist=\"norm\""
-    }, t = {
-      df <- tclvalue(tDfVariable)
-      df.num <- as.numeric(df)
-      if (is.na(df.num) || df.num < 1) {
-        retryMe(gettextRcmdr("df for t must be a positive number."))
-        return()
-      }
-      args <- paste("dist=\"t\", df=", df, sep = "")
-    }, chisq = {
-      df <- tclvalue(chisqDfVariable)
-      df.num <- as.numeric(df)
-      if (is.na(df.num) || df.num < 1) {
-        retryMe(gettextRcmdr("df for chi-square must be a positive number."))
-        return()
-      }
-      args <- paste("dist=\"chisq\", df=", df, sep = "")
-    }, f = {
-      df1 <- tclvalue(FDf1Variable)
-      df2 <- tclvalue(FDf2Variable)
-      df.num1 <- as.numeric(df1)
-      df.num2 <- as.numeric(df2)
-      if (is.na(df.num1) || df.num1 < 1 || is.na(df.num2) ||
-          df.num2 < 1) {
-        retryMe(gettextRcmdr("numerator and denominator \ndf for F must be positive numbers."))
-        return()
-      }
-      args <- paste("dist=\"f\", df1=", df1, ", df2=",
-                    df2, sep = "")
-    }, {
-      dist <- tclvalue(otherNameVariable)
-      params <- tclvalue(otherParamsVariable)
-      args <- paste("dist=\"", dist, "\", ", params, sep = "")
-    })
-    if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-      errorCondition(recall = QQPlot, message = gettextRcmdr("number of points to identify must be an integer"))
-      return()
-    }
-    xlab <- trim.blanks(tclvalue(xlabVar))
-    xlab <- if (xlab == gettextRcmdr("<auto>"))
-      ""
-    else paste(", xlab=\"", xlab, "\"", sep = "")
-    ylab <- trim.blanks(tclvalue(ylabVar))
-    ylab <- if (ylab == gettextRcmdr("<auto>"))
-      ""
-    else paste(", ylab=\"", ylab, "\"", sep = "")
-    main <- trim.blanks(tclvalue(mainVar))
-    main <- if (main == gettextRcmdr("<auto>"))
-      ""
-    else paste(", main=\"", main, "\"", sep = "")
-    putDialog ("QQPlot", list (initial.x = x, initial.dist = initial.dist,
-                               initial.identify = identify, initial.df = tdf, initial.chisqdf = chisqdf,
-                               initial.fdf1 = fdf1, initial.fdf2 = fdf2, initial.othername = othername,
-                               initial.otherparam = otherparam, initial.identify = identify, initial.id.n=id.n,
-                               initial.tab=tab, initial.xlab=tclvalue(xlabVar),
-                               initial.ylab=tclvalue(ylabVar), initial.main=tclvalue(mainVar)))
-    .activeDataSet <- ActiveDataSet()
-    if (identify == "mouse") {
-      RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"),
-                                                                   gettextRcmdr(if (MacOSXP())
-                                                                     "esc key to exit."
-                                                                     else "right button to exit."), sep = ""), icon = "info",
-                        type = "ok")
-    }
-    command <- paste("with(", .activeDataSet, ", qqPlot", "(", 
-                     x, ", ", args, ', id=list(method="', method, '", n=', id.n.use, ", labels=rownames(", .activeDataSet, "))", xlab,
-                     ylab, main, "))", sep = "")
-    if (identify == "mouse") command <- suppressMarkdown(command)
-    doItAndPrint(command)
-    activateMenus()
-    tkfocus(CommanderWindow())
-  }
-  OKCancelHelp(helpSubject = "qqPlot", reset = "QQPlot", apply="QQPlot")
-  distFrame <- tkframe(optFrame)
-  distVariable <- tclVar(dialog.values$initial.dist)
-  normalButton <- ttkradiobutton(distFrame, variable = distVariable,
-                                 value = "norm")
-  tButton <- ttkradiobutton(distFrame, variable = distVariable,
-                            value = "t")
-  chisqButton <- ttkradiobutton(distFrame, variable = distVariable,
-                                value = "chisq")
-  FButton <- ttkradiobutton(distFrame, variable = distVariable,
-                            value = "f")
-  otherButton <- ttkradiobutton(distFrame, variable = distVariable,
-                                value = "other")
-  tDfFrame <- tkframe(distFrame)
-  tDfVariable <- tclVar(dialog.values$initial.df)
-  tDfField <- ttkentry(tDfFrame, width = "6", textvariable = tDfVariable)
-  chisqDfFrame <- tkframe(distFrame)
-  chisqDfVariable <- tclVar(dialog.values$initial.chisqdf)
-  chisqDfField <- ttkentry(chisqDfFrame, width = "6", textvariable = chisqDfVariable)
-  FDfFrame <- tkframe(distFrame)
-  FDf1Variable <- tclVar(dialog.values$initial.fdf1)
-  FDf1Field <- ttkentry(FDfFrame, width = "6", textvariable = FDf1Variable)
-  FDf2Variable <- tclVar(dialog.values$initial.fdf2)
-  FDf2Field <- ttkentry(FDfFrame, width = "6", textvariable = FDf2Variable)
-  otherParamsFrame <- tkframe(distFrame)
-  otherParamsVariable <- tclVar(dialog.values$initial.otherparam)
-  otherParamsField <- ttkentry(otherParamsFrame, width = "30",
-                               textvariable = otherParamsVariable)
-  otherNameVariable <- tclVar(dialog.values$initial.othername)
-  otherNameField <- ttkentry(otherParamsFrame, width = "10",
-                             textvariable = otherNameVariable)
-  tkgrid(getFrame(xBox), sticky = "nw")
-  tkgrid(labelRcmdr(distFrame, text = gettextRcmdr("Distribution"),
-                    fg = getRcmdr("title.color"), font="RcmdrTitleFont"), columnspan = 6, sticky = "w")
-  tkgrid(normalButton, labelRcmdr(distFrame, text = gettextRcmdr("Normal")),
-         sticky = "w")
-  tkgrid(labelRcmdr(tDfFrame, text = gettextRcmdr("df = ")),
-         tDfField, sticky = "w")
-  tkgrid(tButton, labelRcmdr(distFrame, text = "t"), tDfFrame,
-         sticky = "w")
-  tkgrid(labelRcmdr(chisqDfFrame, text = gettextRcmdr("df = ")),
-         chisqDfField, sticky = "w")
-  tkgrid(chisqButton, labelRcmdr(distFrame, text = gettextRcmdr("Chi-square")),
-         chisqDfFrame, sticky = "w")
-  tkgrid(labelRcmdr(FDfFrame, text = gettextRcmdr("Numerator df = ")),
-         FDf1Field, labelRcmdr(FDfFrame, text = gettextRcmdr("Denominator df = ")),
-         FDf2Field, sticky = "w")
-  tkgrid(FButton, labelRcmdr(distFrame, text = "F"), FDfFrame,
-         sticky = "w")
-  tkgrid(labelRcmdr(otherParamsFrame, text = gettextRcmdr("Specify: ")),
-         otherNameField, labelRcmdr(otherParamsFrame, text = gettextRcmdr("Parameters: ")),
-         otherParamsField, sticky = "w")
-  tkgrid(otherButton, labelRcmdr(distFrame, text = gettextRcmdr("Other")),
-         otherParamsFrame, sticky = "w")
-  tkgrid(distFrame, sticky = "w")
-  tkgrid(identifyFrame, sticky="w")
-  tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
-  tkgrid(identifyPointsFrame, sticky="w")
-  tkgrid(optFrame, parFrame, sticky = "nswe", padx=6, pady=6)
-  tkgrid(optionsFrame, sticky = "w")
-  dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
+    groupsBox(QQPlot, initialGroup=initial.group,
+              initialLabel=if (is.null(initial.group)) gettextRcmdr("Plot by groups")
+              else paste(gettextRcmdr("Plot by:"), initial.group), window=dataTab)
+    OKCancelHelp(helpSubject = "qqPlot", reset = "QQPlot", apply="QQPlot")
+    distFrame <- tkframe(optFrame)
+    distVariable <- tclVar(dialog.values$initial.dist)
+    normalButton <- ttkradiobutton(distFrame, variable = distVariable,
+                                   value = "norm")
+    tButton <- ttkradiobutton(distFrame, variable = distVariable,
+                              value = "t")
+    chisqButton <- ttkradiobutton(distFrame, variable = distVariable,
+                                  value = "chisq")
+    FButton <- ttkradiobutton(distFrame, variable = distVariable,
+                              value = "f")
+    otherButton <- ttkradiobutton(distFrame, variable = distVariable,
+                                  value = "other")
+    tDfFrame <- tkframe(distFrame)
+    tDfVariable <- tclVar(dialog.values$initial.df)
+    tDfField <- ttkentry(tDfFrame, width = "6", textvariable = tDfVariable)
+    chisqDfFrame <- tkframe(distFrame)
+    chisqDfVariable <- tclVar(dialog.values$initial.chisqdf)
+    chisqDfField <- ttkentry(chisqDfFrame, width = "6", textvariable = chisqDfVariable)
+    FDfFrame <- tkframe(distFrame)
+    FDf1Variable <- tclVar(dialog.values$initial.fdf1)
+    FDf1Field <- ttkentry(FDfFrame, width = "6", textvariable = FDf1Variable)
+    FDf2Variable <- tclVar(dialog.values$initial.fdf2)
+    FDf2Field <- ttkentry(FDfFrame, width = "6", textvariable = FDf2Variable)
+    otherParamsFrame <- tkframe(distFrame)
+    otherParamsVariable <- tclVar(dialog.values$initial.otherparam)
+    otherParamsField <- ttkentry(otherParamsFrame, width = "30",
+                                 textvariable = otherParamsVariable)
+    otherNameVariable <- tclVar(dialog.values$initial.othername)
+    otherNameField <- ttkentry(otherParamsFrame, width = "10",
+                               textvariable = otherNameVariable)
+    tkgrid(getFrame(xBox), sticky = "nw")
+    tkgrid(groupsFrame, sticky = "w")
+    tkgrid(labelRcmdr(distFrame, text = gettextRcmdr("Distribution"),
+                      fg = getRcmdr("title.color"), font="RcmdrTitleFont"), columnspan = 6, sticky = "w")
+    tkgrid(normalButton, labelRcmdr(distFrame, text = gettextRcmdr("Normal")),
+           sticky = "w")
+    tkgrid(labelRcmdr(tDfFrame, text = gettextRcmdr("df = ")),
+           tDfField, sticky = "w")
+    tkgrid(tButton, labelRcmdr(distFrame, text = "t"), tDfFrame,
+           sticky = "w")
+    tkgrid(labelRcmdr(chisqDfFrame, text = gettextRcmdr("df = ")),
+           chisqDfField, sticky = "w")
+    tkgrid(chisqButton, labelRcmdr(distFrame, text = gettextRcmdr("Chi-square")),
+           chisqDfFrame, sticky = "w")
+    tkgrid(labelRcmdr(FDfFrame, text = gettextRcmdr("Numerator df = ")),
+           FDf1Field, labelRcmdr(FDfFrame, text = gettextRcmdr("Denominator df = ")),
+           FDf2Field, sticky = "w")
+    tkgrid(FButton, labelRcmdr(distFrame, text = "F"), FDfFrame,
+           sticky = "w")
+    tkgrid(labelRcmdr(otherParamsFrame, text = gettextRcmdr("Specify: ")),
+           otherNameField, labelRcmdr(otherParamsFrame, text = gettextRcmdr("Parameters: ")),
+           otherParamsField, sticky = "w")
+    tkgrid(otherButton, labelRcmdr(distFrame, text = gettextRcmdr("Other")),
+           otherParamsFrame, sticky = "w")
+    tkgrid(distFrame, sticky = "w")
+    tkgrid(identifyFrame, sticky="w")
+    tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
+    tkgrid(identifyPointsFrame, sticky="w")
+    tkgrid(optFrame, parFrame, sticky = "nswe", padx=6, pady=6)
+    tkgrid(optionsFrame, sticky = "w")
+    dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
 
 PlotMeans <- function () {
