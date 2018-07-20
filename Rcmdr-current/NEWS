@@ -1,3 +1,7 @@
+Changes in version 2.5-0
+
+  o Added Predictor Effect Plots dialog to Models menu.
+
 Changes in version 2.4-4
 
   o Fixed bug in recode dialog due to inconsistency with Recode() in car 3.0-0 (reported by Stylianos Serghiou).

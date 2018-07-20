@@ -56,4 +56,4 @@ globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                   'legendVariable', 'legendFrame', 'legendPositionVariable', 'legendPositionFrame',
                   'valuesOrQuantilesVariable', 'valuesOrQuantilesFrame',
                   'conditionalVariable', 'colorsVariable', 'colorsFrame', 'conditionalFrame',
-                  'countsVariable'))
+                  'countsVariable', 'allPredictorEffectsFrame', 'allPredictorEffectsVariable'))

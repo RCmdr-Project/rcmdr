@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2017-04-17 by J. Fox
+# last modified 2018-07-21 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -227,6 +227,8 @@
     item    modelsGraphsMenu      command         "Added-variable plots..."                          AVPlots                     "modelCapability('avp')" "packageAvailable('car')"
     item    modelsGraphsMenu      command         "Influence plot..."                                InfluencePlot               "modelCapability('infp')" "packageAvailable('car')"
     item    modelsGraphsMenu      command         "Effect plots..."                                  effectPlots                 "modelCapability('effp')" "packageAvailable('effects')"
+    item    modelsGraphsMenu      command         "Predictor effect plots..."                        predictorEffectPlots                 "modelCapability('effp')" "packageAvailable('effects')"
+
     item    topMenu         cascade         "Models"                                        modelsMenu                  ""          ""
 
     # Distributions
