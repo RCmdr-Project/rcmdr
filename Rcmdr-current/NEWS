@@ -3,6 +3,8 @@ Changes in version 2.5-0
   o Added Predictor Effect Plots dialog to Models menu.
   
   o QQ plots may be drawn by groups.
+  
+  o Index plots may be marked by groups.
 
 Changes in version 2.4-4
 

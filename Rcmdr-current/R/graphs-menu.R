@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2018-07-21 by J. Fox
+# last modified 2018-07-22 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -10,8 +10,10 @@
 indexPlot <- function () {
     defaults <- list(initial.x = NULL, initial.type = "spikes", initial.identify = "auto",
                      initial.id.n="2", initial.tab=0, 
-                     initial.ylab=gettextRcmdr("<auto>"), initial.main=gettextRcmdr("<auto>"))
+                     initial.ylab=gettextRcmdr("<auto>"), initial.main=gettextRcmdr("<auto>"), initial.group = NULL)
     dialog.values <- getDialog("indexPlot", defaults)
+    initial.group <- dialog.values$initial.group
+    .groups <- if (is.null(initial.group)) FALSE else initial.group
     initializeDialog(title = gettextRcmdr("Index Plot"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one or more)"), 
                             selectmode = "multiple", initialSelection = varPosn (dialog.values$initial.x, "numeric"))
@@ -81,7 +83,8 @@ indexPlot <- function () {
         }
         putDialog ("indexPlot", list(initial.x = x, initial.type = tclvalue(typeVariable), initial.identify = identify,
                                      initial.id.n = id.n, initial.tab=tab,
-                                     initial.ylab = tclvalue(ylabVar), initial.main = tclvalue(mainVar)))
+                                     initial.ylab = tclvalue(ylabVar), initial.main = tclvalue(mainVar),
+                                     initial.group=if (.groups == FALSE) NULL else .groups))
         type <- if (tclvalue(typeVariable) == "spikes") "h" else "p"
         method <- if (identify == "mouse") "identify" else "y"
         id.n.use <- if (identify == "not") 0 else id.n
@@ -95,16 +98,26 @@ indexPlot <- function () {
         }
         x <- if (n.x == 1) paste0("'", x, "'")
         else paste0("c(", paste(paste0("'", x, "'"), collapse=", "), ")")
-        command <- paste0("indexplot(", .activeDataSet, "[,", x, ", drop=FALSE], type='", type,
-                          "', id.method='", method, "', id.n=", id.n.use,
-                          ylab, main, ")") # Modification
+        command <- if (is.null(.groups) || .groups == FALSE) {
+            paste0("indexplot(", .activeDataSet, "[,", x, ", drop=FALSE], type='", type,
+                   "', id.method='", method, "', id.n=", id.n.use,
+                   ylab, main, ")") 
+        } else {
+            paste0("indexplot(", .activeDataSet, "[,", x, ", drop=FALSE], type='", type,
+                   "', id.method='", method, "', id.n=", id.n.use,
+                   ylab, main, ", groups=", .activeDataSet, "$", .groups, ")") 
+        }
         if (identify == "mouse") command <- suppressMarkdown(command)
         doItAndPrint(command)
         activateMenus()
         tkfocus(CommanderWindow())
     }
+    groupsBox(indexPlot, initialGroup=initial.group,
+              initialLabel=if (is.null(initial.group)) gettextRcmdr("Mark by groups")
+              else paste(gettextRcmdr("Mark by:"), initial.group), window=dataTab)
     OKCancelHelp(helpSubject = "indexplot", reset = "indexPlot", apply="indexPlot")
     tkgrid(getFrame(xBox), sticky = "nw")
+    tkgrid(groupsFrame, sticky = "w")
     tkgrid(typeFrame, sticky = "w")
     tkgrid(styleFrame, sticky = "w")
     tkgrid(identifyFrame, sticky="w")
