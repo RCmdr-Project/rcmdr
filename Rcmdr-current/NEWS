@@ -1,6 +1,6 @@
 Changes in version 2.5-0
 
-  o Added Predictor Effect Plots dialog to Models menu.
+  o Added Predictor Effect Plots and Response Transformation dialogs to Models menu.
   
   o QQ plots may be drawn by groups.
   

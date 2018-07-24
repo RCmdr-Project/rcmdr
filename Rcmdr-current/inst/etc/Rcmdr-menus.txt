@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2018-07-21 by J. Fox
+# last modified 2018-07-24 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -219,6 +219,7 @@
     item    diagnosticsMenu command         "Durbin-Watson test for autocorrelation..."     DurbinWatsonTest            "modelCapability('dwt')" "packageAvailable('lmtest')"
     item    diagnosticsMenu command         "RESET test for nonlinearity..."                RESETtest                   "modelCapability('rse')" "packageAvailable('lmtest')"
     item    diagnosticsMenu command         "Bonferroni outlier test"                       OutlierTest                 "modelCapability('bon')" "packageAvailable('car')"
+    item    diagnosticsMenu command         "Response transformation..."                       transformResponse                 "modelCapability('tranr')" "packageAvailable('car')"
     menu    modelsGraphsMenu      modelsMenu      ""                                              ""                          ""          ""
     item    modelsMenu      cascade         "Graphs"                                        modelsGraphsMenu                  ""          ""
     item    modelsGraphsMenu      command         "Basic diagnostic plots"                        plotModel                   "modelCapability('plt')"          ""

@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2018-07-21 by J. Fox
+# last modified 2018-07-24 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -1346,3 +1346,27 @@ predictorEffectPlots <- function () {
     tkgrid(buttonsFrame, sticky = "w")
     dialogSuffix()
 }
+
+transformResponse <- function (){
+  defaults <- list(initial.family="bcPower")  
+  dialog.values <- getDialog ("transformResponse", defaults)
+  initializeDialog(title = gettextRcmdr("Response Transformation"))
+  radioButtons(name = "family", 
+               buttons = c("bcPower", "bcnPower", "yjPower"), 
+               labels = gettextRcmdr(c("Box-Cox", "Box-Cox with negatives", "Yeo-Johnson")),
+               title = gettextRcmdr("Transformation Family"),
+               initialValue = dialog.values$initial.family)
+  onOK <- function() {
+    family <- tclvalue(familyVariable)
+    closeDialog()
+    putDialog ("transformResponse", list(initial.family=family))
+    .activeModel <- ActiveModel()
+    doItAndPrint(paste0("summary(powerTransform(", .activeModel, ', family="', family, '"))'))
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "powerTransform", reset="transformResponse")
+  tkgrid(familyFrame, sticky = "w")
+  tkgrid(buttonsFrame, sticky = "w")
+  dialogSuffix()
+}
+
