@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.5-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2018-07-24 15:00:00\n"
+"POT-Creation-Date: 2018-07-27 15:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5057,3 +5057,23 @@ msgstr ""
 
 msgid "Yeo-Johnson"
 msgstr ""
+
+  # new Statistics > Transformations menu and dialogs
+  
+msgid "Transformations"
+msgstr ""
+  
+msgid "Toward normality..."
+msgstr ""
+
+msgid "Transform Variables Toward Normality"
+msgstr ""
+
+msgid "Select variables to transform (one or more)"
+msgstr ""
+
+msgid "Transformation Family"
+msgstr ""
+
+msgid "Condition on:"
+msgstr

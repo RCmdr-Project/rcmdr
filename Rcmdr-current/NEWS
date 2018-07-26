@@ -2,6 +2,8 @@ Changes in version 2.5-0
 
   o Added Predictor Effect Plots and Response Transformation dialogs to Models menu.
   
+  o New Statistics > Transformations menu with Transform Variables Toward Normality dialog.
+  
   o QQ plots may be drawn by groups.
   
   o Index plots may be marked by groups.

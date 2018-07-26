@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2018-07-24 by J. Fox
+# last modified 2018-07-27 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -110,6 +110,8 @@
     item    summariesMenu   command         "Correlation test..."                           correlationTest             "numericP(2)"               "packageAvailable('RcmdrMisc')"
 #    item    summariesMenu   command         "Shapiro-Wilk test of normality..."             ShapiroTest                 "numericP()"                ""
     item    summariesMenu   command         "Test of normality..."                          NormalityTest               "numericP()"                "packageAvailable('nortest')"
+    menu    transformationsMenu   statisticsMenu  ""                                              ""                          ""          ""
+    item    transformationsMenu   command         "Toward normality..."                          transformVariables               "numericP()"                "packageAvailable('car')"
     menu    tablesMenu      statisticsMenu  ""                                              ""                          ""          ""
     item    tablesMenu      command         "Two-way table..."                              twoWayTable                 "factorsP(2)" "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
     item    tablesMenu      command         "Multi-way table..."                            multiWayTable               "factorsP(3)" "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
@@ -152,6 +154,7 @@
     item    statModelsMenu  command         "Ordinal regression model..."                   ordinalRegressionModel      "factorsP()" "packageAvailable('MASS')"
     item    topMenu         cascade         "Statistics"                                    statisticsMenu              ""          ""
     item    statisticsMenu  cascade         "Summaries"                                     summariesMenu               ""          ""
+    item    statisticsMenu  cascade         "Transformations"                                     transformationsMenu               ""          ""
     item    statisticsMenu  cascade         "Contingency tables"                            tablesMenu                  ""          "packageAvailable('abind')"
     item    statisticsMenu  cascade         "Means"                                         meansMenu                   ""          ""
     item    statisticsMenu  cascade         "Proportions"                                   proportionsMenu             ""          ""
