@@ -7,7 +7,7 @@ transformVariables <- function () {
   
   variablesBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Select variables to transform (one or more)"),
                                   selectmode = "multiple", initialSelection = varPosn (dialog.values$initial.variables, "numeric"))
-  radioButtons(dataTab, name = "family", 
+  radioButtons(optionsTab, name = "family", 
                buttons = c("bcPower", "bcnPower", "yjPower"), 
                labels = gettextRcmdr(c("Box-Cox", "Box-Cox with negatives", "Yeo-Johnson")),
                title = gettextRcmdr("Transformation Family"),
