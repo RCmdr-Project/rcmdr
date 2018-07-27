@@ -230,6 +230,8 @@
     item    modelsGraphsMenu      command         "Component+residual plots..."                      CRPlots                     "modelCapability('crp')" "packageAvailable('car')"
     item    modelsGraphsMenu      command         "Added-variable plots..."                          AVPlots                     "modelCapability('avp')" "packageAvailable('car')"
     item    modelsGraphsMenu      command         "Influence plot..."                                InfluencePlot               "modelCapability('infp')" "packageAvailable('car')"
+    item    modelsGraphsMenu      command         "Influence index plot..."                                InfluenceIndexPlot               "modelCapability('infp')" "packageAvailable('car')"
+
     item    modelsGraphsMenu      command         "Effect plots..."                                  effectPlots                 "modelCapability('effp')" "packageAvailable('effects')"
     item    modelsGraphsMenu      command         "Predictor effect plots..."                        predictorEffectPlots                 "modelCapability('effp')" "packageAvailable('effects')"
 

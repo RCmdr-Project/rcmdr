@@ -6,6 +6,8 @@ Changes in version 2.5-0
   
   o New Symmetry Boxplot dialog in Graphs menu.
   
+  o New Influence Index Plot dialog in Models > Graphs menu.
+  
   o QQ plots may be drawn by groups.
   
   o Index plots may be marked by groups.

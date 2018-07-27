@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2018-07-24 by J. Fox
+# last modified 2018-07-28 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -1370,3 +1370,63 @@ transformResponse <- function (){
   dialogSuffix()
 }
 
+InfluenceIndexPlot <- function () {
+  .activeModel <- ActiveModel()
+  defaults <- list (initial.identify = "auto", initial.id.n="2", 
+                    initial.cook="1", initial.student="1", initial.bonf="1", initial.hat=1)
+  dialog.values <- getDialog ("InfluenceIndexPlot", defaults)
+  initializeDialog(title = gettextRcmdr("Influence Plot"))
+  identifyPointsFrame <- tkframe(top)
+  radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse"), labels = gettextRcmdr(c("Automatically", 
+                                                                                                             "Interactively with mouse")), title = gettextRcmdr("Identify Points"), 
+               initialValue = dialog.values$initial.identify)    
+  id.n.Var <- tclVar(dialog.values$initial.id.n) 
+  npointsSpinner <- tkspinbox(identifyPointsFrame, from=1, to=10, width=2, textvariable=id.n.Var) 
+  
+  checkBoxes(frame = "varsFrame", boxes = c("cook", "student", "bonf", "hat"), 
+             labels = gettextRcmdr(c("Cook's distances", "Studentized residuals", 
+                                     "Bonferroni p-values", "Hat-values")), 
+             initialValues = c(dialog.values$initial.cook, dialog.values$initial.student,
+                               dialog.values$initial.bonf, dialog.values$initial.hat),
+             title=gettextRcmdr("Case statistics to plot"))
+  
+  onOK <- function() {
+    id.n <- tclvalue(id.n.Var)
+    identify <- tclvalue(identifyVariable)
+    method <- if (identify == "mouse") "identify" else "y"
+    cook <- tclvalue(cookVariable)
+    student <- tclvalue(studentVariable)
+    bonf <- tclvalue(bonfVariable)
+    hat <- tclvalue(hatVariable)
+    closeDialog()
+    if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
+      errorCondition(recall = InfluencePlot, message = gettextRcmdr("number of points to identify must be an integer"))
+      return()
+    }
+    putDialog ("InfluenceIndexPlot", list(initial.identify=identify, initial.id.n=id.n,
+                                          initial.cook=cook, initial.student=student, 
+                                          initial.bonf=bonf, initial.hat=hat))
+    if (identify == "mouse") {
+      RcmdrTkmessageBox(title = "Identify Points", message = paste(gettextRcmdr("Use left mouse button to identify points,\n"), 
+                                                                   gettextRcmdr(if (MacOSXP()) 
+                                                                     "esc key to exit."
+                                                                     else "right button to exit."), sep = ""), icon = "info", 
+                        type = "ok")
+    }
+    vars <- paste0('"', c("Cook", "Studentized", "Bonf", "hat")[c(cook, student, bonf, hat) == "1"], '"')
+    vars <- paste0("c(", paste(vars, collapse=", "), ")")
+    command <- paste("influenceIndexPlot(", .activeModel, ', id=list(method="', method, '", n=', id.n, 
+                     "), vars=", vars,  ")", sep = "")
+    if (identify == "mouse") command <- suppressMarkdown(command)
+    doItAndPrint(command)
+    activateMenus()
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "influenceIndexPlot", reset = "InfluenceIndexPlot", apply = "InfluenceIndexPlot")
+  tkgrid(identifyFrame, sticky="w")
+  tkgrid(labelRcmdr(identifyPointsFrame, text=gettextRcmdr("Number of points to identify  ")), npointsSpinner, sticky="w")
+  tkgrid(identifyPointsFrame, sticky="w")
+  tkgrid(varsFrame, sticky = "w")
+  tkgrid(buttonsFrame, sticky = "w")
+  dialogSuffix()
+}
