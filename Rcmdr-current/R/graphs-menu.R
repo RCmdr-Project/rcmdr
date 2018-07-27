@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2018-07-22 by J. Fox
+# last modified 2018-07-28 by J. Fox
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -2909,4 +2909,64 @@ DiscretePlot <- function () {
     tkgrid(optFrame, parFrame, sticky = "nswe", padx=6, pady=6)
     tkgrid(optionsFrame, sticky = "w")
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
+}
+
+Symbox <- function () {
+  defaults <- list(initial.variable = NULL, initial.family="bcPower", initial.start="", 
+                   initial.powers="-1, -0.5, 0, 0.5, 1")
+  dialog.values <- getDialog("Symbox", defaults)
+  initializeDialog(title = gettextRcmdr("Symmetry Boxplot"), use.tabs=TRUE)
+  variableBox <- variableListBox(top, Numeric(), title = gettextRcmdr("Variable (pick one)"),
+                                 selectmode = "single", initialSelection = varPosn (dialog.values$initial.variable, "numeric"))
+  radioButtons(top, name = "family", 
+               buttons = c("bcPower", "bcnPower", "yjPower"), 
+               labels = gettextRcmdr(c("Box-Cox", "Box-Cox with negatives", "Yeo-Johnson")),
+               title = gettextRcmdr("Transformation Family"),
+               initialValue = dialog.values$initial.family)
+  startFrame <- tkframe(top)
+  startVariable <- tclVar(dialog.values$initial.start)
+  startField <- ttkentry(startFrame, width = "6", 
+                         textvariable = startVariable)
+  powersFrame <- tkframe(top)
+  powersVariable <- tclVar(dialog.values$initial.powers)
+  powersField <- ttkentry(powersFrame, width = "20", 
+                          textvariable = powersVariable)
+  onOK <- function() {
+    variable <- getSelection(variableBox)
+    family <- tclvalue(familyVariable)
+    start <- trimws(tclvalue(startVariable))
+    powers <- tclvalue(powersVariable)
+    closeDialog()
+    putDialog("Symbox", list(initial.variable=variable, initial.family=family, 
+                             initial.start=start, initial.powers=powers))
+    powers <- paste0("c(", gsub(",+", ",", gsub(" ", ",", powers)), ")")
+    .activeDataSet <- ActiveDataSet()
+    if (length(variable) < 1){
+      errorCondition(recall = Symbox, message = gettextRcmdr("You must select a variable."))
+      return()
+    }
+    command <- if (start == ""){
+      paste0("symbox(~ ", variable, ", data=", .activeDataSet, ', trans=', family, 
+             ", powers=", powers, ')')
+    } else {
+      paste0("symbox(~ ", variable, ", data=", .activeDataSet, ', trans=', family, 
+             ", powers=", powers, ', start=', start, ')')
+    }
+    doItAndPrint(command)
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "symbox", reset = "Symbox", apply="Symbox")
+  tkgrid(getFrame(variableBox), sticky = "nw")
+  tkgrid(tklabel(top, text=""), sticky="w")
+  tkgrid(familyFrame, sticky = "w")
+  tkgrid(tklabel(top, text=""), sticky="w")
+  tkgrid(tklabel(startFrame, text=paste0(gettextRcmdr("Start (optional)"), " "), 
+                 fg=getRcmdr("title.color")), startField, sticky="w")
+  tkgrid(startFrame, sticky="w")
+  tkgrid(tklabel(top, text=""), sticky="w")
+  tkgrid(tklabel(powersFrame, text=paste0(gettextRcmdr("Powers"), " "), fg=getRcmdr("title.color")),
+         powersField, sticky="w")
+  tkgrid(powersFrame, stick="w")
+  tkgrid(buttonsFrame, sticky="w")
+  dialogSuffix()
 }

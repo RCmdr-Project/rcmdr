@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.5-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2018-07-27 15:00:00\n"
+"POT-Creation-Date: 2018-07-28 11:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5058,12 +5058,9 @@ msgstr ""
 msgid "Yeo-Johnson"
 msgstr ""
 
-  # new Statistics > Transformations menu and dialogs
+  # new transform toward normality dialog
   
-msgid "Transformations"
-msgstr ""
-  
-msgid "Toward normality..."
+msgid "Transform toward normality..."
 msgstr ""
 
 msgid "Transform Variables Toward Normality"
@@ -5077,3 +5074,17 @@ msgstr ""
 
 msgid "Condition on:"
 msgstr
+
+  # new symmetry boxplot (symbox) dialog
+  
+msgid "Symmetry boxplot..."
+msgstr ""
+  
+msgid "Symmetry Boxplot"
+msgstr ""
+
+msgid "Start (optional)"
+msgstr ""
+
+msgid "Powers"
+msgstr ""

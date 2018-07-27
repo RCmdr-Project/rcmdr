@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2018-07-27 by J. Fox
+# last modified 2018-07-28 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -110,8 +110,8 @@
     item    summariesMenu   command         "Correlation test..."                           correlationTest             "numericP(2)"               "packageAvailable('RcmdrMisc')"
 #    item    summariesMenu   command         "Shapiro-Wilk test of normality..."             ShapiroTest                 "numericP()"                ""
     item    summariesMenu   command         "Test of normality..."                          NormalityTest               "numericP()"                "packageAvailable('nortest')"
-    menu    transformationsMenu   statisticsMenu  ""                                              ""                          ""          ""
-    item    transformationsMenu   command         "Toward normality..."                          transformVariables               "numericP()"                "packageAvailable('car')"
+    item    summariesMenu   command         "Transform toward normality..."                          transformVariables               "numericP()"                "packageAvailable('car')"
+
     menu    tablesMenu      statisticsMenu  ""                                              ""                          ""          ""
     item    tablesMenu      command         "Two-way table..."                              twoWayTable                 "factorsP(2)" "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
     item    tablesMenu      command         "Multi-way table..."                            multiWayTable               "factorsP(3)" "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
@@ -154,7 +154,6 @@
     item    statModelsMenu  command         "Ordinal regression model..."                   ordinalRegressionModel      "factorsP()" "packageAvailable('MASS')"
     item    topMenu         cascade         "Statistics"                                    statisticsMenu              ""          ""
     item    statisticsMenu  cascade         "Summaries"                                     summariesMenu               ""          ""
-    item    statisticsMenu  cascade         "Transformations"                                     transformationsMenu               ""          ""
     item    statisticsMenu  cascade         "Contingency tables"                            tablesMenu                  ""          "packageAvailable('abind')"
     item    statisticsMenu  cascade         "Means"                                         meansMenu                   ""          ""
     item    statisticsMenu  cascade         "Proportions"                                   proportionsMenu             ""          ""
@@ -173,6 +172,7 @@
     item    graphsMenu      command         "Stem-and-leaf display..."                      stemAndLeaf                 "numericP()"  "packageAvailable('aplpack')"
     item    graphsMenu      command         "Boxplot..."                                    boxPlot                     "numericP()" 		  ""
     item    graphsMenu      command         "Quantile-comparison plot..."                   QQPlot                      "numericP()" "packageAvailable('car')"
+    item    graphsMenu      command         "Symmetry boxplot..."                   Symbox                      "numericP()" "packageAvailable('car')"
     item    graphsMenu      separator       ""                                              ""                          ""          ""
     item    graphsMenu      command         "Scatterplot..."                                scatterPlot                 "numericP(2)" "packageAvailable('car')"
     item    graphsMenu      command         "Scatterplot matrix..."                         scatterPlotMatrix           "numericP(3)" "packageAvailable('car')"
