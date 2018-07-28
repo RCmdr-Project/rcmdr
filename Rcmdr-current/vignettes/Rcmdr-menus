@@ -1,5 +1,5 @@
 %% the original of this file provided by Manuel Munoz Marquez
-%% last update: 2017-01-24 by J. Fox
+%% last update: 2018-08-29 by J. Fox
 
 <<echo=F>>=
 library('Rcmdr')
@@ -92,6 +92,7 @@ gt <- function(x) {
  | |- \Sexpr{gm('Correlation matrix')}
  | |- \Sexpr{gm('Correlation test')}
  | |- \Sexpr{gm('Test of normality')}
+ | |- \Sexpr{gm('Transform toward normality')}
  |-\Sexpr{gt('Contingency tables')} 
  | |- \Sexpr{gm('Two-way table')}
  | |- \Sexpr{gm('Multi-way table')}
@@ -141,6 +142,7 @@ gt <- function(x) {
  |- \Sexpr{gm('Stem-and-leaf display')}
  |- \Sexpr{gm('Boxplot')}
  |- \Sexpr{gm('Quantile-comparison plot')}
+ |- \Sexpr{gm('Symmetry boxplot')}
  |- \Sexpr{gm('Scatterplot')}
  |- \Sexpr{gm('Scatterplot matrix')}
  |- \Sexpr{gm('Line graph')}
@@ -179,6 +181,7 @@ gt <- function(x) {
  | |- \Sexpr{gm('Durbin-Watson test for autocorrelation')}
  | |- \Sexpr{gm('RESET test for nonlinearity')}
  | |- \Sexpr{gt('Bonferroni outlier test')}
+ | |- \Sexpr{gt('Response transformation')}
  |- \Sexpr{gt('Graphs')} 
  | |- \Sexpr{gt('Basic diagnostic plots')}
  | |- \Sexpr{gm('Residual quantile-comparison plot')}

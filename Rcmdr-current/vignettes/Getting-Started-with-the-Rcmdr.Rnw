@@ -23,7 +23,7 @@
 and updated from Fox (2005). Please address correspondence to
 \texttt{jfox@mcmaster.ca}. }}
 \author{John Fox and Milan Bouchet-Valat}
-\date{Version 2.4-0 (last modified: 2017-01-24)}
+\date{Version 2.5-0 (last modified: 2018-07-29)}
 \maketitle
 
 \section{Introduction}
