@@ -36,7 +36,7 @@ numericalSummaries <- function(){
                initialValues=c(dialog.values$initial.mean, dialog.values$initial.sd, dialog.values$initial.se.mean, 
                                dialog.values$initial.IQR, dialog.values$initial.cv, dialog.values$initial.counts), 
                labels=gettextRcmdr(c("Mean", "Standard Deviation", "Standard Error of Mean", "Interquartile Range", 
-                                     "Coefficient of Variation", "Binned Frequency Counts")))
+                                     "Coefficient of Variation", "Binned Frequency Counts")), columns=2)
     skFrame <- tkframe(statisticsTab)
     checkBoxes(window = skFrame, frame="skCheckBoxFrame", boxes=c("skewness", "kurtosis"), 
                initialValues=c(dialog.values$initial.skewness, dialog.values$initial.kurtosis), 

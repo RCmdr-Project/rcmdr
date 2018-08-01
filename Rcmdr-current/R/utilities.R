@@ -1,4 +1,4 @@
-# last modified 2017-10-06 by J. Fox
+# last modified 2018-08-01 by J. Fox
 
 # utility functions
 
@@ -940,46 +940,84 @@ getFrame.combobox <- function(object){
 
 # This function modified based on code by Liviu Andronic (13 Dec 09) and on code by Milan Bouchet-Valat (29 Jun 12):
 radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..values[1], labels, 
-    title="", title.color=getRcmdr("title.color"), right.buttons=FALSE, command=function(){},
+    title="", title.color=getRcmdr("title.color"), right.buttons=FALSE,  command=function(){}, columns=1,
     expr={
         ..values <- if (is.null(values)) buttons else values
         ..frame <- paste(name, "Frame", sep="")
         assign(..frame, tkframe(window))
+        ..frame.1 <- paste(name, "Frame.1", sep="")
+        ..frame.2 <- paste(name, "Frame.2", sep="")
+        ..frame.3 <- paste(name, "Frame.3", sep="")
+        ..frame.4 <- paste(name, "Frame.4", sep="")
+        assign(..frame.1, tkframe(eval(parse(text=..frame))))
+        assign(..frame.2, tkframe(eval(parse(text=..frame))))
+        assign(..frame.3, tkframe(eval(parse(text=..frame))))
+        assign(..frame.4, tkframe(eval(parse(text=..frame))))
         ..variable <- paste(name, "Variable", sep="")
         assign(..variable, tclVar(initialValue))
         if(title != ""){
             tkgrid(labelRcmdr(eval(parse(text=..frame)), text=title, foreground=title.color, font="RcmdrTitleFont"), columnspan=2, sticky="w")
         }
-        for (i in 1:length(buttons)) {
+        ..nbuttons <- length(buttons)
+        for (i in 1:..nbuttons) {
             ..button <- paste(buttons[i], "Button", sep="")
+            ..use.frame <- if (columns > 1) {
+              paste0(..frame, ".", (i - 1) %% columns + 1)
+            }  else ..frame
             if (right.buttons) {
-                assign(..button, ttkradiobutton(eval(parse(text=..frame)), variable=eval(parse(text=..variable)), 
+                assign(..button, ttkradiobutton(eval(parse(text=..use.frame)), variable=eval(parse(text=..variable)), 
                     value=..values[i], command=command))
-                tkgrid(labelRcmdr(eval(parse(text=..frame)), text=labels[i], justify="left"), eval(parse(text=..button)), sticky="w")
+                tkgrid(labelRcmdr(eval(parse(text=..use.frame)), text=labels[i], justify="left"), eval(parse(text=..button)), sticky="w")
             }
             else{
-                assign(..button, ttkradiobutton(eval(parse(text=..frame)), variable=eval(parse(text=..variable)), 
+                assign(..button, ttkradiobutton(eval(parse(text=..use.frame)), variable=eval(parse(text=..variable)), 
                     value=..values[i], text=labels[i], command=command))
                 tkgrid(eval(parse(text=..button)), sticky="w")
             }
+        }
+        if (columns > 1){
+          tkgrid(eval(parse(text=paste(name, "Frame.1", sep=""))),
+                 eval(parse(text=paste(name, "Frame.2", sep=""))), 
+                 if (columns > 2) eval(parse(text=paste(name, "Frame.3", sep=""))),
+                 if (columns > 3) eval(parse(text=paste(name, "Frame.4", sep=""))),
+                 stick="w")
         }
     }
 )
 
 
-checkBoxes <- defmacro(window=top, frame, boxes, initialValues=NULL, labels, title=NULL, ttk=FALSE,
+checkBoxes <- defmacro(window=top, frame, boxes, initialValues=NULL, labels, title=NULL, ttk=FALSE, columns=1,
     expr={
         ..initialValues <- if (is.null(initialValues)) rep("1", length(boxes)) else initialValues
         assign(frame, if (ttk) ttklabelframe(window, labelwidget=tklabel(window, text=title, 
                                           font="RcmdrTitleFont", foreground=getRcmdr("title.color"))) else tkframe(window))
+        ..frame.1 <- paste(frame, "Frame.1", sep="")
+        ..frame.2 <- paste(frame, "Frame.2", sep="")
+        ..frame.3 <- paste(frame, "Frame.3", sep="")
+        ..frame.4 <- paste(frame, "Frame.4", sep="")
+        assign(..frame.1, tkframe(eval(parse(text=frame))))
+        assign(..frame.2, tkframe(eval(parse(text=frame))))
+        assign(..frame.3, tkframe(eval(parse(text=frame))))
+        assign(..frame.4, tkframe(eval(parse(text=frame))))
         if (!is.null(title) && !ttk) tkgrid(labelRcmdr(eval(parse(text=frame)), text=title, fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
         ..variables <- paste(boxes, "Variable", sep="")
-        for (i in 1:length(boxes)) {
+        ..nboxes <- length(boxes)
+        for (i in 1:..nboxes) {
             assign(..variables[i], tclVar(..initialValues[i]))
             ..checkBox <- paste(boxes[i], "CheckBox", sep="")
+            ..use.frame <- if (columns > 1) {
+              paste0(frame, "Frame.", (i - 1) %% columns + 1)
+            }  else frame
             assign(..checkBox,
-                ttkcheckbutton(eval(parse(text=frame)), variable=eval(parse(text=..variables[i])), text=labels[i]))
+                ttkcheckbutton(eval(parse(text=..use.frame)), variable=eval(parse(text=..variables[i])), text=labels[i]))
             tkgrid(eval(parse(text=..checkBox)), sticky="w")
+        }
+        if (columns > 1){
+          tkgrid(eval(parse(text=paste(frame, "Frame.1", sep=""))),
+                 eval(parse(text=paste(frame, "Frame.2", sep=""))), 
+                 if (columns > 2) eval(parse(text=paste(frame, "Frame.3", sep=""))),
+                 if (columns > 3) eval(parse(text=paste(frame, "Frame.4", sep=""))),
+                 sticky="w", padx= if (columns > 1) "3" else "0")
         }
     }
 )

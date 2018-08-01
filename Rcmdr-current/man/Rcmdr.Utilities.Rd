@@ -169,7 +169,7 @@ checkActiveModel()
 checkBoxes(window=top, frame=stop("frame not supplied"), 
     boxes=stop("boxes not supplied"), 
     initialValues=NULL, labels=stop("labels not supplied"), 
-    title=NULL, ttk=FALSE)  # macro
+    title=NULL, ttk=FALSE, columns=1)  # macro
 checkClass(object, class, message=NULL)  # macro
 checkFactors(n=1)
 checkMethod(generic, object, message=NULL, default=FALSE, strict=FALSE, 
@@ -276,7 +276,7 @@ radioButtons(window=top, name=stop("name not supplied"),
     values=NULL, initialValue=..values[1], 
     labels=stop("labels not supplied"), 
     title="", title.color=getRcmdr("title.color"), 
-    right.buttons=FALSE, command=function(){})   # macro
+    right.buttons=FALSE, command=function(){}, columns=1)   # macro
 RappP()
 RcmdrEditor(buffer, title="R Commander Editor", ok,
     help=NULL, file.menu=NULL, edit.menu=NULL, context.menu=NULL, 
@@ -346,6 +346,8 @@ commanderPosition()
     sources for the standard table; e.g., \code{"sum"} indicates the availability of an applicable \code{summary()}
     method for the current model.}
   \item{class}{quoted name of class.}
+  \item{columns}{number of columns into which to arrange check boxes or radio buttons; boxes and buttons are
+    filled by rows; the default is 1 and the allowed values are 1, 2, 3, and 4.}
   \item{columnspan}{number of dialog-box columns to be spanned by frame.}
   \item{command}{a character string that evaluates to an R command or (in the case of \code{radioButton}) a
     function to be called when a button is pressed.}
@@ -456,8 +458,9 @@ commanderPosition()
     one-sided formula.}
   \item{right.buttons}{radio button placed to right of button-labels; defaults to \code{FALSE}.}
   \item{rmd}{enter the command in the R Markdown tab.}
-  \item{rows, columns}{numbers of rows and columns of widgets in the dialog box; this is actually no longer used, but
-    is still present for backwards compatibility.}
+  \item{rows}{numbers of rows of widgets in the dialog box; this is actually no longer used, but
+    is still present for backwards compatibility. The \code{columns} argument is
+    similarly ignored, except for radio buttons and check boxes.}
   \item{selectmode}{\code{"single"} or \code{"multiple"}.}
   \item{state}{state of the combobox widget; default \code{"readonly"} means
     user can't type in the box; set to \code{"normal"} to permit typing.}

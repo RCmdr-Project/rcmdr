@@ -247,7 +247,7 @@ anovaTable <- function () {
     sandwichCheckBox <- ttkcheckbutton(sandwichCheckFrame, variable = sandwichVar)
     radioButtons(sandwichFrame, name = "sandwichType", buttons = c("HC0", "HC1", "HC2", "HC3", "HC4", "HAC"), 
         labels = c("HC0", "HC1", "HC2", "HC3", "HC4", "HAC"), 
-        title = gettextRcmdr("Sandwich estimator"), initialValue = dialog.values$initial.sandwich.type)
+        title = gettextRcmdr("Sandwich estimator"), initialValue = dialog.values$initial.sandwich.type, columns=2)
     onOK <- function() {
         type <- as.character(tclvalue(typeVariable))
         sandwich <- tclvalue(sandwichVar)
