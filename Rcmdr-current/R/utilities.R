@@ -980,7 +980,20 @@ radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..
                  eval(parse(text=paste(name, "Frame.2", sep=""))), 
                  if (columns > 2) eval(parse(text=paste(name, "Frame.3", sep=""))),
                  if (columns > 3) eval(parse(text=paste(name, "Frame.4", sep=""))),
-                 stick="w")
+                 sticky="w", padx= if (columns > 1) "3" else "0")
+          ..remainder <- columns - ..nbuttons %% columns
+          if (..remainder != 0){
+            if (columns == 2) tkgrid(tklabel(eval(parse(text=paste(name, "Frame.2", sep=""))), text=" "))
+            else if (columns == 3) {
+              tkgrid(tklabel(eval(parse(text=paste(name, "Frame.3", sep=""))), text=" "))
+              if (..remainder == 2) tkgrid(tklabel(eval(parse(text=paste(name, "Frame.2", sep=""))), text=" "))
+            }
+            else {
+              tkgrid(eval(parse(text=paste(name, "Frame.4", sep=""))), text=" ")
+              if (..remainder >= 2) tkgrid(tklabel(eval(parse(text=paste(name, "Frame.3", sep=""))), text=" "))
+              if (..remainder == 3) tkgrid(tklabel(eval(parse(text=paste(name, "Frame.2", sep=""))), text=" "))
+            }
+          }
         }
     }
 )
@@ -1018,6 +1031,19 @@ checkBoxes <- defmacro(window=top, frame, boxes, initialValues=NULL, labels, tit
                  if (columns > 2) eval(parse(text=paste(frame, "Frame.3", sep=""))),
                  if (columns > 3) eval(parse(text=paste(frame, "Frame.4", sep=""))),
                  sticky="w", padx= if (columns > 1) "3" else "0")
+          ..remainder <- columns - ..nboxes %% columns
+          if (..remainder != 0){
+            if (columns == 2) tkgrid(tklabel(eval(parse(text=paste(frame, "Frame.2", sep=""))), text=" "))
+            else if (columns == 3) {
+              tkgrid(tklabel(eval(parse(text=paste(frame, "Frame.3", sep=""))), text=" "))
+              if (..remainder == 2) tkgrid(tklabel(eval(parse(text=paste(frame, "Frame.2", sep=""))), text=" "))
+            }
+            else {
+              tkgrid(tklabel(eval(parse(text=paste(frame, "Frame.4", sep=""))), text=" "))
+              if (..remainder >= 2) tkgrid(tklabel(eval(parse(text=paste(frame, "Frame.3", sep=""))), text=" "))
+              if (..remainder == 3) tkgrid(tklabel(eval(parse(text=paste(frame, "Frame.2", sep=""))), text=" "))
+            }
+          }
         }
     }
 )

@@ -1,6 +1,6 @@
 # this code originally by Dan Putler, used with permission 
 
-# last modified 2015-08-07 by J. Fox
+# last modified 2018-08-01 by J. Fox
 
 
 listKmeansSolutions <- function(envir=.GlobalEnv, ...) {
@@ -42,13 +42,14 @@ kmeansClustering <- function () {
                              showvalue = TRUE, variable = iterNumber, resolution = 5, 
                              orient = "horizontal")
     summaryClusters <- tclVar(dialog.values$initial.clusterSummary)
-    summaryCB <- ttkcheckbutton(optionsFrame)
+    checkbuttonframe <- tkframe(optionsFrame)
+    summaryCB <- ttkcheckbutton(checkbuttonframe)
     tkconfigure(summaryCB, variable = summaryClusters)
     plotClusters <- tclVar(dialog.values$initial.clusterPlot)
-    plotCB <- ttkcheckbutton(optionsFrame)
+    plotCB <- ttkcheckbutton(checkbuttonframe)
     tkconfigure(plotCB, variable = plotClusters)
     assignClusters <- tclVar(dialog.values$initial.clusterAssign)
-    assignCB <- ttkcheckbutton(optionsFrame)
+    assignCB <- ttkcheckbutton(checkbuttonframe)
     tkconfigure(assignCB, variable = assignClusters)
     assignName <- tclVar(dialog.values$initial.clusterVariable)
     assignField <- ttkentry(optionsFrame, width = "15", textvariable = assignName)
@@ -140,6 +141,7 @@ kmeansClustering <- function () {
            sticky = "w")
     tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Assignment variable: ")), 
            assignField, sticky = "w")
+    tkgrid(checkbuttonframe, sticky="w")
     tkgrid(optionsFrame, sticky="w")
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }
@@ -172,7 +174,8 @@ hierarchicalCluster <- function () {
 			labels = gettextRcmdr(c("Ward's Method", "Single Linkage", 
 							"Complete Linkage", "Average Linkage", "McQuitty's Method", 
 							"Median Linkage", "Centroid Linkage")), title = gettextRcmdr("Clustering Method"), 
-			initialValue = dialog.values$initial.clusMethod)
+			initialValue = dialog.values$initial.clusMethod,
+			columns=2)
 	optionsFrame <- tkframe(optionsTab)
 	radioButtons(optionsFrame, name = "distanceType", buttons = c("euc", 
 					"euc2", "city", "none"), labels = gettextRcmdr(c("Euclidean", 

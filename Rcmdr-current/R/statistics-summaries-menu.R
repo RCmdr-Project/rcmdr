@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2018-07-28 by J. Fox
+# last modified 2018-08-01 by J. Fox
 
 # Summaries menu
 
@@ -552,7 +552,8 @@ NormalityTest <- function () {
                             if (nrows <= 5000) gettextRcmdr("Shapiro-Francia"), 
                             gettextRcmdr("Pearson chi-square")),
                  title = gettextRcmdr("Normality Test"),
-                 initialValue = dialog.values$initial.test)
+                 initialValue = dialog.values$initial.test, 
+                 columns=2)
     binsFrame <- tkframe(optionsFrame)
     binsVariable <- tclVar(dialog.values$initial.bins)
     binsField <- ttkentry(binsFrame, width = "8", textvariable = binsVariable)

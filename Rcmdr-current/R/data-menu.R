@@ -1,4 +1,4 @@
-# last modified 2018-04-11 by J. Fox
+# last modified 2018-08-01 by J. Fox
 
 # Data menu dialogs
 
@@ -336,7 +336,8 @@ readDataSet <- function() {
     headerVariable <- tclVar("1")
     headerCheckBox <- ttkcheckbutton(optionsFrame, variable=headerVariable)
     radioButtons(optionsFrame, "delimiter", buttons=c("whitespace", "commas", "semicolons", "tabs"),
-                 labels=gettextRcmdr(c("White space", "Commas [,]", "Semicolons [;]", "Tabs")), title=gettextRcmdr("Field Separator"))
+                 labels=gettextRcmdr(c("White space", "Commas [,]", "Semicolons [;]", "Tabs")), title=gettextRcmdr("Field Separator"),
+                 columns=2) 
     otherDelimiterFrame <- tkframe(delimiterFrame)
     otherButton <- ttkradiobutton(otherDelimiterFrame, variable=delimiterVariable, value="other", text=gettextRcmdr("Other"))
     otherVariable <- tclVar("")
@@ -1741,7 +1742,7 @@ exportDataSet <- function() {
     missingEntry <- ttkentry(missingFrame, width="8", textvariable=missingVariable)
     radioButtons(name="delimiter", buttons=c("spaces", "tabs", "commas", "semicolons"), 
                  labels=gettextRcmdr(c("Spaces", "Tabs", "Commas [,]", "Semicolons [;]")),
-                 title=gettextRcmdr("Field Separator"))
+                 title=gettextRcmdr("Field Separator"), columns=2)
     otherButton <- ttkradiobutton(delimiterFrame, variable=delimiterVariable, value="other", text=gettextRcmdr("Other"))
     otherVariable <- tclVar("")
     otherEntry <- ttkentry(delimiterFrame, width="4", textvariable=otherVariable)
@@ -2024,7 +2025,8 @@ setContrasts <- function(){
   radioButtons(name="contrasts", buttons=c("treatment", "sum", "helmert", "poly", "specify"),
                values=c("contr.Treatment", "contr.Sum", "contr.helmert", "contr.poly", "specify"),
                labels=gettextRcmdr(c("Treatment (dummy) contrasts", "Sum (deviation) contrasts", "Helmert contrasts",
-                                     "Polynomial contrasts", "Other (specify)")), title=gettextRcmdr("Contrasts"))
+                                     "Polynomial contrasts", "Other (specify)")), title=gettextRcmdr("Contrasts"),
+               columns=2)
   onOK <- function(){
     variable <- getSelection(variableBox)
     closeDialog()

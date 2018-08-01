@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2017-01-13 by J. Fox
+# last modified 2018-08-01 by J. Fox
 
 # Tables menu
 
@@ -90,12 +90,14 @@ twoWayTable <- function(){
         buttons=c("rowPercents", "columnPercents", "totalPercents", "nonePercents"),
         values=c("row", "column", "total", "none"), initialValue=dialog.values$initial.percents,
         labels=gettextRcmdr(c("Row percentages", "Column percentages", "Percentages of total", "No percentages")), 
-        title=gettextRcmdr("Compute Percentages"))
+        title=gettextRcmdr("Compute Percentages"), 
+        columns=2)
     checkBoxes(optionsTab, frame="testsFrame", boxes=c("chisqTest", "chisqComponents", "expFreq", "fisherTest"), 
         initialValues=c(dialog.values$initial.chisq, dialog.values$initial.chisqComp, 
             dialog.values$initial.expected, dialog.values$initial.fisher),
         labels=gettextRcmdr(c("Chi-square test of independence", "Components of chi-square statistic",
-            "Print expected frequencies", "Fisher's exact test")))
+            "Print expected frequencies", "Fisher's exact test")),
+        columns=2)
     tkgrid(getFrame(rowBox), labelRcmdr(variablesFrame, text="    "), getFrame(columnBox), sticky="nw")
     tkgrid(variablesFrame, sticky="w")
     tkgrid(percentsFrame, sticky="w")
@@ -325,10 +327,12 @@ enterTable <- function(){
     }
     OKCancelHelp(helpSubject="chisq.test", reset="resetEnterTable", apply = "enterTable")
     radioButtons(statisticsTab, name="percents", buttons=c("rowPercents", "columnPercents", "totalPercents", "nonePercents"), values=c("row", "column", "total", "none"),
-                 initialValue=initial.percentages, labels=gettextRcmdr(c("Row percentages", "Column percentages",  "Percentages of total", "No percentages")), title=gettextRcmdr("Compute Percentages"))
+                 initialValue=initial.percentages, labels=gettextRcmdr(c("Row percentages", "Column percentages",  "Percentages of total", "No percentages")), title=gettextRcmdr("Compute Percentages"),
+                 columns=2)
     checkBoxes(statisticsTab, frame="testsFrame", boxes=c("chisq", "chisqComponents", "expFreq", "fisher"), initialValues=initial.tests,
                labels=gettextRcmdr(c("Chi-square test of independence", "Components of chi-square statistic",
-                                     "Print expected frequencies", "Fisher's exact test")), title=gettextRcmdr("Hypothesis Test"))
+                                     "Print expected frequencies", "Fisher's exact test")), title=gettextRcmdr("Hypothesis Test"),
+               columns=2)
     tkgrid(labelRcmdr(variableNamesFrame, text=gettextRcmdr("Name for Row Variable (optional): ")), rowVariableBox, sticky="w")
     tkgrid(labelRcmdr(variableNamesFrame, text=""))
     tkgrid(labelRcmdr(variableNamesFrame, text=gettextRcmdr("Name for Column Variable (optional): ")), colVariableBox, sticky="w")

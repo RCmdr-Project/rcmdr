@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2014-08-17 by J. Fox
+# last modified 2018-08-01 by J. Fox
 
 # Dimensional-analysis menu
 
@@ -286,16 +286,22 @@ CFA <- function(){
   fit.indices.2 <- c("CFI", "RNI", "IFI", "SRMR", "AICc", "CAIC")
   fit.indices <- c(fit.indices.1, fit.indices.2)
   fitIndicesFrame <- tkframe(optionsTab)
-  checkBoxes(window=fitIndicesFrame, frame="fitIndicesFrame.1", 
-             boxes=fit.indices.1,
-             initialValues=unlist(dialog.values[paste("initial.", fit.indices.1, sep="")]),
-             labels=fit.indices.1,
-             title=gettextRcmdr("Fit Indices"))
-  checkBoxes(window=fitIndicesFrame, frame="fitIndicesFrame.2", 
-             boxes=fit.indices.2,
-             initialValues=unlist(dialog.values[paste("initial.", fit.indices.2, sep="")]),
-             labels=fit.indices.2,
-             title="")
+  # checkBoxes(window=fitIndicesFrame, frame="fitIndicesFrame.1", 
+  #            boxes=fit.indices.1,
+  #            initialValues=unlist(dialog.values[paste("initial.", fit.indices.1, sep="")]),
+  #            labels=fit.indices.1,
+  #            title=gettextRcmdr("Fit Indices"))
+  # checkBoxes(window=fitIndicesFrame, frame="fitIndicesFrame.2", 
+  #            boxes=fit.indices.2,
+  #            initialValues=unlist(dialog.values[paste("initial.", fit.indices.2, sep="")]),
+  #            labels=fit.indices.2,
+  #            title="")
+  checkBoxes(window=optionsFrame, frame="fitIndicesFrame", 
+             boxes=fit.indices,
+             initialValues=unlist(dialog.values[paste("initial.", fit.indices, sep="")]),
+             labels=fit.indices,
+             title=gettextRcmdr("Fit Indices"),
+             columns=4)
   checkBoxes(window=optionsFrame, frame = "robustFrame", boxes = "robust", initialValues = dialog.values$initial.robust, 
              labels = gettextRcmdr("Robust standard errors"), title=" ")
   putRcmdr("factorNumber", 1)
@@ -362,7 +368,7 @@ CFA <- function(){
   tkgrid(matrixFrame, labelRcmdr(optionsFrame, text="    "), factorCorFrame, sticky="nw")
   tkgrid(identifyFrame, labelRcmdr(optionsFrame, text="    "),  robustFrame, sticky="w")
   tkgrid(optionsFrame, sticky="w")
-  tkgrid(fitIndicesFrame.1, fitIndicesFrame.2, sticky="nw")
+  # tkgrid(fitIndicesFrame.1, fitIndicesFrame.2, sticky="nw")
   tkgrid(fitIndicesFrame, sticky="w")
   tkgrid(getFrame(xBox), sticky="w")
   tkgrid(labelRcmdr(dataTab, text=""))
