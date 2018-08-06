@@ -123,10 +123,10 @@ numericalSummaries <- function(){
     OKCancelHelp(helpSubject="numSummary", reset="numericalSummaries", apply ="numericalSummaries")
     tkgrid(getFrame(xBox), sticky="nw")    
     tkgrid(checkBoxFrame, sticky="nw")
-    tkgrid(skCheckBoxFrame, typeButtonsFrame, sticky="nw")
+    tkgrid(skCheckBoxFrame, typeButtonsFrame, sticky="nw", padx=3)
     tkgrid(skFrame, sticky="w")
-    tkgrid(quantilesCheckBox, quantilesEntry, sticky="w")
-    tkgrid(quantilesFrame)
+    tkgrid(quantilesCheckBox, quantilesEntry, sticky="w", padx="3")
+    tkgrid(quantilesFrame, sticky="w")
     tkgrid(groupsFrame, sticky = "w", padx=6)
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE, tabs=c("dataTab", "statisticsTab"), 
                  tab.names=c("Data", "Statistics"))

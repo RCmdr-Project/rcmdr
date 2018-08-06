@@ -1,4 +1,4 @@
-# last modified 2018-08-05 by J. Fox
+# last modified 2018-08-06 by J. Fox
 
 # utility functions
 
@@ -967,7 +967,7 @@ radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..
             if (right.buttons) {
                 assign(..button, ttkradiobutton(eval(parse(text=..use.frame)), variable=eval(parse(text=..variable)), 
                     value=..values[i], command=command))
-                tkgrid(labelRcmdr(eval(parse(text=..use.frame)), text=labels[i], justify="left"), eval(parse(text=..button)), sticky="w")
+                tkgrid(labelRcmdr(eval(parse(text=..use.frame)), text=labels[i], justify="left"), eval(parse(text=..button)), sticky="nw")
             }
             else{
                 assign(..button, ttkradiobutton(eval(parse(text=..use.frame)), variable=eval(parse(text=..variable)), 
@@ -981,7 +981,7 @@ radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..
                  if (columns > 2) eval(parse(text=paste(name, "Frame.3", sep=""))),
                  if (columns > 3) eval(parse(text=paste(name, "Frame.4", sep=""))),
                  sticky="nw", padx= if (columns > 1) "3" else "0")
-          ..remainder <- columns - ..nbuttons %% columns
+          ..remainder <- ..nbuttons %% columns
           if (..remainder != 0){
             if (columns == 2) tkgrid(tklabel(eval(parse(text=paste(name, "Frame.2", sep=""))), text=" "), sticky="nw")
             else if (columns == 3) {
@@ -1031,7 +1031,7 @@ checkBoxes <- defmacro(window=top, frame, boxes, initialValues=NULL, labels, tit
                  if (columns > 2) eval(parse(text=paste(frame, "Frame.3", sep=""))),
                  if (columns > 3) eval(parse(text=paste(frame, "Frame.4", sep=""))),
                  sticky="nw", padx= if (columns > 1) "3" else "0")
-          ..remainder <- columns - ..nboxes %% columns
+          ..remainder <- ..nboxes %% columns
           if (..remainder != 0){
             if (columns == 2) tkgrid(tklabel(eval(parse(text=paste(frame, "Frame.2", sep=""))), text=" "), sticky="nw")
             else if (columns == 3) {

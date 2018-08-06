@@ -1,4 +1,4 @@
-# last modified 2018-08-05 by J. Fox
+# last modified 2018-08-06 by J. Fox
 
 # Data menu dialogs
 
@@ -338,7 +338,7 @@ readDataSet <- function() {
     radioButtons(optionsFrame, "delimiter", buttons=c("whitespace", "commas", "semicolons", "tabs"),
                  labels=gettextRcmdr(c("White space", "Commas [,]", "Semicolons [;]", "Tabs")), title=gettextRcmdr("Field Separator"),
                  columns=2) 
-    otherDelimiterFrame <- tkframe(delimiterFrame)
+    otherDelimiterFrame <- tkframe(optionsFrame)
     otherButton <- ttkradiobutton(otherDelimiterFrame, variable=delimiterVariable, value="other", text=gettextRcmdr("Other"))
     otherVariable <- tclVar("")
     otherEntry <- ttkentry(otherDelimiterFrame, width="4", textvariable=otherVariable)
@@ -421,9 +421,9 @@ readDataSet <- function() {
     tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Missing data indicator:")), missingEntry, sticky="w")
     tkgrid(locationFrame, sticky="w")
     tkgrid(otherButton, 
-           labelRcmdr(otherDelimiterFrame, text=gettextRcmdr("    Specify:")), otherEntry, sticky="w")
-    tkgrid(otherDelimiterFrame, sticky="w")
+           labelRcmdr(otherDelimiterFrame, text=gettextRcmdr("    Specify:")), otherEntry, sticky="ew", padx="3")
     tkgrid(delimiterFrame, sticky="nw", columnspan=2)
+    tkgrid(otherDelimiterFrame, sticky="w")
     tkgrid(decimalFrame, sticky="w")
     tkgrid(optionsFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="w")
@@ -1743,9 +1743,10 @@ exportDataSet <- function() {
     radioButtons(name="delimiter", buttons=c("spaces", "tabs", "commas", "semicolons"), 
                  labels=gettextRcmdr(c("Spaces", "Tabs", "Commas [,]", "Semicolons [;]")),
                  title=gettextRcmdr("Field Separator"), columns=2)
-    otherButton <- ttkradiobutton(delimiterFrame, variable=delimiterVariable, value="other", text=gettextRcmdr("Other"))
+    otherDelimiterFrame <- tkframe(top)
+    otherButton <- ttkradiobutton(otherDelimiterFrame, variable=delimiterVariable, value="other", text=gettextRcmdr("Other"))
     otherVariable <- tclVar("")
-    otherEntry <- ttkentry(delimiterFrame, width="4", textvariable=otherVariable)
+    otherEntry <- ttkentry(otherDelimiterFrame, width="4", textvariable=otherVariable)
     onOK <- function(){
         closeDialog()
         col <- tclvalue(colnamesVariable) == 1
@@ -1779,9 +1780,10 @@ exportDataSet <- function() {
     tkgrid(labelRcmdr(missingFrame, text=gettextRcmdr("Missing values:  ")), missingEntry, sticky="w")
     tkgrid(missingFrame, sticky="w")
     tkgrid(optionsFrame, sticky="w")
-    tkgrid(otherButton,
-           labelRcmdr(delimiterFrame, text=gettextRcmdr("Specify:")), otherEntry, sticky="w")
     tkgrid(delimiterFrame, stick="nw")
+    tkgrid(otherButton,
+           labelRcmdr(otherDelimiterFrame, text=gettextRcmdr("Specify:")), otherEntry, sticky="w", padx="3")
+    tkgrid(otherDelimiterFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="w")
     dialogSuffix()
 }
