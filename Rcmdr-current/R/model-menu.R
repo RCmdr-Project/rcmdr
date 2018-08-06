@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2018-07-28 by J. Fox
+# last modified 2018-08-05 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -315,7 +315,7 @@ anovaTable <- function () {
             text=gettextRcmdr("Use sandwich estimator of\ncoefficient covariance matrix   ")), 
             sticky="nw")
         tkgrid(sandwichCheckFrame, sandwichTypeFrame, sticky="nw")
-        tkgrid(sandwichFrame, sticky = "w")
+        tkgrid(sandwichFrame, sticky = "nw")
     }
     tkgrid(buttonsFrame, sticky = "w")
     dialogSuffix()
@@ -1375,7 +1375,7 @@ InfluenceIndexPlot <- function () {
   defaults <- list (initial.identify = "auto", initial.id.n="2", 
                     initial.cook="1", initial.student="1", initial.bonf="1", initial.hat=1)
   dialog.values <- getDialog ("InfluenceIndexPlot", defaults)
-  initializeDialog(title = gettextRcmdr("Influence Plot"))
+  initializeDialog(title = gettextRcmdr("Influence Index Plot"))
   identifyPointsFrame <- tkframe(top)
   radioButtons(identifyPointsFrame, name = "identify", buttons = c("auto", "mouse"), labels = gettextRcmdr(c("Automatically", 
                                                                                                              "Interactively with mouse")), title = gettextRcmdr("Identify Points"), 

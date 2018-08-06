@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2018-08-01 by J. Fox
+# last modified 2018-08-05 by J. Fox
 
 # Tables menu
 
@@ -100,9 +100,9 @@ twoWayTable <- function(){
         columns=2)
     tkgrid(getFrame(rowBox), labelRcmdr(variablesFrame, text="    "), getFrame(columnBox), sticky="nw")
     tkgrid(variablesFrame, sticky="w")
-    tkgrid(percentsFrame, sticky="w")
+    tkgrid(percentsFrame, sticky="nw")
     tkgrid(labelRcmdr(optionsTab, text=gettextRcmdr("Hypothesis Tests"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-    tkgrid(testsFrame, sticky="w")
+    tkgrid(testsFrame, sticky="nw")
     tkgrid(subsetFrame, sticky="w")
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE, tab.names=c("Data", "Statistics"))
 }
@@ -341,8 +341,8 @@ enterTable <- function(){
     tkgrid(labelRcmdr(sliderFrame, text=gettextRcmdr("Number of Columns:")), colsSlider, colsShow, sticky="we", padx = 6,  pady = 6)
     tkgrid(sliderFrame, sticky="w")
     tkgrid(labelRcmdr(tableTab, text=gettextRcmdr("Enter counts:"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="we", padx = 6,  pady = 6)
-    tkgrid(percentsFrame, sticky="we", padx = 6,  pady = 6)
-    tkgrid(testsFrame, sticky="we", padx = 6, pady = 6)
+    tkgrid(percentsFrame, sticky="nwe", padx = 6,  pady = 6)
+    tkgrid(testsFrame, sticky="nwe", padx = 6, pady = 6)
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE, tabs=c("tableTab", "statisticsTab"), tab.names=c("Table", "Statistics"))
 }
 

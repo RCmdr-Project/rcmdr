@@ -1,6 +1,7 @@
 # Graphs menu dialogs
 
-# last modified 2018-07-28 by J. Fox
+# last modified 2018-08-05 by J. Fox
+
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
 # the following functions improved by Miroslav Ristic 2013-07: barGraph, indexPlot, boxPlot, 
@@ -2703,7 +2704,9 @@ stripChart <- function () {
 
 DensityPlot <- function () {
   defaults <- list(initial.x = NULL, initial.bw = gettextRcmdr("<auto>"),
-                   initial.kernel="gaussian", initial.adjust=1, initial.group=NULL, initial.tab=0,
+                   initial.kernel="gaussian", initial.adjust=1, initial.method="adaptive",
+                   initial.from=gettextRcmdr("<auto>"), initial.to=gettextRcmdr("<auto>"),
+                   initial.group=NULL, initial.tab=0,
                    initial.xlab=gettextRcmdr("<auto>"), initial.ylab=gettextRcmdr("<auto>"))
   dialog.values <- getDialog("DensityPlot", defaults)
   initializeDialog(title = gettextRcmdr("Nonparametric Density Estimate"), use.tabs=TRUE)
@@ -2718,12 +2721,21 @@ DensityPlot <- function () {
   radioButtons(kerFrame, name = "kernel", buttons = c("gaussian", "epanechnikov", "biweight"),
                labels = gettextRcmdr(c("Gaussian", "Epanechnikov", "Tukey biweight")),
                initialValue = dialog.values$initial.kernel)
+  radioButtons(optionsFrame, name="method", buttons=c("adaptive", "kernel"),
+                labels=gettextRcmdr(c("adaptive kernel", "kernel")), 
+                title=gettextRcmdr("Method"),
+                initialValue=dialog.values$initial.method)
   bwFrame <- tkframe(optFrame)
   bwVariable <- tclVar(dialog.values$initial.bw)
   bwField <- ttkentry(bwFrame, width = "8", textvariable = bwVariable)
   adjustVariable <- tclVar(dialog.values$initial.adjust)
   adjustSlider <- tkscale(bwFrame, from = 0.1, to = 10, showvalue = TRUE,
                           variable = adjustVariable, resolution = 0.1, orient = "horizontal")
+  rangeFrame <- tkframe(optionsFrame)
+  fromVar <- tclVar(dialog.values$initial.from)
+  fromEntry <- ttkentry(rangeFrame, width = "10", textvariable = fromVar)
+  toVar <- tclVar(dialog.values$initial.to)
+  toEntry <- ttkentry(rangeFrame, width = "10", textvariable = toVar)
   initial.group <- dialog.values$initial.group
   .groups <- if (is.null(initial.group)) FALSE else initial.group
   xlabVar <- tclVar(dialog.values$initial.xlab)
@@ -2748,6 +2760,9 @@ DensityPlot <- function () {
     kernel <- tclvalue(kernelVariable)
     adjust <- tclvalue(adjustVariable)
     bw <- tclvalue(bwVariable)
+    method <- tclvalue(methodVariable)
+    fromValue <- trim.blanks(tclvalue(fromVar))
+    toValue <- trim.blanks(tclvalue(toVar))
     if (length(x) == 0) {
       errorCondition(recall = DensityPlot, message = gettextRcmdr("You must select a variable"))
       return()
@@ -2760,6 +2775,8 @@ DensityPlot <- function () {
         return()
       }
     }
+    from <- if (fromValue == gettextRcmdr("<auto>")) "" else paste0(", from=", fromValue)
+    to <- if (fromValue == gettextRcmdr("<auto>")) "" else paste0(", to=", toValue)
     xlab <- trim.blanks(tclvalue(xlabVar))
     xlab <- if (xlab == gettextRcmdr("<auto>"))
       ""
@@ -2769,23 +2786,35 @@ DensityPlot <- function () {
       ""
     else paste(", ylab=\"", ylab, "\"", sep = "")
     putDialog ("DensityPlot", list(initial.x = x, initial.bw = bw, initial.kernel=kernel,
-                                   initial.adjust=adjust,
-                                   initial.group=if (.groups == FALSE) NULL else .groups,
-                                   initial.tab=tab, initial.xlab=tclvalue(xlabVar),
-                                   initial.ylab=tclvalue(ylabVar)))
-    if (bw == gettextRcmdr("<auto>")) bw  <- '"SJ"'
+      initial.adjust=adjust, initial.method=method,
+      initial.from=fromValue, initial.to=toValue,
+      initial.group=if (.groups == FALSE) NULL else .groups,
+      initial.tab=tab, initial.xlab=tclvalue(xlabVar),
+      initial.ylab=tclvalue(ylabVar)))
+    if (bw == gettextRcmdr("<auto>")) bw  <- if (method == "adaptive")  "bw.SJ" else '"SJ"'
     closeDialog()
     .activeDataSet <- ActiveDataSet()
     var <- paste(.activeDataSet, "$", x, sep = "")
+    kernel.selector <- if (method == "adaptive"){
+      switch(kernel,
+        gaussian = "dnorm",
+        epanechnikov = "depan",
+        biweight = "dbiwt"
+      )}
+      else paste0('"', kernel, '"')
+      
     if (is.null(.groups) || .groups == FALSE) {
-      command <- paste('densityPlot( ~ ', x, ', method="kernel", data=', .activeDataSet, ', bw=', bw,
-                       ", adjust=", adjust, ', kernel="', kernel, '"', xlab, ylab, ')', sep="")
+      command <- paste('densityPlot( ~ ', x,  ', data=', .activeDataSet, ', bw=', bw,
+                       ", adjust=", adjust, ', kernel=', kernel.selector, '',
+                       ', method="', method, '"', from, to, xlab, ylab, ')', sep="")
       doItAndPrint(command)
     }
     else {
-      command <- paste("densityPlot(", x, "~", .groups, ', method="kernel", data=',
+      command <- paste("densityPlot(", x, "~", .groups, ', data=',
                        .activeDataSet, ', bw=', bw,
-                       ", adjust=", adjust, ', kernel="', kernel, '"', xlab, ylab, ')', sep="")
+                       ", adjust=", adjust, ', kernel=', kernel.selector, '',
+                       ', method="', method, '"',
+                       from, to, xlab, ylab, ')', sep="")
       doItAndPrint(command)
     }
     activateMenus()
@@ -2804,7 +2833,11 @@ DensityPlot <- function () {
          labelRcmdr(bwFrame, text = gettextRcmdr("Multiply bandwidth by")),
          adjustSlider, sticky = "swe", padx=6)
   tkgrid(bwFrame, sticky="sw")
+  tkgrid(methodFrame, sticky="w")
+  tkgrid(labelRcmdr(rangeFrame, text=gettextRcmdr("From")), fromEntry, sticky="w")
+  tkgrid(labelRcmdr(rangeFrame, text=gettextRcmdr("To")), toEntry, sticky="w")
   tkgrid(optFrame, parFrame, sticky = "nswe", padx=6, pady=6)
+  tkgrid(rangeFrame, sticky="w")
   tkgrid(optionsFrame, sticky = "w")
   dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE)
 }

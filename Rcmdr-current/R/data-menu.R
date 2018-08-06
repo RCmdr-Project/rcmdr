@@ -1,4 +1,4 @@
-# last modified 2018-08-01 by J. Fox
+# last modified 2018-08-05 by J. Fox
 
 # Data menu dialogs
 
@@ -423,7 +423,7 @@ readDataSet <- function() {
     tkgrid(otherButton, 
            labelRcmdr(otherDelimiterFrame, text=gettextRcmdr("    Specify:")), otherEntry, sticky="w")
     tkgrid(otherDelimiterFrame, sticky="w")
-    tkgrid(delimiterFrame, sticky="w", columnspan=2)
+    tkgrid(delimiterFrame, sticky="nw", columnspan=2)
     tkgrid(decimalFrame, sticky="w")
     tkgrid(optionsFrame, sticky="w")
     tkgrid(buttonsFrame, sticky="w")
@@ -1781,7 +1781,7 @@ exportDataSet <- function() {
     tkgrid(optionsFrame, sticky="w")
     tkgrid(otherButton,
            labelRcmdr(delimiterFrame, text=gettextRcmdr("Specify:")), otherEntry, sticky="w")
-    tkgrid(delimiterFrame, stick="w")
+    tkgrid(delimiterFrame, stick="nw")
     tkgrid(buttonsFrame, sticky="w")
     dialogSuffix()
 }
@@ -2123,7 +2123,7 @@ setContrasts <- function(){
   }
   OKCancelHelp(helpSubject="contrasts")
   tkgrid(getFrame(variableBox), sticky="nw")
-  tkgrid(contrastsFrame, sticky="w")
+  tkgrid(contrastsFrame, sticky="nw")
   tkgrid(buttonsFrame, sticky="w")
   dialogSuffix()
 }

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2018-08-01 by J. Fox
+# last modified 2018-08-05 by J. Fox
 
 # Summaries menu
 
@@ -122,7 +122,7 @@ numericalSummaries <- function(){
     }
     OKCancelHelp(helpSubject="numSummary", reset="numericalSummaries", apply ="numericalSummaries")
     tkgrid(getFrame(xBox), sticky="nw")    
-    tkgrid(checkBoxFrame, sticky="w")
+    tkgrid(checkBoxFrame, sticky="nw")
     tkgrid(skCheckBoxFrame, typeButtonsFrame, sticky="nw")
     tkgrid(skFrame, sticky="w")
     tkgrid(quantilesCheckBox, quantilesEntry, sticky="w")
