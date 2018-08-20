@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2017-10-12 10:36+0800\n"
+"POT-Creation-Date: 2018-08-14 11:10+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Li Cheng Hsun <d966020003@student.nsysu.edu.tw>\n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 1.8.12\n"
 
 msgid "KMeans Clustering"
 msgstr "K 平均數集群"
@@ -3481,11 +3481,10 @@ msgid " has been coerced to a data frame"
 msgstr "已被強制轉換為資料框架"
 
 msgid "the dataset %s is no longer available"
-msgstr "此 %s 資料集不再可使用"
+msgstr "此資料集的 %s 已不再可使用"
 
-#, fuzzy
 msgid "the model %s is no longer available"
-msgstr "此 %s 資料集不再可使用"
+msgstr "此模型的 %s 資料已不再可用"
 
 # message added to version 1.3-10
 msgid "The Commander GUI is launched only in interactive sessions"
@@ -3829,9 +3828,8 @@ msgstr "開啟 R 說明系統"
 msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
 msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
 
-#, fuzzy
 msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
-msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
+msgstr "{\"文本檔\" {\".txt\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
 msgid ""
@@ -3875,9 +3873,8 @@ msgid ""
 "RDA\"}}"
 msgstr "{\"R資料檔\" {\".rda\" \".Rda\" \".RDA\"}} {\"所有檔案\" {\"*\"}}"
 
-#, fuzzy
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
-msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
+msgstr "{\"PNG圖檔\" {\".png\",\".PNG\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
 msgid ""
@@ -3886,13 +3883,11 @@ msgid ""
 msgstr ""
 "{\"JPEG檔\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有檔案\" {\"*\"}}"
 
-#, fuzzy
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
-msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
+msgstr "{\"PDF檔\" {\".PDF\",\".pdf\"}} {\"所有檔案\" {\"*\"}}"
 
-#, fuzzy
 msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
-msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
+msgstr "{\"Postscript 檔\" {\".ps\", \".PS\"}} {\"所有檔案\" {\"*\"}}"
 
 #, fuzzy
 msgid ""
@@ -4321,9 +4316,8 @@ msgstr "語法檔和輸出檔字型大小〈點(pt)〉"
 msgid "Dialog font"
 msgstr "對話框預設字型"
 
-#, fuzzy
 msgid "Script and output font"
-msgstr "另存語法檔"
+msgstr "語法與估計結果字形"
 
 msgid "Script text color"
 msgstr "語法檔字形顏色"
@@ -4387,9 +4381,8 @@ msgstr ""
 msgid "You may edit this file before saving it."
 msgstr "儲存前請編輯"
 
-#, fuzzy
 msgid "Save Rcmdr options..."
-msgstr "儲存語法檔..."
+msgstr "儲存Rcmdr的選項調整..."
 
 msgid "Nonparametric Density Estimate"
 msgstr "無母數密度估計法"
@@ -4550,9 +4543,8 @@ msgstr "首欄為列名稱"
 msgid "<no variable selected>"
 msgstr "沒有選擇任何變數."
 
-#, fuzzy
 msgid "Model Effect Plots"
-msgstr "效應圖"
+msgstr "模型效應圖"
 
 msgid "Plot All High-Order Effects?"
 msgstr "繪製「高-低」效果？"
@@ -4560,11 +4552,12 @@ msgstr "繪製「高-低」效果？"
 msgid "Predictors (pick one or more)"
 msgstr "用來預測的變數〈選取1個或多個〉"
 
-#, fuzzy
 msgid ""
 "You must select one or more predictors\n"
 " or plot all high-order effects."
-msgstr "您必須選擇1個或多個變數."
+msgstr ""
+"您必須選擇1個或多個變數產生預測\n"
+"或繪製所有的高階結果."
 
 msgid ""
 "To plot partial residuals,\n"
@@ -4633,11 +4626,12 @@ msgstr "選擇主題"
 msgid "Restart R Commander"
 msgstr "離開並重新啟動 R Commander"
 
-#, fuzzy
 msgid ""
 "Model formula\n"
 "help"
-msgstr "模型公式："
+msgstr ""
+"模型公式\n"
+"協助"
 
 # messages added for version 2.1-1
 # messages for the new dataset editor
@@ -4845,12 +4839,10 @@ msgstr ""
 "{\"MS Excel 檔案\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}{\"所有檔案\" {\"*"
 "\"}} "
 
-#, fuzzy
-#| msgid "Number of points to identify"
 msgid ""
 "Number of points to identify  \n"
 "in each panel and group"
-msgstr "要辨識的座標數目："
+msgstr "用以辨識物件的點數："
 
 #, fuzzy
 #| msgid ""
@@ -4864,54 +4856,38 @@ msgstr ""
 "係數之共變異數矩陣"
 
 # #待確認功能
-#, fuzzy
-#| msgid "Plot 50% concentration ellipsoid"
 msgid "Concentration levels:"
-msgstr "繪製 50% 集中橢圓"
+msgstr "集中程度"
 
-#, fuzzy
-#| msgid "from text file..."
 msgid ".rtf (rich text file)"
-msgstr "匯入文字檔..."
+msgstr "匯入rtf 文字檔..."
 
 msgid "Rich text file written to:"
 msgstr "寫入之 rtf 檔名:"
 
-#, fuzzy
-#| msgid "Confidence intervals..."
 msgid "Bootstrap confidence intervals..."
-msgstr "信賴區間..."
+msgstr "拔靴法信賴區間..."
 
 msgid "Bootstrap"
 msgstr "拔靴"
 
-#, fuzzy
-#| msgid "Confidence Intervals for Individual Coefficients"
 msgid "Bootstrap Confidence Intervals for Coefficients"
-msgstr "個別係數的信賴區間"
+msgstr "個別係數的拔靴法信賴區間"
 
-#, fuzzy
-#| msgid "Number of starting seeds:"
 msgid "Number of bootstrap samples:"
-msgstr "起使演算子(seeds)個數："
+msgstr "拔靴法的重複抽樣個數："
 
-#, fuzzy
-#| msgid "Number of samples must be positive."
 msgid "Number of samples must be a positive integer."
-msgstr "樣本數必須為正."
+msgstr "樣本數必須為正整數"
 
-#, fuzzy
-#| msgid "Confidence Intervals"
 msgid "Type of Confidence Intervals"
-msgstr "信賴區間"
+msgstr "信賴區間類別"
 
 msgid "BCa (adjusted percentile)"
 msgstr ""
 
-#, fuzzy
-#| msgid "Normal"
 msgid "Normal theory"
-msgstr "常態"
+msgstr "常態理論"
 
 msgid "Basic bootstrap"
 msgstr ""
@@ -4921,81 +4897,57 @@ msgstr ""
 msgid "Percentile"
 msgstr "百分比"
 
-#, fuzzy
-#| msgid "Clustering Method"
 msgid "Resampling Method"
-msgstr "集群方法"
+msgstr "重複抽樣法"
 
 msgid "Case resampling"
 msgstr ""
 
-#, fuzzy
-#| msgid "Residuals"
 msgid "Residual resampling"
-msgstr "殘差"
+msgstr "重複抽樣殘差"
 
-#, fuzzy
-#| msgid "Confidence intervals..."
 msgid "Delta method confidence interval..."
-msgstr "信賴區間..."
+msgstr "Delta法信賴區間..."
 
-#, fuzzy
-#| msgid "Ward's Method"
 msgid "Delta Method"
-msgstr "Ward 法(最小變異法)"
+msgstr "Delta方法"
 
-#, fuzzy
-#| msgid "Confidence Intervals"
 msgid "Confidence Interval by the Delta Method"
-msgstr "信賴區間"
+msgstr "依Delta法的信賴區間"
 
 msgid "Expression to evaluate; use parameter names:"
 msgstr ""
 
-#, fuzzy
-#| msgid "New data set..."
 msgid "View data..."
-msgstr "新資料集..."
+msgstr "檢視資料集..."
 
 #, fuzzy
 #| msgid "View data set"
 msgid "View Data"
 msgstr "檢視資料集"
 
-#, fuzzy
-#| msgid "Subset expression"
 msgid "Bad subset expression."
-msgstr "子樣本選取之條件"
+msgstr "不適宜的子樣本選取表示"
 
 #, fuzzy
 #| msgid "No data set selected."
 msgid "No data to show."
 msgstr "沒有選擇任何資料集."
 
-#, fuzzy
-#| msgid "View data set"
 msgid "View data error."
-msgstr "檢視資料集"
+msgstr "檢視資料誤差"
 
-#, fuzzy
-#| msgid "Export active data set..."
 msgid "Sort active data set..."
-msgstr "輸出使用中的資料集..."
+msgstr "對使用中的資料集排序"
 
-#, fuzzy
-#| msgid "Export Active Data Set"
 msgid "Sort Active Data Set"
-msgstr "輸出使用中的資料集"
+msgstr "對使用中的資料集排序"
 
-#, fuzzy
-#| msgid "Variables (select one or more)"
 msgid "Sort Keys (select one or more)"
-msgstr "變數〈選取一個或多個〉"
+msgstr "排序變數〈選取一個或多個〉"
 
-#, fuzzy
-#| msgid "Search Direction"
 msgid "Sort Direction"
-msgstr "搜尋方向"
+msgstr "排序方向"
 
 msgid "Increasing"
 msgstr "遞增"
@@ -5003,40 +4955,30 @@ msgstr "遞增"
 msgid "Decreasing"
 msgstr "遞減"
 
-#, fuzzy
-#| msgid "Reorder Factor Levels"
 msgid "Reorder Sort Keys"
-msgstr "將因子變數層次重新排序"
+msgstr "將排序的關鍵變數重置順序"
 
-#, fuzzy
-#| msgid "Order of levels must include all integers from 1 to"
 msgid "Order of keys must include all integers from 1 to"
-msgstr "水準順序值必須包含以下範圍的所有整數： 1 至 "
+msgstr "關鍵變數的順序值必須包含大於等於1的正整數"
 
 msgid "Sort Keys"
-msgstr ""
+msgstr "排序關鍵"
 
 msgid "Order"
-msgstr ""
+msgstr "順序"
 
 # added to plot means dialog
 msgid "Connect profiles of means"
 msgstr ""
 
-#, fuzzy
-#| msgid "Assume equal variances?"
 msgid "Welch F-test not assuming equal variances"
-msgstr "是否假設變異數相等？"
+msgstr "Welch F-test 不假設變異數"
 
-#, fuzzy
-#| msgid "Shapiro-Wilk test of normality..."
 msgid "Test of normality..."
-msgstr "Shapiro-Wilk 常態分佈檢定..."
+msgstr "常態分佈檢定..."
 
-#, fuzzy
-#| msgid "Shapiro-Wilk Test of Normality"
 msgid "Test of Normality"
-msgstr "Shapiro-Wilk 常態分佈檢定"
+msgstr "常態分佈檢定"
 
 msgid "Shapiro-Wilk"
 msgstr ""
@@ -5053,35 +4995,25 @@ msgstr ""
 msgid "Shapiro-Francia"
 msgstr ""
 
-#, fuzzy
-#| msgid "Chi-square"
 msgid "Pearson chi-square"
-msgstr "卡方"
+msgstr "Pearson卡方"
 
-#, fuzzy
-#| msgid "Normal Quantiles"
 msgid "Normality Test"
-msgstr "常態分佈(百)分位數"
+msgstr "常態分佈檢定"
 
-#, fuzzy
-#| msgid "Argument response must be numeric."
 msgid "Number of bins must be a number >= 4"
-msgstr "引數：response變數必須是數值格式."
+msgstr "bins 數量必須>= 4"
 
 msgid ""
 "Number of bins\n"
 "for Pearson chi-square"
 msgstr ""
 
-#, fuzzy
-#| msgid "Plot by groups"
 msgid "Test by groups"
-msgstr "依據群組繪製圖表"
+msgstr "依據群組執行檢定"
 
-#, fuzzy
-#| msgid "Plot by:"
 msgid "Test by:"
-msgstr "繪圖依據："
+msgstr "檢定依據："
 
 #, fuzzy
 #| msgid "Comma [,]"
@@ -5099,42 +5031,34 @@ msgstr ""
 msgid "Optionally specify regions under the density function by"
 msgstr ""
 
-#, fuzzy
-#| msgid "Hat-values"
 msgid "x-values"
-msgstr "槓桿值 (Hat-values)"
+msgstr "x值"
 
 #, fuzzy
 #| msgid "quantiles:"
 msgid "quantiles"
 msgstr "分位數："
 
-#, fuzzy
-#| msgid "is not a valid name."
 msgid "is not a valid number."
-msgstr "非有效的名稱."
+msgstr "非有效的數字."
 
-#, fuzzy
-#| msgid "You must select at least one package."
 msgid "You must specify 'from' and 'to' for at least one range."
-msgstr "您至少須選擇1個程式套件."
+msgstr "至少一個間距必須指定 '從' 和 '到' "
 
 msgid "In specifying a range, 'to' must be greater than 'from'."
 msgstr ""
 
-#, fuzzy
-#| msgid "Probability of success must be between 0 and 1."
 msgid "Quantiles must be between 0 and 1."
-msgstr "成功機率必須位在 0 與 1 之間."
+msgstr "分位數必須位在 0 與 1 之間."
 
 msgid "Regions to Fill (specify one or two, or leave blank)"
 msgstr ""
 
 msgid "Region 1: from"
-msgstr ""
+msgstr "區域1:從"
 
 msgid "Region 2: from"
-msgstr ""
+msgstr "區域2:從"
 
 msgid "to"
 msgstr ""
@@ -5142,30 +5066,20 @@ msgstr ""
 msgid "color"
 msgstr "色彩"
 
-#, fuzzy
-#| msgid "Top left"
 msgid "Top center"
-msgstr "頂端偏左"
+msgstr "頂端置中"
 
-#, fuzzy
-#| msgid "Compare two models..."
 msgid "Compare model coefficients..."
-msgstr "比較2組模型..."
+msgstr "比較模型係數..."
 
-#, fuzzy
-#| msgid "Compare Models"
 msgid "Compare Model Coefficients"
-msgstr "比較2組模型"
+msgstr "比較模型係數"
 
-#, fuzzy
-#| msgid "Variables (pick two or more)"
 msgid "Select models (pick two or more)"
-msgstr "變數〈選取2個或多個〉"
+msgstr "選擇模型〈2個或多個〉"
 
-#, fuzzy
-#| msgid "You must select two models."
 msgid "You must select at least two models."
-msgstr "您必須選擇兩個模型."
+msgstr "您必須選擇至少兩個模型."
 
 # additional messages in version 2.4-0
 # enhancements to the Rcmdr script editor
@@ -5173,18 +5087,14 @@ msgid ""
 "Only one instance of the R Commander script editor may be open at a time."
 msgstr ""
 
-#, fuzzy
-#| msgid "Save current Rmd file?"
 msgid "Save current edits"
-msgstr "請問您是否要儲存目前的 Rmd 紀錄檔？"
+msgstr "請問您是否要儲存目前編輯？"
 
 msgid "Save edits"
-msgstr ""
+msgstr "儲存修改"
 
-#, fuzzy
-#| msgid "Exit editor"
 msgid "Exit editor saving edits"
-msgstr "退出編輯器"
+msgstr "退出編輯器並儲存修改"
 
 #, fuzzy
 #| msgid "Discard edits?"
@@ -5198,23 +5108,18 @@ msgid "Percentages for Group Bars"
 msgstr "總百分比"
 
 # Xyplot dialog
-#, fuzzy
-#| msgid "XY Conditioning Plot"
 msgid "Conditional"
-msgstr "XY 條件式關係圖"
+msgstr "條件式"
 
 msgid "Total"
 msgstr ""
 
-#, fuzzy
 msgid "Color Selection"
-msgstr "相關性 < 0"
+msgstr "顏色選擇"
 
 # miscelaneous additions
-#, fuzzy
-#| msgid "Color palette..."
 msgid "From color palette"
-msgstr "調色盤..."
+msgstr "從調色盤..."
 
 #, fuzzy
 #| msgid "Data set %s does not exit"
@@ -5236,41 +5141,30 @@ msgstr "比率 < 1"
 msgid "Ratio > 1"
 msgstr "比率 > 1"
 
-#, fuzzy
-#| msgid "Name for variable:"
 msgid "Name for Row Variable (optional):"
-msgstr "新數值變數名稱："
+msgstr "列變數名稱(選擇性)："
 
-#, fuzzy
-#| msgid "Column variable (pick one)"
 msgid "Name for Column Variable (optional):"
-msgstr "欄變數〈選取一個〉"
+msgstr "欄變數名稱(選擇性)："
 
 # for reading Excel files (new dialog)
-#, fuzzy
-#| msgid "Convert character data to factors"
 msgid "Convert character variables to factors"
-msgstr "將類別變數轉成因子"
+msgstr "將字串變數轉成因子"
 
-#, fuzzy
-#| msgid "Select variable containing row names"
 msgid "First column contains row names"
-msgstr "選擇包含列名稱的變數"
+msgstr "第1欄是列名稱"
 
-#, fuzzy
-#| msgid "Import SPSS Data Set"
 msgid "Import SAS b7dat Data Set"
-msgstr "匯入 SPSS 格式資料"
+msgstr "匯入 SAS 格式資料"
 
 #, fuzzy
 #| msgid "from SAS xport file..."
 msgid "from SAS b7dat file..."
 msgstr "匯入SAS格式資料..."
 
-#, fuzzy
 msgid ""
 "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
-msgstr "{\"STATA 資料集檔案\" {\".dta\" \".DTA\"}} {\"所有檔案\" {\"*\"}}"
+msgstr "{\"SAS 資料檔\" {\".sas7bdat\" \".SAS7BDAT\"}} {\"所有檔案\" {\"*\"}}"
 
 # addition to the Commander Options dialog
 msgid ""
@@ -5279,36 +5173,128 @@ msgid ""
 msgstr ""
 
 # #待確認翻譯
-#, fuzzy
-#| msgid "Bin numeric variable..."
 msgid "Plot discrete numeric variable..."
-msgstr "以區間分隔數值變數..."
+msgstr "繪製間斷式數值變數..."
 
 # #待確認翻譯
-#, fuzzy
-#| msgid "Bin a Numeric Variable"
 msgid "Plot Discrete Numeric Variable"
-msgstr "以區間 (bin) 分隔數值變數"
+msgstr "繪製間斷式數值變數"
 
-#, fuzzy
-#| msgid ""
-#| "There are %d variables in the data set %s.\n"
-#| "Do you want to proceed?"
 msgid ""
 "%s has %d unique values\n"
 "Do you want to proceed?"
 msgstr ""
-"共有 %d 個變數在 %s 資料集中.\n"
-"您確定要進行運算嗎?"
+"共有 %d 個唯一值在 %s 資料集中.\n"
+"您確定要繼續嗎?"
 
 # for boostrapping dialog
 msgid "Plot bootstrap samples"
-msgstr ""
+msgstr "繪製拔靴抽樣樣本"
 
 #, fuzzy
 #| msgid "Frequency counts"
 msgid "Binned Frequency Counts"
 msgstr "次數統計"
+
+# additional messages in version 2.4-2
+# these messages were inadvertently omitted
+msgid "Sample from ChiSquared Distribution"
+msgstr "自卡方分布抽樣"
+
+msgid "Sample from Lognormal Distribution"
+msgstr "自對數常態分布抽樣"
+
+msgid "Sample from NegativeBinomial Distribution"
+msgstr "自負二項分布抽樣"
+
+# additional messages in version 2.5-0
+# new predictor effect plots dialog
+msgid "Predictor Effect Plots"
+msgstr "預測變數效應圖"
+
+msgid "Predictor effect plots..."
+msgstr "預測變數效應圖"
+
+msgid "Plot all predictor effects?"
+msgstr "繪製所有預測變數效應?"
+
+# added to index plot dialog
+msgid "Mark by groups"
+msgstr "依群組標記"
+
+msgid "Mark by:"
+msgstr "標記源:"
+
+# new response transformation dialog
+msgid "Response Transformation"
+msgstr ""
+
+msgid "Response transformation..."
+msgstr ""
+
+msgid "Box-Cox"
+msgstr ""
+
+msgid "Box-Cox with negatives"
+msgstr ""
+
+msgid "Yeo-Johnson"
+msgstr ""
+
+# new transform toward normality dialog
+msgid "Transform toward normality..."
+msgstr "朝常態轉換"
+
+msgid "Transform Variables Toward Normality"
+msgstr "將變數依常態轉換"
+
+msgid "Select variables to transform (one or more)"
+msgstr "選擇被轉換變數(一個或多個)"
+
+msgid "Transformation Family"
+msgstr ""
+
+# new symmetry boxplot (symbox) dialog
+msgid "Symmetry boxplot..."
+msgstr "對稱盒鬚圖"
+
+msgid "Symmetry Boxplot"
+msgstr "對稱盒鬚圖"
+
+msgid "Start (optional)"
+msgstr ""
+
+msgid "Powers"
+msgstr ""
+
+# new influence index plot dialog
+msgid "Influence index plot..."
+msgstr ""
+
+msgid "Influence Index Plot"
+msgstr ""
+
+msgid "Bonferroni p-values"
+msgstr ""
+
+msgid "Diagnostics case statistics to plot"
+msgstr ""
+
+# enhancements to Density Plot dialog
+msgid "Method"
+msgstr ""
+
+msgid "adaptive kernel"
+msgstr ""
+
+msgid "kernel"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "To"
+msgstr ""
 
 #~ msgid "Dataset"
 #~ msgstr "Dataset"

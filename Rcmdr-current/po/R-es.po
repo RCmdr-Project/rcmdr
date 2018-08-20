@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.4-0\n"
+"Project-Id-Version: Rcmdr 2.5-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2018-02-20 15:30:00\n"
-"PO-Revision-Date: 2018-02-23 11:07+0100\n"
+"POT-Creation-Date: 2018-08-05 18:30:00\n"
+"PO-Revision-Date: 2018-08-08 09:22+0200\n"
 "Last-Translator: Manuel Munoz-Marquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <manuel.munoz@uca.es>\n"
 "Language: es\n"
@@ -1038,7 +1038,7 @@ msgid "y-variable (pick one)"
 msgstr "variable y (elegir una)"
 
 msgid "Identify points"
-msgstr "Identificar Observaciones"
+msgstr "Identificar observaciones"
 
 msgid "Jitter x-variable"
 msgstr "Desplazar aleatoriamente la variable x"
@@ -3591,7 +3591,7 @@ msgid "Adjusted R-sq."
 msgstr "R cuadrado ajustado"
 
 msgid "R-squared"
-msgstr "R-cuadrado"
+msgstr "R cuadrado"
 
 msgid ""
 "Number of best models\n"
@@ -5055,7 +5055,7 @@ msgid "Plot bootstrap samples"
 msgstr "Dibujar muestras bootstrap"
 
 msgid "Binned Frequency Counts"
-msgstr "Recuentos binarios de frecuencias"
+msgstr "Frecuencias por intervalos"
 
 msgid "Sample from ChiSquared Distribution"
 msgstr "Muestra de una distribución Chi-cuadrado"
@@ -5065,6 +5065,88 @@ msgstr "Muestra de una distribución lognormal"
 
 msgid "Sample from NegativeBinomial Distribution"
 msgstr "Muestra de una distribución binomial negativa"
+
+msgid "Predictor Effect Plots"
+msgstr "Gráfica de efectos del predictor"
+
+msgid "Predictor effect plots..."
+msgstr "Gráfica de efectos del predictor..."
+
+msgid "Plot all predictor effects?"
+msgstr "Dibujar todos los efectos del predictor?"
+
+msgid "Mark by groups"
+msgstr "Marcar por grupos"
+
+msgid "Mark by:"
+msgstr "Marcar con:"
+
+msgid "Response Transformation"
+msgstr "Transformación de la respuesta"
+
+msgid "Response transformation..."
+msgstr "Transformación de la respuesta..."
+
+msgid "Box-Cox"
+msgstr "Box-Cox"
+
+msgid "Box-Cox with negatives"
+msgstr "Box-Cox con negativos"
+
+msgid "Yeo-Johnson"
+msgstr "Yeo-John son"
+
+# the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+msgid "Transform toward normality..."
+msgstr "Transformación para normalizar..."
+
+msgid "Transform Variables Toward Normality"
+msgstr "Transformación para normalizar"
+
+msgid "Select variables to transform (one or more)"
+msgstr "Seleccionar variables a transformar (una o más)"
+
+msgid "Transformation Family"
+msgstr "Familia de transformaciones"
+
+msgid "Symmetry boxplot..."
+msgstr "Diagrama de caja de simetría..."
+
+msgid "Symmetry Boxplot"
+msgstr "Diagrama de caja de simetría"
+
+msgid "Start (optional)"
+msgstr "Inicio (opcional)"
+
+msgid "Powers"
+msgstr "Potencias"
+
+msgid "Influence index plot..."
+msgstr "Gráfica de índice de influencia..."
+
+msgid "Influence Index Plot"
+msgstr "Gráfica de índice de influencia"
+
+msgid "Bonferroni p-values"
+msgstr "p-valores de Bonferroni"
+
+msgid "Diagnostics case statistics to plot"
+msgstr "Estadísiticas de diagnóstico a dibujar"
+
+msgid "Method"
+msgstr "Método"
+
+msgid "adaptive kernel"
+msgstr "núcleo adaptativo"
+
+msgid "kernel"
+msgstr "núcleo"
+
+msgid "From"
+msgstr "Desde"
+
+msgid "To"
+msgstr "A"
 
 #~ msgid "Dataset"
 #~ msgstr "Datos"

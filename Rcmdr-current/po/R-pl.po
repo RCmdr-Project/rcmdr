@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr-pl 2.4-0\n"
+"Project-Id-Version: Rcmdr-pl 2.5-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2017-08-20 11:42+0200\n"
+"POT-Creation-Date: 2018-08-05 18:30:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
 "Language-Team: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.6\n"
 
 msgid "KMeans Clustering"
 msgstr "Grupowanie metodą k-średnich"
@@ -5128,6 +5128,98 @@ msgstr "Rysuj próbki bootstrap"
 
 msgid "Binned Frequency Counts"
 msgstr "Zliczenia przedziałowanych częstości"
+
+msgid "Sample from ChiSquared Distribution"
+msgstr "Próba z rozkładu chi-kwadrat"
+
+msgid "Sample from Lognormal Distribution"
+msgstr "Próba z rozkładu logarytmicznie normalnego"
+
+msgid "Sample from NegativeBinomial Distribution"
+msgstr "Próba z rozkładu Pascala (ujemnego rozkładu dwumianowego)"
+
+msgid "Predictor Effect Plots"
+msgstr "Wykresy efektów predyktorów"
+
+msgid "Predictor effect plots..."
+msgstr "Wykresy efektów predyktorów..."
+
+msgid "Plot all predictor effects?"
+msgstr "Narysować wszystkie efekty predykcyjne?"
+
+msgid "Mark by groups"
+msgstr "Zaznacz według grup"
+
+msgid "Mark by:"
+msgstr "Zaznacz według:"
+
+msgid "Response Transformation"
+msgstr "Transformacja zmiennej zależnej"
+
+msgid "Response transformation..."
+msgstr "Transformacja zmiennej zależnej..."
+
+msgid "Box-Cox"
+msgstr "Box-Cox"
+
+msgid "Box-Cox with negatives"
+msgstr "Box-Cox z wartościami ujemnymi"
+
+msgid "Yeo-Johnson"
+msgstr "Yeo-Johnson"
+
+# the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+msgid "Transform toward normality..."
+msgstr "Transformuj w kierunku normalności..."
+
+msgid "Transform Variables Toward Normality"
+msgstr "Transformuj zmienne w kierunku normalności"
+
+msgid "Select variables to transform (one or more)"
+msgstr "Wybierz zmienne do transformacji (jedna lub więcej)"
+
+msgid "Transformation Family"
+msgstr "Rodzina transformacji"
+
+msgid "Symmetry boxplot..."
+msgstr "Wykres pudełkowy symetrii..."
+
+# index plot dialog
+msgid "Symmetry Boxplot"
+msgstr "Wykres pudełkowy symetrii"
+
+msgid "Start (optional)"
+msgstr "Start (opcjonalne)"
+
+msgid "Powers"
+msgstr "Potęgi"
+
+msgid "Influence index plot..."
+msgstr "Wykres indeksu wpływu..."
+
+msgid "Influence Index Plot"
+msgstr "Wykres indeksu wpływu"
+
+msgid "Bonferroni p-values"
+msgstr "p-wartości Bonferroniego"
+
+msgid "Diagnostics case statistics to plot"
+msgstr "Diagnostyki statystyk przypadków do narysowania"
+
+msgid "Method"
+msgstr "Metoda"
+
+msgid "adaptive kernel"
+msgstr "jądro adaptacyjne"
+
+msgid "kernel"
+msgstr "jądro"
+
+msgid "From"
+msgstr "Z"
+
+msgid "To"
+msgstr "Do"
 
 #~ msgid "Dataset"
 #~ msgstr "Zbiór danych"

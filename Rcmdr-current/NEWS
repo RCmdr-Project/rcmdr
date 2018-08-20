@@ -15,6 +15,8 @@ Changes in version 2.5-0
   o Enhancements to Density Plot dialog.
   
   o Interface improvements.
+  
+  o Updated translations (with thanks): Chinese (Tsung-wu Ho), Indonesian (I Made Tirta), Polish (Lukasz Daniel), Russian (Alexey Shipunov), Spanish (Manuel Munoz Marquez).
 
 Changes in version 2.4-4
 
@@ -28,7 +30,7 @@ Changes to version 2.4-3
 
 Changes to version 2.4-2
 
-  o Updated Slovenian and Spanish translations (thanks to Matjaz Jeran andManuel Munoz Marquez).
+  o Updated Slovenian and Spanish translations (thanks to Matjaz Jeran and Manuel Munoz Marquez).
 
   o A few updates to R-Rcmdr.pot supplying previously missing messages for translation.
 

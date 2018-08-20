@@ -4897,3 +4897,92 @@ msgstr "Начертить выборку бутстрепа"
 # for numerical summaries dialog
 msgid "Binned Frequency Counts"
 msgstr "Группированные значения частот"
+
+# additional messages in version 2.5-0
+# new predictor effect plots dialog
+msgid "Predictor Effect Plots"
+msgstr "Графики эффекта предиктора"
+
+msgid "Predictor effect plots..."
+msgstr "Графики эффекта предиктора..."
+
+msgid "Plot all predictor effects?"
+msgstr "Показать все эффекты предиктора?"
+
+# added to index plot dialog
+msgid "Mark by groups"
+msgstr "Разметить по группам"
+
+msgid "Mark by:"
+msgstr "Разметить по:"
+
+# new response transformation dialog
+msgid "Response Transformation"
+msgstr "Преобразование откликом"
+
+msgid "Response transformation..."
+msgstr "Преобразование откликом..."
+
+msgid "Box-Cox"
+msgstr "Бокс-Кокс"
+
+msgid "Box-Cox with negatives"
+msgstr "Бокс-Кокс с отрицательными значениями"
+
+msgid "Yeo-Johnson"
+msgstr "Ео-Джонсон"
+
+# new transform toward normality dialog
+msgid "Transform toward normality..."
+msgstr "Преобразовать в сторону нормальности..."
+
+msgid "Transform Variables Toward Normality"
+msgstr "Преобразовать переменные в сторону нормальности"
+
+msgid "Select variables to transform (one or more)"
+msgstr "Выбор переменных для преобразования (одна или больше)"
+
+msgid "Transformation Family"
+msgstr "Семейство преобразований"
+
+# new symmetry boxplot (symbox) dialog
+msgid "Symmetry boxplot..."
+msgstr "Симметричный боксплот..."
+
+msgid "Symmetry Boxplot"
+msgstr "Симметричный боксплот"
+
+msgid "Start (optional)"
+msgstr "Старт (необязательно)"
+
+msgid "Powers"
+msgstr "Степени"
+
+# new influence index plot dialog
+msgid "Influence index plot..."
+msgstr "График влияния..."
+
+msgid "Influence Index Plot"
+msgstr "График влияния"
+
+msgid "Bonferroni p-values"
+msgstr "P-значения Бонферрони"
+
+msgid "Diagnostics case statistics to plot"
+msgstr "Показать диагностические статистики"
+
+# enhancements to Density Plot dialog
+msgid "Method"
+msgstr "Метод"
+
+msgid "adaptive kernel"
+msgstr "адаптивное ядро"
+
+msgid "kernel"
+msgstr "ядро"
+
+msgid "From"
+msgstr "От"
+
+msgid "To"
+msgstr "До"
