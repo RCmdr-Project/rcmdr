@@ -15,7 +15,7 @@ msgstr ""
 # Terjemahan Bahasa Indonesia Paket Rcmdr
 # Copyright (C) 2007, 2016, 2017 John Fox
 # This file is distributed under the same license as the Rcmdr package
-# I Made Tirta <itirta.fmipa@unej.ac.id>, 2016, 2017,18
+# I Made Tirta <itirta.fmipa@unej.ac.id>, 2016, 2017,2018
 msgid "KMeans Clustering"
 msgstr "Pengugusan KMeans"
 
@@ -66,7 +66,7 @@ msgid "Complete Linkage"
 msgstr "Pertalian lengkap"
 
 msgid "Average Linkage"
-msgstr "Pertalian Rata-rata "
+msgstr "Pertalian Rata-rata"
 
 msgid "McQuitty's Method"
 msgstr "Metode McQuitty"
@@ -81,7 +81,7 @@ msgid "Clustering Method"
 msgstr "Metode pengugusan"
 
 msgid "Euclidean"
-msgstr "Euclides   "
+msgstr "Euclides"
 
 msgid "Squared-Euclidian"
 msgstr "Euclides-kuadrat"
@@ -1551,7 +1551,7 @@ msgid "Cancel"
 msgstr "Batalkan"
 
 msgid "Help"
-msgstr "Bantu"
+msgstr "Bantuan"
 
 msgid "Scale Reliability"
 msgstr "Reliabilitas skala"
@@ -2433,17 +2433,17 @@ msgstr "Plot Diagnostik Dasar"
 msgid "Residual quantile-comparison plot..."
 msgstr "Perbandingan kuantil/QQ-Plot sisa..."
 
-msgid "Component+residual plots"
-msgstr "Plot Komponen+Sisa"
+msgid "Component+residual plots..."
+msgstr "Plot Komponen+Sisa..."
 
-msgid "Added-variable plots"
-msgstr "Plot Tambahan peubah"
+msgid "Added-variable plots..."
+msgstr "Plot-tambahan peubah..."
 
-msgid "Influence plot"
-msgstr "Plot Pengaruh"
+msgid "Influence plot..."
+msgstr "Plot pengaruh..."
 
-msgid "Effect plots"
-msgstr "Plot Efek"
+msgid "Effect plots..."
+msgstr "Plot efek..."
 
 msgid "Models"
 msgstr "Model"
@@ -3943,7 +3943,7 @@ msgid "First loading on each factor set to 1"
 msgstr "Loading pertama pada setiap faktor ditentukan 1"
 
 msgid "Confirmatory factor analysis..."
-msgstr "analisis faktor konfirmatori..."
+msgstr "Analisis faktor konfirmatori..."
 
 # messages added to version 1.8-1
 # the following messages were omitted from version 1.8-0
@@ -4122,6 +4122,7 @@ msgid "Table"
 msgstr "Tabel"
 
 # point identification in graphs (additional messages)
+# point identification in graphs (additional messages)
 msgid "Interactively with mouse"
 msgstr "Secara interaktif dengan mouse"
 
@@ -4132,82 +4133,75 @@ msgid "number of points to identify must be an integer"
 msgstr "banyaknya titik yang diidentifikasi harus bulat"
 
 msgid "Number of points to identify"
-msgstr "Banyaknya titik untuk identifikasi"
-
-msgid ""
-"Number of points to identify  \n"
-"in each panel and group "
-msgstr ""
-"Banyaknya titik untuk identifikasi \n"
-"dalam setiap panel dan grup "
+msgstr "Banyaknya titik untuk diidentifikasi"
 
 msgid "Added-Variable Plots"
 msgstr "Plot Variabel-Tambahan"
 
 msgid "Component+Residual Plots"
-msgstr "Plot Komponen dan Residu"
+msgstr "Komponen+Plot Sisa"
 
 msgid "Influence Plot"
 msgstr "Plot Pengaruh"
 
 # support for R Markdown and knitr
 msgid "Generate HTML report"
-msgstr "Membuat laporan HTML"
+msgstr "Membangkitkan laporan HTML"
 
 msgid "Generate PDF report"
-msgstr "Membuat laporan PDF"
+msgstr "Membangkitkan laporan pdf"
 
 msgid "R Markdown"
-msgstr "R Markdown"
+msgstr "Markdown R"
 
 msgid "knitr Document"
-msgstr "Dokumen knitr"
+msgstr "Dokumen knit"
 
 msgid "Open R Markdown file..."
-msgstr "Buka file R Markdown ..."
+msgstr "Buka file R Markdown..."
 
 msgid "Open knitr file..."
-msgstr "Buka file knitr ..."
+msgstr "Buka file kinitr..."
 
 msgid "Save R Markdown file..."
-msgstr "Simpan file R Markdown ..."
+msgstr "Simpan R file Markdown..."
 
 msgid "Save knitr file..."
-msgstr "Simpan file knitr ..."
+msgstr "Simpan file knitr..."
 
 msgid "Save knitr file?"
 msgstr "Simpan file knitr?"
 
 msgid "Save current Rmd file?"
-msgstr "Simpan file Rmd ini?"
+msgstr "Simpan file Rmd terkini?"
 
 msgid "Save current Rnw file?"
-msgstr "Simpan file Rnw ini?"
+msgstr "Simpan file Rnw terkini?"
 
 msgid "Save R Markdown file as..."
-msgstr "Simpan file R Markdown sebagai ..."
+msgstr "Simpan file R Markdown sebagai..."
 
 msgid "Save knitr file as..."
-msgstr "Simpan file knitr sebagai ..."
+msgstr "Simpan file knit sebagai..."
 
 msgid "R Markdown file saved to"
 msgstr "File R Markdown disimpan ke"
 
 msgid "knitr file saved to"
-msgstr "file R knitr disimpan ke"
+msgstr "File knitr disimpan ke"
 
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
-msgstr "{\"Semua File\" {\"*\"}} {\"File R Markdown \" {\".Rmd\" \".rmd\"}}"
+msgstr "{\"Semua File\" {\"*\"}} {\" File R Markdown\" {\".Rmd\" \".rmd\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
-msgstr "{\"Semua Files\" {\"*\"}} {\"File knitr\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+msgstr "{\"Semua File\" {\"*\"}} {\"File knitr\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
 
 msgid ""
 "Delete previously created knitr\n"
 "graphics files (recommended)?"
 msgstr ""
-"Hapus file grafik knitr \n"
-"sebelumnya (direkomendasi)?"
+"Hapus fil grafik\n"
+"yang sebelumnya dibuat knitr (direkomendasi)?"
 
 # setting and saving options
 msgid "Ask to exit Commander"
@@ -4520,7 +4514,7 @@ msgid "Single-Sample Wilcoxon Test"
 msgstr "Uji  Wilcoxon Sampel Tunggal"
 
 msgid "Single-sample Wilcoxon test..."
-msgstr " Uji  Wilcoxon sampel tunggal ... "
+msgstr " Uji  Wilcoxon sampel tunggal... "
 
 # new drop unused factor levels dialog
 msgid "Drop Unused Factor Levels"
@@ -4778,7 +4772,7 @@ msgstr "peubah untuk grafik dan pengelompokan harus berbeda"
 
 # dot plot dialog
 msgid "Dot Plot"
-msgstr "Plot Titk "
+msgstr "Plot Titik"
 
 msgid "Bin variable"
 msgstr "Peubah bin"
