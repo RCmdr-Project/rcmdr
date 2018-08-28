@@ -2,13 +2,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.4-0 Japanese Translation\n"
 "POT-Creation-Date: 2017-04-17 10:30:00\n"
-"PO-Revision-Date: 2017-08-19 11:02+0900\n"
+"PO-Revision-Date: 2018-08-28 09:46+0900\n"
 "Language-Team: Rcmdr Japanese Translation <arakit@kansai-u.ac.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja_JP\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.1.1\n"
 "Last-Translator: \n"
 
 msgid "KMeans Clustering"
@@ -5165,3 +5165,103 @@ msgstr "ブートストラップサンプルのプロット"
 # for numerical summaries dialog
 msgid "Binned Frequency Counts"
 msgstr "各グループの頻度"
+
+# additional messages in version 2.4-2
+# these messages were inadvertently omitted
+msgid "Sample from ChiSquared Distribution"
+msgstr "カイ二乗分布からのサンプル"
+
+msgid "Sample from Lognormal Distribution"
+msgstr "対数正規分布からのサンプル"
+
+msgid "Sample from NegativeBinomial Distribution"
+msgstr "負の2項分布からのサンプル"
+
+# additional messages in version 2.5-0
+# new predictor effect plots dialog
+msgid "Predictor Effect Plots"
+msgstr "予測因子効果プロット"
+
+msgid "Predictor effect plots..."
+msgstr "予測因子効果プロット..."
+
+msgid "Plot all predictor effects?"
+msgstr "全ての予測因子の効果をプロット？"
+
+# added to index plot dialog
+msgid "Mark by groups"
+msgstr "グループ別にマーク"
+
+msgid "Mark by:"
+msgstr "マーク by:"
+
+# new response transformation dialog
+msgid "Response Transformation"
+msgstr "応答変数の変換"
+
+msgid "Response transformation..."
+msgstr "応答変数の変換..."
+
+msgid "Box-Cox"
+msgstr "Box-Cox"
+
+msgid "Box-Cox with negatives"
+msgstr "負値があるときのBox-Cox"
+
+msgid "Yeo-Johnson"
+msgstr "Yeo-Johnson"
+
+# new transform toward normality dialog
+msgid "Transform toward normality..."
+msgstr "正規性への変換..."
+
+msgid "Transform Variables Toward Normality"
+msgstr "正規性への変換"
+
+msgid "Select variables to transform (one or more)"
+msgstr "変換する変数の選択（1つ以上）"
+
+msgid "Transformation Family"
+msgstr "変換族"
+
+# new symmetry boxplot (symbox) dialog
+msgid "Symmetry boxplot..."
+msgstr "対称Boxplot..."
+
+msgid "Symmetry Boxplot"
+msgstr "対称Boxplot"
+
+msgid "Start (optional)"
+msgstr "スタート（オプショナル）"
+
+msgid "Powers"
+msgstr "べき指数"
+
+# new influence index plot dialog
+msgid "Influence index plot..."
+msgstr "影響インデックスプロット..."
+
+msgid "Influence Index Plot"
+msgstr "影響インデックスプロット"
+
+msgid "Bonferroni p-values"
+msgstr "ボンフェローニのp値"
+
+msgid "Diagnostics case statistics to plot"
+msgstr "プロットするケース別診断統計量"
+
+# enhancements to Density Plot dialog
+msgid "Method"
+msgstr "方法"
+
+msgid "adaptive kernel"
+msgstr "適応カーネル"
+
+msgid "kernel"
+msgstr "カーネル"
+
+msgid "From"
+msgstr "から"
+
+msgid "To"
+msgstr "へ"
