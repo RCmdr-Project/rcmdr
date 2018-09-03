@@ -5120,3 +5120,10 @@ msgstr ""
 msgid "To"
 msgstr ""
 
+# additional messages in version 2.3-1
+
+  # a corrected message
+  
+msgid "Case statistics to plot"
+msgstr ""
+

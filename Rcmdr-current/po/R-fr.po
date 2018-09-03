@@ -1,16 +1,16 @@
 # French translations for the Rcmdr package
 # Traductions françaises pour le package Rcmdr
-# Copyright (C) 2005-2017 John Fox
+# Copyright (C) 2005-2018 John Fox
 # This file is distributed under the same license as the Rcmdr package
 # Philippe Grosjean <phgrosjean@sciviews.org>, 2005-2007
-# Milan Bouchet-Valat <nalimilan@club.fr>, 2012-2017.
+# Milan Bouchet-Valat <nalimilan@club.fr>, 2012-2018.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.3-0\n"
+"Project-Id-Version: Rcmdr 2.5-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2017-04-17 10:30:00\n"
-"PO-Revision-Date: 2017-08-28 11:30+0200\n"
+"POT-Creation-Date: 2018-08-05 18:30:00\n"
+"POT-Creation-Date: 2018-09-03 11:30:00\n"
 "Last-Translator: Milan Bouchet-Valat <nalimilan@club.fr>\n"
 "Language-Team: français <> <phgrosjean@sciviews.org>\n"
 "Language: fr\n"
@@ -303,7 +303,7 @@ msgid "[factor]"
 msgstr "[facteur]"
 
 msgid "Current variables (double-click to expression)"
-msgstr "Variables existantes (double-cliquer vers l'expression)"
+msgstr "Variables existantes (double-clic envoie vers l'expression)"
 
 msgid "No expression specified."
 msgstr "Aucune expression n'est spécifiée."
@@ -2438,7 +2438,7 @@ msgid "Numerical diagnostics"
 msgstr "Diagnostics numériques"
 
 msgid "Variance-inflation factors"
-msgstr "Inflation de variance des facteurs"
+msgstr "Facteurs d'inflation de la variance"
 
 msgid "Breusch-Pagan test for heteroscedasticity..."
 msgstr "Test Breusch-Pagan d'hétéroscédasticité..."
@@ -2464,8 +2464,8 @@ msgstr "Graphe composants+résidus"
 msgid "Added-variable plots"
 msgstr "Graphe d'additivité des variables"
 
-msgid "Influence plot"
-msgstr "Graphe d'influence des points"
+msgid "Influence plot..."
+msgstr "Graphe d'influence des points..."
 
 msgid "Effect plots"
 msgstr "Graphe des effets"
@@ -3250,7 +3250,7 @@ msgstr "Distributions de fréquences..."
 
 # Numeric to factor dialog
 msgid "Convert Numeric Variables to Factors"
-msgstr "Convertir une variable numérique en facteur..."
+msgstr "Convertir une variable numérique en facteur"
 
 msgid "<same as variables>"
 msgstr "<même que variables>"
@@ -5112,3 +5112,118 @@ msgstr "Dessiner un graphe des échantillons bootstrap"
   
 msgid "Binned Frequency Counts"
 msgstr "Nombre d'occurrences par intervalles"
+
+# additional messages in version 2.4-2
+
+  # these messages were inadvertently omitted
+
+msgid "Sample from ChiSquared Distribution"
+msgstr "Échantillon d'une distribution du Chi-2"
+
+msgid "Sample from Lognormal Distribution"
+msgstr "Échantillon d'une distribution log-normale"
+
+msgid "Sample from NegativeBinomial Distribution"
+msgstr "Échantillon d'une distribution binomiale négative"
+
+
+# additional messages in version 2.5-0
+
+  # new predictor effect plots dialog
+
+msgid "Predictor Effect Plots"
+msgstr "Graphiques d'effet des prédicteurs"
+
+msgid "Predictor effect plots..."
+msgstr "Graphiques d'effet des prédicteurs..."
+
+msgid "Plot all predictor effects?"
+msgstr "Représenter les effets de tous les prédicteurs ?"
+
+  # added to index plot dialog
+  
+msgid "Mark by groups"
+msgstr "Marquer par groupes"
+
+msgid "Mark by:"
+msgstr "Marquer par :"
+
+  # new response transformation dialog
+  
+msgid "Response Transformation"
+msgstr "Transformation de la variable dépendante"
+
+msgid "Response transformation..." 
+msgstr "Transformation de la variable dépendante"
+
+msgid "Box-Cox"
+msgstr "Box-Cox"
+
+msgid "Box-Cox with negatives"
+msgstr "Box-Cox avec valeurs négatives"
+
+msgid "Yeo-Johnson"
+msgstr "Yeo-Johnson"
+
+  # new transform toward normality dialog
+  
+msgid "Transform toward normality..."
+msgstr "Transformer vers la loi normale..."
+
+msgid "Transform Variables Toward Normality"
+msgstr "Transformer des variables vers la loi normale"
+
+msgid "Select variables to transform (one or more)"
+msgstr "Sélectionner les variables à transformer (une ou plus)"
+
+msgid "Transformation Family"
+msgstr "Famille de la transformation"
+
+msgid "Condition on:"
+msgstr "Conditionner par :"
+
+  # new symmetry boxplot (symbox) dialog
+  
+msgid "Symmetry boxplot..."
+msgstr "Boîte à moustaches pour symétrie..."
+  
+msgid "Symmetry Boxplot"
+msgstr "Boîte à moustaches pour symétrie"
+
+msgid "Start (optional)"
+msgstr "Origine (optionnel)"
+
+msgid "Powers"
+msgstr "Puissances"
+
+  # new influence index plot dialog
+  
+msgid "Influence index plot..." 
+msgstr "Graphe indexé de l'influence..."
+  
+msgid "Influence Index Plot"
+msgstr "Graphe indexé de l'influence"
+
+msgid "Bonferroni p-values"
+msgstr "p-values de Bonferroni"
+
+msgid "Case statistics to plot"
+msgstr "Statistiques à représenter"
+
+  # enhancements to Density Plot dialog
+  
+msgid "Method"
+msgstr "Méthode"
+
+msgid "adaptive kernel"
+msgstr "noyau adaptatif"
+  
+msgid "kernel"
+msgstr "noyau"
+
+msgid "From"
+msgstr "De"
+
+msgid "To"
+msgstr "À"
+
