@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.0-3\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2017-09-04 18:34+0200\n"
-"PO-Revision-Date: 2017-10-18 12:18+0200\n"
+"POT-Creation-Date: 2018-09-03 14:22+0200\n"
+"PO-Revision-Date: 2018-09-04 11:33+0200\n"
 "Last-Translator: José Ramón Rueda <joseramon.rueda@ehu.es>\n"
 "Language-Team: EHU R UCA Project <joseramon.rueda@ehu.es>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "KMeans Clustering"
@@ -114,7 +114,7 @@ msgid "A clustering solution has not been selected."
 msgstr "Ez da hautatu taldekatze-soluziorik."
 
 msgid "Append Cluster Groups to the Active Data Set"
-msgstr "Gehitu taldeko kide izatea datu multzo aktiboari "
+msgstr "Gehitu taldeko kide izatea datu multzo aktiboari"
 
 msgid "Assigned cluster label:"
 msgstr "Esleitutako talde-etiketa:"
@@ -285,7 +285,7 @@ msgid "Enter recode directives"
 msgstr "Sartu birkodetzeko jarraibideak"
 
 msgid "Make new variable a factor"
-msgstr "Egin aldagai berria faktore gisa "
+msgstr "Egin aldagai berria faktore gisa"
 
 msgid "Compute New Variable"
 msgstr "Kalkulatu aldagai berria"
@@ -294,7 +294,7 @@ msgid "[factor]"
 msgstr "[faktorea]"
 
 msgid "Current variables (double-click to expression)"
-msgstr "Uneko aldagaiak (egin klik bitan, adierazpena bidaltzeko) "
+msgstr "Uneko aldagaiak (egin klik bitan, adierazpena bidaltzeko)"
 
 msgid "No expression specified."
 msgstr "Ez da zehaztu inolako adierazpenik."
@@ -329,7 +329,7 @@ msgstr ""
 "Berretsi."
 
 msgid "Read Data From Text File"
-msgstr " Irakurri datuak textu-fitxategitik"
+msgstr "Irakurri datuak textu-fitxategitik"
 
 msgid "White space"
 msgstr "Zuriunea"
@@ -399,10 +399,10 @@ msgid "OR"
 msgstr "EDO"
 
 msgid "Enter name of data set:"
-msgstr "Idatzi datu multzoaren izena: "
+msgstr "Idatzi datu multzoaren izena:"
 
 msgid "Import SPSS Data Set"
-msgstr "Inportatu datuak SPSS-tik "
+msgstr "Inportatu datuak SPSS-tik"
 
 msgid ""
 "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
@@ -441,7 +441,7 @@ msgid ""
 "Data set cannot be converted."
 msgstr ""
 "Minitab-eko datu multzoak luzera desberdineko elementuak dauzka.\n"
-"Ezin da bihurketa egin.  "
+"Ezin da bihurketa egin."
 
 msgid "Import STATA Data Set"
 msgstr "Inportatu datu multzoak STATAtik"
@@ -452,7 +452,7 @@ msgstr ""
 "\"}}"
 
 msgid "Convert dates to R format"
-msgstr "Bihurtu datak R formatura "
+msgstr "Bihurtu datak R formatura"
 
 msgid "Multiple missing types (>=Stata 8)"
 msgstr "Tipo asko faltan (>=Stata 8)"
@@ -464,7 +464,7 @@ msgid "Warn on missing labels"
 msgstr "Abisatu etiketak falta badira"
 
 msgid "Convert Numeric Variable to Factor"
-msgstr "Zenbakizko aldagaiak faktore bihurtu "
+msgstr "Zenbakizko aldagaiak faktore bihurtu"
 
 msgid "Variable (pick one)"
 msgstr "Aldagaia (aukeratu bat)"
@@ -473,7 +473,7 @@ msgid "Supply level names"
 msgstr "Eman izena mailei"
 
 msgid "Use numbers"
-msgstr "Erabili zenbakiak "
+msgstr "Erabili zenbakiak"
 
 msgid "Factor Levels"
 msgstr "Faktore-mailak"
@@ -488,7 +488,7 @@ msgid "Level Names"
 msgstr "Maila-izenak"
 
 msgid "Levels names are not unique."
-msgstr "Maila-izenak ez dira bakarrak"
+msgstr "Maila-izenak ez dira bakarrak."
 
 msgid "A level name is empty."
 msgstr "Maila-izen bat huts dago."
@@ -503,7 +503,7 @@ msgid "Name for factor"
 msgstr "Izena faktorearentzat"
 
 msgid "Bin a Numeric Variable"
-msgstr "Zatikatu zenbakizko-aldagai bat "
+msgstr "Zatikatu zenbakizko-aldagai bat"
 
 msgid "Variable to bin (pick one)"
 msgstr "Zatikatzeko aldagaia (aukeratu bat)"
@@ -528,7 +528,7 @@ msgid ""
 "(from K-means clustering)"
 msgstr ""
 "Segmentu naturalak\n"
-"(K-batezbestekoaren arabera taldekaturik) "
+"(K-batezbestekoaren arabera taldekaturik)"
 
 msgid "Binning Method"
 msgstr "Segmentazio-metodoa"
@@ -549,7 +549,7 @@ msgid "Number of bins:"
 msgstr "Klase kopurua:"
 
 msgid "Reorder Factor Levels"
-msgstr "Berrantolatu faktore-mailak "
+msgstr "Berrantolatu faktore-mailak"
 
 msgid "Factor (pick one)"
 msgstr "Faktorea (aukeratu bat)"
@@ -558,25 +558,26 @@ msgid "<same as original>"
 msgstr "<jatorrizkoaren berdina>"
 
 msgid "Reorder Levels"
-msgstr "Berrantolatu mailak "
+msgstr "Berrantolatu mailak"
 
 msgid "Order of levels must include all integers from 1 to"
-msgstr "Mailen ordenak tarte honetako zenbaki oso guztiak hartu behar ditu: 1-"
+msgstr ""
+"Mailen ordenak tarte honetako zenbaki oso guztiak hartu behar ditu: batetik"
 
 msgid "Old Levels"
-msgstr "Maila zaharrak "
+msgstr "Maila zaharrak"
 
 msgid "New order"
 msgstr "Ordena berria"
 
 msgid "Make ordered factor"
-msgstr "Egin faktore ordenatua "
+msgstr "Egin faktore ordenatua"
 
 msgid "Standardize Variables"
-msgstr "Estandarizatu aldagaiak "
+msgstr "Estandarizatu aldagaiak"
 
 msgid "Export Active Data Set"
-msgstr "Esportatu datu multzo aktiboa "
+msgstr "Esportatu datu multzo aktiboa"
 
 msgid "Write variable names:"
 msgstr "Idatzi aldagai-izenak:"
@@ -609,13 +610,13 @@ msgid "No variables were selected."
 msgstr "Ez dago aldagairik hautatuta."
 
 msgid "Include all variables"
-msgstr "Sartu aldagai guztiak "
+msgstr "Sartu aldagai guztiak"
 
 msgid "Name for new data set"
 msgstr "Datu multzo berriaren izena"
 
 msgid "Subset Data Set"
-msgstr "Filtratu datu multzoa "
+msgstr "Filtratu datu multzoa"
 
 msgid "<all cases>"
 msgstr "<kasu guztiak>"
@@ -627,7 +628,7 @@ msgid "Subset expression"
 msgstr "Filtratu adierazpena"
 
 msgid "Set Case Names"
-msgstr "Zehaztu kasu-izenak "
+msgstr "Zehaztu kasu-izenak"
 
 msgid "Select variable containing row names"
 msgstr "Hautatu aldagaiak dauzkaten errenkaden izenak"
@@ -657,7 +658,7 @@ msgid "New name"
 msgstr "Izen berria"
 
 msgid "Set Contrasts for Factor"
-msgstr "Zehaztu faktore-kontrasteak "
+msgstr "Zehaztu faktore-kontrasteak"
 
 msgid "Treatment (dummy) contrasts"
 msgstr "Tratamendu-kontrasteak (nabariak)"
@@ -681,7 +682,7 @@ msgid "Specify Contrasts"
 msgstr "Zehaztu kontrasteak"
 
 msgid "Enter Contrast Coefficients"
-msgstr "Sartu kontraste-koefizienteak "
+msgstr "Sartu kontraste-koefizienteak"
 
 msgid "Contrast Name:"
 msgstr "Kontrastearen izena:"
@@ -784,7 +785,7 @@ msgid "Probability of success"
 msgstr "Arrakasta-probabilitatea"
 
 msgid "Cumulative Binomial Probabilities"
-msgstr "Probabilitate binomial metatuak "
+msgstr "Probabilitate binomial metatuak"
 
 msgid ""
 "Number of trials, %d, is large.\n"
@@ -858,10 +859,10 @@ msgid "Save current log file?"
 msgstr "Uneko log-fitxategia gorde?"
 
 msgid "Script saved to"
-msgstr "Scripta hemen gorde da:"
+msgstr "Scripta hemen gorde da"
 
 msgid "Output saved to"
-msgstr "Emaitza hemen gorde da:"
+msgstr "Emaitza hemen gorde da"
 
 msgid "{\"Output Files\" {\".txt\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Emaitza-fitxategiak\" {\".txt\"}} {\"Fitxategi guztiak\" {\"*\"}}"
@@ -870,7 +871,7 @@ msgid "{\"All Files\" {\"*\"}}"
 msgstr "{\"Fitxategi guztiak\" {\"*\"}}"
 
 msgid "R workspace saved to"
-msgstr "R-ko lan-ingurua hemen gorde da:"
+msgstr "R-ko lan-ingurua hemen gorde da"
 
 msgid "Exit?"
 msgstr "Irten?"
@@ -888,7 +889,7 @@ msgid "Log commands to script window"
 msgstr "Erregistratu komandoak script-leihoan"
 
 msgid "Log-font size (points)"
-msgstr "Erregistroaren letra-tamaina (puntu) "
+msgstr "Erregistroaren letra-tamaina (puntu)"
 
 msgid "Log width (characters)"
 msgstr "Erregistroaren zabalera (karaktere)"
@@ -897,7 +898,7 @@ msgid "Log height (lines)"
 msgstr "Erregistroaren altuera (lerro)"
 
 msgid "Send output to R Console"
-msgstr "Bidali emaitza R-Console-ra "
+msgstr "Bidali emaitza R-Console-ra"
 
 msgid "Output height (lines)"
 msgstr "Emaitzaren altuera (lerro)"
@@ -918,14 +919,14 @@ msgid "Sort variable names alphabetically"
 msgstr "Ordenatu aldagai-izenak alfabetikoki"
 
 msgid "Show edit button"
-msgstr "Erakutsi edizio-botoia "
+msgstr "Erakutsi edizio-botoia"
 
 msgid ""
 "Exit and Restart\n"
 "R Commander"
 msgstr ""
 "Irten R Commander-etik\n"
-"eta berrabiarazi "
+"eta berrabiarazi"
 
 msgid "Scale factor for Tk elements"
 msgstr "Eskalatu Tk elementuen faktorea"
@@ -937,7 +938,7 @@ msgid "No packages available to load."
 msgstr "Ez dago pakete eskuragarririk kargatzeko."
 
 msgid "Load Packages"
-msgstr "Kargatu paketeak "
+msgstr "Kargatu paketeak"
 
 msgid "Packages (pick one or more)"
 msgstr "Paketeak (aukeratu bat edo gehiago)"
@@ -1004,13 +1005,13 @@ msgid "Style of Divided Stems"
 msgstr "Zurtoinak zatitzeko estiloa"
 
 msgid "Trim outliers"
-msgstr "Ezabatu ezohiko balioak "
+msgstr "Ezabatu ezohiko balioak"
 
 msgid "Show depths"
 msgstr "Erakutsi mailak"
 
 msgid "Reverse negative leaves"
-msgstr "Alderantzikatu hosto negatiboak "
+msgstr "Alderantzikatu hosto negatiboak"
 
 msgid "Leafs Digit:"
 msgstr "Hostoen digitua:"
@@ -1025,7 +1026,7 @@ msgid "Boxplot"
 msgstr "Kutxa-diagrama"
 
 msgid "Identify outliers with mouse"
-msgstr "Identifikatu ezohiko balioak saguaz "
+msgstr "Identifikatu ezohiko balioak saguaz"
 
 msgid "Scatterplot"
 msgstr "Barreiadura-diagrama"
@@ -1037,7 +1038,7 @@ msgid "y-variable (pick one)"
 msgstr "y aldagaia (aukeratu bat)"
 
 msgid "Identify points"
-msgstr "Identifikatu puntuak "
+msgstr "Identifikatu puntuak"
 
 msgid "Jitter x-variable"
 msgstr "Lerratu x aldagaia zoriaren arabera"
@@ -1150,7 +1151,7 @@ msgid ""
 "numerator and denominator \n"
 "df for F must be positive numbers."
 msgstr ""
-"F-ko zenbakitzaile eta izendatzailearen\n"
+"f-ko zenbakitzaile eta izendatzailearen\n"
 "askatasun-gradu kopuruek zenbaki positiboak izan behar dute."
 
 msgid "Identify observations with mouse"
@@ -1175,7 +1176,7 @@ msgid "Parameters:"
 msgstr "Parametroak:"
 
 msgid "Plot Means"
-msgstr "Marraztu batezbestekoen grafikoa "
+msgstr "Marraztu batezbestekoen grafikoa"
 
 msgid "Factors (pick one or two)"
 msgstr "Faktoreak (aukeratu bat edo bi)"
@@ -1253,7 +1254,7 @@ msgid "Additive regression"
 msgstr "Erregresio gehigarria"
 
 msgid "df(each term) ="
-msgstr "Askatasun-graduak (termino bakoitza) ="
+msgstr "askatasun-graduak (termino bakoitza) ="
 
 msgid "Background Color"
 msgstr "Atzeko planoaren kolorea"
@@ -1265,7 +1266,7 @@ msgid "White"
 msgstr "Zuria"
 
 msgid "Save Graph as Bitmap"
-msgstr "Gorde grafikoa bit-mapa gisa "
+msgstr "Gorde grafikoa bit-mapa gisa"
 
 msgid "There is no current graphics device to save."
 msgstr "Ez dago gailu grafikorik gordetzeko."
@@ -1376,7 +1377,7 @@ msgid "Add Observation Statistics to Data"
 msgstr "Gehitu behaketen estatistikak datuei"
 
 msgid "Fitted values"
-msgstr "Balio doituak "
+msgstr "Balio doituak"
 
 msgid "Residuals"
 msgstr "Hondarrak"
@@ -1432,7 +1433,7 @@ msgid "There are fewer than two models."
 msgstr "Bi eredu baino gutxiago dago."
 
 msgid "Compare Models"
-msgstr "Konparatu ereduak "
+msgstr "Konparatu ereduak"
 
 msgid "First model (pick one)"
 msgstr "Lehen eredua (aukeratu bat)"
@@ -1450,7 +1451,7 @@ msgid "Breusch-Pagan Test"
 msgstr "Breusch-Pagan-en testa"
 
 msgid "Score Test for Nonconstant Error Variance"
-msgstr "Errore ez konstantearen bariantzaren Score testa "
+msgstr "Errore ez konstantearen bariantzaren Score testa"
 
 msgid "Studentized test statistic"
 msgstr "Test-estatistiko studentizatua"
@@ -1480,7 +1481,7 @@ msgid "No powers are checked."
 msgstr "Ez da berretzailerik aktibatu."
 
 msgid "First principal component"
-msgstr "Lehenengo osagai nagusia "
+msgstr "Lehenengo osagai nagusia"
 
 msgid "Type of Test"
 msgstr "Test mota"
@@ -1515,7 +1516,7 @@ msgid "Wald statistic"
 msgstr "Wald-en estatistikoa"
 
 msgid "Test Based On"
-msgstr "Honetan oinarrituriko testa: "
+msgstr "Honetan oinarrituriko testa"
 
 msgid "Confidence Level:"
 msgstr "Konfiantza-maila:"
@@ -1691,7 +1692,7 @@ msgid "Population mean > mu0"
 msgstr "Populazioaren batezbestekoa > mu0"
 
 msgid "Null hypothesis: mu ="
-msgstr "Hipotesi nulua: mu = "
+msgstr "Hipotesi nulua: mu ="
 
 msgid "One-Way Analysis of Variance"
 msgstr "Bariantzaren faktore bakarreko analisia"
@@ -1919,16 +1920,16 @@ msgid "expected frequencies are less than 5"
 msgstr "5 maiztasun baino gutxiago espero ziren"
 
 msgid "Row percentages"
-msgstr "Errenkaden ehunekoak "
+msgstr "Errenkaden ehunekoak"
 
 msgid "Column percentages"
-msgstr "Zutabeen ehunekoak "
+msgstr "Zutabeen ehunekoak"
 
 msgid "No percentages"
 msgstr "Ehunekorik ez"
 
 msgid "Compute Percentages"
-msgstr "Kalkulatu ehunekoak "
+msgstr "Kalkulatu ehunekoak"
 
 msgid "Chi-square test of independence"
 msgstr "Independentziaren khi karratuaren proba"
@@ -1943,7 +1944,7 @@ msgid "Hypothesis Tests"
 msgstr "Hipotesi-testak"
 
 msgid "Multi-Way Table"
-msgstr "Sarrera anizkoitzeko taula "
+msgstr "Sarrera anizkoitzeko taula"
 
 msgid "Control variable(s) (pick one or more)"
 msgstr "Kontrol-aldagaia(k) (aukeratu bat edo gehiago)"
@@ -2013,13 +2014,13 @@ msgid "Argument factor1 must be a factor."
 msgstr "Argumentuaren 1faktoreak faktore izan behar du."
 
 msgid "Arguments factor1 and factor2 must be factors."
-msgstr "Argumentuaren 1 eta 2faktoreek faktore izan behar dute. "
+msgstr "Argumentuaren 1 eta 2faktoreek faktore izan behar dute."
 
 msgid ""
 "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
 msgstr ""
 "2faktorearen talde kopurua, %d, kolore desberdineko kopurua baino handiagoa "
-"da, %d. "
+"da, %d."
 
 msgid "The number of bins exceeds the number of data values"
 msgstr "Klase kopurua datu-balio kopurua baino handiagoa da"
@@ -2294,7 +2295,7 @@ msgid "Kruskal-Wallis test..."
 msgstr "Kruskal-Wallis-en testa..."
 
 msgid "Scale reliability..."
-msgstr "Eskalaren fidagarritasuna"
+msgstr "Eskalaren fidagarritasuna..."
 
 msgid "Principal-components analysis..."
 msgstr "Osagai nagusien analisia..."
@@ -2315,7 +2316,7 @@ msgid "Add hierarchical clustering to data set..."
 msgstr "Gehitu multzokatze hierarkikoa datu multzoari..."
 
 msgid "Cluster analysis"
-msgstr "Multzo-analisia..."
+msgstr "Multzo-analisia"
 
 msgid "Linear regression..."
 msgstr "Erregresio lineala..."
@@ -2339,7 +2340,7 @@ msgid "Summaries"
 msgstr "Laburpenak"
 
 msgid "Contingency tables"
-msgstr "Kontingentzia-taulak "
+msgstr "Kontingentzia-taulak"
 
 msgid "Means"
 msgstr "Batezbestekoak"
@@ -2438,7 +2439,7 @@ msgid "Numerical diagnostics"
 msgstr "Zenbakizko diagnostikoak"
 
 msgid "Variance-inflation factors"
-msgstr "Bariantza-inflazioaren faktoreak "
+msgstr "Bariantza-inflazioaren faktoreak"
 
 msgid "Breusch-Pagan test for heteroscedasticity..."
 msgstr "Breusch-Pagan-en heterozedastizitate-testa..."
@@ -2450,7 +2451,7 @@ msgid "RESET test for nonlinearity..."
 msgstr "Ez-linealtasunaren RESET testa..."
 
 msgid "Bonferroni outlier test"
-msgstr "Bonferroni-ren ezohiko balioen testa "
+msgstr "Bonferroni-ren ezohiko balioen testa"
 
 msgid "Basic diagnostic plots"
 msgstr "Oinarrizko diagnostiko-grafikoak"
@@ -2474,13 +2475,13 @@ msgid "Models"
 msgstr "Ereduak"
 
 msgid "Normal distribution"
-msgstr "Banaketa normala..."
+msgstr "Banaketa normala"
 
 msgid "Normal quantiles..."
 msgstr "Koantil normalak..."
 
 msgid "Normal probabilities..."
-msgstr "Probabilitate normalak"
+msgstr "Probabilitate normalak..."
 
 msgid "Plot normal distribution..."
 msgstr "Marraztu banaketa normala..."
@@ -2567,7 +2568,7 @@ msgid "About Rcmdr"
 msgstr "Rcmdr-i buruz"
 
 msgid "df ="
-msgstr "ag = "
+msgstr "ag ="
 
 msgid "There is no current RGL graphics device."
 msgstr "Une honetan ez dago RGL gailu grafikorik."
@@ -2890,7 +2891,7 @@ msgid "Sample from Binomial Distribution"
 msgstr "Banaketa binomialeko lagina"
 
 msgid "Poisson mean cannot be negative."
-msgstr "Poisson-en batezbestekoa ezin da negatiboa izan. "
+msgstr "Poisson-en batezbestekoa ezin da negatiboa izan."
 
 msgid "Sample from Poisson Distribution"
 msgstr "Poisson-en banaketako lagina"
@@ -2908,7 +2909,7 @@ msgid "Sample from normal distribution..."
 msgstr "Atera lagina banaketa normaletik ..."
 
 msgid "Sample from t distribution..."
-msgstr "Atera lagina t-banaketatik"
+msgstr "Atera lagina t-banaketatik..."
 
 msgid "Sample from chi-squared distribution..."
 msgstr "Atera lagina khi karratuaren banaketatik..."
@@ -2986,7 +2987,7 @@ msgid "Logistic probabilities..."
 msgstr "Probabilitate logistikoak..."
 
 msgid "Plot logistic distribution..."
-msgstr "Marraztu banaketa logistikoa... "
+msgstr "Marraztu banaketa logistikoa..."
 
 msgid "Sample from logistic distribution..."
 msgstr "Atera lagina banaketa logistikotik..."
@@ -3058,7 +3059,7 @@ msgid "Poisson quantiles..."
 msgstr "Poisson-en koantilak..."
 
 msgid "Poisson tail probabilities..."
-msgstr "Poisson-en probabilitate metatuak... "
+msgstr "Poisson-en probabilitate metatuak..."
 
 msgid "Sample from Poisson distribution..."
 msgstr "Atera lagina Poisson-en banaketatik..."
@@ -3163,7 +3164,7 @@ msgid "XY conditioning plot..."
 msgstr "XY grafikoa..."
 
 msgid "Percentages of total"
-msgstr "Totalen ehunekoak "
+msgstr "Totalen ehunekoak"
 
 msgid "Components of chi-square statistic"
 msgstr "Khi karratuaren estatistikoaren osagaiak"
@@ -3187,7 +3188,7 @@ msgid "Correlation Test"
 msgstr "Korrelazio-testa"
 
 msgid "Variables (pick two)"
-msgstr "Aldagaiak (bi aukeratu) "
+msgstr "Aldagaiak (bi aukeratu)"
 
 msgid "Kendall's tau"
 msgstr "Kendall-en tau koefizientea"
@@ -3239,13 +3240,13 @@ msgid "Frequency distributions..."
 msgstr "Maiztasun-banaketak..."
 
 msgid "Convert Numeric Variables to Factors"
-msgstr "Zenbakizko aldagaiak faktore bihurtu."
+msgstr "Zenbakizko aldagaiak faktore bihurtu"
 
 msgid "<same as variables>"
 msgstr "<aldagaien berdina>"
 
 msgid "Level Names for"
-msgstr "Honen maila-izenak:"
+msgstr "Honen maila-izenak"
 
 msgid "Factors"
 msgstr "Faktoreak"
@@ -3278,7 +3279,7 @@ msgid "Stack variables in active data set..."
 msgstr "Metatu datu multzo aktiboaren aldagaiak..."
 
 msgid "Identify Points"
-msgstr "Identifikatu behaketak "
+msgstr "Identifikatu behaketak"
 
 msgid ""
 "Use left mouse button to identify points,\n"
@@ -3292,10 +3293,10 @@ msgid ""
 "click right button to exit."
 msgstr ""
 "Arrastatu saguaren eskuin-botoia behaketak\n"
-" identifikatzeko, eta sakatu irteteko. "
+" identifikatzeko, eta sakatu irteteko."
 
 msgid "Read Data From Text File or Clipboard"
-msgstr "Irakurri datuak testu-fitxategitik edo arbeletik "
+msgstr "Irakurri datuak testu-fitxategitik edo arbeletik"
 
 msgid "Read data from clipboard:"
 msgstr "Irakurri datuak arbeletik:"
@@ -3350,7 +3351,7 @@ msgid "the package %s is not an Rcmdr plug-in"
 msgstr "%s paketea ez da Rcmdr plug-in motakoa"
 
 msgid "unrecognized operation, \"%s\", in plugin menu line %i"
-msgstr "eragiketa ezezaguna, \"%s\", plugin menuko %i errenkadan "
+msgstr "eragiketa ezezaguna, \"%s\", plugin menuko %i errenkadan"
 
 msgid "unrecognized type, \"%s\", in plugin menu line %i"
 msgstr "tipo ezezaguna, \"%s\", plugin menuko %i errenkadan"
@@ -3415,7 +3416,7 @@ msgid "Point size"
 msgstr "Puntuen tamaina"
 
 msgid "Axis text size"
-msgstr "Ardatzeko testu-tamaina "
+msgstr "Ardatzeko testu-tamaina"
 
 msgid "Axis-labels text size"
 msgstr "Ardatzeko etiketen testu-tamaina"
@@ -3514,7 +3515,7 @@ msgid "Read Text Data From File, Clipboard, or URL"
 msgstr "Irakurri testu-datuak fitxategitik, arbeletik edo URLtik"
 
 msgid "Location of Data File"
-msgstr "Datu-fitxategiaren kokapena "
+msgstr "Datu-fitxategiaren kokapena"
 
 msgid "Local file system"
 msgstr "Tokiko fitxategi-sistema"
@@ -3601,7 +3602,7 @@ msgid ""
 "of each size:"
 msgstr ""
 "Tamaina bakoitzeko eredu\n"
-"onenen kopurua: "
+"onenen kopurua:"
 
 msgid "Maximum size:"
 msgstr "Gehienezko tamaina:"
@@ -3638,7 +3639,7 @@ msgid ""
 "rows or columns"
 msgstr ""
 "Batu bakarrik errenkada\n"
-"edo zutabe komunak "
+"edo zutabe komunak"
 
 msgid "Aggregate variables in active data set..."
 msgstr "Gehitu aldagaiak datu multzo aktiboan…"
@@ -3724,7 +3725,7 @@ msgid "Smooth line"
 msgstr "Lerro leundua"
 
 msgid "Show spread"
-msgstr "Erakutsi hedapena "
+msgstr "Erakutsi hedapena"
 
 msgid ""
 "Identify points with mouse?\n"
@@ -3860,8 +3861,7 @@ msgstr ""
 "Osagarri-puntuazioak ez daude eskuragarriak azpitaldea zehazten denean."
 
 msgid "Factor scores are not available when subset is specified."
-msgstr ""
-"Faktore-puntuazioak ez daude eskuragarriak azpitaldea zehazten denean. "
+msgstr "Faktore-puntuazioak ez daude eskuragarriak azpitaldea zehazten denean."
 
 # messages added to version 1.8-0
 msgid "Confirmatory Factor Analysis"
@@ -3902,7 +3902,7 @@ msgid "There are too many factors."
 msgstr "Faktore gehiegi dago."
 
 msgid "Identifying Constraints"
-msgstr "Identifikatu murrizketak "
+msgstr "Identifikatu murrizketak"
 
 msgid "Factor variances set to 1"
 msgstr "Faktore-bariantzak 1 gisa ezarrita"
@@ -3926,7 +3926,7 @@ msgid "data set edit error."
 msgstr "datu multzoaren edizio-errorea."
 
 msgid "Identify Outliers"
-msgstr "Identifikatu ezohiko balioak "
+msgstr "Identifikatu ezohiko balioak"
 
 msgid "Automatically"
 msgstr "Automatikoki"
@@ -3941,7 +3941,7 @@ msgid "Height"
 msgstr "Altuera"
 
 msgid "[disabled]"
-msgstr "(desgaituta)"
+msgstr "[desgaituta]"
 
 msgid "inches"
 msgstr "hazbete"
@@ -3994,7 +3994,7 @@ msgid "from Excel file..."
 msgstr "Excel fitxategitik…"
 
 msgid "Import Excel Data Set"
-msgstr "Inportatu Excel -eko datu multzoa "
+msgstr "Inportatu Excel -eko datu multzoa"
 
 msgid ""
 "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
@@ -4028,7 +4028,7 @@ msgid "Groups 'groups=' (pick zero or more)"
 msgstr "Taldeak 'groups=' (aukeratu bat edo gehiago)"
 
 msgid "Different panels for different y ~ x combinations"
-msgstr "Panel desberdinak y ~ x konbinazio desberdinentzat "
+msgstr "Panel desberdinak y ~ x konbinazio desberdinentzat"
 
 msgid "Layout"
 msgstr "Diseinua"
@@ -4076,7 +4076,7 @@ msgid "R Commander website"
 msgstr "R Commander webgunea"
 
 msgid "R website"
-msgstr "R webgunea "
+msgstr "R webgunea"
 
 msgid "Using R Markdown"
 msgstr "R Markdown erabiltzen"
@@ -4146,10 +4146,10 @@ msgid "Save knitr file as..."
 msgstr "Gorde knitr fitxategia honela…"
 
 msgid "R Markdown file saved to"
-msgstr "R Markdown fitxategia hemen gorde da:"
+msgstr "R Markdown fitxategia hemen gorde da"
 
 msgid "knitr file saved to"
-msgstr "knitr fitxategia hemen gorde da:"
+msgstr "knitr fitxategia hemen gorde da"
 
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
 msgstr ""
@@ -4171,7 +4171,7 @@ msgstr ""
 " fitxategi grafikoak (gomendatua)?"
 
 msgid "Ask to exit Commander"
-msgstr "Galdetu Commander-etik irteteko."
+msgstr "Galdetu Commander-etik irteteko"
 
 msgid "Ask to save documents on exit"
 msgstr "Galdetu dokumentuak gordetzeko irtetean"
@@ -4210,7 +4210,7 @@ msgid "Use rgl package"
 msgstr "Erabili rgl paketea"
 
 msgid "Dialog text font size (points)"
-msgstr "Elkarrizketa-testuaren letra tamaina (puntu) "
+msgstr "Elkarrizketa-testuaren letra tamaina (puntu)"
 
 msgid "Script and output font size (points)"
 msgstr "Script eta emaitzen letra tamaina (puntu)"
@@ -4234,7 +4234,7 @@ msgid "Error text color"
 msgstr "Errore-testuaren kolorea"
 
 msgid "Warning text color"
-msgstr "Ohar-testuaren kolorea "
+msgstr "Ohar-testuaren kolorea"
 
 msgid "Dialog subtitles text color"
 msgstr "Elkarrizketa-azpitutuluen testu-kolorea"
@@ -4261,7 +4261,7 @@ msgid "Save Commander Options"
 msgstr "Gorde Rcmdr-en aukerak"
 
 msgid "R Profile saved to"
-msgstr "R lan-ingurua hemen gorde da: "
+msgstr "R lan-ingurua hemen gorde da"
 
 msgid "The following commands will be saved in the file .Rprofile."
 msgstr "Komando hauek .Rprofile fitxategian gordeko dira."
@@ -4291,7 +4291,7 @@ msgid "Bandwidth"
 msgstr "Banda-zabalera"
 
 msgid "Multiply bandwidth by"
-msgstr "Banda-zabalera honekin biderkatu:"
+msgstr "Banda-zabalera honekin biderkatu"
 
 msgid "Density estimate..."
 msgstr "Densitatea estimatu..."
@@ -4318,10 +4318,10 @@ msgid "spline requires a numeric variable"
 msgstr "spline-k zenbakizko aldagaia eskatzen du"
 
 msgid "cannot select more than one variable"
-msgstr "aldagai bat bakarrik aukeratu dezakezu "
+msgstr "aldagai bat bakarrik aukeratu dezakezu"
 
 msgid "polynomial requires a numeric variable"
-msgstr " Polinomialak zenbakizko aldagaia eskatzen du"
+msgstr "Polinomialak zenbakizko aldagaia eskatzen du"
 
 msgid "B-spline\n"
 msgstr "B-spline\n"
@@ -4358,13 +4358,13 @@ msgid ""
 "(select variable and click)"
 msgstr ""
 "Splineak/Polinomialak:\n"
-"(hautatu aldagaia eta egin klik) "
+"(hautatu aldagaia eta egin klik)"
 
 msgid "df for splines:"
 msgstr "splinetako askatasun-graduak:"
 
 msgid "deg. for polynomials:"
-msgstr "Polinomioen graduak:"
+msgstr "polinomioen graduak:"
 
 msgid "R Commander Editor"
 msgstr "R Commander-eko editorea"
@@ -4405,7 +4405,7 @@ msgid "Plot back-to-back by:"
 msgstr "Marraztu bizkarrez bizkarreko grafikoa honen arabera:"
 
 msgid "Plot back-to-back by"
-msgstr "Marraztu bizkarrez bizkarreko grafikoa honen arabera:"
+msgstr "Marraztu bizkarrez bizkarreko grafikoa honen arabera"
 
 msgid "Standard Error of Mean"
 msgstr "Batezbestekoaren errore estandarra"
@@ -4443,7 +4443,7 @@ msgid ""
 " there must be a least one numeric predictor."
 msgstr ""
 "Hondar partzialak marrazteko,\n"
-"gutxienez zenbakizko faktore bat behar da"
+"gutxienez zenbakizko faktore bat behar da."
 
 msgid "Plot partial residuals"
 msgstr "Erakutsi hondar partzialak"
@@ -4503,10 +4503,10 @@ msgid "non-existent theme"
 msgstr "gai hori ez da existitzen"
 
 msgid "theme set to"
-msgstr "gaia honela ezarri:"
+msgstr "gaia honela ezarri"
 
 msgid "Restart R Commander"
-msgstr "Berrabiarazi R Commander-a "
+msgstr "Berrabiarazi R Commander-a"
 
 msgid ""
 "Model formula\n"
@@ -4579,7 +4579,7 @@ msgid "Theme (pick one)"
 msgstr "Ereduak (aukeratu bat)"
 
 msgid "Both or neither layout values must be numbers."
-msgstr "Zenbakiak izan behar dira atal-balio biak edo bat ere ez"
+msgstr "Zenbakiak izan behar dira atal-balio biak edo bat ere ez."
 
 msgid "ANOVA Table"
 msgstr "ANOVA taula"
@@ -4611,7 +4611,7 @@ msgid "(already installed)"
 msgstr "(dagoeneko instalaturik)"
 
 msgid "LaTeX"
-msgstr "LaTeX "
+msgstr "LaTeX"
 
 msgid "Pandoc"
 msgstr "Pandoc"
@@ -4624,7 +4624,7 @@ msgid ""
 "before installing auxiliary software."
 msgstr ""
 "Mesedez irakurri laguntza-testua\n"
-" programa laguntzailea instalatu baino lehen"
+" programa laguntzailea instalatu baino lehen."
 
 msgid "Select Output Format"
 msgstr "Aukeratu emaitza-formatua"
@@ -4633,10 +4633,10 @@ msgid ".html (web page)"
 msgstr ".html (web-orria)"
 
 msgid ".pdf (PDF file)"
-msgstr ".pdf (PDF fitxategia) "
+msgstr ".pdf (PDF fitxategia)"
 
 msgid ".docx (Word file)"
-msgstr ".docx (Word fitxategia) "
+msgstr ".docx (Word fitxategia)"
 
 msgid "HTML file written to:"
 msgstr "HTML fitxategia hara bidalita:"
@@ -4653,7 +4653,7 @@ msgid ""
 "  separated by spaces or commas."
 msgstr ""
 "Elipse mailak hutsune edo koma separaturiko zenbakizko balio\n"
-" izan behar dira"
+" izan behar dira."
 
 msgid "Plot concentration ellipse(s)"
 msgstr "Marraztu kontzentrazio-elipsea(k)"
@@ -4665,7 +4665,7 @@ msgid "Above plot"
 msgstr "Grafikoaren gainean"
 
 msgid "Top left"
-msgstr "Goiko ezkerrean "
+msgstr "Goiko ezkerrean"
 
 msgid "Top right"
 msgstr "Goiko eskuinean"
@@ -4729,7 +4729,7 @@ msgstr ""
 msgid ""
 "Number of points to identify  \n"
 "in each panel and group"
-msgstr "Panel eta talde bakoitzeko identifikatzeko puntuak "
+msgstr "Panel eta talde bakoitzeko identifikatzeko puntuak"
 
 msgid ""
 "Use sandwich estimator of\n"
@@ -4888,7 +4888,7 @@ msgid "Normality Test"
 msgstr "Normaltasun testa"
 
 msgid "Number of bins must be a number >= 4"
-msgstr "Klase kategoriek >= 4 izan behar du "
+msgstr "Klase kategoriek >= 4 izan behar du"
 
 msgid ""
 "Number of bins\n"
@@ -5079,7 +5079,107 @@ msgstr "Marraztu berlaginketako laginak"
 
 # for numerical summaries dialog
 msgid "Binned Frequency Counts"
-msgstr "Klaseko maiztasun kontaketak "
+msgstr "Klaseko maiztasun kontaketak"
+
+# additional messages in version 2.4-2
+# these messages were inadvertently omitted
+msgid "Sample from ChiSquared Distribution"
+msgstr "Lagindu Ji Karratuaren Banaketatik"
+
+msgid "Sample from Lognormal Distribution"
+msgstr "Lagindu Lognormalaren Banaketatik"
+
+msgid "Sample from NegativeBinomial Distribution"
+msgstr "Lagindu Binomial Negatiboaren Banaketatik"
+
+# additional messages in version 2.5-0
+# new predictor effect plots dialog
+msgid "Predictor Effect Plots"
+msgstr "Iragarle-Efektu Grafikoak"
+
+msgid "Predictor effect plots..."
+msgstr "Iragarle-Efektu Grafikoak..."
+
+msgid "Plot all predictor effects?"
+msgstr "Iragarle efektu guztiak marraztu?"
+
+# added to index plot dialog
+msgid "Mark by groups"
+msgstr "Markatu taldeka"
+
+msgid "Mark by:"
+msgstr "Markatu honetaz:"
+
+# new response transformation dialog
+msgid "Response Transformation"
+msgstr "Erantzun Transformazioa"
+
+msgid "Response transformation..."
+msgstr "Erantzun transformazioa..."
+
+msgid "Box-Cox"
+msgstr "Box-Cox"
+
+msgid "Box-Cox with negatives"
+msgstr "Box-Cox negatibokin"
+
+msgid "Yeo-Johnson"
+msgstr "Yeo-Johnson"
+
+# new transform toward normality dialog
+msgid "Transform toward normality..."
+msgstr "Transformatu normalitateari…"
+
+msgid "Transform Variables Toward Normality"
+msgstr "Transformatu Aldagaiak Normalitateari"
+
+msgid "Select variables to transform (one or more)"
+msgstr "Aukeratu transformatzeko aldagaiak (bat edo gehiago)"
+
+msgid "Transformation Family"
+msgstr "Transformazio Familia"
+
+# new symmetry boxplot (symbox) dialog
+msgid "Symmetry boxplot..."
+msgstr "Simetria kutxa-diagrama…"
+
+msgid "Symmetry Boxplot"
+msgstr "Simetria Kutxa-diagrama"
+
+msgid "Start (optional)"
+msgstr "Hasi (aukerakoa)"
+
+msgid "Powers"
+msgstr "Berretzaileak"
+
+# new influence index plot dialog
+msgid "Influence index plot..."
+msgstr "Eragin-indize grafikoa..."
+
+msgid "Influence Index Plot"
+msgstr "Eragin-Indize grafikoa"
+
+msgid "Bonferroni p-values"
+msgstr "Bonferroni p-balioak"
+
+msgid "Diagnostics case statistics to plot"
+msgstr "Marrazteko diagnosi kasu estatistikoak"
+
+# enhancements to Density Plot dialog
+msgid "Method"
+msgstr "Metodoa"
+
+msgid "adaptive kernel"
+msgstr "nukleo adaptatiboa"
+
+msgid "kernel"
+msgstr "nukleoa"
+
+msgid "From"
+msgstr "Nondik"
+
+msgid "To"
+msgstr "Nora"
 
 #~ msgid "Component+residual plots"
 #~ msgstr "Osagai+hondar grafikoak"

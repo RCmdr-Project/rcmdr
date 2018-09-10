@@ -1,6 +1,6 @@
 Package: Rcmdr
 Version: 2.5-1
-Date: 2018-09-03
+Date: 2018-09-10
 Title: R Commander
 Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaster.ca"),
     person("Milan", "Bouchet-Valat", role = "aut"),
@@ -27,7 +27,7 @@ Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaste
     person("Peter", "Wolf", role = "ctb"),
     person("Kevin", "Wright", role="ctb")
    )
-Depends: R (>= 3.4.0), grDevices, graphics, methods, stats, utils, splines, RcmdrMisc (>= 2.5-0), car (>= 3.0-1), effects (>= 4.0-3)
+Depends: R (>= 3.5.0), grDevices, graphics, methods, stats, utils, splines, RcmdrMisc (>= 2.5-0), car (>= 3.0-1), effects (>= 4.0-3)
 Imports: tcltk, tcltk2 (>= 1.2-6), abind, relimp (>= 1.0-5)
 Suggests: aplpack, boot, colorspace, e1071, foreign, grid, Hmisc, knitr, lattice, leaps, lmtest, markdown, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, nortest, readxl, rgl (>= 0.96.0), rmarkdown (>= 0.9.5), sem (>= 2.1-1) 
 ByteCompile: yes
