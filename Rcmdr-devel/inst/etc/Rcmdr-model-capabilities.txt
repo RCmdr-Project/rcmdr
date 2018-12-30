@@ -1,0 +1,49 @@
+# Capabilities for standard Rcmdr model classes
+# last modified 2018-07-24 by J. Fox
+
+# column  menu-item                           function [package]
+#-------  ---------                           ------------------
+# sum     Summarize model                     summary()
+# compc   Compare model coefficients          compareCoefs() [car] 
+# aic     AIC                                 aic()
+# bic     BIC                                 bic()
+# stp     Stepwise model selection            stepAIC() [MASS]
+# sub     Subset model selection              regsubsets() [leaps]
+# con     Confidence intervals                confint()
+# boot    Bootstrap confidence intervals      Boot() [car]
+# del     Delta method confidence intervals   deltaMethod() [car]
+# aov     ANOVA table                         anova() 
+# Aov     ANOVA table                         Anova() [car]
+# compm   Compare two models                  anova()
+# lin     Linear hypothesis                   linearHypothesis() [car]
+# vif     Variance-inflation factors          vif() [car]
+# bpt     Breusch-Pagan test                  bptest() [lmtest]
+# dwt     Durbin-Watson test                  dwtest() [lmtest]
+# rse     RESET test for nonlinearity         resettest() [lmtest]
+# bon     Bonferroni outlier test             outlierTest() [car]
+# plt     Basic diagnostic plots              plot()
+# qqp     Residual quantile-comparison plot   qqPlot() [car]
+# crp     Component+residual plots            crPlot() [car]
+# avp     Added-variable plots                avPlot() [car]
+# infp    Influence plot                      influencePlot() [car]
+# effp    Effect plots                        Effect() [effect]
+#
+#         Add observations statistics dialog
+# ----------------------------------
+# fit     fitted values                       fitted()
+# res     residuals                           residuals()
+# rst     studentized residuals               rstudent()
+# hat     hat-values                          hatvalues()
+# cook    Cook's distances                    cooks.distance()
+#
+# tranr   Response transformation             powerTransform() [car]
+
+              sum   compc aic   bic   stp   sub   con   boot  del   aov   Aov   compm lin   vif   bpt   dwt   rse   bon   plt   qqp   crp   avp   infp  effp  fit   res   rst   hat   cook  tranr
+
+lm            TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+aov           TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+glm           TRUE  TRUE  TRUE  TRUE  TRUE  FALSE TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  FALSE FALSE FALSE TRUE  TRUE  FALSE TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  FALSE
+multinom      TRUE  TRUE  TRUE  TRUE  TRUE  FALSE TRUE  FALSE TRUE  FALSE TRUE  TRUE  TRUE  FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  FALSE
+polr          TRUE  TRUE  TRUE  TRUE  TRUE  FALSE TRUE  FALSE TRUE  FALSE TRUE  TRUE  TRUE  FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE TRUE  TRUE  FALSE FALSE FALSE FALSE FALSE
+
+default       TRUE  FALSE FALSE FALSE FALSE FALSE TRUE  FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
