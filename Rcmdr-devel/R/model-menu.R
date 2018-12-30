@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2018-08-05 by J. Fox
+# last modified 2018-12-30 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -29,7 +29,7 @@ selectActiveModel <- function(){
 			tkfocus(CommanderWindow())
 			return()
 		}
-		dataSet <- as.character(get(model)$call$data)
+		dataSet <- as.character(getCall(get(model))$data) # as.character(get(model)$call$data)
 		if (length(dataSet) == 0){
 			errorCondition(message=gettextRcmdr("There is no dataset associated with this model."))
 			return()
@@ -40,7 +40,7 @@ selectActiveModel <- function(){
 			return()
 		}
 		if (is.null(.activeDataSet) || (dataSet != .activeDataSet)) activeDataSet(dataSet)
-		putRcmdr("modelWithSubset", "subset" %in% names(get(model)$call))
+		putRcmdr("modelWithSubset", "subset" %in% names(getCall(get(model))))  # names(get(model)$call))
 		activeModel(model)
 		tkfocus(CommanderWindow())
 	}

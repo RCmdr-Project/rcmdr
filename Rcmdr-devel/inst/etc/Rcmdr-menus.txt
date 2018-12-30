@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2018-07-28 by J. Fox
+# last modified 2018-12-30 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -152,6 +152,7 @@
     item    statModelsMenu  command         "Generalized linear model..."                   generalizedLinearModel      "activeDataSetP()"          ""
     item    statModelsMenu  command         "Multinomial logit model..."                    multinomialLogitModel       "factorsP()" "packageAvailable('nnet')"
     item    statModelsMenu  command         "Ordinal regression model..."                   ordinalRegressionModel      "factorsP()" "packageAvailable('MASS')"
+    item    statModelsMenu  command         "Linear mixed model..."                         linearMixedModel      "numericP()" "packageAvailable('lme4')"
     item    topMenu         cascade         "Statistics"                                    statisticsMenu              ""          ""
     item    statisticsMenu  cascade         "Summaries"                                     summariesMenu               ""          ""
     item    statisticsMenu  cascade         "Contingency tables"                            tablesMenu                  ""          "packageAvailable('abind')"

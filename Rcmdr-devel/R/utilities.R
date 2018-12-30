@@ -1,4 +1,4 @@
-# last modified 2018-08-06 by J. Fox
+# last modified 2018-12-30 by J. Fox
 
 # utility functions
 
@@ -44,6 +44,13 @@ listProportionalOddsModels <- function(envir=.GlobalEnv, ...) {
     if (length(objects) == 0) NULL
     else objects[sapply(objects,
         function(.x) "polr" == (class(get(.x, envir=envir))[1]))]
+}
+
+listLMMs <- function(envir=.GlobalEnv, ...) {
+  objects <- ls(envir=envir, ...)
+  if (length(objects) == 0) NULL
+  else objects[sapply(objects,
+                      function(.x) "lmerMod" == (class(get(.x, envir=envir))[1]))]
 }
 
 listAllModels <- function(envir=.GlobalEnv, ...) {
@@ -1216,7 +1223,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
       }
       else ""
       tclvalue(rhsVariable) <- if (rhs == "" ||
-                                   is.element(check.char, c("+", "*", ":", "/", "-", "^", "(", "%")))
+                                   is.element(check.char, c("+", "*", ":", "/", "|", "-", "^", "(", "%")))
         paste(rhs, var, sep="")
       else paste(rhs, "+", var)
       tkicursor(rhsEntry, "end")
@@ -1245,7 +1252,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
         }
         else ""
         tclvalue(rhsVariable) <- if (rhs == "" ||
-                                     is.element(check.char, c("+", "*", ":", "/", "-", "^", "(", "%")))
+                                     is.element(check.char, c("+", "*", ":", "/", "|", "-", "^", "(", "%")))
           paste(rhs, var, sep="")
         else paste(rhs, "+", var)
       }
@@ -1304,6 +1311,13 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
     tkicursor(rhsEntry, "end")
     tkxview.moveto(rhsEntry, "1")
   }
+  onBar <- function(){
+    rhs <- tclvalue(rhsVariable)
+    if (!checkAddOperator(rhs)) return()
+    tclvalue(rhsVariable) <- paste(rhs, "|",  sep="")
+    tkicursor(rhsEntry, "end")
+    tkxview.moveto(rhsEntry, "1")
+  }
   onIn <- function(){
     rhs <- tclvalue(rhsVariable)
     if (!checkAddOperator(rhs)) return()
@@ -1346,6 +1360,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   timesButton <- buttonRcmdr(operatorsFrame, text="*", width="3", command=onTimes)
   colonButton <- buttonRcmdr(operatorsFrame, text=":", width="3", command=onColon)
   slashButton <- buttonRcmdr(operatorsFrame, text="/", width="3", command=onSlash)
+  barButton <- buttonRcmdr(operatorsFrame, text="|", width="3", command=onBar)
   inButton <- buttonRcmdr(operatorsFrame, text="%in%", width="5", command=onIn)
   minusButton <- buttonRcmdr(operatorsFrame, text="-", width="3", command=onMinus)
   powerButton <- buttonRcmdr(operatorsFrame, text="^", width="3", command=onPower)
@@ -1444,7 +1459,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   dfDegFrame <- tkframe(outerOperatorsFrame)
   dfSplineSpin <- tkspinbox(dfDegFrame, textvariable=dfSplineVar, state="readonly", from=2, to=10, width=2)
   degPolySpin <- tkspinbox(dfDegFrame, textvariable=degPolyVar, state="readonly", from=2, to=5, width=2)
-  tkgrid(plusButton, timesButton, colonButton, slashButton, inButton, minusButton,
+  tkgrid(plusButton, timesButton, colonButton, slashButton, barButton, inButton, minusButton,
          powerButton, leftParenButton, rightParenButton, sticky="w")
   tkgrid(labelRcmdr(dfDegFrame, text=gettextRcmdr("df for splines: ")), dfSplineSpin,  sticky="se")
   tkgrid(labelRcmdr(dfDegFrame, text=gettextRcmdr("deg. for polynomials: ")), degPolySpin, sticky="se")
