@@ -322,6 +322,13 @@ Confint.multinom <- function(object, parm, level = 0.95, ...) {
     ci
 }
 
+Confint.merMod <- function(object, parm=names(fixef(object)), level=0.95, ...) {
+  ci <- confint(object, parm=parm, level=level, ...)
+  ci <- cbind(Coef(object)[parm], ci)
+  colnames(ci)[1] <- "Estimate"
+  ci
+}
+
 # Pager
 
 # this is slightly modified from tkpager to use the Rcmdr monospaced font
