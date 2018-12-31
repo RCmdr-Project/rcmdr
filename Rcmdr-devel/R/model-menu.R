@@ -617,7 +617,8 @@ testLinearHypothesis <- function(){
         tkgrid(sandwichFrame, sticky = "w")
     }
     tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix()       
+    dialogSuffix() 
+    setUpTable()
 } 
 
 compareModels <- function () {

@@ -232,6 +232,7 @@ Coef.multinom <- function (object, ...) {
     b
 }
 
+Coef.merMod <- function(object, ...) fixef(object, ...)
 
 Confint <- function(object, parm, level=0.95, ...) UseMethod("Confint")
 
@@ -3771,3 +3772,13 @@ removeRedundantExtension <- function(file){
   file <- sub(paste0(ext, ext, "$"), ext, file)
   file
 }
+
+# functions to support mixed models
+
+anova.lmerMod <- function(object, ...) NextMethod()
+
+Anova.lmerMod <- function(mod, ...) NextMethod()
+
+linearHypothesis.lmerMod <- function(model, ...) NextMethod()
+
+coef.lmerMod <- function(object, ...) fixef(object, ...)
