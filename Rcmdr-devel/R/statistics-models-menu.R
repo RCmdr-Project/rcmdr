@@ -618,7 +618,7 @@ linearMixedModel <- function(){
   OKCancelHelp(helpSubject="lmer", model=TRUE, reset="resetLMM", apply="linearMixedModel")
   tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model:")), model, sticky="w")
   tkgrid(modelFrame, sticky="w")
-  modelFormula()
+  modelFormula(showBar=TRUE)
   subsetWeightFrame <- tkframe(top)
   subsetBox(window=subsetWeightFrame, model=TRUE)
   weightComboBox <- variableComboBox(subsetWeightFrame, variableList=Numeric(), 

@@ -1202,7 +1202,7 @@ groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialTex
         tkbind(groupsBox$listbox, "<ButtonRelease-1>", onSelect)
     })
 
-modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=gettextRcmdr("Model Formula"),
+modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=gettextRcmdr("Model Formula"), showBar=FALSE,
                          expr={
   .rhsExtras <- if (is.null(rhsExtras)) hasLhs else rhsExtras
   checkAddOperator <- function(rhs){
@@ -1467,7 +1467,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   dfDegFrame <- tkframe(outerOperatorsFrame)
   dfSplineSpin <- tkspinbox(dfDegFrame, textvariable=dfSplineVar, state="readonly", from=2, to=10, width=2)
   degPolySpin <- tkspinbox(dfDegFrame, textvariable=degPolyVar, state="readonly", from=2, to=5, width=2)
-  tkgrid(plusButton, timesButton, colonButton, slashButton, barButton, inButton, minusButton,
+  tkgrid(plusButton, timesButton, colonButton, slashButton, if (showBar) barButton else NULL, inButton, minusButton,
          powerButton, leftParenButton, rightParenButton, sticky="w")
   tkgrid(labelRcmdr(dfDegFrame, text=gettextRcmdr("df for splines: ")), dfSplineSpin,  sticky="se")
   tkgrid(labelRcmdr(dfDegFrame, text=gettextRcmdr("deg. for polynomials: ")), degPolySpin, sticky="se")
