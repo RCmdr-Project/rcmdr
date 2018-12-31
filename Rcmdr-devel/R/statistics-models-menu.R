@@ -542,7 +542,7 @@ formulaFields <- function(model, hasLhs=TRUE, glm=FALSE){
 linearMixedModel <- function(){
   Library("lme4")
   initializeDialog(title=gettextRcmdr("Linear Mixed Model"))
-  defaults <- list(initial.weight = gettextRcmdr("<no variable selected>"))
+  defaults <- list(initial.weight = gettextRcmdr("<no variable selected>"), initial.estimType="reml")
   dialog.values <- getDialog("linearMixedModel", defaults)
   .activeModel <- ActiveModel()
   currentModel <- if (!is.null(.activeModel))
@@ -560,6 +560,10 @@ linearMixedModel <- function(){
   modelName <- tclVar(paste("LMM.", getRcmdr("modelNumber"), sep=""))
   modelFrame <- tkframe(top)
   model <- ttkentry(modelFrame, width="20", textvariable=modelName)
+  radioButtons(name="estimType",
+               buttons=c("reml", "ml"), initialValue=dialog.values$initial.estimType,
+               labels=gettextRcmdr(c("Restricted maximum likelihood (REML)", "Maximum likelihood (ML)")),
+               title=gettextRcmdr("Estimation Criterion"))
   onOK <- function(){
     modelValue <- trim.blanks(tclvalue(modelName))
     closeDialog()
@@ -577,7 +581,8 @@ linearMixedModel <- function(){
       putRcmdr("modelWithSubset", TRUE)
     }
     weight.var <- getSelection(weightComboBox)
-    putDialog("linearMixedModel", list(initial.weight = weight.var))
+    estimType <- tclvalue(estimTypeVariable)
+    putDialog("linearMixedModel", list(initial.weight = weight.var, initial.estimType=estimType))
     weights <- if (weight.var == gettextRcmdr("<no variable selected>")) ""
     else paste(", weights=", weight.var, sep="")
     check.empty <- gsub(" ", "", tclvalue(lhsVariable))
@@ -602,8 +607,9 @@ linearMixedModel <- function(){
       }
     }
     formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
+    reml <- as.character(estimType == "reml")
     command <- paste("lmer(", formula,
-                     ", data=", ActiveDataSet(), subset, weights, ")", sep="")
+                     ", data=", ActiveDataSet(), subset, weights, ", REML=", reml, ")", sep="")
     doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
     doItAndPrint(paste("summary(", modelValue, ")", sep=""))
     activeModel(modelValue)
@@ -623,7 +629,8 @@ linearMixedModel <- function(){
   tkgrid(formulaFrame, sticky="w")
   tkgrid(subsetFrame, tklabel(subsetWeightFrame, text="   "),
          getFrame(weightComboBox), sticky="nw")
-  tkgrid(subsetWeightFrame, sticky="w")
+  tkgrid(subsetWeightFrame, sticky="w")	
+  tkgrid(estimTypeFrame, sticky="w")
   tkgrid(buttonsFrame, sticky="w")
   dialogSuffix(focus=lhsEntry, preventDoubleClick=TRUE)
 }
