@@ -641,3 +641,163 @@ resetLMM <- function(){
   putDialog("linearMixedModel", NULL, resettable=FALSE)
   linearMixedModel()
 }
+
+generalizedLinearMixedModel <- function(){
+  families <- c("gaussian", "binomial", "poisson", "Gamma", "inverse.gaussian",
+                "quasibinomial", "quasipoisson")
+  links <- c("identity", "inverse", "log", "logit", "probit",
+             "cloglog", "sqrt", "1/mu^2")
+  availableLinks <- matrix(c(
+    TRUE,  TRUE,  TRUE,  FALSE, FALSE, FALSE, FALSE, FALSE,
+    FALSE, FALSE, FALSE, TRUE,  TRUE,  TRUE,  FALSE, FALSE,
+    TRUE,  FALSE, TRUE,  FALSE, FALSE, FALSE, TRUE,  FALSE,
+    TRUE,  TRUE,  TRUE,  FALSE, FALSE, FALSE, FALSE, FALSE,
+    TRUE,  TRUE,  TRUE,  FALSE, FALSE, FALSE, FALSE, TRUE,
+    FALSE, FALSE, FALSE, TRUE,  TRUE,  TRUE,  FALSE, FALSE,
+    TRUE,  FALSE, TRUE,  FALSE, FALSE, FALSE, TRUE,  FALSE),
+    7, 8, byrow=TRUE)
+  rownames(availableLinks) <- families
+  colnames(availableLinks) <- links
+  canonicalLinks <- c("identity", "logit", "log", "inverse", "1/mu^2", "logit", "log")
+  names(canonicalLinks) <- families
+  defaults <- list(initial.weight = gettextRcmdr("<no variable selected>"))
+  dialog.values <- getDialog("generalizedLinearMixedModel", defaults)
+  initializeDialog(title=gettextRcmdr("Generalized Linear Mixed Model"))
+  .activeModel <- ActiveModel()
+  currentModel <- if (!is.null(.activeModel))
+    class(get(.activeModel, envir=.GlobalEnv))[1] == "glmerMod"
+  else FALSE
+  if (currentModel) {
+    currentFields <- formulaFields(get(.activeModel, envir=.GlobalEnv), glm=TRUE)
+    if (currentFields$data != ActiveDataSet()) currentModel <- FALSE
+  }
+  if (isTRUE(getRcmdr("reset.model"))) {
+    currentModel <- FALSE
+    putRcmdr("reset.model", FALSE)
+  }
+  modelFormula(showBar=TRUE)
+  UpdateModelNumber()
+  modelName <- tclVar(paste("GLMM.", getRcmdr("modelNumber"), sep=""))
+  modelFrame <- tkframe(top)
+  model <- ttkentry(modelFrame, width="20", textvariable=modelName)
+  linkFamilyFrame <- tkframe(top)
+  familyFrame <- tkframe(linkFamilyFrame)
+  max.height <- getRcmdr("variable.list.height")
+  familyBox <- tklistbox(familyFrame, height=length(families), 
+                         exportselection="FALSE",
+                         selectmode="single", background="white")
+  for (fam in families) tkinsert(familyBox, "end", fam)
+  linkFrame <- tkframe(linkFamilyFrame)
+  linkBox <- tklistbox(linkFrame, height=max.height, exportselection="FALSE",
+                       selectmode="single", background="white")
+  subsetWeightFrame <- tkframe(top)
+  subsetBox(window=subsetWeightFrame, model=TRUE)
+  weightComboBox <- variableComboBox(subsetWeightFrame, variableList=Numeric(), 
+                                     initialSelection=dialog.values$initial.weight,
+                                     title=gettextRcmdr("Weights"))
+  onFamilySelect <- function(){
+    family <- families[as.numeric(tkcurselection(familyBox)) + 1]
+    availLinks <- links[availableLinks[family,]]
+    tkdelete(linkBox, "0", "end")
+    for (lnk in availLinks) tkinsert(linkBox, "end", lnk)
+    canLink <- canonicalLinks[family]
+    tkconfigure(linkBox, height=length(availLinks))
+    tkselection.set(linkBox, which(canLink == availLinks) - 1)
+  }
+  onOK <- function(){
+    check.empty <- gsub(" ", "", tclvalue(lhsVariable))
+    if ("" == check.empty) {
+      errorCondition(recall=generalizedLinearMixedModel, model=TRUE, message=gettextRcmdr("Left-hand side of model empty."))
+      return()
+    }
+    check.empty <- gsub(" ", "", tclvalue(rhsVariable))
+    if ("" == check.empty) {
+      errorCondition(recall=generalizedLinearMixedModel, model=TRUE, message=gettextRcmdr("Right-hand side of model empty."))
+      return()
+    }
+    modelValue <- trim.blanks(tclvalue(modelName))
+    if (!is.valid.name(modelValue)){
+      errorCondition(recall=generalizedLinearMixedModel, model=TRUE, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue))
+      return()
+    }
+    if (!grepl("\\(.*\\|.*\\)", tclvalue(rhsVariable))) {
+      errorCondition(recall=generalizedLinearMixedModel, message=gettextRcmdr("There are no random effects in the model."), model=TRUE)
+      return()
+    }
+    if (is.element(modelValue, listGLMMs())) {
+      if ("no" == tclvalue(checkReplace(modelValue, type=gettextRcmdr("Model")))){
+        UpdateModelNumber(-1)
+        closeDialog()
+        generalizedLinearMixedModel()
+        return()
+      }
+    }
+    formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
+    family <- families[as.numeric(tkcurselection(familyBox)) + 1]
+    availLinks <- links[availableLinks[family,]]
+    link <- availLinks[as.numeric(tkcurselection(linkBox)) + 1]
+    subset <- tclvalue(subsetVariable)
+    closeDialog()
+    if (trim.blanks(subset) == gettextRcmdr("<all valid cases>") || trim.blanks(subset) == ""){
+      subset <- ""
+      putRcmdr("modelWithSubset", FALSE)
+    }
+    else{
+      subset <- paste(", subset=", subset, sep="")
+      putRcmdr("modelWithSubset", TRUE)
+    }
+    weight.var <- getSelection(weightComboBox)
+    putDialog("generalizedLinearMixedModel", list(initial.weight = weight.var))
+    weights <- if (weight.var == gettextRcmdr("<no variable selected>")) ""
+    else paste(", weights=", weight.var, sep="")
+    command <- paste("glmer(", formula, ", family=", family, "(", link,
+                     "), data=", ActiveDataSet(), subset, weights, ")", sep="")
+    doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
+    doItAndPrint(paste("summary(", modelValue, ")", sep=""))
+    activeModel(modelValue)
+    if ((family == "binomial" || family =="quasibinomial") && link == "logit"){
+      doItAndPrint(paste0("exp(coef(", modelValue,
+                          '))  # Exponentiated coefficients ("odds ratios")'))
+    }
+    if ((family == "poisson" || family =="quasipoisson") && link == "log"){
+      doItAndPrint(paste0("exp(coef(", modelValue,
+                          '))  # Exponentiated coefficients'))
+    }
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject="glmer", model=TRUE, reset="resetGLMM", apply="generalizedLinearMixedModel")
+  helpButton <- buttonRcmdr(buttonsFrame, text="Help", width="12", command=onHelp)
+  tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model:")), model, sticky="w")
+  tkgrid(modelFrame, sticky="w")
+  tkgrid(getFrame(xBox), sticky="w")
+  tkgrid(outerOperatorsFrame, sticky="w")
+  tkgrid(formulaFrame, sticky="w")
+  tkgrid(subsetFrame, tklabel(subsetWeightFrame, text="   "),
+         getFrame(weightComboBox), sticky="nw")
+  tkgrid(subsetWeightFrame, sticky="w")  
+  tkgrid(labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Family (double-click to select)"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"),
+         labelRcmdr(linkFamilyFrame, text="   "), labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Link function"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+  tkgrid(familyBox, sticky="nw")
+  tkgrid(linkBox, sticky="nw")
+  tkgrid(familyFrame, labelRcmdr(linkFamilyFrame, text="   "), linkFrame, sticky="nw")
+  tkgrid(linkFamilyFrame, sticky="w")
+  tkgrid(buttonsFrame, sticky="w")
+  fam <- if (currentModel) which(currentFields$family == families) - 1
+  else 1
+  tkselection.set(familyBox, fam)
+  availLinks <- links[availableLinks[fam + 1,]]
+  for (lnk in availLinks) tkinsert(linkBox, "end", lnk)
+  tkconfigure(linkBox, height=length(availLinks))
+  lnk <- if (currentModel) which(currentFields$link == availLinks) - 1
+  else 0
+  tkselection.set(linkBox, lnk)
+  tkbind(familyBox, "<Double-ButtonPress-1>", onFamilySelect)
+  dialogSuffix(focus=lhsEntry, preventDoubleClick=TRUE)
+}
+
+resetGLMM <- function(){
+  putRcmdr("reset.model", TRUE)
+  putDialog("generalizedLinearMixedModel", NULL)
+  putDialog("generalizedLinearMixedModel", NULL, resettable=FALSE)
+  generalizedLinearMixedModel()
+}

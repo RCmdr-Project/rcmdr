@@ -53,6 +53,13 @@ listLMMs <- function(envir=.GlobalEnv, ...) {
                       function(.x) "lmerMod" == (class(get(.x, envir=envir))[1]))]
 }
 
+listGLMMs <- function(envir=.GlobalEnv, ...) {
+  objects <- ls(envir=envir, ...)
+  if (length(objects) == 0) NULL
+  else objects[sapply(objects,
+                      function(.x) "glmerMod" == (class(get(.x, envir=envir))[1]))]
+}
+
 listAllModels <- function(envir=.GlobalEnv, ...) {
     objects <- ls(envir=envir, ...)
     if (length(objects) == 0) NULL
@@ -3793,3 +3800,11 @@ Anova.lmerMod <- function(mod, ...) NextMethod()
 linearHypothesis.lmerMod <- function(model, ...) NextMethod()
 
 coef.lmerMod <- function(object, ...) fixef(object, ...)
+
+anova.glmerMod <- function(object, ...) NextMethod()
+
+Anova.glmerMod <- function(mod, ...) NextMethod()
+
+linearHypothesis.glmerMod <- function(model, ...) NextMethod()
+
+coef.glmerMod <- function(object, ...) fixef(object, ...)

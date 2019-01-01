@@ -1,4 +1,4 @@
-# last modified 2018-12-30 by J. Fox
+# last modified 2019-01-01 by J. Fox
 
 import(splines, tcltk, RcmdrMisc, car, effects)
 importFrom(utils, available.packages, install.packages, assignInMyNamespace, 
@@ -92,3 +92,7 @@ S3method(anova, lmerMod)
 S3method(Anova, lmerMod)
 S3method(linearHypothesis, lmerMod)
 S3method(coef, lmerMod)
+S3method(anova, glmerMod)
+S3method(Anova, glmerMod)
+S3method(linearHypothesis, glmerMod)
+S3method(coef, glmerMod)
