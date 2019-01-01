@@ -1,4 +1,4 @@
-# last modified 2018-12-30 by J. Fox
+# last modified 2019-01-01 by J. Fox
 
 # utility functions
 
@@ -1210,7 +1210,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
     if (length(rhs.chars) < 1) return(FALSE)
     check.char <- if ((rhs.chars[1] != " ") || (length(rhs.chars) == 1))
       rhs.chars[1] else rhs.chars[2]
-    !is.element(check.char, c("+", "*", ":", "/", "-", "^", "(", "%"))
+    !is.element(check.char, c("+", "*", ":", "/", "|", "-", "^", "(", "%"))
   }
   .variables <- Variables()
   word <- paste("\\[", gettextRcmdr("factor"), "\\]", sep="")
@@ -1231,8 +1231,9 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
       }
       else ""
       tclvalue(rhsVariable) <- if (rhs == "" ||
-                                   is.element(check.char, c("+", "*", ":", "/", "|", "-", "^", "(", "%")))
+                                   is.element(check.char, c("+", "*", ":", "/",  "-", "^", "(", "%")))
         paste(rhs, var, sep="")
+      else if (check.char == "|") paste(rhs, var)
       else paste(rhs, "+", var)
       tkicursor(rhsEntry, "end")
       tkxview.moveto(rhsEntry, "1")
@@ -1260,8 +1261,9 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
         }
         else ""
         tclvalue(rhsVariable) <- if (rhs == "" ||
-                                     is.element(check.char, c("+", "*", ":", "/", "|", "-", "^", "(", "%")))
+                                     is.element(check.char, c("+", "*", ":", "/", "-", "^", "(", "%")))
           paste(rhs, var, sep="")
+        else if (check.char == "|") paste(rhs, var)
         else paste(rhs, "+", var)
       }
       tkicursor(rhsEntry, "end")
@@ -1322,7 +1324,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   onBar <- function(){
     rhs <- tclvalue(rhsVariable)
     if (!checkAddOperator(rhs)) return()
-    tclvalue(rhsVariable) <- paste(rhs, "|",  sep="")
+    tclvalue(rhsVariable) <- paste(rhs, " |",  sep="")
     tkicursor(rhsEntry, "end")
     tkxview.moveto(rhsEntry, "1")
   }
@@ -1350,6 +1352,8 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   onLeftParen <- function(){
     tkfocus(rhsEntry)
     rhs <- tclvalue(rhsVariable)
+    nchar.rhs <- nchar(rhs)
+    if (substr(rhs, nchar.rhs, nchar.rhs) == "+") rhs <- paste0(rhs, " ")
     tclvalue(rhsVariable) <- paste(rhs, "(", sep="")
     tkicursor(rhsEntry, "end")
     tkxview.moveto(rhsEntry, "1")
