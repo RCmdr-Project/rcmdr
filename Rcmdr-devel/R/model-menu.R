@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2018-12-30 by J. Fox
+# last modified 2019-01-01 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -103,13 +103,18 @@ summarizeModel <- function(){
 plotModel <- function(){
 	.activeModel <- ActiveModel()
 	if (is.null(.activeModel) || !checkMethod("plot", .activeModel)) return()
-	command <- "oldpar <- par(oma=c(0,0,3,0), mfrow=c(2,2))"
-	justDoIt(command)
-	logger(command)
+	is.lm <- inherits(get(.activeModel, envir=.GlobalEnv), "lm")
+	if (is.lm) {
+  	command <- "oldpar <- par(oma=c(0,0,3,0), mfrow=c(2,2))"
+  	justDoIt(command)
+  	logger(command)
+	}
 	doItAndPrint(paste("plot(", .activeModel, ")", sep=""))
-	command <- "par(oldpar)"
-	justDoIt(command)
-	logger(command)
+	if (is.lm) {
+  	command <- "par(oldpar)"
+  	justDoIt(command)
+  	logger(command)
+	}
 }
 
 CRPlots <- function(){
@@ -988,6 +993,9 @@ effectPlots <- function () {
   dialog.values <- getDialog("effectPlots", defaults)
   initializeDialog(title = gettextRcmdr("Model Effect Plots"))
   predictors <- all.vars(formula(get(activeModel(), envir=.GlobalEnv))[[3]])
+  if (inherits(get(activeModel(), envir=.GlobalEnv), "merMod")){
+    predictors <- setdiff(predictors, names(get(activeModel(), envir=.GlobalEnv)@cnms))
+  }
   predictorsFrame <- tkframe(top)
   radioButtons(predictorsFrame, name = "allEffects", buttons = c("yes", "no"), 
                values = c("TRUE", "FALSE"),  
@@ -1031,11 +1039,6 @@ effectPlots <- function () {
                        message = gettextRcmdr("You must select one or more predictors\n or plot all high-order effects."))
         return()
       }
-      # if (partial.residuals && (all(predictors %in% Factors()))){
-      #   errorCondition(recall = effectPlots, 
-      #                  message = gettextRcmdr("To plot partial residuals,\n there must be a least one numeric predictor."))
-      #   return()
-      # }
       command <- if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("multinom", "polr"))
         paste("plot(Effect(c(", paste(paste('"', predictors, '"', sep=""), collapse=", "), "), ", 
               activeModel(), '), axes=list(y=list(style="', style, '")))', sep="")      
@@ -1053,7 +1056,7 @@ effectPlots <- function () {
   tkgrid(allEffectsFrame, sticky="w")
   tkgrid(getFrame(predictorsBox), sticky="w")
   tkgrid(predictorsFrame, sticky="w")
-  if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("lm", "glm")){
+  if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("lm", "glm", "lmerMod", "glmerMod")){
     tkgrid(labelRcmdr(partialResFrame, text=" "))
     tkgrid(partialResCheckBox, 
            labelRcmdr(partialResCheckBoxFrame, text=gettextRcmdr("Plot partial residuals")), 
@@ -1269,6 +1272,9 @@ predictorEffectPlots <- function () {
     dialog.values <- getDialog("predictorEffectPlots", defaults)
     initializeDialog(title = gettextRcmdr("Predictor Effect Plots"))
     predictors <- all.vars(formula(get(activeModel(), envir=.GlobalEnv))[[3]])
+    if (inherits(get(activeModel(), envir=.GlobalEnv), "merMod")){
+      predictors <- setdiff(predictors, names(get(activeModel(), envir=.GlobalEnv)@cnms))
+    }
     predictorsFrame <- tkframe(top)
     radioButtons(predictorsFrame, name = "allPredictorEffects", buttons = c("yes", "no"), 
                  values = c("TRUE", "FALSE"),  

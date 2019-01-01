@@ -3808,3 +3808,7 @@ Anova.glmerMod <- function(mod, ...) NextMethod()
 linearHypothesis.glmerMod <- function(model, ...) NextMethod()
 
 coef.glmerMod <- function(object, ...) fixef(object, ...)
+
+plot.lmerMod <- function(x, ...) NextMethod()
+
+plot.glmerMod <- function(x, ...) NextMethod()
