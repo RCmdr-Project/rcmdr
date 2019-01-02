@@ -1,4 +1,4 @@
-# last modified 2019-01-01 by J. Fox
+# last modified 2019-01-02 by J. Fox
 
 import(splines, tcltk, RcmdrMisc, car, effects)
 importFrom(utils, available.packages, install.packages, assignInMyNamespace, 
@@ -10,9 +10,10 @@ importFrom(graphics, text)
 importFrom(grDevices, col2rgb, colorConverter, colorspaces, convertColor, 
     dev.cur, dev.size, palette, rgb)
 importFrom(methods, getClass, isVirtualClass, show)
-importFrom(stats, coef, confint, family, formula, model.matrix, na.omit, 
+importFrom(stats, coef, confint, family, formula, getCall, model.matrix, na.omit, 
     optim, optimize, qnorm, var, vcov)
 importFrom(relimp, showData)
+importFrom(lme4, fixef)
 export(showData)
 
 export(tkfocus, tkspinbox,
@@ -23,7 +24,8 @@ checkActiveModel, checkBoxes, checkClass, checkFactors, checkMethod,
 checkNumeric, checkReplace,
 checkTwoLevelFactors, checkVariables, closeCommander,
 closeDialog, Commander,
-commanderPosition, CommanderWindow, Confint, dataSetsP, defmacro,
+commanderPosition, CommanderWindow, # Confint, 
+dataSetsP, defmacro,
 dialogSuffix, doItAndPrint, errorCondition, exists.method,
 Factors, factorsP, formulaFields, flushDialogMemory, 
 gassign, getDialog, getFrame, getRcmdr, getSelection, gettextRcmdr,
@@ -78,11 +80,11 @@ Coef
 S3method(Coef, multinom)
 S3method(Coef, merMod)
 S3method(Coef, default)
-S3method(Confint, glm)
-S3method(Confint, default)
-S3method(Confint, multinom)
-S3method(Confint, polr)
-S3method(Confint, merMod)
+#S3method(Confint, glm)
+#S3method(Confint, default)
+#S3method(Confint, multinom)
+#S3method(Confint, polr)
+#S3method(Confint, merMod)
 S3method(getFrame, combobox)
 S3method(getSelection, combobox)
 S3method(getFrame, listbox)

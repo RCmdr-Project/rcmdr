@@ -24,6 +24,7 @@
 \alias{checkVariables}
 \alias{closeCommander}
 \alias{closeDialog}
+\alias{Coef}
 \alias{commanderPosition}
 \alias{CommanderWindow}
 \alias{dataSetsP}
@@ -180,6 +181,7 @@ checkTwoLevelFactors(n=1)
 checkVariables(n=1)
 closeCommander(ask=TRUE, ask.save=ask)
 closeDialog(window, release=TRUE)  # macro
+Coef(object, ...)
 CommanderWindow()
 data(..., list = character(), package = NULL, lib.loc = NULL, 
     verbose = getOption("verbose"), envir = .GlobalEnv)
@@ -257,7 +259,7 @@ Message(message, type=c("note", "error", "warning"))
 MessagesWindow()
 modelCapability(capability)
 modelFormula(frame=top, hasLhs=TRUE, rhsExtras=NULL,
-    formulaLabel=gettextRcmdr("Model Formula"))  # macro
+    formulaLabel=gettextRcmdr("Model Formula"), showBar=FALSE)  # macro
 modelsP(n=1)
 multinomP()
 Numeric(names)
@@ -462,6 +464,7 @@ commanderPosition()
     is still present for backwards compatibility. The \code{columns} argument is
     similarly ignored, except for radio buttons and check boxes.}
   \item{selectmode}{\code{"single"} or \code{"multiple"}.}
+  \item{showBar}{include a \emph{bar} (|) button in the model-formula widget (default is \code{FALSE}).}
   \item{state}{state of the combobox widget; default \code{"readonly"} means
     user can't type in the box; set to \code{"normal"} to permit typing.}
   \item{strict}{if \code{TRUE}, only use first element of class vector.}
@@ -628,7 +631,8 @@ commanderPosition()
   The function \code{sortVarNames} sorts variable names, including those containing numerals, into a more
   "natural" order than does the standard \code{sort} function. The function \code{Library} may be used to
   load packages; it checks whether a package is already loaded, and if not by default puts it in position
-  4 on the search path.
+  4 on the search path. The function \code{Coef}, with several methods, returns the coefficients of a model
+  as a vector; the default method just calls \code{coef}.
   
   The function \code{RExcelSupported} is used for the RExcel interface.
   
