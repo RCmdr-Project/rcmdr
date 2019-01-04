@@ -409,7 +409,9 @@ browseRWebsite <- function() browseURL("http://www.r-project.org/")
 
 browseRMarkdown <- function() browseURL("http://rmarkdown.rstudio.com/lesson-1.html")
 
-
+browseRcmdrHexSticker <- function(){
+  browseURL(paste0("file://", system.file("etc", "Rcmdr-hex.pdf", package="Rcmdr")))
+}
 
 # functions for building dialog boxes
 
