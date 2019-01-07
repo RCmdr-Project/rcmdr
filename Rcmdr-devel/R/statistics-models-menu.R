@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2018-12-30 by J. Fox
+# last modified 2018-01-07 by J. Fox
 
     # Models menu
 

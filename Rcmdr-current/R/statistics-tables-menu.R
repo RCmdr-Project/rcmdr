@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2018-08-05 by J. Fox
+# last modified 2019-01-07 by J. Fox
 
 # Tables menu
 
@@ -344,7 +344,8 @@ enterTable <- function(){
     tkgrid(percentsFrame, sticky="nwe", padx = 6,  pady = 6)
     tkgrid(testsFrame, sticky="nwe", padx = 6, pady = 6)
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE, tabs=c("tableTab", "statisticsTab"), tab.names=c("Table", "Statistics"))
-}
+    if (!WindowsP()) setUpTable()
+    }
 
 resetEnterTable <- function(){
     putRcmdr("savedTable", NULL)

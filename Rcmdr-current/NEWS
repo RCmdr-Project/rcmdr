@@ -1,11 +1,16 @@
 Changes in version 2.5-2
 
-  o Updated Korean translation (thanks to Jong-Hwa Shin)
+  o Updated Korean translation (thanks to Jong-Hwa Shin).
+  
+  o Small fixes
+
+
 Changes in version 2.5-1
 
   o Updated translations (with thanks): Basque (Jose Ramon Rueda), French (Milan Bouchet-Valat), Indonesian (I Made Tirta), Japanese (Takaharu Araki).
   
   o Depend on R >= version 3.5.0.
+
 
 Changes in version 2.5-0
 
@@ -33,6 +38,7 @@ Changes in version 2.4-4
   
   o Removed natwidth, natheight parameters from \includegraphics{} in Getting Started manual to avoid omission of figures from CRAN build of manual.
 
+
 Changes to version 2.4-3
 
   o Updated several dialogs (scatterplot, scatterplot matrix, density plot, boxplot, QQ plot, 3D scatterplot, residual QQ plot, C+R plots, AV plots, influence plot, effect plots) for version 3.0-0 of the car package and version 4.0-1 of the effects package.
@@ -42,6 +48,7 @@ Changes to version 2.4-2
   o Updated Slovenian and Spanish translations (thanks to Matjaz Jeran and Manuel Munoz Marquez).
 
   o A few updates to R-Rcmdr.pot supplying previously missing messages for translation.
+
 
 Changes to version 2.4-1
 
@@ -98,7 +105,8 @@ Changes to version 2.4-0
   o Small interface improvements.
   
   o Updated translations (with thanks): simplified Chinese (Shulin Yang), French (Milan Bouchet-Valat), Indonesian (I Made Tirta), Japanese (Takaharu Araki), Polish (Lukasz Daniel), Russian (Alexey Shipunov), Spanish (Manual Munoz Marquez).
-  
+
+
 Changes to Version 2.3-2
 
   o Fixes to Spanish translation (from Manual Munoz Marquez).
@@ -114,7 +122,8 @@ Changes to Version 2.3-1
   o Fixes to Catalan translation (from Manel Salamero).
   
   o Updated Basque and German translations (thanks to Joserra Rueda and Fritz Leisch).
-  
+
+ 
 Changes to Version 2.3-0
 
   o Added .rtf output to options for RMarkdown reports.

@@ -623,7 +623,7 @@ testLinearHypothesis <- function(){
     }
     tkgrid(buttonsFrame, sticky="w")
     dialogSuffix() 
-    setUpTable()
+    if (!WindowsP()) setUpTable()
 } 
 
 compareModels <- function () {
