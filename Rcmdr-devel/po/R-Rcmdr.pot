@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.5-0\n"
+"Project-Id-Version: Rcmdr 2.6-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2018-08-05 18:30:00\n"
+"POT-Creation-Date: 2019-01-08 16:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5120,10 +5120,38 @@ msgstr ""
 msgid "To"
 msgstr ""
 
-# additional messages in version 2.3-1
+# additional messages in version 2.5-1
 
   # a corrected message
   
 msgid "Case statistics to plot"
 msgstr ""
 
+
+# additional message in version 2.6-0
+
+  # new mixed models dialogs
+  
+msgid "Linear Mixed Model"
+msgstr ""
+
+msgid "Linear mixed model..." 
+msgstr ""
+
+msgid "Estimation Criterion"
+msgstr ""
+
+msgid "Restricted maximum likelihood (REML)"
+msgstr ""
+
+msgid "Maximum likelihood (ML)"
+msgstr ""
+
+msgid "There are no random effects in the model."
+msgstr ""
+
+msgid "Generalized Linear Mixed Model"
+msgstr ""
+
+msgid "Generalized linear mixed model..."
+msgstr ""
