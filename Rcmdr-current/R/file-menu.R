@@ -1,4 +1,4 @@
-# last modified 2017-10-06 by J. Fox
+# last modified 2019-01-21 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -902,7 +902,7 @@ saveOptions <- function(){
     tkgrid(optionsXscroll, sticky="ew", columnspan=2)
     tkgrid(optionsFrame, sticky="news", padx=10, pady=0)
     tkgrid(buttonsFrame, sticky="ew")
-    dialogSuffix()
+    dialogSuffix(bindReturn=FALSE)
 }
 
 loadPackages <- function(){

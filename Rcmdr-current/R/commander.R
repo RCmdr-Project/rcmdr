@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2017-02-06 by John Fox
+# last modified 2019-01-21 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
