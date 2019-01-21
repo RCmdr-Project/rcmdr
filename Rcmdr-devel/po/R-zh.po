@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 2.2\n"
 
 msgid "KMeans Clustering"
 msgstr "K 平均數集群"
@@ -2639,8 +2639,8 @@ msgid ""
 "{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
 "\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"MS Excel檔\" {*.xls \".XLS\"}} {\"MS Access 資料庫檔\" {*.mdb \".MDB\"}} "
-"{\"dBase-like 檔\" {*.dbf \".DBF\"}} {\"所有檔案\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
+"\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "選擇其中一個工作表"
@@ -3425,7 +3425,7 @@ msgid "Load data set..."
 msgstr "載入資料集..."
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"R資料檔\" {\".rda\" \".Rda\" \".RDA\"}} {\"所有檔案\" {\"*\"}}"
+msgstr "\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
 
 msgid "Shapiro-Wilk test of normality..."
 msgstr "Shapiro-Wilk 常態分佈檢定..."
@@ -3755,7 +3755,8 @@ msgid ""
 "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files"
 "\" {\"*\"}}"
 msgstr ""
-"{\"R 資料檔\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"所有檔案\" {\"*\"}}"
+"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files"
+"\" {\"*\"}}"
 
 msgid "No data set selected."
 msgstr "沒有選擇任何資料集."
@@ -3822,79 +3823,77 @@ msgstr "按 Esc 鍵離開."
 
 # menus
 msgid "Start R help system"
-msgstr "開啟 R 說明系統"
+msgstr "Start R help system"
 
-#, fuzzy
 msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
-msgstr "{\"程式檔\" {\".R\"}} {\"所有檔案\" {\"*\"}}"
+msgstr "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
-msgstr "{\"文本檔\" {\".txt\"}} {\"所有檔案\" {\"*\"}}"
+msgstr "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
 
-#, fuzzy
 msgid ""
 "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
 "\".csv\" \".CSV\"}}"
 msgstr ""
-"{\"文字檔\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"所有"
-"檔案\" {\"*\"}}"
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
+"\".csv\" \".CSV\"}}"
 
 # #是否只打SAV檔等等
-#, fuzzy
 msgid ""
 "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
 "{\"SPSS save files\" {\".sav\" \".SAV\"}}"
 msgstr ""
-"{\"SPSS 儲存檔\" {\".sav\" \".SAV\"}} {\"SPSS 可攜式檔案\" {\".por\" \".POR"
-"\"}} {\"所有檔案\" {\"*\"}}"
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
+"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
 
-#, fuzzy
 msgid ""
 "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
-msgstr "{\"Minitab 可攜式檔案\" {\".mtp\" \".MTP\"}} {\"所有檔案\" {\"*\"}}"
+msgstr ""
+"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
 
-#, fuzzy
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
-msgstr "{\"STATA 資料集檔案\" {\".dta\" \".DTA\"}} {\"所有檔案\" {\"*\"}}"
+msgstr "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 
-#, fuzzy
 msgid ""
 "{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
 "Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
 "\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
 "\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"MS Excel檔\" {*.xls \".XLS\"}} {\"MS Access 資料庫檔\" {*.mdb \".MDB\"}} "
-"{\"dBase-like 檔\" {*.dbf \".DBF\"}} {\"所有檔案\" {\"*\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
+"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
+"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
+"\" {\".xls\" \".XLS\"}}"
 
-#, fuzzy
 msgid ""
 "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
 "RDA\"}}"
-msgstr "{\"R資料檔\" {\".rda\" \".Rda\" \".RDA\"}} {\"所有檔案\" {\"*\"}}"
+msgstr ""
+"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
+"RDA\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"PNG圖檔\" {\".png\",\".PNG\"}} {\"所有檔案\" {\"*\"}}"
 
-#, fuzzy
 msgid ""
 "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
 "\"}}"
 msgstr ""
-"{\"JPEG檔\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"所有檔案\" {\"*\"}}"
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
+"\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
-msgstr "{\"PDF檔\" {\".PDF\",\".pdf\"}} {\"所有檔案\" {\"*\"}}"
+msgstr "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
-msgstr "{\"Postscript 檔\" {\".ps\", \".PS\"}} {\"所有檔案\" {\"*\"}}"
+msgstr "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 
-#, fuzzy
 msgid ""
 "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
 "\"}}"
 msgstr ""
-"{\"Encapsulated Postscript檔\" {\".eps\" \".EPS\"}} {\"所有檔案\" {\"*\"}}"
+"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
+"\"}}"
 
 # messages added to version 1.7-0
 msgid "Reset"
@@ -4068,8 +4067,8 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
 "\".XPORT\"}}"
 msgstr ""
-"{\"SAS xport 檔案\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}} {\"所有檔案"
-"\" {\"*\"}}"
+"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
+"\".XPORT\"}}"
 
 # #待確認翻譯
 #, fuzzy
@@ -4090,8 +4089,8 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
 "Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"MS Excel 2007檔案\" {\".xlsx\" \".XLSX\"}} {\"MS Excel檔案\" {\".xls\" \"."
-"XLS\"}}  {\"所有檔案\" {\"*\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
 
 msgid "Interquartile Range"
 msgstr "分量間距"
@@ -4253,14 +4252,14 @@ msgid "knitr file saved to"
 msgstr "另存 knitr 語法檔"
 
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
-msgstr "{\"所有檔案\" {\"*\"}} {\"R Markdown 檔案\" {\".Rmd\" \".rmd\"}}"
+msgstr "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
 
 msgid ""
 "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
 "\"}}"
 msgstr ""
-"{\"knitr 檔案\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}} {\"所有檔案\" {\"*"
-"\"}} "
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
+"\"}}"
 
 msgid ""
 "Delete previously created knitr\n"
@@ -4836,8 +4835,8 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
 "XLS\"}}"
 msgstr ""
-"{\"MS Excel 檔案\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}{\"所有檔案\" {\"*"
-"\"}} "
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
 
 msgid ""
 "Number of points to identify  \n"
@@ -5164,7 +5163,8 @@ msgstr "匯入SAS格式資料..."
 
 msgid ""
 "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
-msgstr "{\"SAS 資料檔\" {\".sas7bdat\" \".SAS7BDAT\"}} {\"所有檔案\" {\"*\"}}"
+msgstr ""
+"{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
 
 # addition to the Commander Options dialog
 msgid ""
