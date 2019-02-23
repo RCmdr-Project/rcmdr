@@ -12,6 +12,8 @@ Changes in version 2.5-2
   
   o Fixes to Chinese translation (thanks to Tsung-wu Ho).
   
+  o No longer re-export utils::data() (suggestion of Brian Ripley).
+  
   o Small fixes.
   
 Changes in version 2.5-1

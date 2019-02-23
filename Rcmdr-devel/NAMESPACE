@@ -1,9 +1,9 @@
-# last modified 2019-01-02 by J. Fox
+# last modified 2019-02-23 by J. Fox
 
 import(splines, tcltk, RcmdrMisc, car, effects)
 importFrom(utils, available.packages, install.packages, assignInMyNamespace, 
     browseURL, capture.output, head, help, help.start, installed.packages, 
-    methods, read.table, tail, data)
+    methods, read.table, tail)
 importFrom(tcltk2, tk2tip, tk2theme, tk2theme.list, tk2table, is.ttk, tk2style)
 importFrom(abind, abind)
 importFrom(graphics, text)
@@ -68,7 +68,6 @@ tkwait.window, tkwm.deiconify, tkwm.iconbitmap, tkwm.geometry, tkwm.protocol,
 tkwm.resizable, tkwm.title, tkwm.transient,
 tkxview.moveto, tkxview, tkyview, tkyview.scroll,
 ttklabelframe,
-data,
 
 anovaP, EffectP, logLikP,
 
