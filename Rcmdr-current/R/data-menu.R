@@ -1,4 +1,4 @@
-# last modified 2018-08-06 by J. Fox
+# last modified 2019-02-23 by J. Fox
 
 # Data menu dialogs
 
@@ -441,7 +441,7 @@ readDataFromPackage <- function() {
 	packages <- sort(.packages())
 	packages <- packages[! packages %in% c("base", "stats")]
 	packages <- packages[sapply(packages, function(package){
-						ds <- data(package=package)$results
+						ds <- utils::data(package=package)$results
 						if (nrow(ds) == 0) return(FALSE)
 						ds <- ds[, "Item"]
 						# ds <- trim.blanks(sub("\\(.*\\)", "", ds))
@@ -466,7 +466,7 @@ readDataFromPackage <- function() {
 	tkconfigure(datasetBox, yscrollcommand=function(...) tkset(datasetScroll, ...))
 	onPackageSelect <- function(){
 		assign("package", packages[as.numeric(tkcurselection(packageBox)) + 1], envir=env)
-		datasets <<- data(package=package)$results[,3]
+		datasets <<- utils::data(package=package)$results[,3]
 		valid <- sapply(datasets, is.valid.name)
 		datasets <<- datasets[valid]
 		tkdelete(datasetBox, "0", "end")
