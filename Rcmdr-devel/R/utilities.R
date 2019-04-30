@@ -1,4 +1,4 @@
-# last modified 2019-01-02 by J. Fox
+# last modified 2019-04-30 by J. Fox
 
 # utility functions
 
@@ -1660,7 +1660,7 @@ ActiveDataSet <- function(name){
           tkdestroy(open.showData.windows[[name]])
           suppress <- if(getRcmdr("suppress.X11.warnings")) ", suppress.X11.warnings=FALSE" else ""
           view.height <- max(as.numeric(getRcmdr("output.height")) + as.numeric(getRcmdr("log.height")), 10)
-          command <- paste("showData(", name, ", placement='", posn, "', font=getRcmdr('logFont'), maxwidth=",
+          command <- paste("showData(as.data.frame(", name, "), placement='", posn, "', font=getRcmdr('logFont'), maxwidth=",
                            getRcmdr("log.width"), ", maxheight=", view.height, suppress, ")", sep="")
           window <- justDoIt(command)
           open.showData.windows[[ActiveDataSet()]] <- window
@@ -3098,16 +3098,32 @@ setIdleCursor <- function() {
 
 # Rcmdr data editor
 
-editDataset <- function(data, dsname){
+editDataset <- function(data, dsname, ...){
+  UseMethod("editDataset")
+}
+
+editDataset.character <- function(data, dsname, ...){
+  if (missing(dsname)) dsname <- "Dataset"
+  data <- data.frame(V1="NA")
+  editDataset(data, dsname, ...)
+}
+
+editDataset.NULL <- function(data, dsname, ...){
+  if (missing(dsname)) dsname <- "Dataset"
+  data <- data.frame(V1="NA")
+  editDataset(data, dsname, ...)
+}
+
+editDataset.data.frame <- function(data, dsname, ...){
     putRcmdr("dataset.modified", FALSE)
-    if (missing(data)){
-        if (missing(dsname)) dsname <- "Dataset"
-        data <- data.frame(V1="NA")
-    }
-    else {
-        if (!inherits(data, "data.frame")) stop ("data argument must be a data frame")
-        if (missing(dsname)) dsname <- deparse(substitute(data))
-    }
+    # if (missing(data)){
+    #     if (missing(dsname)) dsname <- "Dataset"
+    #     data <- data.frame(V1="NA")
+    # }
+    # else {
+    #     if (!inherits(data, "data.frame")) stop ("data argument must be a data frame")
+    if (missing(dsname)) dsname <- deparse(substitute(data))
+    # }
     if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
     top <- tktoplevel(borderwidth = 10)
     tkwm.title(top, paste(gettextRcmdr("Data Editor"), ": ", dsname, sep=""))

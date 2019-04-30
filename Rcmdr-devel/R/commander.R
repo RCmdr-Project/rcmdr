@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2017-02-06 by John Fox
+# last modified 2019-04-30 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -633,10 +633,10 @@ setupGUI <- function(Menus){
         ncols <- dim[2]
         threshold <- getRcmdr("showData.threshold")
         command <- if (nrows <= threshold[1] && ncols <= threshold[2]){
-            paste("showData(", ActiveDataSet(), ", placement='-20+200', font=getRcmdr('logFont'), maxwidth=",
+            paste("showData(as.data.frame(", ActiveDataSet(), "), placement='-20+200', font=getRcmdr('logFont'), maxwidth=",
                   getRcmdr("log.width"), ", maxheight=", view.height, suppress, ")", sep="")
         }
-        else paste("View(", ActiveDataSet(), ")", sep="")
+        else paste("View(as.data.frame(", ActiveDataSet(), "))", sep="")
         window <- justDoIt(command)
         if (!is.null(window)){
             open.showData.windows <- getRcmdr("open.showData.windows")

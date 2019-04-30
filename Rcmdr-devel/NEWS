@@ -2,8 +2,14 @@ Changes in version 2.6-0
 
   o Linear and generalized linear mixed models dialogs added.
   
+  o Made editDataset() with data.frame method (suggestion of Ulrike Gromping).
+  
   o New R Commander hex sticker.
   
+  o Small fixes.
+  
+Changes in version 2.5-3
+
   o Small fixes.
 
 Changes in version 2.5-2

@@ -1,5 +1,8 @@
 \name{editDataset}
 \alias{editDataset}
+\alias{editDataset.data.frame}
+\alias{editDataset.character}
+\alias{editDataset.NULL}
 
 \title{
 R Commander Dataset Editor
@@ -11,7 +14,10 @@ existing dataset, add rows or columns to the dataset, or delete rows or columns.
 }
 
 \usage{
-editDataset(data, dsname)
+editDataset(data, dsname, ...)
+\method{editDataset}{data.frame}(data, dsname, ...)
+\method{editDataset}{character}(data, dsname, ...)
+\method{editDataset}{NULL}(data, dsname, ...)
 }
 
 \arguments{
@@ -22,10 +28,11 @@ editDataset(data, dsname)
   If absent and an \emph{existing} data frame is edited, the modified
   version will replace the original version; if absent and a \emph{new} data set is 
   created, it will be given the name \code{"Dataset"}.}
+  \item{...}{not used by the \code{data.frame} method.}
 }
 \details{
 \code{editDataset} is a straightforward spreadsheet-like data editor, suitable for 
-editing data frames that are not too large (say smaller than about 10,000 values). 
+editing data frames that are not too large (say smaller than about 10,000 values). It is defined as a generic function with a \code{data.frame} method to allow for objects with unique properties that inherit from the \code{data.frame} class. The \code{character} and \code{NULL} methods permit editing an initially empty data set.
 
   \itemize{
   
