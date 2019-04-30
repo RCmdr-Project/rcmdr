@@ -1,4 +1,4 @@
-# last modified 2019-02-23 by J. Fox
+# last modified 2019-04-30 by J. Fox
 
 # Data menu dialogs
 
@@ -2570,11 +2570,11 @@ viewData <- function(){
             return()
         }
         command <- if (nrows <= threshold[1] && ncols <= threshold[2]){
-            paste("showData(", dataSet, ", 
+            paste("showData(as.data.frame(", dataSet, "), 
                   placement='-20+200', font=getRcmdr('logFont'), maxwidth=",
                   getRcmdr("log.width"), ", maxheight=", view.height, suppress, ")", sep="")
         }
-        else paste("View(", dataSet, ")", sep="")
+        else paste("View(as.data.frame(", dataSet, "))", sep="")
         result <- try(eval(parse(text=command)), silent=TRUE)
         if (class(result)[1] ==  "try-error"){
             errorCondition(recall=viewData,

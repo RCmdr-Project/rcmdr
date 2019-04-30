@@ -1,4 +1,4 @@
-# last modified 2018-08-06 by J. Fox
+# last modified 2019-04-30 by J. Fox
 
 # utility functions
 
@@ -1623,7 +1623,7 @@ ActiveDataSet <- function(name){
           tkdestroy(open.showData.windows[[name]])
           suppress <- if(getRcmdr("suppress.X11.warnings")) ", suppress.X11.warnings=FALSE" else ""
           view.height <- max(as.numeric(getRcmdr("output.height")) + as.numeric(getRcmdr("log.height")), 10)
-          command <- paste("showData(", name, ", placement='", posn, "', font=getRcmdr('logFont'), maxwidth=",
+          command <- paste("showData(as.data.frame(", name, "), placement='", posn, "', font=getRcmdr('logFont'), maxwidth=",
                            getRcmdr("log.width"), ", maxheight=", view.height, suppress, ")", sep="")
           window <- justDoIt(command)
           open.showData.windows[[ActiveDataSet()]] <- window
