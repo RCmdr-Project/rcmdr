@@ -1,10 +1,10 @@
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2017, 2018.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.4-1\n"
+"Project-Id-Version: Rcmdr 2.5-2\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2017-04-17 10:30:00\n"
-"PO-Revision-Date: 2018-01-04 13:34+0100\n"
+"POT-Creation-Date: 2018-08-05 18:30:00\n"
+"PO-Revision-Date: 2019-05-05 16:36+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Translator: Jaro Lajovic <jaro.lajovic@mf.uni-lj.si>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
-"X-Generator: Poedit 2.0.3\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+"X-Generator: Poedit 2.2.1\n"
 
 msgid "KMeans Clustering"
 msgstr "Razvrščanje z voditelji"
@@ -2247,7 +2247,7 @@ msgid "Single-sample t-test..."
 msgstr "t-test za en vzorec ..."
 
 msgid "Independent samples t-test..."
-msgstr "t-test za neodvisne vzorce ..."
+msgstr "t-test za neodvisna vzorca ..."
 
 msgid "Paired t-test..."
 msgstr "t-test za pare ..."
@@ -5175,3 +5175,111 @@ msgstr "Nariši primere bootstrapa"
 # for numerical summaries dialog
 msgid "Binned Frequency Counts"
 msgstr "Frekvence po razredih"
+
+# additional messages in version 2.4-2
+# these messages were inadvertently omitted
+msgid "Sample from ChiSquared Distribution"
+msgstr "Vzorec iz distribucije Hi-kvadratne porazdelitve"
+
+msgid "Sample from Lognormal Distribution"
+msgstr "Vzorec iz lognormalne porazdelitve"
+
+msgid "Sample from NegativeBinomial Distribution"
+msgstr "Vzorec iz negativne binomske porazdelitve"
+
+# additional messages in version 2.5-0
+# new predictor effect plots dialog
+msgid "Predictor Effect Plots"
+msgstr "Grafi Učinka Prediktorja"
+
+msgid "Predictor effect plots..."
+msgstr "Grafi učinka prediktorja"
+
+msgid "Plot all predictor effects?"
+msgstr "Naj narišem učinke prediktorja?"
+
+# added to index plot dialog
+msgid "Mark by groups"
+msgstr "Označi po grupah"
+
+msgid "Mark by:"
+msgstr "Označi po:"
+
+# new response transformation dialog
+msgid "Response Transformation"
+msgstr "Transformacija odzivne spremenljivke"
+
+msgid "Response transformation..."
+msgstr "Transformacija odzivne spremenljivke..."
+
+msgid "Box-Cox"
+msgstr "Box-Cox"
+
+msgid "Box-Cox with negatives"
+msgstr "Box-Cox z negativnimi"
+
+msgid "Yeo-Johnson"
+msgstr "Yeo-Johnson"
+
+# new transform toward normality dialog
+msgid "Transform toward normality..."
+msgstr "Transformiraj proti normalnosti..."
+
+msgid "Transform Variables Toward Normality"
+msgstr "Transformiraj Spremenljivke Proti Normalnosti"
+
+msgid "Select variables to transform (one or more)"
+msgstr "Izberi spremenljivke za transformacijo (ena ali več)"
+
+msgid "Transformation Family"
+msgstr "Družina Transformacij"
+
+msgid "Condition on:"
+msgstr "Pogojno na:"
+
+# new symmetry boxplot (symbox) dialog
+msgid "Symmetry boxplot..."
+msgstr "Simetrični okvir z ročaji..."
+
+msgid "Symmetry Boxplot"
+msgstr "Simetrični okvir z ročaji"
+
+msgid "Start (optional)"
+msgstr "Začetek (neobvezno)"
+
+msgid "Powers"
+msgstr "Potence"
+
+# new influence index plot dialog
+msgid "Influence index plot..."
+msgstr "Grafi vplivnih indeksov..."
+
+msgid "Influence Index Plot"
+msgstr "Grafi vplivnih indeksov"
+
+msgid "Bonferroni p-values"
+msgstr "Bonferronijeva p-vrednost"
+
+msgid "Diagnostics case statistics to plot"
+msgstr "Diagnostika narisanih statistik izbranih enot"
+
+# enhancements to Density Plot dialog
+msgid "Method"
+msgstr "Metoda"
+
+msgid "adaptive kernel"
+msgstr "prilagodljivo jedro"
+
+msgid "kernel"
+msgstr "jedro"
+
+msgid "From"
+msgstr "Od"
+
+msgid "To"
+msgstr "Do"
+
+# additional messages in version 2.3-1
+# a corrected message
+msgid "Case statistics to plot"
+msgstr "Risanje statistik izbranih enot"
