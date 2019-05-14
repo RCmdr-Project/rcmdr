@@ -633,7 +633,8 @@ setupGUI <- function(Menus){
         ncols <- dim[2]
         threshold <- getRcmdr("showData.threshold")
         command <- if (nrows <= threshold[1] && ncols <= threshold[2]){
-            paste("showData(as.data.frame(", ActiveDataSet(), "), placement='-20+200', font=getRcmdr('logFont'), maxwidth=",
+            posn <- commanderPosition() + c(300, 200)
+            paste("showData(as.data.frame(", ActiveDataSet(), "), title='", ActiveDataSet(), "', placement='+", posn[1], "+", posn[2],"', font=getRcmdr('logFont'), maxwidth=",
                   getRcmdr("log.width"), ", maxheight=", view.height, suppress, ")", sep="")
         }
         else paste("View(as.data.frame(", ActiveDataSet(), "))", sep="")

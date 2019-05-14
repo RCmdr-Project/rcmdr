@@ -6,7 +6,9 @@ Changes in version 2.6-0
   
   o New R Commander hex sticker.
   
-  o Small fixes.
+  o errorCondition() utility function renamed ErrorCondition(), old name deprecated, because of name clash with function in base package as of R 3.6.0.
+  
+  o Small fixes and improvements.
   
 Changes in version 2.5-3
 

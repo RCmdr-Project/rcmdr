@@ -2569,9 +2569,10 @@ viewData <- function(){
                            message=gettextRcmdr("No data to show."))
             return()
         }
+        posn <- commanderPosition() + c(300, 200)
         command <- if (nrows <= threshold[1] && ncols <= threshold[2]){
-            paste("showData(as.data.frame(", dataSet, "), 
-                  placement='-20+200', font=getRcmdr('logFont'), maxwidth=",
+            paste("showData(as.data.frame(", dataSet, "), title='", ActiveDataSet(), "', placement='+", posn[1], "+", posn[2],
+                  "', font=getRcmdr('logFont'), maxwidth=",
                   getRcmdr("log.width"), ", maxheight=", view.height, suppress, ")", sep="")
         }
         else paste("View(as.data.frame(", dataSet, "))", sep="")
