@@ -36,6 +36,7 @@
 \alias{endRnwBlock}
 \alias{enterMarkdown}
 \alias{enterKnitr}
+\alias{ErrorCondition}
 \alias{errorCondition}
 \alias{exists.method}
 \alias{Factors}
@@ -195,7 +196,8 @@ endRmdBlock()
 endRnwBlock()
 enterMarkdown(command)
 enterKnitr(command)
-errorCondition(window=top, recall=NULL, message, model=FALSE)  # macro
+ErrorCondition(window=top, recall=NULL, message, model=FALSE)  # macro
+errorCondition(window=top, recall=NULL, message, model=FALSE)  # macro, deprecated
 exists.method(generic, object, default=TRUE, strict=FALSE)
 Factors(names)
 factorsP(n=1)
@@ -542,8 +544,8 @@ commanderPosition()
   The function \code{checkMethod}, checks whether a method exists for a particular generic that is
   appropriate for a particular object. The function \code{checkClass} checks whether an object is of
   a specific class. Both of these functions write error messages to the log if the condition fails.
-  The function \code{errorCondition} reports an error to the user and (optionally) re-starts
-  a dialog.
+  The function \code{ErrorCondition} reports an error to the user and (optionally) re-starts
+  a dialog. (An older version of this function, \code{ErrorCondition}, is deprecated because of a name clash with the \pkg{base} package.)
   
   \emph{Information: }
   

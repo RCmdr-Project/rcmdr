@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2015-12-15 by J. Fox
+# last modified 2019-05-14 by J. Fox
 
     # Proportions menu
 
@@ -15,7 +15,7 @@ singleProportionTest <- function () {
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         x <- getSelection(xBox)
         if (length(x) == 0) {
-            errorCondition(recall = singleProportionTest, message = gettextRcmdr("You must select a variable."))
+            ErrorCondition(recall = singleProportionTest, message = gettextRcmdr("You must select a variable."))
             return()
         }
         alternative <- as.character(tclvalue(alternativeVariable))
@@ -87,18 +87,18 @@ twoSampleProportionsTest <- function () {
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         groups <- getSelection(groupsBox)
         if (length(groups) == 0) {
-            errorCondition(recall = twoSampleProportionsTest, 
+            ErrorCondition(recall = twoSampleProportionsTest, 
                 message = gettextRcmdr("You must select a groups variable."))
             return()
         }
         x <- getSelection(xBox)
         if (length(x) == 0) {
-            errorCondition(recall = twoSampleProportionsTest, 
+            ErrorCondition(recall = twoSampleProportionsTest, 
                 message = gettextRcmdr("You must select a response variable."))
             return()
         }
         if (x == groups) {
-            errorCondition(recall = twoSampleProportionsTest, 
+            ErrorCondition(recall = twoSampleProportionsTest, 
                 message = gettextRcmdr("Groups and response variables must be different."))
             return()
         }

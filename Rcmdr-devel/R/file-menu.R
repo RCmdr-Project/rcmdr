@@ -1,4 +1,4 @@
-# last modified 2019-01-21 by J. Fox
+# last modified 2019-05-14 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -721,7 +721,7 @@ saveOptions <- function(){
             text <- tclvalue(textVar)
             putRcmdr("last.search", text)
             if (text == ""){
-                errorCondition(recall=onFind, message=gettextRcmdr("No search text specified."))
+                ErrorCondition(recall=onFind, message=gettextRcmdr("No search text specified."))
                 return()
             }
             type <- if (tclvalue(regexprVariable) == 1) "-regexp" else "-exact"
@@ -908,7 +908,7 @@ saveOptions <- function(){
 loadPackages <- function(){
 	availablePackages <- sort(setdiff(.packages(all.available = TRUE), .packages()))
 	if (length(availablePackages) == 0){
-		errorCondition(message=gettextRcmdr("No packages available to load."))
+		ErrorCondition(message=gettextRcmdr("No packages available to load."))
 		return()
 	}
 	initializeDialog(title=gettextRcmdr("Load Packages"))
@@ -918,7 +918,7 @@ loadPackages <- function(){
 		packages <- getSelection(packagesBox)
 		closeDialog(top)
 		if (length(packages) == 0){
-			errorCondition(recall=loadPackages, message=gettextRcmdr("You must select at least one package."))
+			ErrorCondition(recall=loadPackages, message=gettextRcmdr("You must select at least one package."))
 			return()
 		}
 		for (package in packages) {

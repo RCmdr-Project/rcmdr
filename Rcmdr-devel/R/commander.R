@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2019-04-30 by John Fox
+# last modified 2019-05-14 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -497,7 +497,7 @@ setupGUI <- function(Menus){
             text <- tclvalue(textVar)
             putRcmdr("last.search", text)
             if (text == ""){
-                errorCondition(recall=onFind, message=gettextRcmdr("No search text specified."))
+                ErrorCondition(recall=onFind, message=gettextRcmdr("No search text specified."))
                 return()
             }
             type <- if (tclvalue(regexprVariable) == 1) "-regexp" else "-exact"
@@ -590,7 +590,7 @@ setupGUI <- function(Menus){
             result <- justDoIt(command)
             if (class(result)[1] !=  "try-error"){ 			
                 if (nrow(get(dsnameValue)) == 0){
-                    errorCondition(window=NULL, message=gettextRcmdr("empty data set."))
+                    ErrorCondition(window=NULL, message=gettextRcmdr("empty data set."))
                     justDoIt(paste(dsnameValue, "<- save.dataset"))
                     return()
                 }
@@ -600,7 +600,7 @@ setupGUI <- function(Menus){
                 }
             }
             else{
-                errorCondition(window=NULL, message=gettextRcmdr("data set edit error."))
+                ErrorCondition(window=NULL, message=gettextRcmdr("data set edit error."))
                 return()
             }
         }
@@ -611,7 +611,7 @@ setupGUI <- function(Menus){
                 logger(command, rmd=FALSE)
             }
             else{
-                errorCondition(window=NULL, message=gettextRcmdr("data set edit error."))
+                ErrorCondition(window=NULL, message=gettextRcmdr("data set edit error."))
                 return()
             }
         }

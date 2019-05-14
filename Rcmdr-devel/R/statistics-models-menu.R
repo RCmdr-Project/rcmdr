@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2018-01-07 by J. Fox
+# last modified 2019-05-14 by J. Fox
 
     # Models menu
 
@@ -28,17 +28,17 @@ linearRegressionModel <- function () {
 		closeDialog()
 		if (0 == length(y)) {
 			UpdateModelNumber(-1)
-			errorCondition(recall = linearRegressionModel, message = gettextRcmdr("You must select a response variable."))
+			ErrorCondition(recall = linearRegressionModel, message = gettextRcmdr("You must select a response variable."))
 			return()
 		}
 		if (0 == length(x)) {
 			UpdateModelNumber(-1)
-			errorCondition(recall = linearRegressionModel, message = gettextRcmdr("No explanatory variables selected."))
+			ErrorCondition(recall = linearRegressionModel, message = gettextRcmdr("No explanatory variables selected."))
 			return()
 		}
 		if (is.element(y, x)) {
 			UpdateModelNumber(-1)
-			errorCondition(recall = linearRegressionModel, message = gettextRcmdr("Response and explanatory variables must be different."))
+			ErrorCondition(recall = linearRegressionModel, message = gettextRcmdr("Response and explanatory variables must be different."))
 			return()
 		}
 		subset <- tclvalue(subsetVariable)
@@ -56,7 +56,7 @@ linearRegressionModel <- function () {
 		modelValue <- trim.blanks(tclvalue(modelName))
 		if (!is.valid.name(modelValue)) {
 			UpdateModelNumber(-1)
-			errorCondition(recall = linearRegressionModel, message = sprintf(gettextRcmdr("\"%s\" is not a valid name."), 
+			ErrorCondition(recall = linearRegressionModel, message = sprintf(gettextRcmdr("\"%s\" is not a valid name."), 
 							modelValue))
 			return()
 		}
@@ -111,7 +111,7 @@ linearModel <- function(){
     modelValue <- trim.blanks(tclvalue(modelName))
     closeDialog()
     if (!is.valid.name(modelValue)){
-      errorCondition(recall=linearModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
+      ErrorCondition(recall=linearModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
       return()
     }
     subset <- tclvalue(subsetVariable)
@@ -129,12 +129,12 @@ linearModel <- function(){
     else paste(", weights=", weight.var, sep="")
     check.empty <- gsub(" ", "", tclvalue(lhsVariable))
     if ("" == check.empty) {
-      errorCondition(recall=linearModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
+      ErrorCondition(recall=linearModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
       return()
     }
     check.empty <- gsub(" ", "", tclvalue(rhsVariable))
     if ("" == check.empty) {
-      errorCondition(recall=linearModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
+      ErrorCondition(recall=linearModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
       return()
     }
     if (is.element(modelValue, listLinearModels())) {
@@ -246,17 +246,17 @@ generalizedLinearModel <- function(){
   onOK <- function(){
     check.empty <- gsub(" ", "", tclvalue(lhsVariable))
     if ("" == check.empty) {
-      errorCondition(recall=generalizedLinearModel, model=TRUE, message=gettextRcmdr("Left-hand side of model empty."))
+      ErrorCondition(recall=generalizedLinearModel, model=TRUE, message=gettextRcmdr("Left-hand side of model empty."))
       return()
     }
     check.empty <- gsub(" ", "", tclvalue(rhsVariable))
     if ("" == check.empty) {
-      errorCondition(recall=generalizedLinearModel, model=TRUE, message=gettextRcmdr("Right-hand side of model empty."))
+      ErrorCondition(recall=generalizedLinearModel, model=TRUE, message=gettextRcmdr("Right-hand side of model empty."))
       return()
     }
     modelValue <- trim.blanks(tclvalue(modelName))
     if (!is.valid.name(modelValue)){
-      errorCondition(recall=generalizedLinearModel, model=TRUE, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue))
+      ErrorCondition(recall=generalizedLinearModel, model=TRUE, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue))
       return()
     }
     if (is.element(modelValue, listGeneralizedLinearModels())) {
@@ -369,7 +369,7 @@ ordinalRegressionModel <- function(){
 		modelValue <- trim.blanks(tclvalue(modelName))
 		closeDialog()
 		if (!is.valid.name(modelValue)){
-			errorCondition(recall=proportionalOddsModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
+			ErrorCondition(recall=proportionalOddsModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
 			return()
 		}
 		subset <- tclvalue(subsetVariable)
@@ -383,16 +383,16 @@ ordinalRegressionModel <- function(){
 		}
 		check.empty <- gsub(" ", "", tclvalue(lhsVariable))
 		if ("" == check.empty) {
-			errorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
+			ErrorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
 			return()
 		}
 		check.empty <- gsub(" ", "", tclvalue(rhsVariable))
 		if ("" == check.empty) {
-			errorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
+			ErrorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
 			return()
 		}
 		if (!is.factor(eval(parse(text=tclvalue(lhsVariable)), envir=get(.activeDataSet, envir=.GlobalEnv)))){
-			errorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Response variable must be a factor"))
+			ErrorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Response variable must be a factor"))
 			return()
 		}
 		if (is.element(modelValue, listProportionalOddsModels())) {
@@ -455,7 +455,7 @@ multinomialLogitModel <- function(){
 		modelValue <- trim.blanks(tclvalue(modelName))
 		closeDialog()
 		if (!is.valid.name(modelValue)){
-			errorCondition(recall=multinomialLogitModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
+			ErrorCondition(recall=multinomialLogitModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
 			return()
 		}
 		subset <- tclvalue(subsetVariable)
@@ -469,16 +469,16 @@ multinomialLogitModel <- function(){
 		}
 		check.empty <- gsub(" ", "", tclvalue(lhsVariable))
 		if ("" == check.empty) {
-			errorCondition(recall=multinomialLogitModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
+			ErrorCondition(recall=multinomialLogitModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
 			return()
 		}
 		check.empty <- gsub(" ", "", tclvalue(rhsVariable))
 		if ("" == check.empty) {
-			errorCondition(recall=multinomialLogitModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
+			ErrorCondition(recall=multinomialLogitModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
 			return()
 		}
 		if (!is.factor(eval(parse(text=tclvalue(lhsVariable)), envir=get(.activeDataSet, envir=.GlobalEnv)))){
-			errorCondition(recall=multinomialLogitModel, message=gettextRcmdr("Response variable must be a factor"))
+			ErrorCondition(recall=multinomialLogitModel, message=gettextRcmdr("Response variable must be a factor"))
 			return()
 		}
 		if (is.element(modelValue, listMultinomialLogitModels())) {
@@ -568,7 +568,7 @@ linearMixedModel <- function(){
     modelValue <- trim.blanks(tclvalue(modelName))
     closeDialog()
     if (!is.valid.name(modelValue)){
-      errorCondition(recall=linearMixedModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
+      ErrorCondition(recall=linearMixedModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
       return()
     }
     subset <- tclvalue(subsetVariable)
@@ -587,16 +587,16 @@ linearMixedModel <- function(){
     else paste(", weights=", weight.var, sep="")
     check.empty <- gsub(" ", "", tclvalue(lhsVariable))
     if ("" == check.empty) {
-      errorCondition(recall=linearMixedModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
+      ErrorCondition(recall=linearMixedModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
       return()
     }
     check.empty <- gsub(" ", "", tclvalue(rhsVariable))
     if ("" == check.empty) {
-      errorCondition(recall=linearMixedModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
+      ErrorCondition(recall=linearMixedModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
       return()
     }
     if (!grepl("\\(.*\\|.*\\)", tclvalue(rhsVariable))) {
-      errorCondition(recall=linearMixedModel, message=gettextRcmdr("There are no random effects in the model."), model=TRUE)
+      ErrorCondition(recall=linearMixedModel, message=gettextRcmdr("There are no random effects in the model."), model=TRUE)
       return()
     }
     if (is.element(modelValue, listLMMs())) {
@@ -707,21 +707,21 @@ generalizedLinearMixedModel <- function(){
   onOK <- function(){
     check.empty <- gsub(" ", "", tclvalue(lhsVariable))
     if ("" == check.empty) {
-      errorCondition(recall=generalizedLinearMixedModel, model=TRUE, message=gettextRcmdr("Left-hand side of model empty."))
+      ErrorCondition(recall=generalizedLinearMixedModel, model=TRUE, message=gettextRcmdr("Left-hand side of model empty."))
       return()
     }
     check.empty <- gsub(" ", "", tclvalue(rhsVariable))
     if ("" == check.empty) {
-      errorCondition(recall=generalizedLinearMixedModel, model=TRUE, message=gettextRcmdr("Right-hand side of model empty."))
+      ErrorCondition(recall=generalizedLinearMixedModel, model=TRUE, message=gettextRcmdr("Right-hand side of model empty."))
       return()
     }
     modelValue <- trim.blanks(tclvalue(modelName))
     if (!is.valid.name(modelValue)){
-      errorCondition(recall=generalizedLinearMixedModel, model=TRUE, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue))
+      ErrorCondition(recall=generalizedLinearMixedModel, model=TRUE, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue))
       return()
     }
     if (!grepl("\\(.*\\|.*\\)", tclvalue(rhsVariable))) {
-      errorCondition(recall=generalizedLinearMixedModel, message=gettextRcmdr("There are no random effects in the model."), model=TRUE)
+      ErrorCondition(recall=generalizedLinearMixedModel, message=gettextRcmdr("There are no random effects in the model."), model=TRUE)
       return()
     }
     if (is.element(modelValue, listGLMMs())) {

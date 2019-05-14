@@ -1,6 +1,6 @@
 # Distributions menu dialogs
 
-# last modified 2016-07-14 by J. Fox
+# last modified 2019-05-14 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic (20 July 06)
 # Modified by Miroslav Ristic (15 January 11)
@@ -339,7 +339,7 @@ distributionQuantiles <- function(nameVar){
 		closeDialog()
 		quantiles <- gsub(" +", ",", gsub(",", " ", tclvalue(quantilesVar)))
 		if ("" == quantiles) {
-			errorCondition(recall=nameVarF, message=gettextRcmdr("No probabilities specified."))
+			ErrorCondition(recall=nameVarF, message=gettextRcmdr("No probabilities specified."))
 			return()
 		}
 		warn <- options(warn=-1)
@@ -355,7 +355,7 @@ distributionQuantiles <- function(nameVar){
 		options(warn)
 		for (i in 1:length(fVar$errorConds)) {
 			if (eval(parse(text=fVar$errorConds[i]))) {
-				errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
+				ErrorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
 				return()
 			}
 		}
@@ -416,7 +416,7 @@ distributionProbabilities <- function(nameVar){
 		closeDialog()
 		probabilities <-  gsub(" +", ",", gsub(",", " ", tclvalue(probabilitiesVar)))
 		if ("" == probabilities) {
-			errorCondition(recall=nameVarF, message=gettextRcmdr("No values specified."))
+			ErrorCondition(recall=nameVarF, message=gettextRcmdr("No values specified."))
 			return()
 		}
 		warn <- options(warn=-1)
@@ -432,7 +432,7 @@ distributionProbabilities <- function(nameVar){
 		options(warn)
 		for (i in 1:length(fVar$errorConds)) {
 			if (eval(parse(text=fVar$errorConds[i]))) {
-				errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
+				ErrorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
 				return()
 			}
 		}
@@ -507,7 +507,7 @@ distributionMass  <- function(nameVar) {
     options(warn)
     for (i in 1:length(fVar$errorConds)) {
       if (eval(parse(text=fVar$errorConds[i]))) {
-        errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
+        ErrorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
         return()
       }
     }

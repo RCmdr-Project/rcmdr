@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2018-08-05 by J. Fox
+# last modified 2019-05-14 by J. Fox
 
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
@@ -57,7 +57,7 @@ indexPlot <- function () {
         identify <- tclvalue(identifyVariable)
         id.n <- tclvalue(id.n.Var)
         if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-            errorCondition(recall = indexPlot, message = gettextRcmdr("number of points to identify must be an integer"))
+            ErrorCondition(recall = indexPlot, message = gettextRcmdr("number of points to identify must be an integer"))
             return()
         }
         ylab <- trim.blanks(tclvalue(ylabVar))
@@ -71,7 +71,7 @@ indexPlot <- function () {
         closeDialog()
         n.x <- length(x)
         if (n.x == 0) {
-            errorCondition(recall = indexPlot, message = gettextRcmdr("You must select a variable"))
+            ErrorCondition(recall = indexPlot, message = gettextRcmdr("You must select a variable"))
             return()
         }
         if (n.x > 5){
@@ -145,7 +145,7 @@ Histogram <- function () {
         x <- getSelection(xBox)
         closeDialog()
         if (length(x) == 0) {
-            errorCondition(recall = Histogram, message = gettextRcmdr("You must select a variable"))
+            ErrorCondition(recall = Histogram, message = gettextRcmdr("You must select a variable"))
             return()
         }
         bins <- tclvalue(binsVariable)
@@ -304,7 +304,7 @@ stemAndLeaf <- function () {
             initial.group=if (.groups == FALSE) NULL else .groups))
         closeDialog()
         if (length(x) == 0) {
-            errorCondition(recall = stemAndLeaf, message = gettextRcmdr("You must select a variable"))
+            ErrorCondition(recall = stemAndLeaf, message = gettextRcmdr("You must select a variable"))
             return()
         }
         trim <- if (tclvalue(trimOutliersVariable) == "1") 
@@ -424,7 +424,7 @@ boxPlot <- function () {
                                initial.main=tclvalue(mainVar), initial.tab=tab))
     closeDialog()
     if (length(x) == 0) {
-      errorCondition(recall = boxPlot, message = gettextRcmdr("You must select a variable"))
+      ErrorCondition(recall = boxPlot, message = gettextRcmdr("You must select a variable"))
       return()
     }
     .activeDataSet <- ActiveDataSet()
@@ -480,7 +480,7 @@ DotPlot <- function () {
         x <- getSelection(xBox)
         closeDialog()
         if (length(x) == 0) {
-            errorCondition(recall = DotPlot, message = gettextRcmdr("You must select a variable"))
+            ErrorCondition(recall = DotPlot, message = gettextRcmdr("You must select a variable"))
             return()
         }
         use.bins <- tclvalue(useBinsVariable) == "1"
@@ -673,7 +673,7 @@ scatterPlot <- function () {
         levels <- paste("c(", gsub('[ ]+', ", ", levels), ")", sep="")
         res <- try(is.numeric(eval(parse(text=levels))), silent=TRUE)
         if (class(res) == "try-error" || !res){
-            errorCondition(recall = scatterPlot, message = 
+            ErrorCondition(recall = scatterPlot, message = 
                     gettextRcmdr("Levels for ellipses must be numeric values\n  separated by spaces or commas."))
             return()
         }
@@ -700,22 +700,22 @@ scatterPlot <- function () {
         legend.pos <- tclvalue(legendPositionVariable)
         closeDialog()
         if ("" == pchVal) {
-            errorCondition(recall = scatterPlot, message = gettextRcmdr("No plotting characters."))
+            ErrorCondition(recall = scatterPlot, message = gettextRcmdr("No plotting characters."))
             return()
         }
         pch <- if (trim.blanks(pchVal) == gettextRcmdr("<auto>"))
             ""
         else paste(", pch=c(", pchVal, ")", sep = "")
         if (length(x) == 0 || length(y) == 0) {
-            errorCondition(recall = scatterPlot, message = gettextRcmdr("You must select two variables"))
+            ErrorCondition(recall = scatterPlot, message = gettextRcmdr("You must select two variables"))
             return()
         }
         if (x == y) {
-            errorCondition(recall = scatterPlot, message = gettextRcmdr("x and y variables must be different"))
+            ErrorCondition(recall = scatterPlot, message = gettextRcmdr("x and y variables must be different"))
             return()
         }
         if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-            errorCondition(recall = scatterPlot, message = gettextRcmdr("number of points to identify must be an integer"))
+            ErrorCondition(recall = scatterPlot, message = gettextRcmdr("number of points to identify must be an integer"))
             return()
         }
         putDialog ("scatterPlot", list (initial.x = x, initial.y = y, initial.jitterx = tclvalue(jitterXVariable),
@@ -863,7 +863,7 @@ scatterPlotMatrix <- function () {
     variables <- getSelection(variablesBox)
     closeDialog()
     if (length(variables) < 3) {
-      errorCondition(recall = scatterPlotMatrix, message = gettextRcmdr("Fewer than 3 variable selected."))
+      ErrorCondition(recall = scatterPlotMatrix, message = gettextRcmdr("Fewer than 3 variable selected."))
       return()
     }
     line <- if ("1" == tclvalue(lsLineVariable)) "TRUE" else "FALSE"
@@ -872,7 +872,7 @@ scatterPlotMatrix <- function () {
     id.n <- tclvalue(id.n.Var)
     identify.text <- if (id.n != "0") paste0(', id=list(method="mahal", n=', id.n, ")") else ""
     if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-      errorCondition(recall = scatterPlotMatrix,
+      ErrorCondition(recall = scatterPlotMatrix,
                      message = gettextRcmdr("number of points to identify must be an integer"))
       return()
     }
@@ -884,7 +884,7 @@ scatterPlotMatrix <- function () {
     levels <- paste("c(", gsub('[ ]+', ", ", levels), ")", sep="")
     res <- try(is.numeric(eval(parse(text=levels))), silent=TRUE)
     if (class(res) == "try-error" || !res){
-      errorCondition(recall = scatterPlotMatrix, message = 
+      ErrorCondition(recall = scatterPlotMatrix, message = 
                        gettextRcmdr("Levels for ellipses must be numeric values\n  separated by spaces or commas."))
       return()
     }
@@ -1035,7 +1035,7 @@ barGraph <- function () {
                                     initial.legend=legend, initial.tab=tab))
         closeDialog()
         if (length(variable) == 0) {
-            errorCondition(recall = barGraph, message = gettextRcmdr("You must select a variable"))
+            ErrorCondition(recall = barGraph, message = gettextRcmdr("You must select a variable"))
             return()
         }
         scale <- if (scale == "frequency") "" else ', scale="percent"'
@@ -1047,7 +1047,7 @@ barGraph <- function () {
         }
         else {
             if (.groups == variable) {
-                errorCondition(recall=barGraph, message=gettextRcmdr("plotting and grouping variables must be different"))
+                ErrorCondition(recall=barGraph, message=gettextRcmdr("plotting and grouping variables must be different"))
                 return()
             }
             nlevels <- length(levels(eval(parse(text=paste0(ActiveDataSet(), "$", .groups)), envir=.GlobalEnv)))
@@ -1166,7 +1166,7 @@ pieChart <- function () {
             initial.ylab=tclvalue(ylabVar), initial.main=tclvalue(mainVar)))
         closeDialog()
         if (length(variable) == 0) {
-            errorCondition(recall = pieChart, message = gettextRcmdr("You must select a variable"))
+            ErrorCondition(recall = pieChart, message = gettextRcmdr("You must select a variable"))
             return()
         }
         .activeDataSet <- ActiveDataSet()
@@ -1202,15 +1202,15 @@ linePlot <- function () {
         x <- getSelection(xBox)
         closeDialog()
         if (0 == length(x)) {
-            errorCondition(recall = linePlot, message = gettextRcmdr("No x variable selected."))
+            ErrorCondition(recall = linePlot, message = gettextRcmdr("No x variable selected."))
             return()
         }
         if (0 == length(y)) {
-            errorCondition(recall = linePlot, message = gettextRcmdr("No y variables selected."))
+            ErrorCondition(recall = linePlot, message = gettextRcmdr("No y variables selected."))
             return()
         }
         if (is.element(x, y)) {
-            errorCondition(recall = linePlot, message = gettextRcmdr("x and y variables must be different."))
+            ErrorCondition(recall = linePlot, message = gettextRcmdr("x and y variables must be different."))
             return()
         }
         .activeDataSet <- ActiveDataSet()
@@ -1303,7 +1303,7 @@ QQPlot <- function () {
         id.n.use <- if (identify == "not") 0 else id.n
         closeDialog()
         if (0 == length(x)) {
-            errorCondition(recall = QQPlot, message = gettextRcmdr("You must select a variable."))
+            ErrorCondition(recall = QQPlot, message = gettextRcmdr("You must select a variable."))
             return()
         }
         save <- options(warn = -1)
@@ -1348,7 +1348,7 @@ QQPlot <- function () {
             args <- paste("dist=\"", dist, "\", ", params, sep = "")
         })
         if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-            errorCondition(recall = QQPlot, message = gettextRcmdr("number of points to identify must be an integer"))
+            ErrorCondition(recall = QQPlot, message = gettextRcmdr("number of points to identify must be an integer"))
             return()
         }
         xlab <- trim.blanks(tclvalue(xlabVar))
@@ -1512,15 +1512,15 @@ PlotMeans <- function () {
         legend.pos <- tclvalue(legendVariable)
         closeDialog()
         if (0 == length(groups)) {
-            errorCondition(recall = PlotMeans, message = gettextRcmdr("No factors selected."))
+            ErrorCondition(recall = PlotMeans, message = gettextRcmdr("No factors selected."))
             return()
         }
         if (2 < length(groups)) {
-            errorCondition(recall = PlotMeans, message = gettextRcmdr("More than two factors selected."))
+            ErrorCondition(recall = PlotMeans, message = gettextRcmdr("More than two factors selected."))
             return()
         }
         if (0 == length(response)) {
-            errorCondition(recall = PlotMeans, message = gettextRcmdr("No response variable selected."))
+            ErrorCondition(recall = PlotMeans, message = gettextRcmdr("No response variable selected."))
             return()
         }
         .activeDataSet <- ActiveDataSet()
@@ -1681,19 +1681,19 @@ Scatter3D <- function () {
                             not = "")
     closeDialog()
     if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-      errorCondition(recall = scatterPlot, message = gettextRcmdr("number of points to identify must be an integer"))
+      ErrorCondition(recall = scatterPlot, message = gettextRcmdr("number of points to identify must be an integer"))
       return()
     }
     if (length(y) == 0) {
-      errorCondition(recall = Scatter3D, message = gettextRcmdr("You must select a response variable."))
+      ErrorCondition(recall = Scatter3D, message = gettextRcmdr("You must select a response variable."))
       return()
     }
     if (2 != length(x)) {
-      errorCondition(recall = Scatter3D, message = gettextRcmdr("You must select 2 explanatory variables."))
+      ErrorCondition(recall = Scatter3D, message = gettextRcmdr("You must select 2 explanatory variables."))
       return()
     }
     if (is.element(y, x)) {
-      errorCondition(recall = Scatter3D, message = gettextRcmdr("Response and explanatory variables must be different."))
+      ErrorCondition(recall = Scatter3D, message = gettextRcmdr("Response and explanatory variables must be different."))
       return()
     }
     putDialog ("Scatter3D", list(initial.x = x, initial.y = y, initial.scales = scales, initial.grid = grid, 
@@ -2291,12 +2291,12 @@ Xyplot <- function() {
         closeDialog()
         
         if (0 == length(response)) {
-            errorCondition(recall=Xyplot,
+            ErrorCondition(recall=Xyplot,
                 message=gettextRcmdr("At least one response variable must be selected."))
             return()
         }
         if (0 == length(predictor)) {
-            errorCondition(recall=Xyplot,
+            ErrorCondition(recall=Xyplot,
                 message=gettextRcmdr("At least one explanatory variable must be selected."))
             return()
         }
@@ -2339,7 +2339,7 @@ Xyplot <- function() {
         number.na <- is.na(layoutColumns) + is.na(layoutRows)
         
         if (number.na==1) {
-            errorCondition(recall=Xyplot,
+            ErrorCondition(recall=Xyplot,
                 message=gettextRcmdr("Both or neither layout values must be numbers."))
             return()
         }
@@ -2400,7 +2400,7 @@ Xyplot <- function() {
                 ")", sep=""))
         
         if(!(points || lines)) {
-            errorCondition(recall=Xyplot,
+            ErrorCondition(recall=Xyplot,
                 message=gettextRcmdr("Choose at least one of points or lines."))
             return()
         }
@@ -2645,7 +2645,7 @@ stripChart <- function () {
         response <- getSelection(responseBox)
         closeDialog()
         if (0 == length(response)) {
-            errorCondition(recall = stripChart, message = gettextRcmdr("No response variable selected."))
+            ErrorCondition(recall = stripChart, message = gettextRcmdr("No response variable selected."))
             return()
         }
         .activeDataSet <- ActiveDataSet()
@@ -2764,13 +2764,13 @@ DensityPlot <- function () {
     fromValue <- trim.blanks(tclvalue(fromVar))
     toValue <- trim.blanks(tclvalue(toVar))
     if (length(x) == 0) {
-      errorCondition(recall = DensityPlot, message = gettextRcmdr("You must select a variable"))
+      ErrorCondition(recall = DensityPlot, message = gettextRcmdr("You must select a variable"))
       return()
     }
     if (bw != gettextRcmdr("<auto>")){
       test.bw <- suppressWarnings(as.numeric(bw))
       if (is.na(test.bw) || test.bw <= 0){
-        errorCondition(recall = DensityPlot,
+        ErrorCondition(recall = DensityPlot,
                        message = gettextRcmdr("Bandwidth must be <auto> or a positive number"))
         return()
       }
@@ -2866,7 +2866,7 @@ DiscretePlot <- function () {
             }
         }
         if (length(x) == 0) {
-            errorCondition(recall = DiscretePlot, message = gettextRcmdr("You must select a variable"))
+            ErrorCondition(recall = DiscretePlot, message = gettextRcmdr("You must select a variable"))
             return()
         }
         scale <- tclvalue(scaleVariable)
@@ -2975,7 +2975,7 @@ Symbox <- function () {
     powers <- paste0("c(", gsub(",+", ",", gsub(" ", ",", powers)), ")")
     .activeDataSet <- ActiveDataSet()
     if (length(variable) < 1){
-      errorCondition(recall = Symbox, message = gettextRcmdr("You must select a variable."))
+      ErrorCondition(recall = Symbox, message = gettextRcmdr("You must select a variable."))
       return()
     }
     command <- if (start == ""){

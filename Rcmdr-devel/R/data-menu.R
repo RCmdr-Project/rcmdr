@@ -1,4 +1,4 @@
-# last modified 2019-04-03 by J. Fox
+# last modified 2019-05-14 by J. Fox
 
 # Data menu dialogs
 
@@ -9,12 +9,12 @@ newDataSet <- function() {
     onOK <- function(){
         dsnameValue <- trim.blanks(tclvalue(dsname))
         if (dsnameValue == "") {
-            errorCondition(recall=newDataSet,
+            ErrorCondition(recall=newDataSet,
                            message=gettextRcmdr("You must enter the name of a data set."))
             return()
         }
         if (!is.valid.name(dsnameValue)) {
-            errorCondition(recall=newDataSet,
+            ErrorCondition(recall=newDataSet,
                            message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
             return()
         }
@@ -31,7 +31,7 @@ newDataSet <- function() {
             if (!getRcmdr("dataset.modified")) return()
             .data <- try(get(dsnameValue, envir=.GlobalEnv), silent=TRUE)
             if (nrow(.data) == 0){
-                errorCondition(recall=newDataSet, message=gettextRcmdr("empty data set."))
+                ErrorCondition(recall=newDataSet, message=gettextRcmdr("empty data set."))
                 return()
             }
             tempdir <- tempdir()
@@ -129,11 +129,11 @@ RecodeDialog <- function () {
     recode.directives <- gsub("\n", "; ", save.recodes)
     check.empty <- gsub(";", "", gsub(" ", "", recode.directives))
     if ("" == check.empty) {
-      errorCondition(recall = RecodeDialog, message = gettextRcmdr("No recode directives specified."))
+      ErrorCondition(recall = RecodeDialog, message = gettextRcmdr("No recode directives specified."))
       return()
     }
     if (0 != length(grep("'", recode.directives))) {
-      errorCondition(recall = RecodeDialog, message = gettextRcmdr("Use only double-quotes (\" \") in recode directives"))
+      ErrorCondition(recall = RecodeDialog, message = gettextRcmdr("Use only double-quotes (\" \") in recode directives"))
       return()
     }
     recode.directives <- strsplit(recode.directives, ";")[[1]]
@@ -143,7 +143,7 @@ RecodeDialog <- function () {
     variables <- getSelection(variablesBox)
     closeDialog()
     if (length(variables) == 0) {
-      errorCondition(recall = RecodeDialog, message = gettextRcmdr("You must select a variable."))
+      ErrorCondition(recall = RecodeDialog, message = gettextRcmdr("You must select a variable."))
       return()
     }
     multiple <- if (length(variables) > 1) 
@@ -161,7 +161,7 @@ RecodeDialog <- function () {
         paste(name, variable, sep = "")
       else name
       if (!is.valid.name(newVar)) {
-        errorCondition(recall = RecodeDialog, message = paste("\"", 
+        ErrorCondition(recall = RecodeDialog, message = paste("\"", 
                                                               newVar, "\" ", gettextRcmdr("is not a valid name."), 
                                                               sep = ""))
         return()
@@ -241,14 +241,14 @@ Compute <- function(){
         closeDialog()
         newVar <- trim.blanks(tclvalue(newVariableName))
         if (!is.valid.name(newVar)){
-            errorCondition(recall=Compute,
+            ErrorCondition(recall=Compute,
                            message=paste('"', newVar, '" ', gettextRcmdr("is not a valid name."), sep=""))
             return()
         }
         express <- tclvalue(computeVar)
         check.empty <- gsub(";", "", gsub(" ", "", express))
         if ("" == check.empty) {
-            errorCondition(recall=Compute,
+            ErrorCondition(recall=Compute,
                            message=gettextRcmdr("No expression specified."))
             return()
         }
@@ -292,7 +292,7 @@ deleteVariable <- function(){
     variables <- getSelection(variablesBox)
     closeDialog()
     if (length(variables) == 0) {
-      errorCondition(recall=deleteVariable, message=gettextRcmdr("You must select one or more variables."))
+      ErrorCondition(recall=deleteVariable, message=gettextRcmdr("You must select one or more variables."))
       return()
     }
     if (length(variables) == 1){
@@ -352,12 +352,12 @@ readDataSet <- function() {
         on.exit(setIdleCursor())
         dsnameValue <- trim.blanks(tclvalue(dsname))
         if (dsnameValue == ""){
-            errorCondition(recall=readDataSet,
+            ErrorCondition(recall=readDataSet,
                            message=gettextRcmdr("You must enter a name for the data set."))
             return()
         }
         if (!is.valid.name(dsnameValue)){
-            errorCondition(recall=readDataSet,
+            ErrorCondition(recall=readDataSet,
                            message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
             return()
         }
@@ -576,7 +576,7 @@ readDataFromPackage <- function() {
 							envir=.GlobalEnv), silent=TRUE)
 			options(save.options)
 			if (class(check) == "try-error"){
-				errorCondition(recall=readDataFromPackage,
+				ErrorCondition(recall=readDataFromPackage,
 						message=sprintf(gettextRcmdr("Data set %s does not exist"), dsnameValue))
 				return()
 			}
@@ -585,11 +585,11 @@ readDataFromPackage <- function() {
 		}
 		else{
 			if (is.null(package)) {
-				errorCondition(recall=readDataFromPackage, message=gettextRcmdr("You must select a package."))
+				ErrorCondition(recall=readDataFromPackage, message=gettextRcmdr("You must select a package."))
 				return()
 			}
 			if (length(datasetName) == 0) {
-				errorCondition(recall=readDataFromPackage, message=gettextRcmdr("You must select a data set.")    )
+				ErrorCondition(recall=readDataFromPackage, message=gettextRcmdr("You must select a data set.")    )
 				return()
 			}
 			if (is.element(datasetName, listDataSets())) {
@@ -667,12 +667,12 @@ importSAS <- function() {
                     on.exit(setIdleCursor())
                     dsnameValue <- trim.blanks(tclvalue(dsname))
                     if (dsnameValue == ""){
-                        errorCondition(recall=getdsname,
+                        ErrorCondition(recall=getdsname,
                                        message=gettextRcmdr("You must enter the name of a data set."))
                         return()
                     }
                     if (!is.valid.name(dsnameValue)){
-                        errorCondition(recall=getdsname,
+                        ErrorCondition(recall=getdsname,
                                        message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
                         return()
                     }
@@ -765,12 +765,12 @@ importSASb7dat <- function() {
         on.exit(setIdleCursor())
         dsnameValue <- trim.blanks(tclvalue(dsname))
         if (dsnameValue == ""){
-            errorCondition(recall=importSASb7dat,
+            ErrorCondition(recall=importSASb7dat,
                            message=gettextRcmdr("You must enter the name of a data set."))
             return()
         }
         if (!is.valid.name(dsnameValue)){
-            errorCondition(recall=importSASb7dat,
+            ErrorCondition(recall=importSASb7dat,
                            message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
             return()
         }
@@ -829,12 +829,12 @@ importSPSS <- function() {
         on.exit(setIdleCursor())
         dsnameValue <- trim.blanks(tclvalue(dsname))
         if (dsnameValue == ""){
-            errorCondition(recall=importSPSS,
+            ErrorCondition(recall=importSPSS,
                            message=gettextRcmdr("You must enter the name of a data set."))
             return()
         }
         if (!is.valid.name(dsnameValue)){
-            errorCondition(recall=importSPSS,
+            ErrorCondition(recall=importSPSS,
                            message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
             return()
         }
@@ -899,12 +899,12 @@ importSPSS <- function() {
 #         on.exit(setIdleCursor())
 #         dsnameValue <- trim.blanks(tclvalue(dsname))
 #         if (dsnameValue == ""){
-#             errorCondition(recall=importSPSS,
+#             ErrorCondition(recall=importSPSS,
 #                            message=gettextRcmdr("You must enter the name of a data set."))
 #             return()
 #         }
 #         if (!is.valid.name(dsnameValue)){
-#             errorCondition(recall=importSPSS,
+#             ErrorCondition(recall=importSPSS,
 #                            message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
 #             return()
 #         }
@@ -962,12 +962,12 @@ importMinitab <- function() {
 		on.exit(setIdleCursor())
 		dsnameValue <- trim.blanks(tclvalue(dsname))
 		if (dsnameValue == ""){
-			errorCondition(recall=importMinitab,
+			ErrorCondition(recall=importMinitab,
 					message=gettextRcmdr("You must enter the name of a data set."))
 			return()
 		}
 		if (!is.valid.name(dsnameValue)){
-			errorCondition(recall=importMinitab,
+			ErrorCondition(recall=importMinitab,
 					message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
 			return()
 		}
@@ -1027,12 +1027,12 @@ importSTATA <- function() {
         on.exit(setIdleCursor())
         dsnameValue <- trim.blanks(tclvalue(dsname))
         if (dsnameValue == ""){
-            errorCondition(recall=importSTATA,
+            ErrorCondition(recall=importSTATA,
                            message=gettextRcmdr("You must enter the name of a data set."))
             return()
         }
         if (!is.valid.name(dsnameValue)){
-            errorCondition(recall=importSTATA,
+            ErrorCondition(recall=importSTATA,
                            message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
             return()
         }
@@ -1092,12 +1092,12 @@ importSTATA <- function() {
 # 		on.exit(setIdleCursor())
 # 		dsnameValue <- trim.blanks(tclvalue(dsname))
 # 		if(dsnameValue == ""){
-# 			errorCondition(recall = importRODBCtable,
+# 			ErrorCondition(recall = importRODBCtable,
 # 					message = gettextRcmdr("You must enter the name of a data set."))
 # 			return()
 # 		}
 # 		if(!is.valid.name(dsnameValue)){
-# 			errorCondition(recall = queryimportRODBCtable,
+# 			ErrorCondition(recall = queryimportRODBCtable,
 # 					message = paste('"', dsnameValue, '" ',
 # 							gettextRcmdr("is not a valid name."), sep = ""))
 # 			return()
@@ -1142,7 +1142,7 @@ importSTATA <- function() {
 # 			else
 # 				fil <- tabdat
 # 			if(fil == ""){
-# 				errorCondition(message=gettextRcmdr("No table selected"))
+# 				ErrorCondition(message=gettextRcmdr("No table selected"))
 # 				return()
 # 			}
 # 			if(ext == "xls" || ext == "xlsx")
@@ -1197,12 +1197,12 @@ importSTATA <- function() {
 #     variableNamesValue <- tclvalue(variableNames)
 #     rowNamesValue <- tclvalue(rowNames)
 #     if(dsnameValue == ""){
-#       errorCondition(recall = importExcel,
+#       ErrorCondition(recall = importExcel,
 #                      message = gettextRcmdr("You must enter the name of a data set."))
 #       return()
 #     }
 #     if(!is.valid.name(dsnameValue)){
-#       errorCondition(recall = importExcel,
+#       ErrorCondition(recall = importExcel,
 #                      message = paste('"', dsnameValue, '" ',
 #                                      gettextRcmdr("is not a valid name."), sep = ""))
 #       return()
@@ -1229,7 +1229,7 @@ importSTATA <- function() {
 #     else
 #       worksheet <- worksheets
 #     if(worksheet == ""){
-#       errorCondition(message=gettextRcmdr("No table selected"))
+#       ErrorCondition(message=gettextRcmdr("No table selected"))
 #       return()
 #     }
 #     command <- paste('readWorksheet(.Workbook, "', worksheet,
@@ -1295,12 +1295,12 @@ importExcel <- function(){
         missingValues <- as.character(tclvalue(missingVariable))
         if (missingValues == gettextRcmdr("<empty cell>")) missingValues <- ""
         if(dsnameValue == ""){
-            errorCondition(recall = importExcel,
+            ErrorCondition(recall = importExcel,
                 message = gettextRcmdr("You must enter the name of a data set."))
             return()
         }
         if(!is.valid.name(dsnameValue)){
-            errorCondition(recall = importExcel,
+            ErrorCondition(recall = importExcel,
                 message = paste('"', dsnameValue, '" ',
                     gettextRcmdr("is not a valid name."), sep = ""))
             return()
@@ -1325,7 +1325,7 @@ importExcel <- function(){
         else
             worksheet <- worksheets
         if(worksheet == ""){
-            errorCondition(message=gettextRcmdr("No table selected"))
+            ErrorCondition(message=gettextRcmdr("No table selected"))
             return()
         }
         command <- paste('readXL("', File, '", rownames=', if (rowNamesValue == "1") "TRUE" else "FALSE",
@@ -1380,14 +1380,14 @@ numericToFactor <- function(){
     sameLevels <- (length(variables) == 1) ||
       ((is.matrix(levs)) && (all(0 == apply(levs, 1, var))))
     if (length(variables) == 0) {
-      errorCondition(recall=numericToFactor, message=gettextRcmdr("You must select a variable."))}
+      ErrorCondition(recall=numericToFactor, message=gettextRcmdr("You must select a variable."))}
     else command <- paste(.activeDataSet, " <- within(", .activeDataSet, ", {", sep="")
     for (name in variables){
       fname <- if (facname == gettextRcmdr("<same as variables>")) name
       else if (length(variables) == 1) facname
       else paste(facname, name, sep="")
       if (!is.valid.name(fname)){
-        errorCondition(recall=numericToFactor,
+        ErrorCondition(recall=numericToFactor,
                        message=paste('"', fname, '" ', gettextRcmdr("is not a valid name."), sep=""))
         return()
       }
@@ -1404,7 +1404,7 @@ numericToFactor <- function(){
                                    envir=.GlobalEnv)))
         nvalues <- length(values)
         if (nvalues > 30) {
-          errorCondition(recall=numericToFactor,
+          ErrorCondition(recall=numericToFactor,
                          message=sprintf(gettextRcmdr("Number of levels (%d) too large."), nvalues))
           return()
         }
@@ -1418,12 +1418,12 @@ numericToFactor <- function(){
             names[i] <- eval(parse(text=paste("tclvalue(levelName", i, ")", sep="")))
           }
           if (length(unique(names)) != nvalues){
-            errorCondition(recall=numericToFactor,
+            ErrorCondition(recall=numericToFactor,
                            message=gettextRcmdr("Levels names are not unique."))
             return()
           }
           if (any(names == "")){
-            errorCondition(recall=numericToFactor,
+            ErrorCondition(recall=numericToFactor,
                            message=gettextRcmdr("A level name is empty."))
             return()
           }
@@ -1504,7 +1504,7 @@ binVariable <- function () {
     varName <- getSelection(variableBox)
     closeDialog()
     if (length(varName) == 0) {
-      errorCondition(recall = binVariable, message = gettextRcmdr("You must select a variable."))
+      ErrorCondition(recall = binVariable, message = gettextRcmdr("You must select a variable."))
       return()
     }
     newVar <- tclvalue(newVariableName)
@@ -1515,7 +1515,7 @@ binVariable <- function () {
       }
     }
     if (!is.valid.name(newVar)) {
-      errorCondition(message = paste("\"", newVar, "\" ", 
+      ErrorCondition(message = paste("\"", newVar, "\" ", 
                                      gettextRcmdr("is not a valid name."), sep = ""), 
                      recall = binVariable)
       return()
@@ -1533,7 +1533,7 @@ binVariable <- function () {
                                               i, ")", sep = "")))
         }
         if (length(unique(level)) != length(level)) {
-          errorCondition(window = subdialog, message = gettextRcmdr("Level names must be unique."), 
+          ErrorCondition(window = subdialog, message = gettextRcmdr("Level names must be unique."), 
                          recall = onOK)
           return()
         }
@@ -1608,13 +1608,13 @@ reorderFactor <- function(){
     variable <- getSelection(variableBox)
     closeDialog()
     if (length(variable) == 0) {
-      errorCondition(recall=reorderFactor, message=gettextRcmdr("You must select a variable."))
+      ErrorCondition(recall=reorderFactor, message=gettextRcmdr("You must select a variable."))
       return()
     }
     name <- trim.blanks(tclvalue(factorName))
     if (name == gettextRcmdr("<same as original>")) name <- variable
     if (!is.valid.name(name)){
-      errorCondition(recall=reorderFactor,
+      ErrorCondition(recall=reorderFactor,
                      message=paste('"', name, '" ', gettextRcmdr("is not a valid name."), sep=""))
       return()
     }
@@ -1630,7 +1630,7 @@ reorderFactor <- function(){
     nvalues <- length(old.levels)
     ordered <- tclvalue(orderedVariable)
     if (nvalues > 30) {
-      errorCondition(recall=reorderFactor,
+      ErrorCondition(recall=reorderFactor,
                      message=sprintf(gettextRcmdr("Number of levels (%d) too large."), nvalues))
       return()
     }
@@ -1644,7 +1644,7 @@ reorderFactor <- function(){
       }
       options(opt)
       if (any(sort(order) != 1:nvalues) || any(is.na(order))){
-        errorCondition(recall=reorderFactor,
+        ErrorCondition(recall=reorderFactor,
                        message=paste(gettextRcmdr("Order of levels must include all integers from 1 to "), nvalues, sep=""))
         return()
       }
@@ -1688,7 +1688,7 @@ standardize <- function(X){
     x <- getSelection(xBox)
     closeDialog()
     if (length(x) == 0) {
-      errorCondition(recall=standardize, message=gettextRcmdr("You must select one or more variables."))
+      ErrorCondition(recall=standardize, message=gettextRcmdr("You must select one or more variables."))
       return()
     }
     xx <- paste('"', x, '"', sep="")
@@ -1807,7 +1807,7 @@ filterNA <- function(){
         .activeDataSet <- ActiveDataSet()
         if (newName == gettextRcmdr("<same as active data set>")) newName <- .activeDataSet
         if (!is.valid.name(newName)){
-            errorCondition(recall=filterNA,
+            ErrorCondition(recall=filterNA,
                            message=paste('"', newName, '" ', gettextRcmdr("is not a valid name."), sep=""))
             return()
         }
@@ -1826,7 +1826,7 @@ filterNA <- function(){
         }
         else {
             if (length(x) == 0) {
-                errorCondition(recall=filterNA, message=gettextRcmdr("No variables were selected."))
+                ErrorCondition(recall=filterNA, message=gettextRcmdr("No variables were selected."))
                 return()
             }
             x <- paste('"', x, '"', sep="")
@@ -1871,7 +1871,7 @@ subsetDataSet <- function(){
         newName <- trim.blanks(tclvalue(newDataSetName))
         if (newName == gettextRcmdr("<same as active data set>")) newName <- ActiveDataSet()
         if (!is.valid.name(newName)){
-            errorCondition(recall=subsetDataSet,
+            ErrorCondition(recall=subsetDataSet,
                            message=paste('"', newName, '" ', gettextRcmdr("is not a valid name."), sep=""))
             return()
         }
@@ -1886,7 +1886,7 @@ subsetDataSet <- function(){
         else {
             x <- getSelection(variablesBox)
             if (0 == length(x)) {
-                errorCondition(recall=subsetDataSet,
+                ErrorCondition(recall=subsetDataSet,
                                message=gettextRcmdr("No variables were selected."))
                 return()
             }
@@ -1897,7 +1897,7 @@ subsetDataSet <- function(){
         selectCases <- if (cases == gettextRcmdr("<all cases>")) ""
         else paste(", subset=", cases, sep="")
         if (selectVars == "" && selectCases ==""){
-            errorCondition(recall=subsetDataSet,
+            ErrorCondition(recall=subsetDataSet,
                            message=gettextRcmdr("New data set same as active data set."))
             return()
         }
@@ -1934,12 +1934,12 @@ setCaseNames <- function(){
 		variable <- getSelection(variablesBox)
 		closeDialog()
 		if (length(variable) == 0) {
-			errorCondition(recall=setCaseNames, message=gettextRcmdr("You must select a variable."))
+			ErrorCondition(recall=setCaseNames, message=gettextRcmdr("You must select a variable."))
 			return()
 		}
 		var <- eval(parse(text=paste(dataSet, "$", variable, sep="")), envir=.GlobalEnv)
 		if (length(var) != length(unique(var))){
-			errorCondition(recall=setCaseNames, message=gettextRcmdr("Case names must be unique."))
+			ErrorCondition(recall=setCaseNames, message=gettextRcmdr("Case names must be unique."))
 			return()
 		}
 		command <- paste("row.names(", dataSet, ") <- as.character(", dataSet, "$", variable, ")", sep="")
@@ -1965,7 +1965,7 @@ renameVariables <- function(){
 		closeDialog()
 		nvariables <- length(variables)
 		if (nvariables < 1) {
-			errorCondition(recall=renameVariables, message=gettextRcmdr("No variables selected."))
+			ErrorCondition(recall=renameVariables, message=gettextRcmdr("No variables selected."))
 			return()
 		}
 		.activeDataSet <- ActiveDataSet()
@@ -1979,12 +1979,12 @@ renameVariables <- function(){
 				newnames[i] <- eval(parse(text=paste("tclvalue(newName", i, ")", sep="")))
 			}
 			if (any(newnames == "")){
-				errorCondition(recall=renameVariables, message=gettextRcmdr("A variable name is empty."))
+				ErrorCondition(recall=renameVariables, message=gettextRcmdr("A variable name is empty."))
 				return()
 			}
 			test.names <- newnames == make.names(newnames)
 			if (!all(test.names)){
-				errorCondition(recall=renameVariables,
+				ErrorCondition(recall=renameVariables,
 						message=paste(gettextRcmdr("The following variable names are not valid:\n"),
 								paste(newnames[!test.names], collapse=", ")))
 				return()
@@ -1992,7 +1992,7 @@ renameVariables <- function(){
 			all.names <- names(get(.activeDataSet))
 			all.names[which.variables] <- newnames
 			if (length(unique(all.names)) != length(all.names)){
-				errorCondition(recall=renameVariables, message=gettextRcmdr("Variable names are not unique"))
+				ErrorCondition(recall=renameVariables, message=gettextRcmdr("Variable names are not unique"))
 				return()
 			}
 			command <- paste("names(", .activeDataSet, ")[c(", paste(which.variables, collapse=","),
@@ -2033,7 +2033,7 @@ setContrasts <- function(){
     variable <- getSelection(variableBox)
     closeDialog()
     if (length(variable) == 0) {
-      errorCondition(recall=setContrasts, message=gettextRcmdr("You must select a variable."))
+      ErrorCondition(recall=setContrasts, message=gettextRcmdr("You must select a variable."))
       return()
     }
     contrasts <- tclvalue(contrastsVariable)
@@ -2085,13 +2085,13 @@ setContrasts <- function(){
         }
         values <- na.omit(values)
         if (length(values) != nrows*ncols){
-          errorCondition(subdialog, recall=setContrasts,
+          ErrorCondition(subdialog, recall=setContrasts,
                          message=sprintf(gettextRcmdr(
                            "Number of valid entries in contrast matrix(%d)\nnot equal to number of levels (%d) * number of contrasts (%d)."), length(values), nrows, ncols))
           return()
         }
         if (qr(matrix(values, nrows, ncols))$rank < ncols) {
-          errorCondition(subdialog, recall=setContrasts, message=gettextRcmdr("Contrast matrix is not of full column rank"))
+          ErrorCondition(subdialog, recall=setContrasts, message=gettextRcmdr("Contrast matrix is not of full column rank"))
           return()
         }
         contrast.names <- rep("", ncols)
@@ -2100,7 +2100,7 @@ setContrasts <- function(){
           contrast.names[j] <- eval(parse(text=paste("tclvalue(", varname,")", sep="")))
         }
         if (length(unique(contrast.names)) < ncols) {
-          errorCondition(subdialog, recall=setContrasts, message=gettextRcmdr("Contrast names must be unique"))
+          ErrorCondition(subdialog, recall=setContrasts, message=gettextRcmdr("Contrast names must be unique"))
           return()
         }
         command <- paste(".Contrasts <- matrix(c(", paste(values, collapse=","), "), ", nrows, ", ", ncols,
@@ -2163,22 +2163,22 @@ Stack <- function(){
 		dsname <- tclvalue(datasetName)
 		closeDialog()
 		if (length(variables) < 2) {
-			errorCondition(recall=Stack,
+			ErrorCondition(recall=Stack,
 					message=gettextRcmdr("You must select at least two variables."))
 			return()
 		}
 		if (!is.valid.name(facname)){
-			errorCondition(recall=Stack,
+			ErrorCondition(recall=Stack,
 					message=paste('"', facname, '" ', gettextRcmdr("is not a valid name."), sep=""))
 			return()
 		}
 		if (!is.valid.name(varname)){
-			errorCondition(recall=Stack,
+			ErrorCondition(recall=Stack,
 					message=paste('"', varname, '" ', gettextRcmdr("is not a valid name."), sep=""))
 			return()
 		}
 		if (!is.valid.name(dsname)){
-			errorCondition(recall=Stack,
+			ErrorCondition(recall=Stack,
 					message=paste('"', dsname, '" ', gettextRcmdr("is not a valid name."), sep=""))
 			return()
 		}
@@ -2262,7 +2262,7 @@ RemoveRows <- function(){
 		newName <- trim.blanks(tclvalue(newDataSetName))
 		if (newName == gettextRcmdr("<same as active data set>")) newName <- ActiveDataSet()
 		if (!is.valid.name(newName)){
-			errorCondition(recall=RemoveRows,
+			ErrorCondition(recall=RemoveRows,
 					message=paste('"', newName, '" ', gettextRcmdr("is not a valid name."), sep=""))
 			return()
 		}
@@ -2275,7 +2275,7 @@ RemoveRows <- function(){
 		}
 		remove <- tclvalue(removeVariable)
 		if (remove==""){
-			errorCondition(recall=RemoveRows,
+			ErrorCondition(recall=RemoveRows,
 					message="No rows to remove")
 			closeDialog()
 			return()
@@ -2283,7 +2283,7 @@ RemoveRows <- function(){
 		removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
 		remove <- try(eval(parse(text=removeRows)), silent=TRUE)
 		if (class(remove) == "try-error"){
-			errorCondition(recall=RemoveRows,
+			ErrorCondition(recall=RemoveRows,
 					message=remove)
 			closeDialog()
 			return()
@@ -2328,12 +2328,12 @@ mergeDataSets <- function(){
     onOK <- function(){
         dsnameValue <- trim.blanks(tclvalue(dsname))
         if (dsnameValue == "") {
-            errorCondition(recall=mergeDataSets,
+            ErrorCondition(recall=mergeDataSets,
                            message=gettextRcmdr("You must enter the name of a data set."))
             return()
         }
         if (!is.valid.name(dsnameValue)) {
-            errorCondition(recall=mergeDataSets,
+            ErrorCondition(recall=mergeDataSets,
                            message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
             return()
         }
@@ -2347,17 +2347,17 @@ mergeDataSets <- function(){
         name1 <- getSelection(dataSet1Box)
         name2 <- getSelection(dataSet2Box)
         if (length(name1) == 0){
-            errorCondition(recall=mergeDataSets,
+            ErrorCondition(recall=mergeDataSets,
                            message=gettextRcmdr("You must select a data set."))
             return()
         }
         if (length(name2) == 0){
-            errorCondition(recall=mergeDataSets,
+            ErrorCondition(recall=mergeDataSets,
                            message=gettextRcmdr("You must select a data set."))
             return()
         }
         if (name1 == name2){
-            errorCondition(recall=mergeDataSets,
+            ErrorCondition(recall=mergeDataSets,
                            message=gettextRcmdr("You cannot merge a data set with itself."))
             return()
         }
@@ -2416,12 +2416,12 @@ Aggregate <- function(){
   onOK <- function(){
     dsnameValue <- trim.blanks(tclvalue(dsname))
     if (dsnameValue == "") {
-      errorCondition(recall=Aggregate,
+      ErrorCondition(recall=Aggregate,
                      message=gettextRcmdr("You must enter the name of a data set."))
       return()
     }
     if (!is.valid.name(dsnameValue)) {
-      errorCondition(recall=Aggregate,
+      ErrorCondition(recall=Aggregate,
                      message=paste('"', dsnameValue, '" ', gettextRcmdr("is not a valid name."), sep=""))
       return()
     }
@@ -2434,17 +2434,17 @@ Aggregate <- function(){
     variables <- getSelection(variablesBox)
     byVariables <- getSelection(byBox)
     if (length(variables) == 0){
-      errorCondition(recall=Aggregate,
+      ErrorCondition(recall=Aggregate,
                      message=gettextRcmdr("You must select at least one variable to aggregate."))
       return()
     }
     if (length(byVariables) == 0){
-      errorCondition(recall=Aggregate,
+      ErrorCondition(recall=Aggregate,
                      message=gettextRcmdr("You must select at least one variable to aggregate by."))
       return()
     }
     if (any(byVariables %in% variables)){
-      errorCondition(recall=Aggregate,
+      ErrorCondition(recall=Aggregate,
                      message=gettextRcmdr("Variables to aggregate and those to aggregate by must be different."))
       return()
     }
@@ -2484,7 +2484,7 @@ dropUnusedFactorLevels <- function(){
         variables <- getSelection(variablesBox)
         closeDialog()
         if (all == 0 && length(variables) == 0) {
-            errorCondition(recall=deleteVariable, message=gettextRcmdr("You must select one or more variables."))
+            ErrorCondition(recall=deleteVariable, message=gettextRcmdr("You must select one or more variables."))
             return()
         }
         response <- tclvalue(RcmdrTkmessageBox(message=gettextRcmdr("Drop unused factor levels\nPlease confirm."), 
@@ -2540,7 +2540,7 @@ viewData <- function(){
         else {
             x <- getSelection(variablesBox)
             if (0 == length(x)) {
-                errorCondition(recall=viewData,
+                ErrorCondition(recall=viewData,
                                message=gettextRcmdr("No variables were selected."))
                 return()
             }
@@ -2560,12 +2560,12 @@ viewData <- function(){
                                                       selectCases, selectVars, ")", sep="")))),
                       silent=TRUE)
         if (class(result)[1] ==  "try-error"){
-            errorCondition(recall=viewData,
+            ErrorCondition(recall=viewData,
                            message=gettextRcmdr("Bad subset expression."))
             return()
         }
         if (nrows == 0){
-            errorCondition(recall=viewData,
+            ErrorCondition(recall=viewData,
                            message=gettextRcmdr("No data to show."))
             return()
         }
@@ -2577,7 +2577,7 @@ viewData <- function(){
         else paste("View(as.data.frame(", dataSet, "))", sep="")
         result <- try(eval(parse(text=command)), silent=TRUE)
         if (class(result)[1] ==  "try-error"){
-            errorCondition(recall=viewData,
+            ErrorCondition(recall=viewData,
                            message=gettextRcmdr("View data error."))
             return()
         }
@@ -2617,7 +2617,7 @@ sortDataSet <- function(){
         newName <- trim.blanks(tclvalue(newDataSetName))
         if (newName == gettextRcmdr("<same as active data set>")) newName <- ActiveDataSet()
         if (!is.valid.name(newName)){
-            errorCondition(recall=sortDataSet,
+            ErrorCondition(recall=sortDataSet,
                            message=paste('"', newName, '" ', gettextRcmdr("is not a valid name."), sep=""))
             return()
         }
@@ -2630,7 +2630,7 @@ sortDataSet <- function(){
         }
         x <- getSelection(variablesBox)
         if (0 == length(x)) {
-            errorCondition(recall=sortDataSet,
+            ErrorCondition(recall=sortDataSet,
                            message=gettextRcmdr("No variables were selected."))
             return()
         }
@@ -2648,7 +2648,7 @@ sortDataSet <- function(){
                 }
                 options(opt)
                 if (any(sort(order) != 1:nvalues) || any(is.na(order))){
-                    errorCondition(recall=sortDataSet,
+                    ErrorCondition(recall=sortDataSet,
                                    message=paste(gettextRcmdr("Order of keys must include all integers from 1 to "), 
                                                  nvalues, sep=""))
                     return()

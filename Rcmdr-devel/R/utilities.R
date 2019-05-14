@@ -1,4 +1,4 @@
-# last modified 2019-04-30 by J. Fox
+# last modified 2019-05-14 by J. Fox
 
 # utility functions
 
@@ -1080,6 +1080,7 @@ checkReplace <- function(name, type=gettextRcmdr("Variable")){
 
 errorCondition <- defmacro(window=top, recall=NULL, message, model=FALSE,
     expr={
+        .Deprecated("ErrorCondition")
         putRcmdr("cancelDialogReopen", TRUE)
         if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
         if (!is.null(window)){
@@ -1090,6 +1091,19 @@ errorCondition <- defmacro(window=top, recall=NULL, message, model=FALSE,
         if (!is.null(recall)) recall()
         else tkfocus(CommanderWindow())
     })
+
+ErrorCondition <- defmacro(window=top, recall=NULL, message, model=FALSE,
+   expr={
+     putRcmdr("cancelDialogReopen", TRUE)
+     if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
+     if (!is.null(window)){
+       if (GrabFocus()) tkgrab.release(window)
+       tkdestroy(window)
+     }
+     Message(message=message, type="error")
+     if (!is.null(recall)) recall()
+     else tkfocus(CommanderWindow())
+   })
 
 subsetBox <- defmacro(window=top, subset.expression=NULL, model=FALSE,
     expr={
@@ -1123,7 +1137,7 @@ groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=
                           .factors <- variables
                           onGroups <- function(){
                               if (length(.factors) == 0){
-                                  errorCondition(recall=recall, message=errorText)
+                                  ErrorCondition(recall=recall, message=errorText)
                                   return()
                               }
                               initializeDialog(subdialog, title=gettextRcmdr("Groups"))
@@ -1957,7 +1971,7 @@ loadPlugins <- function(){
         plugins <- getSelection(packagesBox)
         closeDialog(top)
         if (length(plugins) == 0){
-            errorCondition(recall=loadPlugins, message=gettextRcmdr("You must select at least one plug-in."))
+            ErrorCondition(recall=loadPlugins, message=gettextRcmdr("You must select at least one plug-in."))
             return()
         }
         opts <- options("Rcmdr")
@@ -2063,45 +2077,49 @@ tclvalue <- function(x) trim.blanks(tcltk::tclvalue(x))
 
 # the following function splits a character string at blanks and commas according to width
 
-splitCmd <- function(cmd, width=getOption("width") - 4, at="[ ,]"){
-  if (length(grep("\n", cmd)) >0 ){
-    cmds <- strsplit(cmd, "\n")[[1]]
-    allcmds <- character(length(cmds))
-    for (i in 1:length(cmds))
-      allcmds[i] <- splitCmd(cmds[i], width=width, at=at)
-    return(paste(allcmds, collapse="\n"))
-  }
-  if (nchar(cmd) <= width) return(cmd)
-  where <- gregexpr(at, cmd)[[1]]
-  if (where[1] < 0) return(cmd)
-  singleQuotes <- gregexpr("'", cmd)[[1]]
-  doubleQuotes <- gregexpr('"', cmd)[[1]]
-  comment <- regexpr("#", cmd)
-  if (singleQuotes[1] > 0 && (singleQuotes[1] < doubleQuotes[1] || doubleQuotes[1] < 0 ) && (singleQuotes[1] < comment[1] || comment[1] < 0 )){
-    nquotes <- length(singleQuotes)
-    if (nquotes < 2) stop("unbalanced quotes")
-    for(i in seq(nquotes/2))
-      where[(where > singleQuotes[2 * i - 1]) & (where < singleQuotes[2 * i])] <- NA
-    where <- na.omit(where)
-  }  
-  else if (doubleQuotes[1] > 0 && (doubleQuotes[1] < singleQuotes[1] || singleQuotes[1] < 0) && (doubleQuotes[1] < comment[1] || comment[1] < 0 )){
-    nquotes <- length(doubleQuotes)
-    if (nquotes < 2) stop("unbalanced quotes")
-    for(i in seq(nquotes/2))
-      where[(where > doubleQuotes[2 * i - 1]) & (where < doubleQuotes[2 * i])] <- NA
-    where <- na.omit(where)
-  }
-  else if (comment > 0){
-    where[where > comment] <- NA
-    where <- na.omit(where)
-  }
-  if (length(where) == 0) return(cmd)
-  where2 <- where[where <= width]
-  where2 <- if (length(where2) == 0) where[1]
-  else where2[length(where2)]
-  paste(substr(cmd, 1, where2), "\n  ", 
-        Recall(substr(cmd, where2 + 1, nchar(cmd)), width, at), sep="")
-} 
+# splitCmd <- function(cmd, width=getOption("width") - 4, at="[ ,]"){
+#   if (length(grep("\n", cmd)) >0 ){
+#     cmds <- strsplit(cmd, "\n")[[1]]
+#     allcmds <- character(length(cmds))
+#     for (i in 1:length(cmds))
+#       allcmds[i] <- splitCmd(cmds[i], width=width, at=at)
+#     return(paste(allcmds, collapse="\n"))
+#   }
+#   if (nchar(cmd) <= width) return(cmd)
+#   where <- gregexpr(at, cmd)[[1]]
+#   if (where[1] < 0) return(cmd)
+#   singleQuotes <- gregexpr("'", cmd)[[1]]
+#   doubleQuotes <- gregexpr('"', cmd)[[1]]
+#   comment <- regexpr("#", cmd)
+#   if (singleQuotes[1] > 0 && (singleQuotes[1] < doubleQuotes[1] || doubleQuotes[1] < 0 ) && (singleQuotes[1] < comment[1] || comment[1] < 0 )){
+#     nquotes <- length(singleQuotes)
+#     if (nquotes < 2) stop("unbalanced quotes")
+#     for(i in seq(nquotes/2))
+#       where[(where > singleQuotes[2 * i - 1]) & (where < singleQuotes[2 * i])] <- NA
+#     where <- na.omit(where)
+#   }  
+#   else if (doubleQuotes[1] > 0 && (doubleQuotes[1] < singleQuotes[1] || singleQuotes[1] < 0) && (doubleQuotes[1] < comment[1] || comment[1] < 0 )){
+#     nquotes <- length(doubleQuotes)
+#     if (nquotes < 2) stop("unbalanced quotes")
+#     for(i in seq(nquotes/2))
+#       where[(where > doubleQuotes[2 * i - 1]) & (where < doubleQuotes[2 * i])] <- NA
+#     where <- na.omit(where)
+#   }
+#   else if (comment > 0){
+#     where[where > comment] <- NA
+#     where <- na.omit(where)
+#   }
+#   if (length(where) == 0) return(cmd)
+#   where2 <- where[where <= width]
+#   where2 <- if (length(where2) == 0) where[1]
+#   else where2[length(where2)]
+#   paste(substr(cmd, 1, where2), "\n  ", 
+#         Recall(substr(cmd, where2 + 1, nchar(cmd)), width, at), sep="")
+# } 
+
+splitCmd <- function(cmd, width=getOption("width")){
+  tidy_source(text=cmd, width.cutoff=width, output=FALSE)$text.tidy
+}
 
 # the following function sorts names containing numerals "more naturally" than does sort()
 
@@ -2821,7 +2839,7 @@ RcmdrEditor <- function(buffer, title="R Commander Editor", ok,
       text <- tclvalue(textVar)
       putRcmdr("last.search", text)
       if (text == ""){
-        errorCondition(recall=onFind, message=gettextRcmdr("No search text specified."))
+        ErrorCondition(recall=onFind, message=gettextRcmdr("No search text specified."))
         return()
       }
       type <- if (tclvalue(regexprVariable) == 1) "-regexp" else "-exact"

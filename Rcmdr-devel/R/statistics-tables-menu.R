@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-01-04 by J. Fox
+# last modified 2019-05-14by J. Fox
 
 # Tables menu
 
@@ -37,11 +37,11 @@ twoWayTable <- function(){
             initial.expected=expected, initial.fisher=fisher, initial.subset=initial.subset,
             initial.tab=tab))
         if (length(row) == 0 || length(column) == 0){
-            errorCondition(recall=twoWayTable, message=gettextRcmdr("You must select two variables."))
+            ErrorCondition(recall=twoWayTable, message=gettextRcmdr("You must select two variables."))
             return()
         }
         if (row == column) {
-            errorCondition(recall=twoWayTable, message=gettextRcmdr("Row and column variables are the same."))
+            ErrorCondition(recall=twoWayTable, message=gettextRcmdr("Row and column variables are the same."))
             return()
         }
         closeDialog()
@@ -129,12 +129,12 @@ multiWayTable <- function (){
 		controls <- getSelection(controlBox)
 		if (length(row) == 0 || length(column) == 0 || length(controls) == 
 				0) {
-			errorCondition(recall = multiWayTable, message = gettextRcmdr("You must select row, column, and control variables"))
+			ErrorCondition(recall = multiWayTable, message = gettextRcmdr("You must select row, column, and control variables"))
 			return()
 		}
 		if ((row == column) || is.element(row, controls) || is.element(column, 
 				controls)) {
-			errorCondition(recall = multiWayTable, message = gettextRcmdr("Row, column, and control variables must be different."))
+			ErrorCondition(recall = multiWayTable, message = gettextRcmdr("Row, column, and control variables must be different."))
 			return()
 		}
 		percents <- as.character(tclvalue(percentsVariable))
@@ -263,15 +263,15 @@ enterTable <- function(){
         }
         counts <- na.omit(counts)
         if (length(counts) != nrows*ncols){
-            errorCondition(recall=enterTable, message=sprintf(gettextRcmdr("Number of valid entries (%d)\nnot equal to number of rows (%d) * number of columns (%d)."), length(counts), nrows, ncols))
+            ErrorCondition(recall=enterTable, message=sprintf(gettextRcmdr("Number of valid entries (%d)\nnot equal to number of rows (%d) * number of columns (%d)."), length(counts), nrows, ncols))
             return()
         }
         if (length(unique(row.names)) != nrows){
-            errorCondition(recall=enterTable, message=gettextRcmdr("Row names are not unique."))
+            ErrorCondition(recall=enterTable, message=gettextRcmdr("Row names are not unique."))
             return()
         }
         if (length(unique(col.names)) != ncols){
-            errorCondition(recall=enterTable, message=gettextRcmdr("Column names are not unique."))
+            ErrorCondition(recall=enterTable, message=gettextRcmdr("Column names are not unique."))
             return()
         }
         percents <- as.character(tclvalue(percentsVariable))

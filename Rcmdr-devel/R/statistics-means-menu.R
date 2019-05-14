@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2016-05-31 by J. Fox
+# last modified 2019-05-14 by J. Fox
 
 # Means menu
 
@@ -21,13 +21,13 @@ independentSamplesTTest <- function () {
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
         group <- getSelection(groupBox)
         if (length(group) == 0) {
-            errorCondition(recall = independentSamplesTTest, 
+            ErrorCondition(recall = independentSamplesTTest, 
                            message = gettextRcmdr("You must select a groups variable."))
             return()
         }
         response <- getSelection(responseBox)
         if (length(response) == 0) {
-            errorCondition(recall = independentSamplesTTest, 
+            ErrorCondition(recall = independentSamplesTTest, 
                            message = gettextRcmdr("You must select a response variable."))
             return()
         }
@@ -88,11 +88,11 @@ pairedTTest <- function () {
     x <- getSelection(xBox)
     y <- getSelection(yBox)
     if (length(x) == 0 | length(y) == 0) {
-      errorCondition(recall = pairedTTest, message = gettextRcmdr("You must select two variables."))
+      ErrorCondition(recall = pairedTTest, message = gettextRcmdr("You must select two variables."))
       return()
     }
     if (x == y) {
-      errorCondition(recall = pairedTTest, message = gettextRcmdr("Variables must be different."))
+      ErrorCondition(recall = pairedTTest, message = gettextRcmdr("Variables must be different."))
       return()
     }
     alternative <- as.character(tclvalue(alternativeVariable))
@@ -138,7 +138,7 @@ singleSampleTTest <- function () {
   onOK <- function() {
     x <- getSelection(xBox)
     if (length(x) == 0) {
-      errorCondition(recall = singleSampleTTest, message = gettextRcmdr("You must select a variable."))
+      ErrorCondition(recall = singleSampleTTest, message = gettextRcmdr("You must select a variable."))
       return()
     }
     alternative <- as.character(tclvalue(alternativeVariable))
@@ -208,7 +208,7 @@ oneWayAnova <- function () {
     modelValue <- trim.blanks(tclvalue(modelName))
     if (!is.valid.name(modelValue)) {
       UpdateModelNumber(-1)
-      errorCondition(recall = oneWayAnova, message = sprintf(gettextRcmdr("\"%s\" is not a valid name."), 
+      ErrorCondition(recall = oneWayAnova, message = sprintf(gettextRcmdr("\"%s\" is not a valid name."), 
                                                              modelValue))
       return()
     }
@@ -224,11 +224,11 @@ oneWayAnova <- function () {
     response <- getSelection(responseBox)
     closeDialog()
     if (length(group) == 0) {
-      errorCondition(recall = oneWayAnova, message = gettextRcmdr("You must select a groups factor."))
+      ErrorCondition(recall = oneWayAnova, message = gettextRcmdr("You must select a groups factor."))
       return()
     }
     if (length(response) == 0) {
-      errorCondition(recall = oneWayAnova, message = gettextRcmdr("You must select a response variable."))
+      ErrorCondition(recall = oneWayAnova, message = gettextRcmdr("You must select a response variable."))
       return()
     }
     .activeDataSet <- ActiveDataSet()
@@ -306,7 +306,7 @@ multiWayAnova <- function () {
     modelValue <- trim.blanks(tclvalue(modelName))
     if (!is.valid.name(modelValue)) {
       UpdateModelNumber(-1)
-      errorCondition(recall = multiWayAnova, message = sprintf(gettextRcmdr("\"%s\" is not a valid name."), 
+      ErrorCondition(recall = multiWayAnova, message = sprintf(gettextRcmdr("\"%s\" is not a valid name."), 
                                                                modelValue))
       return()
     }
@@ -323,11 +323,11 @@ multiWayAnova <- function () {
     putDialog ("multiWayAnova", list (initial.group = groups, initial.response = response))
     closeDialog()
     if (length(groups) == 0) {
-      errorCondition(recall = multiWayAnova, message = gettextRcmdr("You must select at least one factor."))
+      ErrorCondition(recall = multiWayAnova, message = gettextRcmdr("You must select at least one factor."))
       return()
     }
     if (length(response) == 0) {
-      errorCondition(recall = multiWayAnova, message = gettextRcmdr("You must select a response variable."))
+      ErrorCondition(recall = multiWayAnova, message = gettextRcmdr("You must select a response variable."))
       return()
     }
     .activeDataSet <- ActiveDataSet()
