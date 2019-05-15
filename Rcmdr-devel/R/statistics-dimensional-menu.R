@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-05-14 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
 # Dimensional-analysis menu
 
@@ -16,7 +16,7 @@ Reliability <- function () {
 		closeDialog()
 		putDialog("Reliability", list (initial.x = x))
 		if (3 > length(x)) {
-			ErrorCondition(recall = Reliability, message = gettextRcmdr("Fewer than 3 variables selected."))
+			errorCondition(recall = Reliability, message = gettextRcmdr("Fewer than 3 variables selected."))
 			return()
 		}
 		x <- paste("\"", x, "\"", sep = "")
@@ -60,7 +60,7 @@ principalComponents <- function () {
                                           initial.subset = subset, initial.screeplot = screeplot, initial.addPC = addPC,
                                           initial.tab=tab))
     if (2 > length(x)) {
-      ErrorCondition(recall = principalComponents, message = gettextRcmdr("Fewer than 2 variables selected."))
+      errorCondition(recall = principalComponents, message = gettextRcmdr("Fewer than 2 variables selected."))
       return()
     }
     subset <- if (trim.blanks(subset) == "" || trim.blanks(subset) == gettextRcmdr("<all valid cases>")) 
@@ -85,7 +85,7 @@ principalComponents <- function () {
     commands <- ""
     if (addPC == "1") {
       if (trim.blanks(subset) != ""){
-        ErrorCondition(recall=principalComponents,
+        errorCondition(recall=principalComponents,
                        message=gettextRcmdr("Component scores are not available when subset is specified."))
         return()
       }
@@ -167,7 +167,7 @@ factorAnalysis <- function () {
     putDialog ("factorAnalysis", list (initial.x = x, initial.subset = subset, 
                                        initial.scores = scores, initial.rotation = rotation, initial.tab=tab))
     if (3 > length(x)) {
-      ErrorCondition(recall = factorAnalysis, message = gettextRcmdr("Fewer than 3 variables selected."))
+      errorCondition(recall = factorAnalysis, message = gettextRcmdr("Fewer than 3 variables selected."))
       return()
     }
     f <- function(k, p) ((p - k)^2 - p - k)^2
@@ -201,7 +201,7 @@ factorAnalysis <- function () {
       ""
     else paste(", subset=", subset, sep = "")
     if (scores != "none" && subset != ""){
-      ErrorCondition(recall=factorAnalysis,
+      errorCondition(recall=factorAnalysis,
                      message=gettextRcmdr("Factor scores are not available when subset is specified."))
       return()
     }
@@ -254,12 +254,12 @@ CFA <- function(){
   onFactor <- function(){
     vars <- getSelection(xBox)
     if (length(vars) < 2) {
-      ErrorCondition(recall=CFA,  message=gettextRcmdr("Fewer than 2 variables selected to load on factor."))
+      errorCondition(recall=CFA,  message=gettextRcmdr("Fewer than 2 variables selected to load on factor."))
       return()
     }
     fac.name <- tclvalue(factorName)
     if (!is.valid.name(fac.name)) {
-      ErrorCondition(recall=CFA,  message=paste(fac.name, gettextRcmdr("is not a valid name.")))
+      errorCondition(recall=CFA,  message=paste(fac.name, gettextRcmdr("is not a valid name.")))
       return()
     }
     variables[[getRcmdr("factorNumber")]] <<- vars
@@ -334,7 +334,7 @@ CFA <- function(){
                           initial.CFI=CFI, initial.RNI=RNI, initial.IFI=IFI, initial.SRMR=SRMR,
                           initial.AICc=AICc, initial.CAIC=CAIC))
     if (length(factors) == 0) {
-      ErrorCondition(recall=CFA, message=gettextRcmdr("No factors defined."))
+      errorCondition(recall=CFA, message=gettextRcmdr("No factors defined."))
       return()
     }
     putRcmdr("factorNumber", NULL)
@@ -344,7 +344,7 @@ CFA <- function(){
     }
     allvars <- unique(unlist(variables))
     if ((length(allvars)/length(factors)) < 2) {
-      ErrorCondition(recall=CFA,  
+      errorCondition(recall=CFA,  
                      message=gettextRcmdr("There are too many factors."))
       return()
     }

@@ -1,4 +1,4 @@
-# last modified 2019-05-14 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
 import(splines, tcltk, RcmdrMisc, car, effects)
 importFrom(utils, available.packages, install.packages, assignInMyNamespace, 
@@ -27,7 +27,7 @@ checkTwoLevelFactors, checkVariables, closeCommander,
 closeDialog, Commander,
 commanderPosition, CommanderWindow, # Confint, 
 dataSetsP, defmacro,
-dialogSuffix, doItAndPrint, ErrorCondition, exists.method, errorCondition, # deprecated
+dialogSuffix, doItAndPrint, exists.method, errorCondition, 
 Factors, factorsP, formulaFields, flushDialogMemory, 
 gassign, getDialog, getFrame, getRcmdr, getSelection, gettextRcmdr,
 glmP, GrabFocus, groupsBox, groupsLabel, hclustSolutionsP, initializeDialog, 

@@ -1,6 +1,6 @@
 # Distributions menu dialogs for selecting samples
 
-# last modified 2019-05-14 by J. Fox
+# last modified 2019-05-15 by J. Fox
 # modified by Miroslav M. Ristic (15 January 2011)
 
 
@@ -54,12 +54,12 @@ distributionSamples <- function(nameVar) {
     closeDialog()
     dsnameValue <- trim.blanks(tclvalue(dsname))
     if (dsnameValue == "") {
-      ErrorCondition(recall=nameVarF, 
+      errorCondition(recall=nameVarF, 
                      message=gettextRcmdr("You must enter the name of a data set."))  
       return()
     }  
     if (!is.valid.name(dsnameValue)) {
-      ErrorCondition(recall=nameVarF,
+      errorCondition(recall=nameVarF,
                      message=paste('"', dsnameValue, '" ',
                                    gettextRcmdr("is not a valid name."), sep=""))
       return()
@@ -83,19 +83,19 @@ distributionSamples <- function(nameVar) {
     options(warn)
     for (i in 1:length(fVar$errorConds)) {
       if (eval(parse(text=fVar$errorConds[i]))) {
-        ErrorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
+        errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
         return()
       }
     }
     obser <- as.numeric(tclvalue(obserVar))
     samples <- as.numeric(tclvalue(samplesVar))
     if (is.na(obser) || obser <= 0) {
-      ErrorCondition(recall=nameVarF, 
+      errorCondition(recall=nameVarF, 
                      message=gettextRcmdr("Sample size must be positive."))
       return()
     }
     if (is.na(samples) || samples <= 0) {
-      ErrorCondition(recall=nameVarF, 
+      errorCondition(recall=nameVarF, 
                      message=gettextRcmdr("Number of samples must be positive."))
       return()
     }

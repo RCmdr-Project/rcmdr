@@ -1,6 +1,6 @@
 # Distributions menu dialogs for plots
 
-# last modified 2019-05-14 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic  (20 July 06)
 #   modified by Miroslav M. Ristic (15 January 11)
@@ -107,7 +107,7 @@ distributionPlot <- function(nameVar){
         options(warn)
         for (i in 1:length(fVar$errorConds)) {
             if (eval(parse(text=fVar$errorConds[i]))) {
-                ErrorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
+                errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
                 return()
             }
         }
@@ -149,34 +149,34 @@ distributionPlot <- function(nameVar){
         }
         else {
             if (!is.valid.number(from1)){
-                ErrorCondition(recall=nameVarF, message=paste(from1, gettextRcmdr("is not a valid number.")))
+                errorCondition(recall=nameVarF, message=paste(from1, gettextRcmdr("is not a valid number.")))
                 return()
             }
             from2 <- trim.blanks(tclvalue(from2variable))
             if (from2 != "" && !is.valid.number(from2)){
-                ErrorCondition(recall=nameVarF, message=paste(from2, gettextRcmdr("is not a valid number.")))
+                errorCondition(recall=nameVarF, message=paste(from2, gettextRcmdr("is not a valid number.")))
                 return()
             }
             to1 <-  trim.blanks(tclvalue(to1variable))
             if (to1 == ""){
-                ErrorCondition(recall=nameVarF, message=paste(gettextRcmdr("You must specify 'from' and 'to' for at least one range.")))
+                errorCondition(recall=nameVarF, message=paste(gettextRcmdr("You must specify 'from' and 'to' for at least one range.")))
                 return()
             }
             if (!is.valid.number(to1)){
-                ErrorCondition(recall=nameVarF, message=paste(to1, gettextRcmdr("is not a valid number.")))
+                errorCondition(recall=nameVarF, message=paste(to1, gettextRcmdr("is not a valid number.")))
                 return()
             }
             to2 <-  trim.blanks(tclvalue(to2variable))
             if (to2 != "" && !is.valid.number(to2)){
-                ErrorCondition(recall=nameVarF, message=paste(to2, gettextRcmdr("is not a valid number.")))
+                errorCondition(recall=nameVarF, message=paste(to2, gettextRcmdr("is not a valid number.")))
                 return()
             }
             if (as.numeric(to1) <= as.numeric(from1)){
-                ErrorCondition(recall=nameVarF, message=gettextRcmdr("In specifying a range, 'to' must be greater than 'from'."))
+                errorCondition(recall=nameVarF, message=gettextRcmdr("In specifying a range, 'to' must be greater than 'from'."))
                 return()
             }
             if (to2 != "" && as.numeric(to2) <= as.numeric(from2)){
-                ErrorCondition(recall=nameVarF, message=gettextRcmdr("In specifying a range, 'to' must be greater than 'from'."))
+                errorCondition(recall=nameVarF, message=gettextRcmdr("In specifying a range, 'to' must be greater than 'from'."))
                 return()
             }
             save.from1 <- from1
@@ -185,14 +185,14 @@ distributionPlot <- function(nameVar){
             save.to2 <- to2
             if (valuesOrQuantiles == "quantiles"){
                 if (as.numeric(from1) < 0 || as.numeric(from1) >= 1 || as.numeric(to1) <= 0 || as.numeric(to1) > 1 ){
-                    ErrorCondition(recall=nameVarF, message=gettextRcmdr("Quantiles must be between 0 and 1."))
+                    errorCondition(recall=nameVarF, message=gettextRcmdr("Quantiles must be between 0 and 1."))
                     return()
                 }
                 from1 <- eval(parse(text=paste("q",fVar$funName,"(", from1, pasteVar, ")", sep="")))
                 to1 <- eval(parse(text=paste("q",fVar$funName,"(", to1, pasteVar, ")", sep="")))
                 if (from2 != "") {
                     if (as.numeric(from2) < 0 || as.numeric(from2) >= 1 || as.numeric(to2) <= 0 || as.numeric(to2) > 1 ){
-                        ErrorCondition(recall=nameVarF, message=gettextRcmdr("Quantiles must be between 0 and 1."))
+                        errorCondition(recall=nameVarF, message=gettextRcmdr("Quantiles must be between 0 and 1."))
                         return()
                     }
                     from2 <- eval(parse(text=paste("q",fVar$funName,"(", from2, pasteVar,")",sep="")))
@@ -276,7 +276,7 @@ discreteDistributionPlot <- function(nameVar){
         options(warn)
         for (i in 1:length(fVar$errorConds)) {
             if (eval(parse(text=fVar$errorConds[i]))) {
-                ErrorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
+                errorCondition(recall=nameVarF, message=gettextRcmdr(fVar$errorTexts[i]))
                 return()
             }
         }

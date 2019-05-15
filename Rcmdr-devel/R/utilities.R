@@ -1,4 +1,4 @@
-# last modified 2019-05-14 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
 # utility functions
 
@@ -1079,20 +1079,6 @@ checkReplace <- function(name, type=gettextRcmdr("Variable")){
 }
 
 errorCondition <- defmacro(window=top, recall=NULL, message, model=FALSE,
-    expr={
-        .Deprecated("ErrorCondition")
-        putRcmdr("cancelDialogReopen", TRUE)
-        if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
-        if (!is.null(window)){
-            if (GrabFocus()) tkgrab.release(window)
-            tkdestroy(window)
-        }
-        Message(message=message, type="error")
-        if (!is.null(recall)) recall()
-        else tkfocus(CommanderWindow())
-    })
-
-ErrorCondition <- defmacro(window=top, recall=NULL, message, model=FALSE,
    expr={
      putRcmdr("cancelDialogReopen", TRUE)
      if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
@@ -1137,7 +1123,7 @@ groupsBox <- defmacro(recall=NULL, label=gettextRcmdr("Plot by:"), initialLabel=
                           .factors <- variables
                           onGroups <- function(){
                               if (length(.factors) == 0){
-                                  ErrorCondition(recall=recall, message=errorText)
+                                  errorCondition(recall=recall, message=errorText)
                                   return()
                               }
                               initializeDialog(subdialog, title=gettextRcmdr("Groups"))
@@ -1972,7 +1958,7 @@ loadPlugins <- function(){
         plugins <- getSelection(packagesBox)
         closeDialog(top)
         if (length(plugins) == 0){
-            ErrorCondition(recall=loadPlugins, message=gettextRcmdr("You must select at least one plug-in."))
+            errorCondition(recall=loadPlugins, message=gettextRcmdr("You must select at least one plug-in."))
             return()
         }
         opts <- options("Rcmdr")
@@ -2840,7 +2826,7 @@ RcmdrEditor <- function(buffer, title="R Commander Editor", ok,
       text <- tclvalue(textVar)
       putRcmdr("last.search", text)
       if (text == ""){
-        ErrorCondition(recall=onFind, message=gettextRcmdr("No search text specified."))
+        errorCondition(recall=onFind, message=gettextRcmdr("No search text specified."))
         return()
       }
       type <- if (tclvalue(regexprVariable) == 1) "-regexp" else "-exact"

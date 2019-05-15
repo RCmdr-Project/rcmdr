@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-05-14 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
 # Summaries menu
 
@@ -76,7 +76,7 @@ numericalSummaries <- function(){
             initial.group=if (.groups != FALSE) .groups else NULL, initial.tab=tab
         ))      
         if (length(x) == 0){
-            ErrorCondition(recall=numericalSummaries, message=gettextRcmdr("You must select a variable."))
+            errorCondition(recall=numericalSummaries, message=gettextRcmdr("You must select a variable."))
             return()
         }
         closeDialog()
@@ -90,7 +90,7 @@ numericalSummaries <- function(){
                              [c(meanVar, sdVar, se.meanVar, IQRVar, quantsVar, cvVar, skewnessVar, kurtosisVar) == 1], 
                              collapse=", "), ")", sep="")
         if (stats == "c()" && countsVar != 1){
-            ErrorCondition(recall=numericalSummaries, message=gettextRcmdr("No statistics selected."))
+            errorCondition(recall=numericalSummaries, message=gettextRcmdr("No statistics selected."))
             return()
         }
         type.text <- if (skewnessVar == 1 || kurtosisVar == 1) paste(', type="', typeVar, '"', sep="") else ""
@@ -145,13 +145,13 @@ frequencyDistribution <- function () {
   onOK <- function() {
     x <- getSelection(xBox)
     if (length(x) == 0) {
-      ErrorCondition(recall = frequencyDistribution, message = gettextRcmdr("You must select a variable."))
+      errorCondition(recall = frequencyDistribution, message = gettextRcmdr("You must select a variable."))
       return()
     }
     goodnessOfFit <- tclvalue(goodnessOfFitVariable)
     putDialog ("frequencyDistribution", list (initial.x = x, initial.goodnessOfFit = goodnessOfFit))
     if (length(x) > 1 && goodnessOfFit == "1") {
-      ErrorCondition(recall = frequencyDistribution, message = gettextRcmdr("Goodness-of-fit test not available when more than one variable is selected."))
+      errorCondition(recall = frequencyDistribution, message = gettextRcmdr("Goodness-of-fit test not available when more than one variable is selected."))
       return()
     }
     closeDialog()
@@ -201,11 +201,11 @@ frequencyDistribution <- function () {
                                                                         entry.varname, ")", sep = "")), envir = env))), 
                      silent = TRUE)
           if (class(res) == "try-error") {
-            ErrorCondition(subwin, message = gettextRcmdr("Invalid entry."))
+            errorCondition(subwin, message = gettextRcmdr("Invalid entry."))
             return()
           }
           if (length(entry) == 0) {
-            ErrorCondition(subwin, message = gettextRcmdr("Missing entry."))
+            errorCondition(subwin, message = gettextRcmdr("Missing entry."))
             return()
           }
           opts <- options(warn = -1)
@@ -214,12 +214,12 @@ frequencyDistribution <- function () {
         }
         probs <- na.omit(probs)
         if (length(probs) != n.levs) {
-          ErrorCondition(subwin, message = sprintf(gettextRcmdr("Number of valid entries (%d)\nnot equal to number levels (%d)."), 
+          errorCondition(subwin, message = sprintf(gettextRcmdr("Number of valid entries (%d)\nnot equal to number levels (%d)."), 
                                                    length(probs), n.levs))
           return()
         }
         if (any(probs < 0)) {
-          ErrorCondition(subwin, message = gettextRcmdr("Negative probabilities not allowed."))
+          errorCondition(subwin, message = gettextRcmdr("Negative probabilities not allowed."))
           return()
         }
         if (abs(sum(probs) - 1) > 0.001) {
@@ -270,12 +270,12 @@ statisticsTable <- function () {
   onOK <- function() {
     groups <- getSelection(groupBox)
     if (0 == length(groups)) {
-      ErrorCondition(recall = statisticsTable, message = gettextRcmdr("No factors selected."))
+      errorCondition(recall = statisticsTable, message = gettextRcmdr("No factors selected."))
       return()
     }
     responses <- getSelection(responseBox)
     if (0 == length(responses)) {
-      ErrorCondition(recall = statisticsTable, message = gettextRcmdr("You must select a response variable."))
+      errorCondition(recall = statisticsTable, message = gettextRcmdr("You must select a response variable."))
       return()
     }
     stat <- statistic <- tclvalue(statisticVariable)
@@ -329,11 +329,11 @@ correlationMatrix <- function (){
         x <- getSelection(xBox)
         pvalues <- tclvalue(pvaluesVar)
         if (2 > length(x)) {
-            ErrorCondition(recall = correlationMatrix, message = gettextRcmdr("Fewer than 2 variables selected."))
+            errorCondition(recall = correlationMatrix, message = gettextRcmdr("Fewer than 2 variables selected."))
             return()
         }
         if ((correlations == "partial") && (3 > length(x))) {
-            ErrorCondition(recall = correlationMatrix, message = gettextRcmdr("Fewer than 3 variables selected\nfor partial correlations."))
+            errorCondition(recall = correlationMatrix, message = gettextRcmdr("Fewer than 3 variables selected\nfor partial correlations."))
             return()
         }
         closeDialog()
@@ -413,12 +413,12 @@ correlationTest <- function(){
     x <- getSelection(xBox)
     putDialog("correlationTest", list(initial.alternative=alternative, initial.correlations=correlations, initial.x=x))
     if (2 > length(x)) {
-      ErrorCondition(recall=correlationTest,
+      errorCondition(recall=correlationTest,
                      message=gettextRcmdr("Fewer than 2 variables selected."))
       return()
     }
     if(2 < length(x)) {
-      ErrorCondition(recall=correlationTest,
+      errorCondition(recall=correlationTest,
                      message=gettextRcmdr("More than 2 variables selected."))
       return()
     }
@@ -455,7 +455,7 @@ countMissing <- function(){
 #     var <- getSelection(variableBox)
 #     putDialog ("ShapiroTest", list (initial.var = var))
 #     if (length(var) == 0) {
-#       ErrorCondition(recall = ShapiroTest, message = gettextRcmdr("You must select a variable."))
+#       errorCondition(recall = ShapiroTest, message = gettextRcmdr("You must select a variable."))
 #       return()
 #     }
 #     closeDialog()
@@ -502,14 +502,14 @@ countMissing <- function(){
 #                        nbins <- as.numeric(bins)
 #                        options(warn)
 #                        if (is.na(nbins) || nbins < 4) {
-#                            ErrorCondition(recall = normalityTest, message = gettextRcmdr("Number of bins must be a number >= 4"))
+#                            errorCondition(recall = normalityTest, message = gettextRcmdr("Number of bins must be a number >= 4"))
 #                            return()
 #                        }
 #                        paste(", n.classes=", nbins, sep="")
 #                    }
 #         putDialog ("normalityTest", list (initial.var = var, initial.test = test, initial.bins=bins))
 #         if (length(var) == 0) {
-#             ErrorCondition(recall = normalityTest, message = gettextRcmdr("You must select a variable."))
+#             errorCondition(recall = normalityTest, message = gettextRcmdr("You must select a variable."))
 #             return()
 #         }
 #         closeDialog()
@@ -569,14 +569,14 @@ NormalityTest <- function () {
         nbins <- as.numeric(bins)
         options(warn)
         if (bins != gettextRcmdr("<auto>") && (is.na(nbins) || nbins < 4)) {
-            ErrorCondition(recall = NormalityTest, message = gettextRcmdr("Number of bins must be a number >= 4"))
+            errorCondition(recall = NormalityTest, message = gettextRcmdr("Number of bins must be a number >= 4"))
             return()
         }
         n.classes <- if (test != "pearson.test" || bins == gettextRcmdr ("<auto>")) "" else paste0(", n.classes=", bins)
         putDialog ("NormalityTest", list (initial.var = var, initial.test = test, initial.bins=bins, 
                                           initial.groups=if (.groups == FALSE) NULL else .groups))
         if (length(var) == 0) {
-            ErrorCondition(recall = NormalityTest, message = gettextRcmdr("You must select a variable."))
+            errorCondition(recall = NormalityTest, message = gettextRcmdr("You must select a variable."))
             return()
         }
         closeDialog()
@@ -621,7 +621,7 @@ transformVariables <- function () {
     if (rhs == "") rhs <- "1"
     .activeDataSet <- ActiveDataSet()
     if (length(variables) < 1){
-      ErrorCondition(recall = transformVariables, message = gettextRcmdr("You must select one or more variables."))
+      errorCondition(recall = transformVariables, message = gettextRcmdr("You must select one or more variables."))
       return()
     }
     vars <- if (length(variables) > 1) 

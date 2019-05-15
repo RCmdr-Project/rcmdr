@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2019-05-14 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -31,12 +31,12 @@ selectActiveModel <- function(){
 		}
 		dataSet <- as.character(getCall(get(model))$data) # as.character(get(model)$call$data)
 		if (length(dataSet) == 0){
-			ErrorCondition(message=gettextRcmdr("There is no dataset associated with this model."))
+			errorCondition(message=gettextRcmdr("There is no dataset associated with this model."))
 			return()
 		}
 		dataSets <- listDataSets()
 		if (!is.element(dataSet, dataSets)){
-			ErrorCondition(message=sprintf(gettextRcmdr("The dataset associated with this model, %s, is not in memory."), dataSet))
+			errorCondition(message=sprintf(gettextRcmdr("The dataset associated with this model, %s, is not in memory."), dataSet))
 			return()
 		}
 		if (is.null(.activeDataSet) || (dataSet != .activeDataSet)) activeDataSet(dataSet)
@@ -164,7 +164,7 @@ AVPlots <- function () {
     id.n.use <- if (identify == "not") 0 else id.n   
     closeDialog()
     if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-      ErrorCondition(recall = AVPlots, message = gettextRcmdr("number of points to identify must be an integer"))
+      errorCondition(recall = AVPlots, message = gettextRcmdr("number of points to identify must be an integer"))
       return()
     }
     putDialog ("AVPlots", list (initial.identify = identify, initial.id.n=id.n))
@@ -208,7 +208,7 @@ InfluencePlot <- function () {
     method <- if (identify == "mouse") "identify" else "noteworthy"
     closeDialog()
     if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-      ErrorCondition(recall = InfluencePlot, message = gettextRcmdr("number of points to identify must be an integer"))
+      errorCondition(recall = InfluencePlot, message = gettextRcmdr("number of points to identify must be an integer"))
       return()
     }
     putDialog ("InfluencePlot", list (initial.identify = identify, initial.id.n=id.n))
@@ -266,11 +266,11 @@ anovaTable <- function () {
         }
         if (type == "I") {
             if (!checkMethod("anova", .activeModel)) {
-                ErrorCondition(message = gettextRcmdr("There is no appropriate anova method for a model of this class."))
+                errorCondition(message = gettextRcmdr("There is no appropriate anova method for a model of this class."))
                 return()
             }
             if (sandwich == "1" && lmP()) {
-                ErrorCondition(recall = anovaTable, 
+                errorCondition(recall = anovaTable, 
                     message = gettextRcmdr("sandwich covariance matrix unavailable with type I tests"))
                 return()
             }
@@ -286,7 +286,7 @@ anovaTable <- function () {
         }
         else {
             if (!checkMethod("Anova", .activeModel)) {
-                ErrorCondition(message = gettextRcmdr("There is no appropriate Anova method for a model of this class."))
+                errorCondition(message = gettextRcmdr("There is no appropriate Anova method for a model of this class."))
                 return()
             }
             if (is.glm) {
@@ -440,7 +440,7 @@ residualQQPlot <- function () {
     id.n.use <- if (identify == "not") 0 else id.n   
     closeDialog()
     if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-      ErrorCondition(recall = residualQQPlot, message = gettextRcmdr("number of points to identify must be an integer"))
+      errorCondition(recall = residualQQPlot, message = gettextRcmdr("number of points to identify must be an integer"))
       return()
     }
     putDialog ("residualQQPlot", list (initial.simulate = simulate, initial.identify = identify, initial.id.n=id.n))
@@ -576,7 +576,7 @@ testLinearHypothesis <- function(){
         }            
         rhs <- na.omit(rhs)
         if (length(rhs) != nrows){
-            ErrorCondition(recall=testLinearHypothesis, 
+            errorCondition(recall=testLinearHypothesis, 
                            message=sprintf(gettextRcmdr("Number of valid entries in rhs vector (%d)\nis not equal to number of rows (%d)."), 
                                            length(rhs), nrows))
             return()
@@ -652,7 +652,7 @@ compareModels <- function () {
         closeDialog()
         putDialog ("compareModels", list (initial.model1 = model1, initial.model2 = model2))
         if (length(model1) == 0 || length(model2) == 0) {
-            ErrorCondition(recall = compareModels, message = gettextRcmdr("You must select two models."))
+            errorCondition(recall = compareModels, message = gettextRcmdr("You must select two models."))
             return()
         }
         if (!checkMethod("anova", model1)) {
@@ -799,7 +799,7 @@ RESETtest <- function () {
         model.formula <- as.character(formula(get(ActiveModel())))
         model.formula <- paste(model.formula[2], "~", model.formula[3])
         if (square == "0" && cube == "0") {
-            ErrorCondition(recall = RESETtest, message = gettextRcmdr("No powers are checked."))
+            errorCondition(recall = RESETtest, message = gettextRcmdr("No powers are checked."))
             return()
         }
         powers <- if (square == "1" && cube == "1") 
@@ -841,7 +841,7 @@ OutlierTest <- function(){
     .activeModel <- ActiveModel()
 	if (is.null(.activeModel)) return()
 	if (!checkMethod("outlierTest", .activeModel)) {
-		ErrorCondition(gettextRcmdr("There is no appropriate outlierTest method for a model of this class."))
+		errorCondition(gettextRcmdr("There is no appropriate outlierTest method for a model of this class."))
 		return()
 	}
 	doItAndPrint(paste("outlierTest(", .activeModel, ")", sep=""))
@@ -1035,7 +1035,7 @@ effectPlots <- function () {
     }
     else {
       if (length(predictors) == 0) {
-        ErrorCondition(recall = effectPlots, 
+        errorCondition(recall = effectPlots, 
                        message = gettextRcmdr("You must select one or more predictors\n or plot all high-order effects."))
         return()
       }
@@ -1252,7 +1252,7 @@ compareCoefficients <- function () {
         models <- getSelection(modelsBox)
         closeDialog()
         if (length(models) < 2) {
-            ErrorCondition(recall = compareCoefficients, message = gettextRcmdr("You must select at least two models."))
+            errorCondition(recall = compareCoefficients, message = gettextRcmdr("You must select at least two models."))
             return()
         }
         putDialog ("compareCoefficients", list(initial.models=models))
@@ -1314,7 +1314,7 @@ predictorEffectPlots <- function () {
         }
         else {
             if (length(predictors) == 0) {
-                ErrorCondition(recall = effectPlots, 
+                errorCondition(recall = effectPlots, 
                                message = gettextRcmdr("You must select one or more predictors\n or plot all predictor effects."))
                 return()
             }
@@ -1407,7 +1407,7 @@ InfluenceIndexPlot <- function () {
     hat <- tclvalue(hatVariable)
     closeDialog()
     if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
-      ErrorCondition(recall = InfluencePlot, message = gettextRcmdr("number of points to identify must be an integer"))
+      errorCondition(recall = InfluencePlot, message = gettextRcmdr("number of points to identify must be an integer"))
       return()
     }
     putDialog ("InfluenceIndexPlot", list(initial.identify=identify, initial.id.n=id.n,

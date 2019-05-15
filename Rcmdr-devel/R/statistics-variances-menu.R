@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2014-07-26 by J. Fox
+# last modified 2014-05-15 by J. Fox
 
 # Variances menu
 
@@ -20,12 +20,12 @@ twoVariancesFTest <- function () {
     tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
     group <- getSelection(groupBox)
     if (length(group) == 0) {
-      ErrorCondition(recall = twoVariancesFTest, message = gettextRcmdr("You must select a groups variable."))
+      errorCondition(recall = twoVariancesFTest, message = gettextRcmdr("You must select a groups variable."))
       return()
     }
     response <- getSelection(responseBox)
     if (length(response) == 0) {
-      ErrorCondition(recall = twoVariancesFTest, message = gettextRcmdr("You must select a response variable."))
+      errorCondition(recall = twoVariancesFTest, message = gettextRcmdr("You must select a response variable."))
       return()
     }
     alternative <- as.character(tclvalue(alternativeVariable))
@@ -79,12 +79,12 @@ BartlettTest <- function () {
   onOK <- function() {
     group <- getSelection(groupBox)
     if (length(group) == 0) {
-      ErrorCondition(recall = BartlettTest, message = gettextRcmdr("You must select a groups variable."))
+      errorCondition(recall = BartlettTest, message = gettextRcmdr("You must select a groups variable."))
       return()
     }
     response <- getSelection(responseBox)
     if (length(response) == 0) {
-      ErrorCondition(recall = BartlettTest, message = gettextRcmdr("You must select a response variable."))
+      errorCondition(recall = BartlettTest, message = gettextRcmdr("You must select a response variable."))
       return()
     }
     closeDialog()
@@ -132,12 +132,12 @@ LeveneTest <- function () {
     group <- getSelection(groupBox)
     center <- as.character(tclvalue(centerVariable))
     if (length(group) == 0) {
-      ErrorCondition(recall = LeveneTest, message = gettextRcmdr("You must select a groups variable."))
+      errorCondition(recall = LeveneTest, message = gettextRcmdr("You must select a groups variable."))
       return()
     }
     response <- getSelection(responseBox)
     if (length(response) == 0) {
-      ErrorCondition(recall = LeveneTest, message = gettextRcmdr("You must select a response variable."))
+      errorCondition(recall = LeveneTest, message = gettextRcmdr("You must select a response variable."))
       return()
     }
     closeDialog()

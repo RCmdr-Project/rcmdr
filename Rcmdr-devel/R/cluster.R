@@ -1,6 +1,6 @@
 # this code originally by Dan Putler, used with permission 
 
-# last modified 2019-05-14 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
 
 listKmeansSolutions <- function(envir=.GlobalEnv, ...) {
@@ -80,7 +80,7 @@ kmeansClustering <- function () {
             }
         }
         if (length(x) == 0) {
-            ErrorCondition(recall = kmeansClustering, message = gettextRcmdr("No variables selected."))
+            errorCondition(recall = kmeansClustering, message = gettextRcmdr("No variables selected."))
             return()
         }
         varFormula <- paste(x, collapse = " + ")
@@ -196,7 +196,7 @@ hierarchicalCluster <- function () {
 		dendro <- tclvalue(plotDendro)
 		solution <- trim.blanks(tclvalue(solutionName))
 		if (length(x) == 0) {
-			ErrorCondition(recall = hierarchicalCluster, message = gettextRcmdr("No variables selected."))
+			errorCondition(recall = hierarchicalCluster, message = gettextRcmdr("No variables selected."))
 			return()
 		}
 		putDialog("hierarchicalCluster", list(initial.x = x, initial.clusMethod = clusMethod, 
@@ -302,15 +302,15 @@ hclustSummary <- function () {
 	plotCB <- ttkcheckbutton(optionsFrame)
 	tkconfigure(plotCB, variable = plotClusters)
 	if (length(hclustObjects) == 0) {
-		ErrorCondition(recall = return, message = gettextRcmdr("There are no hierachical clustering solutions"))
+		errorCondition(recall = return, message = gettextRcmdr("There are no hierachical clustering solutions"))
 	}
 	if (length(validHclust) == 0) {
-		ErrorCondition(recall = return, message = gettextRcmdr("No hierachical clustering solutions are associated with this data set."))
+		errorCondition(recall = return, message = gettextRcmdr("No hierachical clustering solutions are associated with this data set."))
 	}
 	onOK <- function() {
 		solution <- getSelection(hclustBox)
 		if (length(solution) == 0) {
-			ErrorCondition(recall = hclustSummary, message = gettextRcmdr("A clustering solution has not been selected."))
+			errorCondition(recall = hclustSummary, message = gettextRcmdr("A clustering solution has not been selected."))
 			return()
 		}
 		clusters <- as.numeric(tclvalue(clusterNumber))
@@ -409,7 +409,7 @@ appendHclustGroup <- function () {
 		putDialog ("appendHclustGroup", list(initial.clusters = tclvalue(clusterNumber), initial.label = label))
 		solution <- getSelection(hclustBox)
 		if (length(solution) == 0) {
-			ErrorCondition(recall = appendHclustGroup, message = gettextRcmdr("A clustering solution has not been selected."))
+			errorCondition(recall = appendHclustGroup, message = gettextRcmdr("A clustering solution has not been selected."))
 			return()
 		}
 		

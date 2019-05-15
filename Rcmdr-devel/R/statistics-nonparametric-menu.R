@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-05-14 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
 # Nonparametric tests menu
 
@@ -17,12 +17,12 @@ twoSampleWilcoxonTest <- function () {
     tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
     group <- getSelection(groupBox)
     if (length(group) == 0) {
-      ErrorCondition(recall = twoSampleWilcoxonTest, message = gettextRcmdr("You must select a groups variable."))
+      errorCondition(recall = twoSampleWilcoxonTest, message = gettextRcmdr("You must select a groups variable."))
       return()
     }
     response <- getSelection(responseBox)
     if (length(response) == 0) {
-      ErrorCondition(recall = twoSampleWilcoxonTest, message = gettextRcmdr("You must select a response variable."))
+      errorCondition(recall = twoSampleWilcoxonTest, message = gettextRcmdr("You must select a response variable."))
       return()
     }
     alternative <- as.character(tclvalue(alternativeVariable))
@@ -83,11 +83,11 @@ pairedWilcoxonTest <- function () {
     putDialog("pairedWilcoxonTest", list(initial.x = x, initial.y = y, 
                                          initial.test = test, initial.alternative = alternative, initial.tab=tab))
     if (length(x) == 0 | length(y) == 0) {
-      ErrorCondition(recall = pairedWilcoxonTest, message = gettextRcmdr("You must select two variables."))
+      errorCondition(recall = pairedWilcoxonTest, message = gettextRcmdr("You must select two variables."))
       return()
     }
     if (x == y) {
-      ErrorCondition(recall = pairedWilcoxonTest, message = gettextRcmdr("The two variables must be different."))
+      errorCondition(recall = pairedWilcoxonTest, message = gettextRcmdr("The two variables must be different."))
       return()
     }
     .activeDataSet <- ActiveDataSet()
@@ -140,14 +140,14 @@ KruskalWallisTest <- function () {
   onOK <- function() {
     group <- getSelection(groupBox)
     if (length(group) == 0) {
-      ErrorCondition(recall = KruskalWallisTest, message = gettextRcmdr("You must select a groups variable."))
+      errorCondition(recall = KruskalWallisTest, message = gettextRcmdr("You must select a groups variable."))
       return()
     }
     response <- getSelection(responseBox)
     closeDialog()
     putDialog("KruskalWallisTest", list(initial.group = group, initial.response = response))
     if (length(response) == 0) {
-      ErrorCondition(recall = KruskalWallisTest, message = gettextRcmdr("You must select a response variable."))
+      errorCondition(recall = KruskalWallisTest, message = gettextRcmdr("You must select a response variable."))
       return()
     }
     .activeDataSet <- ActiveDataSet()
@@ -178,7 +178,7 @@ FriedmanTest <- function () {
 		closeDialog()
 		putDialog("FriedmanTest", list (initial.response = responses))
 		if (length(responses) < 2) {
-			ErrorCondition(recall = FriedmanTest, message = gettextRcmdr("You must select at least two variables."))
+			errorCondition(recall = FriedmanTest, message = gettextRcmdr("You must select at least two variables."))
 			return()
 		}
 		.activeDataSet <- ActiveDataSet()
@@ -215,7 +215,7 @@ onesampleWilcoxonTest <- function () {
         putDialog("onesampleWilcoxonTest", list(initial.x = x,
             initial.test = test, initial.alternative = alternative, initial.mu = mu, initial.tab=tab))
         if (length(x) == 0) {
-            ErrorCondition(recall = onesampleWilcoxonTest, message = gettextRcmdr("You must select a variable."))
+            errorCondition(recall = onesampleWilcoxonTest, message = gettextRcmdr("You must select a variable."))
             return()
         }
         .activeDataSet <- ActiveDataSet()
