@@ -691,11 +691,22 @@ setupGUI <- function(Menus){
                         tktag.add(.output, "currentLine", "end - 2 lines linestart", "end - 2 lines lineend")
                         tktag.configure(.output, "currentLine", foreground=getRcmdr("command.text.color"))
                     }
-                    current.line <- paste(current.line, lines[jline],sep="\n")
+                    current.line <- if (nchar(lines[jline]) > 0) paste(current.line, lines[jline],sep="\n")
                     jline <- jline + 1
                     iline <- iline + 1
                 }
-                if (!(is.null(current.line) || is.na(current.line))) doItAndPrint(current.line, log=FALSE, rmd=TRUE)
+                
+                if (.console.output){  # protect against misprocessed comments in console output
+                    xlines <- strsplit(current.line, "\n")[[1]]
+                    xlines <- trimws(sub("#.*$", "", xlines))
+                    xlines <- xlines[nchar(xlines) > 0]
+                    current.line <- paste(xlines, sep="\n")
+                    if (length(current.line) == 0 || nchar(current.line) == 0) current.line <- NULL
+                }
+                
+                if (!(is.null(current.line) || is.na(current.line))) {
+                    doItAndPrint(current.line, log=FALSE, rmd=TRUE)
+                }
                 iline <- iline + 1
                 tkyview.moveto(.output, 1)
                 tkfocus(.log)
@@ -1288,6 +1299,7 @@ doItAndPrint <- function(command, log=TRUE, rmd=log) {
             if (getRcmdr("use.knitr")) enterKnitr(command)
         }
     }
+    
     result <- try(parse(text=paste(command)), silent=TRUE)
     if (class(result)[1] == "try-error"){
         if (rmd) {
