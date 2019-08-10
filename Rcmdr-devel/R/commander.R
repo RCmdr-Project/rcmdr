@@ -35,8 +35,15 @@ Commander <- function(){
     
     setupGUI(Menus)
     
+    # keep start-up warnings out of Rcmdr log
+    messages.connection <- file(open="w+")
+    sink(messages.connection, type="message")
+    
     library(Rcmdr, quietly=TRUE)
     
+    sink(type="message")
+    close(messages.connection)
+
 }
 
 manageRcmdrEnv <- function(){
