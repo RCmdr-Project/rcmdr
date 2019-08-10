@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2019-05-15 by John Fox
+# last modified 2019-08-09 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
 
@@ -696,13 +696,12 @@ setupGUI <- function(Menus){
                     iline <- iline + 1
                 }
                 
-                if (.console.output){  # protect against misprocessed comments in console output
+                # protect against misprocessed comments
                     xlines <- strsplit(current.line, "\n")[[1]]
                     xlines <- trimws(sub("#.*$", "", xlines))
                     xlines <- xlines[nchar(xlines) > 0]
                     current.line <- paste(xlines, sep="\n")
                     if (length(current.line) == 0 || nchar(current.line) == 0) current.line <- NULL
-                }
                 
                 if (!(is.null(current.line) || is.na(current.line))) {
                     doItAndPrint(current.line, log=FALSE, rmd=TRUE)
