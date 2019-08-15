@@ -22,18 +22,18 @@
 \title{Getting Started With the R Commander\thanks{Parts of this manual are adapted
 and updated from Fox (2005). Please address correspondence to
 \texttt{jfox@mcmaster.ca}. }}
-\author{John Fox and Milan Bouchet-Valat}
-\date{Version 2.5-0 (last modified: 2018-07-29)}
+\author{John Fox}
+\date{Version 2.6-0 (last modified: 2019-08-15)}
 \maketitle
 
 \section{Introduction}
 
 The\textbf{\ R Commander} \citep{Fox05, Fox17} provides a graphical user
 interface (\textquotedblleft GUI\textquotedblright) to the open-source
-\textbf{R } statistical computing environment \citep{RCore16}. This manual is a brief,
+\textbf{R } statistical computing environment \citep{RCore19}. This manual is a brief,
 basic introduction to the \textbf{R Commander}; for more extensive documentation,
-see \citet{Fox17}, which has a website at <\href{http://socserv.mcmaster.ca/jfox/Books/RCommander/}{socserv.mcmaster.ca/jfox/Books/RCommander/}> 
-or <\href{http://tinyurl.com/RcmdrBook}{tinyurl.com/RcmdrBook}>.
+see \citet{Fox17}, which has a website at <\href{https://socserv.mcmaster.ca/jfox/Books/RCommander/}{socserv.mcmaster.ca/jfox/Books/RCommander/}> 
+or <\href{https://tinyurl.com/RcmdrBook}{tinyurl.com/RcmdrBook}>.
 
 \textbf{R} is a command-driven system, and new users
 often find learning \textbf{R} challenging. This is particularly true of those
@@ -56,8 +56,8 @@ appearance and use of the \textbf{R Commander} under \textbf{Mac OS X} and on
 \textbf{Linux} and \textbf{Unix} systems. Information about installing the
 \textbf{R Commander} on these platforms is available by following the link to
 the installation notes at the \textbf{R Commander} web page
-<\href{http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/index.html}{socserv.socsci.mcmaster.ca/jfox/Misc /Rcmdr/index.html}> or at
-<\href{http://tinyurl.com/Rcmdr}{tinyurl.com/Rcmdr}>.
+<\href{https://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/index.html}{socserv.socsci.mcmaster.ca/jfox/Misc /Rcmdr/index.html}> or at
+<\href{https://tinyurl.com/Rcmdr}{tinyurl.com/Rcmdr}>.
 
 We use the following typographical conventions in this document: Names of
 software, such as \textbf{Windows}, \textbf{R}, the \textbf{Rcmdr} package,
@@ -100,7 +100,7 @@ Commander} requires some packages in addition to several of the
 distributed with \textbf{R}. The \textbf{Rcmdr} package, the required
 packages, and many other contributed packages are available for download from
 the Comprehensive R Archive Network (CRAN) at
-<\href{http://cran.r-project.org/}{http://cran.r-project.org/}>.
+<\href{https://cran.r-project.org/}{https://cran.r-project.org/}>.
 \par
 If these packages are not installed, the \textbf{R Commander} will offer to
 install them from the Internet or from local files (e.g., on a CD/ROM or USB flash drive). If you
@@ -298,7 +298,7 @@ gt <- function(x) {
  | |- \Sexpr{gm('Save active data set')}
  | |- \Sexpr{gm('Export active data set')}
  |- \Sexpr{gt('Manage variables in active data set')} 
- | |- \Sexpr{gm('Recode variable')}
+ | |- \Sexpr{gm('Recode variables')}
  | |- \Sexpr{gm('Compute new variable')}
  | |- \Sexpr{gt('Add observation numbers to data set')}
  | |- \Sexpr{gm('Standardize variables')}
@@ -358,6 +358,8 @@ gt <- function(x) {
  | |- \Sexpr{gm('Generalized linear model')}
  | |- \Sexpr{gm('Multinomial logit model')}
  | |- \Sexpr{gm('Ordinal regression model')}
+ | |- \Sexpr{gm('Linear mixed model')}
+ | |- \Sexpr{gm('Generalized linear mixed model')}
 \Sexpr{gt('Graphs')} 
  |- \Sexpr{gm('Color palette')}
  |- \Sexpr{gm('Index plot')}
@@ -412,7 +414,9 @@ gt <- function(x) {
  | |- \Sexpr{gm('Component+residual plots')}
  | |- \Sexpr{gm('Added-variable plots')}
  | |- \Sexpr{gm('Influence plot')}
+ | |- \Sexpr{gm('Influence index plot')} 
  | |- \Sexpr{gm('Effect plots')}
+ | |- \Sexpr{gm('Predictor effect plots')}
 \Sexpr{gt('Distributions')} 
  |- \Sexpr{gm('Set random number generator seed')}
  |- \Sexpr{gt('Continuous distributions')} 
@@ -524,6 +528,7 @@ gt <- function(x) {
  |- \Sexpr{gt('Introduction to the R Commander')}
  |- \Sexpr{gt('R Commander website')}
  |- \Sexpr{gt('About Rcmdr')}
+ |- \Sexpr{gt('R Commander hex sticker')}
  |- \Sexpr{gt('Help on active data set (if available)')}
  |- \Sexpr{gt('Start R help system')}
  |- \Sexpr{gt('R website')}

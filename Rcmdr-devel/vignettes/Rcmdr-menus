@@ -1,5 +1,5 @@
 %% the original of this file provided by Manuel Munoz Marquez
-%% last update: 2018-08-29 by J. Fox
+%% last update: 2019-08-15 by J. Fox
 
 <<echo=F>>=
 library('Rcmdr')
@@ -71,7 +71,7 @@ gt <- function(x) {
  | |- \Sexpr{gm('Save active data set')}
  | |- \Sexpr{gm('Export active data set')}
  |- \Sexpr{gt('Manage variables in active data set')} 
- | |- \Sexpr{gm('Recode variable')}
+ | |- \Sexpr{gm('Recode variables')}
  | |- \Sexpr{gm('Compute new variable')}
  | |- \Sexpr{gt('Add observation numbers to data set')}
  | |- \Sexpr{gm('Standardize variables')}
@@ -132,6 +132,8 @@ gt <- function(x) {
  | |- \Sexpr{gm('Generalized linear model')}
  | |- \Sexpr{gm('Multinomial logit model')}
  | |- \Sexpr{gm('Ordinal regression model')}
+ | |- \Sexpr{gm('Linear mixed model')}
+ | |- \Sexpr{gm('Generalized linear mixed model')}
 \Sexpr{gt('Graphs')} 
  |- \Sexpr{gm('Color palette')}
  |- \Sexpr{gm('Index plot')}
@@ -188,7 +190,9 @@ gt <- function(x) {
  | |- \Sexpr{gm('Component+residual plots')}
  | |- \Sexpr{gm('Added-variable plots')}
  | |- \Sexpr{gm('Influence plot')}
+ | |- \Sexpr{gm('Influence index plot')} 
  | |- \Sexpr{gm('Effect plots')}
+ | |- \Sexpr{gm('Predictor effect plots')}
 \Sexpr{gt('Distributions')} 
  |- \Sexpr{gm('Set random number generator seed')}
  |- \Sexpr{gt('Continuous distributions')} 
@@ -300,6 +304,7 @@ gt <- function(x) {
  |- \Sexpr{gt('Introduction to the R Commander')}
  |- \Sexpr{gt('R Commander website')}
  |- \Sexpr{gt('About Rcmdr')}
+ |- \Sexpr{gt('R Commander hex sticker')}
  |- \Sexpr{gt('Help on active data set (if available)')}
  |- \Sexpr{gt('Start R help system')}
  |- \Sexpr{gt('R website')}
