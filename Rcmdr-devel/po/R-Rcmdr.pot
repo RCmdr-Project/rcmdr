@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.6-0\n"
+"Project-Id-Version: Rcmdr 2.6-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2019-01-08 16:30:00\n"
+"POT-Creation-Date: 2019-08-23 16:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5154,4 +5154,11 @@ msgid "Generalized Linear Mixed Model"
 msgstr ""
 
 msgid "Generalized linear mixed model..."
+msgstr ""
+
+# corrected message for version 2.6-1
+
+  # was "Convert variable names\nto lower case"
+
+msgid "Convert variable names to lower case"
 msgstr ""

@@ -1,4 +1,4 @@
-# last modified 2019-05-15 by J. Fox
+# last modified 2019-08-23 by J. Fox
 
 # utility functions
 
@@ -1493,7 +1493,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   if (hasLhs){
     tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Model Formula"), 
                       fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-    tkgrid(labelRcmdr(outerOperatorsFrame, text="Operators (click to formula):  "), operatorsFrame, sticky="nw")
+    tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Operators (click to formula):  ")), operatorsFrame, sticky="nw")
     if (.rhsExtras){
       tkgrid(bsplineButton, nsplineButton, polyButton, RawPolyButton, sticky="nw")
       tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Splines/Polynomials:\n(select variable and click)")), 
@@ -1518,7 +1518,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
     if (.rhsExtras){
       tkgrid(labelRcmdr(outerOperatorsFrame, text=formulaLabel, 
                         fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-      tkgrid(labelRcmdr(outerOperatorsFrame, text="Operators (click to formula):  "), operatorsFrame, sticky="nw")
+      tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Operators (click to formula):  ")), operatorsFrame, sticky="nw")
       tkgrid(bsplineButton, nsplineButton, polyButton, RawPolyButton, sticky="nw")
       tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Splines/Polynomials:\n(select variable and click)")), 
              splinePolyFrame, dfDegFrame, sticky="nw")
@@ -2926,7 +2926,7 @@ RcmdrEditor <- function(buffer, title="R Commander Editor", ok,
     closeDialog()
   }
   .exit <- function(){
-    answer <- RcmdrTkmessageBox("Discard edits?", icon="question", type="yesno")
+    answer <- RcmdrTkmessageBox(gettextRcmdr("Discard edits?"), icon="question", type="yesno")
     if (as.character(answer) == "no") return("abort")
     else{
         if (title == "Edit R Markdown document") putRcmdr("Markdown.editor.open", FALSE)
@@ -3314,7 +3314,7 @@ editDataset.data.frame <- function(data, dsname, ...){
         addRow()
     }
     .exit <- function(){
-        answer <- RcmdrTkmessageBox("Discard edits?", icon="question", type="yesno", default="no")
+        answer <- RcmdrTkmessageBox(gettextRcmdr("Discard edits?"), icon="question", type="yesno", default="no")
         if (as.character(answer) == "no") "abort" else ""
     }
     OKCancelHelp(helpSubject="editDataset")
