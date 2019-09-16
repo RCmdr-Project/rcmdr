@@ -1,4 +1,4 @@
-# last modified 2019-08-23 by J. Fox
+# last modified 2019-09-16 by J. Fox
 
 # utility functions
 
@@ -2105,7 +2105,9 @@ tclvalue <- function(x) trim.blanks(tcltk::tclvalue(x))
 # } 
 
 splitCmd <- function(cmd, width=getOption("width")){
-  tidy_source(text=cmd, width.cutoff=width, output=FALSE)$text.tidy
+  cmd <- tidy_source(text=cmd, width.cutoff=width, output=FALSE)$text.tidy
+  if (length(cmd) > 1) cmd <- paste(cmd, collapse="; ")
+  cmd
 }
 
 # the following function sorts names containing numerals "more naturally" than does sort()

@@ -1,3 +1,7 @@
+Changes in version 2.6-1
+
+  o Fixed bug in splitCmd()  when commands separated by ;s due to new use of formatR::tidy_source() for formatting commands (reported by Yoshinobu Kanda).
+  
 Changes in version 2.6-0
 
   o Linear and generalized linear mixed models dialogs added.
