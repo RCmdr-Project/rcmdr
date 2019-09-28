@@ -14,7 +14,7 @@ importFrom(stats, coef, confint, family, formula, getCall, model.matrix, na.omit
     optim, optimize, qnorm, var, vcov)
 importFrom(relimp, showData)
 importFrom(lme4, fixef)
-importFrom(formatR, tidy_source)
+
 export(showData)
 
 export(tkfocus, tkspinbox,

@@ -1,6 +1,6 @@
 Changes in version 2.6-1
 
-  o Fixed bug in splitCmd()  when commands separated by ;s due to new use of formatR::tidy_source() for formatting commands (reported by Yoshinobu Kanda).
+  o Restore older version of splitCmd().
   
 Changes in version 2.6-0
 
