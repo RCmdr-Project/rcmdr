@@ -2,6 +2,8 @@ Changes in version 2.6-1
 
   o Restore older version of splitCmd().
   
+  o For GLMs and GLMMs, provide confidence intervals for exponentiated coefficients for models using log or logit link (suggestion of Tan Chuen Seng).
+  
 Changes in version 2.6-0
 
   o Linear and generalized linear mixed models dialogs added.

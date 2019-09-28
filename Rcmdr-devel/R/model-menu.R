@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2019-05-15 by J. Fox
+# last modified 2019-09-28 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -871,12 +871,23 @@ confidenceIntervals <- function () {
         }
         putDialog ("confidenceIntervals", list (initial.level = level,
                                                 initial.statistic = if(glm) tclvalue(typeVariable) else "LR"))
-        command <- if (glm) 
+        command <- if (glm){
             paste("Confint(", .activeModel, ", level=", level, 
                   ", type=\"", tclvalue(typeVariable), "\")", sep = "")
+        }
         else paste("Confint(", .activeModel, ", level=", level, 
                    ")", sep = "")
         doItAndPrint(command)
+        link <- if (isS4(eval(parse(text=.activeModel)))){
+          eval(parse(text=paste0(.activeModel, "@resp$family$link")))
+        } else {
+          eval(parse(text=paste0(.activeModel, "$family$link")))
+        }
+        if (!is.null(link) && link %in% c("logit", "log")) {
+          command <- paste("Confint(", .activeModel, ", level=", level, 
+                ", type=\"", tclvalue(typeVariable), "\"", ", exponentiate=TRUE)", sep = "")
+          doItAndPrint(command)
+        }
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject = "Confint", reset = "confidenceIntervals", apply = "confidenceIntervals")
