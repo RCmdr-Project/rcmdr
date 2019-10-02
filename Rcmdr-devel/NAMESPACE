@@ -1,4 +1,4 @@
-# last modified 2019-05-15 by J. Fox
+# last modified 2019-09-28 by J. Fox
 
 import(splines, tcltk, RcmdrMisc, car, effects)
 importFrom(utils, available.packages, install.packages, assignInMyNamespace, 
