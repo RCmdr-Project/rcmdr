@@ -4,6 +4,8 @@ Changes in version 2.6-1
   
   o For GLMs and GLMMs, provide confidence intervals for exponentiated coefficients for models using log or logit link (suggestion of Tan Chuen Seng).
   
+  o Make listTwoLevelFactors() work properly for logical and character variables  (treated as factors) with NAs (problem pointed out by Vilmantas Gegzna).
+  
 Changes in version 2.6-0
 
   o Linear and generalized linear mixed models dialogs added.

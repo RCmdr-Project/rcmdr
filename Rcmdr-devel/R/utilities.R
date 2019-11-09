@@ -1,4 +1,4 @@
-# last modified 2019-09-28 by J. Fox
+# last modified 2019-11-09 by J. Fox
 
 # utility functions
 
@@ -174,7 +174,7 @@ listTwoLevelFactors <- function(dataSet=ActiveDataSet()){
     if(length(factors) == 0) return(NULL)
     factors[sapply(factors, function(.x){
       .v <- eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))
-      2 == length(levels(.v)) || length(unique(.v)) == 2
+      2 == length(levels(.v)) || length(na.omit(unique(.v))) == 2
     })]
   }
 }
