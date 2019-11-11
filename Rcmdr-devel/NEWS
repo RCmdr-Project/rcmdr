@@ -6,6 +6,8 @@ Changes in version 2.6-1
   
   o Make listTwoLevelFactors() work properly for logical and character variables  (treated as factors) with NAs (problem pointed out by Vilmantas Gegzna).
   
+  o Insure that data set columns are usable in the Rcmdr, e.g., excluding list columns (problem pointed out by Vilmantas Gegzna).
+  
 Changes in version 2.6-0
 
   o Linear and generalized linear mixed models dialogs added.

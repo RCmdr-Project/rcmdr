@@ -175,6 +175,9 @@ setupRcmdrOptions <- function(DESCRIPTION){
     putRcmdr("commandStack", as.list(rep(NA, getRcmdr("length.command.stack"))))
     setOption("variable.list.height", 6)
     setOption("variable.list.width", c(20, Inf))
+    setOption("valid.classes", c("factor", "ordered", "character", "logical",
+                                 "POSIXct", "POSIXlt", "Date", "chron", "yearmon", "yearqtr", "zoo", 
+                                 "zooreg", "timeDate", "xts", "its", "ti", "jul", "timeSeries", "fts"))
     
     putRcmdr("open.showData.windows", list())
 }

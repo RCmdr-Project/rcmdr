@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.6-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2019-08-23 16:30:00\n"
+"POT-Creation-Date: 2019-11-11 14:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5156,9 +5156,17 @@ msgstr ""
 msgid "Generalized linear mixed model..."
 msgstr ""
 
-# corrected message for version 2.6-1
+# corrected and messages for version 2.6-1
 
-  # was "Convert variable names\nto lower case"
+  # correction: was "Convert variable names\nto lower case"
 
 msgid "Convert variable names to lower case"
+msgstr ""
+
+  # new messages about invalid variable classes
+  
+msgid "The following variables are not valid for use in the R Commander and will be omitted:"
+msgstr ""
+
+msgid "The following variable is not valid for use in the R Commander and will be omitted:"
 msgstr ""

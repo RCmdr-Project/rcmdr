@@ -353,6 +353,11 @@ set none, one, several, or all options. The available options are as follows:
     accessible library; if \code{FALSE}, the \code{rgl} package will be ignored even if it is available. 
     The \code{rgl} package can sometimes cause problems when running R under X11.}
     
+    \item{\code{"valid.classes"}}{The classes of variables that the R Commander recognizes, in addition to numeric data; other variables
+    in a data set will be suppressed. The default is \code{"factor", "ordered", "character", 
+    "logical", "POSIXct", "POSIXlt", "Date", "chron", "yearmon", "yearqtr", "zoo", "zooreg", "timeDate", "xts", 
+    "its", "ti", "jul", "timeSeries", "fts")}.}
+    
     \item{\code{variable.list.height}}{the number of items (typically variables) to display in list boxes; longer lists may be viewed by scrolling. 
     The default is 6.} 
     

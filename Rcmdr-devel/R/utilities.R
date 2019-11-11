@@ -1,4 +1,4 @@
-# last modified 2019-11-09 by J. Fox
+# last modified 2019-11-11 by J. Fox
 
 # utility functions
 
@@ -88,6 +88,11 @@ activeDataSet <- function(dsname, flushModel=TRUE, flushDialogMemory=TRUE){
         logger(command)
         Message(message=paste(dsname, gettextRcmdr(" has been coerced to a data frame"), sep=""),
             type="warning")
+    }
+    valid.columns <- validColumns(get(dsname, envir=.GlobalEnv))
+    if (any(!valid.columns)) {
+      command <- paste0(dsname, " <- ", dsname, "[, c(", paste(valid.columns, collapse=","), ")]")
+      doItAndPrint(command)
     }
     varnames <- names(get(dsname, envir=.GlobalEnv))
     newnames <- make.names(varnames)
@@ -3838,3 +3843,24 @@ coef.glmerMod <- function(object, ...) fixef(object, ...)
 plot.lmerMod <- function(x, ...) NextMethod()
 
 plot.glmerMod <- function(x, ...) NextMethod()
+
+validColumns <- function(dataset){
+  valid.classes <- getRcmdr("valid.classes") 
+  nc <- ncol(dataset)
+  valid <- logical(nc)
+  for (i in 1:nc){
+    valid[i] <- is.numeric(dataset[[i]]) || any(sapply(valid.classes, function(class) inherits(dataset[[i]], class)))
+  }
+  if (any(!valid)){
+    message <- if (sum(!valid) > 1){
+      paste0(gettextRcmdr("The following variables are not valid for use in the R Commander and will be omitted:"), "\n",
+            paste(colnames(dataset)[!valid], collapse=", "))
+    } else {
+      paste0(gettextRcmdr("The following variable is not valid for use in the R Commander and will be omitted:"), "\n",
+            colnames(dataset)[!valid])
+    }
+    Message(message=message, type="warning")
+  }
+  valid
+}
+
