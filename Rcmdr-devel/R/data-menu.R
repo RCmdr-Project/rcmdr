@@ -1,4 +1,4 @@
-# last modified 2019-05-15 by J. Fox
+# last modified 2019-11-14 by J. Fox
 
 # Data menu dialogs
 
@@ -575,7 +575,7 @@ readDataFromPackage <- function() {
 			check <- try(eval(parse(text=logger(paste("data(", dsnameValue, ")", sep=""))),
 							envir=.GlobalEnv), silent=TRUE)
 			options(save.options)
-			if (class(check) == "try-error"){
+			if (inherits(check, "try-error")){
 				errorCondition(recall=readDataFromPackage,
 						message=sprintf(gettextRcmdr("Data set %s does not exist"), dsnameValue))
 				return()
@@ -2282,7 +2282,7 @@ RemoveRows <- function(){
 		}
 		removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
 		remove <- try(eval(parse(text=removeRows)), silent=TRUE)
-		if (class(remove) == "try-error"){
+		if (inherits(remove, "try-error")){
 			errorCondition(recall=RemoveRows,
 					message=remove)
 			closeDialog()

@@ -8,6 +8,8 @@ Changes in version 2.6-1
   
   o Insure that data set columns are usable in the Rcmdr, e.g., excluding list columns (problem pointed out by Vilmantas Gegzna).
   
+  o Change instances of class(x) == "y" to inherits(x, "y").
+
 Changes in version 2.6-0
 
   o Linear and generalized linear mixed models dialogs added.

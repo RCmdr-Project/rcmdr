@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-05-15 by J. Fox
+# last modified 2019-11-14 by J. Fox
 
 # Summaries menu
 
@@ -200,7 +200,7 @@ frequencyDistribution <- function () {
           res <- try(entry <- eval(parse(text = eval(parse(text = paste("tclvalue(", 
                                                                         entry.varname, ")", sep = "")), envir = env))), 
                      silent = TRUE)
-          if (class(res) == "try-error") {
+          if (inherits(res, "try-error")) {
             errorCondition(subwin, message = gettextRcmdr("Invalid entry."))
             return()
           }
