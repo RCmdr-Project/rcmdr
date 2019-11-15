@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2019-09-28 by J. Fox
+# last modified 2019-11-15 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -406,7 +406,7 @@ addObservationStatistics <- function () {
     }
     command <- paste(command, "\n})")
     result <- doItAndPrint(command)
-    if (class(result) != "try-error")activeDataSet(.activeDataSet, flushModel = FALSE, flushDialogMemory = FALSE)
+    if (!inherits(result, "try-error")) activeDataSet(.activeDataSet, flushModel = FALSE, flushDialogMemory = FALSE)
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "influence.measures", reset = "addObservationStatistics")

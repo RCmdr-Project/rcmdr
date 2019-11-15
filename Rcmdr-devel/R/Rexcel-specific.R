@@ -1,5 +1,5 @@
 # These functions for Excel supportwritten by Erich Neuwirth
-#  last modified: 20 March 2008 by J. Fox  (following instructions from Erich Neuwirth)
+#  last modified: 2019-11-15 by J. Fox  (following instructions from Erich Neuwirth)
 
     RExcelSupported <- function(){
     	RExcelSupport <- getOption("Rcmdr")$RExcelSupport
@@ -30,7 +30,7 @@
                 }
             jline <- iline + 1
             while (jline <= nlines){
-                if (class(try(parse(text=current.line),silent=TRUE))!="try-error") break
+                if (!inherits(try(parse(text=current.line),silent=TRUE), "try-error")) break
                 if (.console.output)cat(paste("Rcmdr+ ", lines[jline], sep="\n"))
                 else{
                     tkinsert(.output, "end", paste("+ ", lines[jline],"\n", sep=""))
