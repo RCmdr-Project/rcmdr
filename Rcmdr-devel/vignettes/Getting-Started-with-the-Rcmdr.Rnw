@@ -1,6 +1,6 @@
 \documentclass{article}%
 \usepackage[round]{natbib}   % For in-text citations
-\bibliographystyle{apalike2} % For bibliography style
+\bibliographystyle{apalike} % For bibliography style
 \usepackage{amsmath}%
 \setcounter{MaxMatrixCols}{30}%
 \usepackage{amsfonts}%
