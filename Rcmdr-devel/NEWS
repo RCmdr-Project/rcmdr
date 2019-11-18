@@ -9,6 +9,8 @@ Changes in version 2.6-1
   o Insure that data set columns are usable in the Rcmdr, e.g., excluding list columns (problem pointed out by Vilmantas Gegzna).
   
   o Change instances of class(x) == "y" to inherits(x, "y").
+  
+  o Use apalike2 rather than apa BiBTeX package in Getting Started vignette (latter has been removed from TeXLive, reported by Brian Ripley).
 
 Changes in version 2.6-0
 

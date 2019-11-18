@@ -1,6 +1,6 @@
 \documentclass{article}%
 \usepackage[round]{natbib}   % For in-text citations
-\bibliographystyle{apa} % For bibliography style
+\bibliographystyle{apalike2} % For bibliography style
 \usepackage{amsmath}%
 \setcounter{MaxMatrixCols}{30}%
 \usepackage{amsfonts}%
@@ -1716,7 +1716,6 @@ in this case, you will be asked whether you want to save the \textbf{R}
 workspace (i.e., the data that \textbf{R} keeps in memory); you would normally
 answer \emph{No}.
 
-%\bibliographystyle{apa}
 \bibliography{Rcmdr-Manual}
 
 

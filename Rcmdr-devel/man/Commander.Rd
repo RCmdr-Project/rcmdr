@@ -356,7 +356,7 @@ set none, one, several, or all options. The available options are as follows:
     \item{\code{"valid.classes"}}{The classes of variables that the R Commander recognizes, in addition to numeric data; other variables
     in a data set will be suppressed. The default is \code{"factor", "ordered", "character", 
     "logical", "POSIXct", "POSIXlt", "Date", "chron", "yearmon", "yearqtr", "zoo", "zooreg", "timeDate", "xts", 
-    "its", "ti", "jul", "timeSeries", "fts")}.}
+    "its", "ti", "jul", "timeSeries", "fts", "Period", "hms", "difftime")}.}
     
     \item{\code{variable.list.height}}{the number of items (typically variables) to display in list boxes; longer lists may be viewed by scrolling. 
     The default is 6.} 

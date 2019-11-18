@@ -177,7 +177,8 @@ setupRcmdrOptions <- function(DESCRIPTION){
     setOption("variable.list.width", c(20, Inf))
     setOption("valid.classes", c("factor", "ordered", "character", "logical",
                                  "POSIXct", "POSIXlt", "Date", "chron", "yearmon", "yearqtr", "zoo", 
-                                 "zooreg", "timeDate", "xts", "its", "ti", "jul", "timeSeries", "fts"))
+                                 "zooreg", "timeDate", "xts", "its", "ti", "jul", "timeSeries", "fts",
+                                 "Period", "hms", "difftime"))
     
     putRcmdr("open.showData.windows", list())
 }
