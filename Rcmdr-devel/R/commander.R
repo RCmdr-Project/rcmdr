@@ -179,6 +179,7 @@ setupRcmdrOptions <- function(DESCRIPTION){
                                  "POSIXct", "POSIXlt", "Date", "chron", "yearmon", "yearqtr", "zoo", 
                                  "zooreg", "timeDate", "xts", "its", "ti", "jul", "timeSeries", "fts",
                                  "Period", "hms", "difftime"))
+    setOption("discreteness.threshold", 0)
     
     putRcmdr("open.showData.windows", list())
 }

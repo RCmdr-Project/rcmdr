@@ -3873,9 +3873,12 @@ listDiscreteNumeric <- function(dataSet=ActiveDataSet()) {
     DiscreteNumeric()
   }
   else {
-    n <- getRcmdr("nrow")
-    if (is.null(n)) n <- nrow(get(dataSet, envir=.GlobalEnv))
-    threshold <- min(round(2*sqrt(n)), 100)
+    threshold <- getRcmdr("discreteness.threshold")
+    if (threshold <= 0){
+      n <- getRcmdr("nrow")
+      if (is.null(n)) n <- nrow(get(dataSet, envir=.GlobalEnv))
+      threshold <- min(round(2*sqrt(n)), round(10*log10(n)), 100)
+    }
     variables <- listNumeric()
     variables[sapply(variables,function(.x)
       length(unique(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv)))) <= threshold)]

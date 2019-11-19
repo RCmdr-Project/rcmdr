@@ -177,6 +177,11 @@ set none, one, several, or all options. The available options are as follows:
     The \pkg{Rcmdr} \code{scale.factor} option may also be used to
     control font size.}
     
+    \item{\code{discreteness.theshold}}{should be a positive integer; if greater than \code{0} 
+    (which is the default), the  maximum number of distinct values 
+    for a numeric variable to be considered discrete; if \code{0} (or smaller), the threshold is taken as the smallest of 100,
+    twice the squareroot of the number of cases in the active data set (n), and 10 times log10(n).}
+    
     \item{\code{double.click}}{Set to \code{TRUE} if you want a double-click of the left mouse
     button to press the default button in all dialogs. The default is \code{FALSE}.}
     

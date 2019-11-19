@@ -120,12 +120,12 @@ numericalSummaries <- function(){
             if (.groups != FALSE){
                 levels <- eval(parse(text=paste0("levels(", grps, ")")), envir=.GlobalEnv)
                 for (level in levels){
-                  if (!null(continuous.vars)){
+                  if (!is.null(continuous.vars)){
                     command <- paste0("binnedCounts(", .activeDataSet, "[", grps, " == ", "'", level, "', ", 
                                       continuous.vars, ", drop=FALSE])\n  # ", .groups, " = ", level)
                     doItAndPrint(command)
                   }
-                  if (!null(discrete.vars)){
+                  if (!is.null(discrete.vars)){
                     command <- paste0("discreteCounts(", .activeDataSet, "[", grps, " == ", "'", level, "', ", 
                                       discrete.vars, ", drop=FALSE])\n  # ", .groups, " = ", level)
                     doItAndPrint(command)
