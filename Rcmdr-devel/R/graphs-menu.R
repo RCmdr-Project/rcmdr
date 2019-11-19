@@ -2849,7 +2849,7 @@ DiscretePlot <- function () {
                      initial.main=gettextRcmdr("<auto>"), initial.group = NULL)
     dialog.values <- getDialog("DiscretePlot", defaults)
     initializeDialog(title = gettextRcmdr("Plot Discrete Numeric Variable"), use.tabs=TRUE)
-    xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
+    xBox <- variableListBox(dataTab, DiscreteNumeric(), title = gettextRcmdr("Variable (pick one)"),
                             initialSelection = varPosn (dialog.values$initial.x, "numeric"))
     initial.group <- dialog.values$initial.group
     .groups <- if (is.null(initial.group)) FALSE else initial.group

@@ -30,6 +30,8 @@
 \alias{dataSetsP}
 \alias{defmacro}
 \alias{dialogSuffix}
+\alias{DiscreteNumeric}
+\alias{discreteNumericP}
 \alias{doItAndPrint}
 \alias{EffectP}
 \alias{endRmdBlock}
@@ -67,6 +69,7 @@
 \alias{listAllModels}
 \alias{listAOVModels}
 \alias{listDataSets}
+\alias{listDiscreteNumeric}
 \alias{listGeneralizedLinearModels}
 \alias{listFactors}
 \alias{listLinearModels}
@@ -189,6 +192,8 @@ dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows, columns,
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), 
     tab.names=c("Data", "Options"), grid.buttons=FALSE, resizable=FALSE,
     force.wait=FALSE)  # macro
+DiscreteNumeric(names)
+discreteNumericP(n=1)
 doItAndPrint(command, log=TRUE, rmd=log)
 EffectP()
 endRmdBlock()
@@ -234,6 +239,7 @@ Library(package, pos=length(search()), rmd=TRUE)
 listAllModels(envir=.GlobalEnv, ...)
 listAOVModels(envir=.GlobalEnv, ...)
 listDataSets(envir=.GlobalEnv, ...)
+listDiscreteNumeric(dataSet=ActiveDataSet())
 listFactors(dataSet=ActiveDataSet())
 listGeneralizedLinearModels(envir=.GlobalEnv, ...)
 listLinearModels(envir=.GlobalEnv, ...)
@@ -548,7 +554,7 @@ commanderPosition()
   \emph{Information: }
   
   Several functions return vectors of object names: \code{listAllModels}, \cr
-  \code{listAOVModels}, \code{listDataSets}, \code{listGeneralizedLinearModels},
+  \code{listAOVModels}, \code{listDataSets}, \code{listDiscreteNumeric}, \code{listGeneralizedLinearModels},
   \code{listFactors}, \code{listLinearModels}, \code{listMultinomialLogitModels},
   \code{listNumeric}, \code{listProportionalOddsModels},
   \code{listTwoLevelFactors},

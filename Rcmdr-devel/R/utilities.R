@@ -1656,6 +1656,7 @@ ActiveDataSet <- function(name){
         Numeric(listNumeric(name))
         Factors(listFactors(name))
         TwoLevelFactors(listTwoLevelFactors(name))
+        DiscreteNumeric(listDiscreteNumeric(name))
         open.showData.windows <- getRcmdr("open.showData.windows")
         if (!is.null(open.showData.windows) && name %in% names(open.showData.windows)){
           ID <- open.showData.windows[[name]]$ID
@@ -1679,6 +1680,7 @@ ActiveDataSet <- function(name){
             Numeric(NULL)
             Factors(NULL)
             TwoLevelFactors(NULL)
+            DiscreteNumeric(NULL)
             RcmdrTclSet("dataSetName", gettextRcmdr("<No active dataset>"))
             putRcmdr(".activeModel", NULL)
             putRcmdr("nrow", NULL)
@@ -3863,4 +3865,27 @@ validColumns <- function(dataset){
   }
   valid
 }
+
+# add support for discrete numeric variables
+
+listDiscreteNumeric <- function(dataSet=ActiveDataSet()) {
+  if(missing(dataSet)) {
+    DiscreteNumeric()
+  }
+  else {
+    n <- getRcmdr("nrow")
+    if (is.null(n)) n <- nrow(get(dataSet, envir=.GlobalEnv))
+    threshold <- min(round(2*sqrt(n)), 100)
+    variables <- listNumeric()
+    variables[sapply(variables,function(.x)
+      length(unique(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv)))) <= threshold)]
+  }
+}
+
+DiscreteNumeric <- function(names){
+  if (missing(names)) getRcmdr("discrete.numeric")
+  else putRcmdr("discrete.numeric", names)
+}
+
+discreteNumericP <- function(n=1) activeDataSetP() && length(listDiscreteNumeric()) >= n
 

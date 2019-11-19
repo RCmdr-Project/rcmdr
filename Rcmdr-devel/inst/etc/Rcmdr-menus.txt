@@ -170,7 +170,7 @@
     item    graphsMenu      command         "Index plot..."                                 indexPlot                   "numericP()"          "packageAvailable('RcmdrMisc')"
     item    graphsMenu      command         "Dot plot..."                                   DotPlot                     "numericP()"          "packageAvailable('RcmdrMisc')"
     item    graphsMenu      command         "Histogram..."                                  Histogram                   "numericP()"          "packageAvailable('RcmdrMisc')"
-    item    graphsMenu      command         "Plot discrete numeric variable..."             DiscretePlot                "numericP()"          "packageAvailable('RcmdrMisc')"
+    item    graphsMenu      command         "Plot discrete numeric variable..."             DiscretePlot                "discreteNumericP()"          "packageAvailable('RcmdrMisc')"
     item    graphsMenu      command         "Density estimate..."                           DensityPlot         "numericP()"          ""
     item    graphsMenu      command         "Stem-and-leaf display..."                      stemAndLeaf                 "numericP()"  "packageAvailable('aplpack')"
     item    graphsMenu      command         "Boxplot..."                                    boxPlot                     "numericP()" 		  ""

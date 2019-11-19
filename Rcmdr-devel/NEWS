@@ -1,3 +1,7 @@
+Changes in version 2.7-0
+
+  o Better handling of discrete numeric variables (after suggestions by Ethan Harris).
+
 Changes in version 2.6-1
 
   o Restore older version of splitCmd().

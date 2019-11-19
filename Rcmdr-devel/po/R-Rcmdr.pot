@@ -5170,3 +5170,8 @@ msgstr ""
 
 msgid "The following variable is not valid for use in the R Commander and will be omitted:"
 msgstr ""
+
+# new messages for version 2.7-0
+
+msgid "Frequency Counts"
+msgstr ""
