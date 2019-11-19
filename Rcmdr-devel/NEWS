@@ -10,7 +10,7 @@ Changes in version 2.6-1
   
   o Change instances of class(x) == "y" to inherits(x, "y").
   
-  o Use apalike2 rather than apa BiBTeX package in Getting Started vignette (latter has been removed from TeXLive, reported by Brian Ripley).
+  o Use apalike rather than apa BiBTeX package in Getting Started vignette (latter has been removed from TeXLive, reported by Brian Ripley).
 
 Changes in version 2.6-0
 
