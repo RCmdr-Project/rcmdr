@@ -1,4 +1,4 @@
-# last modified 2019-04-30 by J. Fox
+# last modified 2019-11-11 by J. Fox
 
 # utility functions
 
@@ -46,6 +46,20 @@ listProportionalOddsModels <- function(envir=.GlobalEnv, ...) {
         function(.x) "polr" == (class(get(.x, envir=envir))[1]))]
 }
 
+listLMMs <- function(envir=.GlobalEnv, ...) {
+  objects <- ls(envir=envir, ...)
+  if (length(objects) == 0) NULL
+  else objects[sapply(objects,
+                      function(.x) "lmerMod" == (class(get(.x, envir=envir))[1]))]
+}
+
+listGLMMs <- function(envir=.GlobalEnv, ...) {
+  objects <- ls(envir=envir, ...)
+  if (length(objects) == 0) NULL
+  else objects[sapply(objects,
+                      function(.x) "glmerMod" == (class(get(.x, envir=envir))[1]))]
+}
+
 listAllModels <- function(envir=.GlobalEnv, ...) {
     objects <- ls(envir=envir, ...)
     if (length(objects) == 0) NULL
@@ -74,6 +88,11 @@ activeDataSet <- function(dsname, flushModel=TRUE, flushDialogMemory=TRUE){
         logger(command)
         Message(message=paste(dsname, gettextRcmdr(" has been coerced to a data frame"), sep=""),
             type="warning")
+    }
+    valid.columns <- validColumns(get(dsname, envir=.GlobalEnv))
+    if (any(!valid.columns)) {
+      command <- paste0(dsname, " <- ", dsname, "[, c(", paste(valid.columns, collapse=","), ")]")
+      doItAndPrint(command)
     }
     varnames <- names(get(dsname, envir=.GlobalEnv))
     newnames <- make.names(varnames)
@@ -160,7 +179,7 @@ listTwoLevelFactors <- function(dataSet=ActiveDataSet()){
     if(length(factors) == 0) return(NULL)
     factors[sapply(factors, function(.x){
       .v <- eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))
-      2 == length(levels(.v)) || length(unique(.v)) == 2
+      2 == length(levels(.v)) || length(na.omit(unique(.v))) == 2
     })]
   }
 }
@@ -225,94 +244,103 @@ Coef.multinom <- function (object, ...) {
     b
 }
 
+Coef.merMod <- function(object, ...) fixef(object, ...)
 
-Confint <- function(object, parm, level=0.95, ...) UseMethod("Confint")
-
-Confint.default <- function(object, parm, level = 0.95, ...) {
-    ci <- confint(object, parm, level, ...)
-    ci <- cbind(Coef(object)[parm], ci)
-    colnames(ci)[1] <- "Estimate"
-    ci
-}
-
-Confint.glm <- function (object, parm, level=0.95, type=c("LR", "Wald"), ...){
-    # adapted from stats:::confint.lm
-    type <- match.arg(type)
-    cf <- coef(object)
-    pnames <- names(cf)
-    if (type == "LR") 
-        ci <- confint(object, parm, level, ...)
-    else {
-        if (missing(parm))
-            parm <- seq(along = pnames)
-        else if (is.character(parm))
-            parm <- match(parm, pnames, nomatch = 0)
-        a <- (1 - level)/2
-        a <- c(a, 1 - a)
-        pct <- paste(round(100 * a, 1), "%")
-        ci <- array(NA, dim = c(length(parm), 2), dimnames = list(pnames[parm],
-                                                                  pct))
-        ses <- sqrt(diag(vcov(object)))[parm]
-        fac <- qnorm(a)
-        ci[] <- cf[parm] + ses %o% fac
-    }
-    ci <- cbind(cf[parm], ci)
-    colnames(ci)[1] <- "Estimate"
-    fam <- family(object)
-    if (((fam$family == "binomial" || fam$family == "quasibinomial")  && fam$link == "logit")
-      || ((fam$family == "poisson" || fam$family == "quasipoisson")  && fam$link == "log"))
-      {
-        expci <- exp(ci)
-        colnames(expci)[1] <- "exp(Estimate)"
-        ci <- cbind(ci, expci)
-    }
-    ci
-}
-
-Confint.polr <- function (object, parm, level=0.95, ...){
-    # adapted from stats:::confint.lm
-    cf <- coef(object)
-    pnames <- names(cf)
-    if (missing(parm))
-        parm <- seq(along = pnames)
-    else if (is.character(parm))
-        parm <- match(parm, pnames, nomatch = 0)
-    a <- (1 - level)/2
-    a <- c(a, 1 - a)
-    pct <- paste(round(100 * a, 1), "%")
-    ci <- array(NA, dim = c(length(parm), 2), dimnames = list(pnames[parm],
-                                                              pct))
-    ses <- sqrt(diag(vcov(object)))[parm]
-    fac <- qnorm(a)
-    ci[] <- cf[parm] + ses %o% fac
-    ci <- cbind(cf[parm], ci)
-    colnames(ci)[1] <- "Estimate"
-    ci
-}
-
-Confint.multinom <- function(object, parm, level = 0.95, ...) {
-    # adapted from stats:::confint.lm
-    cf <- Coef(object)
-    if (is.vector(cf)) cf <- matrix(cf, nrow=1,
-                                    dimnames=list(object$lev[2], names(cf)))
-    pnames <- colnames(cf)
-    if (missing(parm))
-        parm <- seq(along = pnames)
-    else if (is.character(parm))
-        parm <- match(parm, pnames, nomatch = 0)
-    a <- (1 - level)/2
-    a <- c(a, 1 - a)
-    ses <- matrix(sqrt(diag(vcov(object))),
-                  ncol=ncol(cf), byrow=TRUE)[,parm, drop=FALSE]
-    cf <- cf[,parm, drop=FALSE]
-    fac <- qnorm(a)
-    ci <- abind::abind(cf + fac[1]*ses, cf + fac[2]*ses, along=3)
-    dimnames(ci)[[3]] <- paste(round(100 * a, 1), "%")
-    ci <- aperm(ci, c(2,3,1))[,,1]
-    ci <- cbind(cf[parm], ci)
-    colnames(ci)[1] <- "Estimate"
-    ci
-}
+#$ Confint methods no longer needed, now in car package:
+# Confint <- function(object, parm, level=0.95, ...) UseMethod("Confint")
+# 
+# Confint.default <- function(object, parm, level = 0.95, ...) {
+#     ci <- confint(object, parm, level, ...)
+#     ci <- cbind(Coef(object)[parm], ci)
+#     colnames(ci)[1] <- "Estimate"
+#     ci
+# }
+# 
+# Confint.glm <- function (object, parm, level=0.95, type=c("LR", "Wald"), ...){
+#     # adapted from stats:::confint.lm
+#     type <- match.arg(type)
+#     cf <- coef(object)
+#     pnames <- names(cf)
+#     if (type == "LR") 
+#         ci <- confint(object, parm, level, ...)
+#     else {
+#         if (missing(parm))
+#             parm <- seq(along = pnames)
+#         else if (is.character(parm))
+#             parm <- match(parm, pnames, nomatch = 0)
+#         a <- (1 - level)/2
+#         a <- c(a, 1 - a)
+#         pct <- paste(round(100 * a, 1), "%")
+#         ci <- array(NA, dim = c(length(parm), 2), dimnames = list(pnames[parm],
+#                                                                   pct))
+#         ses <- sqrt(diag(vcov(object)))[parm]
+#         fac <- qnorm(a)
+#         ci[] <- cf[parm] + ses %o% fac
+#     }
+#     ci <- cbind(cf[parm], ci)
+#     colnames(ci)[1] <- "Estimate"
+#     fam <- family(object)
+#     if (((fam$family == "binomial" || fam$family == "quasibinomial")  && fam$link == "logit")
+#       || ((fam$family == "poisson" || fam$family == "quasipoisson")  && fam$link == "log"))
+#       {
+#         expci <- exp(ci)
+#         colnames(expci)[1] <- "exp(Estimate)"
+#         ci <- cbind(ci, expci)
+#     }
+#     ci
+# }
+# 
+# Confint.polr <- function (object, parm, level=0.95, ...){
+#     # adapted from stats:::confint.lm
+#     cf <- coef(object)
+#     pnames <- names(cf)
+#     if (missing(parm))
+#         parm <- seq(along = pnames)
+#     else if (is.character(parm))
+#         parm <- match(parm, pnames, nomatch = 0)
+#     a <- (1 - level)/2
+#     a <- c(a, 1 - a)
+#     pct <- paste(round(100 * a, 1), "%")
+#     ci <- array(NA, dim = c(length(parm), 2), dimnames = list(pnames[parm],
+#                                                               pct))
+#     ses <- sqrt(diag(vcov(object)))[parm]
+#     fac <- qnorm(a)
+#     ci[] <- cf[parm] + ses %o% fac
+#     ci <- cbind(cf[parm], ci)
+#     colnames(ci)[1] <- "Estimate"
+#     ci
+# }
+# 
+# Confint.multinom <- function(object, parm, level = 0.95, ...) {
+#     # adapted from stats:::confint.lm
+#     cf <- Coef(object)
+#     if (is.vector(cf)) cf <- matrix(cf, nrow=1,
+#                                     dimnames=list(object$lev[2], names(cf)))
+#     pnames <- colnames(cf)
+#     if (missing(parm))
+#         parm <- seq(along = pnames)
+#     else if (is.character(parm))
+#         parm <- match(parm, pnames, nomatch = 0)
+#     a <- (1 - level)/2
+#     a <- c(a, 1 - a)
+#     ses <- matrix(sqrt(diag(vcov(object))),
+#                   ncol=ncol(cf), byrow=TRUE)[,parm, drop=FALSE]
+#     cf <- cf[,parm, drop=FALSE]
+#     fac <- qnorm(a)
+#     ci <- abind::abind(cf + fac[1]*ses, cf + fac[2]*ses, along=3)
+#     dimnames(ci)[[3]] <- paste(round(100 * a, 1), "%")
+#     ci <- aperm(ci, c(2,3,1))[,,1]
+#     ci <- cbind(cf[parm], ci)
+#     colnames(ci)[1] <- "Estimate"
+#     ci
+# }
+# 
+# Confint.merMod <- function(object, parm=names(fixef(object)), level=0.95, ...) {
+#   ci <- confint(object, parm=parm, level=level, ...)
+#   ci <- cbind(Coef(object)[parm], ci)
+#   colnames(ci)[1] <- "Estimate"
+#   ci
+# }
 
 # Pager
 
@@ -386,7 +414,9 @@ browseRWebsite <- function() browseURL("http://www.r-project.org/")
 
 browseRMarkdown <- function() browseURL("http://rmarkdown.rstudio.com/lesson-1.html")
 
-
+browseRcmdrHexSticker <- function(){
+  browseURL(paste0("file://", system.file("etc", "Rcmdr-hex.pdf", package="Rcmdr")))
+}
 
 # functions for building dialog boxes
 
@@ -1054,17 +1084,17 @@ checkReplace <- function(name, type=gettextRcmdr("Variable")){
 }
 
 errorCondition <- defmacro(window=top, recall=NULL, message, model=FALSE,
-    expr={
-        putRcmdr("cancelDialogReopen", TRUE)
-        if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
-        if (!is.null(window)){
-            if (GrabFocus()) tkgrab.release(window)
-            tkdestroy(window)
-        }
-        Message(message=message, type="error")
-        if (!is.null(recall)) recall()
-        else tkfocus(CommanderWindow())
-    })
+   expr={
+     putRcmdr("cancelDialogReopen", TRUE)
+     if (model) putRcmdr("modelNumber", getRcmdr("modelNumber") - 1)
+     if (!is.null(window)){
+       if (GrabFocus()) tkgrab.release(window)
+       tkdestroy(window)
+     }
+     Message(message=message, type="error")
+     if (!is.null(recall)) recall()
+     else tkfocus(CommanderWindow())
+   })
 
 subsetBox <- defmacro(window=top, subset.expression=NULL, model=FALSE,
     expr={
@@ -1187,7 +1217,7 @@ groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialTex
         tkbind(groupsBox$listbox, "<ButtonRelease-1>", onSelect)
     })
 
-modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=gettextRcmdr("Model Formula"),
+modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=gettextRcmdr("Model Formula"), showBar=FALSE,
                          expr={
   .rhsExtras <- if (is.null(rhsExtras)) hasLhs else rhsExtras
   checkAddOperator <- function(rhs){
@@ -1195,7 +1225,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
     if (length(rhs.chars) < 1) return(FALSE)
     check.char <- if ((rhs.chars[1] != " ") || (length(rhs.chars) == 1))
       rhs.chars[1] else rhs.chars[2]
-    !is.element(check.char, c("+", "*", ":", "/", "-", "^", "(", "%"))
+    !is.element(check.char, c("+", "*", ":", "/", "|", "-", "^", "(", "%"))
   }
   .variables <- Variables()
   word <- paste("\\[", gettextRcmdr("factor"), "\\]", sep="")
@@ -1216,8 +1246,9 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
       }
       else ""
       tclvalue(rhsVariable) <- if (rhs == "" ||
-                                   is.element(check.char, c("+", "*", ":", "/", "-", "^", "(", "%")))
+                                   is.element(check.char, c("+", "*", ":", "/",  "-", "^", "(", "%")))
         paste(rhs, var, sep="")
+      else if (check.char == "|") paste(rhs, var)
       else paste(rhs, "+", var)
       tkicursor(rhsEntry, "end")
       tkxview.moveto(rhsEntry, "1")
@@ -1247,6 +1278,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
         tclvalue(rhsVariable) <- if (rhs == "" ||
                                      is.element(check.char, c("+", "*", ":", "/", "-", "^", "(", "%")))
           paste(rhs, var, sep="")
+        else if (check.char == "|") paste(rhs, var)
         else paste(rhs, "+", var)
       }
       tkicursor(rhsEntry, "end")
@@ -1304,6 +1336,13 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
     tkicursor(rhsEntry, "end")
     tkxview.moveto(rhsEntry, "1")
   }
+  onBar <- function(){
+    rhs <- tclvalue(rhsVariable)
+    if (!checkAddOperator(rhs)) return()
+    tclvalue(rhsVariable) <- paste(rhs, " |",  sep="")
+    tkicursor(rhsEntry, "end")
+    tkxview.moveto(rhsEntry, "1")
+  }
   onIn <- function(){
     rhs <- tclvalue(rhsVariable)
     if (!checkAddOperator(rhs)) return()
@@ -1328,6 +1367,8 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   onLeftParen <- function(){
     tkfocus(rhsEntry)
     rhs <- tclvalue(rhsVariable)
+    nchar.rhs <- nchar(rhs)
+    if (substr(rhs, nchar.rhs, nchar.rhs) == "+") rhs <- paste0(rhs, " ")
     tclvalue(rhsVariable) <- paste(rhs, "(", sep="")
     tkicursor(rhsEntry, "end")
     tkxview.moveto(rhsEntry, "1")
@@ -1346,6 +1387,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   timesButton <- buttonRcmdr(operatorsFrame, text="*", width="3", command=onTimes)
   colonButton <- buttonRcmdr(operatorsFrame, text=":", width="3", command=onColon)
   slashButton <- buttonRcmdr(operatorsFrame, text="/", width="3", command=onSlash)
+  barButton <- buttonRcmdr(operatorsFrame, text="|", width="3", command=onBar)
   inButton <- buttonRcmdr(operatorsFrame, text="%in%", width="5", command=onIn)
   minusButton <- buttonRcmdr(operatorsFrame, text="-", width="3", command=onMinus)
   powerButton <- buttonRcmdr(operatorsFrame, text="^", width="3", command=onPower)
@@ -1444,7 +1486,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   dfDegFrame <- tkframe(outerOperatorsFrame)
   dfSplineSpin <- tkspinbox(dfDegFrame, textvariable=dfSplineVar, state="readonly", from=2, to=10, width=2)
   degPolySpin <- tkspinbox(dfDegFrame, textvariable=degPolyVar, state="readonly", from=2, to=5, width=2)
-  tkgrid(plusButton, timesButton, colonButton, slashButton, inButton, minusButton,
+  tkgrid(plusButton, timesButton, colonButton, slashButton, if (showBar) barButton else NULL, inButton, minusButton,
          powerButton, leftParenButton, rightParenButton, sticky="w")
   tkgrid(labelRcmdr(dfDegFrame, text=gettextRcmdr("df for splines: ")), dfSplineSpin,  sticky="se")
   tkgrid(labelRcmdr(dfDegFrame, text=gettextRcmdr("deg. for polynomials: ")), degPolySpin, sticky="se")
@@ -1456,7 +1498,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   if (hasLhs){
     tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Model Formula"), 
                       fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-    tkgrid(labelRcmdr(outerOperatorsFrame, text="Operators (click to formula):  "), operatorsFrame, sticky="nw")
+    tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Operators (click to formula):  ")), operatorsFrame, sticky="nw")
     if (.rhsExtras){
       tkgrid(bsplineButton, nsplineButton, polyButton, RawPolyButton, sticky="nw")
       tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Splines/Polynomials:\n(select variable and click)")), 
@@ -1481,7 +1523,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
     if (.rhsExtras){
       tkgrid(labelRcmdr(outerOperatorsFrame, text=formulaLabel, 
                         fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-      tkgrid(labelRcmdr(outerOperatorsFrame, text="Operators (click to formula):  "), operatorsFrame, sticky="nw")
+      tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Operators (click to formula):  ")), operatorsFrame, sticky="nw")
       tkgrid(bsplineButton, nsplineButton, polyButton, RawPolyButton, sticky="nw")
       tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Splines/Polynomials:\n(select variable and click)")), 
              splinePolyFrame, dfDegFrame, sticky="nw")
@@ -1623,7 +1665,8 @@ ActiveDataSet <- function(name){
           tkdestroy(open.showData.windows[[name]])
           suppress <- if(getRcmdr("suppress.X11.warnings")) ", suppress.X11.warnings=FALSE" else ""
           view.height <- max(as.numeric(getRcmdr("output.height")) + as.numeric(getRcmdr("log.height")), 10)
-          command <- paste("showData(as.data.frame(", name, "), placement='", posn, "', font=getRcmdr('logFont'), maxwidth=",
+          command <- paste("showData(as.data.frame(", name, "), title='", name, 
+                           "', placement='", posn, "', font=getRcmdr('logFont'), maxwidth=",
                            getRcmdr("log.width"), ", maxheight=", view.height, suppress, ")", sep="")
           window <- justDoIt(command)
           open.showData.windows[[ActiveDataSet()]] <- window
@@ -2046,7 +2089,7 @@ splitCmd <- function(cmd, width=getOption("width") - 4, at="[ ,]"){
     for(i in seq(nquotes/2))
       where[(where > singleQuotes[2 * i - 1]) & (where < singleQuotes[2 * i])] <- NA
     where <- na.omit(where)
-  }  
+  }
   else if (doubleQuotes[1] > 0 && (doubleQuotes[1] < singleQuotes[1] || singleQuotes[1] < 0) && (doubleQuotes[1] < comment[1] || comment[1] < 0 )){
     nquotes <- length(doubleQuotes)
     if (nquotes < 2) stop("unbalanced quotes")
@@ -2062,9 +2105,15 @@ splitCmd <- function(cmd, width=getOption("width") - 4, at="[ ,]"){
   where2 <- where[where <= width]
   where2 <- if (length(where2) == 0) where[1]
   else where2[length(where2)]
-  paste(substr(cmd, 1, where2), "\n  ", 
+  paste(substr(cmd, 1, where2), "\n  ",
         Recall(substr(cmd, where2 + 1, nchar(cmd)), width, at), sep="")
-} 
+}
+
+# splitCmd <- function(cmd, width=getOption("width")){
+#   cmd <- tidy_source(text=cmd, width.cutoff=width, output=FALSE)$text.tidy
+#   if (length(cmd) > 1) cmd <- paste(cmd, collapse="; ")
+#   cmd
+# }
 
 # the following function sorts names containing numerals "more naturally" than does sort()
 
@@ -2884,7 +2933,7 @@ RcmdrEditor <- function(buffer, title="R Commander Editor", ok,
     closeDialog()
   }
   .exit <- function(){
-    answer <- RcmdrTkmessageBox("Discard edits?", icon="question", type="yesno")
+    answer <- RcmdrTkmessageBox(gettextRcmdr("Discard edits?"), icon="question", type="yesno")
     if (as.character(answer) == "no") return("abort")
     else{
         if (title == "Edit R Markdown document") putRcmdr("Markdown.editor.open", FALSE)
@@ -3061,16 +3110,32 @@ setIdleCursor <- function() {
 
 # Rcmdr data editor
 
-editDataset <- function(data, dsname){
+editDataset <- function(data, dsname, ...){
+  UseMethod("editDataset")
+}
+
+editDataset.character <- function(data, dsname, ...){
+  if (missing(dsname)) dsname <- "Dataset"
+  data <- data.frame(V1="NA")
+  editDataset(data, dsname, ...)
+}
+
+editDataset.NULL <- function(data, dsname, ...){
+  if (missing(dsname)) dsname <- "Dataset"
+  data <- data.frame(V1="NA")
+  editDataset(data, dsname, ...)
+}
+
+editDataset.data.frame <- function(data, dsname, ...){
     putRcmdr("dataset.modified", FALSE)
-    if (missing(data)){
-        if (missing(dsname)) dsname <- "Dataset"
-        data <- data.frame(V1="NA")
-    }
-    else {
-        if (!inherits(data, "data.frame")) stop ("data argument must be a data frame")
-        if (missing(dsname)) dsname <- deparse(substitute(data))
-    }
+    # if (missing(data)){
+    #     if (missing(dsname)) dsname <- "Dataset"
+    #     data <- data.frame(V1="NA")
+    # }
+    # else {
+    #     if (!inherits(data, "data.frame")) stop ("data argument must be a data frame")
+    if (missing(dsname)) dsname <- deparse(substitute(data))
+    # }
     if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
     top <- tktoplevel(borderwidth = 10)
     tkwm.title(top, paste(gettextRcmdr("Data Editor"), ": ", dsname, sep=""))
@@ -3256,7 +3321,7 @@ editDataset <- function(data, dsname){
         addRow()
     }
     .exit <- function(){
-        answer <- RcmdrTkmessageBox("Discard edits?", icon="question", type="yesno", default="no")
+        answer <- RcmdrTkmessageBox(gettextRcmdr("Discard edits?"), icon="question", type="yesno", default="no")
         if (as.character(answer) == "no") "abort" else ""
     }
     OKCancelHelp(helpSubject="editDataset")
@@ -3756,3 +3821,46 @@ removeRedundantExtension <- function(file){
   file <- sub(paste0(ext, ext, "$"), ext, file)
   file
 }
+
+# functions to support mixed models
+
+anova.lmerMod <- function(object, ...) NextMethod()
+
+Anova.lmerMod <- function(mod, ...) NextMethod()
+
+linearHypothesis.lmerMod <- function(model, ...) NextMethod()
+
+coef.lmerMod <- function(object, ...) fixef(object, ...)
+
+anova.glmerMod <- function(object, ...) NextMethod()
+
+Anova.glmerMod <- function(mod, ...) NextMethod()
+
+linearHypothesis.glmerMod <- function(model, ...) NextMethod()
+
+coef.glmerMod <- function(object, ...) fixef(object, ...)
+
+plot.lmerMod <- function(x, ...) NextMethod()
+
+plot.glmerMod <- function(x, ...) NextMethod()
+
+validColumns <- function(dataset){
+  valid.classes <- getRcmdr("valid.classes") 
+  nc <- ncol(dataset)
+  valid <- logical(nc)
+  for (i in 1:nc){
+    valid[i] <- is.numeric(dataset[[i]]) || any(sapply(valid.classes, function(class) inherits(dataset[[i]], class)))
+  }
+  if (any(!valid)){
+    message <- if (sum(!valid) > 1){
+      paste0(gettextRcmdr("The following variables are not valid for use in the R Commander and will be omitted:"), "\n",
+            paste(colnames(dataset)[!valid], collapse=", "))
+    } else {
+      paste0(gettextRcmdr("The following variable is not valid for use in the R Commander and will be omitted:"), "\n",
+            colnames(dataset)[!valid])
+    }
+    Message(message=message, type="warning")
+  }
+  valid
+}
+

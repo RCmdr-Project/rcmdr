@@ -12,13 +12,13 @@ user interface) for R, based on the tcltk package.
 \details{
 \tabular{ll}{
 Package: \tab Rcmdr\cr
-Version: \tab 2.5-3\cr
-Date: \tab 2019-05-06\cr
+Version: \tab 2.6-1\cr
+Date: \tab 2019-11-19\cr
 Depends: \tab R (>= 3.4.0), grDevices, graphics, methods, stats, utils, splines, 
-  RcmdrMisc (>= 2.5-0), car (>= 3.0-1), effects (>= 4.0-3)\cr
-Imports: \tab tcltk, tcltk2 (>= 1.2-6), abind, relimp (>= 1.0-5)\cr
+  RcmdrMisc (>= 2.5-0), car (>= 3.0-3), effects (>= 4.0-3)\cr
+Imports: \tab tcltk, tcltk2 (>= 1.2-6), abind, relimp (>= 1.0-5), lme4\cr
 Suggests: \tab aplpack, boot, colorspace, e1071, foreign, grid, Hmisc, knitr, lattice, 
-  leaps, lmtest, markdown, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, nortest, 
+  leaps, lme4, lmtest, markdown, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, nortest, 
   readxl, rgl (>= 0.96.0), rmarkdown (>= 0.9.5), sem (>= 2.1-1) \cr
 ByteCompile: \tab yes\cr
 License: \tab GPL (>= 2)\cr

@@ -1,4 +1,4 @@
-# last modified 2019-01-21 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -651,9 +651,9 @@ Options <- function(){
   tkgrid(scientificNotationSliderFrame, sticky="w")
   tkgrid(labelRcmdr(outputTab, text=" "), sticky="w")    
   tkgrid(outputOptionsFrame, sticky="nw", columnspan = 3)
-  tkgrid(labelRcmdr(templateFrame, text="R Markdown template file"), rmdTemplateEntry, templateButton, sticky="w", padx=6)
+  tkgrid(labelRcmdr(templateFrame, text=gettextRcmdr("R Markdown template file")), rmdTemplateEntry, templateButton, sticky="w", padx=6)
   tkgrid(templateFrame, columnspan=2, sticky="w")
-  tkgrid(labelRcmdr(templateFrame, text="R knitr template file"), rnwTemplateEntry, rnwTemplateButton, sticky="w", padx=6)
+  tkgrid(labelRcmdr(templateFrame, text=gettextRcmdr("R knitr template file")), rnwTemplateEntry, rnwTemplateButton, sticky="w", padx=6)
   tkgrid(labelRcmdr(scaleFactorFrame, text=gettextRcmdr("Scale factor for Tk elements")), scaleFactorSlider, sticky="sw")
   tkgrid(scaleFactorFrame, sticky="w")
   tkgrid(labelRcmdr(otherTab, text=""))

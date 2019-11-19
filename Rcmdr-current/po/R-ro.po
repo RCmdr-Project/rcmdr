@@ -2,13 +2,13 @@
 # Traducerea in limba romana a pachetului Rcmdr
 # Copyright (C) 2005 John Fox
 # This file is distributed under the same license as the Rcmdr package
-# Adrian Dusa <dusa.adrian@gmail.com>, 2015
+# Adrian Dusa <dusa.adrian@gmail.com>, 2019
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.2-0\n"
+"Project-Id-Version: Rcmdr 2.6-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2015-08-07 14:30:00\n"
-"PO-Revision-Date: 2015-08-31 12:30:00+0200\n"
+"POT-Creation-Date: 2019-01-08 16:30:00\n"
+"PO-Revision-Date: 2019-08-18 00:30:00+0200\n"
 "Last-Translator: Adrian Dusa <dusa.adrian@gmail.com>\n"
 "Language-Team: Romanian <dusa.adrian@gmail.com>\n"
 "Language: Romanian\n"
@@ -5006,3 +5006,152 @@ msgstr "Grafic esantioane bootstrap"
 msgid "Binned Frequency Counts"
 msgstr "Frevente intervale"
 
+# additional messages in version 2.4-2
+
+  # these messages were inadvertently omitted
+
+msgid "Sample from ChiSquared Distribution"
+msgstr "Esantion din distributia chi-patrat"
+
+msgid "Sample from Lognormal Distribution"
+msgstr "Esantion din distributia lognormala"
+
+msgid "Sample from NegativeBinomial Distribution"
+msgstr "Esantion din distributia negativ binomiala"
+
+
+# additional messages in version 2.5-0
+
+  # new predictor effect plots dialog
+
+msgid "Predictor Effect Plots"
+msgstr "Ploturi efect predictor"
+
+msgid "Predictor effect plots..."
+msgstr "Ploturi efect predictor..."
+
+msgid "Plot all predictor effects?"
+msgstr "Afiseaza toate efectele predictor?"
+
+  # added to index plot dialog
+  
+msgid "Mark by groups"
+msgstr "Marcare pe grupuri"
+
+msgid "Mark by:"
+msgstr "Marcare ca:"
+
+  # new response transformation dialog
+  
+msgid "Response Transformation"
+msgstr "Transformare raspuns"
+
+msgid "Response transformation..." 
+msgstr "Transformare raspuns..."
+
+msgid "Box-Cox"
+msgstr "Box-Cox"
+
+msgid "Box-Cox with negatives"
+msgstr "Box-Cox cu negative"
+
+msgid "Yeo-Johnson"
+msgstr "Yeo-Johnson"
+
+  # new transform toward normality dialog
+  
+msgid "Transform toward normality..."
+msgstr "Transformare spre normalitate..."
+
+msgid "Transform Variables Toward Normality"
+msgstr "Transformare variabile catre normalitate"
+
+msgid "Select variables to transform (one or more)"
+msgstr "Selectare variabile pentru transformare (una sau mai multe)"
+
+msgid "Transformation Family"
+msgstr "Familie de transformare"
+
+msgid "Condition on:"
+msgstr "Conditie de:"
+
+  # new symmetry boxplot (symbox) dialog
+  
+msgid "Symmetry boxplot..."
+msgstr "Boxplot simetrie..."
+  
+msgid "Symmetry Boxplot"
+msgstr "Boxplot simetrie"
+
+msgid "Start (optional)"
+msgstr "Start (optional)"
+
+msgid "Powers"
+msgstr "Puteri"
+
+  # new influence index plot dialog
+  
+msgid "Influence index plot..." 
+msgstr "Plot index de influenta..."
+  
+msgid "Influence Index Plot"
+msgstr "Plot index de influenta"
+
+msgid "Bonferroni p-values"
+msgstr "Valori p Bonferroni"
+
+msgid "Diagnostics case statistics to plot"
+msgstr "Statistici de diagnosticare in plot"
+
+  # enhancements to Density Plot dialog
+  
+msgid "Method"
+msgstr "Metoda"
+
+msgid "adaptive kernel"
+msgstr "kernel adaptativ"
+  
+msgid "kernel"
+msgstr "kernel"
+
+msgid "From"
+msgstr "De la"
+
+msgid "To"
+msgstr "Pana la"
+
+# additional messages in version 2.5-1
+
+  # a corrected message
+  
+msgid "Case statistics to plot"
+msgstr "Statistici pe cazuri in plot"
+
+
+# additional message in version 2.6-0
+
+  # new mixed models dialogs
+  
+msgid "Linear Mixed Model"
+msgstr "Model liniar mixt"
+
+msgid "Linear mixed model..." 
+msgstr "Model liniar mixt..."
+
+msgid "Estimation Criterion"
+msgstr "Criteriu de estimare"
+
+msgid "Restricted maximum likelihood (REML)"
+msgstr "Verosimilitate maxima restrictiva (REML)"
+
+msgid "Maximum likelihood (ML)"
+msgstr "Verosimilitate maxima (ML)"
+
+msgid "There are no random effects in the model."
+msgstr "Nu exista efecte aleatoare in model"
+
+msgid "Generalized Linear Mixed Model"
+msgstr "Model mixt liniar generalizat"
+
+msgid "Generalized linear mixed model..."
+msgstr "Model mixt liniar generalizat..."

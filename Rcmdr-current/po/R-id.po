@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.2.3\n"
 
 # Indonesian translations for the Rcmdr package
 # Terjemahan Bahasa Indonesia Paket Rcmdr
@@ -17,7 +17,7 @@ msgstr ""
 # This file is distributed under the same license as the Rcmdr package
 # I Made Tirta <itirta.fmipa@unej.ac.id>, 2016, 2017,2018
 msgid "KMeans Clustering"
-msgstr "Pengugusan KMeans"
+msgstr "Pengugusan KMeans "
 
 msgid "Variables (pick one or more)"
 msgstr "Peubah (ambil satu atau lebih)"
@@ -3199,7 +3199,7 @@ msgid "Percentages of total"
 msgstr "Persentase keseluruhan"
 
 msgid "Components of chi-square statistic"
-msgstr "Komponen statristik chi-kuadrat"
+msgstr "Komponen statistik chi-kuadrat"
 
 # 3D scatterplots dialog
 msgid "Show squared residuals"
@@ -5232,3 +5232,34 @@ msgstr "Dari"
 
 msgid "To"
 msgstr "Sampai"
+
+# additional messages in version 2.5-1
+# a corrected message
+msgid "Case statistics to plot"
+msgstr "Statistika kasus yang di plot"
+
+# additional message in version 2.6-0
+# new mixed models dialogs
+msgid "Linear Mixed Model"
+msgstr "Model Tercampur Linier"
+
+msgid "Linear mixed model..."
+msgstr "Model tercampur linier..."
+
+msgid "Estimation Criterion"
+msgstr "Kriteria Estimasi"
+
+msgid "Restricted maximum likelihood (REML)"
+msgstr "Likelihood Maksimum Terbatas (REML)"
+
+msgid "Maximum likelihood (ML)"
+msgstr "Likelihood maksimum..."
+
+msgid "There are no random effects in the model."
+msgstr "Tidak ada efek random di dalam model"
+
+msgid "Generalized Linear Mixed Model"
+msgstr "Model Tercampur Linier Tergeneralisasi"
+
+msgid "Generalized linear mixed model..."
+msgstr "Model tercampur linier tergeneralisasi"

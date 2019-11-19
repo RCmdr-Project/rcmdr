@@ -1,9 +1,34 @@
+Changes in version 2.6-1
+
+  o Restore older version of splitCmd().
+  
+  o For GLMs and GLMMs, provide confidence intervals for exponentiated coefficients for models using log or logit link (suggestion of Tan Chuen Seng).
+  
+  o Make listTwoLevelFactors() work properly for logical and character variables  (treated as factors) with NAs (problem pointed out by Vilmantas Gegzna).
+  
+  o Insure that data set columns are usable in the Rcmdr, e.g., excluding list columns (problem pointed out by Vilmantas Gegzna).
+  
+  o Change instances of class(x) == "y" to inherits(x, "y").
+  
+  o Use apalike rather than apa BiBTeX package in Getting Started vignette (latter has been removed from TeXLive, reported by Brian Ripley).
+
+Changes in version 2.6-0
+
+  o Linear and generalized linear mixed models dialogs added.
+  
+  o Made editDataset() with data.frame method (suggestion of Ulrike Gromping).
+  
+  o New R Commander hex sticker.
+  
+  o Small fixes and improvements.
+  
+  o Updated translations (with thanks to): Chinese (Tsung-wu Ho), Indonesian (I Made Tirta), Japanese (Takaharu Araki), Polish (Lukasz Daniel), Romanian (Adrian Dusa),  Russian (Alexey Shipunov), Slovenian (Matjaz Jeran), Spanish (Manuel Munoz Marquez).
+  
 Changes in version 2.5-3
 
   o Updated Slovenian translation (thanks to Matjaz Jeran).
 
   o Small fixes.
-  
 
 Changes in version 2.5-2
 
@@ -13,15 +38,13 @@ Changes in version 2.5-2
   
   o No longer re-export utils::data() (suggestion of Brian Ripley).
   
-  o Small fixes
-
-
+  o Small fixes.
+  
 Changes in version 2.5-1
 
   o Updated translations (with thanks): Basque (Jose Ramon Rueda), French (Milan Bouchet-Valat), Indonesian (I Made Tirta), Japanese (Takaharu Araki).
   
   o Depend on R >= version 3.5.0.
-
 
 Changes in version 2.5-0
 
@@ -49,7 +72,6 @@ Changes in version 2.4-4
   
   o Removed natwidth, natheight parameters from \includegraphics{} in Getting Started manual to avoid omission of figures from CRAN build of manual.
 
-
 Changes to version 2.4-3
 
   o Updated several dialogs (scatterplot, scatterplot matrix, density plot, boxplot, QQ plot, 3D scatterplot, residual QQ plot, C+R plots, AV plots, influence plot, effect plots) for version 3.0-0 of the car package and version 4.0-1 of the effects package.
@@ -59,7 +81,6 @@ Changes to version 2.4-2
   o Updated Slovenian and Spanish translations (thanks to Matjaz Jeran and Manuel Munoz Marquez).
 
   o A few updates to R-Rcmdr.pot supplying previously missing messages for translation.
-
 
 Changes to version 2.4-1
 
@@ -116,8 +137,7 @@ Changes to version 2.4-0
   o Small interface improvements.
   
   o Updated translations (with thanks): simplified Chinese (Shulin Yang), French (Milan Bouchet-Valat), Indonesian (I Made Tirta), Japanese (Takaharu Araki), Polish (Lukasz Daniel), Russian (Alexey Shipunov), Spanish (Manual Munoz Marquez).
-
-
+  
 Changes to Version 2.3-2
 
   o Fixes to Spanish translation (from Manual Munoz Marquez).
@@ -133,8 +153,7 @@ Changes to Version 2.3-1
   o Fixes to Catalan translation (from Manel Salamero).
   
   o Updated Basque and German translations (thanks to Joserra Rueda and Fritz Leisch).
-
- 
+  
 Changes to Version 2.3-0
 
   o Added .rtf output to options for RMarkdown reports.

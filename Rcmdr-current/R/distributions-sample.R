@@ -1,6 +1,6 @@
 # Distributions menu dialogs for selecting samples
 
-# last modified 2017-09-14 by J. Fox
+# last modified 2019-05-15 by J. Fox
 # modified by Miroslav M. Ristic (15 January 2011)
 
 

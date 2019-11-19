@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2018-08-14 11:10+0800\n"
+"POT-Creation-Date: 2019-08-09 08:08+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Li Cheng Hsun <d966020003@student.nsysu.edu.tw>\n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 1.8.12\n"
 
 msgid "KMeans Clustering"
 msgstr "K 平均數集群"
@@ -5295,6 +5295,37 @@ msgstr ""
 
 msgid "To"
 msgstr ""
+
+# additional messages in version 2.5-1
+# a corrected message
+msgid "Case statistics to plot"
+msgstr ""
+
+# additional message in version 2.6-0
+# new mixed models dialogs
+msgid "Linear Mixed Model"
+msgstr "線性混和模式(多層次)"
+
+msgid "Linear mixed model..."
+msgstr "線性混和模式(多層次)..."
+
+msgid "Estimation Criterion"
+msgstr "估計準則"
+
+msgid "Restricted maximum likelihood (REML)"
+msgstr "受限制最大概似法 (REML)"
+
+msgid "Maximum likelihood (ML)"
+msgstr "最大概似法 (ML)"
+
+msgid "There are no random effects in the model."
+msgstr "此模型無隨機效果"
+
+msgid "Generalized Linear Mixed Model"
+msgstr "廣義線性混和模式(多層次)"
+
+msgid "Generalized linear mixed model..."
+msgstr "廣義線性混和模式(多層次)..."
 
 #~ msgid "Dataset"
 #~ msgstr "Dataset"

@@ -1,6 +1,6 @@
 # Distributions menu dialogs for plots
 
-# last modified 2016-07-17 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic  (20 July 06)
 #   modified by Miroslav M. Ristic (15 January 11)

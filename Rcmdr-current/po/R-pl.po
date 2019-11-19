@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr-pl 2.5-0\n"
+"Project-Id-Version: Rcmdr-pl 2.6-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2018-08-05 18:30:00\n"
+"POT-Creation-Date: 2019-01-08 16:30:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
 "Language-Team: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.1\n"
 
 msgid "KMeans Clustering"
 msgstr "Grupowanie metodą k-średnich"
@@ -5220,6 +5220,33 @@ msgstr "Z"
 
 msgid "To"
 msgstr "Do"
+
+msgid "Case statistics to plot"
+msgstr "Statystyki przypadków do narysowania"
+
+msgid "Linear Mixed Model"
+msgstr "Mieszany model liniowy"
+
+msgid "Linear mixed model..."
+msgstr "Mieszany model liniowy..."
+
+msgid "Estimation Criterion"
+msgstr "Kryterium estymacji"
+
+msgid "Restricted maximum likelihood (REML)"
+msgstr "Ograniczona maksymalna wiarygodność (REML)"
+
+msgid "Maximum likelihood (ML)"
+msgstr "Maksymalna wiarygodność (ML)"
+
+msgid "There are no random effects in the model."
+msgstr "Brak losowych efektów w modelu."
+
+msgid "Generalized Linear Mixed Model"
+msgstr "Uogólniony mieszany model liniowy"
+
+msgid "Generalized linear mixed model..."
+msgstr "Uogólniony mieszany model liniowy..."
 
 #~ msgid "Dataset"
 #~ msgstr "Zbiór danych"

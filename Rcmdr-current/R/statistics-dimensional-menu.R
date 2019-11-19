@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2018-08-01 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
 # Dimensional-analysis menu
 

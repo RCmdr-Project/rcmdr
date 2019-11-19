@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-01-07 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
 # Tables menu
 

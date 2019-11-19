@@ -1,6 +1,6 @@
 # this code originally by Dan Putler, used with permission 
 
-# last modified 2018-08-01 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
 
 listKmeansSolutions <- function(envir=.GlobalEnv, ...) {

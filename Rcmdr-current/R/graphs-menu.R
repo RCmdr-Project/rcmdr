@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2018-08-05 by J. Fox
+# last modified 2019-11-14 by J. Fox
 
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
@@ -672,7 +672,7 @@ scatterPlot <- function () {
         levels <- gsub(",", " ", levels)
         levels <- paste("c(", gsub('[ ]+', ", ", levels), ")", sep="")
         res <- try(is.numeric(eval(parse(text=levels))), silent=TRUE)
-        if (class(res) == "try-error" || !res){
+        if (inherits(res, "try-error") || !res){
             errorCondition(recall = scatterPlot, message = 
                     gettextRcmdr("Levels for ellipses must be numeric values\n  separated by spaces or commas."))
             return()
@@ -883,7 +883,7 @@ scatterPlotMatrix <- function () {
     levels <- gsub(",", " ", levels)
     levels <- paste("c(", gsub('[ ]+', ", ", levels), ")", sep="")
     res <- try(is.numeric(eval(parse(text=levels))), silent=TRUE)
-    if (class(res) == "try-error" || !res){
+    if (inherits(res, "try-error") || !res){
       errorCondition(recall = scatterPlotMatrix, message = 
                        gettextRcmdr("Levels for ellipses must be numeric values\n  separated by spaces or commas."))
       return()

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2015-12-15 by J. Fox
+# last modified 2019-05-15 by J. Fox
 
     # Proportions menu
 

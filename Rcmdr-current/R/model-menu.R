@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2019-01-07 by J. Fox
+# last modified 2019-11-15 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -29,7 +29,7 @@ selectActiveModel <- function(){
 			tkfocus(CommanderWindow())
 			return()
 		}
-		dataSet <- as.character(get(model)$call$data)
+		dataSet <- as.character(getCall(get(model))$data) # as.character(get(model)$call$data)
 		if (length(dataSet) == 0){
 			errorCondition(message=gettextRcmdr("There is no dataset associated with this model."))
 			return()
@@ -40,7 +40,7 @@ selectActiveModel <- function(){
 			return()
 		}
 		if (is.null(.activeDataSet) || (dataSet != .activeDataSet)) activeDataSet(dataSet)
-		putRcmdr("modelWithSubset", "subset" %in% names(get(model)$call))
+		putRcmdr("modelWithSubset", "subset" %in% names(getCall(get(model))))  # names(get(model)$call))
 		activeModel(model)
 		tkfocus(CommanderWindow())
 	}
@@ -103,13 +103,18 @@ summarizeModel <- function(){
 plotModel <- function(){
 	.activeModel <- ActiveModel()
 	if (is.null(.activeModel) || !checkMethod("plot", .activeModel)) return()
-	command <- "oldpar <- par(oma=c(0,0,3,0), mfrow=c(2,2))"
-	justDoIt(command)
-	logger(command)
+	is.lm <- inherits(get(.activeModel, envir=.GlobalEnv), "lm")
+	if (is.lm) {
+  	command <- "oldpar <- par(oma=c(0,0,3,0), mfrow=c(2,2))"
+  	justDoIt(command)
+  	logger(command)
+	}
 	doItAndPrint(paste("plot(", .activeModel, ")", sep=""))
-	command <- "par(oldpar)"
-	justDoIt(command)
-	logger(command)
+	if (is.lm) {
+  	command <- "par(oldpar)"
+  	justDoIt(command)
+  	logger(command)
+	}
 }
 
 CRPlots <- function(){
@@ -401,7 +406,7 @@ addObservationStatistics <- function () {
     }
     command <- paste(command, "\n})")
     result <- doItAndPrint(command)
-    if (class(result) != "try-error")activeDataSet(.activeDataSet, flushModel = FALSE, flushDialogMemory = FALSE)
+    if (!inherits(result, "try-error")) activeDataSet(.activeDataSet, flushModel = FALSE, flushDialogMemory = FALSE)
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "influence.measures", reset = "addObservationStatistics")
@@ -617,7 +622,7 @@ testLinearHypothesis <- function(){
         tkgrid(sandwichFrame, sticky = "w")
     }
     tkgrid(buttonsFrame, sticky="w")
-    dialogSuffix()
+    dialogSuffix() 
     if (!WindowsP()) setUpTable()
 } 
 
@@ -866,12 +871,23 @@ confidenceIntervals <- function () {
         }
         putDialog ("confidenceIntervals", list (initial.level = level,
                                                 initial.statistic = if(glm) tclvalue(typeVariable) else "LR"))
-        command <- if (glm) 
+        command <- if (glm){
             paste("Confint(", .activeModel, ", level=", level, 
                   ", type=\"", tclvalue(typeVariable), "\")", sep = "")
+        }
         else paste("Confint(", .activeModel, ", level=", level, 
                    ")", sep = "")
         doItAndPrint(command)
+        link <- if (isS4(eval(parse(text=.activeModel)))){
+          eval(parse(text=paste0(.activeModel, "@resp$family$link")))
+        } else {
+          eval(parse(text=paste0(.activeModel, "$family$link")))
+        }
+        if (!is.null(link) && link %in% c("logit", "log")) {
+          command <- paste("Confint(", .activeModel, ", level=", level, 
+                ", type=\"", tclvalue(typeVariable), "\"", ", exponentiate=TRUE)", sep = "")
+          doItAndPrint(command)
+        }
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject = "Confint", reset = "confidenceIntervals", apply = "confidenceIntervals")
@@ -988,6 +1004,9 @@ effectPlots <- function () {
   dialog.values <- getDialog("effectPlots", defaults)
   initializeDialog(title = gettextRcmdr("Model Effect Plots"))
   predictors <- all.vars(formula(get(activeModel(), envir=.GlobalEnv))[[3]])
+  if (inherits(get(activeModel(), envir=.GlobalEnv), "merMod")){
+    predictors <- setdiff(predictors, names(get(activeModel(), envir=.GlobalEnv)@cnms))
+  }
   predictorsFrame <- tkframe(top)
   radioButtons(predictorsFrame, name = "allEffects", buttons = c("yes", "no"), 
                values = c("TRUE", "FALSE"),  
@@ -1031,11 +1050,6 @@ effectPlots <- function () {
                        message = gettextRcmdr("You must select one or more predictors\n or plot all high-order effects."))
         return()
       }
-      # if (partial.residuals && (all(predictors %in% Factors()))){
-      #   errorCondition(recall = effectPlots, 
-      #                  message = gettextRcmdr("To plot partial residuals,\n there must be a least one numeric predictor."))
-      #   return()
-      # }
       command <- if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("multinom", "polr"))
         paste("plot(Effect(c(", paste(paste('"', predictors, '"', sep=""), collapse=", "), "), ", 
               activeModel(), '), axes=list(y=list(style="', style, '")))', sep="")      
@@ -1053,7 +1067,7 @@ effectPlots <- function () {
   tkgrid(allEffectsFrame, sticky="w")
   tkgrid(getFrame(predictorsBox), sticky="w")
   tkgrid(predictorsFrame, sticky="w")
-  if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("lm", "glm")){
+  if (class(get(activeModel(), envir=.GlobalEnv))[1] %in% c("lm", "glm", "lmerMod", "glmerMod")){
     tkgrid(labelRcmdr(partialResFrame, text=" "))
     tkgrid(partialResCheckBox, 
            labelRcmdr(partialResCheckBoxFrame, text=gettextRcmdr("Plot partial residuals")), 
@@ -1269,6 +1283,9 @@ predictorEffectPlots <- function () {
     dialog.values <- getDialog("predictorEffectPlots", defaults)
     initializeDialog(title = gettextRcmdr("Predictor Effect Plots"))
     predictors <- all.vars(formula(get(activeModel(), envir=.GlobalEnv))[[3]])
+    if (inherits(get(activeModel(), envir=.GlobalEnv), "merMod")){
+      predictors <- setdiff(predictors, names(get(activeModel(), envir=.GlobalEnv)@cnms))
+    }
     predictorsFrame <- tkframe(top)
     radioButtons(predictorsFrame, name = "allPredictorEffects", buttons = c("yes", "no"), 
                  values = c("TRUE", "FALSE"),  

@@ -204,7 +204,7 @@ Manuel \enc{Muñoz}{Munoz} \enc{Márquez}{Marquez} (traductor--revisor) \email{m
 
 Véase \url{http://knuth.uca.es/R/doku.php?id=equipotraduccion}
 
-La \enc{última}{ultima} \enc{versión}{version} de este fichero la puede encontrar en \url{http://knuth.uca.es/repos/R-contribuciones}
+%% La \enc{última}{ultima} \enc{versión}{version} de este fichero la puede encontrar en \url{http://knuth.uca.es/repos/R-contribuciones}
 }
 
 \seealso{\link{Plugins}} 

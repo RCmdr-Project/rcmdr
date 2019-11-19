@@ -4986,3 +4986,34 @@ msgstr "От"
 
 msgid "To"
 msgstr "До"
+
+# additional messages in version 2.5-1
+# a corrected message
+msgid "Case statistics to plot"
+msgstr "Визуализация статистик"
+
+# additional message in version 2.6-0
+# new mixed models dialogs
+msgid "Linear Mixed Model"
+msgstr "Линейная смешанная модель"
+
+msgid "Linear mixed model..."
+msgstr "Линейная смешанная модель..."
+
+msgid "Estimation Criterion"
+msgstr "Критерий подгонки"
+
+msgid "Restricted maximum likelihood (REML)"
+msgstr "Ограниченное максимальное правдоподобие (REML)"
+
+msgid "Maximum likelihood (ML)"
+msgstr "Максимальное правдоподобие (ML)"
+
+msgid "There are no random effects in the model."
+msgstr "В модели нет случайных эффектов."
+
+msgid "Generalized Linear Mixed Model"
+msgstr "Обобщенная линейная смешанная модель"
+
+msgid "Generalized linear mixed model..."
+msgstr "Обобщенная линейная смешанная модель..."
