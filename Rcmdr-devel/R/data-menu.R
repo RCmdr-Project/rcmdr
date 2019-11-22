@@ -1,4 +1,4 @@
-# last modified 2019-11-14 by J. Fox
+# last modified 2019-11-22 by J. Fox
 
 # Data menu dialogs
 
@@ -368,7 +368,9 @@ readDataSet <- function() {
             }
         }
         location <- tclvalue(locationVariable)
-        file <- if (location == "clipboard") "clipboard" 
+        file <- if (location == "clipboard") {
+            if (MacOSXP()) 'pipe("pbpaste")' else "clipboard" 
+        }
         else if (location == "local") tclvalue(tkgetOpenFile(filetypes=
                                                                  gettextRcmdr('{"All Files" {"*"}} {"Text Files" {".txt" ".TXT" ".dat" ".DAT" ".csv" ".CSV"}}')))
         else {
@@ -405,7 +407,8 @@ readDataSet <- function() {
         else tclvalue(otherVariable)
         miss <- tclvalue(missingVariable)
         dec <- if (tclvalue(decimalVariable) == "period") "." else ","
-        command <- paste('read.table("', file,'", header=', head,
+        if (!(location == "clipboard" && MacOSXP())) file <- paste0('"', file, '"')
+        command <- paste("read.table(", file, ", header=", head,
                          ', sep="', del, '", na.strings="', miss, '", dec="', dec, '", strip.white=TRUE)', sep="")
         logger(paste(dsnameValue, " <- ", command, sep=""))
         result <- justDoIt(command)

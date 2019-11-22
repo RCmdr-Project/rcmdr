@@ -1,6 +1,8 @@
 Changes in version 2.7-0
 
   o Better handling of discrete numeric variables (after suggestions by Ethan Harris).
+  
+  o Fix clipboard data set input to work on macOS.
 
 Changes in version 2.6-1
 
