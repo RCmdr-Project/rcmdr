@@ -3,6 +3,8 @@ Changes in version 2.7-0
   o Better handling of discrete numeric variables (after suggestions by Ethan Harris).
   
   o Fix clipboard data set input to work on macOS.
+  
+  o Improved pie charts and bar graphs via the piechart() and bargraph() functions in RcmdrMisc.
 
 Changes in version 2.6-1
 

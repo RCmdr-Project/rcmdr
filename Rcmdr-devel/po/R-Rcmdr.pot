@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.6-1\n"
+"Project-Id-Version: Rcmdr 2.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2019-11-11 14:30:00\n"
+"POT-Creation-Date: 2019-11-22 16:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5173,5 +5173,13 @@ msgstr ""
 
 # new messages for version 2.7-0
 
+  # for Numerical Summaries dialog
+
 msgid "Frequency Counts"
 msgstr ""
+
+  # for Piechart dialog
+
+msgid "Neither"
+msgstr ""
+

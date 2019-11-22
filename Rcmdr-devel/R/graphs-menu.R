@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2019-11-14 by J. Fox
+# last modified 2019-11-22 by J. Fox
 
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
@@ -1106,7 +1106,8 @@ barGraph <- function () {
 pieChart <- function () {
     Library("colorspace")
     defaults <- list (initial.variable = NULL, initial.xlab=gettextRcmdr("<auto>"),
-        initial.ylab=gettextRcmdr("<auto>"), initial.main=gettextRcmdr("<auto>"), initial.colors="default")
+        initial.ylab=gettextRcmdr("<auto>"), initial.main=gettextRcmdr("<auto>"), 
+        initial.colors="default", initial.scale="percent")
     dialog.values <- getDialog ("pieChart", defaults)
     initializeDialog(title = gettextRcmdr("Pie Chart"))
     optionsFrame <- tkframe(top)
@@ -1117,6 +1118,10 @@ pieChart <- function () {
                  labels = gettextRcmdr(c("Default", "From color palette")), 
                  title = gettextRcmdr("Color Selection"),
                  initialValue = dialog.values$initial.colors)
+    radioButtons(leftOptionsFrame, name = "scale", buttons = c("percent", "frequency", "none"), 
+                 labels = gettextRcmdr(c("Percentages", "Frequency counts", "Neither")), 
+                 title = gettextRcmdr("Include in Segment Labels"),
+                 initialValue = dialog.values$initial.scale)
     parFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Plot Labels"),
         font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
     xlabVar <- tclVar(dialog.values$initial.xlab)
@@ -1146,6 +1151,8 @@ pieChart <- function () {
     onOK <- function() {
         variable <- getSelection(variableBox)
         colors <- tclvalue(colorsVariable)
+        scale <- tclvalue(scaleVariable)
+        scale <- paste0(', scale="', scale, '"')
         nlevels <- length(levels(eval(parse(text=paste0(ActiveDataSet(), "$", variable)), envir=.GlobalEnv)))
         col <- if (colors == "default") paste0(', col=rainbow_hcl(', nlevels,  ')')
             else paste0(', col=palette()[2:', nlevels + 1,  ']')
@@ -1163,16 +1170,16 @@ pieChart <- function () {
         else paste(", main=\"", main, "\"", sep = "")
         putDialog ("pieChart", list (initial.variable = variable, 
             initial.colors=colors, initial.xlab=tclvalue(xlabVar),
-            initial.ylab=tclvalue(ylabVar), initial.main=tclvalue(mainVar)))
+            initial.ylab=tclvalue(ylabVar), initial.main=tclvalue(mainVar),
+            initial.scale=tclvalue(scaleVariable)))
         closeDialog()
         if (length(variable) == 0) {
             errorCondition(recall = pieChart, message = gettextRcmdr("You must select a variable"))
             return()
         }
         .activeDataSet <- ActiveDataSet()
-        command <- paste("with(", .activeDataSet, ", pie(table(", 
-            variable, "), labels=levels(",
-            variable, ")", xlab, ylab, main, col,
+        command <- paste("with(", .activeDataSet, ", piechart(", 
+            variable, xlab, ylab, main, col, scale,
             "))", sep = "")
         logger(command)
         justDoIt(command)
@@ -1182,6 +1189,7 @@ pieChart <- function () {
     OKCancelHelp(helpSubject = "pie", reset = "pieChart", apply = "pieChart")
     tkgrid(getFrame(variableBox), sticky="w")
     tkgrid(colorsFrame, sticky="w")
+    tkgrid(scaleFrame, sticky="w")
     tkgrid(leftOptionsFrame, parFrame, sticky = "nw")
     tkgrid(optionsFrame, sticky = "w")
     dialogSuffix(grid.buttons=TRUE)
