@@ -1,4 +1,4 @@
-# last modified 2019-11-11 by J. Fox
+# last modified 2019-11-23 by J. Fox
 
 # utility functions
 
@@ -3880,7 +3880,8 @@ listDiscreteNumeric <- function(dataSet=ActiveDataSet()) {
       threshold <- min(round(2*sqrt(n)), round(10*log10(n)), 100)
     }
     variables <- listNumeric()
-    variables[sapply(variables,function(.x)
+    if (length(variables) == 0) return(NULL)
+    variables[sapply(variables, function(.x)
       length(unique(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv)))) <= threshold)]
   }
 }
