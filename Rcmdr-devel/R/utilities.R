@@ -3892,3 +3892,35 @@ DiscreteNumeric <- function(names){
 
 discreteNumericP <- function(n=1) activeDataSetP() && length(listDiscreteNumeric()) >= n
 
+dichotomousResponseLabel <- defmacro(frame=top, responseBox=xBox, columnspan=1, initialText=NULL,
+                        expr={
+                          initial.label <- if (exists("dialog.values")) dialog.values$initial.responseLabel else NULL
+                          if  (is.null(initial.label)) {
+                            response <- getSelection(responseBox)
+                            initial.label <- if (length(response) == 0) NULL 
+                            else {
+                              levels <- eval(parse(text = paste("levels(", ActiveDataSet(), 
+                                                                "$", response, ")", sep = "")))
+                              levels[1]
+                            }
+                          }
+                          responseFrame <- tkframe(frame)
+                          .responseLabel <- if (!is.null(initialText)) initialText 
+                          else if (is.null(initial.label)) gettextRcmdr("<No response selected>") 
+                          else initial.label
+                          responseLabel <- labelRcmdr(responseFrame, text=.responseLabel)
+                          tkgrid(labelRcmdr(responseFrame, text=gettextRcmdr("Success: "), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), responseLabel, sticky="w")
+                          tkgrid(responseFrame, sticky="w", columnspan=columnspan)
+                          onSelect <- function(){
+                            response <- getSelection(responseBox)
+                            if (length(response) == 0) {
+                              .responseLabel <<- gettextRcmdr("<No response selected>") 
+                            }
+                            else {
+                              levels <- eval(parse(text=paste("levels(", ActiveDataSet(), "$", response, ")", sep="")))
+                              .responseLabel <<- levels[1]
+                            }
+                            tkconfigure(responseLabel, text=.responseLabel)
+                          }
+                          tkbind(responseBox$listbox, "<ButtonRelease-1>", onSelect)
+                        })

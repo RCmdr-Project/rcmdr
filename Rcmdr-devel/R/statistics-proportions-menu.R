@@ -6,7 +6,7 @@
 
 singleProportionTest <- function () {
     defaults <- list (initial.x = NULL, initial.alternative = "two.sided", initial.level = ".95", 
-        initial.test = "normal" , initial.p = ".5", initial.tab=0)
+        initial.test = "normal" , initial.p = ".5", initial.responseLabel=NULL, initial.tab=0)
     dialog.values <- getDialog ("singleProportionTest", defaults)
     initializeDialog(title = gettextRcmdr("Single-Sample Proportion Test"), use.tabs=TRUE)
     xBox <- variableListBox(dataTab, TwoLevelFactors(), title = gettextRcmdr("Variable (pick one)"),
@@ -23,7 +23,8 @@ singleProportionTest <- function () {
         test <- as.character(tclvalue(testVariable))
         p <- tclvalue(pVariable)
         putDialog ("singleProportionTest", list (initial.x = x, initial.alternative = alternative, 
-            initial.level = level, initial.test = test ,initial.p = p, initial.tab=tab))
+            initial.level = level, initial.test = test ,initial.p = p, 
+            initial.responseLabel=.responseLabel, initial.tab=tab))
         closeDialog()
         command <- paste("local({\n  .Table <- xtabs(~", x, ", data=", ActiveDataSet(), 
             ')\n  cat("\\nFrequency counts (test is for first level):\\n")\n  print(.Table)')
@@ -63,6 +64,7 @@ singleProportionTest <- function () {
         fg = getRcmdr("title.color"), font="RcmdrTitleFont"), pField, sticky = "w")
     tkgrid(pFrame, sticky = "w")
     tkgrid(labelRcmdr(rightFrame, text = ""))
+    dichotomousResponseLabel(optionsTab, initialText=dialog.values$initial.responseLabel)
     tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level: "), 
         fg = getRcmdr("title.color"), font="RcmdrTitleFont"), confidenceField, sticky = "w")
     tkgrid(confidenceFrame, sticky = "w")
@@ -75,7 +77,8 @@ singleProportionTest <- function () {
 twoSampleProportionsTest <- function () {
     Library("abind")
     defaults <- list(initial.groups = NULL, initial.response = NULL, initial.alternative = "two.sided", 
-        initial.confidenceLevel = ".95", initial.test = "normal", initial.label=NULL, initial.tab=0)
+        initial.confidenceLevel = ".95", initial.test = "normal", initial.label=NULL, 
+        initial.responseLabel=NULL, initial.tab=0)
     dialog.values <- getDialog("twoSampleProportionsTest", defaults)
     initializeDialog(title = gettextRcmdr("Two-Sample Proportions Test"), use.tabs=TRUE)
     .twoLevelFactors <- TwoLevelFactors()
@@ -108,7 +111,7 @@ twoSampleProportionsTest <- function () {
         closeDialog()
         putDialog("twoSampleProportionsTest", list(initial.groups = groups, initial.response = x, 
             initial.test = test, initial.alternative = alternative, initial.confidenceLevel = level,
-            initial.label=.groupsLabel, initial.tab=tab))
+            initial.label=.groupsLabel, initial.responseLabel=.responseLabel, initial.tab=tab))
         command <- paste("local({  .Table <- xtabs(~", groups, "+", x, ", data=", 
             ActiveDataSet(), ")", sep = "")
         command <- paste(command, '\n  cat("\\nPercentage table:\\n")', sep="")
@@ -139,6 +142,7 @@ twoSampleProportionsTest <- function () {
         title = gettextRcmdr("Type of Test"))
     tkgrid(getFrame(groupsBox), labelRcmdr(dataTab, text="  "), getFrame(xBox), sticky = "nw")
     groupsLabel(optionsTab, initialText=dialog.values$initial.label)
+    dichotomousResponseLabel(optionsTab, initialText=dialog.values$initial.responseLabel)
     tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level: "), 
         fg = getRcmdr("title.color"), font="RcmdrTitleFont"), confidenceField, sticky = "w")
     tkgrid(confidenceFrame, sticky = "w")

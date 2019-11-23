@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2019-11-22 16:30:00\n"
+"POT-Creation-Date: 2019-11-23 11:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5183,3 +5183,10 @@ msgstr ""
 msgid "Neither"
 msgstr ""
 
+  # for proportion-test dialogs
+  
+msgid "<No response selected>"
+msgstr ""
+
+msgid "Success: "
+msgstr ""
