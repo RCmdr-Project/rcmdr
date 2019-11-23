@@ -3910,7 +3910,7 @@ dichotomousResponseLabel <- defmacro(frame=top, responseBox=xBox, columnspan=1, 
                           else if (is.null(initial.label)) gettextRcmdr("<No response selected>") 
                           else initial.label
                           responseLabel <- labelRcmdr(responseFrame, text=.responseLabel)
-                          tkgrid(labelRcmdr(responseFrame, text=gettextRcmdr("Success: "), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), responseLabel, sticky="w")
+                          tkgrid(labelRcmdr(responseFrame, text=paste0(gettextRcmdr("Proportion"), " = "), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), responseLabel, sticky="w")
                           tkgrid(responseFrame, sticky="w", columnspan=columnspan)
                           onSelect <- function(){
                             response <- getSelection(responseBox)
