@@ -6,7 +6,9 @@ Changes in version 2.7-0
   
   o Improved pie charts and bar graphs via the piechart() and bargraph() functions in RcmdrMisc.
   
-  o Small improvements
+  o New File > Exit > Restart Commander menu item (suggestion of Vilmantas Gegzna).
+  
+  o Small improvements.
 
 Changes in version 2.6-1
 

@@ -57,4 +57,5 @@ globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                   'valuesOrQuantilesVariable', 'valuesOrQuantilesFrame',
                   'conditionalVariable', 'colorsVariable', 'colorsFrame', 'conditionalFrame',
                   'countsVariable', 'allPredictorEffectsFrame', 'allPredictorEffectsVariable', 'familyFrame', 'familyVariable',
-                  'bonfVariable', 'cookVariable', 'hatVariable', 'studentVariable', 'varsFrame', 'estimTypeFrame', 'estimTypeVariable'))
+                  'bonfVariable', 'cookVariable', 'hatVariable', 'studentVariable', 'varsFrame', 'estimTypeFrame', 'estimTypeVariable',
+                  '.responseLabel'))

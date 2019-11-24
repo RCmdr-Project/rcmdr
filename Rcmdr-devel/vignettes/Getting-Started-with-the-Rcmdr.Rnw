@@ -23,7 +23,7 @@
 and updated from Fox (2005). Please address correspondence to
 \texttt{jfox@mcmaster.ca}. }}
 \author{John Fox}
-\date{Version 2.6-0 (last modified: 2019-08-15)}
+\date{Version 2.6-0 (last modified: 2019-11-24)}
 \maketitle
 
 \section{Introduction}
@@ -1523,7 +1523,7 @@ Markdown} document produced for the current session:
 ---
 title: "Replace with Main Title"
 author: "Your Name"
-date: "AUTOMATIC"
+date: "`r Sys.Date()`"  # Uses current date
 ---
 
 

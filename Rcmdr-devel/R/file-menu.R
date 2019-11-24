@@ -1,4 +1,4 @@
-# last modified 2019-05-15 by J. Fox
+# last modified 2019-11-24 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -1065,4 +1065,20 @@ installSoftware <- function(){
         gettextRcmdr("Please read the help for this dialog\nbefore installing auxiliary software."), "\n")))
     tkgrid(selectSoftwareFrame, sticky="w")
     dialogSuffix(grid.buttons=TRUE)
+}
+
+# the following function suggested by Vilmantas Gegzna
+
+restartCommander <- function() {
+  response <- tclvalue(RcmdrTkmessageBox(message=gettextRcmdr("Restart the Commander?"),
+                                         icon="question", type="okcancel", default="cancel"))
+  if (response == "cancel") return(invisible(response))
+  else {
+    response <- closeCommander(
+      ask = getRcmdr("ask.to.exit"),
+      ask.save = getRcmdr("ask.on.exit")
+    )
+    if (response == "cancel") return(invisible(response))
+    else Commander()
+  }
 }

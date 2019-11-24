@@ -1,9 +1,9 @@
 
 # The R Commander and command logger
 
-# last modified 2019-11-15 by John Fox
+# last modified 2019-11-24 by John Fox
 
-# contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley
+# contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
 
 Commander <- function(){
@@ -740,7 +740,10 @@ setupGUI <- function(Menus){
     
     # right-click context menus
     contextMenuLog <- function(){
+        focused <- tkfocus()
+        on.exit(tkfocus(focused))
         .log <- LogWindow()
+        tkfocus(.log)
         contextMenu <- tkmenu(tkmenu(.log), tearoff=FALSE)
         tkadd(contextMenu, "command", label=gettextRcmdr("Submit"), command=onSubmit)
         tkadd(contextMenu, "separator")
@@ -759,7 +762,10 @@ setupGUI <- function(Menus){
         tkpopup(contextMenu, tkwinfo("pointerx", .log), tkwinfo("pointery", .log))
     }
     contextMenuRmd <- function(){
+        focused <- tkfocus()
+        on.exit(tkfocus(focused))
         .rmd <- RmdWindow()
+        tkfocus(.rmd)
         contextMenu <- tkmenu(tkmenu(.rmd), tearoff=FALSE)
         tkadd(contextMenu, "command", label=gettextRcmdr("Generate report"), command=onSubmit)
         tkadd(contextMenu, "command", label=gettextRcmdr("Edit R Markdown document"), command=editMarkdown)
@@ -780,7 +786,10 @@ setupGUI <- function(Menus){
         tkpopup(contextMenu, tkwinfo("pointerx", .rmd), tkwinfo("pointery", .rmd))
     }
     contextMenuRnw <- function(){
+        focused <- tkfocus()
+        on.exit(tkfocus(focused))
         .rnw <- RnwWindow()
+        tkfocus(.rnw)
         contextMenu <- tkmenu(tkmenu(.rnw), tearoff=FALSE)
         tkadd(contextMenu, "command", label=gettextRcmdr("Generate PDF report"), command=onSubmit)
         tkadd(contextMenu, "command", label=gettextRcmdr("Edit knitr document"), command=editKnitr)
@@ -801,7 +810,10 @@ setupGUI <- function(Menus){
         tkpopup(contextMenu, tkwinfo("pointerx", .rnw), tkwinfo("pointery", .rnw))
     }
     contextMenuOutput <- function(){
+        focused <- tkfocus()
+        on.exit(tkfocus(focused))
         .output <- OutputWindow()
+        tkfocus(.output)
         contextMenu <- tkmenu(tkmenu(.output), tearoff=FALSE)
         tkadd(contextMenu, "command", label=gettextRcmdr("Cut"), command=onCut)
         tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)
@@ -818,7 +830,10 @@ setupGUI <- function(Menus){
         tkpopup(contextMenu, tkwinfo("pointerx", .output), tkwinfo("pointery", .output))
     }
     contextMenuMessages <- function(){
+        focused <- tkfocus()
+        on.exit(tkfocus(focused))
         .messages <- MessagesWindow()
+        tkfocus(.messages)
         contextMenu <- tkmenu(tkmenu(.messages), tearoff=FALSE)
         tkadd(contextMenu, "command", label=gettextRcmdr("Cut"), command=onCut)
         tkadd(contextMenu, "command", label=gettextRcmdr("Copy"), command=onCopy)

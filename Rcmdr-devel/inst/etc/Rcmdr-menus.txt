@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2019-01-04 by J. Fox
+# last modified 2019-11-24 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -27,6 +27,7 @@
     menu    exitMenu        fileMenu        ""                                              ""                          ""          ""
     item    exitMenu        command         "From Commander"                                CloseCommander              ""          ""
     item    exitMenu        command         "From Commander and R"                          closeCommanderAndR          ""          ""
+    item    exitMenu        command         "Restart the Commander"                          restartCommander          ""          ""
     item    fileMenu        cascade         "Exit"                                          exitMenu                    ""          ""
     item    topMenu         cascade         "File"                                          fileMenu                    ""          ""
     menu    editMenu        topMenu         ""                                              ""                          ""          ""
