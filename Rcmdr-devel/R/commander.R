@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2019-11-25 by John Fox
+# last modified 2019-11-26 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -740,8 +740,8 @@ setupGUI <- function(Menus){
     
     # right-click context menus
     contextMenuLog <- function(){
-        focused <- tkfocus()
-        on.exit(tkfocus(focused))
+        # focused <- tkfocus()
+        # on.exit(tkfocus(focused))
         .log <- LogWindow()
         tkfocus(.log)
         contextMenu <- tkmenu(tkmenu(.log), tearoff=FALSE)
@@ -762,8 +762,8 @@ setupGUI <- function(Menus){
         tkpopup(contextMenu, tkwinfo("pointerx", .log), tkwinfo("pointery", .log))
     }
     contextMenuRmd <- function(){
-        focused <- tkfocus()
-        on.exit(tkfocus(focused))
+        # focused <- tkfocus()
+        # on.exit(tkfocus(focused))
         .rmd <- RmdWindow()
         tkfocus(.rmd)
         contextMenu <- tkmenu(tkmenu(.rmd), tearoff=FALSE)
@@ -786,8 +786,8 @@ setupGUI <- function(Menus){
         tkpopup(contextMenu, tkwinfo("pointerx", .rmd), tkwinfo("pointery", .rmd))
     }
     contextMenuRnw <- function(){
-        focused <- tkfocus()
-        on.exit(tkfocus(focused))
+        # focused <- tkfocus()
+        # on.exit(tkfocus(focused))
         .rnw <- RnwWindow()
         tkfocus(.rnw)
         contextMenu <- tkmenu(tkmenu(.rnw), tearoff=FALSE)
@@ -810,8 +810,8 @@ setupGUI <- function(Menus){
         tkpopup(contextMenu, tkwinfo("pointerx", .rnw), tkwinfo("pointery", .rnw))
     }
     contextMenuOutput <- function(){
-        focused <- tkfocus()
-        on.exit(tkfocus(focused))
+        # focused <- tkfocus()
+        # on.exit(tkfocus(focused))
         .output <- OutputWindow()
         tkfocus(.output)
         contextMenu <- tkmenu(tkmenu(.output), tearoff=FALSE)
@@ -830,8 +830,8 @@ setupGUI <- function(Menus){
         tkpopup(contextMenu, tkwinfo("pointerx", .output), tkwinfo("pointery", .output))
     }
     contextMenuMessages <- function(){
-        focused <- tkfocus()
-        on.exit(tkfocus(focused))
+        # focused <- tkfocus()
+        # on.exit(tkfocus(focused))
         .messages <- MessagesWindow()
         tkfocus(.messages)
         contextMenu <- tkmenu(tkmenu(.messages), tearoff=FALSE)

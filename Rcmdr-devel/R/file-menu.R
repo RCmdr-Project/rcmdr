@@ -1,4 +1,4 @@
-# last modified 2019-11-25 by J. Fox
+# last modified 2019-11-26 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -1069,16 +1069,35 @@ installSoftware <- function(){
 
 # the following function suggested by Vilmantas Gegzna
 
-restartCommander <- function() {
+# restartCommander <- function() {
+#   response <- tclvalue(RcmdrTkmessageBox(message=gettextRcmdr("Restart the Commander?"),
+#                                          icon="question", type="okcancel", default="cancel"))
+#   if (response == "cancel") return(invisible(response))
+#   else {
+#     response <- closeCommander(
+#       ask = getRcmdr("ask.to.exit"),
+#       ask.save = getRcmdr("ask.on.exit")
+#     )
+#     if (response == "cancel") return(invisible(response))
+#     else Commander()
+#   }
+# }
+
+restartCommander <- function(){
+  ask.save <- getRcmdr("ask.on.exit")
   response <- tclvalue(RcmdrTkmessageBox(message=gettextRcmdr("Restart the Commander?"),
                                          icon="question", type="okcancel", default="cancel"))
   if (response == "cancel") return(invisible(response))
-  else {
-    response <- closeCommander(
-      ask = getRcmdr("ask.to.exit"),
-      ask.save = getRcmdr("ask.on.exit")
-    )
-    if (response == "cancel") return(invisible(response))
-    else Commander()
+  if (ask.save && getRcmdr("log.commands") && tclvalue(tkget(LogWindow(), "1.0", "end")) != "\n"){
+    response2 <- RcmdrTkmessageBox(message=gettextRcmdr("Save script file?"),
+                                   icon="question", type="yesno", default="yes")
+    if ("yes" == tclvalue(response2)) saveLog()
   }
+  if (ask.save && getRcmdr("markdown.output") && getRcmdr("log.commands") && tclvalue(tkget(RmdWindow(), "1.0", "end")) != "\n"){
+    response2 <- RcmdrTkmessageBox(message=gettextRcmdr("Save R Markdown file?"),
+                                   icon="question", type="yesno", default="yes")
+    if ("yes" == tclvalue(response2)) saveRmd()
+  }
+  closeCommander(ask=FALSE)
+  Commander()
 }
