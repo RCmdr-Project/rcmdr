@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2019-11-24 by John Fox
+# last modified 2019-11-25 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -654,7 +654,7 @@ setupGUI <- function(Menus){
         if (!is.null(window)){
             open.showData.windows <- getRcmdr("open.showData.windows")
             open.window <- open.showData.windows[[ActiveDataSet()]]
-            if (!is.null(open.window)) tkdestroy(open.window)
+            if (!is.null(open.window) && open.window$ID %in% as.character(tkwinfo("children", "."))) tkdestroy(open.window)
             open.showData.windows[[ActiveDataSet()]] <- window
             putRcmdr("open.showData.windows", open.showData.windows)
         }

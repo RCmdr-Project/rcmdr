@@ -1,4 +1,4 @@
-# last modified 2019-11-24 by J. Fox
+# last modified 2019-11-25 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -294,7 +294,7 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
 	open.showData.windows <- getRcmdr("open.showData.windows")
 	if (length(open.showData.windows) > 0){
 	  for (window in open.showData.windows){
-	    tkdestroy(window)
+	    if (window$ID %in% as.character(tkwinfo("children", "."))) tkdestroy(window)
 	  }
 	  putRcmdr("open.showData.windows", list())
 	}

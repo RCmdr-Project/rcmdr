@@ -8,6 +8,8 @@ Changes in version 2.7-0
   
   o New File > Exit > Restart Commander menu item (suggestion of Vilmantas Gegzna).
   
+  o Fix Tk error produced by closing the dataset viewer and then repopening the same data set (reported by Jose G. Conde).
+  
   o Small improvements.
 
 Changes in version 2.6-1

@@ -1,4 +1,4 @@
-# last modified 2019-11-23 by J. Fox
+# last modified 2019-11-25 by J. Fox
 
 # utility functions
 
@@ -1658,7 +1658,8 @@ ActiveDataSet <- function(name){
         TwoLevelFactors(listTwoLevelFactors(name))
         DiscreteNumeric(listDiscreteNumeric(name))
         open.showData.windows <- getRcmdr("open.showData.windows")
-        if (!is.null(open.showData.windows) && name %in% names(open.showData.windows)){
+        if (!is.null(open.showData.windows) && name %in% names(open.showData.windows)
+            && open.showData.windows[[name]]$ID %in% as.character(tkwinfo("children", "."))){
           ID <- open.showData.windows[[name]]$ID
           posn <- as.numeric(c(tclvalue(.Tcl(paste("winfo x", ID))),
                        tclvalue(.Tcl(paste("winfo y", ID)))))
