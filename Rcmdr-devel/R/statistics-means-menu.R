@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-05-15 by J. Fox
+# last modified 2019-11-27 by J. Fox
 
 # Means menu
 
@@ -186,7 +186,8 @@ singleSampleTTest <- function () {
 oneWayAnova <- function () {
   Library("multcomp")
   Library("abind")
-  defaults <- list(initial.group = NULL, initial.response = NULL, initial.pairwise = 0, initial.welch=0)
+  defaults <- list(initial.group = NULL, initial.response = NULL, initial.pairwise = 0, 
+                   initial.welch=0, initial.level=0.95)
   dialog.values <- getDialog("oneWayAnova", defaults)
   initializeDialog(title = gettextRcmdr("One-Way Analysis of Variance"))
   UpdateModelNumber()
@@ -202,6 +203,12 @@ oneWayAnova <- function () {
   optionsFrame <- tkframe(top)
   pairwiseVariable <- tclVar(dialog.values$initial.pairwise)
   pairwiseCheckBox <- ttkcheckbutton(optionsFrame, variable = pairwiseVariable)
+  
+  confidenceFrame <- tkframe(optionsFrame)
+  confidenceLevel <- tclVar(dialog.values$initial.level)
+  confidenceField <- ttkentry(confidenceFrame, width = "6", 
+                              textvariable = confidenceLevel)
+  
   welchVariable <- tclVar(dialog.values$initial.welch)
   welchCheckBox <- ttkcheckbutton(optionsFrame, variable = welchVariable)
   onOK <- function() {
@@ -222,6 +229,8 @@ oneWayAnova <- function () {
     }
     group <- getSelection(groupBox)
     response <- getSelection(responseBox)
+    level <- tclvalue(confidenceLevel)
+    alpha <- 1 - as.numeric(level)
     closeDialog()
     if (length(group) == 0) {
       errorCondition(recall = oneWayAnova, message = gettextRcmdr("You must select a groups factor."))
@@ -245,7 +254,7 @@ oneWayAnova <- function () {
     pairwise <- tclvalue(pairwiseVariable)
     welch <- tclvalue(welchVariable)
     putDialog ("oneWayAnova", list (initial.group = group, initial.response = response, initial.pairwise = pairwise,
-                                    initial.welch=welch))
+                                    initial.welch=welch, initial.level=level))
     if (pairwise == 1) {
       if (eval(parse(text = paste("length(levels(", .activeDataSet, 
                                   "$", group, ")) < 3")))) 
@@ -257,9 +266,9 @@ oneWayAnova <- function () {
                              ", linfct = mcp(", group, " = \"Tukey\"))", 
                              sep = "")
         commands[2] <- "  print(summary(.Pairs)) # pairwise tests"
-        commands[3] <- "  print(confint(.Pairs)) # confidence intervals"
-        commands[4] <- "  print(cld(.Pairs)) # compact letter display"
-        commands[5] <- "  old.oma <- par(oma=c(0,5,0,0))"
+        commands[3] <- paste0("  print(confint(.Pairs, level=", level, ")) # confidence intervals")
+        commands[4] <- paste0("  print(cld(.Pairs, level=", alpha, ")) # compact letter display")
+        commands[5] <- "  old.oma <- par(oma=c(0, 5, 0, 0))"
         commands[6] <- "  plot(confint(.Pairs))"
         commands[7] <- "  par(old.oma)\n})"
         doItAndPrint(paste(commands, collapse="\n"))
@@ -280,6 +289,9 @@ oneWayAnova <- function () {
   tkgrid(dataFrame, sticky="w")
   tkgrid(pairwiseCheckBox, labelRcmdr(optionsFrame, text = gettextRcmdr("Pairwise comparisons of means")), 
          sticky = "w")
+  tkgrid(labelRcmdr(confidenceFrame, text = gettextRcmdr("Confidence Level: ")), 
+         confidenceField, sticky = "w", padx=c(10, 0))
+  tkgrid(confidenceFrame, sticky = "w", columnspan=2)
   tkgrid(welchCheckBox, labelRcmdr(optionsFrame, text = gettextRcmdr("Welch F-test not assuming equal variances")), 
          sticky = "w")
   tkgrid(optionsFrame, sticky = "w")
