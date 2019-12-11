@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2014-05-15 by J. Fox
+# last modified 2019-12-11 by J. Fox
 
 # Variances menu
 
@@ -35,9 +35,11 @@ twoVariancesFTest <- function () {
                                         initial.alternative = alternative, initial.confidenceLevel = level,
                                         initial.label=.groupsLabel, initial.tab=tab))
     .activeDataSet <- ActiveDataSet()
-    doItAndPrint(paste("with(", .activeDataSet, ", tapply(", response, 
-                       ", ", group, ",  var, na.rm=TRUE))", 
-                       sep = ""))
+    # doItAndPrint(paste("with(", .activeDataSet, ", tapply(", response, 
+    #                    ", ", group, ",  var, na.rm=TRUE))", 
+    #                    sep = ""))
+    doItAndPrint(paste0("Tapply(", response, " ~ ", group, ", var, na.action=na.omit, data=", 
+                        .activeDataSet, ") # variances by group")) 
     doItAndPrint(paste("var.test(", response, " ~ ", group, 
                        ", alternative='", alternative, "', conf.level=", 
                        level, ", data=", .activeDataSet, ")", sep = ""))
@@ -91,15 +93,19 @@ BartlettTest <- function () {
     putDialog("BartlettTest", list(initial.group = group, initial.response = response))
     .activeDataSet <- ActiveDataSet()
     if (length(group) == 1){
-      doItAndPrint(paste("with(", .activeDataSet, ", tapply(",  
-                         response, ", ", 
-                         group, ", var, na.rm=TRUE))", sep = ""))
+      # doItAndPrint(paste("with(", .activeDataSet, ", tapply(",  
+      #                    response, ", ", 
+      #                    group, ", var, na.rm=TRUE))", sep = ""))
+      doItAndPrint(paste0("Tapply(", response, " ~ ", group, ", var, na.action=na.omit, data=", 
+                          .activeDataSet, ") # variances by group")) 
       doItAndPrint(paste("bartlett.test(", response, " ~ ", 
                          group, ", data=", .activeDataSet, ")", sep = ""))
     }
     else{
-      command <- paste("with(", .activeDataSet, ", tapply(", response, 
-                       ", list(", paste(paste(group, sep=""), collapse=", "), "), var, na.rm=TRUE))", sep="")
+      # command <- paste("with(", .activeDataSet, ", tapply(", response, 
+      #                  ", list(", paste(paste(group, sep=""), collapse=", "), "), var, na.rm=TRUE))", sep="")
+      command <- paste0("Tapply(", response, " ~ ", paste0(group, collapse=" + "), 
+                        ", var, na.action=na.omit, data=", .activeDataSet, ") # variances")
       doItAndPrint(command)
       doItAndPrint(paste("bartlett.test(", response, " ~ interaction(", 
                          paste(group, collapse=", "), "), data=", .activeDataSet, ")", sep = ""))
@@ -145,15 +151,19 @@ LeveneTest <- function () {
                                  initial.center = center))
     .activeDataSet <- ActiveDataSet()
     if (length(group) == 1){
-      doItAndPrint(paste("with(", .activeDataSet, ", tapply(", paste( 
-        response, sep = ""), ", ", 
-        paste(group, sep = ""), ", var, na.rm=TRUE))", sep = ""))
+      # doItAndPrint(paste("with(", .activeDataSet, ", tapply(", paste( 
+      #   response, sep = ""), ", ", 
+      #   paste(group, sep = ""), ", var, na.rm=TRUE))", sep = ""))
+      doItAndPrint(paste0("Tapply(", response, " ~ ", group, ", var, na.action=na.omit, data=", 
+                          .activeDataSet, ") # variances by group")) 
       doItAndPrint(paste("leveneTest(", response, " ~ ", group, ", data=",
                          .activeDataSet, ', center="', center, '")', sep=""))
     }
     else{
-      command <- paste("with(", .activeDataSet, ", tapply(", response, 
-                       ", list(", paste(paste(group,sep=""), collapse=", "), "), var, na.rm=TRUE))", sep="")
+      # command <- paste("with(", .activeDataSet, ", tapply(", response, 
+      #                  ", list(", paste(paste(group,sep=""), collapse=", "), "), var, na.rm=TRUE))", sep="")
+      command <- paste0("Tapply(", response, " ~ ", paste0(group, collapse=" + "), 
+                        ", var, na.action=na.omit, data=", .activeDataSet, ") # variances")
       doItAndPrint(command)
       doItAndPrint(paste("leveneTest(", response, " ~ ",
                          paste(group, collapse="*"), ", data=", .activeDataSet, ', center="', center, '")', sep = ""))

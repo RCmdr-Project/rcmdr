@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-11-27 by J. Fox
+# last modified 2019-12-11 by J. Fox
 
 # Means menu
 
@@ -343,21 +343,25 @@ multiWayAnova <- function () {
       return()
     }
     .activeDataSet <- ActiveDataSet()
-    groups.list <- paste(paste(groups, sep = ""), collapse = ", ")
+    groups.list <- paste0(groups, collapse = " + ")
     doItAndPrint(paste(modelValue, " <- lm(", response, 
                        " ~ ", paste(groups, collapse = "*"), ", data=", 
                        .activeDataSet, ", contrasts=list(", paste(paste(groups, '="contr.Sum"'), collapse=", "), "))", sep = ""))
     doItAndPrint(paste("Anova(", modelValue, ")", sep = ""))
-    doItAndPrint(paste("with(", .activeDataSet, ", (tapply(", response, 
-                       ", list(", groups.list, "), mean, na.rm=TRUE))) # means", 
-                       sep = ""))
-    doItAndPrint(paste("with(", .activeDataSet, ", (tapply(", response, 
-                       ", list(", groups.list, "), sd, na.rm=TRUE))) # std. deviations", 
-                       sep = ""))
+    # doItAndPrint(paste("with(", .activeDataSet, ", (tapply(", response, 
+    #                    ", list(", groups.list, "), mean, na.rm=TRUE))) # means", 
+    #                    sep = ""))
+    # doItAndPrint(paste("with(", .activeDataSet, ", (tapply(", response, 
+    #                    ", list(", groups.list, "), sd, na.rm=TRUE))) # std. deviations", 
+    #                    sep = ""))
     # doItAndPrint(paste("with(", .activeDataSet, ", (tapply(", response, 
     #                    ", list(", groups.list, "), function(x) sum(!is.na(x))))) # counts", 
     #                    sep = ""))
-    doItAndPrint(paste("xtabs(~ ", paste(groups, collapse=" + "), ", data=", .activeDataSet, ") # counts", sep=""))
+    doItAndPrint(paste0("Tapply(", response, " ~ ", groups.list, ", mean, na.action=na.omit, data=", 
+                        .activeDataSet, ") # means")) 
+    doItAndPrint(paste0("Tapply(", response, " ~ ", groups.list, ", sd, na.action=na.omit, data=", 
+                        .activeDataSet, ") # std. deviations")) 
+    doItAndPrint(paste("xtabs(~ ",groups.list, ", data=", .activeDataSet, ") # counts", sep=""))
     activeModel(modelValue)
     putRcmdr("modelWithSubset", FALSE)
     tkfocus(CommanderWindow())

@@ -310,18 +310,20 @@ statisticsTable <- function () {
                                        initial.statistic=stat, initial.other = if(stat == "other") statistic else ""))  
     closeDialog()
     .activeDataSet <- ActiveDataSet()
-    groups.list <- paste(paste(groups, sep = ""), collapse = ", ")
+    groups.list <- paste0(groups, collapse = " + ")
     for (response in responses) {
       if (length(responses) > 1) 
         doItAndPrint(paste("# Table for ", response, 
                            ":", sep = ""))
-      doItAndPrint(paste("with(", .activeDataSet, ", tapply(",  
-                         response, ", list(", groups.list, "), ", statistic, 
-                         ", na.rm=TRUE))", sep = ""))
+      # doItAndPrint(paste("with(", .activeDataSet, ", tapply(",  
+      #                    response, ", list(", groups.list, "), ", statistic, 
+      #                    ", na.rm=TRUE))", sep = ""))
+      doItAndPrint(paste0("Tapply(", response, " ~ ", groups.list, ", ", statistic, ", na.action=na.omit, data=", 
+                          .activeDataSet, ") # ", statistic, " by groups")) 
     }
     tkfocus(CommanderWindow())
   }
-  OKCancelHelp(helpSubject = "tapply", reset="statisticsTable", apply="statisticsTable")
+  OKCancelHelp(helpSubject = "Tapply", reset="statisticsTable", apply="statisticsTable")
   tkgrid(getFrame(groupBox), labelRcmdr(variablesFrame, text = "    "), 
          getFrame(responseBox), sticky = "nw")
   tkgrid(variablesFrame, sticky = "w")
