@@ -10,7 +10,9 @@ Changes in version 2.7-0
   
   o Fix Tk error produced by closing the dataset viewer and then repopening the same data set (reported by Jose G. Conde).
   
-  o Small improvements.
+  o Fixes to handling panes with console.output and log.commands options set to various values  (thanks to Vilmantas Gegzna).
+  
+  o Small improvements and bug fixes.
 
 Changes in version 2.6-1
 
