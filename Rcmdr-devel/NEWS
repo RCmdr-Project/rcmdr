@@ -4,7 +4,7 @@ Changes in version 2.7-0
   
   o Fix clipboard data set input to work on macOS.
   
-  o Improved pie charts and bar graphs via the piechart() and bargraph() functions in RcmdrMisc.
+  o Improved pie charts and bar graphs via the piechart() and Barplot() functions in RcmdrMisc.
   
   o New File > Exit > Restart Commander menu item (suggestion of Vilmantas Gegzna).
   
