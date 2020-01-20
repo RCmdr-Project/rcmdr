@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.6-2\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2020-01-20 10:00:00\n"
+"POT-Creation-Date: 2020-01-20 13:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5073,7 +5073,7 @@ msgid "Transformation Family"
 msgstr ""
 
 msgid "Condition on:"
-msgstr
+msgstr ""
 
   # new symmetry boxplot (symbox) dialog
   

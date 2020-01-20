@@ -1,6 +1,8 @@
 Changes in version 2.6-2
 
   o New Hungarian translation (thanks to Tamas Ferenci and Andrea Harnos).
+  
+  o Fixed bug in Ctrl-S for script window (reported by Mayeul Kauffmann).
 
 Changes in version 2.6-1
 
