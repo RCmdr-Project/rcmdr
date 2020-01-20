@@ -1,3 +1,7 @@
+Changes in version 2.6-2
+
+  o New Hungarian translation (thanks to Tamas Ferenci and Andrea Harnos).
+
 Changes in version 2.6-1
 
   o Restore older version of splitCmd().
