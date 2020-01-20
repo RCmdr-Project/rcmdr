@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Rcmdr 2.6-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: 2019-11-11 14:30:00\n"
-"PO-Revision-Date: 2020-01-20 00:04+0100\n"
+"PO-Revision-Date: 2020-01-20 16:40+0100\n"
 "Language-Team: Hungarian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4520,6 +4520,9 @@ msgstr "Sornevek a munkafüzet első oszlopában"
 msgid "<no variable selected>"
 msgstr "<nincs változó kiválasztva>"
 
+msgid "Weights"
+msgstr "Súlyok"
+
 # new effect-plots dialog
 msgid "Model Effect Plots"
 msgstr "Modell hatások ábrái"
@@ -5248,6 +5251,9 @@ msgstr "Válassza ki a transzformálandó változókat (egyet vagy többet)"
 
 msgid "Transformation Family"
 msgstr "Transzformáció családja"
+
+msgid "Condition on:"
+msgstr "Feltételesen:"
 
 # new symmetry boxplot (symbox) dialog
 msgid "Symmetry boxplot..."
