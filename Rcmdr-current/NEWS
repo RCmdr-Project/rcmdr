@@ -1,3 +1,7 @@
+Changes in version 2.6-3
+
+  o Fix bug in processing resubmitted multi-line commands (reported by Katarina Kosmelj).
+
 Changes in version 2.6-2
 
   o New Hungarian translation (thanks to Tamas Ferenci and Andrea Harnos).

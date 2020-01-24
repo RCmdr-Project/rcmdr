@@ -1,4 +1,4 @@
-# last modified 2019-11-11 by J. Fox
+# last modified 2020-01-241 by J. Fox
 
 # utility functions
 
@@ -2070,7 +2070,8 @@ tclvalue <- function(x) trim.blanks(tcltk::tclvalue(x))
 # the following function splits a character string at blanks and commas according to width
 
 splitCmd <- function(cmd, width=getOption("width") - 4, at="[ ,]"){
-  if (length(grep("\n", cmd)) >0 ){
+  if (length(cmd) > 1) cmd <- paste(cmd, collapse="\n")
+  if (length(grep("\n", cmd)) > 0){
     cmds <- strsplit(cmd, "\n")[[1]]
     allcmds <- character(length(cmds))
     for (i in 1:length(cmds))
