@@ -1,4 +1,4 @@
-# last modified 2019-11-26 by J. Fox
+# last modified 2020-01-20 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -23,7 +23,7 @@ loadLog <- function(){
 }
 
 saveLog <- function(logfilename) {
-  .logFileName <- if (missing(logfilename) || (logfilename == "%logfilename")) 
+  .logFileName <- if (missing(logfilename) || (logfilename == "%logfilename") || (logfilename == "logfilename")) 
     getRcmdr("logFileName") else logfilename
   if (is.null(.logFileName)) {
     saveLogAs()

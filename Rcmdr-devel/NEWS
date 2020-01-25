@@ -13,6 +13,20 @@ Changes in version 2.7-0
   o Fixes to handling panes with console.output and log.commands options set to various values  (thanks to Vilmantas Gegzna).
   
   o Small improvements and bug fixes.
+  
+Changes in version 2.6-3
+
+  o Fix bug in processing resubmitted multi-line commands (reported by Katarina Kosmelj).
+  
+  o Fix bug in processing multiline comments in onSubmit() in Commander.
+  
+  o Updated Slovenian translation (thanks to Matjaz Jeran).
+
+Changes in version 2.6-2
+
+  o New Hungarian translation (thanks to Tamas Ferenci and Andrea Harnos).
+  
+  o Fixed bug in Ctrl-S for script window (reported by Mayeul Kauffmann).
 
 Changes in version 2.6-1
 
