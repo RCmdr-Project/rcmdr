@@ -3,6 +3,8 @@ Changes in version 2.6-3
   o Fix bug in processing resubmitted multi-line commands (reported by Katarina Kosmelj).
   
   o Fix bug in processing multiline comments in onSubmit() in Commander.
+  
+  o Updated Slovenian translation (thanks to Matjaz Jeran).
 
 Changes in version 2.6-2
 
