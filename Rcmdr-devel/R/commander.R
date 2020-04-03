@@ -63,8 +63,8 @@ manageRcmdrEnv <- function(){
         }
         
         # the following two lines to be commented-out for debugging:
-        assignInMyNamespace("RcmdrEnv", RcmdrEnv)
-        assignInMyNamespace(".RcmdrEnv", NULL)
+        # assignInMyNamespace("RcmdrEnv", RcmdrEnv)
+        # assignInMyNamespace(".RcmdrEnv", NULL)
         
     }
 }

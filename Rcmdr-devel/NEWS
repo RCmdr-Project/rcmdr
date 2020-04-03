@@ -1,5 +1,7 @@
 Changes in version 2.7-0
 
+  o New dialogs for repeated-measures ANOVA and ANCOVA with one or two repeated-measures factors.
+
   o Better handling of discrete numeric variables (after suggestions by Ethan Harris).
   
   o Fix clipboard data set input to work on macOS.

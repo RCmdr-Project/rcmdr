@@ -1,4 +1,4 @@
-# last modified 2019-01-02 by J. Fox
+# last modified 2020-04-03 by J. Fox
 
 globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                   '.activeModel', 'varVariable', 'rhsVariable', 'varFrame', 'formulaFrame',
@@ -58,4 +58,4 @@ globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                   'conditionalVariable', 'colorsVariable', 'colorsFrame', 'conditionalFrame',
                   'countsVariable', 'allPredictorEffectsFrame', 'allPredictorEffectsVariable', 'familyFrame', 'familyVariable',
                   'bonfVariable', 'cookVariable', 'hatVariable', 'studentVariable', 'varsFrame', 'estimTypeFrame', 'estimTypeVariable',
-                  '.responseLabel'))
+                  '.responseLabel', 'testStatisticVariable', 'designTab', 'testStatisticFrame'))

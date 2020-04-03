@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2019-11-24 by J. Fox
+# last modified 2020-04-03 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -61,8 +61,6 @@
     item    importMenu      command         "from SAS b7dat file..."                        importSASb7dat                   ""           "packageAvailable('RcmdrMisc')"
     item    importMenu      command         "from Minitab data set..."                      importMinitab               ""          "packageAvailable('foreign')"
     item    importMenu      command         "from STATA data set..."                        importSTATA                 ""          "packageAvailable('foreign')"
-#    item    importMenu      command         "from Excel, Access or dBase data set..."       importRODBCtable            ""          "WindowsP() && packageAvailable('RODBC') && (.Platform$r_arch == 'i386')"
-#    item    importMenu      command         "from Excel file..."                            importExcel                 ""      "packageAvailable('XLConnect') && (!WindowsP() | (.Platform$r_arch != 'i386')) && hasJava()"
     item    importMenu      command         "from Excel file..."                            importExcel                 ""      "packageAvailable('readxl')"
 
     item    dataMenu        cascade         "Import data"                                   importMenu                  ""          ""
@@ -109,7 +107,6 @@
     item    summariesMenu   command         "Table of statistics..."                        statisticsTable             "numericP() && factorsP()"  ""
     item    summariesMenu   command         "Correlation matrix..."                         correlationMatrix           "numericP(2)"               "packageAvailable('RcmdrMisc')"
     item    summariesMenu   command         "Correlation test..."                           correlationTest             "numericP(2)"               "packageAvailable('RcmdrMisc')"
-#    item    summariesMenu   command         "Shapiro-Wilk test of normality..."             ShapiroTest                 "numericP()"                ""
     item    summariesMenu   command         "Test of normality..."                          NormalityTest               "numericP()"                "packageAvailable('nortest')"
     item    summariesMenu   command         "Transform toward normality..."                          transformVariables               "numericP()"                "packageAvailable('car')"
 
@@ -123,6 +120,8 @@
     item    meansMenu       command         "Paired t-test..."                              pairedTTest                 "numericP(2)"          ""
     item    meansMenu       command         "One-way ANOVA..."                              oneWayAnova                 "numericP() && factorsP()" "packageAvailable('multcomp') && packageAvailable('abind')"
     item    meansMenu       command         "Multi-way ANOVA..."                            multiWayAnova               "numericP() && factorsP()"          ""
+    item    meansMenu       command         "One-factor repeated-measures ANOVA/ANCOVA..."  oneWayRepeatedMeasures      "numericP(2)"                       ""
+    item    meansMenu       command         "Two-factor repeated-measures ANOVA/ANCOVA..."  twoWayRepeatedMeasures      "numericP(4)"                       ""
     menu    proportionsMenu statisticsMenu  ""                                              ""                          ""          ""
     item    proportionsMenu command         "Single-sample proportion test..."              singleProportionTest        "twoLevelFactorsP()"                ""
     item    proportionsMenu command         "Two-sample proportions test..."                twoSampleProportionsTest    "twoLevelFactorsP(2)" "packageAvailable('abind')"

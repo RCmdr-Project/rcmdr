@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-12-11 by J. Fox
+# last modified 2020-04-03 by J. Fox
 
 # Means menu
 
@@ -348,15 +348,6 @@ multiWayAnova <- function () {
                        " ~ ", paste(groups, collapse = "*"), ", data=", 
                        .activeDataSet, ", contrasts=list(", paste(paste(groups, '="contr.Sum"'), collapse=", "), "))", sep = ""))
     doItAndPrint(paste("Anova(", modelValue, ")", sep = ""))
-    # doItAndPrint(paste("with(", .activeDataSet, ", (tapply(", response, 
-    #                    ", list(", groups.list, "), mean, na.rm=TRUE))) # means", 
-    #                    sep = ""))
-    # doItAndPrint(paste("with(", .activeDataSet, ", (tapply(", response, 
-    #                    ", list(", groups.list, "), sd, na.rm=TRUE))) # std. deviations", 
-    #                    sep = ""))
-    # doItAndPrint(paste("with(", .activeDataSet, ", (tapply(", response, 
-    #                    ", list(", groups.list, "), function(x) sum(!is.na(x))))) # counts", 
-    #                    sep = ""))
     doItAndPrint(paste0("Tapply(", response, " ~ ", groups.list, ", mean, na.action=na.omit, data=", 
                         .activeDataSet, ") # means")) 
     doItAndPrint(paste0("Tapply(", response, " ~ ", groups.list, ", sd, na.action=na.omit, data=", 
@@ -375,3 +366,358 @@ multiWayAnova <- function () {
   tkgrid(buttonsFrame, sticky = "w")
   dialogSuffix()
 }
+
+oneWayRepeatedMeasures <- function () {
+  defaults <- list(initial.rm=rep("", 8), initial.rhs="", initial.testStatistic="Pillai", 
+                   initial.test="multivariate", initial.tab=0, initial.wsfactorName="Trials")
+  dialog.values <- getDialog ("oneWayRepeatedMeasures", defaults)
+  currentFields <- list(rhs=dialog.values$initial.rhs)
+  initializeDialog(title = gettextRcmdr("One Repeated Measures Factor ANOVA/ANCOVA"),
+                   use.tabs=TRUE, tabs=c("designTab", "optionsTab"))
+  onOK <- function() {
+    rm1 <- getSelection(rm1ComboxBox)  
+    rm2 <- getSelection(rm2ComboxBox)  
+    rm3 <- getSelection(rm3ComboxBox)  
+    rm4 <- getSelection(rm4ComboxBox)  
+    rm5 <- getSelection(rm5ComboxBox)  
+    rm6 <- getSelection(rm6ComboxBox) 
+    rm7 <- getSelection(rm7ComboxBox)  
+    rm8 <- getSelection(rm8ComboxBox)  
+    responses <- list(rm1, rm2, rm3, rm4, rm5, rm6, rm7, rm8)
+    selected <- !(responses %in% c("", "<no variable selected>"))
+    if (all(!selected)){
+      errorCondition(recall=oneWayRepeatedMeasures, message=gettextRcmdr("no responses specified"))
+      return()
+    }
+    if (max(which(selected)) > sum(selected)){
+      Message(gettextRcmdr("the specified responses are not contiguous\n missing responses are removed"), type="warning")
+    }
+    responses <- lapply(responses, function(x) if (x %in% c("", gettextRcmdr("<no selection>"))) NULL else x)
+    rhs <- tclvalue(rhsVariable)
+    if (trim.blanks(rhs) == "") rhs <- "1"
+    testStatistic <- tclvalue(testStatisticVariable)
+    test <- tclvalue(testVariable)
+    wsfactorName <- tclvalue(wsfactorNameVariable)
+    if (!is.valid.name(wsfactorName)){
+      errorCondition(recall=oneWayRepeatedMeasures, message=paste(wsfactorName, gettextRcmdr("is not a valid name")))
+      return()
+    }
+    tab <- if (as.character(tkselect(notebook)) == designTab$ID) 0 else 1
+    putDialog ("oneWayRepeatedMeasures", list(initial.rm=responses, initial.rhs=rhs, initial.testStatistic=testStatistic,
+                                              initial.test=test, initial.tab=tab, initial.wsfactorName=wsfactorName))
+    responses <- unlist(responses)
+    duplicates <- duplicated(responses)
+    if (any(duplicates)){
+      errorCondition(recall=oneWayRepeatedMeasures, message=paste(gettextRcmdr("the following responses appear more than once:"),
+                                                                  paste(responses[duplicates], collapse=", ")))
+      return()
+    }
+    closeDialog()
+    lhs <- paste0("cbind(", paste(responses, collapse=", "), ")")
+    formula <- paste(lhs, "~", rhs)
+    m <- length(unlist(responses))
+    if (m < 2){
+      errorCondition(recall=oneWayRepeatedMeasures, message=gettextRcmdr("at least 2 responses must be specified"))
+      return()
+    }
+    idata = paste0("data.frame(", wsfactorName, "=c(", paste(paste0("'", letters[1:m], "'"), collapse=", "), "))")
+    command <- if (test == "multivariate"){
+      paste0("Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
+             ", idata=", idata, ", idesign = ~", wsfactorName,
+             ', test.statistic="', testStatistic, '")', sep = "")
+    } else {
+      paste0("summary(Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
+             ", idata=", idata, ", idesign = ~", wsfactorName,
+             '), univariate=TRUE, multivariate=FALSE)', sep = "")
+    }
+    doItAndPrint(command)
+    
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "Anova", reset = "oneWayRepeatedMeasures", apply = "oneWayRepeatedMeasures")
+  withinSubjectsFrame <- ttklabelframe(designTab, labelwidget=tklabel(designTab, text = gettextRcmdr("Within-Subject Factor"),
+                                                                      font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+  variableNameFrame <- tkframe(withinSubjectsFrame)
+  wsfactorNameVariable <- tclVar(dialog.values$initial.wsfactorName)
+  wsfactorNameBox <-ttkentry(variableNameFrame, width="20", textvariable=wsfactorNameVariable)
+  rm1ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm[[1]], adjustWidth=TRUE,
+                                   title=gettextRcmdr("Level 1"), nullSelection=gettextRcmdr("<no selection>"))
+  rm2ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm[[2]], adjustWidth=TRUE,
+                                   title=gettextRcmdr("Level 2"), nullSelection=gettextRcmdr("<no selection>"))
+  rm3ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm[[3]], adjustWidth=TRUE,
+                                   title=gettextRcmdr("Level 3"), nullSelection=gettextRcmdr("<no selection>"))
+  rm4ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm[[4]], adjustWidth=TRUE,
+                                   title=gettextRcmdr("Level 4"), nullSelection=gettextRcmdr("<no selection>"))
+  rm5ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm[[5]], adjustWidth=TRUE,
+                                   title=gettextRcmdr("Level 5"), nullSelection=gettextRcmdr("<no selection>"))
+  rm6ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm[[6]], adjustWidth=TRUE,
+                                   title=gettextRcmdr("Level 6"), nullSelection=gettextRcmdr("<no selection>"))
+  rm7ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm[[7]], adjustWidth=TRUE,
+                                   title=gettextRcmdr("Level 7"), nullSelection=gettextRcmdr("<no selection>"))
+  rm8ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm[[8]], adjustWidth=TRUE,
+                                   title=gettextRcmdr("Level 8"), nullSelection=gettextRcmdr("<no selection>"))
+  tkgrid(labelRcmdr(variableNameFrame, text=gettextRcmdr("Name for the within-subjects factor: ")), wsfactorNameBox, sticky="w")
+  tkgrid(variableNameFrame, sticky="w", columnspan=4)
+  tkgrid(labelRcmdr(withinSubjectsFrame, text=gettextRcmdr("Select up to 8 levels (responses) for the within-subjects factor")), 
+         sticky="w", columnspan=4)
+  tkgrid(getFrame(rm1ComboxBox), getFrame(rm2ComboxBox), getFrame(rm3ComboxBox), getFrame(rm4ComboxBox), sticky="w")
+  tkgrid(getFrame(rm5ComboxBox), getFrame(rm6ComboxBox), getFrame(rm7ComboxBox), getFrame(rm8ComboxBox), sticky="w")
+  tkgrid(withinSubjectsFrame, sticky = "w")
+  betweenSubjectsFrame <- ttklabelframe(designTab, labelwidget=tklabel(designTab, text = gettextRcmdr("Between-Subjects Model Formula"),
+                                                                       font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+  currentModel <- TRUE
+  modelFormula(betweenSubjectsFrame, hasLhs = FALSE, rhsExtras=TRUE, formulaLabel="")
+  tkgrid(getFrame(xBox), sticky = "w")
+  tkgrid(outerOperatorsFrame)
+  tkgrid(formulaFrame, sticky = "w")
+  tkgrid(labelRcmdr(designTab, text=""), sticky="w")
+  tkgrid(betweenSubjectsFrame, sticky = "w")
+  optionsFrame <- ttklabelframe(optionsTab, labelwidget=tklabel(optionsTab, text = gettextRcmdr(""),
+                                                                font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+  radioButtons(optionsFrame, name = "testStatistic", buttons = c("Pillai", "Wilks", "Hotelling", "Roy"), 
+               labels = c("Pillai", "Wilks", "Hotelling-Lawley", "Roy"), 
+               title = gettextRcmdr("Multivariate Test Statistic"), initialValue = dialog.values$initial.testStatistic)
+  
+  radioButtons(optionsFrame, name = "test", buttons = c("multivariate", "univariate"), 
+               labels = gettextRcmdr(c("Multivariate", "Univariate")), 
+               initialValue = dialog.values$initial.test,
+               title=gettextRcmdr("Tests to Perform"))
+  tkgrid(testFrame, tklabel(optionsFrame, text="   "), testStatisticFrame, sticky="nw")
+  tkgrid(optionsFrame, sticky="w")
+  dialogSuffix(use.tabs=TRUE, tabs=c("designTab", "optionsTab"),
+               tab.names=c("Design", "Options"), grid.buttons=TRUE)
+}
+
+twoWayRepeatedMeasures <- function () {
+  checkResponses <- function(x){
+    rows <- any(apply(x, 1, 
+                      function(r){
+                        if (!any(r)) FALSE else max(which(r)) > sum(r)
+                      }
+    ))
+    cols <- any(apply(x, 2, 
+                      function(c) {
+                        if (!any(c)) FALSE else max(which(c)) > sum(c)
+                      }
+    ))
+    test1 <- !(rows || cols)
+    r <- sum(x[, 1])
+    c <- sum(x[1, ])
+    test2 <- all(x[r, c])
+    test1 && test2
+  }
+  defaults <- list(initial.rm=matrix("", 5, 5), initial.rhs="", initial.testStatistic="Pillai", 
+                   initial.test="multivariate", initial.tab=0, initial.wsrowfactorName="RowFactor",
+                   initial.wscolfactorName="ColumnFactor")
+  dialog.values <- getDialog ("twoWayRepeatedMeasures", defaults)
+  currentFields <- list(rhs=dialog.values$initial.rhs)
+  initializeDialog(title = gettextRcmdr("Two Repeated Measures Factors ANOVA/ANCOVA"),
+                   use.tabs=TRUE, tabs=c("designTab", "optionsTab"))
+  onOK <- function() {
+    rm11 <- getSelection(rm11ComboxBox)  
+    rm12 <- getSelection(rm12ComboxBox)  
+    rm13 <- getSelection(rm13ComboxBox)  
+    rm14 <- getSelection(rm14ComboxBox)  
+    rm15 <- getSelection(rm15ComboxBox)  
+    rm21 <- getSelection(rm21ComboxBox) 
+    rm22 <- getSelection(rm22ComboxBox)  
+    rm23 <- getSelection(rm23ComboxBox)  
+    rm24 <- getSelection(rm24ComboxBox)  
+    rm25 <- getSelection(rm25ComboxBox)  
+    rm31 <- getSelection(rm31ComboxBox)  
+    rm32 <- getSelection(rm32ComboxBox)  
+    rm33 <- getSelection(rm33ComboxBox)  
+    rm34 <- getSelection(rm34ComboxBox) 
+    rm35 <- getSelection(rm35ComboxBox)  
+    rm41 <- getSelection(rm41ComboxBox)  
+    rm42 <- getSelection(rm42ComboxBox)  
+    rm43 <- getSelection(rm43ComboxBox)  
+    rm44 <- getSelection(rm44ComboxBox)  
+    rm45 <- getSelection(rm45ComboxBox)  
+    rm51 <- getSelection(rm51ComboxBox)  
+    rm52 <- getSelection(rm52ComboxBox) 
+    rm53 <- getSelection(rm53ComboxBox)  
+    rm54 <- getSelection(rm54ComboxBox)
+    rm55 <- getSelection(rm55ComboxBox)
+    responses <- list(rm11, rm12, rm13, rm14, rm15, 
+                      rm21, rm22, rm23, rm24, rm25,
+                      rm31, rm32, rm33, rm34, rm35,
+                      rm41, rm42, rm43, rm44, rm45,
+                      rm51, rm52, rm53, rm54, rm55)
+    responses <- matrix(responses, nrow=5, ncol=5, byrow=TRUE)
+    selected <- !(responses %in% c("", gettextRcmdr("<no selection>")))
+    selected <- matrix(selected, nrow=5, ncol=5)
+    if (!checkResponses(selected)){
+      errorCondition(recall=twoWayRepeatedMeasures, message=gettextRcmdr("the specified responses are not contiguous"))
+      return()
+    }
+    row1 <- selected[1, ]
+    ncol <- if (any(row1)) max(which(row1)) else 0
+    col1 <- selected[, 1]
+    nrow <- if (any(col1)) max(which(col1)) else 0
+    if (ncol == 0){
+      errorCondition(recall=twoWayRepeatedMeasures, message=gettextRcmdr("no responses specified"))
+      return()
+    }
+    if (ncol < 2 || nrow < 2){
+      errorCondition(recall=twoWayRepeatedMeasures, message=gettextRcmdr("at least 2 rows and 2 columns of responses must be specified"))
+      return()
+    }
+    responses <- as.vector(responses)
+    save.responses <- unlist(responses)
+    save.responses <- matrix(responses, 5, 5)
+    responses <- responses[selected]
+    rhs <- tclvalue(rhsVariable)
+    if (trim.blanks(rhs) == "") rhs <- "1"
+    testStatistic <- tclvalue(testStatisticVariable)
+    test <- tclvalue(testVariable)
+    wsrowfactorName <- tclvalue(wsrowfactorNameVariable)
+    wscolfactorName <- tclvalue(wscolfactorNameVariable)
+    if (!is.valid.name(wsrowfactorName)){
+      errorCondition(recall=twoWayRepeatedMeasures, message=paste(wsrowfactorName, gettextRcmdr("is not a valid name")))
+      return()
+    }
+    if (!is.valid.name(wscolfactorName)){
+      errorCondition(recall=twoWayRepeatedMeasures, message=paste(wscolfactorName, gettextRcmdr("is not a valid name")))
+      return()
+    }
+    tab <- if (as.character(tkselect(notebook)) == designTab$ID) 0 else 1
+    putDialog ("twoWayRepeatedMeasures", list(initial.rm=save.responses, initial.rhs=rhs, initial.testStatistic=testStatistic,
+                                              initial.test=test, initial.tab=tab, initial.wsrowfactorName=wsrowfactorName,
+                                              initial.wscolfactorName=wscolfactorName))
+    responses <- unlist(responses)
+    duplicates <- duplicated(responses)
+    if (any(duplicates)){
+      errorCondition(recall=twoWayRepeatedMeasures, message=paste(gettextRcmdr("the following responses appear more than once:"),
+                                                                  paste(responses[duplicates], collapse=", ")))
+      return()
+    }
+    closeDialog()
+    lhs <- paste0("cbind(", paste(responses, collapse=", "), ")")
+    formula <- paste(lhs, "~", rhs)
+    m <- length(unlist(responses))
+    idata = paste0("data.frame(", wsrowfactorName, " = rep(c(", paste(paste0("'", letters[1:nrow], "'"), collapse=", "), "),", ncol, "), ",
+                   wscolfactorName, " = rep(c(", paste(paste0("'", LETTERS[1:ncol], "'"), collapse=", "), "), each=", nrow, "))")
+    command <- if (test == "multivariate"){
+      paste0("Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
+             ", idata=", idata, ", idesign = ~", wsrowfactorName, "*", wscolfactorName,
+             ', test.statistic="', testStatistic, '")', sep = "")
+    } else {
+      paste0("summary(Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
+             ", idata=", idata, ", idesign = ~", wsrowfactorName, "*", wscolfactorName,
+             '), univariate=TRUE, multivariate=FALSE)', sep = "")
+    }
+    doItAndPrint(command)
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "Anova", reset = "twoWayRepeatedMeasures", apply = "twoWayRepeatedMeasures")
+  withinSubjectsFrame <- ttklabelframe(designTab, labelwidget=tklabel(designTab, text = gettextRcmdr("Within-Subject Factors"),
+                                                                      font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+  variableNameFrame <- tkframe(withinSubjectsFrame)
+  wsrowfactorNameVariable <- tclVar(dialog.values$initial.wsrowfactorName)
+  wsrowfactorNameBox <-ttkentry(variableNameFrame, width="20", textvariable=wsrowfactorNameVariable)
+  wscolfactorNameVariable <- tclVar(dialog.values$initial.wscolfactorName)
+  wscolfactorNameBox <-ttkentry(variableNameFrame, width="20", textvariable=wscolfactorNameVariable)
+  rm11ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
+                                    initialSelection=dialog.values$initial.rm[[1, 1]], adjustWidth=TRUE,
+                                    title=paste(gettextRcmdr("Column"), "1"), nullSelection=gettextRcmdr("<no selection>"))
+  rm12ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
+                                    initialSelection=dialog.values$initial.rm[[1, 2]], adjustWidth=TRUE,
+                                    title=paste(gettextRcmdr("Column"), "2"), nullSelection=gettextRcmdr("<no selection>"))
+  rm13ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
+                                    initialSelection=dialog.values$initial.rm[[1, 3]], adjustWidth=TRUE,
+                                    title=paste(gettextRcmdr("Column"), "3"), nullSelection=gettextRcmdr("<no selection>"))
+  rm14ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
+                                    initialSelection=dialog.values$initial.rm[[1, 4]], adjustWidth=TRUE,
+                                    title=paste(gettextRcmdr("Column"), "4"), nullSelection=gettextRcmdr("<no selection>"))
+  rm15ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
+                                    initialSelection=dialog.values$initial.rm[[1, 5]], adjustWidth=TRUE,
+                                    title=paste(gettextRcmdr("Column"), "5"), nullSelection=gettextRcmdr("<no selection>"))
+  rm21ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[2, 1]], nullSelection=gettextRcmdr("<no selection>"))
+  rm22ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[2, 2]], nullSelection=gettextRcmdr("<no selection>"))
+  rm23ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[2, 3]], nullSelection=gettextRcmdr("<no selection>"))
+  rm24ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[2, 4]], nullSelection=gettextRcmdr("<no selection>"))
+  rm25ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[2, 5]], nullSelection=gettextRcmdr("<no selection>"))
+  rm31ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[3, 1]], nullSelection=gettextRcmdr("<no selection>"))
+  rm32ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[3, 2]], nullSelection=gettextRcmdr("<no selection>"))
+  rm33ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[3, 3]], nullSelection=gettextRcmdr("<no selection>"))
+  rm34ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[3, 4]], nullSelection=gettextRcmdr("<no selection>"))
+  rm35ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[3, 5]], nullSelection=gettextRcmdr("<no selection>"))
+  rm41ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[4, 1]], nullSelection=gettextRcmdr("<no selection>"))
+  rm42ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[4, 2]], nullSelection=gettextRcmdr("<no selection>"))
+  rm43ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[4, 3]], nullSelection=gettextRcmdr("<no selection>"))
+  rm44ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[4, 4]], nullSelection=gettextRcmdr("<no selection>"))
+  rm45ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[4, 5]], nullSelection=gettextRcmdr("<no selection>"))
+  rm51ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[5, 1]], nullSelection=gettextRcmdr("<no selection>"))
+  rm52ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[5, 2]], nullSelection=gettextRcmdr("<no selection>"))
+  rm53ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[5, 3]], nullSelection=gettextRcmdr("<no selection>"))
+  rm54ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[5, 4]], nullSelection=gettextRcmdr("<no selection>"))
+  rm55ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[5, 5]], nullSelection=gettextRcmdr("<no selection>"))
+  tkgrid(labelRcmdr(variableNameFrame, text=gettextRcmdr("Name for the within-subjects row factor: ")), wsrowfactorNameBox, sticky="w")
+  tkgrid(labelRcmdr(variableNameFrame, text=gettextRcmdr("Name for the within-subjects column factor: ")), wscolfactorNameBox, sticky="w")
+  tkgrid(variableNameFrame, sticky="w", columnspan=4)
+  tkgrid(labelRcmdr(withinSubjectsFrame, text=gettextRcmdr("Select up to 5 levels for each within-subjects factor")), 
+         sticky="w", columnspan=4)
+  tkgrid(labelRcmdr(withinSubjectsFrame, text=paste(gettextRcmdr("Row"), "1"), foreground=getRcmdr("title.color")),
+         getFrame(rm11ComboxBox), getFrame(rm12ComboxBox), getFrame(rm13ComboxBox), getFrame(rm14ComboxBox),  getFrame(rm15ComboxBox), sticky="sw")
+  tkgrid(labelRcmdr(withinSubjectsFrame, text=paste(gettextRcmdr("Row"), "2"), foreground=getRcmdr("title.color")),
+         getFrame(rm21ComboxBox), getFrame(rm22ComboxBox), getFrame(rm23ComboxBox), getFrame(rm24ComboxBox),  getFrame(rm25ComboxBox), sticky="sw")
+  tkgrid(labelRcmdr(withinSubjectsFrame, text=paste(gettextRcmdr("Row"), "3"), foreground=getRcmdr("title.color")),
+         getFrame(rm31ComboxBox), getFrame(rm32ComboxBox), getFrame(rm33ComboxBox), getFrame(rm34ComboxBox),  getFrame(rm35ComboxBox), sticky="sw")
+  tkgrid(labelRcmdr(withinSubjectsFrame, text=paste(gettextRcmdr("Row"), "4"), foreground=getRcmdr("title.color")),
+         getFrame(rm41ComboxBox), getFrame(rm42ComboxBox), getFrame(rm43ComboxBox), getFrame(rm44ComboxBox),  getFrame(rm45ComboxBox), sticky="sw")
+  tkgrid(labelRcmdr(withinSubjectsFrame, text=paste(gettextRcmdr("Row"), "5"), foreground=getRcmdr("title.color")),
+         getFrame(rm51ComboxBox), getFrame(rm52ComboxBox), getFrame(rm53ComboxBox), getFrame(rm54ComboxBox),  getFrame(rm55ComboxBox), sticky="sw")
+  tkgrid(withinSubjectsFrame, sticky = "w")
+  betweenSubjectsFrame <- ttklabelframe(designTab, labelwidget=tklabel(designTab, text = gettextRcmdr("Between-Subjects Model Formula"),
+                                                                       font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+  currentModel <- TRUE
+  modelFormula(betweenSubjectsFrame, hasLhs = FALSE, rhsExtras=TRUE, formulaLabel="")
+  tkgrid(getFrame(xBox), sticky = "w")
+  tkgrid(outerOperatorsFrame)
+  tkgrid(formulaFrame, sticky = "w")
+  tkgrid(labelRcmdr(designTab, text=""), sticky="w")
+  tkgrid(betweenSubjectsFrame, sticky = "w")
+  optionsFrame <- ttklabelframe(optionsTab, labelwidget=tklabel(optionsTab, text = gettextRcmdr(""),
+                                                                font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+  radioButtons(optionsFrame, name = "testStatistic", buttons = c("Pillai", "Wilks", "Hotelling", "Roy"), 
+               labels = c("Pillai", "Wilks", "Hotelling-Lawley", "Roy"), 
+               title = gettextRcmdr("Multivariate Test Statistic"), initialValue = dialog.values$initial.testStatistic)
+  radioButtons(optionsFrame, name = "test", buttons = c("multivariate", "univariate"), 
+               labels = gettextRcmdr(c("Multivariate", "Univariate")), 
+               initialValue = dialog.values$initial.test,
+               title=gettextRcmdr("Tests to Perform"))
+  tkgrid(testFrame, tklabel(optionsFrame, text="   "), testStatisticFrame, sticky="nw")
+  tkgrid(optionsFrame, sticky="w")
+  dialogSuffix(use.tabs=TRUE, tabs=c("designTab", "optionsTab"),
+               tab.names=c("Design", "Options"), grid.buttons=TRUE)
+}
+

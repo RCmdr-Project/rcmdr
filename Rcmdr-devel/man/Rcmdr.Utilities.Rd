@@ -314,8 +314,9 @@ twoLevelFactorsP(n=1)
 UpdateModelNumber(increment=1)
 variableComboBox(parentWindow, variableList=Variables(),
     export="FALSE", state="readonly",
-    initialSelection=gettextRcmdr("<no variable selected>"),
-    title="")
+    initialSelection=gettextRcmdr(nullSelection),
+    title="", nullSelection="<no variable selected>", 
+    adjustWidth = FALSE)
 variableListBox(parentWindow, variableList=Variables(), bg="white",
     selectmode="single", export="FALSE", initialSelection=NULL, 
     listHeight=getRcmdr("variable.list.height"), title)
@@ -333,6 +334,7 @@ commanderPosition()
 }
 
 \arguments{
+  \item{adjustWidth}{adjust width of combo box to accommodate widest entry (default \code{FALSE}).}
   \item{ask}{ask for confirmation.}
   \item{ask.save}{ask whether to save contents of script and output windows.}
   \item{apply}{if non-null (the default is \code{NULL}), an Apply button is included in the dialog's button bar. 
@@ -429,6 +431,7 @@ commanderPosition()
   \item{name}{quoted name.}
   \item{names}{optional names to be stored.}
   \item{notebook}{notebook windows for a tabbed dialog (default \code{notebook}).}
+  \item{nullSelection}{what user selects in combo box to indicate nothing selected (default \code{"<no variable selected>"}).}
   \item{object}{an object (depends on context).}
   \item{offset}{in pixels, from top-left of Commander window.}
   \item{ok}{a function called when the \emph{OK} button is pressed in a \code{RcmdrEditor} window

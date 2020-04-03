@@ -1,4 +1,4 @@
-# last modified 2020-01-24 by J. Fox
+# last modified 2020-04-03 by J. Fox
 
 # utility functions
 
@@ -906,14 +906,22 @@ getFrame.listbox <- function(object){
 
 variableComboBox <- function(parentWindow, variableList=Variables(),
                              export="FALSE", state="readonly",
-                             initialSelection=gettextRcmdr("<no variable selected>"),
-                             title=""){
-  variableList <- c(gettextRcmdr("<no variable selected>"), variableList)
+                             initialSelection=gettextRcmdr(nullSelection),
+                             title="",
+                             nullSelection="<no variable selected>",
+                             adjustWidth=FALSE){
+  variableList <- c(gettextRcmdr(nullSelection), variableList)
   frame <- tkframe(parentWindow)
   combovar <- tclVar()
   tclvalue(combovar) <- initialSelection
-  combobox <- ttkcombobox(frame, values=variableList, textvariable=combovar, 
+  combobox <- if (adjustWidth){
+    width <- max(nchar(variableList)) + 2
+    ttkcombobox(frame, values=variableList, textvariable=combovar, 
+                state=state, export=export, width=width)
+  } else {
+    ttkcombobox(frame, values=variableList, textvariable=combovar, 
                           state=state, export=export)
+  }
   firstChar <- tolower(substr(variableList, 1, 1))
   onLetter <- function(letter){
     letter <- tolower(letter)
@@ -953,7 +961,7 @@ variableComboBox <- function(parentWindow, variableList=Variables(),
     tkbind(combobox, paste("<", letter, ">", sep=""),
            get(paste("on", toupper(letter), sep="")))
   }
-  tkgrid(labelRcmdr(frame, text=title, fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w") # , columnspan=2
+  if (title != "") tkgrid(labelRcmdr(frame, text=title, fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w") # , columnspan=2
   tkgrid(combobox, sticky="nw")
   result <- list(frame=frame, combobox=combobox, varlist=variableList, combovar=combovar)
   class(result) <- "combobox"
