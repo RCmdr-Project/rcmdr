@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2020-04-07 by J. Fox
+# last modified 2020-04-08 by J. Fox
 
 # Means menu
 
@@ -370,7 +370,7 @@ multiWayAnova <- function () {
 oneWayRepeatedMeasures <- function () {
   defaults <- list(initial.rm=rep("", 8), initial.level=paste0("Level-", 1:8),
                    initial.rhs="", initial.testStatistic="Pillai", 
-                   initial.test="multivariate", initial.plot=0, initial.bsfactors=NULL,
+                   initial.test="multivariate", initial.plot=0, initial.print=0, initial.bsfactors=NULL,
                    initial.tab=0, initial.wsfactorName="Trials",
                    initial.trace=gettextRcmdr("<auto>"), initial.xvar=gettextRcmdr("<auto>"), initial.response="score")
   dialog.values <- getDialog ("oneWayRepeatedMeasures", defaults)
@@ -386,7 +386,6 @@ oneWayRepeatedMeasures <- function () {
     rm6 <- getSelection(rm6ComboxBox) 
     rm7 <- getSelection(rm7ComboxBox)  
     rm8 <- getSelection(rm8ComboxBox)  
-    
     responses <- list(rm1, rm2, rm3, rm4, rm5, rm6, rm7, rm8)
     selected <- !(responses %in% c("", "<no variable selected>"))
     if (all(!selected)){
@@ -397,8 +396,6 @@ oneWayRepeatedMeasures <- function () {
       Message(gettextRcmdr("the specified responses are not contiguous\n missing responses are removed"), type="warning")
     }
     responses <- lapply(responses, function(x) if (x %in% c("", gettextRcmdr("<no selection>"))) NULL else x)
-    
-    
     level1value <- tclvalue(level1variable)
     level2value <- tclvalue(level2variable)
     level3value <- tclvalue(level3variable)
@@ -409,7 +406,6 @@ oneWayRepeatedMeasures <- function () {
     level8value <- tclvalue(level8variable)
     levels <- c(level1value, level2value, level3value, level4value, 
                 level5value, level6value, level7value, level8value)
-    
     duplicated.levels <- duplicated(levels)
     if (any(duplicated(levels))){
       errorCondition(recall=oneWayRepeatedMeasures, 
@@ -417,7 +413,6 @@ oneWayRepeatedMeasures <- function () {
                                     paste(unique(levels[duplicated.levels]), collapse=", ")))
       return()
     }
-    
     rhs <- tclvalue(rhsVariable)
     if (trim.blanks(rhs) == "") rhs <- "1"
     testStatistic <- tclvalue(testStatisticVariable)
@@ -427,11 +422,9 @@ oneWayRepeatedMeasures <- function () {
       errorCondition(recall=oneWayRepeatedMeasures, message=paste(wsfactorName, gettextRcmdr("is not a valid name")))
       return()
     }
-    
     plot <- tclvalue(plotVariable)
-    
+    print <- tclvalue(printVariable)
     bsfactors <- getSelection(betweenSubjectsFactors)
-    
     trace <- tclvalue(traceVariable)
     if (!(trace == gettextRcmdr("<auto>") || is.valid.name(trace))){
       errorCondition(recall=oneWayRepeatedMeasures, message=paste(trace, gettextRcmdr("is not a valid name")))
@@ -447,10 +440,10 @@ oneWayRepeatedMeasures <- function () {
       errorCondition(recall=oneWayRepeatedMeasures, message=paste(response, gettextRcmdr("is not a valid name")))
       return()
     }
-    
     tab <- if (as.character(tkselect(notebook)) == designTab$ID) 0 else 1
     putDialog ("oneWayRepeatedMeasures", list(initial.rm=responses, initial.level=levels, initial.rhs=rhs, 
                                               initial.testStatistic=testStatistic, initial.test=test, initial.plot=plot,
+                                              initial.print=print,
                                               initial.bsfactors=bsfactors, initial.tab=tab, initial.wsfactorName=wsfactorName,
                                               initial.trace=trace, initial.xvar=xvar, initial.response=response))
     responses <- unlist(responses)
@@ -460,7 +453,6 @@ oneWayRepeatedMeasures <- function () {
                                                                   paste(responses[duplicates], collapse=", ")))
       return()
     }
-    
     closeDialog()
     lhs <- paste0("cbind(", paste(responses, collapse=", "), ")")
     formula <- paste(lhs, "~", rhs)
@@ -481,7 +473,7 @@ oneWayRepeatedMeasures <- function () {
     }
     doItAndPrint(command)
     
-    if (plot == "1"){
+    if (plot == "1" || print == "1"){
       within <- paste0("c(", paste(paste0('"', responses, '"'), collapse=", "), ")")
       between <- if (length (bsfactors > 0)){
         paste0(", between.names=c(", paste(paste0('"', bsfactors, '"'), collapse=", "), ")")
@@ -494,7 +486,9 @@ oneWayRepeatedMeasures <- function () {
       command <- paste0("repeatedMeasuresPlot(", ActiveDataSet(), ", within=", within,
                         ', within.names="', wsfactorName, 
                         '", within.levels=list(', wsfactorName, '=c(', paste(paste0('"', levels[1:m], '"'), collapse=", "),
-                        '))',  between, tracefactor, xvarfactor, ', response.name="', response, '")')
+                        ')), print.tables=', if (print == "1") "TRUE" else "FALSE",
+                        ', plot.means=', if (plot == "1") "TRUE" else "FALSE",
+                        between, tracefactor, xvarfactor, ', response.name="', response, '")')
       doItAndPrint(command)
     }
     
@@ -530,7 +524,6 @@ oneWayRepeatedMeasures <- function () {
   rm8ComboxBox <- variableComboBox(withinSubjectsFrame, variableList=Numeric(), 
                                    initialSelection=dialog.values$initial.rm[[8]], adjustWidth=TRUE,
                                    nullSelection=gettextRcmdr("<no selection>"))
-  
   level1variable <- tclVar(dialog.values$initial.level[[1]])
   level1 <-ttkentry(withinSubjectsFrame, width="10", textvariable=level1variable, foreground=getRcmdr("title.color"))
   level2variable <- tclVar(dialog.values$initial.level[[2]])
@@ -547,7 +540,6 @@ oneWayRepeatedMeasures <- function () {
   level7 <-ttkentry(withinSubjectsFrame, width="10", textvariable=level7variable, foreground=getRcmdr("title.color"))
   level8variable <- tclVar(dialog.values$initial.level[[8]])
   level8 <-ttkentry(withinSubjectsFrame, width="10", textvariable=level8variable, foreground=getRcmdr("title.color"))
-  
   tkgrid(labelRcmdr(variableNameFrame, text=gettextRcmdr("Name for the within-subjects factor: ")), wsfactorNameBox, sticky="w")
   tkgrid(variableNameFrame, sticky="w", columnspan=4)
   tkgrid(labelRcmdr(withinSubjectsFrame, text=gettextRcmdr("Specify up to 8 levels (responses) and level names for the within-subjects factor")), 
@@ -576,17 +568,17 @@ oneWayRepeatedMeasures <- function () {
                labels = gettextRcmdr(c("Multivariate", "Univariate")), 
                initialValue = dialog.values$initial.test,
                title=gettextRcmdr("Tests to Perform"))
-  
   plotFrame <- ttklabelframe(optionsTab, labelwidget=tklabel(optionsTab, text = gettextRcmdr("Repeated-Measures Means"),
                                                              font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
   plotVariable <- tclVar(dialog.values$initial.plot)
   plotCheckBoxFrame <- tkframe(plotFrame)
   plotCheckBox <- ttkcheckbutton(plotCheckBoxFrame, variable = plotVariable)
+  printVariable <- tclVar(dialog.values$initial.print)
+  printCheckBox <- ttkcheckbutton(plotCheckBoxFrame, variable = printVariable)
   
   betweenSubjectsFactors <- variableListBox(plotFrame, Factors(), selectmode="multiple",
                                             title = gettextRcmdr("Between-Subjects Factors (pick zero or more)"), 
                                             initialSelection = varPosn(dialog.values$initial.bsfactors, "factor"))
-  
   maxchar <- max(15, 2 + max(nchar(c(tclvalue(wsfactorNameVariable), Factors()))))
   traceXvarFrame <- tkframe(plotFrame)
   traceVariable <- tclVar(dialog.values$initial.trace)
@@ -595,13 +587,13 @@ oneWayRepeatedMeasures <- function () {
   xvarBox <-ttkentry(traceXvarFrame, width=maxchar, textvariable=xvarVariable)
   responseVariable <- tclVar(dialog.values$initial.response)
   responseBox <-ttkentry(traceXvarFrame, width=maxchar, textvariable=responseVariable)
-  
   tkgrid(testFrame, tklabel(optionsFrame, text="   "), testStatisticFrame, sticky="nw")
-  
   tkgrid(testStatisticFrame, sticky="nw")
   tkgrid(optionsFrame, sticky="w")
   tkgrid(labelRcmdr(optionsTab, text=""))
   tkgrid(plotCheckBox, labelRcmdr(plotCheckBoxFrame, text = gettextRcmdr("Plot response means by factors")), 
+         sticky = "w")
+  tkgrid(printCheckBox, labelRcmdr(plotCheckBoxFrame, text = gettextRcmdr("Print means and standard deviations by factors")), 
          sticky = "w")
   tkgrid(plotCheckBoxFrame, sticky="w")
   tkgrid(getFrame(betweenSubjectsFactors), sticky="w")
