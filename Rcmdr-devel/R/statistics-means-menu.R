@@ -496,7 +496,7 @@ oneWayRepeatedMeasures <- function () {
     
     tkfocus(CommanderWindow())
   }
-  OKCancelHelp(helpSubject = "Anova", reset = "oneWayRepeatedMeasures", apply = "oneWayRepeatedMeasures")
+  OKCancelHelp(helpSubject = "RepeatedMeasuresDialogs", reset = "oneWayRepeatedMeasures", apply = "oneWayRepeatedMeasures")
   withinSubjectsFrame <- ttklabelframe(designTab, labelwidget=tklabel(designTab, text = gettextRcmdr("Within-Subject Factor"),
                                                                       font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
   variableNameFrame <- tkframe(withinSubjectsFrame)
@@ -810,7 +810,7 @@ twoWayRepeatedMeasures <- function () {
     }
     tkfocus(CommanderWindow())
   }
-  OKCancelHelp(helpSubject = "Anova", reset = "twoWayRepeatedMeasures", apply = "twoWayRepeatedMeasures")
+  OKCancelHelp(helpSubject = "RepeatedMeasuresDialogs", reset = "twoWayRepeatedMeasures", apply = "twoWayRepeatedMeasures")
   withinSubjectsFrame <- ttklabelframe(designTab, labelwidget=tklabel(designTab, text = gettextRcmdr("Within-Subject Factors"),
                                                                       font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
   variableNameFrame <- tkframe(withinSubjectsFrame)
