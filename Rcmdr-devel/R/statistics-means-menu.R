@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2020-04-08 by J. Fox
+# last modified 2020-04-09 by J. Fox
 
 # Means menu
 
@@ -567,7 +567,7 @@ oneWayRepeatedMeasures <- function () {
                title = gettextRcmdr("Multivariate Test Statistic"), initialValue = dialog.values$initial.testStatistic)
   
   radioButtons(optionsFrame, name = "test", buttons = c("multivariate", "univariate"), 
-               labels = gettextRcmdr(c("Multivariate", "Univariate")), 
+               labels = c(gettextRcmdr("Multivariate"), gettextRcmdr("Univariate")), 
                initialValue = dialog.values$initial.test,
                title=gettextRcmdr("Tests to Perform"))
   plotFrame <- ttklabelframe(optionsTab, labelwidget=tklabel(optionsTab, text = gettextRcmdr("Repeated-Measures Means"),
@@ -919,13 +919,12 @@ twoWayRepeatedMeasures <- function () {
   tkgrid(formulaFrame, sticky = "w")
   tkgrid(labelRcmdr(designTab, text=""), sticky="w")
   tkgrid(betweenSubjectsFrame, sticky = "w")
-  optionsFrame <- ttklabelframe(optionsTab, labelwidget=tklabel(optionsTab, text = gettextRcmdr(""),
-                                                                font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+  optionsFrame <- ttklabelframe(optionsTab, labelwidget=tklabel(optionsTab, text = ""))
   radioButtons(optionsFrame, name = "testStatistic", buttons = c("Pillai", "Wilks", "Hotelling", "Roy"), 
                labels = c("Pillai", "Wilks", "Hotelling-Lawley", "Roy"), 
                title = gettextRcmdr("Multivariate Test Statistic"), initialValue = dialog.values$initial.testStatistic)
   radioButtons(optionsFrame, name = "test", buttons = c("multivariate", "univariate"), 
-               labels = gettextRcmdr(c("Multivariate", "Univariate")), 
+               labels = c(gettextRcmdr("Multivariate"), gettextRcmdr("Univariate")), 
                initialValue = dialog.values$initial.test,
                title=gettextRcmdr("Tests to Perform"))
   plotFrame <- ttklabelframe(optionsTab, labelwidget=tklabel(optionsTab, text = gettextRcmdr("Repeated-Measures Means"),

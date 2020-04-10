@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2019-12-19 15:30:00\n"
+"POT-Creation-Date: 2020-04-09 20:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5202,4 +5202,102 @@ msgid "Restart the Commander"
 msgstr ""
 
 msgid "Restart the Commander?"
+msgstr ""
+
+  # for new repeated-measures ANOVA/ANCOVA dialogs
+  
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr ""
+
+msgid "no responses specified"
+msgstr ""
+
+msgid "the specified responses are not contiguous\n missing responses are removed"
+msgstr ""
+
+msgid "<no selection>"
+msgstr ""
+
+msgid "there are duplicated level names"
+msgstr ""
+
+msgid "is not a valid name"
+msgstr ""
+
+msgid "the following responses appear more than once:"
+msgstr ""
+
+msgid "at least 2 responses must be specified"
+msgstr ""
+
+msgid "Within-Subject Factor"
+msgstr ""
+
+msgid "Name for the within-subjects factor: "
+msgstr ""
+
+msgid "Specify up to 8 levels (responses) and level names for the within-subjects factor"
+msgstr ""
+
+msgid "Between-Subjects Model Formula"
+mststr ""
+
+msgid "Multivariate Test Statistic"
+msgstr ""
+
+msgid "Multivariate"
+msgstr ""
+
+msgid "Univariate"
+msgstr ""
+
+msgid "Tests to Perform"
+msgstr ""
+
+msgid "Repeated-Measures Means"
+msgstr ""
+
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr ""
+
+msgid "Plot response means by factors"
+msgstr ""
+
+msgid "Print means and standard deviations by factors"
+msgstr ""
+
+msgid "X-axis factor: "
+msgstr ""
+
+msgid "Trace factor: "
+msgstr ""
+
+msgid "Response name: "
+msgstr ""
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr ""
+
+msgid "the specified responses are not rectangular"
+msgstr ""
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr ""
+
+msgid "there are duplicated row level names"
+msgstr ""
+
+msgid "there are duplicated column level names"
+msgstr ""
+
+msgid "Within-Subject Factors"
+msgstr ""
+
+msgid "Name for the within-subjects row factor: "
+msgstr ""
+
+msgid "Name for the within-subjects column factor: "
+msgstr ""
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
 msgstr ""
