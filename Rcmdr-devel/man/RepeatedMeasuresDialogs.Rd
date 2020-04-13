@@ -10,7 +10,7 @@ The one-way and two-way repeated-measures ANOVA/ANCOVA dialogs compute analysis 
 }
 
 \details{
-The data are assumed to be in "wide" format, with repeated measures corresponding to distinct variables in the active data set. If the data are in "long" format, they can be reshaped to wide format via the \emph{Data > Active data set > Reshape data set to wide format} dialog.
+The data are assumed to be in "wide" format, with repeated measures corresponding to distinct variables in the active data set. If the data are in "long" format, they can be reshaped to wide format via the \emph{Data > Active data set > Reshape data set from long to wide format} dialog.
 
 The model is specified in the \emph{Design} tab in two parts: 
 
