@@ -1,4 +1,4 @@
-# last modified 2019-11-22 by J. Fox
+# last modified 2020-04-13 by J. Fox
 
 # Data menu dialogs
 
@@ -2691,3 +2691,87 @@ sortDataSet <- function(){
     tkgrid(buttonsFrame, sticky="w")
     dialogSuffix()
     }
+
+reshapeLong2Wide <- function () {
+  defaults <- list(initial.id = NULL, initial.within=NULL, initial.varying=NULL, initial.ignore=NULL, initial.makeactive="1")
+  dialog.values <- getDialog("reshapeLong2Wide", defaults)
+  initializeDialog(title = gettextRcmdr("Reshape Data Set from Long to Wide Format"))
+  .activeDataSet <- ActiveDataSet()
+  optionsFrame <- tkframe(top)
+  makeactiveVariable <- tclVar(dialog.values$initial.makeactive)
+  makeactiveCheckBox <- ttkcheckbutton(optionsFrame, variable = makeactiveVariable)
+  newDatasetName <- tclVar(paste0(.activeDataSet, "Wide"))
+  newDatasetField <- ttkentry(optionsFrame, width = "20", 
+                              textvariable = newDatasetName)
+  dataFrame <- tkframe(top)
+  idBox <- variableListBox(dataFrame, Variables(), title = gettextRcmdr("Subject ID variable (pick one)"),
+                           initialSelection = varPosn(dialog.values$initial.id, "all"))
+  withinBox <- variableListBox(dataFrame, Factors(), title = gettextRcmdr("Within-subjects factors (pick one or more)"),
+                               initialSelection = varPosn(dialog.values$initial.within, "factor"), selectmode="multiple")
+  varyingBox <- variableListBox(dataFrame, Variables(), title = gettextRcmdr("Variables that vary by occasion (pick one or more)"),
+                                initialSelection = varPosn(dialog.values$initial.varying, "all"), selectmode="multiple")
+  ignoreBox <- variableListBox(dataFrame, Variables(), title = gettextRcmdr("Variables to ignore (pick zero or more)"),
+                               initialSelection = varPosn(dialog.values$initial.ignore, "all"), selectmode="multiple")
+  onOK <- function() {
+    id <- getSelection(idBox)
+    within <- getSelection(withinBox)
+    varying <- getSelection(varyingBox)
+    ignore <- getSelection(ignoreBox)
+    if (length(id) == 0) {
+      errorCondition(recall = reshapeLong2Wide, message = gettextRcmdr("You must select an ID variable."))
+      return()
+    }
+    if (length(within) == 0 ){
+      errorCondition(recall = reshapeLong2Wide, message = gettextRcmdr("You must select one or more within-subjects factors."))
+      return()
+    }
+    if (length(varying) == 0 ){
+      errorCondition(recall = reshapeLong2Wide, message = gettextRcmdr("You must select one or more occasion-varying variables."))
+      return()
+    }
+    all <- c(id, within, varying, ignore)
+    duplicated <- unique(all[duplicated(all)])
+    if (length(duplicated) > 0) {
+      errorCondition(recall = reshapeLong2Wide, 
+                     message = paste(gettextRcmdr("the following variables appear more than once:"), 
+                                                  paste(duplicated, collapse=", ")))
+      return()
+    }
+    makeactive <- tclvalue(makeactiveVariable)
+    putDialog ("reshapeLong2Wide", list (initial.id = id, initial.within=within, 
+                                         initial.varying=varying, initial.ignore=ignore,
+                                         initial.makeactive=makeactive))
+    newDatasetNameValue <- tclvalue(newDatasetName)
+    if (newDatasetNameValue %in% listDataSets()){
+      if ("no" == tclvalue(checkReplace(newDatasetNameValue, type=gettextRcmdr("Data set")))){
+        errorCondition(recall = reshapeLong2Wide, message = gettextRcmdr("Save data set aborted"))
+        return()
+      }
+    }
+    closeDialog()
+    within <- if (length(within) > 1) paste0("c(", paste(paste0('"', within, '"'), collapse=", "), ")") else paste0('"', within, '"')
+    varying <-if (length(varying) > 1) paste0("c(", paste(paste0('"', varying, '"'), collapse=", "), ")") else paste0('"', varying, '"')
+    ignore <-if (length(ignore) == 0) {
+      NULL 
+    } else if (length(ignore) > 1) {
+      paste0(", ignore=c(", paste(paste0('"', ignore, '"'), collapse=", "), ")") 
+    } else {
+      paste0(', ignore="', ignore, '"')
+    }
+    id <- paste0('"', id, '"')
+    doItAndPrint(paste0(newDatasetNameValue, " <- reshapeL2W(", .activeDataSet, 
+                        ", within=", within, ", id=", id, ", varying=", varying, ignore, ")"))
+    if (makeactive == "1") activeDataSet(newDatasetNameValue)
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "reshapeL2W", reset = "reshapeLong2Wide")
+  tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Name for wide data set: ")),
+         newDatasetField, sticky="w")
+  tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Make the wide data set active")),
+         makeactiveCheckBox, sticky="w")
+  tkgrid(optionsFrame, sticky="w")
+  tkgrid(getFrame(idBox), labelRcmdr(dataFrame, text="  "), getFrame(withinBox), sticky = "nw")
+  tkgrid(getFrame(varyingBox), labelRcmdr(dataFrame, text="  "), getFrame(ignoreBox),sticky = "nw")
+  tkgrid(dataFrame, sticky="w")
+  dialogSuffix(grid.buttons=TRUE)
+}

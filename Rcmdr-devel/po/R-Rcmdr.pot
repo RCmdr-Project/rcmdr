@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2020-04-09 20:30:00\n"
+"POT-Creation-Date: 2020-04-13 12:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5206,6 +5206,9 @@ msgstr ""
 
   # for new repeated-measures ANOVA/ANCOVA dialogs
   
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr ""
+  
 msgid "One Repeated Measures Factor ANOVA/ANCOVA"
 msgstr ""
 
@@ -5275,6 +5278,9 @@ msgstr ""
 msgid "Response name: "
 msgstr ""
 
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr ""
+
 msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
 msgstr ""
 
@@ -5300,4 +5306,45 @@ msgid "Name for the within-subjects column factor: "
 msgstr ""
 
 msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr ""
+
+  # new reshape data set from long to wide format dialog
+  
+msgid "Reshape data set from long to wide format..."
+msgstr ""
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr ""
+
+msgid "Subject ID variable (pick one)"
+msgstr ""
+
+msgid "Within-subjects factors (pick one or more)"
+msgstr ""
+
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr ""
+
+msgid "Variables to ignore (pick zero or more)"
+msgstr ""
+
+msgid "You must select an ID variable."
+msgstr ""
+
+msgid "You must select one or more within-subjects factors."
+msgstr ""
+
+msgid "You must select one or more occasion-varying variables."
+msgstr ""
+
+msgid "the following variables appear more than once:"
+msgstr ""
+
+msgid "Save data set aborted"
+msgstr ""
+
+msgid "Name for wide data set: "
+msgstr ""
+
+msgid "Make the wide data set active"
 msgstr ""
