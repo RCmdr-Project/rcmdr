@@ -2764,7 +2764,7 @@ reshapeLong2Wide <- function () {
     if (makeactive == "1") activeDataSet(newDatasetNameValue)
     tkfocus(CommanderWindow())
   }
-  OKCancelHelp(helpSubject = "reshapeL2W", reset = "reshapeLong2Wide")
+  OKCancelHelp(helpSubject = "ReshapeDatasetDialogs", reset = "reshapeLong2Wide")
   tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Name for wide data set: ")),
          newDatasetField, sticky="w")
   tkgrid(labelRcmdr(optionsFrame, text = gettextRcmdr("Make the wide data set active")),
@@ -3020,7 +3020,7 @@ reshapeWide2Long <- function () {
     doItAndPrint(command)
     tkfocus(CommanderWindow())
   }
-  OKCancelHelp(helpSubject = "reshapeW2L", reset = "reshapeWide2Long")
+  OKCancelHelp(helpSubject = "ReshapeDatasetDialogs", reset = "reshapeWide2Long")
   oneFactorFrame <- ttklabelframe(oneFactorTab, labelwidget=tklabel(top, text = gettextRcmdr("Specify one within-subject factor"),
                                                                     font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
   variableNameFrame.1 <- tkframe(oneFactorFrame)
