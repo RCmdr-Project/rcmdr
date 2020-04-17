@@ -1,4 +1,4 @@
-# last modified 2020-04-13 by J. Fox
+# last modified 2020-04-17 by J. Fox
 
 # Data menu dialogs
 
@@ -2775,3 +2775,417 @@ reshapeLong2Wide <- function () {
   tkgrid(dataFrame, sticky="w")
   dialogSuffix(grid.buttons=TRUE)
 }
+
+reshapeWide2Long <- function () {
+  checkResponses <- function(x){
+    rows <- any(apply(x, 1, 
+                      function(r){
+                        if (!any(r)) FALSE else max(which(r)) > sum(r)
+                      }
+    ))
+    cols <- any(apply(x, 2, 
+                      function(c) {
+                        if (!any(c)) FALSE else max(which(c)) > sum(c)
+                      }
+    ))
+    test1 <- !(rows || cols)
+    r <- sum(x[, 1])
+    c <- sum(x[1, ])
+    test2 <- all(x[r, c])
+    test1 && test2
+  }
+  defaults <- list(initial.rm=matrix("", 5, 5), initial.rm.1=rep("", 8),
+                   initial.level=paste0("Level-", 1:8),
+                   initial.colLevel=paste0("Column-", 1:5),
+                   initial.rowLevel=paste0("Row-", 1:5),
+                   initial.wsrowfactorName="RowFactor",
+                   initial.wscolfactorName="ColumnFactor",
+                   initial.wsfactorName="trials", initial.tab=0,
+                   initial.makeactive="1",
+                   initial.ignore=NULL)
+  dialog.values <- getDialog ("reshapeWide2Long", defaults)
+  initializeDialog(title = gettextRcmdr("Reshape Data Set from Wide to Long Format"),
+                   use.tabs=TRUE, tabs=c("oneFactorTab", "twoFactorsTab", "optionsTab"))
+  
+  .activeDataSet <- ActiveDataSet()
+  makeactiveVariable <- tclVar(dialog.values$initial.makeactive)
+  makeactiveCheckBox <- ttkcheckbutton(optionsTab, variable = makeactiveVariable)
+  newDatasetName <- tclVar(paste0(.activeDataSet, "Long"))
+  newDatasetField <- ttkentry(optionsTab, width = "20", textvariable = newDatasetName)
+  idName <- tclVar("id")
+  idField <- ttkentry(optionsTab, width = "20", textvariable = idName)
+  responseName <- tclVar("response")
+  responseField <- ttkentry(optionsTab, width = "20", textvariable = responseName)
+  ignoreBox <- variableListBox(optionsTab, Variables(), title = gettextRcmdr("Variables to ignore (pick zero or more)"),
+                               initialSelection = varPosn(dialog.values$initial.ignore, "all"), selectmode="multiple")
+  onOK <- function() {
+    tab <- if (as.character(tkselect(notebook)) == oneFactorTab$ID) 0 
+    else if (as.character(tkselect(notebook)) == twoFactorsTab$ID) 1 
+    else 2
+    makeactive <- tclvalue(makeactiveVariable)
+    ignoreValue <- getSelection(ignoreBox)
+    ignore <-if (length(ignoreValue) == 0) {
+      NULL 
+    } else if (length(ignoreValue) > 1) {
+      paste0(", ignore=c(", paste(paste0('"', ignoreValue, '"'), collapse=", "), ")") 
+    } else {
+      paste0(', ignore="', ignoreValue, '"')
+    }
+    id <- tclvalue(idName)
+    response <- tclvalue(responseName)
+    newDatasetNameValue <- tclvalue(newDatasetName)
+    if (newDatasetNameValue %in% listDataSets()){
+      if ("no" == tclvalue(checkReplace(newDatasetNameValue, type=gettextRcmdr("Data set")))){
+        errorCondition(recall = reshapeWide2Long, message = gettextRcmdr("Save data set aborted"))
+        return()
+      }
+    }
+    rm1 <- getSelection(rm1ComboxBox)  
+    rm2 <- getSelection(rm2ComboxBox)  
+    rm3 <- getSelection(rm3ComboxBox)  
+    rm4 <- getSelection(rm4ComboxBox)  
+    rm5 <- getSelection(rm5ComboxBox)  
+    rm6 <- getSelection(rm6ComboxBox) 
+    rm7 <- getSelection(rm7ComboxBox)  
+    rm8 <- getSelection(rm8ComboxBox)  
+    responses.1 <- list(rm1, rm2, rm3, rm4, rm5, rm6, rm7, rm8)
+    save.responses.1 <- unlist(responses.1)
+    selected.1 <- !(responses.1 %in% c("", "<no selection>"))
+    oneway <- any(selected.1)
+    if (oneway && max(which(selected.1)) > sum(selected.1)){
+      Message(gettextRcmdr("the specified responses are not contiguous\n missing responses are removed"), type="warning")
+    }
+    responses.1 <- lapply(responses.1, function(x) if (x %in% c("", gettextRcmdr("<no selection>"))) NULL else x)
+    wsfactorName <- tclvalue(wsfactorNameVariable)
+    if (oneway && !is.valid.name(wsfactorName)){
+      errorCondition(recall=reshapeWide2Long, message=paste(wsfactorName, gettextRcmdr("is not a valid name")))
+      return()
+    }
+    responses.1 <- unlist(responses.1)
+    duplicates.1 <- duplicated(responses.1)
+    if (oneway && any(duplicates.1)){
+      errorCondition(recall=reshapeWide2Long, message=paste(gettextRcmdr("the following responses appear more than once:"),
+                                                            paste(responses.1[duplicates.1], collapse=", ")))
+      return()
+    }
+    m.1 <- length(responses.1)
+    if (oneway && m.1 < 2){
+      errorCondition(recall=reshapeWide2Long, message=gettextRcmdr("at least 2 responses must be specified"))
+      return()
+    }
+    rm11 <- getSelection(rm11ComboxBox)  
+    rm12 <- getSelection(rm12ComboxBox)  
+    rm13 <- getSelection(rm13ComboxBox)  
+    rm14 <- getSelection(rm14ComboxBox)  
+    rm15 <- getSelection(rm15ComboxBox)  
+    rm21 <- getSelection(rm21ComboxBox) 
+    rm22 <- getSelection(rm22ComboxBox)  
+    rm23 <- getSelection(rm23ComboxBox)  
+    rm24 <- getSelection(rm24ComboxBox)  
+    rm25 <- getSelection(rm25ComboxBox)  
+    rm31 <- getSelection(rm31ComboxBox)  
+    rm32 <- getSelection(rm32ComboxBox)  
+    rm33 <- getSelection(rm33ComboxBox)  
+    rm34 <- getSelection(rm34ComboxBox) 
+    rm35 <- getSelection(rm35ComboxBox)  
+    rm41 <- getSelection(rm41ComboxBox)  
+    rm42 <- getSelection(rm42ComboxBox)  
+    rm43 <- getSelection(rm43ComboxBox)  
+    rm44 <- getSelection(rm44ComboxBox)  
+    rm45 <- getSelection(rm45ComboxBox)  
+    rm51 <- getSelection(rm51ComboxBox)  
+    rm52 <- getSelection(rm52ComboxBox) 
+    rm53 <- getSelection(rm53ComboxBox)  
+    rm54 <- getSelection(rm54ComboxBox)
+    rm55 <- getSelection(rm55ComboxBox)
+    responses <- list(rm11, rm12, rm13, rm14, rm15, 
+                      rm21, rm22, rm23, rm24, rm25,
+                      rm31, rm32, rm33, rm34, rm35,
+                      rm41, rm42, rm43, rm44, rm45,
+                      rm51, rm52, rm53, rm54, rm55)
+    responses <- matrix(responses, nrow=5, ncol=5, byrow=TRUE)
+    selected <- !(responses %in% c("", gettextRcmdr("<no selection>")))
+    if (oneway && any(selected)){
+      errorCondition(recall=reshapeWide2Long,
+                     message=gettextRcmdr("both one and two repeated-measures factors were specified\nspecify either a one-way or two-way design"))
+      return()
+    }
+    selected <- matrix(selected, nrow=5, ncol=5)
+    if (!oneway && !checkResponses(selected)){
+      errorCondition(recall=reshapeWide2Long, message=gettextRcmdr("the specified responses are not contiguous"))
+      return()
+    }
+    row1 <- selected[1, ]
+    ncol <- if (any(row1)) max(which(row1)) else 0
+    col1 <- selected[, 1]
+    nrow <- if (any(col1)) max(which(col1)) else 0
+    if (!oneway && ncol == 0){
+      errorCondition(recall=reshapeWide2Long, message=gettextRcmdr("no responses specified"))
+      return()
+    }
+    if (!oneway && (ncol < 2 || nrow < 2)){
+      errorCondition(recall=reshapeWide2Long, message=gettextRcmdr("at least 2 rows and 2 columns of responses must be specified"))
+      return()
+    }
+    responses <- as.vector(responses)
+    save.responses <- unlist(responses)
+    save.responses <- matrix(responses, 5, 5)
+    responses <- responses[selected]
+    wsrowfactorName <- tclvalue(wsrowfactorNameVariable)
+    wscolfactorName <- tclvalue(wscolfactorNameVariable)
+    if (!oneway && !is.valid.name(wsrowfactorName)){
+      errorCondition(recall=reshapeWide2Long, message=paste(wsrowfactorName, gettextRcmdr("is not a valid name")))
+      return()
+    }
+    if (!oneway && !is.valid.name(wscolfactorName)){
+      errorCondition(recall=reshapeWide2Long, message=paste(wscolfactorName, gettextRcmdr("is not a valid name")))
+      return()
+    }
+    level1 <- tclvalue(level1variable)
+    level2 <- tclvalue(level2variable)
+    level3 <- tclvalue(level3variable)
+    level4 <- tclvalue(level4variable)
+    level5 <- tclvalue(level5variable)
+    level6 <- tclvalue(level6variable)
+    level7 <- tclvalue(level7variable)
+    level8 <- tclvalue(level8variable)
+    levels <- c(level1, level2, level3, level4, level5, level6, level7, level8)
+    
+    duplicated.levels <- duplicated(levels)
+    if (oneway && any(duplicated(levels))){
+      errorCondition(recall=reshapeWide2Long, 
+                     message=paste0(gettextRcmdr("there are duplicated level names"), ":\n ", 
+                                    paste(unique(levels[duplicated.levels]), collapse=", ")))
+      return()
+    }
+    colLevel1 <- tclvalue(colLevel1variable)
+    colLevel2 <- tclvalue(colLevel2variable)
+    colLevel3 <- tclvalue(colLevel3variable)
+    colLevel4 <- tclvalue(colLevel4variable)
+    colLevel5 <- tclvalue(colLevel5variable)
+    colLevels <- c(colLevel1, colLevel2, colLevel3, colLevel4, colLevel5)
+    rowLevel1 <- tclvalue(rowLevel1variable)
+    rowLevel2 <- tclvalue(rowLevel2variable)
+    rowLevel3 <- tclvalue(rowLevel3variable)
+    rowLevel4 <- tclvalue(rowLevel4variable)
+    rowLevel5 <- tclvalue(rowLevel5variable)
+    rowLevels <- c(rowLevel1, rowLevel2, rowLevel3, rowLevel4, rowLevel5)
+    duplicated.levels <- duplicated(rowLevels)
+    if (!oneway && any(duplicated(rowLevels))){
+      errorCondition(recall=reshapeWide2Long, 
+                     message=paste0(gettextRcmdr("there are duplicated row level names"), ":\n ", 
+                                    paste(unique(rowLevels[duplicated.levels]), collapse=", ")))
+      return()
+    }    
+    duplicated.levels <- duplicated(colLevels)
+    if (!oneway && any(duplicated(colLevels))){
+      errorCondition(recall=reshapeWide2Long, 
+                     message=paste0(gettextRcmdr("there are duplicated column level names"), ":\n ", 
+                                    paste(unique(colLevels[duplicated.levels]), collapse=", ")))
+      return()
+    }    
+    putDialog ("reshapeWide2Long", list(initial.rm=save.responses, initial.tab=tab, 
+                                        initial.wsrowfactorName=wsrowfactorName,
+                                        initial.wscolfactorName=wscolfactorName,
+                                        initial.rm.1=save.responses.1, initial.wsfactorName=wsfactorName,
+                                        initial.level=levels, initial.rowLevel=rowLevels, initial.colLevel=colLevels,
+                                        initial.makeactive=makeactive, initial.ignore=ignoreValue))
+    responses <- unlist(responses)
+    duplicates <- duplicated(responses)
+    if (any(duplicates)){
+      errorCondition(recall=reshapeWide2Long, message=paste(gettextRcmdr("the following responses appear more than once:"),
+                                                            paste(responses[duplicates], collapse=", ")))
+      return()
+    }
+    if (any(bad <- ignoreValue %in% c(responses, responses.1))){
+      errorCondition(recall=reshapeWide2Long, message=paste(gettextRcmdr("the following ignored variables are also responses:"),
+                                                            paste(ignoreValue[bad], collapse=", ")))
+      return()
+    }
+    closeDialog()
+    m <- length(responses)
+    res <- if (m > 0) as.vector(t(matrix(responses, nrow, ncol)))
+    command <- if (oneway){
+      paste0(newDatasetNameValue,' <- reshapeW2L(', .activeDataSet, ', within="', wsfactorName, 
+             '", levels=list(', wsfactorName, '=c(', paste(paste0('"', levels[1:m.1], '"'), collapse=", "), 
+             ')), varying=list(', response, '=c(', paste(paste0('"', responses.1, '"'), collapse=', '),'))', ignore, ', id="', id, '")')
+    } else {
+      paste0(newDatasetNameValue,' <- reshapeW2L(', .activeDataSet, ', within=c("', wsrowfactorName, '", "', wscolfactorName, 
+             '"), levels=list(', wsrowfactorName, '=c(', paste(paste0('"', rowLevels[1:nrow], '"'), collapse=", "), '), ', 
+             wscolfactorName, '=c(', paste(paste0('"', colLevels[1:ncol], '"'), collapse=", "), ')), varying=list(',
+             response, '=c(', paste(paste0('"', res, '"'), collapse=', '),'))', ignore, ', id="', id, '")')
+    }
+    if (makeactive == "1") activeDataSet(newDatasetNameValue)
+    
+    doItAndPrint(command)
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "reshapeW2L", reset = "reshapeWide2Long")
+  oneFactorFrame <- ttklabelframe(oneFactorTab, labelwidget=tklabel(top, text = gettextRcmdr("Specify one within-subject factor"),
+                                                                    font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+  variableNameFrame.1 <- tkframe(oneFactorFrame)
+  wsfactorNameVariable <- tclVar(dialog.values$initial.wsfactorName)
+  wsfactorNameBox <-ttkentry(variableNameFrame.1, width="20", textvariable=wsfactorNameVariable)
+  rm1ComboxBox <- variableComboBox(oneFactorFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm.1[[1]], adjustWidth=TRUE,
+                                   nullSelection=gettextRcmdr("<no selection>"))
+  rm2ComboxBox <- variableComboBox(oneFactorFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm.1[[2]], adjustWidth=TRUE,
+                                   nullSelection=gettextRcmdr("<no selection>"))
+  rm3ComboxBox <- variableComboBox(oneFactorFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm.1[[3]], adjustWidth=TRUE,
+                                   nullSelection=gettextRcmdr("<no selection>"))
+  rm4ComboxBox <- variableComboBox(oneFactorFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm.1[[4]], adjustWidth=TRUE,
+                                   nullSelection=gettextRcmdr("<no selection>"))
+  rm5ComboxBox <- variableComboBox(oneFactorFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm.1[[5]], adjustWidth=TRUE,
+                                   nullSelection=gettextRcmdr("<no selection>"))
+  rm6ComboxBox <- variableComboBox(oneFactorFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm.1[[6]], adjustWidth=TRUE,
+                                   nullSelection=gettextRcmdr("<no selection>"))
+  rm7ComboxBox <- variableComboBox(oneFactorFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm.1[[7]], adjustWidth=TRUE,
+                                   nullSelection=gettextRcmdr("<no selection>"))
+  rm8ComboxBox <- variableComboBox(oneFactorFrame, variableList=Numeric(), 
+                                   initialSelection=dialog.values$initial.rm.1[[8]], adjustWidth=TRUE,
+                                   nullSelection=gettextRcmdr("<no selection>"))
+  level1variable <- tclVar(dialog.values$initial.level[[1]])
+  level1 <-ttkentry(oneFactorFrame, width="10", textvariable=level1variable, background="gray")
+  level2variable <- tclVar(dialog.values$initial.level[[2]])
+  level2 <-ttkentry(oneFactorFrame, width="10", textvariable=level2variable)
+  level3variable <- tclVar(dialog.values$initial.level[[3]])
+  level3 <-ttkentry(oneFactorFrame, width="10", textvariable=level3variable)
+  level4variable <- tclVar(dialog.values$initial.level[[4]])
+  level4 <-ttkentry(oneFactorFrame, width="10", textvariable=level4variable)
+  level5variable <- tclVar(dialog.values$initial.level[[5]])
+  level5 <-ttkentry(oneFactorFrame, width="10", textvariable=level5variable)
+  level6variable <- tclVar(dialog.values$initial.level[[6]])
+  level6 <-ttkentry(oneFactorFrame, width="10", textvariable=level6variable)
+  level7variable <- tclVar(dialog.values$initial.level[[7]])
+  level7 <-ttkentry(oneFactorFrame, width="10", textvariable=level7variable)
+  level8variable <- tclVar(dialog.values$initial.level[[8]])
+  level8 <-ttkentry(oneFactorFrame, width="10", textvariable=level8variable)
+  tkgrid(labelRcmdr(variableNameFrame.1, text=gettextRcmdr("Name for the within-subjects factor: ")), wsfactorNameBox, sticky="w")
+  tkgrid(variableNameFrame.1, sticky="w", columnspan=4)
+  tkgrid(labelRcmdr(oneFactorFrame, text=gettextRcmdr("Specify up to 8 levels (responses) and level names for the within-subjects factor")), 
+         sticky="w", columnspan=4)
+  tkgrid(level1, level2, level3, level4, sticky="w")
+  tkgrid(getFrame(rm1ComboxBox), getFrame(rm2ComboxBox), getFrame(rm3ComboxBox), getFrame(rm4ComboxBox), sticky="w")
+  tkgrid(level5, level6, level7, level8, sticky="w")
+  tkgrid(getFrame(rm5ComboxBox), getFrame(rm6ComboxBox), getFrame(rm7ComboxBox), getFrame(rm8ComboxBox), sticky="w")
+  tkgrid(oneFactorFrame, sticky = "w")
+  twoFactorsFrame <- ttklabelframe(twoFactorsTab, labelwidget=tklabel(top, text = gettextRcmdr("Specify two within-subject factors"),
+                                                                      font="RcmdrTitleFont", foreground=getRcmdr("title.color")))
+  variableNameFrame <- tkframe(twoFactorsFrame)
+  wsrowfactorNameVariable <- tclVar(dialog.values$initial.wsrowfactorName)
+  wsrowfactorNameBox <-ttkentry(variableNameFrame, width="20", textvariable=wsrowfactorNameVariable)
+  wscolfactorNameVariable <- tclVar(dialog.values$initial.wscolfactorName)
+  wscolfactorNameBox <-ttkentry(variableNameFrame, width="20", textvariable=wscolfactorNameVariable)
+  rm11ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), 
+                                    initialSelection=dialog.values$initial.rm[[1, 1]], adjustWidth=TRUE,
+                                    nullSelection=gettextRcmdr("<no selection>"))
+  rm12ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), 
+                                    initialSelection=dialog.values$initial.rm[[1, 2]], adjustWidth=TRUE,
+                                    nullSelection=gettextRcmdr("<no selection>"))
+  rm13ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), 
+                                    initialSelection=dialog.values$initial.rm[[1, 3]], adjustWidth=TRUE,
+                                    nullSelection=gettextRcmdr("<no selection>"))
+  rm14ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), 
+                                    initialSelection=dialog.values$initial.rm[[1, 4]], adjustWidth=TRUE,
+                                    nullSelection=gettextRcmdr("<no selection>"))
+  rm15ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), 
+                                    initialSelection=dialog.values$initial.rm[[1, 5]], adjustWidth=TRUE,
+                                    nullSelection=gettextRcmdr("<no selection>"))
+  rm21ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[2, 1]], nullSelection=gettextRcmdr("<no selection>"))
+  rm22ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[2, 2]], nullSelection=gettextRcmdr("<no selection>"))
+  rm23ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[2, 3]], nullSelection=gettextRcmdr("<no selection>"))
+  rm24ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[2, 4]], nullSelection=gettextRcmdr("<no selection>"))
+  rm25ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[2, 5]], nullSelection=gettextRcmdr("<no selection>"))
+  rm31ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[3, 1]], nullSelection=gettextRcmdr("<no selection>"))
+  rm32ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[3, 2]], nullSelection=gettextRcmdr("<no selection>"))
+  rm33ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[3, 3]], nullSelection=gettextRcmdr("<no selection>"))
+  rm34ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[3, 4]], nullSelection=gettextRcmdr("<no selection>"))
+  rm35ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[3, 5]], nullSelection=gettextRcmdr("<no selection>"))
+  rm41ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[4, 1]], nullSelection=gettextRcmdr("<no selection>"))
+  rm42ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[4, 2]], nullSelection=gettextRcmdr("<no selection>"))
+  rm43ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[4, 3]], nullSelection=gettextRcmdr("<no selection>"))
+  rm44ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[4, 4]], nullSelection=gettextRcmdr("<no selection>"))
+  rm45ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[4, 5]], nullSelection=gettextRcmdr("<no selection>"))
+  rm51ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[5, 1]], nullSelection=gettextRcmdr("<no selection>"))
+  rm52ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[5, 2]], nullSelection=gettextRcmdr("<no selection>"))
+  rm53ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[5, 3]], nullSelection=gettextRcmdr("<no selection>"))
+  rm54ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[5, 4]], nullSelection=gettextRcmdr("<no selection>"))
+  rm55ComboxBox <- variableComboBox(twoFactorsFrame, variableList=Numeric(), adjustWidth=TRUE,
+                                    initialSelection=dialog.values$initial.rm[[5, 5]], nullSelection=gettextRcmdr("<no selection>"))
+  colLevel1variable <- tclVar(dialog.values$initial.colLevel[[1]])
+  colLevel1 <-ttkentry(twoFactorsFrame, width="10", textvariable=colLevel1variable, background="gray")
+  colLevel2variable <- tclVar(dialog.values$initial.colLevel[[2]])
+  colLevel2 <-ttkentry(twoFactorsFrame, width="10", textvariable=colLevel2variable)
+  colLevel3variable <- tclVar(dialog.values$initial.colLevel[[3]])
+  colLevel3 <-ttkentry(twoFactorsFrame, width="10", textvariable=colLevel3variable)
+  colLevel4variable <- tclVar(dialog.values$initial.colLevel[[4]])
+  colLevel4 <-ttkentry(twoFactorsFrame, width="10", textvariable=colLevel4variable)
+  colLevel5variable <- tclVar(dialog.values$initial.colLevel[[5]])
+  colLevel5 <-ttkentry(twoFactorsFrame, width="10", textvariable=colLevel5variable)
+  rowLevel1variable <- tclVar(dialog.values$initial.rowLevel[[1]])
+  rowLevel1 <-ttkentry(twoFactorsFrame, width="10", textvariable=rowLevel1variable, background="gray")
+  rowLevel2variable <- tclVar(dialog.values$initial.rowLevel[[2]])
+  rowLevel2 <-ttkentry(twoFactorsFrame, width="10", textvariable=rowLevel2variable)
+  rowLevel3variable <- tclVar(dialog.values$initial.rowLevel[[3]])
+  rowLevel3 <-ttkentry(twoFactorsFrame, width="10", textvariable=rowLevel3variable)
+  rowLevel4variable <- tclVar(dialog.values$initial.rowLevel[[4]])
+  rowLevel4 <-ttkentry(twoFactorsFrame, width="10", textvariable=rowLevel4variable)
+  rowLevel5variable <- tclVar(dialog.values$initial.rowLevel[[5]])
+  rowLevel5 <-ttkentry(twoFactorsFrame, width="10", textvariable=rowLevel5variable)
+  tkgrid(labelRcmdr(variableNameFrame, text=gettextRcmdr("Name for the within-subjects row factor: ")), wsrowfactorNameBox, sticky="w")
+  tkgrid(labelRcmdr(variableNameFrame, text=gettextRcmdr("Name for the within-subjects column factor: ")), wscolfactorNameBox, sticky="w")
+  tkgrid(twoFactorsFrame, sticky="w")
+  tkgrid(variableNameFrame, sticky="w", columnspan=4)
+  tkgrid(labelRcmdr(twoFactorsFrame, text=gettextRcmdr("Specify up to 5 levels and level names for each within-subjects factor")), 
+         sticky="w", columnspan=4)
+  tkgrid(labelRcmdr(twoFactorsFrame, text=""), colLevel1, colLevel2, colLevel3, colLevel4, colLevel5, sticky="w")
+  tkgrid(rowLevel1,
+         getFrame(rm11ComboxBox), getFrame(rm12ComboxBox), getFrame(rm13ComboxBox), getFrame(rm14ComboxBox),  getFrame(rm15ComboxBox), sticky="sw")
+  tkgrid(rowLevel2,
+         getFrame(rm21ComboxBox), getFrame(rm22ComboxBox), getFrame(rm23ComboxBox), getFrame(rm24ComboxBox),  getFrame(rm25ComboxBox), sticky="sw")
+  tkgrid(rowLevel3,
+         getFrame(rm31ComboxBox), getFrame(rm32ComboxBox), getFrame(rm33ComboxBox), getFrame(rm34ComboxBox),  getFrame(rm35ComboxBox), sticky="sw")
+  tkgrid(rowLevel4,
+         getFrame(rm41ComboxBox), getFrame(rm42ComboxBox), getFrame(rm43ComboxBox), getFrame(rm44ComboxBox),  getFrame(rm45ComboxBox), sticky="sw")
+  tkgrid(rowLevel5,
+         getFrame(rm51ComboxBox), getFrame(rm52ComboxBox), getFrame(rm53ComboxBox), getFrame(rm54ComboxBox),  getFrame(rm55ComboxBox), sticky="sw")
+  tkgrid(twoFactorsFrame, sticky = "w")
+  
+  tkgrid(labelRcmdr(optionsTab, text = gettextRcmdr("Name for long data set: ")),
+         newDatasetField, sticky="w")
+  tkgrid(labelRcmdr(optionsTab, text = gettextRcmdr("Response variable: ")),
+         responseField, sticky="w")
+  tkgrid(labelRcmdr(optionsTab, text = gettextRcmdr("Subject ID variable: ")),
+         idField, sticky="w")
+  tkgrid(labelRcmdr(optionsTab, text = gettextRcmdr("Make the wide data set active")),
+         makeactiveCheckBox, sticky="w")
+  tkgrid(getFrame(ignoreBox),sticky = "nw")
+  dialogSuffix(use.tabs=TRUE, tabs=c("oneFactorTab", "twoFactorsTab", "optionsTab"),
+               tab.names=c("One Repeated-Measures Factor", "Two Repeated-Measures Factors", "Options"), grid.buttons=TRUE)
+}
+

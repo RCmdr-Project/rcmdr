@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2020-04-13 by J. Fox
+# last modified 2020-04-17 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -81,9 +81,8 @@
     item	activeMenu		command			"Remove row(s) from active data set..."			RemoveRows					"activeDataSetP()"          ""
     item    activeMenu      command         "Stack variables in active data set..."         Stack                       "activeDataSetP() && numericP(2)"          ""
     item    activeMenu      command         "Remove cases with missing data..."             filterNA                    "activeDataSetP()"          ""
-    
     item    activeMenu      command         "Reshape data set from long to wide format..."  reshapeLong2Wide            "activeDataSetP()"          ""
-    
+    item    activeMenu      command         "Reshape data set from wide to long format..."  reshapeWide2Long            "activeDataSetP()"          ""    
     item    activeMenu      command         "Save active data set..."                       saveDataSet                 "activeDataSetP()"          ""
     item    activeMenu      command         "Export active data set..."                     exportDataSet               "activeDataSetP()"          ""
     item    dataMenu        cascade         "Active data set"                               activeMenu                  ""          ""

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2020-04-13 12:00:00\n"
+"POT-Creation-Date: 2020-04-17 11:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5348,3 +5348,43 @@ msgstr ""
 
 msgid "Make the wide data set active"
 msgstr ""
+
+  # new reshape data set from wide to long format dialog
+  
+msgid "Reshape data set from wide to long format..."
+msgstr ""
+  
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr ""
+
+msgid "both one and two repeated-measures factors were specified\nspecify either a one-way or two-way design"
+msgstr ""
+
+msgid "the specified responses are not contiguous"
+msgstr ""
+
+msgid "the following ignored variables are also responses:"
+msgstr ""
+
+msgid "Specify one within-subject factor"
+msgstr ""
+
+msgid "Specify two within-subject factors"
+msgstr ""
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr ""
+
+msgid "Name for long data set: "
+msgstr ""
+
+msgid "Response variable: "
+msgstr ""
+
+msgid "Subject ID variable: "
+msgstr ""
+
+msgid "Make the long data set active"
+msgstr ""
+
+

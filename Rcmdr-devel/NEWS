@@ -1,6 +1,8 @@
 Changes in version 2.7-0
 
   o New dialogs for repeated-measures ANOVA and ANCOVA and plots with one or two repeated-measures factors.
+  
+  o New dialogs to reshape data sets from wide to long and from long to wide.
 
   o Better handling of discrete numeric variables (after suggestions by Ethan Harris).
   
