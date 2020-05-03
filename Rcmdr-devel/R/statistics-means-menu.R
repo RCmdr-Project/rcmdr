@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2020-04-09 by J. Fox
+# last modified 2020-05-03 by J. Fox
 
 # Means menu
 
@@ -463,7 +463,7 @@ oneWayRepeatedMeasures <- function () {
       errorCondition(recall=oneWayRepeatedMeasures, message=gettextRcmdr("at least 2 responses must be specified"))
       return()
     }
-    idata = paste0("data.frame(", wsfactorName, "=c(", paste(paste0("'", levels[1:m], "'"), collapse=", "), "))")
+    idata = paste0("data.frame(", wsfactorName, "=factor(c(", paste(paste0("'", levels[1:m], "'"), collapse=", "), ")))")
     command <- if (test == "multivariate"){
       paste0("Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
              ", idata=", idata, ", idesign = ~", wsfactorName,
@@ -777,8 +777,8 @@ twoWayRepeatedMeasures <- function () {
     lhs <- paste0("cbind(", paste(responses, collapse=", "), ")")
     formula <- paste(lhs, "~", rhs)
     m <- length(unlist(responses))
-    idata = paste0("data.frame(", wsrowfactorName, " = rep(c(", paste(paste0("'", letters[1:nrow], "'"), collapse=", "), "),", ncol, "), ",
-                   wscolfactorName, " = rep(c(", paste(paste0("'", LETTERS[1:ncol], "'"), collapse=", "), "), each=", nrow, "))")
+    idata = paste0("data.frame(", wsrowfactorName, " = factor(rep(c(", paste(paste0("'", rowLevels[1:nrow], "'"), collapse=", "), "),", ncol, ")), ",
+                   wscolfactorName, " = factor(rep(c(", paste(paste0("'", colLevels[1:ncol], "'"), collapse=", "), "), each=", nrow, ")))")
     command <- if (test == "multivariate"){
       paste0("Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
              ", idata=", idata, ", idesign = ~", wsrowfactorName, "*", wscolfactorName,
