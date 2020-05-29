@@ -1,4 +1,4 @@
-# last modified 2020-04-03 by J. Fox
+# last modified 2020-05-29 by J. Fox
 
 # utility functions
 
@@ -193,6 +193,17 @@ listNumeric <- function(dataSet=ActiveDataSet()) {
         variables[sapply(variables,function(.x)
             is.numeric(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))))]
     }
+}
+
+listCharacter <- function(dataSet=ActiveDataSet()) {
+  if(missing(dataSet)) {
+    Character()
+  }
+  else {
+    variables <- listVariables(dataSet)
+    variables[sapply(variables,function(.x)
+      is.character(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))))]
+  }
 }
 
 trim.blanks <- function(text){
@@ -1616,6 +1627,11 @@ Numeric <- function(names){
     else putRcmdr("numeric", names)
 }
 
+Character <- function(names){
+  if (missing(names)) getRcmdr("character")
+  else putRcmdr("character", names)
+}
+
 Factors <- function(names){
     if (missing(names)) getRcmdr("factors")
     else putRcmdr("factors", names)
@@ -1644,6 +1660,7 @@ ActiveDataSet <- function(name){
                 Numeric(NULL)
                 Factors(NULL)
                 TwoLevelFactors(NULL)
+                Character(NULL)
                 RcmdrTclSet("dataSetName", gettextRcmdr("<No active dataset>"))
                 putRcmdr(".activeModel", NULL)
                 putRcmdr("nrow", NULL)
@@ -1665,6 +1682,7 @@ ActiveDataSet <- function(name){
         Factors(listFactors(name))
         TwoLevelFactors(listTwoLevelFactors(name))
         DiscreteNumeric(listDiscreteNumeric(name))
+        Character(listCharacter(name))
         open.showData.windows <- getRcmdr("open.showData.windows")
         if (!is.null(open.showData.windows) && name %in% names(open.showData.windows)
             && open.showData.windows[[name]]$ID %in% as.character(tkwinfo("children", "."))){
@@ -1690,6 +1708,7 @@ ActiveDataSet <- function(name){
             Factors(NULL)
             TwoLevelFactors(NULL)
             DiscreteNumeric(NULL)
+            Character(NULL)
             RcmdrTclSet("dataSetName", gettextRcmdr("<No active dataset>"))
             putRcmdr(".activeModel", NULL)
             putRcmdr("nrow", NULL)
@@ -1759,6 +1778,8 @@ dataSetsP <- function(n=1){
 numericP <- function(n=1) activeDataSetP() && length(listNumeric()) >= n
 
 factorsP <- function(n=1) activeDataSetP() && length(listFactors()) >= n
+
+characterP <- function(n=1) activeDataSetP() && length(listCharacter()) >= n
 
 twoLevelFactorsP <- function(n=1) activeDataSetP() && length(listTwoLevelFactors()) >= n
 
@@ -3935,3 +3956,10 @@ dichotomousResponseLabel <- defmacro(frame=top, responseBox=xBox, columnspan=1, 
                           }
                           tkbind(responseBox$listbox, "<ButtonRelease-1>", onSelect)
                         })
+
+convertStrings2Factors <- function(){
+  .activeDataSet <- activeDataSet() 
+  command <- paste0(.activeDataSet, ' <- strings2factors(', .activeDataSet, ')')
+  doItAndPrint(command)
+  activeDataSet(.activeDataSet)
+}

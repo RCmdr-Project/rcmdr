@@ -74,7 +74,9 @@ anovaP, EffectP, logLikP,
 
 modelCapability,
 
-Coef
+Coef,
+
+listCharacter, characterP, Character
 )
 
 S3method(Coef, multinom)

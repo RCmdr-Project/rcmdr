@@ -1,4 +1,4 @@
-# last modified 2020-04-17 by J. Fox
+# last modified 2020-05-29 by J. Fox
 
 # Data menu dialogs
 
@@ -335,6 +335,8 @@ readDataSet <- function() {
                  labels=gettextRcmdr(c("Local file system", "Clipboard", "Internet URL")), title=gettextRcmdr("Location of Data File"))
     headerVariable <- tclVar("1")
     headerCheckBox <- ttkcheckbutton(optionsFrame, variable=headerVariable)
+    stringsAsFactorsVariable <- tclVar("1")
+    stringsAsFactorsCheckBox <- ttkcheckbutton(optionsFrame, variable=stringsAsFactorsVariable)
     radioButtons(optionsFrame, "delimiter", buttons=c("whitespace", "commas", "semicolons", "tabs"),
                  labels=gettextRcmdr(c("White space", "Commas [,]", "Semicolons [;]", "Tabs")), title=gettextRcmdr("Field Separator"),
                  columns=2) 
@@ -399,6 +401,7 @@ readDataSet <- function() {
             return()
         }
         head <- tclvalue(headerVariable) == "1"
+        stringsAsFactors <- tclvalue(stringsAsFactorsVariable) == "1"
         delimiter <- tclvalue(delimiterVariable)
         del <- if (delimiter == "whitespace") ""
         else if (delimiter == "commas") ","
@@ -409,6 +412,7 @@ readDataSet <- function() {
         dec <- if (tclvalue(decimalVariable) == "period") "." else ","
         if (!(location == "clipboard" && MacOSXP())) file <- paste0('"', file, '"')
         command <- paste("read.table(", file, ", header=", head,
+                         ', stringsAsFactors=', stringsAsFactors,
                          ', sep="', del, '", na.strings="', miss, '", dec="', dec, '", strip.white=TRUE)', sep="")
         logger(paste(dsnameValue, " <- ", command, sep=""))
         result <- justDoIt(command)
@@ -421,6 +425,7 @@ readDataSet <- function() {
     OKCancelHelp(helpSubject="read.table")
     tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Enter name for data set:")), entryDsname, sticky="w")
     tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Variable names in file:")), headerCheckBox, sticky="w")
+    tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Convert character variables to factors")), stringsAsFactorsCheckBox, sticky="w")
     tkgrid(labelRcmdr(optionsFrame, text=gettextRcmdr("Missing data indicator:")), missingEntry, sticky="w")
     tkgrid(locationFrame, sticky="w")
     tkgrid(otherButton, 

@@ -12,6 +12,8 @@
 \alias{anovaP}
 \alias{beginRmdBlock}
 \alias{beginRnwBlock}
+\alias{Character}
+\alias{characterP}
 \alias{checkActiveDataSet}
 \alias{checkActiveModel}
 \alias{checkBoxes}
@@ -68,6 +70,7 @@
 \alias{Library}
 \alias{listAllModels}
 \alias{listAOVModels}
+\alias{listCharacter}
 \alias{listDataSets}
 \alias{listDiscreteNumeric}
 \alias{listGeneralizedLinearModels}
@@ -166,6 +169,8 @@ activeModelP()
 anovaP()
 beginRmdBlock()
 beginRnwBlock()
+Character(names)
+characterP(n=1)
 checkActiveDataSet()
 checkActiveModel()
 checkBoxes(window=top, frame=stop("frame not supplied"), 
@@ -238,6 +243,7 @@ knitrP()
 Library(package, pos=length(search()), rmd=TRUE)
 listAllModels(envir=.GlobalEnv, ...)
 listAOVModels(envir=.GlobalEnv, ...)
+listCharacter(dataSet=ActiveDataSet())
 listDataSets(envir=.GlobalEnv, ...)
 listDiscreteNumeric(dataSet=ActiveDataSet())
 listFactors(dataSet=ActiveDataSet())
@@ -557,7 +563,7 @@ commanderPosition()
   \emph{Information: }
   
   Several functions return vectors of object names: \code{listAllModels}, \cr
-  \code{listAOVModels}, \code{listDataSets}, \code{listDiscreteNumeric}, \code{listGeneralizedLinearModels},
+  \code{listAOVModels}, \code{listCharacter}, \code{listDataSets}, \code{listDiscreteNumeric}, \code{listGeneralizedLinearModels},
   \code{listFactors}, \code{listLinearModels}, \code{listMultinomialLogitModels},
   \code{listNumeric}, \code{listProportionalOddsModels},
   \code{listTwoLevelFactors},
