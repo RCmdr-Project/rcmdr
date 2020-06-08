@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2019-11-15 by J. Fox
+# last modified 2020-06-08 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -623,7 +623,8 @@ testLinearHypothesis <- function(){
     }
     tkgrid(buttonsFrame, sticky="w")
     dialogSuffix() 
-    if (!WindowsP()) setUpTable()
+    # if (!WindowsP()) setUpTable()
+    setUpTable()
 } 
 
 compareModels <- function () {
