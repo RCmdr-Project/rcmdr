@@ -5387,4 +5387,14 @@ msgstr ""
 msgid "Make the long data set active"
 msgstr ""
 
+  # additional messages for handling character data
+  
+msgid "Convert all character variables to factors"
+msgstr ""
+
+msgid "Convert character variables to factors..."
+msgstr ""
+
+msgid "Convert Character Variables to Factors"
+msgstr ""
 

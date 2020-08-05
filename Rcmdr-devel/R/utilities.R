@@ -1,4 +1,4 @@
-# last modified 2020-05-29 by J. Fox
+# last modified 2020-08-05 by J. Fox
 
 # utility functions
 
@@ -3791,11 +3791,15 @@ hasProgram <- function(program, version, prefix="--", line=1, compare=`>=`){
     compare(result, version)
 }
 
-RcmdrCapabilities <- function(check=list(c("pdflatex"), c("pandoc", version="1.12.3"))){
+RcmdrCapabilities <- function(check=list(c("pdflatex"), c("pandoc", version="1.12.3")),
+                              checkTkTable=TRUE){
     result <- vector(length(check), mode="list")
     names(result) <- sapply(check, function(x) x[1])
     for (i in 1:length(check)){
         result[[i]] <- do.call(hasProgram, as.list(check[[i]]))
+    }
+    if (checkTkTable){
+      result$tktable <- inherits(tclRequire("Tktable", warn = FALSE), "tclObj")
     }
     result
 }

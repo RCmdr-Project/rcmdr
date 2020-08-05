@@ -16,6 +16,10 @@ Changes in version 2.7-0
   
   o Fixes to handling panes with console.output and log.commands options set to various values  (thanks to Vilmantas Gegzna).
   
+  o Better handling of character data following change to stringsAsFactor option in R 4.0.0+.
+  
+  o Check for presence of Tktable and adapt to its absence by suppressing the Rcmdr dataset editor.
+  
   o Small improvements and bug fixes.
   
 Changes in version 2.6-3

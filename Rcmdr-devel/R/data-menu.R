@@ -1,4 +1,4 @@
-# last modified 2020-05-29 by J. Fox
+# last modified 2020-08-05 by J. Fox
 
 # Data menu dialogs
 
@@ -3194,3 +3194,50 @@ reshapeWide2Long <- function () {
                tab.names=c("One Repeated-Measures Factor", "Two Repeated-Measures Factors", "Options"), grid.buttons=TRUE)
 }
 
+characterToFactor <- function(){
+  initializeDialog(title=gettextRcmdr("Convert Character Variables to Factors"))
+  dataFrame <- tkframe(top)
+  variableBox <- variableListBox(dataFrame, Character(), selectmode="multiple",
+                                 title=gettextRcmdr("Variables (pick one or more)"))
+  factorNameFrame <- tkframe(top)
+  factorName <- tclVar(gettextRcmdr("<same as variables>"))
+  factorNameField <- ttkentry(factorNameFrame, width="20", textvariable=factorName)
+  onOK <- function(){
+    variables <- getSelection(variableBox)
+    closeDialog()
+    facname <- trim.blanks(tclvalue(factorName))
+    .activeDataSet <- ActiveDataSet()
+    if (length(variables) == 0) {
+      errorCondition(recall=characterToFactor, message=gettextRcmdr("You must select a variable."))}
+    else command <- paste(.activeDataSet, " <- within(", .activeDataSet, ", {", sep="")
+    for (name in variables){
+      fname <- if (facname == gettextRcmdr("<same as variables>")) name
+      else if (length(variables) == 1) facname
+      else paste(facname, name, sep="")
+      if (!is.valid.name(fname)){
+        errorCondition(recall=characterToFactor,
+                       message=paste('"', fname, '" ', gettextRcmdr("is not a valid name."), sep=""))
+        return()
+      }
+      if (is.element(fname, Variables())) {
+        if ("no" == tclvalue(checkReplace(fname))){
+          characterToFactor()
+          return()
+        }
+      }
+      command <- paste(command, "\n  ", fname, " <- as.factor(", name, ")", sep="")
+    }
+    command <- paste(command, "\n})", sep="")
+    result <- doItAndPrint(command)
+    if (class(result)[1] !=  "try-error") activeDataSet(.activeDataSet, flushModel=FALSE, flushDialogMemory=FALSE)
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject="factor")
+  tkgrid(getFrame(variableBox), labelRcmdr(dataFrame, text="  "), sticky="nw")
+  tkgrid(dataFrame, sticky="w")
+  tkgrid(labelRcmdr(factorNameFrame,
+                    text=gettextRcmdr("New variable name or prefix for multiple variables:  ")),
+         factorNameField, sticky="w")
+  tkgrid(factorNameFrame, sticky="w")
+  dialogSuffix(grid.buttons=TRUE)
+}

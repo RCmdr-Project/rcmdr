@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2020-01-24 by John Fox
+# last modified 2020-08-05 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -165,7 +165,7 @@ setupRcmdrOptions <- function(DESCRIPTION){
     setOption("suppress.X11.warnings",
               interactive() && .Platform$GUI == "X11") # to address problem in X11 (Linux or Mac OS X)
     setOption("showData.threshold", c(20000, 100))
-    setOption("editDataset.threshold", 10000)
+    setOption("editDataset.threshold", if (getRcmdr("capabilities")$tktable) 10000 else 0)
     setOption("retain.messages", TRUE)
     setOption("crisp.dialogs",  TRUE)
     setOption("length.output.stack", 10)
