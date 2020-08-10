@@ -23,14 +23,14 @@
 and updated from Fox (2005). Please address correspondence to
 \texttt{jfox@mcmaster.ca}. }}
 \author{John Fox}
-\date{Version 2.6-0 (last modified: 2019-11-24)}
+\date{Version 2.7-0 (last modified: 2020-08-10)}
 \maketitle
 
 \section{Introduction}
 
 The\textbf{\ R Commander} \citep{Fox05, Fox17} provides a graphical user
 interface (\textquotedblleft GUI\textquotedblright) to the open-source
-\textbf{R } statistical computing environment \citep{RCore19}. This manual is a brief,
+\textbf{R } statistical computing environment \citep{RCore20}. This manual is a brief,
 basic introduction to the \textbf{R Commander}; for more extensive documentation,
 see \citet{Fox17}, which has a website at <\href{https://socserv.mcmaster.ca/jfox/Books/RCommander/}{socserv.mcmaster.ca/jfox/Books/RCommander/}> 
 or <\href{https://tinyurl.com/RcmdrBook}{tinyurl.com/RcmdrBook}>.
@@ -215,7 +215,7 @@ Commander} dialog box has a \emph{Help} button (see below).
 \end{description}
 
 The complete menu \textquotedblleft tree\textquotedblright\ for the \textbf{R
-Commander} (version 2.4-0) is shown below. Most menu items lead to dialog
+Commander} (version 2.7-0) is shown below. Most menu items lead to dialog
 boxes, as illustrated later in this manual, and, as is conventional, such menu items are followed by \texttt{...}. 
 Menu items are inactive
 (\textquotedblleft grayed out\textquotedblright) if they are inapplicable to
@@ -295,6 +295,9 @@ gt <- function(x) {
  | |- \Sexpr{gm('Remove row(s) from active data set')}
  | |- \Sexpr{gm('Stack variables in active data set')}
  | |- \Sexpr{gm('Remove cases with missing data')}
+ | |- \Sexpr{gm('Reshape data set from long to wide format')}
+ | |- \Sexpr{gm('Reshape data set from wide to long format')}
+ | |- \Sexpr{gm('Convert all character variables to factors')}
  | |- \Sexpr{gm('Save active data set')}
  | |- \Sexpr{gm('Export active data set')}
  |- \Sexpr{gt('Manage variables in active data set')} 
@@ -303,6 +306,7 @@ gt <- function(x) {
  | |- \Sexpr{gt('Add observation numbers to data set')}
  | |- \Sexpr{gm('Standardize variables')}
  | |- \Sexpr{gm('Convert numeric variables to factors')}
+ | |- \Sexpr{gm('Convert character variables to factors')}
  | |- \Sexpr{gm('Bin numeric variable')}
  | |- \Sexpr{gm('Reorder factor levels')}
  | |- \Sexpr{gm('Drop unused factor levels')}
@@ -329,6 +333,8 @@ gt <- function(x) {
  | |- \Sexpr{gm('Paired t-test')}
  | |- \Sexpr{gm('One-way ANOVA')}
  | |- \Sexpr{gm('Multi-way ANOVA')}
+ | |- \Sexpr{gm('One-factor repeated-measures ANOVA/ANCOVA')}
+ | |- \Sexpr{gm('Two-factor repeated-measures ANOVA/ANCOVA')}
  |- \Sexpr{gt('Proportions')} 
  | |- \Sexpr{gm('Single-sample proportion test')}
  | |- \Sexpr{gm('Two-sample proportions test')}
@@ -370,6 +376,7 @@ gt <- function(x) {
  |- \Sexpr{gm('Stem-and-leaf display')}
  |- \Sexpr{gm('Boxplot')}
  |- \Sexpr{gm('Quantile-comparison plot')}
+ |- \Sexpr{gm('Symmetry boxplot')}
  |- \Sexpr{gm('Scatterplot')}
  |- \Sexpr{gm('Scatterplot matrix')}
  |- \Sexpr{gm('Line graph')}
@@ -408,6 +415,7 @@ gt <- function(x) {
  | |- \Sexpr{gm('Durbin-Watson test for autocorrelation')}
  | |- \Sexpr{gm('RESET test for nonlinearity')}
  | |- \Sexpr{gt('Bonferroni outlier test')}
+ | |- \Sexpr{gt('Response transformation')}
  |- \Sexpr{gt('Graphs')} 
  | |- \Sexpr{gt('Basic diagnostic plots')}
  | |- \Sexpr{gm('Residual quantile-comparison plot')}
@@ -534,249 +542,6 @@ gt <- function(x) {
  |- \Sexpr{gt('R website')}
  |- \Sexpr{gt('Using R Markdown')}
 \end{verbatim}
-
-
-% \begin{verbatim}
-% File - Change working directory
-%     |- Open script file
-%     |- Save script
-%     |- Save script as
-%     |- Open R Markdown file
-%     |- Save R Markdown file
-%     |- Save R Markdown file as
-%     |- Save output
-%     |- Save output as
-%     |- Save R workspace
-%     |- Save R workspace as
-%     |- Exit - from Commander
-%            |- from Commander and R
-% Edit - Edit R Markdown document
-%     |- Edit knitr document
-%     |- Remove last Markdown command block
-%     |- Remove last knitr command block
-%     |- Cut
-%     |- Copy
-%     |- Paste
-%     |- Delete
-%     |- Find
-%     |- Select all
-%     |- Undo
-%     |- Redo
-%     |- Clear Window
-% Data - New data set
-%     |- Load data set
-%     |- Merge data sets
-%     |- Import data - from text file, clipboard, or URL
-%     |             |- from SPSS data set
-%     |             |- from SAS xport file
-%     |             |- from Minitab data set
-%     |             |- from STATA data set
-%     |             |- from Excel file
-%     |- Data in packages - List data sets in packages
-%     |                  |- Read data set from attached package
-%     |- Active data set - View data
-%     |                 |- Select active data set
-%     |                 |- Refresh active data set
-%     |                 |- Help on active data set (if available)
-%     |                 |- Variables in active data set
-%     |                 |- Set case names
-%     |                 |- Subset active data set
-%     |                 |- Sort active data set
-%     |                 |- Aggregate variables in active data set
-%     |                 |- Remove row(s) from active data set
-%     |                 |- Stack variables in active data set
-%     |                 |- Remove cases with missing data
-%     |                 |- Save active data set
-%     |                 |- Export active data set
-%     |- Manage variables in active data set - Recode variable
-%                                           |- Compute new variable
-%                                           |- Add observation numbers to data set
-%                                           |- Standardize variables
-%                                           |- Convert numeric variables to factors
-%                                           |- Bin numeric variable
-%                                           |- Reorder factor levels
-%                                           |- Drop unused factor levels
-%                                           |- Define contrasts for a factor
-%                                           |- Rename variables
-%                                           |- Delete variables from data set
-% Statistics - Summaries - Active data set
-%           |           |- Numerical summaries
-%           |           |- Frequency distributions
-%           |           |- Count missing observations
-%           |           |- Table of statistics
-%           |           |- Correlation matrix
-%           |           |- Correlation test
-%           |           |- Test of normality
-%           |- Contingency Tables - Two-way table
-%           |                    |- Multi-way table
-%           |                    |- Enter and analyze two-way table
-%           |- Means - Single-sample t-test
-%           |       |- Independent-samples t-test
-%           |       |- Paired t-test
-%           |       |- One-way ANOVA
-%           |       |- Multi-way ANOVA
-%           |- Proportions - Single-sample proportion test
-%           |             |- Two-sample proportions test
-%           |- Variances - Two-variances F-test
-%           |           |- Bartlett's test
-%           |           |- Levene's test
-%           |- Nonparametric tests - Two-sample Wilcoxon test
-%           |                     |- Single-sample Wilcoxon test
-%           |                     |- Paired-samples Wilcoxon test
-%           |                     |- Kruskal-Wallis test
-%           |                     |- Friedman rank-sum test
-%           |- Dimensional analysis - Scale reliability
-%           |                      |- Principal-components analysis
-%           |                      |- Factor analysis
-%           |                      |- Confirmatory factor analysis
-%           |                      |- Cluster analysis - k-means cluster analysis
-%           |                                         |- Hierarchical cluster analysis
-%           |                                         |- Summarize hierarchical clustering
-%           |                                         |- Add hierarchical clustering to data set
-%           |- Fit models - Linear regression
-%                        |- Linear model
-%                        |- Generalized linear model
-%                        |- Multinomial logit model
-%                        |- Ordinal regression model
-% Graphs - Color palette
-%       |- Index plot
-%       |- Dot plot
-%       |- Histogram
-%       |- Density estimate
-%       |- Stem-and-leaf display
-%       |- Boxplot
-%       |- Quantile-comparison plot
-%       |- Scatterplot
-%       |- Scatterplot matrix
-%       |- Line graph
-%       |- XY conditioning plot
-%       |- Plot of means
-%       |- Strip chart
-%       |- Bar graph
-%       |- Pie chart
-%       |- 3D graph - 3D scatterplot
-%       |          |- Identify observations with mouse
-%       |          |- Save graph to file
-%       |- Save graph to file - as bitmap
-%                            |- as PDF/Postscript/EPS
-%                            |- 3D RGL graph
-% Models - Select active model
-%       |- Summarize model
-%       |- Compare model coefficients
-%       |- Add observation statistics to data
-%       |- Akaike Information Criterion (AIC)
-%       |- Bayesian Information Criterion (BIC)
-%       |- Stepwise model selection
-%       |- Subset model selection
-%       |- Confidence intervals
-%       |- Bootstrap confidence intervals
-%       |- Delta method confidence intervals
-%       |- Hypothesis tests - ANOVA table
-%       |                  |- Compare two models
-%       |                  |- Linear hypothesis
-%       |- Numerical diagnostics - Variance-inflation factors
-%       |                       |- Breusch-Pagan test for heteroscedasticity
-%       |                       |- Durbin-Watson test for autocorrelation
-%       |                       |- RESET test for nonlinearity
-%       |                       |- Bonferroni outlier test
-%       |- Graphs - Basic diagnostic plots
-%                |- Residual quantile-comparison plot
-%                |- Component+residual plots
-%                |- Added-variable plots
-%                |- Influence plot
-%                |- Effect plots
-% Distributions - Set random number generator seed
-%              |- Continuous distributions - Normal distribution - Normal quantiles
-%              |            |                                   |- Normal probabilities
-%              |            |                                   |- Plot normal distribution
-%              |            |                                   |- Sample from normal distribution
-%              |            |- t distribution - t quantiles
-%              |            |                |- t probabilities
-%              |            |                |- Plot t distribution
-%              |            |                |- Sample from t distribution
-%              |            |- Chi-squared distribution - Chi-squared quantiles
-%              |            |                          |- Chi-squared probabilities
-%              |            |                          |- Plot chi-squared distribution
-%              |            |                          |- Sample from chi-squared distribution
-%              |            |- F distribution - F quantiles
-%              |            |                |- F probabilities
-%              |            |                |- Plot F distribution
-%              |            |                |- Sample from F distribution
-%              |            |- Exponential distribution - Exponential quantiles
-%              |            |                          |- Exponential probabilities
-%              |            |                          |- Plot exponential distribution
-%              |            |                          |- Sample from exponential distribution
-%              |            |- Uniform distribution - Uniform quantiles
-%              |            |                      |- Uniform probabilities
-%              |            |                      |- Plot uniform distribution
-%              |            |                      |- Sample from uniform distribution
-%              |            |- Beta distribution - Beta quantiles
-%              |            |                   |- Beta probabilities
-%              |            |                   |- Plot beta distribution
-%              |            |                   |- Sample from beta distribution
-%              |            |- Cauchy distribution - Cauchy quantiles
-%              |            |                     |- Cauchy probabilities
-%              |            |                     |- Plot Cauchy distribution
-%              |            |                     |- Sample from Cauchy distribution
-%              |            |- Logistic distribution - Logistic quantiles
-%              |            |                       |- Logistic probabilities
-%              |            |                       |- Plot logistic distribution
-%              |            |                       |- Sample from logistic distribution
-%              |            |- Lognormal distribution - Lognormal quantiles
-%              |            |                        |- Lognormal probabilities
-%              |            |                        |- Plot lognormal distribution
-%              |            |                        |- Sample from lognormal distribution
-%              |            |- Gamma distribution - Gamma quantiles
-%              |            |                    |- Gamma probabilities
-%              |            |                    |- Plot gamma distribution
-%              |            |                    |- Sample from gamma distribution
-%              |            |- Weibull distribution - Weibull quantiles
-%              |            |                      |- Weibull probabilities
-%              |            |                      |- Sample from Weibull distribution
-%              |            |- Gumbel distribution - Gumbel quantiles
-%              |                                  |- Gumbel probabilities
-%              |                                  |- Plot Gumbel distribution
-%              |                                  |- Sample from Gumbel distribution
-%              |- Discrete distributions - Binomial distribution - Binomial quantiles
-%                           |                       |- Binomial tail probabilities
-%                           |                       |- Binomial probabilities
-%                           |                       |- Plot binomial distribution
-%                           |                       |- Sample from binomial distribution
-%                           |- Poisson distribution - Poisson quantiles
-%                           |                     |- Poisson tail probabilities
-%                           |                     |- Poisson probabilities
-%                           |                     |- Plot Poisson distribution
-%                           |                     |- Sample from Poisson distribution
-%                           |- Geometric distribution - Geometric quantiles
-%                           |                       |- Geometric tail probabilities
-%                           |                       |- Geometric probabilities
-%                           |                       |- Plot geometric distribution
-%                           |                       |- Sample from geometric distribution
-%                           |- Hypergeometric distribution - Hypergeometric quantiles
-%                           |                     |- Hypergeometric tail probabilities
-%                           |                     |- Hypergeometric probabilities
-%                           |                     |- Plot hypergeometric distribution
-%                           |                     |- Sample from hypergeometric distribution
-%                           |- Negative binomial distribution - Negative binomial quantiles
-%                                                   |- Negative binomial tail probabilities
-%                                                   |- Negative binomial probabilities
-%                                                   |- Plot negative binomial distribution
-%                                                   |- Sample from negative binomial distribution
-% Tools - Load package(s)
-%      |- Load Rcmdr plug-in(s)
-%      |- Options
-%      |- Save Rcmdr options
-%      |- Manage OS X app nap for R.app [Mac OS X mavericks or newer only]
-%      |- Install [optional] auxiliary software [if not already installed]
-% Help - Commander help
-%     |- Introduction to the R Commander
-%     |- R Commander website
-%     |- About Rcmdr
-%     |- Help on active data set (if available)
-%     |- Start R help system
-%     |- R website
-%     |- Using R Markdown
-% \end{verbatim}
 
 The \textbf{R Commander} interface includes a few elements in addition to
 menus and dialogs:

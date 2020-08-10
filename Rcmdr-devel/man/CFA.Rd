@@ -5,7 +5,7 @@
 
 \description{
 The CFA dialog is used to create and fit a confirmatory factor analysis model via the
-\code{\link[sem]{cfa}} and \code{\link[sem]{sem}} functions in the \pkg{sem} package.
+\code{\link[sem:specifyModel]{cfa}} and \code{\link[sem]{sem}} functions in the \pkg{sem} package.
 }
 
 \details{
@@ -24,6 +24,6 @@ the factor). A check box is provided to compute robust standard errors and tests
 
 \author{John Fox \email{jfox@mcmaster.ca}}
 
-\seealso{\code{\link[sem]{sem}}, \code{\link[sem]{cfa}}}
+\seealso{\code{\link[sem]{sem}}, \code{\link[sem:specifyModel]{cfa}}}
 
 \keyword{models}
