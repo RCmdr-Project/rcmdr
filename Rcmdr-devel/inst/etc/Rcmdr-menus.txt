@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2020-08-05 by J. Fox
+# last modified 2020-08-10 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -215,7 +215,7 @@
     item    modelsMenu      separator       ""                                              ""                          ""          ""
     item    modelsMenu      command         "Confidence intervals..."                       confidenceIntervals         "modelCapability('con')" "packageAvailable('MASS') && packageAvailable('abind')"
     item    modelsMenu      command         "Bootstrap confidence intervals..."             Bootstrap                   "modelCapability('boot')" "packageAvailable('boot')"
-    item    modelsMenu      command         "Delta method confidence interval..."           DeltaMethodConfInt          "modelCapability('del')" ""
+    item    modelsMenu      command         "Delta method confidence interval..."           DeltaMethodConfInt          "modelCapability('del')" "getRcmdr('capabilities')$tktable"
     menu    hypothesisMenu  modelsMenu      ""                                              ""                          ""          ""
     item    modelsMenu      cascade         "Hypothesis tests"                              hypothesisMenu              ""          ""
     item    hypothesisMenu  command         "ANOVA table..."                                anovaTable                  "modelCapability('aov') || modelCapability('Aov')" "packageAvailable('car')"
