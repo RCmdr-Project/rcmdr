@@ -22,6 +22,8 @@ Changes in version 2.7-0
   
   o Small improvements and bug fixes.
   
+  o Updated translations (with thanks to): Russian (Alexey Shipunov).
+  
 Changes in version 2.6-3
 
   o Fix bug in processing resubmitted multi-line commands (reported by Katarina Kosmelj).
