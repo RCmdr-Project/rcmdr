@@ -13,7 +13,7 @@ user interface) for R, based on the tcltk package.
 \tabular{ll}{
 Package: \tab Rcmdr\cr
 Version: \tab 2.7-0\cr
-Date: \tab 2020-08-10\cr
+Date: \tab 2020-08-11\cr
 Depends: \tab R (>= 3.4.0), grDevices, graphics, methods, stats, utils, splines, 
   RcmdrMisc (>= 2.5-0), car (>= 3.0-3), effects (>= 4.0-3)\cr
 Imports: \tab tcltk, tcltk2 (>= 1.2-6), abind, relimp (>= 1.0-5), lme4\cr
@@ -23,8 +23,8 @@ Suggests: \tab aplpack, boot, colorspace, e1071, foreign, grid, Hmisc, knitr, la
 ByteCompile: \tab yes\cr
 License: \tab GPL (>= 2)\cr
 URL: \tab https://www.r-project.org,
-http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/, 
-http://socserv.mcmaster.ca/jfox/Books/RCommander/ \cr
+https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/index.html, 
+https://socialsciences.mcmaster.ca/jfox/Books/RCommander/ \cr
 }
 }
 

@@ -18,11 +18,11 @@ Changes in version 2.7-0
   
   o Better handling of character data following change to stringsAsFactor option in R 4.0.0+.
   
-  o Check for presence of Tktable and adapt to its absence by suppressing the Rcmdr dataset editor.
+  o Check for presence of Tktable and adapt to its absence by suppressing the Rcmdr dataset editor and delta method menu item; Tktable eventually to be replaced with tablelist.
   
   o Small improvements and bug fixes.
   
-  o Updated translations (with thanks to): Russian (Alexey Shipunov).
+  o Updated translations (with thanks to): Russian (Alexey Shipunov), Spanish (Manuel Munoz Marquez).
   
 Changes in version 2.6-3
 
