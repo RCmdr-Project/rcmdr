@@ -5398,3 +5398,10 @@ msgstr ""
 msgid "Convert Character Variables to Factors"
 msgstr ""
 
+
+# new message for version 2.7-1
+
+  # previously omitted message (also included in 2.6-2 but omitted again from 2.7-0):
+  
+msgid "Variable (pick one or more)"
+msgstr ""
