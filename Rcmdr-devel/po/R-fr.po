@@ -9,8 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.5-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2018-08-05 18:30:00\n"
-"POT-Creation-Date: 2018-09-03 11:30:00\n"
+"POT-Creation-Date: 2020-04-17 11:30:00\n"
 "Last-Translator: Milan Bouchet-Valat <nalimilan@club.fr>\n"
 "Language-Team: français <> <phgrosjean@sciviews.org>\n"
 "Language: fr\n"
@@ -2458,17 +2457,17 @@ msgstr "Diagnostics graphiques"
 msgid "Residual quantile-comparison plot..."
 msgstr "Graphe quantile-quantile des résidus..."
 
-msgid "Component+residual plots"
-msgstr "Graphe composants+résidus"
+msgid "Component+residual plots..."
+msgstr "Graphe composants+résidus..."
 
-msgid "Added-variable plots"
-msgstr "Graphe d'additivité des variables"
+msgid "Added-variable plots..."
+msgstr "Graphe d'additivité des variables..."
 
 msgid "Influence plot..."
 msgstr "Graphe d'influence des points..."
 
-msgid "Effect plots"
-msgstr "Graphe des effets"
+msgid "Effect plots..."
+msgstr "Graphe des effets..."
 
 msgid "Models"
 msgstr "Modèles"
@@ -3416,10 +3415,10 @@ msgid "Type of Model"
 msgstr "Type de modèle"
 
 msgid "x-axis label"
-msgstr "libellé de l'axe X"
+msgstr "Libellé de l'axe X"
 
 msgid "y-axis label"
-msgstr "libellé de l'axe Y"
+msgstr "Libellé de l'axe Y"
 
 msgid "No plotting characters."
 msgstr "Pas de caractère à tracer."
@@ -4764,32 +4763,36 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
 "XLS\"}}"
 msgstr ""
-"{\"Tous les fichiers\" {\"*\"}} {\"Fichiers Excel\" {\".xlsx\" \".XLSX\" \".xls"
-"\" \".XLS\"}}"
+"{\"Tous les fichiers\" {\"*\"}} {\"Fichiers Excel\" {\".xlsx\" \".XLSX\" \"."
+"xls\" \".XLS\"}}"
 
 # corrected messages in version 2.2-1
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group"
+msgstr ""
+"Nombre de points à identifier\n"
+"dans chaque panneau et groupe"
 
-msgid "Number of points to identify  \nin each panel and group"
-msgstr "Nombre de points à identifier\ndans chaque panneau et groupe"
-
-msgid "Use sandwich estimator of\ncoefficient covariance matrix"
-msgstr "Utiliser l'estimateur sandwich de\nmatrice de covariance des coefficients"
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix"
+msgstr ""
+"Utiliser l'estimateur sandwich de\n"
+"matrice de covariance des coefficients"
 
 msgid "Concentration levels:"
 msgstr "Niveaux de concentration :"
 
 # additional messages in version 2.3-0
-
-  # .rtf output from RMarkdown reports
-  
+# .rtf output from RMarkdown reports
 msgid ".rtf (rich text file)"
 msgstr ".rtf (fichier texte enrichi)"
 
 msgid "Rich text file written to:"
 msgstr "Fichier texte enrichi créé :"
 
- # bootstrapping dialog
- 
+# bootstrapping dialog
 msgid "Bootstrap confidence intervals..."
 msgstr "Intervalles de confiance bootstrap..."
 
@@ -4829,8 +4832,7 @@ msgstr "Rééchantillonnage des observations"
 msgid "Residual resampling"
 msgstr "Rééchantillonnage des résidus"
 
- # delta method dialog
- 
+# delta method dialog
 msgid "Delta method confidence interval..."
 msgstr "Intervalle de confiance par méthode delta..."
 
@@ -4843,8 +4845,7 @@ msgstr "Intervalle de confiance par méthode delta"
 msgid "Expression to evaluate; use parameter names:"
 msgstr "Expression à évaluer ; utiliser les noms des paramètres :"
 
- # view data dialog
- 
+# view data dialog
 msgid "View data..."
 msgstr "Afficher les données..."
 
@@ -4860,8 +4861,7 @@ msgstr "Pas de données à afficher."
 msgid "View data error."
 msgstr "Erreur d'affichage des données"
 
- # sort active data set dialog
- 
+# sort active data set dialog
 msgid "Sort active data set..."
 msgstr "Trier le jeu de données actif..."
 
@@ -4892,18 +4892,15 @@ msgstr "Clés de tri"
 msgid "Order"
 msgstr "Ordre"
 
- # added to plot means dialog
- 
+# added to plot means dialog
 msgid "Connect profiles of means"
 msgstr "Connecter les profils des moyennes"
 
- # adding to one-way ANOVA dialog
- 
+# adding to one-way ANOVA dialog
 msgid "Welch F-test not assuming equal variances"
 msgstr "Test F de Welch sans supposer l'égalité des variances"
 
- # the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
- 
+# the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
 msgid "Test of normality..."
 msgstr "Test de normalité..."
 
@@ -4934,27 +4931,35 @@ msgstr "Test de normalité"
 msgid "Number of bins must be a number >= 4"
 msgstr "Le nombre de classes doit être un nombre >= 4."
 
-msgid "Number of bins\nfor Pearson chi-square"
-msgstr "Nombre de classes\npour le Khi-2 de Pearson"
+msgid ""
+"Number of bins\n"
+"for Pearson chi-square"
+msgstr ""
+"Nombre de classes\n"
+"pour le Khi-2 de Pearson"
 
- # small changes to the read text data dialog
- 
+msgid "Test by groups"
+msgstr "Test par groupes"
+
+msgid "Test by:"
+msgstr "Test par :"
+
+# small changes to the read text data dialog
 msgid "Commas [,]"
 msgstr "Virgules [,]"
 
 msgid "Semicolons [;]"
 msgstr "Semicolons [;]"
 
- # additional error check in load data set dialog
- 
+# additional error check in load data set dialog
 msgid "There is more than one object in the file, with the following names:\n"
-msgstr "Le fichier contient plusieurs objets, qui portent les noms suivants :\n"
+msgstr ""
+"Le fichier contient plusieurs objets, qui portent les noms suivants :\n"
 
- # new messages for distribution plot dialogs produced by distributionPlot()
- 
+# new messages for distribution plot dialogs produced by distributionPlot()
 msgid "Optionally specify regions under the density function by"
 msgstr "Facultatif : specifier les régions sous la fonction de densité par"
- 
+
 msgid "x-values"
 msgstr "valeurs x"
 
@@ -4991,8 +4996,7 @@ msgstr "couleur"
 msgid "Top center"
 msgstr "En haut au centre"
 
-  # new compare model coefficients dialog
-  
+# new compare model coefficients dialog
 msgid "Compare model coefficients..."
 msgstr "Comparer les coefficients des modèles..."
 
@@ -5006,11 +5010,12 @@ msgid "You must select at least two models."
 msgstr "Vous devez sélectionner au moins deux modèles."
 
 # additional messages in version 2.4-0
-
-  # enhancements to the Rcmdr script editor
-
-msgid "Only one instance of the R Commander script editor may be open at a time."
-msgstr "Une seule instance de l'éditeur de script R Commander peut être ouverte à la fois."
+# enhancements to the Rcmdr script editor
+msgid ""
+"Only one instance of the R Commander script editor may be open at a time."
+msgstr ""
+"Une seule instance de l'éditeur de script R Commander peut être ouverte à la "
+"fois."
 
 msgid "Save current edits"
 msgstr "Enregistrer les modifications actuelles"
@@ -5024,11 +5029,10 @@ msgstr "Quitter l'éditeur en enregistrant les modifications"
 msgid "Cancel discarding edits"
 msgstr "Annuler en perdant les modifications"
 
-  # additions to the barplot dialog
-  
+# additions to the barplot dialog
 msgid "Percentages for Group Bars"
 msgstr "Pourcentages pour les barres de groupes"
-  
+
 msgid "Conditional"
 msgstr "Conditionnel"
 
@@ -5041,18 +5045,15 @@ msgstr "Sélection des couleurs"
 msgid "From color palette"
 msgstr "À partir de la palette de couleurs"
 
-  # correct typo
-  
+# correct typo
 msgid "Data set %s does not exist"
 msgstr "Le jeu de données %s n'existe pas"
 
-  # addition to plot means dialog (position of legend)
-  
+# addition to plot means dialog (position of legend)
 msgid "To right of graph"
 msgstr "À droite du graphique"
 
-  # For two-variances F-test dialog
-  
+# For two-variances F-test dialog
 msgid "Ratio:"
 msgstr "Ratio :"
 
@@ -5062,16 +5063,14 @@ msgstr "Ratio < 1"
 msgid "Ratio > 1"
 msgstr "Ratio > 1"
 
-  # For enter and analyze contingency table dialog
-  
+# For enter and analyze contingency table dialog
 msgid "Name for Row Variable (optional):"
 msgstr "Nom de la variable en lignes (facultatif) :"
 
 msgid "Name for Column Variable (optional):"
 msgstr "Nom de la variable en colonnes (facultatif) :"
 
-  # for import Stata and SAS b7dat data set dialogs
-
+# for import Stata and SAS b7dat data set dialogs
 msgid "Convert character variables to factors"
 msgstr "Convertir les variables caractère en facteurs"
 
@@ -5084,39 +5083,44 @@ msgstr "Importer un jeu de données SAS b7dat"
 msgid "from SAS b7dat file..."
 msgstr "deupis un fichier SAS b7dat..."
 
-msgid "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
-msgstr "{\"Tous les fichiers\" {\"*\"}} {\"jeu de données SAS b7dat\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr ""
+"{\"Tous les fichiers\" {\"*\"}} {\"jeu de données SAS b7dat\" {\".sas7bdat\" "
+"\".SAS7BDAT\"}}"
 
-  # addition to the Commander Options dialog
-  
-msgid "Suppress scientific notation\n(higher = more suppression)"
-msgstr "Éviter la notation scientifique\n(plus élevé = éviter plus)"
+# addition to the Commander Options dialog
+msgid ""
+"Suppress scientific notation\n"
+"(higher = more suppression)"
+msgstr ""
+"Éviter la notation scientifique\n"
+"(plus élevé = éviter plus)"
 
-  # new plot discrete numeric variable dialog
-  
+# new plot discrete numeric variable dialog
 msgid "Plot discrete numeric variable..."
 msgstr "Graphe d'une variable numérique discrète..."
 
 msgid "Plot Discrete Numeric Variable"
 msgstr "Graphe d'une variable numérique discrète"
 
-msgid "%s has %d unique values\nDo you want to proceed?"
-msgstr "%s a %d valeurs uniques\nÊtes-vous sûr de vouloir continuer ?"
+msgid ""
+"%s has %d unique values\n"
+"Do you want to proceed?"
+msgstr ""
+"%s a %d valeurs uniques\n"
+"Êtes-vous sûr de vouloir continuer ?"
 
-  # for boostrapping dialog
-  
+# for boostrapping dialog
 msgid "Plot bootstrap samples"
 msgstr "Dessiner un graphe des échantillons bootstrap"
 
-  # for numerical summaries dialog
-  
+# for numerical summaries dialog
 msgid "Binned Frequency Counts"
 msgstr "Nombre d'occurrences par intervalles"
 
 # additional messages in version 2.4-2
-
-  # these messages were inadvertently omitted
-
+# these messages were inadvertently omitted
 msgid "Sample from ChiSquared Distribution"
 msgstr "Échantillon d'une distribution du Chi-2"
 
@@ -5126,11 +5130,8 @@ msgstr "Échantillon d'une distribution log-normale"
 msgid "Sample from NegativeBinomial Distribution"
 msgstr "Échantillon d'une distribution binomiale négative"
 
-
 # additional messages in version 2.5-0
-
-  # new predictor effect plots dialog
-
+# new predictor effect plots dialog
 msgid "Predictor Effect Plots"
 msgstr "Graphiques d'effet des prédicteurs"
 
@@ -5140,20 +5141,18 @@ msgstr "Graphiques d'effet des prédicteurs..."
 msgid "Plot all predictor effects?"
 msgstr "Représenter les effets de tous les prédicteurs ?"
 
-  # added to index plot dialog
-  
+# added to index plot dialog
 msgid "Mark by groups"
 msgstr "Marquer par groupes"
 
 msgid "Mark by:"
 msgstr "Marquer par :"
 
-  # new response transformation dialog
-  
+# new response transformation dialog
 msgid "Response Transformation"
 msgstr "Transformation de la variable dépendante"
 
-msgid "Response transformation..." 
+msgid "Response transformation..."
 msgstr "Transformation de la variable dépendante"
 
 msgid "Box-Cox"
@@ -5165,8 +5164,7 @@ msgstr "Box-Cox avec valeurs négatives"
 msgid "Yeo-Johnson"
 msgstr "Yeo-Johnson"
 
-  # new transform toward normality dialog
-  
+# new transform toward normality dialog
 msgid "Transform toward normality..."
 msgstr "Transformer vers la loi normale..."
 
@@ -5182,11 +5180,10 @@ msgstr "Famille de la transformation"
 msgid "Condition on:"
 msgstr "Conditionner par :"
 
-  # new symmetry boxplot (symbox) dialog
-  
+# new symmetry boxplot (symbox) dialog
 msgid "Symmetry boxplot..."
 msgstr "Boîte à moustaches pour symétrie..."
-  
+
 msgid "Symmetry Boxplot"
 msgstr "Boîte à moustaches pour symétrie"
 
@@ -5196,28 +5193,26 @@ msgstr "Origine (optionnel)"
 msgid "Powers"
 msgstr "Puissances"
 
-  # new influence index plot dialog
-  
-msgid "Influence index plot..." 
+# new influence index plot dialog
+msgid "Influence index plot..."
 msgstr "Graphe indexé de l'influence..."
-  
+
 msgid "Influence Index Plot"
 msgstr "Graphe indexé de l'influence"
 
 msgid "Bonferroni p-values"
 msgstr "p-values de Bonferroni"
 
-msgid "Case statistics to plot"
-msgstr "Statistiques à représenter"
+msgid "Diagnostics case statistics to plot"
+msgstr "Statistiques de diagnostic à représenter"
 
-  # enhancements to Density Plot dialog
-  
+# enhancements to Density Plot dialog
 msgid "Method"
 msgstr "Méthode"
 
 msgid "adaptive kernel"
 msgstr "noyau adaptatif"
-  
+
 msgid "kernel"
 msgstr "noyau"
 
@@ -5227,3 +5222,279 @@ msgstr "De"
 msgid "To"
 msgstr "À"
 
+msgid "Case statistics to plot"
+msgstr "Statistiques à représenter"
+
+msgid "Linear Mixed Model"
+msgstr "Modèle linéaire mixte"
+
+msgid "Linear mixed model..."
+msgstr "Modèle linéaire mixte..."
+
+msgid "Estimation Criterion"
+msgstr "Critère d'estimation"
+
+msgid "Restricted maximum likelihood (REML)"
+msgstr "Maximum de vraisemblance restreint (REML)"
+
+msgid "Maximum likelihood (ML)"
+msgstr "Maximum de vraisemblance (ML)"
+
+msgid "There are no random effects in the model."
+msgstr "Aucun effet aléatoire dans le modèle."
+
+msgid "Generalized Linear Mixed Model"
+msgstr "Modèle linéaire généralisé"
+
+msgid "Generalized linear mixed model..."
+msgstr "Modèle linéaire généralisé mixte..."
+
+msgid "Convert variable names to lower case"
+msgstr "Convertir les noms de variables en minuscule"
+
+# new messages about invalid variable classes
+msgid ""
+"The following variables are not valid for use in the R Commander and will be "
+"omitted:"
+msgstr "Les noms de variables suivants ne sont pas valides pour R Commander "
+"et seront omis :"
+
+msgid ""
+"The following variable is not valid for use in the R Commander and will be "
+"omitted:"
+msgstr "La variable suivante n'est pas valide pour R Commander et sera omise :"
+
+msgid "Frequency Counts"
+msgstr "Fréquences"
+
+# For bar graph dialog
+msgid "Show counts or percentages in bars"
+msgstr "Afficher les fréquences ou pourcentages dans les barres"
+
+msgid "Neither"
+msgstr "Rien"
+
+msgid "Include in Segment Labels"
+msgstr "Inclure dans les étiquettes"
+
+msgid "<No response selected>"
+msgstr "<Pas de variable réponse sélectionnée>"
+
+msgid "Proportion"
+msgstr "Proportion"
+
+# modified message
+msgid "Restart the Commander"
+msgstr "Relancer le Commander"
+
+# modified message
+msgid "Restart the Commander?"
+msgstr "Relancer le Commander?"
+
+# for new repeated-measures ANOVA/ANCOVA dialogs
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "ANOVA/ANCOVA à mesures répétées à un facteur..."
+
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr "ANOVA/ANCOVA à mesures répétées à un facteur"
+
+msgid "no responses specified"
+msgstr "aucune réponse spécifiée"
+
+msgid ""
+"the specified responses are not contiguous\n"
+" missing responses are removed"
+msgstr ""
+"les réponses spécifiées ne sont pas contigües\n"
+" suppression des réponses manquantes"
+
+msgid "<no selection>"
+msgstr "<aucune sélection>"
+
+msgid "there are duplicated level names"
+msgstr "certains noms de niveaux sont dupliqués"
+
+msgid "is not a valid name"
+msgstr "n'est pas un nom correct"
+
+msgid "the following responses appear more than once:"
+msgstr "les réponses suivantes apparaissent plus d'une fois :"
+
+msgid "at least 2 responses must be specified"
+msgstr "au moins 2 réponses doivent être sélectionnées"
+
+msgid "Within-Subject Factor"
+msgstr "Facteur intra-sujets"
+
+msgid "Name for the within-subjects factor:"
+msgstr "Nom du facteur intra-sujets :"
+
+msgid ""
+"Specify up to 8 levels (responses) and level names for the within-subjects "
+"factor"
+msgstr ""
+"Spécifiez jusqu'à 8 niveaux (réponses) et noms de niveaux "
+"pour le facteur intra-sujets"
+
+msgid "Between-Subjects Model Formula"
+msgstr "Formule du modèle inter-sujets"
+
+msgid "Multivariate Test Statistic"
+msgstr "Statistique de test multivarié"
+
+msgid "Multivariate"
+msgstr "Multivarié"
+
+msgid "Univariate"
+msgstr "Univarié"
+
+msgid "Tests to Perform"
+msgstr "Tests à réaliser"
+
+msgid "Repeated-Measures Means"
+msgstr "Moyenne de mesures répétées"
+
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr "Facteurs inter-sujets (zéro ou plus)"
+
+msgid "Plot response means by factors"
+msgstr "Représenter la moyenne des réponses par facteur"
+
+msgid "Print means and standard deviations by factors"
+msgstr "Afficher la moyenne et l'écart-type des réponses par facteur"
+
+msgid "X-axis factor:"
+msgstr "Facteur sur l'axe X :"
+
+msgid "Trace factor:"
+msgstr "Facteur à tracer :"
+
+msgid "Response name:"
+msgstr "Nom de la réponse :"
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "ANOVA/ANCOVA à mesures répétées à deux facteurs..."
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr "ANOVA/ANCOVA à mesures répétées à deux facteurs"
+
+msgid "the specified responses are not rectangular"
+msgstr "les réponses spécifiées ne sont pas rectangulaires"
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr "au moins 2 lignes et 2 colonnes de la réponse doivent être sélectionnées"
+
+msgid "there are duplicated row level names"
+msgstr "certains noms de niveaux en ligne sont dupliqués"
+
+msgid "there are duplicated column level names"
+msgstr "certains noms de niveaux en colonne sont dupliqués"
+
+msgid "Within-Subject Factors"
+msgstr "Facteurs intra-sujets"
+
+msgid "Name for the within-subjects row factor:"
+msgstr "Nom du facteur intra-sujet en ligne : "
+
+msgid "Name for the within-subjects column factor:"
+msgstr "Nom du facteur intra-sujet en colonne : "
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr "Sélectionnez jusqu'à 5 niveaux et noms de niveaux pour chaque facteur intra-sujets"
+
+msgid "Reshape data set from long to wide format..."
+msgstr "Changer le format du jeu de données de long vers large..."
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr "Changer le format du jeu de données de long vers large"
+
+msgid "Subject ID variable (pick one)"
+msgstr "Variable d'ID de sujet (une)"
+
+msgid "Within-subjects factors (pick one or more)"
+msgstr "Facteurs intra-sujets (un ou plusieurs)"
+
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr "Variables variant selon l'occasion (une ou plus)"
+
+msgid "Variables to ignore (pick zero or more)"
+msgstr "Variables à ignorer (zéro ou plus)"
+
+msgid "You must select an ID variable."
+msgstr "Vous devez sélectionner une variable d'ID."
+
+msgid "You must select one or more within-subjects factors."
+msgstr "Vous devez sélectionner un ou plusieurs facteurs intra-sujets."
+
+msgid "You must select one or more occasion-varying variables."
+msgstr "Vous devez sélectionner une ou plusieurs variables variant selon l'occasion."
+
+msgid "the following variables appear more than once:"
+msgstr "Les noms de variables suivants ne sont pas autorisés :"
+
+msgid "Save data set aborted"
+msgstr "Abandon de l'enregistrement du jeu de données"
+
+msgid "Name for wide data set:"
+msgstr "Nom du jeu de données large :"
+
+msgid "Make the wide data set active"
+msgstr "Activer le jeu de données large"
+
+msgid "Reshape data set from wide to long format..."
+msgstr "Changer le format du jeu de données de large vers long..."
+
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr "Changer le format du jeu de données de large vers long"
+
+msgid "One Repeated-Measures Factor"
+msgstr "Mesures répétées à un facteur"
+
+msgid "Two Repeated-Measures Factors"
+msgstr "Mesures répétées à deux facteurs"
+
+msgid ""
+"both one and two repeated-measures factors were specified\n"
+"specify either a one-way or two-way design"
+msgstr ""
+"impossible de spécifier à la fois des mesures répétées à un facteur et à deux facteurs\n"
+"spécifiez soit l'un ou soit l'autre"
+
+msgid "the specified responses are not contiguous"
+msgstr "les réponses spécifiées ne sont pas contigües"
+
+msgid "the following ignored variables are also responses:"
+msgstr "les variables ignorées suivantes sont aussi des réponses :"
+
+msgid "Specify one within-subject factor"
+msgstr "Spécifiez un facteur intra-sujets"
+
+msgid "Specify two within-subject factors"
+msgstr "Spécifiez deux facteurs intra-sujets"
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr "Spécifiez jusqu'à 5 niveaux et noms de niveaux pour chaque facteur intra-sujets"
+
+msgid "Name for long data set:"
+msgstr "Nom du jeu de données long :"
+
+msgid "Response variable: "
+msgstr "Variable réponse :"
+
+msgid "Subject ID variable: "
+msgstr "Variable d'ID de sujet :"
+
+msgid "Make the long data set active"
+msgstr "Activer le jeu de données long"
+
+# for import Stata and SAS b7dat data set dialogs
+msgid "Convert all character variables to factors"
+msgstr "Convertir toutes les variables caractère en facteurs"
+
+# for import Stata and SAS b7dat data set dialogs
+msgid "Convert character variables to factors..."
+msgstr "Convertir les variables caractère en facteurs..."
+
+# for import Stata and SAS b7dat data set dialogs
+msgid "Convert Character Variables to Factors"
+msgstr "Convertir les variables caractère en facteurs"

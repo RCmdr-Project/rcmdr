@@ -1,6 +1,6 @@
 Package: Rcmdr
 Version: 2.7-0
-Date: 2020-08-23
+Date: 2020-08-24
 Title: R Commander
 Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaster.ca"),
     person("Milan", "Bouchet-Valat", role = "aut"),
