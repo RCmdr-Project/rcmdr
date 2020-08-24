@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2020-08-21 11:30:00\n"
+"POT-Creation-Date: 2020-08-24 10:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5404,4 +5404,15 @@ msgstr ""
   # previously omitted message (also included in 2.6-2 but omitted again from 2.7-0):
   
 msgid "Variable (pick one or more)"
+msgstr ""
+
+  # additional messages omitted from version 2.7-0
+  
+msgid "Include in Segment Labels"
+msgstr ""
+
+msgid "One Repeated-Measures Factor"
+msgstr ""
+
+msgid "Two Repeated-Measures Factors"
 msgstr ""
