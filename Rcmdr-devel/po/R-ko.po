@@ -5285,7 +5285,7 @@ msgstr "적어도 두개의 반응이 지정되어야 합니다"
 msgid "Within-Subject Factor"
 msgstr "Within-Subject 요인"
 
-msgid "Name for the within-subjects factor: "
+msgid "Name for the within-subjects factor:"
 msgstr "within-subjects 요인 이름: "
 
 msgid ""
@@ -5317,13 +5317,13 @@ msgstr "요인 반응 평균 그리기"
 msgid "Print means and standard deviations by factors"
 msgstr "요인 평균과 표준 편차 인쇄하기"
 
-msgid "X-axis factor: "
+msgid "X-axis factor:"
 msgstr "X-축 요인: "
 
-msgid "Trace factor: "
+msgid "Trace factor:"
 msgstr "요인 추적하기: "
 
-msgid "Response name: "
+msgid "Response name:"
 msgstr "반응 이름: "
 
 msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
@@ -5347,10 +5347,10 @@ msgstr "이중의 열(column) 수준 이름이 있습니다"
 msgid "Within-Subject Factors"
 msgstr "Within-Subject 요인들"
 
-msgid "Name for the within-subjects row factor: "
+msgid "Name for the within-subjects row factor:"
 msgstr "within-subjects 행(row) 요인 이름: "
 
-msgid "Name for the within-subjects column factor: "
+msgid "Name for the within-subjects column factor:"
 msgstr "within-subjects 열(column) 요인 이름: "
 
 msgid "Select up to 5 levels and level-names for each within-subjects factor"
@@ -5389,7 +5389,7 @@ msgstr "다음의 변수들은 두번 이상 나타납니다:"
 msgid "Save data set aborted"
 msgstr "취소 데이터셋 저장하기"
 
-msgid "Name for wide data set: "
+msgid "Name for wide data set:"
 msgstr "넓은 데이터셋 이름: "
 
 msgid "Make the wide data set active"
@@ -5423,13 +5423,13 @@ msgstr "두개의 within-subject 요인 지정하기"
 msgid "Specify up to 5 levels and level names for each within-subjects factor"
 msgstr "최대 5수준까지 각 within-subjects 요인의 수준 이름을 지정하기"
 
-msgid "Name for long data set: "
+msgid "Name for long data set:"
 msgstr "긴 데이터셋 이름: "
 
-msgid "Response variable: "
+msgid "Response variable:"
 msgstr "반응 변수: "
 
-msgid "Subject ID variable: "
+msgid "Subject ID variable:"
 msgstr "Subject ID 변수: "
 
 msgid "Make the long data set active"

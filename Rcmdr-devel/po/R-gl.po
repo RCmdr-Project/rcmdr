@@ -4606,7 +4606,7 @@ msgstr "Estabelecer a semente do xerador de número aleatorio"
 # messages added for version 2.2-0
 # messages that were inadvertently missing in previous versions
 msgid "The following variable names are not valid:\n"
-msgstr "Os seguintes nomes de variábeis non son válidos:"
+msgstr "Os seguintes nomes de variábeis non son válidos:\n"
 
 msgid "Save R Markdown file?"
 msgstr "Gardar o ficheiro de Markdown de R?"
@@ -4689,7 +4689,7 @@ msgstr ""
 msgid "Plot concentration ellipse(s)"
 msgstr "Trazar a(s) elipse(s) de concentración"
 
-msgid "Concentration levels: "
+msgid "Concentration levels:"
 msgstr "Niveis de concentración:"
 
 msgid "Legend Position"

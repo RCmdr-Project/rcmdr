@@ -4722,7 +4722,7 @@ msgstr ""
 msgid "Plot concentration ellipse(s)"
 msgstr "Plot ellip konsentrasi"
 
-msgid "Concentration levels: "
+msgid "Concentration levels:"
 msgstr "Level konsentrasi:"
 
 msgid "Legend Position"
@@ -4804,9 +4804,6 @@ msgid ""
 msgstr ""
 "Gunakan penduga sandwich dari \n"
 "matriks kovarian koefisien"
-
-msgid "Concentration levels:"
-msgstr "Level konsentrasi:"
 
 # additional messages in version 2.3-0
 # .rtf output from RMarkdown reports
@@ -5333,7 +5330,7 @@ msgstr "sedikitnya dua respon harus ditentukan"
 msgid "Within-Subject Factor"
 msgstr "Faktor Dalam-Subjek"
 
-msgid "Name for the within-subjects factor: "
+msgid "Name for the within-subjects factor:"
 msgstr "Nama untuk faktor dalam-subjek:"
 
 msgid "Specify up to 8 levels (responses) and level names for the within-subjects factor"
@@ -5363,13 +5360,13 @@ msgstr "Grafik mean respon dengan faktor"
 msgid "Print means and standard deviations by factors"
 msgstr "Cetak rerata dan deviasi baku berdasar faktor"
 
-msgid "X-axis factor: "
+msgid "X-axis factor:"
 msgstr "Faktor  Sumbu-X:"
 
-msgid "Trace factor: "
+msgid "Trace factor:"
 msgstr "Faktor Lacak:"
 
-msgid "Response name: "
+msgid "Response name:"
 msgstr "Nama respon:"
 
 msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
@@ -5393,10 +5390,10 @@ msgstr "ada nama level kolom yang duplikat"
 msgid "Within-Subject Factors"
 msgstr "Faktor-Dalam Subjek"
 
-msgid "Name for the within-subjects row factor: "
+msgid "Name for the within-subjects row factor:"
 msgstr "Nama untuk dalam-subjek faktor baris "
 
-msgid "Name for the within-subjects column factor: "
+msgid "Name for the within-subjects column factor:"
 msgstr "Nama untuk dalam-subjek faktor kolom:"
 
 msgid "Select up to 5 levels and level-names for each within-subjects factor"
@@ -5436,7 +5433,7 @@ msgstr "peubah berikut muncul lebih dari sekali."
 msgid "Save data set aborted"
 msgstr "Penyimpanan data dibatalkan"
 
-msgid "Name for wide data set: "
+msgid "Name for wide data set:"
 msgstr "Nama untuk data set lebar."
 
 msgid "Make the wide data set active"
@@ -5471,13 +5468,13 @@ msgstr "Tentukan dua faktor dalam-subjek"
 msgid "Specify up to 5 levels and level names for each within-subjects factor"
 msgstr "Tentukan sampai 5 level dan nama level untuk setiap faktor dalam-subjek"
 
-msgid "Name for long data set: "
+msgid "Name for long data set:"
 msgstr "Nama untuk data set panjang: "
 
-msgid "Response variable: "
+msgid "Response variable:"
 msgstr "Peubah Respon:"
 
-msgid "Subject ID variable: "
+msgid "Subject ID variable:"
 msgstr "Peubah subjek ID: "
 
 msgid "Make the long data set active"

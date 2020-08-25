@@ -5092,7 +5092,7 @@ msgstr "по крайней мере два отклика должны быть выбраны"
 msgid "Within-Subject Factor"
 msgstr "Внутрисубъектный фактор"
 
-msgid "Name for the within-subjects factor: "
+msgid "Name for the within-subjects factor:"
 msgstr "Название внутрисубъектного фактора:"
 
 msgid "Specify up to 8 levels (responses) and level names for the within-subjects factor"
@@ -5122,13 +5122,13 @@ msgstr "График средних отклика по факторам"
 msgid "Print means and standard deviations by factors"
 msgstr "Вывести средние и стандартные отклонения по факторам"
 
-msgid "X-axis factor: "
+msgid "X-axis factor:"
 msgstr "Фактор оси X:"
 
-msgid "Trace factor: "
+msgid "Trace factor:"
 msgstr "Трассировочный фактор:"
 
-msgid "Response name: "
+msgid "Response name:"
 msgstr "Название отклика:"
 
 msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
@@ -5152,10 +5152,10 @@ msgstr "есть повторяющиеся названия уровней в колонках"
 msgid "Within-Subject Factors"
 msgstr "Внутрисубъектный фактор"
 
-msgid "Name for the within-subjects row factor: "
+msgid "Name for the within-subjects row factor:"
 msgstr "Названия внутрисубъектного фактора для строк:"
 
-msgid "Name for the within-subjects column factor: "
+msgid "Name for the within-subjects column factor:"
 msgstr "Названия внутрисубъектного фактора для колонок:"
 
 msgid "Select up to 5 levels and level-names for each within-subjects factor"
@@ -5195,7 +5195,7 @@ msgstr "эти переменные появляются больше одного раза:"
 msgid "Save data set aborted"
 msgstr "Сохранение данных прервано"
 
-msgid "Name for wide data set: "
+msgid "Name for wide data set:"
 msgstr "Название данных в широком формате:"
 
 msgid "Make the wide data set active"
@@ -5230,13 +5230,13 @@ msgstr "Задайте два внутрисубъектных фактора"
 msgid "Specify up to 5 levels and level names for each within-subjects factor"
 msgstr "Задайте до 5 уровней и имен уровней для каждого внутрисубъектного фактора"
 
-msgid "Name for long data set: "
+msgid "Name for long data set:"
 msgstr "Имя данных в длинном формате:"
 
-msgid "Response variable: "
+msgid "Response variable:"
 msgstr "Переменная отклика:"
 
-msgid "Subject ID variable: "
+msgid "Subject ID variable:"
 msgstr "ID переменная для субъектов"
 
 msgid "Make the long data set active"

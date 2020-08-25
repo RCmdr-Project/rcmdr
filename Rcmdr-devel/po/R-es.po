@@ -5249,7 +5249,7 @@ msgstr "debe seleccionar al menos dos respuestas"
 msgid "Within-Subject Factor"
 msgstr "Factor intra-sujetos"
 
-msgid "Name for the within-subjects factor: "
+msgid "Name for the within-subjects factor:"
 msgstr "Nombre del factor intra sujetos:"
 
 msgid ""
@@ -5283,13 +5283,13 @@ msgstr "Dibujar respuestas medias por factor"
 msgid "Print means and standard deviations by factors"
 msgstr "Imprimir medias y desviaciones típicas por factores"
 
-msgid "X-axis factor: "
+msgid "X-axis factor:"
 msgstr "Factor eje X:"
 
-msgid "Trace factor: "
+msgid "Trace factor:"
 msgstr "Factor de seguimiento:"
 
-msgid "Response name: "
+msgid "Response name:"
 msgstr "Nombre de la respuesta: "
 
 msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
@@ -5313,10 +5313,10 @@ msgstr "hay nombres de niveles de columnas duplicados"
 msgid "Within-Subject Factors"
 msgstr "Factores intra-sujetos"
 
-msgid "Name for the within-subjects row factor: "
+msgid "Name for the within-subjects row factor:"
 msgstr "Nombres para los factores fila intra-sujetos:"
 
-msgid "Name for the within-subjects column factor: "
+msgid "Name for the within-subjects column factor:"
 msgstr "Nombres para los factores columna intra-sujetos:"
 
 msgid "Select up to 5 levels and level-names for each within-subjects factor"
@@ -5356,7 +5356,7 @@ msgstr "las siguientes variables aparecen más de una vez:"
 msgid "Save data set aborted"
 msgstr "Guardado del conjunto de datos cancelado"
 
-msgid "Name for wide data set: "
+msgid "Name for wide data set:"
 msgstr "Nombre para un conjunto de datos ancho:"
 
 msgid "Make the wide data set active"
@@ -5391,13 +5391,13 @@ msgid "Specify up to 5 levels and level names for each within-subjects factor"
 msgstr ""
 "Especifique hasta 5 niveles y nombres de nivel para cada factor intra-sujeto"
 
-msgid "Name for long data set: "
+msgid "Name for long data set:"
 msgstr "Nombre del conjunto de datos largo:"
 
-msgid "Response variable: "
+msgid "Response variable:"
 msgstr "Variable explicada:"
 
-msgid "Subject ID variable: "
+msgid "Subject ID variable:"
 msgstr "Variable de ID del sujeto:"
 
 msgid "Make the long data set active"

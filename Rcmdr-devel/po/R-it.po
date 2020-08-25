@@ -4789,7 +4789,7 @@ msgstr ""
 msgid "Plot concentration ellipse(s)"
 msgstr "Disegna l'ellissoide del 50% di concentrazione"
 
-msgid "Concentration levels: "
+msgid "Concentration levels:"
 msgstr "Livelli di concentrazione:"
 
 msgid "Legend Position"

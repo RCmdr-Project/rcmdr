@@ -5478,10 +5478,10 @@ msgstr "Spécifiez jusqu'à 5 niveaux et noms de niveaux pour chaque facteur int
 msgid "Name for long data set:"
 msgstr "Nom du jeu de données long :"
 
-msgid "Response variable: "
+msgid "Response variable:"
 msgstr "Variable réponse :"
 
-msgid "Subject ID variable: "
+msgid "Subject ID variable:"
 msgstr "Variable d'ID de sujet :"
 
 msgid "Make the long data set active"

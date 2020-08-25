@@ -4733,7 +4733,7 @@ msgstr ""
 msgid "Plot concentration ellipse(s)"
 msgstr "集中楕円のプロット"
 
-msgid "Concentration levels: "
+msgid "Concentration levels:"
 msgstr "集中度:"
 
 msgid "Legend Position"
@@ -4815,9 +4815,6 @@ msgid ""
 msgstr ""
 "共分散行列の\n"
 "サンドウィッチ推定量を利用"
-
-msgid "Concentration levels:"
-msgstr "集中度:"
 
 # additional messages in version 2.3-0
 # .rtf output from RMarkdown reports
@@ -5344,7 +5341,7 @@ msgstr "少なくとも２つの応答変数を指定"
 msgid "Within-Subject Factor"
 msgstr "被験者内要因"
 
-msgid "Name for the within-subjects factor: "
+msgid "Name for the within-subjects factor:"
 msgstr "被験者内要因の名前: "
 
 msgid "Specify up to 8 levels (responses) and level names for the within-subjects factor"
@@ -5374,13 +5371,13 @@ msgstr "応答を因子で層別して表示"
 msgid "Print means and standard deviations by factors"
 msgstr "要因毎の平均と標準偏差の表示"
 
-msgid "X-axis factor: "
+msgid "X-axis factor:"
 msgstr "X軸の因子:"
 
-msgid "Trace factor: "
+msgid "Trace factor:"
 msgstr "要因のトレース: "
 
-msgid "Response name: "
+msgid "Response name:"
 msgstr "応答変数の名前:"
 
 msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
@@ -5404,10 +5401,10 @@ msgstr "列の水準名が重複しています"
 msgid "Within-Subject Factors"
 msgstr "被験者内要因"
 
-msgid "Name for the within-subjects row factor: "
+msgid "Name for the within-subjects row factor:"
 msgstr "被験者内行要因の名前: "
 
-msgid "Name for the within-subjects column factor: "
+msgid "Name for the within-subjects column factor:"
 msgstr "被験者内列要因の名前: "
 
 msgid "Select up to 5 levels and level-names for each within-subjects factor"
@@ -5447,7 +5444,7 @@ msgstr "次の変数は２回以上表れています"
 msgid "Save data set aborted"
 msgstr "中断したデータセットの保存"
 
-msgid "Name for wide data set: "
+msgid "Name for wide data set:"
 msgstr "ワイドなデータセットの名前: "
 
 msgid "Make the wide data set active"
@@ -5480,13 +5477,13 @@ msgstr "被験者間要因の指定"
 msgid "Specify up to 5 levels and level names for each within-subjects factor"
 msgstr "各被験者内要因に対して最大５水準を指定してください"
 
-msgid "Name for long data set: "
+msgid "Name for long data set:"
 msgstr "ロングデータセットの名前: "
 
-msgid "Response variable: "
+msgid "Response variable:"
 msgstr "応答変数:"
 
-msgid "Subject ID variable: "
+msgid "Subject ID variable:"
 msgstr "被験者のID変数: "
 
 msgid "Make the long data set active"

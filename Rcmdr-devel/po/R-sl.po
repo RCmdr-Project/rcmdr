@@ -5396,7 +5396,7 @@ msgid "Within-Subject Factor"
 msgstr ""
 
 #| msgid "Name for factor:"
-msgid "Name for the within-subjects factor: "
+msgid "Name for the within-subjects factor:"
 msgstr ""
 
 msgid ""
@@ -5434,14 +5434,14 @@ msgid "Print means and standard deviations by factors"
 msgstr "Natisni povprečja in standardne odklone po dejavnikih"
 
 #| msgid "all factors"
-msgid "X-axis factor: "
+msgid "X-axis factor:"
 msgstr "Dejavnik na osi X: "
 
 #| msgid "Name for factor:"
-msgid "Trace factor: "
+msgid "Trace factor:"
 msgstr ""
 
-msgid "Response name: "
+msgid "Response name:"
 msgstr "Ime odziva: "
 
 msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
@@ -5466,10 +5466,10 @@ msgstr "obstajajo podvojena imena ravni stolpcev"
 msgid "Within-Subject Factors"
 msgstr ""
 
-msgid "Name for the within-subjects row factor: "
+msgid "Name for the within-subjects row factor:"
 msgstr ""
 
-msgid "Name for the within-subjects column factor: "
+msgid "Name for the within-subjects column factor:"
 msgstr ""
 
 msgid "Select up to 5 levels and level-names for each within-subjects factor"
@@ -5522,7 +5522,7 @@ msgid "Save data set aborted"
 msgstr "Shranjevanje nabora podatkov preklicano"
 
 #| msgid "Name for new data set"
-msgid "Name for wide data set: "
+msgid "Name for wide data set:"
 msgstr "Ime za zbirko podatkov v širokem formatu: "
 
 msgid "Make the wide data set active"
@@ -5557,15 +5557,15 @@ msgid "Specify up to 5 levels and level names for each within-subjects factor"
 msgstr ""
 
 #| msgid "Name for new data set"
-msgid "Name for long data set: "
+msgid "Name for long data set:"
 msgstr "Ime za nabor podatkov v dolgem formatu: "
 
 #| msgid "Response variable (pick one)"
-msgid "Response variable: "
+msgid "Response variable:"
 msgstr "Odzivna spremenljivka: "
 
 #| msgid "Name for variable:"
-msgid "Subject ID variable: "
+msgid "Subject ID variable:"
 msgstr "Spremenljivka identifikacija subjekta: "
 
 msgid "Make the long data set active"
