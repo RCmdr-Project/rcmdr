@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2020-08-24 10:00:00\n"
+"POT-Creation-Date: 2020-08-25 10:45:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5236,7 +5236,7 @@ msgstr ""
 msgid "Within-Subject Factor"
 msgstr ""
 
-msgid "Name for the within-subjects factor: "
+msgid "Name for the within-subjects factor:"
 msgstr ""
 
 msgid "Specify up to 8 levels (responses) and level names for the within-subjects factor"
@@ -5269,13 +5269,13 @@ msgstr ""
 msgid "Print means and standard deviations by factors"
 msgstr ""
 
-msgid "X-axis factor: "
+msgid "X-axis factor:"
 msgstr ""
 
-msgid "Trace factor: "
+msgid "Trace factor:"
 msgstr ""
 
-msgid "Response name: "
+msgid "Response name:"
 msgstr ""
 
 msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
@@ -5299,10 +5299,10 @@ msgstr ""
 msgid "Within-Subject Factors"
 msgstr ""
 
-msgid "Name for the within-subjects row factor: "
+msgid "Name for the within-subjects row factor:"
 msgstr ""
 
-msgid "Name for the within-subjects column factor: "
+msgid "Name for the within-subjects column factor:"
 msgstr ""
 
 msgid "Select up to 5 levels and level-names for each within-subjects factor"
@@ -5343,7 +5343,7 @@ msgstr ""
 msgid "Save data set aborted"
 msgstr ""
 
-msgid "Name for wide data set: "
+msgid "Name for wide data set:"
 msgstr ""
 
 msgid "Make the wide data set active"
@@ -5375,13 +5375,13 @@ msgstr ""
 msgid "Specify up to 5 levels and level names for each within-subjects factor"
 msgstr ""
 
-msgid "Name for long data set: "
+msgid "Name for long data set:"
 msgstr ""
 
-msgid "Response variable: "
+msgid "Response variable:"
 msgstr ""
 
-msgid "Subject ID variable: "
+msgid "Subject ID variable:"
 msgstr ""
 
 msgid "Make the long data set active"
