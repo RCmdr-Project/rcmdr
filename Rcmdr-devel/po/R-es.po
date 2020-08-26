@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2020-04-17 11:30:00\n"
-"PO-Revision-Date: 2020-08-12 15:14+0200\n"
+"POT-Creation-Date: 2020-08-25 10:45:00\n"
+"PO-Revision-Date: 2020-08-26 08:14+0200\n"
 "Last-Translator: Manuel Munoz-Marquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <manuel.munoz@uca.es>\n"
 "Language: es\n"
@@ -5290,7 +5290,7 @@ msgid "Trace factor:"
 msgstr "Factor de seguimiento:"
 
 msgid "Response name:"
-msgstr "Nombre de la respuesta: "
+msgstr "Nombre de la respuesta:"
 
 msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
 msgstr "ANOVA/ANCOVA de dos factores con medidas repetidas..."
@@ -5412,62 +5412,15 @@ msgstr "Convertir variables de caracteres en factores ..."
 msgid "Convert Character Variables to Factors"
 msgstr "Convertir variables de caracteres en factores"
 
-#~ msgid "Dataset"
-#~ msgstr "Datos"
+msgid "Variable (pick one or more)"
+msgstr "Variable (seleccione una o más)"
 
-#~ msgid "NormalSamples"
-#~ msgstr "MuestrasNormales"
+# additional messages omitted from version 2.7-0
+msgid "Include in Segment Labels"
+msgstr "Incluir en etiquetas de segmento"
 
-#~ msgid "tSamples"
-#~ msgstr "Muestras-t"
+msgid "One Repeated-Measures Factor"
+msgstr "Un factor con medidas repetidas"
 
-#~ msgid "ChisquareSamples"
-#~ msgstr "MuestrasChicuadrado"
-
-#~ msgid "FSamples"
-#~ msgstr "Muestras-F"
-
-#~ msgid "ExponentialSamples"
-#~ msgstr "MuestrasExponenciales"
-
-#~ msgid "UniformSamples"
-#~ msgstr "MuestrasUniformes"
-
-#~ msgid "BetaSamples"
-#~ msgstr "MuestrasBeta"
-
-#~ msgid "CauchySamples"
-#~ msgstr "MuestrasCauchy"
-
-#~ msgid "LogisticSamples"
-#~ msgstr "MuestrasLogisticas"
-
-#~ msgid "LogNormalSamples"
-#~ msgstr "MuestrasLognormales"
-
-#~ msgid "GammaSamples"
-#~ msgstr "MuestrasGamma"
-
-#~ msgid "WeibullSamples"
-#~ msgstr "MuestrasWeibull"
-
-#~ msgid "GumbelSamples"
-#~ msgstr "MuestrasGumbel"
-
-#~ msgid "BinomialSamples"
-#~ msgstr "MuestrasBinomiales"
-
-#~ msgid "PoissonSamples"
-#~ msgstr "MuestrasPoisson"
-
-#~ msgid "GeometricSamples"
-#~ msgstr "MuestrasGeometricas"
-
-#~ msgid "HypergeometricSamples"
-#~ msgstr "MuestrasHipergeometricas"
-
-#~ msgid "NegativeBinomialSamples"
-#~ msgstr "MuestrasBinomialNegativas"
-
-#~ msgid "StackedData"
-#~ msgstr "DatosApilados"
+msgid "Two Repeated-Measures Factors"
+msgstr "Factores con dos medidas repetidas"
