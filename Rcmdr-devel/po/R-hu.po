@@ -3,12 +3,12 @@ msgstr ""
 "Project-Id-Version: Rcmdr 2.6-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: 2019-11-11 14:30:00\n"
-"PO-Revision-Date: 2020-01-20 20:42+0100\n"
+"PO-Revision-Date: 2020-08-26 22:16+0200\n"
 "Language-Team: Hungarian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.4.1\n"
 "Last-Translator: Tamás Ferenci <ferenci.tamas@nik.uni-obuda.hu>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: hu\n"
@@ -359,12 +359,8 @@ msgstr "Tizedesjelölő karakter"
 msgid "You must enter a name for the data set."
 msgstr "Meg kell adni egy nevet az adattáblának."
 
-msgid ""
-"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
-"{\"All Files\" {\"*\"}}"
-msgstr ""
-"{\"Szöveges fájlok\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV"
-"\"}} {\"Minden fájl\" {\"*\"}}"
+msgid "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Szöveges fájlok\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"Minden fájl\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "Változónevek az első sorban:"
@@ -408,12 +404,9 @@ msgstr "Adja meg az adattábla nevét:"
 msgid "Import SPSS Data Set"
 msgstr "SPSS adattábla importálása"
 
-msgid ""
-"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
-"\".POR\"}} {\"All Files\" {\"*\"}}"
+msgid "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"SPSS mentett fájl\" {\".sav\" \".SAV\"}} {\"SPSS hordozható fájl\" {\".por"
-"\" \".POR\"}} {\"Minden fájl\" {\"*\"}}"
+"{\"SPSS mentett fájl\" {\".sav\" \".SAV\"}} {\"SPSS hordozható fájl\" {\".por\" \".POR\"}} {\"Minden fájl\" {\"*\"}}"
 
 msgid ""
 "Convert value labels\n"
@@ -434,10 +427,8 @@ msgstr ""
 msgid "Import Minitab Data Set"
 msgstr "Minitab adattábla importálása"
 
-msgid ""
-"{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
-msgstr ""
-"{\"Minitab hordozható fájl\" {\".mtp\" \".MTP\"}} {\"Minden fájl\" {\"*\"}}"
+msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Minitab hordozható fájl\" {\".mtp\" \".MTP\"}} {\"Minden fájl\" {\"*\"}}"
 
 msgid ""
 "Minitab data set contains elements of unequal length.\n"
@@ -562,9 +553,7 @@ msgid "Reorder Levels"
 msgstr "Szintek átrendezése"
 
 msgid "Order of levels must include all integers from 1 to"
-msgstr ""
-"A szintek átrendezésének minden egész számot tartalmazni kell 1-től a "
-"következőig:"
+msgstr "A szintek átrendezésének minden egész számot tartalmazni kell 1-től a következőig:"
 
 msgid "Old Levels"
 msgstr "Eredeti szintek"
@@ -694,8 +683,7 @@ msgid ""
 "not equal to number of levels (%d) * number of contrasts (%d)."
 msgstr ""
 "A kontraszt mátrixban lévő érvényes értékek száma (%d)\n"
-"nem egyezik a szintek számának (%d) és a kontrasztok számának (%d) "
-"szorzatával."
+"nem egyezik a szintek számának (%d) és a kontrasztok számának (%d) szorzatával."
 
 msgid "Contrast matrix is not of full column rank"
 msgstr "A kontraszt mátrix nem teljes oszloprangú"
@@ -859,7 +847,7 @@ msgid "{\"Script Files\" {\".R\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Szkript fájlok\" {\".R\"}} {\"Minden fájl\" {\"*\"}}"
 
 msgid "Save current log file?"
-msgstr "Mentse a jelenlegi naplófájlt?"
+msgstr "Menti a jelenlegi naplófájlt?"
 
 msgid "Script saved to"
 msgstr "Szkript elmentve ide"
@@ -880,10 +868,10 @@ msgid "Exit?"
 msgstr "Kilépés?"
 
 msgid "Save script file?"
-msgstr "Mentse a szkript fájlt?"
+msgstr "Menti a szkript fájlt?"
 
 msgid "Save output file?"
-msgstr "Mentse az output fájlt?"
+msgstr "Menti az output fájlt?"
 
 msgid "Commander Options"
 msgstr "Commander opciói"
@@ -1232,8 +1220,7 @@ msgid "You must select 2 explanatory variables."
 msgstr "Ki kell választani 2 magyarázó változót."
 
 msgid "Response and explanatory variables must be different."
-msgstr ""
-"Az eredményváltozónak és a magyarázó változóknak különbözőeknek kell lenniük."
+msgstr "Az eredményváltozónak és a magyarázó változóknak különbözőeknek kell lenniük."
 
 msgid "Parallel regression surfaces"
 msgstr "Párhuzamos regressziós síkok"
@@ -1280,12 +1267,8 @@ msgstr "Grafikus fájltípus"
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"PNG fájlok\" {\".png\" \".PNG\"}} {\"Minden fájl\" {\"*\"}}"
 
-msgid ""
-"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*"
-"\"}}"
-msgstr ""
-"{\"JPEG fájlok\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Minden fájl"
-"\" {\"*\"}}"
+msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"JPEG fájlok\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Minden fájl\" {\"*\"}}"
 
 msgid "Graph saved to file"
 msgstr "Az ábra fájlba mentése megtörtént"
@@ -1314,12 +1297,8 @@ msgstr "{\"PDF fájlok\" {\".pdf\" \".PDF\"}} {\"Minden fájl\" {\"*\"}}"
 msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Postscript fájlok\" {\".ps\" \".PS\"}} {\"Minden fájl\" {\"*\"}}"
 
-msgid ""
-"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*"
-"\"}}"
-msgstr ""
-"{\"Encapsulated Postscript fájlok\" {\".eps\" \".EPS\"}} {\"Minden fájl"
-"\" {\"*\"}}"
+msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Encapsulated Postscript fájlok\" {\".eps\" \".EPS\"}} {\"Minden fájl\" {\"*\"}}"
 
 msgid "Width (inches)"
 msgstr "Szélesség (inch)"
@@ -1371,9 +1350,7 @@ msgstr ""
 "elérhetőek részhalmazra illesztett modellnél."
 
 msgid "Add Observation Statistics to Data"
-msgstr ""
-"Megfigyelésekre vonatkozó, modellből számított adatok hozzáadása az "
-"adattáblához"
+msgstr "Megfigyelésekre vonatkozó, modellből számított adatok hozzáadása az adattáblához"
 
 msgid "Fitted values"
 msgstr "Becsült értékek"
@@ -1698,9 +1675,7 @@ msgid "You must select a groups factor."
 msgstr "Ki kell választani egy csoportosító faktort."
 
 msgid "Factor has fewer than 3 levels; pairwise comparisons omitted."
-msgstr ""
-"A faktornak kevesebb, mint 3 szintje van, nem kerül sor páronkénti "
-"összehasonlításokra."
+msgstr "A faktornak kevesebb, mint 3 szintje van, nem kerül sor páronkénti összehasonlításokra."
 
 msgid "Pairwise comparisons of means"
 msgstr "A várható értékek páronkénti összehasonlítása"
@@ -1996,9 +1971,7 @@ msgid "There is no active model."
 msgstr "Nincs aktív modell."
 
 msgid "argument must be a square, symmetric, numeric covariance matrix"
-msgstr ""
-"az argumentumnak négyzetes, szimmetrikus, numerikus kovarianciamátrixnak "
-"kell lennie"
+msgstr "az argumentumnak négyzetes, szimmetrikus, numerikus kovarianciamátrixnak kell lennie"
 
 msgid "there are fewer than 3 items in the scale"
 msgstr "kevesebb, mint 3 elem van a skálán"
@@ -2012,10 +1985,8 @@ msgstr "A factor1 argumentumnak faktornak kell lennie."
 msgid "Arguments factor1 and factor2 must be factors."
 msgstr "A factor1 és factor2 argumentumoknak faktoroknak kell lenniük."
 
-msgid ""
-"Number of groups for factor2, %d, exceeds number of distinct colours, %d."
-msgstr ""
-"A factor2 csoportjainak száma (%d) meghaladja a különböző színek számát (%d)."
+msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgstr "A factor2 csoportjainak száma (%d) meghaladja a különböző színek számát (%d)."
 
 msgid "The number of bins exceeds the number of data values"
 msgstr "Az intervallumok száma meghaladja az értékek számát"
@@ -2413,9 +2384,7 @@ msgid "Summarize model"
 msgstr "Modell összegzése"
 
 msgid "Add observation statistics to data..."
-msgstr ""
-"Megfigyelésekre vonatkozó, modellből számított adatok hozzáadása az "
-"adattáblához..."
+msgstr "Megfigyelésekre vonatkozó, modellből számított adatok hozzáadása az adattáblához..."
 
 msgid "Confidence intervals..."
 msgstr "Konfidenciaintervallumok..."
@@ -2594,11 +2563,11 @@ msgid "Import from Excel, Access or dBase data set"
 msgstr "Excel, Access vagy dBase adattáblából importálás"
 
 msgid ""
-"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
-"\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} "
+"{\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"MS Excel fájl\" {*.xls \".XLS\"}} {\"MS Access adatbázis\" {*.mdb \".MDB"
-"\"}} {\"dBase-szerű fájl\" {*.dbf \".DBF\"}} {\"Minden fájl\" {\"*\"}}"
+"{\"MS Excel fájl\" {*.xls \".XLS\"}} {\"MS Access adatbázis\" {*.mdb \".MDB\"}} {\"dBase-szerű fájl\" {*.dbf \".DBF"
+"\"}} {\"Minden fájl\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "Válasszon ki egy táblát"
@@ -3272,11 +3241,8 @@ msgstr "Gyakorisági eloszlások"
 msgid "Chi-square goodness-of-fit test (for one variable only)"
 msgstr "Khi-négyzet próba illeszkedésvizsgálatra (csak egy változóra)"
 
-msgid ""
-"Goodness-of-fit test not available when more than one variable is selected."
-msgstr ""
-"Az illeszkedésvizsgálat nem érhető el, ha egynél több változó van "
-"kiválasztva."
+msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgstr "Az illeszkedésvizsgálat nem érhető el, ha egynél több változó van kiválasztva."
 
 msgid "Frequency distributions..."
 msgstr "Gyakorisági eloszlások..."
@@ -3422,8 +3388,7 @@ msgid "Load data set..."
 msgstr "Adattábla betöltése..."
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
-msgstr ""
-"{\"R adatfájlok\" {\".rda\" \".Rda\" \".RDA\"}} {\"Minden fájl\" {\"*\"}}"
+msgstr "{\"R adatfájlok\" {\".rda\" \".Rda\" \".RDA\"}} {\"Minden fájl\" {\"*\"}}"
 
 msgid "Shapiro-Wilk test of normality..."
 msgstr "Shapiro-Wilk-féle normalitás próba..."
@@ -3525,9 +3490,7 @@ msgid "Partial ignoring marginality (\"Type III\")"
 msgstr "Marginális (\"III. típusú\")"
 
 msgid "Type III tests require careful attention to contrast coding."
-msgstr ""
-"A III. típusú teszteknél különös figyelmet kell fordítani a kontrasztok "
-"kódolására."
+msgstr "A III. típusú teszteknél különös figyelmet kell fordítani a kontrasztok kódolására."
 
 msgid "There is no appropriate anova method for a model of this class."
 msgstr "Nincs megfelelő ANOVA eljárás ilyen osztályú modellhez."
@@ -3747,19 +3710,14 @@ msgid "You must select at least one variable to aggregate by."
 msgstr "Legalább egy csoportosító változót ki kell választani."
 
 msgid "Variables to aggregate and those to aggregate by must be different."
-msgstr ""
-"Az aggregálandó és a csoportosító változóknak különbözőeknek kell lenniük."
+msgstr "Az aggregálandó és a csoportosító változóknak különbözőeknek kell lenniük."
 
 msgid "Name for aggregated data set:"
 msgstr "Az aggregált adattábla neve:"
 
 #     miscellaneous
-msgid ""
-"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files"
-"\" {\"*\"}}"
-msgstr ""
-"{\"R adatfájlok\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Minden fájl"
-"\" {\"*\"}}"
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"R adatfájlok\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Minden fájl\" {\"*\"}}"
 
 msgid "No data set selected."
 msgstr "Nincs adattábla kiválasztva."
@@ -3835,55 +3793,37 @@ msgstr "{\"Minden fájl\" {\"*\"}} {\"Szkriptfájlok\" {\".R\"}}"
 msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
 msgstr "{\"Minden fájl\" {\"*\"}} {\"Output fájlok\" {\".txt\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
-"\".csv\" \".CSV\"}}"
-msgstr ""
-"{\"Minden fájl\" {\"*\"}} {\"Szöveges fájlok\" {\".txt\" \".TXT\" \".dat\" "
-"\".DAT\" \".csv\" \".CSV\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"Szöveges fájlok\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
-"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
 msgstr ""
-"{\"Minden fájl\" {\"*\"}} {\"SPSS hordozható fájlok\" {\".por\" \".POR\"}} "
-"{\"SPSS mentett fájlok\" {\".sav\" \".SAV\"}}"
+"{\"Minden fájl\" {\"*\"}} {\"SPSS hordozható fájlok\" {\".por\" \".POR\"}} {\"SPSS mentett fájlok\" {\".sav\" \".SAV"
+"\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
-msgstr ""
-"{\"Minden fájl\" {\"*\"}} {\"Minitab hordozható fájlok\" {\".mtp\" \".MTP\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"Minitab hordozható fájlok\" {\".mtp\" \".MTP\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 msgstr "{\"Minden fájl\" {\"*\"}} {\"STATA fájlok\" {\".dta\" \".DTA\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
-"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
-"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB"
+"\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\"."
+"xls\" \".XLS\"}}"
+msgstr ""
+"{\"Minden fájl\" {\"*\"}} {\"MS Access adatbázis\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 adatbázis\" {\".accdb\" \"."
+"ACCDB\"}} {\"dBase-szerű fájl\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 fájl\" {\".xlsx\" \".XLSX\"}} {\"MS Excel fájl"
 "\" {\".xls\" \".XLS\"}}"
-msgstr ""
-"{\"Minden fájl\" {\"*\"}} {\"MS Access adatbázis\" {\".mdb\" \".MDB\"}} "
-"{\"MS Access 2007 adatbázis\" {\".accdb\" \".ACCDB\"}} {\"dBase-szerű fájl"
-"\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 fájl\" {\".xlsx\" \".XLSX\"}} {\"MS "
-"Excel fájl\" {\".xls\" \".XLS\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
-"RDA\"}}"
-msgstr ""
-"{\"Minden fájl\" {\"*\"}} {\"R adatfájlok\" {\".RData\" \".rda\" \".Rda\" \"."
-"RDA\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"R adatfájlok\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"Minden fájl\" {\"*\"}} {\"PNG fájlok\" {\".png\" \".PNG\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
-"\"}}"
-msgstr ""
-"{\"Minden fájl\" {\"*\"}} {\"JPEG fájlok\" {\".jpg\" \".JPG\" \".jpeg\" \"."
-"JPEG\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"JPEG fájlok\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
 msgstr "{\"Minden fájl\" {\"*\"}} {\"PDF fájlok\" {\".pdf\" \".PDF\"}}"
@@ -3891,12 +3831,8 @@ msgstr "{\"Minden fájl\" {\"*\"}} {\"PDF fájlok\" {\".pdf\" \".PDF\"}}"
 msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 msgstr "{\"Minden fájl\" {\"*\"}} {\"Postscript fájlok\" {\".ps\" \".PS\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
-"\"}}"
-msgstr ""
-"{\"Minden fájl\" {\"*\"}} {\"Encapsulated Postscript fájlok\" {\".eps\" \"."
-"EPS\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"Encapsulated Postscript fájlok\" {\".eps\" \".EPS\"}}"
 
 # messages added to version 1.7-0
 msgid "Reset"
@@ -4054,12 +3990,8 @@ msgstr "Adattábla kiválasztása"
 msgid "Datasets in file (pick one)"
 msgstr "Adattáblák a fájlban (válasszon egyet)"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
-"\".XPORT\"}}"
-msgstr ""
-"{\"Minden fájl\" {\"*\"}} {\"SAS xport fájlok\" {\".xpt\" \".XPT\" \".xport"
-"\" \".XPORT\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"SAS xport fájlok\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
 
 msgid ""
 "Convert variable names\n"
@@ -4074,12 +4006,8 @@ msgstr "Excel fájlból..."
 msgid "Import Excel Data Set"
 msgstr "Excel adattábla importálása"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
-"Excel file\" {\".xls\" \".XLS\"}}"
-msgstr ""
-"{\"Minden fájl\" {\"*\"}} {\"MS Excel 2007 fájl\" {\".xlsx\" \".XLSX\"}} "
-"{\"MS Excel fájl\" {\".xls\" \".XLS\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"MS Excel 2007 fájl\" {\".xlsx\" \".XLSX\"}} {\"MS Excel fájl\" {\".xls\" \".XLS\"}}"
 
 msgid "Interquartile Range"
 msgstr "Interkvartilis terjedelem"
@@ -4213,13 +4141,13 @@ msgid "Save knitr file..."
 msgstr "knitr fájl mentése..."
 
 msgid "Save knitr file?"
-msgstr "Mentse a knitr fájlt?"
+msgstr "Menti a knitr fájlt?"
 
 msgid "Save current Rmd file?"
-msgstr "Mentse az aktuális Rmd fájlt?"
+msgstr "Menti az aktuális Rmd fájlt?"
 
 msgid "Save current Rnw file?"
-msgstr "Mentse az aktuális Rnw fájlt?"
+msgstr "Menti az aktuális Rnw fájlt?"
 
 msgid "Save R Markdown file as..."
 msgstr "R Markdown fájl mentése mint..."
@@ -4236,12 +4164,8 @@ msgstr "knitr fájl elmentve ide:"
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
 msgstr "{\"Minden fájl\" {\"*\"}} {\"R Markdown fájlok\" {\".Rmd\" \".rmd\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
-"\"}}"
-msgstr ""
-"{\"Minden fájl\" {\"*\"}} {\"knitr fájlok\" {\".Rmd\" \".rmd\" \".Snw\" \"."
-"snw\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"knitr fájlok\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
 
 msgid ""
 "Delete previously created knitr\n"
@@ -4684,14 +4608,13 @@ msgid "The following variable names are not valid:\n"
 msgstr "A következő változónevek nem érvényesek:\n"
 
 msgid "Save R Markdown file?"
-msgstr "Mentse az R Markdown fájlt?"
+msgstr "Menti az R Markdown fájlt?"
 
 msgid "Theme (pick one)"
 msgstr "Téma (válasszon egyet)"
 
 msgid "Both or neither layout values must be numbers."
-msgstr ""
-"Vagy mindkét elrendezési értéknek számnak kell lennie, vagy egyiknek sem."
+msgstr "Vagy mindkét elrendezési értéknek számnak kell lennie, vagy egyiknek sem."
 
 msgid "ANOVA Table"
 msgstr "ANOVA tábla"
@@ -4807,8 +4730,7 @@ msgid "Right"
 msgstr "Jobbra"
 
 msgid "plotting and grouping variables must be different"
-msgstr ""
-"az ábrázolandó és a csoportosító változóknak különbözőeknek kell lenniük"
+msgstr "az ábrázolandó és a csoportosító változóknak különbözőeknek kell lenniük"
 
 # dot plot dialog
 msgid "Dot Plot"
@@ -4827,12 +4749,8 @@ msgstr "Szöveges adatok faktorrá konvertálása"
 msgid "<empty cell>"
 msgstr "<üres cella>"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
-"XLS\"}}"
-msgstr ""
-"{\"Minden fájl\" {\"*\"}} {\"MS Excel fájlok\" {\".xlsx\" \".XLSX\" \".xls\" "
-"\".XLS\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"MS Excel fájlok\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
 
 # corrected messages in version 2.2-1
 # The following messages had trailing blanks. These messages were deleted from
@@ -4957,8 +4875,7 @@ msgid "Reorder Sort Keys"
 msgstr "Rendezési kulcsok átrendezése"
 
 msgid "Order of keys must include all integers from 1 to"
-msgstr ""
-"A kulcsok sorrendjének tartalmaznia kell az összes egészet 1-től eddig:"
+msgstr "A kulcsok sorrendjének tartalmaznia kell az összes egészet 1-től eddig:"
 
 msgid "Sort Keys"
 msgstr "Rendezési kulcsok"
@@ -5031,8 +4948,7 @@ msgstr "Több, mint egy objektum van a fájlban, az alábbi nevekkel:\n"
 
 # new messages for distribution plot dialogs produced by distributionPlot()
 msgid "Optionally specify regions under the density function by"
-msgstr ""
-"A sűrűségfüggvény alatti területek opcionális kijelölése a következő szerint:"
+msgstr "A sűrűségfüggvény alatti területek opcionális kijelölése a következő szerint:"
 
 msgid "x-values"
 msgstr "x értékek"
@@ -5047,8 +4963,7 @@ msgid "You must specify 'from' and 'to' for at least one range."
 msgstr "Meg kell adni a 'tól' és az 'ig' értékeket legalább egy tartományra."
 
 msgid "In specifying a range, 'to' must be greater than 'from'."
-msgstr ""
-"A tartomány megadásakor az 'ig'-nek nagyobbnak kell lennie mint a 'tól'."
+msgstr "A tartomány megadásakor az 'ig'-nek nagyobbnak kell lennie mint a 'tól'."
 
 msgid "Quantiles must be between 0 and 1."
 msgstr "A kvantiliseknek 0 és 1 között kell lenniük."
@@ -5086,11 +5001,8 @@ msgstr "Legalább két modellt ki kell választani."
 
 # additional messages in version 2.4-0
 # enhancements to the Rcmdr script editor
-msgid ""
-"Only one instance of the R Commander script editor may be open at a time."
-msgstr ""
-"Az R Commander szkript szerkesztőnek csak egy példánya lehet nyitva egy "
-"időben."
+msgid "Only one instance of the R Commander script editor may be open at a time."
+msgstr "Az R Commander szkript szerkesztőnek csak egy példánya lehet nyitva egy időben."
 
 msgid "Save current edits"
 msgstr "Aktuális szerkesztések mentése"
@@ -5158,11 +5070,8 @@ msgstr "SAS b7dat adattábla importálása"
 msgid "from SAS b7dat file..."
 msgstr "SAS b7dat fájlból..."
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
-msgstr ""
-"{\"Minden fájl\" {\"*\"}} {\"SAS b7dat adattábla\" {\".sas7bdat\" \".SAS7BDAT"
-"\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"SAS b7dat adattábla\" {\".sas7bdat\" \".SAS7BDAT\"}}"
 
 # addition to the Commander Options dialog
 msgid ""
@@ -5334,21 +5243,245 @@ msgid "Convert variable names to lower case"
 msgstr "Változónevek kisbetűssé alakítása"
 
 # new messages about invalid variable classes
-msgid ""
-"The following variables are not valid for use in the R Commander and will be "
-"omitted:"
-msgstr ""
-"A következő változók nem érvényesek az R Commanderben és ezért nem lesznek "
-"figyelembe véve:"
+msgid "The following variables are not valid for use in the R Commander and will be omitted:"
+msgstr "A következő változók nem érvényesek az R Commanderben és ezért nem lesznek figyelembe véve:"
+
+msgid "The following variable is not valid for use in the R Commander and will be omitted:"
+msgstr "A következő változó nem érvényes R Commanderben és ezért nem lesz figyelembe véve:"
+
+# new messages for version 2.7-0
+# for Numerical Summaries dialog
+msgid "Frequency Counts"
+msgstr "Osztályközös gyakorisági sor"
+
+# For bar graph dialog
+msgid "Show counts or percentages in bars"
+msgstr "Gyakoriságok, illetve relatív gyakoriságok megjelenítése az oszlopokon"
+
+# for piechart dialog
+msgid "Neither"
+msgstr "Egyik sem"
+
+# for proportion-test dialogs
+msgid "<No response selected>"
+msgstr "<Nincs eredményváltozó kiválasztva>"
+
+msgid "Proportion"
+msgstr "Arány"
+
+# for new restart Commander dialog
+msgid "Restart the Commander"
+msgstr "Az R Commander újraindítása"
+
+msgid "Restart the Commander?"
+msgstr "Újraindítja az R Commandert?"
+
+# for new repeated-measures ANOVA/ANCOVA dialogs
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "Egy ismételt méréses ANOVA/ANCOVA..."
+
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr "Egy ismételt méréses ANOVA/ANCOVA"
+
+msgid "no responses specified"
+msgstr "nincs eredményváltozó kiválasztva"
 
 msgid ""
-"The following variable is not valid for use in the R Commander and will be "
-"omitted:"
+"the specified responses are not contiguous\n"
+" missing responses are removed"
 msgstr ""
-"A következő változó nem érvényes R Commanderben és ezért nem lesz figyelembe "
-"véve:"
+"nem folytatólagosan vannak kiválasztva eredményváltozók\n"
+" a hiányzó eredményváltozók el lettek távolítva"
 
-# new message for version 2.6-2
-# previously omitted message:
+msgid "<no selection>"
+msgstr "<nincs kiválasztás>"
+
+msgid "there are duplicated level names"
+msgstr "duplikált szint nevek vannak"
+
+msgid "is not a valid name"
+msgstr "nem érvényes név"
+
+msgid "the following responses appear more than once:"
+msgstr "a következő eredményváltozók egynél többször fordulnak elő:"
+
+msgid "at least 2 responses must be specified"
+msgstr "legalább 2 eredményváltozót kell kiválasztani"
+
+msgid "Within-Subject Factor"
+msgstr "Egyeden belüli változó"
+
+msgid "Name for the within-subjects factor:"
+msgstr "Az egyeden belüli változó neve:"
+
+msgid "Specify up to 8 levels (responses) and level names for the within-subjects factor"
+msgstr "Válasszon ki legfeljebb 8 szintet (eredményváltozót) és szint nevet az egyeden belüli változóhoz"
+
+msgid "Multivariate Test Statistic"
+msgstr "Többváltozós tesztstatisztika"
+
+msgid "Multivariate"
+msgstr "Többváltozós"
+
+msgid "Univariate"
+msgstr "Egyváltozós"
+
+msgid "Tests to Perform"
+msgstr "Elvégzendő próbák"
+
+msgid "Repeated-Measures Means"
+msgstr "Ismételt méréses átlagok"
+
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr "Egyedek közötti változók (válasszon egyet vagy többet)"
+
+msgid "Plot response means by factors"
+msgstr "Eredményváltozó átlagok feltüntetése faktoronként"
+
+msgid "Print means and standard deviations by factors"
+msgstr "Átlagok és szórások feltüntetése faktoronként"
+
+msgid "X-axis factor:"
+msgstr "x-tengelyen lévő faktor:"
+
+msgid "Trace factor:"
+msgstr "Egy ábrán belüli változó:"
+
+msgid "Response name:"
+msgstr "Eredményváltozó neve:"
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "Két ismételt méréses ANOVA/ANCOVA..."
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr "Két ismételt méréses ANOVA/ANCOVA"
+
+msgid "the specified responses are not rectangular"
+msgstr "a kiválasztott eredményváltozók nem téglalap alakúak"
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr "legalább 2 sor és 2 oszlop méretű eredményváltozókat kell kiválasztani"
+
+msgid "there are duplicated row level names"
+msgstr "duplikált szint nevek a sorváltozónál"
+
+msgid "there are duplicated column level names"
+msgstr "duplikált szint nevek az oszlopváltozónál"
+
+msgid "Within-Subject Factors"
+msgstr "Egyeden belüli változók"
+
+msgid "Name for the within-subjects row factor:"
+msgstr "A egyeden belüli sor változó neve:"
+
+msgid "Name for the within-subjects column factor:"
+msgstr "Az egyeden belüli oszlop változó neve:"
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr "Válasszon ki legfeljebb 5 szintet és szint nevet minden egyeden belüli változóhoz"
+
+# new reshape data set from long to wide format dialog
+msgid "Reshape data set from long to wide format..."
+msgstr "Adattábla átrendezése \"hosszú\" formátumból \"széles\" formátumba..."
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr "Adattábla átrendezése \"hosszú\" formátumból \"széles\" formátumba"
+
+msgid "Subject ID variable (pick one)"
+msgstr "Megfigyelési egységet azonosító változó (válasszon egyet)"
+
+msgid "Within-subjects factors (pick one or more)"
+msgstr "Egyeden belüli változó (válasszon egyet vagy többet)"
+
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr "Megfigyelési alkalmanként eltérő változók (válasszon egyet vagy többet)"
+
+msgid "Variables to ignore (pick zero or more)"
+msgstr "Figyelmen kívül hagyandó változók (válasszon nullát vagy többet)"
+
+msgid "You must select an ID variable."
+msgstr "Ki kell választani egy azonosító változót."
+
+msgid "You must select one or more within-subjects factors."
+msgstr "Ki kell választani egy vagy több egyeden belüli változót."
+
+msgid "You must select one or more occasion-varying variables."
+msgstr "Ki kell választani egy vagy több megfigyelési alkalom-változót."
+
+msgid "the following variables appear more than once:"
+msgstr "a következő változók egynél többször fordulnak elő:"
+
+msgid "Save data set aborted"
+msgstr "Adattábla mentése megszakítva"
+
+msgid "Name for wide data set:"
+msgstr "A \"széles\" adattábla neve:"
+
+msgid "Make the wide data set active"
+msgstr "A \"széles\" adattábla aktívvá tétele"
+
+# new reshape data set from wide to long format dialog
+msgid "Reshape data set from wide to long format..."
+msgstr "Adattábla átrendezése \"széles\" formátumból \"hosszú\" formátumba..."
+
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr "Adattábla átrendezése \"széles\" formátumból \"hosszú\" formátumba"
+
+msgid ""
+"both one and two repeated-measures factors were specified\n"
+"specify either a one-way or two-way design"
+msgstr ""
+"egyszerre lett egy 1 és egy 2 ismételt méréses változó kiválasztva\n"
+"vagy egy- vagy kétszempontos elrendezést válasszon"
+
+msgid "the specified responses are not contiguous"
+msgstr "nem folytatólagosan vannak kiválasztva eredményváltozók"
+
+msgid "the following ignored variables are also responses:"
+msgstr "a következő figyelmen kívül hagyott változók egyúttal eredményváltozók is:"
+
+msgid "Specify one within-subject factor"
+msgstr "Válasszon ki egy egyeden belüli változót"
+
+msgid "Specify two within-subject factors"
+msgstr "Válasszon ki két egyeden belüli változót"
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr "Adjon meg legfeljebb 5 szintet és szint nevet mindegyik egyeden belüli változóhoz"
+
+msgid "Name for long data set:"
+msgstr "A \"hosszú\" adattábla neve:"
+
+msgid "Response variable:"
+msgstr "Eredményváltozó:"
+
+msgid "Subject ID variable:"
+msgstr "Megfigyelési egységet azonosító változó:"
+
+msgid "Make the long data set active"
+msgstr "A \"hosszú\" adattábla aktívvá tétele"
+
+# additional messages for handling character data
+msgid "Convert all character variables to factors"
+msgstr "Minden szöveges változó faktorrá alakítása"
+
+msgid "Convert character variables to factors..."
+msgstr "Szöveges változók faktorrá alakítása..."
+
+msgid "Convert Character Variables to Factors"
+msgstr "Szöveges változók faktorrá alakítása"
+
+# new message for version 2.7-1
+# previously omitted message (also included in 2.6-2 but omitted again from 2.7-0):
 msgid "Variable (pick one or more)"
 msgstr "Változó (válasszon egyet vagy többet)"
+
+# additional messages omitted from version 2.7-0
+msgid "Include in Segment Labels"
+msgstr "Feltüntetendő felirat"
+
+msgid "One Repeated-Measures Factor"
+msgstr "Egy ismételt méréses változó"
+
+msgid "Two Repeated-Measures Factors"
+msgstr "Két ismételt méréses változó"
