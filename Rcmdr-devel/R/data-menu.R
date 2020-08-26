@@ -1,4 +1,4 @@
-# last modified 2020-08-05 by J. Fox
+# last modified 2020-08-26 by J. Fox
 
 # Data menu dialogs
 
@@ -1381,9 +1381,9 @@ numericToFactor <- function(){
     closeDialog()
     facname <- trim.blanks(tclvalue(factorName))
     .activeDataSet <- ActiveDataSet()
-    cmd <- paste("apply(", .activeDataSet, "[c(", paste(
+    cmd <- paste("apply(", .activeDataSet, "[, c(", paste(
       paste('"', variables, '"', sep=""),
-      collapse=","), ")], 2, function(x) sort(unique(x)))", sep="")
+      collapse=","), "), drop=FALSE], 2, function(x) sort(unique(x)))", sep="")
     levs <- eval(parse(text=cmd), envir=.GlobalEnv)
     sameLevels <- (length(variables) == 1) ||
       ((is.matrix(levs)) && (all(0 == apply(levs, 1, var))))
