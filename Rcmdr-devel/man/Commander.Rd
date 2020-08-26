@@ -423,7 +423,7 @@ For more information about R initialization, see \code{?Startup}.
   R Commander \emph{Tools} menu. The app nap setting is permanent until changed and so the current setting will apply whether or not the
   R Commander is used. When R is first installed, app nap will be on for \emph{R.app}. The \pkg{tcltk} package requires that X Windows is
   installed under Mac OS X, and as a consequence the \pkg{Rcmdr} package, which depends on \pkg{tcltk}, will not load if X Windows is
-  absent. X Windows for Mac OS X may be obtained from \url{http://xquartz.macosforge.org}.
+  absent. X Windows for Mac OS X may be obtained from \url{https://www.xquartz.org/}.
 }
 
 \references{

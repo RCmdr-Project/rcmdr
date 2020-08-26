@@ -419,11 +419,11 @@ manualTranslationP <- function(){
     gettextRcmdr("Getting-Started-with-the-Rcmdr") != "Getting-Started-with-the-Rcmdr"
 }
 
-browseRcmdrWebsite <- function() browseURL("http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/")
+browseRcmdrWebsite <- function() browseURL("https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/")
 
-browseRWebsite <- function() browseURL("http://www.r-project.org/")
+browseRWebsite <- function() browseURL("https://www.r-project.org/")
 
-browseRMarkdown <- function() browseURL("http://rmarkdown.rstudio.com/lesson-1.html")
+browseRMarkdown <- function() browseURL("https://rmarkdown.rstudio.com/lesson-1.html")
 
 browseRcmdrHexSticker <- function(){
   browseURL(paste0("file://", system.file("etc", "Rcmdr-hex.pdf", package="Rcmdr")))

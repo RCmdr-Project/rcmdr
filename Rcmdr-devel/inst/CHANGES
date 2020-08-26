@@ -201,7 +201,7 @@ Version 0.9-4
 
     o Try to insure that the active data set stays in sync with the active model when data sets or models are changed (suggested by Philippe Grosjean).
 
-    o Added "Graphs -> 3D scatterplot" menu and dialog and supporting scatter3d function; depends on mgcv and rgl packages, the latter available at <http://wsopuppenkiste.wiso.uni-goettingen.de/~dadler/rgl/>.
+    o Added "Graphs -> 3D scatterplot" menu and dialog and supporting scatter3d function; depends on mgcv and rgl packages.
 
     o Added "Models -> Numerical diagnostics -> Bonferroni outlier test".
 
@@ -272,7 +272,7 @@ Version 0.9-10
 
     o  Added "Save R workspace" and "Save R workspace as" to File menu (suggested by Dan Putler).
 
-    o  Added "Save graph to file" submenu to File menu, with items "as bitmap", "as PDF/Postscript/EPS", and "3D RGL graph" (súggested by Dan Putler).
+    o  Added "Save graph to file" submenu to File menu, with items "as bitmap", "as PDF/Postscript/EPS", and "3D RGL graph" (s?ggested by Dan Putler).
 
     o  Small bug fixes and interface enhancements.
 
@@ -538,7 +538,7 @@ Version 1.2-5
    
 Version 1.2-6
 
-   o  New German translation, kindly provide by Gerhard Schön.
+   o  New German translation, kindly provide by Gerhard Sch?n.
    
 Version 1.2-7
 
@@ -650,7 +650,7 @@ Version 1.3-11
 
    o  Speed-up in various places by replacing eval(parse()) with get() where appropriate (suggested by Richard Heiberger).
    
-   o  Fixes to parsing of commands in the script window (following bug report by Jérémy Mazet; thanks to Duncan Murdoch and Richard Heiberger for help).
+   o  Fixes to parsing of commands in the script window (following bug report by J?r?my Mazet; thanks to Duncan Murdoch and Richard Heiberger for help).
    
    o  Changed layout of scatterplot dialog (after a suggestion by John Maindonald).
    

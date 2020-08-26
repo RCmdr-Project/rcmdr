@@ -1052,11 +1052,11 @@ installSoftware <- function(){
         title=gettextRcmdr("Software to Install"))
     onOK <- function(){
         if (tclvalue(latexVariable) == "1"){
-            if (WindowsP()) browseURL("http://miktex.org/download")
-            else if (MacOSXP()) browseURL("http://www.tug.org/mactex/")
-            else browseURL("http://latex-project.org/ftp.html")
+            if (WindowsP()) browseURL("https://miktex.org/download")
+            else if (MacOSXP()) browseURL("https://www.tug.org/mactex/")
+            else browseURL("https://www.latex-project.org/get/")
         }
-        if (tclvalue(pandocVariable) == "1") browseURL("http://johnmacfarlane.net/pandoc/installing.html")
+        if (tclvalue(pandocVariable) == "1") browseURL("https://pandoc.org/installing.html")
         closeDialog()
         tkfocus(CommanderWindow())
     }

@@ -32,7 +32,7 @@ available on CRAN.
 A variety of utility functions is available to support R Commander plug-in packages;
 see \code{\link{Rcmdr.Utilities}}.
 
-For more details, see Fox, \emph{Writing R Commander Plug-in Packages} at \url{http://socserv.mcmaster.ca/jfox/Books/RCommander/Writing-Rcmdr-Plugins.pdf}.
+For more details, see Fox, \emph{Writing R Commander Plug-in Packages} at \url{https://socialsciences.mcmaster.ca/jfox/Books/RCommander/Writing-Rcmdr-Plugins.pdf}.
 }
 
 \seealso{\code{\link{Commander}}, \code{\link{Rcmdr.Utilities}}}
