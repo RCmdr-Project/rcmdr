@@ -302,10 +302,10 @@ hclustSummary <- function () {
 	plotCB <- ttkcheckbutton(optionsFrame)
 	tkconfigure(plotCB, variable = plotClusters)
 	if (length(hclustObjects) == 0) {
-		errorCondition(recall = return, message = gettextRcmdr("There are no hierachical clustering solutions"))
+		errorCondition(message = gettextRcmdr("There are no hierachical clustering solutions"))
 	}
 	if (length(validHclust) == 0) {
-		errorCondition(recall = return, message = gettextRcmdr("No hierachical clustering solutions are associated with this data set."))
+		errorCondition(message = gettextRcmdr("No hierachical clustering solutions are associated with this data set."))
 	}
 	onOK <- function() {
 		solution <- getSelection(hclustBox)
