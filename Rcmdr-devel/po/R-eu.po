@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.0-3\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2018-09-03 14:22+0200\n"
-"PO-Revision-Date: 2018-09-04 11:33+0200\n"
-"Last-Translator: José Ramón Rueda <joseramon.rueda@ehu.es>\n"
-"Language-Team: EHU R UCA Project <joseramon.rueda@ehu.es>\n"
+"POT-Creation-Date: 2020-08-25 10:45:00\n"
+"PO-Revision-Date: 2020-08-27 13:02+0200\n"
+"Last-Translator: José Ramón Rueda &lt;joseramon.rueda@ehu.es&gt;\n"
+"Language-Team: EHU R UCA Project &lt;joseramon.rueda@ehu.es&gt;\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.4.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "KMeans Clustering"
@@ -23,7 +23,7 @@ msgid "No variables selected."
 msgstr "Aldagai bat ere ez hautatuta."
 
 msgid "<all valid cases>"
-msgstr "<kasu baliozko guztiak>"
+msgstr "<baliozko kasu guztiak>"
 
 msgid "Number of clusters:"
 msgstr "Talde kopurua:"
@@ -408,8 +408,8 @@ msgid ""
 "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
 "\".POR\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"SPSS save motako  fitxategiak\" {\".sav\" \".SAV\"}} {\"SPSS portable "
-"motako  fitxategiak\" {\".por\" \".POR\"}} {\"Fitxategi guztiak\" {\"*\"}}"
+"{\"SPSS save motako fitxategiak\" {\".sav\" \".SAV\"}} {\"SPSS portable "
+"motako fitxategiak\" {\".por\" \".POR\"}} {\"Fitxategi guztiak\" {\"*\"}}"
 
 msgid ""
 "Convert value labels\n"
@@ -2577,7 +2577,7 @@ msgid "3D graph"
 msgstr "3Dko grafikoa"
 
 msgid " contains non-standard variable names:\n"
-msgstr "aldagai-izen ez-estandarrak ditu:\n"
+msgstr " aldagai-izen ez-estandarrak ditu:\n"
 
 msgid ""
 "\n"
@@ -3425,7 +3425,7 @@ msgid "Scale (inverse rate)"
 msgstr "Eskala (tasa inbertsoa)"
 
 msgid " has been coerced to a data frame"
-msgstr "data frame batera behartuta"
+msgstr " data frame batera behartuta"
 
 msgid "the dataset %s is no longer available"
 msgstr "%s datu multzoa ez dago eskuragarri dagoeneko"
@@ -3548,7 +3548,7 @@ msgid "Location not specified."
 msgstr "Kokapena ez da zehaztu."
 
 # messages added to version 1.5-0
-#     "Models -> Stepwise model selection" dialog and menu item
+#     "Models -&gt; Stepwise model selection" dialog and menu item
 msgid "Stepwise model selection..."
 msgstr "‘Urratsez urrats’ eredua hautatzea..."
 
@@ -3704,9 +3704,7 @@ msgstr "Ereduak ez dira mota berekoak."
 msgid ""
 "Pairwise p-values\n"
 "for Pearson or Spearman correlations"
-msgstr ""
-"p balio parekatuak\n"
-"Pearson-en edo Spearman-en korrelazioentzat"
+msgstr "p balio parekatuak Pearson-en edo Spearman-en korrelazioentzat"
 
 msgid ""
 "The Windows version of the R Commander works best under RGui\n"
@@ -4321,7 +4319,7 @@ msgid "cannot select more than one variable"
 msgstr "aldagai bat bakarrik aukeratu dezakezu"
 
 msgid "polynomial requires a numeric variable"
-msgstr "Polinomialak zenbakizko aldagaia eskatzen du"
+msgstr "polinomialak zenbakizko aldagaia eskatzen du"
 
 msgid "B-spline\n"
 msgstr "B-spline\n"
@@ -4420,7 +4418,7 @@ msgid "Row names in first column of spreadsheet"
 msgstr "Errenkada-izenak kalkulu-orriaren lehenengo zutabean"
 
 msgid "<no variable selected>"
-msgstr "<ez da aldagairik hautatu>"
+msgstr "<Aldagai bat ere ez hautatuta>"
 
 msgid "Model Effect Plots"
 msgstr "Efektuen grafikoak"
@@ -5181,6 +5179,319 @@ msgstr "Nondik"
 msgid "To"
 msgstr "Nora"
 
+msgid "Case statistics to plot"
+msgstr "Margotzeko kasu estatistikak"
+
+msgid "Linear Mixed Model"
+msgstr "Eredu Lineal Mistoa"
+
+msgid "Linear mixed model..."
+msgstr "Eredu lineal mistoa..."
+
+msgid "Estimation Criterion"
+msgstr "Estimazio-Irizpidea"
+
+msgid "Restricted maximum likelihood (REML)"
+msgstr "Gehienezko egiantzekotasun mugatua"
+
+msgid "Maximum likelihood (ML)"
+msgstr "Gehienezko egiantzekotasuna"
+
+msgid "There are no random effects in the model."
+msgstr "Ereduan ez daude zorizko efektuak."
+
+msgid "Generalized Linear Mixed Model"
+msgstr "Eredu Lineal Misto Orokortua"
+
+msgid "Generalized linear mixed model..."
+msgstr "Eredu lineal misto orokortua..."
+
+msgid "Convert variable names to lower case"
+msgstr "Aldagai izenak letra minuskula bihurtu"
+
+# new messages about invalid variable classes
+msgid ""
+"The following variables are not valid for use in the R Commander and will be "
+"omitted:"
+msgstr ""
+"Hurrengo aldagaiak ez dira baliozkoak R commander-ean erabiltzeko eta ez "
+"dira erabiliko:"
+
+msgid ""
+"The following variable is not valid for use in the R Commander and will be "
+"omitted:"
+msgstr ""
+"Hurrengo aldagaia ez da baliozkoa R commander-ean erabiltzeko eta ez da "
+"erabiliko:"
+
+msgid "Frequency Counts"
+msgstr "Maiztasun-kontaketak"
+
+# For bar graph dialog
+msgid "Show counts or percentages in bars"
+msgstr "Erakutsi zenbaketak edo ehunekoak zutabetan"
+
+msgid "Neither"
+msgstr "Bat ere ez"
+
+msgid "<No response selected>"
+msgstr "<Ez dago erantzunik hautatuta>"
+
+msgid "Proportion"
+msgstr "Proportzioa"
+
+msgid "Restart the Commander"
+msgstr "Berrabiarazi R Commander-a"
+
+msgid "Restart the Commander?"
+msgstr "Berrabiarazi R Commander-a?"
+
+# for new repeated-measures ANOVA/ANCOVA dialogs
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "Neurketa errepikaturiko faktore bakarreko ANOVA/ANCOVA..."
+
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr "Neurketa Errepikaturiko Faktore Bakarreko ANOVA/ANCOVA"
+
+msgid "no responses specified"
+msgstr "ez da zehaztu inolako erantzunik"
+
+msgid ""
+"the specified responses are not contiguous\n"
+" missing responses are removed"
+msgstr ""
+"zehaztutako erantzunak ez dira albokoak\n"
+"falta diren erantzunak ezabatzen dira"
+
+msgid "<no selection>"
+msgstr "<aukeraketarik gabe>"
+
+msgid "there are duplicated level names"
+msgstr "maila-izenak errepikatuta daude"
+
+msgid "is not a valid name"
+msgstr "izena ez da baliozkoa"
+
+msgid "the following responses appear more than once:"
+msgstr "hurrengo erantzunak behin baino gehiagotan agertzen dira:"
+
+msgid "at least 2 responses must be specified"
+msgstr "gutxienez erantzun bi zehaztu behar dira"
+
+msgid "Within-Subject Factor"
+msgstr "Subjektuen-Barruko Faktorea"
+
+msgid "Name for the within-subjects factor:"
+msgstr "Izena subjektuen-barruko faktorearentzat:"
+
+msgid ""
+"Specify up to 8 levels (responses) and level names for the within-subjects "
+"factor"
+msgstr ""
+"Zehaztu mailak (erantzunak) zortziraino eta maila-izenak subjektuen-barruko "
+"faktorearentzat"
+
+msgid "Multivariate Test Statistic"
+msgstr "Aldagai-anitzeko Test-Estatistikoa"
+
+msgid "Multivariate"
+msgstr "Aldagai anitzekoa"
+
+msgid "Univariate"
+msgstr "Aldagai bakarrekoa"
+
+msgid "Tests to Perform"
+msgstr "Egiteko Analisiak"
+
+msgid "Repeated-Measures Means"
+msgstr "Neurketa-Errepikaturiko Batezbestekoak"
+
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr "Subjektuen-Arteko Faktoreak (aukeratu zero edo gehiago)"
+
+msgid "Plot response means by factors"
+msgstr "Marraztu erantzunaren batezbestekoak faktoreka"
+
+msgid "Print means and standard deviations by factors"
+msgstr "Inprimatu batezbestekoak eta desbideratze estandarrak faktoreka"
+
+msgid "X-axis factor:"
+msgstr "X-ardatzaren faktorea:"
+
+msgid "Trace factor:"
+msgstr "Segimenduko faktorea:"
+
+msgid "Response name:"
+msgstr "Erantzun izena:"
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "Bi faktoreko neurketa-errepikaturiko ANOVA/ANCOVA..."
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr "Bi Faktoreko Neurketa-Errepikaturiko ANOVA/ANCOVA..."
+
+msgid "the specified responses are not rectangular"
+msgstr "zehaztutako erantzunak ez dira errektangularrak"
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr "gutxienez bi lerro eta bi zutabe zehaztu behar dira."
+
+msgid "there are duplicated row level names"
+msgstr "badaude lerro-maila izenak errepikatuta"
+
+msgid "there are duplicated column level names"
+msgstr "badaude zutabe-maila izenak errepikatuta"
+
+msgid "Within-Subject Factors"
+msgstr "Subjektuen-Barruko Faktoreak"
+
+msgid "Name for the within-subjects row factor:"
+msgstr "Izena subjektuen-barruko lerro faktorearentzat:"
+
+msgid "Name for the within-subjects column factor:"
+msgstr "Izena subjektuen-barruko zutabe faktorearentzat:"
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr ""
+"Aukeratu subjektuen-barruko faktore bakoitzeko bost maila (edo gutxiago) eta "
+"mailen-izenak"
+
+msgid "Reshape data set from long to wide format..."
+msgstr "Birmoldatu data set formatu luzetik zabalera..."
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr "Birmoldatu Datu Multzoa Formatu Luzetik Zabalera..."
+
+msgid "Subject ID variable (pick one)"
+msgstr "Subjektuaren ID aldagaia (aukeratu bat)"
+
+msgid "Within-subjects factors (pick one or more)"
+msgstr "Subjektuen-barruko faktoreak (aukeratu bat edo gehiago)"
+
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr ""
+"Egokieraren arabera aldatzen diren aldagaiak (aukeratu bat edo gehiago)"
+
+msgid "Variables to ignore (pick zero or more)"
+msgstr "Kontuan ez hartzeko aldagaiak (aukeratu zero edo gehiago)"
+
+msgid "You must select an ID variable."
+msgstr "Aukeratu behar duzu ID aldagai bat."
+
+msgid "You must select one or more within-subjects factors."
+msgstr "Aukeratu behar duzu subjektuen-barruko faktore bat edo gehiago "
+
+msgid "You must select one or more occasion-varying variables."
+msgstr ""
+"Aukeratu behar duzu egokieraren arabera aldatzen diren aldagai bat edo "
+"gehiago."
+
+msgid "the following variables appear more than once:"
+msgstr "hurrengo aldagaiak behin baino gehiagotan agertzen dira:"
+
+msgid "Save data set aborted"
+msgstr "Gorde datu multzo eragotzia"
+
+msgid "Name for wide data set:"
+msgstr "Izena datu multzo zabalarentzat:"
+
+msgid "Make the wide data set active"
+msgstr "Aktibatu datu multzo zabala"
+
+msgid "Reshape data set from wide to long format..."
+msgstr "Birmoldatu data set formatu zabaletik luzera..."
+
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr "Birmoldatu Data Set Formatu Zabaletik Luzera"
+
+msgid ""
+"both one and two repeated-measures factors were specified\n"
+"specify either a one-way or two-way design"
+msgstr ""
+"zehaztuta daude bai faktore bateko eta bai faktore biko neurketak\n"
+"aukeratu faktore bateko edo biko diseinuen artean"
+
+msgid "the specified responses are not contiguous"
+msgstr "zehaztutako erantzunak ez dira aldamenekoak"
+
+msgid "the following ignored variables are also responses:"
+msgstr "Aldagai-izen hauek ez dira baliozkoak:"
+
+msgid "Specify one within-subject factor"
+msgstr "Zehaztu subjektuen-barruko faktore bat"
+
+msgid "Specify two within-subject factors"
+msgstr "Zehaztu subjektuen-barruko faktore bi"
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr ""
+"Zehaztu subjektuen-barruko faktore bakoitzeko bost maila (edo gutxiago) eta "
+"mailen-izenak"
+
+msgid "Name for long data set:"
+msgstr "Izena datu multzo luzearentzat:"
+
+msgid "Response variable:"
+msgstr "Mendeko aldagaia:"
+
+msgid "Subject ID variable:"
+msgstr "Subjektuaren ID aldagaia :"
+
+msgid "Make the long data set active"
+msgstr "Aktibatu datu multzo luzea"
+
+# for import Stata and SAS b7dat data set dialogs
+msgid "Convert all character variables to factors"
+msgstr "Aldagai kualitatibo guztiak faktore bihurtu"
+
+# for import Stata and SAS b7dat data set dialogs
+msgid "Convert character variables to factors..."
+msgstr "Aldagai kualitatiboak faktore bihurtu..."
+
+# for import Stata and SAS b7dat data set dialogs
+msgid "Convert Character Variables to Factors"
+msgstr "Aldagai Kualitatiboak Faktore Bihurtu"
+
+msgid "Variable (pick one or more)"
+msgstr "Aldagaia (aukeratu bat edo gehiago)"
+
+# additional messages omitted from version 2.7-0
+msgid "Include in Segment Labels"
+msgstr "Sartu Segmentu Etiketetan"
+
+msgid "One Repeated-Measures Factor"
+msgstr "Neurketa Errepikaturiko Faktore Bat"
+
+msgid "Two Repeated-Measures Factors"
+msgstr "Neurketa Errepikaturiko Faktore Bi"
+
+#~ msgid "&lt;auto&gt;"
+#~ msgstr "&lt;auto&gt;"
+
+#~ msgid "Difference &gt; 0"
+#~ msgstr "Diferentzia &gt; 0"
+
+#~ msgid "Population mean &lt; mu0"
+#~ msgstr "Populazioaren batezbestekoa &lt; mu0"
+
+#~ msgid "Population mean &gt; mu0"
+#~ msgstr "Populazioaren batezbestekoa &gt; mu0"
+
+#~ msgid "Population proportion &lt; p0"
+#~ msgstr "Populazioaren proportzioa &lt; p0"
+
+#~ msgid "Population proportion &gt; p0"
+#~ msgstr "Populazioaren proportzioa &gt; p0"
+
+#~ msgid "Correlation &gt; 0"
+#~ msgstr "Korrelazioa &gt; 0"
+
+#~ msgid "&lt;no variable selected&gt;"
+#~ msgstr "&lt;ez da aldagairik hautatu&gt;"
+
+#~ msgid "Ratio &gt; 1"
+#~ msgstr "Ratioa &gt; 1"
+
 #~ msgid "Component+residual plots"
 #~ msgstr "Osagai+hondar grafikoak"
 
@@ -5195,9 +5506,6 @@ msgstr "Nora"
 
 #~ msgid "Dataset"
 #~ msgstr "Datu_multzoa"
-
-#~ msgid "variable"
-#~ msgstr "aldagaia"
 
 #~ msgid "NormalSamples"
 #~ msgstr "LaginNormalak"
@@ -5278,8 +5586,8 @@ msgstr "Nora"
 #~ "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 #~ "POT-Creation-Date: 2013-11-08 15:57:00\n"
 #~ "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-#~ "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-#~ "Language-Team: LANGUAGE <LL@li.org>\n"
+#~ "Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt;\n"
+#~ "Language-Team: LANGUAGE &lt;LL@li.org&gt;\n"
 #~ "MIME-Version: 1.0\n"
 #~ "Content-Type: text/plain; charset=CHARSET\n"
 #~ "Content-Transfer-Encoding: 8bit\n"
@@ -5288,8 +5596,8 @@ msgstr "Nora"
 #~ "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 #~ "POT-Creation-Date: 2013-11-08 15:57:00\n"
 #~ "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-#~ "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-#~ "Language-Team: LANGUAGE <LL@li.org>\n"
+#~ "Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt;\n"
+#~ "Language-Team: LANGUAGE &lt;LL@li.org&gt;\n"
 #~ "MIME-Version: 1.0\n"
 #~ "Content-Type: text/plain; charset=CHARSET\n"
 #~ "Content-Transfer-Encoding: 8bit\n"
