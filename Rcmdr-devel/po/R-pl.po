@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr-pl 2.6-0\n"
+"Project-Id-Version: Rcmdr-pl 2.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2019-01-08 16:30:00\n"
+"POT-Creation-Date: 2020-08-25 10:45:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
 "Language-Team: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.3\n"
 
 msgid "KMeans Clustering"
 msgstr "Grupowanie metodą k-średnich"
@@ -276,7 +276,7 @@ msgid "You must select a variable."
 msgstr "Musisz wybrać zmienną."
 
 msgid "No recode directives specified."
-msgstr "Brak wypisanych dyrektyw przekodowania"
+msgstr "Brak wypisanych dyrektyw przekodowania."
 
 msgid "Use only double-quotes (\" \") in recode directives"
 msgstr ""
@@ -648,7 +648,7 @@ msgid "A variable name is empty."
 msgstr "Nazwa zmiennej jest pusta."
 
 msgid "The following variable names are not valid:"
-msgstr "Poniższe nazwy zmiennych nie sa poprawne:"
+msgstr "Poniższe nazwy zmiennych nie są poprawne:"
 
 msgid "Variable names are not unique"
 msgstr "Nazwy zmiennych nie są unikalne"
@@ -1707,7 +1707,7 @@ msgid "Multi-Way Analysis of Variance"
 msgstr "Wielokryteriowa analiza wariancji"
 
 msgid "Factors (pick one or more)"
-msgstr "Czynnik (wybierz jeden lub więcej)"
+msgstr "Czynniki (wybierz jeden lub więcej)"
 
 msgid "You must select at least one factor."
 msgstr "Musisz wybrać przynajmniej jeden czynnik."
@@ -5248,11 +5248,262 @@ msgstr "Uogólniony mieszany model liniowy"
 msgid "Generalized linear mixed model..."
 msgstr "Uogólniony mieszany model liniowy..."
 
+msgid "Convert variable names to lower case"
+msgstr "Konwertuj nazwy zmiennych na małe litery"
+
+# new messages about invalid variable classes
+msgid ""
+"The following variables are not valid for use in the R Commander and will be "
+"omitted:"
+msgstr ""
+"Następujące zmienne nie nadają się do użytku w R Commander i zostaną "
+"pominięte:"
+
+msgid ""
+"The following variable is not valid for use in the R Commander and will be "
+"omitted:"
+msgstr ""
+"Następująca zmienna nie nadaje się do użytku w R Commander i zostanie "
+"pominięta:"
+
+msgid "Frequency Counts"
+msgstr "Zliczenia Częstości"
+
+# For bar graph dialog
+msgid "Show counts or percentages in bars"
+msgstr "Pokaż zliczenia lub procenty w słupkach"
+
+msgid "Neither"
+msgstr "Żaden"
+
+msgid "<No response selected>"
+msgstr "<nie wybrano zmiennej zależnej>"
+
+msgid "Proportion"
+msgstr "Proporcje"
+
+msgid "Restart the Commander"
+msgstr "Zrestartuj Commander'a"
+
+msgid "Restart the Commander?"
+msgstr "Zrestartować Commander'a"
+
+# for new repeated-measures ANOVA/ANCOVA dialogs
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "Jednoczynnikowe powtarzane pomiary ANOVA/ANCOVA..."
+
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr "Jeden czynnik powtarzanych pomiarów ANOVA/ANCOVA"
+
+msgid "no responses specified"
+msgstr "nie określono odpowiedzi"
+
+msgid ""
+"the specified responses are not contiguous\n"
+" missing responses are removed"
+msgstr ""
+"wskazane zmienne zależne nie są ciągłe\n"
+" brakujące zmienne zależne są usunięte"
+
+msgid "<no selection>"
+msgstr "<brak wyboru>"
+
+msgid "there are duplicated level names"
+msgstr "zduplikowane nazwy poziomów"
+
+msgid "is not a valid name"
+msgstr "nie jest poprawną nazwą"
+
+msgid "the following responses appear more than once:"
+msgstr "poniższe zmienne zależne pojawiają się więcej niż raz:"
+
+msgid "at least 2 responses must be specified"
+msgstr "przynajmniej 2 zmienne zależne muszą być określone"
+
+msgid "Within-Subject Factor"
+msgstr "Czynnik wewnątrz-przedmiotowy"
+
+msgid "Name for the within-subjects factor:"
+msgstr "Nazwa czynnika wewnątrz-przedmiotowego:"
+
+msgid ""
+"Specify up to 8 levels (responses) and level names for the within-subjects "
+"factor"
+msgstr ""
+"Wybierz maksymalnie 8 poziomów (zmiennych zależnych) i nazw poziomów dla "
+"czynnika wewnątrz-przedmiotowego"
+
+msgid "Multivariate Test Statistic"
+msgstr "Statystyka testów wielowymiarowych"
+
+msgid "Multivariate"
+msgstr "Wielowymiarowe"
+
+msgid "Univariate"
+msgstr "Jednowymiarowe"
+
+msgid "Tests to Perform"
+msgstr "Testy do wykonania"
+
+msgid "Repeated-Measures Means"
+msgstr "Średnie powtórzonych pomiarów"
+
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr "Czynniki wewnątrz-przedmiotowe (wybierz zero lub więcej)"
+
+msgid "Plot response means by factors"
+msgstr "Wykres średnich zmiennych zależnych względem czynników"
+
+msgid "Print means and standard deviations by factors"
+msgstr "Drukuj średnie i odchylenia standardowe według czynników"
+
+msgid "X-axis factor:"
+msgstr "Czynnik osi X:"
+
+msgid "Trace factor:"
+msgstr "Śledź czynnik:"
+
+msgid "Response name:"
+msgstr "Nazwa zmiennej zależnej:"
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "Dwu-czynnikowe powtórzone pomiary ANOVA/ANCOVA..."
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr "Dwa czynniki powtórzonych pomiarów ANOVA/ANCOVA"
+
+msgid "the specified responses are not rectangular"
+msgstr "wskazane zmienne zależne nie są prostokątne"
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr ""
+"przynajmniej 2 wiersze oraz 2 kolumny zmiennej zależnej muszą być określone"
+
+msgid "there are duplicated row level names"
+msgstr "zduplikowane nazwy poziomu wierszy"
+
+msgid "there are duplicated column level names"
+msgstr "zduplikowane nazwy poziomu kolumn"
+
+msgid "Within-Subject Factors"
+msgstr "Czynniki wewnątrz-przedmiotowe"
+
+msgid "Name for the within-subjects row factor:"
+msgstr "Nazwa wiersza dla czynnika wewnątrz-przedmiotowego:"
+
+msgid "Name for the within-subjects column factor:"
+msgstr "Nazwa kolumny dla czynnika wewnątrz-przedmiotowego:"
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr ""
+"Wybierz maksymalnie 5 poziomów i nazw poziomów dla każdego czynnika wewnątrz-"
+"przedmiotowego"
+
+msgid "Reshape data set from long to wide format..."
+msgstr "Zmień zbiór danych z długiego do szerokiego formatu..."
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr "Zmień zbiór danych z długiego do szerokiego formatu"
+
+msgid "Subject ID variable (pick one)"
+msgstr "Zmienna ID (wybierz jedną)"
+
+msgid "Within-subjects factors (pick one or more)"
+msgstr "Czynnik wewnątrz-przedmiotowe (wybierz jeden lub więcej)"
+
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr "Zmienne które zmieniają się okazyjnie (wybierz jedną lub więcej)"
+
+msgid "Variables to ignore (pick zero or more)"
+msgstr "Zmienne do zignorowania (wybierz zero lub więcej)"
+
+msgid "You must select an ID variable."
+msgstr "Musisz wybrać zmienną ID."
+
+msgid "You must select one or more within-subjects factors."
+msgstr "Musisz wybrać jeden lub więcej czynników wewnątrz-przedmiotowych."
+
+msgid "You must select one or more occasion-varying variables."
+msgstr "Musisz wybrać jedną lub więcej zmiennych okazyjnie zmieniających się."
+
+msgid "the following variables appear more than once:"
+msgstr "poniższe zmienne pojawiają się więcej niż raz:"
+
+msgid "Save data set aborted"
+msgstr "Przerwano zapisywanie zbioru danych"
+
+msgid "Name for wide data set:"
+msgstr "Nazwa dla szerokiego zbioru danych"
+
+msgid "Make the wide data set active"
+msgstr "Uaktywnij szeroki zbiór danych"
+
+msgid "Reshape data set from wide to long format..."
+msgstr "Zmień zbiór danych z szerokiego do długiego formatu..."
+
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr "Zmień zbiór danych z szerokiego do długiego formatu"
+
+msgid ""
+"both one and two repeated-measures factors were specified\n"
+"specify either a one-way or two-way design"
+msgstr ""
+"określono zarówno jeden oraz dwa czynniki powtórzonych pomiarów\n"
+"określ albo jedno- lub dwukierunkowy projekt"
+
+msgid "the specified responses are not contiguous"
+msgstr "wskazane zmienne zależne nie są ciągłe"
+
+msgid "the following ignored variables are also responses:"
+msgstr "poniższe ignorowane zmienne są również zmiennymi zależnymi:"
+
+msgid "Specify one within-subject factor"
+msgstr "Określ jeden czynnik wewnątrz-przedmiotowy"
+
+msgid "Specify two within-subject factors"
+msgstr "Określ dwa czynniki wewnątrz-przedmiotowe"
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr ""
+"Wybierz maksymalnie 5 poziomów i nazw poziomów dla każdego czynnika wewnątrz-"
+"przedmiotowego"
+
+msgid "Name for long data set:"
+msgstr "Nazwa dla długiego zbioru danych:"
+
+msgid "Response variable:"
+msgstr "Zmienna zależna:"
+
+msgid "Subject ID variable:"
+msgstr "Zmienna ID:"
+
+msgid "Make the long data set active"
+msgstr "Uaktywnij długi zbiór danych"
+
+msgid "Convert all character variables to factors"
+msgstr "Konwertuj wszystkie zmienne tekstowe na czynniki"
+
+msgid "Convert character variables to factors..."
+msgstr "Konwertuj zmienne tekstowe na czynniki..."
+
+msgid "Convert Character Variables to Factors"
+msgstr "Konwertuj zmienne tekstowe na czynniki"
+
+msgid "Variable (pick one or more)"
+msgstr "Zmienna (wybierz jedną lub więcej)"
+
+# additional messages omitted from version 2.7-0
+msgid "Include in Segment Labels"
+msgstr "Uwzględnij z etykietach segmentów"
+
+msgid "One Repeated-Measures Factor"
+msgstr "Jeden czynnik powtarzanych pomiarów"
+
+msgid "Two Repeated-Measures Factors"
+msgstr "Dwa czynniki powtórzonych pomiarów"
+
 #~ msgid "Dataset"
 #~ msgstr "Zbiór danych"
-
-#~ msgid "variable"
-#~ msgstr "zmienna"
 
 #~ msgid "NormalSamples"
 #~ msgstr "NormalSamples"

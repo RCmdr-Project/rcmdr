@@ -1,3 +1,7 @@
+Changes in version 2.7-1
+
+Updated translations (thanks to): Polish (Lukasz Daniel).
+
 Changes in version 2.7-0
 
   o New dialogs for repeated-measures ANOVA and ANCOVA and plots with one or two repeated-measures factors.
