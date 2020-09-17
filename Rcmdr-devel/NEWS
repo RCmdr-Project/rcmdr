@@ -1,6 +1,8 @@
 Changes in version 2.7-1
 
-Updated translations (thanks to): Polish (Lukasz Daniel).
+  o Updated translations (thanks to): Polish (Lukasz Daniel).
+  
+  o Small bug fixes to and improvements to repeated-measures dialogs.
 
 Changes in version 2.7-0
 

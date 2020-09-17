@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2020-05-03 by J. Fox
+# last modified 2020-09-17 by J. Fox
 
 # Means menu
 
@@ -406,6 +406,9 @@ oneWayRepeatedMeasures <- function () {
     level8value <- tclvalue(level8variable)
     levels <- c(level1value, level2value, level3value, level4value, 
                 level5value, level6value, level7value, level8value)
+    levels <- levels[selected]
+    nlevels <- length(levels)
+    if(nlevels < 8) levels <- c(levels, paste0("Level-", as.character((nlevels + 1):8)))
     duplicated.levels <- duplicated(levels)
     if (any(duplicated(levels))){
       errorCondition(recall=oneWayRepeatedMeasures, 
@@ -443,6 +446,7 @@ oneWayRepeatedMeasures <- function () {
       return()
     }
     tab <- if (as.character(tkselect(notebook)) == designTab$ID) 0 else 1
+    responses <- c(responses[selected], responses[!selected])
     putDialog ("oneWayRepeatedMeasures", list(initial.rm=responses, initial.level=levels, initial.rhs=rhs, 
                                               initial.testStatistic=testStatistic, initial.test=test, initial.plot=plot,
                                               initial.print=print,
@@ -474,7 +478,6 @@ oneWayRepeatedMeasures <- function () {
              '), univariate=TRUE, multivariate=FALSE)', sep = "")
     }
     doItAndPrint(command)
-    
     if (plot == "1" || print == "1"){
       within <- paste0("c(", paste(paste0('"', responses, '"'), collapse=", "), ")")
       between <- if (length (bsfactors > 0)){
@@ -493,7 +496,6 @@ oneWayRepeatedMeasures <- function () {
                         between, tracefactor, xvarfactor, ', response.name="', response, '")')
       doItAndPrint(command)
     }
-    
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "RepeatedMeasuresDialogs", reset = "oneWayRepeatedMeasures", apply = "oneWayRepeatedMeasures")

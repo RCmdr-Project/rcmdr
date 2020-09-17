@@ -1,4 +1,4 @@
-# last modified 2020-08-26 by J. Fox
+# last modified 2020-09-09 by J. Fox
 
 # Data menu dialogs
 
@@ -2954,8 +2954,9 @@ reshapeWide2Long <- function () {
     level6 <- tclvalue(level6variable)
     level7 <- tclvalue(level7variable)
     level8 <- tclvalue(level8variable)
-    levels <- c(level1, level2, level3, level4, level5, level6, level7, level8)
-    
+    levels <- c(level1, level2, level3, level4, level5, level6, level7, level8)[selected.1]
+    nlevels <- length(levels)
+    if(nlevels < 8) levels <- c(levels, paste0("Level-", as.character((nlevels + 1):8)))
     duplicated.levels <- duplicated(levels)
     if (oneway && any(duplicated(levels))){
       errorCondition(recall=reshapeWide2Long, 
@@ -3020,9 +3021,8 @@ reshapeWide2Long <- function () {
              wscolfactorName, '=c(', paste(paste0('"', colLevels[1:ncol], '"'), collapse=", "), ')), varying=list(',
              response, '=c(', paste(paste0('"', res, '"'), collapse=', '),'))', ignore, ', id="', id, '")')
     }
-    if (makeactive == "1") activeDataSet(newDatasetNameValue)
-    
     doItAndPrint(command)
+    if (makeactive == "1") activeDataSet(newDatasetNameValue)
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "ReshapeDatasetDialogs", reset = "reshapeWide2Long")
