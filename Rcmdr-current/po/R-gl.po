@@ -1,0 +1,4755 @@
+# Galician translations for the Rcmdr package
+# Tradución galega do paquete Rcmdr
+# Copyright (C) 2005 John Fox
+# This file is distributed under the same license as the Rcmdr package
+# Antón Meixome para OSL do CIXUG <meixome@certima.net>, 2014.
+# Antón Méixome - OSL <meixome@certima.net>, 2014.
+# osl <meixome@certima.net>, 2014.
+# Oficina de Software Libre <osl@cixug.es>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: Rcmdr 1.3-0\n"
+"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
+"POT-Creation-Date: 2015-08-07 14:30:00\n"
+"PO-Revision-Date: 2015-09-17 17:20+0200\n"
+"Last-Translator: Oficina de Software Libre <osl@cixug.es>\n"
+"Language-Team: osl-cixug\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+msgid "KMeans Clustering"
+msgstr "Agrupación por medias k"
+
+msgid "Variables (pick one or more)"
+msgstr "Variábeis (tome unha un máis)"
+
+msgid "No variables selected."
+msgstr "Non hai ningunha variábel seleccionada."
+
+msgid "<all valid cases>"
+msgstr "<todos os casos válidos>"
+
+msgid "Number of clusters:"
+msgstr "Número de agrupacións:"
+
+msgid "Number of starting seeds:"
+msgstr "Número de puntos de orixe iniciais:"
+
+msgid "Maximum iterations:"
+msgstr "Iteracións máximas:"
+
+msgid "Print cluster summary"
+msgstr "Imprimir resumo da agrupación (clúster)"
+
+msgid "Bi-plot of clusters"
+msgstr "Gráfico dobre de agrupacións"
+
+msgid "Assign clusters to\nthe data set"
+msgstr ""
+"Asignar agrupacións a\n"
+"conxunto de datos"
+
+msgid "Assignment variable:"
+msgstr "Variábel de asignación:"
+
+msgid "Hierarchical Clustering"
+msgstr "Agrupación xerárquica"
+
+msgid "Ward's Method"
+msgstr "Método de Ward"
+
+msgid "Single Linkage"
+msgstr "Ligazón simple"
+
+msgid "Complete Linkage"
+msgstr "Ligazón completa"
+
+msgid "Average Linkage"
+msgstr "Ligazóns medias"
+
+msgid "McQuitty's Method"
+msgstr "Método de McQuitty"
+
+msgid "Median Linkage"
+msgstr "Ligazóns medianas"
+
+msgid "Centroid Linkage"
+msgstr "Ligazóns centroides"
+
+msgid "Clustering Method"
+msgstr "Método de agrupación"
+
+msgid "Euclidean"
+msgstr "Euclidiana"
+
+msgid "Squared-Euclidian"
+msgstr "Euclidiana ao cadrado"
+
+msgid "Manhattan (City Block)"
+msgstr "Manhattan (Bloque urbano)"
+
+msgid "No Transformation"
+msgstr "Sen transformación"
+
+msgid "Distance Measure"
+msgstr "Medición da distancia"
+
+msgid "Clustering solution name:"
+msgstr "Nome da solución de agrupación:"
+
+msgid "Plot Dendrogram"
+msgstr "Trazar o dendograma"
+
+msgid "Hierarchical Cluster Summary"
+msgstr "Resumo da agrupación xerárquica"
+
+msgid "Select One Clustering Solution"
+msgstr "Escoller unha solución de agrupación"
+
+msgid "There are no hierachical clustering solutions"
+msgstr "Non hai solucións de agrupación xerárquica"
+
+msgid "No hierachical clustering solutions are associated with this data set."
+msgstr ""
+"Non hai solucións de agrupación xerárquica asociadas con este conxunto de "
+"datos."
+
+msgid "A clustering solution has not been selected."
+msgstr "No se seleccionou ningunha solución de agrupación."
+
+msgid "Append Cluster Groups to the Active Data Set"
+msgstr "Engadir os grupos de agrupación ao conxunto de datos activos"
+
+msgid "Assigned cluster label:"
+msgstr "Etiqueta asignada para a agrupación:"
+
+msgid "Find"
+msgstr "Atopar"
+
+msgid "Regular-expression search"
+msgstr "Buscar a expresión regular"
+
+msgid "Case sensitive"
+msgstr "Distinguir maiúsculas de minúsculas"
+
+msgid "Forward"
+msgstr "Adiante"
+
+msgid "Backward"
+msgstr "Atrás"
+
+msgid "Search Direction"
+msgstr "Enderezo da busca"
+
+msgid "No search text specified."
+msgstr "Non se especificou un texto para buscar."
+
+msgid "Text not found."
+msgstr "Non se atopou o texto."
+
+msgid "Search for:"
+msgstr "Buscar:"
+
+msgid "R Commander"
+msgstr "R Commander"
+
+msgid "Sourced:"
+msgstr "Orixe:"
+
+msgid "menu definition error:"
+msgstr "error de definición de menú:"
+
+msgid "Nothing is selected."
+msgstr "Non hai nada selecionado."
+
+msgid "Clear window"
+msgstr "Limpar a xanela"
+
+msgid "Submit"
+msgstr "Executar"
+
+msgid "Cut"
+msgstr "Cortar"
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid "Paste"
+msgstr "Pegar"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Find..."
+msgstr "Atopar..."
+
+msgid "Select all"
+msgstr "Seleccionar todo"
+
+msgid "Edit data set"
+msgstr "Editar o conxunto de datos"
+
+msgid "View data set"
+msgstr "Ver o conxunto de datos"
+
+msgid "<No active dataset>"
+msgstr "<Non hai ningún conxunto de datos activo>"
+
+msgid "<No active model>"
+msgstr "<No hai ningún modelo activo>"
+
+msgid "Data set:"
+msgstr "Conxunto de datos:"
+
+msgid "Model:"
+msgstr "Modelo:"
+
+msgid "Script Window"
+msgstr "Xanela de guións executábeis"
+
+msgid "Output Window"
+msgstr "Xanela de resultado"
+
+msgid "Messages"
+msgstr "Mensaxes"
+
+msgid "The rgl package is absent; 3D plots are unavailable."
+msgstr "O paquete rgl está ausente; os gráficos en 3D no están dispoñíbeis."
+
+msgid "R Commander Version"
+msgstr "Versión de R Commander"
+
+msgid "First and last 5 warnings:"
+msgstr "Primeiro e derradeiros 5 avisos:"
+
+msgid "ERROR:"
+msgstr "ERRO:"
+
+msgid "WARNING:"
+msgstr "AVISO:"
+
+msgid "ERROR"
+msgstr "ERRO"
+
+msgid "WARNING"
+msgstr "AVISO"
+
+msgid "NOTE"
+msgstr "NOTA"
+
+msgid "New Data Set"
+msgstr "Novo conxunto de datos"
+
+msgid "Dataset"
+msgstr "Conxunto_datos"
+
+msgid "You must enter the name of a data set."
+msgstr "Debe escribir o nome do conxunto de datos."
+
+msgid "is not a valid name."
+msgstr "non é un nome válido."
+
+msgid "Data set"
+msgstr "Conxunto de datos"
+
+msgid "empty data set."
+msgstr "conxunto de datos baleiro."
+
+msgid "Enter name for data set:"
+msgstr "Escriba o nome do conxunto de datos:"
+
+msgid "There is only one dataset in memory."
+msgstr "Só hai un conxunto de datos na memoria."
+
+msgid "There are no data sets from which to choose."
+msgstr "Non hai ningún conxunto de datos desde o que escoller."
+
+msgid "Select Data Set"
+msgstr "Seleccionar conxunto de datos"
+
+msgid "Data Sets (pick one)"
+msgstr "Conxuntos de datos (tome un)"
+
+msgid "Recode Variable"
+msgstr "Recodificar unha variábel"
+
+msgid "Variable to recode (pick one)"
+msgstr "Variábel para recodificar (tome unha)"
+
+msgid "variable"
+msgstr "variábel"
+
+msgid "You must select a variable."
+msgstr "Debe seleccionar unha variábel."
+
+msgid "No recode directives specified."
+msgstr "Non se especificaron directivas de recodificación."
+
+msgid "Use only double-quotes (\" \") in recode directives"
+msgstr ""
+"Utilice unicamente as comiñas dobres (\" \") nas directivas de recodificación"
+
+msgid "New variable name"
+msgstr "Nome da nova variábel"
+
+msgid "Enter recode directives"
+msgstr "Escriba as directivas de recodificación"
+
+msgid "Make new variable a factor"
+msgstr "Faga que a nova variábel sexa do tipo factor"
+
+msgid "Compute New Variable"
+msgstr "Calcular unha nova variábel"
+
+msgid "[factor]"
+msgstr "[factor]"
+
+msgid "Current variables (double-click to expression)"
+msgstr "Variábeis actuais (faga dobre clic para a expresión)"
+
+msgid "No expression specified."
+msgstr "Non hai ningunha expresión específicada."
+
+msgid "Variable"
+msgstr "Variábel"
+
+msgid "Expression to compute"
+msgstr "Expresión que calcular"
+
+msgid "Delete Variables"
+msgstr "Eliminar variábeis"
+
+msgid "Variable(s) to delete (pick one or more)"
+msgstr "Variábei(s) que eliminar (tome unha ou máis)"
+
+msgid "You must select one or more variables."
+msgstr "Debe seleccionar unha ou máis variábeis."
+
+msgid "Delete %s?\nPlease confirm."
+msgstr ""
+"Eliminar %s ?\n"
+"Confirme, por favor."
+
+msgid "Delete %d variables?\nPlease confirm."
+msgstr ""
+"Eliminar %d variábeis?\n"
+"Confirme, por favor."
+
+msgid "Read Data From Text File"
+msgstr "Ler datos dun ficheiro de texto"
+
+msgid "White space"
+msgstr "Espazo en branco"
+
+msgid "Commas"
+msgstr "Comas"
+
+msgid "Tabs"
+msgstr "Tabuladores"
+
+msgid "Field Separator"
+msgstr "Separador de campo"
+
+msgid "Period [.]"
+msgstr "Punto [.]"
+
+msgid "Comma [,]"
+msgstr "Coma [,]"
+
+msgid "Decimal-Point Character"
+msgstr "Carácter decimal"
+
+msgid "You must enter a name for the data set."
+msgstr "Debe escribir un nome do conxunto de datos."
+
+msgid "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"Ficheiros de texto\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"Todos "
+"os ficheiros\" {\"*\"}}"
+
+msgid "Variable names in file:"
+msgstr "Nomes da variábel no ficheiro:"
+
+msgid "Missing data indicator:"
+msgstr "Perdeuse o indicador de datos:"
+
+msgid "Other"
+msgstr "Outro"
+
+msgid "Specify:"
+msgstr "Especificar:"
+
+msgid "Read Data From Package"
+msgstr "Ler os datos do paquete"
+
+msgid "Select package:"
+msgstr "Seleccionar un paquete:"
+
+msgid "Data set %s does not exit"
+msgstr "O conxunto de datos %s non existe"
+
+msgid "You must select a package."
+msgstr "Debe seleccionar un paquete."
+
+msgid "You must select a data set."
+msgstr "Debe seleccionar un conxunto de datos."
+
+msgid "Package (Double-click to select)"
+msgstr "Paquete (dobre clic para seleccionar)"
+
+msgid "Data set (Double-click to select)"
+msgstr "Conxunto de datos (dobre clic para seleccionar)"
+
+msgid "OR"
+msgstr "OU"
+
+msgid "Enter name of data set:"
+msgstr "Escribir o nome do conxunto de datos:"
+
+msgid "Import SPSS Data Set"
+msgstr "Importar o conxunto de datos de SPSS"
+
+msgid "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"Ficheiros de SPSS\" {\".sav\" \".SAV\"}} {\"Ficheiros portábeis de SPSS\" {\".por\" "
+"\".POR\"}} {\"Todos os ficheiros\" {\"*\"}}"
+
+msgid "Convert value labels\nto factor levels"
+msgstr ""
+"Converter as etiquetas de valor\n"
+"en niveis de factor"
+
+msgid "Maximum number\nof value labels\nfor factor conversion"
+msgstr ""
+"Número máximo\n"
+"de valores de etiquetas\n"
+"para a conversión a factor"
+
+msgid "Import Minitab Data Set"
+msgstr "Importar o conxunto de datos de Minitab"
+
+msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"Ficheiros portábeis de Minitab\" {\".mtp\" \".MTP\"}} {\"Todos os ficheiros\" "
+"{\"*\"}}"
+
+msgid "Minitab data set contains elements of unequal length.\nData set cannot be converted."
+msgstr ""
+"O conxunto de datos de Minitab contén elementos de lonxitude desigual.\n"
+"Non se pode converter o conxunto de datos."
+
+msgid "Import STATA Data Set"
+msgstr "Importar o conxunto de datos de STATA"
+
+msgid "{\"STATA datasets\" {\".dta\" \".DTA\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"Conxunto de datos de STATA\" {\".dta\" \".DTA\"}} {\"Todos os ficheiros\" {\"*\"}}"
+
+msgid "Convert dates to R format"
+msgstr "Converter os datos a formato R"
+
+msgid "Multiple missing types (>=Stata 8)"
+msgstr "Múltiples tipos descoñecidos (>= Stata 8)"
+
+msgid "Convert underscore to period"
+msgstr "Converter subliñado a punto"
+
+msgid "Warn on missing labels"
+msgstr "Avisar no caso de que falten etiquetas"
+
+msgid "Convert Numeric Variable to Factor"
+msgstr "Converter as variábeis numéricas a factores"
+
+msgid "Variable (pick one)"
+msgstr "Variábel (tomar unha)"
+
+msgid "Supply level names"
+msgstr "Fornecer nomes de nivel"
+
+msgid "Use numbers"
+msgstr "Utilizar números"
+
+msgid "Factor Levels"
+msgstr "Niveis de factor"
+
+msgid "<same as variable>"
+msgstr "<igual que a variábel>"
+
+msgid "Number of levels (%d) too large."
+msgstr "O número de niveis (%d) é demasiado grande."
+
+msgid "Level Names"
+msgstr "Nomes de nivel"
+
+msgid "Levels names are not unique."
+msgstr "Os nomes de nivel non son únicos."
+
+msgid "A level name is empty."
+msgstr "Un nome de nivel está baleiro."
+
+msgid "Numeric value"
+msgstr "Valor numèrico"
+
+msgid "Level name"
+msgstr "Nome do nivel"
+
+msgid "Name for factor"
+msgstr "Nome do factor"
+
+msgid "Bin a Numeric Variable"
+msgstr "Segmentar unha variábel numèrica"
+
+msgid "Variable to bin (pick one)"
+msgstr "Variábel que segmentar (tomar unha)"
+
+msgid "Specify names"
+msgstr "Especificar os nomes"
+
+msgid "Numbers"
+msgstr "Nomes"
+
+msgid "Ranges"
+msgstr "Rangos"
+
+msgid "Equal-width bins"
+msgstr "Segmentos equidistantes"
+
+msgid "Equal-count bins"
+msgstr "Segmentos co mesmo número"
+
+msgid "Natural breaks\n(from K-means clustering)"
+msgstr ""
+"Segmentos naturais\n"
+"(determinación de agrupacións por medias k)"
+
+msgid "Binning Method"
+msgstr "Método de segmentación"
+
+msgid "Bin Names"
+msgstr "Nomes dos segmentos"
+
+msgid "Level names must be unique."
+msgstr "Os nomes dos niveis deben ser únicos."
+
+msgid "Bin"
+msgstr "Segmento"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Number of bins:"
+msgstr "Número de segmentos:"
+
+msgid "Reorder Factor Levels"
+msgstr "Reordenar os niveis de factor"
+
+msgid "Factor (pick one)"
+msgstr "Factor (tome un)"
+
+msgid "<same as original>"
+msgstr "<igual có orixinal>"
+
+msgid "Reorder Levels"
+msgstr "Reordenar os niveis"
+
+msgid "Order of levels must include all integers from 1 to"
+msgstr "A orde dos niveis debe incluír todos os enteiros de 1 ata"
+
+msgid "Old Levels"
+msgstr "antigos niveis"
+
+msgid "New order"
+msgstr "Nova orde"
+
+msgid "Make ordered factor"
+msgstr "Converter nun factor ordenado"
+
+msgid "Standardize Variables"
+msgstr "Estandarizar variábeis"
+
+msgid "Export Active Data Set"
+msgstr "Exportar o conxunto de datos activo"
+
+msgid "Write variable names:"
+msgstr "Escribir os nomes das variábeis:"
+
+msgid "Write row names:"
+msgstr "Escribir o nome das filas:"
+
+msgid "Quotes around character values:"
+msgstr "Valores de tipo carácter entre comiñas:"
+
+msgid "Spaces"
+msgstr "Espazos"
+
+msgid "Active dataset exported to file"
+msgstr "Conxunto de datos activo exportado a ficheiro"
+
+msgid "Missing values:"
+msgstr "Valores que faltan:"
+
+msgid "Remove Missing Data"
+msgstr "Retirar os datos que faltan"
+
+msgid "Variables (select one or more)"
+msgstr "Variábeis (seleccionar un ou máis)"
+
+msgid "<same as active data set>"
+msgstr "<igual có conxunto de datos activo>"
+
+msgid "No variables were selected."
+msgstr "Non se seleccionaron variábeis."
+
+msgid "Include all variables"
+msgstr "Inclúe todas as variábeis"
+
+msgid "Name for new data set"
+msgstr "Nome do novo conxunto de datos"
+
+msgid "Subset Data Set"
+msgstr "Subdividir o conxunto de datos"
+
+msgid "<all cases>"
+msgstr "<todos os casos>"
+
+msgid "New data set same as active data set."
+msgstr "Novo conxunto de datos como conxunto de datos activo."
+
+msgid "Subset expression"
+msgstr "Expresión de subconxunto"
+
+msgid "Set Case Names"
+msgstr "Estabelecer nomes de casos"
+
+msgid "Select variable containing row names"
+msgstr "Seleccionar a variábel que contén os nomes das filas"
+
+msgid "Case names must be unique."
+msgstr "Os nomes de casos deben ser únicos."
+
+msgid "Rename Variables"
+msgstr "Renomear as variábeis"
+
+msgid "Variable Names"
+msgstr "Nomes das variábeis"
+
+msgid "A variable name is empty."
+msgstr "Unha variábel non ten nome."
+
+msgid "The following variable names are not valid:"
+msgstr "Os seguintes nomes de variábeis non son válidos:"
+
+msgid "Variable names are not unique"
+msgstr "Os nomes de variábeis están duplicados"
+
+msgid "Old Name"
+msgstr "Nome antigo"
+
+msgid "New name"
+msgstr "Novo nome"
+
+msgid "Set Contrasts for Factor"
+msgstr "Estabelecer contrastes para factores"
+
+msgid "Treatment (dummy) contrasts"
+msgstr "Contrastes de tratamento (dummy)"
+
+msgid "Sum (deviation) contrasts"
+msgstr "Contrastes de suma (desviación)"
+
+msgid "Helmert contrasts"
+msgstr "Contrastes de Helmert"
+
+msgid "Polynomial contrasts"
+msgstr "Contrastes polinómicos"
+
+msgid "Other (specify)"
+msgstr "Outro (especificar)"
+
+msgid "Contrasts"
+msgstr "Contrastes"
+
+msgid "Specify Contrasts"
+msgstr "Especificar os contrastes"
+
+msgid "Enter Contrast Coefficients"
+msgstr "Introducir os coeficientes de contraste"
+
+msgid "Contrast Name:"
+msgstr "Nome do contraste:"
+
+msgid "Number of valid entries in contrast matrix(%d)\nnot equal to number of levels (%d) * number of contrasts (%d)."
+msgstr ""
+"O número de entradas válidas na matriz de contraste (%d)\n"
+"non é igual có número de niveis (%d) * número de contrastes (%d)."
+
+msgid "Contrast matrix is not of full column rank"
+msgstr "A matriz de contraste non é de rango completo nas columnas"
+
+msgid "Contrast names must be unique"
+msgstr "Os nomes dos contrastes deben ser únicos"
+
+msgid "Normal Quantiles"
+msgstr "Cuantís normais"
+
+msgid "No probabilities specified."
+msgstr "Sen probabilidades especificadas."
+
+msgid "Probabilities"
+msgstr "Probabilidades"
+
+msgid "mu (mean)"
+msgstr "mu (media)"
+
+msgid "sigma (standard deviation)"
+msgstr "sigma (desviación estándar)"
+
+msgid "Lower tail"
+msgstr "Cola á esquerda"
+
+msgid "Upper tail"
+msgstr "Cola á dereita"
+
+msgid "Normal Probabilities"
+msgstr "Probabilidades normais"
+
+msgid "No values specified."
+msgstr "Non se especificou ningún valor."
+
+msgid "Variable value(s)"
+msgstr "Valore(s) da variábel"
+
+msgid "t Quantiles"
+msgstr "Cuantís t"
+
+msgid "Degrees of freedom not specified."
+msgstr "Graos de liberdade sen especificar."
+
+msgid "Degrees of freedom"
+msgstr "Graos de liberdade"
+
+msgid "t Probabilities"
+msgstr "Probabilidades t"
+
+msgid "Chi-Squared Quantiles"
+msgstr "Cuantís Chi-cadrado"
+
+msgid "Chi-Squared Probabilities"
+msgstr "Probabilidades khi cadrado"
+
+msgid "F Quantiles"
+msgstr "Cuantís F"
+
+msgid "Probabilities not specified"
+msgstr "Probabilidades sen especificar"
+
+msgid "Numerator degrees of freedom"
+msgstr "Graos de liberdade do numerador"
+
+msgid "Denominator degrees of freedom"
+msgstr "Graos de liberdade do denominador"
+
+msgid "F Probabilities"
+msgstr "Probabilidades F"
+
+msgid "Values not specified."
+msgstr "Valores sen especificar."
+
+msgid "Binomial Quantiles"
+msgstr "Cuantís binomiais"
+
+msgid "Probabilities not specified."
+msgstr "Probabilidades sen especificar."
+
+msgid "Binomial trials not specified."
+msgstr "Ensaios binomiais sen especificar."
+
+msgid "Probability of success not specified."
+msgstr "Probabilidade de éxito sen especificar."
+
+msgid "Binomial trials"
+msgstr "Número de ensaios binomiais"
+
+msgid "Probability of success"
+msgstr "Probabilidade de éxito"
+
+msgid "Cumulative Binomial Probabilities"
+msgstr "Probabilidades binomiais acumuladas"
+
+msgid "Number of trials, %d, is large.\nCreate long output?"
+msgstr ""
+"O número de ensaios, %d, é grande.\n"
+"Crear unha saída longa?"
+
+msgid "Binomial Probabilities"
+msgstr "Probabilidades binomiais"
+
+msgid "Range of values over which to plot, %d, is large.\nCreate long output?"
+msgstr ""
+"O rango de valores cos que trazar, %d, é grande.\n"
+"Crear un resultado longo?"
+
+msgid "Poisson Probabilities"
+msgstr "Probabilidades de Poisson"
+
+msgid "Poisson mean not specified."
+msgstr "Media de Poisson sen especificar."
+
+msgid "Mean"
+msgstr "Media"
+
+msgid "Normal Distribution"
+msgstr "Distribución normal"
+
+msgid "Plot density function"
+msgstr "Trazar a función de densidade"
+
+msgid "Plot distribution function"
+msgstr "Trazar a función de distribución"
+
+msgid "t Distribution"
+msgstr "Distribución t"
+
+msgid "Chi-squared Distribution"
+msgstr "Distribución khi cadrado"
+
+msgid "F Distribution"
+msgstr "Distribución F"
+
+msgid "Numerator degrees of freedom not specified."
+msgstr "Numerador de graos de liberdade sen especificar."
+
+msgid "Denominator degrees of freedom not specified."
+msgstr "Denominador de graos de liberdade sen especificar."
+
+msgid "Binomial Distribution"
+msgstr "Distribución binomial"
+
+msgid "Plot probability mass function"
+msgstr "Trazar a función de probabilidade masiva"
+
+msgid "Poisson Distribution"
+msgstr "Distribución de Poisson"
+
+msgid "Mean not specified."
+msgstr "Media sen especificar."
+
+msgid "mean"
+msgstr "media"
+
+msgid "{\"Script Files\" {\".R\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Ficheiros de guión de execución\" {\".R\"}} {\"Todos os ficheiros\" {\"*\"}}"
+
+msgid "Save current log file?"
+msgstr "Gardar o ficheiro de rexistro actual?"
+
+msgid "Script saved to"
+msgstr "Guión de execución gardado en"
+
+msgid "Output saved to"
+msgstr "Resultado gardado en"
+
+msgid "{\"Output Files\" {\".txt\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Ficheiros de resultado\" {\".txt\"}} {\"Todos os ficheiros\" {\"*\"}}"
+
+msgid "{\"All Files\" {\"*\"}}"
+msgstr "{\"Todos os ficheiros\" {\"*\"}}"
+
+msgid "R workspace saved to"
+msgstr "Espazo de traballo R gardado en"
+
+msgid "Exit?"
+msgstr "Saír?"
+
+msgid "Save script file?"
+msgstr "Gardar o ficheiro do guión de execución?"
+
+msgid "Save output file?"
+msgstr "Gardar o ficheiro de resultado?"
+
+msgid "Commander Options"
+msgstr "Opcións do R Commander"
+
+msgid "Log commands to script window"
+msgstr "Rexistrar as ordes da xanela de execución"
+
+msgid "Log-font size (points)"
+msgstr "Tamaño do tipo de letra (puntos)"
+
+msgid "Log width (characters)"
+msgstr "Largura da xanela de rexistro (caracteres)"
+
+msgid "Log height (lines)"
+msgstr "Altura da xanela de rexistro (liñas)"
+
+msgid "Send output to R Console"
+msgstr "Enviar o resultado á consola de R"
+
+msgid "Output height (lines)"
+msgstr "Altura do resultado (liñas)"
+
+msgid "Unordered factors"
+msgstr "Factores desordenados"
+
+msgid "Ordered factors"
+msgstr "Factores ordenados"
+
+msgid "Active window grabs focus"
+msgstr "A xanela activa captura o foco"
+
+msgid "Double-click presses OK button"
+msgstr "Dobre clic activa o botón Aceptar"
+
+msgid "Sort variable names alphabetically"
+msgstr "Ordena os nomes das variábeis alfabeticamente"
+
+msgid "Show edit button"
+msgstr "Amosa o botón editar"
+
+msgid "Exit and Restart\nR Commander"
+msgstr ""
+"Saír e reiniciar\n"
+"R Commander"
+
+msgid "Scale factor for Tk elements"
+msgstr "Factor de escala de elementos Tk"
+
+msgid "Default font"
+msgstr "Tipo de letra predeterminada"
+
+msgid "No packages available to load."
+msgstr "Non hai ningún paquete dispoñíbel para o cargar."
+
+msgid "Load Packages"
+msgstr "Cargar paquetes"
+
+msgid "Packages (pick one or more)"
+msgstr "Paquetes (tomar un ou máis)"
+
+msgid "You must select at least one package."
+msgstr "Debe seleccionar cando menos un paquete."
+
+msgid "Packages loaded:"
+msgstr "Paquetes cargados:"
+
+msgid "Index Plot"
+msgstr "Índice de gráficos"
+
+msgid "You must select a variable"
+msgstr "Debe seleccionar unha variábel"
+
+msgid "Identify observations\nwith mouse"
+msgstr ""
+"Identificar observacións\n"
+"co rato"
+
+msgid "Spikes"
+msgstr "Trazos verticais"
+
+msgid "Points"
+msgstr "Puntos"
+
+msgid "Histogram"
+msgstr "Histograma"
+
+msgid "<auto>"
+msgstr "<auto>"
+
+msgid "Frequency counts"
+msgstr "Conta de frecuencias"
+
+msgid "Percentages"
+msgstr "Porcentaxes"
+
+msgid "Densities"
+msgstr "Densidades"
+
+msgid "Axis Scaling"
+msgstr "Escalado dos eixes"
+
+msgid "Stem and Leaf Display"
+msgstr "Presentación de pólas e follas"
+
+msgid "Automatic"
+msgstr "Automático"
+
+msgid "Parts Per Stem"
+msgstr "Partes por póla"
+
+msgid "Tukey"
+msgstr "Tukey"
+
+msgid "Repeated stem digits"
+msgstr "Díxitos repetidos das pólas"
+
+msgid "Style of Divided Stems"
+msgstr "Estilo de pólas divididas"
+
+msgid "Trim outliers"
+msgstr "Recurtar os extremos"
+
+msgid "Show depths"
+msgstr "Amosar os niveis de profundidade"
+
+msgid "Reverse negative leaves"
+msgstr "Reverter as follas negativas"
+
+msgid "Leafs Digit:"
+msgstr "Díxito de follas:"
+
+msgid "or set:"
+msgstr "ou definir:"
+
+msgid "Options"
+msgstr "Opcións"
+
+msgid "Boxplot"
+msgstr "Gráfico de caixa"
+
+msgid "Identify outliers with mouse"
+msgstr "Identificar os valores extremos co rato"
+
+msgid "Scatterplot"
+msgstr "Gráfico de dispersión"
+
+msgid "x-variable (pick one)"
+msgstr "variábel x (tomar unha)"
+
+msgid "y-variable (pick one)"
+msgstr "variábel y (tomar unha)"
+
+msgid "Identify points"
+msgstr "Identificar puntos"
+
+msgid "Jitter x-variable"
+msgstr "Desprazar aleatoriamente a variábel x"
+
+msgid "Jitter y-variable"
+msgstr "Desprazar aleatoriamente a variábel y"
+
+msgid "Marginal boxplots"
+msgstr "Gráfico de caixa marxinais"
+
+msgid "Least-squares line"
+msgstr "Liña de mínimos cadrados"
+
+msgid "Smooth Line"
+msgstr "Liña suavizada"
+
+msgid "You must select two variables"
+msgstr "Debe seleccionar dúas variábeis"
+
+msgid "x and y variables must be different"
+msgstr "As variábeis x e y deben ser diferentes"
+
+msgid "Span for smooth"
+msgstr "Largura para suavización"
+
+msgid "Scatterplot Matrix"
+msgstr "Matriz de gráficos de dispersión"
+
+msgid "Select variables (three or more)"
+msgstr "Seleccione variábeis (tres ou máis)"
+
+msgid "Least-squares lines"
+msgstr "Liñas de mínimos cadrados"
+
+msgid "Smooth lines"
+msgstr "Liñas suavizadas"
+
+msgid "Density plots"
+msgstr "Gráficos de densidade"
+
+msgid "Histograms"
+msgstr "Histogramas"
+
+msgid "Boxplots"
+msgstr "Gráficos de caixas"
+
+msgid "Normal QQ plots"
+msgstr "Gráficos QQ normais"
+
+msgid "Nothing (empty)"
+msgstr "Nada (baleiro)"
+
+msgid "On Diagonal"
+msgstr "Sobre a diagonal"
+
+msgid "Fewer than 3 variable selected."
+msgstr "Seleccionáronse menos de 3 variábeis."
+
+msgid "Bar Graph"
+msgstr "Gráfica de barras"
+
+msgid "Pie Chart"
+msgstr "Gráfica de sectores"
+
+msgid "Line Plot"
+msgstr "Gráfico de liñas"
+
+msgid "x variable (pick one)"
+msgstr "variábel x (tomar unha)"
+
+msgid "y variables (pick one or more)"
+msgstr "variábeis y (tomar unha ou máis)"
+
+msgid "<use y-variable names>"
+msgstr "<utilizar os nomes das variábeis y>"
+
+msgid "No x variable selected."
+msgstr "Non se seleccionou ningunha variábel x."
+
+msgid "No y variables selected."
+msgstr "Non se seleccionou ningunha variábel y."
+
+msgid "x and y variables must be different."
+msgstr "As variábeis x e y deben ser diferentes."
+
+msgid "x-values are not in order.\nContinue?"
+msgstr ""
+"Os valores en x non están en orde.\n"
+"Continuar?"
+
+msgid "Label for y-axis"
+msgstr "Etiqueta para o eixe y"
+
+msgid "Plot legend (position with mouse click)"
+msgstr "Lenda do gráfico (marque a posición co clic do rato)"
+
+msgid "Quantile-Comparison (QQ) Plot"
+msgstr "Gráfico de comparación entre cuantís (QQ)"
+
+msgid "df for t must be a positive number."
+msgstr "Os df para t deben ser un número positivo."
+
+msgid "df for chi-square must be a positive number."
+msgstr "Os df para khi cadrado deben ser un número positivo."
+
+msgid "numerator and denominator \ndf for F must be positive numbers."
+msgstr ""
+"Os df do numerador e denominador\n"
+"para F deben ser números positivos."
+
+msgid "Identify observations with mouse"
+msgstr "Identificar as observacións co rato"
+
+msgid "Distribution"
+msgstr "Distribución"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Chi-square"
+msgstr "Khi cadrado"
+
+msgid "Numerator df ="
+msgstr "Numerador do df ="
+
+msgid "Denominator df ="
+msgstr "Denominador do df ="
+
+msgid "Parameters:"
+msgstr "Parámetros:"
+
+msgid "Plot Means"
+msgstr "Gráfico de medias"
+
+msgid "Factors (pick one or two)"
+msgstr "Factores (tome un ou dous)"
+
+msgid "Response Variable (pick one)"
+msgstr "Resposta variábel (tome unha)"
+
+msgid "No factors selected."
+msgstr "Non hai ningún factor seleccionado."
+
+msgid "More than two factors selected."
+msgstr "Están seleccionados máis de dous factores."
+
+msgid "No response variable selected."
+msgstr "Non está seleccionada ningunha resposta variábel."
+
+msgid "Error Bars"
+msgstr "Barras de erro"
+
+msgid "blue"
+msgstr "azul"
+
+msgid "Standard errors"
+msgstr "Erros estándar"
+
+msgid "Standard deviations"
+msgstr "Desviacións estándar"
+
+msgid "Confidence intervals"
+msgstr "Intervalos de confianza"
+
+msgid "Level of confidence:"
+msgstr "Nivel de confianza:"
+
+msgid "No error bars"
+msgstr "Sen barras de erro"
+
+msgid "3D Scatterplot"
+msgstr "Gráfico de dispersión en 3D"
+
+msgid "Explanatory variables (pick two)"
+msgstr "Variábeis explicativas (tomar dúas)"
+
+msgid "Response variable (pick one)"
+msgstr "Resposta variábel (tomar unha)"
+
+msgid "You must select a response variable."
+msgstr "Debe seleccionar unha variábel de resposta."
+
+msgid "You must select 2 explanatory variables."
+msgstr "Debe seleccionar 2 variábeis explicativas."
+
+msgid "Response and explanatory variables must be different."
+msgstr "As variábeis de resposta e explicativa deben ser diferentes."
+
+msgid "Parallel regression surfaces"
+msgstr "Superficies de regresión paralelas"
+
+msgid "Show surface grid lines"
+msgstr "Amosa unha superficie cunha grade de liñas"
+
+msgid "Surfaces to Fit"
+msgstr "Superficies para axustar"
+
+msgid "Linear least-squares"
+msgstr "Mínimos cadrados lineais"
+
+msgid "Quadratic least-squares"
+msgstr "Mínimos cadrados cuadráticos"
+
+msgid "Smooth regression"
+msgstr "Regresión suavizada"
+
+msgid "Additive regression"
+msgstr "Regresión aditiva"
+
+msgid "df(each term) ="
+msgstr "gl (para cada termo) ="
+
+msgid "Background Color"
+msgstr "Cor de fondo"
+
+msgid "Black"
+msgstr "Negro"
+
+msgid "White"
+msgstr "Branco"
+
+msgid "Save Graph as Bitmap"
+msgstr "Gardar a gráfico como mapa de bits"
+
+msgid "There is no current graphics device to save."
+msgstr "Actualmente non hai ningún dispositivo gráfico para gardar."
+
+msgid "Graphics File Type"
+msgstr "Tipo de ficheiro gráfico"
+
+msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Ficheiros PNG\" {\".png\" \".PNG\"}} {\"Todos os ficheiros\" {\"*\"}}"
+
+msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"Ficheiros JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Todos os ficheiros\" "
+"{\"*\"}}"
+
+msgid "Graph saved to file"
+msgstr "Gardouse o gráfico no ficheiro"
+
+msgid "Width (pixels)"
+msgstr "Largura (píxels)"
+
+msgid "Height (pixels)"
+msgstr "Altura (píxels)"
+
+msgid "Save Graph as PDF/Postscript"
+msgstr "Gardar o gráfico como PDF/Postscript"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "Postscript"
+msgstr "Postscript"
+
+msgid "Encapsulated Postscript"
+msgstr "Postscript encapsulado"
+
+msgid "{\"PDF Files\" {\".pdf\" \".PDF\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Ficheiros PDF\" {\".pdf\" \".PDF\"}} {\"Todos os ficheiros\" {\"*\"}}"
+
+msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Ficheiros Postscript\" {\".ps\" \".PS\"}} {\"Todos os ficheiros\" {\"*\"}}"
+
+msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"Ficheiros Postscript encapsulados\" {\".eps\" \".EPS\"}} {\"Todos os ficheiros\" "
+"{\"*\"}}"
+
+msgid "Width (inches)"
+msgstr "Largura (polgadas)"
+
+msgid "Height (inches)"
+msgstr "Altura (polgadas)"
+
+msgid "Text size (points)"
+msgstr "Tamaño do texto (puntos)"
+
+msgid "There is no current RGL graphics device to save."
+msgstr "Actualmente non hai ningún dispositivo gráfico RGL para gardar."
+
+msgid "{\"PNG Bitmap Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Ficheiros PNG\" {\".png\" \".PNG\"}} {\"Todos os ficheiros\" {\"*\"}}"
+
+msgid "There is only one model in memory."
+msgstr "Soamente hai un modelo na memoria."
+
+msgid "There are no models from which to choose."
+msgstr "Non hai ningún modelo para escoller."
+
+msgid "Select Model"
+msgstr "Seleccionar o modelo"
+
+msgid "Models (pick one)"
+msgstr "Modelos (tome un)"
+
+msgid "There is no dataset associated with this model."
+msgstr "Non hai ningún conxunto de datos asociado a este modelo."
+
+msgid "The dataset associated with this model, %s, is not in memory."
+msgstr "O conxunto de datos asociados a este modelo, %s, non está na memoria."
+
+msgid "Current Model:"
+msgstr "Modelo actual:"
+
+msgid "Identify points with mouse?"
+msgstr "Identificar puntos co rato?"
+
+msgid "There is no appropriate Anova method for a model of this class."
+msgstr "Non hai ningún método ANOVA apropiado para este tipo de modelo."
+
+msgid "Observation statistics not available\nfor a model fit to a subset of the data."
+msgstr ""
+"Non están dispoñibeis estatísticas\n"
+"para que o modelo se axuste a un subconxunto dos datos."
+
+msgid "Add Observation Statistics to Data"
+msgstr "Engadir estatísticas de observación aos datos"
+
+msgid "Fitted values"
+msgstr "Valores axustados"
+
+msgid "Residuals"
+msgstr "Residuais"
+
+msgid "Studentized residuals"
+msgstr "Residuais studentizados"
+
+msgid "Hat-values"
+msgstr "Valores estimados"
+
+msgid "Cook's distances"
+msgstr "Distancias de Cook"
+
+msgid "Observation indices"
+msgstr "Índices de observacións"
+
+msgid "Residual Quantile-Comparison Plot"
+msgstr "Gráfico da comparación entre cuantís residuais"
+
+msgid "Simulated confidence envelope"
+msgstr "Banda de confianza simulada"
+
+msgid "Identify points with mouse"
+msgstr "Identificar os puntos co rato"
+
+msgid "Test Linear Hypothesis"
+msgstr "Contrastar hipóteses lineais"
+
+msgid "Number of valid entries in hypothesis matrix(%d)\nnot equal to number of rows (%d) * number of columns (%d)."
+msgstr ""
+"O número de entradas válidas na matriz da hipótese (%d)\n"
+"non é igual có número de filas (%d) * número de columnas (%d)."
+
+msgid "Hypothesis matrix is not of full row rank."
+msgstr "A matriz da hipótese non ten un intervalo completo de filas."
+
+msgid "Number of valid entries in rhs vector (%d)\nis not equal to number of rows (%d)."
+msgstr ""
+"O número de entradas correctas no vector dereito rhs (%d)\n"
+"non é igual ca o número de filas (%d)."
+
+msgid "Number of Rows:"
+msgstr "Número de filas:"
+
+msgid "Enter hypothesis matrix and right-hand side vector:"
+msgstr "Introducir a matriz de hipótese e o vector da banda dereita:"
+
+msgid "There are fewer than two models."
+msgstr "Hai menos de dous modelos."
+
+msgid "Compare Models"
+msgstr "Comparar modelos"
+
+msgid "First model (pick one)"
+msgstr "Primeiro modelo (tome un)"
+
+msgid "Second model (pick one)"
+msgstr "Segundo modelo (tome un)"
+
+msgid "You must select two models."
+msgstr "Debe seleccionar dous modelos."
+
+msgid "Models are not of the same class."
+msgstr "Os modelos non son da mesma clase."
+
+msgid "Breusch-Pagan Test"
+msgstr "Test de Breusch-Pagan"
+
+msgid "Score Test for Nonconstant Error Variance"
+msgstr "Test de puntuacións para error de varianza non constante"
+
+msgid "Studentized test statistic"
+msgstr "Estatística de test studentitzado"
+
+msgid "Explanatory variables"
+msgstr "Variábeis explicativas"
+
+msgid "Variance Formula"
+msgstr "Fórmula da varianza"
+
+msgid "Durbin-Waton Test"
+msgstr "Test de Durbin-Watson"
+
+msgid "Test for First-Order Error Autocorrelation"
+msgstr "Test de autocorrelación de primeiro orde"
+
+msgid "Alternative Hypothesis"
+msgstr "Hipótese alternativa"
+
+msgid "RESET Test"
+msgstr "Test RESET"
+
+msgid "Test for Nonlinearity"
+msgstr "Test de non linearidade"
+
+msgid "No powers are checked."
+msgstr "Non se activou ningunha potencia."
+
+msgid "First principal component"
+msgstr "Primeiro compoñente principal"
+
+msgid "Type of Test"
+msgstr "Tipos de test"
+
+msgid "Powers to Include"
+msgstr "Potencias que se deben incluír"
+
+msgid "2 (squares)"
+msgstr "2 (cadradas)"
+
+msgid "3 (cubes)"
+msgstr "3 (cúbicas)"
+
+msgid "There is no appropriate outlier.test method for a model of this class."
+msgstr ""
+"Non hai ningún método apropiado de observación atípica para un modelo desta "
+"clase."
+
+msgid "Confidence Intervals"
+msgstr "Intervalos de confianza"
+
+msgid "Confidence Intervals for Individual Coefficients"
+msgstr "Intervalos de confianza para coeficientes individuais"
+
+msgid "Confidence level must be a number between 0 and 1."
+msgstr "O nivel de confianza debe ser un número entre 0 e 1."
+
+msgid "Likelihood-ratio statistic"
+msgstr "Estatística da razón de verosemellanza"
+
+msgid "Wald statistic"
+msgstr "Estatística de Wald"
+
+msgid "Test Based On"
+msgstr "Test baseado en"
+
+msgid "Confidence Level:"
+msgstr "Nivel de confianza:"
+
+msgid "Rcmdr Version"
+msgstr "Versión do Rcmdr"
+
+msgid "The tcltk package is absent. The R Commander cannot function."
+msgstr "Falta o paquete tcltk. O R Commander non pode funcionar."
+
+msgid "R-Rcmdr"
+msgstr "R-Rcmdr"
+
+msgid "The following packages used by Rcmdr are missing:"
+msgstr "Faltan os seguintes paquetes que utiliza o Rcmdr:"
+
+msgid "Without these packages, some features will not be available."
+msgstr "Sen estes paquetes, algunhas funcionalidades non estarán dispoñíbeis."
+
+msgid "Install these packages?"
+msgstr "Instalar estes paquetes?"
+
+msgid "Install Missing Packages"
+msgstr "Instalar os paquetes que falten"
+
+msgid "Browse..."
+msgstr "Navegar..."
+
+msgid "Install Packages From:"
+msgstr "Instalar os paquetes desde:"
+
+msgid "Specify package  \ndirectory:"
+msgstr ""
+"Especificar o cartafol  \n"
+"do paquete:"
+
+msgid "Local package directory\n(must include PACKAGES index file)"
+msgstr ""
+"O cartafol local de paquetes\n"
+"(debe incluír o ficheiro de índices PACKAGES)"
+
+msgid "The following packages were not found at the specified location:"
+msgstr "Non se atoparon os seguintes paquetes na localización especificada:"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Help"
+msgstr "Axuda"
+
+msgid "Scale Reliability"
+msgstr "Fiabilidade da escala"
+
+msgid "Variables (pick three or more)"
+msgstr "Variábeis (tomar 3 ou máis)"
+
+msgid "Fewer than 3 variables selected."
+msgstr "Seleccionáronse menos de 3 variábeis."
+
+msgid "Principal Components Analysis"
+msgstr "Análise de compoñentes principais"
+
+msgid "Variables (pick two or more)"
+msgstr "Variábeis (tomar dúas ou máis)"
+
+msgid "Analyze correlation matrix"
+msgstr "Analizar a matriz de correlacións"
+
+msgid "Screeplot"
+msgstr "Gráfico de sedimentación"
+
+msgid "Add principal components to data set"
+msgstr "Engadir compoñentes principais ao conxunto de datos"
+
+msgid "Fewer than 2 variables selected."
+msgstr "Seleccionáronse menos de 2 variábeis."
+
+msgid "Number of Components"
+msgstr "Número de compoñentes"
+
+msgid "Number of components to retain:"
+msgstr "Número de compoñentes para reter:"
+
+msgid "Factor Analysis"
+msgstr "Análise de factor"
+
+msgid "None"
+msgstr "Ningún"
+
+msgid "Varimax"
+msgstr "Varimax"
+
+msgid "Promax"
+msgstr "Promax"
+
+msgid "Factor Rotation"
+msgstr "Rotación de factores"
+
+msgid "Bartlett's method"
+msgstr "Método de Bartlett"
+
+msgid "Regression method"
+msgstr "Método de regresión"
+
+msgid "Factor Scores"
+msgstr "Puntuacións factoriais"
+
+msgid "Number of Factors"
+msgstr "Número de factores"
+
+msgid "Number of factors to extract:"
+msgstr "Número de factores que extraer:"
+
+msgid "Independent Samples t-Test"
+msgstr "t-test con mostras independentes"
+
+msgid "Groups (pick one)"
+msgstr "Grupos (tomar un)"
+
+msgid "You must select a groups variable."
+msgstr "Debe seleccionar un grupo variábel."
+
+msgid "Two-sided"
+msgstr "Bilateral"
+
+msgid "Difference < 0"
+msgstr "Diferenza < 0"
+
+msgid "Difference > 0"
+msgstr "Diferenza > 0"
+
+msgid "Yes"
+msgstr "Sí"
+
+msgid "No"
+msgstr "Non"
+
+msgid "Assume equal variances?"
+msgstr "Asumir varianzas iguais?"
+
+msgid "Confidence Level"
+msgstr "Nivel de confianza"
+
+msgid "Paired t-Test"
+msgstr "t-test con datos emparellados"
+
+msgid "First variable (pick one)"
+msgstr "Primeira variábel (tomar unha)"
+
+msgid "Second variable (pick one)"
+msgstr "Segunda variábel (tomar unha)"
+
+msgid "You must select two variables."
+msgstr "Debe seleccionar dúas variábeis."
+
+msgid "Variables must be different."
+msgstr "As variábeis deben ser diferentes."
+
+msgid "Single-Sample t-Test"
+msgstr "t-test dun soa mostra"
+
+msgid "Population mean = mu0"
+msgstr "Media poboacional = mu0"
+
+msgid "Population mean < mu0"
+msgstr "Media poboacional < mu0"
+
+msgid "Population mean > mu0"
+msgstr "Media poboacional > mu0"
+
+msgid "Null hypothesis: mu ="
+msgstr "Hipótese nula: mu ="
+
+msgid "One-Way Analysis of Variance"
+msgstr "Análise de varianza dun factor"
+
+msgid "You must select a groups factor."
+msgstr "Debe seleccionar un factor de grupo."
+
+msgid "Factor has fewer than 3 levels; pairwise comparisons omitted."
+msgstr "O factor ten menos de 3 niveis; omitíronse as comparacións en pares."
+
+msgid "Pairwise comparisons of means"
+msgstr "Comparacións en pares das medias"
+
+msgid "Multi-Way Analysis of Variance"
+msgstr "Análise da varianza de factores múltiplos"
+
+msgid "Factors (pick one or more)"
+msgstr "Factores (tomar un ou máis)"
+
+msgid "You must select at least one factor."
+msgstr "Debe seleccionar cando menos un factor."
+
+msgid "Linear Regression"
+msgstr "Regresión lineal"
+
+msgid "Explanatory variables (pick one or more)"
+msgstr "Variábeis explicativas (unha ou máis)"
+
+msgid "No explanatory variables selected."
+msgstr "Non está seleccionada ningunha variábel explicativa."
+
+msgid "\"%s\" is not a valid name."
+msgstr "\"%s\" non é un nome correcto."
+
+msgid "Model"
+msgstr "Modelo"
+
+msgid "Enter name for model:"
+msgstr "Escriba un nome para o modelo:"
+
+msgid "Linear Model"
+msgstr "Modelo lineal"
+
+msgid "Left-hand side of model empty."
+msgstr "Falta a banda esquerda do modelo."
+
+msgid "Right-hand side of model empty."
+msgstr "Falta a banda dereita do modelo."
+
+msgid "Generalized Linear Model"
+msgstr "Modelo lineal xeralizado"
+
+msgid "Family (double-click to select)"
+msgstr "Familia (dobre clic para seleccionar)"
+
+msgid "Link function"
+msgstr "Función de ligazón"
+
+msgid "Proportional-Odds Logit Model"
+msgstr "Proporcional-Modelo logit"
+
+msgid "Response variable must be a factor"
+msgstr "A variábel resposta debe ser un factor"
+
+msgid "Multinomial Logit Model"
+msgstr "Modelo logit multinomial"
+
+msgid "Two-Sample Wilcoxon Test"
+msgstr "Test de Wilcoxon para dúas mostras"
+
+msgid "Default"
+msgstr "Predeterminado"
+
+msgid "Exact"
+msgstr "Exacto"
+
+msgid "Normal approximation"
+msgstr "Aproximación normal"
+
+msgid "Normal approximation with\ncontinuity correction"
+msgstr ""
+"Aproximación normal con\n"
+"corrección por continuidade"
+
+msgid "Paired Wilcoxon Test"
+msgstr "Test de Wilcoxon para datos emparellados"
+
+msgid "The two variables must be different."
+msgstr "As dúas variábeis deben ser diferentes."
+
+msgid "Kruskal-Wallis Rank Sum Test"
+msgstr "Test de suma de rangos de Kruskal-Wallis"
+
+msgid "Single-Sample Proportion Test"
+msgstr "Test de proporcións para unha mostra"
+
+msgid "Population proportion = p0"
+msgstr "Proporción da poboación = p0"
+
+msgid "Population proportion < p0"
+msgstr "Proporción da poboación < p0"
+
+msgid "Population proportion > p0"
+msgstr "Proporción da poboación > p0"
+
+msgid "Exact binomial"
+msgstr "Test binomial exacto"
+
+msgid "Null hypothesis: p ="
+msgstr "Hipótese nula: p ="
+
+msgid "Two-Sample Proportions Test"
+msgstr "Test de proporcións para dúas mostras"
+
+msgid "Groups and response variables must be different."
+msgstr "As variábeis de grupos e de respostas deben ser diferentes."
+
+msgid "There are %d variables in the data set %s.\nDo you want to proceed?"
+msgstr ""
+"Hai %d variábeis no conxunto de datos %s.\n"
+"Quere proceder?"
+
+msgid "Numerical Summaries"
+msgstr "Resumos numéricos"
+
+msgid "Standard Deviation"
+msgstr "Desviación estándar"
+
+msgid "Summarize by:"
+msgstr "Resumido por:"
+
+msgid "Summarize by groups"
+msgstr "Resumos por grupos"
+
+msgid "Quantiles"
+msgstr "Cuantís"
+
+msgid "quantiles:"
+msgstr "cuantís:"
+
+msgid "Frequency Distribution"
+msgstr "Distribución de frecuencias"
+
+msgid "Goodness-of-Fit Test"
+msgstr "Proba da bondade de axuste"
+
+msgid "Invalid entry."
+msgstr "Entrada incorrecta."
+
+msgid "Missing entry."
+msgstr "Falta a entrada."
+
+msgid "Number of valid entries (%d)\nnot equal to number levels (%d)."
+msgstr ""
+"O número de entradas correctas (%d)\n"
+"non é igual ao número de niveis (%d)."
+
+msgid "Negative probabilities not allowed."
+msgstr "Non se admiten probabilidades negativas."
+
+msgid "Probabilities rescaled to sum to 1."
+msgstr "Probabilidades reescaladas para sumar 1."
+
+msgid "Chi-square goodness-of-fit test"
+msgstr "Proba khi cadrado da bondade de axuste"
+
+msgid "Table of Statistics"
+msgstr "Táboa de estatísticas"
+
+msgid "Median"
+msgstr "Mediana"
+
+msgid "Standard deviation"
+msgstr "Desviación estándar"
+
+msgid "Statistic"
+msgstr "Estatísticas"
+
+msgid "Correlation Matrix"
+msgstr "Matriz de correlacións"
+
+msgid "Pearson product-moment"
+msgstr "Momento-produto de Pearson"
+
+msgid "Spearman rank-order"
+msgstr "Orde de rangos de Spearman"
+
+msgid "Partial"
+msgstr "Parcial"
+
+msgid "Type of Correlations"
+msgstr "Tipos de correlacións"
+
+msgid "Fewer than 3 variables selected\nfor partial correlations."
+msgstr ""
+"Seleccionáronse menos de 3 variábeis\n"
+"para facer correlacións parciais."
+
+msgid "Two-Way Table"
+msgstr "Táboa de dobre entrada"
+
+msgid "Row variable (pick one)"
+msgstr "Variábel de fila (tomar unha)"
+
+msgid "Column variable (pick one)"
+msgstr "Variábel de columna (tomar unha)"
+
+msgid "Row and column variables are the same."
+msgstr "As variábeis de fila e columna son a mesma."
+
+msgid "expected frequencies are less than 1"
+msgstr "as frecuencias esperadas son menos ca 1"
+
+msgid "expected frequencies are less than 5"
+msgstr "as frecuencias esperadas son menos ca 5"
+
+msgid "Row percentages"
+msgstr "Porcentaxes de filas"
+
+msgid "Column percentages"
+msgstr "Porcentaxes de columnas"
+
+msgid "No percentages"
+msgstr "Sen porcentaxes"
+
+msgid "Compute Percentages"
+msgstr "Calcular porcentaxes"
+
+msgid "Chi-square test of independence"
+msgstr "Proba de independencia de khi cadrado"
+
+msgid "Print expected frequencies"
+msgstr "Imprimir as frecuencias esperadas"
+
+msgid "Fisher's exact test"
+msgstr "Test exacto de Fisher"
+
+msgid "Hypothesis Tests"
+msgstr "Tests de hipóteses"
+
+msgid "Multi-Way Table"
+msgstr "Táboa entradas múltiplas"
+
+msgid "Control variable(s) (pick one or more)"
+msgstr "Variábei(s) de control (tomar unha ou máis)"
+
+msgid "You must select row, column, and control variables"
+msgstr "Debe seleccionar fila, columna e variábeis de control"
+
+msgid "Row, column, and control variables must be different."
+msgstr "As variábeis de fila, columna e control deben ser diferentes."
+
+msgid "Enter Two-Way Table"
+msgstr "Introducir táboa de entrada dupla"
+
+msgid "Number of valid entries (%d)\nnot equal to number of rows (%d) * number of columns (%d)."
+msgstr ""
+"O número de entradas correctas (%d)\n"
+"non é igual a número de filas (%d) * número de columnas (%d)."
+
+msgid "Row names are not unique."
+msgstr "Os nomes das filas non son únicos."
+
+msgid "Column names are not unique."
+msgstr "Os nomes das columnas non son únicos."
+
+msgid "Number of Columns:"
+msgstr "Número de columnas:"
+
+msgid "Enter counts:"
+msgstr "Introducir as frecuencias:"
+
+msgid "Two Variances F-Test"
+msgstr "Test F para dúas varianzas"
+
+msgid "Bartlett's Test"
+msgstr "Test de Bartlett"
+
+msgid "Levene's Test"
+msgstr "Test de Levene"
+
+msgid "There is no active data set."
+msgstr "Non hai ningún conxunto de datos activo."
+
+msgid "is not a data frame and cannot be attached."
+msgstr "non é un cadro de datos e non se pode anexar."
+
+msgid "The dataset %s has %d rows and %d columns."
+msgstr "O conxunto de datos %s ten %d filas e %d columnas."
+
+msgid "There is no active model."
+msgstr "Non hai ningún modelo activo."
+
+msgid "argument must be a square, symmetric, numeric covariance matrix"
+msgstr ""
+"O argumento debe ser unha matriz de covarianza cadrada, simétrica e numérica"
+
+msgid "there are fewer than 3 items in the scale"
+msgstr "hai menos de 3 elementos na escala"
+
+msgid "Argument response must be numeric."
+msgstr "O argumento de resposta debe ser numérico."
+
+msgid "Argument factor1 must be a factor."
+msgstr "O argumento factor1 debe ser un factor."
+
+msgid "Arguments factor1 and factor2 must be factors."
+msgstr "Os argumentos factor1 e factor2 deben ser factores."
+
+msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgstr ""
+"O número de grupos para factor2, %d, supera o número de cores distintas, %d."
+
+msgid "The number of bins exceeds the number of data values"
+msgstr "O número de segmentos supera o número dos valores de datos"
+
+msgid "Number of groups (%d) exceeds number of colors (%d)."
+msgstr "O número de grupos (%d) supera o número de cores (%d)."
+
+msgid "groups variable must be a factor."
+msgstr "a variábel dos grupos debe ser un factor."
+
+msgid "cannot plot both multiple surfaces and residuals"
+msgstr ""
+"non é posíbel trazar de vez múltiplas superficies e asemade as residuais"
+
+msgid "not supplied"
+msgstr "non se forneceu"
+
+msgid "OK"
+msgstr "Aceptar"
+
+msgid "There fewer than %d factors in the active data set."
+msgstr "Hai menos de %d factores no conxunto de datos activo."
+
+msgid "There are no factors in the active data set."
+msgstr "Non hai factores na conxunto de datos activo."
+
+msgid "There fewer than %d two-level factors in the active data set."
+msgstr "Hai menos de %d factores con dous niveis no conxunto de datos activo."
+
+msgid "There are no two-level factors in the active data set."
+msgstr "Non hai factores de dous niveis no conxunto de datos activo."
+
+msgid "There fewer than %d numeric variables in the active data set."
+msgstr "Hai menos de %d variábeis numéricas no conxunto de datos activo."
+
+msgid "There are no numeric variables in the active data set."
+msgstr "Non hai variábeis numéricas no conxunto de datos activo."
+
+msgid "There fewer than %d variables in the active data set."
+msgstr "Hai menos de %d variábeis no conxunto de datos activo."
+
+msgid "There are no variables in the active data set."
+msgstr "Non hai variábeis no conxunto de datos activo."
+
+msgid "%s %s already exists.\nOverwrite %s?"
+msgstr ""
+"%s %s xa existe.\n"
+"Sobrescribir %s?"
+
+msgid "Plot by:"
+msgstr "Gráfico de:"
+
+msgid "Plot by groups"
+msgstr "Gráfico de grupos"
+
+msgid "Plot lines by group"
+msgstr "Debuxar liñas por grupo"
+
+msgid "There no factors in the active data set."
+msgstr "Non hai factores no conxunto de datos activo."
+
+msgid "Groups"
+msgstr "Grupos"
+
+msgid "Groups variable (pick one)"
+msgstr "Variábel de grupo (tomar unha)"
+
+msgid "Position legend with mouse click"
+msgstr "Situar a lenda cun clic do rato"
+
+msgid "<No groups selected>"
+msgstr "<Non hai ningún grupo seleccionado>"
+
+msgid "Difference:"
+msgstr "Diferenza:"
+
+msgid "Variables (double-click to formula)"
+msgstr "Variábeis (dobre clic para fórmula)"
+
+msgid "Model Formula:"
+msgstr "Fórmula do modelo:"
+
+msgid "No appropriate %s method exists\nfor a model of this class."
+msgstr ""
+"Non existe método %s apropiado\n"
+"para un modelo desta clase."
+
+msgid "The model is not of class \"%s\"."
+msgstr "O modelo non é de clase «%s»."
+
+msgid "Open script file..."
+msgstr "Abrir guión de execución..."
+
+msgid "Save script..."
+msgstr "Gardar o guión..."
+
+msgid "Save script as..."
+msgstr "Gardar o guión como..."
+
+msgid "Save output..."
+msgstr "Gardar o resultado..."
+
+msgid "Save output as..."
+msgstr "Gardar o resultado como..."
+
+msgid "Save R workspace..."
+msgstr "Gardar a área de traballo de R..."
+
+msgid "Save R workspace as..."
+msgstr "Gardar a área de traballo de R como..."
+
+msgid "From Commander"
+msgstr "Do Commander"
+
+msgid "From Commander and R"
+msgstr "Do Commander e do R"
+
+msgid "Exit"
+msgstr "Saír"
+
+msgid "File"
+msgstr "Ficheiro"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "New data set..."
+msgstr "Novo conxunto de datos..."
+
+msgid "from text file..."
+msgstr "dun ficheiro de texto..."
+
+msgid "from SPSS data set..."
+msgstr "dun conxunto de datos de SPSS..."
+
+msgid "from Minitab data set..."
+msgstr "dun conxunto de datos de Minitab..."
+
+msgid "from STATA data set..."
+msgstr "dun conxunto de datos STATA..."
+
+msgid "Import data"
+msgstr "Importar datos"
+
+msgid "List data sets in packages"
+msgstr "Lista os conxuntos de datos en paquetes"
+
+msgid "Read data set from an attached package..."
+msgstr "Ler conxunto de datos dun paquete anexo..."
+
+msgid "Data in packages"
+msgstr "Datos dos paquetes"
+
+msgid "Select active data set..."
+msgstr "Seleccionar o conxunto de datos activo..."
+
+msgid "Help on active data set (if available)"
+msgstr "Axuda sobre o conxunto de datos (de habela)"
+
+msgid "Variables in active data set"
+msgstr "Variábeis do conxunto de datos activo"
+
+msgid "Set case names..."
+msgstr "Estabelecer o nome dos casos..."
+
+msgid "Subset active data set..."
+msgstr "Facer un subconxunto de datos activo..."
+
+msgid "Remove cases with missing data..."
+msgstr "Retirar os casos nos que faltan datos..."
+
+msgid "Export active data set..."
+msgstr "Exportar o conxunto de datos activo..."
+
+msgid "Active data set"
+msgstr "Conxunto de datos activo"
+
+msgid "Recode variable..."
+msgstr "Recodificar as variábeis..."
+
+msgid "Compute new variable..."
+msgstr "Calcular unha nova variábel..."
+
+msgid "Standardize variables..."
+msgstr "Estandarizar as variábeis..."
+
+msgid "Convert numeric variable to factor..."
+msgstr "Converter unha variábel numérica en factor..."
+
+msgid "Bin numeric variable..."
+msgstr "Segmentar unha variábel numérica..."
+
+msgid "Reorder factor levels..."
+msgstr "Reordenar os niveis de factor..."
+
+msgid "Define contrasts for a factor..."
+msgstr "Definir os contrastes dun factor..."
+
+msgid "Rename variables..."
+msgstr "Renomear variábeis..."
+
+msgid "Delete variables from data set ..."
+msgstr "Eliminar variábeis do conxunto de datos ..."
+
+msgid "Manage variables in active data set"
+msgstr "Modificar as variábeis no conxunto de datos activo"
+
+msgid "Data"
+msgstr "Datos"
+
+msgid "Numerical summaries..."
+msgstr "Resumos numéricos..."
+
+msgid "Frequency distribution..."
+msgstr "Distribución de frecuencias..."
+
+msgid "Table of statistics..."
+msgstr "Táboa de estatísticas..."
+
+msgid "Correlation matrix..."
+msgstr "Matriz de correlación..."
+
+msgid "Two-way table..."
+msgstr "Táboa de dobre entrada..."
+
+msgid "Multi-way table..."
+msgstr "Táboa de entradas múltiplas..."
+
+msgid "Enter and analyze two-way table..."
+msgstr "Introducir e analizar unha táboa de dobre entrada..."
+
+msgid "Single-sample t-test..."
+msgstr "Test t dunha soa mostra..."
+
+msgid "Independent samples t-test..."
+msgstr "Test t de mostras independentes..."
+
+msgid "Paired t-test..."
+msgstr "Test t de datos emparellados..."
+
+msgid "One-way ANOVA..."
+msgstr "ANOVA dun factor..."
+
+msgid "Multi-way ANOVA..."
+msgstr "ANOVA de múltiplos factores..."
+
+msgid "Single-sample proportion test..."
+msgstr "Test de proporcións dunha soa mostra..."
+
+msgid "Two-sample proportions test..."
+msgstr "Test de proporcións de dúas mostras..."
+
+msgid "Two-variances F-test..."
+msgstr "Test F de dúas varianzas..."
+
+msgid "Bartlett's test..."
+msgstr "Test de Bartlett..."
+
+msgid "Levene's test..."
+msgstr "Test de Levene..."
+
+msgid "Two-sample Wilcoxon test..."
+msgstr "Test de Wilcoxon de dúas mostras..."
+
+msgid "Paired-samples Wilcoxon test..."
+msgstr "Test de Wilcoxon para mostras emparelladas..."
+
+msgid "Kruskal-Wallis test..."
+msgstr "Test de Kruskal-Wallis..."
+
+msgid "Scale reliability..."
+msgstr "Fiabilidade da escala..."
+
+msgid "Principal-components analysis..."
+msgstr "Análise de compoñentes principais..."
+
+msgid "Factor analysis..."
+msgstr "Análise factorial..."
+
+msgid "k-means cluster analysis..."
+msgstr "Análise de agrupación por medias k..."
+
+msgid "Hierarchical cluster analysis..."
+msgstr "Análise xerárquico de agrupación..."
+
+msgid "Summarize hierarchical clustering..."
+msgstr "Resumo de agrupación xerárquica..."
+
+msgid "Add hierarchical clustering to data set..."
+msgstr "Engadir agrupación xerárquica ao conxunto de datos..."
+
+msgid "Cluster analysis"
+msgstr "Análise de agrupación"
+
+msgid "Linear regression..."
+msgstr "Regresión lineal..."
+
+msgid "Linear model..."
+msgstr "Modelo lineal..."
+
+msgid "Generalized linear model..."
+msgstr "Modelo lineal xeralizado..."
+
+msgid "Multinomial logit model..."
+msgstr "Modelo logit multinomial..."
+
+msgid "Proportional-odds logit model..."
+msgstr "Modelo logit de probabilidades proporcional..."
+
+msgid "Statistics"
+msgstr "Estatísticas"
+
+msgid "Summaries"
+msgstr "Resumos"
+
+msgid "Contingency tables"
+msgstr "Táboas de continxencia"
+
+msgid "Means"
+msgstr "Medias"
+
+msgid "Proportions"
+msgstr "Proporcións"
+
+msgid "Variances"
+msgstr "Varianzas"
+
+msgid "Nonparametric tests"
+msgstr "Tests non paramétricos"
+
+msgid "Dimensional analysis"
+msgstr "Análise dimensional"
+
+msgid "Fit models"
+msgstr "Axuste de modelos"
+
+msgid "Index plot..."
+msgstr "Gráfico de índice..."
+
+msgid "Histogram..."
+msgstr "Histograma..."
+
+msgid "Stem-and-leaf display..."
+msgstr "Presentación de raíz e pólas..."
+
+msgid "Boxplot..."
+msgstr "Gráfico de caixa..."
+
+msgid "Quantile-comparison plot..."
+msgstr "Gráfico de comparación entre cuantís..."
+
+msgid "Scatterplot..."
+msgstr "Gráfico de dispersión..."
+
+msgid "Scatterplot matrix..."
+msgstr "Matriz de gráfico de dispersión..."
+
+msgid "3D scatterplot..."
+msgstr "Gráfico de dispersión en 3D..."
+
+msgid "Line graph..."
+msgstr "Gráfica de liñas..."
+
+msgid "Plot of means..."
+msgstr "Gráfico de medias..."
+
+msgid "Bar graph..."
+msgstr "Gráfico de barras..."
+
+msgid "Pie chart..."
+msgstr "Gráfico de sectores..."
+
+msgid "as bitmap..."
+msgstr "como mapa de bits..."
+
+msgid "as PDF/Postscript/EPS..."
+msgstr "como PDF/Postscript/EPS..."
+
+msgid "3D RGL graph..."
+msgstr "Gráfico 3D RGL..."
+
+msgid "Save graph to file"
+msgstr "Gardar a gráfica nun ficheiro"
+
+msgid "Graphs"
+msgstr "Gráficas"
+
+msgid "Select active model..."
+msgstr "Seleccionar o modelo activo..."
+
+msgid "Summarize model"
+msgstr "Resumir o modelo"
+
+msgid "Add observation statistics to data..."
+msgstr "Engadir estatísticas de observación aos datos..."
+
+msgid "Confidence intervals..."
+msgstr "Intervalos de confianza..."
+
+msgid "Hypothesis tests"
+msgstr "Tests de hipóteses"
+
+msgid "ANOVA table"
+msgstr "Táboa de ANOVA"
+
+msgid "Compare two models..."
+msgstr "Comparar dous modelos..."
+
+msgid "Linear hypothesis..."
+msgstr "Hipóteses lineais..."
+
+msgid "Numerical diagnostics"
+msgstr "Diagnósticos numéricos"
+
+msgid "Variance-inflation factors"
+msgstr "Factores de inflación de varianza"
+
+msgid "Breusch-Pagan test for heteroscedasticity..."
+msgstr "Test Breusch-Pagan sobre heteroscedasticidade..."
+
+msgid "Durbin-Watson test for autocorrelation..."
+msgstr "Test de Durbin-Watson sobre autocorrelación..."
+
+msgid "RESET test for nonlinearity..."
+msgstr "Test RESET de non linealidade..."
+
+msgid "Bonferroni outlier test"
+msgstr "Test de valores extremos de Bonferroni"
+
+msgid "Basic diagnostic plots"
+msgstr "Gráficos de diagnóstico básico"
+
+msgid "Residual quantile-comparison plot..."
+msgstr "Gráficos de comparación de cuantís residual..."
+
+msgid "Component+residual plots"
+msgstr "Gráficos de compoñente+residuo"
+
+msgid "Added-variable plots"
+msgstr "Gráficos de variábel agregada"
+
+msgid "Influence plot"
+msgstr "Gráfico de influencia"
+
+msgid "Effect plots"
+msgstr "Gráficos de efecto"
+
+msgid "Models"
+msgstr "Modelos"
+
+msgid "Normal distribution"
+msgstr "Distribución normal"
+
+msgid "Normal quantiles..."
+msgstr "Cuantís normais..."
+
+msgid "Normal probabilities..."
+msgstr "Probabilidades normais..."
+
+msgid "Plot normal distribution..."
+msgstr "Gráfico de distribución normal..."
+
+msgid "t distribution"
+msgstr "Distribución t"
+
+msgid "t quantiles..."
+msgstr "Cuantís t..."
+
+msgid "t probabilities..."
+msgstr "Probabilidades t..."
+
+msgid "Plot t distribution..."
+msgstr "Diagrama de distribución t..."
+
+msgid "Chi-squared distribution"
+msgstr "Distribución khi cadrado"
+
+msgid "Chi-squared quantiles..."
+msgstr "Cuantís de khi cadrado..."
+
+msgid "Chi-squared probabilities..."
+msgstr "Probabilidades de khi cadrado..."
+
+msgid "Plot chi-squared distribution..."
+msgstr "Gráfico de distribución khi cadrado..."
+
+msgid "F distribution"
+msgstr "Distribución F"
+
+msgid "F quantiles..."
+msgstr "Cuantís F..."
+
+msgid "F probabilities..."
+msgstr "Probabilidades F..."
+
+msgid "Plot F distribution..."
+msgstr "Gráfico de distribución F..."
+
+msgid "Binomial distribution"
+msgstr "Distribución binomial"
+
+msgid "Binomial quantiles..."
+msgstr "Cuantís binomiais..."
+
+msgid "Binomial tail probabilities..."
+msgstr "Probabilidades binomiais acumuladas..."
+
+msgid "Binomial probabilities..."
+msgstr "Probabilidades binomiais..."
+
+msgid "Plot binomial distribution..."
+msgstr "Gráfico de distribución binomial..."
+
+msgid "Poisson distribution"
+msgstr "Distribución de Poisson"
+
+msgid "Poisson probabilities..."
+msgstr "Probabilidades de Poisson..."
+
+msgid "Plot Poisson distribution..."
+msgstr "Gráfico de distribución de Poisson..."
+
+msgid "Distributions"
+msgstr "Distribucións"
+
+msgid "Load package(s)..."
+msgstr "Cargar paquete(s)..."
+
+msgid "Options..."
+msgstr "Opcións..."
+
+msgid "Tools"
+msgstr "Ferramentas"
+
+msgid "Commander help"
+msgstr "Axuda do Commander"
+
+msgid "Introduction to the R Commander"
+msgstr "Introdución a R Commander"
+
+msgid "About Rcmdr"
+msgstr "Sobre Rcmdr"
+
+msgid "df ="
+msgstr "gl ="
+
+## messages added to Rcmdr version 1.1-1
+msgid "There is no current RGL graphics device."
+msgstr "Actualmente non hai ningún dispositivo gráfico RGL."
+
+msgid "3D graph"
+msgstr "Gráfica en 3D"
+
+## messages added to Rcmdr version 1.1-6
+## messages added to Rcmdr version 1.1-6
+# # messages added to Rcmdr version 1.1-6
+msgid " contains non-standard variable names:\n"
+msgstr " contén nomes de variábeis non estándares:\n"
+
+msgid "\nThese have been changed to:\n"
+msgstr ""
+"\n"
+"Cambiáronse por:\n"
+
+## messages added to Rcmdr version 1.2-0
+# importRODBCtable dialog
+## messages added to Rcmdr version 1.2-0
+# importRODBCtable dialog
+# # messages added to Rcmdr version 1.2-0
+msgid "This function requires the RODBC package.\n"
+msgstr "Esta función necesita o paquete RODBC.\n"
+
+msgid "Import from Excel, Access or dBase data set"
+msgstr "Importar o conxunto de datos de Excel, Access o dBase"
+
+msgid "{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"Ficheiro MS Excel\" {*.xls \".XLS\"}} {\"Base de datos MS Access\" {*.mdb "
+"\".MDB\"}} {\"Ficheiro tipo dBase\" {*.dbf \".DBF\"}} {\"Todos os ficheiros\" {\"*\"}}"
+
+msgid "Select one table"
+msgstr "Seleccionar unha táboa"
+
+msgid "No table selected"
+msgstr "Non se seleccionou ningunha táboa"
+
+msgid "from Excel, Access or dBase data set..."
+msgstr "dun conxunto de datos de Excel, Access o dBase..."
+
+# probability distributions
+msgid "Standard deviation must be positive."
+msgstr "A desviación estándar debe ser positiva."
+
+msgid "Degrees of freedom must be positive."
+msgstr "Os graos de liberdade deben ser positivos."
+
+msgid "Numerator degrees of freedom must be positive."
+msgstr "O numerador dos graos de liberdade debe ser positivo."
+
+msgid "Denominator degrees of freedom must be positive."
+msgstr "O denominador dos graos de liberdade debe ser positivo."
+
+msgid "Exponential Distribution"
+msgstr "Distribución exponencial"
+
+msgid "Rate must be positive."
+msgstr "A razón debe ser positiva."
+
+msgid "Rate"
+msgstr "Razón"
+
+msgid "Uniform Distribution"
+msgstr "Distribución uniforme"
+
+msgid "Lower limit must be less than upper limit."
+msgstr "O límite inferior debe ser menor có límite superior."
+
+msgid "Minimum"
+msgstr "Mínimo"
+
+msgid "Maximum"
+msgstr "Máximo"
+
+msgid "Beta Distribution"
+msgstr "Distribución beta"
+
+msgid "Shapes not specified."
+msgstr "Formas non especificadas."
+
+msgid "Shapes must be positive."
+msgstr "As formas deben ser positivas."
+
+msgid "Shape"
+msgstr "Forma"
+
+msgid "Cauchy Distribution"
+msgstr "Distribución de Cauchy"
+
+msgid "Scale must be positive."
+msgstr "A escala debe ser positiva."
+
+msgid "Location"
+msgstr "Localización"
+
+msgid "Scale"
+msgstr "Escala"
+
+msgid "Logistic Distribution"
+msgstr "Distribución loxística"
+
+msgid "Lognormal Distribution"
+msgstr "Distribución lognormal"
+
+msgid "Mean (log scale)"
+msgstr "Media (escala log)"
+
+msgid "Standard deviation (log scale)"
+msgstr "Desviación estándar (escala log)"
+
+msgid "Gamma Distribution"
+msgstr "Distribución gamma"
+
+msgid "Shape not specified."
+msgstr "Forma non especificada."
+
+msgid "Shape must be positive."
+msgstr "A forma debe ser positiva."
+
+msgid "Weibull Distribution"
+msgstr "Distribución de Weibull"
+
+msgid "Exponential Quantiles"
+msgstr "Cuantís exponenciais"
+
+msgid "Exponential Probabilities"
+msgstr "Probabilidades exponenciais"
+
+msgid "Uniform Quantiles"
+msgstr "Cuantís uniformes"
+
+msgid "Uniform Probabilities"
+msgstr "Probabilidades uniformes"
+
+msgid "Beta Quantiles"
+msgstr "Cuantís beta"
+
+msgid "Beta Probabilities"
+msgstr "Probabilidades beta"
+
+msgid "Cauchy Quantiles"
+msgstr "Cuantís de Cauchy"
+
+msgid "Cauchy Probabilities"
+msgstr "Probabilidades de Cauchy"
+
+msgid "Logistic Quantiles"
+msgstr "Cuantís loxísticos"
+
+msgid "Logistic Probabilities"
+msgstr "Probabilidades loxísticas"
+
+msgid "Lognormal Quantiles"
+msgstr "Cuantís lognormais"
+
+msgid "Lognormal Probabilities"
+msgstr "Probabilidades lognormais"
+
+msgid "Gamma Quantiles"
+msgstr "Cuantís gamma"
+
+msgid "Gamma Probabilities"
+msgstr "Probabilidades gamma"
+
+msgid "Weibull Quantiles"
+msgstr "Cuantís de Weibull"
+
+msgid "Weibull Probabilities"
+msgstr "Probabilidades de Weibull"
+
+msgid "Gumbel Distribution"
+msgstr "Distribución de Gumbel"
+
+msgid "Shape (log shape)"
+msgstr "Forma (forma log)"
+
+msgid "Scale (log scale)"
+msgstr "Escala (escala log)"
+
+msgid "Gumbel Probabilities"
+msgstr "Probabilidades de Gumbell"
+
+msgid "Probability of success must be between 0 and 1."
+msgstr "A probabilidade do éxito debe estar entre 0 e 1."
+
+msgid "Poisson Quantiles"
+msgstr "Cuantís de Poisson"
+
+msgid "Geometric Quantiles"
+msgstr "Cuantís xeométricos"
+
+msgid "Geometric Probabilities"
+msgstr "Probabilidades xeométricas"
+
+msgid "Hypergeometric Quantiles"
+msgstr "Cuantís hiperxeométricos"
+
+msgid "The m parameter was not specified."
+msgstr "Non se especificou o parámetro m."
+
+msgid "The m parameter cannot be negative."
+msgstr "O parámetro m non pode ser negativo."
+
+msgid "The n parameter was not specified."
+msgstr "Non se pode especificar o parámetro n."
+
+msgid "The n parameter cannot be negative."
+msgstr "O parámetro n non pode ser negativo."
+
+msgid "The k parameter was not specified."
+msgstr "Non se especificou o parámetro k."
+
+msgid "The k parameter cannot be greater than m + n."
+msgstr "O parámetro k non pode ser maior có de m+n."
+
+msgid "The k parameter cannot be negative."
+msgstr "O parámetro k non pode ser negativo."
+
+msgid "m (number of white balls in the urn)"
+msgstr "m (número de bolas brancas na urna)"
+
+msgid "n (number of black balls in the urn)"
+msgstr "n (número de bolas negras na urna)"
+
+msgid "k (number of balls drawn from the urn)"
+msgstr "k (número de bolas sacadas da urna)"
+
+msgid "Hypergeometric Probabilities"
+msgstr "Probabilidades hiperxeométricas"
+
+msgid "Negative Binomial Quantiles"
+msgstr "Cuantís binomiais negativos"
+
+msgid "Target number of successes not specified."
+msgstr "Número de sucesos previsto sen especificar."
+
+msgid "Target number of successes cannot be negative."
+msgstr "O número de sucesos previsto non pode ser negativo."
+
+msgid "Target number of successes"
+msgstr "Número de sucesos previsto"
+
+msgid "Negative Binomial Probabilities"
+msgstr "Probabilidades binomiais negativas"
+
+msgid "Geometric Distribution"
+msgstr "Distribución xeométrica"
+
+msgid "Hypergeometric Distribution"
+msgstr "Distribución hiperxeométrica"
+
+msgid "Negative Binomial Distribution"
+msgstr "Distribución binomial negativa"
+
+msgid "Sample from Normal Distribution"
+msgstr "Mostra dunha distribución normal"
+
+msgid "NormalSamples"
+msgstr "MostrasNormais"
+
+msgid "Sample means"
+msgstr "Medias de mostra"
+
+msgid "Sample sums"
+msgstr "Sumas de mostra"
+
+msgid "Sample standard deviations"
+msgstr "Desviacións estándares da mostra"
+
+msgid "Sample size must be positive."
+msgstr "O volume da mostra debe ser positivo."
+
+msgid "Number of samples must be positive."
+msgstr "O número de mostras debe ser positivo."
+
+msgid "Number of samples (rows)"
+msgstr "Número de mostras (ficheiros)"
+
+msgid "Number of observations (columns)"
+msgstr "Número de observacións (columnas)"
+
+msgid "Add to Data Set:"
+msgstr "Engadir ao conxunto de datos:"
+
+msgid "Sample from t Distribution"
+msgstr "Mostra dunha distribución t normal"
+
+msgid "tSamples"
+msgstr "Mostrast"
+
+msgid "Sample from Chi-squared Distribution"
+msgstr "Mostra dunha distribución de khi cadrado"
+
+msgid "ChisquareSamples"
+msgstr "MostrasKhiCadrado"
+
+msgid "Sample from F Distribution"
+msgstr "Mostra dunha distribución F"
+
+msgid "FSamples"
+msgstr "MostrasF"
+
+msgid "Sample from Exponential Distribution"
+msgstr "Mostra dunha distribución binomial"
+
+msgid "ExponentialSamples"
+msgstr "MostrasExponenciais"
+
+msgid "Sample from Uniform Distribution"
+msgstr "Mostra dunha distribución uniforme"
+
+msgid "UniformSamples"
+msgstr "MostrasUniformes"
+
+msgid "Sample from Beta Distribution"
+msgstr "Mostra dunha distribución beta"
+
+msgid "BetaSamples"
+msgstr "MostrasBeta"
+
+msgid "Sample from Cauchy Distribution"
+msgstr "Mostra dunha distribución de Cauchys"
+
+msgid "CauchySamples"
+msgstr "MostrasCauchy"
+
+msgid "Sample from Logistic Distribution"
+msgstr "Mostra dunha distribución loxística"
+
+msgid "LogisticSamples"
+msgstr "MostrasLoxisticas"
+
+msgid "Sample from Log-Normal Distribution"
+msgstr "Mostra dunha distribución lognormal"
+
+msgid "LogNormalSamples"
+msgstr "MostrasLogNormais"
+
+msgid "Sample from Gamma Distribution"
+msgstr "Mostra dunha distribución gamma"
+
+msgid "GammaSamples"
+msgstr "MostrasGamma"
+
+msgid "Sample from Weibull Distribution"
+msgstr "Mostra dunha distribución de Weibull"
+
+msgid "WeibullSamples"
+msgstr "MostrasWeibull"
+
+msgid "Sample from Gumbel Distribution"
+msgstr "Mostra dunha distribución de Gumbel"
+
+msgid "GumbelSamples"
+msgstr "MostrasGumbel"
+
+msgid "Sample from Binomial Distribution"
+msgstr "Mostra dunha distribución binomial"
+
+msgid "BinomialSamples"
+msgstr "MostrasBinomiais"
+
+msgid "Poisson mean cannot be negative."
+msgstr "A media non pode ser negativa."
+
+msgid "Sample from Poisson Distribution"
+msgstr "Mostra dunha distribución de Poisson"
+
+msgid "PoissonSamples"
+msgstr "MostrasPoisson"
+
+msgid "Sample from Geometric Distribution"
+msgstr "Mostra dunha distribución xeométrica"
+
+msgid "GeometricSamples"
+msgstr "MostrasXeométricas"
+
+msgid "Sample from Hypergeometric Distribution"
+msgstr "Mostra dunha distribución hiperxeométrica"
+
+msgid "HypergeometricSamples"
+msgstr "MostrasHiperxeométricas"
+
+msgid "Sample from Negative Binomial Distribution"
+msgstr "Mostra dunha distribución binomial negativa"
+
+msgid "NegativeBinomialSamples"
+msgstr "MostrasBinomiaisNegativas"
+
+msgid "Sample from normal distribution..."
+msgstr "Mostra dunha distribución normal..."
+
+msgid "Sample from t distribution..."
+msgstr "Mostra dunha distribución t..."
+
+msgid "Sample from chi-squared distribution..."
+msgstr "Mostra dunha distribución khi cadrado..."
+
+msgid "Sample from F distribution..."
+msgstr "Mostra dunha distribución F..."
+
+msgid "Exponential distribution"
+msgstr "Distribución exponencial"
+
+msgid "Exponential quantiles..."
+msgstr "Cuantís exponenciais..."
+
+msgid "Exponential probabilities..."
+msgstr "Probabilidades exponenciais..."
+
+msgid "Plot exponential distribution..."
+msgstr "Gráfico de distribución exponencial..."
+
+msgid "Sample from exponential distribution..."
+msgstr "Mostra dunha distribución exponencial..."
+
+msgid "Uniform distribution"
+msgstr "Distribución uniforme"
+
+msgid "Uniform quantiles..."
+msgstr "Cuantís uniformes..."
+
+msgid "Uniform probabilities..."
+msgstr "Probabilidades uniformes..."
+
+msgid "Plot uniform distribution..."
+msgstr "Gráfico de distribución uniforme..."
+
+msgid "Sample from uniform distribution..."
+msgstr "Mostra dunha distribución uniforme..."
+
+msgid "Beta distribution"
+msgstr "Distribución beta"
+
+msgid "Beta quantiles..."
+msgstr "Cuantís beta..."
+
+msgid "Beta probabilities..."
+msgstr "Probabilidades beta..."
+
+msgid "Plot beta distribution..."
+msgstr "Gráfico de distribución beta..."
+
+msgid "Sample from beta distribution..."
+msgstr "Mostra dunha distribución beta..."
+
+msgid "Cauchy distribution"
+msgstr "Distribución de Cauchy"
+
+msgid "Cauchy quantiles..."
+msgstr "Cuantís de Cauchy..."
+
+msgid "Cauchy probabilities..."
+msgstr "Probabilidades de Cauchy..."
+
+msgid "Plot Cauchy distribution..."
+msgstr "Gráfico de distribución de Cauchy..."
+
+msgid "Sample from Cauchy distribution..."
+msgstr "Mostra dunha distribución de Cauchy..."
+
+msgid "Logistic distribution"
+msgstr "Distribución loxística"
+
+msgid "Logistic quantiles..."
+msgstr "Cuantís loxísticos..."
+
+msgid "Logistic probabilities..."
+msgstr "Probabilidades loxísticas..."
+
+msgid "Plot logistic distribution..."
+msgstr "Gráfico de distribución loxística..."
+
+msgid "Sample from logistic distribution..."
+msgstr "Mostra dunha distribución loxística..."
+
+msgid "Lognormal distribution"
+msgstr "Distribución lognormal"
+
+msgid "Lognormal quantiles..."
+msgstr "Cuantís lognormais..."
+
+msgid "Lognormal probabilities..."
+msgstr "Probabilidades lognormais..."
+
+msgid "Plot lognormal distribution..."
+msgstr "Gráfico de distribución lognormal..."
+
+msgid "Sample from lognormal distribution..."
+msgstr "Mostra dunha distribución lognormal..."
+
+msgid "Gamma distribution"
+msgstr "Distribución gamma"
+
+msgid "Gamma quantiles..."
+msgstr "Cuantís gamma..."
+
+msgid "Gamma probabilities..."
+msgstr "Probabilidades gamma..."
+
+msgid "Plot gamma distribution..."
+msgstr "Gráfico de distribución gamma..."
+
+msgid "Sample from gamma distribution..."
+msgstr "Mostra dunha distribución gamma..."
+
+msgid "Weibull distribution"
+msgstr "Distribución de Weibull"
+
+msgid "Weibull quantiles..."
+msgstr "Cuantís de Weibull..."
+
+msgid "Weibull probabilities..."
+msgstr "Probabilidades Weibull..."
+
+msgid "Plot Weibull distribution..."
+msgstr "Gráfico de distribución de Weibull..."
+
+msgid "Sample from Weibull distribution..."
+msgstr "Mostra dunha distribución de Weibull..."
+
+msgid "Gumbel distribution"
+msgstr "Distribución de Gumbel"
+
+msgid "Gumbel quantiles..."
+msgstr "Cuantís de Gumbel..."
+
+msgid "Gumbel probabilities..."
+msgstr "Probabilidades de Gumbell..."
+
+msgid "Plot Gumbel distribution..."
+msgstr "Gráfico de distribución de Gumbel..."
+
+msgid "Sample from Gumbel distribution..."
+msgstr "Mostra dunha distribución de Gumbel..."
+
+msgid "Sample from binomial distribution..."
+msgstr "Mostra dunha distribución binomial..."
+
+msgid "Poisson quantiles..."
+msgstr "Cuantís de Poisson..."
+
+msgid "Poisson tail probabilities..."
+msgstr "Probabilidades da cola de Poisson..."
+
+msgid "Sample from Poisson distribution..."
+msgstr "Mostra dunha distribución de Poisson..."
+
+msgid "Geometric distribution"
+msgstr "Distribución xeométrica"
+
+msgid "Geometric quantiles..."
+msgstr "Cuantís xeométricos..."
+
+msgid "Geometric tail probabilities..."
+msgstr "Probabilidades xeométricas da cola..."
+
+msgid "Geometric probabilities..."
+msgstr "Probabilidades xeométricas..."
+
+msgid "Plot geometric distribution..."
+msgstr "Gráfico de distribución xeométrica..."
+
+msgid "Sample from geometric distribution..."
+msgstr "Mostra dunha distribución xeométrica..."
+
+msgid "Hypergeometric distribution"
+msgstr "Distribución hiperxeométrica"
+
+msgid "Hypergeometric quantiles..."
+msgstr "Cuantís hiperxeométricos..."
+
+msgid "Hypergeometric tail probabilities..."
+msgstr "Probabilidades hiperxeométricas da cola..."
+
+msgid "Hypergeometric probabilities..."
+msgstr "Probabilidades hiperxeométricas..."
+
+msgid "Plot hypergeometric distribution..."
+msgstr "Gráfico de distribución hiperxeométrica..."
+
+msgid "Sample from hypergeometric distribution..."
+msgstr "Mostra dunha distribución hiperxeométrica..."
+
+msgid "Negative binomial distribution"
+msgstr "Distribución binomial negativa"
+
+msgid "Negative binomial quantiles..."
+msgstr "Cuantís binomiais negativos..."
+
+msgid "Negative binomial tail probabilities..."
+msgstr "Probabilidades binomiais negativas da cola..."
+
+msgid "Negative binomial probabilities..."
+msgstr "Probabilidades binomiais negativas..."
+
+msgid "Plot negative binomial distribution..."
+msgstr "Gráfico de distribución binomial negativa..."
+
+msgid "Sample from negative binomial distribution..."
+msgstr "Mostra dunha distribución binomial negativa..."
+
+msgid "Continuous distributions"
+msgstr "Distribucións continuas"
+
+msgid "Discrete distributions"
+msgstr "Distribucións discretas"
+
+# Xyplot dialog
+# Xyplot dialog
+msgid "XY Conditioning Plot"
+msgstr "Gráfico condicional da relación XY"
+
+msgid "Response variables (pick one or more)"
+msgstr "Variábeis de resposta (tomar unha ou máis)"
+
+msgid "Groups (pick zero or more)"
+msgstr "Grupos (tomar cero ou máis)"
+
+msgid "Automatically draw key"
+msgstr "Clave de diagrama automática"
+
+msgid "Different panels for different responses"
+msgstr "Paneis diferentes para respostas diferentes"
+
+msgid "Identical"
+msgstr "Idéntica"
+
+msgid "Free"
+msgstr "Libre"
+
+msgid "Same range"
+msgstr "Mesmo rango"
+
+msgid "X-Axis Scales in Different Panels"
+msgstr "Escalas do eixe X en diferentes paneis"
+
+msgid "Y-Axis Scales in Different Panels"
+msgstr "Escalas do eixe Y en diferentes paneis"
+
+msgid "At least one response variable must be selected."
+msgstr "Debe seleccionarse como mínimo unha variábel de resposta."
+
+msgid "At least one explanatory variable must be selected."
+msgstr "Debe seleccionarse como mínimo unha variábel explicativa."
+
+msgid "XY conditioning plot..."
+msgstr "Gráfico condicional XY..."
+
+# contingency tables dialog
+msgid "Percentages of total"
+msgstr "Porcentaxes do total"
+
+msgid "Components of chi-square statistic"
+msgstr "Compoñentes da estatística de khi cadrado"
+
+# 3D scatterplots dialog
+msgid "Show squared residuals"
+msgstr "Amosa residuos ao cadrado"
+
+msgid "Show axis scales"
+msgstr "Amosa as escalas dos eixes"
+
+msgid "Plot 50% concentration ellipsoid"
+msgstr "Trazar o elipsoide de concentración do 50%"
+
+# scatterplot matrices dialog
+# scatterplot matrices dialog
+msgid "One-dimensional scatterplots"
+msgstr "Diagramas de dispersión unidimensional"
+
+# count NAs (menu item)
+# count NAs (menu item)
+msgid "Count missing observations"
+msgstr "Contar as observacións faltantes"
+
+# Correlation test dialog
+msgid "Correlation Test"
+msgstr "Test de correlación"
+
+msgid "Variables (pick two)"
+msgstr "Variábeis (tomar dúas)"
+
+msgid "Kendall's tau"
+msgstr "Tau de Kendall"
+
+msgid "Type of Correlation"
+msgstr "Tipo de correlación"
+
+msgid "Correlation < 0"
+msgstr "Correlación < 0"
+
+msgid "Correlation > 0"
+msgstr "Correlación > 0"
+
+msgid "More than 2 variables selected."
+msgstr "Hai máis de 2 variábeis seleccionadas."
+
+msgid "Correlation test..."
+msgstr "Test de correlación..."
+
+# Recode dialog
+msgid "Recode Variables"
+msgstr "Recodificar variábeis"
+
+msgid "Variables to recode (pick one or more)"
+msgstr "Variábeis para recodificar (tomar unha ou máis)"
+
+msgid "New variable name or prefix for multiple recodes:"
+msgstr "Novo nome de variábel ou prefixo para recodificacións múltiplas:"
+
+msgid "Make (each) new variable a factor"
+msgstr "Facer a (cada) nova variábel do tipo factor"
+
+msgid "Recode variables..."
+msgstr "Recodificar variábeis..."
+
+# Frequency distributions dialog
+msgid "Frequency Distributions"
+msgstr "Distribucións de frecuencias"
+
+msgid "Chi-square goodness-of-fit test (for one variable only)"
+msgstr "Test de bondade de axuste khi cadrado (para unha soa variábel)"
+
+msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgstr ""
+"O test de bondade do axuste non está dispoñíbel cando se selecciona máis "
+"dunha variábel."
+
+msgid "Frequency distributions..."
+msgstr "Distribucións de frecuencias..."
+
+# Numeric to factor dialog
+msgid "Convert Numeric Variables to Factors"
+msgstr "Converter variábeis numéricas en factores"
+
+msgid "<same as variables>"
+msgstr "<igual cás variábeis>"
+
+msgid "Level Names for"
+msgstr "Nomes de nivel para"
+
+msgid "Factors"
+msgstr "Factores"
+
+msgid "New variable name or prefix for multiple variables:"
+msgstr "Novo nome de variábel ou prefixo para múltiplas variábeis:"
+
+msgid "Convert numeric variables to factors..."
+msgstr "Converter as variábeis numéricas en factores..."
+
+# Stack dialog
+msgid "Stack Variables"
+msgstr "Amorear variábeis"
+
+msgid "factor"
+msgstr "factor"
+
+msgid "StackedData"
+msgstr "DatosAmoreados"
+
+msgid "You must select at least two variables."
+msgstr "Débese seleccionar cando menos dúas variábeis."
+
+msgid "Name for stacked data set:"
+msgstr "Nome do conxunto de datos amoreados:"
+
+msgid "Name for variable:"
+msgstr "Nome da variábel:"
+
+msgid "Name for factor:"
+msgstr "Nome do factor:"
+
+msgid "Stack variables in active data set..."
+msgstr "Amorear variábeis no conxunto de datos activo..."
+
+# miscelaneous
+msgid "Identify Points"
+msgstr "Identificar puntos"
+
+msgid "Use left mouse button to identify points,\nright button to exit."
+msgstr ""
+"Utilice o botón esquerdo do rato para identificar puntos,\n"
+"prema o botón dereito para saír."
+
+msgid "Drag right mouse button to identify points,\nclick right button to exit."
+msgstr ""
+"Arrastre o botón dereito do rato para identificar os puntos,\n"
+"prema no botón dereito para saír."
+
+msgid "Read Data From Text File or Clipboard"
+msgstr "Ler os datos dun ficheiro de texto ou do portapapeis"
+
+msgid "Read data from clipboard:"
+msgstr "Ler os datos do portapapeis:"
+
+msgid "from text file or clipboard..."
+msgstr "Desde un ficheiro de texto ou o portapapeis..."
+
+msgid "Add observation numbers to data set"
+msgstr "Engadir os números de observación ao conxunto de datos"
+
+msgid "Refresh active data set"
+msgstr "Recargar o conxunto de datos activo"
+
+msgid "No statistics selected."
+msgstr "Non hai ningunha estatística seleccionada."
+
+msgid "Right-hand side"
+msgstr "Beira da dereita"
+
+## messages added to Rcmdr version 1.3-0
+# handling plug-ins
+msgid "Load Plugins"
+msgstr "Cargar os engadidos"
+
+msgid "Plug-ins (pick one or more)"
+msgstr "Engadidos (tomar un ou máis)"
+
+msgid "You must select at least one plug-in."
+msgstr "Débese seleccionar cando menos un engadido."
+
+msgid "Plug-ins loaded:"
+msgstr "Engadidos cargados:"
+
+msgid "The plug-in(s) will not be available until the Commander is restarted.\nRestart now?"
+msgstr ""
+"O engadido(s) non estarán dispoñíbeis ata que se reinicie o Commander.\n"
+"Reiniciar agora?"
+
+msgid "objects have different numbers of columns"
+msgstr "os obxectos teñen diferentes números de columnas"
+
+msgid "objects have different column names"
+msgstr "os obxectos teñen diferentes nomes de columnas"
+
+msgid "Load Rcmdr plug-in(s)..."
+msgstr "Cargar engadido(s) do Rcmdr..."
+
+msgid "the plug-in package %s is missing"
+msgstr "Falta o paquete do engadido %s"
+
+msgid "the package %s is not an Rcmdr plug-in"
+msgstr "o paquete %s non é un engadido do Rcmdr"
+
+msgid "unrecognized operation, \"%s\", in plugin menu line %i"
+msgstr "Operación non recoñecida, «%s», na liña %i do menú do engadido"
+
+msgid "unrecognized type, \"%s\", in plugin menu line %i"
+msgstr "Tipo non recoñecido «%s», na liña %i do menú do engadido"
+
+# miscelaneous additions
+# miscelaneous additions
+msgid "Color palette..."
+msgstr "Paleta de cores..."
+
+msgid "Set Color Palette"
+msgstr "Establece a paleta de cores"
+
+msgid "Color palette reset."
+msgstr "Restabelece a paleta de cores."
+
+msgid "Save active data set..."
+msgstr "Gardar o conxunto de datos activo..."
+
+msgid "Load data set..."
+msgstr "Cargar o conxunto de datos..."
+
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"Ficheiros da datos de R\" {\".rda\" \".Rda\" \".RDA\"}} {\"Todos os ficheiros\" "
+"{\"*\"}}"
+
+msgid "Shapiro-Wilk test of normality..."
+msgstr "Test de normalidade de Shapiro-Wilk..."
+
+msgid "Shapiro-Wilk Test of Normality"
+msgstr "Test de normalidade Shapiro-Wilk"
+
+msgid "Ordinal regression model..."
+msgstr "Modelo de regresión ordinal..."
+
+msgid "Ordinal Regression Model"
+msgstr "Modelo de regresión ordinal"
+
+msgid "Proportional-odds logit"
+msgstr "Logit proporcional inverso"
+
+msgid "Ordered probit"
+msgstr "Probite ordenado"
+
+msgid "Type of Model"
+msgstr "Tipo de modelo"
+
+msgid "x-axis label"
+msgstr "etiqueta do eixe x"
+
+msgid "y-axis label"
+msgstr "etiqueta do eixe y"
+
+msgid "No plotting characters."
+msgstr "Non traza ningún carácter."
+
+msgid "Plotting Parameters"
+msgstr "Parámetros de trazado"
+
+msgid "Plotting characters"
+msgstr "Trazado de caracteres"
+
+msgid "Point size"
+msgstr "Tamaño do punto"
+
+msgid "Axis text size"
+msgstr "Tamaño do texto do eixe"
+
+msgid "Axis-labels text size"
+msgstr "Tamaño das etiquetas do eixe"
+
+# message added to version 1.3-3 (because of inadvertent omission)
+# message added to version 1.3-3 (because of inadvertent omission)
+msgid "Scale (inverse rate)"
+msgstr "Escala (razón inversa)"
+
+# messages added to version 1.3-5
+# messages added to version 1.3-5
+msgid " has been coerced to a data frame"
+msgstr " restrinxiuse a un cadro de datos"
+
+msgid "the dataset %s is no longer available"
+msgstr "o conxunto de datos %s xa non está dispoñíbel"
+
+msgid "the model %s is no longer available"
+msgstr "o modelo %s xa non está dispoñíbel"
+
+# message added to version 1.3-10
+# message added to version 1.3-10
+msgid "The Commander GUI is launched only in interactive sessions"
+msgstr "A IGU do Commander arranca unicamente en sesións interactivas"
+
+# messages added to version 1.3-15
+# Note: translate these messages only if the corresponding
+#  translated documents are supplied
+# For the following, you must supply a file named Commander-xx.Rd containing
+# a translation of the file Commander.Rd, where xx is the code for your
+# language. The \name{} and \alias{} fields in the .Rd file should both be
+# Commander-xx, where again xx is the language code.
+# Example: "Commander-es"
+# Note: Some translated Commander-xx.Rd files have not been compiling properly. As
+# an alternative, you can supply a PDF file named Commander-xx.pdf, and this will
+# be accessed when the user selects Help -> Commander help.
+# If you supply neither Commander-xx.Rd nor Commander-xx.pdf, then
+# the string "Commander" should not be translated. 
+msgid "Commander"
+msgstr "Commander"
+
+# For the following you must supply a PDF document containing a translation
+# of "Getting-Started-with-the-Rcmdr.pdf". I suggest using a translation
+# including -xx, where xx is the code for your language.
+# Example: "Empezando-con-Rcmdr-es"
+# For the following you must supply a PDF document containing a translation
+# of "Getting-Started-with-the-Rcmdr.pdf". I suggest using a translation
+# including -xx, where xx is the code for your language.
+# Example: "Empezando-con-Rcmdr-es"
+msgid "Getting-Started-with-the-Rcmdr"
+msgstr "Getting-Started-with-the-Rcmdr-gl"
+
+# messages added to version 1.4-0
+msgid "Type of Tests"
+msgstr "Tipo de tests"
+
+msgid "Sequential (\"Type I\")"
+msgstr "Secuencial («Tipo I»)"
+
+msgid "Partial obeying marginality (\"Type II\")"
+msgstr "Parcial considerando a marxinalidade (\"Tipo II\")"
+
+msgid "Partial ignoring marginality (\"Type III\")"
+msgstr "Parcial desbotando a marxinalidade (\"Tipo III\")"
+
+msgid "Type III tests require careful attention to contrast coding."
+msgstr ""
+"Os tests de tipo III requiren unha coidadosa atención no código de "
+"contraste."
+
+msgid "There is no appropriate anova method for a model of this class."
+msgstr "Non hai ningún método ANOVA apropiado para un modelo desta clase."
+
+msgid "Duplicate menu names:"
+msgstr "Nomes de menús duplicados:"
+
+msgid "Strip chart..."
+msgstr "Gráfica de bandas..."
+
+msgid "Strip Chart"
+msgstr "Gráfica de bandas"
+
+msgid "Factors (pick zero or more)"
+msgstr "Factores (tomar cero ou máis)"
+
+msgid "Duplicate Values"
+msgstr "Valores duplicados"
+
+msgid "Stack"
+msgstr "Morea"
+
+msgid "Jitter"
+msgstr "Flutuar"
+
+msgid "Remove Rows from Active Data Set"
+msgstr "Retirar filas do conxunto de datos activo"
+
+msgid "Remove row(s) from active data set..."
+msgstr "Retirar fila(s) do conxunto de datos activo..."
+
+msgid "No rows to remove"
+msgstr "Nin hai filas que retirar"
+
+msgid "Indices or quoted names of row(s) to remove"
+msgstr "Índices ou nomes acoutados de fila(s) para retirar"
+
+msgid "Akaike Information Criterion (AIC)"
+msgstr "Criterio de Información de Akaike (AIC)"
+
+msgid "Bayesian Information Criterion (BIC)"
+msgstr "Criterio de Información Bayesiana (BIC)"
+
+msgid "Change working directory..."
+msgstr "Cambiar o cartafol de traballo..."
+
+msgid "Log x-axis"
+msgstr "Eixe log-x"
+
+msgid "Log y-axis"
+msgstr "Eixe log-y"
+
+msgid "from text file, clipboard, or URL..."
+msgstr "dun ficheiro de texto, do portapapeis ou dun URL..."
+
+msgid "Read Text Data From File, Clipboard, or URL"
+msgstr "Ler os datos de texto dun ficheiro, do portapapeis ou dun URL"
+
+msgid "Location of Data File"
+msgstr "Localización do ficheiro de datos"
+
+msgid "Local file system"
+msgstr "Sistema de ficheiro local"
+
+msgid "Clipboard"
+msgstr "Portapapeis"
+
+msgid "Internet URL"
+msgstr "Internet URL"
+
+msgid "Friedman rank-sum test..."
+msgstr "Test da suma de rangos de Friedman..."
+
+msgid "Friedman Rank Sum Test"
+msgstr "Test da suma de rangos de Friedman"
+
+msgid "Repeated-Measures Variables (pick two or more)"
+msgstr "Variábeis con medidas repetidas (tomar dous ou máis)"
+
+msgid "Undo"
+msgstr "Desfacer"
+
+msgid "Redo"
+msgstr "Refacer"
+
+msgid "ANOVA table..."
+msgstr "Táboa de ANOVA..."
+
+# messages added to version 1.4-2
+msgid "Location not specified."
+msgstr "Localización non especificada."
+
+# messages added to version 1.5-0
+#     "Models -> Stepwise model selection" dialog and menu item
+msgid "Stepwise model selection..."
+msgstr "Selección de modelo paso a paso..."
+
+msgid "Stepwise Model Selection"
+msgstr "Selección de modelo paso a paso"
+
+msgid "Direction"
+msgstr "Dirección"
+
+msgid "backward/forward"
+msgstr "atrás/adiante"
+
+msgid "forward/backward"
+msgstr "adiante/atrás"
+
+msgid "backward"
+msgstr "atrás"
+
+msgid "forward"
+msgstr "adiante"
+
+msgid "Criterion"
+msgstr "Criterio"
+
+msgid "BIC"
+msgstr "BIC"
+
+msgid "AIC"
+msgstr "AIC"
+
+#      "Models -> Subset model selection" dialog and menu item
+msgid "Subset model selection..."
+msgstr "Selección de modelo de subconxunto..."
+
+msgid "Subset Model Selection"
+msgstr "Selección de modelo de subconxunto"
+
+msgid "Criterion for Model Plot"
+msgstr "Criterio para trazado de modelo"
+
+msgid "Mallows Cp"
+msgstr "Mallows Cp"
+
+msgid "Adjusted R-sq."
+msgstr "R cadrado axustado."
+
+msgid "R-squared"
+msgstr "R cadrado"
+
+msgid "Number of best models\nof each size:"
+msgstr ""
+"Número de mellores modelos\n"
+"de cada tamaño:"
+
+msgid "Maximum size:"
+msgstr "Tamaño máximo:"
+
+#  	"Data -> Merge data sets" menu item and dialog
+msgid "Merge data sets..."
+msgstr "Fusionar conxuntos de datos..."
+
+msgid "Merge Data Sets"
+msgstr "Fusionar conxuntos de datos"
+
+msgid "First Data Set (pick one)"
+msgstr "Primeiro conxunto de datos (tomar un)"
+
+msgid "Second Data Set (pick one)"
+msgstr "Segundo conxunto de datos (tomar un)"
+
+msgid "Merge rows"
+msgstr "Combinar filas"
+
+msgid "Merge columns"
+msgstr "Combinar columnas"
+
+msgid "Direction of Merge"
+msgstr "Dirección da combinación"
+
+msgid "You cannot merge a data set with itself."
+msgstr "Non pode combinar un conxunto de datos por si mesmo."
+
+msgid "Name for merged data set:"
+msgstr "Nome do conxunto de datos combinado:"
+
+msgid "Merge only common\nrows or columns"
+msgstr ""
+"Combinar soamente filas\n"
+"ou columnas comúns"
+
+#  	"Data -> Active data set -> Aggregate variables in active data set" menu item and dialog
+msgid "Aggregate variables in active data set..."
+msgstr "Agregar variábeis no conxunto de datos activo..."
+
+msgid "Aggregate Observations"
+msgstr "Agregar observacións"
+
+msgid "Variables to aggregate\n(pick one or more)"
+msgstr ""
+"Variábeis para agregar\n"
+"(tomar unha ou máis)"
+
+msgid "Aggregate by\n(pick one or more)"
+msgstr ""
+"Agregar a\n"
+"(tomar unha ou máis)"
+
+msgid "Sum"
+msgstr "Suma"
+
+msgid "You must select at least one variable to aggregate."
+msgstr "Debe seleccionar cando menos unha variábel para agregar."
+
+msgid "You must select at least one variable to aggregate by."
+msgstr "Debe seleccionar cando menos unha variábel á que agregar."
+
+msgid "Variables to aggregate and those to aggregate by must be different."
+msgstr ""
+"As variábeis para agregar e as variábeis ás que agregar deben ser "
+"diferentes."
+
+msgid "Name for aggregated data set:"
+msgstr "Nome do conxunto de datos agregado:"
+
+#     miscellaneous 
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"Ficheiros de datos de R\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Todos os "
+"ficheiros\" {\"*\"}}"
+
+msgid "No data set selected."
+msgstr "Non hai ningún conxunto de datos seleccionado."
+
+msgid "Help on selected data set"
+msgstr "Axuda co conxunto de datos seleccionado"
+
+msgid "Population mean != mu0"
+msgstr "Media poboacional != mu0"
+
+msgid "Population proportion != p0"
+msgstr "Proporción da poboación != p0"
+
+msgid "Models do not have the same family."
+msgstr "Os modelos non teñen a mesma familia."
+
+msgid "Pairwise p-values\nfor Pearson or Spearman correlations"
+msgstr ""
+"Valores p emparellados\n"
+"para as correlacións Pearson ou Spearman"
+
+msgid "The Windows version of the R Commander works best under RGui\nwith the single-document interface (SDI); see ?Commander."
+msgstr ""
+"A versión para Windows de R Commander funciona mellor con RGui\n"
+"coa interface de documento único (SDI); véxase ?Commander."
+
+# messages added to version 1.6-0
+# for Levene test
+msgid "median"
+msgstr "mediana"
+
+msgid "Center"
+msgstr "Centro"
+
+# for scatterplot
+msgid "Smooth line"
+msgstr "Liña suavizada"
+
+msgid "Show spread"
+msgstr "Amosar extensión"
+
+# for AV plots
+msgid "Identify points with mouse?\nRight-click to exit."
+msgstr ""
+"Identificar puntos co rato?\n"
+"Botón dereito do rato para saír."
+
+# for interactive point identification
+msgid "Use left mouse button to identify points,\n"
+msgstr "Utilizar o botón esquerdo do rato para identificar puntos,\n"
+
+msgid "right button to exit."
+msgstr "botón dereito para saír."
+
+msgid "esc key to exit."
+msgstr "Tecla ESC para saír."
+
+# menus
+msgid "Start R help system"
+msgstr "Iniciar o sistema de axuda de R"
+
+# messages added to version 1.6-4 
+#  to correct order of file extensions
+msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
+msgstr "{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros de guión de execución\" {\".R\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
+msgstr "{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros de resultado\" {\".txt\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+msgstr ""
+"{\"Todos os ficheiros\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
+"\".csv\" \".CSV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgstr ""
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros portábeis de SPSS\" {\".por\" \".POR\"}} "
+"{\"Ficheiros SPSS\" {\".sav\" \".SAV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr ""
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros portábeis de Minitab\" {\".mtp\" "
+"\".MTP\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+msgstr ""
+"{\"Todos os ficheiros\" {\"*\"}} {\"Conxunto de datos STATA\" {\".dta\" \".DTA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr ""
+"{\"Todos os ficheiros\" {\"*\"}} {\"Base de datos MS Access\" {\".mdb\" \".MDB2}} "
+"{2Base de datos MS Access 2007\" {\".accdb\" \".ACCDB\"}} {\"Ficheiro tipo dBase\" "
+"{\".dbf\" \".DBF\"}} {\"Ficheiro de MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"Ficheiro "
+"de MS Excel\" {\".xls\" \".XLS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgstr ""
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros de datos de R\" {\".RData\" \".rda\" "
+"\".Rda\" \".RDA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
+msgstr "{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros PNG\" {\".png\" \".PNG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgstr ""
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros JPEG\" {\".jpg\" \".JPG\" \".jpeg\" "
+"\".JPEG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
+msgstr "{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros PDF\" {\".pdf\" \".PDF\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
+msgstr "{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros Postscript\" {\".ps\" \".PS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgstr ""
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros encapsulados de Postscript\" {\".eps\" "
+"\".EPS\"}}"
+
+# messages added to version 1.7-0
+msgid "Reset"
+msgstr "Restabelecer"
+
+msgid "Coefficient of Variation"
+msgstr "Coeficiente de variación"
+
+msgid "Skewness"
+msgstr "Asimetría"
+
+msgid "Kurtosis"
+msgstr "Exceso Curtose"
+
+msgid "Type 1"
+msgstr "Tipo 1"
+
+msgid "Type 2"
+msgstr "Tipo 2"
+
+msgid "Type 3"
+msgstr "Tipo 3"
+
+msgid "Missing Data"
+msgstr "Faltan os datos"
+
+msgid "Use complete cases"
+msgstr "Utilizar casos completos"
+
+msgid "Use pairwise-complete cases"
+msgstr "Utilizar casos completos emparaellados"
+
+# messages added to version 1.7-4
+msgid "Component scores are not available when subset is specified."
+msgstr ""
+"As puntuacións dos compoñentes non están dispoñíbeis cando se especifica un "
+"subconxunto de datos."
+
+msgid "Factor scores are not available when subset is specified."
+msgstr ""
+"As puntuacións dos factores non están dispoñíbeis cando se especifica un "
+"subconxunto de datos."
+
+# messages added to version 1.8-0
+msgid "Confirmatory Factor Analysis"
+msgstr "Análise de confirmación factorial"
+
+msgid "Fewer than 2 variables selected to load on factor."
+msgstr "Seleccionadas menos de 2 variábeis para cargar sobre o factor."
+
+msgid "Define factor"
+msgstr "Definir factor"
+
+msgid "Select variables\nloading on factor"
+msgstr ""
+"Seleccionar variábeis\n"
+"cargando sobre o factor"
+
+msgid "Covariance"
+msgstr "Covarianza"
+
+msgid "Correlation"
+msgstr "Correlación"
+
+msgid "Matrix to Analyze"
+msgstr "Matriz para analizar"
+
+msgid "Correlated"
+msgstr "Correlacionada"
+
+msgid "Orthogonal"
+msgstr "Ortogonal"
+
+msgid "Factor Correlations"
+msgstr "Correlacións de factores"
+
+msgid "There are too many factors."
+msgstr "Hai demasiados factores."
+
+msgid "Identifying Constraints"
+msgstr "Identificación de restricións"
+
+msgid "Factor variances set to 1"
+msgstr "Varianzas de factor definidas como 1"
+
+msgid "First loading on each factor set to 1"
+msgstr "Primeira carga de cada factor definida como 1"
+
+msgid "Confirmatory factor analysis..."
+msgstr "Análise de confirmación factorial..."
+
+# messages added to version 1.8-1
+# the following messages were omitted from version 1.8-0
+msgid "Robust standard errors"
+msgstr "Desviacións típicas robustas"
+
+msgid "No factors defined."
+msgstr "Non hai ningún factor definido."
+
+# message added to version 1.8-2
+msgid "Default-font size (points)"
+msgstr "Tamaño do tipo de letra (puntos) predeterminado"
+
+# message added to version 1.8-4
+msgid "data set edit error."
+msgstr "erro de edición no conxunto de datos."
+
+# messages added to version 1.9-0
+msgid "Identify Outliers"
+msgstr "Identificar anómalos"
+
+msgid "Automatically"
+msgstr "Automaticamente"
+
+msgid "With mouse"
+msgstr "Co rato"
+
+msgid "Width"
+msgstr "Largura"
+
+msgid "Height"
+msgstr "Altura"
+
+msgid "[disabled]"
+msgstr "[desactivado]"
+
+msgid "inches"
+msgstr "polgadas"
+
+msgid "inch"
+msgstr "polgada"
+
+msgid "cm"
+msgstr "cm"
+
+msgid "pixels"
+msgstr "píxels"
+
+msgid "Units"
+msgstr "Unidades"
+
+msgid "Fixed aspect ratio (height:width)"
+msgstr "Razón de proporción fixa (altura:largura)"
+
+msgid "Resolution"
+msgstr "Resolución"
+
+msgid "from SAS xport file..."
+msgstr "dun ficheiro de exportación SAS..."
+
+msgid "Data Set Name"
+msgstr "Nome do conxunto de datos"
+
+msgid "Select Dataset"
+msgstr "Seleccionar conxunto de datos"
+
+msgid "Datasets in file (pick one)"
+msgstr "Conxuntos de datos en ficheiro (tomar un)"
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgstr ""
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros de exportación SAS\" {\".xpt\" \".XPT\" "
+"\".xport\" \".XPORT\"}}"
+
+msgid "Convert variable names\nto lower case"
+msgstr ""
+"Converter nomes de variábel\n"
+"en minúsculas"
+
+msgid "from Excel file..."
+msgstr "dun ficheiro Excel..."
+
+msgid "Import Excel Data Set"
+msgstr "Importar conxunto de datos Excel"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr ""
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros de MS Excel 2007\" {\".xlsx\" "
+"\".XLSX\"}} {\"Ficheiros de MS Excel\" {\".xls\" \".XLS\"}}"
+
+msgid "Interquartile Range"
+msgstr "Rango intercuartílico"
+
+msgid "Interquartile range"
+msgstr "Rango intercuartílico"
+
+msgid "Lines"
+msgstr "Liña"
+
+msgid "Choose at least one of points or lines."
+msgstr "Escoller cando menos un dos puntos ou unha das liñas."
+
+msgid "Plot Type (one or both)"
+msgstr "Tipo de gráfico (un ou ambos)"
+
+# messages added to version 1.9-1 (missing from 1.9-0)
+msgid "Plot legend"
+msgstr "Lenda do gráfico"
+
+# the following were missing from Xyplot()
+msgid "Conditions '|' (pick zero or more)"
+msgstr "Condicións «|» (tomar unha ou ningunha)"
+
+msgid "Groups 'groups=' (pick zero or more)"
+msgstr "Grupos «groups=» (tomar un ou ningún)"
+
+msgid "Different panels for different y ~ x combinations"
+msgstr "Paneis diferentes para combinacións de y ~ x diferentes"
+
+msgid "Layout"
+msgstr "Deseño"
+
+msgid "number of columns:"
+msgstr "número de columnas:"
+
+msgid "number of rows:"
+msgstr "número de filas:"
+
+# messages added to version 2.0-0
+msgid "Plot Options"
+msgstr "Opcións de gráfico"
+
+msgid "Plot Labels"
+msgstr "Etiquetas de gráfico"
+
+msgid "Graph title"
+msgstr "Título da gráfica"
+
+msgid "Plot Labels and Points"
+msgstr "Trazar etiquetas e puntos"
+
+msgid "Apply"
+msgstr "Aplicar"
+
+msgid "Pairwise p-values"
+msgstr "Valores p emparellados"
+
+msgid "Observations to Use"
+msgstr "Observacións para utilizar"
+
+msgid "Complete observations"
+msgstr "Observacións completas"
+
+msgid "Pairwise-complete observations"
+msgstr "Observacións de emparellados completos"
+
+msgid "R Script"
+msgstr "Guión de R"
+
+msgid "Output"
+msgstr "Resultados"
+
+msgid "R Commander website"
+msgstr "Sitio web de R Commander"
+
+msgid "R website"
+msgstr "Sitio web de R"
+
+msgid "Using R Markdown"
+msgstr "Utilización de Markdown de R"
+
+msgid "Table"
+msgstr "Táboa"
+
+# point identification in graphs (additional messages)
+msgid "Interactively with mouse"
+msgstr "Interactivamente co rato"
+
+msgid "Do not identify"
+msgstr "Non identificar"
+
+msgid "number of points to identify must be an integer"
+msgstr "o número de puntos que identificar debe ser un enteiro"
+
+msgid "Number of points to identify"
+msgstr "Número de puntos que identificar"
+
+msgid "Number of points to identify  \nin each panel and group "
+msgstr ""
+"Número de puntos que identificar  \n"
+"en cada panel e grupo "
+
+msgid "Added-Variable Plots"
+msgstr "Gráficos de variábel agregada"
+
+msgid "Component+Residual Plots"
+msgstr "Gráficos de compoñente+residuo"
+
+msgid "Influence Plot"
+msgstr "Gráfico de influencia"
+
+# support for R Markdown and knitr
+msgid "Generate HTML report"
+msgstr "Xerar informe en HTML"
+
+msgid "Generate PDF report"
+msgstr "Xerar informe en PDF"
+
+msgid "R Markdown"
+msgstr "Markdown de R"
+
+msgid "knitr Document"
+msgstr "Documento knitr"
+
+msgid "Open R Markdown file..."
+msgstr "Abrir un ficheiro de Markdown de R..."
+
+msgid "Open knitr file..."
+msgstr "Abrir un ficheiro knitr..."
+
+msgid "Save R Markdown file..."
+msgstr "Gardar o ficheiro de Markdown de R..."
+
+msgid "Save knitr file..."
+msgstr "Gardar o ficheiro knitr..."
+
+msgid "Save knitr file?"
+msgstr "Gardar o ficheiro knitr?"
+
+msgid "Save current Rmd file?"
+msgstr "Gardar o ficheiro Rmd actual?"
+
+msgid "Save current Rnw file?"
+msgstr "Gardar o ficheiro Rnw actual?"
+
+msgid "Save R Markdown file as..."
+msgstr "Gardar o ficheiro de Markdown de R como..."
+
+msgid "Save knitr file as..."
+msgstr "Gardar o ficheiro knitr como..."
+
+msgid "R Markdown file saved to"
+msgstr "Gardouse o ficheiro de Markdown de R en"
+
+msgid "knitr file saved to"
+msgstr "Gardouse o ficheiro knitr en"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr ""
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros de Markdown de R\" {\".Rmd\" \".rmd\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+msgstr ""
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros knitr\" {\".Rmd\" \".rmd\" \".Snw\" "
+"\".snw\"}}"
+
+msgid "Delete previously created knitr\ngraphics files (recommended)?"
+msgstr ""
+"Eliminar os ficheiros knitr\n"
+"creados previamente (recomendado)?"
+
+# setting and saving options
+msgid "Ask to exit Commander"
+msgstr "Preguntar ao saír de Commander"
+
+msgid "Ask to save documents on exit"
+msgstr "Preguntar sobre gardar documentos ao saír"
+
+msgid "Quit R on exit"
+msgstr "Saír tamén de R ao saír"
+
+msgid "Number messages"
+msgstr "Número de mensaxes"
+
+msgid "Retain messages"
+msgstr "Reter mensaxes"
+
+msgid "Use R Markown"
+msgstr "Utilizar o marcado R"
+
+msgid "Use knitr"
+msgstr "Utilizar knitr"
+
+msgid "Select file"
+msgstr "Seleccionar ficheiro"
+
+msgid "R Markdown template file"
+msgstr "Ficheiro modelo de Markdown de R"
+
+msgid "R knitr template file"
+msgstr "Ficheiro modelo de knitr de R"
+
+msgid "Suppress icon images"
+msgstr "Suprimir as iconas"
+
+msgid "Retain dialog selections"
+msgstr "Reter as seleccións"
+
+msgid "Use rgl package"
+msgstr "Utilizar o paquete rgl"
+
+msgid "Dialog text font size (points)"
+msgstr "Tamaño do texto nos diálogos (en puntos)"
+
+msgid "Script and output font size (points)"
+msgstr "Tamaño de letra no guión de execución e de resultado (en puntos)"
+
+msgid "Dialog font"
+msgstr "Tipo de letra do diálogo"
+
+msgid "Script and output font"
+msgstr "Tipo de letra do guión de execución e de resultado"
+
+msgid "Script text color"
+msgstr "Cor do texto do guión"
+
+msgid "Command text color"
+msgstr "Cor de texto das ordes"
+
+msgid "Output text color"
+msgstr "Cor de texto da resultado"
+
+msgid "Error text color"
+msgstr "Cor de texto de errores"
+
+msgid "Warning text color"
+msgstr "Cor de texto de advertencia"
+
+msgid "Dialog subtitles text color"
+msgstr "Cor de texto dos subtítulos do diálogo"
+
+msgid "Script window width (characters)"
+msgstr "Largura da xanela do guión de execución (caracteres)"
+
+msgid "Script window height (lines)"
+msgstr "Altura da xanela do guión de execución (liñas)"
+
+msgid "Output window height (lines)"
+msgstr "Altura da xanela de resultados (liñas)"
+
+msgid "Messages window height (lines)"
+msgstr "Altura da xanela de mensaxes (liñas)"
+
+msgid "Fonts"
+msgstr "Tipos de letra"
+
+msgid "Other Options"
+msgstr "Outras opcións"
+
+msgid "Save Commander Options"
+msgstr "Gardar as opcións do Commander"
+
+msgid "R Profile saved to"
+msgstr "Gardouse o perfil de R en"
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr "No ficheiro .Rprofile gardaranse as seguintes ordes."
+
+msgid "You may edit this file before saving it."
+msgstr "Pode editar este ficheiro antes de o gardar."
+
+msgid "Save Rcmdr options..."
+msgstr "Gardar as opcións do Rcmdr..."
+
+# density estimate dialog
+msgid "Nonparametric Density Estimate"
+msgstr "Estimación de densidade non paramétrica"
+
+msgid "Gaussian"
+msgstr "Gausiano"
+
+msgid "Epanechnikov"
+msgstr "Epanechnikov"
+
+msgid "Tukey biweight"
+msgstr "Tukey biponderado"
+
+msgid "Kernel Function"
+msgstr "Función núcleo"
+
+msgid "Bandwidth"
+msgstr "Largo de banda"
+
+msgid "Multiply bandwidth by"
+msgstr "Multiplicar o largo de banda por"
+
+msgid "Density estimate..."
+msgstr "Estimar a densidade..."
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr "O largo de banda debe ser <auto> ou un número positivo"
+
+# index plot dialog
+msgid "Style of plot"
+msgstr "Estilo de gráfico"
+
+# export data set dialog
+msgid "Write variable names"
+msgstr "Escribir os nomes de variábeis"
+
+msgid "Write row names"
+msgstr "Escribir os nomes das filas"
+
+msgid "Quotes around character values"
+msgstr "Rodear con comiñas os valores que son carácter"
+
+# numerical summaries dialog
+msgid "Quantiles:"
+msgstr "Cuantís:"
+
+# for splines and polynomials in model formulas
+msgid "spline requires a numeric variable"
+msgstr "A estimación por partes (spline) require unha variábel numérica"
+
+msgid "cannot select more than one variable"
+msgstr "Non se pode seleccionar máis ca unha variábel"
+
+msgid "polynomial requires a numeric variable"
+msgstr "A polinomial require unha variábel numérica"
+
+msgid "B-spline\n"
+msgstr "Spline-B\n"
+
+msgid "natural\nspline"
+msgstr ""
+"Spline\n"
+"natural"
+
+msgid "orthogonal\npolynomial"
+msgstr ""
+"Ortogonal\n"
+"polinomial"
+
+msgid "raw\npolynomial"
+msgstr ""
+"Bruta\n"
+"polinomial"
+
+msgid "Model Formula"
+msgstr "Fórmula do modelo"
+
+msgid "Operators (click to formula):"
+msgstr "Operadores (prema para formular):"
+
+msgid "Splines/Polynomials:\n(select variable and click)"
+msgstr ""
+"Por partes/Polinomiais:\n"
+"(seleccione a variábel e prema)"
+
+msgid "df for splines:"
+msgstr "df para divisón por partes:"
+
+msgid "deg. for polynomials:"
+msgstr "g. de polinomiais:"
+
+# messages added to version 2.0-1
+# messages related to editing/processing R Markdown and knitr documents
+msgid "R Commander Editor"
+msgstr "Editor de R Commander"
+
+msgid "Edit R Markdown document"
+msgstr "Editar o documento de Markdown de R"
+
+msgid "Edit knitr document"
+msgstr "Editar o documento de knitr"
+
+msgid "Remove last Markdown command block"
+msgstr "Retirar o último bloque de ordes con Markdown"
+
+msgid "Remove last knitr command block"
+msgstr "Retirar o último bloque de ordes de knitr"
+
+msgid "Remove last command block"
+msgstr "Retirar o bloque da última orde"
+
+msgid "Exit editor"
+msgstr "Saír do editor"
+
+msgid "Editor help"
+msgstr "Axuda do editor"
+
+msgid "Delete previously created R Markdown\ngraphics files (recommended)?"
+msgstr ""
+"Eliminar o Markdown de R previamente creado\n"
+"nos ficheiros gráficos (recomendado)?"
+
+msgid "Discard edits?"
+msgstr "Desbotar as edicións?"
+
+# support for back-to-back stem-and-leaf displays
+msgid "Plot back-to-back by:"
+msgstr "Trazar consecutivamente:"
+
+msgid "Plot back-to-back by"
+msgstr "Trazar consecutivamente"
+
+# messages added for version 2.1-0
+# the next two messages no longer needed and can be disregarded if not already translated
+#msgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
+#msgstr ""
+#msgid "the car package is missing and should be installed\n  many features will not work"
+#msgstr ""
+# for numerical summaries dialog
+msgid "Standard Error of Mean"
+msgstr "Erro estándar de media"
+
+# for CFA dialog
+msgid "Fit Indices"
+msgstr "Axustar índices"
+
+# for read Excel file dialog
+msgid "Variable names in first row of spreadsheet"
+msgstr "Nomes de variábeis na primeira fila da folla de cálculo"
+
+msgid "Row names in first column of spreadsheet"
+msgstr "Nomes de filas na primeira columna da folla de cálculo"
+
+# for selecting weights in LM and GLM dialogs
+msgid "<no variable selected>"
+msgstr "<Non hai ningunha variábel seleccionada>"
+
+msgid "Weights"
+msgstr "Pesos"
+
+# new effect-plots dialog
+msgid "Model Effect Plots"
+msgstr "Gráficos modelo de efectos"
+
+msgid "Plot All High-Order Effects?"
+msgstr "Trazar todos os efectos de alta orde?"
+
+msgid "Predictors (pick one or more)"
+msgstr "Preditores (tomar un ou máis)"
+
+msgid "You must select one or more predictors\n or plot all high-order effects."
+msgstr ""
+"Debe seleccionar un ou máis preditores\n"
+" ou trazar todos os efectos de alta orde."
+
+msgid "To plot partial residuals,\n there must be a least one numeric predictor."
+msgstr ""
+"Para trazar residuos parciais,\n"
+" debe haber cando menos un preditor numérico."
+
+msgid "Plot partial residuals"
+msgstr "Trazar residuos parciais"
+
+msgid "Style of Graph"
+msgstr "Estilo de gráfica"
+
+msgid "Stacked areas"
+msgstr "Áreas amoreadas"
+
+msgid "Lines with confidence bands"
+msgstr "Liñas con bandas de confianza"
+
+# new one-sample Wilcoxon test dialog
+msgid "Single-Sample Wilcoxon Test"
+msgstr "Test de Wilcoxon para unha mostra única"
+
+msgid "Single-sample Wilcoxon test..."
+msgstr "Test de Wilcoxon de mostra única..."
+
+# new drop unused factor levels dialog
+msgid "Drop Unused Factor Levels"
+msgstr "Desbotar niveis de factor sen uso"
+
+msgid "Factors(s) to drop levels (pick one or more)"
+msgstr "Factor(es) dos que descartar niveis (tomar un ou máis)"
+
+msgid "Drop unused factor levels\nPlease confirm."
+msgstr ""
+"Desbotar niveis de factores sen uso\n"
+"Confirme, por favor."
+
+msgid "Drop unused factor levels..."
+msgstr "Desbotar niveis de factor sen uso..."
+
+msgid "all factors"
+msgstr "todos os factores"
+
+# messages related to sandwich variance estimator
+msgid "Linear Model Summary"
+msgstr "Resumo de modelo lineal"
+
+msgid "Sandwich estimator"
+msgstr "Estimador sandwich"
+
+msgid "Use sandwich estimator of    \ncoefficient standard errors"
+msgstr ""
+"Utilizar o estimador sandwich de    \n"
+"erros de coeficiente estándar"
+
+msgid "Use sandwich estimator of\ncoefficient covariance matrix   "
+msgstr ""
+"Utilizar o estimador sandwich do\n"
+"coeficiente da matriz de covarianza   "
+
+msgid "sandwich covariance matrix unavailable with type I tests"
+msgstr ""
+"A matriz de covarianza sandwich non está dispoñíbel para os tests de tipo I"
+
+# messages related to ttk theme selection
+msgid "non-existent theme"
+msgstr "tema inexistente"
+
+msgid "theme set to"
+msgstr "estabelecer como tema"
+
+# modified message
+msgid "Restart R Commander"
+msgstr "Reiniciar R Commander"
+
+# formula-help button
+msgid "Model formula\nhelp"
+msgstr ""
+"Fórmula do modelo\n"
+"axuda"
+
+# messages added for version 2.1-1
+# messages for the new dataset editor
+msgid "Data Editor"
+msgstr "Editor de datos"
+
+msgid "Delete current row"
+msgstr "Eliminar a fila actual"
+
+msgid "Delete current column"
+msgstr "Eliminar a columna actual"
+
+msgid "Delete cell"
+msgstr "Eliminar cela"
+
+msgid "Cut cell"
+msgstr "Cortar cela"
+
+msgid "Copy cell"
+msgstr "Copiar cela"
+
+msgid "Paste cell"
+msgstr "Pegar cela"
+
+msgid "Exit and save"
+msgstr "Saír e gardar"
+
+msgid "Add row"
+msgstr "Engadir fila"
+
+msgid "Add column"
+msgstr "Engadir columna"
+
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Xestionar a funcionalidade app nap de R.app en Mac OS X..."
+
+msgid "Mac OS X app nap for R.app"
+msgstr "App nap de R.app en Mac OS X"
+
+msgid "Set app nap"
+msgstr "Configurar app nap"
+
+msgid "off (recommended)"
+msgstr "apagada (recomendado)"
+
+msgid "on"
+msgstr "acesa"
+
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr "Estabelecer semente do xerador de número aleatorio..."
+
+msgid "Set Random Number Generator Seed"
+msgstr "Estabelecer a semente do xerador de número aleatorio"
+
+# messages added for version 2.2-0
+# messages that were inadvertently missing in previous versions
+msgid "The following variable names are not valid:\n"
+msgstr "Os seguintes nomes de variábeis non son válidos:\n"
+
+msgid "Save R Markdown file?"
+msgstr "Gardar o ficheiro de Markdown de R?"
+
+msgid "Theme (pick one)"
+msgstr "Modelo (tome un)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "Ambos o ningún dos valores de deseño deben ser números."
+
+msgid "ANOVA Table"
+msgstr "Táboa de ANOVA"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr "Non hai ningún método outlierTest para un modelo desta clase."
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Test de normalidade Shapiro-Wilk"
+
+msgid "Hypothesis Test"
+msgstr "Test de hipóteses"
+
+msgid "Load Plug-ins"
+msgstr "Cargar os engadidos"
+
+# for report generation
+msgid "Generate report"
+msgstr "Xerar informe"
+
+msgid "Install Auxiliary Software"
+msgstr "Instalar software auxiliar"
+
+msgid "Install auxiliary software..."
+msgstr "Instalar software auxiliar..."
+
+msgid "(already installed)"
+msgstr "(xa está instalado)"
+
+msgid "LaTeX"
+msgstr "LaTeX"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "Software para instalar"
+
+msgid "Please read the help for this dialog\nbefore installing auxiliary software."
+msgstr ""
+"Consulte a axuda desta sección antes\n"
+"de instalar software adicional."
+
+msgid "Select Output Format"
+msgstr "Selecciona o formato de saída"
+
+msgid ".html (web page)"
+msgstr ".html (páxina web)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (ficheiro PDF)"
+
+msgid ".docx (Word file)"
+msgstr ".docx (ficheiro de Word)"
+
+msgid "HTML file written to:"
+msgstr "Gardar o ficheiro HTML en:"
+
+msgid "PDF file written to:"
+msgstr "Gardar o ficheiro PDF en:"
+
+msgid "Word file written to:"
+msgstr "Gardar o ficheiro Word en:"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid "Levels for ellipses must be numeric values\n  separated by spaces or commas."
+msgstr ""
+"Os niveis para as elipses deben ser valores numéricos\n"
+"  separados por espazos ou comas."
+
+msgid "Plot concentration ellipse(s)"
+msgstr "Trazar a(s) elipse(s) de concentración"
+
+msgid "Concentration levels:"
+msgstr "Niveis de concentración:"
+
+msgid "Legend Position"
+msgstr "Posición da lenda"
+
+msgid "Above plot"
+msgstr "Enriba do gráfico"
+
+msgid "Top left"
+msgstr "Arriba á esquerda"
+
+msgid "Top right"
+msgstr "Arriba á dereita"
+
+msgid "Bottom left"
+msgstr "Abaixo á esquerda"
+
+msgid "Bottom right"
+msgstr "Abaixo á dereita"
+
+# additions to bargraph dialog
+msgid "Style of Group Bars"
+msgstr "Estilo do grupo de barras"
+
+msgid "Divided (stacked)"
+msgstr "Dividido (amoreado)"
+
+msgid "Side-by-side (parallel)"
+msgstr "Lado a lado (paralelo)"
+
+msgid "Position of Legend"
+msgstr "Posición da lenda"
+
+msgid "Left"
+msgstr "Esquerda"
+
+msgid "Right"
+msgstr "Dereita"
+
+msgid "plotting and grouping variables must be different"
+msgstr "As variábeis de grupos e de gráficos deben ser diferentes."
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "Gráfico de puntos"
+
+msgid "Bin variable"
+msgstr "Variábel binaria"
+
+msgid "Dot plot..."
+msgstr "Gráfico de puntos..."
+
+# for reading Excel files (new dialog)
+msgid "Convert character data to factors"
+msgstr "Converter datos de caracteres a factores"
+
+msgid "<empty cell>"
+msgstr "<cela baleira>"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+msgstr ""
+"{\"Todos os ficheiros\" {\"*\"}} {\"Ficheiros de MS Excel\" {\".xlsx\" \".XLSX\" "
+"\".xls\" \".XLS\"}}"

@@ -1,0 +1,38 @@
+Package: Rcmdr
+Version: 2.7-1
+Date: 2020-09-17
+Title: R Commander
+Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaster.ca"),
+    person("Milan", "Bouchet-Valat", role = "aut"),
+    person("Liviu", "Andronic", role = "ctb"),
+    person("Michael", "Ash", role = "ctb"),
+    person("Theophilius", "Boye", role = "ctb"),
+    person("Stefano", "Calza", role = "ctb"),
+    person("Andy", "Chang", role = "ctb"),
+    person("Vilmantas", "Gegzna", role = "ctb"),
+    person("Philippe", "Grosjean", role = "ctb"),
+    person("Richard", "Heiberger", role = "ctb"),
+    person("Kosar", "Karimi Pour", role = "ctb"),
+    person("G. Jay", "Kerns", role = "ctb"),
+    person("Renaud", "Lancelot", role = "ctb"),
+    person("Matthieu", "Lesnoff", role = "ctb"),
+    person("Uwe", "Ligges", role = "ctb"),
+    person("Samir", "Messad", role = "ctb"),
+    person("Martin", "Maechler", role = "ctb"),
+    person("Robert", "Muenchen", role = "ctb"),
+    person("Duncan", "Murdoch", role = "ctb"),
+    person("Erich", "Neuwirth", role = "ctb"),
+    person("Dan", "Putler", role = "ctb"),
+    person("Brian", "Ripley", role = "ctb"),
+    person("Miroslav", "Ristic", role = "ctb"),
+    person("Peter", "Wolf", role = "ctb"),
+    person("Kevin", "Wright", role="ctb")
+   )
+Depends: R (>= 3.5.0), grDevices, graphics, methods, stats, utils, splines, RcmdrMisc (>= 2.7-1), car (>= 3.0-8), effects (>= 4.0-3)
+Imports: tcltk, tcltk2 (>= 1.2-6), abind, relimp (>= 1.0-5), lme4
+Suggests: aplpack, boot, colorspace, e1071, foreign, grid, Hmisc, knitr, lattice, leaps, lmtest, markdown, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, nortest, readxl, rgl (>= 0.96.0), rmarkdown (>= 0.9.5), sem (>= 2.1-1) 
+ByteCompile: yes
+Description:
+  A platform-independent basic-statistics GUI (graphical user interface) for R, based on the tcltk package.
+License: GPL (>= 2)
+URL: https://www.r-project.org, https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/, https://socialsciences.mcmaster.ca/jfox/Books/RCommander/

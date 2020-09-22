@@ -1,0 +1,312 @@
+%% the original of this file provided by Manuel Munoz Marquez
+%% last update: 2019-08-15 by J. Fox
+
+<<echo=F>>=
+library('Rcmdr')
+gm <- function(x) {
+  gettext(paste0(x, '...'), domain='R-Rcmdr')
+  }
+gt <- function(x) {
+  gettext(x, domain='R-Rcmdr')
+  }
+@
+\begin{verbatim}
+\Sexpr{gt('File')}
+ |- \Sexpr{gm('Change working directory')}
+ |- \Sexpr{gm('Open script file')}
+ |- \Sexpr{gm('Save script')}
+ |- \Sexpr{gm('Save script as')}
+ |- \Sexpr{gm('Open R Markdown file')}
+ |- \Sexpr{gm('Save R Markdown file')}
+ |- \Sexpr{gm('Save R Markdown file as')}
+ |- \Sexpr{gm('Save output')}
+ |- \Sexpr{gm('Save output as')}
+ |- \Sexpr{gm('Save R workspace')}
+ |- \Sexpr{gm('Save R workspace as')}
+ |- \Sexpr{gt('Exit')} 
+ | |- \Sexpr{gt('From Commander')}
+ | |- \Sexpr{gt('From Commander and R')}
+\Sexpr{gt('Edit')} 
+ |- \Sexpr{gt('Edit R Markdown document')}
+ |- \Sexpr{gt('Edit knitr document')}
+ |- \Sexpr{gt('Remove last Markdown command block')}
+ |- \Sexpr{gt('Remove last knitr command block')}
+ |- \Sexpr{gt('Cut')}
+ |- \Sexpr{gt('Copy')}
+ |- \Sexpr{gt('Paste')}
+ |- \Sexpr{gt('Delete')}
+ |- \Sexpr{gt('Find')}
+ |- \Sexpr{gt('Select all')}
+ |- \Sexpr{gt('Undo')}
+ |- \Sexpr{gt('Redo')}
+ |- \Sexpr{gt('Clear window')}
+\Sexpr{gt('Data')} 
+ |- \Sexpr{gm('New data set')}
+ |- \Sexpr{gm('Load data set')}
+ |- \Sexpr{gm('Merge data sets')}
+ |- \Sexpr{gt('Import data')} 
+ | |- \Sexpr{gm('from text file, clipboard, or URL')}
+ | |- \Sexpr{gm('from SPSS data set')}
+ | |- \Sexpr{gm('from SAS xport file')}
+ | |- \Sexpr{gm('from SAS b7dat file')}
+ | |- \Sexpr{gm('from Minitab data set')}
+ | |- \Sexpr{gm('from STATA data set')}
+ | |- \Sexpr{gm('from Excel file')}
+ |- \Sexpr{gt('Data in packages')} 
+ | |- \Sexpr{gt('List data sets in packages')}
+ | |- \Sexpr{gm('Read data set from an attached package')}
+ |- \Sexpr{gt('Active data set')} 
+ | |- \Sexpr{gm('View data')}
+ | |- \Sexpr{gm('Select active data set')}
+ | |- \Sexpr{gt('Refresh active data set')}
+ | |- \Sexpr{gt('Help on active data set (if available)')}
+ | |- \Sexpr{gt('Variables in active data set')}
+ | |- \Sexpr{gm('Set case names')}
+ | |- \Sexpr{gm('Subset active data set')}
+ | |- \Sexpr{gm('Sort active data set')}
+ | |- \Sexpr{gm('Aggregate variables in active data set')}
+ | |- \Sexpr{gm('Remove row(s) from active data set')}
+ | |- \Sexpr{gm('Stack variables in active data set')}
+ | |- \Sexpr{gm('Remove cases with missing data')}
+ | |- \Sexpr{gm('Save active data set')}
+ | |- \Sexpr{gm('Export active data set')}
+ |- \Sexpr{gt('Manage variables in active data set')} 
+ | |- \Sexpr{gm('Recode variables')}
+ | |- \Sexpr{gm('Compute new variable')}
+ | |- \Sexpr{gt('Add observation numbers to data set')}
+ | |- \Sexpr{gm('Standardize variables')}
+ | |- \Sexpr{gm('Convert numeric variables to factors')}
+ | |- \Sexpr{gm('Bin numeric variable')}
+ | |- \Sexpr{gm('Reorder factor levels')}
+ | |- \Sexpr{gm('Drop unused factor levels')}
+ | |- \Sexpr{gm('Define contrasts for a factor')}
+ | |- \Sexpr{gm('Rename variables')}
+ | |- \Sexpr{gm('Delete variables from data set ')}
+\Sexpr{gt('Statistics')} 
+ |- \Sexpr{gt('Summaries')} 
+ | |- \Sexpr{gt('Active data set')}
+ | |- \Sexpr{gm('Numerical summaries')}
+ | |- \Sexpr{gm('Frequency distributions')}
+ | |- \Sexpr{gt('Count missing observations')}
+ | |- \Sexpr{gm('Table of statistics')}
+ | |- \Sexpr{gm('Correlation matrix')}
+ | |- \Sexpr{gm('Correlation test')}
+ | |- \Sexpr{gm('Test of normality')}
+ | |- \Sexpr{gm('Transform toward normality')}
+ |-\Sexpr{gt('Contingency tables')} 
+ | |- \Sexpr{gm('Two-way table')}
+ | |- \Sexpr{gm('Multi-way table')}
+ | |- \Sexpr{gm('Enter and analyze two-way table')}
+ |- \Sexpr{gt('Means')} 
+ | |- \Sexpr{gm('Single-sample t-test')}
+ | |- \Sexpr{gm('Independent samples t-test')}
+ | |- \Sexpr{gm('Paired t-test')}
+ | |- \Sexpr{gm('One-way ANOVA')}
+ | |- \Sexpr{gm('Multi-way ANOVA')}
+ |- \Sexpr{gt('Proportions')} 
+ | |- \Sexpr{gm('Single-sample proportion test')}
+ | |- \Sexpr{gm('Two-sample proportions test')}
+ |- \Sexpr{gt('Variances')} 
+ | |- \Sexpr{gm('Two-variances F-test')}
+ | |- \Sexpr{gm('Bartlett\'s test')}
+ | |- \Sexpr{gm('Levene\'s test')}
+ |- \Sexpr{gt('Nonparametric tests')} 
+ | |- \Sexpr{gm('Two-sample Wilcoxon test')}
+ | |- \Sexpr{gm('Single-sample Wilcoxon test')}
+ | |- \Sexpr{gm('Paired-samples Wilcoxon test')}
+ | |- \Sexpr{gm('Kruskal-Wallis test')}
+ | |- \Sexpr{gm('Friedman rank-sum test')}
+ |- \Sexpr{gt('Dimensional analysis')} 
+ | |- \Sexpr{gm('Scale reliability')}
+ | |- \Sexpr{gm('Principal-components analysis')}
+ | |- \Sexpr{gm('Factor analysis')}
+ | |- \Sexpr{gm('Confirmatory factor analysis')}
+ | |- \Sexpr{gt('Cluster analysis')} 
+ | | |- \Sexpr{gm('k-means cluster analysis')}
+ | | |- \Sexpr{gm('Hierarchical cluster analysis')}
+ | | |- \Sexpr{gm('Summarize hierarchical clustering')}
+ | | |- \Sexpr{gm('Add hierarchical clustering to data set')}
+ |- \Sexpr{gt('Fit models')} 
+ | |- \Sexpr{gm('Linear regression')}
+ | |- \Sexpr{gm('Linear model')}
+ | |- \Sexpr{gm('Generalized linear model')}
+ | |- \Sexpr{gm('Multinomial logit model')}
+ | |- \Sexpr{gm('Ordinal regression model')}
+ | |- \Sexpr{gm('Linear mixed model')}
+ | |- \Sexpr{gm('Generalized linear mixed model')}
+\Sexpr{gt('Graphs')} 
+ |- \Sexpr{gm('Color palette')}
+ |- \Sexpr{gm('Index plot')}
+ |- \Sexpr{gm('Dot plot')}
+ |- \Sexpr{gm('Histogram')}
+ |- \Sexpr{gm('Plot discrete numeric variable...')}
+ |- \Sexpr{gm('Density estimate')}
+ |- \Sexpr{gm('Stem-and-leaf display')}
+ |- \Sexpr{gm('Boxplot')}
+ |- \Sexpr{gm('Quantile-comparison plot')}
+ |- \Sexpr{gm('Symmetry boxplot')}
+ |- \Sexpr{gm('Scatterplot')}
+ |- \Sexpr{gm('Scatterplot matrix')}
+ |- \Sexpr{gm('Line graph')}
+ |- \Sexpr{gm('XY conditioning plot')}
+ |- \Sexpr{gm('Plot of means')}
+ |- \Sexpr{gm('Strip chart')}
+ |- \Sexpr{gm('Bar graph')}
+ |- \Sexpr{gm('Pie chart')}
+ |- \Sexpr{gt('3D graph')} 
+ | |- \Sexpr{gm('3D scatterplot')}
+ | |- \Sexpr{gt('Identify observations with mouse')}
+ | |- \Sexpr{gt('Save graph to file')}
+ |- \Sexpr{gt('Save graph to file')} 
+ | |- \Sexpr{gm('as bitmap')}
+ | |- \Sexpr{gm('as PDF/Postscript/EPS')}
+ | |- \Sexpr{gm('3D RGL graph')}
+\Sexpr{gt('Models')} 
+ |- \Sexpr{gm('Select active model')}
+ |- \Sexpr{gt('Summarize model')}
+ |- \Sexpr{gm('Compare model coefficients')}
+ |- \Sexpr{gm('Add observation statistics to data')}
+ |- \Sexpr{gt('Akaike Information Criterion (AIC)')}
+ |- \Sexpr{gt('Bayesian Information Criterion (BIC)')}
+ |- \Sexpr{gm('Stepwise model selection')}
+ |- \Sexpr{gm('Subset model selection')}
+ |- \Sexpr{gm('Confidence intervals...')}
+ |- \Sexpr{gm('Bootstrap confidence intervals')}
+ |- \Sexpr{gm('Delta method confidence interval')}
+ |- \Sexpr{gt('Hypothesis tests')} 
+ | |- \Sexpr{gm('ANOVA table')}
+ | |- \Sexpr{gm('Compare two models')}
+ | |- \Sexpr{gm('Linear hypothesis')}
+ |- \Sexpr{gt('Numerical diagnostics')} 
+ | |- \Sexpr{gt('Variance-inflation factors')}
+ | |- \Sexpr{gm('Breusch-Pagan test for heteroscedasticity')}
+ | |- \Sexpr{gm('Durbin-Watson test for autocorrelation')}
+ | |- \Sexpr{gm('RESET test for nonlinearity')}
+ | |- \Sexpr{gt('Bonferroni outlier test')}
+ | |- \Sexpr{gt('Response transformation')}
+ |- \Sexpr{gt('Graphs')} 
+ | |- \Sexpr{gt('Basic diagnostic plots')}
+ | |- \Sexpr{gm('Residual quantile-comparison plot')}
+ | |- \Sexpr{gm('Component+residual plots')}
+ | |- \Sexpr{gm('Added-variable plots')}
+ | |- \Sexpr{gm('Influence plot')}
+ | |- \Sexpr{gm('Influence index plot')} 
+ | |- \Sexpr{gm('Effect plots')}
+ | |- \Sexpr{gm('Predictor effect plots')}
+\Sexpr{gt('Distributions')} 
+ |- \Sexpr{gm('Set random number generator seed')}
+ |- \Sexpr{gt('Continuous distributions')} 
+ | |- \Sexpr{gt('Normal distribution')} 
+ | | |- \Sexpr{gm('Normal quantiles')}
+ | | |- \Sexpr{gm('Normal probabilities')}
+ | | |- \Sexpr{gm('Plot normal distribution')}
+ | | |- \Sexpr{gm('Sample from normal distribution')}
+ | |- \Sexpr{gt('t distribution')} 
+ | | |- \Sexpr{gm('t quantiles')}
+ | | |- \Sexpr{gm('t probabilities')}
+ | | |- \Sexpr{gm('Plot t distribution')}
+ | | |- \Sexpr{gm('Sample from t distribution')}
+ | |- \Sexpr{gt('Chi-squared distribution')} 
+ | | |- \Sexpr{gm('Chi-squared quantiles')}
+ | | |- \Sexpr{gm('Chi-squared probabilities')}
+ | | |- \Sexpr{gm('Plot chi-squared distribution')}
+ | | |- \Sexpr{gm('Sample from chi-squared distribution')}
+ | |- \Sexpr{gt('F distribution')} 
+ | | |- \Sexpr{gm('F quantiles')}
+ | | |- \Sexpr{gm('F probabilities')}
+ | | |- \Sexpr{gm('Plot F distribution')}
+ | | |- \Sexpr{gm('Sample from F distribution')}
+ | |- \Sexpr{gt('Exponential distribution')} 
+ | | |- \Sexpr{gm('Exponential quantiles')}
+ | | |- \Sexpr{gm('Exponential probabilities')}
+ | | |- \Sexpr{gm('Plot exponential distribution')}
+ | | |- \Sexpr{gm('Sample from exponential distribution')}
+ | |- \Sexpr{gt('Uniform distribution')} 
+ | | |- \Sexpr{gm('Uniform quantiles')}
+ | | |- \Sexpr{gm('Uniform probabilities')}
+ | | |- \Sexpr{gm('Plot uniform distribution')}
+ | | |- \Sexpr{gm('Sample from uniform distribution')}
+ | |- \Sexpr{gt('Beta distribution')} 
+ | | |- \Sexpr{gm('Beta quantiles')}
+ | | |- \Sexpr{gm('Beta probabilities')}
+ | | |- \Sexpr{gm('Plot beta distribution')}
+ | | |- \Sexpr{gm('Sample from beta distribution')}
+ | |- \Sexpr{gt('Cauchy distribution')} 
+ | | |- \Sexpr{gm('Cauchy quantiles')}
+ | | |- \Sexpr{gm('Cauchy probabilities')}
+ | | |- \Sexpr{gm('Plot Cauchy distribution')}
+ | | |- \Sexpr{gm('Sample from Cauchy distribution')}
+ | |- \Sexpr{gt('Logistic distribution')} 
+ | | |- \Sexpr{gm('Logistic quantiles')}
+ | | |- \Sexpr{gm('Logistic probabilities')}
+ | | |- \Sexpr{gm('Plot logistic distribution')}
+ | | |- \Sexpr{gm('Sample from logistic distribution')}
+ | |- \Sexpr{gt('Lognormal distribution')} 
+ | | |- \Sexpr{gm('Lognormal quantiles')}
+ | | |- \Sexpr{gm('Lognormal probabilities')}
+ | | |- \Sexpr{gm('Plot lognormal distribution')}
+ | | |- \Sexpr{gm('Sample from lognormal distribution')}
+ | |- \Sexpr{gt('Gamma distribution')} 
+ | | |- \Sexpr{gm('Gamma quantiles')}
+ | | |- \Sexpr{gm('Gamma probabilities')}
+ | | |- \Sexpr{gm('Plot gamma distribution')}
+ | | |- \Sexpr{gm('Sample from gamma distribution')}
+ | |- \Sexpr{gt('Weibull distribution')} 
+ | | |- \Sexpr{gm('Weibull quantiles')}
+ | | |- \Sexpr{gm('Weibull probabilities')}
+ | | |- \Sexpr{gm('Plot Weibull distribution')}
+ | | |- \Sexpr{gm('Sample from Weibull distribution')}
+ | |- \Sexpr{gt('Gumbel distribution')} 
+ | | |- \Sexpr{gm('Gumbel quantiles')}
+ | | |- \Sexpr{gm('Gumbel probabilities')}
+ | | |- \Sexpr{gm('Plot Gumbel distribution')}
+ | | |- \Sexpr{gm('Sample from Gumbel distribution')}
+ |- \Sexpr{gt('Discrete distributions')} 
+ | |- \Sexpr{gt('Binomial distribution')} 
+ | | |- \Sexpr{gm('Binomial quantiles')}
+ | | |- \Sexpr{gm('Binomial tail probabilities')}
+ | | |- \Sexpr{gm('Binomial probabilities')}
+ | | |- \Sexpr{gm('Plot binomial distribution')}
+ | | |- \Sexpr{gm('Sample from binomial distribution')}
+ | |- \Sexpr{gt('Poisson distribution')} 
+ | | |- \Sexpr{gm('Poisson quantiles')}
+ | | |- \Sexpr{gm('Poisson tail probabilities')}
+ | | |- \Sexpr{gm('Poisson probabilities')}
+ | | |- \Sexpr{gm('Plot Poisson distribution')}
+ | | |- \Sexpr{gm('Sample from Poisson distribution')}
+ | |- \Sexpr{gt('Geometric distribution')} 
+ | | |- \Sexpr{gm('Geometric quantiles')}
+ | | |- \Sexpr{gm('Geometric tail probabilities')}
+ | | |- \Sexpr{gm('Geometric probabilities')}
+ | | |- \Sexpr{gm('Plot geometric distribution')}
+ | | |- \Sexpr{gm('Sample from geometric distribution')}
+ | |- \Sexpr{gt('Hypergeometric distribution')} 
+ | | |- \Sexpr{gm('Hypergeometric quantiles')}
+ | | |- \Sexpr{gm('Hypergeometric tail probabilities')}
+ | | |- \Sexpr{gm('Hypergeometric probabilities')}
+ | | |- \Sexpr{gm('Plot hypergeometric distribution')}
+ | | |- \Sexpr{gm('Sample from hypergeometric distribution')}
+ | |- \Sexpr{gt('Negative binomial distribution')} 
+ | | |- \Sexpr{gm('Negative binomial quantiles')}
+ | | |- \Sexpr{gm('Negative binomial tail probabilities')}
+ | | |- \Sexpr{gm('Negative binomial probabilities')}
+ | | |- \Sexpr{gm('Plot negative binomial distribution')}
+ | | |- \Sexpr{gm('Sample from negative binomial distribution')}
+\Sexpr{gt('Tools')} 
+ |- \Sexpr{gm('Load package(s)')}
+ |- \Sexpr{gm('Load Rcmdr plug-in(s)')}
+ |- \Sexpr{gm('Options')}
+ |- \Sexpr{gm('Save Rcmdr options')}
+ |- \Sexpr{gm('Manage Mac OS X app nap for R.app')}
+ |- \Sexpr{gm('Install auxiliary software')}
+\Sexpr{gt('Help')} 
+ |- \Sexpr{gt('Commander help')}
+ |- \Sexpr{gt('Introduction to the R Commander')}
+ |- \Sexpr{gt('R Commander website')}
+ |- \Sexpr{gt('About Rcmdr')}
+ |- \Sexpr{gt('R Commander hex sticker')}
+ |- \Sexpr{gt('Help on active data set (if available)')}
+ |- \Sexpr{gt('Start R help system')}
+ |- \Sexpr{gt('R website')}
+ |- \Sexpr{gt('Using R Markdown')}
+\end{verbatim}

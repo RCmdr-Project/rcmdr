@@ -1,0 +1,5487 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Rcmdr 2.6-1\n"
+"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
+"POT-Creation-Date: 2019-11-11 14:30:00\n"
+"PO-Revision-Date: 2020-08-26 22:16+0200\n"
+"Language-Team: Hungarian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: Tamás Ferenci <ferenci.tamas@nik.uni-obuda.hu>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: hu\n"
+
+msgid "KMeans Clustering"
+msgstr "K-közép klaszterezés"
+
+msgid "Variables (pick one or more)"
+msgstr "Változók (válasszon egyet vagy többet)"
+
+msgid "No variables selected."
+msgstr "Nincs változó kiválasztva."
+
+msgid "<all valid cases>"
+msgstr "<összes érvényes megfigyelés>"
+
+msgid "Number of clusters:"
+msgstr "Klaszterek száma:"
+
+msgid "Number of starting seeds:"
+msgstr "Kezdő seed-ek száma:"
+
+msgid "Maximum iterations:"
+msgstr "Iterációk maximális száma:"
+
+msgid "Print cluster summary"
+msgstr "Klaszterek összefoglalásának kiíratása"
+
+msgid "Bi-plot of clusters"
+msgstr "Klaszterek bi-plotja"
+
+msgid ""
+"Assign clusters to\n"
+"the data set"
+msgstr ""
+"Klaszterek hozzárendelése\n"
+"az adatokhoz"
+
+msgid "Assignment variable:"
+msgstr "Hozzárendelő változó:"
+
+msgid "Hierarchical Clustering"
+msgstr "Hierarchikus klaszterezés"
+
+msgid "Ward's Method"
+msgstr "Ward eljárás"
+
+msgid "Single Linkage"
+msgstr "Egyszerű láncmódszer"
+
+msgid "Complete Linkage"
+msgstr "Teljes láncmódszer"
+
+msgid "Average Linkage"
+msgstr "Átlag láncmódszer"
+
+msgid "McQuitty's Method"
+msgstr "McQuitty eljárása"
+
+msgid "Median Linkage"
+msgstr "Medián láncmódszer"
+
+msgid "Centroid Linkage"
+msgstr "Centroid láncmódszer"
+
+msgid "Clustering Method"
+msgstr "Klaszterezési eljárás"
+
+msgid "Euclidean"
+msgstr "Eukildeszi"
+
+msgid "Squared-Euclidian"
+msgstr "Négyzetes euklideszi"
+
+msgid "Manhattan (City Block)"
+msgstr "Manhattan (city block)"
+
+msgid "No Transformation"
+msgstr "Nincs transzformáció"
+
+msgid "Distance Measure"
+msgstr "Távolság mérték"
+
+msgid "Clustering solution name:"
+msgstr "Klaszterezés neve:"
+
+msgid "Plot Dendrogram"
+msgstr "Dendrogram ábrázolása"
+
+msgid "Hierarchical Cluster Summary"
+msgstr "Hierarchikus klaszterezés összefoglalása"
+
+msgid "Select One Clustering Solution"
+msgstr "Válasszon ki egy klaszterezést"
+
+msgid "There are no hierachical clustering solutions"
+msgstr "Nincs hierarchikus klaszterezés"
+
+msgid "No hierachical clustering solutions are associated with this data set."
+msgstr "Nincs hierarchikus klaszterezés ehhez az adattáblához."
+
+msgid "A clustering solution has not been selected."
+msgstr "Nincs kiválasztva klaszterezés."
+
+msgid "Append Cluster Groups to the Active Data Set"
+msgstr "Klaszterek hozzáfűzése az aktív adattáblához"
+
+msgid "Assigned cluster label:"
+msgstr "Hozzárendelt klasztercímke:"
+
+msgid "Find"
+msgstr "Keresés"
+
+msgid "Regular-expression search"
+msgstr "Keresés reguláris kifejezéssel"
+
+msgid "Case sensitive"
+msgstr "Kis/nagybetű érzékeny"
+
+msgid "Forward"
+msgstr "Tovább"
+
+msgid "Backward"
+msgstr "Vissza"
+
+msgid "Search Direction"
+msgstr "Keresés iránya"
+
+msgid "No search text specified."
+msgstr "Nincs megadva a keresésendő szöveg."
+
+msgid "Text not found."
+msgstr "Nincs találat."
+
+msgid "Search for:"
+msgstr "Keresés a következőre:"
+
+msgid "R Commander"
+msgstr "R Commander"
+
+msgid "Sourced:"
+msgstr "Forrásfájl:"
+
+msgid "menu definition error:"
+msgstr "menü definíciós hiba:"
+
+msgid "Nothing is selected."
+msgstr "Semmi sincs kiválasztva."
+
+msgid "Clear window"
+msgstr "Ablak kiürítése"
+
+msgid "Submit"
+msgstr "Feldolgozás"
+
+msgid "Cut"
+msgstr "Kivágás"
+
+msgid "Copy"
+msgstr "Másolás"
+
+msgid "Paste"
+msgstr "Beillesztés"
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgid "Find..."
+msgstr "Keresés..."
+
+msgid "Select all"
+msgstr "Összes kiválasztása"
+
+msgid "Edit data set"
+msgstr "Adattábla szerkesztése"
+
+msgid "View data set"
+msgstr "Adattábla megtekintése"
+
+msgid "<No active dataset>"
+msgstr "<Nincs aktív adattábla>"
+
+msgid "<No active model>"
+msgstr "<Nincs aktív modell>"
+
+msgid "Data set:"
+msgstr "Adattábla:"
+
+msgid "Model:"
+msgstr "Modell:"
+
+msgid "Script Window"
+msgstr "Szkript ablak"
+
+msgid "Output Window"
+msgstr "Output ablak"
+
+msgid "Messages"
+msgstr "Üzenetek"
+
+msgid "The rgl package is absent; 3D plots are unavailable."
+msgstr "Az rgl csomag hiányzik; a 3D ábrák nem elérhetőek."
+
+msgid "R Commander Version"
+msgstr "R Commander verzió"
+
+msgid "First and last 5 warnings:"
+msgstr "Az első és az utolsó 5 figyelmeztetés:"
+
+msgid "ERROR:"
+msgstr "HIBA:"
+
+msgid "WARNING:"
+msgstr "FIGYELMEZTETÉS:"
+
+msgid "ERROR"
+msgstr "HIBA"
+
+msgid "WARNING"
+msgstr "FIGYELMEZTETÉS"
+
+msgid "NOTE"
+msgstr "MEGJEGYZÉS"
+
+msgid "New Data Set"
+msgstr "Új adattábla"
+
+# msgid "Dataset"
+# msgstr ""
+msgid "You must enter the name of a data set."
+msgstr "Be kell írnia az adattábla nevét."
+
+msgid "is not a valid name."
+msgstr "nem érvényes név."
+
+msgid "Data set"
+msgstr "Adatbzáis"
+
+msgid "empty data set."
+msgstr "üres adattábla."
+
+msgid "Enter name for data set:"
+msgstr "Adja meg az adattábla nevét:"
+
+msgid "There is only one dataset in memory."
+msgstr "Csak egy adattábla van a memóriában."
+
+msgid "There are no data sets from which to choose."
+msgstr "Nincs kiválasztható adattábla."
+
+msgid "Select Data Set"
+msgstr "Válasszon adattáblát"
+
+msgid "Data Sets (pick one)"
+msgstr "Adattáblák (válasszon egyet)"
+
+msgid "Recode Variable"
+msgstr "Változó átkódolása"
+
+msgid "Variable to recode (pick one)"
+msgstr "Átkódolandó változó (válasszon egyet)"
+
+# msgid "variable"
+# msgstr ""
+msgid "You must select a variable."
+msgstr "Ki kell választania egy változót."
+
+msgid "No recode directives specified."
+msgstr "Nincs megadva átkódolási szabály."
+
+msgid "Use only double-quotes (\" \") in recode directives"
+msgstr "Csak dupla idézőjel (\" \") használható az átkódolási szabályokban"
+
+msgid "New variable name"
+msgstr "Új változó neve"
+
+msgid "Enter recode directives"
+msgstr "Adja meg az átkódolási szabályokat"
+
+msgid "Make new variable a factor"
+msgstr "Az új változó legyen faktor"
+
+msgid "Compute New Variable"
+msgstr "Származtatott változó számítása"
+
+msgid "[factor]"
+msgstr "[faktor]"
+
+msgid "Current variables (double-click to expression)"
+msgstr "Meglevő változók (dupla kattintással kifejezésbe rakható)"
+
+msgid "No expression specified."
+msgstr "Nincs kifejezés megadva."
+
+msgid "Variable"
+msgstr "Változó"
+
+msgid "Expression to compute"
+msgstr "Kiszámítandó kifejezés"
+
+msgid "Delete Variables"
+msgstr "Változók törlése"
+
+msgid "Variable(s) to delete (pick one or more)"
+msgstr "Törlendő változó(k) (válasszon egyet vagy többet)"
+
+msgid "You must select one or more variables."
+msgstr "Ki kell választani egy vagy több változót."
+
+msgid ""
+"Delete %s?\n"
+"Please confirm."
+msgstr ""
+"%s törlendő?\n"
+"Kérem erősítse meg!"
+
+msgid ""
+"Delete %d variables?\n"
+"Please confirm."
+msgstr ""
+"A(z) %d változók törlendőek?\n"
+"Kérem erősítse meg!"
+
+msgid "Read Data From Text File"
+msgstr "Adatok beolvasása szövegfájlból"
+
+msgid "White space"
+msgstr "White space"
+
+msgid "Commas"
+msgstr "Vesszők"
+
+msgid "Tabs"
+msgstr "Tabulátorok"
+
+msgid "Field Separator"
+msgstr "Mezőhatároló karakter"
+
+msgid "Period [.]"
+msgstr "Pont [.]"
+
+msgid "Comma [,]"
+msgstr "Vessző [,]"
+
+msgid "Decimal-Point Character"
+msgstr "Tizedesjelölő karakter"
+
+msgid "You must enter a name for the data set."
+msgstr "Meg kell adni egy nevet az adattáblának."
+
+msgid "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Szöveges fájlok\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid "Variable names in file:"
+msgstr "Változónevek az első sorban:"
+
+msgid "Missing data indicator:"
+msgstr "Hiányzó adatok jelölése:"
+
+msgid "Other"
+msgstr "Egyéb"
+
+msgid "Specify:"
+msgstr "adja meg:"
+
+msgid "Read Data From Package"
+msgstr "Adatok beolvasása csomagból"
+
+msgid "Select package:"
+msgstr "Válassza ki a csomagot:"
+
+msgid "Data set %s does not exit"
+msgstr "A(z) %s adattábla nem létezik"
+
+msgid "You must select a package."
+msgstr "Ki kell választani egy csomagot!"
+
+msgid "You must select a data set."
+msgstr "Ki kell választani egy adattáblát!"
+
+msgid "Package (Double-click to select)"
+msgstr "Csomag (dupla kattintással kiválasztható)"
+
+msgid "Data set (Double-click to select)"
+msgstr "Adattábla (dupla kattintsással kiválasztható)"
+
+msgid "OR"
+msgstr "VAGY"
+
+msgid "Enter name of data set:"
+msgstr "Adja meg az adattábla nevét:"
+
+msgid "Import SPSS Data Set"
+msgstr "SPSS adattábla importálása"
+
+msgid "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"SPSS mentett fájl\" {\".sav\" \".SAV\"}} {\"SPSS hordozható fájl\" {\".por\" \".POR\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid ""
+"Convert value labels\n"
+"to factor levels"
+msgstr ""
+"A változó címkék\n"
+"faktorrá alakítása"
+
+msgid ""
+"Maximum number\n"
+"of value labels\n"
+"for factor conversion"
+msgstr ""
+"A változók címkék\n"
+"maximális száma a\n"
+"faktorrá alakítás során"
+
+msgid "Import Minitab Data Set"
+msgstr "Minitab adattábla importálása"
+
+msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Minitab hordozható fájl\" {\".mtp\" \".MTP\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid ""
+"Minitab data set contains elements of unequal length.\n"
+"Data set cannot be converted."
+msgstr ""
+"A Minitab adattábla nem ugyanolyan hosszú elemeket tartalmaz.\n"
+"Az adattábla nem konvertálható."
+
+msgid "Import STATA Data Set"
+msgstr "STATA adattábla importálása"
+
+msgid "{\"STATA datasets\" {\".dta\" \".DTA\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"STATA fájl\" {\".dta\" \".DTA\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid "Convert dates to R format"
+msgstr "Dátumok R formátumra alakítása"
+
+msgid "Multiple missing types (>=Stata 8)"
+msgstr "Többféle hiányzó típus (>=Stata 8)"
+
+msgid "Convert underscore to period"
+msgstr "Aláhúzás ponttá alakítása"
+
+msgid "Warn on missing labels"
+msgstr "Figyelmeztetés hiányzó címkéknél"
+
+msgid "Convert Numeric Variable to Factor"
+msgstr "Numerikus változó faktorrá alakítása"
+
+msgid "Variable (pick one)"
+msgstr "Változó (válasszon egyet)"
+
+msgid "Supply level names"
+msgstr "Faktorszintek megadása"
+
+msgid "Use numbers"
+msgstr "Eredeti számok használata"
+
+msgid "Factor Levels"
+msgstr "Faktor szintek"
+
+msgid "<same as variable>"
+msgstr "<a változóval azonos>"
+
+msgid "Number of levels (%d) too large."
+msgstr "A szintek száma (%d) túl nagy."
+
+msgid "Level Names"
+msgstr "Szint nevek"
+
+msgid "Levels names are not unique."
+msgstr "A szintek nevei nem egyediek."
+
+msgid "A level name is empty."
+msgstr "Hiányzó szint név."
+
+msgid "Numeric value"
+msgstr "Numerikus érték"
+
+msgid "Level name"
+msgstr "Szint elnevezése"
+
+msgid "Name for factor"
+msgstr "A faktor neve"
+
+msgid "Bin a Numeric Variable"
+msgstr "Numerikus változó diszkretizálása"
+
+msgid "Variable to bin (pick one)"
+msgstr "A diszkretizálandó változó (válasszon egyet)"
+
+msgid "Specify names"
+msgstr "Nevek meghatározása"
+
+msgid "Numbers"
+msgstr "Számok"
+
+msgid "Ranges"
+msgstr "Tartományok"
+
+msgid "Equal-width bins"
+msgstr "Azonos szélességű intervallumok"
+
+msgid "Equal-count bins"
+msgstr "Azonos gyakoriságú intervallumok"
+
+msgid ""
+"Natural breaks\n"
+"(from K-means clustering)"
+msgstr ""
+"Természetes osztópontok\n"
+"(K-közép klaszterezésből)"
+
+msgid "Binning Method"
+msgstr "Diszkretizálási eljárás"
+
+msgid "Bin Names"
+msgstr "Intervallumok nevei"
+
+msgid "Level names must be unique."
+msgstr "A szintek nevei egyediek kellenek legyenek."
+
+msgid "Bin"
+msgstr "Intervallum"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "Number of bins:"
+msgstr "Intervallumok száma:"
+
+msgid "Reorder Factor Levels"
+msgstr "Faktor szintjeinek átrendezése"
+
+msgid "Factor (pick one)"
+msgstr "Faktor (válasszon egyet)"
+
+msgid "<same as original>"
+msgstr "<ugyanaz mint az eredeti>"
+
+msgid "Reorder Levels"
+msgstr "Szintek átrendezése"
+
+msgid "Order of levels must include all integers from 1 to"
+msgstr "A szintek átrendezésének minden egész számot tartalmazni kell 1-től a következőig:"
+
+msgid "Old Levels"
+msgstr "Eredeti szintek"
+
+msgid "New order"
+msgstr "Új sorrend"
+
+msgid "Make ordered factor"
+msgstr "Rendezett faktorrá alakítás"
+
+msgid "Standardize Variables"
+msgstr "Változók standardizálása"
+
+msgid "Export Active Data Set"
+msgstr "Aktív adattábla exportálása"
+
+msgid "Write variable names:"
+msgstr "Változónevek kiíratása:"
+
+msgid "Write row names:"
+msgstr "Sornevek kiíratása:"
+
+msgid "Quotes around character values:"
+msgstr "Idézőjel a karakter értékek körül:"
+
+msgid "Spaces"
+msgstr "Szóközök"
+
+msgid "Active dataset exported to file"
+msgstr "Aktív adattábla fájlba exportálva"
+
+msgid "Missing values:"
+msgstr "Hiányzó értékek jelölése:"
+
+msgid "Remove Missing Data"
+msgstr "Hiányzó értékek eltávolítása"
+
+msgid "Variables (select one or more)"
+msgstr "Változók (válasszon egyet vagy többet)"
+
+msgid "<same as active data set>"
+msgstr "<ugyanaz mint az aktív adattábla>"
+
+msgid "No variables were selected."
+msgstr "Nincs kiválasztott változó."
+
+msgid "Include all variables"
+msgstr "Minden változó leválogatása"
+
+msgid "Name for new data set"
+msgstr "Az új adattábla neve"
+
+msgid "Subset Data Set"
+msgstr "Rész adattábla leválogatása"
+
+msgid "<all cases>"
+msgstr "<minden megfigyelés>"
+
+msgid "New data set same as active data set."
+msgstr "Az új adattábla egyezik a régivel."
+
+msgid "Subset expression"
+msgstr "Leválogató kifejezés"
+
+msgid "Set Case Names"
+msgstr "Megfigyelésnevek beállítása"
+
+msgid "Select variable containing row names"
+msgstr "Válassza ki a sorneveket tartalmazó változót"
+
+msgid "Case names must be unique."
+msgstr "A megfigyelésneveknek egyedieknek kell lenniük."
+
+msgid "Rename Variables"
+msgstr "Változók átnevezése"
+
+msgid "Variable Names"
+msgstr "Változó nevek"
+
+msgid "A variable name is empty."
+msgstr "A változó neve üres."
+
+msgid "The following variable names are not valid:"
+msgstr "A következő változónevek nem érvényesek:"
+
+msgid "Variable names are not unique"
+msgstr "A változónevek nem egyediek"
+
+msgid "Old Name"
+msgstr "Eredeti név"
+
+msgid "New name"
+msgstr "Új név"
+
+msgid "Set Contrasts for Factor"
+msgstr "Kontrasztok beállítása faktorhoz"
+
+msgid "Treatment (dummy) contrasts"
+msgstr "Treatment (dummy) kontraszt"
+
+msgid "Sum (deviation) contrasts"
+msgstr "Összeg (eltérés) kontraszt"
+
+msgid "Helmert contrasts"
+msgstr "Helmert kontraszt"
+
+msgid "Polynomial contrasts"
+msgstr "Polinomiális kontraszt"
+
+msgid "Other (specify)"
+msgstr "Egyéb (adja meg)"
+
+msgid "Contrasts"
+msgstr "Kontrasztok"
+
+msgid "Specify Contrasts"
+msgstr "Kontrasztok meghatározása"
+
+msgid "Enter Contrast Coefficients"
+msgstr "Adja meg a kontraszt együtthatóit"
+
+msgid "Contrast Name:"
+msgstr "Kontraszt neve:"
+
+msgid ""
+"Number of valid entries in contrast matrix(%d)\n"
+"not equal to number of levels (%d) * number of contrasts (%d)."
+msgstr ""
+"A kontraszt mátrixban lévő érvényes értékek száma (%d)\n"
+"nem egyezik a szintek számának (%d) és a kontrasztok számának (%d) szorzatával."
+
+msgid "Contrast matrix is not of full column rank"
+msgstr "A kontraszt mátrix nem teljes oszloprangú"
+
+msgid "Contrast names must be unique"
+msgstr "A kontraszt neveknek egyedieknek kell lenniük"
+
+msgid "Normal Quantiles"
+msgstr "Normális eloszlás kvantilisei"
+
+msgid "No probabilities specified."
+msgstr "A valószínűségek nincsenek megadva."
+
+msgid "Probabilities"
+msgstr "Valószínűségek"
+
+msgid "mu (mean)"
+msgstr "mu (várható érték)"
+
+msgid "sigma (standard deviation)"
+msgstr "szigma (szórás)"
+
+msgid "Lower tail"
+msgstr "Alsó szél"
+
+msgid "Upper tail"
+msgstr "Felső szél"
+
+msgid "Normal Probabilities"
+msgstr "Normális eloszlás valószínűségei"
+
+msgid "No values specified."
+msgstr "Nincs érték megadva."
+
+msgid "Variable value(s)"
+msgstr "Változó értéke(i)"
+
+msgid "t Quantiles"
+msgstr "t-eloszlás kvantilisei"
+
+msgid "Degrees of freedom not specified."
+msgstr "A szabadsági fokok száma nincs megadva."
+
+msgid "Degrees of freedom"
+msgstr "Szabadsági fokok száma"
+
+msgid "t Probabilities"
+msgstr "t-eloszlás valószínűségei"
+
+msgid "Chi-Squared Quantiles"
+msgstr "Khi-négyzet eloszlás kvantilisei"
+
+msgid "Chi-Squared Probabilities"
+msgstr "Khi-négyzet eloszlás valószínűségei"
+
+msgid "F Quantiles"
+msgstr "F-eloszlás kvantilisei"
+
+msgid "Probabilities not specified"
+msgstr "A valószínűségek nincsenek megadva"
+
+msgid "Numerator degrees of freedom"
+msgstr "Számláló szabadsági fok"
+
+msgid "Denominator degrees of freedom"
+msgstr "Nevező szabadsági fok"
+
+msgid "F Probabilities"
+msgstr "F-eloszlás valószínűségei"
+
+msgid "Values not specified."
+msgstr "Az értékek nincsenek megadva."
+
+msgid "Binomial Quantiles"
+msgstr "Binomiális eloszlás kvantilisei"
+
+msgid "Probabilities not specified."
+msgstr "A valószínűségek nincsenek megadva."
+
+msgid "Binomial trials not specified."
+msgstr "A kísérletek száma nincs megadva."
+
+msgid "Probability of success not specified."
+msgstr "A bekövetkezés valószínűsége nincs megadva."
+
+msgid "Binomial trials"
+msgstr "Kísérletek száma"
+
+msgid "Probability of success"
+msgstr "A bekövetkezés valószínűsége"
+
+msgid "Cumulative Binomial Probabilities"
+msgstr "A binomiális eloszlás kumulált valószínűségei"
+
+msgid ""
+"Number of trials, %d, is large.\n"
+"Create long output?"
+msgstr ""
+"A kísérletek száma (%d) túl nagy.\n"
+"Létrehozzuk a hosszú eredménylistát?"
+
+msgid "Binomial Probabilities"
+msgstr "Binomális eloszlás valószínűségei"
+
+msgid ""
+"Range of values over which to plot, %d, is large.\n"
+"Create long output?"
+msgstr ""
+"Az ábrázolandó értékek tartománya nagy (%d)\n"
+"Létrehozzuk a hosszú eredménylistát?"
+
+msgid "Poisson Probabilities"
+msgstr "Poisson eloszlás valószínűségei"
+
+msgid "Poisson mean not specified."
+msgstr "A Poisson eloszlás várható értéke nincs megadva."
+
+msgid "Mean"
+msgstr "Várható érték"
+
+msgid "Normal Distribution"
+msgstr "Normális eloszlás"
+
+msgid "Plot density function"
+msgstr "Sűrűségfüggvény ábrázolása"
+
+msgid "Plot distribution function"
+msgstr "Eloszlásfüggvény ábrázolása"
+
+msgid "t Distribution"
+msgstr "t-eloszlás"
+
+msgid "Chi-squared Distribution"
+msgstr "Khi-négyzet eloszlás"
+
+msgid "F Distribution"
+msgstr "F-eloszlás"
+
+msgid "Numerator degrees of freedom not specified."
+msgstr "A számláló szabadsági foka nincs megadva."
+
+msgid "Denominator degrees of freedom not specified."
+msgstr "A nevező szabadsági foka nincs megadva."
+
+msgid "Binomial Distribution"
+msgstr "Binomiális eloszlás"
+
+msgid "Plot probability mass function"
+msgstr "A valószínűségi súlyfüggvény ábrázolása"
+
+msgid "Poisson Distribution"
+msgstr "Poisson eloszlás"
+
+msgid "Mean not specified."
+msgstr "A várható érték nincs megadva."
+
+msgid "mean"
+msgstr "várható érték"
+
+msgid "{\"Script Files\" {\".R\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Szkript fájlok\" {\".R\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid "Save current log file?"
+msgstr "Menti a jelenlegi naplófájlt?"
+
+msgid "Script saved to"
+msgstr "Szkript elmentve ide"
+
+msgid "Output saved to"
+msgstr "Output elmentve ide"
+
+msgid "{\"Output Files\" {\".txt\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Output fájlok\" {\".txt\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid "{\"All Files\" {\"*\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}}"
+
+msgid "R workspace saved to"
+msgstr "R munkakörnyezet elmentve ide"
+
+msgid "Exit?"
+msgstr "Kilépés?"
+
+msgid "Save script file?"
+msgstr "Menti a szkript fájlt?"
+
+msgid "Save output file?"
+msgstr "Menti az output fájlt?"
+
+msgid "Commander Options"
+msgstr "Commander opciói"
+
+msgid "Log commands to script window"
+msgstr "Parancsok naplózása a szkriptablakba"
+
+msgid "Log-font size (points)"
+msgstr "A napló betűmérete (pont)"
+
+msgid "Log width (characters)"
+msgstr "A napló szélessége (karakter)"
+
+msgid "Log height (lines)"
+msgstr "A napló magassága (sor)"
+
+msgid "Send output to R Console"
+msgstr "Az output R konzolra küldése"
+
+msgid "Output height (lines)"
+msgstr "Output magassága (sor)"
+
+msgid "Unordered factors"
+msgstr "Nominális faktorok"
+
+msgid "Ordered factors"
+msgstr "Rendezett faktorok"
+
+msgid "Active window grabs focus"
+msgstr "Az aktív ablaké a fókusz"
+
+msgid "Double-click presses OK button"
+msgstr "Dupla kattintás megnyomja az OK gombot"
+
+msgid "Sort variable names alphabetically"
+msgstr "Változónevek alfabetikus rendezése"
+
+msgid "Show edit button"
+msgstr "Szerkesztés gomb megjelenítése"
+
+msgid ""
+"Exit and Restart\n"
+"R Commander"
+msgstr ""
+"Kilépés és az\n"
+"R Commander újraindítása"
+
+msgid "Scale factor for Tk elements"
+msgstr "A Tk grafikus elemek nagyítása"
+
+msgid "Default font"
+msgstr "Alapértelmezett betűtípus"
+
+msgid "No packages available to load."
+msgstr "Nincs betölthető csomag."
+
+msgid "Load Packages"
+msgstr "Csomagok betöltése"
+
+msgid "Packages (pick one or more)"
+msgstr "Csomagok (válasszon egyet vagy többet)"
+
+msgid "You must select at least one package."
+msgstr "Legalább egy csomagot ki kell választani."
+
+msgid "Packages loaded:"
+msgstr "Betöltött csomagok:"
+
+msgid "Index Plot"
+msgstr "Index ábra"
+
+msgid "You must select a variable"
+msgstr "Ki kell választani egy változót"
+
+msgid ""
+"Identify observations\n"
+"with mouse"
+msgstr ""
+"Megfigyelések azo-\n"
+"nosítása egérrel"
+
+msgid "Spikes"
+msgstr "Tüskék"
+
+msgid "Points"
+msgstr "Pontok"
+
+msgid "Histogram"
+msgstr "Hisztogram"
+
+msgid "<auto>"
+msgstr "<automatikus>"
+
+msgid "Frequency counts"
+msgstr "Gyakoriságok"
+
+msgid "Percentages"
+msgstr "Relatív gyakoriságok"
+
+msgid "Densities"
+msgstr "Sűrűségek"
+
+msgid "Axis Scaling"
+msgstr "Tengely skálázás"
+
+msgid "Stem and Leaf Display"
+msgstr "Stem and leaf ábra"
+
+msgid "Automatic"
+msgstr "Automatikus"
+
+msgid "Parts Per Stem"
+msgstr "Részek száranként"
+
+msgid "Tukey"
+msgstr "Tukey"
+
+msgid "Repeated stem digits"
+msgstr "Ismételt számjegyek a szárnál"
+
+msgid "Style of Divided Stems"
+msgstr "Az osztott szárak stílusa"
+
+msgid "Trim outliers"
+msgstr "Outlier-ek elhagyása"
+
+msgid "Show depths"
+msgstr "Mélység mutatása"
+
+msgid "Reverse negative leaves"
+msgstr "Negatív levelek megfordítása"
+
+msgid "Leafs Digit:"
+msgstr "Levelek számjegye:"
+
+msgid "or set:"
+msgstr "vagy halmaza:"
+
+msgid "Options"
+msgstr "Opciók"
+
+msgid "Boxplot"
+msgstr "Boxplot"
+
+msgid "Identify outliers with mouse"
+msgstr "Outlier-ek azonosítása egérrel"
+
+msgid "Scatterplot"
+msgstr "Szórásdiagram"
+
+msgid "x-variable (pick one)"
+msgstr "x változó (válasszon egyet)"
+
+msgid "y-variable (pick one)"
+msgstr "y változó (válasszon egyet)"
+
+msgid "Identify points"
+msgstr "Pontok azonosítása"
+
+msgid "Jitter x-variable"
+msgstr "Az x változó jitter-elése"
+
+msgid "Jitter y-variable"
+msgstr "Az y változó jitter-elése"
+
+msgid "Marginal boxplots"
+msgstr "Vetületi boxplotok"
+
+msgid "Least-squares line"
+msgstr "Legjobban illeszkedő egyenes (LS)"
+
+msgid "Smooth Line"
+msgstr "Simítógörbe"
+
+msgid "You must select two variables"
+msgstr "Két változót kell kiválasztani"
+
+msgid "x and y variables must be different"
+msgstr "x és az y változó különböző kell legyen"
+
+msgid "Span for smooth"
+msgstr "Simítási paraméter"
+
+msgid "Scatterplot Matrix"
+msgstr "Szórásdiagram mátrix"
+
+msgid "Select variables (three or more)"
+msgstr "Változók kiválasztása (válasszon hármat vagy többet)"
+
+msgid "Least-squares lines"
+msgstr "Legjobban illeszkedő egyenesek (LS)"
+
+msgid "Smooth lines"
+msgstr "Simítógörbék"
+
+msgid "Density plots"
+msgstr "Sűrűségdiagramok"
+
+msgid "Histograms"
+msgstr "Hisztogramok"
+
+msgid "Boxplots"
+msgstr "Boxplotok"
+
+msgid "Normal QQ plots"
+msgstr "QQ-ábrák normális eloszlásra"
+
+msgid "Nothing (empty)"
+msgstr "Semmi (üres)"
+
+msgid "On Diagonal"
+msgstr "Főátlón"
+
+msgid "Fewer than 3 variable selected."
+msgstr "Kevesebb, mint 3 változó van kiválasztva."
+
+msgid "Bar Graph"
+msgstr "Oszlopdiagram"
+
+msgid "Pie Chart"
+msgstr "Kördiagram"
+
+msgid "Line Plot"
+msgstr "Vonaldiagram"
+
+msgid "x variable (pick one)"
+msgstr "x változó (válasszon egyet)"
+
+msgid "y variables (pick one or more)"
+msgstr "y változók (válasszon egyet vagy többet)"
+
+msgid "<use y-variable names>"
+msgstr "<y változó nevek használata>"
+
+msgid "No x variable selected."
+msgstr "Nincs  x változó kiválasztva."
+
+msgid "No y variables selected."
+msgstr "Nincs y változó kiválasztva."
+
+msgid "x and y variables must be different."
+msgstr "x és y változóknak különbözőknek kell lenniük."
+
+msgid ""
+"x-values are not in order.\n"
+"Continue?"
+msgstr ""
+"az x értékek nincsenek sorrendben.\n"
+"Folytatja?"
+
+msgid "Label for y-axis"
+msgstr "Az y-tengely felirata"
+
+msgid "Plot legend (position with mouse click)"
+msgstr "Jelmagyarázat (kattintással pozícionálható)"
+
+msgid "Quantile-Comparison (QQ) Plot"
+msgstr "QQ-ábra"
+
+msgid "df for t must be a positive number."
+msgstr "a t-eloszlás szabadságfokának pozitívnak kell lennie."
+
+msgid "df for chi-square must be a positive number."
+msgstr "a khi-négyzet eloszlás szabadságfokának pozitívnak kell lennie."
+
+msgid ""
+"numerator and denominator \n"
+"df for F must be positive numbers."
+msgstr ""
+"az F-eloszlás számláló és nevező szabadsági\n"
+"fokai pozitív számok kellenek legyenek."
+
+msgid "Identify observations with mouse"
+msgstr "Megfigyelések azonosítása egérrel"
+
+msgid "Distribution"
+msgstr "Eloszlás"
+
+msgid "Normal"
+msgstr "Normális"
+
+msgid "Chi-square"
+msgstr "Khi-négyzet"
+
+msgid "Numerator df ="
+msgstr "Számláló szabadsági fok ="
+
+msgid "Denominator df ="
+msgstr "Nevező szabadsági fok ="
+
+msgid "Parameters:"
+msgstr "Paraméterek:"
+
+msgid "Plot Means"
+msgstr "Átlagok ábrázolása"
+
+msgid "Factors (pick one or two)"
+msgstr "Faktorok (válasszon egyet vagy többet)"
+
+msgid "Response Variable (pick one)"
+msgstr "Eredményváltozó (válasszon egyet)"
+
+msgid "No factors selected."
+msgstr "Nincs faktor kiválasztva."
+
+msgid "More than two factors selected."
+msgstr "Több, mint két faktor van kiválasztva."
+
+msgid "No response variable selected."
+msgstr "Nincs eredményváltozó kiválasztva."
+
+msgid "Error Bars"
+msgstr "Hibaoszlopok"
+
+msgid "blue"
+msgstr "kék"
+
+msgid "Standard errors"
+msgstr "Standard hibák"
+
+msgid "Standard deviations"
+msgstr "Szórások"
+
+msgid "Confidence intervals"
+msgstr "Konfidenciaintervallumok"
+
+msgid "Level of confidence:"
+msgstr "Megbízhatósági szint:"
+
+msgid "No error bars"
+msgstr "Nincsenek hibaoszlopok"
+
+msgid "3D Scatterplot"
+msgstr "3D szórásdiagram"
+
+msgid "Explanatory variables (pick two)"
+msgstr "Magyarázó változók (válasszon kettőt)"
+
+msgid "Response variable (pick one)"
+msgstr "Eredményváltozó (válasszon egyet)"
+
+msgid "You must select a response variable."
+msgstr "Ki kell választani eredményváltozót."
+
+msgid "You must select 2 explanatory variables."
+msgstr "Ki kell választani 2 magyarázó változót."
+
+msgid "Response and explanatory variables must be different."
+msgstr "Az eredményváltozónak és a magyarázó változóknak különbözőeknek kell lenniük."
+
+msgid "Parallel regression surfaces"
+msgstr "Párhuzamos regressziós síkok"
+
+msgid "Show surface grid lines"
+msgstr "Illesztett felület rácsvonalainak ábrázolása"
+
+msgid "Surfaces to Fit"
+msgstr "Illesztendő felületek"
+
+msgid "Linear least-squares"
+msgstr "Lineáris legkisebb négyzetes (sík)"
+
+msgid "Quadratic least-squares"
+msgstr "Kvadratikus legkisebb négyzetes"
+
+msgid "Smooth regression"
+msgstr "Simított regresszió"
+
+msgid "Additive regression"
+msgstr "Additív regresszió"
+
+msgid "df(each term) ="
+msgstr "szabadsági fok (mindegyik tényező) ="
+
+msgid "Background Color"
+msgstr "Háttérszín"
+
+msgid "Black"
+msgstr "Fekete"
+
+msgid "White"
+msgstr "Fehér"
+
+msgid "Save Graph as Bitmap"
+msgstr "Ábra mentése bitmap-ként"
+
+msgid "There is no current graphics device to save."
+msgstr "Nincs aktuális grafikus eszköz ami menthető lenne."
+
+msgid "Graphics File Type"
+msgstr "Grafikus fájltípus"
+
+msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"PNG fájlok\" {\".png\" \".PNG\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"JPEG fájlok\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid "Graph saved to file"
+msgstr "Az ábra fájlba mentése megtörtént"
+
+msgid "Width (pixels)"
+msgstr "Szélesség (pixel)"
+
+msgid "Height (pixels)"
+msgstr "Magasság (pixel)"
+
+msgid "Save Graph as PDF/Postscript"
+msgstr "Ábra mentése PDF-ként/Postscript-ként"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "Postscript"
+msgstr "Postscript"
+
+msgid "Encapsulated Postscript"
+msgstr "Encapsulated Postscript"
+
+msgid "{\"PDF Files\" {\".pdf\" \".PDF\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"PDF fájlok\" {\".pdf\" \".PDF\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Postscript fájlok\" {\".ps\" \".PS\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Encapsulated Postscript fájlok\" {\".eps\" \".EPS\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid "Width (inches)"
+msgstr "Szélesség (inch)"
+
+msgid "Height (inches)"
+msgstr "Magasság (inch)"
+
+msgid "Text size (points)"
+msgstr "Szövegméret (pont)"
+
+msgid "There is no current RGL graphics device to save."
+msgstr "Nincs aktuális RGL grafikus eszköz ami menthető lenne."
+
+msgid "{\"PNG Bitmap Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"PNG bitmap fájlok\" {\".png\" \".PNG\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid "There is only one model in memory."
+msgstr "Csak egy modell van a memóriában."
+
+msgid "There are no models from which to choose."
+msgstr "Nincsen választható modell."
+
+msgid "Select Model"
+msgstr "Válasszon modellt"
+
+msgid "Models (pick one)"
+msgstr "Modellek (válasszon egyet)"
+
+msgid "There is no dataset associated with this model."
+msgstr "Nincs ehhez a modellhez rendelt adattábla."
+
+msgid "The dataset associated with this model, %s, is not in memory."
+msgstr "Az ehhez a modellhez rendelt %s adattábla nincs a memóriába betöltve."
+
+msgid "Current Model:"
+msgstr "Aktuális modell:"
+
+msgid "Identify points with mouse?"
+msgstr "Pontok kijelölése egérrel?"
+
+msgid "There is no appropriate Anova method for a model of this class."
+msgstr "Nincs megfelelő ANOVA eljárás ilyen osztályú modellhez."
+
+msgid ""
+"Observation statistics not available\n"
+"for a model fit to a subset of the data."
+msgstr ""
+"Megfigyelésekre vonatkozó statisztikák nem\n"
+"elérhetőek részhalmazra illesztett modellnél."
+
+msgid "Add Observation Statistics to Data"
+msgstr "Megfigyelésekre vonatkozó, modellből számított adatok hozzáadása az adattáblához"
+
+msgid "Fitted values"
+msgstr "Becsült értékek"
+
+msgid "Residuals"
+msgstr "Reziduumok"
+
+msgid "Studentized residuals"
+msgstr "Studentizált (jackknife) reziduumok"
+
+msgid "Hat-values"
+msgstr "Hatóerő értékek"
+
+msgid "Cook's distances"
+msgstr "Cook-féle távolságok"
+
+msgid "Observation indices"
+msgstr "Megfigyelés sorszáma"
+
+msgid "Residual Quantile-Comparison Plot"
+msgstr "Reziduális QQ-ábra"
+
+msgid "Simulated confidence envelope"
+msgstr "Szimulált konfidenciasáv"
+
+msgid "Identify points with mouse"
+msgstr "Pontok azonosítása egérrel"
+
+msgid "Test Linear Hypothesis"
+msgstr "Lineáris hipotézisek tesztelése"
+
+msgid ""
+"Number of valid entries in hypothesis matrix(%d)\n"
+"not equal to number of rows (%d) * number of columns (%d)."
+msgstr ""
+"A hipotézismátrixban szereplő érvényes elemek száma (%d)\n"
+"nem egyezik a sorok (%d) és az oszlopok (%d) számának szorzatával."
+
+msgid "Hypothesis matrix is not of full row rank."
+msgstr "A hipotézismátrix nem teljes sorrangú."
+
+msgid ""
+"Number of valid entries in rhs vector (%d)\n"
+"is not equal to number of rows (%d)."
+msgstr ""
+"A jobb oldalon szereplő vektor érvényes elemeinek száma (%d)\n"
+"nem egyezik a sorok számával (%d)."
+
+msgid "Number of Rows:"
+msgstr "Sorok száma:"
+
+msgid "Enter hypothesis matrix and right-hand side vector:"
+msgstr "Adja meg a hipotézismátrixot és a jobboldal vektort:"
+
+msgid "There are fewer than two models."
+msgstr "Kevesebb, mint két modell van."
+
+msgid "Compare Models"
+msgstr "Modellek összehasonlítása"
+
+msgid "First model (pick one)"
+msgstr "Első modell (válasszon egyet)"
+
+msgid "Second model (pick one)"
+msgstr "Második modell (válasszon egyet)"
+
+msgid "You must select two models."
+msgstr "Két modellt kell kiválasztani."
+
+msgid "Models are not of the same class."
+msgstr "A modellek nem ugyanolyan osztályúak."
+
+msgid "Breusch-Pagan Test"
+msgstr "Breusch-Pagan teszt"
+
+msgid "Score Test for Nonconstant Error Variance"
+msgstr "Nemkonstans hibavariancia score tesztje"
+
+msgid "Studentized test statistic"
+msgstr "Studentizált tesztstatisztika"
+
+msgid "Explanatory variables"
+msgstr "Magyarázó változók"
+
+msgid "Variance Formula"
+msgstr "Variancia egyenlet"
+
+msgid "Durbin-Waton Test"
+msgstr "Durbin-Watson teszt"
+
+msgid "Test for First-Order Error Autocorrelation"
+msgstr "Elsőrendű reziduális autokorreláció tesztje"
+
+msgid "Alternative Hypothesis"
+msgstr "Ellenhipotézis"
+
+msgid "RESET Test"
+msgstr "RESET teszt"
+
+msgid "Test for Nonlinearity"
+msgstr "Nemlinearitás tesztje"
+
+msgid "No powers are checked."
+msgstr "Nincs hatvány kijelölve."
+
+msgid "First principal component"
+msgstr "Első főkomponens"
+
+msgid "Type of Test"
+msgstr "Teszt típusa"
+
+msgid "Powers to Include"
+msgstr "Felhasználandó hatványok"
+
+msgid "2 (squares)"
+msgstr "2 (négyzetek)"
+
+msgid "3 (cubes)"
+msgstr "3 (köbök)"
+
+msgid "There is no appropriate outlier.test method for a model of this class."
+msgstr "Nincs megfelelő outlier.test eljárás ilyen osztályú modellekhez."
+
+msgid "Confidence Intervals"
+msgstr "Konfidenciaintervallumok"
+
+msgid "Confidence Intervals for Individual Coefficients"
+msgstr "Konfidenciaintervallumok az egyes koefficiensekhez"
+
+msgid "Confidence level must be a number between 0 and 1."
+msgstr "A megbízhatóságú szintnek 0 és 1 között kell lennie."
+
+msgid "Likelihood-ratio statistic"
+msgstr "Likelihood-hányados statisztika"
+
+msgid "Wald statistic"
+msgstr "Wald statisztika"
+
+msgid "Test Based On"
+msgstr "A teszt alapja"
+
+msgid "Confidence Level:"
+msgstr "Megbízhatósági szint:"
+
+msgid "Rcmdr Version"
+msgstr "Rcmdr verzió"
+
+msgid "The tcltk package is absent. The R Commander cannot function."
+msgstr "Nincs tcltk csomag. A R Commander működésképtelen."
+
+msgid "R-Rcmdr"
+msgstr "R-Rcmdr"
+
+msgid "The following packages used by Rcmdr are missing:"
+msgstr "A következő, Rcmdr által használt csomagok hiányoznak:"
+
+msgid "Without these packages, some features will not be available."
+msgstr "E csomagok nélkül bizonyos lehetőségek nem lesznek elérhetőek."
+
+msgid "Install these packages?"
+msgstr "Telepíti ezeket a csomagokat?"
+
+msgid "Install Missing Packages"
+msgstr "Hiányzó csomagok telepítése"
+
+msgid "Browse..."
+msgstr "Tallózás..."
+
+msgid "Install Packages From:"
+msgstr "Csomagok telepítése innen:"
+
+msgid ""
+"Specify package  \n"
+"directory:"
+msgstr ""
+"Adja meg a csomagok\n"
+"könyvtárát:"
+
+msgid ""
+"Local package directory\n"
+"(must include PACKAGES index file)"
+msgstr ""
+"A helyi csomagkönyvtár\n"
+"(a PACKAGES index fájlt tartalmaznia kell)"
+
+msgid "The following packages were not found at the specified location:"
+msgstr "A következő csomagok nem voltak fellelhetőek a megadott helyen:"
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgid "Help"
+msgstr "Súgó"
+
+msgid "Scale Reliability"
+msgstr "Skála megbízhatósága"
+
+msgid "Variables (pick three or more)"
+msgstr "Változók (válasszon hármat vagy többet)"
+
+msgid "Fewer than 3 variables selected."
+msgstr "Kevesebb, mint 3 változó van kiválasztva."
+
+msgid "Principal Components Analysis"
+msgstr "Főkomponens elemzés"
+
+msgid "Variables (pick two or more)"
+msgstr "Változók (válasszon kettőt vagy többet)"
+
+msgid "Analyze correlation matrix"
+msgstr "Korrelációs mátrix elemzése"
+
+msgid "Screeplot"
+msgstr "Screeplot"
+
+msgid "Add principal components to data set"
+msgstr "Főkomponensek hozzáadása az adattáblához"
+
+msgid "Fewer than 2 variables selected."
+msgstr "Kevesebb, mint 2 változó van kiválasztva."
+
+msgid "Number of Components"
+msgstr "Főkomponensek száma"
+
+msgid "Number of components to retain:"
+msgstr "Megtartandó főkomponensek száma:"
+
+msgid "Factor Analysis"
+msgstr "Faktoranalízis"
+
+msgid "None"
+msgstr "Nincs"
+
+msgid "Varimax"
+msgstr "Varimax"
+
+msgid "Promax"
+msgstr "Promax"
+
+msgid "Factor Rotation"
+msgstr "Faktorrotáció"
+
+msgid "Bartlett's method"
+msgstr "Bartlett-eljárás"
+
+msgid "Regression method"
+msgstr "Regressziós eljárás"
+
+msgid "Factor Scores"
+msgstr "Faktor szkórok"
+
+msgid "Number of Factors"
+msgstr "Faktorok száma"
+
+msgid "Number of factors to extract:"
+msgstr "Kinyerendő faktorok száma:"
+
+msgid "Independent Samples t-Test"
+msgstr "Független mintás t-próba"
+
+msgid "Groups (pick one)"
+msgstr "Csoportosító változó (válasszon egyet)"
+
+msgid "You must select a groups variable."
+msgstr "Ki kell választani egy csoportosító változót."
+
+msgid "Two-sided"
+msgstr "Kétoldali"
+
+msgid "Difference < 0"
+msgstr "Különbség < 0"
+
+msgid "Difference > 0"
+msgstr "Különbség > 0"
+
+msgid "Yes"
+msgstr "Igen"
+
+msgid "No"
+msgstr "Nem"
+
+msgid "Assume equal variances?"
+msgstr "Egyenlő sokasági varianciák feltételezése?"
+
+msgid "Confidence Level"
+msgstr "Megbízhatósági szint"
+
+msgid "Paired t-Test"
+msgstr "Páros t-próba"
+
+msgid "First variable (pick one)"
+msgstr "Első változó (válasszon egyet)"
+
+msgid "Second variable (pick one)"
+msgstr "Második változó (válasszon egyet)"
+
+msgid "You must select two variables."
+msgstr "Két változót kell kiválasztani."
+
+msgid "Variables must be different."
+msgstr "A változóknak különbözőknek kell lenniük."
+
+msgid "Single-Sample t-Test"
+msgstr "Egymintás t-próba"
+
+msgid "Population mean = mu0"
+msgstr "Sokasági várható érték = mu0"
+
+msgid "Population mean < mu0"
+msgstr "Sokasági várható érték < mu0"
+
+msgid "Population mean > mu0"
+msgstr "Sokasági várható érték > mu0"
+
+msgid "Null hypothesis: mu ="
+msgstr "Nullhipotézis: mu ="
+
+msgid "One-Way Analysis of Variance"
+msgstr "Egyszempontos varianciaanalízis"
+
+msgid "You must select a groups factor."
+msgstr "Ki kell választani egy csoportosító faktort."
+
+msgid "Factor has fewer than 3 levels; pairwise comparisons omitted."
+msgstr "A faktornak kevesebb, mint 3 szintje van, nem kerül sor páronkénti összehasonlításokra."
+
+msgid "Pairwise comparisons of means"
+msgstr "A várható értékek páronkénti összehasonlítása"
+
+msgid "Multi-Way Analysis of Variance"
+msgstr "Többszempontos varianciaanalízis"
+
+msgid "Factors (pick one or more)"
+msgstr "Faktorok (válasszon egyet vagy többet)"
+
+msgid "You must select at least one factor."
+msgstr "Legalább egy faktort ki kell választani."
+
+msgid "Linear Regression"
+msgstr "Lineáris regresszió"
+
+msgid "Explanatory variables (pick one or more)"
+msgstr "Magyarázó változók (válasszon egyet vagy többet)"
+
+msgid "No explanatory variables selected."
+msgstr "Nincs magyarázó változó kiválasztva."
+
+msgid "\"%s\" is not a valid name."
+msgstr "A(z) \"%s\" nem érvényes név."
+
+msgid "Model"
+msgstr "Modell"
+
+msgid "Enter name for model:"
+msgstr "Adja meg a modell nevét:"
+
+msgid "Linear Model"
+msgstr "Lineáris modell"
+
+msgid "Left-hand side of model empty."
+msgstr "A modell bal oldala üres."
+
+msgid "Right-hand side of model empty."
+msgstr "A modell jobb oldala üres."
+
+msgid "Generalized Linear Model"
+msgstr "Általánosított lineáris modell"
+
+msgid "Family (double-click to select)"
+msgstr "Eloszláscsalád (dupla kattintással kiválasztható)"
+
+msgid "Link function"
+msgstr "Link függvény"
+
+msgid "Proportional-Odds Logit Model"
+msgstr "Proporcionális odds logit modell"
+
+msgid "Response variable must be a factor"
+msgstr "Az eredményváltozó faktor kell legyen"
+
+msgid "Multinomial Logit Model"
+msgstr "Multinomiális logit modell"
+
+msgid "Two-Sample Wilcoxon Test"
+msgstr "Mann-Whitney-féle U-próba"
+
+msgid "Default"
+msgstr "Alapértelmezett"
+
+msgid "Exact"
+msgstr "Egzakt"
+
+msgid "Normal approximation"
+msgstr "Normális közelítés"
+
+msgid ""
+"Normal approximation with\n"
+"continuity correction"
+msgstr ""
+"Normális közelítés\n"
+"folytonossági korrekcióval"
+
+msgid "Paired Wilcoxon Test"
+msgstr "Páros Wilcoxon-féle előjeles rangpróba"
+
+msgid "The two variables must be different."
+msgstr "A két változó különböző kell legyen."
+
+msgid "Kruskal-Wallis Rank Sum Test"
+msgstr "Kruskall-Wallis-féle H próba"
+
+msgid "Single-Sample Proportion Test"
+msgstr "Egymintás arányra irányuló próba"
+
+msgid "Population proportion = p0"
+msgstr "Sokasági arány = p0"
+
+msgid "Population proportion < p0"
+msgstr "Sokasági arány < p0"
+
+msgid "Population proportion > p0"
+msgstr "Sokasági arány > p0"
+
+msgid "Exact binomial"
+msgstr "Egzakt binomiális"
+
+msgid "Null hypothesis: p ="
+msgstr "Nullhipotézis: p ="
+
+msgid "Two-Sample Proportions Test"
+msgstr "Kétmintás arányra irányuló próba"
+
+msgid "Groups and response variables must be different."
+msgstr "A csoportosító és az eredményváltozónak különbözőknek kell lenniük."
+
+msgid ""
+"There are %d variables in the data set %s.\n"
+"Do you want to proceed?"
+msgstr ""
+"%d változó van a(z) %s adattáblában.\n"
+"Kívánja folytatni?"
+
+msgid "Numerical Summaries"
+msgstr "Numerikus változók összegzése"
+
+msgid "Standard Deviation"
+msgstr "Szórás"
+
+msgid "Summarize by:"
+msgstr "Összegzés a következő szerint:"
+
+msgid "Summarize by groups"
+msgstr "Összegzés csoportonként"
+
+msgid "Quantiles"
+msgstr "Kvantilisek"
+
+msgid "quantiles:"
+msgstr "kvantilisek:"
+
+msgid "Frequency Distribution"
+msgstr "Gyakorisági eloszlás"
+
+msgid "Goodness-of-Fit Test"
+msgstr "Illeszkedésvizsgálat"
+
+msgid "Invalid entry."
+msgstr "Érvénytelen érték."
+
+msgid "Missing entry."
+msgstr "Hiányzó érték."
+
+msgid ""
+"Number of valid entries (%d)\n"
+"not equal to number levels (%d)."
+msgstr ""
+"Az érvényes értékek száma (%d)\n"
+"nem egyezik a szintek számával (%d)."
+
+msgid "Negative probabilities not allowed."
+msgstr "Negatív valószínűségek nem megengedettek."
+
+msgid "Probabilities rescaled to sum to 1."
+msgstr "A valószínűségek át lettek normálva, hogy 1-re összegződjenek."
+
+msgid "Chi-square goodness-of-fit test"
+msgstr "Khi-négyzet próba illeszkedésvizsgálatra"
+
+msgid "Table of Statistics"
+msgstr "Összegzés két faktor szerinti bontásban"
+
+msgid "Median"
+msgstr "Medián"
+
+msgid "Standard deviation"
+msgstr "Szórás"
+
+msgid "Statistic"
+msgstr "Statisztika"
+
+msgid "Correlation Matrix"
+msgstr "Korrelációs mátrix"
+
+msgid "Pearson product-moment"
+msgstr "Pearson-féle"
+
+msgid "Spearman rank-order"
+msgstr "Spearman-féle"
+
+msgid "Partial"
+msgstr "Parciális"
+
+msgid "Type of Correlations"
+msgstr "A korreláció típusa"
+
+msgid ""
+"Fewer than 3 variables selected\n"
+"for partial correlations."
+msgstr ""
+"Kevesebb, mint 3 változó van a\n"
+"parciális korrelációkhoz kiválasztva."
+
+msgid "Two-Way Table"
+msgstr "Kétdimenziós tábla"
+
+msgid "Row variable (pick one)"
+msgstr "Sorváltozó (válasszon egyet)"
+
+msgid "Column variable (pick one)"
+msgstr "Oszlopváltozó (válasszon egyet)"
+
+msgid "Row and column variables are the same."
+msgstr "A sor- és oszlopváltozók megegyeznek."
+
+msgid "expected frequencies are less than 1"
+msgstr "a várt gyakoriságok 1-nél kisebbek"
+
+msgid "expected frequencies are less than 5"
+msgstr "a várt gyakoriságok 5-nél kisebbek"
+
+msgid "Row percentages"
+msgstr "Sormegoszlás"
+
+msgid "Column percentages"
+msgstr "Oszlopmegoszlás"
+
+msgid "No percentages"
+msgstr "Nincs megoszlás"
+
+msgid "Compute Percentages"
+msgstr "Megoszlások számítása"
+
+msgid "Chi-square test of independence"
+msgstr "Függetlenségre vonatkozó khi-négyzet próba"
+
+msgid "Print expected frequencies"
+msgstr "Függetlenség esetén várt gyakoriságok megjelenítése"
+
+msgid "Fisher's exact test"
+msgstr "Fisher-féle egzakt teszt"
+
+msgid "Hypothesis Tests"
+msgstr "Hipotézisvizsgálatok"
+
+msgid "Multi-Way Table"
+msgstr "Többdimenziós tábla"
+
+msgid "Control variable(s) (pick one or more)"
+msgstr "Kontroll változó(k) (válasszon egyet vagy többet)"
+
+msgid "You must select row, column, and control variables"
+msgstr "Ki kell választani sor-, oszlop- és kontroll-változót"
+
+msgid "Row, column, and control variables must be different."
+msgstr "A sor-, oszlop- és kontroll-változóknak különbözeknek kell lenniük."
+
+msgid "Enter Two-Way Table"
+msgstr "Adja meg a kétdimenziós táblát"
+
+msgid ""
+"Number of valid entries (%d)\n"
+"not equal to number of rows (%d) * number of columns (%d)."
+msgstr ""
+"Az érvényes értékek száma (%d)\n"
+"nem egyezik a sorok (%d) és oszlopok (%d) számának szorzatával."
+
+msgid "Row names are not unique."
+msgstr "A sornevek nem egyediek."
+
+msgid "Column names are not unique."
+msgstr "Az oszlopnevek nem egyediek."
+
+msgid "Number of Columns:"
+msgstr "Oszlopok száma:"
+
+msgid "Enter counts:"
+msgstr "Adja meg a gyakoriságokat:"
+
+msgid "Two Variances F-Test"
+msgstr "Kétmintás F-próba"
+
+msgid "Bartlett's Test"
+msgstr "Bartlett-próba"
+
+msgid "Levene's Test"
+msgstr "Levene-próba"
+
+msgid "There is no active data set."
+msgstr "Nincs aktív adattábla."
+
+msgid "is not a data frame and cannot be attached."
+msgstr "nem data frame és nem lehet attach-olni."
+
+msgid "The dataset %s has %d rows and %d columns."
+msgstr "A(z) %s adattáblának %d sora és %d oszlopa van."
+
+msgid "There is no active model."
+msgstr "Nincs aktív modell."
+
+msgid "argument must be a square, symmetric, numeric covariance matrix"
+msgstr "az argumentumnak négyzetes, szimmetrikus, numerikus kovarianciamátrixnak kell lennie"
+
+msgid "there are fewer than 3 items in the scale"
+msgstr "kevesebb, mint 3 elem van a skálán"
+
+msgid "Argument response must be numeric."
+msgstr "Az eredményváltozó argumentumnak numerikusnak kell lennie."
+
+msgid "Argument factor1 must be a factor."
+msgstr "A factor1 argumentumnak faktornak kell lennie."
+
+msgid "Arguments factor1 and factor2 must be factors."
+msgstr "A factor1 és factor2 argumentumoknak faktoroknak kell lenniük."
+
+msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgstr "A factor2 csoportjainak száma (%d) meghaladja a különböző színek számát (%d)."
+
+msgid "The number of bins exceeds the number of data values"
+msgstr "Az intervallumok száma meghaladja az értékek számát"
+
+msgid "Number of groups (%d) exceeds number of colors (%d)."
+msgstr "A csoportok száma (%d) meghaladja a színek számát (%d)."
+
+msgid "groups variable must be a factor."
+msgstr "a csoportosító változónak faktornak kell lennie."
+
+msgid "cannot plot both multiple surfaces and residuals"
+msgstr "nem lehet egyszerre több felületet és reziduumot ábrázolni"
+
+msgid "not supplied"
+msgstr "nincs megadva"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "There fewer than %d factors in the active data set."
+msgstr "Kevesebb, mint %d faktor van az aktív adattáblában."
+
+msgid "There are no factors in the active data set."
+msgstr "Nincs faktor az aktív adattáblában."
+
+msgid "There fewer than %d two-level factors in the active data set."
+msgstr "Kevesebb, mint %d két szintű faktor van az adattáblában."
+
+msgid "There are no two-level factors in the active data set."
+msgstr "Nincs két szintű faktor az adattáblában."
+
+msgid "There fewer than %d numeric variables in the active data set."
+msgstr "Kevesebb, mint %d numerikus változó van az aktív adattáblában."
+
+msgid "There are no numeric variables in the active data set."
+msgstr "Nincs numerikus változó az aktív adattáblában."
+
+msgid "There fewer than %d variables in the active data set."
+msgstr "Kevesebb, mint %d változó van az aktív adattáblában."
+
+msgid "There are no variables in the active data set."
+msgstr "Nincs változó az aktív adattáblában."
+
+msgid ""
+"%s %s already exists.\n"
+"Overwrite %s?"
+msgstr ""
+"%s %s már létezik.\n"
+"Felülírja %s-t?"
+
+msgid "Plot by:"
+msgstr "Ábrázolás e szerint:"
+
+msgid "Plot by groups"
+msgstr "Ábrázolás csoportonként"
+
+msgid "Plot lines by group"
+msgstr "Vonalak ábrázolása csoportonként"
+
+msgid "There no factors in the active data set."
+msgstr "Nincs faktor az aktív adattáblában."
+
+msgid "Groups"
+msgstr "Csoportok"
+
+msgid "Groups variable (pick one)"
+msgstr "Csoportosító változó (válasszon egyet)"
+
+msgid "Position legend with mouse click"
+msgstr "Egérkattintással jelölje ki a jelmagyarázat helyét"
+
+msgid "<No groups selected>"
+msgstr "<nincs kiválasztott csoport>"
+
+msgid "Difference:"
+msgstr "Különbség:"
+
+msgid "Variables (double-click to formula)"
+msgstr "Változók (dupla kattintással egyenletbe rakható)"
+
+msgid "Model Formula:"
+msgstr "Modellegyenlet:"
+
+msgid ""
+"No appropriate %s method exists\n"
+"for a model of this class."
+msgstr ""
+"Nincs megfelelő %s eljárás\n"
+"ilyen osztályú modellhez."
+
+msgid "The model is not of class \"%s\"."
+msgstr "A modell osztálya nem \"%s\"."
+
+msgid "Open script file..."
+msgstr "Szkript megnyitása..."
+
+msgid "Save script..."
+msgstr "Szkript mentése..."
+
+msgid "Save script as..."
+msgstr "Szkript mentése másként..."
+
+msgid "Save output..."
+msgstr "Output mentése..."
+
+msgid "Save output as..."
+msgstr "Output mentése másként..."
+
+msgid "Save R workspace..."
+msgstr "R munkakörnyezet mentése..."
+
+msgid "Save R workspace as..."
+msgstr "R munkakörnyezet mentése másként..."
+
+msgid "From Commander"
+msgstr "A Commanderből"
+
+msgid "From Commander and R"
+msgstr "A Commanderből és az R-ből"
+
+msgid "Exit"
+msgstr "Kilépés"
+
+msgid "File"
+msgstr "Fájl"
+
+msgid "Edit"
+msgstr "Szerkesztés"
+
+msgid "New data set..."
+msgstr "Új adattábla..."
+
+msgid "from text file..."
+msgstr "szövegfájlból..."
+
+msgid "from SPSS data set..."
+msgstr "SPSS adattáblából..."
+
+msgid "from Minitab data set..."
+msgstr "Minitab adattáblából..."
+
+msgid "from STATA data set..."
+msgstr "STATA adattáblából..."
+
+msgid "Import data"
+msgstr "Adatok importálása"
+
+msgid "List data sets in packages"
+msgstr "Csomagokban lévő adattáblák kilistázása"
+
+msgid "Read data set from an attached package..."
+msgstr "Adattábla beolvasása betöltött csomagból..."
+
+msgid "Data in packages"
+msgstr "Csomagokban lévő adatok"
+
+msgid "Select active data set..."
+msgstr "Aktív adattábla kiválasztása..."
+
+msgid "Help on active data set (if available)"
+msgstr "Súgó az aktív adattábláról (ha elérhető)"
+
+msgid "Variables in active data set"
+msgstr "Az aktív adattábla változói"
+
+msgid "Set case names..."
+msgstr "Megfigyelések neveinek beállítása..."
+
+msgid "Subset active data set..."
+msgstr "Rész adattábla leválogatása..."
+
+msgid "Remove cases with missing data..."
+msgstr "Hiányzó adatú megfigyelések eltávolítása..."
+
+msgid "Export active data set..."
+msgstr "Aktív adattábla exportálása..."
+
+msgid "Active data set"
+msgstr "Aktív adattábla"
+
+msgid "Recode variable..."
+msgstr "Változó átkódolása..."
+
+msgid "Compute new variable..."
+msgstr "Származtatott változó számítása..."
+
+msgid "Standardize variables..."
+msgstr "Változók standardizálása..."
+
+msgid "Convert numeric variable to factor..."
+msgstr "Numerikus változó faktorrá alakítása..."
+
+msgid "Bin numeric variable..."
+msgstr "Numerikus változó csoportosítása..."
+
+msgid "Reorder factor levels..."
+msgstr "Faktor szintjeinek átrendezése..."
+
+msgid "Define contrasts for a factor..."
+msgstr "Kontrasztok beállítása faktorhoz..."
+
+msgid "Rename variables..."
+msgstr "Változók átnevezése..."
+
+msgid "Delete variables from data set ..."
+msgstr "Változók törlése az adattáblából..."
+
+msgid "Manage variables in active data set"
+msgstr "Az aktív adattábla változóinak kezelése"
+
+msgid "Data"
+msgstr "Adatok"
+
+msgid "Numerical summaries..."
+msgstr "Numerikus változók összegzése..."
+
+msgid "Frequency distribution..."
+msgstr "Gyakorisági eloszlás..."
+
+msgid "Table of statistics..."
+msgstr "Összegzés két faktor szerinti bontásban..."
+
+msgid "Correlation matrix..."
+msgstr "Korrelációs mátrix..."
+
+msgid "Two-way table..."
+msgstr "Kétdimenziós tábla..."
+
+msgid "Multi-way table..."
+msgstr "Többdimenziós tábla..."
+
+msgid "Enter and analyze two-way table..."
+msgstr "Kétdimenziós tábla bevitele és elemzése..."
+
+msgid "Single-sample t-test..."
+msgstr "Egymintás t-próba..."
+
+msgid "Independent samples t-test..."
+msgstr "Független mintás t-próba..."
+
+msgid "Paired t-test..."
+msgstr "Páros t-próba..."
+
+msgid "One-way ANOVA..."
+msgstr "Egyszempontos varianciaanalízis..."
+
+msgid "Multi-way ANOVA..."
+msgstr "Többszempontos varianciaanalízis..."
+
+msgid "Single-sample proportion test..."
+msgstr "Egymintás arány próba..."
+
+msgid "Two-sample proportions test..."
+msgstr "Kétmintás arány próba..."
+
+msgid "Two-variances F-test..."
+msgstr "Kétmintás F-próba..."
+
+msgid "Bartlett's test..."
+msgstr "Bartlett-próba..."
+
+msgid "Levene's test..."
+msgstr "Levene-próba..."
+
+msgid "Two-sample Wilcoxon test..."
+msgstr "Mann-Whitney-féle U-próba..."
+
+msgid "Paired-samples Wilcoxon test..."
+msgstr "Páros Wilcoxon-féle előjeles rangpróba..."
+
+msgid "Kruskal-Wallis test..."
+msgstr "Kruskall-Wallis-féle H próba..."
+
+msgid "Scale reliability..."
+msgstr "Skála megbízhatósága..."
+
+msgid "Principal-components analysis..."
+msgstr "Főkomponens elemzés..."
+
+msgid "Factor analysis..."
+msgstr "Faktoranalízis..."
+
+msgid "k-means cluster analysis..."
+msgstr "K-közép klaszterelemzés..."
+
+msgid "Hierarchical cluster analysis..."
+msgstr "Hierarchikus klaszterelemzés..."
+
+msgid "Summarize hierarchical clustering..."
+msgstr "Hierarchikus klaszterezés összegzése..."
+
+msgid "Add hierarchical clustering to data set..."
+msgstr "Hierarchikus klaszterezés hozzáadása az adattáblához..."
+
+msgid "Cluster analysis"
+msgstr "Klaszterelemzés"
+
+msgid "Linear regression..."
+msgstr "Lineáris regresszió..."
+
+msgid "Linear model..."
+msgstr "Lineáris modell..."
+
+msgid "Generalized linear model..."
+msgstr "Általánosított lineáris modell..."
+
+msgid "Multinomial logit model..."
+msgstr "Multinomiális logit modell..."
+
+msgid "Proportional-odds logit model..."
+msgstr "Proporcionális odds logit modell..."
+
+msgid "Statistics"
+msgstr "Elemzések"
+
+msgid "Summaries"
+msgstr "Összegzések"
+
+msgid "Contingency tables"
+msgstr "Kontingenciatáblák"
+
+msgid "Means"
+msgstr "Várható értékek tesztelése"
+
+msgid "Proportions"
+msgstr "Arányok tesztelése"
+
+msgid "Variances"
+msgstr "Varianciák tesztelése"
+
+msgid "Nonparametric tests"
+msgstr "Nemparaméteres tesztek"
+
+msgid "Dimensional analysis"
+msgstr "Többdimenziós analízis"
+
+msgid "Fit models"
+msgstr "Modellek becslése"
+
+msgid "Index plot..."
+msgstr "Index ábra..."
+
+msgid "Histogram..."
+msgstr "Hisztogram..."
+
+msgid "Stem-and-leaf display..."
+msgstr "Stem and leaf ábra..."
+
+msgid "Boxplot..."
+msgstr "Boxplot..."
+
+msgid "Quantile-comparison plot..."
+msgstr "QQ-ábra..."
+
+msgid "Scatterplot..."
+msgstr "Szórásdiagram..."
+
+msgid "Scatterplot matrix..."
+msgstr "Szórásdiagram mátrix..."
+
+msgid "3D scatterplot..."
+msgstr "3D szórásdiagram..."
+
+msgid "Line graph..."
+msgstr "Vonaldiagram..."
+
+msgid "Plot of means..."
+msgstr "Átlagok ábrázolása..."
+
+msgid "Bar graph..."
+msgstr "Oszlopdiagram..."
+
+msgid "Pie chart..."
+msgstr "Kördiagram..."
+
+msgid "as bitmap..."
+msgstr "bitmap-ként..."
+
+msgid "as PDF/Postscript/EPS..."
+msgstr "PDF/Postscript/EPS-ként..."
+
+msgid "3D RGL graph..."
+msgstr "3D RGL ábra..."
+
+msgid "Save graph to file"
+msgstr "Ábra mentése fájlba"
+
+msgid "Graphs"
+msgstr "Ábrák"
+
+msgid "Select active model..."
+msgstr "Aktív modell kiválasztása..."
+
+msgid "Summarize model"
+msgstr "Modell összegzése"
+
+msgid "Add observation statistics to data..."
+msgstr "Megfigyelésekre vonatkozó, modellből számított adatok hozzáadása az adattáblához..."
+
+msgid "Confidence intervals..."
+msgstr "Konfidenciaintervallumok..."
+
+msgid "Hypothesis tests"
+msgstr "Hipotézisvizsgálatok"
+
+msgid "ANOVA table"
+msgstr "ANOVA tábla"
+
+msgid "Compare two models..."
+msgstr "Két modell összehasonlítása..."
+
+msgid "Linear hypothesis..."
+msgstr "Lineáris hipotézisek..."
+
+msgid "Numerical diagnostics"
+msgstr "Numerikus diagnosztika"
+
+msgid "Variance-inflation factors"
+msgstr "Variancia-infláló tényezők"
+
+msgid "Breusch-Pagan test for heteroscedasticity..."
+msgstr "A heteroszkedaszticitás Breusch-Pagan tesztje..."
+
+msgid "Durbin-Watson test for autocorrelation..."
+msgstr "Az autokorreláció Durbin-Watson tesztje..."
+
+msgid "RESET test for nonlinearity..."
+msgstr "A nemlinearitás RESET-tesztje..."
+
+msgid "Bonferroni outlier test"
+msgstr "Bonferroni outlier teszt"
+
+msgid "Basic diagnostic plots"
+msgstr "Alapvető diagnosztikai ábrák"
+
+msgid "Residual quantile-comparison plot..."
+msgstr "Reziduális QQ-ábra..."
+
+msgid "Component+residual plots..."
+msgstr "Komponens+reziduum ábra..."
+
+msgid "Added-variable plots..."
+msgstr "Added-variable ábrák..."
+
+msgid "Influence plot..."
+msgstr "Hatóerő ábra..."
+
+msgid "Effect plots..."
+msgstr "Hatásábrák..."
+
+msgid "Models"
+msgstr "Modellek"
+
+msgid "Normal distribution"
+msgstr "Normális eloszlás"
+
+msgid "Normal quantiles..."
+msgstr "Normális eloszlás kvantilisei..."
+
+msgid "Normal probabilities..."
+msgstr "Normális eloszlás valószínűségei..."
+
+msgid "Plot normal distribution..."
+msgstr "Normális eloszlás ábrázolása..."
+
+msgid "t distribution"
+msgstr "t-eloszlás"
+
+msgid "t quantiles..."
+msgstr "t-eloszlás kvantilisei..."
+
+msgid "t probabilities..."
+msgstr "t-eloszlás valószínűségei..."
+
+msgid "Plot t distribution..."
+msgstr "t-eloszlás ábrázolása..."
+
+msgid "Chi-squared distribution"
+msgstr "Khi-négyzet eloszlás"
+
+msgid "Chi-squared quantiles..."
+msgstr "Khi-négyzet eloszlás kvantilisei..."
+
+msgid "Chi-squared probabilities..."
+msgstr "Khi-négyzet eloszlás valószínűségei..."
+
+msgid "Plot chi-squared distribution..."
+msgstr "Khi-négyzet eloszlás ábrázolása..."
+
+msgid "F distribution"
+msgstr "F-eloszlás"
+
+msgid "F quantiles..."
+msgstr "F-eloszlás kvantilisei..."
+
+msgid "F probabilities..."
+msgstr "F-eloszlás valószínűségei..."
+
+msgid "Plot F distribution..."
+msgstr "F-eloszlás ábrázolása..."
+
+msgid "Binomial distribution"
+msgstr "Binomiális eloszlás"
+
+msgid "Binomial quantiles..."
+msgstr "Binomiális eloszlás kvantilisei..."
+
+msgid "Binomial tail probabilities..."
+msgstr "Binomális eloszlás széli valószínűségei..."
+
+msgid "Binomial probabilities..."
+msgstr "Binomális eloszlás valószínűségei..."
+
+msgid "Plot binomial distribution..."
+msgstr "Binomális eloszlás ábrázolása..."
+
+msgid "Poisson distribution"
+msgstr "Poisson eloszlás"
+
+msgid "Poisson probabilities..."
+msgstr "Poisson eloszlás valószínűségei..."
+
+msgid "Plot Poisson distribution..."
+msgstr "Poisson eloszlás ábrázolása..."
+
+msgid "Distributions"
+msgstr "Eloszlások"
+
+msgid "Load package(s)..."
+msgstr "Csomag(ok) betöltése..."
+
+msgid "Options..."
+msgstr "Opciók..."
+
+msgid "Tools"
+msgstr "Eszközök"
+
+msgid "Commander help"
+msgstr "Commander súgó"
+
+msgid "Introduction to the R Commander"
+msgstr "Bevezetés az R Commanderbe"
+
+msgid "About Rcmdr"
+msgstr "Rcmdr névjegye"
+
+msgid "df ="
+msgstr "szabadsági fokok száma ="
+
+# # messages added to Rcmdr version 1.1-1
+msgid "There is no current RGL graphics device."
+msgstr "Nincs aktuális RGL grafikus eszköz."
+
+msgid "3D graph"
+msgstr "3D ábra"
+
+# # messages added to Rcmdr version 1.1-6
+msgid " contains non-standard variable names:\n"
+msgstr " nem standard változóneveket tartalmaz:\n"
+
+msgid ""
+"\n"
+"These have been changed to:\n"
+msgstr ""
+"\n"
+"Ezek megváltoztak:\n"
+
+# # messages added to Rcmdr version 1.2-0
+# importRODBCtable dialog
+msgid "This function requires the RODBC package.\n"
+msgstr "Ez a funkció az RODBC csomagot igényli\n"
+
+msgid "Import from Excel, Access or dBase data set"
+msgstr "Excel, Access vagy dBase adattáblából importálás"
+
+msgid ""
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} "
+"{\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"MS Excel fájl\" {*.xls \".XLS\"}} {\"MS Access adatbázis\" {*.mdb \".MDB\"}} {\"dBase-szerű fájl\" {*.dbf \".DBF"
+"\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid "Select one table"
+msgstr "Válasszon ki egy táblát"
+
+msgid "No table selected"
+msgstr "Nincs tábla kiválasztva"
+
+msgid "from Excel, Access or dBase data set..."
+msgstr "Excel, Access vagy dBase adattáblából..."
+
+# probability distributions
+msgid "Standard deviation must be positive."
+msgstr "A szórásnak pozitívnak kell lennie."
+
+msgid "Degrees of freedom must be positive."
+msgstr "A szabadsági fokok számának pozitívnak kell lennie."
+
+msgid "Numerator degrees of freedom must be positive."
+msgstr "A számláló szabadsági fokának pozitívnak kell lennie."
+
+msgid "Denominator degrees of freedom must be positive."
+msgstr "A nevező szabadsági fokának pozitívnak kell lennie."
+
+msgid "Exponential Distribution"
+msgstr "Exponenciális eloszlás"
+
+msgid "Rate must be positive."
+msgstr "A rátának pozitívnak kell lennie."
+
+msgid "Rate"
+msgstr "Ráta"
+
+msgid "Uniform Distribution"
+msgstr "Egyenletes eloszlás"
+
+msgid "Lower limit must be less than upper limit."
+msgstr "Az alsó határnak alacsonyabbnak kell lennie mint a felsőnek."
+
+msgid "Minimum"
+msgstr "Minimum"
+
+msgid "Maximum"
+msgstr "Maximum"
+
+msgid "Beta Distribution"
+msgstr "Béta eloszlás"
+
+msgid "Shapes not specified."
+msgstr "Az alakparaméter nincs megadva."
+
+msgid "Shapes must be positive."
+msgstr "Az alakparaméternek pozitívnak kell lennie."
+
+msgid "Shape"
+msgstr "Alakparaméter"
+
+msgid "Cauchy Distribution"
+msgstr "Cauchy eloszlás"
+
+msgid "Scale must be positive."
+msgstr "A skálaparaméternek pozitívnak kell lennie."
+
+msgid "Location"
+msgstr "Helyzetparaméter"
+
+msgid "Scale"
+msgstr "Skálaparaméter"
+
+msgid "Logistic Distribution"
+msgstr "Logisztikus eloszlás"
+
+msgid "Lognormal Distribution"
+msgstr "Lognormális eloszlás"
+
+msgid "Mean (log scale)"
+msgstr "Várható érték (log skálán)"
+
+msgid "Standard deviation (log scale)"
+msgstr "Szórás (log skálán)"
+
+msgid "Gamma Distribution"
+msgstr "Gamma eloszlás"
+
+msgid "Shape not specified."
+msgstr "Alakparaméter nincs megadva."
+
+msgid "Shape must be positive."
+msgstr "Az alakparaméternek pozitívnak kell lennie."
+
+msgid "Weibull Distribution"
+msgstr "Weibull eloszlás"
+
+msgid "Exponential Quantiles"
+msgstr "Exponenciális eloszlás kvantilisei"
+
+msgid "Exponential Probabilities"
+msgstr "Exponenciális eloszlás valószínűségei"
+
+msgid "Uniform Quantiles"
+msgstr "Egyenletes eloszlás kvantilisei"
+
+msgid "Uniform Probabilities"
+msgstr "Egyenletes eloszlás valószínűségei"
+
+msgid "Beta Quantiles"
+msgstr "Béta eloszlás kvantilisei"
+
+msgid "Beta Probabilities"
+msgstr "Béta eloszlás valószínűségei"
+
+msgid "Cauchy Quantiles"
+msgstr "Cauchy eloszlás kvantilisei"
+
+msgid "Cauchy Probabilities"
+msgstr "Cauchy eloszlás valószínűségei"
+
+msgid "Logistic Quantiles"
+msgstr "Logisztikus eloszlás kvantilisei"
+
+msgid "Logistic Probabilities"
+msgstr "Logisztikus eloszlás valószínűségei"
+
+msgid "Lognormal Quantiles"
+msgstr "Lognormális eloszlás kvantilisei"
+
+msgid "Lognormal Probabilities"
+msgstr "Lognormális eloszlás valószínűségei"
+
+msgid "Gamma Quantiles"
+msgstr "Gamma eloszlás kvantilisei"
+
+msgid "Gamma Probabilities"
+msgstr "Gamma eloszlás valószínűségei"
+
+msgid "Weibull Quantiles"
+msgstr "Weibull eloszlás kvantilisei"
+
+msgid "Weibull Probabilities"
+msgstr "Weibull eloszlás valószínűségei"
+
+msgid "Gumbel Distribution"
+msgstr "Gumbel eloszlás"
+
+msgid "Shape (log shape)"
+msgstr "Alakparaméter (log skálán)"
+
+msgid "Scale (log scale)"
+msgstr "Skálaparaméter (log skálán)"
+
+msgid "Gumbel Probabilities"
+msgstr "Gumbel eloszlás valószínűségei"
+
+msgid "Probability of success must be between 0 and 1."
+msgstr "A bekövetkezés valószínűségének 0 és 1 között kell lennie."
+
+msgid "Poisson Quantiles"
+msgstr "Poisson eloszlás kvantilisei"
+
+msgid "Geometric Quantiles"
+msgstr "Geometriai eloszlás kvantilisei"
+
+msgid "Geometric Probabilities"
+msgstr "Geometriai eloszlás valószínűségei"
+
+msgid "Hypergeometric Quantiles"
+msgstr "Hipergeometriai eloszlás kvantilisei"
+
+msgid "The m parameter was not specified."
+msgstr "Az m paraméter nincs megadva."
+
+msgid "The m parameter cannot be negative."
+msgstr "Az m paraméter nem lehet negatív."
+
+msgid "The n parameter was not specified."
+msgstr "Az n paraméter nincs megadva."
+
+msgid "The n parameter cannot be negative."
+msgstr "Az n paraméter nem lehet negatív."
+
+msgid "The k parameter was not specified."
+msgstr "A k paraméter nincs megadva."
+
+msgid "The k parameter cannot be greater than m + n."
+msgstr "A k paraméter nem lehet nagyobb mint m+n."
+
+msgid "The k parameter cannot be negative."
+msgstr "A k paraméter nem lehet negatív."
+
+msgid "m (number of white balls in the urn)"
+msgstr "m (az urnában lévő fehér golyók száma)"
+
+msgid "n (number of black balls in the urn)"
+msgstr "n (az urnában lévő fekete golyók száma)"
+
+msgid "k (number of balls drawn from the urn)"
+msgstr "k (az urnából kihúzott golyók száma)"
+
+msgid "Hypergeometric Probabilities"
+msgstr "Hipergeometriai eloszlás valószínűségei"
+
+msgid "Negative Binomial Quantiles"
+msgstr "Negatív binomális eloszlás kvantilisei"
+
+msgid "Target number of successes not specified."
+msgstr "A bekövetkezések kitűzött száma nincs megadva."
+
+msgid "Target number of successes cannot be negative."
+msgstr "A bekövetkezések kitűzött száma nem lehet negatív."
+
+msgid "Target number of successes"
+msgstr "A bekövetkezések kitűzött száma"
+
+msgid "Negative Binomial Probabilities"
+msgstr "Negatív binomális eloszlás valószínűségei"
+
+msgid "Geometric Distribution"
+msgstr "Geometriai eloszlás"
+
+msgid "Hypergeometric Distribution"
+msgstr "Hipergeometriai eloszlás"
+
+msgid "Negative Binomial Distribution"
+msgstr "Negatív binomiális eloszlás"
+
+msgid "Sample from Normal Distribution"
+msgstr "Mintavétel normális eloszlásból"
+
+# msgid "NormalSamples"
+# msgstr ""
+msgid "Sample means"
+msgstr "Mintaátlagok"
+
+msgid "Sample sums"
+msgstr "Mintaösszegek"
+
+msgid "Sample standard deviations"
+msgstr "Mintaszórások"
+
+msgid "Sample size must be positive."
+msgstr "A mintaméretnek pozitívnak kell lennie."
+
+msgid "Number of samples must be positive."
+msgstr "A minták számának pozitívnak kell lennie."
+
+msgid "Number of samples (rows)"
+msgstr "Minták száma (sorok)"
+
+msgid "Number of observations (columns)"
+msgstr "Megfigyelések száma (oszlopok)"
+
+msgid "Add to Data Set:"
+msgstr "Hozzáadás az adattáblához:"
+
+msgid "Sample from t Distribution"
+msgstr "Mintavétel t-eloszlásból"
+
+# msgid "tSamples"
+# msgstr ""
+msgid "Sample from Chi-squared Distribution"
+msgstr "Mintavétel khi-négyzet eloszlásból"
+
+# msgid "ChisquareSamples"
+# msgstr ""
+msgid "Sample from F Distribution"
+msgstr "Mintavétel F-eloszlásból"
+
+# msgid "FSamples"
+# msgstr ""
+msgid "Sample from Exponential Distribution"
+msgstr "Mintavétel exponenciális eloszlásból"
+
+# msgid "ExponentialSamples"
+# msgstr ""
+msgid "Sample from Uniform Distribution"
+msgstr "Mintavétel egyenletes eloszlásból"
+
+# msgid "UniformSamples"
+# msgstr ""
+msgid "Sample from Beta Distribution"
+msgstr "Mintavétel béta eloszlásból"
+
+# msgid "BetaSamples"
+# msgstr ""
+msgid "Sample from Cauchy Distribution"
+msgstr "Mintavétel Cauchy eloszlásból"
+
+# msgid "CauchySamples"
+# msgstr ""
+msgid "Sample from Logistic Distribution"
+msgstr "Mintavétel logisztikus eloszlásból"
+
+# msgid "LogisticSamples"
+# msgstr ""
+msgid "Sample from Log-Normal Distribution"
+msgstr "Mintavétel lognormális eloszlásból"
+
+# msgid "LogNormalSamples"
+# msgstr ""
+msgid "Sample from Gamma Distribution"
+msgstr "Mintavétel gamma eloszlásból"
+
+# msgid "GammaSamples"
+# msgstr ""
+msgid "Sample from Weibull Distribution"
+msgstr "Mintavétel Weibull eloszlásból"
+
+# msgid "WeibullSamples"
+# msgstr ""
+msgid "Sample from Gumbel Distribution"
+msgstr "Mintavétel Gumbel eloszlásból"
+
+# msgid "GumbelSamples"
+# msgstr ""
+msgid "Sample from Binomial Distribution"
+msgstr "Mintavétel binomális eloszlásból"
+
+# msgid "BinomialSamples"
+# msgstr ""
+msgid "Poisson mean cannot be negative."
+msgstr "A Poisson eloszlás várható értéke nem lehet negatív."
+
+msgid "Sample from Poisson Distribution"
+msgstr "Mintavétel Poisson eloszlásból"
+
+# msgid "PoissonSamples"
+# msgstr ""
+msgid "Sample from Geometric Distribution"
+msgstr "Mintavétel geometriai eloszlásból"
+
+# msgid "GeometricSamples"
+# msgstr ""
+msgid "Sample from Hypergeometric Distribution"
+msgstr "Mintavétel hipergeometriai eloszlásból"
+
+# msgid "HypergeometricSamples"
+# msgstr ""
+msgid "Sample from Negative Binomial Distribution"
+msgstr "Mintavétel negatív binomális eloszlásból"
+
+# msgid "NegativeBinomialSamples"
+# msgstr ""
+msgid "Sample from normal distribution..."
+msgstr "Mintavétel normális eloszlásból..."
+
+msgid "Sample from t distribution..."
+msgstr "Mintavétel t-eloszlásból..."
+
+msgid "Sample from chi-squared distribution..."
+msgstr "Mintavétel khi-négyzet eloszlásból..."
+
+msgid "Sample from F distribution..."
+msgstr "Mintavétel F-eloszlásból..."
+
+msgid "Exponential distribution"
+msgstr "Exponenciális eloszlás"
+
+msgid "Exponential quantiles..."
+msgstr "Exponenciális eloszlás kvantilisei..."
+
+msgid "Exponential probabilities..."
+msgstr "Exponenciális eloszlás valószínűségei..."
+
+msgid "Plot exponential distribution..."
+msgstr "Exponenciális eloszlás ábrázolása..."
+
+msgid "Sample from exponential distribution..."
+msgstr "Mintavétel exponenciális eloszlásból..."
+
+msgid "Uniform distribution"
+msgstr "Egyenletes eloszlás"
+
+msgid "Uniform quantiles..."
+msgstr "Egyenletes eloszlás kvantilisei..."
+
+msgid "Uniform probabilities..."
+msgstr "Egyenletes eloszlás valószínűségei..."
+
+msgid "Plot uniform distribution..."
+msgstr "Egyenletes eloszlás ábrázolása..."
+
+msgid "Sample from uniform distribution..."
+msgstr "Mintavétel egyenletes eloszlásból..."
+
+msgid "Beta distribution"
+msgstr "Béta eloszlás"
+
+msgid "Beta quantiles..."
+msgstr "Béta eloszlás kvantilisei..."
+
+msgid "Beta probabilities..."
+msgstr "Béta eloszlás valószínűségei..."
+
+msgid "Plot beta distribution..."
+msgstr "Béta eloszlás ábrázolása..."
+
+msgid "Sample from beta distribution..."
+msgstr "Mintavétel béta eloszlásból..."
+
+msgid "Cauchy distribution"
+msgstr "Cauchy eloszlás"
+
+msgid "Cauchy quantiles..."
+msgstr "Cauchy eloszlás kvantilisei..."
+
+msgid "Cauchy probabilities..."
+msgstr "Cauchy eloszlás valószínűségei..."
+
+msgid "Plot Cauchy distribution..."
+msgstr "Cauchy eloszlás ábrázolása..."
+
+msgid "Sample from Cauchy distribution..."
+msgstr "Mintavétel Cauchy eloszlásból..."
+
+msgid "Logistic distribution"
+msgstr "Logisztikus eloszlás"
+
+msgid "Logistic quantiles..."
+msgstr "Logisztikus eloszlás kvantilisei..."
+
+msgid "Logistic probabilities..."
+msgstr "Logisztikus eloszlás valószínűségei..."
+
+msgid "Plot logistic distribution..."
+msgstr "Logisztikus eloszlás ábrázolása..."
+
+msgid "Sample from logistic distribution..."
+msgstr "Mintavétel logisztikus eloszlásból..."
+
+msgid "Lognormal distribution"
+msgstr "Lognormális eloszlás"
+
+msgid "Lognormal quantiles..."
+msgstr "Lognormális eloszlás kvantilisei..."
+
+msgid "Lognormal probabilities..."
+msgstr "Lognormális eloszlás valószínűségei..."
+
+msgid "Plot lognormal distribution..."
+msgstr "Lognormális eloszlás ábrázolása..."
+
+msgid "Sample from lognormal distribution..."
+msgstr "Mintavétel lognormális eloszlásból..."
+
+msgid "Gamma distribution"
+msgstr "Gamma eloszlás"
+
+msgid "Gamma quantiles..."
+msgstr "Gamma eloszlás kvantilisei..."
+
+msgid "Gamma probabilities..."
+msgstr "Gamma eloszlás valószínűségei..."
+
+msgid "Plot gamma distribution..."
+msgstr "Gamma eloszlás ábrázolása..."
+
+msgid "Sample from gamma distribution..."
+msgstr "Mintavétel gamma eloszlásból..."
+
+msgid "Weibull distribution"
+msgstr "Weibull eloszlás"
+
+msgid "Weibull quantiles..."
+msgstr "Weibull eloszlás kvantilisei..."
+
+msgid "Weibull probabilities..."
+msgstr "Weibull eloszlás valószínűségei..."
+
+msgid "Plot Weibull distribution..."
+msgstr "Weibull eloszlás ábrázolása..."
+
+msgid "Sample from Weibull distribution..."
+msgstr "Mintavétel Weibull eloszlásból..."
+
+msgid "Gumbel distribution"
+msgstr "Gumbel eloszlás"
+
+msgid "Gumbel quantiles..."
+msgstr "Gumbel eloszlás kvantilisei..."
+
+msgid "Gumbel probabilities..."
+msgstr "Gumbel eloszlás valószínűségei..."
+
+msgid "Plot Gumbel distribution..."
+msgstr "Gumbel eloszlás ábrázolása..."
+
+msgid "Sample from Gumbel distribution..."
+msgstr "Mintavétel Gumbel eloszlásból..."
+
+msgid "Sample from binomial distribution..."
+msgstr "Mintavétel binomális eloszlásból..."
+
+msgid "Poisson quantiles..."
+msgstr "Poisson eloszlás kvantilisei..."
+
+msgid "Poisson tail probabilities..."
+msgstr "Poisson eloszlás széli valószínűségei..."
+
+msgid "Sample from Poisson distribution..."
+msgstr "Mintavétel Poisson eloszlásból..."
+
+msgid "Geometric distribution"
+msgstr "Geometriai eloszlás"
+
+msgid "Geometric quantiles..."
+msgstr "Geometriai eloszlás kvantilisei..."
+
+msgid "Geometric tail probabilities..."
+msgstr "Geometriai eloszlás széli valószínűségei..."
+
+msgid "Geometric probabilities..."
+msgstr "Geometriai eloszlás valószínűségei..."
+
+msgid "Plot geometric distribution..."
+msgstr "Geometriai eloszlás ábrázolása..."
+
+msgid "Sample from geometric distribution..."
+msgstr "Mintavétel geometriai eloszlásból..."
+
+msgid "Hypergeometric distribution"
+msgstr "Hipergeometriai eloszlás"
+
+msgid "Hypergeometric quantiles..."
+msgstr "Hipergeometriai eloszlás kvantilisei..."
+
+msgid "Hypergeometric tail probabilities..."
+msgstr "Hipergeometriai eloszlás széli valószínűségei..."
+
+msgid "Hypergeometric probabilities..."
+msgstr "Hipergeometriai eloszlás valószínűségei..."
+
+msgid "Plot hypergeometric distribution..."
+msgstr "Hipergeometriai eloszlás ábrázolása..."
+
+msgid "Sample from hypergeometric distribution..."
+msgstr "Mintavétel hipergeometriai eloszlásból..."
+
+msgid "Negative binomial distribution"
+msgstr "Negatív binomiális eloszlás"
+
+msgid "Negative binomial quantiles..."
+msgstr "Negatív binomális eloszlás kvantilisei...."
+
+msgid "Negative binomial tail probabilities..."
+msgstr "Negatív binomális eloszlás széli valószínűségei..."
+
+msgid "Negative binomial probabilities..."
+msgstr "Negatív binomális eloszlás valószínűségei..."
+
+msgid "Plot negative binomial distribution..."
+msgstr "Negatív binomális eloszlás ábrázolása..."
+
+msgid "Sample from negative binomial distribution..."
+msgstr "Mintavétel negatív binomális eloszlásból..."
+
+msgid "Continuous distributions"
+msgstr "Folytonos eloszlások"
+
+msgid "Discrete distributions"
+msgstr "Diszkrét eloszlások"
+
+# Xyplot dialog
+msgid "XY Conditioning Plot"
+msgstr "XY feltételes szórásdiagram"
+
+msgid "Response variables (pick one or more)"
+msgstr "Eredményváltozó (válasszon egyet vagy többet)"
+
+msgid "Groups (pick zero or more)"
+msgstr "Csoportok (válasszon nullát vagy többet)"
+
+msgid "Automatically draw key"
+msgstr "Jelmagyarázat automatikus kirajzolása"
+
+msgid "Different panels for different responses"
+msgstr "Külön panelek a különböző eredményváltozókhoz"
+
+msgid "Identical"
+msgstr "Azonos"
+
+msgid "Free"
+msgstr "Szabad"
+
+msgid "Same range"
+msgstr "Ugyanolyan tartomány"
+
+msgid "X-Axis Scales in Different Panels"
+msgstr "x-tengely skálák a különböző paneleken"
+
+msgid "Y-Axis Scales in Different Panels"
+msgstr "y-tengely skálák a különböző paneleken"
+
+msgid "At least one response variable must be selected."
+msgstr "Legalább egy eredményváltozót ki kell választani."
+
+msgid "At least one explanatory variable must be selected."
+msgstr "Legalább egy magyarázó változót ki kell választani."
+
+msgid "XY conditioning plot..."
+msgstr "XY feltételes szórásdiagram..."
+
+# contingency tables dialog
+msgid "Percentages of total"
+msgstr "Megoszlás"
+
+msgid "Components of chi-square statistic"
+msgstr "A khi-négyzet statisztika komponensei"
+
+# 3D scatterplots dialog
+msgid "Show squared residuals"
+msgstr "Négyzetes reziduumok ábrázolása"
+
+msgid "Show axis scales"
+msgstr "Tengelyskálák ábrázolása"
+
+msgid "Plot 50% concentration ellipsoid"
+msgstr "50%-os koncentrációs ellipszis ábrázolása."
+
+# scatterplot matrices dialog
+msgid "One-dimensional scatterplots"
+msgstr "Egydimenziós szórásdiagramok"
+
+# count NAs (menu item)
+msgid "Count missing observations"
+msgstr "Hiányzó megfigyelések száma"
+
+# Correlation test dialog
+msgid "Correlation Test"
+msgstr "Korrelációs együttható tesztelése"
+
+msgid "Variables (pick two)"
+msgstr "Változók (válasszon kettőt)"
+
+msgid "Kendall's tau"
+msgstr "Kendall-féle"
+
+msgid "Type of Correlation"
+msgstr "Korrelációs együttható típusa"
+
+msgid "Correlation < 0"
+msgstr "Korreláció < 0"
+
+msgid "Correlation > 0"
+msgstr "Korreláció > 0"
+
+msgid "More than 2 variables selected."
+msgstr "Több, mint 2 változó van kiválasztva."
+
+msgid "Correlation test..."
+msgstr "Korrelációs együttható tesztelése..."
+
+# Recode dialog
+msgid "Recode Variables"
+msgstr "Változók átkódolása"
+
+msgid "Variables to recode (pick one or more)"
+msgstr "Átkódolandó változók (válasszon egyet vagy többet)"
+
+msgid "New variable name or prefix for multiple recodes:"
+msgstr "Új változónév vagy prefixum a többszörös átkódolásokhoz:"
+
+msgid "Make (each) new variable a factor"
+msgstr "Az új változók faktorrá alakítása"
+
+msgid "Recode variables..."
+msgstr "Változók átkódolása..."
+
+# Frequency distributions dialog
+msgid "Frequency Distributions"
+msgstr "Gyakorisági eloszlások"
+
+msgid "Chi-square goodness-of-fit test (for one variable only)"
+msgstr "Khi-négyzet próba illeszkedésvizsgálatra (csak egy változóra)"
+
+msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgstr "Az illeszkedésvizsgálat nem érhető el, ha egynél több változó van kiválasztva."
+
+msgid "Frequency distributions..."
+msgstr "Gyakorisági eloszlások..."
+
+# Numeric to factor dialog
+msgid "Convert Numeric Variables to Factors"
+msgstr "Numerikus változók faktorrá alakítása"
+
+msgid "<same as variables>"
+msgstr "<változókkal megegyező>"
+
+msgid "Level Names for"
+msgstr "Szintek elnevezései"
+
+msgid "Factors"
+msgstr "Faktorok"
+
+msgid "New variable name or prefix for multiple variables:"
+msgstr "Új változónév vagy prefixum több változóhoz:"
+
+msgid "Convert numeric variables to factors..."
+msgstr "Numerikus változók faktorrá alakítása..."
+
+# Stack dialog
+msgid "Stack Variables"
+msgstr "Változók halmozása"
+
+msgid "factor"
+msgstr "faktor"
+
+# msgid "StackedData"
+# msgstr ""
+msgid "You must select at least two variables."
+msgstr "Legalább két változót ki kell választani."
+
+msgid "Name for stacked data set:"
+msgstr "A halmozott adattábla neve:"
+
+msgid "Name for variable:"
+msgstr "A változó neve:"
+
+msgid "Name for factor:"
+msgstr "A faktor neve:"
+
+msgid "Stack variables in active data set..."
+msgstr "Változók halmozása az aktív adattáblában..."
+
+# miscelaneous
+msgid "Identify Points"
+msgstr "Pontok azonosítása"
+
+msgid ""
+"Use left mouse button to identify points,\n"
+"right button to exit."
+msgstr ""
+"Használja a bal egérgombot a pontok azonosításához,\n"
+"a jobb gombot a kilépéshez."
+
+msgid ""
+"Drag right mouse button to identify points,\n"
+"click right button to exit."
+msgstr ""
+"Használja a jobb egérgombot húzással a pontok azonosításához,\n"
+"a jobb gombot a kilépéshez."
+
+msgid "Read Data From Text File or Clipboard"
+msgstr "Adatok beolvasása szövegfájlból vagy a vágólapról"
+
+msgid "Read data from clipboard:"
+msgstr "Adatok beolvasása a vágólapról:"
+
+msgid "from text file or clipboard..."
+msgstr "szövegfájlból vagy vágólapról..."
+
+msgid "Add observation numbers to data set"
+msgstr "Megfigyelés sorszámok hozzáadása az adattáblához"
+
+msgid "Refresh active data set"
+msgstr "Aktív adattábla frissítése"
+
+msgid "No statistics selected."
+msgstr "Nincs statisztika kiválasztva."
+
+msgid "Right-hand side"
+msgstr "Jobb oldal"
+
+# # messages added to Rcmdr version 1.3-0
+# handling plug-ins
+msgid "Load Plugins"
+msgstr "Pluginok betöltése"
+
+msgid "Plug-ins (pick one or more)"
+msgstr "Pluginok (válasszon egyet vagy többet)"
+
+msgid "You must select at least one plug-in."
+msgstr "Legalább egy plugint ki kell választani."
+
+msgid "Plug-ins loaded:"
+msgstr "Betöltött pluginek:"
+
+msgid ""
+"The plug-in(s) will not be available until the Commander is restarted.\n"
+"Restart now?"
+msgstr ""
+"A plugin(ek) nem lesz(nek) előrhető(ek) a Commander újraindításáig.\n"
+"Újraindítja most?"
+
+msgid "objects have different numbers of columns"
+msgstr "objektumoknak eltérő számú oszlopuk van"
+
+msgid "objects have different column names"
+msgstr "objektumoknak eltérő oszlopneveik vannak"
+
+msgid "Load Rcmdr plug-in(s)..."
+msgstr "Rcmdr plugin(ok) betöltése..."
+
+msgid "the plug-in package %s is missing"
+msgstr "a(z) %s plugin hiányzik"
+
+msgid "the package %s is not an Rcmdr plug-in"
+msgstr "a(z) %s csomag nem Rcmd plugin"
+
+msgid "unrecognized operation, \"%s\", in plugin menu line %i"
+msgstr "ismeretlen művelet (\"%s\") a plugin menü %i sorában"
+
+msgid "unrecognized type, \"%s\", in plugin menu line %i"
+msgstr "ismeretlen típus (\"%s\") a plugin menü %i sorában"
+
+# miscelaneous additions
+msgid "Color palette..."
+msgstr "Színpaletta..."
+
+msgid "Set Color Palette"
+msgstr "Színpaletta beállítása"
+
+msgid "Color palette reset."
+msgstr "Színpaletta alaphelyzetbe állítása."
+
+msgid "Save active data set..."
+msgstr "Aktív adattábla mentése..."
+
+msgid "Load data set..."
+msgstr "Adattábla betöltése..."
+
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"R adatfájlok\" {\".rda\" \".Rda\" \".RDA\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid "Shapiro-Wilk test of normality..."
+msgstr "Shapiro-Wilk-féle normalitás próba..."
+
+msgid "Shapiro-Wilk Test of Normality"
+msgstr "Shapiro-Wilk-féle normalitás próba"
+
+msgid "Ordinal regression model..."
+msgstr "Ordinális regressziós modell..."
+
+msgid "Ordinal Regression Model"
+msgstr "Ordinális regressziós modell"
+
+msgid "Proportional-odds logit"
+msgstr "Proporcionális odds logit modell"
+
+msgid "Ordered probit"
+msgstr "Ordinális probit"
+
+msgid "Type of Model"
+msgstr "Modell típusa"
+
+msgid "x-axis label"
+msgstr "x-tengely felirata"
+
+msgid "y-axis label"
+msgstr "y-tengely felirata"
+
+msgid "No plotting characters."
+msgstr "Nincs ábrázolási karakter."
+
+msgid "Plotting Parameters"
+msgstr "Ábrázolási paraméterek"
+
+msgid "Plotting characters"
+msgstr "Ábrázolási karakter"
+
+msgid "Point size"
+msgstr "Pontméret"
+
+msgid "Axis text size"
+msgstr "Tengely betűmérete"
+
+msgid "Axis-labels text size"
+msgstr "Tengelyfelirat betűmérete"
+
+# message added to version 1.3-3 (because of inadvertent omission)
+msgid "Scale (inverse rate)"
+msgstr "Skála (inverz ráta)"
+
+# messages added to version 1.3-5
+msgid " has been coerced to a data frame"
+msgstr " data frame-é lett konvertálva"
+
+msgid "the dataset %s is no longer available"
+msgstr "a(z) %s adattábla már nem elérhető"
+
+msgid "the model %s is no longer available"
+msgstr "a(z) %s modell már nem elérhető"
+
+# message added to version 1.3-10
+msgid "The Commander GUI is launched only in interactive sessions"
+msgstr "A Commander GUI csak interaktív munkamenetben indul el"
+
+# messages added to version 1.3-15
+# Note: translate these messages only if the corresponding
+#  translated documents are supplied
+# For the following, you must supply a file named Commander-xx.Rd containing
+# a translation of the file Commander.Rd, where xx is the code for your
+# language. The \name{} and \alias{} fields in the .Rd file should both be
+# Commander-xx, where again xx is the language code.
+# Example: "Commander-es"
+# Note: Some translated Commander-xx.Rd files have not been compiling properly. As
+# an alternative, you can supply a PDF file named Commander-xx.pdf, and this will
+# be accessed when the user selects Help -> Commander help.
+# If you supply neither Commander-xx.Rd nor Commander-xx.pdf, then
+# the string "Commander" should not be translated.
+msgid "Commander"
+msgstr ""
+
+# For the following you must supply a PDF document containing a translation
+# of "Getting-Started-with-the-Rcmdr.pdf". I suggest using a translation
+# including -xx, where xx is the code for your language.
+# Example: "Empezando-con-Rcmdr-es"
+msgid "Getting-Started-with-the-Rcmdr"
+msgstr ""
+
+# messages added to version 1.4-0
+msgid "Type of Tests"
+msgstr "Tesztek típusa"
+
+msgid "Sequential (\"Type I\")"
+msgstr "Szekvenciális (\"I. típusú\")"
+
+msgid "Partial obeying marginality (\"Type II\")"
+msgstr "Részlegesen szekvenciális (\"II. típusú\")"
+
+msgid "Partial ignoring marginality (\"Type III\")"
+msgstr "Marginális (\"III. típusú\")"
+
+msgid "Type III tests require careful attention to contrast coding."
+msgstr "A III. típusú teszteknél különös figyelmet kell fordítani a kontrasztok kódolására."
+
+msgid "There is no appropriate anova method for a model of this class."
+msgstr "Nincs megfelelő ANOVA eljárás ilyen osztályú modellhez."
+
+msgid "Duplicate menu names:"
+msgstr "Duplikált menü elnevezések:"
+
+msgid "Strip chart..."
+msgstr "Pontábra..."
+
+msgid "Strip Chart"
+msgstr "Pontábra"
+
+msgid "Factors (pick zero or more)"
+msgstr "Faktorok (válasszon nullát vagy többet)"
+
+msgid "Duplicate Values"
+msgstr "Duplikált értékek"
+
+msgid "Stack"
+msgstr "Halmozott"
+
+msgid "Jitter"
+msgstr "Jitter-elt"
+
+msgid "Remove Rows from Active Data Set"
+msgstr "Sorok eltávolítása az aktív adattáblából"
+
+msgid "Remove row(s) from active data set..."
+msgstr "Sor(ok) eltávolítása az aktív adattáblából..."
+
+msgid "No rows to remove"
+msgstr "Nincs eltávolítható sor"
+
+msgid "Indices or quoted names of row(s) to remove"
+msgstr "Az eltávolítandó sor(ok) indexek vagy nevei"
+
+msgid "Akaike Information Criterion (AIC)"
+msgstr "Akaike információs kritérium (AIC)"
+
+msgid "Bayesian Information Criterion (BIC)"
+msgstr "Bayesi információs kritérium (BIC)"
+
+msgid "Change working directory..."
+msgstr "Munkakönyvtár váltás..."
+
+msgid "Log x-axis"
+msgstr "Logaritmikus x-tengely"
+
+msgid "Log y-axis"
+msgstr "Logaritmikus y-tengely"
+
+msgid "from text file, clipboard, or URL..."
+msgstr "Szövegfájlból, vágólapról vagy URL-ről..."
+
+msgid "Read Text Data From File, Clipboard, or URL"
+msgstr "Adatok beolvasása fájlból, vágólapról vagy URL-ről"
+
+msgid "Location of Data File"
+msgstr "Adatfájl helye"
+
+msgid "Local file system"
+msgstr "Helyi fájlrendszer"
+
+msgid "Clipboard"
+msgstr "Vágólap"
+
+msgid "Internet URL"
+msgstr "Internetes URL"
+
+msgid "Friedman rank-sum test..."
+msgstr "Friedman rangösszeg próba..."
+
+msgid "Friedman Rank Sum Test"
+msgstr "Friedman rangösszeg próba"
+
+msgid "Repeated-Measures Variables (pick two or more)"
+msgstr "Ismételt méréses változó (válasszon kettőt vagy többet)"
+
+msgid "Undo"
+msgstr "Visszavonás"
+
+msgid "Redo"
+msgstr "Ismétlés"
+
+msgid "ANOVA table..."
+msgstr "ANOVA tábla..."
+
+# messages added to version 1.4-2
+msgid "Location not specified."
+msgstr "A hely nincs megadva."
+
+# messages added to version 1.5-0
+#     "Models -> Stepwise model selection" dialog and menu item
+msgid "Stepwise model selection..."
+msgstr "Stepwise modellszelekció..."
+
+msgid "Stepwise Model Selection"
+msgstr "Stepwise modellszelekció"
+
+msgid "Direction"
+msgstr "Irány"
+
+msgid "backward/forward"
+msgstr "előre/hátra"
+
+msgid "forward/backward"
+msgstr "hátra/előre"
+
+msgid "backward"
+msgstr "hátra"
+
+msgid "forward"
+msgstr "előre"
+
+msgid "Criterion"
+msgstr "Célfüggvény"
+
+msgid "BIC"
+msgstr "BIC"
+
+msgid "AIC"
+msgstr "AIC"
+
+#      "Models -> Subset model selection" dialog and menu item
+msgid "Subset model selection..."
+msgstr "Részmodelles modellszelekció..."
+
+msgid "Subset Model Selection"
+msgstr "Részmodelles modellszelekció"
+
+msgid "Criterion for Model Plot"
+msgstr "Ábrázolandó célfüggvény"
+
+msgid "Mallows Cp"
+msgstr "Mallows Cp"
+
+msgid "Adjusted R-sq."
+msgstr "Korrigált R-négyzet"
+
+msgid "R-squared"
+msgstr "R-négyzet"
+
+msgid ""
+"Number of best models\n"
+"of each size:"
+msgstr ""
+"A legjobb modellek száma\n"
+"adott méret mellett:"
+
+msgid "Maximum size:"
+msgstr "Legnagyobb méret:"
+
+#  	"Data -> Merge data sets" menu item and dialog
+msgid "Merge data sets..."
+msgstr "Adattáblák összefésülése..."
+
+msgid "Merge Data Sets"
+msgstr "Adattáblák összefésülése"
+
+msgid "First Data Set (pick one)"
+msgstr "Első adattábla (válasszon egyet)"
+
+msgid "Second Data Set (pick one)"
+msgstr "Második adattábla (válasszon egyet)"
+
+msgid "Merge rows"
+msgstr "Sorok összefésülése"
+
+msgid "Merge columns"
+msgstr "Oszlopok összefésülése"
+
+msgid "Direction of Merge"
+msgstr "Összefésülés iránya"
+
+msgid "You cannot merge a data set with itself."
+msgstr "Egy adattáblát nem lehet saját magával összefésülni."
+
+msgid "Name for merged data set:"
+msgstr "Az összefésült adattábla neve:"
+
+msgid ""
+"Merge only common\n"
+"rows or columns"
+msgstr ""
+"Csak közös sorok vagy\n"
+"oszlopok fésülhetőek egybe"
+
+#  	"Data -> Active data set -> Aggregate variables in active data set" menu item and dialog
+msgid "Aggregate variables in active data set..."
+msgstr "Változók aggregálása az aktív adattáblában..."
+
+msgid "Aggregate Observations"
+msgstr "Megfigyelések aggregálása"
+
+msgid ""
+"Variables to aggregate\n"
+"(pick one or more)"
+msgstr ""
+"Aggregálandó változók\n"
+"(válasszon egyet vagy többet)"
+
+msgid ""
+"Aggregate by\n"
+"(pick one or more)"
+msgstr ""
+"Aggregálás a következő(k) szerint\n"
+"(válasszon egyet vagy többet)"
+
+msgid "Sum"
+msgstr "Összeg"
+
+msgid "You must select at least one variable to aggregate."
+msgstr "Legalább egy aggregálandó változót ki kell választani."
+
+msgid "You must select at least one variable to aggregate by."
+msgstr "Legalább egy csoportosító változót ki kell választani."
+
+msgid "Variables to aggregate and those to aggregate by must be different."
+msgstr "Az aggregálandó és a csoportosító változóknak különbözőeknek kell lenniük."
+
+msgid "Name for aggregated data set:"
+msgstr "Az aggregált adattábla neve:"
+
+#     miscellaneous
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"R adatfájlok\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Minden fájl\" {\"*\"}}"
+
+msgid "No data set selected."
+msgstr "Nincs adattábla kiválasztva."
+
+msgid "Help on selected data set"
+msgstr "Súgó a kiválasztott adattábláról"
+
+msgid "Population mean != mu0"
+msgstr "Sokasági várható érték != mu0"
+
+msgid "Population proportion != p0"
+msgstr "Sokasági arány != p0"
+
+msgid "Models do not have the same family."
+msgstr "A modellek eloszláscsaládja nem ugyanaz."
+
+msgid ""
+"Pairwise p-values\n"
+"for Pearson or Spearman correlations"
+msgstr ""
+"Páronkénti p-értékek\n"
+"a Pearson- és a Spearman-féle korrelációkhoz"
+
+msgid ""
+"The Windows version of the R Commander works best under RGui\n"
+"with the single-document interface (SDI); see ?Commander."
+msgstr ""
+"Az R Commander Windows-os verziója legjobban a single-document\n"
+"interface-t (SDI) használó RGui alatt működik; lásd ?Commander-t."
+
+# messages added to version 1.6-0
+# for Levene test
+msgid "median"
+msgstr "medián"
+
+msgid "Center"
+msgstr "Közép"
+
+# for scatterplot
+msgid "Smooth line"
+msgstr "Simítógörbe"
+
+msgid "Show spread"
+msgstr "Szóródás bemutatása"
+
+# for AV plots
+msgid ""
+"Identify points with mouse?\n"
+"Right-click to exit."
+msgstr ""
+"Azonosítja a pontokat egérrel?\n"
+"Kilépés jobb gombbal."
+
+# for interactive point identification
+msgid "Use left mouse button to identify points,\n"
+msgstr "Használja a bal egérgombot a pontok azonosításához,\n"
+
+msgid "right button to exit."
+msgstr "a jobb gombot a kilépéshez."
+
+msgid "esc key to exit."
+msgstr "kilépés Esc gombbal."
+
+# menus
+msgid "Start R help system"
+msgstr "Az R súgórendszerének elindítása"
+
+# messages added to version 1.6-4
+#  to correct order of file extensions
+msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"Szkriptfájlok\" {\".R\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"Output fájlok\" {\".txt\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"Szöveges fájlok\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgstr ""
+"{\"Minden fájl\" {\"*\"}} {\"SPSS hordozható fájlok\" {\".por\" \".POR\"}} {\"SPSS mentett fájlok\" {\".sav\" \".SAV"
+"\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"Minitab hordozható fájlok\" {\".mtp\" \".MTP\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"STATA fájlok\" {\".dta\" \".DTA\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB"
+"\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\"."
+"xls\" \".XLS\"}}"
+msgstr ""
+"{\"Minden fájl\" {\"*\"}} {\"MS Access adatbázis\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 adatbázis\" {\".accdb\" \"."
+"ACCDB\"}} {\"dBase-szerű fájl\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 fájl\" {\".xlsx\" \".XLSX\"}} {\"MS Excel fájl"
+"\" {\".xls\" \".XLS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"R adatfájlok\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"PNG fájlok\" {\".png\" \".PNG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"JPEG fájlok\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"PDF fájlok\" {\".pdf\" \".PDF\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"Postscript fájlok\" {\".ps\" \".PS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"Encapsulated Postscript fájlok\" {\".eps\" \".EPS\"}}"
+
+# messages added to version 1.7-0
+msgid "Reset"
+msgstr "Alaphelyzet"
+
+msgid "Coefficient of Variation"
+msgstr "Relatív szórás"
+
+msgid "Skewness"
+msgstr "Ferdeség"
+
+msgid "Kurtosis"
+msgstr "Csúcsosság"
+
+msgid "Type 1"
+msgstr "I. típusú"
+
+msgid "Type 2"
+msgstr "II. típusú"
+
+msgid "Type 3"
+msgstr "III. típusú"
+
+msgid "Missing Data"
+msgstr "Hiányzó adat"
+
+msgid "Use complete cases"
+msgstr "Teljes megfigyelések használata"
+
+msgid "Use pairwise-complete cases"
+msgstr "Páronként teljes megfigyelések használata"
+
+# messages added to version 1.7-4
+msgid "Component scores are not available when subset is specified."
+msgstr "A komponens szkórok nem elérhetőek, ha részhalmaz van kijelölve."
+
+msgid "Factor scores are not available when subset is specified."
+msgstr "Faktor szkórok nem elérhetőek, ha részhalmaz van kijelölve."
+
+# messages added to version 1.8-0
+msgid "Confirmatory Factor Analysis"
+msgstr "Megerősítő faktoranalízis"
+
+msgid "Fewer than 2 variables selected to load on factor."
+msgstr "Kevesebb, mint 2 változó van faktorban súlyozásra kijelölve."
+
+msgid "Define factor"
+msgstr "Faktor meghatározása"
+
+msgid ""
+"Select variables\n"
+"loading on factor"
+msgstr ""
+"Válassza ki a változókat\n"
+"a faktorhoz"
+
+msgid "Covariance"
+msgstr "Kovariancia"
+
+msgid "Correlation"
+msgstr "Korreláció"
+
+msgid "Matrix to Analyze"
+msgstr "Analizálandó mátrix"
+
+msgid "Correlated"
+msgstr "Korrelált"
+
+msgid "Orthogonal"
+msgstr "Ortogonális"
+
+msgid "Factor Correlations"
+msgstr "Faktorkorrelációk"
+
+msgid "There are too many factors."
+msgstr "Túl sok faktor van."
+
+msgid "Identifying Constraints"
+msgstr "Identifikáló megkötések"
+
+msgid "Factor variances set to 1"
+msgstr "A faktorok varianciái 1-ek legyenek"
+
+msgid "First loading on each factor set to 1"
+msgstr "Minden faktor első faktorsúlya 1 legyen"
+
+msgid "Confirmatory factor analysis..."
+msgstr "Megerősítő faktoranalízis..."
+
+# messages added to version 1.8-1
+# the following messages were omitted from version 1.8-0
+msgid "Robust standard errors"
+msgstr "Robusztus standard hibák"
+
+msgid "No factors defined."
+msgstr "Nincs faktor meghatározva."
+
+# message added to version 1.8-2
+msgid "Default-font size (points)"
+msgstr "Alapértelmezett betűméret (pont)"
+
+# message added to version 1.8-4
+msgid "data set edit error."
+msgstr "adattábla szerkesztési hiba."
+
+# messages added to version 1.9-0
+msgid "Identify Outliers"
+msgstr "Outlier-ek azonosítása"
+
+msgid "Automatically"
+msgstr "Automatikus"
+
+msgid "With mouse"
+msgstr "Egérrel"
+
+msgid "Width"
+msgstr "Szélesség"
+
+msgid "Height"
+msgstr "Magasság"
+
+msgid "[disabled]"
+msgstr "[letiltva]"
+
+msgid "inches"
+msgstr "inch"
+
+msgid "inch"
+msgstr "inch"
+
+msgid "cm"
+msgstr "cm"
+
+msgid "pixels"
+msgstr "pixel"
+
+msgid "Units"
+msgstr "Mértékegység"
+
+msgid "Fixed aspect ratio (height:width)"
+msgstr "Rögzített képarány (magasság:szélesség)"
+
+msgid "Resolution"
+msgstr "Felbontás"
+
+msgid "from SAS xport file..."
+msgstr "SAS xport fájlból..."
+
+msgid "Data Set Name"
+msgstr "Adattábla neve"
+
+msgid "Select Dataset"
+msgstr "Adattábla kiválasztása"
+
+msgid "Datasets in file (pick one)"
+msgstr "Adattáblák a fájlban (válasszon egyet)"
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"SAS xport fájlok\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+
+msgid ""
+"Convert variable names\n"
+"to lower case"
+msgstr ""
+"Változónevek\n"
+"kisbetűssé alakítása"
+
+msgid "from Excel file..."
+msgstr "Excel fájlból..."
+
+msgid "Import Excel Data Set"
+msgstr "Excel adattábla importálása"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"MS Excel 2007 fájl\" {\".xlsx\" \".XLSX\"}} {\"MS Excel fájl\" {\".xls\" \".XLS\"}}"
+
+msgid "Interquartile Range"
+msgstr "Interkvartilis terjedelem"
+
+msgid "Interquartile range"
+msgstr "Interkvartilis terjedelem"
+
+msgid "Lines"
+msgstr "Vonalak"
+
+msgid "Choose at least one of points or lines."
+msgstr "Legalább egy vonalat vagy pontot válasszon."
+
+msgid "Plot Type (one or both)"
+msgstr "Ábra típus (egyik vagy mindkettő)"
+
+# messages added to version 1.9-1 (missing from 1.9-0)
+msgid "Plot legend"
+msgstr "Jelmagyarázat ábrázolása"
+
+# the following were missing from Xyplot()
+msgid "Conditions '|' (pick zero or more)"
+msgstr "Panelváltozók '|' (válasszon nullát vagy többet)"
+
+msgid "Groups 'groups=' (pick zero or more)"
+msgstr "Csoportosító változók 'groups=' (válaszon nullát vagy többet)"
+
+msgid "Different panels for different y ~ x combinations"
+msgstr "Külön panelek a különböző y ~ x kombinációkhoz"
+
+msgid "Layout"
+msgstr "Elrendezés"
+
+msgid "number of columns:"
+msgstr "oszlopok száma:"
+
+msgid "number of rows:"
+msgstr "sorok száma:"
+
+# messages added to version 2.0-0
+msgid "Plot Options"
+msgstr "Ábra opciók"
+
+msgid "Plot Labels"
+msgstr "Ábrafeliratok"
+
+msgid "Graph title"
+msgstr "Ábra címe"
+
+msgid "Plot Labels and Points"
+msgstr "Feliratok és pontok ábrázolása"
+
+msgid "Apply"
+msgstr "Alkalmaz"
+
+msgid "Pairwise p-values"
+msgstr "Páronkénti p-értékek"
+
+msgid "Observations to Use"
+msgstr "Felhasználandó megfigyelések"
+
+msgid "Complete observations"
+msgstr "Teljes megfigyelések"
+
+msgid "Pairwise-complete observations"
+msgstr "Páronként teljes megfigyelések"
+
+msgid "R Script"
+msgstr "R szkript"
+
+msgid "Output"
+msgstr "Output"
+
+msgid "R Commander website"
+msgstr "R Commander weboldal"
+
+msgid "R website"
+msgstr "R weboldal"
+
+msgid "Using R Markdown"
+msgstr "R Markdown használata"
+
+msgid "Table"
+msgstr "Tábla"
+
+# point identification in graphs (additional messages)
+msgid "Interactively with mouse"
+msgstr "Interaktívan egérrel"
+
+msgid "Do not identify"
+msgstr "Nincs azonosítás"
+
+msgid "number of points to identify must be an integer"
+msgstr "az azonosítandó pontok számának egésznek kell lennie"
+
+msgid "Number of points to identify"
+msgstr "Azonosítandó pontok száma"
+
+msgid "Added-Variable Plots"
+msgstr "Added-variable ábrák"
+
+msgid "Component+Residual Plots"
+msgstr "Komponens+reziduum ábra"
+
+msgid "Influence Plot"
+msgstr "Hatóerő ábra"
+
+# support for R Markdown and knitr
+msgid "Generate HTML report"
+msgstr "HTML jelentés generálása"
+
+msgid "Generate PDF report"
+msgstr "PDF jelentés generálása"
+
+msgid "R Markdown"
+msgstr "R Markdown"
+
+msgid "knitr Document"
+msgstr "knitr dokumentum"
+
+msgid "Open R Markdown file..."
+msgstr "R Markdown fájl megnyitása..."
+
+msgid "Open knitr file..."
+msgstr "knitr fájl megnyitása..."
+
+msgid "Save R Markdown file..."
+msgstr "R Markdown fájl mentése..."
+
+msgid "Save knitr file..."
+msgstr "knitr fájl mentése..."
+
+msgid "Save knitr file?"
+msgstr "Menti a knitr fájlt?"
+
+msgid "Save current Rmd file?"
+msgstr "Menti az aktuális Rmd fájlt?"
+
+msgid "Save current Rnw file?"
+msgstr "Menti az aktuális Rnw fájlt?"
+
+msgid "Save R Markdown file as..."
+msgstr "R Markdown fájl mentése mint..."
+
+msgid "Save knitr file as..."
+msgstr "knitr fájl mentése mint..."
+
+msgid "R Markdown file saved to"
+msgstr "R Markdown fájl elmentve ide:"
+
+msgid "knitr file saved to"
+msgstr "knitr fájl elmentve ide:"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"R Markdown fájlok\" {\".Rmd\" \".rmd\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"knitr fájlok\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+
+msgid ""
+"Delete previously created knitr\n"
+"graphics files (recommended)?"
+msgstr ""
+"A korábban létrehozott knitr\n"
+"grafikus fájlok törlése (ajánlott)?"
+
+# setting and saving options
+msgid "Ask to exit Commander"
+msgstr "Rákérdezés a Commander-ből való kilépés előtt"
+
+msgid "Ask to save documents on exit"
+msgstr "Rákérdezés a dokumentumok mentésére kilépéskor"
+
+msgid "Quit R on exit"
+msgstr "Kilépéskor kilépés az R-ből is"
+
+msgid "Number messages"
+msgstr "Üzenetek számozása"
+
+msgid "Retain messages"
+msgstr "Üzenetek megtartása"
+
+msgid "Use R Markown"
+msgstr "R Markdown használata"
+
+msgid "Use knitr"
+msgstr "knitr használata"
+
+msgid "Select file"
+msgstr "Fájl kiválasztása"
+
+msgid "R Markdown template file"
+msgstr "R Markdown sablon fájl"
+
+msgid "R knitr template file"
+msgstr "R knitr sablon fájl"
+
+msgid "Suppress icon images"
+msgstr "Ikon képek tiltása"
+
+msgid "Retain dialog selections"
+msgstr "Párbeszédablakok kiválasztásainak megtartása"
+
+msgid "Use rgl package"
+msgstr "Az rgl csomag használata"
+
+msgid "Dialog text font size (points)"
+msgstr "A párbeszédablakok betűmérete (pont)"
+
+msgid "Script and output font size (points)"
+msgstr "A szkript és az output betűmérete (pont)"
+
+msgid "Dialog font"
+msgstr "A párbeszédablakok betűtípusa"
+
+msgid "Script and output font"
+msgstr "A szkript és az output betűtípusa"
+
+msgid "Script text color"
+msgstr "A szkriptek betűszíne"
+
+msgid "Command text color"
+msgstr "A parancsok betűszíne"
+
+msgid "Output text color"
+msgstr "Az output betűszíne"
+
+msgid "Error text color"
+msgstr "A hibaüzenetek betűszíne"
+
+msgid "Warning text color"
+msgstr "A figyelmeztető üzenetek betűszíne"
+
+msgid "Dialog subtitles text color"
+msgstr "A párbeszédablak alcímek betűszíne"
+
+msgid "Script window width (characters)"
+msgstr "A szkript ablak szélessége (karakter)"
+
+msgid "Script window height (lines)"
+msgstr "A szkript ablak magassága (sor)"
+
+msgid "Output window height (lines)"
+msgstr "Az outputablak magassága (sor)"
+
+msgid "Messages window height (lines)"
+msgstr "Az üzenetablak magassága (vonal)"
+
+msgid "Fonts"
+msgstr "Betűtípusok"
+
+msgid "Other Options"
+msgstr "Egyéb opciók"
+
+msgid "Save Commander Options"
+msgstr "Commander opciók mentése"
+
+msgid "R Profile saved to"
+msgstr "R profil elmentve ide:"
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr "A következő parancsok a .Rprofil fájlba lesznek elmentve."
+
+msgid "You may edit this file before saving it."
+msgstr "Szerkesztheti a fájlt mentés előtt."
+
+msgid "Save Rcmdr options..."
+msgstr "Rcmd opciók mentése..."
+
+# density estimate dialog
+msgid "Nonparametric Density Estimate"
+msgstr "Nemparaméteres sűrűségbecslés"
+
+msgid "Gaussian"
+msgstr "Gaussi"
+
+msgid "Epanechnikov"
+msgstr "Epanechnikov"
+
+msgid "Tukey biweight"
+msgstr "Tukey biweight"
+
+msgid "Kernel Function"
+msgstr "Magfüggvény"
+
+msgid "Bandwidth"
+msgstr "Magfüggvény sávszélessége"
+
+msgid "Multiply bandwidth by"
+msgstr "Magfüggvény sávszélességének szorzója"
+
+msgid "Density estimate..."
+msgstr "Sűrűségbecslés..."
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr "A sávszélességnek <auto>-nak vagy pozitív számnak kell lennie"
+
+# index plot dialog
+msgid "Style of plot"
+msgstr "Az ábra stílusa"
+
+# export data set dialog
+msgid "Write variable names"
+msgstr "Változónevek kiírása"
+
+msgid "Write row names"
+msgstr "Sornevek kiírása"
+
+msgid "Quotes around character values"
+msgstr "Idézőjel a karakter értékek körül"
+
+# numerical summaries dialog
+msgid "Quantiles:"
+msgstr "Kvantilisek:"
+
+# for splines and polynomials in model formulas
+msgid "spline requires a numeric variable"
+msgstr "spline numerikus változót igényel"
+
+msgid "cannot select more than one variable"
+msgstr "egynél több változó nem választható ki"
+
+msgid "polynomial requires a numeric variable"
+msgstr "polinom numerikus változót igényel"
+
+msgid "B-spline\n"
+msgstr "B-spline\n"
+
+msgid ""
+"natural\n"
+"spline"
+msgstr ""
+"természetes\n"
+"spline"
+
+msgid ""
+"orthogonal\n"
+"polynomial"
+msgstr ""
+"ortogonális\n"
+"polinom"
+
+msgid ""
+"raw\n"
+"polynomial"
+msgstr ""
+"nyers\n"
+"polinom"
+
+msgid "Model Formula"
+msgstr "Modellegyenlet"
+
+msgid "Operators (click to formula):"
+msgstr "Operatorok (kattintással egyenletbe rakható)"
+
+msgid ""
+"Splines/Polynomials:\n"
+"(select variable and click)"
+msgstr ""
+"Spline-ok/polinomok\n"
+"(válassza ki a változót és kattintson)"
+
+msgid "df for splines:"
+msgstr "a spline-ok szabadsági foka:"
+
+msgid "deg. for polynomials:"
+msgstr "a polinomok fokszáma:"
+
+# messages added to version 2.0-1
+# messages related to editing/processing R Markdown and knitr documents
+msgid "R Commander Editor"
+msgstr "R Commander szerkesztő"
+
+msgid "Edit R Markdown document"
+msgstr "R Markdown dokumentum szerkesztése"
+
+msgid "Edit knitr document"
+msgstr "knitr dokumentum szerkesztése"
+
+msgid "Remove last Markdown command block"
+msgstr "Az utolsó Markdown parancsblokk eltávolítása"
+
+msgid "Remove last knitr command block"
+msgstr "Az utolsó knitr parancsblokk eltávolítása"
+
+msgid "Remove last command block"
+msgstr "Az utolsó parancsblokk eltávolítása"
+
+msgid "Exit editor"
+msgstr "Kilépés a szerkesztőből"
+
+msgid "Editor help"
+msgstr "Szerkesztő súgója"
+
+msgid ""
+"Delete previously created R Markdown\n"
+"graphics files (recommended)?"
+msgstr ""
+"A korábban létrehozott R Markdown\n"
+"grafikus fájlok törlése (ajánlott)?"
+
+msgid "Discard edits?"
+msgstr "Szerkesztések elvetése?"
+
+# support for back-to-back stem-and-leaf displays
+msgid "Plot back-to-back by:"
+msgstr "Back-to-back ábrázolás a következő szerint:"
+
+msgid "Plot back-to-back by"
+msgstr "Back-to-back ábrázolás a következő szerint"
+
+# messages added for version 2.1-0
+# the next two messages no longer needed and can be disregarded if not already translated
+# msgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
+# msgstr ""
+# msgid "the car package is missing and should be installed\n  many features will not work"
+# msgstr ""
+# for numerical summaries dialog
+msgid "Standard Error of Mean"
+msgstr "Az átlag standard hibája"
+
+# for CFA dialog
+msgid "Fit Indices"
+msgstr "Illeszkedési mérőszámok"
+
+# for read Excel file dialog
+msgid "Variable names in first row of spreadsheet"
+msgstr "Változónevek a munkafüzet első sorában"
+
+msgid "Row names in first column of spreadsheet"
+msgstr "Sornevek a munkafüzet első oszlopában"
+
+# for selecting weights in LM and GLM dialogs
+msgid "<no variable selected>"
+msgstr "<nincs változó kiválasztva>"
+
+msgid "Weights"
+msgstr "Súlyok"
+
+# new effect-plots dialog
+msgid "Model Effect Plots"
+msgstr "Modell hatások ábrái"
+
+msgid "Plot All High-Order Effects?"
+msgstr "Minden magasabbrendű hatás ábrázolása?"
+
+msgid "Predictors (pick one or more)"
+msgstr "Magyarázó változók (válasszon egyet vagy többet)"
+
+msgid ""
+"You must select one or more predictors\n"
+" or plot all high-order effects."
+msgstr ""
+"Ki kell választani egy vagy több magyarázó változót\n"
+"vagy ábrázolni az összes magasabbrendű hatást."
+
+msgid ""
+"To plot partial residuals,\n"
+" there must be a least one numeric predictor."
+msgstr ""
+"A parciális reziduumok ábrázolásához\n"
+"legalább egy numerikus magyarázó változó kell."
+
+msgid "Plot partial residuals"
+msgstr "Parciális reziduumok ábrázolása"
+
+msgid "Style of Graph"
+msgstr "Az ábra stílusa"
+
+msgid "Stacked areas"
+msgstr "Halmozott területek"
+
+msgid "Lines with confidence bands"
+msgstr "Vonalak konfidenciasávokkal"
+
+# new one-sample Wilcoxon test dialog
+msgid "Single-Sample Wilcoxon Test"
+msgstr "Wilcoxon-féle előjeles rangpróba"
+
+msgid "Single-sample Wilcoxon test..."
+msgstr "Wilcoxon-féle előjeles rangpróba..."
+
+# new drop unused factor levels dialog
+msgid "Drop Unused Factor Levels"
+msgstr "Nem használt faktorszintek eldobása"
+
+msgid "Factors(s) to drop levels (pick one or more)"
+msgstr "Faktor(ok) ami(k)ből eldobandóak szintek (válasszon egyet vagy többet)"
+
+msgid ""
+"Drop unused factor levels\n"
+"Please confirm."
+msgstr ""
+"Nem használt faktorszintek eldobása\n"
+"Erősítse meg."
+
+msgid "Drop unused factor levels..."
+msgstr "Nem használt faktorszintek eldobása..."
+
+msgid "all factors"
+msgstr "minden faktor"
+
+# messages related to sandwich variance estimator
+msgid "Linear Model Summary"
+msgstr "Lineáris modell összefoglalása"
+
+msgid "Sandwich estimator"
+msgstr "Szendvics becslő"
+
+msgid ""
+"Use sandwich estimator of    \n"
+"coefficient standard errors"
+msgstr ""
+"A koefficiensek standard hibáira   \n"
+"szendvics becslő használata"
+
+msgid "sandwich covariance matrix unavailable with type I tests"
+msgstr "szendvics kovariancia mátrix nem érhető el I. típusú tesztekkel"
+
+# messages related to ttk theme selection
+msgid "non-existent theme"
+msgstr "nem létező téma"
+
+msgid "theme set to"
+msgstr "téma beállítva erre:"
+
+# modified message
+msgid "Restart R Commander"
+msgstr "R Commander újraindítása"
+
+# formula-help button
+msgid ""
+"Model formula\n"
+"help"
+msgstr ""
+"Súgó a modell\n"
+"egyenlethez"
+
+# messages added for version 2.1-1
+# messages for the new dataset editor
+msgid "Data Editor"
+msgstr "Adatszerkesztő"
+
+msgid "Delete current row"
+msgstr "Aktuális sor törlése"
+
+msgid "Delete current column"
+msgstr "Aktuális oszlop törlése"
+
+msgid "Delete cell"
+msgstr "Cella törlése"
+
+msgid "Cut cell"
+msgstr "Cella kivágása"
+
+msgid "Copy cell"
+msgstr "Cella másolása"
+
+msgid "Paste cell"
+msgstr "Cella beillesztése"
+
+msgid "Exit and save"
+msgstr "Kilépés és mentés"
+
+msgid "Add row"
+msgstr "Sor hozzáadása"
+
+msgid "Add column"
+msgstr "Oszlop hozzáadása"
+
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Mac OS X app nap kezelése az R.app-hoz..."
+
+msgid "Mac OS X app nap for R.app"
+msgstr "Mac OS X app nap az R.app-hoz"
+
+msgid "Set app nap"
+msgstr "App nap beállítása"
+
+msgid "off (recommended)"
+msgstr "ki (ajánlott)"
+
+msgid "on"
+msgstr "be"
+
+# set random seed dialog
+msgid "Set random number generator seed..."
+msgstr "A véletlenszámgenerátor seed-jének beállítása..."
+
+msgid "Set Random Number Generator Seed"
+msgstr "A véletlenszámgenerátor seed-jének beállítása"
+
+# messages added for version 2.2-0
+# messages that were inadvertently missing in previous versions
+msgid "The following variable names are not valid:\n"
+msgstr "A következő változónevek nem érvényesek:\n"
+
+msgid "Save R Markdown file?"
+msgstr "Menti az R Markdown fájlt?"
+
+msgid "Theme (pick one)"
+msgstr "Téma (válasszon egyet)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "Vagy mindkét elrendezési értéknek számnak kell lennie, vagy egyiknek sem."
+
+msgid "ANOVA Table"
+msgstr "ANOVA tábla"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr "Nincs megfelelő outlierTest eljárás ilyen osztályú modellekhez."
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Shapiro-Wilk-féle normalitás próba"
+
+msgid "Hypothesis Test"
+msgstr "Hipotézisvizsgálat"
+
+msgid "Load Plug-ins"
+msgstr "Plugin betöltése"
+
+# for report generation
+msgid "Generate report"
+msgstr "Jelentés generálása"
+
+msgid "Install Auxiliary Software"
+msgstr "Kiegészítő szoftver telepítése"
+
+msgid "Install auxiliary software..."
+msgstr "Kiegészítő szoftver telepítése..."
+
+msgid "(already installed)"
+msgstr "(már installálva van)"
+
+msgid "LaTeX"
+msgstr "LaTeX"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "Intallálandó szoftver"
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+"Kérem olvassa el a súgót ehhez a párbeszédablakhoz\n"
+"mielőtt installálja a kiegészítő szoftvert."
+
+msgid "Select Output Format"
+msgstr "Az output formátumának kiválasztása"
+
+msgid ".html (web page)"
+msgstr ".html (weboldal)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (PDF fájl)"
+
+msgid ".docx (Word file)"
+msgstr ".docx (Word fájl)"
+
+msgid "HTML file written to:"
+msgstr "HTML fájl kiírva ide:"
+
+msgid "PDF file written to:"
+msgstr "PDF fájl kiírva ide:"
+
+msgid "Word file written to:"
+msgstr "Word fájl kiírva ide:"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+"Az ellipszisek megbízhatósági szintjeinek numerikus\n"
+" értékeknek kell lenniük, szóközzel vagy vesszővel elválasztva."
+
+msgid "Plot concentration ellipse(s)"
+msgstr "Koncentrációs ellipszis(ek) ábrázolása"
+
+msgid "Legend Position"
+msgstr "Jelmagyarázat pozíciója"
+
+msgid "Above plot"
+msgstr "Ábra felett"
+
+msgid "Top left"
+msgstr "Balra fent"
+
+msgid "Top right"
+msgstr "Jobbra fent"
+
+msgid "Bottom left"
+msgstr "Balra lent"
+
+msgid "Bottom right"
+msgstr "Jobbra lent"
+
+# additions to bargraph dialog
+msgid "Style of Group Bars"
+msgstr "A csoportosító oszlopok stílusa"
+
+msgid "Divided (stacked)"
+msgstr "Osztva (halmozott)"
+
+msgid "Side-by-side (parallel)"
+msgstr "Egymás mellett (párhuzamos)"
+
+msgid "Position of Legend"
+msgstr "Jelmagyarázat pozíciója"
+
+msgid "Left"
+msgstr "Balra"
+
+msgid "Right"
+msgstr "Jobbra"
+
+msgid "plotting and grouping variables must be different"
+msgstr "az ábrázolandó és a csoportosító változóknak különbözőeknek kell lenniük"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "Dotplot"
+
+msgid "Bin variable"
+msgstr "Csoportosító változó"
+
+msgid "Dot plot..."
+msgstr "Dotplot..."
+
+# for reading Excel files (new dialog)
+msgid "Convert character data to factors"
+msgstr "Szöveges adatok faktorrá konvertálása"
+
+msgid "<empty cell>"
+msgstr "<üres cella>"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"MS Excel fájlok\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+
+# corrected messages in version 2.2-1
+# The following messages had trailing blanks. These messages were deleted from
+#   their previous locations in this .pot file and transferred here in corrected form,
+#   with the trailing blanks removed.
+# I suggest that you likewise delete the earlier versions of these messages from
+#   your .po file and provide corrected translations here, without trailing blanks.
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group"
+msgstr ""
+"Azonosítandó pontok száma\n"
+"minden panelen és csoportban"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix"
+msgstr ""
+"A koefficiensek kovarianciamátrixának\n"
+"szendvics becslése"
+
+msgid "Concentration levels:"
+msgstr "Koncentrációs szintek:"
+
+# additional messages in version 2.3-0
+# .rtf output from RMarkdown reports
+msgid ".rtf (rich text file)"
+msgstr ".rtf (rich text file)"
+
+msgid "Rich text file written to:"
+msgstr "Rich text file kiírva ide:"
+
+# bootstrapping dialog
+msgid "Bootstrap confidence intervals..."
+msgstr "Bootstrap konfidenciaintervallumok..."
+
+msgid "Bootstrap"
+msgstr "Bootstrap"
+
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "Koefficiensek bootstrap konfidenciaintervalluma"
+
+msgid "Number of bootstrap samples:"
+msgstr "Bootstrap minták száma:"
+
+msgid "Number of samples must be a positive integer."
+msgstr "A minták számának pozitív egésznek kell lennie."
+
+msgid "Type of Confidence Intervals"
+msgstr "A konfidenciaintervallumok típusai"
+
+msgid "BCa (adjusted percentile)"
+msgstr "BCa (korrigált percentilis)"
+
+msgid "Normal theory"
+msgstr "Normális közelítés"
+
+msgid "Basic bootstrap"
+msgstr "Basic bootstrap"
+
+msgid "Percentile"
+msgstr "Percentilis"
+
+msgid "Resampling Method"
+msgstr "Az újramintavételezés eljárása"
+
+msgid "Case resampling"
+msgstr "Megfigyelésenkénti újramintavételezés"
+
+msgid "Residual resampling"
+msgstr "Reziduális újramintavételezés"
+
+# delta method dialog
+msgid "Delta method confidence interval..."
+msgstr "Delta módszer a konfidenciaintervallumra..."
+
+msgid "Delta Method"
+msgstr "Delta módszer"
+
+msgid "Confidence Interval by the Delta Method"
+msgstr "Konfidenciaintervallum delta módszerrel"
+
+msgid "Expression to evaluate; use parameter names:"
+msgstr "Kiértékelendő kifejezés; használjon paraméterneveket:"
+
+# view data dialog
+msgid "View data..."
+msgstr "Adatok megtekintése..."
+
+msgid "View Data"
+msgstr "Adatok megtekintése"
+
+msgid "Bad subset expression."
+msgstr "Rossz leválogató kifejezés."
+
+msgid "No data to show."
+msgstr "Nincs megjeleníthető adat."
+
+msgid "View data error."
+msgstr "Adatmegtekintési hiba."
+
+# sort active data set dialog
+msgid "Sort active data set..."
+msgstr "Aktív adattábla rendezése..."
+
+msgid "Sort Active Data Set"
+msgstr "Aktív adattábla rendezése"
+
+msgid "Sort Keys (select one or more)"
+msgstr "Rendezési kulcsok (válasszon ki egyet vagy többet)"
+
+msgid "Sort Direction"
+msgstr "Rendezés iránya"
+
+msgid "Increasing"
+msgstr "Növekvő"
+
+msgid "Decreasing"
+msgstr "Csökkenő"
+
+msgid "Reorder Sort Keys"
+msgstr "Rendezési kulcsok átrendezése"
+
+msgid "Order of keys must include all integers from 1 to"
+msgstr "A kulcsok sorrendjének tartalmaznia kell az összes egészet 1-től eddig:"
+
+msgid "Sort Keys"
+msgstr "Rendezési kulcsok"
+
+msgid "Order"
+msgstr "Sorrend"
+
+# added to plot means dialog
+msgid "Connect profiles of means"
+msgstr "Átlag profilok összekötése"
+
+# adding to one-way ANOVA dialog
+msgid "Welch F-test not assuming equal variances"
+msgstr "Welch F-próba a varianciák egyezőségének feltételezése nélkül"
+
+# the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+msgid "Test of normality..."
+msgstr "Normalitás tesztelése..."
+
+msgid "Test of Normality"
+msgstr "Normalitás tesztelése"
+
+msgid "Shapiro-Wilk"
+msgstr "Shapiro-Wilk"
+
+msgid "Anderson-Darling"
+msgstr "Anderson-Darling"
+
+msgid "Cramer-von Mises"
+msgstr "Cramer-von Mises"
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr "Lilliefors (Kolmogorov-Smirnov)"
+
+msgid "Shapiro-Francia"
+msgstr "Shapiro-Francia"
+
+msgid "Pearson chi-square"
+msgstr "Pearson-féle khi-négyzet"
+
+msgid "Normality Test"
+msgstr "Normalitási próba"
+
+msgid "Number of bins must be a number >= 4"
+msgstr "Az intervallumok számának legalább 4-nek kell lennie"
+
+msgid ""
+"Number of bins\n"
+"for Pearson chi-square"
+msgstr ""
+"Intervallumok száma a\n"
+"Pearson-féle khi-négyzethez"
+
+msgid "Test by groups"
+msgstr "Csoportonkénti tesztelés"
+
+msgid "Test by:"
+msgstr "Tesztelés e szerint:"
+
+# small changes to the read text data dialog
+msgid "Commas [,]"
+msgstr "Vesszők [,]"
+
+msgid "Semicolons [;]"
+msgstr "Pontosvesszők [;]"
+
+# additional error check in load data set dialog
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr "Több, mint egy objektum van a fájlban, az alábbi nevekkel:\n"
+
+# new messages for distribution plot dialogs produced by distributionPlot()
+msgid "Optionally specify regions under the density function by"
+msgstr "A sűrűségfüggvény alatti területek opcionális kijelölése a következő szerint:"
+
+msgid "x-values"
+msgstr "x értékek"
+
+msgid "quantiles"
+msgstr "kvantilisek"
+
+msgid "is not a valid number."
+msgstr "nem érvényes szám."
+
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "Meg kell adni a 'tól' és az 'ig' értékeket legalább egy tartományra."
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr "A tartomány megadásakor az 'ig'-nek nagyobbnak kell lennie mint a 'tól'."
+
+msgid "Quantiles must be between 0 and 1."
+msgstr "A kvantiliseknek 0 és 1 között kell lenniük."
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr "Kitöltendő területek (adjon meg egyet vagy kettőt, vagy hagyja üresen)"
+
+msgid "Region 1: from"
+msgstr "1. régió: ettől:"
+
+msgid "Region 2: from"
+msgstr "2. régió: ettől:"
+
+msgid "to"
+msgstr "eddig:"
+
+msgid "color"
+msgstr "szín"
+
+msgid "Top center"
+msgstr "Fent középen"
+
+# new compare model coefficients dialog
+msgid "Compare model coefficients..."
+msgstr "Modellek koefficienseinek összehasonlítása..."
+
+msgid "Compare Model Coefficients"
+msgstr "Modellek koefficienseinek összehasonlítása"
+
+msgid "Select models (pick two or more)"
+msgstr "Válassza ki a modelleket (válasszon kettőt vagy többet)"
+
+msgid "You must select at least two models."
+msgstr "Legalább két modellt ki kell választani."
+
+# additional messages in version 2.4-0
+# enhancements to the Rcmdr script editor
+msgid "Only one instance of the R Commander script editor may be open at a time."
+msgstr "Az R Commander szkript szerkesztőnek csak egy példánya lehet nyitva egy időben."
+
+msgid "Save current edits"
+msgstr "Aktuális szerkesztések mentése"
+
+msgid "Save edits"
+msgstr "Szerkesztések mentése"
+
+msgid "Exit editor saving edits"
+msgstr "Kilépés a szerkesztőből a szerkesztések mentésével"
+
+msgid "Cancel discarding edits"
+msgstr "Mégse vesse el a szerkesztéseket"
+
+# additions to the barplot dialog
+msgid "Percentages for Group Bars"
+msgstr "Megoszlások a csoportosító oszlopokhoz"
+
+msgid "Conditional"
+msgstr "Feltételes"
+
+msgid "Total"
+msgstr "Teljes"
+
+msgid "Color Selection"
+msgstr "Színkiválasztás"
+
+msgid "From color palette"
+msgstr "Színpalettáról"
+
+# correct typo
+msgid "Data set %s does not exist"
+msgstr "A(z) %s adattábla nem létezik"
+
+# addition to plot means dialog (position of legend)
+msgid "To right of graph"
+msgstr "A ábra jobb oldalára"
+
+# For two-variances F-test dialog
+msgid "Ratio:"
+msgstr "Hányados:"
+
+msgid "Ratio < 1"
+msgstr "Hányados < 1"
+
+msgid "Ratio > 1"
+msgstr "Hányados > 1"
+
+# For enter and analyze contingency table dialog
+msgid "Name for Row Variable (optional):"
+msgstr "Sorváltozó neve (opcionális):"
+
+msgid "Name for Column Variable (optional):"
+msgstr "Oszlopváltozó neve (opcionális):"
+
+# for import Stata and SAS b7dat data set dialogs
+msgid "Convert character variables to factors"
+msgstr "Szöveges adatok faktorrá konvertálása"
+
+msgid "First column contains row names"
+msgstr "Az első oszlop a sorneveket tartalmazza"
+
+msgid "Import SAS b7dat Data Set"
+msgstr "SAS b7dat adattábla importálása"
+
+msgid "from SAS b7dat file..."
+msgstr "SAS b7dat fájlból..."
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr "{\"Minden fájl\" {\"*\"}} {\"SAS b7dat adattábla\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+
+# addition to the Commander Options dialog
+msgid ""
+"Suppress scientific notation\n"
+"(higher = more suppression)"
+msgstr ""
+"Tudományos jelölés visszaszorítása\n"
+"(magasabb = erősebb visszaszorítás)"
+
+# new plot discrete numeric variable dialog
+msgid "Plot discrete numeric variable..."
+msgstr "Diszkrét numerikus változó ábrázolása..."
+
+msgid "Plot Discrete Numeric Variable"
+msgstr "Diszkrét numerikus változó ábrázolása"
+
+msgid ""
+"%s has %d unique values\n"
+"Do you want to proceed?"
+msgstr ""
+"A(z) %s %d egyedi értéket tartalmaz\n"
+"Folytatja?"
+
+# for boostrapping dialog
+msgid "Plot bootstrap samples"
+msgstr "Bootstrap minták ábrázolása"
+
+# for numerical summaries dialog
+msgid "Binned Frequency Counts"
+msgstr "Csoportosított gyakoriságok"
+
+# additional messages in version 2.4-2
+# these messages were inadvertently omitted
+msgid "Sample from ChiSquared Distribution"
+msgstr "Mintavétel khi-négyzet eloszlásból"
+
+msgid "Sample from Lognormal Distribution"
+msgstr "Mintavétel lognormális eloszlásból"
+
+msgid "Sample from NegativeBinomial Distribution"
+msgstr "Mintavétel negatív binomális eloszlásból"
+
+# additional messages in version 2.5-0
+# new predictor effect plots dialog
+msgid "Predictor Effect Plots"
+msgstr "Magyarázó változók hatásábrái"
+
+msgid "Predictor effect plots..."
+msgstr "Magyarázó változók hatásábrái..."
+
+msgid "Plot all predictor effects?"
+msgstr "Minden magyarázó változó hatásának ábrázolása?"
+
+# added to index plot dialog
+msgid "Mark by groups"
+msgstr "Csoportonkénti jelölés"
+
+msgid "Mark by:"
+msgstr "Jelölés e szerint:"
+
+# new response transformation dialog
+msgid "Response Transformation"
+msgstr "Az eredményváltozó transzformálása"
+
+msgid "Response transformation..."
+msgstr "Az eredményváltozó transzformálása..."
+
+msgid "Box-Cox"
+msgstr "Box-Cox"
+
+msgid "Box-Cox with negatives"
+msgstr "Box-Cox negatív értékekkel"
+
+msgid "Yeo-Johnson"
+msgstr "Yeo-Johnson"
+
+# new transform toward normality dialog
+msgid "Transform toward normality..."
+msgstr "Normalitási transzformáció..."
+
+msgid "Transform Variables Toward Normality"
+msgstr "Változók normalitási transzformációja"
+
+msgid "Select variables to transform (one or more)"
+msgstr "Válassza ki a transzformálandó változókat (egyet vagy többet)"
+
+msgid "Transformation Family"
+msgstr "Transzformáció családja"
+
+msgid "Condition on:"
+msgstr "Feltételesen:"
+
+# new symmetry boxplot (symbox) dialog
+msgid "Symmetry boxplot..."
+msgstr "Szimmetria boxplot..."
+
+msgid "Symmetry Boxplot"
+msgstr "Szimmetria boxplot"
+
+msgid "Start (optional)"
+msgstr "Start (opcionális)"
+
+msgid "Powers"
+msgstr "Hatványok"
+
+# new influence index plot dialog
+msgid "Influence index plot..."
+msgstr "Hatóerő index ábra..."
+
+msgid "Influence Index Plot"
+msgstr "Hatóerő index ábra"
+
+msgid "Bonferroni p-values"
+msgstr "Bonferroni p-értékek"
+
+msgid "Diagnostics case statistics to plot"
+msgstr "Ábrázolandó megfigyelésenkénti diagnosztikai statisztikák"
+
+# enhancements to Density Plot dialog
+msgid "Method"
+msgstr "Eljárás"
+
+msgid "adaptive kernel"
+msgstr "adaptív magfüggvény"
+
+msgid "kernel"
+msgstr "magfüggvény"
+
+msgid "From"
+msgstr "Tól"
+
+msgid "To"
+msgstr "Ig"
+
+# additional messages in version 2.5-1
+# a corrected message
+msgid "Case statistics to plot"
+msgstr "Ábrázolandó megfigyelésenkénti statisztikák"
+
+# additional message in version 2.6-0
+# new mixed models dialogs
+msgid "Linear Mixed Model"
+msgstr "Lineáris kevert modell"
+
+msgid "Linear mixed model..."
+msgstr "Lineáris kevert modell..."
+
+msgid "Estimation Criterion"
+msgstr "Becslési célfüggvény"
+
+msgid "Restricted maximum likelihood (REML)"
+msgstr "Restricted maximum likelihood (REML)"
+
+msgid "Maximum likelihood (ML)"
+msgstr "Maximum likelihood (ML)"
+
+msgid "There are no random effects in the model."
+msgstr "Nincsen random hatás a modellben."
+
+msgid "Generalized Linear Mixed Model"
+msgstr "Általánosított lineáris kevert modell"
+
+msgid "Generalized linear mixed model..."
+msgstr "Általánosított lineáris kevert modell..."
+
+# corrected and messages for version 2.6-1
+# correction: was "Convert variable names\nto lower case"
+msgid "Convert variable names to lower case"
+msgstr "Változónevek kisbetűssé alakítása"
+
+# new messages about invalid variable classes
+msgid "The following variables are not valid for use in the R Commander and will be omitted:"
+msgstr "A következő változók nem érvényesek az R Commanderben és ezért nem lesznek figyelembe véve:"
+
+msgid "The following variable is not valid for use in the R Commander and will be omitted:"
+msgstr "A következő változó nem érvényes R Commanderben és ezért nem lesz figyelembe véve:"
+
+# new messages for version 2.7-0
+# for Numerical Summaries dialog
+msgid "Frequency Counts"
+msgstr "Osztályközös gyakorisági sor"
+
+# For bar graph dialog
+msgid "Show counts or percentages in bars"
+msgstr "Gyakoriságok, illetve relatív gyakoriságok megjelenítése az oszlopokon"
+
+# for piechart dialog
+msgid "Neither"
+msgstr "Egyik sem"
+
+# for proportion-test dialogs
+msgid "<No response selected>"
+msgstr "<Nincs eredményváltozó kiválasztva>"
+
+msgid "Proportion"
+msgstr "Arány"
+
+# for new restart Commander dialog
+msgid "Restart the Commander"
+msgstr "Az R Commander újraindítása"
+
+msgid "Restart the Commander?"
+msgstr "Újraindítja az R Commandert?"
+
+# for new repeated-measures ANOVA/ANCOVA dialogs
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "Egy ismételt méréses ANOVA/ANCOVA..."
+
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr "Egy ismételt méréses ANOVA/ANCOVA"
+
+msgid "no responses specified"
+msgstr "nincs eredményváltozó kiválasztva"
+
+msgid ""
+"the specified responses are not contiguous\n"
+" missing responses are removed"
+msgstr ""
+"nem folytatólagosan vannak kiválasztva eredményváltozók\n"
+" a hiányzó eredményváltozók el lettek távolítva"
+
+msgid "<no selection>"
+msgstr "<nincs kiválasztás>"
+
+msgid "there are duplicated level names"
+msgstr "duplikált szint nevek vannak"
+
+msgid "is not a valid name"
+msgstr "nem érvényes név"
+
+msgid "the following responses appear more than once:"
+msgstr "a következő eredményváltozók egynél többször fordulnak elő:"
+
+msgid "at least 2 responses must be specified"
+msgstr "legalább 2 eredményváltozót kell kiválasztani"
+
+msgid "Within-Subject Factor"
+msgstr "Egyeden belüli változó"
+
+msgid "Name for the within-subjects factor:"
+msgstr "Az egyeden belüli változó neve:"
+
+msgid "Specify up to 8 levels (responses) and level names for the within-subjects factor"
+msgstr "Válasszon ki legfeljebb 8 szintet (eredményváltozót) és szint nevet az egyeden belüli változóhoz"
+
+msgid "Multivariate Test Statistic"
+msgstr "Többváltozós tesztstatisztika"
+
+msgid "Multivariate"
+msgstr "Többváltozós"
+
+msgid "Univariate"
+msgstr "Egyváltozós"
+
+msgid "Tests to Perform"
+msgstr "Elvégzendő próbák"
+
+msgid "Repeated-Measures Means"
+msgstr "Ismételt méréses átlagok"
+
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr "Egyedek közötti változók (válasszon egyet vagy többet)"
+
+msgid "Plot response means by factors"
+msgstr "Eredményváltozó átlagok feltüntetése faktoronként"
+
+msgid "Print means and standard deviations by factors"
+msgstr "Átlagok és szórások feltüntetése faktoronként"
+
+msgid "X-axis factor:"
+msgstr "x-tengelyen lévő faktor:"
+
+msgid "Trace factor:"
+msgstr "Egy ábrán belüli változó:"
+
+msgid "Response name:"
+msgstr "Eredményváltozó neve:"
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "Két ismételt méréses ANOVA/ANCOVA..."
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr "Két ismételt méréses ANOVA/ANCOVA"
+
+msgid "the specified responses are not rectangular"
+msgstr "a kiválasztott eredményváltozók nem téglalap alakúak"
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr "legalább 2 sor és 2 oszlop méretű eredményváltozókat kell kiválasztani"
+
+msgid "there are duplicated row level names"
+msgstr "duplikált szint nevek a sorváltozónál"
+
+msgid "there are duplicated column level names"
+msgstr "duplikált szint nevek az oszlopváltozónál"
+
+msgid "Within-Subject Factors"
+msgstr "Egyeden belüli változók"
+
+msgid "Name for the within-subjects row factor:"
+msgstr "A egyeden belüli sor változó neve:"
+
+msgid "Name for the within-subjects column factor:"
+msgstr "Az egyeden belüli oszlop változó neve:"
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr "Válasszon ki legfeljebb 5 szintet és szint nevet minden egyeden belüli változóhoz"
+
+# new reshape data set from long to wide format dialog
+msgid "Reshape data set from long to wide format..."
+msgstr "Adattábla átrendezése \"hosszú\" formátumból \"széles\" formátumba..."
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr "Adattábla átrendezése \"hosszú\" formátumból \"széles\" formátumba"
+
+msgid "Subject ID variable (pick one)"
+msgstr "Megfigyelési egységet azonosító változó (válasszon egyet)"
+
+msgid "Within-subjects factors (pick one or more)"
+msgstr "Egyeden belüli változó (válasszon egyet vagy többet)"
+
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr "Megfigyelési alkalmanként eltérő változók (válasszon egyet vagy többet)"
+
+msgid "Variables to ignore (pick zero or more)"
+msgstr "Figyelmen kívül hagyandó változók (válasszon nullát vagy többet)"
+
+msgid "You must select an ID variable."
+msgstr "Ki kell választani egy azonosító változót."
+
+msgid "You must select one or more within-subjects factors."
+msgstr "Ki kell választani egy vagy több egyeden belüli változót."
+
+msgid "You must select one or more occasion-varying variables."
+msgstr "Ki kell választani egy vagy több megfigyelési alkalom-változót."
+
+msgid "the following variables appear more than once:"
+msgstr "a következő változók egynél többször fordulnak elő:"
+
+msgid "Save data set aborted"
+msgstr "Adattábla mentése megszakítva"
+
+msgid "Name for wide data set:"
+msgstr "A \"széles\" adattábla neve:"
+
+msgid "Make the wide data set active"
+msgstr "A \"széles\" adattábla aktívvá tétele"
+
+# new reshape data set from wide to long format dialog
+msgid "Reshape data set from wide to long format..."
+msgstr "Adattábla átrendezése \"széles\" formátumból \"hosszú\" formátumba..."
+
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr "Adattábla átrendezése \"széles\" formátumból \"hosszú\" formátumba"
+
+msgid ""
+"both one and two repeated-measures factors were specified\n"
+"specify either a one-way or two-way design"
+msgstr ""
+"egyszerre lett egy 1 és egy 2 ismételt méréses változó kiválasztva\n"
+"vagy egy- vagy kétszempontos elrendezést válasszon"
+
+msgid "the specified responses are not contiguous"
+msgstr "nem folytatólagosan vannak kiválasztva eredményváltozók"
+
+msgid "the following ignored variables are also responses:"
+msgstr "a következő figyelmen kívül hagyott változók egyúttal eredményváltozók is:"
+
+msgid "Specify one within-subject factor"
+msgstr "Válasszon ki egy egyeden belüli változót"
+
+msgid "Specify two within-subject factors"
+msgstr "Válasszon ki két egyeden belüli változót"
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr "Adjon meg legfeljebb 5 szintet és szint nevet mindegyik egyeden belüli változóhoz"
+
+msgid "Name for long data set:"
+msgstr "A \"hosszú\" adattábla neve:"
+
+msgid "Response variable:"
+msgstr "Eredményváltozó:"
+
+msgid "Subject ID variable:"
+msgstr "Megfigyelési egységet azonosító változó:"
+
+msgid "Make the long data set active"
+msgstr "A \"hosszú\" adattábla aktívvá tétele"
+
+# additional messages for handling character data
+msgid "Convert all character variables to factors"
+msgstr "Minden szöveges változó faktorrá alakítása"
+
+msgid "Convert character variables to factors..."
+msgstr "Szöveges változók faktorrá alakítása..."
+
+msgid "Convert Character Variables to Factors"
+msgstr "Szöveges változók faktorrá alakítása"
+
+# new message for version 2.7-1
+# previously omitted message (also included in 2.6-2 but omitted again from 2.7-0):
+msgid "Variable (pick one or more)"
+msgstr "Változó (válasszon egyet vagy többet)"
+
+# additional messages omitted from version 2.7-0
+msgid "Include in Segment Labels"
+msgstr "Feltüntetendő felirat"
+
+msgid "One Repeated-Measures Factor"
+msgstr "Egy ismételt méréses változó"
+
+msgid "Two Repeated-Measures Factors"
+msgstr "Két ismételt méréses változó"

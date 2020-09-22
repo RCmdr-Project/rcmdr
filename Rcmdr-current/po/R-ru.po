@@ -1,0 +1,5253 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Shipunov <dactylorhiza@gmail.com>\n"
+"Language-Team: Russian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=koi8-r\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: iso-8859-1\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+msgid "KMeans Clustering"
+msgstr "Метод K средних"
+
+msgid "Variables (pick one or more)"
+msgstr "Переменные (выберите 1 или более)"
+
+msgid "No variables selected."
+msgstr "Переменные не выбраны."
+
+msgid "<all valid cases>"
+msgstr "<все правильные строки>"
+
+msgid "Number of clusters:"
+msgstr "Количество кластеров:"
+
+msgid "Number of starting seeds:"
+msgstr "Количество стартовых единиц:"
+
+msgid "Maximum iterations:"
+msgstr "Максимальных итераций:"
+
+msgid "Print cluster summary"
+msgstr "Описание кластера"
+
+msgid "Bi-plot of clusters"
+msgstr "Биплот кластеров"
+
+msgid ""
+"Assign clusters to\n"
+"the data set"
+msgstr ""
+"Присоединить кластеры к\n"
+"данным"
+
+msgid "Assignment variable:"
+msgstr "Присвоенная переменная:"
+
+msgid "Hierarchical Clustering"
+msgstr "Иерархическая кластеризация:"
+
+msgid "Ward's Method"
+msgstr "Метод Уорда"
+
+msgid "Single Linkage"
+msgstr "Простой связи"
+
+msgid "Complete Linkage"
+msgstr "Полной связи"
+
+msgid "Average Linkage"
+msgstr "Средней связи"
+
+msgid "McQuitty's Method"
+msgstr "Метод Мак-Квитти"
+
+msgid "Median Linkage"
+msgstr "Медианной связи"
+
+msgid "Centroid Linkage"
+msgstr "Метод центроидов"
+
+msgid "Clustering Method"
+msgstr "Метод кластеризации"
+
+msgid "Euclidean"
+msgstr "Эвклидова"
+
+msgid "Squared-Euclidian"
+msgstr "Квадратная Эвклидова"
+
+msgid "Manhattan (City Block)"
+msgstr "Манхеттеновская"
+
+msgid "No Transformation"
+msgstr "Без трансформации"
+
+msgid "Distance Measure"
+msgstr "Метрика"
+
+msgid "Clustering solution name:"
+msgstr "Имя кластерного решения:"
+
+msgid "Plot Dendrogram"
+msgstr "Дендрограмма"
+
+msgid "Hierarchical Cluster Summary"
+msgstr "Результат иерархической кластеризации"
+
+msgid "Select One Clustering Solution"
+msgstr "Выбрать одно кластерное решение"
+
+msgid "There are no hierachical clustering solutions"
+msgstr "Иерархических кластерных решений нет"
+
+msgid "No hierachical clustering solutions are associated with this data set."
+msgstr "Иерархические кластерные решения не присоединены к этим данным"
+
+msgid "A clustering solution has not been selected."
+msgstr "Кластерное решение не выбрано."
+
+msgid "Append Cluster Groups to the Active Data Set"
+msgstr "Добавить кластерные группы к активным данным"
+
+msgid "Assigned cluster label:"
+msgstr "Присвоенная кластеру метка:"
+
+msgid "Find"
+msgstr "Найти"
+
+msgid "Regular-expression search"
+msgstr "Поиск по регулярным выражениям"
+
+msgid "Case sensitive"
+msgstr "С учетом регистра"
+
+msgid "Forward"
+msgstr "Вперед"
+
+msgid "Backward"
+msgstr "Назад"
+
+msgid "Search Direction"
+msgstr "Направление поиска"
+
+msgid "No search text specified."
+msgstr "Не задан текст для поиска."
+
+msgid "Text not found."
+msgstr "Текст не найден."
+
+msgid "Search for:"
+msgstr "Искать:"
+
+msgid "R Commander"
+msgstr "R Commander"
+
+msgid "Sourced:"
+msgstr "Исходники:"
+
+msgid "menu definition error:"
+msgstr "ошибка определения меню:"
+
+msgid "menu defintion error:"
+msgstr "ошибка определения меню:"
+
+msgid "Nothing is selected."
+msgstr "Ничего не выделено."
+
+msgid "Clear window"
+msgstr "Очистить окно"
+
+msgid "Submit"
+msgstr "Выполнить"
+
+msgid "Cut"
+msgstr "Вырезать"
+
+msgid "Copy"
+msgstr "Копировать"
+
+msgid "Paste"
+msgstr "Вставить"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Find..."
+msgstr "Найти"
+
+msgid "Select all"
+msgstr "Выделить все"
+
+msgid "Edit data set"
+msgstr "Редактировать данные"
+
+msgid "View data set"
+msgstr "Просмотреть данные"
+
+msgid "<No active dataset>"
+msgstr "<Нет активных данных>"
+
+msgid "<No active model>"
+msgstr "<Нет активной модели>"
+
+msgid "Data set:"
+msgstr "Данные:"
+
+msgid "Model:"
+msgstr "Модель:"
+
+msgid "Script Window"
+msgstr "Окно скриптов"
+
+msgid "Output Window"
+msgstr "Окно вывода"
+
+msgid "Messages"
+msgstr "Сообщения"
+
+msgid "The rgl package is absent; 3D plots are unavailable."
+msgstr "Пакет rgl отсутствует; трехмерные графики недоступны."
+
+msgid "R Commander Version"
+msgstr "Версия R Commander"
+
+msgid "First and last 5 warnings:"
+msgstr "5 первых и последних ошибок: "
+
+msgid "ERROR:"
+msgstr "ОШИБКА:"
+
+msgid "WARNING:"
+msgstr "ПРЕДУПРЕЖДЕНИЕ:"
+
+msgid "ERROR"
+msgstr "ОШИБКА"
+
+msgid "WARNING"
+msgstr "ПРЕДУПРЕЖДЕНИЕ"
+
+msgid "NOTE"
+msgstr "ЗАМЕЧАНИЕ"
+
+msgid "New Data Set"
+msgstr "Новые данные"
+
+msgid "Dataset"
+msgstr "Данные"
+
+msgid "You must enter the name of a data set."
+msgstr "Вы должны ввести название данных."
+
+msgid "is not a valid name."
+msgstr "не разрешенное имя."
+
+msgid "Data set"
+msgstr "Данные"
+
+msgid "empty data set."
+msgstr "пустые данные."
+
+msgid "Enter name for data set:"
+msgstr "Введите имя данных:"
+
+msgid "There is only one dataset in memory."
+msgstr "В памяти только один набор данных."
+
+msgid "There are no data sets from which to choose."
+msgstr "Нет данных, из которых выбирать."
+
+msgid "Select Data Set"
+msgstr "Выбрать данные"
+
+msgid "Data Sets (pick one)"
+msgstr "Данные (выберите один набор)"
+
+msgid "Recode Variable"
+msgstr "Перекодировать переменную"
+
+msgid "Variable to recode (pick one)"
+msgstr "Переменная для перекодирования (выберите одну)"
+
+msgid "variable"
+msgstr "переменная"
+
+msgid "You must select a variable."
+msgstr "Вы должны выбрать переменную."
+
+msgid "No recode directives specified."
+msgstr "Не определены правила перекодирования."
+
+msgid "Use only double-quotes (\" \") in recode directives"
+msgstr "Используйте только двойные кавычки (\" \") в правилах перекодирования"
+
+msgid "New variable name"
+msgstr "Новое имя переменной"
+
+msgid "Enter recode directives"
+msgstr "Введите правила перекодирования"
+
+msgid "Make new variable a factor"
+msgstr "Сделать новую переменную фактором"
+
+msgid "Compute New Variable"
+msgstr "Вычислить новую переменную"
+
+msgid "[factor]"
+msgstr "[фактор]"
+
+msgid "Current variables (double-click to expression)"
+msgstr "Текущие переменные (двойной щелчок для выражения)"
+
+msgid "No expression specified."
+msgstr "Выражение не определено."
+
+msgid "Variable"
+msgstr "Переменная"
+
+msgid "Expression to compute"
+msgstr "Выражение для вычисления"
+
+msgid "Delete Variables"
+msgstr "Удалить переменные"
+
+msgid "Variable(s) to delete (pick one or more)"
+msgstr "Переменные для удаления (выберите 1 или более)"
+
+msgid "You must select one or more variables."
+msgstr "Вы должны выбрать 1 или более переменных."
+
+msgid ""
+"Delete %s?\n"
+"Please confirm."
+msgstr ""
+"Удалить %s?\n"
+"Пожалуйста, подтвердите."
+
+msgid ""
+"Delete %d variables?\n"
+"Please confirm."
+msgstr ""
+"Удалить %d переменных?\n"
+"Пожалуйста, подтвердите."
+
+msgid "Read Data From Text File"
+msgstr "Прочитать данные из текстового файла"
+
+msgid "White space"
+msgstr "Пробел"
+
+msgid "Commas"
+msgstr "Запятые"
+
+msgid "Tabs"
+msgstr "Табуляция"
+
+msgid "Field Separator"
+msgstr "Разделитель полей"
+
+msgid "Period [.]"
+msgstr "Точка [.]"
+
+msgid "Comma [,]"
+msgstr "Запятая [,]"
+
+msgid "Decimal-Point Character"
+msgstr "Десятичный разделитель"
+
+msgid "You must enter a name for the data set."
+msgstr "Вы должны ввести имя для данных."
+
+msgid "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Текстовые файлы\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid "Variable names in file:"
+msgstr "Имена переменных в файле:"
+
+msgid "Missing data indicator:"
+msgstr "Пропущенный индикатор данных:"
+
+msgid "Other"
+msgstr "Другое"
+
+msgid "Specify:"
+msgstr "Определить:"
+
+msgid "Read Data From Package"
+msgstr "Прочитать данные из пакета"
+
+msgid "Select package:"
+msgstr "Выбрать пакет:"
+
+msgid "Data set %s does not exit"
+msgstr "Данные %s отсутствуют"
+
+msgid "You must select a package."
+msgstr "Вы должны выбрать пакет."
+
+msgid "You must select a data set."
+msgstr "Вы должны выбрать набор данных."
+
+msgid "Package (Double-click to select)"
+msgstr "Пакет (двойной щелчок для выбора)"
+
+msgid "Data set (Double-click to select)"
+msgstr "Данные (двойной щелчок для выбора)"
+
+msgid "OR"
+msgstr "ИЛИ"
+
+msgid "Enter name of data set:"
+msgstr "Введите имя для данных:"
+
+msgid "Import SPSS Data Set"
+msgstr "Импортировать из SPSS"
+
+msgid "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Файлы SPSS-save\" {\".sav\" \".SAV\"}} {\"Файлы SPSS-portable\" {\".por\" \".POR\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid ""
+"Convert value labels\n"
+"to factor levels"
+msgstr ""
+"Конвертировать значения\n"
+"в значения фактора "
+
+msgid ""
+"Maximum number\n"
+"of value labels\n"
+"for factor conversion"
+msgstr ""
+"Максимальное количество\n"
+"значений для конвертации"
+
+msgid "Import Minitab Data Set"
+msgstr "Импортировать Minitab"
+
+msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Переносимые файлы Minitab\" {\".mtp\" \".MTP\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid ""
+"Minitab data set contains elements of unequal length.\n"
+"Data set cannot be converted."
+msgstr ""
+"Данные Minitab содержат элементы неравной длины.\n"
+"Данные не могут быть конвертированы."
+
+msgid "Import STATA Data Set"
+msgstr "Импортировать STATA"
+
+msgid "{\"STATA datasets\" {\".dta\" \".DTA\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Данные STATA\" {\".dta\" \".DTA\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid "Convert dates to R format"
+msgstr "Конвертировать данные в формат R"
+
+msgid "Multiple missing types (>=Stata 8)"
+msgstr "Много типов пропущенных данных (>=Stata 8)"
+
+msgid "Convert underscore to period"
+msgstr "Конвертировать подчеркивание в точку"
+
+msgid "Warn on missing labels"
+msgstr "Предупреждать о пропущенных значениях"
+
+msgid "Convert Numeric Variable to Factor"
+msgstr "Конвертировать числовые переменные в фактор"
+
+msgid "Variable (pick one)"
+msgstr "Переменная (выберите одну)"
+
+msgid "Supply level names"
+msgstr "Предложить имена значений фактора"
+
+msgid "Use numbers"
+msgstr "Использовать числа"
+
+msgid "Factor Levels"
+msgstr "Значения фактора"
+
+msgid "<same as variable>"
+msgstr "<также, как в переменной>"
+
+msgid "Number of levels (%d) too large."
+msgstr "Количество уровней (%d) слишком велико."
+
+msgid "Level Names"
+msgstr "Имена значений фактора"
+
+msgid "Levels names are not unique."
+msgstr "Имена значений фактора не уникальны."
+
+msgid "A level name is empty."
+msgstr "Значение фактора пусто."
+
+msgid "Numeric value"
+msgstr "Числовое значение"
+
+msgid "Level name"
+msgstr "Имя значения фактора"
+
+msgid "Name for factor"
+msgstr "Имя фактора"
+
+msgid "Bin a Numeric Variable"
+msgstr "Разбить числовую переменную"
+
+msgid "Variable to bin (pick one)"
+msgstr "Переменная для разбивки (выберите одну)"
+
+msgid "Specify names"
+msgstr "Определить имена"
+
+msgid "Numbers"
+msgstr "Числа"
+
+msgid "Ranges"
+msgstr "Ранги"
+
+msgid "Equal-width bins"
+msgstr "Интервалы равной длины"
+
+msgid "Equal-count bins"
+msgstr "Интервалы равного количества"
+
+msgid ""
+"Natural breaks\n"
+"(from K-means clustering)"
+msgstr ""
+"Естественная разбивка\n"
+"(методом кластеризации K средних)"
+
+msgid "Binning Method"
+msgstr "Метод разбивки"
+
+msgid "Bin Names"
+msgstr "Имена интервалов"
+
+msgid "Level names must be unique."
+msgstr "Имена значений фактора должны быть уникальны"
+
+msgid "Bin"
+msgstr "Интервал"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Number of bins:"
+msgstr "Число интервалов:"
+
+msgid "Reorder Factor Levels"
+msgstr "Перераспределить значения фактора"
+
+msgid "Factor (pick one)"
+msgstr "Фактор (выберите один)"
+
+msgid "<same as original>"
+msgstr "<также, как в оригинале>"
+
+msgid "Reorder Levels"
+msgstr "Перегруппировать значения фактора"
+
+msgid "Order of levels must include all integers from 1 to"
+msgstr "Значения фактора должны включать все целые числа от 1 до"
+
+msgid "Old Levels"
+msgstr "Старые значения фактора"
+
+msgid "New order"
+msgstr "Новый порядок"
+
+msgid "Make ordered factor"
+msgstr "Сделать упорядоченный фактор"
+
+msgid "Standardize Variables"
+msgstr "Стандартизовать переменные"
+
+msgid "Export Active Data Set"
+msgstr "Экспортировать активные данные"
+
+msgid "Write variable names:"
+msgstr "Записать имена переменных:"
+
+msgid "Write row names:"
+msgstr "Записать имена строк:"
+
+msgid "Quotes around character values:"
+msgstr "Кавычки вокруг текстовых значений:"
+
+msgid "Spaces"
+msgstr "Пробелы"
+
+msgid "Active dataset exported to file"
+msgstr "Активные данные экспортированы в файл"
+
+msgid "Missing values:"
+msgstr "Пропущенные значения:"
+
+msgid "Remove Missing Data"
+msgstr "Убрать пропущенные значения"
+
+msgid "Variables (select one or more)"
+msgstr "Переменные (выберите 1 или более)"
+
+msgid "<same as active data set>"
+msgstr "<так же, как в активных данных>"
+
+msgid "No variables were selected."
+msgstr "Не было выбрано переменных."
+
+msgid "Include all variables"
+msgstr "Включить все переменные"
+
+msgid "Name for new data set"
+msgstr "Имя для новых данных"
+
+msgid "Subset Data Set"
+msgstr "Подмножество данных"
+
+msgid "<all cases>"
+msgstr "<все строки>"
+
+msgid "New data set same as active data set."
+msgstr "Новые данные такие же, как активные."
+
+msgid "Subset expression"
+msgstr "Выражение для подмножества"
+
+msgid "Set Case Names"
+msgstr "Определить имена строк"
+
+msgid "Select variable containing row names"
+msgstr "Выбрать переменную, содержащую имена строк"
+
+msgid "Case names must be unique."
+msgstr "Имена строк должны быть уникальны."
+
+msgid "Rename Variables"
+msgstr "Переименовать переменные"
+
+msgid "Variable Names"
+msgstr "Имена переменных"
+
+msgid "A variable name is empty."
+msgstr "Имя переменной пусто."
+
+msgid "The following variable names are not valid:"
+msgstr "Следующие имена переменных неверны:"
+
+msgid "Variable names are not unique"
+msgstr "Имена переменных не уникальны"
+
+msgid "Old Name"
+msgstr "Старое имя"
+
+msgid "New name"
+msgstr "Новое имя"
+
+msgid "Set Contrasts for Factor"
+msgstr "Определить контрасты для фактора"
+
+msgid "Treatment (dummy) contrasts"
+msgstr "Модельные контрасты"
+
+msgid "Sum (deviation) contrasts"
+msgstr "Суммарные контрасты"
+
+msgid "Helmert contrasts"
+msgstr "Контрасты Хельмета"
+
+msgid "Polynomial contrasts"
+msgstr "Многочленные контрасты"
+
+msgid "Other (specify)"
+msgstr "Другое (укажите)"
+
+msgid "Contrasts"
+msgstr "Контрасты"
+
+msgid "Specify Contrasts"
+msgstr "Определить контрасты"
+
+msgid "Enter Contrast Coefficients"
+msgstr "Введите коэффициенты контрастов"
+
+msgid "Contrast Name:"
+msgstr "Имя контраста:"
+
+msgid ""
+"Number of valid entries in contrast matrix(%d)\n"
+"not equal to number of levels (%d) * number of contrasts (%d)."
+msgstr ""
+"Количество правильных записей в матрице контрастов (%d)\n"
+"не равно количеству значений фактора (%d) * количество контрастов (%d)."
+
+msgid "Contrast matrix is not of full column rank"
+msgstr "Матрица контрастов не из полного разброса значений колонки"
+
+msgid "Contrast names must be unique"
+msgstr "Имена контрастов должны быть уникальными"
+
+msgid "Normal Quantiles"
+msgstr "Нормальные квантили"
+
+msgid "No probabilities specified."
+msgstr "Не выбраны вероятности."
+
+msgid "Probabilities"
+msgstr "Вероятности"
+
+msgid "mu (mean)"
+msgstr "mu (среднее)"
+
+msgid "sigma (standard deviation)"
+msgstr "sigma (стандартное отклонение)"
+
+msgid "Lower tail"
+msgstr "Нижний хвост"
+
+msgid "Upper tail"
+msgstr "Верхний хвост"
+
+msgid "Normal Probabilities"
+msgstr "Нормальные вероятности"
+
+msgid "No values specified."
+msgstr "Значения не определены."
+
+msgid "Variable value(s)"
+msgstr "Значения переменной"
+
+msgid "t Quantiles"
+msgstr "t-квантили"
+
+msgid "Degrees of freedom not specified."
+msgstr "Количество степеней свободы не определено."
+
+msgid "Degrees of freedom"
+msgstr "Степени свободы"
+
+msgid "t Probabilities"
+msgstr "t-вероятности"
+
+msgid "Chi-Squared Quantiles"
+msgstr "Квантили хи-квадрат"
+
+msgid "Chi-Squared Probabilities"
+msgstr "Вероятности хи-квадрат"
+
+msgid "F Quantiles"
+msgstr "F-квантили"
+
+msgid "Probabilities not specified"
+msgstr "Вероятности не определены"
+
+msgid "Numerator degrees of freedom"
+msgstr "Числитель степеней свободы"
+
+msgid "Denominator degrees of freedom"
+msgstr "Знаменатель степеней свободы"
+
+msgid "F Probabilities"
+msgstr "F-вероятности"
+
+msgid "Values not specified."
+msgstr "Значения не определены."
+
+msgid "Binomial Quantiles"
+msgstr "Биномиальные квантили"
+
+msgid "Probabilities not specified."
+msgstr "Вероятности не определены."
+
+msgid "Binomial trials not specified."
+msgstr "Вероятности попыток не определены."
+
+msgid "Probability of success not specified."
+msgstr "Вероятность успеха не определена."
+
+msgid "Binomial trials"
+msgstr "Попытки"
+
+msgid "Probability of success"
+msgstr "Вероятность успеха"
+
+msgid "Cumulative Binomial Probabilities"
+msgstr "Кумулятивные биномиальные вероятности"
+
+msgid ""
+"Number of trials, %d, is large.\n"
+"Create long output?"
+msgstr ""
+"Количество попыток %d велико.\n"
+" Вывести?"
+
+msgid "Binomial Probabilities"
+msgstr "Биномиальные вероятности"
+
+msgid ""
+"Range of values over which to plot, %d, is large.\n"
+"Create long output?"
+msgstr ""
+"Разброс значений для графика %d велик.\n"
+"Вывести?"
+
+msgid "Poisson Probabilities"
+msgstr "Пуассоновские вероятности"
+
+msgid "Poisson mean not specified."
+msgstr "Пуассоновское среднее не определено."
+
+msgid "Mean"
+msgstr "Среднее"
+
+msgid "Normal Distribution"
+msgstr "Нормальное распределение"
+
+msgid "Plot density function"
+msgstr "График функции плотности"
+
+msgid "Plot distribution function"
+msgstr "График функции распределения"
+
+msgid "t Distribution"
+msgstr "Распределение Стьюдента"
+
+msgid "Chi-squared Distribution"
+msgstr "Распределение хи-квадрат"
+
+msgid "F Distribution"
+msgstr "Распределение Фишера"
+
+msgid "Numerator degrees of freedom not specified."
+msgstr "Числитель степеней свободы не определен."
+
+msgid "Denominator degrees of freedom not specified."
+msgstr "Знаменатель степеней свободы не определен."
+
+msgid "Binomial Distribution"
+msgstr "Биномиальное распределение"
+
+msgid "Plot probability mass function"
+msgstr "График функции вероятности"
+
+msgid "Poisson Distribution"
+msgstr "Распределение Пуассона"
+
+msgid "Mean not specified."
+msgstr "Среднее не определено."
+
+msgid "mean"
+msgstr "среднее"
+
+msgid "{\"Script Files\" {\".R\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Файлы скриптов\" {\".R\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid "Save current log file?"
+msgstr "Сохранить текущий log-файл?"
+
+msgid "Script saved to"
+msgstr "Скрипт сохранен в"
+
+msgid "Output saved to"
+msgstr "Вывод сохранен в"
+
+msgid "{\"Output Files\" {\".txt\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Файлы вывода\" {\".txt\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid "{\"All Files\" {\"*\"}}"
+msgstr "{\"Все файлы\" {\"*\"}}"
+
+msgid "R workspace saved to"
+msgstr "Рабочее пространство R сохранено в"
+
+msgid "Exit?"
+msgstr "Выйти?"
+
+msgid "Save script file?"
+msgstr "Сохранить скрипт?"
+
+msgid "Save output file?"
+msgstr "Сохранить вывод?"
+
+msgid "Commander Options"
+msgstr "Настройки R Commander"
+
+msgid "Log commands to script window"
+msgstr "Отражать команды в окне скриптов"
+
+msgid "Log-font size (points)"
+msgstr "Размер шрифта (пт)"
+
+msgid "Log width (characters)"
+msgstr "Ширина окна вывода (в символах)"
+
+msgid "Log height (lines)"
+msgstr "Высота окна вывода (в строках)"
+
+msgid "Send output to R Console"
+msgstr "Послать вывод на консоль R"
+
+msgid "Output height (lines)"
+msgstr "Высота окна вывода (в строках)"
+
+msgid "Unordered factors"
+msgstr "Неупорядоченные факторы"
+
+msgid "Ordered factors"
+msgstr "Упорядоченные факторы"
+
+msgid "Active window grabs focus"
+msgstr "Активное окно забирает фокус"
+
+msgid "Double-click presses OK button"
+msgstr "Двойной щелчок нажимает кнопку OK"
+
+msgid "Sort variable names alphabetically"
+msgstr "Сортировать имена переменных по алфавиту"
+
+msgid "Show edit button"
+msgstr "Показать кнопку редактирования"
+
+msgid ""
+"Exit and Restart\n"
+"R Commander"
+msgstr ""
+"Выйти и запустить\n"
+"R Commander снова"
+
+msgid "Scale factor for Tk elements"
+msgstr "Масштабирование элементов Tk"
+
+msgid "Default font"
+msgstr "Шрифт по умолчанию"
+
+msgid "No packages available to load."
+msgstr "Нет пакетов, доступных для загрузки."
+
+msgid "Load Packages"
+msgstr "Включить пакеты"
+
+msgid "Packages (pick one or more)"
+msgstr "Пакеты (выберите один или более)"
+
+msgid "You must select at least one package."
+msgstr "Вы должны выбрать не менее одного пакета."
+
+msgid "Packages loaded:"
+msgstr "Загруженные пакеты:"
+
+msgid "Index Plot"
+msgstr "Индексный график"
+
+msgid "You must select a variable"
+msgstr "Вы должны выбрать переменную"
+
+msgid ""
+"Identify observations\n"
+"with mouse"
+msgstr ""
+"Определить наблюдения\n"
+"при помощи мыши"
+
+msgid "Spikes"
+msgstr "Пики"
+
+msgid "Points"
+msgstr "Точки"
+
+msgid "Histogram"
+msgstr "Гистограмма"
+
+msgid "<auto>"
+msgstr "<автоматически>"
+
+msgid "Frequency counts"
+msgstr "Частоты"
+
+msgid "Percentages"
+msgstr "Проценты"
+
+msgid "Densities"
+msgstr "Плотности"
+
+msgid "Axis Scaling"
+msgstr "Масштабирование осей"
+
+msgid "Stem and Leaf Display"
+msgstr "График \"ствол и лист\""
+
+msgid "Automatic"
+msgstr "Автоматически"
+
+msgid "Parts Per Stem"
+msgstr "Частей на \"ствол\""
+
+msgid "Tukey"
+msgstr "Тьюки"
+
+msgid "Repeated stem digits"
+msgstr "Повторяемые \"стволовые\" цифры"
+
+msgid "Style of Divided Stems"
+msgstr "Стиль разделенных \"стволов\""
+
+msgid "Trim outliers"
+msgstr "Обрезать выбросы"
+
+msgid "Show depths"
+msgstr "Показать глубины"
+
+msgid "Reverse negative leaves"
+msgstr "Переставить отрицательные \"листья\""
+
+msgid "Leafs Digit:"
+msgstr "\"Листовые\" цифры:"
+
+msgid "or set:"
+msgstr "или набор:"
+
+msgid "Options"
+msgstr "Опции"
+
+msgid "Boxplot"
+msgstr "Ящик-с-усами"
+
+msgid "Identify outliers with mouse"
+msgstr "Определить выбросы при помощи мыши"
+
+msgid "Scatterplot"
+msgstr "Точечный график"
+
+msgid "x-variable (pick one)"
+msgstr "x-переменная (выберите одну)"
+
+msgid "y-variable (pick one)"
+msgstr "y-переменная (выберите одну)"
+
+msgid "Identify points"
+msgstr "Определить точки"
+
+msgid "Jitter x-variable"
+msgstr "Разброс x-переменной"
+
+msgid "Jitter y-variable"
+msgstr "Разброс y-переменной"
+
+msgid "Marginal boxplots"
+msgstr "Краевые ящики-с-усами"
+
+msgid "Least-squares line"
+msgstr "Линия наименьших квадратов"
+
+msgid "Smooth Line"
+msgstr "Сгладить линию"
+
+msgid "You must select two variables"
+msgstr "Вы должны выбрать две переменные"
+
+msgid "x and y variables must be different"
+msgstr "Переменные x и y должны быть разными"
+
+msgid "Span for smooth"
+msgstr "Объединить для сглаживания"
+
+msgid "Scatterplot Matrix"
+msgstr "Матрица точечных графиков"
+
+msgid "Select variables (three or more)"
+msgstr "Выберите переменные (3 или более)"
+
+msgid "Least-squares lines"
+msgstr "Линии наименьших квадратов"
+
+msgid "Smooth lines"
+msgstr "Сгладить линии"
+
+msgid "Density plots"
+msgstr "Графики плотности"
+
+msgid "Histograms"
+msgstr "Гистограммы"
+
+msgid "Boxplots"
+msgstr "Ящики-с-усами"
+
+msgid "Normal QQ plots"
+msgstr "Нормальные квантильные графики"
+
+msgid "Nothing (empty)"
+msgstr "Ничего (пусто)"
+
+msgid "On Diagonal"
+msgstr "По диагонали"
+
+msgid "Fewer than 3 variable selected."
+msgstr "Выбрано меньше 3 переменных."
+
+msgid "Bar Graph"
+msgstr "Столбчатый график "
+
+msgid "Pie Chart"
+msgstr "Пирог"
+
+msgid "Line Plot"
+msgstr "Линейный график"
+
+msgid "x variable (pick one)"
+msgstr "x-переменная (выберите одну)"
+
+msgid "y variables (pick one or more)"
+msgstr "y-переменные (выберите 1 или более)"
+
+msgid "<use y-variable names>"
+msgstr "<использовать имена y-переменных>"
+
+msgid "No x variable selected."
+msgstr "x-переменная не выбрана."
+
+msgid "No y variables selected."
+msgstr "y-переменные не выбраны."
+
+msgid "x and y variables must be different."
+msgstr "x- и y-переменные должны различаться."
+
+msgid ""
+"x-values are not in order.\n"
+"Continue?"
+msgstr ""
+"Значения x не упорядочены.\n"
+"Продолжать?"
+
+msgid "Label for y-axis"
+msgstr "Подпись к оси x"
+
+msgid "Plot legend (position with mouse click)"
+msgstr "Легенда (установите позицию щелчком мыши)"
+
+msgid "Quantile-Comparison (QQ) Plot"
+msgstr "Квантильный (QQ) график"
+
+msgid "df for t must be a positive number."
+msgstr "df для t должно быть положительным числом."
+
+msgid "df for chi-square must be a positive number."
+msgstr "df для хи-квадрат должно быть положительным числом."
+
+msgid ""
+"numerator and denominator \n"
+"df for F must be positive numbers."
+msgstr ""
+"числитель и знаменатель \n"
+"df для F должны быть положительными числами."
+
+msgid "Identify observations with mouse"
+msgstr "Определить наблюдения при помощи мыши"
+
+msgid "Distribution"
+msgstr "Распределение"
+
+msgid "Normal"
+msgstr "Нормальное"
+
+msgid "Chi-square"
+msgstr "Хи-квадрат"
+
+msgid "Numerator df ="
+msgstr "Числитель df="
+
+msgid "Denominator df ="
+msgstr "Знаменатель df="
+
+msgid "Parameters:"
+msgstr "Параметры:"
+
+msgid "Plot Means"
+msgstr "График средних"
+
+msgid "Factors (pick one or two)"
+msgstr "Факторы (выберите один или два)"
+
+msgid "Response Variable (pick one)"
+msgstr "Зависимая переменная (выберите одну)"
+
+msgid "No factors selected."
+msgstr "Факторы не выбраны."
+
+msgid "More than two factors selected."
+msgstr "Выбрано более двух факторов."
+
+msgid "No response variable selected."
+msgstr "Не выбрана зависимая переменная."
+
+msgid "Error Bars"
+msgstr "Ошибка среднего"
+
+msgid "blue"
+msgstr "голубой"
+
+msgid "Standard errors"
+msgstr "Стандартные ошибки"
+
+msgid "Standard deviations"
+msgstr "Стандартные отклонения"
+
+msgid "Confidence intervals"
+msgstr "Доверительные интервалы"
+
+msgid "Level of confidence:"
+msgstr "Доверительный уровень:"
+
+msgid "No error bars"
+msgstr "Нет столбиков ошибок"
+
+msgid "3D Scatterplot"
+msgstr "Трехмерный точечный график"
+
+msgid "Explanatory variables (pick two)"
+msgstr "Независимые переменные (выберите две)"
+
+msgid "Response variable (pick one)"
+msgstr "Зависимая переменная (выберите одну)"
+
+msgid "You must select a response variable."
+msgstr "Вы должны выбрать зависимую переменную."
+
+msgid "You must select 2 explanatory variables."
+msgstr "Вы должны выбрать две независимые переменные."
+
+msgid "Response and explanatory variables must be different."
+msgstr "Зависимые и независимые переменные должны различаться."
+
+msgid "Parallel regression surfaces"
+msgstr "Параллельные регрессионные поверхности"
+
+msgid "Show surface grid lines"
+msgstr "Показать линии сетки"
+
+msgid "Surfaces to Fit"
+msgstr "Поверхности для подгонки"
+
+msgid "Linear least-squares"
+msgstr "Линейные наименьшие квадраты"
+
+msgid "Quadratic least-squares"
+msgstr "Квадратные наименьшие квадраты"
+
+msgid "Smooth regression"
+msgstr "Сгладить регрессию"
+
+msgid "Additive regression"
+msgstr "Аддитивная регрессия"
+
+msgid "df(each term) ="
+msgstr "df(каждый случай)="
+
+msgid "Background Color"
+msgstr "Цвет заднего плана"
+
+msgid "Black"
+msgstr "Черный"
+
+msgid "White"
+msgstr "Белый"
+
+msgid "Save Graph as Bitmap"
+msgstr "Сохранить график как растровый рисунок"
+
+msgid "There is no current graphics device to save."
+msgstr "Нет графического устройства для сохранения"
+
+msgid "Graphics File Type"
+msgstr "Тип файла графика"
+
+msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Файлы PNG\" {\".png\" \".PNG\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Файлы JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid "Graph saved to file"
+msgstr "График сохранен в файл"
+
+msgid "Width (pixels)"
+msgstr "Ширина (в пикселах)"
+
+msgid "Height (pixels)"
+msgstr "Высота (в пикселах)"
+
+msgid "Save Graph as PDF/Postscript"
+msgstr "Сохранить график как PDF/PostScript"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "Postscript"
+msgstr "PostScript"
+
+msgid "Encapsulated Postscript"
+msgstr "EPS (инкапсулированный PostScript)"
+
+msgid "{\"PDF Files\" {\".pdf\" \".PDF\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Файлы PDF\" {\".pdf\" \".PDF\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Файлы PostScript\" {\".ps\" \".PS\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Файлы EPS\" {\".eps\" \".EPS\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid "Width (inches)"
+msgstr "Ширина (в дюймах)"
+
+msgid "Height (inches)"
+msgstr "Высота (в дюймах)"
+
+msgid "Text size (points)"
+msgstr "Размер текста (в пунктах)"
+
+msgid "There is no current RGL graphics device to save."
+msgstr "Нет RGL устройства для сохранения графика"
+
+msgid "{\"PNG Bitmap Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Файлы PNG\" {\".png\" \".PNG\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid "There is only one model in memory."
+msgstr "В памяти только одна модель."
+
+msgid "There are no models from which to choose."
+msgstr "Нет моделей, из которых выбирать."
+
+msgid "Select Model"
+msgstr "Выбрать модель"
+
+msgid "Models (pick one)"
+msgstr "Модели (выберите одну)"
+
+msgid "There is no dataset associated with this model."
+msgstr "Нет данных, связанных с этой моделью."
+
+msgid "The dataset associated with this model, %s, is not in memory."
+msgstr "В памяти нет данных %s, связанных с этой моделью."
+
+msgid "Current Model:"
+msgstr "Текущая модель:"
+
+msgid "Identify points with mouse?"
+msgstr "Определить точки с помощью мыши?"
+
+msgid "There is no appropriate Anova method for a model of this class."
+msgstr "Для этого класса нет подходящего метода ANOVA."
+
+msgid ""
+"Observation statistics not available\n"
+"for a model fit to a subset of the data."
+msgstr ""
+"Недоступны статистики наблюдений\n"
+"для модели, подходящей к подмножеству данных."
+
+msgid "Add Observation Statistics to Data"
+msgstr "Добавить статистики наблюдений к данным"
+
+msgid "Fitted values"
+msgstr "Подогнанные значения"
+
+msgid "Residuals"
+msgstr "Остатки"
+
+msgid "Studentized residuals"
+msgstr "Остатки, преобразованные по Стьюденту"
+
+msgid "Hat-values"
+msgstr "Hat-значения"
+
+msgid "Cook's distances"
+msgstr "Дистанции Кука"
+
+msgid "Observation indices"
+msgstr "Индексы наблюдений"
+
+msgid "Residual Quantile-Comparison Plot"
+msgstr "График остаточных квантилей"
+
+msgid "Simulated confidence envelope"
+msgstr "Доверительные кривые"
+
+msgid "Identify points with mouse"
+msgstr "Определить точки с помощью мыши"
+
+msgid "Test Linear Hypothesis"
+msgstr "Тестировать линейную гипотезу"
+
+msgid ""
+"Number of valid entries in hypothesis matrix(%d)\n"
+"not equal to number of rows (%d) * number of columns (%d)."
+msgstr ""
+"Количество правильных значений в матрице гипотезы (%d)\n"
+"не равно количеству строчек (%d) * количество колонок (%d)."
+
+msgid "Hypothesis matrix is not of full row rank."
+msgstr "Матрица гипотезы не из полной строки."
+
+msgid ""
+"Number of valid entries in rhs vector (%d)\n"
+"is not equal to number of rows (%d)."
+msgstr ""
+"Количество правильных значений в векторе rhs (%d)\n"
+"не равно количеству строчек (%d)."
+
+msgid "Number of Rows:"
+msgstr "Количество строчек:"
+
+msgid "Enter hypothesis matrix and right-hand side vector:"
+msgstr "Введите матрицу гипотезы и вектор правой стороны:"
+
+msgid "There are fewer than two models."
+msgstr "Меньше двух моделей."
+
+msgid "Compare Models"
+msgstr "Сравнить модели"
+
+msgid "First model (pick one)"
+msgstr "Первая модель (выберите одну)"
+
+msgid "Second model (pick one)"
+msgstr "Вторая модель (выберите одну)"
+
+msgid "You must select two models."
+msgstr "Вы должны выбрать две модели."
+
+msgid "Models are not of the same class."
+msgstr "Модели не относятся к одному классу."
+
+msgid "Breusch-Pagan Test"
+msgstr "Тест Брюша-Пэгэна"
+
+msgid "Score Test for Nonconstant Error Variance"
+msgstr "Тест для непостоянной ошибки дисперсии"
+
+msgid "Studentized test statistic"
+msgstr "Тестовая статистика по Стьюденту"
+
+msgid "Explanatory variables"
+msgstr "Независимые переменные"
+
+msgid "Variance Formula"
+msgstr "Формула дисперсии"
+
+msgid "Durbin-Waton Test"
+msgstr "Тест Дебина-Уэйтона"
+
+msgid "Test for First-Order Error Autocorrelation"
+msgstr "Тест ошибки автокорреляции первого порядка"
+
+msgid "Alternative Hypothesis"
+msgstr "Альтернативная гипотеза"
+
+msgid "RESET Test"
+msgstr "RESET-тест"
+
+msgid "Test for Nonlinearity"
+msgstr "Тест на нелинейность"
+
+msgid "No powers are checked."
+msgstr "Не указаны степени."
+
+msgid "First principal component"
+msgstr "Первый главный компонент"
+
+msgid "Type of Test"
+msgstr "Тип теста"
+
+msgid "Powers to Include"
+msgstr "Степени для включения"
+
+msgid "2 (squares)"
+msgstr "2 (квадраты)"
+
+msgid "3 (cubes)"
+msgstr "3 (кубы)"
+
+msgid "There is no appropriate outlier.test method for a model of this class."
+msgstr "Для этого класса нет подходящего метода для тестирования выбросов."
+
+msgid "Confidence Intervals"
+msgstr "Доверительные интервалы"
+
+msgid "Confidence Intervals for Individual Coefficients"
+msgstr "Доверительные интервалы для отдельных коэффициентов"
+
+msgid "Confidence level must be a number between 0 and 1."
+msgstr "Доверительный уровень должен быть между 0 и 1."
+
+msgid "Likelihood-ratio statistic"
+msgstr "Статистике максимального правдоподобия"
+
+msgid "Wald statistic"
+msgstr "Статистике Уейлда"
+
+msgid "Test Based On"
+msgstr "Тест основан на"
+
+msgid "Confidence Level:"
+msgstr "Доверительный интервал"
+
+msgid "Rcmdr Version"
+msgstr "Версия R Commander"
+
+msgid "The tcltk package is absent. The R Commander cannot function."
+msgstr "Пакет tcltk отсутствует. R Commander не может работать."
+
+msgid "R-Rcmdr"
+msgstr "R-Rcmdr"
+
+msgid "The following packages used by Rcmdr are missing:"
+msgstr "Следующие пакеты, используемые Rcmdr, отсутствуют:"
+
+msgid "Without these packages, some features will not be available."
+msgstr "Без этих пакетов некоторые функции окажутся недоступны."
+
+msgid "Install these packages?"
+msgstr "Установить эти пакеты?"
+
+msgid "Install Missing Packages"
+msgstr "Установка нужных пакетов"
+
+msgid "Browse..."
+msgstr "Открыть..."
+
+msgid "Install Packages From:"
+msgstr "Установить пакеты с:"
+
+msgid ""
+"Specify package  \n"
+"directory:"
+msgstr ""
+"Определите папку  \n"
+"для пакета:"
+
+msgid ""
+"Local package directory\n"
+"(must include PACKAGES index file)"
+msgstr ""
+"Локальная папка для пакета\n"
+"(должна включать файл PACKAGES)"
+
+msgid "The following packages were not found at the specified location:"
+msgstr "Следующие пакеты не найдены в указанном месте:"
+
+msgid "Cancel"
+msgstr "Отменить"
+
+msgid "Help"
+msgstr "Помощь"
+
+msgid "Scale Reliability"
+msgstr "Достоверность теста"
+
+msgid "Variables (pick three or more)"
+msgstr "Переменные (выберите 3 или более)"
+
+msgid "Fewer than 3 variables selected."
+msgstr "Выбрано менее 3 переменных."
+
+msgid "Principal Components Analysis"
+msgstr "Анализ Главных Компонент"
+
+msgid "Variables (pick two or more)"
+msgstr "Переменные (выберите 2 или более)"
+
+msgid "Analyze correlation matrix"
+msgstr "Анализировать матрицу корреляций"
+
+msgid "Screeplot"
+msgstr "График сброса"
+
+msgid "Add principal components to data set"
+msgstr "Добавить главные компоненты к данным"
+
+msgid "Fewer than 2 variables selected."
+msgstr "Выбрано меньше двух переменных."
+
+msgid "Number of Components"
+msgstr "Количество компонентов"
+
+msgid "Number of components to retain:"
+msgstr "Сколько компонентов оставить:"
+
+msgid "Factor Analysis"
+msgstr "Факторный анализ"
+
+msgid "None"
+msgstr "Нет"
+
+msgid "Varimax"
+msgstr "Варимакс"
+
+msgid "Promax"
+msgstr "Промакс"
+
+msgid "Factor Rotation"
+msgstr "Поворот фактора"
+
+msgid "Bartlett's method"
+msgstr "Метод Бартлетта"
+
+msgid "Regression method"
+msgstr "Метод регрессии"
+
+msgid "Factor Scores"
+msgstr "Значения фактора "
+
+msgid "Number of Factors"
+msgstr "Количество факторов:"
+
+msgid "Number of factors to extract:"
+msgstr "Сколько факторов выделить:"
+
+msgid "Independent Samples t-Test"
+msgstr "Тест Стьюдента для независимых выборок"
+
+msgid "Groups (pick one)"
+msgstr "Группы (выберите одну)"
+
+msgid "You must select a groups variable."
+msgstr "Вы должны выбрать группирующую переменную."
+
+msgid "Two-sided"
+msgstr "Двусторонний"
+
+msgid "Difference < 0"
+msgstr "Разница < 0"
+
+msgid "Difference > 0"
+msgstr "Разница > 0"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Assume equal variances?"
+msgstr "Предположить равенство дисперсий?"
+
+msgid "Confidence Level"
+msgstr "Доверительный уровень"
+
+msgid "Paired t-Test"
+msgstr "Парный тест Стьюдента"
+
+msgid "First variable (pick one)"
+msgstr "Первая переменная (выберите одну)"
+
+msgid "Second variable (pick one)"
+msgstr "Вторая переменная (выберите одну)"
+
+msgid "You must select two variables."
+msgstr "Вы должны выбрать две переменные."
+
+msgid "Variables must be different."
+msgstr "Переменные должны различаться."
+
+msgid "Single-Sample t-Test"
+msgstr "Одновыборочный тест Стьюдента"
+
+msgid "Population mean = mu0"
+msgstr "Популяционная средняя = mu0"
+
+msgid "Population mean < mu0"
+msgstr "Популяционная средняя < mu0"
+
+msgid "Population mean > mu0"
+msgstr "Популяционная средняя > mu0"
+
+msgid "Null hypothesis: mu ="
+msgstr "Нулевая гипотеза: mu ="
+
+msgid "One-Way Analysis of Variance"
+msgstr "Одномерный дисперсионный анализ"
+
+msgid "You must select a groups factor."
+msgstr "Вы должны выбрать группирующий фактор."
+
+msgid "Factor has fewer than 3 levels; pairwise comparisons omitted."
+msgstr "У фактора меньше 3 уровней; попарное сравнение пропущено"
+
+msgid "Pairwise comparisons of means"
+msgstr "Попарные сравнения средних"
+
+msgid "Multi-Way Analysis of Variance"
+msgstr "Многомерный дисперсионный анализ"
+
+msgid "Factors (pick one or more)"
+msgstr "Факторы (выберите один или более)"
+
+msgid "You must select at least one factor."
+msgstr "Вы должны выбрать не менее одного фактора."
+
+msgid "Linear Regression"
+msgstr "Линейная регрессия"
+
+msgid "Explanatory variables (pick one or more)"
+msgstr "Независимые переменные (выберите 1 или более)"
+
+msgid "No explanatory variables selected."
+msgstr "Независимые переменные не выбраны."
+
+msgid "\"%s\" is not a valid name."
+msgstr "\"%s\" -- неправильное имя."
+
+msgid "Model"
+msgstr "Модель"
+
+msgid "Enter name for model:"
+msgstr "Введите имя модели:"
+
+msgid "Linear Model"
+msgstr "Линейная модель"
+
+msgid "Left-hand side of model empty."
+msgstr "Левая сторона модели пуста."
+
+msgid "Right-hand side of model empty."
+msgstr "Правая сторона модели пуста."
+
+msgid "Generalized Linear Model"
+msgstr "Обобщенная линейная модель"
+
+msgid "Family (double-click to select)"
+msgstr "Семейство (двойной щелчок для выбора)"
+
+msgid "Link function"
+msgstr "Функция связи"
+
+msgid "Proportional-Odds Logit Model"
+msgstr "Пропорциональная логит-модель"
+
+msgid "Response variable must be a factor"
+msgstr "Зависимая переменная должна быть фактором"
+
+msgid "Multinomial Logit Model"
+msgstr "Многомерная логит-модель"
+
+msgid "Two-Sample Wilcoxon Test"
+msgstr "Тест Уилкоксона для двух выборок"
+
+msgid "Default"
+msgstr "По умолчанию"
+
+msgid "Exact"
+msgstr "Точный"
+
+msgid "Normal approximation"
+msgstr "Нормальная аппроксимация"
+
+msgid ""
+"Normal approximation with\n"
+"continuity correction"
+msgstr ""
+"Нормальная аппроксимация с\n"
+"переходной поправкой"
+
+msgid "Paired Wilcoxon Test"
+msgstr "Парный тест Уилкоксона"
+
+msgid "The two variables must be different."
+msgstr "Две переменные должны различаться."
+
+msgid "Kruskal-Wallis Rank Sum Test"
+msgstr "Тест ранговых сумм Крускала-Уоллеса"
+
+msgid "Single-Sample Proportion Test"
+msgstr "Одновыборочный тест пропорций"
+
+msgid "Population proportion = p0"
+msgstr "Популяционная пропорция = p0"
+
+msgid "Population proportion < p0"
+msgstr "Популяционная пропорция < p0"
+
+msgid "Population proportion > p0"
+msgstr "Популяционная пропорция > p0"
+
+msgid "Exact binomial"
+msgstr "Точный биномиальный"
+
+msgid "Null hypothesis: p ="
+msgstr "Нулевая гипотеза: p ="
+
+msgid "Two-Sample Proportions Test"
+msgstr "Двухвыборочный тест пропорций"
+
+msgid "Groups and response variables must be different."
+msgstr "Группы и зависимые переменные должны различаться."
+
+msgid ""
+"There are %d variables in the data set %s.\n"
+"Do you want to proceed?"
+msgstr ""
+"В наборе данных %s содержится %d переменных.\n"
+"Хотите продолжить?"
+
+msgid "Numerical Summaries"
+msgstr "Числовые итоги"
+
+msgid "Standard Deviation"
+msgstr "Стандартное отклонение"
+
+msgid "Summarize by:"
+msgstr "Суммировать по:"
+
+msgid "Summarize by groups"
+msgstr "Суммировать по группам"
+
+msgid "Quantiles"
+msgstr "Квантили"
+
+msgid "quantiles:"
+msgstr "квантили:"
+
+msgid "Frequency Distribution"
+msgstr "Распределение частоты"
+
+msgid "Goodness-of-Fit Test"
+msgstr "Тест качества подгонки"
+
+msgid "Invalid entry."
+msgstr "Неправильное значение."
+
+msgid "Missing entry."
+msgstr "Пропущенное значение."
+
+msgid ""
+"Number of valid entries (%d)\n"
+"not equal to number levels (%d)."
+msgstr ""
+"Количество правильных значений (%d)\n"
+"не равно количеству уровней (%d)."
+
+msgid "Negative probabilities not allowed."
+msgstr "Отрицательные вероятности не разрешены."
+
+msgid "Probabilities rescaled to sum to 1."
+msgstr "Вероятности масштабированы к единичной сумме."
+
+msgid "Chi-square goodness-of-fit test"
+msgstr "Тест качества подгонки хи-квадрат"
+
+msgid "Table of Statistics"
+msgstr "Таблица статистик"
+
+msgid "Median"
+msgstr "Медиана"
+
+msgid "Standard deviation"
+msgstr "Стандартное отклонение"
+
+msgid "Statistic"
+msgstr "Статистика"
+
+msgid "Correlation Matrix"
+msgstr "Корреляционная матрица"
+
+msgid "Pearson product-moment"
+msgstr "Пирсона"
+
+msgid "Spearman rank-order"
+msgstr "Ранговая Спирмена"
+
+msgid "Partial"
+msgstr "Частичная"
+
+msgid "Type of Correlations"
+msgstr "Тип корреляций"
+
+msgid ""
+"Fewer than 3 variables selected\n"
+"for partial correlations."
+msgstr ""
+"Меньше 3 переменных выбрано\n"
+"для частичных корреляций."
+
+msgid "Two-Way Table"
+msgstr "Двумерная таблица"
+
+msgid "Row variable (pick one)"
+msgstr "Переменная для строк (выберите одну)"
+
+msgid "Column variable (pick one)"
+msgstr "Переменная для колонок (выберите одну)"
+
+msgid "Row and column variables are the same."
+msgstr "Колонки и строки одинаковы."
+
+msgid "expected frequencies are less than 1"
+msgstr "ожидаемые частоты меньше чем 1"
+
+msgid "expected frequencies are less than 5"
+msgstr "ожидаемые частоты меньше чем 5"
+
+msgid "Row percentages"
+msgstr "Проценты строк"
+
+msgid "Column percentages"
+msgstr "Проценты колонок"
+
+msgid "No percentages"
+msgstr "Нет процентов"
+
+msgid "Compute Percentages"
+msgstr "Вычислить проценты"
+
+msgid "Chi-square test of independence"
+msgstr "Тест хи-квадрат на независимость"
+
+msgid "Print expected frequencies"
+msgstr "Печатать ожидаемые частоты"
+
+msgid "Fisher's exact test"
+msgstr "Точный тест Фишера"
+
+msgid "Hypothesis Tests"
+msgstr "Тестирование гипотез"
+
+msgid "Multi-Way Table"
+msgstr "Многомерная таблица"
+
+msgid "Control variable(s) (pick one or more)"
+msgstr "Контрольные переменн(ые) (выберите 1 или более)"
+
+msgid "You must select row, column, and control variables"
+msgstr "Вы должны выбрать строку, колонку и контрольную переменную"
+
+msgid "Row, column, and control variables must be different."
+msgstr "Строка, колонка и контрольная переменная должны различаться."
+
+msgid "Enter Two-Way Table"
+msgstr "Введите двумерную таблицу"
+
+msgid ""
+"Number of valid entries (%d)\n"
+"not equal to number of rows (%d) * number of columns (%d)."
+msgstr ""
+"Количество правильных значений (%d)\n"
+"не равно количество строчек (%d) * количество колонок (%d)."
+
+msgid "Row names are not unique."
+msgstr "Имена строк не уникальны."
+
+msgid "Column names are not unique."
+msgstr "Имена колонок не уникальны."
+
+msgid "Number of Columns:"
+msgstr "Количество колонок:"
+
+msgid "Enter counts:"
+msgstr "Введите суммы:"
+
+msgid "Two Variances F-Test"
+msgstr "F-тест для сравнения дисперсий"
+
+msgid "Bartlett's Test"
+msgstr "Тест Бартлетта"
+
+msgid "Levene's Test"
+msgstr "Тест Ливина"
+
+msgid "There is no active data set."
+msgstr "Нет активного набора данных."
+
+msgid "is not a data frame and cannot be attached."
+msgstr "не таблица данных и не может быть присоединена."
+
+msgid "The dataset %s has %d rows and %d columns."
+msgstr "Данные %s: %d строк(а) и %d колонк(а)."
+
+msgid "There is no active model."
+msgstr "Нет активной модели."
+
+msgid "argument must be a square, symmetric, numeric covariance matrix"
+msgstr "аргумент должен быть квадратной и симметричной ковариационной матрицей"
+
+msgid "there are fewer than 3 items in the scale"
+msgstr "менее чем 3 значения на шкале"
+
+msgid "Argument response must be numeric."
+msgstr "Зависимый аргумент должен быть числом."
+
+msgid "Argument factor1 must be a factor."
+msgstr "Аргумент factor1 должен быть фактором."
+
+msgid "Arguments factor1 and factor2 must be factors."
+msgstr "Аргументы factor1 и factor2 должны быть факторами."
+
+msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgstr "Количество групп для factor2, %d, превышает количество различных цветов, %d."
+
+msgid "The number of bins exceeds the number of data values"
+msgstr "Количество групп превышает количество значений"
+
+msgid "Number of groups (%d) exceeds number of colors (%d)."
+msgstr "Количество групп (%d) превышает количество цветов (%d)."
+
+msgid "groups variable must be a factor."
+msgstr "группирующая переменная должна быть фактором."
+
+msgid "cannot plot both multiple surfaces and residuals"
+msgstr "не могу нарисовать и множественные поверхности, и остатки"
+
+msgid "not supplied"
+msgstr "не дано"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "There fewer than %d factors in the active data set."
+msgstr "В активных данных меньше чем %d факторов."
+
+msgid "There are no factors in the active data set."
+msgstr "В активных данных нет факторов."
+
+msgid "There fewer than %d two-level factors in the active data set."
+msgstr "В активных данных меньше чем %d двухуровневых факторов."
+
+msgid "There are no two-level factors in the active data set."
+msgstr "В активных данных нет двухуровневых факторов."
+
+msgid "There fewer than %d numeric variables in the active data set."
+msgstr "В активных данных меньше чем %d числовых переменных."
+
+msgid "There are no numeric variables in the active data set."
+msgstr "В активных данных нет числовых переменных."
+
+msgid "There fewer than %d variables in the active data set."
+msgstr "В активных данных меньше чем %d переменных."
+
+msgid "There are no variables in the active data set."
+msgstr "В активных данных нет переменных."
+
+msgid ""
+"%s %s already exists.\n"
+"Overwrite %s?"
+msgstr ""
+"%s %s уже существует.\n"
+"Переписать %s?"
+
+msgid "Plot by:"
+msgstr "Строить график по:"
+
+msgid "Plot by groups"
+msgstr "График по группам"
+
+msgid "Plot lines by group"
+msgstr "Линии по группам"
+
+msgid "There no factors in the active data set."
+msgstr "В активных данных нет факторов."
+
+msgid "Groups"
+msgstr "Группы"
+
+msgid "Groups variable (pick one)"
+msgstr "Группирующая переменная (выберите одну)"
+
+msgid "Position legend with mouse click"
+msgstr "Положение легенды при помощи щелчка мыши"
+
+msgid "<No groups selected>"
+msgstr "<Группы не выбраны>"
+
+msgid "Difference:"
+msgstr "Разность:"
+
+msgid "Variables (double-click to formula)"
+msgstr "Переменные (двойной щелчок для формулы)"
+
+msgid "Model Formula:"
+msgstr "Модельная формула:"
+
+msgid ""
+"No appropriate %s method exists\n"
+"for a model of this class."
+msgstr ""
+"Не существует подходящего %s метода\n"
+"для модели этого класса."
+
+msgid "The model is not of class \"%s\"."
+msgstr "Модель не принадлежит к классу \"%s\"."
+
+msgid "Open script file..."
+msgstr "Открыть файл скрипта..."
+
+msgid "Save script..."
+msgstr "Сохранить скрипт..."
+
+msgid "Save script as..."
+msgstr "Сохранить скрипт как..."
+
+msgid "Save output..."
+msgstr "Сохранить вывод..."
+
+msgid "Save output as..."
+msgstr "Сохранить вывод как..."
+
+msgid "Save R workspace..."
+msgstr "Сохранить рабочее пространство R..."
+
+msgid "Save R workspace as..."
+msgstr "Сохранить рабочее пространство R как..."
+
+msgid "From Commander"
+msgstr "Из Commander"
+
+msgid "From Commander and R"
+msgstr "Из Commander и из R"
+
+msgid "Exit"
+msgstr "Выйти"
+
+msgid "File"
+msgstr "Файл"
+
+msgid "Edit"
+msgstr "Правка"
+
+msgid "New data set..."
+msgstr "Новый набор данных..."
+
+msgid "from text file..."
+msgstr "из текстового файла..."
+
+msgid "from SPSS data set..."
+msgstr "из файла SPSS..."
+
+msgid "from Minitab data set..."
+msgstr "из файла Minitab..."
+
+msgid "from STATA data set..."
+msgstr "из файла STATA..."
+
+msgid "Import data"
+msgstr "Импорт данных"
+
+msgid "List data sets in packages"
+msgstr "Отразить данные из пакетов"
+
+msgid "Read data set from an attached package..."
+msgstr "Прочитать данные из присоединенного пакета..."
+
+msgid "Data in packages"
+msgstr "Данные в пакетах"
+
+msgid "Select active data set..."
+msgstr "Выбрать активный набор данных..."
+
+msgid "Help on active data set (if available)"
+msgstr "Помощь по активным данным (если есть)"
+
+msgid "Variables in active data set"
+msgstr "Переменные в активных данных"
+
+msgid "Set case names..."
+msgstr "Определить имена строк..."
+
+msgid "Subset active data set..."
+msgstr "Подмножество активных данных..."
+
+msgid "Remove cases with missing data..."
+msgstr "Убрать строки с пропущенными данными..."
+
+msgid "Export active data set..."
+msgstr "Экспортировать активные данные..."
+
+msgid "Active data set"
+msgstr "Активные данные"
+
+msgid "Recode variable..."
+msgstr "Перекодировать переменную..."
+
+msgid "Compute new variable..."
+msgstr "Вычислить новую переменную..."
+
+msgid "Standardize variables..."
+msgstr "Стандартизовать переменные..."
+
+msgid "Convert numeric variable to factor..."
+msgstr "Сделать числовую переменную фактором..."
+
+msgid "Bin numeric variable..."
+msgstr "Группировать числовую переменную..."
+
+msgid "Reorder factor levels..."
+msgstr "Переупорядочить значения фактора..."
+
+msgid "Define contrasts for a factor..."
+msgstr "Определить контрасты к фактору..."
+
+msgid "Rename variables..."
+msgstr "Переименовать переменные..."
+
+msgid "Delete variables from data set ..."
+msgstr "Удалить переменные из данных..."
+
+msgid "Manage variables in active data set"
+msgstr "Работа с переменными"
+
+msgid "Data"
+msgstr "Данные"
+
+msgid "Numerical summaries..."
+msgstr "Базовые статистики..."
+
+msgid "Frequency distribution..."
+msgstr "Распределение частот..."
+
+msgid "Table of statistics..."
+msgstr "Статистические таблицы..."
+
+msgid "Correlation matrix..."
+msgstr "Корреляционная матрица..."
+
+msgid "Two-way table..."
+msgstr "Двумерная таблица..."
+
+msgid "Multi-way table..."
+msgstr "Многомерная таблица..."
+
+msgid "Enter and analyze two-way table..."
+msgstr "Ввести и проанализировать двумерную таблицу..."
+
+msgid "Single-sample t-test..."
+msgstr "Одновыборочный t-тест..."
+
+msgid "Independent samples t-test..."
+msgstr "t-тест для независимых выборок..."
+
+msgid "Paired t-test..."
+msgstr "Парный t-тест..."
+
+msgid "One-way ANOVA..."
+msgstr "Одномерный дисперсионный анализ..."
+
+msgid "Multi-way ANOVA..."
+msgstr "Многомерный дисперсионный анализ..."
+
+msgid "Single-sample proportion test..."
+msgstr "Одновыборочный тест пропорций..."
+
+msgid "Two-sample proportions test..."
+msgstr "Двухвыборочный тест пропорций..."
+
+msgid "Two-variances F-test..."
+msgstr "F-тест для двух дисперсий..."
+
+msgid "Bartlett's test..."
+msgstr "Тест Бартлетта..."
+
+msgid "Levene's test..."
+msgstr "Тест Ливина..."
+
+msgid "Two-sample Wilcoxon test..."
+msgstr "Двухвыборочный тест Уилкоксона..."
+
+msgid "Paired-samples Wilcoxon test..."
+msgstr "Парный тест Уилкоксона..."
+
+msgid "Kruskal-Wallis test..."
+msgstr "Тест Крускала-Уоллиса..."
+
+msgid "Scale reliability..."
+msgstr "Достоверность теста..."
+
+msgid "Principal-components analysis..."
+msgstr "Анализ главных компонент..."
+
+msgid "Factor analysis..."
+msgstr "Факторный анализ..."
+
+msgid "k-means cluster analysis..."
+msgstr "Кластерный анализ K-средних..."
+
+msgid "Hierarchical cluster analysis..."
+msgstr "Иерархический кластерный анализ..."
+
+msgid "Summarize hierarchical clustering..."
+msgstr "Итог иерархической кластеризации..."
+
+msgid "Add hierarchical clustering to data set..."
+msgstr "Добавить кластеризацию к данным..."
+
+msgid "Cluster analysis"
+msgstr "Кластерный анализ"
+
+msgid "Linear regression..."
+msgstr "Линейная регрессия..."
+
+msgid "Linear model..."
+msgstr "Линейная модель..."
+
+msgid "Generalized linear model..."
+msgstr "Обобщенная линейная модель..."
+
+msgid "Multinomial logit model..."
+msgstr "Многомерная логит-модель..."
+
+msgid "Proportional-odds logit model..."
+msgstr "Пропорциональная логит-модель..."
+
+msgid "Statistics"
+msgstr "Статистики"
+
+msgid "Summaries"
+msgstr "Итоги"
+
+msgid "Contingency tables"
+msgstr "Таблицы сопряженности"
+
+msgid "Means"
+msgstr "Средние"
+
+msgid "Proportions"
+msgstr "Пропорции"
+
+msgid "Variances"
+msgstr "Дисперсии"
+
+msgid "Nonparametric tests"
+msgstr "Непараметрические тесты"
+
+msgid "Dimensional analysis"
+msgstr "Многомерный анализ"
+
+msgid "Fit models"
+msgstr "Подгонка моделей"
+
+msgid "Index plot..."
+msgstr "Индексный график..."
+
+msgid "Histogram..."
+msgstr "Гистограмма.."
+
+msgid "Stem-and-leaf display..."
+msgstr "График \"ствол и листья\"..."
+
+msgid "Boxplot..."
+msgstr "Ящик-с-усами..."
+
+msgid "Quantile-comparison plot..."
+msgstr "Квантильный график..."
+
+msgid "Scatterplot..."
+msgstr "Точечный график..."
+
+msgid "Scatterplot matrix..."
+msgstr "Матрица точечных графиков..."
+
+msgid "3D scatterplot..."
+msgstr "3D-точечный график..."
+
+msgid "Line graph..."
+msgstr "Линейный график..."
+
+msgid "Plot of means..."
+msgstr "График средних..."
+
+msgid "Bar graph..."
+msgstr "Столбчатый график..."
+
+msgid "Pie chart..."
+msgstr "Пирог..."
+
+msgid "as bitmap..."
+msgstr "как растровый рисунок..."
+
+msgid "as PDF/Postscript/EPS..."
+msgstr "как PDF/Postscript/EPS..."
+
+msgid "3D RGL graph..."
+msgstr "3D RGL график..."
+
+msgid "Save graph to file"
+msgstr "Сохранить график в файл"
+
+msgid "Graphs"
+msgstr "Графики"
+
+msgid "Select active model..."
+msgstr "Выбрать активную модель..."
+
+msgid "Summarize model"
+msgstr "Описать модель"
+
+msgid "Add observation statistics to data..."
+msgstr "Добавить статистики к данным..."
+
+msgid "Confidence intervals..."
+msgstr "Доверительные интервалы..."
+
+msgid "Hypothesis tests"
+msgstr "Тестирование гипотез"
+
+msgid "ANOVA table"
+msgstr "Таблица ANOVA"
+
+msgid "Compare two models..."
+msgstr "Сравнить две модели..."
+
+msgid "Linear hypothesis..."
+msgstr "Линейные гипотезы..."
+
+msgid "Numerical diagnostics"
+msgstr "Числовая диагностика"
+
+msgid "Variance-inflation factors"
+msgstr "Факторы, влияющие на дисперсию"
+
+msgid "Breusch-Pagan test for heteroscedasticity..."
+msgstr "Тест Брюша-Пэгэна на неравномерность..."
+
+msgid "Durbin-Watson test for autocorrelation..."
+msgstr "Тест Дебина-Уотсона на автокорреляцию..."
+
+msgid "RESET test for nonlinearity..."
+msgstr "RESET-тест на нелинейность..."
+
+msgid "Bonferroni outlier test"
+msgstr "Тест Бонферрони на выбросы"
+
+msgid "Basic diagnostic plots"
+msgstr "Базовые диагностические графики"
+
+msgid "Residual quantile-comparison plot..."
+msgstr "Квантильный график остатков..."
+
+msgid "Component+residual plots"
+msgstr "Графики \"компонента+остаток\""
+
+msgid "Added-variable plots"
+msgstr "Графики добавленной переменной"
+
+msgid "Influence plot"
+msgstr "График влияния"
+
+msgid "Effect plots"
+msgstr "Графики эффектов"
+
+msgid "Models"
+msgstr "Модели"
+
+msgid "Normal distribution"
+msgstr "Нормальное распределение"
+
+msgid "Normal quantiles..."
+msgstr "Нормальные квантили..."
+
+msgid "Normal probabilities..."
+msgstr "Нормальные вероятности..."
+
+msgid "Plot normal distribution..."
+msgstr "График нормального распределения..."
+
+msgid "t distribution"
+msgstr "Распределение Стьюдента"
+
+msgid "t quantiles..."
+msgstr "t-квантили"
+
+msgid "t probabilities..."
+msgstr "t-вероятности..."
+
+msgid "Plot t distribution..."
+msgstr "График распределения Стьюдента..."
+
+msgid "Chi-squared distribution"
+msgstr "Распределение хи-квадрат"
+
+msgid "Chi-squared quantiles..."
+msgstr "Квантили хи-квадрат..."
+
+msgid "Chi-squared probabilities..."
+msgstr "Вероятности хи-квадрат..."
+
+msgid "Plot chi-squared distribution..."
+msgstr "График распределения хи-квадрат..."
+
+msgid "F distribution"
+msgstr "Распределение Фишера"
+
+msgid "F quantiles..."
+msgstr "F-квантили..."
+
+msgid "F probabilities..."
+msgstr "F-вероятности..."
+
+msgid "Plot F distribution..."
+msgstr "График распределения Фишера..."
+
+msgid "Binomial distribution"
+msgstr "Биномиальное распределение"
+
+msgid "Binomial quantiles..."
+msgstr "Биномиальные квантили..."
+
+msgid "Binomial tail probabilities..."
+msgstr "Краевые биномиальные вероятности..."
+
+msgid "Binomial probabilities..."
+msgstr "Биномиальные вероятности..."
+
+msgid "Plot binomial distribution..."
+msgstr "График биномиального распределения..."
+
+msgid "Poisson distribution"
+msgstr "Распределение Пуассона"
+
+msgid "Poisson probabilities..."
+msgstr "Вероятности Пуассона..."
+
+msgid "Plot Poisson distribution..."
+msgstr "График распределения Пуассона..."
+
+msgid "Distributions"
+msgstr "Распределения"
+
+msgid "Load package(s)..."
+msgstr "Включить пакет(ы)..."
+
+msgid "Options..."
+msgstr "Опции..."
+
+msgid "Tools"
+msgstr "Инструменты"
+
+msgid "Commander help"
+msgstr "Помощь Commander"
+
+msgid "Introduction to the R Commander"
+msgstr "Введение в R Commander"
+
+msgid "About Rcmdr"
+msgstr "О R Commander"
+
+# # messages added to Rcmdr version 1.1-1
+msgid "There is no current RGL graphics device."
+msgstr "Нет текущего RGL-устройства"
+
+msgid "3D graph"
+msgstr "3D-график"
+
+# # messages added to Rcmdr version 1.1-6
+msgid " contains non-standard variable names:\n"
+msgstr " содержит нестандартные имена переменных:\n"
+
+msgid ""
+"\n"
+"These have been changed to:\n"
+msgstr ""
+"\n"
+"Были изменены на:\n"
+
+# # messages added to Rcmdr version 1.2-0
+# importRODBCtable dialog
+msgid "This function requires the RODBC package.\n"
+msgstr "Эта функция требует пакет RODBC.\n"
+
+msgid "Import from Excel, Access or dBase data set"
+msgstr "Импорт из Excel, Access или таблицы dBase"
+
+msgid "{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Файл MS Excel\" {*.xls \".XLS\"}} {\"База данных MS Access\" {*.mdb \".MDB\"}} {\"Файл dBase\" {*.dbf \".DBF\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid "Select one table"
+msgstr "Выберите одну таблицу"
+
+msgid "No table selected"
+msgstr "Не выбрана таблица"
+
+msgid "from Excel, Access or dBase data set..."
+msgstr "из Excel, Access или таблицы dBase..."
+
+# probability distributions
+msgid "Standard deviation must be positive."
+msgstr "Стандартное отклонение должно быть положительным."
+
+msgid "Degrees of freedom must be positive."
+msgstr "Степени свободы должны быть положительными."
+
+msgid "Numerator degrees of freedom must be positive."
+msgstr "Числитель степеней свободы должен быть положительным."
+
+msgid "Denominator degrees of freedom must be positive."
+msgstr "Знаменатель степеней свободы должен быть положительным."
+
+msgid "Exponential Distribution"
+msgstr "Экспоненциальное распределение"
+
+msgid "Rate must be positive."
+msgstr "Частное должно быть положительным."
+
+msgid "Rate"
+msgstr "Частное"
+
+msgid "Uniform Distribution"
+msgstr "Однородное распределение"
+
+msgid "Lower limit must be less than upper limit."
+msgstr "Нижний предел должен быть меньше верхнего."
+
+msgid "Minimum"
+msgstr "Минимум"
+
+msgid "Maximum"
+msgstr "Максимум"
+
+msgid "Beta Distribution"
+msgstr "Бета-распределение"
+
+msgid "Shapes not specified."
+msgstr "Формы не определены."
+
+msgid "Shapes must be positive."
+msgstr "Формы должны быть положительными."
+
+msgid "Shape"
+msgstr "Форма"
+
+msgid "Cauchy Distribution"
+msgstr "Распределение Коши"
+
+msgid "Scale must be positive."
+msgstr "Шкала должна быть положительна."
+
+msgid "Location"
+msgstr "Место"
+
+msgid "Scale"
+msgstr "Шкала"
+
+msgid "Logistic Distribution"
+msgstr "Логистическое распределение"
+
+msgid "Lognormal Distribution"
+msgstr "Логнормальное распределение"
+
+msgid "Mean (log scale)"
+msgstr "Среднее (логарифмическая шкала)"
+
+msgid "Standard deviation (log scale)"
+msgstr "Стандартное отклонение (логарифмическая шкала)"
+
+msgid "Gamma Distribution"
+msgstr "Гамма-распределение"
+
+msgid "Shape not specified."
+msgstr "Форма не определена."
+
+msgid "Shape must be positive."
+msgstr "Форма должна быть положительной."
+
+msgid "Weibull Distribution"
+msgstr "Распределение Вейбулла"
+
+msgid "Exponential Quantiles"
+msgstr "Экспоненциальные квантили"
+
+msgid "Exponential Probabilities"
+msgstr "Экспоненциальные вероятности"
+
+msgid "Uniform Quantiles"
+msgstr "Квантили однородного распределения"
+
+msgid "Uniform Probabilities"
+msgstr "Вероятности однородного распределения"
+
+msgid "Beta Quantiles"
+msgstr "Квантили бета-распределения"
+
+msgid "Beta Probabilities"
+msgstr "Вероятности однородного распределения"
+
+msgid "Cauchy Quantiles"
+msgstr "Квантили распределения Коши"
+
+msgid "Cauchy Probabilities"
+msgstr "Вероятности распределения Коши"
+
+msgid "Logistic Quantiles"
+msgstr "Квантили логистического распределения"
+
+msgid "Logistic Probabilities"
+msgstr "Вероятности логистического распределения"
+
+msgid "Lognormal Quantiles"
+msgstr "Квантили логнормального распределения"
+
+msgid "Lognormal Probabilities"
+msgstr "Вероятности логнормального распределения"
+
+msgid "Gamma Quantiles"
+msgstr "Квантили гамма-распределения"
+
+msgid "Gamma Probabilities"
+msgstr "Вероятности гамма-распределения"
+
+msgid "Weibull Quantiles"
+msgstr "Квантили распределения Вейбулла"
+
+msgid "Weibull Probabilities"
+msgstr "Вероятности распределения Вейбулла"
+
+msgid "Gumbel Distribution"
+msgstr "Распределение Гумбеля"
+
+msgid "Shape (log shape)"
+msgstr "Форма (логарифм)"
+
+msgid "Scale (log scale)"
+msgstr "Шкала (логарифм)"
+
+msgid "Gumbel Probabilities"
+msgstr "Вероятности распределения Гумбеля"
+
+msgid "Probability of success must be between 0 and 1."
+msgstr "Вероятности успеха должны быть между 0 и 1."
+
+msgid "Poisson Quantiles"
+msgstr "Квантили распределения Пуассона"
+
+msgid "Geometric Quantiles"
+msgstr "Квантили геометрического распределения"
+
+msgid "Geometric Probabilities"
+msgstr "Вероятности геометрического распределения"
+
+msgid "Hypergeometric Quantiles"
+msgstr "Квантили гипергеометрического распределения"
+
+msgid "The m parameter was not specified."
+msgstr "Параметр m не определен."
+
+msgid "The m parameter cannot be negative."
+msgstr "Параметр m не должен быть отрицательным."
+
+msgid "The n parameter was not specified."
+msgstr "Параметр n не определен."
+
+msgid "The n parameter cannot be negative."
+msgstr "Параметр n не должен быть отрицательным."
+
+msgid "The k parameter was not specified."
+msgstr "Параметр k не определен."
+
+msgid "The k parameter cannot be greater than m + n."
+msgstr "Параметр k не должен быть больше чем m + n."
+
+msgid "The k parameter cannot be negative."
+msgstr "Параметр k не должен быть отрицательным."
+
+msgid "m (number of white balls in the urn)"
+msgstr "m (количество белых шаров в корзине)"
+
+msgid "n (number of black balls in the urn)"
+msgstr "n (количество черных шаров в корзине)"
+
+msgid "k (number of balls drawn from the urn)"
+msgstr "k (количество шаров, вынутых из корзины)"
+
+msgid "Hypergeometric Probabilities"
+msgstr "Вероятности гипергеометрического распределения"
+
+msgid "Negative Binomial Quantiles"
+msgstr "Квантили негативного биномиального распределения"
+
+msgid "Target number of successes not specified."
+msgstr "Нужное количество успехов не определено."
+
+msgid "Target number of successes cannot be negative."
+msgstr "Нужное количество успехов не может быть отрицательным."
+
+msgid "Target number of successes"
+msgstr "Нужное количество успехов."
+
+msgid "Negative Binomial Probabilities"
+msgstr "Вероятности негативного биномиального распределения"
+
+msgid "Geometric Distribution"
+msgstr "Геометрическое распределение"
+
+msgid "Hypergeometric Distribution"
+msgstr "Гипергеометрическое распределение"
+
+msgid "Negative Binomial Distribution"
+msgstr "Негативное биномиальное распределение"
+
+msgid "Sample from Normal Distribution"
+msgstr "Выборка из нормального распределения"
+
+msgid "NormalSamples"
+msgstr "Нормальные выборки"
+
+msgid "Sample means"
+msgstr "Средние по выборкам"
+
+msgid "Sample sums"
+msgstr "Суммы выборок"
+
+msgid "Sample standard deviations"
+msgstr "Стандартные отклонения выборок"
+
+msgid "Sample size must be positive."
+msgstr "Размер выборки должен быть положительным."
+
+msgid "Number of samples must be positive."
+msgstr "Количество образцов должно быть положительным."
+
+msgid "Number of samples (rows)"
+msgstr "Количество образцов (строк)"
+
+msgid "Number of observations (columns)"
+msgstr "Количество наблюдений (колонок)"
+
+msgid "Add to Data Set:"
+msgstr "Добавить к данным:"
+
+msgid "Sample from t Distribution"
+msgstr "Выборка из распределения Стьюдента"
+
+msgid "tSamples"
+msgstr "Выборки из распределения Стьюдента"
+
+msgid "Sample from Chi-squared Distribution"
+msgstr "Выборка из распределения хи-квадрат"
+
+msgid "ChisquareSamples"
+msgstr "Выборки из распределения хи-квадрат"
+
+msgid "Sample from F Distribution"
+msgstr "Выборка из распределения Фишера"
+
+msgid "FSamples"
+msgstr "Выборки из распределения Фишера"
+
+msgid "Sample from Exponential Distribution"
+msgstr "Выборка из экспоненциального распределения"
+
+msgid "ExponentialSamples"
+msgstr "Выборки из экспоненциального распределения"
+
+msgid "Sample from Uniform Distribution"
+msgstr "Выборка из однородного распределения"
+
+msgid "UniformSamples"
+msgstr "Выборки из однородного распределения"
+
+msgid "Sample from Beta Distribution"
+msgstr "Выборка из бета-распределения"
+
+msgid "BetaSamples"
+msgstr "Выборки из бета-распределения"
+
+msgid "Sample from Cauchy Distribution"
+msgstr "Выборка из распределения Коши"
+
+msgid "CauchySamples"
+msgstr "Выборки из распределения Коши"
+
+msgid "Sample from Logistic Distribution"
+msgstr "Выборка из логистического распределения"
+
+msgid "LogisticSamples"
+msgstr "Выборки из логистического распределения"
+
+msgid "Sample from Log-Normal Distribution"
+msgstr "Выборка из логнормального распределения"
+
+msgid "LogNormalSamples"
+msgstr "Выборки из логнормального распределения"
+
+msgid "Sample from Gamma Distribution"
+msgstr "Выборка из гамма-распределения"
+
+msgid "GammaSamples"
+msgstr "Выборки из гамма-распределения"
+
+msgid "Sample from Weibull Distribution"
+msgstr "Выборка из распределения Вейбулла"
+
+msgid "WeibullSamples"
+msgstr "Выборки из распределения Вейбулла"
+
+msgid "Sample from Gumbel Distribution"
+msgstr "Выборка из распределения Гумбеля"
+
+msgid "GumbelSamples"
+msgstr "Выборки из распределения Гумбеля"
+
+msgid "Sample from Binomial Distribution"
+msgstr "Выборка из биномиального распределения"
+
+msgid "BinomialSamples"
+msgstr "Выборки из биномиального распределения"
+
+msgid "Poisson mean cannot be negative."
+msgstr "Пуассоновское среднее не может быть отрицательным."
+
+msgid "Sample from Poisson Distribution"
+msgstr "Выборка из распределения Пуассона"
+
+msgid "PoissonSamples"
+msgstr "Выборки из распределения Пуассона"
+
+msgid "Sample from Geometric Distribution"
+msgstr "Выборка из геометрического распределения"
+
+msgid "GeometricSamples"
+msgstr "Выборки из геометрического распределения"
+
+msgid "Sample from Hypergeometric Distribution"
+msgstr "Выборка из гипергеометрического распределения"
+
+msgid "HypergeometricSamples"
+msgstr "Выборки из гипергеометрического распределения "
+
+msgid "Sample from Negative Binomial Distribution"
+msgstr "Выборка из негативного биномиального распределения "
+
+msgid "NegativeBinomialSamples"
+msgstr "Выборки из негативного биномиального распределения"
+
+msgid "Sample from normal distribution..."
+msgstr "Выборка из нормального распределения..."
+
+msgid "Sample from t distribution..."
+msgstr "Выборка из распределения Стьюдента..."
+
+msgid "Sample from chi-squared distribution..."
+msgstr "Выборка из распределения хи-квадрат..."
+
+msgid "Sample from F distribution..."
+msgstr "Выборка из распределения Фишера..."
+
+msgid "Exponential distribution"
+msgstr "Экспоненциальное распределение"
+
+msgid "Exponential quantiles..."
+msgstr "Квантили эквипотенциального распределения..."
+
+msgid "Exponential probabilities..."
+msgstr "Вероятности экспоненциального распределения..."
+
+msgid "Plot exponential distribution..."
+msgstr "График экспоненциального распределения..."
+
+msgid "Sample from exponential distribution..."
+msgstr "Выборка из экспоненциального распределения..."
+
+msgid "Uniform distribution"
+msgstr "Однородное распределение"
+
+msgid "Uniform quantiles..."
+msgstr "Квантили однородного распределения..."
+
+msgid "Uniform probabilities..."
+msgstr "Вероятности однородного распределения..."
+
+msgid "Plot uniform distribution..."
+msgstr "График однородного распределения..."
+
+msgid "Sample from uniform distribution..."
+msgstr "Выборка из однородного распределения..."
+
+msgid "Beta distribution"
+msgstr "Бета-распределение"
+
+msgid "Beta quantiles..."
+msgstr "Квантили бета-распределения..."
+
+msgid "Beta probabilities..."
+msgstr "Вероятности бета-распределения..."
+
+msgid "Plot beta distribution..."
+msgstr "График бета-распределения..."
+
+msgid "Sample from beta distribution..."
+msgstr "Выборка из бета-распределения..."
+
+msgid "Cauchy distribution"
+msgstr "Распределение Коши"
+
+msgid "Cauchy quantiles..."
+msgstr "Квантили распределения Коши..."
+
+msgid "Cauchy probabilities..."
+msgstr "Вероятности распределения Коши..."
+
+msgid "Plot Cauchy distribution..."
+msgstr "График распределения Коши..."
+
+msgid "Sample from Cauchy distribution..."
+msgstr "Выборка из распределения Коши..."
+
+msgid "Logistic distribution"
+msgstr "Логистическое распределение"
+
+msgid "Logistic quantiles..."
+msgstr "Квантили логистического распределения..."
+
+msgid "Logistic probabilities..."
+msgstr "Вероятности логистического распределения..."
+
+msgid "Plot logistic distribution..."
+msgstr "График логистического распределения..."
+
+msgid "Sample from logistic distribution..."
+msgstr "Выборка логистического распределения..."
+
+msgid "Lognormal distribution"
+msgstr "Логнормальное распределение"
+
+msgid "Lognormal quantiles..."
+msgstr "Квантили логнормального распределения..."
+
+msgid "Lognormal probabilities..."
+msgstr "Вероятности логнормального распределения..."
+
+msgid "Plot lognormal distribution..."
+msgstr "График логнормального распределения... "
+
+msgid "Sample from lognormal distribution..."
+msgstr "Выборка из логнормального распределения..."
+
+msgid "Gamma distribution"
+msgstr "Гамма-распределение"
+
+msgid "Gamma quantiles..."
+msgstr "Квантили гамма-распределения..."
+
+msgid "Gamma probabilities..."
+msgstr "Вероятности гамма-распределения..."
+
+msgid "Plot gamma distribution..."
+msgstr "График гамма-распределения..."
+
+msgid "Sample from gamma distribution..."
+msgstr "Выборка из гамма-распределения..."
+
+msgid "Weibull distribution"
+msgstr "Распределение Вейбулла"
+
+msgid "Weibull quantiles..."
+msgstr "Квантили распределения Вейбулла..."
+
+msgid "Weibull probabilities..."
+msgstr "Вероятности распределения Вейбулла..."
+
+msgid "Plot Weibull distribution..."
+msgstr "График распределения Вейбулла..."
+
+msgid "Sample from Weibull distribution..."
+msgstr "Выборка из распределения Вейбулла..."
+
+msgid "Gumbel distribution"
+msgstr "Распределение Гумбеля"
+
+msgid "Gumbel quantiles..."
+msgstr "Квантили распределения Гумбеля..."
+
+msgid "Gumbel probabilities..."
+msgstr "Вероятности распределения Гумбеля..."
+
+msgid "Plot Gumbel distribution..."
+msgstr "График распределения Гумбеля..."
+
+msgid "Sample from Gumbel distribution..."
+msgstr "Выборка из распределения Гумбеля..."
+
+msgid "Sample from binomial distribution..."
+msgstr "Выборка из биномиального распределения..."
+
+msgid "Poisson quantiles..."
+msgstr "Квантили распределения Пуассона..."
+
+msgid "Poisson tail probabilities..."
+msgstr "Хвостовые вероятности распределения Пуассона..."
+
+msgid "Sample from Poisson distribution..."
+msgstr "Выборка из распределения Пуассона..."
+
+msgid "Geometric distribution"
+msgstr "Геометрическое распределение"
+
+msgid "Geometric quantiles..."
+msgstr "Квантили геометрического распределения..."
+
+msgid "Geometric tail probabilities..."
+msgstr "Хвостовые вероятности геометрического распределения..."
+
+msgid "Geometric probabilities..."
+msgstr "Вероятности геометрического распределения..."
+
+msgid "Plot geometric distribution..."
+msgstr "График геометрического распределения..."
+
+msgid "Sample from geometric distribution..."
+msgstr "Выборка из геометрического распределения..."
+
+msgid "Hypergeometric distribution"
+msgstr "Гипергеометрическое распределение"
+
+msgid "Hypergeometric quantiles..."
+msgstr "Квантили гипергеометрического распределения..."
+
+msgid "Hypergeometric tail probabilities..."
+msgstr "Хвостовые вероятности гипергеометрического распределения..."
+
+msgid "Hypergeometric probabilities..."
+msgstr "Вероятности гипергеометрического распределения..."
+
+msgid "Plot hypergeometric distribution..."
+msgstr "График гипергеометрического распределения..."
+
+msgid "Sample from hypergeometric distribution..."
+msgstr "Выборка из гипергеометрического распределения..."
+
+msgid "Negative binomial distribution"
+msgstr "Негативное биномиальное распределение"
+
+msgid "Negative binomial quantiles..."
+msgstr "Квантили негативного биномиального распределения..."
+
+msgid "Negative binomial tail probabilities..."
+msgstr "Хвостовые вероятности негативного биномиального распределения..."
+
+msgid "Negative binomial probabilities..."
+msgstr "Вероятности негативного биномиального распределения..."
+
+msgid "Plot negative binomial distribution..."
+msgstr "График негативного биномиального распределения..."
+
+msgid "Sample from negative binomial distribution..."
+msgstr "Выборка из негативного биномиального распределения..."
+
+msgid "Continuous distributions"
+msgstr "Непрерывные распределения"
+
+msgid "Discrete distributions"
+msgstr "Дискретные распределения"
+
+# Xyplot dialog
+msgid "XY Conditioning Plot"
+msgstr "XY-условный график"
+
+msgid "Response variables (pick one or more)"
+msgstr "Зависимые переменные (выберите одну или более)"
+
+msgid "Groups (pick zero or more)"
+msgstr "Группы (выберите одну или более)"
+
+msgid "Automatically draw key"
+msgstr "Автоматически нарисованный ключ"
+
+msgid "Different panels for different responses"
+msgstr "Разные панели для разных откликов"
+
+msgid "Identical"
+msgstr "Идентичны"
+
+msgid "Free"
+msgstr "Свободный"
+
+msgid "Same range"
+msgstr "Тот же размах"
+
+msgid "X-Axis Scales in Different Panels"
+msgstr "Шкалы оси абсцисс в разных панелях"
+
+msgid "Y-Axis Scales in Different Panels"
+msgstr "Шкалы оси ординат в разных панелях"
+
+msgid "At least one response variable must be selected."
+msgstr "Нужно выбрать не менее одной зависимой переменной."
+
+msgid "At least one explanatory variable must be selected."
+msgstr "Нужно выбрать не менее одной независимой переменой."
+
+msgid "XY conditioning plot..."
+msgstr "XY-условный график..."
+
+# contingency tables dialog
+msgid "Percentages of total"
+msgstr "Проценты от общего"
+
+msgid "Components of chi-square statistic"
+msgstr "Компоненты статистики хи-квадрат"
+
+# 3D scatterplots dialog
+msgid "Show squared residuals"
+msgstr "Показать квадраты остатков"
+
+msgid "Show axis scales"
+msgstr "Показать шкалы осей"
+
+msgid "Plot 50% concentration ellipsoid"
+msgstr "Нарисовать эллипсолид 50% концентраций"
+
+# scatterplot matrices dialog
+msgid "One-dimensional scatterplots"
+msgstr "Одномерный график точек"
+
+# count NAs (menu item)
+msgid "Count missing observations"
+msgstr "Подсчитать пропущенные значения"
+
+# Correlation test dialog
+msgid "Correlation Test"
+msgstr "Корреляционный тест"
+
+msgid "Variables (pick two)"
+msgstr "Переменные (выберите две)"
+
+msgid "Kendall's tau"
+msgstr "Тау Кендалла"
+
+msgid "Type of Correlation"
+msgstr "Тип корреляции"
+
+msgid "Correlation < 0"
+msgstr "Корреляция < 0"
+
+msgid "Correlation > 0"
+msgstr "Корреляция > 0"
+
+msgid "More than 2 variables selected."
+msgstr "Выбрано больше 2 переменных."
+
+msgid "Correlation test..."
+msgstr "Корреляционный тест..."
+
+# Recode dialog
+msgid "Recode Variables"
+msgstr "Перекодировать переменные"
+
+msgid "Variables to recode (pick one or more)"
+msgstr "Переменные для перекодировки (выберите одну или более)"
+
+msgid "New variable name or prefix for multiple recodes:"
+msgstr "Новое имя переменной или префикс для множественных перекодировок:"
+
+msgid "Make (each) new variable a factor"
+msgstr "Сделать (каждую) новою переменную фактором"
+
+msgid "Recode variables..."
+msgstr "Перекодировать переменные..."
+
+# Frequency distributions dialog
+msgid "Frequency Distributions"
+msgstr "Распределения частот"
+
+msgid "Chi-square goodness-of-fit test (for one variable only)"
+msgstr "Тест соответствия хи-квадрат (только для одной переменной)"
+
+msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgstr "Тест соответствия недоступен, если выбрано более одной переменной."
+
+msgid "Frequency distributions..."
+msgstr "Распределения частот..."
+
+# Numeric to factor dialog
+msgid "Convert Numeric Variables to Factors"
+msgstr "Конвертировать числовые переменные в факторы"
+
+msgid "<same as variables>"
+msgstr "<такие же как переменные>"
+
+msgid "Level Names for"
+msgstr "Имена уровней для"
+
+msgid "Factors"
+msgstr "Факторы"
+
+msgid "New variable name or prefix for multiple variables:"
+msgstr "Новое имя переменной или префикс для нескольких переменных:"
+
+msgid "Convert numeric variables to factors..."
+msgstr "Конвертировать числовые переменные в факторы..."
+
+# Stack dialog
+msgid "Stack Variables"
+msgstr "Стековые переменные"
+
+msgid "factor"
+msgstr "фактор"
+
+msgid "StackedData"
+msgstr "Данные в стеке"
+
+msgid "You must select at least two variables."
+msgstr "Вы должны выбрать не менее двух переменных."
+
+msgid "Name for stacked data set:"
+msgstr "Имя для стековых данных:"
+
+msgid "Name for variable:"
+msgstr "Имя переменной:"
+
+msgid "Name for factor:"
+msgstr "Имя фактора:"
+
+msgid "Stack variables in active data set..."
+msgstr "Стековые переменные в активных данных..."
+
+# miscelaneous
+msgid "Identify Points"
+msgstr "Определить точки"
+
+msgid ""
+"Use left mouse button to identify points,\n"
+"right button to exit."
+msgstr ""
+"Используйте левую кнопку мыши для определения точек,\n"
+"правую кнопку -- для выхода."
+
+msgid ""
+"Drag right mouse button to identify points,\n"
+"click right button to exit."
+msgstr ""
+"Ведите правую кнопку мыши для определения точек,\n"
+"щелкните правой кнопкой для выхода."
+
+msgid "Read Data From Text File or Clipboard"
+msgstr "Прочитать данные из текстового файла или буфера обмена"
+
+msgid "Read data from clipboard:"
+msgstr "Прочитать данные из буфера обмена:"
+
+msgid "from text file or clipboard..."
+msgstr "из текстового файла или буфера обмена..."
+
+msgid "Add observation numbers to data set"
+msgstr "Добавить номера наблюдений к данным"
+
+msgid "Refresh active data set"
+msgstr "Обновить активные данные"
+
+msgid "No statistics selected."
+msgstr "Статистика не выбрана."
+
+msgid "Right-hand side"
+msgstr "Правая сторона"
+
+# # messages added to Rcmdr version 1.3-0
+# handling plug-ins
+msgid "Load Plugins"
+msgstr "Загрузка дополнений"
+
+msgid "Plug-ins (pick one or more)"
+msgstr "Дополнения (выберите один или больше)"
+
+msgid "You must select at least one plug-in."
+msgstr "Вы должны выбрать по крайней мере одно дополнение."
+
+msgid "Plug-ins loaded:"
+msgstr "Загружены дополнения:"
+
+msgid ""
+"The plug-in(s) will not be available until the Commander is restarted.\n"
+"Restart now?"
+msgstr ""
+"Дополнени(я) не будут доступны до перезагрузки Commander.\n"
+"Перезагрузить сейчас?"
+
+msgid "objects have different numbers of columns"
+msgstr "у объектов разное количество колонок"
+
+msgid "objects have different column names"
+msgstr "у объектов разные имена колонок"
+
+msgid "Load Rcmdr plug-in(s)..."
+msgstr "Загрузка дополнений Rcmdr..."
+
+msgid "the plug-in package %s is missing"
+msgstr "пакет дополнений %s отсутствует"
+
+msgid "the package %s is not an Rcmdr plug-in"
+msgstr "пакет %s -- это не дополнение Rcmdr"
+
+msgid "unrecognized operation, \"%s\", in plugin menu line %i"
+msgstr "нераспознанная операция \"%s\" в меню дополнения, строка %i"
+
+msgid "unrecognized type, \"%s\", in plugin menu line %i"
+msgstr "непаспознанный тип \"%s\" в меню дополнения, строка %i"
+
+# miscelaneous additions
+msgid "Color palette..."
+msgstr "Палитра цветов..."
+
+msgid "Set Color Palette"
+msgstr "Установить палитру цветов"
+
+msgid "Color palette reset."
+msgstr "Палитра цветов переустановлена."
+
+msgid "Save active data set..."
+msgstr "Сохранить активные данные..."
+
+msgid "Load data set..."
+msgstr "Загрузить данные..."
+
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"Файлы давнных R\" {\".rda\" \".Rda\" \".RDA\"}} {\"Все файлы\" {\"*\"}}"
+
+msgid "Shapiro-Wilk test of normality..."
+msgstr "Тест на нормальность Шапиро-Уилка..."
+
+msgid "Shapiro-Wilk Test of Normality"
+msgstr "Тест на нормальность Шапиро-Уилка"
+
+msgid "Ordinal regression model..."
+msgstr "Порядковая модель регрессии..."
+
+msgid "Ordinal Regression Model"
+msgstr "Порядковая модель регрессии"
+
+msgid "Proportional-odds logit"
+msgstr "Proportional-odds логит"
+
+msgid "Ordered probit"
+msgstr "Упорядоченный пробит"
+
+msgid "Type of Model"
+msgstr "Тип модели"
+
+msgid "x-axis label"
+msgstr "метка оси x"
+
+msgid "y-axis label"
+msgstr "метка оси y"
+
+msgid "No plotting characters."
+msgstr "Нет символов для графика."
+
+msgid "Plotting Parameters"
+msgstr "Параметры графика"
+
+msgid "Plotting characters"
+msgstr "Символы для графика"
+
+msgid "Point size"
+msgstr "Размер точки"
+
+msgid "Axis text size"
+msgstr "Размер текста для осей"
+
+msgid "Axis-labels text size"
+msgstr "Размер текста для меток осей"
+
+# message added to version 1.3-3 (because of inadvertent omission)
+msgid "Scale (inverse rate)"
+msgstr "Шкала (в обратном порядке)"
+
+# messages added to version 1.3-5
+msgid " has been coerced to a data frame"
+msgstr "преобразовано в таблицу данных"
+
+msgid "the dataset %s is no longer available"
+msgstr "данные %s больше не доступны"
+
+# message added to version 1.3-10
+msgid "The Commander GUI is launched only in interactive sessions"
+msgstr "Commander GUI можно вызвать только из итнерактивной сессии"
+
+# messages added to version 1.3-15
+# Note: translate these messages only if the corresponding
+#  translated documents are supplied
+# For the following, you must supply a file named Commander-xx.Rd containing
+# a translation of the file Commander.Rd, where xx is the code for your
+# language. The \name{} and \alias{} fields in the .Rd file should both be
+# Commander-xx, where again xx is the language code.
+# Example: "Commander-es"
+msgid "Commander"
+msgstr "Commander-ru"
+
+# For the following you must supply a PDF document containing a translation
+# of "Getting-Started-with-the-Rcmdr.pdf". I suggest using a translation
+# including -xx, where xx is the code for your language.
+# Example: "Empezando-con-Rcmdr-es"
+msgid "Getting-Started-with-the-Rcmdr"
+msgstr ""
+
+# messages added to version 1.4-0
+msgid "Type of Tests"
+msgstr "Тип тестов"
+
+msgid "Sequential (\"Type I\")"
+msgstr "Последовательный (\"Тип I\")"
+
+msgid "Partial obeying marginality (\"Type II\")"
+msgstr "Частичный с учетом пределов (\"Тип II\")"
+
+msgid "Partial ignoring marginality (\"Type III\")"
+msgstr "Частичный без учета пределов (\"Тип III\")"
+
+msgid "Type III tests require careful attention to contrast coding."
+msgstr "Тесты типа III требуют всяческого внимания к контрастному кодированию."
+
+msgid "There is no appropriate anova method for a model of this class."
+msgstr "Нет подходящего метода ANOVA для модели этого класса."
+
+msgid "Duplicate menu names:"
+msgstr "Повторяющиеся имена в меню:"
+
+msgid "Strip chart..."
+msgstr "Полосной график..."
+
+msgid "Strip Chart"
+msgstr "Полосной график"
+
+msgid "Factors (pick zero or more)"
+msgstr "Факторы (укажите ноль или более)"
+
+msgid "Duplicate Values"
+msgstr "Повторяющиеся значения"
+
+msgid "Stack"
+msgstr "Стек"
+
+msgid "Jitter"
+msgstr "Шум"
+
+msgid "Remove Rows from Active Data Set"
+msgstr "Удалить строки из активных данных"
+
+msgid "Remove row(s) from active data set..."
+msgstr "Удалить строк(и) из активных данных..."
+
+msgid "No rows to remove"
+msgstr "Нет строк для удаления"
+
+msgid "Indices or quoted names of row(s) to remove"
+msgstr "Индексы или закавыченные имена строк для удаления"
+
+msgid "Akaike Information Criterion (AIC)"
+msgstr "Критерий информации Акайке (AIC)"
+
+msgid "Bayesian Information Criterion (BIC)"
+msgstr "Байесов критерий информации (BIC)"
+
+msgid "Change working directory..."
+msgstr "Изменить рабочую папку"
+
+msgid "Log x-axis"
+msgstr "Логарифмическая ось x"
+
+msgid "Log y-axis"
+msgstr "Логарифмическая ось y"
+
+msgid "from text file, clipboard, or URL..."
+msgstr "из текстового файла, буфера обмена или URL..."
+
+msgid "Read Text Data From File, Clipboard, or URL"
+msgstr "Прочитать текстовые денные из файла, буфера обмена или URL"
+
+msgid "Location of Data File"
+msgstr "Местонахождение файла данных"
+
+msgid "Local file system"
+msgstr "Локальная файловая система"
+
+msgid "Clipboard"
+msgstr "Буфер обмена"
+
+msgid "Internet URL"
+msgstr "URL интернет"
+
+msgid "Friedman rank-sum test..."
+msgstr "Ранговый тест Фридмана..."
+
+msgid "Friedman Rank Sum Test"
+msgstr "Ранговый тест Фридмана"
+
+msgid "Repeated-Measures Variables (pick two or more)"
+msgstr "Переменные с повторными измерениями (укажите две или более)"
+
+msgid "Undo"
+msgstr "Отменить"
+
+msgid "Redo"
+msgstr "Вернуть"
+
+msgid "ANOVA table..."
+msgstr "Таблица ANOVA..."
+
+# messages added to version 1.4-2
+msgid "Location not specified."
+msgstr "Местоположение не определено."
+
+# messages added to version 1.5-0
+#     "Models -> Stepwise model selection" dialog and menu item
+msgid "Stepwise model selection..."
+msgstr "Ступенчатый выбор модели..."
+
+msgid "Stepwise Model Selection"
+msgstr "Ступенчатый выбор модели"
+
+msgid "Direction"
+msgstr "Направление"
+
+msgid "backward/forward"
+msgstr "назад/вперед"
+
+msgid "forward/backward"
+msgstr "вперед/назад"
+
+msgid "backward"
+msgstr "назад"
+
+msgid "forward"
+msgstr "вперед"
+
+msgid "Criterion"
+msgstr "Критерий"
+
+msgid "BIC"
+msgstr "BIC"
+
+msgid "AIC"
+msgstr "AIC"
+
+#      "Models -> Subset model selection" dialog and menu item
+msgid "Subset model selection..."
+msgstr "Выбор модели ограничением..."
+
+msgid "Subset Model Selection"
+msgstr "Выбор модели ограничением"
+
+msgid "Criterion for Model Plot"
+msgstr "Критерий для графика моделей"
+
+msgid "Mallows Cp"
+msgstr "Mallows Cp"
+
+msgid "Adjusted R-sq."
+msgstr "Adjusted R-sq."
+
+msgid "R-squared"
+msgstr "R-squared"
+
+msgid ""
+"Number of best models\n"
+"of each size:"
+msgstr ""
+"Количество лучших моделей\n"
+"каждого размера:"
+
+msgid "Maximum size:"
+msgstr "Максимальный размер:"
+
+#       "Data -> Merge data sets" menu item and dialog
+msgid "Merge data sets..."
+msgstr "Соединить данные..."
+
+msgid "Merge Data Sets"
+msgstr "Соединить данные"
+
+msgid "First Data Set (pick one)"
+msgstr "Первый набор данных (выберите один)"
+
+msgid "Second Data Set (pick one)"
+msgstr "Второй набор данных (выберите один)"
+
+msgid "Merge rows"
+msgstr "Соединить строки"
+
+msgid "Merge columns"
+msgstr "Соединить колонки"
+
+msgid "Direction of Merge"
+msgstr "Направление соединения"
+
+msgid "You cannot merge a data set with itself."
+msgstr "Нельзя соединить данные сами с собой."
+
+msgid "Name for merged data set:"
+msgstr "Имя соединяемых данных:"
+
+msgid ""
+"Merge only common\n"
+"rows or columns"
+msgstr ""
+"Соединить только общие\n"
+"строки или колонки"
+
+#       "Data -> Active data set -> Aggregate variables in active data set"
+msgid "Aggregate variables in active data set..."
+msgstr "Переменные активных данных для группировки..."
+
+msgid "Aggregate Observations"
+msgstr "Группировать наблюдения"
+
+msgid ""
+"Variables to aggregate\n"
+"(pick one or more)"
+msgstr ""
+"Переменные для группировки\n"
+"(выберите одну или больше)"
+
+msgid ""
+"Aggregate by\n"
+"(pick one or more)"
+msgstr ""
+"Группировать по\n"
+"(выберите одну или больше)"
+
+msgid "Sum"
+msgstr "Сумма"
+
+msgid "You must select at least one variable to aggregate."
+msgstr "Для группировки надо выбрать по крайней мере одну переменную."
+
+msgid "You must select at least one variable to aggregate by."
+msgstr "Надо выбрать по крайней мере одну переменную, чтобы по ней группировать."
+
+msgid "Variables to aggregate and those to aggregate by must be different."
+msgstr "Переменные, которые будут группироваться, и переменные, по которым надо группировать, должны быть разными."
+
+msgid "Name for aggregated data set:"
+msgstr "Название данных для группировки:"
+
+#     miscellaneous
+msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Al"
+msgstr "{\"Файлы данных R\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Al"
+
+msgid "No data set selected."
+msgstr "Не выбраны данные."
+
+msgid "Help on selected data set"
+msgstr "Помощь по выбору данных"
+
+msgid "Population mean != mu0"
+msgstr "Среднее в популяции != mu0"
+
+msgid "Population proportion != p0"
+msgstr "Пропорция популяции != p0"
+
+msgid "Models do not have the same family."
+msgstr "У моделей разные семейства."
+
+msgid ""
+"Pairwise p-values\n"
+"for Pearson or Spearman correlations"
+msgstr ""
+"Парные p-values\n"
+"для корреляций по Пирсону или Спирмену"
+
+msgid ""
+"The Windows version of the R Commander works best under RGui\n"
+"with the single-document interface (SDI); see ?Commander."
+msgstr ""
+"Версия R Commander для Windows лучше всего работает через RGui\n"
+"с интерфейсом \"отдельные окна\" (SDI); см. ?Commander."
+
+# messages added to version 1.6-0
+# for Levene test
+msgid "median"
+msgstr "медиана"
+
+msgid "Center"
+msgstr "Центр"
+
+# for scatterplot
+msgid "Smooth line"
+msgstr "Сглаженная линия"
+
+msgid "Show spread"
+msgstr "Показать раброс"
+
+# for AV plots
+msgid ""
+"Identify points with mouse?\n"
+"Right-click to exit."
+msgstr ""
+"Определить точки с помощью мыши?\n"
+"Щелкните правой кнопкой для выхода."
+
+# for interactive point identification
+msgid "Use left mouse button to identify points,\n"
+msgstr "Используйте левую кнопку для определения точек,\n"
+
+msgid "right button to exit."
+msgstr "правую кнопку для выхода."
+
+msgid "esc key to exit."
+msgstr "Esc для выхода."
+
+# menus
+msgid "Start R help system"
+msgstr "Запустить систему помощи R"
+
+# messages added to version 1.6-4
+#  to correct order of file extensions
+msgid "{\"All Files\" {\"*\"}} {\"Script Files\" {\".R\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы скриптов\" {\".R\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы вывода\" {\".txt\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"текстовые файлы\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Переносимые файлы SPSS\" {\".por\" \".POR\"}} {\"Сохраняемые файлы SPSS\" {\".sav\" \".SAV\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Переносимые файлы Minitab\" {\".mtp\" \".MTP\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Данные STATA\" {\".dta\" \".DTA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"База данных MS Access\" {\".mdb\" \".MDB\"}} {\"База данных MS Access 2007\" {\".accdb\" \".ACCDB\"}} {\"Файл dBase\" {\".dbf\" \".DBF\"}} {\"Файл MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"Файл MS Excel\" {\".xls\" \".XLS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы R Data\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы PNG\" {\".png\" \".PNG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы PDF\" {\".pdf\" \".PDF\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файлы Postscript\" {\".ps\" \".PS\"}}"
+
+msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"EPS-файлы\" {\".eps\" \".EPS\"}}"
+
+# messages added to version 1.7-0
+msgid "Reset"
+msgstr "Перезагрузить"
+
+msgid "Coefficient of Variation"
+msgstr "Коэффициент вариации"
+
+msgid "Skewness"
+msgstr "Асимметрия"
+
+msgid "Kurtosis"
+msgstr "Эксцесс"
+
+msgid "Type 1"
+msgstr "Тип 1"
+
+msgid "Type 2"
+msgstr "Тип 2"
+
+msgid "Type 3"
+msgstr "Тип 3"
+
+msgid "Missing Data"
+msgstr "Пропущенные данные"
+
+msgid "Use complete cases"
+msgstr "Использовать полные строки"
+
+msgid "Use pairwise-complete cases"
+msgstr "Использовать попарно полные строки"
+
+# messages added to version 1.7-4
+msgid "Component scores are not available when subset is specified."
+msgstr "Значения компонентов недоступны, когда указано подмножество."
+
+msgid "Factor scores are not available when subset is specified."
+msgstr "Значения факторов недоступны, когда указано подмножество."
+
+# messages added to version 1.8-0
+msgid "Confirmatory Factor Analysis"
+msgstr "Подтверждающий факторный анализ"
+
+msgid "Fewer than 2 variables selected to load on factor."
+msgstr "Выбрано меньше фвух переменных на фактор."
+
+msgid "Define factor"
+msgstr "Определить фактор"
+
+msgid ""
+"Select variables\n"
+"loading on factor"
+msgstr ""
+"Выбрать переменные\n"
+"нагрузки фактора"
+
+msgid "Covariance"
+msgstr "Ковариация"
+
+msgid "Correlation"
+msgstr "Корреляция"
+
+msgid "Matrix to Analyze"
+msgstr "Матрица для анализа"
+
+msgid "Correlated"
+msgstr "Коррелировано"
+
+msgid "Orthogonal"
+msgstr "Ортогональный"
+
+msgid "Factor Correlations"
+msgstr "Корреляции факторов"
+
+msgid "Define facto"
+msgstr "Определить фактор"
+
+msgid "There are too many factors."
+msgstr "Слишком много факторов"
+
+msgid "Identifying Constraints"
+msgstr "Требования к идентификации"
+
+msgid "Factor variances set to 1"
+msgstr "Факторные дисперсии установлены в 1"
+
+msgid "First loading on each factor set to 1"
+msgstr "Первая нагрузка для каждого фактора установлена в 1"
+
+msgid "Confirmatory factor analysis..."
+msgstr "Подтверждающий факторный анализ..."
+
+# messages added to version 1.8-1
+# the following messages were omitted from version 1.8-0
+msgid "Robust standard errors"
+msgstr "Робастные стандартные ошибки"
+
+msgid "No factors defined."
+msgstr "Факторы не определены."
+
+# message added to version 1.8-2
+msgid "Default-font size (points)"
+msgstr "Размер шрифта по умолчанию (в пунктах)"
+
+# message added to version 1.8-4
+msgid "data set edit error."
+msgstr "ошибка редактирования данных."
+
+# messages added to version 1.9-0
+msgid "Identify Outliers"
+msgstr "Определить выбросы"
+
+msgid "Automatically"
+msgstr "Автоматически"
+
+msgid "With mouse"
+msgstr "Мышкой"
+
+msgid "Width"
+msgstr "Ширина"
+
+msgid "Height"
+msgstr "Высота"
+
+msgid "[disabled]"
+msgstr "[отключено]"
+
+msgid "inches"
+msgstr "дюймы"
+
+msgid "inch"
+msgstr "дюйм"
+
+msgid "cm"
+msgstr "см"
+
+msgid "pixels"
+msgstr "пикселы"
+
+msgid "Units"
+msgstr "Единицы"
+
+msgid "Fixed aspect ratio (height:width)"
+msgstr "Заданный масштаб (высота:ширина)"
+
+msgid "Resolution"
+msgstr "Разрешение"
+
+msgid "from SAS xport file..."
+msgstr "из xport файла SAS..."
+
+msgid "Data Set Name"
+msgstr "Название данных"
+
+msgid "Select Dataset"
+msgstr "Выбрать данные"
+
+msgid "Datasets in file (pick one)"
+msgstr "Данные в файле (выберите один)"
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"SAS xport файлы\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+
+msgid ""
+"Convert variable names\n"
+"to lower case"
+msgstr ""
+"Перевести имена переменных\n"
+"в нижний регистр"
+
+msgid "from Excel file..."
+msgstr "из файла Excel..."
+
+msgid "Import Excel Data Set"
+msgstr "Импортировать данные Excel"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"MS Excel 2007 файл\" {\".xlsx\" \".XLSX\"}} {\"MS Excel файл\" {\".xls\" \".XLS\"}}"
+
+msgid "Interquartile Range"
+msgstr "Межквартильный размах"
+
+msgid "Interquartile range"
+msgstr "Межквартильный размах"
+
+msgid "Lines"
+msgstr "Линии"
+
+msgid "Choose at least one of points or lines."
+msgstr "Выберите по крайней мере одно: точки или линии."
+
+msgid "Plot Type (one or both)"
+msgstr "Тип графика (один или оба)"
+
+msgid "Dialog text font size (points)"
+msgstr "Размер шрифта в диалогах (пункты)"
+
+msgid "Script and output font size (points)"
+msgstr "Размер шрифта в скрипте и выводе (пункты)"
+
+msgid "Dialog font"
+msgstr "Шрифт в диалогах"
+
+msgid "Script and output font"
+msgstr "Шрифт в скрипте и выводе"
+
+msgid "Script text color"
+msgstr "Цвет текста в скрипте"
+
+msgid "Command text color"
+msgstr "Цвет текста в командах"
+
+msgid "Output text color"
+msgstr "Цвет текста в выводе"
+
+msgid "Error text color"
+msgstr "Цвет текста в ошибках"
+
+msgid "Warning text color"
+msgstr "Цвет текста в предупреждениях"
+
+msgid "Dialog subtitles text color"
+msgstr "Цвет текста в подзаголовках диалогов"
+
+msgid "Script window width (characters)"
+msgstr "Ширина окна скрипта (в символах)"
+
+msgid "Script window height (lines)"
+msgstr "Высота окна скрипта (в строках)"
+
+msgid "Output window height (lines)"
+msgstr "Высота окна вывода (в строках)"
+
+msgid "Messages window height (lines)"
+msgstr "Высота окна сообщений (в строках)"
+
+msgid "Fonts"
+msgstr "Шрифты"
+
+msgid "Other Options"
+msgstr "Другие опции"
+
+msgid "Save Commander Options"
+msgstr "Сохранить опции"
+
+msgid "R Profile saved to"
+msgstr "Профиль R сохранен в"
+
+msgid "The following commands will be saved in the file .Rprofile."
+msgstr "Следующие команды будут сохранены в .Rprofile."
+
+msgid "You may edit this file before saving it."
+msgstr "Вы можете отредактировать это перед сохранением."
+
+msgid "Save Rcmdr options..."
+msgstr "Сохраняю опции Rcmdr..."
+
+# density estimate dialog
+msgid "Nonparametric Density Estimate"
+msgstr "Непараметрическая оценка плотности"
+
+msgid "Gaussian"
+msgstr "Гаусс"
+
+msgid "Epanechnikov"
+msgstr "Епанечиков"
+
+msgid "Tukey biweight"
+msgstr "Тьюки двухвесовой"
+
+msgid "Kernel Function"
+msgstr "Функция ядра"
+
+msgid "Bandwidth"
+msgstr "Ширина полосы"
+
+msgid "Multiply bandwidth by"
+msgstr "Увеличить ширину полосы в"
+
+msgid "Density estimate..."
+msgstr "Оценка плотности..."
+
+msgid "Bandwidth must be <auto> or a positive number"
+msgstr "Ширина полосы должна быть <auto> или положительным числом"
+
+# index plot dialog
+msgid "Style of plot"
+msgstr "Стиль графика"
+
+# export data set dialog
+msgid "Write variable names"
+msgstr "Записать имена переменных"
+
+msgid "Write row names"
+msgstr "Записать имена строк"
+
+msgid "Quotes around character values"
+msgstr "Кавычки вокруг текстовых значений"
+
+# numerical summaries dialog
+msgid "Quantiles:"
+msgstr "Квантили:"
+
+# for splines and polynomials in model formulas
+msgid "spline requires a numeric variable"
+msgstr "для сплайна нужна цифровая переменная"
+
+msgid "cannot select more than one variable"
+msgstr "не могу выбрать более одной переменной"
+
+msgid "polynomial requires a numeric variable"
+msgstr "для полинома нужна цифровая переменная"
+
+msgid "B-spline\n"
+msgstr "B-сплайн\n"
+
+msgid ""
+"natural\n"
+"spline"
+msgstr ""
+"естественный\n"
+"сплайн"
+
+msgid ""
+"orthogonal\n"
+"polynomial"
+msgstr ""
+"ортогональный\n"
+"полином"
+
+msgid ""
+"raw\n"
+"polynomial"
+msgstr ""
+"базовый\n"
+"полином"
+
+msgid "Model Formula"
+msgstr "Формула модели"
+
+msgid "Operators (click to formula):"
+msgstr "Операторы (щелкните по формуле):"
+
+msgid ""
+"Splines/Polynomials:\n"
+"(select variable and click)"
+msgstr ""
+"Сплайны/полиномы:\n"
+"(выберите переменную и щелкните)"
+
+msgid "df for splines:"
+msgstr "df для сплайнов:"
+
+msgid "deg. for polynomials:"
+msgstr "степень полиномов:"
+
+# messages added to version 2.0-1
+# messages related to editing/processing R Markdown and knitr documents
+msgid "R Commander Editor"
+msgstr "Редактор R Commander"
+
+msgid "Edit R Markdown document"
+msgstr "Редактировать документ R Markdown"
+
+msgid "Edit knitr document"
+msgstr "Редактировать документ knitr"
+
+msgid "Remove last Markdown command block"
+msgstr "Удалить последний командный блок Markdown"
+
+msgid "Remove last knitr command block"
+msgstr "Удалить последний командный блок knitr"
+
+msgid "Remove last command block"
+msgstr "Удалить последний командный блок"
+
+msgid "Exit editor"
+msgstr "Выйти из редактора"
+
+msgid "Editor help"
+msgstr "Помощь редактора"
+
+msgid ""
+"Delete previously created R Markdown\n"
+"graphics files (recommended)?"
+msgstr ""
+"Удалить уже созданные R Markdown\n"
+"графические файлы (рекомендуется)?"
+
+msgid "Discard edits?"
+msgstr "Не сохранять изменения?"
+
+# support for back-to-back stem-and-leaf displays
+msgid "Plot back-to-back by:"
+msgstr "Графики спаренные по:"
+
+msgid "Plot back-to-back by"
+msgstr "Графики спаренные по"
+
+# messages added for version 2.1-0
+# the next two messages no longer needed and can be disregarded if not already translated
+# msgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
+# msgstr ""
+# msgid "the car package is missing and should be installed\n  many features will not work"
+# msgstr ""
+# for numerical summaries dialog
+msgid "Standard Error of Mean"
+msgstr "Стандартная ошибка среднего"
+
+# for CFA dialog
+msgid "Fit Indices"
+msgstr "Сгладить индексы"
+
+# for read Excel file dialog
+msgid "Variable names in first row of spreadsheet"
+msgstr "Имена переменных в первой строке таблицы"
+
+msgid "Row names in first column of spreadsheet"
+msgstr "Имена строк в первой колонке таблицы"
+
+# for selecting weights in LM and GLM dialogs
+msgid "<no variable selected>"
+msgstr "<переменная не выбрана>"
+
+# new effect-plots dialog
+msgid "Model Effect Plots"
+msgstr "Графики эффекта модели"
+
+msgid "Plot All High-Order Effects?"
+msgstr "Нарисовать все эффекты высокого порядка?"
+
+msgid "Predictors (pick one or more)"
+msgstr "Предикторы (выберите один или больше)"
+
+msgid ""
+"You must select one or more predictors\n"
+" or plot all high-order effects."
+msgstr ""
+"Вы должны выбрать один или больше предикторов\n"
+" или нарисовать все эффекты высокого порядка."
+
+msgid ""
+"To plot partial residuals,\n"
+" there must be a least one numeric predictor."
+msgstr ""
+"Чтобы нарисовать частичные остатки,\n"
+" должен быть хотя бы один числовой предиктор."
+
+msgid "Plot partial residuals"
+msgstr "Нарисовать частичные остатки"
+
+msgid "Style of Graph"
+msgstr "Стиль графика"
+
+msgid "Stacked areas"
+msgstr "Области кинденсации"
+
+msgid "Lines with confidence bands"
+msgstr "Линии с доверительными диапазонами"
+
+# new one-sample Wilcoxon test dialog
+msgid "Single-Sample Wilcoxon Test"
+msgstr "Одновыборочный тест Уилкоксона"
+
+msgid "Single-sample Wilcoxon test..."
+msgstr "Одновыборочный тест Уилкоксона..."
+
+# new drop unused factor levels dialog
+msgid "Drop Unused Factor Levels"
+msgstr "Сбросить неиспользуемые уровни фактора"
+
+msgid "Factors(s) to drop levels (pick one or more)"
+msgstr "Факторы для сброса уровней (выберите один или больше)"
+
+msgid ""
+"Drop unused factor levels\n"
+"Please confirm."
+msgstr ""
+"Сбросить неиспользуемые уровни\n"
+"Пожалуйста, подтвердите."
+
+msgid "Drop unused factor levels..."
+msgstr "Сброс неиспользованных уровней фактора..."
+
+msgid "all factors"
+msgstr "все факторы"
+
+# messages related to sandwich variance estimator
+msgid "Linear Model Summary"
+msgstr "Результаты линейного моделирования"
+
+msgid "Sandwich estimator"
+msgstr "Бутербродная оценка"
+
+msgid ""
+"Use sandwich estimator of    \n"
+"coefficient standard errors"
+msgstr ""
+"Использовать бутербродную оценку    \n"
+"стандартных ошибок коэффициента"
+
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix"
+msgstr ""
+"Использовать бутербродную оценку\n"
+"матрицы ковариации коэффициента"
+
+msgid "sandwich covariance matrix unavailable with type I tests"
+msgstr "бурербродная матрица ковариации недоступна для тестов I типа"
+
+# messages related to ttk theme selection
+msgid "non-existent theme"
+msgstr "несуществующая тема"
+
+msgid "theme set to"
+msgstr "тема установлена в"
+
+# modified message
+msgid "Restart R Commander"
+msgstr "Перезагрузить R Commander"
+
+# formula-help button
+msgid ""
+"Model formula\n"
+"help"
+msgstr ""
+"Формула модели\n"
+"помощь"
+
+# messages added for version 2.1-1
+# messages for the new dataset editor
+msgid "Data Editor"
+msgstr "Редактор данных"
+
+msgid "Delete current row"
+msgstr "Удалить текущую строку"
+
+msgid "Delete current column"
+msgstr "Удалить текущую колонку"
+
+msgid "Delete cell"
+msgstr "Удалить ячейку"
+
+msgid "Cut cell"
+msgstr "Вырезать ячейку"
+
+msgid "Copy cell"
+msgstr "Скопировать ячейку"
+
+msgid "Paste cell"
+msgstr "Вставить ячейку"
+
+msgid "Exit and save"
+msgstr "Выйти и сохранить"
+
+msgid "Add row"
+msgstr "Добавить строку"
+
+msgid "Add column"
+msgstr "Добавить колонку"
+
+# messages added for version 2.1-3
+# to manage app nap under Mac OS X Mavericks
+msgid "Manage Mac OS X app nap for R.app..."
+msgstr "Настроить Mac OS X app nap для R.app..."
+
+msgid "Mac OS X app nap for R.app"
+msgstr "Mac OS X app nap для R.app"
+
+msgid "Set app nap"
+msgstr "Установить app nap"
+
+msgid "off (recommended)"
+msgstr "отключено (рекомендуется)"
+
+msgid "on"
+msgstr "включено"
+
+# messages added for version 2.2-0
+# messages that were inadvertently missing in previous versions
+msgid "The following variable names are not valid:\n"
+msgstr "Следующие имена переменных неправильные:\n"
+
+msgid "Save R Markdown file?"
+msgstr "Сохранить файл R Markdown?"
+
+msgid "Theme (pick one)"
+msgstr "Тема (выберите одну)"
+
+msgid "Both or neither layout values must be numbers."
+msgstr "Оба или ни одного значения разметки должны быть цифрами."
+
+msgid "ANOVA Table"
+msgstr "Таблица ANOVA"
+
+msgid "There is no appropriate outlierTest method for a model of this class."
+msgstr "Для модели этого класса нет подходящего метода outlierTest."
+
+msgid "Shapiro-Wilk Test for Normality"
+msgstr "Тест нормальности Шапиро-Уилка"
+
+msgid "Hypothesis Test"
+msgstr "Тестирование гипотезы"
+
+msgid "Load Plug-ins"
+msgstr "Загрузить дополнения"
+
+# for report generation
+msgid "Generate report"
+msgstr "Сгенерировать отчет"
+
+msgid "Install Auxiliary Software"
+msgstr "Установка дополнительного софта"
+
+msgid "Install auxiliary software..."
+msgstr "Установка дополнительного софта..."
+
+msgid "(already installed)"
+msgstr "(уже установлено)"
+
+msgid "LaTeX"
+msgstr "LaTeX"
+
+msgid "Pandoc"
+msgstr "Pandoc"
+
+msgid "Software to Install"
+msgstr "Софт для установки"
+
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
+msgstr ""
+"Пожалуйста, прочитайте помощь к этому диалогу\n"
+"перед тем как устанавливать дополнительный софт."
+
+msgid "Select Output Format"
+msgstr "Выберите формат вывода"
+
+msgid ".html (web page)"
+msgstr ".html (web-страница)"
+
+msgid ".pdf (PDF file)"
+msgstr ".pdf (файл PDF)"
+
+msgid ".docx (Word file)"
+msgstr ".docx (файл Word)"
+
+msgid "HTML file written to:"
+msgstr "Файл HTML записан в:"
+
+msgid "PDF file written to:"
+msgstr "Файл PDF записан в:"
+
+msgid "Word file written to:"
+msgstr "Файл Word записан в:"
+
+# additions to scatterplot and scatterplot-matrix dialogs
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
+msgstr ""
+"Уровни для эллипсов должны быть цифрами\n"
+"  разделенными пробелами или запятыми."
+
+msgid "Plot concentration ellipse(s)"
+msgstr "График эллипс(ов) концентрации"
+
+msgid "Concentration levels:"
+msgstr "Уровни концентрации:"
+
+msgid "Legend Position"
+msgstr "Позиция легенды"
+
+msgid "Above plot"
+msgstr "Над графиком"
+
+msgid "Top left"
+msgstr "Вверху слева"
+
+msgid "Top right"
+msgstr "Вверху справа"
+
+msgid "Bottom left"
+msgstr "Внизу слева"
+
+msgid "Bottom right"
+msgstr "Внизу справа"
+
+# additions to bargraph dialog
+msgid "Style of Group Bars"
+msgstr "Стиль групповых колонок"
+
+msgid "Divided (stacked)"
+msgstr "Разделенные (друг над другом)"
+
+msgid "Side-by-side (parallel)"
+msgstr "Параллельные (бок о бок)"
+
+msgid "Position of Legend"
+msgstr "Позиция легенды"
+
+msgid "Left"
+msgstr "Слева"
+
+msgid "Right"
+msgstr "Справа"
+
+msgid "plotting and grouping variables must be different"
+msgstr "переменные для графика и для группировки должны быть разными"
+
+# dot plot dialog
+msgid "Dot Plot"
+msgstr "График точек"
+
+msgid "Bin variable"
+msgstr "Интервальная переменная"
+
+msgid "Dot plot..."
+msgstr "График точек..."
+
+# for reading Excel files (new dialog)
+msgid "Convert character data to factors"
+msgstr "Перевести буквенные данные в факторы"
+
+msgid "<empty cell>"
+msgstr "<пусто>"
+
+msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"Файл MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+
+# corrected messages in version 2.2-1
+# The following messages had trailing blanks. These messages were deleted from
+#   their previous locations in this .pot file and transferred here in corrected form,
+#   with the trailing blanks removed.
+# I suggest that you likewise delete the earlier versions of these messages from
+#   your .po file and provide corrected translations here, without trailing blanks.
+# # AS: two others have been corrected in place
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group"
+msgstr ""
+"Количество точек для определения  \n"
+"в каждой панели и группе"
+
+# additional messages in version 2.3-0
+# .rtf output from RMarkdown reports
+msgid ".rtf (rich text file)"
+msgstr ".rtf (rich text file)"
+
+msgid "Rich text file written to:"
+msgstr "RTF записан в:"
+
+# bootstrapping dialog
+msgid "Bootstrap confidence intervals..."
+msgstr "Доверительные интервалы бутстрепа..."
+
+msgid "Bootstrap"
+msgstr "Бутстреп"
+
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "Доверительные интервалы бутстрепа для коэффициентов"
+
+msgid "Number of bootstrap samples:"
+msgstr "Количество выборок бутстрепа:"
+
+msgid "Number of samples must be a positive integer."
+msgstr "Количество выборок должно быть положительным целым."
+
+msgid "Type of Confidence Intervals"
+msgstr "Тип доверительных интервалов"
+
+msgid "BCa (adjusted percentile)"
+msgstr "BCa (уточненный процентиль)"
+
+msgid "Normal theory"
+msgstr "Теория нормальности"
+
+msgid "Basic bootstrap"
+msgstr "Базовый бутстреп"
+
+msgid "Percentile"
+msgstr "Процентиль"
+
+msgid "Resampling Method"
+msgstr "Метод выборки"
+
+msgid "Case resampling"
+msgstr "Выборка объектов"
+
+msgid "Residual resampling"
+msgstr "Остаточная выборка"
+
+# delta method dialog
+msgid "Delta method confidence interval..."
+msgstr "Дельта-метод доверительного интервала..."
+
+msgid "Delta Method"
+msgstr "Дельта-метод"
+
+msgid "Confidence Interval by the Delta Method"
+msgstr "Доверительный интервал дельта-методом"
+
+msgid "Expression to evaluate; use parameter names:"
+msgstr "Выражение для вычисления; имена параметров:"
+
+# view data dialog
+msgid "View data..."
+msgstr "Просмотреть данные..."
+
+msgid "View Data"
+msgstr "Просмотреть данные"
+
+msgid "Bad subset expression."
+msgstr "Неправильное выражение для подвыборки."
+
+msgid "No data to show."
+msgstr "Нельзя показать, нет данных."
+
+msgid "View data error."
+msgstr "Ошибка просмотра данных."
+
+# sort active data set dialog
+msgid "Sort active data set..."
+msgstr "Сортировать активный набор данных..."
+
+msgid "Sort Active Data Set"
+msgstr "Сортировать активный набор данных"
+
+msgid "Sort Keys (select one or more)"
+msgstr "Ключи сортировки (выберите один или больше)"
+
+msgid "Sort Direction"
+msgstr "Направление сортировки"
+
+msgid "Increasing"
+msgstr "Увеличение"
+
+msgid "Decreasing"
+msgstr "Уменьшение"
+
+msgid "Reorder Sort Keys"
+msgstr "Переставить ключи сортировки"
+
+msgid "Order of keys must include all integers from 1 to"
+msgstr "Порядок ключей должен включать все целые числа от 1 до"
+
+msgid "Sort Keys"
+msgstr "Ключи сортировки"
+
+msgid "Order"
+msgstr "Порядок"
+
+# added to plot means dialog
+msgid "Connect profiles of means"
+msgstr "Связать профили средних"
+
+# adding to one-way ANOVA dialog
+msgid "Welch F-test not assuming equal variances"
+msgstr "Welch F-test не предполагает равных дисперсий"
+
+# the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
+msgid "Test of normality..."
+msgstr "Тест нормальности..."
+
+msgid "Test of Normality"
+msgstr "Тест нормальности"
+
+msgid "Shapiro-Wilk"
+msgstr "Shapiro-Wilk"
+
+msgid "Anderson-Darling"
+msgstr "Anderson-Darling"
+
+msgid "Cramer-von Mises"
+msgstr "Cramer-von Mises"
+
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr "Lilliefors (Колмогоров-Смирнов)"
+
+msgid "Shapiro-Francia"
+msgstr "Shapiro-Francia"
+
+msgid "Pearson chi-square"
+msgstr "Pearson хи-квадрат"
+
+msgid "Normality Test"
+msgstr "Тест нормальности"
+
+msgid "Number of bins must be a number >= 4"
+msgstr "Количество интервалов дожно быть >= 4"
+
+msgid ""
+"Number of bins\n"
+"for Pearson chi-square"
+msgstr ""
+"Количество интервалов\n"
+"для Pearson хи-квадрат"
+
+# small changes to the read text data dialog
+msgid "Commas [,]"
+msgstr "Запятые [,]"
+
+msgid "Semicolons [;]"
+msgstr "Точки с запятой [;]"
+
+# additional error check in load data set dialog
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr "В файле больше одного объекта с именами:\n"
+
+# new messages for distribution plot dialogs produced by distributionPlot()
+msgid "Optionally specify regions under the density function by"
+msgstr "Как вариант, определите регионы в функции плотности через"
+
+msgid "x-values"
+msgstr "x-values"
+
+msgid "quantiles"
+msgstr "квантили"
+
+msgid "is not a valid number."
+msgstr "неправильный номер."
+
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "Надо определить 'from' и 'to' хотя бы для одного интервала."
+
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr "В этом интервале 'to' должно быть больше 'from'."
+
+msgid "Quantiles must be between 0 and 1."
+msgstr "Квантили должны быть между 0 и 1."
+
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr "Регионы для заполнения (определите один или два, или оставьте пустым)"
+
+msgid "Region 1: from"
+msgstr "Регион 1: from"
+
+msgid "Region 2: from"
+msgstr "Регион 2: from"
+
+msgid "to"
+msgstr "до"
+
+msgid "color"
+msgstr "цвет"
+
+msgid "Top center"
+msgstr "Центр верха"
+
+# new compare model coefficients dialog
+msgid "Compare model coefficients..."
+msgstr "Сравнить коэффициенты модели..."
+
+msgid "Compare Model Coefficients"
+msgstr "Сравнить коэффициенты модели"
+
+msgid "You must select at least two models."
+msgstr "Вы должны выбрать по крайней мере две модели."
+
+msgid "Select models (pick two or more)"
+msgstr "Выберите две (или больше) модели"
+
+# enhancements to the Rcmdr script editor
+msgid "Only one instance of the R Commander script editor may be open at a time."
+msgstr "Нельзя запустить больше одного экземпляра R Commander одновременно."
+
+msgid "Save current edits"
+msgstr "Сохранить текущие изменения"
+
+msgid "Save edits"
+msgstr "Сохранить изменения"
+
+msgid "Exit editor saving edits"
+msgstr "Выйти из редактора, сохранив изменения"
+
+msgid "Cancel discarding edits"
+msgstr "Отменить изменения"
+
+# additions to the barplot dialog
+msgid "Percentages for Group Bars"
+msgstr "Проценты для групповых колонок"
+
+msgid "Conditional"
+msgstr "Условные"
+
+msgid "Total"
+msgstr "Общие"
+
+msgid "Color Selection"
+msgstr "Выбор цвета"
+
+msgid "From color palette"
+msgstr "Из палитры цветов"
+
+# correct typo
+msgid "Data set %s does not exist"
+msgstr "Таблица данных %s не существует"
+
+# addition to plot means dialog (position of legend)
+msgid "To right of graph"
+msgstr "Справа от графика"
+
+# For two-variances F-test dialog
+msgid "Ratio:"
+msgstr "Отношение:"
+
+msgid "Ratio < 1"
+msgstr "Отношение < 1"
+
+msgid "Ratio > 1"
+msgstr "Отношение > 1"
+
+# For enter and analyze contingency table dialog
+msgid "Name for Row Variable (optional):"
+msgstr "Название строковой переменной (необязательно):"
+
+msgid "Name for Column Variable (optional):"
+msgstr "Название колоночной переменной (необязательно):"
+
+# for import Stata and SAS b7dat data set dialogs
+msgid "Convert character variables to factors"
+msgstr "Конвертировать переменные в факторы"
+
+msgid "First column contains row names"
+msgstr "Первая колонка содержит названия строк"
+
+msgid "Import SAS b7dat Data Set"
+msgstr "Импортировать данные SAS b7dat"
+
+msgid "from SAS b7dat file..."
+msgstr "из файла SAS b7dat..."
+
+msgid "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr "{\"Все файлы\" {\"*\"}} {\"данные SAS b7dat\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+
+# addition to the Commander Options dialog
+msgid ""
+"Suppress scientific notation\n"
+"(higher = more suppression)"
+msgstr ""
+"Уменьшить научную нотацию\n"
+"(больше = сильнее уменьшить)"
+
+# new plot discrete numeric variable dialog
+msgid "Plot discrete numeric variable..."
+msgstr "Начертить дискретную числовую переменную..."
+
+msgid "Plot Discrete Numeric Variable"
+msgstr "Начертить дискретную числовую переменную"
+
+msgid ""
+"%s has %d unique values\n"
+"Do you want to proceed?"
+msgstr ""
+"у %s есть %d уникальных значений\n"
+"Вы хотите продолжать?"
+
+# for boostrapping dialog
+msgid "Plot bootstrap samples"
+msgstr "Начертить выборку бутстрепа"
+
+# for numerical summaries dialog
+msgid "Binned Frequency Counts"
+msgstr "Группированные значения частот"
+
+# additional messages in version 2.5-0
+# new predictor effect plots dialog
+msgid "Predictor Effect Plots"
+msgstr "Графики эффекта предиктора"
+
+msgid "Predictor effect plots..."
+msgstr "Графики эффекта предиктора..."
+
+msgid "Plot all predictor effects?"
+msgstr "Показать все эффекты предиктора?"
+
+# added to index plot dialog
+msgid "Mark by groups"
+msgstr "Разметить по группам"
+
+msgid "Mark by:"
+msgstr "Разметить по:"
+
+# new response transformation dialog
+msgid "Response Transformation"
+msgstr "Преобразование откликом"
+
+msgid "Response transformation..."
+msgstr "Преобразование откликом..."
+
+msgid "Box-Cox"
+msgstr "Бокс-Кокс"
+
+msgid "Box-Cox with negatives"
+msgstr "Бокс-Кокс с отрицательными значениями"
+
+msgid "Yeo-Johnson"
+msgstr "Ео-Джонсон"
+
+# new transform toward normality dialog
+msgid "Transform toward normality..."
+msgstr "Преобразовать в сторону нормальности..."
+
+msgid "Transform Variables Toward Normality"
+msgstr "Преобразовать переменные в сторону нормальности"
+
+msgid "Select variables to transform (one or more)"
+msgstr "Выбор переменных для преобразования (одна или больше)"
+
+msgid "Transformation Family"
+msgstr "Семейство преобразований"
+
+# new symmetry boxplot (symbox) dialog
+msgid "Symmetry boxplot..."
+msgstr "Симметричный боксплот..."
+
+msgid "Symmetry Boxplot"
+msgstr "Симметричный боксплот"
+
+msgid "Start (optional)"
+msgstr "Старт (необязательно)"
+
+msgid "Powers"
+msgstr "Степени"
+
+# new influence index plot dialog
+msgid "Influence index plot..."
+msgstr "График влияния..."
+
+msgid "Influence Index Plot"
+msgstr "График влияния"
+
+msgid "Bonferroni p-values"
+msgstr "P-значения Бонферрони"
+
+msgid "Diagnostics case statistics to plot"
+msgstr "Показать диагностические статистики"
+
+# enhancements to Density Plot dialog
+msgid "Method"
+msgstr "Метод"
+
+msgid "adaptive kernel"
+msgstr "адаптивное ядро"
+
+msgid "kernel"
+msgstr "ядро"
+
+msgid "From"
+msgstr "От"
+
+msgid "To"
+msgstr "До"
+
+# additional messages in version 2.5-1
+# a corrected message
+msgid "Case statistics to plot"
+msgstr "Визуализация статистик"
+
+# additional message in version 2.6-0
+# new mixed models dialogs
+msgid "Linear Mixed Model"
+msgstr "Линейная смешанная модель"
+
+msgid "Linear mixed model..."
+msgstr "Линейная смешанная модель..."
+
+msgid "Estimation Criterion"
+msgstr "Критерий подгонки"
+
+msgid "Restricted maximum likelihood (REML)"
+msgstr "Ограниченное максимальное правдоподобие (REML)"
+
+msgid "Maximum likelihood (ML)"
+msgstr "Максимальное правдоподобие (ML)"
+
+msgid "There are no random effects in the model."
+msgstr "В модели нет случайных эффектов."
+
+msgid "Generalized Linear Mixed Model"
+msgstr "Обобщенная линейная смешанная модель"
+
+msgid "Generalized linear mixed model..."
+msgstr "Обобщенная линейная смешанная модель..."
+
+# corrected and messages for version 2.6-1
+# correction: was "Convert variable names\nto lower case"
+msgid "Convert variable names to lower case"
+msgstr "Конвертировать названия переменных в нижний регистр"
+
+# new messages about invalid variable classes
+msgid "The following variables are not valid for use in the R Commander and will be omitted:"
+msgstr "Следующие переменные не подходят для использования в R Commander и будут пропущены:"
+
+msgid "The following variable is not valid for use in the R Commander and will be omitted:"
+msgstr "Следующая переменная не подходит для использования в R Commander и будет пропущена:"
+
+# new messages for version 2.7-0
+# for Numerical Summaries dialog
+msgid "Frequency Counts"
+msgstr "Частоты"
+
+# For bar graph dialog
+msgid "Show counts or percentages in bars"
+msgstr "Показать частоты (в процентах) в столбиках"
+
+# for piechart dialog
+msgid "Neither"
+msgstr "Ни одного"
+
+# for proportion-test dialogs
+msgid "<No response selected>"
+msgstr "<Отклик не выбран>"
+
+msgid "Proportion"
+msgstr "Пропорция"
+
+# for new restart Commander dialog
+msgid "Restart the Commander"
+msgstr "Перезагрузить Commander"
+
+msgid "Restart the Commander?"
+msgstr "Перезагрузить Commander?"
+
+# for new repeated-measures ANOVA/ANCOVA dialogs
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "Однофакторный с повторениями ANOVA/ANCOVA..."
+
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr "Один фактор из ANOVA/ANCOVA с повторениями"
+
+msgid "no responses specified"
+msgstr "не выбран отклик"
+
+msgid ""
+"the specified responses are not contiguous\n"
+" missing responses are removed"
+msgstr ""
+"выбранные отклики не непрерывные\n"
+" пропущенные отклики убраны"
+
+msgid "<no selection>"
+msgstr "<не выбрано>"
+
+msgid "there are duplicated level names"
+msgstr "есть повторяющиеся названия уровней"
+
+msgid "is not a valid name"
+msgstr "неправильное имя"
+
+msgid "the following responses appear more than once:"
+msgstr "следующие отклики выбраны больше одного раза:"
+
+msgid "at least 2 responses must be specified"
+msgstr "по крайней мере два отклика должны быть выбраны"
+
+msgid "Within-Subject Factor"
+msgstr "Внутрисубъектный фактор"
+
+msgid "Name for the within-subjects factor:"
+msgstr "Название внутрисубъектного фактора:"
+
+msgid "Specify up to 8 levels (responses) and level names for the within-subjects factor"
+msgstr "Задайте до 8 уровней (откликов) и имен уровней для внутрисубъектного фактора"
+
+msgid "Multivariate Test Statistic"
+msgstr "Многомерная тестовая статистика"
+
+msgid "Multivariate"
+msgstr "Многомерный"
+
+msgid "Univariate"
+msgstr "Одномерный"
+
+msgid "Tests to Perform"
+msgstr "Тест для выполнения"
+
+msgid "Repeated-Measures Means"
+msgstr "Средние повторяющихся измерений"
+
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr "Межсубъектные фаторы (выберите ноль или больше)"
+
+msgid "Plot response means by factors"
+msgstr "График средних отклика по факторам"
+
+msgid "Print means and standard deviations by factors"
+msgstr "Вывести средние и стандартные отклонения по факторам"
+
+msgid "X-axis factor:"
+msgstr "Фактор оси X:"
+
+msgid "Trace factor:"
+msgstr "Трассировочный фактор:"
+
+msgid "Response name:"
+msgstr "Название отклика:"
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "Двухфакторный с повторениями ANOVA/ANCOVA..."
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr "Два фактора из ANOVA/ANCOVA с повторениями"
+
+msgid "the specified responses are not rectangular"
+msgstr "заданные отклики не прямоугольны"
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr "по крайней мере 2 строки и две колонки должны быть определены"
+
+msgid "there are duplicated row level names"
+msgstr "есть повторяющиеся названия уровней в строках"
+
+msgid "there are duplicated column level names"
+msgstr "есть повторяющиеся названия уровней в колонках"
+
+msgid "Within-Subject Factors"
+msgstr "Внутрисубъектный фактор"
+
+msgid "Name for the within-subjects row factor:"
+msgstr "Названия внутрисубъектного фактора для строк:"
+
+msgid "Name for the within-subjects column factor:"
+msgstr "Названия внутрисубъектного фактора для колонок:"
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr "Выберите до 5 уровней и названий уровней для каждого внутрисубъектного фактора"
+
+# new reshape data set from long to wide format dialog
+msgid "Reshape data set from long to wide format..."
+msgstr "Перестроить данные из длинного в широкий формат..."
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr "Перестроить данные из длинного в широкий формат"
+
+msgid "Subject ID variable (pick one)"
+msgstr "Выбрать одну ID переменную для субъектов"
+
+msgid "Within-subjects factors (pick one or more)"
+msgstr "Внутрисубъектные факторы (выберите один или больше)"
+
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr "Переменные, которые варьируют случайно (выберите одну или больше)"
+
+msgid "Variables to ignore (pick zero or more)"
+msgstr "Игнорировать переменные (выберите одну или больше)"
+
+msgid "You must select an ID variable."
+msgstr "Надо выбрать ID переменную."
+
+msgid "You must select one or more within-subjects factors."
+msgstr "Надо выбрать один или больше внутрисубъектных факторов."
+
+msgid "You must select one or more occasion-varying variables."
+msgstr "Надо выбрать один или больше случайно варьирующих переменных."
+
+msgid "the following variables appear more than once:"
+msgstr "эти переменные появляются больше одного раза:"
+
+msgid "Save data set aborted"
+msgstr "Сохранение данных прервано"
+
+msgid "Name for wide data set:"
+msgstr "Название данных в широком формате:"
+
+msgid "Make the wide data set active"
+msgstr "Сделать данные в широком формате активными"
+
+# new reshape data set from wide to long format dialog
+msgid "Reshape data set from wide to long format..."
+msgstr "Перестроить данные из широкого в длинный формат..."
+
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr "Перестроить данные из широкого в длинный формат"
+
+msgid ""
+"both one and two repeated-measures factors were specified\n"
+"specify either a one-way or two-way design"
+msgstr ""
+"указаны и один, и два фактора для повторяющихся измерений\n"
+"нужно указать либо то, либо другое"
+
+msgid "the specified responses are not contiguous"
+msgstr "выбранные отклики не непрерывны"
+
+msgid "the following ignored variables are also responses:"
+msgstr "слеующие пропущенные переменные являются также откликами:"
+
+msgid "Specify one within-subject factor"
+msgstr "Задайте один внутрисубъектный фактор"
+
+msgid "Specify two within-subject factors"
+msgstr "Задайте два внутрисубъектных фактора"
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr "Задайте до 5 уровней и имен уровней для каждого внутрисубъектного фактора"
+
+msgid "Name for long data set:"
+msgstr "Имя данных в длинном формате:"
+
+msgid "Response variable:"
+msgstr "Переменная отклика:"
+
+msgid "Subject ID variable:"
+msgstr "ID переменная для субъектов"
+
+msgid "Make the long data set active"
+msgstr "Сделать данные в длинном формате активными"
+
+# additional messages for handling character data
+msgid "Convert all character variables to factors"
+msgstr "Конвертировать все текстовые переменные в факторы"
+
+msgid "Convert character variables to factors..."
+msgstr "Конвертировать текстовые переменные в факторы..."
+
+msgid "Convert Character Variables to Factors"
+msgstr "Конвертировать текстовые переменные в факторы"
