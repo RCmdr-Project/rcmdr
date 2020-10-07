@@ -1,6 +1,8 @@
 Changes in version 2.7-1
 
-  o Updated translations (thanks to): Polish (Lukasz Daniel).
+  o Updated Polish translation, thanks to Lukasz Daniel.
+  
+  o Fixed mixed-up .mo files for Spanish and Brazilian-Portuguese translations (problem reported by Jose Henrique Hildebrand Grisi Filho).
   
   o Small bug fixes to and improvements to repeated-measures dialogs.
 
