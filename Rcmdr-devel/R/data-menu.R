@@ -2255,67 +2255,131 @@ saveDataSet <- function() {
 }
 
 RemoveRows <- function(){
-	dataSet <- activeDataSet()
-	initializeDialog(title=gettextRcmdr("Remove Rows from Active Data Set"))
-	removeVariable <- tclVar(gettextRcmdr(""))
-	removeFrame <- tkframe(top)
-	removeEntry <- ttkentry(removeFrame, width="60", textvariable=removeVariable)
-	removeScroll <- ttkscrollbar(removeFrame, orient="horizontal",
-			command=function(...) tkxview(removeEntry, ...))
-	tkconfigure(removeEntry, xscrollcommand=function(...) tkset(removeScroll, ...))
-	newDataSetName <- tclVar(gettextRcmdr("<same as active data set>"))
-	dataSetNameFrame <- tkframe(top)
-	dataSetNameEntry <- ttkentry(dataSetNameFrame, width="25", textvariable=newDataSetName)
-	onOK <- function(){
-		newName <- trim.blanks(tclvalue(newDataSetName))
-		if (newName == gettextRcmdr("<same as active data set>")) newName <- ActiveDataSet()
-		if (!is.valid.name(newName)){
-			errorCondition(recall=RemoveRows,
-					message=paste('"', newName, '" ', gettextRcmdr("is not a valid name."), sep=""))
-			return()
-		}
-		if (is.element(newName, listDataSets())) {
-			if ("no" == tclvalue(checkReplace(newName, type=gettextRcmdr("Data set")))){
-				closeDialog()
-				RemoveRows()
-				return()
-			}
-		}
-		remove <- tclvalue(removeVariable)
-		if (remove==""){
-			errorCondition(recall=RemoveRows,
-					message="No rows to remove")
-			closeDialog()
-			return()
-		}
-		removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
-		remove <- try(eval(parse(text=removeRows)), silent=TRUE)
-		if (inherits(remove, "try-error")){
-			errorCondition(recall=RemoveRows,
-					message=remove)
-			closeDialog()
-			return()
-		}
-		closeDialog()
-		removeRows <- if (is.numeric(remove)) paste("-", removeRows, sep="") 
-				else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
-		command <- paste(newName, " <- ", ActiveDataSet(), "[", removeRows, ",]", sep="")
-		logger(command)
-		result <- justDoIt(command)
-		if (class(result)[1] !=  "try-error") activeDataSet(newName)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject="[.data.frame")
-	tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
-					foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-	tkgrid(removeEntry, sticky="w")
-	tkgrid(removeScroll, sticky="ew")
-	tkgrid(removeFrame, sticky="w")
-	tkgrid(labelRcmdr(dataSetNameFrame, text=gettextRcmdr("Name for new data set")), sticky="w")
-	tkgrid(dataSetNameEntry, sticky="w")
-	tkgrid(dataSetNameFrame, sticky="w")
-	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix()
+    dataSet <- activeDataSet()
+    initializeDialog(title=gettextRcmdr("Remove Rows from Active Data Set"))
+    removeVariable <- tclVar(gettextRcmdr(""))
+    removeFrame <- tkframe(top)
+    removeEntry <- ttkentry(removeFrame, width="60", textvariable=removeVariable)
+    removeScroll <- ttkscrollbar(removeFrame, orient="horizontal",
+                                 command=function(...) tkxview(removeEntry, ...))
+    tkconfigure(removeEntry, xscrollcommand=function(...) tkset(removeScroll, ...))
+    newDataSetName <- tclVar(gettextRcmdr("<same as active data set>"))
+    dataSetNameFrame <- tkframe(top)
+    dataSetNameEntry <- ttkentry(dataSetNameFrame, width="25", textvariable=newDataSetName)
+    onOK <- function(){
+        newName <- trim.blanks(tclvalue(newDataSetName))
+        if (newName == gettextRcmdr("<same as active data set>")) newName <- ActiveDataSet()
+        if (!is.valid.name(newName)){
+            errorCondition(recall=RemoveRows,
+                           message=paste('"', newName, '" ', gettextRcmdr("is not a valid name."), sep=""))
+            return()
+        }
+        if (is.element(newName, listDataSets())) {
+            if ("no" == tclvalue(checkReplace(newName, type=gettextRcmdr("Data set")))){
+                closeDialog()
+                RemoveRows()
+                return()
+            }
+        }
+        remove <- tclvalue(removeVariable)
+        if (remove==""){
+            errorCondition(recall=RemoveRows,
+                           message="No rows to remove")
+            closeDialog()
+            return()
+        }
+        removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+        remove <- try(eval(parse(text=removeRows)), silent=TRUE)
+        if (inherits(remove, "try-error")){
+            errorCondition(recall=RemoveRows,
+                           message=remove)
+            closeDialog()
+            return()
+        }
+        closeDialog()
+        removeRows <- if (is.numeric(remove)) paste("-", removeRows, sep="") 
+                      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
+        command <- paste(newName, " <- ", ActiveDataSet(), "[", removeRows, ",]", sep="")
+        logger(command)
+        result <- justDoIt(command)
+        if (class(result)[1] !=  "try-error") activeDataSet(newName)
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject="[.data.frame")
+    tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+                      foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+    tkgrid(removeEntry, sticky="w")
+    tkgrid(removeScroll, sticky="ew")
+    tkgrid(removeFrame, sticky="w")
+    tkgrid(labelRcmdr(dataSetNameFrame, text=gettextRcmdr("Name for new data set")), sticky="w")
+    tkgrid(dataSetNameEntry, sticky="w")
+    tkgrid(dataSetNameFrame, sticky="w")
+    tkgrid(buttonsFrame, sticky="w")
+    dialogSuffix()
+}
+
+SelectRows <- function(){
+    dataSet <- activeDataSet()
+    initializeDialog(title=gettextRcmdr("Select Rows from Active Data Set"))
+    selectVariable <- tclVar(gettextRcmdr(""))
+    selectFrame <- tkframe(top)
+    selectEntry <- ttkentry(selectFrame, width="60", textvariable=selectVariable)
+    selectScroll <- ttkscrollbar(selectFrame, orient="horizontal",
+                                 command=function(...) tkxview(selectEntry, ...))
+    tkconfigure(selectEntry, xscrollcommand=function(...) tkset(selectScroll, ...))
+    newDataSetName <- tclVar(gettextRcmdr("<same as active data set>"))
+    dataSetNameFrame <- tkframe(top)
+    dataSetNameEntry <- ttkentry(dataSetNameFrame, width="25", textvariable=newDataSetName)
+    onOK <- function(){
+        newName <- trim.blanks(tclvalue(newDataSetName))
+        if (newName == gettextRcmdr("<same as active data set>")) newName <- ActiveDataSet()
+        if (!is.valid.name(newName)){
+            errorCondition(recall=SelectRows,
+                           message=paste('"', newName, '" ', gettextRcmdr("is not a valid name."), sep=""))
+            return()
+        }
+        if (is.element(newName, listDataSets())) {
+            if ("no" == tclvalue(checkReplace(newName, type=gettextRcmdr("Data set")))){
+                closeDialog()
+                SelectRows()
+                return()
+            }
+        }
+        select <- tclvalue(selectVariable)
+        if (select==""){
+            errorCondition(recall=SelectRows,
+                           message="No rows to select")
+            closeDialog()
+            return()
+        }
+        selectRows <- paste("c(", gsub(" ", ",", select), ")", sep="")
+        select <- try(eval(parse(text=selectRows)), silent=TRUE)
+        if (inherits(select, "try-error")){
+            errorCondition(recall=SelectRows,
+                           message=select)
+            closeDialog()
+            return()
+        }
+        closeDialog()
+        selectRows <- if (is.numeric(select)) paste(selectRows, sep="") 
+                      else paste("rownames(", ActiveDataSet(), ") %in% ", selectRows, sep="")
+        command <- paste(newName, " <- ", ActiveDataSet(), "[", selectRows, ",]", sep="")
+        logger(command)
+        result <- justDoIt(command)
+        if (class(result)[1] !=  "try-error") activeDataSet(newName)
+        tkfocus(CommanderWindow())
+    }
+    OKCancelHelp(helpSubject="[.data.frame")
+    tkgrid(labelRcmdr(selectFrame, text=gettextRcmdr("Indices or quoted names of row(s) to select"),
+                      foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+    tkgrid(selectEntry, sticky="w")
+    tkgrid(selectScroll, sticky="ew")
+    tkgrid(selectFrame, sticky="w")
+    tkgrid(labelRcmdr(dataSetNameFrame, text=gettextRcmdr("Name for new data set")), sticky="w")
+    tkgrid(dataSetNameEntry, sticky="w")
+    tkgrid(dataSetNameFrame, sticky="w")
+    tkgrid(buttonsFrame, sticky="w")
+    dialogSuffix()
 }
 
 mergeDataSets <- function(){
