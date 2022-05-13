@@ -2347,23 +2347,23 @@ SelectRows <- function(){
         }
         select <- tclvalue(selectVariable)
         if (select==""){
-            errorCondition(recall=SelectRows,
-                           message="No rows to select")
+            errorCondition(recall=SelectRows, message="No rows to select")
             closeDialog()
             return()
         }
-        selectRows <- paste("c(", gsub(" ", ",", select), ")", sep="")
+        selectRows <- paste0("c(", gsub(" ", ",", select), ")")
         select <- try(eval(parse(text=selectRows)), silent=TRUE)
         if (inherits(select, "try-error")){
-            errorCondition(recall=SelectRows,
-                           message=select)
+            errorCondition(recall=SelectRows, message=select)
             closeDialog()
             return()
         }
         closeDialog()
-        selectRows <- if (is.numeric(select)) paste(selectRows, sep="") 
-                      else paste("rownames(", ActiveDataSet(), ") %in% ", selectRows, sep="")
-        command <- paste(newName, " <- ", ActiveDataSet(), "[", selectRows, ",]", sep="")
+        selectRows <- if (is.numeric(select)) paste0(selectRows) 
+                      else paste0("rownames(", ActiveDataSet(), ") %in% ", selectRows)
+        command <- paste0(newName, " <- ", ActiveDataSet(), "[", selectRows, ", ")
+        if (ncol(get(ActiveDataSet())) == 1) command <- paste0(command, ", drop = FALSE")
+        command <- paste0(command, "]")
         logger(command)
         result <- justDoIt(command)
         if (class(result)[1] !=  "try-error") activeDataSet(newName)
