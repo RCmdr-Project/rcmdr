@@ -1627,7 +1627,7 @@ Scatter3D <- function () {
                     initial.additive = 0, initial.ellips = 0, initial.dfNonpar = gettextRcmdr("<auto>"), 
                     initial.dfAdd = gettextRcmdr("<auto>"), initial.bg = "white",
                     initialGroup=NULL, initial.lines.by.group=0, initial.identify="not", initial.id.n="2",
-                    initial.tab=0)
+                    initial.rotations=0, initial.tab=0)
   dialog.values <- getDialog ("Scatter3D", defaults)
   initial.group <- dialog.values$initial.group
   .linesByGroup <- if (dialog.values$initial.lines.by.group == 1) TRUE else FALSE
@@ -1673,7 +1673,9 @@ Scatter3D <- function () {
                                                                                               "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
                initialValue = dialog.values$initial.identify)
   id.n.Var <- tclVar(dialog.values$initial.id.n) 
-  npointsSpinner <- tkspinbox(idFrame, from=1, to=10, width=2, textvariable=id.n.Var)    
+  npointsSpinner <- tkspinbox(idFrame, from=1, to=10, width=2, textvariable=id.n.Var) 
+  rotationsVar <- tclVar(dialog.values$initial.rotations)
+  rotationsSpinner <- tkspinbox(surfacesFrame, from=0, to=10, width=2, textvariable=rotationsVar) 
   onOK <- function() {
     tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
     x <- getSelection(xBox)
@@ -1695,6 +1697,7 @@ Scatter3D <- function () {
                             auto = paste0(", id=list(method='mahal', n =", id.n, ")"),
                             mouse = ", id=list(method='identify')",
                             not = "")
+    rotations <- tclvalue(rotationsVar)
     closeDialog()
     if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
       errorCondition(recall = scatterPlot, message = gettextRcmdr("number of points to identify must be an integer"))
@@ -1718,7 +1721,8 @@ Scatter3D <- function () {
                                  initial.dfAdd = dfAdd, initial.bg = bg, 
                                  initial.group=if (.groups == FALSE) NULL else .groups,
                                  initial.lines.by.group=if (.linesByGroup) 1 else 0,
-                                 initial.identify=identify, initial.id.n=id.n, initial.tab=tab))
+                                 initial.identify=identify, initial.id.n=id.n,
+                                 initial.rotations=rotations, initial.tab=tab))
     scales <- if (tclvalue(axisScales) == 1) 
       "TRUE"
     else "FALSE"
@@ -1764,6 +1768,7 @@ Scatter3D <- function () {
       parallel <- paste(", parallel=", .linesByGroup, sep = "")
     }
     else parallel <- groups <- ""
+    revolutions <- if (rotations != "0") paste(", revolutions =", rotations) else ""
     if (identify == "mouse"){
       RcmdrTkmessageBox(title="Identify Points",
                         message=gettextRcmdr("Drag right mouse button to identify points,\nclick right button to exit."),
@@ -1773,7 +1778,7 @@ Scatter3D <- function () {
       command <- paste("scatter3d(", y, "~", x[1], "+", x[2], ", data=", .activeDataSet, 
                        fit, resids, dfNonpar, dfAdd, 
                        parallel, ", bg=\"", bg, "\", axis.scales=", scales, 
-                       ", grid=", grid, ", ellipsoid=", ellips, identify.text,
+                       ", grid=", grid, ", ellipsoid=", ellips, identify.text, revolutions,
                        ")", sep = "")
       if (identify == "mouse") command <- suppressMarkdown(command)
       doItAndPrint(command)
@@ -1782,7 +1787,7 @@ Scatter3D <- function () {
       command <- paste("scatter3d(", y, "~", x[1], "+", x[2], "|", .groups, ", data=", .activeDataSet, 
                        fit, resids, dfNonpar, dfAdd, 
                        parallel, ", bg=\"", bg, "\", axis.scales=", scales, 
-                       ", grid=", grid, ", ellipsoid=", ellips, identify.text,
+                       ", grid=", grid, ", ellipsoid=", ellips, identify.text, revolutions,
                        ")", sep = "")
       if (identify == "mouse") command <- suppressMarkdown(command)
       doItAndPrint(command)
@@ -1806,6 +1811,8 @@ Scatter3D <- function () {
   tkgrid(getFrame(xBox), labelRcmdr(variablesFrame, text = "  "), 
          getFrame(yBox), sticky = "nw")
   tkgrid(variablesFrame, sticky = "nw")
+  tkgrid(labelRcmdr(surfacesFrame, text=gettextRcmdr("Number of automatic rotations  ")), 
+         rotationsSpinner, sticky="w")
   tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Show axis scales")), 
          axisScalesCheckBox, sticky = "w")
   tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Show surface grid lines")), 

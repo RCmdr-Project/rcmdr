@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.7-0\n"
+"Project-Id-Version: Rcmdr 2.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2020-08-25 10:45:00\n"
+"POT-Creation-Date: 2022-05-27 10:45:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5415,4 +5415,12 @@ msgid "One Repeated-Measures Factor"
 msgstr ""
 
 msgid "Two Repeated-Measures Factors"
+msgstr ""
+
+
+# new messages for version 2.8-0
+
+  # additional message for the 3D scatterplot dialog
+  
+msgid "Number of automatic rotations"
 msgstr ""
