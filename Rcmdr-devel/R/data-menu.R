@@ -1,4 +1,4 @@
-# last modified 2020-09-09 by J. Fox
+# last modified 2022-05-28 by J. Fox
 
 # Data menu dialogs
 
@@ -99,7 +99,8 @@ RecodeDialog <- function () {
   }
   dataSet <- activeDataSet()
   defaults <- list (initial.asFactor = 1, initial.variables = NULL, initial.name = "variable",
-                    initial.recode.directives="")
+                    initial.recode.directives="", 
+                    initial.to.value="=", initial.interval=":", initial.separator=";")
   dialog.values <- getDialog ("RecodeDialog", defaults)
   initializeDialog(title = gettextRcmdr("Recode Variables"))
   variablesBox <- variableListBox(top, Variables(), selectmode = "multiple", 
@@ -123,11 +124,21 @@ RecodeDialog <- function () {
   asFactorFrame <- tkframe(top)
   asFactorVariable <- tclVar(dialog.values$initial.asFactor)
   asFactorCheckBox <- ttkcheckbutton(asFactorFrame, variable = asFactorVariable)
+  operatorsFrame <- tkframe(top)
+  to.valueVariable <- tclVar(dialog.values$initial.to.value)
+  to.valueBox <- ttkentry(operatorsFrame, width = "3", textvariable = to.valueVariable)
+  intervalVariable <- tclVar(dialog.values$initial.interval)
+  intervalBox <- ttkentry(operatorsFrame, width = "3", textvariable = intervalVariable)
+  separatorVariable <- tclVar(dialog.values$initial.separator)
+  separatorBox <- ttkentry(operatorsFrame, width = "3", textvariable = separatorVariable)
   onOK <- function() {
     asFactor <- tclvalue(asFactorVariable) == "1"
+    to.value <- tclvalue(to.valueVariable)
+    interval <- tclvalue(intervalVariable)
+    separator <- tclvalue(separatorVariable)
     save.recodes <- trim.blanks(tclvalue(tkget(recodes, "1.0", "end")))
-    recode.directives <- gsub("\n", "; ", save.recodes)
-    check.empty <- gsub(";", "", gsub(" ", "", recode.directives))
+    recode.directives <- gsub("\n", paste0(separator, " "), save.recodes)
+    check.empty <- gsub(separator, "", gsub(" ", "", recode.directives))
     if ("" == check.empty) {
       errorCondition(recall = RecodeDialog, message = gettextRcmdr("No recode directives specified."))
       return()
@@ -136,10 +147,10 @@ RecodeDialog <- function () {
       errorCondition(recall = RecodeDialog, message = gettextRcmdr("Use only double-quotes (\" \") in recode directives"))
       return()
     }
-    recode.directives <- strsplit(recode.directives, ";")[[1]]
+    recode.directives <- strsplit(recode.directives, separator)[[1]]
     recode.directives <- paste(sapply(recode.directives, 
-                                      processRecode), collapse = ";")
-    recode.directives <- sub(" *; *$", "", recode.directives)
+                                      processRecode), collapse = separator)
+    recode.directives <- sub(paste0(" *", separator, " *$"), "", recode.directives)
     variables <- getSelection(variablesBox)
     closeDialog()
     if (length(variables) == 0) {
@@ -150,9 +161,10 @@ RecodeDialog <- function () {
       TRUE
     else FALSE
     name <- trim.blanks(tclvalue(newVariableName))
-    #        save.recodes <- gsub("; ", "\\\n", trim.blanks(recode.directives))  
     putDialog ("RecodeDialog", list (initial.asFactor = asFactor, initial.variables = variables,
-                                     initial.name = name, initial.recode.directives=save.recodes))
+                                     initial.name = name, initial.recode.directives=save.recodes,
+                                     initial.to.value=to.value, initial.interval=interval,
+                                     initial.separator=separator))
     command <- paste(dataSet, " <- within(", dataSet, ", {", sep="")
     nvar <- length(variables)
     for (i in 1:nvar) {
@@ -174,16 +186,13 @@ RecodeDialog <- function () {
       }
       command <- paste(command, "\n  ", newVar, " <- Recode(", variable, ", '", 
                        recode.directives, "', as.factor=", asFactor, 
-                       ")", sep = "")  
+                       ', to.value="', to.value, '", interval="', interval, 
+                       '", separator="', separator, '")', sep = "")  
     }
     command <- paste(command, "\n})", sep="")
     result <- doItAndPrint(command)
     if (class(result)[1] != "try-error")
       activeDataSet(dataSet, flushModel = FALSE, flushDialogMemory = FALSE)
-    #     else{
-    #       if (getRcmdr("use.markdown")) removeLastRmdBlock()
-    #       if (getRcmdr("use.knitr")) removeLastRnwBlock()
-    #    }
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "RecodeDialog", reset = "RecodeDialog", apply = "RecodeDialog")
@@ -193,13 +202,20 @@ RecodeDialog <- function () {
          newVariable, sticky = "w")
   tkgrid(asFactorCheckBox, labelRcmdr(asFactorFrame, text = gettextRcmdr("Make (each) new variable a factor")), 
          sticky = "w")
-  tkgrid(labelRcmdr(asFactorFrame, text = ""))
+  tkgrid(labelRcmdr(operatorsFrame, text = gettextRcmdr("Old/new values assignment character(s)  ")),
+         to.valueBox, sticky="w")
+  tkgrid(labelRcmdr(operatorsFrame, text = gettextRcmdr("Recode interval character(s)  ")),
+         intervalBox, sticky="w")
+  tkgrid(labelRcmdr(operatorsFrame, text = gettextRcmdr("Recode separator character(s)  ")),
+         separatorBox, sticky="w")
+  tkgrid(labelRcmdr(operatorsFrame, text = ""))
   tkgrid(labelRcmdr(recodesFrame, text = gettextRcmdr("Enter recode directives"), 
                     fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
   tkgrid(recodes, recodesYscroll, sticky = "nw")
   tkgrid(recodesXscroll)
   tkgrid(variablesFrame, sticky = "w")
   tkgrid(asFactorFrame, sticky = "w")
+  tkgrid(operatorsFrame, sticky = "w")
   tkgrid(recodesFrame, sticky = "w")
   tkgrid(buttonsFrame, sticky = "w", columnspan = 2)
   tkgrid.configure(recodesXscroll, sticky = "ew")

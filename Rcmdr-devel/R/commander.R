@@ -94,6 +94,8 @@ setupRcmdrOptions <- function(DESCRIPTION){
     RcmdrVersion <- trim.blanks(sub("^Version:", "",
                                     grep("^Version:", DESCRIPTION, value=TRUE)))
     putRcmdr("RcmdrVersion", RcmdrVersion)
+    RVersion <- paste(R.Version()[c("major", "minor")], collapse=".")
+    putRcmdr("RVersion", RVersion)
     putRcmdr(".activeDataSet", NULL)
     putRcmdr(".activeModel", NULL)
     putRcmdr("nrow", NULL)
@@ -289,9 +291,8 @@ platformIssues <- function(){
         putRcmdr("oldPager", options(pager=RcmdrPager))
     }
     putRcmdr("restore.help_type", getOption("help_type"))
-    setOption("help_type", "html")
+    if (MacOSXP() && getRcmdr("RVersion") == "4.2.0") setOption("help_type", "text") else setOption("help_type", "html")
     options(help_type=getRcmdr("help_type"))
-    #    putRcmdr("restore.use.external.help", FALSE)
     putRcmdr("restore.device", getOption("device"))
     if (RStudioP()){
         if (WindowsP()) options(device="windows")
