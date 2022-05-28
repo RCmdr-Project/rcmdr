@@ -1,4 +1,4 @@
-# last modified 2019-12-20 by J. Fox
+# last modified 2022-05-28 by J. Fox
 
 import(splines, tcltk, RcmdrMisc, car, effects)
 importFrom(utils, available.packages, install.packages, assignInMyNamespace, 
@@ -76,7 +76,9 @@ modelCapability,
 
 Coef,
 
-listCharacter, characterP, Character
+listCharacter, characterP, Character,
+
+Coefficients, CoefficientsP, Predictors, PredictorsP
 )
 
 S3method(Coef, multinom)

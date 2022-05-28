@@ -27,6 +27,8 @@
 \alias{closeCommander}
 \alias{closeDialog}
 \alias{Coef}
+\alias{Coefficients}
+\alias{CoefficientsP}
 \alias{commanderPosition}
 \alias{CommanderWindow}
 \alias{dataSetsP}
@@ -104,6 +106,8 @@
 \alias{polrP}
 \alias{popCommand}
 \alias{popOutput}
+\alias{Predictors}
+\alias{PredictorsP}
 \alias{putDialog}
 \alias{putRcmdr}
 \alias{radioButtons}
@@ -188,6 +192,8 @@ checkVariables(n=1)
 closeCommander(ask=TRUE, ask.save=ask)
 closeDialog(window, release=TRUE)  # macro
 Coef(object, ...)
+Predictors(type=c("all", "numeric", "factor"))
+PredictorsP(n=1, type=c("all", "numeric", "factor"))
 CommanderWindow()
 dataSetsP(n=1)
 defmacro(..., expr)
@@ -494,7 +500,7 @@ commanderPosition()
     If \code{NULL} (the default), no buttons will be added to the toolbar.}
   \item{ttk}{use ttk themed widget for check boxes.}
   \item{type}{quoted type of object to check; used to generate check-replace dialog box;
-    or type of message to print in Message window. For \code{varPosn}, type of variable list.}
+    or type of message to print in Message window. For \code{varPosn}, type of variable list. For \code{Predictor} and \code{nPredictor}, type of explanatory variable in the active model.}
   \item{use.tabs}{(default \code{FALSE}) construct a tabbed dialog.}
   \item{value}{an object to be stored or assigned.}
   \item{values}{vector of quoted values associated with radio buttons or check boxes; for \code{putDialog},
@@ -567,7 +573,7 @@ commanderPosition()
   \code{listFactors}, \code{listLinearModels}, \code{listMultinomialLogitModels},
   \code{listNumeric}, \code{listProportionalOddsModels},
   \code{listTwoLevelFactors},
-  \code{listVariables}. The functions \code{activeDataSet} and \code{activeModel} respectively report or set the active
+  \code{listVariables}. The functions \code{Predictors} and \code{Coefficients} return information about the active model, or \code{NULL} if there is no active model. The functions \code{activeDataSet} and \code{activeModel} respectively report or set the active
   data set and model.
   The function \code{packageAvailable} reports whether the named package is 
   available to be loaded (or has possibly already been loaded).

@@ -3967,3 +3967,30 @@ convertStrings2Factors <- function(){
   doItAndPrint(command)
   activeDataSet(.activeDataSet)
 }
+
+# functions for predictors and coefficients
+
+Predictors <- function(type=c("all", "numeric", "factor")){
+  if (is.null(ActiveModel())) return(NULL)
+  type <- match.arg(type)
+  predictors <- all.vars(formula(get(activeModel(), envir=.GlobalEnv))[[3]])
+  if (type == "all") return(predictors)
+  else if (type == "numeric") return(intersect(Numeric(), predictors))
+  else if (type == "factor") return(intersect(Factors(), predictors))
+}
+
+
+PredictorsP <- function(n=1, type=c("all", "numeric", "factor")){
+  type <- match.arg(type)
+  length(Predictors(type=type)) >= n
+}
+
+Coefficients <- function(includeIntercept=FALSE){
+  if (is.null(ActiveModel())) return(NULL)
+  coefs <- names(coef(get(activeModel(), envir=.GlobalEnv)))
+  coefs[coefs != "(Intercept)"]
+}
+
+CoefficientsP <- function(n=1, includeIntercept=FALSE){
+  length(Coefficients(includeIntercept)) >= n
+}

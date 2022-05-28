@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2022-05-27 10:45:00\n"
+"POT-Creation-Date: 2022-05-28 12:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5423,4 +5423,26 @@ msgstr ""
   # additional message for the 3D scatterplot dialog
   
 msgid "Number of automatic rotations"
+msgstr ""
+
+  # messages for new 3D component+residual and added-variable plot dialogs
+  
+msgid "3D Component+Residual Plot"
+msgstr ""
+
+msgid "3D Added-Variable Plot"
+msgstr ""
+
+msgid "Coefficients (pick two)"
+msgstr ""
+
+msgid "You must select 2 coefficients."
+msgstr ""
+
+    # for Rcmdr menus
+
+msgid "3D Component+residual plot..."
+msgstr ""
+
+msgid "3D added-variable plot..." 
 msgstr ""

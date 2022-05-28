@@ -1,6 +1,6 @@
 # R Commander Menu Definitions
 
-# last modified 2020-08-10 by J. Fox
+# last modified 2022-05-28 by J. Fox
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
@@ -236,7 +236,9 @@
     item    modelsGraphsMenu      command         "Basic diagnostic plots"                        plotModel                   "modelCapability('plt')"          ""
     item    modelsGraphsMenu      command         "Residual quantile-comparison plot..."          residualQQPlot              "modelCapability('qqp')" "packageAvailable('car')"
     item    modelsGraphsMenu      command         "Component+residual plots..."                      CRPlots                     "modelCapability('crp')" "packageAvailable('car')"
-    item    modelsGraphsMenu      command         "Added-variable plots..."                          AVPlots                     "modelCapability('avp')" "packageAvailable('car')"
+    item    modelsGraphsMenu      command         "3D Component+residual plot..."                      CRPlot3D                     "modelCapability('crp3d') && PredictorsP(2, 'numeric') && PredictorsP(3)" "packageAvailable('car')"
+    item    modelsGraphsMenu      command         "Added-variable plots..."      AVPlots                     "modelCapability('avp')" "packageAvailable('car')"
+    item    modelsGraphsMenu      command         "3D added-variable plot..."                      AVPlot3D                     "modelCapability('avp3d') && CoefficientsP(3)" "packageAvailable('car')"
     item    modelsGraphsMenu      command         "Influence plot..."                                InfluencePlot               "modelCapability('infp')" "packageAvailable('car')"
     item    modelsGraphsMenu      command         "Influence index plot..."                                InfluenceIndexPlot               "modelCapability('infp')" "packageAvailable('car')"
 
