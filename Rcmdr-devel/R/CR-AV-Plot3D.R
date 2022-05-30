@@ -128,10 +128,10 @@ AVPlot3D <- function () {
   use.rgl <- getOption("Rcmdr")$use.rgl
   if (is.null(use.rgl) || use.rgl) {
     Library("rgl")
-    Library("mgcv")
   }
   putRcmdr("rgl.command", TRUE)
   defaults <- list (initial.x = NULL, initial.scales = 1, initial.grid = 1, 
+                    initial.lin=1, initial.robust=0,
                     initial.ellips = 0, 
                     initial.bg = "white",
                     initial.identify="auto", initial.id.n="2",
@@ -151,6 +151,10 @@ AVPlot3D <- function () {
   gridLinesCheckBox <- ttkcheckbutton(surfacesFrame, variable = gridLines)
   ellipsoid <- tclVar(dialog.values$initial.ellips)
   ellipsoidCheckBox <- ttkcheckbutton(surfacesFrame, variable = ellipsoid)
+  linearLSSurface <- tclVar(dialog.values$initial.lin)
+  linearLSCheckBox <- ttkcheckbutton(surfacesFrame, variable = linearLSSurface)
+  robustSurface <- tclVar(dialog.values$initial.robust)
+  robustCheckBox <- ttkcheckbutton(surfacesFrame, variable = robustSurface)
   bgFrame <- tkframe(optionsTab)
   bgVariable <- tclVar(dialog.values$initial.bg)
   whiteButton <- ttkradiobutton(bgFrame, variable = bgVariable, value = "white")
@@ -171,6 +175,8 @@ AVPlot3D <- function () {
     scales <- tclvalue(axisScales)
     grid <- tclvalue(gridLines)
     ellips <- tclvalue(ellipsoid) 
+    lin <- tclvalue(linearLSSurface)
+    robust <- tclvalue(robustSurface)
     bg <- tclvalue(bgVariable)
     identify <- tclvalue(identifyVariable)
     id.n <- tclvalue(id.n.Var)
@@ -190,13 +196,24 @@ AVPlot3D <- function () {
     }
     putDialog ("AVPlot3D", list(initial.x = x, initial.scales = scales, initial.grid = grid, 
                                 initial.ellips = ellips, 
+                                initial.lin=lin, initial.robust=robust,
                                 initial.bg = bg,
                                 initial.identify=identify, initial.id.n=id.n,
                                 initial.rotations=rotations, initial.tab=tab))
     scales <- if (tclvalue(axisScales) == 1)  "TRUE" else "FALSE"
     grid <- if (tclvalue(gridLines) == 1) "TRUE" else "FALSE"
     ellips <- if (tclvalue(ellipsoid) == 1) "TRUE"else "FALSE"
+    lin <- if (tclvalue(linearLSSurface) == 1)  "\"linear\""
+    robust <- if (tclvalue(robustSurface) == 1)  "\"robust\""
+    surfaces <- c(lin, robust)
+    nsurfaces <- length(surfaces)
     revolutions <- if (rotations != "0") paste(", revolutions =", rotations) else ""
+    fit <- if (nsurfaces == 0) 
+      ", surface=FALSE"
+    else if (nsurfaces == 1) 
+      paste(", fit=", surfaces, sep = "")
+    else paste(", fit=c(", paste(surfaces, collapse = ","), 
+               ")", sep = "")
     if (identify == "mouse"){
       RcmdrTkmessageBox(title="Identify Points",
                         message=gettextRcmdr("Drag right mouse button to identify points,\nclick right button to exit."),
@@ -204,7 +221,7 @@ AVPlot3D <- function () {
     }
     command <- paste("avPlot3d(", activeModel(), ", \"", x[1], "\", \"", x[2], 
                      "\", bg=\"", bg, "\", axis.scales=", scales, 
-                     ", grid=", grid, ", ellipsoid=", ellips, identify.text, revolutions,
+                     ", grid=", grid, ", ellipsoid=", ellips, identify.text, revolutions, fit,
                      ")", sep = "")
     if (identify == "mouse") command <- suppressMarkdown(command)
     doItAndPrint(command)
@@ -225,6 +242,12 @@ AVPlot3D <- function () {
          gridLinesCheckBox, sticky = "w")
   tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Plot 50% concentration ellipsoid")), 
          ellipsoidCheckBox, sticky = "w")
+  tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Surfaces to Fit"), 
+                    fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w")
+  tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Linear least-squares")), 
+         linearLSCheckBox, sticky = "w")
+  tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Robust linear regression")), 
+         robustCheckBox, sticky = "w")
   tkgrid(surfacesFrame, sticky = "w")
   tkgrid(labelRcmdr(bgFrame, text = gettextRcmdr("Background Color"), 
                     fg = getRcmdr("title.color"), font="RcmdrTitleFont"), sticky = "w", columnspan = 2)

@@ -1623,7 +1623,7 @@ Scatter3D <- function () {
   }
   putRcmdr("rgl.command", TRUE)
   defaults <- list (initial.x = NULL, initial.y = NULL, initial.scales = 1, initial.grid = 1, 
-                    initial.resids = 0, initial.lin = 0, initial.quad = 0, initial.nonpar = 0, 
+                    initial.resids = 0, initial.lin = 0, initial.robust=0, initial.quad = 0, initial.nonpar = 0, 
                     initial.additive = 0, initial.ellips = 0, initial.dfNonpar = gettextRcmdr("<auto>"), 
                     initial.dfAdd = gettextRcmdr("<auto>"), initial.bg = "white",
                     initialGroup=NULL, initial.lines.by.group=0, initial.identify="not", initial.id.n="2",
@@ -1649,6 +1649,8 @@ Scatter3D <- function () {
                                              variable = squaredResiduals)
   linearLSSurface <- tclVar(dialog.values$initial.lin)
   linearLSCheckBox <- ttkcheckbutton(surfacesFrame, variable = linearLSSurface)
+  robustSurface <- tclVar(dialog.values$initial.robust)
+  robustCheckBox <- ttkcheckbutton(surfacesFrame, variable = robustSurface)
   quadLSSurface <- tclVar(dialog.values$initial.quad)
   quadLSCheckBox <- ttkcheckbutton(surfacesFrame, variable = quadLSSurface)
   nonparSurface <- tclVar(dialog.values$initial.nonpar)
@@ -1684,6 +1686,7 @@ Scatter3D <- function () {
     grid <- tclvalue(gridLines)
     resids <- tclvalue(squaredResiduals)
     lin <- tclvalue(linearLSSurface)
+    robust <- tclvalue(robustSurface)
     quad <- tclvalue(quadLSSurface)
     nonpar <- tclvalue(nonparSurface)
     additive <- tclvalue(additiveSurface)
@@ -1716,7 +1719,8 @@ Scatter3D <- function () {
       return()
     }
     putDialog ("Scatter3D", list(initial.x = x, initial.y = y, initial.scales = scales, initial.grid = grid, 
-                                 initial.resids = resids, initial.lin = lin, initial.quad = quad, initial.nonpar = nonpar, 
+                                 initial.resids = resids, initial.lin = lin, initial.robust=robust,
+                                 initial.quad = quad, initial.nonpar = nonpar, 
                                  initial.additive = additive, initial.ellips = ellips, initial.dfNonpar = dfNonpar, 
                                  initial.dfAdd = dfAdd, initial.bg = bg, 
                                  initial.group=if (.groups == FALSE) NULL else .groups,
@@ -1734,13 +1738,15 @@ Scatter3D <- function () {
     else ", residuals=TRUE"
     lin <- if (tclvalue(linearLSSurface) == 1) 
       "\"linear\""
+    robust <- if (tclvalue(robustSurface) == 1) 
+      "\"robust\""
     quad <- if (tclvalue(quadLSSurface) == 1) 
       "\"quadratic\""
     nonpar <- if (tclvalue(nonparSurface) == 1) 
       "\"smooth\""
     additive <- if (tclvalue(additiveSurface) == 1) 
       "\"additive\""
-    surfaces <- c(lin, quad, nonpar, additive)
+    surfaces <- c(lin, quad, robust, nonpar, additive)
     nsurfaces <- length(surfaces)
     if (nsurfaces > 1) 
       resids <- ""
@@ -1825,6 +1831,8 @@ Scatter3D <- function () {
          linearLSCheckBox, sticky = "w")
   tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Quadratic least-squares")), 
          quadLSCheckBox, sticky = "w")
+  tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Robust linear regression")), 
+         robustCheckBox, sticky = "w")
   dfLabel <- labelRcmdr(surfacesFrame, text = gettextRcmdr("df = "))
   tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Smooth regression")), 
          nonparCheckBox, dfLabel, dfNonparField, sticky = "w")
