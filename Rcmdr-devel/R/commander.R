@@ -941,6 +941,7 @@ setupGUI <- function(Menus){
                               system.file("etc", if (getRcmdr("capabilities")$pandoc) "Rcmdr-RMarkdown-Template.Rmd"
                                           else "Rcmdr-Markdown-Template.Rmd", package="Rcmdr"))
     template <- paste(readLines(rmd.template), collapse="\n")
+    template <- sub("Your Name", getUserName(), template)
     if (getRcmdr("use.rgl")) template <- paste0(template, 
                                                 "\n\n```{r echo=FALSE}\n# include this code chunk as-is to enable 3D graphs\nlibrary(rgl)\nknitr::knit_hooks$set(webgl = hook_webgl)\n```\n\n")
     tkinsert(.rmd, "end", template)
@@ -960,6 +961,7 @@ setupGUI <- function(Menus){
     rnw.template <- setOption("rnw.template", 
                               system.file("etc", "Rcmdr-knitr-Template.Rnw", package="Rcmdr"))
     template <- paste(readLines(rnw.template), collapse="\n")
+    template <- sub("Your Name", getUserName(), template)
     tkinsert(.rnw, "end", template)
     putRcmdr("knitr.output", FALSE)
     RnwXscroll <- ttkscrollbar(RnwFrame, orient="horizontal",
@@ -1176,6 +1178,7 @@ setupGUI <- function(Menus){
         tkwait.variable(getRcmdr(".commander.done"))
     }
     Message(paste(gettextRcmdr("R Commander Version "), " ", getRcmdr("RcmdrVersion"), ": ", date(), sep=""))
+    Message(paste(gettextRcmdr("Hello "), getUserName(), sep=""))
     if (.Platform$GUI == "Rgui"  && ismdi()) Message(gettextRcmdr(
         "The Windows version of the R Commander works best under\nRGui with the single-document interface (SDI); see ?Commander."),
         type="warning")

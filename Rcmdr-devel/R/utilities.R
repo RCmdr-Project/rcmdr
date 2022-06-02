@@ -1,4 +1,4 @@
-# last modified 2020-08-05 by J. Fox
+# last modified 2022-06-03 by J. Fox
 
 # utility functions
 
@@ -3993,4 +3993,31 @@ Coefficients <- function(includeIntercept=FALSE){
 
 CoefficientsP <- function(n=1, includeIntercept=FALSE){
   length(Coefficients(includeIntercept)) >= n
+}
+
+# the following function isn't exported
+
+getUserName <- function(){
+  if (MacOSXP()) {
+    name <- try(system("id -F", intern=TRUE, ignore.stderr=TRUE),
+                silent=TRUE)
+    if (inherits(name, "try-error")) name <- Sys.info()["user"]
+    if (name == "unknown") name <- "Your Name"
+    return(name)
+  } else if (WindowsP()){
+    name <- Sys.info()["user"]
+    if (name == "unknown") name <- "Your Name"
+    return(name)
+  } else {
+    name <- try(system("finger $(whoami)", intern=TRUE, ignore.stderr=TRUE),
+                silent=TRUE)
+    if (!inherits(name, "try-error")){
+      name <- name[grepl("^Login:", name)]
+      return(sub("^.*Name: ", "", name))
+    } else {
+      name <- Sys.info()["user"]
+      if (name == "unknown") name <- "Your Name"
+      return(name)
+    }
+  }
 }

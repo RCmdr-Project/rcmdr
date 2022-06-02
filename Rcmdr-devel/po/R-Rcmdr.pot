@@ -5446,3 +5446,8 @@ msgstr ""
 
 msgid "3D added-variable plot..." 
 msgstr ""
+
+  # for startup message
+  
+msgid "Hello"
+msgstr ""

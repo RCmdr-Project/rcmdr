@@ -2,6 +2,8 @@ Changes in version 2.8-0
 
   o Small improvements to 3D scatterplot and recode dialogs.
   
+  o User name inferred and used in startup message and documents.
+  
   o New dialogs for 3D component+residual and added-variable plots.
 
 Changes in version 2.7-1
