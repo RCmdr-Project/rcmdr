@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2020-08-05 by John Fox
+# last modified 2022-06-03 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -96,6 +96,7 @@ setupRcmdrOptions <- function(DESCRIPTION){
     putRcmdr("RcmdrVersion", RcmdrVersion)
     RVersion <- paste(R.Version()[c("major", "minor")], collapse=".")
     putRcmdr("RVersion", RVersion)
+    putRcmdr("UserName", getUserName())
     putRcmdr(".activeDataSet", NULL)
     putRcmdr(".activeModel", NULL)
     putRcmdr("nrow", NULL)
@@ -941,7 +942,7 @@ setupGUI <- function(Menus){
                               system.file("etc", if (getRcmdr("capabilities")$pandoc) "Rcmdr-RMarkdown-Template.Rmd"
                                           else "Rcmdr-Markdown-Template.Rmd", package="Rcmdr"))
     template <- paste(readLines(rmd.template), collapse="\n")
-    template <- sub("Your Name", getUserName(), template)
+    template <- sub("Your Name", getRcmdr("UserName"), template)
     if (getRcmdr("use.rgl")) template <- paste0(template, 
                                                 "\n\n```{r echo=FALSE}\n# include this code chunk as-is to enable 3D graphs\nlibrary(rgl)\nknitr::knit_hooks$set(webgl = hook_webgl)\n```\n\n")
     tkinsert(.rmd, "end", template)
@@ -961,7 +962,7 @@ setupGUI <- function(Menus){
     rnw.template <- setOption("rnw.template", 
                               system.file("etc", "Rcmdr-knitr-Template.Rnw", package="Rcmdr"))
     template <- paste(readLines(rnw.template), collapse="\n")
-    template <- sub("Your Name", getUserName(), template)
+    template <- sub("Your Name", getRcmdr("UserName"), template)
     tkinsert(.rnw, "end", template)
     putRcmdr("knitr.output", FALSE)
     RnwXscroll <- ttkscrollbar(RnwFrame, orient="horizontal",
@@ -1178,7 +1179,7 @@ setupGUI <- function(Menus){
         tkwait.variable(getRcmdr(".commander.done"))
     }
     Message(paste(gettextRcmdr("R Commander Version "), " ", getRcmdr("RcmdrVersion"), ": ", date(), sep=""))
-    Message(paste(gettextRcmdr("Hello "), getUserName(), sep=""))
+    Message(paste(gettextRcmdr("Hello "), getRcmdr("UserName"), sep=""))
     if (.Platform$GUI == "Rgui"  && ismdi()) Message(gettextRcmdr(
         "The Windows version of the R Commander works best under\nRGui with the single-document interface (SDI); see ?Commander."),
         type="warning")
