@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2020-08-05 by John Fox
+# last modified 2022-06-08 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -94,6 +94,8 @@ setupRcmdrOptions <- function(DESCRIPTION){
     RcmdrVersion <- trim.blanks(sub("^Version:", "",
                                     grep("^Version:", DESCRIPTION, value=TRUE)))
     putRcmdr("RcmdrVersion", RcmdrVersion)
+    RVersion <- paste(R.Version()[c("major", "minor")], collapse=".")
+    putRcmdr("RVersion", RVersion)
     putRcmdr(".activeDataSet", NULL)
     putRcmdr(".activeModel", NULL)
     putRcmdr("nrow", NULL)
@@ -289,7 +291,8 @@ platformIssues <- function(){
         putRcmdr("oldPager", options(pager=RcmdrPager))
     }
     putRcmdr("restore.help_type", getOption("help_type"))
-    setOption("help_type", "html")
+    # setOption("help_type", "html")
+    if ((!WindowsP()) && getRcmdr("RVersion") == "4.2.0") setOption("help_type", "text") else setOption("help_type", "html")
     options(help_type=getRcmdr("help_type"))
     #    putRcmdr("restore.use.external.help", FALSE)
     putRcmdr("restore.device", getOption("device"))

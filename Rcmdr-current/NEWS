@@ -1,5 +1,9 @@
 Changes in version 2.7-2
 
+  o Use text help for non-Windows system with R 4.2.0 (due to bug in R).
+
+Changes in version 2.7-2
+
   o Use DOI for JSS citations.
 
 Changes in version 2.7-1
