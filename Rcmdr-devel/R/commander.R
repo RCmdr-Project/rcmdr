@@ -95,7 +95,9 @@ setupRcmdrOptions <- function(DESCRIPTION){
                                     grep("^Version:", DESCRIPTION, value=TRUE)))
     putRcmdr("RcmdrVersion", RcmdrVersion)
     RVersion <- paste(R.Version()[c("major", "minor")], collapse=".")
+    RVersionStatus <- R.Version()$status
     putRcmdr("RVersion", RVersion)
+    putRcmdr("RVersionStatus", RVersionStatus)
     putRcmdr("UserName", getUserName())
     putRcmdr(".activeDataSet", NULL)
     putRcmdr(".activeModel", NULL)
@@ -292,7 +294,11 @@ platformIssues <- function(){
         putRcmdr("oldPager", options(pager=RcmdrPager))
     }
     putRcmdr("restore.help_type", getOption("help_type"))
-    if (MacOSXP() && getRcmdr("RVersion") == "4.2.0") setOption("help_type", "text") else setOption("help_type", "html")
+    if ((!WindowsP()) && getRcmdr("RVersion") == "4.2.0" && (getRcmdr("RVersionStatus") != "Patched")) {
+      setOption("help_type", "text")
+      } else {
+        setOption("help_type", "html")
+      }
     options(help_type=getRcmdr("help_type"))
     putRcmdr("restore.device", getOption("device"))
     if (RStudioP()){
