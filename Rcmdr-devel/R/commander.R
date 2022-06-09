@@ -1185,6 +1185,7 @@ setupGUI <- function(Menus){
         tkwait.variable(getRcmdr(".commander.done"))
     }
     Message(paste(gettextRcmdr("R Commander Version "), " ", getRcmdr("RcmdrVersion"), ": ", date(), sep=""))
+    Message(paste(gettextRcmdr("R Version"),  getRcmdr("RVersion"), getRcmdr("RVersionStatus")))
     Message(paste(gettextRcmdr("Hello "), getRcmdr("UserName"), sep=""))
     if (.Platform$GUI == "Rgui"  && ismdi()) Message(gettextRcmdr(
         "The Windows version of the R Commander works best under\nRGui with the single-document interface (SDI); see ?Commander."),
