@@ -1,95 +1,150 @@
 # Statistics Menu dialogs
 
-# last modified 2019-05-15 by J. Fox
+# last modified 2022-06-12 by J. Fox
 
     # Models menu
 
 linearRegressionModel <- function () {
-	defaults <- list(initial.x = NULL, initial.y = NULL, 
-			initial.subset = gettextRcmdr("<all valid cases>"))
-	dialog.values <- getDialog("linearRegressionModel", defaults)
-	initializeDialog(title = gettextRcmdr("Linear Regression"))
-	variablesFrame <- tkframe(top)
-	.numeric <- Numeric()
-	xBox <- variableListBox(variablesFrame, .numeric, selectmode = "multiple", 
-			title = gettextRcmdr("Explanatory variables (pick one or more)"), 
-			initialSelection = varPosn (dialog.values$initial.x, "numeric"))
-	yBox <- variableListBox(variablesFrame, .numeric, title = gettextRcmdr("Response variable (pick one)"), 
-			initialSelection = varPosn (dialog.values$initial.y, "numeric"))
-	UpdateModelNumber()
-	modelName <- tclVar(paste("RegModel.", getRcmdr("modelNumber"), 
-					sep = ""))
-	modelFrame <- tkframe(top)
-	model <- ttkentry(modelFrame, width = "20", textvariable = modelName)
-	subsetBox(subset.expression = dialog.values$initial.subset)
-	onOK <- function() {
-		x <- getSelection(xBox)
-		y <- getSelection(yBox)
-		closeDialog()
-		if (0 == length(y)) {
-			UpdateModelNumber(-1)
-			errorCondition(recall = linearRegressionModel, message = gettextRcmdr("You must select a response variable."))
-			return()
-		}
-		if (0 == length(x)) {
-			UpdateModelNumber(-1)
-			errorCondition(recall = linearRegressionModel, message = gettextRcmdr("No explanatory variables selected."))
-			return()
-		}
-		if (is.element(y, x)) {
-			UpdateModelNumber(-1)
-			errorCondition(recall = linearRegressionModel, message = gettextRcmdr("Response and explanatory variables must be different."))
-			return()
-		}
-		subset <- tclvalue(subsetVariable)
-		putDialog ("linearRegressionModel", list (initial.x = x, initial.y = y, 
-						initial.subset = subset))
-		if (trim.blanks(subset) == gettextRcmdr("<all valid cases>") || 
-				trim.blanks(subset) == "") {
-			subset <- ""
-			putRcmdr("modelWithSubset", FALSE)
-		}
-		else {
-			subset <- paste(", subset=", subset, sep = "")
-			putRcmdr("modelWithSubset", TRUE)
-		}
-		modelValue <- trim.blanks(tclvalue(modelName))
-		if (!is.valid.name(modelValue)) {
-			UpdateModelNumber(-1)
-			errorCondition(recall = linearRegressionModel, message = sprintf(gettextRcmdr("\"%s\" is not a valid name."), 
-							modelValue))
-			return()
-		}
-		if (is.element(modelValue, listLinearModels())) {
-			if ("no" == tclvalue(checkReplace(modelValue, type = gettextRcmdr("Model")))) {
-				UpdateModelNumber(-1)
-				linearRegressionModel()
-				return()
-			}
-		}
-		command <- paste("lm(", y, "~", paste(x, collapse = "+"), 
-				", data=", ActiveDataSet(), subset, ")", sep = "")
-		doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
-		doItAndPrint(paste("summary(", modelValue, ")", sep = ""))
-		activeModel(modelValue)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject = "lm", model = TRUE, reset = "linearRegressionModel", apply = "linearRegressionModel")
-	tkgrid(labelRcmdr(modelFrame, text = gettextRcmdr("Enter name for model:")), 
-			model, sticky = "w")
-	tkgrid(modelFrame, sticky = "w")
-	tkgrid(getFrame(yBox), labelRcmdr(variablesFrame, text = "    "), 
-			getFrame(xBox), sticky = "nw")
-	tkgrid(variablesFrame, sticky = "w")
-	tkgrid(subsetFrame, sticky = "w")
-	tkgrid(buttonsFrame, stick = "w")
-	tkgrid.configure(helpButton, sticky = "e")
-	dialogSuffix()
+  defaults <- list(initial.x = NULL, initial.y = NULL, 
+                   initial.subset = gettextRcmdr("<all valid cases>"),
+                   initial.delete.cases=gettextRcmdr("<use all valid cases>"))
+  dialog.values <- getDialog("linearRegressionModel", defaults)
+  initializeDialog(title = gettextRcmdr("Linear Regression"))
+  variablesFrame <- tkframe(top)
+  .numeric <- Numeric()
+  xBox <- variableListBox(variablesFrame, .numeric, selectmode = "multiple", 
+                          title = gettextRcmdr("Explanatory variables (pick one or more)"), 
+                          initialSelection = varPosn (dialog.values$initial.x, "numeric"))
+  yBox <- variableListBox(variablesFrame, .numeric, title = gettextRcmdr("Response variable (pick one)"), 
+                          initialSelection = varPosn (dialog.values$initial.y, "numeric"))
+  UpdateModelNumber()
+  modelName <- tclVar(paste("RegModel.", getRcmdr("modelNumber"), 
+                            sep = ""))
+  modelFrame <- tkframe(top)
+  model <- ttkentry(modelFrame, width = "20", textvariable = modelName)
+  subsetBox(subset.expression = dialog.values$initial.subset)
+  removeVariable <- tclVar(dialog.values$initial.delete.cases)
+  removeFrame <- tkframe(variablesFrame)
+  removeEntry <- ttkentry(removeFrame, width="60", textvariable=removeVariable)
+  removeScroll <- ttkscrollbar(removeFrame, orient="horizontal",
+                               command=function(...) tkxview(removeEntry, ...))
+  tkconfigure(removeEntry, xscrollcommand=function(...) tkset(removeScroll, ...))
+  onOK <- function() {
+    x <- getSelection(xBox)
+    y <- getSelection(yBox)
+    closeDialog()
+    if (0 == length(y)) {
+      UpdateModelNumber(-1)
+      errorCondition(recall = linearRegressionModel, message = gettextRcmdr("You must select a response variable."))
+      return()
+    }
+    if (0 == length(x)) {
+      UpdateModelNumber(-1)
+      errorCondition(recall = linearRegressionModel, message = gettextRcmdr("No explanatory variables selected."))
+      return()
+    }
+    if (is.element(y, x)) {
+      UpdateModelNumber(-1)
+      errorCondition(recall = linearRegressionModel, message = gettextRcmdr("Response and explanatory variables must be different."))
+      return()
+    }
+    subset.save <- subset <- tclvalue(subsetVariable)
+    remove <- trim.blanks(tclvalue(removeVariable))
+    remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
+      ""
+    } else {
+      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+      if (inherits(remove.rows, "try-error")){
+        UpdateModelNumber(-1)
+        errorCondition(recall=linearRegressionModel,
+                       message=remove.rows)
+        return()
+      }
+      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
+      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
+      if (is.numeric(remove.rows)){
+        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
+        if (any(which.bad <- !remove.rows %in% 1:n)){
+          UpdateModelNumber(-1)
+          errorCondition(recall=linearRegressionModel,
+                         message=paste(gettextRcmdr("bad row numbers:"), 
+                                       paste(as.character(remove.rows[which.bad]), collapse=", ")))
+          return()
+        }
+      } else {
+        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
+          UpdateModelNumber(-1)
+          errorCondition(recall=linearRegressionModel,
+                         message=paste(gettextRcmdr("bad row names:"), 
+                                       paste(remove.rows[which.bad], collapse=", ")))
+          return()          
+        }
+      }
+      paste(", subset =", removeRows)
+    }
+    if (trim.blanks(subset) == gettextRcmdr("<all valid cases>") || 
+        trim.blanks(subset) == "") {
+      subset <- ""
+    }
+    else {
+      subset <- paste(", subset=", subset, sep = "")
+    }
+    if (subset != "" && remove.cases != ""){
+      UpdateModelNumber(-1)
+      errorCondition(recall = linearRegressionModel, 
+                     message = gettextRcmdr("You cannot specify both case removal and subset cases"))
+      return()
+    }
+    modelValue <- trim.blanks(tclvalue(modelName))
+    if (!is.valid.name(modelValue)) {
+      UpdateModelNumber(-1)
+      errorCondition(recall = linearRegressionModel, message = sprintf(gettextRcmdr("\"%s\" is not a valid name."), 
+                                                                       modelValue))
+      return()
+    }
+    if (is.element(modelValue, listLinearModels())) {
+      if ("no" == tclvalue(checkReplace(modelValue, type = gettextRcmdr("Model")))) {
+        UpdateModelNumber(-1)
+        linearRegressionModel()
+        return()
+      }
+    }
+    command <- paste("lm(", y, "~", paste(x, collapse = "+"), 
+                     ", data=", ActiveDataSet(), subset, remove.cases, ")", sep = "")
+    doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
+    doItAndPrint(paste("summary(", modelValue, ")", sep = ""))
+    activeModel(modelValue)
+    if (subset != "" || remove.cases != "") putRcmdr("modelWithSubset", TRUE) else putRcmdr("modelWithSubset", FALSE)
+    initial.delete.cases <- if (remove.cases == "") gettextRcmdr("<use all valid cases>") else remove 
+    putDialog ("linearRegressionModel", list (initial.x = x, initial.y = y, 
+                                              initial.subset = if (subset == "") gettextRcmdr("<all valid cases>") else subset.save,
+                                              initial.delete.cases = initial.delete.cases))
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject = "lm", model = TRUE, reset = "linearRegressionModel", apply = "linearRegressionModel")
+  tkgrid(labelRcmdr(modelFrame, text = gettextRcmdr("Enter name for model:")), 
+         model, sticky = "w")
+  tkgrid(modelFrame, sticky = "w")
+  tkgrid(getFrame(yBox), labelRcmdr(variablesFrame, text = "    "), 
+         getFrame(xBox), sticky = "nw")
+  tkgrid(variablesFrame, sticky = "w")
+  tkgrid(labelRcmdr(removeFrame, text=" "))
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+                    foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+  tkgrid(removeEntry, sticky="w")
+  tkgrid(removeScroll, sticky="ew")
+  tkgrid(removeFrame, sticky="nw", columnspan=3)
+  tkgrid(subsetFrame, sticky = "w")
+  tkgrid(buttonsFrame, stick = "w")
+  tkgrid.configure(helpButton, sticky = "e")
+  dialogSuffix()
 }
 
 linearModel <- function(){
   initializeDialog(title=gettextRcmdr("Linear Model"))
-  defaults <- list(initial.weight = gettextRcmdr("<no variable selected>"))
+  defaults <- list(initial.weight = gettextRcmdr("<no variable selected>"),
+                   initial.delete.cases=gettextRcmdr("<use all valid cases>"))
   dialog.values <- getDialog("linearModel", defaults)
   .activeModel <- ActiveModel()
   currentModel <- if (!is.null(.activeModel))
@@ -107,9 +162,15 @@ linearModel <- function(){
   modelName <- tclVar(paste("LinearModel.", getRcmdr("modelNumber"), sep=""))
   modelFrame <- tkframe(top)
   model <- ttkentry(modelFrame, width="20", textvariable=modelName)
+  removeVariable <- tclVar(dialog.values$initial.delete.cases)
+  removeFrame <- tkframe(top)
+  removeEntry <- ttkentry(removeFrame, width="60", textvariable=removeVariable)
+  removeScroll <- ttkscrollbar(removeFrame, orient="horizontal",
+                               command=function(...) tkxview(removeEntry, ...))
+  tkconfigure(removeEntry, xscrollcommand=function(...) tkset(removeScroll, ...))
   onOK <- function(){
-    modelValue <- trim.blanks(tclvalue(modelName))
     closeDialog()
+    modelValue <- trim.blanks(tclvalue(modelName))
     if (!is.valid.name(modelValue)){
       errorCondition(recall=linearModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
       return()
@@ -117,14 +178,11 @@ linearModel <- function(){
     subset <- tclvalue(subsetVariable)
     if (trim.blanks(subset) == gettextRcmdr("<all valid cases>") || trim.blanks(subset) == ""){
       subset <- ""
-      putRcmdr("modelWithSubset", FALSE)
     }
     else{
       subset <- paste(", subset=", subset, sep="")
-      putRcmdr("modelWithSubset", TRUE)
     }
     weight.var <- getSelection(weightComboBox)
-    putDialog("linearModel", list(initial.weight = weight.var))
     weights <- if (weight.var == gettextRcmdr("<no variable selected>")) ""
     else paste(", weights=", weight.var, sep="")
     check.empty <- gsub(" ", "", tclvalue(lhsVariable))
@@ -144,12 +202,54 @@ linearModel <- function(){
         return()
       }
     }
+    remove <- trim.blanks(tclvalue(removeVariable))
+    remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
+      ""
+    } else {
+      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+      if (inherits(remove.rows, "try-error")){
+        errorCondition(recall=linearModel,
+                       message=remove.rows, model=TRUE)
+        return()
+      }
+      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
+      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
+      if (is.numeric(remove.rows)){
+        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
+        if (any(which.bad <- !remove.rows %in% 1:n)){
+          errorCondition(recall=linearModel,
+                         message=paste(gettextRcmdr("bad row numbers:"), 
+                                       paste(as.character(remove.rows[which.bad]), collapse=", ")),
+                         model=TRUE)
+          return()
+        }
+      } else {
+        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
+          errorCondition(recall=linearModel,
+                         message=paste(gettextRcmdr("bad row names:"), 
+                                       paste(remove.rows[which.bad], collapse=", ")), model=TRUE)
+          return()          
+        }
+      }
+      paste(", subset =", removeRows)
+    }
+    if (subset != "" && remove.cases != ""){
+      errorCondition(recall = linearModel, 
+                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), 
+                     model=TRUE)
+      return()
+    }
     formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
     command <- paste("lm(", formula,
-                     ", data=", ActiveDataSet(), subset, weights, ")", sep="")
+                     ", data=", ActiveDataSet(), subset, weights, remove.cases, ")", sep="")
     doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
     doItAndPrint(paste("summary(", modelValue, ")", sep=""))
     activeModel(modelValue)
+    if (subset != "" || remove.cases != "") putRcmdr("modelWithSubset", TRUE) else putRcmdr("modelWithSubset", FALSE)
+    initial.delete.cases <- gettextRcmdr("<use all valid cases>")
+    putDialog("linearModel", list(initial.weight = weight.var, 
+                                  initial.delete.cases = initial.delete.cases))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject="linearModel", model=TRUE, reset="resetLinearModel", apply="linearModel")
@@ -164,6 +264,12 @@ linearModel <- function(){
   tkgrid(getFrame(xBox), sticky="w")
   tkgrid(outerOperatorsFrame, sticky="w")
   tkgrid(formulaFrame, sticky="w")
+  tkgrid(labelRcmdr(removeFrame, text=" "))
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+                    foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+  tkgrid(removeEntry, sticky="w")
+  tkgrid(removeScroll, sticky="ew")
+  tkgrid(removeFrame, sticky="nw", columnspan=3)
   tkgrid(subsetFrame, tklabel(subsetWeightFrame, text="   "),
          getFrame(weightComboBox), sticky="nw")
   tkgrid(subsetWeightFrame, sticky="w")
@@ -196,7 +302,8 @@ generalizedLinearModel <- function(){
   colnames(availableLinks) <- links
   canonicalLinks <- c("identity", "logit", "log", "inverse", "1/mu^2", "logit", "log")
   names(canonicalLinks) <- families
-  defaults <- list(initial.weight = gettextRcmdr("<no variable selected>"))
+  defaults <- list(initial.weight = gettextRcmdr("<no variable selected>"),
+                   initial.delete.cases=gettextRcmdr("<use all valid cases>"))
   dialog.values <- getDialog("generalizedLinearModel", defaults)
   initializeDialog(title=gettextRcmdr("Generalized Linear Model"))
   .activeModel <- ActiveModel()
@@ -243,6 +350,12 @@ generalizedLinearModel <- function(){
     tkconfigure(linkBox, height=length(availLinks))
     tkselection.set(linkBox, which(canLink == availLinks) - 1)
   }
+  removeVariable <- tclVar(dialog.values$initial.delete.cases)
+  removeFrame <- tkframe(top)
+  removeEntry <- ttkentry(removeFrame, width="60", textvariable=removeVariable)
+  removeScroll <- ttkscrollbar(removeFrame, orient="horizontal",
+                               command=function(...) tkxview(removeEntry, ...))
+  tkconfigure(removeEntry, xscrollcommand=function(...) tkset(removeScroll, ...))
   onOK <- function(){
     check.empty <- gsub(" ", "", tclvalue(lhsVariable))
     if ("" == check.empty) {
@@ -275,29 +388,68 @@ generalizedLinearModel <- function(){
     closeDialog()
     if (trim.blanks(subset) == gettextRcmdr("<all valid cases>") || trim.blanks(subset) == ""){
       subset <- ""
-      putRcmdr("modelWithSubset", FALSE)
     }
     else{
       subset <- paste(", subset=", subset, sep="")
-      putRcmdr("modelWithSubset", TRUE)
     }
     weight.var <- getSelection(weightComboBox)
-    putDialog("generalizedLinearModel", list(initial.weight = weight.var))
     weights <- if (weight.var == gettextRcmdr("<no variable selected>")) ""
     else paste(", weights=", weight.var, sep="")
-    command <- paste("glm(", formula, ", family=", family, "(", link,
-                     "), data=", ActiveDataSet(), subset, weights, ")", sep="")
+    
+    remove <- trim.blanks(tclvalue(removeVariable))
+    remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
+      ""
+    } else {
+      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+      if (inherits(remove.rows, "try-error")){
+        errorCondition(recall=generalizedLinearModel,
+                       message=remove.rows, model=TRUE)
+        return()
+      }
+      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
+      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
+      if (is.numeric(remove.rows)){
+        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
+        if (any(which.bad <- !remove.rows %in% 1:n)){
+          errorCondition(recall=generalizedLinearModel,
+                         message=paste(gettextRcmdr("bad row numbers:"), 
+                                       paste(as.character(remove.rows[which.bad]), collapse=", ")), model=TRUE)
+          return()
+        }
+      } else {
+        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
+          errorCondition(recall=generalizedLinearModel,
+                         message=paste(gettextRcmdr("bad row names:"), 
+                                       paste(remove.rows[which.bad], collapse=", ")), model=TRUE)
+          return()          
+        }
+      }
+      paste(", subset =", removeRows)
+    }
+    if (subset != "" && remove.cases != ""){
+      errorCondition(recall = generalizedLinearModel, 
+                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), model=TRUE)
+      return()
+    }
+    initial.delete.cases <- gettextRcmdr("<use all valid cases>")
+    putDialog("generalizedLinearModel", list(initial.weight = weight.var, 
+                                             initial.delete.cases = initial.delete.cases))
+    
+    command <- paste("glm(", formula, ", family=", family, "(", link, 
+                     "), data=", ActiveDataSet(), subset, weights, remove.cases, ")", sep="")
     doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
     doItAndPrint(paste("summary(", modelValue, ")", sep=""))
     activeModel(modelValue)
     if ((family == "binomial" || family =="quasibinomial") && link == "logit"){
       doItAndPrint(paste0("exp(coef(", modelValue,
-            '))  # Exponentiated coefficients ("odds ratios")'))
+                          '))  # Exponentiated coefficients ("odds ratios")'))
     }
     if ((family == "poisson" || family =="quasipoisson") && link == "log"){
       doItAndPrint(paste0("exp(coef(", modelValue,
                           '))  # Exponentiated coefficients'))
     }
+    if (subset != "" || remove.cases != "") putRcmdr("modelWithSubset", TRUE) else putRcmdr("modelWithSubset", FALSE)
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject="generalizedLinearModel", model=TRUE, reset="resetGLM", apply="generalizedLinearModel")
@@ -309,24 +461,28 @@ generalizedLinearModel <- function(){
   tkgrid(formulaFrame, sticky="w")
   tkgrid(subsetFrame, tklabel(subsetWeightFrame, text="   "),
          getFrame(weightComboBox), sticky="nw")
+  tkgrid(labelRcmdr(removeFrame, text=" "))
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+                    foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+  tkgrid(removeEntry, sticky="w")
+  tkgrid(removeScroll, sticky="ew")
+  tkgrid(removeFrame, sticky="nw", columnspan=3)
   tkgrid(subsetWeightFrame, sticky="w")  
   tkgrid(labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Family (double-click to select)"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"),
          labelRcmdr(linkFamilyFrame, text="   "), labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Link function"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
-#  tkgrid(familyBox, familyScroll, sticky="nw")
+  #  tkgrid(familyBox, familyScroll, sticky="nw")
   tkgrid(familyBox, sticky="nw")
   tkgrid(linkBox, sticky="nw")
   tkgrid(familyFrame, labelRcmdr(linkFamilyFrame, text="   "), linkFrame, sticky="nw")
   tkgrid(linkFamilyFrame, sticky="w")
   tkgrid(buttonsFrame, sticky="w")
-#  tkgrid.configure(familyScroll, sticky="ns")
-  fam <- if (currentModel) which(currentFields$family == families) - 1
-  else 1
+  #  tkgrid.configure(familyScroll, sticky="ns")
+  fam <- if (currentModel) which(currentFields$family == families) - 1 else 1
   tkselection.set(familyBox, fam)
   availLinks <- links[availableLinks[fam + 1,]]
   for (lnk in availLinks) tkinsert(linkBox, "end", lnk)
   tkconfigure(linkBox, height=length(availLinks))
-  lnk <- if (currentModel) which(currentFields$link == availLinks) - 1
-  else 0
+  lnk <- if (currentModel) which(currentFields$link == availLinks) - 1 else 0
   tkselection.set(linkBox, lnk)
   tkbind(familyBox, "<Double-ButtonPress-1>", onFamilySelect)
   dialogSuffix(focus=lhsEntry, preventDoubleClick=TRUE)
@@ -340,89 +496,139 @@ resetGLM <- function(){
 }
 
 ordinalRegressionModel <- function(){
-	defaults <- list(initial.type="logistic")
-	dialog.values <- getDialog("ordinalRegressionModel", defaults)
-	Library("MASS")
-	initializeDialog(title=gettextRcmdr("Ordinal Regression Model"))
-	.activeModel <- ActiveModel()
-	.activeDataSet <- ActiveDataSet()
-	currentModel <- if (!is.null(.activeModel))
-				class(get(.activeModel, envir=.GlobalEnv))[1] == "polr"
-			else FALSE
-	if (currentModel) {
-		currentFields <- formulaFields(get(.activeModel, envir=.GlobalEnv))
-		if (currentFields$data != .activeDataSet) currentModel <- FALSE
-	}
-	if (isTRUE(getRcmdr("reset.model"))) {
-		currentModel <- FALSE
-		putRcmdr("reset.model", FALSE)
-	}
-	UpdateModelNumber()
-	modelName <- tclVar(paste("OrdRegModel.", getRcmdr("modelNumber"), sep=""))
-	modelFrame <- tkframe(top)
-	model <- ttkentry(modelFrame, width="20", textvariable=modelName)
-	radioButtons(name="modelType",
-			buttons=c("logistic", "probit"), initialValue=dialog.values$initial.type,
-			labels=gettextRcmdr(c("Proportional-odds logit", "Ordered probit")),
-			title=gettextRcmdr("Type of Model"))
-	onOK <- function(){
-		modelValue <- trim.blanks(tclvalue(modelName))
-		closeDialog()
-		if (!is.valid.name(modelValue)){
-			errorCondition(recall=proportionalOddsModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
-			return()
-		}
-		subset <- tclvalue(subsetVariable)
-		if (trim.blanks(subset) == gettextRcmdr("<all valid cases>") || trim.blanks(subset) == ""){
-			subset <- ""
-			putRcmdr("modelWithSubset", FALSE)
-		}
-		else{
-			subset <- paste(", subset=", subset, sep="")
-			putRcmdr("modelWithSubset", TRUE)
-		}
-		check.empty <- gsub(" ", "", tclvalue(lhsVariable))
-		if ("" == check.empty) {
-			errorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
-			return()
-		}
-		check.empty <- gsub(" ", "", tclvalue(rhsVariable))
-		if ("" == check.empty) {
-			errorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
-			return()
-		}
-		if (!is.factor(eval(parse(text=tclvalue(lhsVariable)), envir=get(.activeDataSet, envir=.GlobalEnv)))){
-			errorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Response variable must be a factor"))
-			return()
-		}
-		if (is.element(modelValue, listProportionalOddsModels())) {
-			if ("no" == tclvalue(checkReplace(modelValue, type=gettextRcmdr("Model")))){
-				UpdateModelNumber(-1)
-				proportionalOddsModel()
-				return()
-			}
-		}
-		putDialog("ordinalRegressionModel", list(initial.type = tclvalue(modelTypeVariable)))
-		formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
-		command <- paste("polr(", formula, ', method="', tclvalue(modelTypeVariable),
-				'", data=', .activeDataSet, subset, ", Hess=TRUE)", sep="")
-		doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
-		doItAndPrint(paste("summary(", modelValue, ")", sep=""))
-		activeModel(modelValue)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject="polr", model=TRUE, reset = "resetPOLR", apply = "ordinalRegressionModel")
-	tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model:")), model, sticky="w")
-	tkgrid(modelFrame, sticky="w")
-	modelFormula()
-	subsetBox(model=TRUE)
-	tkgrid(getFrame(xBox), sticky="w")
-	tkgrid(outerOperatorsFrame, sticky="w")
-	tkgrid(formulaFrame, sticky="w")
-	tkgrid(subsetFrame, sticky="w")
-	tkgrid(modelTypeFrame, sticky="w")
-	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(focus=lhsEntry, preventDoubleClick=TRUE)
+  defaults <- list(initial.type="logistic",
+                   initial.delete.cases=gettextRcmdr("<use all valid cases>"))
+  dialog.values <- getDialog("ordinalRegressionModel", defaults)
+  Library("MASS")
+  initializeDialog(title=gettextRcmdr("Ordinal Regression Model"))
+  .activeModel <- ActiveModel()
+  .activeDataSet <- ActiveDataSet()
+  currentModel <- if (!is.null(.activeModel))
+    class(get(.activeModel, envir=.GlobalEnv))[1] == "polr"
+  else FALSE
+  if (currentModel) {
+    currentFields <- formulaFields(get(.activeModel, envir=.GlobalEnv))
+    if (currentFields$data != .activeDataSet) currentModel <- FALSE
+  }
+  if (isTRUE(getRcmdr("reset.model"))) {
+    currentModel <- FALSE
+    putRcmdr("reset.model", FALSE)
+  }
+  UpdateModelNumber()
+  modelName <- tclVar(paste("OrdRegModel.", getRcmdr("modelNumber"), sep=""))
+  modelFrame <- tkframe(top)
+  model <- ttkentry(modelFrame, width="20", textvariable=modelName)
+  radioButtons(name="modelType",
+               buttons=c("logistic", "probit"), initialValue=dialog.values$initial.type,
+               labels=gettextRcmdr(c("Proportional-odds logit", "Ordered probit")),
+               title=gettextRcmdr("Type of Model"))
+  removeVariable <- tclVar(dialog.values$initial.delete.cases)
+  removeFrame <- tkframe(top)
+  removeEntry <- ttkentry(removeFrame, width="60", textvariable=removeVariable)
+  removeScroll <- ttkscrollbar(removeFrame, orient="horizontal",
+                               command=function(...) tkxview(removeEntry, ...))
+  tkconfigure(removeEntry, xscrollcommand=function(...) tkset(removeScroll, ...))
+  onOK <- function(){
+    modelValue <- trim.blanks(tclvalue(modelName))
+    closeDialog()
+    if (!is.valid.name(modelValue)){
+      errorCondition(recall=proportionalOddsModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
+      return()
+    }
+    subset <- tclvalue(subsetVariable)
+    if (trim.blanks(subset) == gettextRcmdr("<all valid cases>") || trim.blanks(subset) == ""){
+      subset <- ""
+    }
+    else{
+      subset <- paste(", subset=", subset, sep="")
+    }
+    check.empty <- gsub(" ", "", tclvalue(lhsVariable))
+    if ("" == check.empty) {
+      errorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
+      return()
+    }
+    check.empty <- gsub(" ", "", tclvalue(rhsVariable))
+    if ("" == check.empty) {
+      errorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
+      return()
+    }
+    if (!is.factor(eval(parse(text=tclvalue(lhsVariable)), envir=get(.activeDataSet, envir=.GlobalEnv)))){
+      errorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Response variable must be a factor"))
+      return()
+    }
+    if (is.element(modelValue, listProportionalOddsModels())) {
+      if ("no" == tclvalue(checkReplace(modelValue, type=gettextRcmdr("Model")))){
+        UpdateModelNumber(-1)
+        proportionalOddsModel()
+        return()
+      }
+    }
+    remove <- trim.blanks(tclvalue(removeVariable))
+    remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
+      ""
+    } else {
+      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+      if (inherits(remove.rows, "try-error")){
+        errorCondition(recall=ordinalRegressionModel,
+                       message=remove.rows, model=TRUE)
+        return()
+      }
+      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
+      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
+      if (is.numeric(remove.rows)){
+        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
+        if (any(which.bad <- !remove.rows %in% 1:n)){
+          errorCondition(recall=ordinalRegressionModel,
+                         message=paste(gettextRcmdr("bad row numbers:"), 
+                                       paste(as.character(remove.rows[which.bad]), collapse=", ")), model=TRUE)
+          return()
+        }
+      } else {
+        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
+          errorCondition(recall=ordinalRegressionModel,
+                         message=paste(gettextRcmdr("bad row names:"), 
+                                       paste(remove.rows[which.bad], collapse=", ")), model=TRUE)
+          return()          
+        }
+      }
+      paste(", subset =", removeRows)
+    }
+    if (subset != "" && remove.cases != ""){
+      errorCondition(recall = ordinalRegressionModel, 
+                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), model=TRUE)
+      return()
+    }
+    initial.delete.cases <- gettextRcmdr("<use all valid cases>")
+    putDialog("ordinalRegressionModel", list(initial.type = tclvalue(modelTypeVariable),
+                                             initial.delete.cases = initial.delete.cases))
+    formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
+    command <- paste("polr(", formula, ', method="', tclvalue(modelTypeVariable),
+                     '", data=', .activeDataSet, subset, remove.cases, ", Hess=TRUE)", sep="")
+    doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
+    doItAndPrint(paste("summary(", modelValue, ")", sep=""))
+    activeModel(modelValue)
+    if (subset != "" || remove.cases != "") putRcmdr("modelWithSubset", TRUE) else putRcmdr("modelWithSubset", FALSE)
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject="polr", model=TRUE, reset = "resetPOLR", apply = "ordinalRegressionModel")
+  tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model:")), model, sticky="w")
+  tkgrid(modelFrame, sticky="w")
+  modelFormula()
+  subsetBox(model=TRUE)
+  tkgrid(getFrame(xBox), sticky="w")
+  tkgrid(outerOperatorsFrame, sticky="w")
+  tkgrid(formulaFrame, sticky="w")
+  tkgrid(labelRcmdr(removeFrame, text=" "))
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+                    foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+  tkgrid(removeEntry, sticky="w")
+  tkgrid(removeScroll, sticky="ew")
+  tkgrid(removeFrame, sticky="nw", columnspan=3)
+  tkgrid(subsetFrame, sticky="w")
+  tkgrid(modelTypeFrame, sticky="w")
+  tkgrid(buttonsFrame, sticky="w")
+  dialogSuffix(focus=lhsEntry, preventDoubleClick=TRUE)
 }
 
 resetPOLR <- function(){
@@ -432,81 +638,132 @@ resetPOLR <- function(){
 }
 
 multinomialLogitModel <- function(){
-	Library("nnet")
-	initializeDialog(title=gettextRcmdr("Multinomial Logit Model"))
-	.activeModel <- ActiveModel()
-	.activeDataSet <- ActiveDataSet()
-	currentModel <- if (!is.null(.activeModel))
-				class(get(.activeModel, envir=.GlobalEnv))[1] == "multinom"
-			else FALSE
-	if (currentModel) {
-		currentFields <- formulaFields(get(.activeModel, envir=.GlobalEnv))
-		if (currentFields$data != .activeDataSet) currentModel <- FALSE
-	}
-	if (isTRUE(getRcmdr("reset.model"))) {
-		currentModel <- FALSE
-		putRcmdr("reset.model", FALSE)
-	}
-	UpdateModelNumber()
-	modelName <- tclVar(paste("MLM.", getRcmdr("modelNumber"), sep=""))
-	modelFrame <- tkframe(top)
-	model <- ttkentry(modelFrame, width="20", textvariable=modelName)
-	onOK <- function(){
-		modelValue <- trim.blanks(tclvalue(modelName))
-		closeDialog()
-		if (!is.valid.name(modelValue)){
-			errorCondition(recall=multinomialLogitModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
-			return()
-		}
-		subset <- tclvalue(subsetVariable)
-		if (trim.blanks(subset) == gettextRcmdr("<all valid cases>") || trim.blanks(subset) == ""){
-			subset <- ""
-			putRcmdr("modelWithSubset", FALSE)
-		}
-		else{
-			subset <- paste(", subset=", subset, sep="")
-			putRcmdr("modelWithSubset", TRUE)
-		}
-		check.empty <- gsub(" ", "", tclvalue(lhsVariable))
-		if ("" == check.empty) {
-			errorCondition(recall=multinomialLogitModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
-			return()
-		}
-		check.empty <- gsub(" ", "", tclvalue(rhsVariable))
-		if ("" == check.empty) {
-			errorCondition(recall=multinomialLogitModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
-			return()
-		}
-		if (!is.factor(eval(parse(text=tclvalue(lhsVariable)), envir=get(.activeDataSet, envir=.GlobalEnv)))){
-			errorCondition(recall=multinomialLogitModel, message=gettextRcmdr("Response variable must be a factor"))
-			return()
-		}
-		if (is.element(modelValue, listMultinomialLogitModels())) {
-			if ("no" == tclvalue(checkReplace(modelValue, type=gettextRcmdr("Model")))){
-				UpdateModelNumber(-1)
-				multinomialLogitModel()
-				return()
-			}
-		}
-		formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
-		command <- paste("multinom(", formula,
-				", data=", .activeDataSet, subset, ", trace=FALSE)", sep="")
-		doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
-		doItAndPrint(paste("summary(", modelValue, ", cor=FALSE, Wald=TRUE)", sep=""))
-		activeModel(modelValue)
-		tkfocus(CommanderWindow())
-	}
-	OKCancelHelp(helpSubject="multinom", model=TRUE, reset="resetMNL", apply="multinomialLogitModel")
-	tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model:")), model, sticky="w")
-	tkgrid(modelFrame, sticky="w")
-	modelFormula()
-	subsetBox(model=TRUE)
-	tkgrid(getFrame(xBox), sticky="w")
-	tkgrid(outerOperatorsFrame, sticky="w")
-	tkgrid(formulaFrame, sticky="w")
-	tkgrid(subsetFrame, sticky="w")
-	tkgrid(buttonsFrame, sticky="w")
-	dialogSuffix(focus=lhsEntry, preventDoubleClick=TRUE)
+  Library("nnet")
+  dialog.values <- getDialog("multinomialLogitModel", 
+                             list(initial.delete.cases=gettextRcmdr("<use all valid cases>")))
+  initializeDialog(title=gettextRcmdr("Multinomial Logit Model"))
+  .activeModel <- ActiveModel()
+  .activeDataSet <- ActiveDataSet()
+  currentModel <- if (!is.null(.activeModel))
+    class(get(.activeModel, envir=.GlobalEnv))[1] == "multinom"
+  else FALSE
+  if (currentModel) {
+    currentFields <- formulaFields(get(.activeModel, envir=.GlobalEnv))
+    if (currentFields$data != .activeDataSet) currentModel <- FALSE
+  }
+  if (isTRUE(getRcmdr("reset.model"))) {
+    currentModel <- FALSE
+    putRcmdr("reset.model", FALSE)
+  }
+  UpdateModelNumber()
+  modelName <- tclVar(paste("MLM.", getRcmdr("modelNumber"), sep=""))
+  modelFrame <- tkframe(top)
+  model <- ttkentry(modelFrame, width="20", textvariable=modelName)
+  removeVariable <- tclVar(dialog.values$initial.delete.cases)
+  removeFrame <- tkframe(top)
+  removeEntry <- ttkentry(removeFrame, width="60", textvariable=removeVariable)
+  removeScroll <- ttkscrollbar(removeFrame, orient="horizontal",
+                               command=function(...) tkxview(removeEntry, ...))
+  tkconfigure(removeEntry, xscrollcommand=function(...) tkset(removeScroll, ...))
+  onOK <- function(){
+    modelValue <- trim.blanks(tclvalue(modelName))
+    closeDialog()
+    if (!is.valid.name(modelValue)){
+      errorCondition(recall=multinomialLogitModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
+      return()
+    }
+    subset <- tclvalue(subsetVariable)
+    if (trim.blanks(subset) == gettextRcmdr("<all valid cases>") || trim.blanks(subset) == ""){
+      subset <- ""
+    }
+    else{
+      subset <- paste(", subset=", subset, sep="")
+    }
+    check.empty <- gsub(" ", "", tclvalue(lhsVariable))
+    if ("" == check.empty) {
+      errorCondition(recall=multinomialLogitModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
+      return()
+    }
+    check.empty <- gsub(" ", "", tclvalue(rhsVariable))
+    if ("" == check.empty) {
+      errorCondition(recall=multinomialLogitModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
+      return()
+    }
+    if (!is.factor(eval(parse(text=tclvalue(lhsVariable)), envir=get(.activeDataSet, envir=.GlobalEnv)))){
+      errorCondition(recall=multinomialLogitModel, message=gettextRcmdr("Response variable must be a factor"))
+      return()
+    }
+    if (is.element(modelValue, listMultinomialLogitModels())) {
+      if ("no" == tclvalue(checkReplace(modelValue, type=gettextRcmdr("Model")))){
+        UpdateModelNumber(-1)
+        multinomialLogitModel()
+        return()
+      }
+    }
+    remove <- trim.blanks(tclvalue(removeVariable))
+    remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
+      ""
+    } else {
+      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+      if (inherits(remove.rows, "try-error")){
+        errorCondition(recall=multinomialLogitModel,
+                       message=remove.rows, model=TRUE)
+        return()
+      }
+      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
+      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
+      if (is.numeric(remove.rows)){
+        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
+        if (any(which.bad <- !remove.rows %in% 1:n)){
+          errorCondition(recall=multinomialLogitModel,
+                         message=paste(gettextRcmdr("bad row numbers:"), 
+                                       paste(as.character(remove.rows[which.bad]), collapse=", ")), model=TRUE)
+          return()
+        }
+      } else {
+        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
+          errorCondition(recall=multinomialLogitModel,
+                         message=paste(gettextRcmdr("bad row names:"), 
+                                       paste(remove.rows[which.bad], collapse=", ")), model=TRUE)
+          return()          
+        }
+      }
+      paste(", subset =", removeRows)
+    }
+    if (subset != "" && remove.cases != ""){
+      errorCondition(recall = multinomialLogitModel, 
+                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), model=TRUE)
+      return()
+    }
+    initial.delete.cases <- gettextRcmdr("<use all valid cases>")
+    putDialog("multinomialLogitModel", list(initial.delete.cases = initial.delete.cases))
+    formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
+    command <- paste("multinom(", formula,
+                     ", data=", .activeDataSet, subset, remove.cases, ", trace=FALSE)", sep="")
+    doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
+    doItAndPrint(paste("summary(", modelValue, ", cor=FALSE, Wald=TRUE)", sep=""))
+    activeModel(modelValue)
+    if (subset != "" || remove.cases != "") putRcmdr("modelWithSubset", TRUE) else putRcmdr("modelWithSubset", FALSE)
+    tkfocus(CommanderWindow())
+  }
+  OKCancelHelp(helpSubject="multinom", model=TRUE, reset="resetMNL", apply="multinomialLogitModel")
+  tkgrid(labelRcmdr(modelFrame, text=gettextRcmdr("Enter name for model:")), model, sticky="w")
+  tkgrid(modelFrame, sticky="w")
+  modelFormula()
+  subsetBox(model=TRUE)
+  tkgrid(getFrame(xBox), sticky="w")
+  tkgrid(outerOperatorsFrame, sticky="w")
+  tkgrid(formulaFrame, sticky="w")
+  tkgrid(labelRcmdr(removeFrame, text=" "))
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+                    foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+  tkgrid(removeEntry, sticky="w")
+  tkgrid(removeScroll, sticky="ew")
+  tkgrid(removeFrame, sticky="nw", columnspan=3)
+  tkgrid(subsetFrame, sticky="w")
+  tkgrid(buttonsFrame, sticky="w")
+  dialogSuffix(focus=lhsEntry, preventDoubleClick=TRUE)
 }
 
 resetMNL <- function(){
@@ -542,7 +799,8 @@ formulaFields <- function(model, hasLhs=TRUE, glm=FALSE){
 linearMixedModel <- function(){
   Library("lme4")
   initializeDialog(title=gettextRcmdr("Linear Mixed Model"))
-  defaults <- list(initial.weight = gettextRcmdr("<no variable selected>"), initial.estimType="reml")
+  defaults <- list(initial.weight = gettextRcmdr("<no variable selected>"), initial.estimType="reml",
+                   initial.delete.cases=gettextRcmdr("<use all valid cases>"))
   dialog.values <- getDialog("linearMixedModel", defaults)
   .activeModel <- ActiveModel()
   currentModel <- if (!is.null(.activeModel))
@@ -564,6 +822,12 @@ linearMixedModel <- function(){
                buttons=c("reml", "ml"), initialValue=dialog.values$initial.estimType,
                labels=gettextRcmdr(c("Restricted maximum likelihood (REML)", "Maximum likelihood (ML)")),
                title=gettextRcmdr("Estimation Criterion"))
+  removeVariable <- tclVar(dialog.values$initial.delete.cases)
+  removeFrame <- tkframe(top)
+  removeEntry <- ttkentry(removeFrame, width="60", textvariable=removeVariable)
+  removeScroll <- ttkscrollbar(removeFrame, orient="horizontal",
+                               command=function(...) tkxview(removeEntry, ...))
+  tkconfigure(removeEntry, xscrollcommand=function(...) tkset(removeScroll, ...))
   onOK <- function(){
     modelValue <- trim.blanks(tclvalue(modelName))
     closeDialog()
@@ -574,15 +838,12 @@ linearMixedModel <- function(){
     subset <- tclvalue(subsetVariable)
     if (trim.blanks(subset) == gettextRcmdr("<all valid cases>") || trim.blanks(subset) == ""){
       subset <- ""
-      putRcmdr("modelWithSubset", FALSE)
     }
     else{
       subset <- paste(", subset=", subset, sep="")
-      putRcmdr("modelWithSubset", TRUE)
     }
     weight.var <- getSelection(weightComboBox)
     estimType <- tclvalue(estimTypeVariable)
-    putDialog("linearMixedModel", list(initial.weight = weight.var, initial.estimType=estimType))
     weights <- if (weight.var == gettextRcmdr("<no variable selected>")) ""
     else paste(", weights=", weight.var, sep="")
     check.empty <- gsub(" ", "", tclvalue(lhsVariable))
@@ -606,13 +867,54 @@ linearMixedModel <- function(){
         return()
       }
     }
+    remove <- trim.blanks(tclvalue(removeVariable))
+    remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
+      ""
+    } else {
+      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+      if (inherits(remove.rows, "try-error")){
+        errorCondition(recall=linearMixedModel,
+                       message=remove.rows, model=TRUE)
+        return()
+      }
+      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
+      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
+      if (is.numeric(remove.rows)){
+        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
+        if (any(which.bad <- !remove.rows %in% 1:n)){
+          errorCondition(recall=linearMixedModel,
+                         message=paste(gettextRcmdr("bad row numbers:"), 
+                                       paste(as.character(remove.rows[which.bad]), collapse=", ")), model=TRUE)
+          return()
+        }
+      } else {
+        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
+          errorCondition(recall=linearMixedModel,
+                         message=paste(gettextRcmdr("bad row names:"), 
+                                       paste(remove.rows[which.bad], collapse=", ")), model=TRUE)
+          return()          
+        }
+      }
+      paste(", subset =", removeRows)
+    }
+    if (subset != "" && remove.cases != ""){
+      errorCondition(recall = linearMixedModel, 
+                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), model=TRUE)
+      return()
+    }
+    initial.delete.cases <- gettextRcmdr("<use all valid cases>")
+    putDialog("linearMixedModel", list(initial.weight = weight.var, initial.estimType=estimType,
+                                       initial.delete.cases = initial.delete.cases))
+    
     formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
     reml <- as.character(estimType == "reml")
     command <- paste("lmer(", formula,
-                     ", data=", ActiveDataSet(), subset, weights, ", REML=", reml, ")", sep="")
+                     ", data=", ActiveDataSet(), subset, remove.cases, weights, ", REML=", reml, ")", sep="")
     doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
     doItAndPrint(paste("summary(", modelValue, ")", sep=""))
     activeModel(modelValue)
+    if (subset != "" || remove.cases != "") putRcmdr("modelWithSubset", TRUE) else putRcmdr("modelWithSubset", FALSE)
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject="lmer", model=TRUE, reset="resetLMM", apply="linearMixedModel")
@@ -629,6 +931,12 @@ linearMixedModel <- function(){
   tkgrid(formulaFrame, sticky="w")
   tkgrid(subsetFrame, tklabel(subsetWeightFrame, text="   "),
          getFrame(weightComboBox), sticky="nw")
+  tkgrid(labelRcmdr(removeFrame, text=" "))
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+                    foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+  tkgrid(removeEntry, sticky="w")
+  tkgrid(removeScroll, sticky="ew")
+  tkgrid(removeFrame, sticky="nw", columnspan=3)
   tkgrid(subsetWeightFrame, sticky="w")	
   tkgrid(estimTypeFrame, sticky="w")
   tkgrid(buttonsFrame, sticky="w")
@@ -660,7 +968,8 @@ generalizedLinearMixedModel <- function(){
   colnames(availableLinks) <- links
   canonicalLinks <- c("identity", "logit", "log", "inverse", "1/mu^2", "logit", "log")
   names(canonicalLinks) <- families
-  defaults <- list(initial.weight = gettextRcmdr("<no variable selected>"))
+  defaults <- list(initial.weight = gettextRcmdr("<no variable selected>"),
+                   initial.delete.cases=gettextRcmdr("<use all valid cases>"))
   dialog.values <- getDialog("generalizedLinearMixedModel", defaults)
   initializeDialog(title=gettextRcmdr("Generalized Linear Mixed Model"))
   .activeModel <- ActiveModel()
@@ -695,6 +1004,12 @@ generalizedLinearMixedModel <- function(){
   weightComboBox <- variableComboBox(subsetWeightFrame, variableList=Numeric(), 
                                      initialSelection=dialog.values$initial.weight,
                                      title=gettextRcmdr("Weights"))
+  removeVariable <- tclVar(dialog.values$initial.delete.cases)
+  removeFrame <- tkframe(top)
+  removeEntry <- ttkentry(removeFrame, width="60", textvariable=removeVariable)
+  removeScroll <- ttkscrollbar(removeFrame, orient="horizontal",
+                               command=function(...) tkxview(removeEntry, ...))
+  tkconfigure(removeEntry, xscrollcommand=function(...) tkset(removeScroll, ...))
   onFamilySelect <- function(){
     family <- families[as.numeric(tkcurselection(familyBox)) + 1]
     availLinks <- links[availableLinks[family,]]
@@ -732,6 +1047,38 @@ generalizedLinearMixedModel <- function(){
         return()
       }
     }
+    remove <- trim.blanks(tclvalue(removeVariable))
+    remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
+      ""
+    } else {
+      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+      if (inherits(remove.rows, "try-error")){
+        errorCondition(recall=generalizedLinearMixedModel,
+                       message=remove.rows, model=TRUE)
+        return()
+      }
+      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
+      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
+      if (is.numeric(remove.rows)){
+        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
+        if (any(which.bad <- !remove.rows %in% 1:n)){
+          errorCondition(recall=generalizedLinearMixedModel,
+                         message=paste(gettextRcmdr("bad row numbers:"), 
+                                       paste(as.character(remove.rows[which.bad]), collapse=", ")), model=TRUE)
+          return()
+        }
+      } else {
+        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
+          errorCondition(recall=generalizedLinearMixedModel,
+                         message=paste(gettextRcmdr("bad row names:"), 
+                                       paste(remove.rows[which.bad], collapse=", ")), model=TRUE)
+          return()          
+        }
+      }
+      paste(", subset =", removeRows)
+    }
+    initial.delete.cases <- gettextRcmdr("<use all valid cases>")
     formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
     family <- families[as.numeric(tkcurselection(familyBox)) + 1]
     availLinks <- links[availableLinks[family,]]
@@ -740,18 +1087,22 @@ generalizedLinearMixedModel <- function(){
     closeDialog()
     if (trim.blanks(subset) == gettextRcmdr("<all valid cases>") || trim.blanks(subset) == ""){
       subset <- ""
-      putRcmdr("modelWithSubset", FALSE)
     }
     else{
       subset <- paste(", subset=", subset, sep="")
-      putRcmdr("modelWithSubset", TRUE)
+    }
+    if (subset != "" && remove.cases != ""){
+      errorCondition(recall = generalizedLinearMixedModel, 
+                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), model=TRUE)
+      return()
     }
     weight.var <- getSelection(weightComboBox)
-    putDialog("generalizedLinearMixedModel", list(initial.weight = weight.var))
+    putDialog("generalizedLinearMixedModel", list(initial.weight = weight.var, 
+                                                  initial.delete.cases = initial.delete.cases))
     weights <- if (weight.var == gettextRcmdr("<no variable selected>")) ""
     else paste(", weights=", weight.var, sep="")
     command <- paste("glmer(", formula, ", family=", family, "(", link,
-                     "), data=", ActiveDataSet(), subset, weights, ")", sep="")
+                     "), data=", ActiveDataSet(), subset, remove.cases, weights, ")", sep="")
     doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
     doItAndPrint(paste("summary(", modelValue, ")", sep=""))
     activeModel(modelValue)
@@ -763,6 +1114,7 @@ generalizedLinearMixedModel <- function(){
       doItAndPrint(paste0("exp(coef(", modelValue,
                           '))  # Exponentiated coefficients'))
     }
+    if (subset != "" || remove.cases != "") putRcmdr("modelWithSubset", TRUE) else putRcmdr("modelWithSubset", FALSE)
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject="glmer", model=TRUE, reset="resetGLMM", apply="generalizedLinearMixedModel")
@@ -774,6 +1126,12 @@ generalizedLinearMixedModel <- function(){
   tkgrid(formulaFrame, sticky="w")
   tkgrid(subsetFrame, tklabel(subsetWeightFrame, text="   "),
          getFrame(weightComboBox), sticky="nw")
+  tkgrid(labelRcmdr(removeFrame, text=" "))
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+                    foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
+  tkgrid(removeEntry, sticky="w")
+  tkgrid(removeScroll, sticky="ew")
+  tkgrid(removeFrame, sticky="nw", columnspan=3)
   tkgrid(subsetWeightFrame, sticky="w")  
   tkgrid(labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Family (double-click to select)"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"),
          labelRcmdr(linkFamilyFrame, text="   "), labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Link function"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")

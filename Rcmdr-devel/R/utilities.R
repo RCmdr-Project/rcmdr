@@ -1,4 +1,4 @@
-# last modified 2022-06-03 by J. Fox
+# last modified 2022-06-12 by J. Fox
 
 # utility functions
 
@@ -830,6 +830,7 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
         tkfocus(focus)
         if (getRcmdr("tkwait.dialog") || force.wait) tkwait.window(window)
         if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
+        tkwm.geometry(window, "")
     }
 )
 
