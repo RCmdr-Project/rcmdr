@@ -9,6 +9,8 @@ Changes in version 2.8-0
   o Use text help for non-Windows system with R 4.2.0 (due to bug in R).
   
   o Statistical modeling dialogs gain a case-deletion text box.
+  
+  o New minimum.width and minimum.height Rcmdr options, defaulting to 1000 and 400, respectively.
 
 Changes in version 2.7-1
 

@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2022-06-03 by John Fox
+# last modified 2022-06-12 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -152,6 +152,8 @@ setupRcmdrOptions <- function(DESCRIPTION){
                                             else if ((as.numeric(log.height) != 0) || (!getRcmdr("log.commands"))) 2*as.numeric(log.height)
                                             else 20))
     messages.height <- as.character(setOption("messages.height", 3))
+    setOption("minimum.width", 1000)
+    setOption("minimum.height", 400)
     putRcmdr("saveOptions", options(warn=1, contrasts=getRcmdr("default.contrasts"), width=as.numeric(log.width),
                                     na.action="na.exclude", graphics.record=TRUE))
     setOption("ask.to.exit", TRUE)
@@ -862,6 +864,7 @@ setupGUI <- function(Menus){
     if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
     putRcmdr("commanderWindow", tktoplevel(class="Rcommander"))
     .commander <- CommanderWindow()
+    tkwm.minsize(.commander, getRcmdr("minimum.width"), getRcmdr("minimum.height"))
     tcl("wm", "iconphoto", .commander, "-default", "::image::RlogoIcon")
     placement <- setOption("placement", "", global=FALSE)
     tkwm.geometry(.commander, placement)
