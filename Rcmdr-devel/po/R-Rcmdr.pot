@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2022-06-09 15:30:00\n"
+"POT-Creation-Date: 2022-06-13 09:50:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5450,4 +5450,18 @@ msgstr ""
   # for startup message
   
 msgid "Hello"
+msgstr ""
+
+  # for new optional case-deletion box in statistical model dialogs
+  
+msgid "<use all valid cases>"
+msgstr ""
+
+msgid "bad row numbers:"
+msgstr ""
+
+msgid "bad row names:"
+msgstr ""
+
+msgid "You cannot specify both case removal and subset cases"
 msgstr ""

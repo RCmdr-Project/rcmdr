@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2022-06-12 by John Fox
+# last modified 2022-06-13 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -151,7 +151,7 @@ setupRcmdrOptions <- function(DESCRIPTION){
                                             if (getRcmdr("console.output")) 0
                                             else if ((as.numeric(log.height) != 0) || (!getRcmdr("log.commands"))) 2*as.numeric(log.height)
                                             else 20))
-    messages.height <- as.character(setOption("messages.height", 3))
+    messages.height <- as.character(setOption("messages.height", 4))
     setOption("minimum.width", 1000)
     setOption("minimum.height", 400)
     putRcmdr("saveOptions", options(warn=1, contrasts=getRcmdr("default.contrasts"), width=as.numeric(log.width),
@@ -187,6 +187,8 @@ setupRcmdrOptions <- function(DESCRIPTION){
                                  "zooreg", "timeDate", "xts", "its", "ti", "jul", "timeSeries", "fts",
                                  "Period", "hms", "difftime"))
     setOption("discreteness.threshold", 0)
+    
+    setOption("model.case.deletion", FALSE)
     
     putRcmdr("open.showData.windows", list())
 }

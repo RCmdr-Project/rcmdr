@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2022-06-12 by J. Fox
+# last modified 2022-06-13 by J. Fox
 
     # Models menu
 
@@ -134,7 +134,7 @@ linearRegressionModel <- function () {
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
-  tkgrid(removeFrame, sticky="nw", columnspan=3)
+  if (getRcmdr("model.case.deletion")) tkgrid(removeFrame, sticky="nw", columnspan=3)
   tkgrid(subsetFrame, sticky = "w")
   tkgrid(buttonsFrame, stick = "w")
   tkgrid.configure(helpButton, sticky = "e")
@@ -269,7 +269,7 @@ linearModel <- function(){
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
-  tkgrid(removeFrame, sticky="nw", columnspan=3)
+  if (getRcmdr("model.case.deletion")) tkgrid(removeFrame, sticky="nw", columnspan=3)
   tkgrid(subsetFrame, tklabel(subsetWeightFrame, text="   "),
          getFrame(weightComboBox), sticky="nw")
   tkgrid(subsetWeightFrame, sticky="w")
@@ -466,7 +466,7 @@ generalizedLinearModel <- function(){
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
-  tkgrid(removeFrame, sticky="nw", columnspan=3)
+  if (getRcmdr("model.case.deletion")) tkgrid(removeFrame, sticky="nw", columnspan=3)
   tkgrid(subsetWeightFrame, sticky="w")  
   tkgrid(labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Family (double-click to select)"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"),
          labelRcmdr(linkFamilyFrame, text="   "), labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Link function"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
@@ -624,7 +624,7 @@ ordinalRegressionModel <- function(){
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
-  tkgrid(removeFrame, sticky="nw", columnspan=3)
+  if (getRcmdr("model.case.deletion")) tkgrid(removeFrame, sticky="nw", columnspan=3)
   tkgrid(subsetFrame, sticky="w")
   tkgrid(modelTypeFrame, sticky="w")
   tkgrid(buttonsFrame, sticky="w")
@@ -760,7 +760,7 @@ multinomialLogitModel <- function(){
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
-  tkgrid(removeFrame, sticky="nw", columnspan=3)
+  if (getRcmdr("model.case.deletion")) tkgrid(removeFrame, sticky="nw", columnspan=3)
   tkgrid(subsetFrame, sticky="w")
   tkgrid(buttonsFrame, sticky="w")
   dialogSuffix(focus=lhsEntry, preventDoubleClick=TRUE)
@@ -936,7 +936,7 @@ linearMixedModel <- function(){
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
-  tkgrid(removeFrame, sticky="nw", columnspan=3)
+  if (getRcmdr("model.case.deletion")) tkgrid(removeFrame, sticky="nw", columnspan=3)
   tkgrid(subsetWeightFrame, sticky="w")	
   tkgrid(estimTypeFrame, sticky="w")
   tkgrid(buttonsFrame, sticky="w")
@@ -1131,7 +1131,7 @@ generalizedLinearMixedModel <- function(){
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
-  tkgrid(removeFrame, sticky="nw", columnspan=3)
+  if (getRcmdr("model.case.deletion")) tkgrid(removeFrame, sticky="nw", columnspan=3)
   tkgrid(subsetWeightFrame, sticky="w")  
   tkgrid(labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Family (double-click to select)"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"),
          labelRcmdr(linkFamilyFrame, text="   "), labelRcmdr(linkFamilyFrame, text=gettextRcmdr("Link function"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")

@@ -232,7 +232,9 @@ set none, one, several, or all options. The available options are as follows:
         
     \item{\code{log.width}}{The width of the script and output windows, in characters. The default is 80.}
     
-    \item{\code{messages.height}}{The height of the messages window, in lines. The default is 3.} 
+    \item{\code{messages.height}}{The height of the messages window, in lines. The default is 4.} 
+    
+    \item{\code{model.case.deletion}}{if \code{TRUE} (the default is \code{FALSE}), include a text box for case deletion in statistical-model dialog boxes (e.g., for linear models).}
     
     \item{\code{minimum.width}}{The minimum width, in pixels, for the main R Commander windows; the default is \code{1000}.}
     
