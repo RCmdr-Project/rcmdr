@@ -39,6 +39,8 @@ Click in the weights combo box to see a list of numeric variables in the
 current data set; type a letter in the box to move the selection cursor to the next
 variable beginning with that letter.
 
+There is an optional case-deletion box, whose presence is controlled by the \code{model.case.deletion} R Commander option (see \code{\link{Commander}}). Typing the row numbers (e,g., \code{6 16}) or quoted row names (e.g., \code{"minister" "conductor"}) of cases to be deleted removes these cases from the fitted linear model. You cannot specify \emph{both} a subset expression and case deletion.
+
 If the active model is a generalized linear model, and the active data set has not changed, 
 then the initial values of the left-hand-side,
 right-hand-side, family, link, weights, and subset fields are retained from the active model.
