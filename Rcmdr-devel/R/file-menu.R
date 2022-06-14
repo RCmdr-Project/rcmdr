@@ -1,4 +1,4 @@
-# last modified 2020-01-20 by J. Fox
+# last modified 2022-06-13 by J. Fox
 
 # File (and Edit) menu dialogs
 
@@ -394,6 +394,7 @@ Options <- function(){
   rnw.template <- getRcmdr("rnw.template")
   rnw.standard <- system.file("etc", "Rcmdr-knitr-Template.Rnw", package="Rcmdr")
   use.rgl <- setOption("use.rgl", TRUE)
+  model.case.deletion <- setOption("model.case.deletion", FALSE)
   checkBoxes(closeTab, frame="closeOptionsFrame", boxes=c("askToExit", "askOnExit", "quitR"),
              initialValues=c(ask.to.exit, ask.on.exit, quit.R.on.close),
              labels=gettextRcmdr("Ask to exit Commander", "Ask to save documents on exit", "Quit R on exit"))
@@ -501,12 +502,13 @@ Options <- function(){
   contrasts2Entry <- ttkentry(contrastsFrame, width="15", textvariable=contrasts2)
   checkBoxes(otherTab, frame="otherOptionsFrame", 
              boxes=c("grabFocus", "doubleClick", "sortNames", "showEditButton", "SuppressIconImages",
-                     "retainSelections", "useRgl"),
+                     "retainSelections", "useRgl", "modelCaseDeletion"),
              initialValues=c(grab.focus, double.click, sort.names, show.edit.button, suppress.icon.images,
-                             retain.selections, use.rgl),
+                             retain.selections, use.rgl, model.case.deletion),
              labels=gettextRcmdr("Active window grabs focus", "Double-click presses OK button", 
                                  "Sort variable names alphabetically", "Show edit button",
-                                 "Suppress icon images", "Retain dialog selections", "Use rgl package")
+                                 "Suppress icon images", "Retain dialog selections", "Use rgl package",
+                                 "Include case-deletion box in statistical model dialogs")
   )
   scaleFactorFrame <- tkframe(otherTab)
   scaleFactorVar <- tclVar(if (is.null(scale.factor)) 1.0 else scale.factor)
@@ -583,6 +585,7 @@ Options <- function(){
     suppress.icon.images <- asLogical(tclvalue(SuppressIconImagesVariable))
     retain.selections <- asLogical(tclvalue(retainSelectionsVariable))
     use.rgl <- asLogical(tclvalue(useRglVariable))
+    model.case.deletion <- asLogical(tclvalue(modelCaseDeletionVariable))
     options <- current
     options$ask.to.exit <- ask.to.exit
     options$ask.on.exit <- ask.on.exit
@@ -612,6 +615,7 @@ Options <- function(){
     options$suppress.icon.images <- suppress.icon.images
     options$retain.selections <- retain.selections
     options$use.rgl <- use.rgl
+    options$model.case.deletion <- model.case.deletion
     colors <- c(hex.1, hex.2, hex.3, hex.4, hex.5, hex.6)
     colors <- rgb2col(colors)
     options$log.text.color <- colors[1]
