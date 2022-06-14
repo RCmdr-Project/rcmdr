@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2022-06-13 by J. Fox
+# last modified 2022-06-14 by J. Fox
 
     # Models menu
 
@@ -53,13 +53,17 @@ linearRegressionModel <- function () {
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
       ""
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
       remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
       if (inherits(remove.rows, "try-error")){
-        UpdateModelNumber(-1)
-        errorCondition(recall=linearRegressionModel,
-                       message=remove.rows)
-        return()
+        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
+        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+        if (inherits(remove.rows, "try-error")){
+          UpdateModelNumber(-1)
+          errorCondition(recall=linearRegressionModel,
+                         message=remove.rows)
+          return()
+        }
       }
       removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
       else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
@@ -206,12 +210,17 @@ linearModel <- function(){
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
       ""
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
       remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
       if (inherits(remove.rows, "try-error")){
-        errorCondition(recall=linearModel,
-                       message=remove.rows, model=TRUE)
-        return()
+        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
+        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+        if (inherits(remove.rows, "try-error")){
+          UpdateModelNumber(-1)
+          errorCondition(recall=linearRegressionModel,
+                         message=remove.rows)
+          return()
+        }
       }
       removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
       else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
@@ -400,12 +409,17 @@ generalizedLinearModel <- function(){
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
       ""
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
       remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
       if (inherits(remove.rows, "try-error")){
-        errorCondition(recall=generalizedLinearModel,
-                       message=remove.rows, model=TRUE)
-        return()
+        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
+        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+        if (inherits(remove.rows, "try-error")){
+          UpdateModelNumber(-1)
+          errorCondition(recall=linearRegressionModel,
+                         message=remove.rows)
+          return()
+        }
       }
       removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
       else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
@@ -567,12 +581,17 @@ ordinalRegressionModel <- function(){
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
       ""
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
       remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
       if (inherits(remove.rows, "try-error")){
-        errorCondition(recall=ordinalRegressionModel,
-                       message=remove.rows, model=TRUE)
-        return()
+        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
+        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+        if (inherits(remove.rows, "try-error")){
+          UpdateModelNumber(-1)
+          errorCondition(recall=linearRegressionModel,
+                         message=remove.rows)
+          return()
+        }
       }
       removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
       else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
@@ -704,12 +723,17 @@ multinomialLogitModel <- function(){
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
       ""
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
       remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
       if (inherits(remove.rows, "try-error")){
-        errorCondition(recall=multinomialLogitModel,
-                       message=remove.rows, model=TRUE)
-        return()
+        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
+        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+        if (inherits(remove.rows, "try-error")){
+          UpdateModelNumber(-1)
+          errorCondition(recall=linearRegressionModel,
+                         message=remove.rows)
+          return()
+        }
       }
       removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
       else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
@@ -871,12 +895,17 @@ linearMixedModel <- function(){
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
       ""
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
       remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
       if (inherits(remove.rows, "try-error")){
-        errorCondition(recall=linearMixedModel,
-                       message=remove.rows, model=TRUE)
-        return()
+        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
+        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+        if (inherits(remove.rows, "try-error")){
+          UpdateModelNumber(-1)
+          errorCondition(recall=linearRegressionModel,
+                         message=remove.rows)
+          return()
+        }
       }
       removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
       else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
@@ -1051,12 +1080,17 @@ generalizedLinearMixedModel <- function(){
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
       ""
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
+      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
       remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
       if (inherits(remove.rows, "try-error")){
-        errorCondition(recall=generalizedLinearMixedModel,
-                       message=remove.rows, model=TRUE)
-        return()
+        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
+        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+        if (inherits(remove.rows, "try-error")){
+          UpdateModelNumber(-1)
+          errorCondition(recall=linearRegressionModel,
+                         message=remove.rows)
+          return()
+        }
       }
       removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
       else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
