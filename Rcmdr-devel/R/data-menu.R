@@ -1,4 +1,4 @@
-# last modified 2022-05-28 by J. Fox
+# last modified 2022-06-14 by J. Fox
 
 # Data menu dialogs
 
@@ -2304,16 +2304,38 @@ RemoveRows <- function(){
             closeDialog()
             return()
         }
-        removeRows <- paste("c(", gsub(" ", ",", remove), ")", sep="")
-        remove <- try(eval(parse(text=removeRows)), silent=TRUE)
-        if (inherits(remove, "try-error")){
+        rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
+        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+        if (inherits(remove.rows, "try-error")){
+          rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
+          remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
+          if (inherits(remove.rows, "try-error")){
             errorCondition(recall=RemoveRows,
-                           message=remove)
+                           message=remove.rows)
             closeDialog()
             return()
+          }
+        }
+        if (is.numeric(remove.rows)){
+          n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
+          if (any(which.bad <- !remove.rows %in% 1:n)){
+            errorCondition(recall=RemoveRows,
+                           message=paste(gettextRcmdr("bad row numbers:"), 
+                                         paste(as.character(remove.rows[which.bad]), collapse=", ")))
+            closeDialog()
+            return()
+          }
+        } else {
+          if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
+            errorCondition(recall=RemoveRows,
+                           message=paste(gettextRcmdr("bad row names:"), 
+                                         paste(remove.rows[which.bad], collapse=", ")))
+            closeDialog()
+            return()          
+          }
         }
         closeDialog()
-        removeRows <- if (is.numeric(remove)) paste("-", removeRows, sep="") 
+        removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="")
                       else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
         command <- paste(newName, " <- ", ActiveDataSet(), "[", removeRows, ",]", sep="")
         logger(command)
@@ -2367,16 +2389,40 @@ SelectRows <- function(){
             closeDialog()
             return()
         }
-        selectRows <- paste0("c(", gsub(" ", ",", select), ")")
-        select <- try(eval(parse(text=selectRows)), silent=TRUE)
-        if (inherits(select, "try-error")){
-            errorCondition(recall=SelectRows, message=select)
+        
+        rowsToSelect <- selectRows <- paste("c(", gsub(" +", ", ", select), ")", sep="")
+        select.rows <- try(eval(parse(text=selectRows)), silent=TRUE)
+        if (inherits(select.rows, "try-error")){
+          rowsToSelect <- selectRows <- paste("c('", gsub(" +", "', '", select), "')", sep="")
+          select.rows <- try(eval(parse(text=selectRows)), silent=TRUE)
+          if (inherits(select.rows, "try-error")){
+            errorCondition(recall=SelectRows,
+                           message=select.rows)
             closeDialog()
             return()
+          }
         }
+        if (is.numeric(select.rows)){
+          n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
+          if (any(which.bad <- !select.rows %in% 1:n)){
+            errorCondition(recall=SelectRows,
+                           message=paste(gettextRcmdr("bad row numbers:"), 
+                                         paste(as.character(select.rows[which.bad]), collapse=", ")))
+            closeDialog()
+            return()
+          }
+        } else {
+          if (any(which.bad <- eval(parse(text=paste("!", rowsToSelect, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
+            errorCondition(recall=SelectRows,
+                           message=paste(gettextRcmdr("bad row names:"), 
+                                         paste(select.rows[which.bad], collapse=", ")))
+            closeDialog()
+            return()          
+          }
+        }
+        
         closeDialog()
-        selectRows <- if (is.numeric(select)) paste0(selectRows) 
-                      else paste0("rownames(", ActiveDataSet(), ") %in% ", selectRows)
+        if (!is.numeric(select.rows)) selectRows <- paste0("rownames(", ActiveDataSet(), ") %in% ", selectRows)
         command <- paste0(newName, " <- ", ActiveDataSet(), "[", selectRows, ", ")
         if (ncol(get(ActiveDataSet())) == 1) command <- paste0(command, ", drop = FALSE")
         command <- paste0(command, "]")

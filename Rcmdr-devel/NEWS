@@ -11,6 +11,8 @@ Changes in version 2.8-0
   o Statistical modeling dialogs gain an optional case-deletion text box.
   
   o New minimum.width and minimum.height Rcmdr options, defaulting to 1000 and 400, respectively.
+  
+  o Small improvements.
 
 Changes in version 2.7-1
 
