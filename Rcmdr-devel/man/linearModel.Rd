@@ -30,7 +30,7 @@ Click in the weights combo box to see a list of numeric variables in the
 current data set; type a letter in the box to move the selection cursor to the next
 variable beginning with that letter.
 
-There is an optional case-deletion box, whose presence is controlled by the \code{model.case.deletion} R Commander option (see \code{\link{Commander}}). Typing the row numbers (e,g., \code{6 16}) or quoted row names (e.g., \code{"minister" "conductor"}) of cases to be deleted removes these cases from the fitted linear model. The quotes around row names can be omitted if the row names don't have embedded blanks (e.g., \code{minister conductor}). You cannot specify \emph{both} a subset expression and case deletion.
+There is an optional case-deletion box, whose presence is controlled by the \code{model.case.deletion} R Commander option (see \code{\link{Commander}}). Typing the row numbers (e,g., \code{6 16}) or row names (e.g., \code{minister conductor}) of cases to be deleted removes these cases from the fitted linear model. Row names with embedded blanks must be quoted (e.g., \code{"railroad engineer"}), in which case \emph{all} row names specified should be quoted (e.g., \code{"railroad engineer" "minister"}). You cannot specify \emph{both} a subset expression and case deletion.
 
 If the active model is a linear model and the active data set has not changed, 
 then the initial values of the left-hand-side,

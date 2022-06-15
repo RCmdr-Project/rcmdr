@@ -1,4 +1,4 @@
-# last modified 2022-06-14 by J. Fox
+# last modified 2022-06-15 by J. Fox
 
 # Data menu dialogs
 
@@ -2344,7 +2344,7 @@ RemoveRows <- function(){
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject="[.data.frame")
-    tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+    tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or names of row(s) to remove"),
                       foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
     tkgrid(removeEntry, sticky="w")
     tkgrid(removeScroll, sticky="ew")
@@ -2432,7 +2432,7 @@ SelectRows <- function(){
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject="[.data.frame")
-    tkgrid(labelRcmdr(selectFrame, text=gettextRcmdr("Indices or quoted names of row(s) to select"),
+    tkgrid(labelRcmdr(selectFrame, text=gettextRcmdr("Indices or names of row(s) to select"),
                       foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
     tkgrid(selectEntry, sticky="w")
     tkgrid(selectScroll, sticky="ew")

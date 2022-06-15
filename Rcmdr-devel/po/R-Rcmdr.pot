@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2022-06-13 22:10:00\n"
+"POT-Creation-Date: 2022-06-15 09:10:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5454,6 +5454,9 @@ msgstr ""
 
   # for new optional case-deletion box in statistical model dialogs
   
+msgid "Indices or names of row(s) to remove"
+msgstr ""
+  
 msgid "<use all valid cases>"
 msgstr ""
 
@@ -5467,4 +5470,9 @@ msgid "You cannot specify both case removal and subset cases"
 msgstr ""
 
 msgid "Include case-deletion box in statistical model dialogs")
+msgstr ""
+
+  # rephrased message for case-selecction dialog in data menu
+  
+msgid "Indices or names of row(s) to select"
 msgstr ""

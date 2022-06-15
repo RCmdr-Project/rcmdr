@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2022-06-14 by J. Fox
+# last modified 2022-06-15 by J. Fox
 
     # Models menu
 
@@ -134,7 +134,7 @@ linearRegressionModel <- function () {
          getFrame(xBox), sticky = "nw")
   tkgrid(variablesFrame, sticky = "w")
   tkgrid(labelRcmdr(removeFrame, text=" "))
-  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or names of row(s) to remove"),
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
@@ -274,7 +274,7 @@ linearModel <- function(){
   tkgrid(outerOperatorsFrame, sticky="w")
   tkgrid(formulaFrame, sticky="w")
   tkgrid(labelRcmdr(removeFrame, text=" "))
-  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or names of row(s) to remove"),
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
@@ -476,7 +476,7 @@ generalizedLinearModel <- function(){
   tkgrid(subsetFrame, tklabel(subsetWeightFrame, text="   "),
          getFrame(weightComboBox), sticky="nw")
   tkgrid(labelRcmdr(removeFrame, text=" "))
-  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or names of row(s) to remove"),
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
@@ -639,7 +639,7 @@ ordinalRegressionModel <- function(){
   tkgrid(outerOperatorsFrame, sticky="w")
   tkgrid(formulaFrame, sticky="w")
   tkgrid(labelRcmdr(removeFrame, text=" "))
-  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or names of row(s) to remove"),
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
@@ -780,7 +780,7 @@ multinomialLogitModel <- function(){
   tkgrid(outerOperatorsFrame, sticky="w")
   tkgrid(formulaFrame, sticky="w")
   tkgrid(labelRcmdr(removeFrame, text=" "))
-  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or names of row(s) to remove"),
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
@@ -961,7 +961,7 @@ linearMixedModel <- function(){
   tkgrid(subsetFrame, tklabel(subsetWeightFrame, text="   "),
          getFrame(weightComboBox), sticky="nw")
   tkgrid(labelRcmdr(removeFrame, text=" "))
-  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or names of row(s) to remove"),
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
@@ -1161,7 +1161,7 @@ generalizedLinearMixedModel <- function(){
   tkgrid(subsetFrame, tklabel(subsetWeightFrame, text="   "),
          getFrame(weightComboBox), sticky="nw")
   tkgrid(labelRcmdr(removeFrame, text=" "))
-  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or quoted names of row(s) to remove"),
+  tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or names of row(s) to remove"),
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
   tkgrid(removeScroll, sticky="ew")
