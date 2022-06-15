@@ -49,6 +49,7 @@
 \alias{formulaFields}
 \alias{flushDialogMemory}
 \alias{gassign}
+\alias{getCases}
 \alias{getDialog}
 \alias{getFrame}
 \alias{getFrame.combobox}
@@ -218,6 +219,7 @@ factorsP(n=1)
 formulaFields(model, hasLhs=TRUE, glm=FALSE)
 flushDialogMemory(what)
 gassign(x, value)
+getCases(cases, remove=TRUE)
 getDialog(dialog, defaults=NULL)
 \method{getFrame}{combobox}(object)
 \method{getFrame}{listbox}(object)
@@ -363,6 +365,7 @@ commanderPosition()
     including the name of a column added by a plug-in; see \code{model-capabilities.txt} in the \pkg{Rcmdr}
     sources for the standard table; e.g., \code{"sum"} indicates the availability of an applicable \code{summary()}
     method for the current model.}
+  \item{cases}{a character string of case number or names to be removed or retained, separated by blanks.}
   \item{class}{quoted name of class.}
   \item{columns}{number of columns into which to arrange check boxes or radio buttons; boxes and buttons are
     filled by rows; the default is 1 and the allowed values are 1, 2, 3, and 4.}
@@ -461,10 +464,11 @@ commanderPosition()
     double.click option is set; necessary for statistical modelling dialogs, which use double-clicking
     to build the model formula.}
   \item{preventCrisp}{this argument is ignored, and is present only for backwards compatibility.}
+  \item{ratio}{If \code{FALSE}, the default, the test will be expressed as a test for a difference (e.g., a difference in means); if \code{TRUE}, as a test for a ratio (e.g., a ratio of variances).}
   \item{recall}{function to call after error --- usually the function that initiates the dialog.}
   \item{release}{release the focus if the grab.focus option has been set. In
   \code{MacOSXP}, the minimum release (version) required.}
-  \item{ratio}{If \code{FALSE}, the default, the test will be expressed as a test for a difference (e.g., a difference in means); if \code{TRUE}, as a test for a ratio (e.g., a ratio of variances).}
+  \item{remove}{If \code{TRUE}, the default, return a character string that evaluates to an expression of case numbers or names to remove from the data set; if \code{FALSE}, return a character string that evaluates for an expression of case numbers or names to retain.}
   \item{reportError}{if \code{TRUE}, report an error message.}
   \item{reset}{quoted name of dialog function, to be invoked with all defaults by Reset button.}
   \item{resettable}{should dialog state be reset when the data set changes? The default is 
@@ -647,6 +651,8 @@ commanderPosition()
   as a vector; the default method just calls \code{coef}.
   
   The function \code{RExcelSupported} is used for the RExcel interface.
+  
+  The function \code{getCases} takes a character string of case names or numbers as an argument and returns a character string that evaluates to an expression either to delete or retain these cases.
   
   Some of these functions, marked \code{# macro} under \emph{Usage}, are "macro-like" in their behaviour, in that they 
   execute in the environment from which they are called. These were defined with an adaptation (used with permission) of

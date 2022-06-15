@@ -1,4 +1,4 @@
-# last modified 2022-06-12 by J. Fox
+# last modified 2022-06-15 by J. Fox
 
 # utility functions
 
@@ -4021,4 +4021,42 @@ getUserName <- function(){
       return(name)
     }
   }
+}
+
+# to assist implementation of case deletion/retention
+
+getCases <- function(cases, remove=TRUE){
+  rows <- Rows <- paste("c(", gsub(" +", ", ", cases), ")", sep="")
+  cases.rows <- try(eval(parse(text=Rows)), silent=TRUE)
+  if (inherits(cases.rows, "try-error")){
+    rows <- Rows <- paste("c('", gsub(" +", "', '", cases), "')", sep="")
+    cases.rows <- try(eval(parse(text=Rows)), silent=TRUE)
+    if (inherits(cases.rows, "try-error")){
+      error <- cases.rows
+      class(error) <- c(class(error), "cases-error")
+      return(error)
+    }
+  }
+  if (remove) {
+    Rows <- if (is.numeric(cases.rows)) paste("-", Rows, sep="") 
+    else paste("!(rownames(", ActiveDataSet(), ") %in% ", Rows, ")", sep="")
+  }
+  else if (is.character(cases.rows)) Rows <- paste("rownames(", ActiveDataSet(), ") %in% ", Rows, sep="")
+  if (is.numeric(cases.rows)){
+    n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
+    if (any(which.bad <- !cases.rows %in% 1:n)){
+      error <- paste(gettextRcmdr("bad rows numbers:"), 
+                     paste(as.character(cases.rows[which.bad]), collapse=", "))
+      class(error) <- c(class(error), "cases-error")
+      return(error)
+    }
+  } else {
+    if (any(which.bad <- eval(parse(text=paste("!", rows, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
+      error <- paste(gettextRcmdr("bad rows names:"), 
+                     paste(cases.rows[which.bad], collapse=", "))
+      class(error) <- c(class(error), "cases-error")
+      return(error)          
+    }
+  }
+  Rows
 }

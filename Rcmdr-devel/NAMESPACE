@@ -1,4 +1,4 @@
-# last modified 2022-05-28 by J. Fox
+# last modified 2022-06-15 by J. Fox
 
 import(splines, tcltk, RcmdrMisc, car, effects)
 importFrom(utils, available.packages, install.packages, assignInMyNamespace, 
@@ -29,7 +29,7 @@ commanderPosition, CommanderWindow, # Confint,
 dataSetsP, defmacro,
 dialogSuffix, DiscreteNumeric, discreteNumericP, doItAndPrint, exists.method, errorCondition, 
 Factors, factorsP, formulaFields, flushDialogMemory, 
-gassign, getDialog, getFrame, getRcmdr, getSelection, gettextRcmdr,
+gassign, getCases, getDialog, getFrame, getRcmdr, getSelection, gettextRcmdr,
 glmP, GrabFocus, groupsBox, groupsLabel, hclustSolutionsP, initializeDialog, 
 is.SciViews, is.valid.name, is.valid.number, justDoIt, knitrP, labelRcmdr, Library,
 listAllModels, listAOVModels, listDataSets, listDiscreteNumeric, listFactors, listGeneralizedLinearModels, 

@@ -48,45 +48,20 @@ linearRegressionModel <- function () {
       errorCondition(recall = linearRegressionModel, message = gettextRcmdr("Response and explanatory variables must be different."))
       return()
     }
-    subset.save <- subset <- tclvalue(subsetVariable)
     remove <- trim.blanks(tclvalue(removeVariable))
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
-      ""
+      "" 
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
-      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-      if (inherits(remove.rows, "try-error")){
-        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
-        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-        if (inherits(remove.rows, "try-error")){
-          UpdateModelNumber(-1)
-          errorCondition(recall=linearRegressionModel,
-                         message=remove.rows)
-          return()
-        }
-      }
-      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
-      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
-      if (is.numeric(remove.rows)){
-        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
-        if (any(which.bad <- !remove.rows %in% 1:n)){
-          UpdateModelNumber(-1)
-          errorCondition(recall=linearRegressionModel,
-                         message=paste(gettextRcmdr("bad row numbers:"), 
-                                       paste(as.character(remove.rows[which.bad]), collapse=", ")))
-          return()
-        }
-      } else {
-        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
-          UpdateModelNumber(-1)
-          errorCondition(recall=linearRegressionModel,
-                         message=paste(gettextRcmdr("bad row names:"), 
-                                       paste(remove.rows[which.bad], collapse=", ")))
-          return()          
-        }
-      }
+      removeRows <- getCases(remove, remove=TRUE)
       paste(", subset =", removeRows)
     }
+    if (remove.cases != "" && inherits(removeRows, "cases-error")){
+      errorCondition(recall = linearRegressionModel,
+                     message = removeRows,
+                     model=TRUE)
+      return()
+    }
+    subset.save <- subset <- tclvalue(subsetVariable)
     if (trim.blanks(subset) == gettextRcmdr("<all valid cases>") || 
         trim.blanks(subset) == "") {
       subset <- ""
@@ -208,40 +183,16 @@ linearModel <- function(){
     }
     remove <- trim.blanks(tclvalue(removeVariable))
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
-      ""
+      "" 
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
-      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-      if (inherits(remove.rows, "try-error")){
-        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
-        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-        if (inherits(remove.rows, "try-error")){
-          UpdateModelNumber(-1)
-          errorCondition(recall=linearRegressionModel,
-                         message=remove.rows)
-          return()
-        }
-      }
-      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
-      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
-      if (is.numeric(remove.rows)){
-        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
-        if (any(which.bad <- !remove.rows %in% 1:n)){
-          errorCondition(recall=linearModel,
-                         message=paste(gettextRcmdr("bad row numbers:"), 
-                                       paste(as.character(remove.rows[which.bad]), collapse=", ")),
-                         model=TRUE)
-          return()
-        }
-      } else {
-        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
-          errorCondition(recall=linearModel,
-                         message=paste(gettextRcmdr("bad row names:"), 
-                                       paste(remove.rows[which.bad], collapse=", ")), model=TRUE)
-          return()          
-        }
-      }
+      removeRows <- getCases(remove, remove=TRUE)
       paste(", subset =", removeRows)
+    }
+    if (remove.cases != "" && inherits(removeRows, "cases-error")){
+      errorCondition(recall = linearModel,
+                     message = removeRows,
+                     model=TRUE)
+      return()
     }
     if (subset != "" && remove.cases != ""){
       errorCondition(recall = linearModel, 
@@ -404,46 +355,23 @@ generalizedLinearModel <- function(){
     weight.var <- getSelection(weightComboBox)
     weights <- if (weight.var == gettextRcmdr("<no variable selected>")) ""
     else paste(", weights=", weight.var, sep="")
-    
     remove <- trim.blanks(tclvalue(removeVariable))
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
-      ""
+      "" 
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
-      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-      if (inherits(remove.rows, "try-error")){
-        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
-        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-        if (inherits(remove.rows, "try-error")){
-          UpdateModelNumber(-1)
-          errorCondition(recall=linearRegressionModel,
-                         message=remove.rows)
-          return()
-        }
-      }
-      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
-      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
-      if (is.numeric(remove.rows)){
-        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
-        if (any(which.bad <- !remove.rows %in% 1:n)){
-          errorCondition(recall=generalizedLinearModel,
-                         message=paste(gettextRcmdr("bad row numbers:"), 
-                                       paste(as.character(remove.rows[which.bad]), collapse=", ")), model=TRUE)
-          return()
-        }
-      } else {
-        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
-          errorCondition(recall=generalizedLinearModel,
-                         message=paste(gettextRcmdr("bad row names:"), 
-                                       paste(remove.rows[which.bad], collapse=", ")), model=TRUE)
-          return()          
-        }
-      }
+      removeRows <- getCases(remove, remove=TRUE)
       paste(", subset =", removeRows)
+    }
+    if (remove.cases != "" && inherits(removeRows, "cases-error")){
+      errorCondition(recall = generalizedLinearModel,
+                     message = removeRows,
+                     model=TRUE)
+      return()
     }
     if (subset != "" && remove.cases != ""){
       errorCondition(recall = generalizedLinearModel, 
-                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), model=TRUE)
+                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), 
+                     model=TRUE)
       return()
     }
     initial.delete.cases <- gettextRcmdr("<use all valid cases>")
@@ -546,7 +474,7 @@ ordinalRegressionModel <- function(){
     modelValue <- trim.blanks(tclvalue(modelName))
     closeDialog()
     if (!is.valid.name(modelValue)){
-      errorCondition(recall=proportionalOddsModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
+      errorCondition(recall=ordinalRegressionModel, message=sprintf(gettextRcmdr('"%s" is not a valid name.'), modelValue), model=TRUE)
       return()
     }
     subset <- tclvalue(subsetVariable)
@@ -558,16 +486,16 @@ ordinalRegressionModel <- function(){
     }
     check.empty <- gsub(" ", "", tclvalue(lhsVariable))
     if ("" == check.empty) {
-      errorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
+      errorCondition(recall=ordinalRegressionModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
       return()
     }
     check.empty <- gsub(" ", "", tclvalue(rhsVariable))
     if ("" == check.empty) {
-      errorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
+      errorCondition(recall=ordinalRegressionModel, message=gettextRcmdr("Right-hand side of model empty."), model=TRUE)
       return()
     }
     if (!is.factor(eval(parse(text=tclvalue(lhsVariable)), envir=get(.activeDataSet, envir=.GlobalEnv)))){
-      errorCondition(recall=proportionalOddsModel, message=gettextRcmdr("Response variable must be a factor"))
+      errorCondition(recall=ordinalRegressionModel, message=gettextRcmdr("Response variable must be a factor"))
       return()
     }
     if (is.element(modelValue, listProportionalOddsModels())) {
@@ -579,43 +507,21 @@ ordinalRegressionModel <- function(){
     }
     remove <- trim.blanks(tclvalue(removeVariable))
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
-      ""
+      "" 
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
-      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-      if (inherits(remove.rows, "try-error")){
-        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
-        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-        if (inherits(remove.rows, "try-error")){
-          UpdateModelNumber(-1)
-          errorCondition(recall=linearRegressionModel,
-                         message=remove.rows)
-          return()
-        }
-      }
-      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
-      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
-      if (is.numeric(remove.rows)){
-        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
-        if (any(which.bad <- !remove.rows %in% 1:n)){
-          errorCondition(recall=ordinalRegressionModel,
-                         message=paste(gettextRcmdr("bad row numbers:"), 
-                                       paste(as.character(remove.rows[which.bad]), collapse=", ")), model=TRUE)
-          return()
-        }
-      } else {
-        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
-          errorCondition(recall=ordinalRegressionModel,
-                         message=paste(gettextRcmdr("bad row names:"), 
-                                       paste(remove.rows[which.bad], collapse=", ")), model=TRUE)
-          return()          
-        }
-      }
+      removeRows <- getCases(remove, remove=TRUE)
       paste(", subset =", removeRows)
+    }
+    if (remove.cases != "" && inherits(removeRows, "cases-error")){
+      errorCondition(recall = ordinalRegressionModel,
+                     message = removeRows,
+                     model=TRUE)
+      return()
     }
     if (subset != "" && remove.cases != ""){
       errorCondition(recall = ordinalRegressionModel, 
-                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), model=TRUE)
+                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), 
+                     model=TRUE)
       return()
     }
     initial.delete.cases <- gettextRcmdr("<use all valid cases>")
@@ -721,43 +627,21 @@ multinomialLogitModel <- function(){
     }
     remove <- trim.blanks(tclvalue(removeVariable))
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
-      ""
+      "" 
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
-      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-      if (inherits(remove.rows, "try-error")){
-        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
-        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-        if (inherits(remove.rows, "try-error")){
-          UpdateModelNumber(-1)
-          errorCondition(recall=linearRegressionModel,
-                         message=remove.rows)
-          return()
-        }
-      }
-      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
-      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
-      if (is.numeric(remove.rows)){
-        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
-        if (any(which.bad <- !remove.rows %in% 1:n)){
-          errorCondition(recall=multinomialLogitModel,
-                         message=paste(gettextRcmdr("bad row numbers:"), 
-                                       paste(as.character(remove.rows[which.bad]), collapse=", ")), model=TRUE)
-          return()
-        }
-      } else {
-        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
-          errorCondition(recall=multinomialLogitModel,
-                         message=paste(gettextRcmdr("bad row names:"), 
-                                       paste(remove.rows[which.bad], collapse=", ")), model=TRUE)
-          return()          
-        }
-      }
+      removeRows <- getCases(remove, remove=TRUE)
       paste(", subset =", removeRows)
+    }
+    if (remove.cases != "" && inherits(removeRows, "cases-error")){
+      errorCondition(recall = multinomialLogitModel,
+                     message = removeRows,
+                     model=TRUE)
+      return()
     }
     if (subset != "" && remove.cases != ""){
       errorCondition(recall = multinomialLogitModel, 
-                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), model=TRUE)
+                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), 
+                     model=TRUE)
       return()
     }
     initial.delete.cases <- gettextRcmdr("<use all valid cases>")
@@ -893,43 +777,21 @@ linearMixedModel <- function(){
     }
     remove <- trim.blanks(tclvalue(removeVariable))
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
-      ""
+      "" 
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
-      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-      if (inherits(remove.rows, "try-error")){
-        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
-        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-        if (inherits(remove.rows, "try-error")){
-          UpdateModelNumber(-1)
-          errorCondition(recall=linearRegressionModel,
-                         message=remove.rows)
-          return()
-        }
-      }
-      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
-      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
-      if (is.numeric(remove.rows)){
-        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
-        if (any(which.bad <- !remove.rows %in% 1:n)){
-          errorCondition(recall=linearMixedModel,
-                         message=paste(gettextRcmdr("bad row numbers:"), 
-                                       paste(as.character(remove.rows[which.bad]), collapse=", ")), model=TRUE)
-          return()
-        }
-      } else {
-        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
-          errorCondition(recall=linearMixedModel,
-                         message=paste(gettextRcmdr("bad row names:"), 
-                                       paste(remove.rows[which.bad], collapse=", ")), model=TRUE)
-          return()          
-        }
-      }
+      removeRows <- getCases(remove, remove=TRUE)
       paste(", subset =", removeRows)
+    }
+    if (remove.cases != "" && inherits(removeRows, "cases-error")){
+      errorCondition(recall = linearMixedModel,
+                     message = removeRows,
+                     model=TRUE)
+      return()
     }
     if (subset != "" && remove.cases != ""){
       errorCondition(recall = linearMixedModel, 
-                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), model=TRUE)
+                     message = gettextRcmdr("You cannot specify both case removal and subset cases"), 
+                     model=TRUE)
       return()
     }
     initial.delete.cases <- gettextRcmdr("<use all valid cases>")
@@ -1078,39 +940,16 @@ generalizedLinearMixedModel <- function(){
     }
     remove <- trim.blanks(tclvalue(removeVariable))
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
-      ""
+      "" 
     } else {
-      rowsToRemove <- removeRows <- paste("c(", gsub(" +", ", ", remove), ")", sep="")
-      remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-      if (inherits(remove.rows, "try-error")){
-        rowsToRemove <- removeRows <- paste("c('", gsub(" +", "', '", remove), "')", sep="")
-        remove.rows <- try(eval(parse(text=removeRows)), silent=TRUE)
-        if (inherits(remove.rows, "try-error")){
-          UpdateModelNumber(-1)
-          errorCondition(recall=linearRegressionModel,
-                         message=remove.rows)
-          return()
-        }
-      }
-      removeRows <- if (is.numeric(remove.rows)) paste("-", removeRows, sep="") 
-      else paste("!(rownames(", ActiveDataSet(), ") %in% ", removeRows, ")", sep="")
-      if (is.numeric(remove.rows)){
-        n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
-        if (any(which.bad <- !remove.rows %in% 1:n)){
-          errorCondition(recall=generalizedLinearMixedModel,
-                         message=paste(gettextRcmdr("bad row numbers:"), 
-                                       paste(as.character(remove.rows[which.bad]), collapse=", ")), model=TRUE)
-          return()
-        }
-      } else {
-        if (any(which.bad <- eval(parse(text=paste("!", rowsToRemove, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
-          errorCondition(recall=generalizedLinearMixedModel,
-                         message=paste(gettextRcmdr("bad row names:"), 
-                                       paste(remove.rows[which.bad], collapse=", ")), model=TRUE)
-          return()          
-        }
-      }
+      removeRows <- getCases(remove, remove=TRUE)
       paste(", subset =", removeRows)
+    }
+    if (remove.cases != "" && inherits(removeRows, "cases-error")){
+      errorCondition(recall = generalizedLinearMixedModel,
+                     message = removeRows,
+                     model=TRUE)
+      return()
     }
     initial.delete.cases <- gettextRcmdr("<use all valid cases>")
     formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
