@@ -4045,14 +4045,14 @@ getCases <- function(cases, remove=TRUE){
   if (is.numeric(cases.rows)){
     n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
     if (any(which.bad <- !cases.rows %in% 1:n)){
-      error <- paste(gettextRcmdr("bad rows numbers:"), 
+      error <- paste(gettextRcmdr("bad row numbers:"), 
                      paste(as.character(cases.rows[which.bad]), collapse=", "))
       class(error) <- c(class(error), "cases-error")
       return(error)
     }
   } else {
     if (any(which.bad <- eval(parse(text=paste("!", rows, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
-      error <- paste(gettextRcmdr("bad rows names:"), 
+      error <- paste(gettextRcmdr("bad row names:"), 
                      paste(cases.rows[which.bad], collapse=", "))
       class(error) <- c(class(error), "cases-error")
       return(error)          
