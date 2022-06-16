@@ -735,7 +735,7 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
         tkfocus(focus)
         if (getRcmdr("tkwait.dialog") || force.wait) tkwait.window(window)
         if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
-        tkwm.geometry(window, "")
+#        tkwm.geometry(window, "")
     }
 )
 
