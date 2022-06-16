@@ -1,4 +1,4 @@
-# last modified 2022-06-15 by J. Fox
+# last modified 2022-06-16 by J. Fox
 
 # utility functions
 
@@ -257,101 +257,6 @@ Coef.multinom <- function (object, ...) {
 
 Coef.merMod <- function(object, ...) fixef(object, ...)
 
-#$ Confint methods no longer needed, now in car package:
-# Confint <- function(object, parm, level=0.95, ...) UseMethod("Confint")
-# 
-# Confint.default <- function(object, parm, level = 0.95, ...) {
-#     ci <- confint(object, parm, level, ...)
-#     ci <- cbind(Coef(object)[parm], ci)
-#     colnames(ci)[1] <- "Estimate"
-#     ci
-# }
-# 
-# Confint.glm <- function (object, parm, level=0.95, type=c("LR", "Wald"), ...){
-#     # adapted from stats:::confint.lm
-#     type <- match.arg(type)
-#     cf <- coef(object)
-#     pnames <- names(cf)
-#     if (type == "LR") 
-#         ci <- confint(object, parm, level, ...)
-#     else {
-#         if (missing(parm))
-#             parm <- seq(along = pnames)
-#         else if (is.character(parm))
-#             parm <- match(parm, pnames, nomatch = 0)
-#         a <- (1 - level)/2
-#         a <- c(a, 1 - a)
-#         pct <- paste(round(100 * a, 1), "%")
-#         ci <- array(NA, dim = c(length(parm), 2), dimnames = list(pnames[parm],
-#                                                                   pct))
-#         ses <- sqrt(diag(vcov(object)))[parm]
-#         fac <- qnorm(a)
-#         ci[] <- cf[parm] + ses %o% fac
-#     }
-#     ci <- cbind(cf[parm], ci)
-#     colnames(ci)[1] <- "Estimate"
-#     fam <- family(object)
-#     if (((fam$family == "binomial" || fam$family == "quasibinomial")  && fam$link == "logit")
-#       || ((fam$family == "poisson" || fam$family == "quasipoisson")  && fam$link == "log"))
-#       {
-#         expci <- exp(ci)
-#         colnames(expci)[1] <- "exp(Estimate)"
-#         ci <- cbind(ci, expci)
-#     }
-#     ci
-# }
-# 
-# Confint.polr <- function (object, parm, level=0.95, ...){
-#     # adapted from stats:::confint.lm
-#     cf <- coef(object)
-#     pnames <- names(cf)
-#     if (missing(parm))
-#         parm <- seq(along = pnames)
-#     else if (is.character(parm))
-#         parm <- match(parm, pnames, nomatch = 0)
-#     a <- (1 - level)/2
-#     a <- c(a, 1 - a)
-#     pct <- paste(round(100 * a, 1), "%")
-#     ci <- array(NA, dim = c(length(parm), 2), dimnames = list(pnames[parm],
-#                                                               pct))
-#     ses <- sqrt(diag(vcov(object)))[parm]
-#     fac <- qnorm(a)
-#     ci[] <- cf[parm] + ses %o% fac
-#     ci <- cbind(cf[parm], ci)
-#     colnames(ci)[1] <- "Estimate"
-#     ci
-# }
-# 
-# Confint.multinom <- function(object, parm, level = 0.95, ...) {
-#     # adapted from stats:::confint.lm
-#     cf <- Coef(object)
-#     if (is.vector(cf)) cf <- matrix(cf, nrow=1,
-#                                     dimnames=list(object$lev[2], names(cf)))
-#     pnames <- colnames(cf)
-#     if (missing(parm))
-#         parm <- seq(along = pnames)
-#     else if (is.character(parm))
-#         parm <- match(parm, pnames, nomatch = 0)
-#     a <- (1 - level)/2
-#     a <- c(a, 1 - a)
-#     ses <- matrix(sqrt(diag(vcov(object))),
-#                   ncol=ncol(cf), byrow=TRUE)[,parm, drop=FALSE]
-#     cf <- cf[,parm, drop=FALSE]
-#     fac <- qnorm(a)
-#     ci <- abind::abind(cf + fac[1]*ses, cf + fac[2]*ses, along=3)
-#     dimnames(ci)[[3]] <- paste(round(100 * a, 1), "%")
-#     ci <- aperm(ci, c(2,3,1))[,,1]
-#     ci <- cbind(cf[parm], ci)
-#     colnames(ci)[1] <- "Estimate"
-#     ci
-# }
-# 
-# Confint.merMod <- function(object, parm=names(fixef(object)), level=0.95, ...) {
-#   ci <- confint(object, parm=parm, level=level, ...)
-#   ci <- cbind(Coef(object)[parm], ci)
-#   colnames(ci)[1] <- "Estimate"
-#   ci
-# }
 
 # Pager
 
@@ -1497,10 +1402,10 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
     tkicursor(rhsEntry, "end")
     tkxview.moveto(rhsEntry, "1")
   }
-  bsplineButton <- buttonRcmdr(splinePolyFrame, text=gettextRcmdr("B-spline\n"), width="10", command=onBSpline)
-  nsplineButton <- buttonRcmdr(splinePolyFrame, text=gettextRcmdr("natural\nspline"), width="10", command=onNatSline)
-  polyButton <- buttonRcmdr(splinePolyFrame, text=gettextRcmdr("orthogonal\npolynomial"), width="10", command=onPoly)
-  RawPolyButton <- buttonRcmdr(splinePolyFrame, text=gettextRcmdr("raw\npolynomial"), width="10", command=onRawPoly)
+  bsplineButton <- tkbutton(splinePolyFrame, text=gettextRcmdr("B-spline\n"), width="10", relief="groove", command=onBSpline)
+  nsplineButton <- tkbutton(splinePolyFrame, text=gettextRcmdr("natural\nspline"), width="10", relief="groove", command=onNatSline)
+  polyButton <- tkbutton(splinePolyFrame, text=gettextRcmdr("orthogonal\npolynomial"), width="10", relief="groove", command=onPoly)
+  RawPolyButton <- tkbutton(splinePolyFrame, text=gettextRcmdr("raw\npolynomial"), width="10", relief="groove", command=onRawPoly)
   dfSplineVar <- tclVar("5")
   degPolyVar <- tclVar("2")
   dfDegFrame <- tkframe(outerOperatorsFrame)
