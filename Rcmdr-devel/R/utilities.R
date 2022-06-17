@@ -1,4 +1,4 @@
-# last modified 2022-06-16 by J. Fox
+# last modified 2022-06-17 by J. Fox
 
 # utility functions
 
@@ -1755,9 +1755,25 @@ English <- function() {
 # to replace tkmessageBox on non-English Windows systems,
 #  to allow for translation of button text
 
+nMacOSDisplays <- function(){
+  if (!MacOSXP()) return(0)
+  sum(grepl("^ *Display Type:", system("system_profiler SPDisplaysDataType", 
+                                       intern=TRUE)))
+}
+
 RcmdrTkmessageBox <- function(message, icon=c("info", "question", "warning",
-    "error"), type=c("okcancel", "yesno", "ok"), default, title="") {
-    if ( (English()) || (!WindowsP()) ){
+    "error"), type=c("okcancel", "yesno", "ok"), default, title) {
+  icon <- match.arg(icon)
+  type <- match.arg(type)
+  if (missing(title)){
+    title <- switch(icon,
+                    info=gettextRcmdr("Information"),
+                    question=gettextRcmdr("Question"),
+                    warning=gettextRcmdr("Warning"),
+                    error=gettextRcmdr("Error")
+                    )
+  }
+    if ( (English()) || (!WindowsP()) &&  nMacOSDisplays() < 2){
         if (missing(default)){
             default <- switch(type,
                 okcancel="ok",
@@ -1766,8 +1782,6 @@ RcmdrTkmessageBox <- function(message, icon=c("info", "question", "warning",
         return(tkmessageBox(message=message, icon=icon, type=type,
             default=default, title=title))
     }
-    icon <- match.arg(icon)
-    type <- match.arg(type)
     initializeDialog(messageBox, title=title)
     messageFrame <- tkframe(messageBox, borderwidth=5)
     buttonFrame <- tkframe(messageBox,  borderwidth=5)

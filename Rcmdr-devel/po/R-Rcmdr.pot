@@ -5476,3 +5476,17 @@ msgstr ""
   
 msgid "Indices or names of row(s) to select"
 msgstr ""
+
+  # new default message box titles
+  
+msgid "Information"
+msgstr ""
+
+msgid "Question"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+msgid "Error"
+msgstr ""
