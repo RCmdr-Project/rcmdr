@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2022-06-13 by John Fox
+# last modified 2022-06-18 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -220,6 +220,12 @@ createIcons <- function(){
     tkimage.create("photo", "::image::redoIcon", file = system.file("etc", "redo.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::undoIcon", file = system.file("etc", "undo.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::saveEditsIcon", file = system.file("etc", "save-edits.gif", package="Rcmdr"))
+    
+    tkimage.create("photo", "::image::infoIcon", file = system.file("etc", "info.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::warningIcon", file = system.file("etc", "warning.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::errorIcon", file = system.file("etc", "error.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::questionIcon", file = system.file("etc", "question.gif", package="Rcmdr"))
+
 }
 
 setupFonts <- function(){

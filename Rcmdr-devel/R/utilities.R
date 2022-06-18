@@ -1,4 +1,4 @@
-# last modified 2022-06-17 by J. Fox
+# last modified 2022-06-18 by J. Fox
 
 # utility functions
 
@@ -1755,11 +1755,13 @@ English <- function() {
 # to replace tkmessageBox on non-English Windows systems,
 #  to allow for translation of button text
 
-nMacOSDisplays <- function(){
-  if (!MacOSXP()) return(0)
-  sum(grepl("^ *Display Type:", system("system_profiler SPDisplaysDataType", 
-                                       intern=TRUE)))
-}
+# nMacOSDisplays <- function(){
+#   if (!MacOSXP()) return(0)
+#   sum(grepl("^ *Display Type:", system("system_profiler SPDisplaysDataType", 
+#                                        intern=TRUE)))
+# }
+
+# cross-platform message box with custom icons
 
 RcmdrTkmessageBox <- function(message, icon=c("info", "question", "warning",
     "error"), type=c("okcancel", "yesno", "ok"), default, title) {
@@ -1773,15 +1775,21 @@ RcmdrTkmessageBox <- function(message, icon=c("info", "question", "warning",
                     error=gettextRcmdr("Error")
                     )
   }
-    if ( (English()) || (!WindowsP()) &&  nMacOSDisplays() < 2){
-        if (missing(default)){
-            default <- switch(type,
-                okcancel="ok",
-                yesno="yes",
-                ok="ok")}
-        return(tkmessageBox(message=message, icon=icon, type=type,
-            default=default, title=title))
-    }
+  icon.image <- switch(icon,
+                       info="::image::infoIcon",
+                       question="::image::questionIcon",
+                       warning="::image::warningIcon",
+                       error="::image::errorIcon"
+  )
+    # if ((nMacOSDisplays() < 2) && ((English()) || (!WindowsP()))){
+    #     if (missing(default)){
+    #         default <- switch(type,
+    #             okcancel="ok",
+    #             yesno="yes",
+    #             ok="ok")}
+    #     return(tkmessageBox(message=message, icon=icon, type=type,
+    #         default=default, title=title))
+    # }
     initializeDialog(messageBox, title=title)
     messageFrame <- tkframe(messageBox, borderwidth=5)
     buttonFrame <- tkframe(messageBox,  borderwidth=5)
@@ -1829,10 +1837,13 @@ RcmdrTkmessageBox <- function(message, icon=c("info", "question", "warning",
         foreground="red", width="12", command=onNo, borderwidth=3,
         default=if (missing(default)) "normal"
         else if (default == "no") "active" else "normal")
-    ## FIXME -- left in old style
-    tkgrid(tklabel(messageFrame, bitmap=icon, fg=iconColor),
-        tklabel(messageFrame, text="    "),
-        tklabel(messageFrame, text=message))
+    ## FIXME -- left in old style -- FIXED
+#    tkgrid(tklabel(messageFrame, bitmap=icon, fg=iconColor),
+    tkgrid(tklabel(messageFrame, image=icon.image, fg=iconColor, 
+                   text=paste0("    ", message),
+                   compound="left"))
+        # tklabel(messageFrame, text="    "),
+        # tklabel(messageFrame, text=message))
     tkgrid(messageFrame)
     switch(type,
         okcancel = {
