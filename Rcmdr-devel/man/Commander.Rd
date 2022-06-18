@@ -250,6 +250,8 @@ set none, one, several, or all options. The available options are as follows:
     
     \item{\code{number.messages}}{If \code{TRUE}, the default, messages in the messages window are numbered.}
     
+    \item{\code{open.graphics.devices}}{If \code{TRUE} (the default is \code{FALSE}), open the system graphics device and (if 3D RGL graphics are used) the RGL graphics device when the R Commander starts.}
+    
     \item{\code{output.height}}{The height of the output window, in lines. The default is twice the height
     of the script window, or 20 if the script window is suppressed. Setting \code{output.height}
     to 0 has the same effect as setting \code{console.output} to \code{TRUE}.}

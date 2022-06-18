@@ -35,6 +35,8 @@ Commander <- function(){
     
     setupGUI(Menus)
     
+    openGraphicsDevices()
+    
     # keep start-up warnings out of Rcmdr log
     messages.connection <- file(open="w+")
     sink(messages.connection, type="message")
@@ -142,6 +144,9 @@ setupRcmdrOptions <- function(DESCRIPTION){
     setOption("RStudio", RStudioP())
     setOption("console.output", getRcmdr("RStudio"))
     setOption("retain.selections", TRUE)
+    
+    setOption("open.graphics.devices", FALSE)
+    
     putRcmdr("dialog.values", list())
     putRcmdr("dialog.values.noreset", list())
     putRcmdr("savedTable", NULL)
@@ -1570,5 +1575,16 @@ mergeCapabilities <- function(allCapabilities){
     all <- unique(unlist(capabilities))
     for (i in 1:length(allCapabilities)) allCapabilities[[i]][, setdiff(all, capabilities[[i]])] <- FALSE
     do.call(rbind, allCapabilities)
+}
+
+# optionally open graphics device(s)
+
+openGraphicsDevices <- function(){
+  if (!getRcmdr("open.graphics.devices")) return()
+  dev.new()
+  if (getRcmdr("use.rgl")) {
+    Library("rgl")
+    if (requireNamespace("rgl")) rgl::open3d()
+  }
 }
 

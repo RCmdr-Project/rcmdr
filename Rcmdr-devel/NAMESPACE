@@ -1,4 +1,4 @@
-# last modified 2022-06-15 by J. Fox
+# last modified 2022-06-18 by J. Fox
 
 import(splines, tcltk, RcmdrMisc, car, effects)
 importFrom(utils, available.packages, install.packages, assignInMyNamespace, 
@@ -8,7 +8,7 @@ importFrom(tcltk2, tk2tip, tk2theme, tk2theme.list, tk2table, is.ttk, tk2style)
 importFrom(abind, abind)
 importFrom(graphics, text)
 importFrom(grDevices, col2rgb, colorConverter, colorspaces, convertColor, 
-    dev.cur, dev.size, palette, rgb)
+    dev.cur, dev.size, palette, rgb, dev.new)
 importFrom(methods, getClass, isVirtualClass, show)
 importFrom(stats, coef, confint, family, formula, getCall, model.matrix, na.omit, 
     optim, optimize, qnorm, var, vcov)
