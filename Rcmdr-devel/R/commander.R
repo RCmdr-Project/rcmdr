@@ -37,6 +37,12 @@ Commander <- function(){
     
     openGraphicsDevices()
     
+    # optionally open Markdown editor
+    
+    if (getRcmdr("open.markdown.editor") && getRcmdr("use.markdown")){
+      editMarkdown()
+    }
+    
     # keep start-up warnings out of Rcmdr log
     messages.connection <- file(open="w+")
     sink(messages.connection, type="message")
@@ -133,6 +139,7 @@ setupRcmdrOptions <- function(DESCRIPTION){
     setOption("log.commands", TRUE)
     setOption("use.knitr", FALSE)
     setOption("use.markdown", !getRcmdr("use.knitr"))
+    setOption("open.markdown.editor", FALSE)
     if ((!packageAvailable("markdown") && !packageAvailable("rmarkdown")) || (!packageAvailable("knitr"))) 
         putRcmdr("use.markdown", FALSE)
     if (!packageAvailable("knitr") || !getRcmdr("capabilities")$pdflatex) putRcmdr("use.knitr", FALSE)
