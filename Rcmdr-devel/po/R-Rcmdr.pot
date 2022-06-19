@@ -5469,7 +5469,7 @@ msgstr ""
 msgid "You cannot specify both case removal and subset cases"
 msgstr ""
 
-msgid "Include case-deletion box in statistical model dialogs")
+msgid "Include case-deletion box in statistical model dialogs"
 msgstr ""
 
   # rephrased message for case-selecction dialog in data menu
