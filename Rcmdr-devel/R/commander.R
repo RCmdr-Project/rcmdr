@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2022-06-18 by John Fox
+# last modified 2022-06-24 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -30,6 +30,8 @@ Commander <- function(){
     Plugins <- processPlugins(modelClasses)
     
     processModelCapabilities(Plugins)
+    
+    processOperations()
     
     Menus <- processMenus(Plugins)
     
@@ -140,6 +142,13 @@ setupRcmdrOptions <- function(DESCRIPTION){
     setOption("use.knitr", FALSE)
     setOption("use.markdown", !getRcmdr("use.knitr"))
     setOption("open.markdown.editor", FALSE)
+    setOption("rmarkdown.output", TRUE)
+    rmo.defaults <- list(
+      command.sections = TRUE, section.level=3, toc=TRUE, toc_float=TRUE, toc_depth=3, number_sections=FALSE
+    )
+    rmo.options <- applyDefaultValues(getRcmdr("rmarkdown.output"), rmo.defaults)
+    putRcmdr("command.sections", rmo.options$command.sections)
+    putRcmdr("section.level", paste(rep("#", rmo.options$section.level), collapse=""))
     if ((!packageAvailable("markdown") && !packageAvailable("rmarkdown")) || (!packageAvailable("knitr"))) 
         putRcmdr("use.markdown", FALSE)
     if (!packageAvailable("knitr") || !getRcmdr("capabilities")$pdflatex) putRcmdr("use.knitr", FALSE)
@@ -200,7 +209,7 @@ setupRcmdrOptions <- function(DESCRIPTION){
                                  "Period", "hms", "difftime"))
     setOption("discreteness.threshold", 0)
     
-    setOption("model.case.deletion", FALSE)
+    setOption("model.case.deletion", TRUE)
     
     putRcmdr("open.showData.windows", list())
 }
@@ -383,6 +392,13 @@ processPlugins <- function(modelClasses){
         addRcmdrModels <- unlist(strsplit(addRcmdrModels, ","))
         if (length(addModels) > 0) modelClasses <- c(modelClasses, addModels)
         if (length(addRcmdrModels) > 0) modelClasses <- c(modelClasses, addRcmdrModels)
+        
+        operations.file <- file.path(path.package(package=plugin)[1], "etc", "operations.txt")
+        if (file.exists(operations.file)){
+          operations <- read.table(operations.file, header=TRUE, stringsAsFactors=FALSE)
+          putRcmdr("Operations", rbind(getRcmdr("Operations"), operations))
+        }
+        
     }
     putRcmdr("modelClasses", modelClasses)
     Plugins
@@ -408,6 +424,12 @@ processModelCapabilities <- function(Plugins){
     modelCapabilitiesClasses <- rownames(modelCapabilities)
     modelClasses <- union(modelClasses, modelCapabilitiesClasses)
     putRcmdr("modelClasses", modelClasses)
+}
+
+processOperations <- function(){
+  Operations <- read.table(file.path(getRcmdr("etc"), "Rcmdr-operations.txt"),
+                           header=TRUE, stringsAsFactors=FALSE)
+  putRcmdr("Operations", Operations)
 }
 
 
@@ -1261,6 +1283,12 @@ logger <- function(command, rmd=TRUE){
                         tkyview.moveto(.markdown.editor, 1)
                     }
                 }
+              if (getRcmdr("command.sections")){
+                command.name <- findCommandName(command)
+                if(!is.na(command.name)){
+                  insertRmdSection(command.name)
+                }
+              }
             }
             if (getRcmdr("use.knitr")){
                 if (getRcmdr("startNewKnitrCommandBlock")){

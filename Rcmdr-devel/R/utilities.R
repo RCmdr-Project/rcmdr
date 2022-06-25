@@ -1,4 +1,4 @@
-# last modified 2022-06-18 by J. Fox
+# last modified 2022-06-24 by J. Fox
 
 # utility functions
 
@@ -2350,6 +2350,28 @@ removeStrayRmdBlocks <- function(){
     }
 }
 
+
+findCommandName <- function(command){
+  command <- trim.blanks(command)
+  where <- regexpr("\\(", command)
+  if (where < 0) return(NA)
+  command <- substring(command, 1, where - 1)
+  where <- regexpr("<-", command)
+  if (where > 0) {
+    command <- trim.blanks(substring(command, where + 2, nchar(command)))
+  }
+  if (command == "") return(NA)
+  commandName <- getRcmdr("Operations")[command, "section.title"]
+  if (is.na(commandName)) {
+    return(command)
+  } else if (commandName == ""){
+    return(NA)
+  } else {
+    return(commandName)
+  }
+}
+
+
 enterMarkdown <- function(command){
     if (!getRcmdr("use.markdown")) return()
     .rmd <- RmdWindow()
@@ -2471,6 +2493,10 @@ compileRmd <- function() {
     lines <- sub("date: \"AUTOMATIC\"", paste("date: \"", as.character(Sys.time()), "\"", sep=""), lines)
     .filename <- sub("\\.Rmd$", "", trim.blanks(.RmdFile))
     writeLines(lines, .RmdFile)
+    defaults <- list(
+      command.sections = TRUE, section.level=3, toc=TRUE, toc_float=TRUE, toc_depth=3, number_sections=FALSE
+    )
+    options <- applyDefaultValues(getRcmdr("rmarkdown.output"), defaults)
     if (getRcmdr("capabilities")$pandoc){
         ChooseOutputFormat()
         if (getRcmdr("abort.compile.rmd")){
@@ -2481,7 +2507,10 @@ compileRmd <- function() {
         format <- getRcmdr("rmd.output.format")
         switch(format,
             html = {
-                rmarkdown::render(.RmdFile, rmarkdown::html_document())
+                rmarkdown::render(.RmdFile, rmarkdown::html_document(toc=options$toc, 
+                                                                     toc_float=options$toc_float,
+                                                                     toc_depth=options$toc_depth,
+                                                                     number_sections=options$number_sections))
                 .html.file <- paste(.filename, ".html", sep="")
                 .html.file.location <- paste("file:///", normalizePath(.html.file), sep="")
                 Message(paste(gettextRcmdr("HTML file written to:"), normalizePath(.html.file)), type="note")
@@ -2490,7 +2519,9 @@ compileRmd <- function() {
             pdf = {
                 lines <- removeRglRmdBlocks(lines)
                 writeLines(lines, .RmdFile)
-                rmarkdown::render(.RmdFile, rmarkdown::pdf_document())
+                rmarkdown::render(.RmdFile, rmarkdown::pdf_document(toc=options$toc,
+                                                                    toc_depth=options$toc_depth,
+                                                                    number_sections=options$number_sections))
                 .pdf.file <- paste(.filename, ".pdf", sep="")
                 .pdf.file.location <- paste("file:///", normalizePath(.pdf.file), sep="")
                 Message(paste(gettextRcmdr("PDF file written to:"), normalizePath(.pdf.file)), type="note")
@@ -2499,20 +2530,28 @@ compileRmd <- function() {
             docx = {
               lines <- removeRglRmdBlocks(lines)
               writeLines(lines, .RmdFile)
-                rmarkdown::render(.RmdFile, rmarkdown::word_document())
+                rmarkdown::render(.RmdFile, rmarkdown::word_document(toc=options$toc,
+                                                                     toc_depth=options$toc_depth,
+                                                                     number_sections=options$number_sections))
                 .docx.file <- paste(.filename, ".docx", sep="")
                 Message(paste(gettextRcmdr("Word file written to:"), normalizePath(.docx.file)), type="note")
             },
             rtf = {
               lines <- removeRglRmdBlocks(lines)
               writeLines(lines, .RmdFile)
-              rmarkdown::render(.RmdFile, rmarkdown::rtf_document())
+              rmarkdown::render(.RmdFile, rmarkdown::rtf_document(toc=options$toc,
+                                                                  toc_depth=options$toc_depth,
+                                                                  number_sections=options$number_sections))
               .rtf.file <- paste(.filename, ".rtf", sep="")
               Message(paste(gettextRcmdr("Rich text file written to:"), normalizePath(.rtf.file)), type="note")
             }
         )
     }
     else{
+        if (options$toc) {
+          save.opt <- options(markdown.HTML.options= "toc")
+          on.exit(options(save.opt))
+        }
         knitr::knit(.RmdFile, paste(.filename, ".md", sep=""), quiet=TRUE)
         .html.file <- paste(.filename, ".html", sep="")
         markdown::markdownToHTML(paste(.filename, ".md", sep=""), .html.file)
@@ -3990,3 +4029,38 @@ getCases <- function(cases, remove=TRUE){
   }
   Rows
 }
+
+insertRmdSection <- function(text){
+  .rmd <- RmdWindow()
+  rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
+  rmd <- strsplit(rmd, "\n")
+  where <- grep("...\\{r", rmd[[1]])
+  where <- rev(where)[1]
+  where <- paste0(where, ".0")
+  tkinsert(.rmd, where, paste0("\n", getRcmdr("section.level"), " ", text, "\n"))
+  if (getRcmdr("Markdown.editor.open")){
+    .markdown.editor <- MarkdownEditorWindow()
+    rmd <- tclvalue(tkget(.markdown.editor, "1.0", "end"))
+    rmd <- strsplit(rmd, "\n")
+    where <- grep("...\\{r", rmd[[1]])
+    where <- rev(where)[1]
+    where <- paste0(where, ".0")
+    tkinsert(.markdown.editor, where, paste0("\n", getRcmdr("section.level"), " ", text, "\n"))
+    }
+}
+
+# the following function isn't exported and is currently
+# only used for managing RMarkdown output
+
+applyDefaultValues <- function(given, defaults){
+  if (isTRUE(given)) return(defaults)
+  names <- names(given)
+  if (any(which <- !names %in% names(defaults))) {
+    stop("bad names: ", names[which])
+  }
+  for (name in names){
+    defaults[[name]] <- given[[name]]
+  }
+  defaults
+}
+

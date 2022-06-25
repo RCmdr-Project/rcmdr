@@ -1,0 +1,20 @@
+# Last modified 2022-06-23 by J. Fox
+
+# The R Commander reads this file into a data frame, treated as a look-up table
+#   translating R function names into R Markdown section titles.
+# Each line in the file is of the form: function-name "Section Title".
+# Setting section.title to "" means no section title will be created.
+
+         section.title
+glm  "Generalized Linear Model"
+lm  "Linear Model"
+scatterplot  "Scatterplot"
+scatterplotMatrix  "Scatterplot Matrix"
+
+# exclusions:
+
+data  ""
+help  ""
+knitr  ""
+library  ""
+summary  ""
