@@ -11,7 +11,7 @@ doing and to draw conclusions from your data analysis.
 Auto-generated section titles, typically preceded by ###, can also be edited. 
 
 It's generally not a good idea to edit the R code that the R Commander writes, 
-but you can freely edit between (but not within) R "code blocks." Each R code
+but you can freely edit between (not within) R "code blocks." Each R code
 block starts with ```{r} and ends with ```.
 -->
 
