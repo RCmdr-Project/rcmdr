@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2020-06-08 by J. Fox
+# last modified 2022-06-27 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -115,6 +115,7 @@ plotModel <- function(){
   	justDoIt(command)
   	logger(command)
 	}
+	insertRmdSection("Basic Model Plots")
 }
 
 CRPlots <- function(){
@@ -1059,6 +1060,7 @@ effectPlots <- function () {
                  else "))", sep = "")
       doItAndPrint(command)
     }
+    insertRmdSection("Effect Plots")
     putDialog ("effectPlots", list(initial.all.or.pick=as.character(allEffects), initial.predictors=predictors, 
                                    initial.partial.res=as.numeric(partial.residuals),
                                    initial.span=span, initial.style=style))
@@ -1337,6 +1339,7 @@ predictorEffectPlots <- function () {
                        else "))", sep = "")
             doItAndPrint(command)
         }
+        insertRmdSection("Predictor Effect Plots")
         putDialog ("predictorEffectPlots", list(initial.all.or.pick=as.character(allPredictorEffects), initial.predictors=predictors, 
                                                 initial.partial.res=as.numeric(partial.residuals),
                                                 initial.span=span, initial.style=style))

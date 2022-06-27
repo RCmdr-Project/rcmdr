@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-12-11 by J. Fox
+# last modified 2022-06-27 by J. Fox
 
 # Variances menu
 

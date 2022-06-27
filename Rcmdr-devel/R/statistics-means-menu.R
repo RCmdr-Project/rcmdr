@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2020-09-17 by J. Fox
+# last modified 2022-06-27 by J. Fox
 
 # Means menu
 
@@ -105,6 +105,7 @@ pairedTTest <- function () {
                        ", ", y, ", alternative='", 
                        alternative, "', conf.level=", level, ", paired=TRUE)))", 
                        sep = ""))
+    insertRmdSection("Paired t-Test")
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "t.test", reset = "pairedTTest", apply = "pairedTTest")
@@ -150,6 +151,7 @@ singleSampleTTest <- function () {
     doItAndPrint(paste("with(", ActiveDataSet (), ", (t.test(", x, 
                        ", alternative='", alternative, "', mu=", mu, ", conf.level=", 
                        level, ")))", sep = ""))
+    insertRmdSection("Single-Sample t-Test")
     tkdestroy(top)
     tkfocus(CommanderWindow())
   }
@@ -478,6 +480,7 @@ oneWayRepeatedMeasures <- function () {
              '), univariate=TRUE, multivariate=FALSE)', sep = "")
     }
     doItAndPrint(command)
+    if (!test == "multivariate") insertRmdSection("Repeated-Measures Analysis of Variance")
     if (plot == "1" || print == "1"){
       within <- paste0("c(", paste(paste0('"', responses, '"'), collapse=", "), ")")
       between <- if (length (bsfactors > 0)){
@@ -791,6 +794,7 @@ twoWayRepeatedMeasures <- function () {
              '), univariate=TRUE, multivariate=FALSE)', sep = "")
     }
     doItAndPrint(command)
+    if (!test == "multivariate") insertRmdSection("Repeated-Measures Analysis of Variance")
     if (plot == "1" || print == "1"){
       within <- paste0("c(", paste(paste0('"', responses, '"'), collapse=", "), ")")
       between <- if (length (bsfactors > 0)){

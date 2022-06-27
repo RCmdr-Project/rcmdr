@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2019-12-19 by J. Fox
+# last modified 2022-06-27 by J. Fox
 
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
@@ -179,6 +179,7 @@ Histogram <- function () {
                 scale, '", breaks=', binstext, ', col="darkgray"', xlab, ylab, main, "))", sep="")
         }
         doItAndPrint(command)
+        insertRmdSection(paste0("Histogram"))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -326,8 +327,7 @@ stemAndLeaf <- function () {
             paste("with(", ActiveDataSet(), ", stem.leaf(",  
                 x, style, unit, m, trim, depths, reverse, ", na.rm=TRUE))", 
                 sep = "")
-        }
-        else {
+        } else {
             levels <- levels(eval(parse(text=paste(ActiveDataSet(), "$", .groups, sep="")), 
                 envir=.GlobalEnv))
             paste("with(", ActiveDataSet(),
@@ -337,6 +337,7 @@ stemAndLeaf <- function () {
                 sep = "")
         }
         doItAndPrint(command)
+        insertRmdSection(paste0("Stem-and-Leaf Display"))
         tkfocus(CommanderWindow())
     }
     groupsBox(stemAndLeaf, variables=TwoLevelFactors(), initialGroup=initial.group,
@@ -507,6 +508,7 @@ DotPlot <- function () {
                              use.bins, binstext, xlab, "))", sep="")
         }
         doItAndPrint(command)
+        insertRmdSection(paste0("Dot Plot"))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1068,6 +1070,7 @@ barGraph <- function () {
                    sep = "")
         }
         doItAndPrint(command)
+        insertRmdSection(paste0("Bar Plot"))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1191,6 +1194,7 @@ pieChart <- function () {
             "))", sep = "")
         logger(command)
         justDoIt(command)
+        insertRmdSection(paste0("Pie Chart"))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1243,6 +1247,7 @@ linePlot <- function () {
         putDialog ("linePlot", list(initial.x = x, initial.y = y))
         command <- paste("with(", .activeDataSet, ", lineplot(", x, ", ", paste(y, collapse=", "), "))", sep="")
         doItAndPrint(command)
+        insertRmdSection(paste0("Line Plot"))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1405,6 +1410,7 @@ QQPlot <- function () {
         }
         if (identify == "mouse") command <- suppressMarkdown(command)
         doItAndPrint(command)
+        insertRmdSection("Quantile-Comparison Plot")
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -2925,6 +2931,7 @@ DiscretePlot <- function () {
                              scale, '"', xlab, ylab, main, "))", sep="")
         }
         doItAndPrint(command)
+        insertRmdSection("Discrete Distribution Plot")
         activateMenus()
         tkfocus(CommanderWindow())
     }

@@ -65,6 +65,7 @@
 \alias{groupsLabel}
 \alias{hclustSolutionsP}
 \alias{initializeDialog}
+\alias{insertRmdSection}
 \alias{is.SciViews}
 \alias{is.valid.name}
 \alias{is.valid.number}
@@ -243,6 +244,7 @@ initializeDialog(window=top, title="", offset=10, preventCrisp,
     use.tabs=FALSE, notebook=notebook, 
     tabs=c("dataTab", "optionsTab"),
     suppress.window.resize.buttons=TRUE)  # macro
+insertRmdSection(text)
 is.valid.name(x)
 is.valid.number(string)
 is.SciViews()
@@ -553,7 +555,9 @@ commanderPosition()
   \code{removeLastRmdBlock}, and \code{removeStrayRmdBlocks} should normally not be called directly. 
   The functions \code{enterKnitr},
   \code{beginRnwBlock}, \code{endRnwBlock}, \code{removeNullRnwBlocks}, \code{removeLastRnwBlock},
-  and \code{removeStrayRnwBlocks} perform similar functions for Knitr documents.
+  and \code{removeStrayRnwBlocks} perform similar functions for Knitr documents. 
+  
+  \code{insertRmdSection} Inserts a Markdown section title immediately above the last R command block, with the specified text as the title. In most instances it's unnecessary to do this directly because most commands automatically generate a Markdown section title.
   
   \emph{Checking for errors: }
   

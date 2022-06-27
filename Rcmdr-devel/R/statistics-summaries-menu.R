@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-11-19 by J. Fox
+# last modified 2022-06-27 by J. Fox
 
 # Summaries menu
 
@@ -16,6 +16,7 @@ summarizeDataSet <- function(){
 		}
 	}
 	doItAndPrint(paste("summary(", .activeDataSet, ")", sep=""))
+	insertRmdSection("Summarize Data Set")
 }
 
 numericalSummaries <- function(){
@@ -262,6 +263,7 @@ frequencyDistribution <- function () {
       dialogSuffix(subwin, onOK = onOKsub, focus = subwin, force.wait=TRUE)
     }
     tkfocus(CommanderWindow())
+    insertRmdSection("Frequencies")
   }
   OKCancelHelp(helpSubject = "table", reset = "frequencyDistribution", apply="frequencyDistribution")
   tkgrid(getFrame(xBox), sticky = "nw")
@@ -321,6 +323,7 @@ statisticsTable <- function () {
       doItAndPrint(paste0("Tapply(", response, " ~ ", groups.list, ", ", statistic, ", na.action=na.omit, data=", 
                           .activeDataSet, ") # ", statistic, " by groups")) 
     }
+    insertRmdSection("Table of Summary Statistics")
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "Tapply", reset="statisticsTable", apply="statisticsTable")
@@ -454,6 +457,7 @@ correlationTest <- function(){
     command <- paste("with(", .activeDataSet, ", cor.test(", x[1], ", ", x[2],
                      ', alternative="', alternative, '", method="', correlations, '"))', sep="")
     doItAndPrint(command)  
+    insertRmdSection("Correlation Test")
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject="cor.test", reset="correlationTest", apply="correlationTest")
@@ -469,6 +473,7 @@ countMissing <- function(){
 	command <- paste("sapply(", activeDataSet(), 
 			", function(x)(sum(is.na(x)))) # NA counts", sep="")
 	doItAndPrint(command)
+	insertRmdSection("Count Missing Cases")
 	invisible(NULL)
 }
 
@@ -657,6 +662,7 @@ transformVariables <- function () {
     command <- paste0("summary(powerTransform(", vars, " ~ ", rhs, ", data=", 
                       .activeDataSet, ', family="', family, '"))')
     doItAndPrint(command)
+    insertRmdSection("Transform Variables Toward Normality")
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "powerTransform", reset = "transformVariables", apply = "transformVariables")

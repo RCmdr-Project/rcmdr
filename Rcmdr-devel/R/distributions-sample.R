@@ -1,6 +1,6 @@
 # Distributions menu dialogs for selecting samples
 
-# last modified 2019-05-15 by J. Fox
+# last modified 2022-06-27 by J. Fox
 # modified by Miroslav M. Ristic (15 January 2011)
 
 
@@ -139,6 +139,8 @@ distributionSamples <- function(nameVar) {
     }
     command.3 <- paste(command.3, "\n})", sep="")
     if (any.summaries) doItAndPrint(command.3)
+    title <- if (nameVar != "t") tools::toTitleCase(nameVar) else "t"
+    insertRmdSection(paste0("Sample from ",  title, " Distribution"))
     activeDataSet(dsnameValue)
     tkfocus(CommanderWindow())
     putDialog(dialogName, list(initialValues=vars, dsname=dsnameValue,
