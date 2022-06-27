@@ -601,7 +601,8 @@ testLinearHypothesis <- function(){
         doItAndPrint(paste("local({\n", "  ", command.1, "\n",
                            "  ", command.2, "\n",
                            "  ", command.3, "\n",
-                           "})", sep=""))                   
+                           "})", sep="")) 
+        insertRmdSection("Linear Hypothesis Test")
         tkfocus(CommanderWindow())
         contrast.table <- matrix(values, nrows, ncols, byrow=TRUE)
         putDialog("testLinearHypothesis", list(previous.model=.activeModel, nrows=nrows, table.values=contrast.table,
@@ -1384,6 +1385,7 @@ transformResponse <- function (){
     putDialog ("transformResponse", list(initial.family=family))
     .activeModel <- ActiveModel()
     doItAndPrint(paste0("summary(powerTransform(", .activeModel, ', family="', family, '"))'))
+    insertRmdSection("Transform Response Toward Normality")
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "powerTransform", reset="transformResponse")
