@@ -1,4 +1,4 @@
-# last modified 2022-06-27 by J. Fox
+# last modified 2022-06-28 by J. Fox
 
 # utility functions
 
@@ -2350,23 +2350,40 @@ removeStrayRmdBlocks <- function(){
     }
 }
 
-
 findCommandName <- function(command){
+  assigned <- NA
   command <- trim.blanks(command)
   where <- regexpr("\\(", command)
   if (where < 0) return(NA)
+  args <- trim.blanks(strsplit(
+    substring(command, where + 1, nchar(command)), ",")[[1]])
   command <- substring(command, 1, where - 1)
+  args <- gsub("[()]", "", args)
+  for (i in 1:length(args)){
+    arg <- args[i]
+    where <- regexpr("=", arg)
+    if (where < 0) next
+    args[i] <- trim.blanks(substring(arg, where + 1, nchar(arg)))
+  }
   where <- regexpr("<-", command)
   if (where > 0) {
+    assigned <- trim.blanks(substring(command, 1, where - 1))
     command <- trim.blanks(substring(command, where + 2, nchar(command)))
   }
   if (command == "") return(NA)
-  commandName <- getRcmdr("Operations")[command, "section.title"]
+  operation <-  getRcmdr("Operations")[command, , drop=FALSE]
+  commandName <- operation[, "section.title"]
   if (is.na(commandName)) {
     return(command)
   } else if (commandName == ""){
     return(NA)
   } else {
+    if (!is.na(operation[, "assign"]) && operation[, "assign"])
+      commandName <- paste0(commandName, ": ", assigned)
+    if (!is.na(arg <- operation[, "argument"]))
+      arg <- as.numeric(strsplit(arg, " ")[[1]])
+    arg <- arg[arg <= length(args)]
+    commandName <- paste0(commandName, ": ", paste(args[arg], collapse=", "))
     return(commandName)
   }
 }

@@ -179,7 +179,7 @@ Histogram <- function () {
                 scale, '", breaks=', binstext, ', col="darkgray"', xlab, ylab, main, "))", sep="")
         }
         doItAndPrint(command)
-        insertRmdSection(paste0("Histogram"))
+        insertRmdSection(paste0("Histogram: ", x))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -337,7 +337,7 @@ stemAndLeaf <- function () {
                 sep = "")
         }
         doItAndPrint(command)
-        insertRmdSection(paste0("Stem-and-Leaf Display"))
+        insertRmdSection(paste0("Stem-and-Leaf Display: ", x))
         tkfocus(CommanderWindow())
     }
     groupsBox(stemAndLeaf, variables=TwoLevelFactors(), initialGroup=initial.group,
@@ -508,7 +508,7 @@ DotPlot <- function () {
                              use.bins, binstext, xlab, "))", sep="")
         }
         doItAndPrint(command)
-        insertRmdSection(paste0("Dot Plot"))
+        insertRmdSection(paste0("Dot Plot: ", x))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1070,7 +1070,7 @@ barGraph <- function () {
                    sep = "")
         }
         doItAndPrint(command)
-        insertRmdSection(paste0("Bar Plot"))
+        insertRmdSection(paste0("Bar Plot: ", variable))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1194,7 +1194,7 @@ pieChart <- function () {
             "))", sep = "")
         logger(command)
         justDoIt(command)
-        insertRmdSection(paste0("Pie Chart"))
+        insertRmdSection(paste0("Pie Chart: ", variable))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1247,7 +1247,7 @@ linePlot <- function () {
         putDialog ("linePlot", list(initial.x = x, initial.y = y))
         command <- paste("with(", .activeDataSet, ", lineplot(", x, ", ", paste(y, collapse=", "), "))", sep="")
         doItAndPrint(command)
-        insertRmdSection(paste0("Line Plot"))
+        insertRmdSection(paste0("Line Plot: ", x))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1410,7 +1410,7 @@ QQPlot <- function () {
         }
         if (identify == "mouse") command <- suppressMarkdown(command)
         doItAndPrint(command)
-        insertRmdSection("Quantile-Comparison Plot")
+        insertRmdSection(paste0("Quantile-Comparison Plot: ", x))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -2931,7 +2931,7 @@ DiscretePlot <- function () {
                              scale, '"', xlab, ylab, main, "))", sep="")
         }
         doItAndPrint(command)
-        insertRmdSection("Discrete Distribution Plot")
+        insertRmdSection(paste0("Discrete Distribution Plot: ", x))
         activateMenus()
         tkfocus(CommanderWindow())
     }

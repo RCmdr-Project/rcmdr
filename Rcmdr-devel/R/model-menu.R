@@ -115,7 +115,7 @@ plotModel <- function(){
   	justDoIt(command)
   	logger(command)
 	}
-	insertRmdSection("Basic Model Plots")
+	insertRmdSection(paste0("Basic Model Plots: ", .activeModel))
 }
 
 CRPlots <- function(){
@@ -602,7 +602,7 @@ testLinearHypothesis <- function(){
                            "  ", command.2, "\n",
                            "  ", command.3, "\n",
                            "})", sep="")) 
-        insertRmdSection("Linear Hypothesis Test")
+        insertRmdSection(paste0("Linear Hypothesis Test:", .activeModel))
         tkfocus(CommanderWindow())
         contrast.table <- matrix(values, nrows, ncols, byrow=TRUE)
         putDialog("testLinearHypothesis", list(previous.model=.activeModel, nrows=nrows, table.values=contrast.table,
@@ -1061,7 +1061,7 @@ effectPlots <- function () {
                  else "))", sep = "")
       doItAndPrint(command)
     }
-    insertRmdSection("Effect Plots")
+    insertRmdSection(paste0("Effect Plots: ", activeModel()))
     putDialog ("effectPlots", list(initial.all.or.pick=as.character(allEffects), initial.predictors=predictors, 
                                    initial.partial.res=as.numeric(partial.residuals),
                                    initial.span=span, initial.style=style))
@@ -1340,7 +1340,7 @@ predictorEffectPlots <- function () {
                        else "))", sep = "")
             doItAndPrint(command)
         }
-        insertRmdSection("Predictor Effect Plots")
+        insertRmdSection(paste0("Predictor Effect Plots: ", activeModel()))
         putDialog ("predictorEffectPlots", list(initial.all.or.pick=as.character(allPredictorEffects), initial.predictors=predictors, 
                                                 initial.partial.res=as.numeric(partial.residuals),
                                                 initial.span=span, initial.style=style))
@@ -1385,7 +1385,7 @@ transformResponse <- function (){
     putDialog ("transformResponse", list(initial.family=family))
     .activeModel <- ActiveModel()
     doItAndPrint(paste0("summary(powerTransform(", .activeModel, ', family="', family, '"))'))
-    insertRmdSection("Transform Response Toward Normality")
+    insertRmdSection(paste0("Transform Response Toward Normality", .activeModel))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "powerTransform", reset="transformResponse")

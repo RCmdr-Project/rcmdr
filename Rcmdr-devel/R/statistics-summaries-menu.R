@@ -16,7 +16,7 @@ summarizeDataSet <- function(){
 		}
 	}
 	doItAndPrint(paste("summary(", .activeDataSet, ")", sep=""))
-	insertRmdSection("Summarize Data Set")
+	insertRmdSection(paste0("Summarize Data Set: ", .activeDataSet))
 }
 
 numericalSummaries <- function(){
@@ -263,7 +263,7 @@ frequencyDistribution <- function () {
       dialogSuffix(subwin, onOK = onOKsub, focus = subwin, force.wait=TRUE)
     }
     tkfocus(CommanderWindow())
-    insertRmdSection("Frequencies")
+    insertRmdSection(paste0("Frequencies: ", x))
   }
   OKCancelHelp(helpSubject = "table", reset = "frequencyDistribution", apply="frequencyDistribution")
   tkgrid(getFrame(xBox), sticky = "nw")
@@ -323,7 +323,7 @@ statisticsTable <- function () {
       doItAndPrint(paste0("Tapply(", response, " ~ ", groups.list, ", ", statistic, ", na.action=na.omit, data=", 
                           .activeDataSet, ") # ", statistic, " by groups")) 
     }
-    insertRmdSection("Table of Summary Statistics")
+    insertRmdSection(paste0("Table of Summary Statistics: ", response))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "Tapply", reset="statisticsTable", apply="statisticsTable")
@@ -457,7 +457,7 @@ correlationTest <- function(){
     command <- paste("with(", .activeDataSet, ", cor.test(", x[1], ", ", x[2],
                      ', alternative="', alternative, '", method="', correlations, '"))', sep="")
     doItAndPrint(command)  
-    insertRmdSection("Correlation Test")
+    insertRmdSection(paste0("Correlation Test: ",  x[1], ", ", x[2]))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject="cor.test", reset="correlationTest", apply="correlationTest")
@@ -473,7 +473,7 @@ countMissing <- function(){
 	command <- paste("sapply(", activeDataSet(), 
 			", function(x)(sum(is.na(x)))) # NA counts", sep="")
 	doItAndPrint(command)
-	insertRmdSection("Count Missing Cases")
+	insertRmdSection(paste0("Count Missing Cases: ", activeDataSet()))
 	invisible(NULL)
 }
 
@@ -662,7 +662,7 @@ transformVariables <- function () {
     command <- paste0("summary(powerTransform(", vars, " ~ ", rhs, ", data=", 
                       .activeDataSet, ', family="', family, '"))')
     doItAndPrint(command)
-    insertRmdSection("Transform Variables Toward Normality")
+    insertRmdSection(paste0("Transform Variables Toward Normality: ", vars))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "powerTransform", reset = "transformVariables", apply = "transformVariables")

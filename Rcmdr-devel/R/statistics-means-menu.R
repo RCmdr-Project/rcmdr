@@ -105,7 +105,7 @@ pairedTTest <- function () {
                        ", ", y, ", alternative='", 
                        alternative, "', conf.level=", level, ", paired=TRUE)))", 
                        sep = ""))
-    insertRmdSection("Paired t-Test")
+    insertRmdSection(paste0("Paired t-Test: ", x, ", ", y))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "t.test", reset = "pairedTTest", apply = "pairedTTest")
@@ -151,7 +151,7 @@ singleSampleTTest <- function () {
     doItAndPrint(paste("with(", ActiveDataSet (), ", (t.test(", x, 
                        ", alternative='", alternative, "', mu=", mu, ", conf.level=", 
                        level, ")))", sep = ""))
-    insertRmdSection("Single-Sample t-Test")
+    insertRmdSection(paste0("Single-Sample t-Test: ", x))
     tkdestroy(top)
     tkfocus(CommanderWindow())
   }
@@ -480,7 +480,9 @@ oneWayRepeatedMeasures <- function () {
              '), univariate=TRUE, multivariate=FALSE)', sep = "")
     }
     doItAndPrint(command)
-    if (!test == "multivariate") insertRmdSection("Repeated-Measures Analysis of Variance")
+    if (!test == "multivariate") 
+      insertRmdSection(paste0("Repeated-Measures Analysis of Variance: between = ",
+                              formula, ", within = ", wsfactorName))
     if (plot == "1" || print == "1"){
       within <- paste0("c(", paste(paste0('"', responses, '"'), collapse=", "), ")")
       between <- if (length (bsfactors > 0)){
@@ -794,7 +796,9 @@ twoWayRepeatedMeasures <- function () {
              '), univariate=TRUE, multivariate=FALSE)', sep = "")
     }
     doItAndPrint(command)
-    if (!test == "multivariate") insertRmdSection("Repeated-Measures Analysis of Variance")
+    if (!test == "multivariate") 
+      insertRmdSection(paste0("Repeated-Measures Analysis of Variance: between = ",
+                              formula, ", within = ", wsrowfactorName, "*", wscolfactorName))
     if (plot == "1" || print == "1"){
       within <- paste0("c(", paste(paste0('"', responses, '"'), collapse=", "), ")")
       between <- if (length (bsfactors > 0)){

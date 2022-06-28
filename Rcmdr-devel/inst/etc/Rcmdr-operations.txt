@@ -1,143 +1,143 @@
-# Last modified 2022-06-27 by J. Fox
+# Last modified 2022-06-28 by J. Fox
 
 # The R Commander reads this file into a data frame, treated as a look-up table
 #   translating R function names into R Markdown section titles.
-# Each line in the file is of the form: function-name "Section Title".
+# Each line in the file is of the form: function-name "Section Title" "argument(s) to include" TRUE/FALSE/NA.
 # Setting section.title to "" means no section title will be created.
 
-         section.title
+         section.title argument assign
 
-Anova "Analysis of Variance"
-aov "One-Way Analysis of Variance"
-avPlot3d "3D Added-Variable Plot"
-avPlots "Added-Variable Plots"
-bartlett.test "Bartlett's Test"
-Boot "Bootstrap Confidence Intervals"
-bptest "Breusch-Pagan Test"
-compareCoefs "Compare Model Coefficients"
-Confint "Confidence Intervals"
-cor "Correlation Matrix"
-crPlot3d "3D Component+Residual Plot"
-crPlots "Component+Residual Plots"
-DeltaMethod "Delta Method Confidence Intervals"
-densityPlot "Density Plot"
-dwtest "Durbin-Watson Test"
-glm  "Generalized Linear Model"
-glmer "Generalized Linear Mixed-Effects Model"
-hclust "Hierarchical Clustering"
-indexplot "Index Plot"
-influenceIndexPlot "Influence Index Plots"
-influencePlot "Influence Plot"
-KMeans "K-Means Clustering"
-kruskal.test "Kruskal-Wallis Rank Sum Test"
-leveneTest "Levene's Test"
-lm  "Linear Model"
-lmer "Linear Mixed-Effects Model"
-multinom "Multinomial Logistic Regression"
-normalityTest "Normality Test"
-numSummary "Numerical Summaries"
-outlierTest "Bonferroni Outlier Test"
-partial.cor "Partial Correlations"
-qqPlot "Residual Quantile-Comparison Plot"
-polr "Ordinal Regression Model"
-rcorr.adjust "Correlation Matrix"
-reliability "Scale Reliability" 
-repeatedMeasuresPlot ""
-resettest "RESET Test"
-scatter3d "3D Scatterplot"
-scatterplot  "Scatterplot"
-scatterplotMatrix  "Scatterplot Matrix"
-stepwise "Stepwise Model Selection"
-symbox "Transformation Boxplots for Symmetry"
-t.test "Independent-Samples t-Test"
-var.test "Two Variances F-Test"
-vif "Variance Inflation Factors"
-wilcox.test "Wilcoxon Test"
-xyplot "Conditioning Plot"
+Anova "Analysis of Variance" "1" NA
+aov "One-Way Analysis of Variance" 1 NA
+avPlot3d "3D Added-Variable Plot" 1 NA
+avPlots "Added-Variable Plots" 1 NA
+bartlett.test "Bartlett's Test" 1 NA
+Boot "Bootstrap Confidence Intervals" 1 NA
+bptest "Breusch-Pagan Test" 1 NA
+compareCoefs "Compare Model Coefficients" "1 2 3 4 5 6 7 8 9" NA
+Confint "Confidence Intervals" 1 NA
+cor "Correlation Matrix" 1 NA
+crPlot3d "3D Component+Residual Plot" 1 NA
+crPlots "Component+Residual Plots" 1 NA
+DeltaMethod "Delta Method Confidence Intervals" 1 NA
+densityPlot "Density Plot" 1 NA
+dwtest "Durbin-Watson Test" 1 NA
+glm  "Generalized Linear Model" 1 TRUE
+glmer "Generalized Linear Mixed-Effects Model" 1 TRUE
+hclust "Hierarchical Clustering" 1 NA
+indexplot "Index Plot" 1 NA
+influenceIndexPlot "Influence Index Plots" 1 NA
+influencePlot "Influence Plot" 1 NA
+KMeans "K-Means Clustering" 1 NA
+kruskal.test "Kruskal-Wallis Rank Sum Test" 1 NA
+leveneTest "Levene's Test" 1 NA
+lm  "Linear Model" 1 TRUE
+lmer "Linear Mixed-Effects Model" 1 TRUE
+multinom "Multinomial Logistic Regression" 1 TRUE
+normalityTest "Normality Test" 1 NA
+numSummary "Numerical Summaries" 1 NA
+outlierTest "Bonferroni Outlier Test" 1 NA
+partial.cor "Partial Correlations" 1 NA
+qqPlot "Residual Quantile-Comparison Plot" 1 NA
+polr "Ordinal Regression Model" 1 TRUE
+rcorr.adjust "Correlation Matrix" 1 NA
+reliability "Scale Reliability"  1 NA
+repeatedMeasuresPlot "" 1 NA
+resettest "RESET Test" 1 NA 
+scatter3d "3D Scatterplot" 1 NA
+scatterplot  "Scatterplot" 1 NA
+scatterplotMatrix  "Scatterplot Matrix" 1 NA
+stepwise "Stepwise Model Selection" 1 NA
+symbox "Transformation Boxplots for Symmetry" 1 NA
+t.test "Independent-Samples t-Test" 1 NA
+var.test "Two Variances F-Test" 1 NA
+vif "Variance Inflation Factors" 1 NA
+wilcox.test "Wilcoxon Test" 1 NA
+xyplot "Conditioning Plot" 1 NA
 
   # probability functions
   
-pnorm "Normal Cumulative Probabilities"
-qnorm "Normal Quantiles"
-pt "t Cumulative Probabilities"
-qt "t Quantiles"
-pchisq "Chisquare Cumulative Probabilities"
-qchisq "Chisquare Quantiles"
-pf "F Cumulative Probabilities"
-qf "F Quantiles"
-pexp "Exponential Cumulative Probabilities"
-qexp "Exponential Quantiles"
-punif "Uniform Cumulative Probabilities"
-qunif "Uniform Quantiles"
-pbeta "Beta Cumulative Probabilities"
-qbeta "Beta Quantiles"
-pcauchy "Cauchy Cumulative Probabilities"
-qcauchy "Cauchy Quantiles"
-plogis "Logistic Cumulative Probabilities"
-qlogis "Logistic Quantiles"
-plnorm "Log-Normal Cumulative Probabilities"
-qlnorm "Log-Normal Quantiles"
-pgamma "Gamma Cumulative Probabilities"
-qgamma "Gamma Quantiles"
-pweibull "Weibull Cumulative Probabilities"
-qweibull "Weibull Quantiles"
-pgumbel "Gumbel Cumulative Probabilities"
-qgumbel "Gumbel Quantiles"
-pbinom "Binomial Cumulative Probabilities"
-qbinom "Binomial Quantiles"
-ppois "Poisson Cumulative Probabilities"
-qpois "Poisson Quantiles"
-pgeom "Geometric Cumulative Probabilities"
-qgeom "Geometric Quantiles"
-phyper "Hypergeometric Cumulative Probabilities"
-qhyper "Hypergeometric Quantiles"
-pnbinom "Negative Binomial Cumulative Probabilities"
-qnbinom "Negative Binomial Quantiles"
+pnorm "Normal Cumulative Probabilities" NA NA
+qnorm "Normal Quantiles" NA NA
+pt "t Cumulative Probabilities" NA NA
+qt "t Quantiles" NA NA
+pchisq "Chisquare Cumulative Probabilities" NA NA
+qchisq "Chisquare Quantiles" NA NA
+pf "F Cumulative Probabilities" NA NA
+qf "F Quantiles" NA NA
+pexp "Exponential Cumulative Probabilities" NA NA
+qexp "Exponential Quantiles" NA NA
+punif "Uniform Cumulative Probabilities" NA NA
+qunif "Uniform Quantiles" NA NA
+pbeta "Beta Cumulative Probabilities" NA NA
+qbeta "Beta Quantiles" NA NA
+pcauchy "Cauchy Cumulative Probabilities" NA NA
+qcauchy "Cauchy Quantiles" NA NA
+plogis "Logistic Cumulative Probabilities" NA NA
+qlogis "Logistic Quantiles" NA NA
+plnorm "Log-Normal Cumulative Probabilities" NA NA
+qlnorm "Log-Normal Quantiles" NA NA
+pgamma "Gamma Cumulative Probabilities" NA NA
+qgamma "Gamma Quantiles" NA NA
+pweibull "Weibull Cumulative Probabilities" NA NA
+qweibull "Weibull Quantiles" NA NA
+pgumbel "Gumbel Cumulative Probabilities" NA NA
+qgumbel "Gumbel Quantiles" NA NA
+pbinom "Binomial Cumulative Probabilities" NA NA
+qbinom "Binomial Quantiles" NA NA
+ppois "Poisson Cumulative Probabilities" NA NA
+qpois "Poisson Quantiles" NA NA
+pgeom "Geometric Cumulative Probabilities" NA NA
+qgeom "Geometric Quantiles" NA NA
+phyper "Hypergeometric Cumulative Probabilities" NA NA
+qhyper "Hypergeometric Quantiles" NA NA
+pnbinom "Negative Binomial Cumulative Probabilities" NA NA
+qnbinom "Negative Binomial Quantiles" NA NA
 
 
 # exclusions:
 
-as.data.frame ""
-assignCluster ""
-binnedCounts ""
-biplot ""
-by ""
-chisq.test ""
-colnames ""
-colPercents ""
-confint ""
-data  ""
-detach ""
-dev.copy2eps ""
-dev.print ""
-dimnames ""
-discreteCounts ""
-fisher.test ""
-help  ""
-Identify3d ""
-knitr  ""
-library  ""
-local ""
-make.names ""
-matrix ""
-names ""
-oneway.test ""
-par ""
-plot ""
-remove ""
-rgl.snapshot ""
-rownames ""
-rowPercents ""
-round ""
-sapply ""
-setwd ""
-showData ""
-strings2factors ""
-summary  ""
-summarySandwich ""
-table ""
-Tapply ""
-totPercents ""
-with ""
-within ""
-xtabs ""
+as.data.frame ""  NA NA
+assignCluster "" NA NA
+binnedCounts "" NA NA
+biplot "" NA NA
+by "" NA NA
+chisq.test "" NA NA
+colnames "" NA NA
+colPercents "" NA NA
+confint "" NA NA
+data  "" NA NA
+detach "" NA NA
+dev.copy2eps "" NA NA
+dev.print "" NA NA
+dimnames "" NA NA
+discreteCounts "" NA NA
+fisher.test "" NA NA
+help  "" NA NA
+Identify3d "" NA NA
+knitr  "" NA NA
+library  "" NA NA
+local "" NA NA
+make.names "" NA NA
+matrix "" NA NA
+names "" NA NA
+oneway.test "" NA NA
+par "" NA NA
+plot "" NA NA
+remove "" NA NA
+rgl.snapshot "" NA NA
+rownames "" NA NA
+rowPercents "" NA NA
+round "" NA NA
+sapply "" NA NA
+setwd "" NA NA
+showData "" NA NA
+strings2factors "" NA NA
+summary  "" NA NA
+summarySandwich "" NA NA
+table "" NA NA
+Tapply "" NA NA
+totPercents "" NA NA
+with "" NA NA
+within "" NA NA
+xtabs "" NA NA

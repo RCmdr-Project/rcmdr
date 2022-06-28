@@ -112,7 +112,7 @@ pairedWilcoxonTest <- function () {
                          alternative, "', correct=", test == "correct", 
                          ", exact=FALSE, paired=TRUE))", sep = ""))
     }
-    insertRmdSection("Paired Wilcoxon Test")
+    insertRmdSection(paste0("Paired Wilcoxon Test: ", x, ", ", y))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "wilcox.test", reset = "pairedWilcoxonTest",
@@ -193,7 +193,8 @@ FriedmanTest <- function () {
 	  command <- paste(command, "\n  print(apply(.Responses, 2, median))")
 		command <- paste(command, "\n  friedman.test(.Responses)\n})")
     doItAndPrint(command)
-    insertRmdSection("Friedman Rank Sum Test")
+    insertRmdSection(paste0("Friedman Rank Sum Test: ", 
+                            paste(.Responses, collapse=", ")))
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject = "friedman.test", reset = "FriedmanTest",
@@ -246,7 +247,7 @@ onesampleWilcoxonTest <- function () {
                 alternative, null, ", correct=", test == "correct", 
                 ", exact=FALSE))", sep = ""))
         }
-        insertRmdSection("Single-Sample Wilcoxon Test")
+        insertRmdSection(paste0("Single-Sample Wilcoxon Test: ", x))
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject = "wilcox.test", reset = "onesampleWilcoxonTest",

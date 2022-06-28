@@ -126,7 +126,8 @@ principalComponents <- function () {
       }
     }
     doItAndPrint(paste(cmds, commands, "\n})", sep=""))
-    insertRmdSection("Principal-Components Analysis")
+    insertRmdSection(paste0("Principal-Components Analysis: ",
+                            paste(x, collapse = ",")))
     if (addPC == "1") activeDataSet(.activeDataSet, flushDialogMemory=FALSE)
     tkfocus(CommanderWindow())
   }
@@ -229,7 +230,7 @@ factorAnalysis <- function () {
     }
     if (commands != "") doItAndPrint(paste(command, commands, "\n})", sep=""))
     else doItAndPrint(paste(command, "})", sep=""))
-    insertRmdSection("Factor Analysis")
+    insertRmdSection(paste0("Factor Analysis: ", paste(x, collapse = ", ")))
     if (scores != "none") activeDataSet(.activeDataSet, flushDialogMemory = FALSE)
     tkfocus(CommanderWindow())
   }
@@ -365,7 +366,7 @@ CFA <- function(){
                      if (robust == 1) "TRUE" else "FALSE", indices,
                      ")\n})", sep="")
     doItAndPrint(command)
-    insertRmdSection("Confirmatory Factor Analysis")
+    insertRmdSection(paste0("Confirmatory Factor Analysis: ", activeDataSet()))
   }
   OKCancelHelp(helpSubject="CFA", reset="CFA", apply="CFA")
   tkgrid(matrixFrame, labelRcmdr(optionsFrame, text="    "), factorCorFrame, sticky="nw")
