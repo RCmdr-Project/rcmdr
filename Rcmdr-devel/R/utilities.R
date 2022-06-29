@@ -1,4 +1,4 @@
-# last modified 2022-06-28 by J. Fox
+# last modified 2022-06-29 by J. Fox
 
 # utility functions
 
@@ -2353,6 +2353,7 @@ removeStrayRmdBlocks <- function(){
 findCommandName <- function(command){
   assigned <- NA
   command <- trim.blanks(command)
+  command <- gsub("\n", " ", command)
   where <- regexpr("\\(", command)
   if (where < 0) return(NA)
   args <- trim.blanks(strsplit(

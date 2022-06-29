@@ -1,4 +1,4 @@
-# Last modified 2022-06-28 by J. Fox
+# Last modified 2022-06-29 by J. Fox
 
 # The R Commander reads this file into a data frame, treated as a look-up table
 #   translating R function names into R Markdown section titles.
@@ -97,47 +97,74 @@ qnbinom "Negative Binomial Quantiles" NA NA
 
 # exclusions:
 
+aggregate "" NA NA
+apply "" NA NA
 as.data.frame ""  NA NA
+as.factor "" NA NA
 assignCluster "" NA NA
 binnedCounts "" NA NA
 biplot "" NA NA
 by "" NA NA
+c "" NA NA
 chisq.test "" NA NA
 colnames "" NA NA
 colPercents "" NA NA
 confint "" NA NA
+contrasts "" NA NA
 data  "" NA NA
 detach "" NA NA
 dev.copy2eps "" NA NA
 dev.print "" NA NA
 dimnames "" NA NA
 discreteCounts "" NA NA
+droplevels "" NA NA
+factor "" NA NA
 fisher.test "" NA NA
-help  "" NA NA
+help "" NA NA
 Identify3d "" NA NA
 knitr  "" NA NA
 library  "" NA NA
+load "" NA NA
 local "" NA NA
 make.names "" NA NA
 matrix "" NA NA
+merge "" NA NA
+na.omit "" NA NA
 names "" NA NA
 oneway.test "" NA NA
+ordered "" NA NA
 par "" NA NA
 plot "" NA NA
+read.mtp "" NA NA
+read.table "" NA NA
+read.xport "" NA NA
+readSAS "" NA NA
+readSPSS "" NA NA
+readStata "" NA NA
+readXL "" NA NA
 remove "" NA NA
+reshapeL2W "" NA NA
+reshapeW2L "" NA NA
 rgl.snapshot "" NA NA
+row.names "" NA NA
 rownames "" NA NA
 rowPercents "" NA NA
 round "" NA NA
+scale "" NA NA
 sapply "" NA NA
+save "" NA NA
 setwd "" NA NA
 showData "" NA NA
+stack "" NA NA
 strings2factors "" NA NA
+subset "" NA NA
 summary  "" NA NA
 summarySandwich "" NA NA
 table "" NA NA
 Tapply "" NA NA
 totPercents "" NA NA
+View "" NA NA
 with "" NA NA
 within "" NA NA
+write.table "" NA NA
 xtabs "" NA NA
