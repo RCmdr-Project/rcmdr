@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2022-06-27 by J. Fox
+# last modified 2022-06-30 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -312,6 +312,7 @@ anovaTable <- function () {
                 Message(message = gettextRcmdr("Type III tests require careful attention to contrast coding."), 
                     type = "warning")
         }
+        insertRmdSection(paste0("Analysis of Variance: ", .activeModel))
     }
     OKCancelHelp(helpSubject = "Anova", reset = "anovaTable")
     tkgrid(typeFrame, sticky = "w")
@@ -602,7 +603,7 @@ testLinearHypothesis <- function(){
                            "  ", command.2, "\n",
                            "  ", command.3, "\n",
                            "})", sep="")) 
-        insertRmdSection(paste0("Linear Hypothesis Test:", .activeModel))
+        insertRmdSection(paste0("Linear Hypothesis Test: ", .activeModel))
         tkfocus(CommanderWindow())
         contrast.table <- matrix(values, nrows, ncols, byrow=TRUE)
         putDialog("testLinearHypothesis", list(previous.model=.activeModel, nrows=nrows, table.values=contrast.table,
@@ -973,6 +974,7 @@ subsetRegression <- function () {
         doItAndPrint(paste("plot(regsubsets(", formula, ", data=", 
                            ActiveDataSet(), ", nbest=", nbest, ", nvmax=", nvmax, 
                            "), scale='", criterion, "')", sep = ""))
+        insertRmdSection(paste0("Subset Model Selection: ", formula))
         tkdestroy(top)
         tkfocus(CommanderWindow())
     }
@@ -1385,7 +1387,7 @@ transformResponse <- function (){
     putDialog ("transformResponse", list(initial.family=family))
     .activeModel <- ActiveModel()
     doItAndPrint(paste0("summary(powerTransform(", .activeModel, ', family="', family, '"))'))
-    insertRmdSection(paste0("Transform Response Toward Normality", .activeModel))
+    insertRmdSection(paste0("Transform Response Toward Normality: ", .activeModel))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "powerTransform", reset="transformResponse")

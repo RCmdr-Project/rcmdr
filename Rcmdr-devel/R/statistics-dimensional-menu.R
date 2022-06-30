@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2022-06-27 by J. Fox
+# last modified 2022-06-30 by J. Fox
 
 # Dimensional-analysis menu
 
@@ -12,7 +12,7 @@ Reliability <- function () {
 			initialSelection = varPosn(dialog.values$initial.x, "numeric"),
 			title = gettextRcmdr("Variables (pick three or more)"))
 	onOK <- function() {
-		x <- getSelection(xBox)
+		vars <- x <- getSelection(xBox)
 		closeDialog()
 		putDialog("Reliability", list (initial.x = x))
 		if (3 > length(x)) {
@@ -23,6 +23,7 @@ Reliability <- function () {
 		doItAndPrint(paste("reliability(cov(", ActiveDataSet(), 
 						"[,c(", paste(x, collapse = ","), ")], use=\"complete.obs\"))", 
 						sep = ""))
+		insertRmdSection(paste0("Scale Reliability: ", paste(vars, collapse = ", ")))
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject = "reliability", reset = "Reliability", apply = "Reliability")
@@ -127,7 +128,7 @@ principalComponents <- function () {
     }
     doItAndPrint(paste(cmds, commands, "\n})", sep=""))
     insertRmdSection(paste0("Principal-Components Analysis: ",
-                            paste(x, collapse = ",")))
+                            paste(x, collapse = ", ")))
     if (addPC == "1") activeDataSet(.activeDataSet, flushDialogMemory=FALSE)
     tkfocus(CommanderWindow())
   }

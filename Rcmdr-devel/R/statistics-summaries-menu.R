@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2022-06-27 by J. Fox
+# last modified 2022-06-30 by J. Fox
 
 # Summaries menu
 
@@ -263,7 +263,7 @@ frequencyDistribution <- function () {
       dialogSuffix(subwin, onOK = onOKsub, focus = subwin, force.wait=TRUE)
     }
     tkfocus(CommanderWindow())
-    insertRmdSection(paste0("Frequencies: ", x))
+    insertRmdSection(paste0("Frequencies: ", paste(x, collapse=", ")))
   }
   OKCancelHelp(helpSubject = "table", reset = "frequencyDistribution", apply="frequencyDistribution")
   tkgrid(getFrame(xBox), sticky = "nw")
@@ -323,7 +323,7 @@ statisticsTable <- function () {
       doItAndPrint(paste0("Tapply(", response, " ~ ", groups.list, ", ", statistic, ", na.action=na.omit, data=", 
                           .activeDataSet, ") # ", statistic, " by groups")) 
     }
-    insertRmdSection(paste0("Table of Summary Statistics: ", response))
+    insertRmdSection(paste0("Table of Summary Statistics: ", paste(responses, collapse=", ")))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "Tapply", reset="statisticsTable", apply="statisticsTable")
@@ -662,7 +662,7 @@ transformVariables <- function () {
     command <- paste0("summary(powerTransform(", vars, " ~ ", rhs, ", data=", 
                       .activeDataSet, ', family="', family, '"))')
     doItAndPrint(command)
-    insertRmdSection(paste0("Transform Variables Toward Normality: ", vars))
+    insertRmdSection(paste0("Transform Variables Toward Normality: ", cleanUpArg(vars)))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "powerTransform", reset = "transformVariables", apply = "transformVariables")

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2022-06-27 by J. Fox
+# last modified 2022-06-30 by J. Fox
 
 # Means menu
 
@@ -480,9 +480,8 @@ oneWayRepeatedMeasures <- function () {
              '), univariate=TRUE, multivariate=FALSE)', sep = "")
     }
     doItAndPrint(command)
-    if (!test == "multivariate") 
-      insertRmdSection(paste0("Repeated-Measures Analysis of Variance: between = ",
-                              formula, ", within = ", wsfactorName))
+    insertRmdSection(paste0("Repeated-Measures ANOVA: between = ",
+                            cleanUpArg(formula), ", within = ", wsfactorName))
     if (plot == "1" || print == "1"){
       within <- paste0("c(", paste(paste0('"', responses, '"'), collapse=", "), ")")
       between <- if (length (bsfactors > 0)){
@@ -796,9 +795,8 @@ twoWayRepeatedMeasures <- function () {
              '), univariate=TRUE, multivariate=FALSE)', sep = "")
     }
     doItAndPrint(command)
-    if (!test == "multivariate") 
-      insertRmdSection(paste0("Repeated-Measures Analysis of Variance: between = ",
-                              formula, ", within = ", wsrowfactorName, "*", wscolfactorName))
+    insertRmdSection(paste0("Repeated-Measures ANOVA: between = ",
+                            cleanUpArg(formula), ", within = ", wsrowfactorName, "*", wscolfactorName))
     if (plot == "1" || print == "1"){
       within <- paste0("c(", paste(paste0('"', responses, '"'), collapse=", "), ")")
       between <- if (length (bsfactors > 0)){

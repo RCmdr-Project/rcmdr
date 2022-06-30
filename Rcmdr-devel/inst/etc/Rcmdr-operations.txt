@@ -1,4 +1,4 @@
-# Last modified 2022-06-29 by J. Fox
+# Last modified 2022-06-30 by J. Fox
 
 # The R Commander reads this file into a data frame, treated as a look-up table
 #   translating R function names into R Markdown section titles.
@@ -7,12 +7,13 @@
 
          section.title argument assign
 
-Anova "Analysis of Variance" "1" NA
+AIC "Akaike Information Criterion (AIC)" 1 NA
 aov "One-Way Analysis of Variance" 1 NA
 avPlot3d "3D Added-Variable Plot" 1 NA
 avPlots "Added-Variable Plots" 1 NA
-bartlett.test "Bartlett's Test" 1 NA
+BIC "Bayesian Information Criterion (BIC)" 1 NA
 Boot "Bootstrap Confidence Intervals" 1 NA
+Boxplot "Boxplot" 1 NA
 bptest "Breusch-Pagan Test" 1 NA
 compareCoefs "Compare Model Coefficients" "1 2 3 4 5 6 7 8 9" NA
 Confint "Confidence Intervals" 1 NA
@@ -24,11 +25,9 @@ densityPlot "Density Plot" 1 NA
 dwtest "Durbin-Watson Test" 1 NA
 glm  "Generalized Linear Model" 1 TRUE
 glmer "Generalized Linear Mixed-Effects Model" 1 TRUE
-hclust "Hierarchical Clustering" 1 NA
 indexplot "Index Plot" 1 NA
 influenceIndexPlot "Influence Index Plots" 1 NA
 influencePlot "Influence Plot" 1 NA
-KMeans "K-Means Clustering" 1 NA
 kruskal.test "Kruskal-Wallis Rank Sum Test" 1 NA
 leveneTest "Levene's Test" 1 NA
 lm  "Linear Model" 1 TRUE
@@ -41,13 +40,13 @@ partial.cor "Partial Correlations" 1 NA
 qqPlot "Residual Quantile-Comparison Plot" 1 NA
 polr "Ordinal Regression Model" 1 TRUE
 rcorr.adjust "Correlation Matrix" 1 NA
-reliability "Scale Reliability"  1 NA
 repeatedMeasuresPlot "" 1 NA
 resettest "RESET Test" 1 NA 
 scatter3d "3D Scatterplot" 1 NA
 scatterplot  "Scatterplot" 1 NA
 scatterplotMatrix  "Scatterplot Matrix" 1 NA
 stepwise "Stepwise Model Selection" 1 NA
+stripchart "Strip Chart" 1 NA
 symbox "Transformation Boxplots for Symmetry" 1 NA
 t.test "Independent-Samples t-Test" 1 NA
 var.test "Two Variances F-Test" 1 NA
@@ -98,10 +97,12 @@ qnbinom "Negative Binomial Quantiles" NA NA
 # exclusions:
 
 aggregate "" NA NA
+Anova "" NA NA
 apply "" NA NA
 as.data.frame ""  NA NA
 as.factor "" NA NA
 assignCluster "" NA NA
+bartlett.test "" NA NA
 binnedCounts "" NA NA
 biplot "" NA NA
 by "" NA NA
@@ -120,8 +121,10 @@ discreteCounts "" NA NA
 droplevels "" NA NA
 factor "" NA NA
 fisher.test "" NA NA
+hclust "" NA NA
 help "" NA NA
 Identify3d "" NA NA
+KMeans "" NA NA
 knitr  "" NA NA
 library  "" NA NA
 load "" NA NA
@@ -142,6 +145,7 @@ readSAS "" NA NA
 readSPSS "" NA NA
 readStata "" NA NA
 readXL "" NA NA
+reliability ""  NA NA
 remove "" NA NA
 reshapeL2W "" NA NA
 reshapeW2L "" NA NA

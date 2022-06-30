@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2022-06-27 by J. Fox
+# last modified 2022-06-30 by J. Fox
 
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
@@ -1247,7 +1247,7 @@ linePlot <- function () {
         putDialog ("linePlot", list(initial.x = x, initial.y = y))
         command <- paste("with(", .activeDataSet, ", lineplot(", x, ", ", paste(y, collapse=", "), "))", sep="")
         doItAndPrint(command)
-        insertRmdSection(paste0("Line Plot: ", x))
+        insertRmdSection(paste0("Line Plot: ", paste(y, collapse=", "), " by ",  x))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1587,6 +1587,7 @@ PlotMeans <- function () {
                 ", connect=", if (connect == "1") "TRUE" else "FALSE",
                 ", legend.pos=\"", legend.pos, "\"))", sep = ""))
         }
+        insertRmdSection(paste0("Plot of Means: ", response, " by ", paste(groups, collapse=", ")))
         activateMenus()
         tkfocus(CommanderWindow())
     }

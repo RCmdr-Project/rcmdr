@@ -1,4 +1,4 @@
-# last modified 2022-06-29 by J. Fox
+# last modified 2022-06-30 by J. Fox
 
 # utility functions
 
@@ -2350,6 +2350,18 @@ removeStrayRmdBlocks <- function(){
     }
 }
 
+cleanUpArg <- function(arg){
+  arg <- gsub("c\\(", "", arg)
+  arg <- gsub("cbind\\(", "", arg)
+  arg <- gsub("\\[", "", arg)
+  arg <- gsub("\\]", "", arg)
+  if (grepl("~", arg)) return(trim.blanks(arg))
+  arg <- gsub("\\(", "", arg)
+  arg <- gsub("\\)", "", arg)
+  arg <- gsub("\\$", "\\: ", arg)
+  trim.blanks(arg)
+}
+
 findCommandName <- function(command){
   assigned <- NA
   command <- trim.blanks(command)
@@ -2359,12 +2371,12 @@ findCommandName <- function(command){
   args <- trim.blanks(strsplit(
     substring(command, where + 1, nchar(command)), ",")[[1]])
   command <- substring(command, 1, where - 1)
-  args <- gsub("[()]", "", args)
+#  args <- gsub("[()]", "", args)
   for (i in 1:length(args)){
     arg <- args[i]
     where <- regexpr("=", arg)
-    if (where < 0) next
-    args[i] <- trim.blanks(substring(arg, where + 1, nchar(arg)))
+    args[i] <- if (where < 0) cleanUpArg(arg)
+    else cleanUpArg(substring(arg, where + 1, nchar(arg)))
   }
   where <- regexpr("<-", command)
   if (where > 0) {
@@ -2384,7 +2396,7 @@ findCommandName <- function(command){
     if (!is.na(arg <- operation[, "argument"]))
       arg <- as.numeric(strsplit(arg, " ")[[1]])
     arg <- arg[arg <= length(args)]
-    commandName <- paste0(commandName, ": ", paste(args[arg], collapse=", "))
+    if (!is.na(arg[1])) commandName <- paste0(commandName, ": ", paste(args[arg], collapse=", "))
     return(commandName)
   }
 }

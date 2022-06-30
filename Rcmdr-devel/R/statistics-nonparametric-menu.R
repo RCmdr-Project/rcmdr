@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2022-06-27 by J. Fox
+# last modified 2022-06-30 by J. Fox
 
 # Nonparametric tests menu
 
@@ -194,7 +194,7 @@ FriedmanTest <- function () {
 		command <- paste(command, "\n  friedman.test(.Responses)\n})")
     doItAndPrint(command)
     insertRmdSection(paste0("Friedman Rank Sum Test: ", 
-                            paste(.Responses, collapse=", ")))
+                            paste(responses, collapse=", ")))
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject = "friedman.test", reset = "FriedmanTest",
