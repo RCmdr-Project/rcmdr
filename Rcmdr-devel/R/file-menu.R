@@ -982,7 +982,10 @@ editMarkdown <- function(){
   }
   RcmdrEditor(buffer,  title="Edit R Markdown document", ok=ok,
               help=list(label="Using R Markdown", command=browseRMarkdown),
-              file.menu=list(list(label="Generate report", command=compile), list(label="Save current edits", command=saveEdits)), 
+              file.menu=list(list(label="Generate report", command=compile), 
+                             list(label="Save current edits", command=saveEdits)), 
+              edit.menu=list(list(label="Remove last Markdown block", command=removeLastRmdBlock),
+                             list(label="Remove last Markdown section title", command=removeLastRmdSection)),
               toolbar.buttons=list(list(label="Generate report", command=compile, image="::image::submitIcon"),
                                    list(label="Save edits", command=saveEdits, image="::image::saveEditsIcon")))
 }

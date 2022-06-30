@@ -2476,6 +2476,42 @@ removeRglRmdBlocks <- function(string){
   }
 }
 
+removeLastRmdSection <- function(){
+  .rmd <- RmdWindow()    
+  rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
+  start <- gregexpr("\n#[^\n]*", rmd)
+  if (start[[1]][1] > 0){
+    start <- start[[1]]
+    start <- start[length(start)] + 1
+    tail <- substring(rmd, start, nchar(rmd))
+    end <- gregexpr("\n", tail)
+    end <- if (end[[1]][1] > 0) end[[1]][1] else nchar(tail)
+    rmd <- cutstring(rmd, start, start + end - 1)
+    rmd <- trimTrailingNewLines(rmd)
+    tkdelete(.rmd, "1.0", "end")
+    tkinsert(.rmd, "end", rmd)
+    tkyview.moveto(.rmd, 1)
+  }
+  if (getRcmdr("Markdown.editor.open")){
+    .markdown.editor <- MarkdownEditorWindow()
+    rmd <- tclvalue(tkget(.markdown.editor, "1.0", "end"))
+    start <- gregexpr("\n#[^\n]*", rmd)
+    if (start[[1]][1] > 0){
+      start <- start[[1]] + 1
+      start <- start[length(start)]
+      tail <- substring(rmd, start, nchar(rmd))
+      end <- gregexpr("\n", tail)
+      end <- if (end[[1]][1] > 0) end[[1]][1] else nchar(tail)
+      rmd <- cutstring(rmd, start, start + end - 1)
+      rmd <- trimTrailingNewLines(rmd)
+      tkdelete(.markdown.editor, "1.0", "end")
+      tkinsert(.markdown.editor, "end", rmd)
+      tkyview.moveto(.markdown.editor, 1)
+    }
+  }
+}
+
+
 cutstring <- function(x, start=1, end=nchar(x)){
     one <- if (start > 1) substr(x, 1, start - 1) else ""
     two <- if (end < nchar(x)) substr(x, end + 1, nchar(x)) else ""
