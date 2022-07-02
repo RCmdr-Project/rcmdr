@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2022-06-24 by John Fox
+# last modified 2022-07-01 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -31,7 +31,7 @@ Commander <- function(){
     
     processModelCapabilities(Plugins)
     
-    processOperations()
+    processOperations(Plugins)
     
     Menus <- processMenus(Plugins)
     
@@ -392,14 +392,7 @@ processPlugins <- function(modelClasses){
         addRcmdrModels <- unlist(strsplit(addRcmdrModels, ","))
         if (length(addModels) > 0) modelClasses <- c(modelClasses, addModels)
         if (length(addRcmdrModels) > 0) modelClasses <- c(modelClasses, addRcmdrModels)
-        
-        operations.file <- file.path(path.package(package=plugin)[1], "etc", "operations.txt")
-        if (file.exists(operations.file)){
-          operations <- read.table(operations.file, header=TRUE, stringsAsFactors=FALSE)
-          putRcmdr("Operations", rbind(getRcmdr("Operations"), operations))
         }
-        
-    }
     putRcmdr("modelClasses", modelClasses)
     Plugins
 }
@@ -426,9 +419,21 @@ processModelCapabilities <- function(Plugins){
     putRcmdr("modelClasses", modelClasses)
 }
 
-processOperations <- function(){
+processOperations <- function(Plugins){
   Operations <- read.table(file.path(getRcmdr("etc"), "Rcmdr-operations.txt"),
                            header=TRUE, stringsAsFactors=FALSE)
+  for (plugin in Plugins){
+    operations.file <- file.path(path.package(package=plugin)[1], "etc", "operations.txt")
+    if (file.exists(operations.file)){
+      operations <- read.table(operations.file, header=TRUE, stringsAsFactors=FALSE)
+      if (any(conflicts <- rownames(operations) %in% rownames(Operations))){
+        operations <- operations[!conflicts, ]
+        message(sprintf("The following Markdown section titles in %s\n  conflict with existing titles and were removed:\n  ",
+                        plugin), paste(rownames(operations)[conflicts], collapse=", "))
+      }
+      Operations <- rbind(Operations, operations)
+    }
+  }
   putRcmdr("Operations", Operations)
 }
 
@@ -994,8 +999,8 @@ setupGUI <- function(Menus){
                                           else "Rcmdr-Markdown-Template.Rmd", package="Rcmdr"))
     template <- paste(readLines(rmd.template), collapse="\n")
     template <- sub("Your Name", getRcmdr("UserName"), template)
-    if (getRcmdr("use.rgl")) template <- paste0(template, 
-                                                "\n\n```{r echo=FALSE}\n# include this code chunk as-is to enable 3D graphs\nlibrary(rgl)\nknitr::knit_hooks$set(webgl = hook_webgl)\n```\n\n")
+    # if (getRcmdr("use.rgl")) template <- paste0(template, 
+    #                                             "\n\n```{r echo=FALSE}\n# include this code chunk as-is to enable 3D graphs\nlibrary(rgl)\noptions(rgl.useNULL = TRUE)\n```\n\n")
     tkinsert(.rmd, "end", template)
     putRcmdr("markdown.output", FALSE)
     RmdXscroll <- ttkscrollbar(RmdFrame, orient="horizontal",

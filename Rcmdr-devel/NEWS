@@ -14,6 +14,8 @@ Changes in version 2.8-0
   
   o Commands now can create sections (by default at level 3) and a table of contents in the R Markdown document produced by the R Commander (suggestion of Bob Muenchen).
   
+  o RGL in RMarkdown now works with pdf, rtf, and word file formats as well as html, still requires Pandoc (suggestion of Georges Monette).
+  
   o Small improvements.
 
 Changes in version 2.7-1

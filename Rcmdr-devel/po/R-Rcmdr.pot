@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2022-06-30 17:00:00\n"
+"POT-Creation-Date: 2022-07-01 10:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5494,4 +5494,9 @@ msgstr ""
   # new menu item
   
 msgid "Remove last Markdown section title"
+msgstr ""
+
+  # new message for processing plug-ins
+
+msgid "The following Markdown section titles in %s\n  conflict with existing titles and were removed:\n  "
 msgstr ""

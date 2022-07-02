@@ -1,4 +1,4 @@
-# last modified 2022-06-30 by J. Fox
+# last modified 2022-07-02 by J. Fox
 
 # utility functions
 
@@ -2245,22 +2245,28 @@ beginRmdBlock <- function(){
     last2 <- tclvalue(tkget(.rmd, "end -2 chars", "end"))
     if (last2 != "\n\n") tkinsert(.rmd, "end", "\n")
     tkinsert(.rmd, "end", "\n")
-    if (getRcmdr("rgl.command") && getRcmdr("use.rgl")) tkinsert(.rmd, "end", "```{r, webgl=TRUE}\n")
-      else tkinsert(.rmd, "end", "```{r}\n")
+    # if (getRcmdr("rgl.command") && getRcmdr("use.rgl")) tkinsert(.rmd, "end", "```{r, webgl=TRUE}\n")
+    #   else tkinsert(.rmd, "end", "```{r}\n")
+    tkinsert(.rmd, "end", "```{r}\n")
     if (getRcmdr("Markdown.editor.open")){
         .markdown.editor <- MarkdownEditorWindow()
         last2 <- tclvalue(tkget(.markdown.editor, "end -2 chars", "end"))
         if (last2 != "\n\n") tkinsert(.markdown.editor, "end", "\n")
         tkinsert(.markdown.editor, "end", "\n")
-        if (getRcmdr("rgl.command") && getRcmdr("use.rgl")) tkinsert(.markdown.editor, "end", "```{r, webgl=TRUE}\n")
-        else tkinsert(.markdown.editor, "end", "```{r}\n")
+        # if (getRcmdr("rgl.command") && getRcmdr("use.rgl")) tkinsert(.markdown.editor, "end", "```{r, webgl=TRUE}\n")
+        # else tkinsert(.markdown.editor, "end", "```{r}\n")
+        tkinsert(.markdown.editor, "end", "```{r}\n")
     }
 }
 
 endRmdBlock <- function(){
     .rmd <- RmdWindow()
     rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
-    rmd <- paste(substring(rmd, 1, nchar(rmd) - 1), "```\n", sep="")
+    rmd <- if (getRcmdr("rgl.command") && getRcmdr("use.rgl")){
+      paste(substring(rmd, 1, nchar(rmd) - 1), "rglwidget()\n```\n", sep="")
+    } else {
+      paste(substring(rmd, 1, nchar(rmd) - 1), "```\n", sep="")
+    }
     rmd <- trimHangingEndRmdBlock(rmd)
     rmd <- trimTrailingNewLines(rmd)
     tkdelete(.rmd, "1.0", "end")
@@ -2269,7 +2275,11 @@ endRmdBlock <- function(){
     if (getRcmdr("Markdown.editor.open")){
         .markdown.editor<- MarkdownEditorWindow()
         rmd <- tclvalue(tkget(.markdown.editor, "1.0", "end"))
-        rmd <- paste(substring(rmd, 1, nchar(rmd) - 1), "```\n", sep="")
+        rmd <- if (getRcmdr("rgl.command") && getRcmdr("use.rgl")){
+          paste(substring(rmd, 1, nchar(rmd) - 1), "rglwidget()\n```\n", sep="")
+        } else {
+          paste(substring(rmd, 1, nchar(rmd) - 1), "```\n", sep="")
+        }
         rmd <- trimHangingEndRmdBlock(rmd)
         rmd <- trimTrailingNewLines(rmd)
         tkdelete(.markdown.editor, "1.0", "end")
@@ -2351,7 +2361,6 @@ removeStrayRmdBlocks <- function(){
 }
 
 cleanUpArg <- function(arg){
-  arg <- gsub("c\\(", "", arg)
   arg <- gsub("cbind\\(", "", arg)
   arg <- gsub("\\[", "", arg)
   arg <- gsub("\\]", "", arg)
@@ -2466,15 +2475,15 @@ removeLastRmdBlock <- function(){
     }
 }
 
-removeRglRmdBlocks <- function(string){
-  repeat{
-    match <- regexpr("```\\{r, webgl=TRUE\\}\n", string)
-    if (match == -1) return(trimTrailingNewLines(string))
-    substring <- cutstring(string, end=match)
-    match.end <- regexpr("```\n", substring)
-    string <- cutstring(string, match, match + match.end + 3)
-  }
-}
+# removeRglRmdBlocks <- function(string){
+#   repeat{
+#     match <- regexpr("```\\{r, webgl=TRUE\\}\n", string)
+#     if (match == -1) return(trimTrailingNewLines(string))
+#     substring <- cutstring(string, end=match)
+#     match.end <- regexpr("```\n", substring)
+#     string <- cutstring(string, match, match + match.end + 3)
+#   }
+# }
 
 removeLastRmdSection <- function(){
   .rmd <- RmdWindow()    
@@ -2523,6 +2532,8 @@ MarkdownP <- function(){
 }
 
 compileRmd <- function() {
+    save.rglopt <- options(rgl.useNULL=TRUE)
+    on.exit(options(save.rglopt))
     ChooseOutputFormat <- function(){
         initializeDialog(title=gettextRcmdr("Select Output Format"))
         format <- getRcmdr("rmd.output.format")
@@ -2546,7 +2557,7 @@ compileRmd <- function() {
     .RmdFile <- getRcmdr("RmdFileName")
     rmdDir <- dirname(.RmdFile)
     saveDir <- setwd(rmdDir)
-    on.exit(setwd(saveDir))
+    on.exit(setwd(saveDir), add=TRUE)
     fig.files <- list.files("./figure")
     fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
     if (length(fig.files) != 0) {
@@ -2583,7 +2594,7 @@ compileRmd <- function() {
                 browseURL(.html.file.location)
             },
             pdf = {
-                lines <- removeRglRmdBlocks(lines)
+                # lines <- removeRglRmdBlocks(lines)
                 writeLines(lines, .RmdFile)
                 rmarkdown::render(.RmdFile, rmarkdown::pdf_document(toc=options$toc,
                                                                     toc_depth=options$toc_depth,
@@ -2594,7 +2605,7 @@ compileRmd <- function() {
                 browseURL(.pdf.file.location)
             },
             docx = {
-              lines <- removeRglRmdBlocks(lines)
+              # lines <- removeRglRmdBlocks(lines)
               writeLines(lines, .RmdFile)
                 rmarkdown::render(.RmdFile, rmarkdown::word_document(toc=options$toc,
                                                                      toc_depth=options$toc_depth,
@@ -2603,7 +2614,7 @@ compileRmd <- function() {
                 Message(paste(gettextRcmdr("Word file written to:"), normalizePath(.docx.file)), type="note")
             },
             rtf = {
-              lines <- removeRglRmdBlocks(lines)
+              # lines <- removeRglRmdBlocks(lines)
               writeLines(lines, .RmdFile)
               rmarkdown::render(.RmdFile, rmarkdown::rtf_document(toc=options$toc,
                                                                   toc_depth=options$toc_depth,
@@ -2616,7 +2627,7 @@ compileRmd <- function() {
     else{
         if (options$toc) {
           save.opt <- options(markdown.HTML.options= "toc")
-          on.exit(options(save.opt))
+          on.exit(options(save.opt, add=TRUE))
         }
         knitr::knit(.RmdFile, paste(.filename, ".md", sep=""), quiet=TRUE)
         .html.file <- paste(.filename, ".html", sep="")
