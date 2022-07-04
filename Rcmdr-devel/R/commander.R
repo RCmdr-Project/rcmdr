@@ -427,9 +427,9 @@ processOperations <- function(Plugins){
     if (file.exists(operations.file)){
       operations <- read.table(operations.file, header=TRUE, stringsAsFactors=FALSE)
       if (any(conflicts <- rownames(operations) %in% rownames(Operations))){
-        operations <- operations[!conflicts, ]
         message(sprintf("The following Markdown section titles in %s\n  conflict with existing titles and were removed:\n  ",
                         plugin), paste(rownames(operations)[conflicts], collapse=", "))
+        operations <- operations[!conflicts, ]
       }
       Operations <- rbind(Operations, operations)
     }
