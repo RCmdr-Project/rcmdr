@@ -1,4 +1,4 @@
-# last modified 2022-07-02 by J. Fox
+# last modified 2022-07-05 by J. Fox
 
 # utility functions
 
@@ -4109,6 +4109,7 @@ getCases <- function(cases, remove=TRUE){
 
 insertRmdSection <- function(text){
   if (!(getRcmdr("use.markdown") && getRcmdr("command.sections"))) return()
+  if (getRcmdr("translate.rmd.headers")) text <- gettextRcmdr(text)
   .rmd <- RmdWindow()
   rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
   rmd <- strsplit(rmd, "\n")

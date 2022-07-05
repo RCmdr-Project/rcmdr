@@ -1,4 +1,4 @@
-# Last modified 2022-06-30 by J. Fox
+# Last modified 2022-07-05 by J. Fox
 
 # The R Commander reads this file into a data frame, treated as a look-up table
 #   translating R function names into R Markdown section titles.
@@ -26,7 +26,7 @@ dwtest "Durbin-Watson Test" 1 NA
 glm  "Generalized Linear Model" 1 TRUE
 glmer "Generalized Linear Mixed-Effects Model" 1 TRUE
 indexplot "Index Plot" 1 NA
-influenceIndexPlot "Influence Index Plots" 1 NA
+influenceIndexPlot "Influence Index Plot" 1 NA
 influencePlot "Influence Plot" 1 NA
 kruskal.test "Kruskal-Wallis Rank Sum Test" 1 NA
 leveneTest "Levene's Test" 1 NA
@@ -40,7 +40,7 @@ partial.cor "Partial Correlations" 1 NA
 qqPlot "Residual Quantile-Comparison Plot" 1 NA
 polr "Ordinal Regression Model" 1 TRUE
 rcorr.adjust "Correlation Matrix" 1 NA
-repeatedMeasuresPlot "" 1 NA
+repeatedMeasuresPlot "Repeated-Measures Plot" 1 NA
 resettest "RESET Test" 1 NA 
 scatter3d "3D Scatterplot" 1 NA
 scatterplot  "Scatterplot" 1 NA
@@ -50,7 +50,7 @@ stripchart "Strip Chart" 1 NA
 symbox "Transformation Boxplots for Symmetry" 1 NA
 t.test "Independent-Samples t-Test" 1 NA
 var.test "Two Variances F-Test" 1 NA
-vif "Variance Inflation Factors" 1 NA
+vif "Variance-Inflation Factors" 1 NA
 wilcox.test "Wilcoxon Test" 1 NA
 xyplot "Conditioning Plot" 1 NA
 
@@ -60,8 +60,8 @@ pnorm "Normal Cumulative Probabilities" NA NA
 qnorm "Normal Quantiles" NA NA
 pt "t Cumulative Probabilities" NA NA
 qt "t Quantiles" NA NA
-pchisq "Chisquare Cumulative Probabilities" NA NA
-qchisq "Chisquare Quantiles" NA NA
+pchisq "Chi-Squared Cumulative Probabilities" NA NA
+qchisq "Chi-Squared Quantiles" NA NA
 pf "F Cumulative Probabilities" NA NA
 qf "F Quantiles" NA NA
 pexp "Exponential Cumulative Probabilities" NA NA

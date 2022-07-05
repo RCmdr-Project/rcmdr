@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2022-07-01 by John Fox
+# last modified 2022-07-05 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -144,11 +144,13 @@ setupRcmdrOptions <- function(DESCRIPTION){
     setOption("open.markdown.editor", FALSE)
     setOption("rmarkdown.output", TRUE)
     rmo.defaults <- list(
-      command.sections = TRUE, section.level=3, toc=TRUE, toc_float=TRUE, toc_depth=3, number_sections=FALSE
+      command.sections = TRUE, section.level=3, toc=TRUE, toc_float=TRUE, toc_depth=3, 
+      number_sections=FALSE, translate.rmd.headers=TRUE
     )
     rmo.options <- applyDefaultValues(getRcmdr("rmarkdown.output"), rmo.defaults)
     putRcmdr("command.sections", rmo.options$command.sections)
     putRcmdr("section.level", paste(rep("#", rmo.options$section.level), collapse=""))
+    putRcmdr("translate.rmd.headers", rmo.options$translate.rmd.headers)
     if ((!packageAvailable("markdown") && !packageAvailable("rmarkdown")) || (!packageAvailable("knitr"))) 
         putRcmdr("use.markdown", FALSE)
     if (!packageAvailable("knitr") || !getRcmdr("capabilities")$pdflatex) putRcmdr("use.knitr", FALSE)

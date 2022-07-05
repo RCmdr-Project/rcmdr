@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2022-07-01 10:00:00\n"
+"POT-Creation-Date: 2022-07-05 16:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5499,4 +5499,345 @@ msgstr ""
   # new message for processing plug-ins
 
 msgid "The following Markdown section titles in %s\n  conflict with existing titles and were removed:\n  "
+msgstr ""
+
+  # additional messages for RMarkdown document section headings
+  
+msgid "Bootstrap Confidence Intervals"
+msgstr ""
+
+msgid "Delta Method Confidence Intervals"
+msgstr ""
+
+msgid "Density Plot"
+msgstr ""
+
+msgid "Durbin-Watson Test"
+msgstr ""
+
+msgid "Generalized Linear Mixed-Effects Model"
+msgstr ""
+
+msgid "Linear Mixed-Effects Model"
+msgstr ""
+
+msgid "Multinomial Logistic Regression"
+msgstr ""
+
+msgid "Bonferroni Outlier Test"
+msgstr ""
+
+msgid "Partial Correlations"
+msgstr ""
+
+msgid "Repeated-Measures Plot"
+msgstr ""
+
+msgid "Transformation Boxplots for Symmetry"
+msgstr ""
+
+msgid "Independent-Samples t-Test"
+msgstr ""
+
+msgid "Variance-Inflation Factors"
+msgstr ""
+
+msgid "Wilcoxon Test"
+msgstr ""
+
+msgid "Conditioning Plot"
+msgstr ""
+
+msgid "Normal Cumulative Probabilities"
+msgstr ""
+
+msgid "t Cumulative Probabilities"
+msgstr ""
+
+msgid "Chi-Squared Cumulative Probabilities"
+msgstr ""
+
+msgid "F Cumulative Probabilities"
+msgstr ""
+
+msgid "Exponential Cumulative Probabilities"
+msgstr ""
+
+msgid "Uniform Cumulative Probabilities"
+msgstr ""
+
+msgid "Beta Cumulative Probabilities"
+msgstr ""
+
+msgid "Cauchy Cumulative Probabilities"
+msgstr ""
+
+msgid "Logistic Cumulative Probabilities"
+msgstr ""
+
+msgid "Log-Normal Cumulative Probabilities"
+msgstr ""
+
+msgid "Gamma Cumulative Probabilities"
+msgstr ""
+
+msgid "Weibull Cumulative Probabilities"
+msgstr ""
+
+msgid "Gumbel Cumulative Probabilities" 
+msgstr ""
+
+msgid "Binomial Cumulative Probabilities"
+msgstr ""
+
+msgid "Poisson Cumulative Probabilities"
+msgstr ""
+
+msgid "Geometric Cumulative Probabilities"
+msgstr ""
+
+msgid "Hypergeometric Cumulative Probabilities"
+msgstr ""
+
+msgid "Negative Binomial Cumulative Probabilities"
+msgstr ""
+
+msgid "Bartlett's Test:"
+msgstr ""
+
+msgid "Basic Model Plots:"
+msgstr ""
+
+msgid "Analysis of Variance:"
+msgstr ""
+
+msgid "Linear Hypothesis Test:"
+msgstr ""
+
+msgid "Subset Model Selection:"
+msgstr ""
+
+msgid "Effect Plots:"
+msgstr ""
+
+msgid "Predictor Effect Plots:"
+msgstr ""
+
+msgid "Transform Response Toward Normality:"
+msgstr ""
+
+msgid "Table of Binomail Probabilities"
+msgstr ""
+
+msgid "Table of Poisson Probabilities"
+msgstr ""
+
+msgid "Table of Geometric Probabilities"
+msgstr ""
+
+msgid "Table of Hypergeomtric Probabilities"
+msgstr ""
+
+msgid "Table of NegativeBinomial Probabilities"
+msgstr ""
+
+msgid "K-Means Clustering:"
+msgstr ""
+
+msgid "Hiearchical Cluster Analysis:"
+msgstr ""
+
+msgid "Paired Wilcoxon Test:"
+msgstr ""
+
+msgid "Friedman Rank Sum Test:"
+msgstr ""
+
+msgid "Single-Sample Wilcoxon Test:"
+msgstr ""
+
+msgid "Histogram:"
+msgstr ""
+
+msgid "Stem-and-Leaf Display:"
+msgstr ""
+
+msgid "Dot Plot:"
+msgstr ""
+
+msgid "Bar Plot:"
+msgstr ""
+
+msgid "Pie Chart:"
+msgstr ""
+
+msgid "Line Plot:"
+msgstr ""
+
+msgid "Quantile-Comparison Plot:"
+msgstr ""
+
+msgid "Plot of Means:"
+msgstr ""
+
+msgid "Discrete Distribution Plot:"
+msgstr ""
+
+msgid "Two-Way Contingency Table:"
+msgstr ""
+
+msgid "Multi-Way Contingency Table:"
+msgstr ""
+
+msgid "Single-Sample Proportion Test:"
+msgstr ""
+
+msgid "Two-Sample Proportions Test:"
+msgstr ""
+
+msgid "Paired t-Test:"
+msgstr ""
+
+msgid "Single-Sample t-Test:"
+msgstr ""
+
+msgid "Repeated-Measures ANOVA: between ="
+msgstr ""
+
+msgid "Summarize Data Set"
+msgstr ""
+
+msgid "Frequencies:"
+msgstr ""
+
+msgid "Table of Summary Statistics:"
+msgstr ""
+
+msgid "Correlation Test:"
+msgstr ""
+
+msgid "Count Missing Cases:"
+msgstr ""
+
+msgid "Transform Variables Toward Normality:"
+msgstr ""
+
+msgid "Scale Reliability:"
+msgstr ""
+
+msgid "Principal-Components Analysis:"
+msgstr ""
+
+msgid "Factor Analysis:"
+msgstr ""
+
+msgid "Confirmatory Factor Analysis:"
+msgstr ""
+
+msgid "Plot Normal Density Function"
+msgstr ""
+
+msgid "Plot Chi-squared Density Function"
+msgstr ""
+
+msgid "Plot F Density Function"
+msgstr ""
+
+msgid "Plot t Density Function"
+msgstr ""
+
+msgid "Plot Exponential Density Function"
+msgstr ""
+
+msgid "Plot Uniform Density Function"
+msgstr ""
+
+msgid "Plot Beta Density Function"
+msgstr ""
+
+msgid "Plot Cauchy Density Function"
+msgstr ""
+
+msgid "Plot Logistic Density Function"
+msgstr ""
+
+msgid "Plot Lognormal Density Function"
+msgstr ""
+
+msgid "Plot Gamma Density Function"
+msgstr ""
+
+msgid "Plot Weibull Density Function"
+msgstr ""
+
+msgid "Plot Gumbel Density Function"
+msgstr ""
+
+msgid "Plot Normal Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Chi-squared Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot F Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot t Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Exponential Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Uniform Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Beta Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Cauchy Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Logistic Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Lognormal Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Gamma Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Weibull Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Gumbel Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Binomial Probability Mass Function"
+msgstr ""
+
+msgid "Plot Poisson Probability Mass Function"
+msgstr ""
+
+msgid "Plot Geometric Probability Mass Function"
+msgstr ""
+
+msgid "Plot Hypergeometric Probability Mass Function"
+msgstr ""
+
+msgid "Plot NegativeBinomial Probability Mass Function"
+msgstr ""
+
+msgid "Plot Binomial Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Poisson Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Geometric Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Hypergeometric Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot NegativeBinomial Cumulative Distribution Function"
 msgstr ""
