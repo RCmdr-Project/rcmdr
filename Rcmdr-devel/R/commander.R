@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2022-07-05 by John Fox
+# last modified 2022-07-06 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -1001,6 +1001,8 @@ setupGUI <- function(Menus){
                                           else "Rcmdr-Markdown-Template.Rmd", package="Rcmdr"))
     template <- paste(readLines(rmd.template), collapse="\n")
     template <- sub("Your Name", getRcmdr("UserName"), template)
+    template <- sub("Replace with Main Title", 
+                    gettextRcmdr("Replace with Main Title"), template)
     # if (getRcmdr("use.rgl")) template <- paste0(template, 
     #                                             "\n\n```{r echo=FALSE}\n# include this code chunk as-is to enable 3D graphs\nlibrary(rgl)\noptions(rgl.useNULL = TRUE)\n```\n\n")
     tkinsert(.rmd, "end", template)
@@ -1021,6 +1023,8 @@ setupGUI <- function(Menus){
                               system.file("etc", "Rcmdr-knitr-Template.Rnw", package="Rcmdr"))
     template <- paste(readLines(rnw.template), collapse="\n")
     template <- sub("Your Name", getRcmdr("UserName"), template)
+    template <- sub("Replace with Main Title", 
+                    gettextRcmdr("Replace with Main Title"), template)
     tkinsert(.rnw, "end", template)
     putRcmdr("knitr.output", FALSE)
     RnwXscroll <- ttkscrollbar(RnwFrame, orient="horizontal",

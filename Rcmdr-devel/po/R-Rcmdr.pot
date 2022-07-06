@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2022-07-05 16:00:00\n"
+"POT-Creation-Date: 2022-07-06 15:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5840,4 +5840,9 @@ msgid "Plot Hypergeometric Cumulative Distribution Function"
 msgstr ""
 
 msgid "Plot NegativeBinomial Cumulative Distribution Function"
+msgstr ""
+
+  # the following is used for the template main title of R Markdown and knitr documents
+  
+msgid "Replace with Main Title"
 msgstr ""
