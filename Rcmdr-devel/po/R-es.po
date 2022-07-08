@@ -5413,3 +5413,9 @@ msgstr "Aviso"
 
 msgid "Error"
 msgstr "Error"
+
+## -----------
+
+
+msgid "Principal-Components Analysis:"
+msgstr "Análisis de componentes principales:"

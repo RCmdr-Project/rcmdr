@@ -39,7 +39,7 @@ singleProportionTest <- function () {
         else doItAndPrint(paste(command, "\n  binom.test(rbind(.Table), alternative='", 
             alternative, "', p=", p, ", conf.level=", level, 
             ")\n})", sep = ""))
-        insertRmdSection(paste0("Single-Sample Proportion Test: ", x))
+        insertRmdSection(paste0(gettextRmdHeader("Single-Sample Proportion Test: "), x))
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject = "prop.test", reset = "singleProportionTest", apply = "singleProportionTest")
@@ -124,7 +124,7 @@ twoSampleProportionsTest <- function () {
         else doItAndPrint(paste(command, "\n  prop.test(.Table, alternative='", 
             alternative, "', conf.level=", level, ", correct=TRUE)\n})", 
             sep = ""))
-        insertRmdSection(paste0("Two-Sample Proportions Test: ", groups, ", ", x))
+        insertRmdSection(paste0(gettextRmdHeader("Two-Sample Proportions Test: "), groups, ", ", x))
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject = "prop.test", reset = "twoSampleProportionsTest", apply = "twoSampleProportionsTest")

@@ -100,7 +100,7 @@ BartlettTest <- function () {
                           .activeDataSet, ") # variances by group")) 
       doItAndPrint(paste("bartlett.test(", response, " ~ ", 
                          group, ", data=", .activeDataSet, ")", sep = ""))
-      insertRmdSection(paste0("Bartlett's Test: ", response, " ~ ", group))
+      insertRmdSection(paste0(gettextRmdHeader("Bartlett's Test: "), response, " ~ ", group))
     }
     else{
       # command <- paste("with(", .activeDataSet, ", tapply(", response, 
@@ -110,7 +110,7 @@ BartlettTest <- function () {
       doItAndPrint(command)
       doItAndPrint(paste("bartlett.test(", response, " ~ interaction(", 
                          paste(group, collapse=", "), "), data=", .activeDataSet, ")", sep = ""))
-      insertRmdSection(paste0("Bartlett's Test: ", response, " ~ ", paste(group, collapse="*")))
+      insertRmdSection(paste0(gettextRmdHeader("Bartlett's Test: "), response, " ~ ", paste(group, collapse="*")))
     }
     tkfocus(CommanderWindow())
   }

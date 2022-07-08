@@ -2401,11 +2401,11 @@ findCommandName <- function(command){
     return(NA)
   } else {
     if (!is.na(operation[, "assign"]) && operation[, "assign"])
-      commandName <- paste0(commandName, ": ", assigned)
+      commandName <- paste0(gettextRmdHeader(commandName), ": ", assigned)
     if (!is.na(arg <- operation[, "argument"]))
       arg <- as.numeric(strsplit(arg, " ")[[1]])
     arg <- arg[arg <= length(args)]
-    if (!is.na(arg[1])) commandName <- paste0(commandName, ": ", paste(args[arg], collapse=", "))
+    if (!is.na(arg[1])) commandName <- paste0(gettextRmdHeader(commandName), ": ", paste(args[arg], collapse=", "))
     return(commandName)
   }
 }
@@ -4109,7 +4109,7 @@ getCases <- function(cases, remove=TRUE){
 
 insertRmdSection <- function(text){
   if (!(getRcmdr("use.markdown") && getRcmdr("command.sections"))) return()
-  if (getRcmdr("translate.rmd.headers")) text <- gettextRcmdr(text)
+#  if (getRcmdr("translate.rmd.headers")) text <- gettextRcmdr(text)
   .rmd <- RmdWindow()
   rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
   rmd <- strsplit(rmd, "\n")
@@ -4143,3 +4143,7 @@ applyDefaultValues <- function(given, defaults){
   defaults
 }
 
+gettextRmdHeader <- function(text){
+  if (getRcmdr("translate.rmd.headers")) text <- gettextRcmdr(text)
+  text
+}

@@ -140,7 +140,7 @@ distributionSamples <- function(nameVar) {
     command.3 <- paste(command.3, "\n})", sep="")
     if (any.summaries) doItAndPrint(command.3)
     title <- if (nameVar != "t") tools::toTitleCase(nameVar) else "t"
-    insertRmdSection(paste0("Sample from ",  title, " Distribution"))
+    insertRmdSection(gettextRmdHeader(paste0("Sample from ",  title, " Distribution")))
     activeDataSet(dsnameValue)
     tkfocus(CommanderWindow())
     putDialog(dialogName, list(initialValues=vars, dsname=dsnameValue,

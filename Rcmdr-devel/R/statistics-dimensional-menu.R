@@ -23,7 +23,7 @@ Reliability <- function () {
 		doItAndPrint(paste("reliability(cov(", ActiveDataSet(), 
 						"[,c(", paste(x, collapse = ","), ")], use=\"complete.obs\"))", 
 						sep = ""))
-		insertRmdSection(paste0("Scale Reliability: ", paste(vars, collapse = ", ")))
+		insertRmdSection(paste0(gettextRmdHeader("Scale Reliability: "), paste(vars, collapse = ", ")))
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject = "reliability", reset = "Reliability", apply = "Reliability")
@@ -127,7 +127,7 @@ principalComponents <- function () {
       }
     }
     doItAndPrint(paste(cmds, commands, "\n})", sep=""))
-    insertRmdSection(paste0("Principal-Components Analysis: ",
+    insertRmdSection(paste0(gettextRmdHeader("Principal-Components Analysis: "),
                             paste(x, collapse = ", ")))
     if (addPC == "1") activeDataSet(.activeDataSet, flushDialogMemory=FALSE)
     tkfocus(CommanderWindow())
@@ -231,7 +231,7 @@ factorAnalysis <- function () {
     }
     if (commands != "") doItAndPrint(paste(command, commands, "\n})", sep=""))
     else doItAndPrint(paste(command, "})", sep=""))
-    insertRmdSection(paste0("Factor Analysis: ", paste(x, collapse = ", ")))
+    insertRmdSection(paste0(gettextRmdHeader("Factor Analysis: "), paste(x, collapse = ", ")))
     if (scores != "none") activeDataSet(.activeDataSet, flushDialogMemory = FALSE)
     tkfocus(CommanderWindow())
   }
@@ -367,7 +367,7 @@ CFA <- function(){
                      if (robust == 1) "TRUE" else "FALSE", indices,
                      ")\n})", sep="")
     doItAndPrint(command)
-    insertRmdSection(paste0("Confirmatory Factor Analysis: ", activeDataSet()))
+    insertRmdSection(paste0(gettextRmdHeader("Confirmatory Factor Analysis: "), activeDataSet()))
   }
   OKCancelHelp(helpSubject="CFA", reset="CFA", apply="CFA")
   tkgrid(matrixFrame, labelRcmdr(optionsFrame, text="    "), factorCorFrame, sticky="nw")

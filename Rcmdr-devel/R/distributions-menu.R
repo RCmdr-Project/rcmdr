@@ -549,7 +549,7 @@ distributionMass  <- function(nameVar) {
     }
     command <- paste(command, "\n  print(.Table)\n})")
     doItAndPrint(command)
-    insertRmdSection(paste0("Table of ",  fVar$titleName, " Probabilities"))
+    insertRmdSection(gettextRmdHeader(paste0("Table of ",  fVar$titleName, " Probabilities")))
     tkfocus(CommanderWindow())
     putDialog(dialogName, list(initialValues=vars), resettable=FALSE)
   }

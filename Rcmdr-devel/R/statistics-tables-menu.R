@@ -83,7 +83,7 @@ twoWayTable <- function(){
           if (!is.null(warnText)) Message(message=warnText,
                                           type="warning")
         }
-        insertRmdSection(paste0("Two-Way Contingency Table: ", row, ", ", column))
+        insertRmdSection(paste0(gettextRmdHeader("Two-Way Contingency Table: "), row, ", ", column))
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject="xtabs", reset="twoWayTable", apply="twoWayTable")
@@ -154,7 +154,7 @@ multiWayTable <- function (){
 		  command <- paste(command, '\n  cat("\\nColumn percentages:\\n")\n  print(colPercents(.Table))', sep="")
 	  command <- paste(command, "\n})")
     doItAndPrint(command)
-    insertRmdSection(paste0("Multi-Way Contingency Table: ", row, ", ", column,
+    insertRmdSection(paste0(gettextRmdHeader("Multi-Way Contingency Table: "), row, ", ", column,
                             ", ", paste(controls, collapse=", ")))
 		tkfocus(CommanderWindow())
 	}
@@ -325,7 +325,7 @@ enterTable <- function(){
             putRcmdr("savedTable", .Table)
         }
         logger("remove(.Table)")
-        insertRmdSection(paste0("Two-Way Contingency Table: ", rowvar, ", ", colvar))
+        insertRmdSection(paste0(gettextRmdHeader("Two-Way Contingency Table: "), rowvar, ", ", colvar))
         remove(.Table, envir=.GlobalEnv)
         tkfocus(CommanderWindow())
     }

@@ -98,7 +98,7 @@ kmeansClustering <- function () {
                          ", iter.max = ", iters, ", num.seeds = ", seeds, 
                          ")", sep = "")
         doItAndPrint(paste(".cluster <- ", command))
-        insertRmdSection(paste0("K-Means Clustering: ",
+        insertRmdSection(paste0(gettextRmdHeader("K-Means Clustering: "),
                                 paste(x, collapse = ", ")))
         if (clusterSummary == "1") {
             doItAndPrint(paste(".cluster$size # Cluster Sizes"))
@@ -248,7 +248,7 @@ hierarchicalCluster <- function () {
 							dset, "\"", ", sub=", "\"", "Method=", clusMethod, 
 							"; Distance=", distlab, "\"", ")", sep = ""))
 		}
-        insertRmdSection(paste0("Hiearchical Cluster Analysis: ",
+        insertRmdSection(paste0(gettextRmdHeader("Hiearchical Cluster Analysis: "),
                                 paste(vars, collapse = ", ")))
 		activateMenus()
 		tkfocus(CommanderWindow())

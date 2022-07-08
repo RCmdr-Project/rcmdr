@@ -207,7 +207,7 @@ distributionPlot <- function(nameVar){
         }
         doItAndPrint(command)
         title <- if (fun == "Density") " Density Function" else " Cumulative Distribution Function"
-        insertRmdSection(paste0("Plot ",  fVar$titleName, title))
+        insertRmdSection(gettextRmdHeader(paste0("Plot ",  fVar$titleName, title)))
         tkfocus(CommanderWindow())
         putDialog(dialogName, list(initialValues=vars, type=fun, #showRegions=showRegions, 
                                    valuesOrQuantiles=valuesOrQuantiles,
@@ -323,7 +323,7 @@ discreteDistributionPlot <- function(nameVar){
         command <- paste(command, "\n})", sep="")
         doItAndPrint(command)
         title <- if (fun == "Probability") " Probability Mass Function" else " Cumulative Distribution Function"
-        insertRmdSection(paste0("Plot ",  fVar$titleName, title))
+        insertRmdSection(gettextRmdHeader(paste0("Plot ",  fVar$titleName, title)))
         tkfocus(CommanderWindow())
         putDialog(dialogName, list(initialValues=vars, type=fun), resettable=FALSE)
     }

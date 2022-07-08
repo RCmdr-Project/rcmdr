@@ -105,7 +105,7 @@ pairedTTest <- function () {
                        ", ", y, ", alternative='", 
                        alternative, "', conf.level=", level, ", paired=TRUE)))", 
                        sep = ""))
-    insertRmdSection(paste0("Paired t-Test: ", x, ", ", y))
+    insertRmdSection(paste0(gettextRmdHeader("Paired t-Test: "), x, ", ", y))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "t.test", reset = "pairedTTest", apply = "pairedTTest")
@@ -151,7 +151,7 @@ singleSampleTTest <- function () {
     doItAndPrint(paste("with(", ActiveDataSet (), ", (t.test(", x, 
                        ", alternative='", alternative, "', mu=", mu, ", conf.level=", 
                        level, ")))", sep = ""))
-    insertRmdSection(paste0("Single-Sample t-Test: ", x))
+    insertRmdSection(paste0(gettextRmdHeader("Single-Sample t-Test: "), x))
     tkdestroy(top)
     tkfocus(CommanderWindow())
   }
@@ -480,8 +480,8 @@ oneWayRepeatedMeasures <- function () {
              '), univariate=TRUE, multivariate=FALSE)', sep = "")
     }
     doItAndPrint(command)
-    insertRmdSection(paste0("Repeated-Measures ANOVA: between = ",
-                            cleanUpArg(formula), ", within = ", wsfactorName))
+    insertRmdSection(paste0(gettextRmdHeader("Repeated-Measures ANOVA: between = "),
+                            cleanUpArg(formula), gettextRmdHeader(", within = "), wsfactorName))
     if (plot == "1" || print == "1"){
       within <- paste0("c(", paste(paste0('"', responses, '"'), collapse=", "), ")")
       between <- if (length (bsfactors > 0)){
@@ -795,8 +795,8 @@ twoWayRepeatedMeasures <- function () {
              '), univariate=TRUE, multivariate=FALSE)', sep = "")
     }
     doItAndPrint(command)
-    insertRmdSection(paste0("Repeated-Measures ANOVA: between = ",
-                            cleanUpArg(formula), ", within = ", wsrowfactorName, "*", wscolfactorName))
+    insertRmdSection(paste0(gettextRmdHeader("Repeated-Measures ANOVA: between = "),
+                            cleanUpArg(formula), gettextRmdHeader(", within = "), wsrowfactorName, "*", wscolfactorName))
     if (plot == "1" || print == "1"){
       within <- paste0("c(", paste(paste0('"', responses, '"'), collapse=", "), ")")
       between <- if (length (bsfactors > 0)){
