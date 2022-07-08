@@ -16,6 +16,8 @@ Changes in version 2.8-0
   
   o RGL in RMarkdown now works with pdf, rtf, and word file formats as well as html, still requires Pandoc (suggestion of Georges Monette).
   
+  o Boxplot dialog now permits selection of more than one variable for parallel boxplots (suggestion of Ivan Krylov).
+  
   o Small improvements.
 
 Changes in version 2.7-1

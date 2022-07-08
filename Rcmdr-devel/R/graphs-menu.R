@@ -366,7 +366,8 @@ boxPlot <- function () {
                    initial.main=gettextRcmdr("<auto>"), initial.tab=0)
   dialog.values <- getDialog("boxPlot", defaults)
   initializeDialog(title = gettextRcmdr("Boxplot"), use.tabs=TRUE)
-  xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
+  xBox <- variableListBox(dataTab, Numeric(), selectmode = "multiple",
+                          title = gettextRcmdr("Variable (pick one or more)"),
                           initialSelection = varPosn (dialog.values$initial.x, "numeric"))
   optionsFrame <- tkframe(optionsTab)
   optFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Identify Outliers"),
@@ -429,7 +430,7 @@ boxPlot <- function () {
       return()
     }
     .activeDataSet <- ActiveDataSet()
-    var <- paste(.activeDataSet, "$", x, sep = "")
+#    var <- paste(.activeDataSet, "$", x, sep = "")
     if (identifyPoints == "identify")
       RcmdrTkmessageBox(title = "Identify Points",
                         message = paste(gettextRcmdr("Use left mouse button to identify points,\n"),
@@ -437,14 +438,19 @@ boxPlot <- function () {
                                                      else "right button to exit."), sep = ""),
                         icon = "info", type = "ok")
     if (is.null(.groups) || .groups == FALSE) {
-      command <- paste("Boxplot( ~ ", x, ", data=", .activeDataSet, ', id=list(method="',
+      command <- paste("Boxplot( ~ ", paste(x, collapse=" + "), ", data=", .activeDataSet, ', id=list(method="',
                        identifyPoints, '")', ylab, main, ')', sep="")
       if (identifyPoints == "identify") command <- suppressMarkdown(command)
       
       doItAndPrint(command)
     }
     else {
-      command <- paste("Boxplot(", x, "~", .groups, ", data=", .activeDataSet,
+      if (length(x) > 1) {
+        errorCondition(recall = boxPlot, 
+                       message = gettextRcmdr("You cannot plot by groups with more than one variable selected"))
+        return()
+      }
+      command <- paste("Boxplot(", x, " ~ ", .groups, ", data=", .activeDataSet,
                        ', id=list(method="', identifyPoints, '")', xlab, ylab, main, ')', sep = "")
       if (identifyPoints == "identify") command <- suppressMarkdown(command)
       doItAndPrint(command)
