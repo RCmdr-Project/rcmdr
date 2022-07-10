@@ -1,5 +1,5 @@
 %% the original of this file provided by Manuel Munoz Marquez
-%% last update: 2022-07-09 for version 2.8-0 by J. Fox
+%% last update: 2022-07-10 for version 2.8-0 by J. Fox
 
 <<echo=F>>=
 library('Rcmdr')
@@ -26,6 +26,7 @@ gt <- function(x) {
  |- \Sexpr{gt('Exit')} 
  | |- \Sexpr{gt('From Commander')}
  | |- \Sexpr{gt('From Commander and R')}
+ | |- \Sexpr{gt('Restart the Commander')}
 \Sexpr{gt('Edit')} 
  |- \Sexpr{gt('Edit R Markdown document')}
  |- \Sexpr{gt('Edit knitr document')}

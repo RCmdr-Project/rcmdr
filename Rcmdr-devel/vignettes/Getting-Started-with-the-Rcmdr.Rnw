@@ -23,7 +23,7 @@
 and updated from Fox (2005). Please address correspondence to
 \texttt{jfox@mcmaster.ca}. }}
 \author{John Fox}
-\date{Version 2.8-0 (last modified: 2022-07-09)}
+\date{Version 2.8-0 (last modified: 2022-07-10)}
 \maketitle
 
 \section{Introduction}
@@ -253,6 +253,7 @@ gt <- function(x) {
  |- \Sexpr{gt('Exit')} 
  | |- \Sexpr{gt('From Commander')}
  | |- \Sexpr{gt('From Commander and R')}
+ | |- \Sexpr{gt('Restart the Commander')}
 \Sexpr{gt('Edit')} 
  |- \Sexpr{gt('Edit R Markdown document')}
  |- \Sexpr{gt('Edit knitr document')}
