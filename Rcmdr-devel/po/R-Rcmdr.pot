@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2022-07-08 12:00:00\n"
+"POT-Creation-Date: 2022-07-10 19:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5705,6 +5705,9 @@ msgstr ""
 
 msgid "Single-Sample t-Test:"
 msgstr ""
+
+      # in the following two messages, the "between" part of the model
+      # is inserted after the first = and the "within" part after the second =
 
 msgid "Repeated-Measures ANOVA: between ="
 msgstr ""
