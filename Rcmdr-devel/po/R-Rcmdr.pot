@@ -4344,7 +4344,7 @@ msgid "<no variable selected>"
 msgstr ""
 
 msgid "Weights"
-msgstr""
+msgstr ""
 
   # new effect-plots dialog
 
@@ -5422,7 +5422,7 @@ msgstr ""
 
   # new error message for boxplot dialog
   
-msgid ""You cannot plot by groups with more than one variable selected""
+msgid "You cannot plot by groups with more than one variable selected"
 msgstr ""
 
   # additional message for the 3D scatterplot dialog
@@ -5712,7 +5712,7 @@ msgstr ""
 msgid ", within = "
 msgstr ""
 
-msgid "Summarize Data Set"
+msgid "Summarize Data Set:"
 msgstr ""
 
 msgid "Frequencies:"
