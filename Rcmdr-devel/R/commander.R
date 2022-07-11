@@ -1003,6 +1003,10 @@ setupGUI <- function(Menus){
     template <- sub("Your Name", getRcmdr("UserName"), template)
     template <- sub("Replace with Main Title", 
                     gettextRcmdr("Replace with Main Title"), template)
+    template <- sub("include this code chunk as-is to set options",
+                    gettextRcmdr("include this code chunk as-is to set options"),
+                    template)
+    
     # if (getRcmdr("use.rgl")) template <- paste0(template, 
     #                                             "\n\n```{r echo=FALSE}\n# include this code chunk as-is to enable 3D graphs\nlibrary(rgl)\noptions(rgl.useNULL = TRUE)\n```\n\n")
     tkinsert(.rmd, "end", template)
