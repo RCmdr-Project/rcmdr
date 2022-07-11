@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2022-06-30 by J. Fox
+# last modified 2022-07-11 by J. Fox
 
 # Means menu
 
@@ -481,7 +481,7 @@ oneWayRepeatedMeasures <- function () {
     }
     doItAndPrint(command)
     insertRmdSection(paste0(gettextRmdHeader("Repeated-Measures ANOVA: between = "),
-                            cleanUpArg(formula), gettextRmdHeader(", within = "), wsfactorName))
+                            rhs, gettextRmdHeader(", within = "), wsfactorName))
     if (plot == "1" || print == "1"){
       within <- paste0("c(", paste(paste0('"', responses, '"'), collapse=", "), ")")
       between <- if (length (bsfactors > 0)){
@@ -796,7 +796,7 @@ twoWayRepeatedMeasures <- function () {
     }
     doItAndPrint(command)
     insertRmdSection(paste0(gettextRmdHeader("Repeated-Measures ANOVA: between = "),
-                            cleanUpArg(formula), gettextRmdHeader(", within = "), wsrowfactorName, "*", wscolfactorName))
+                            rhs, gettextRmdHeader(", within = "), wsrowfactorName, "*", wscolfactorName))
     if (plot == "1" || print == "1"){
       within <- paste0("c(", paste(paste0('"', responses, '"'), collapse=", "), ")")
       between <- if (length (bsfactors > 0)){
