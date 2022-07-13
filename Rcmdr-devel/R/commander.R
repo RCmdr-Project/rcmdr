@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2022-07-06 by John Fox
+# last modified 2022-07-13 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -1000,11 +1000,22 @@ setupGUI <- function(Menus){
                               system.file("etc", if (getRcmdr("capabilities")$pandoc) "Rcmdr-RMarkdown-Template.Rmd"
                                           else "Rcmdr-Markdown-Template.Rmd", package="Rcmdr"))
     template <- paste(readLines(rmd.template), collapse="\n")
+    
+        # template customization and translation:
     template <- sub("Your Name", getRcmdr("UserName"), template)
     template <- sub("Replace with Main Title", 
                     gettextRcmdr("Replace with Main Title"), template)
     template <- sub("include this code chunk as-is to set options",
                     gettextRcmdr("include this code chunk as-is to set options"),
+                    template)
+    template <- sub("You can edit this R Markdown document, for example to explain what you're\ndoing and to draw conclusions from your data analysis.",
+                    gettextRcmdr("You can edit this R Markdown document, for example to explain what you're\ndoing and to draw conclusions from your data analysis."),
+                    template)
+    template <- sub("Auto-generated section titles, typically preceded by ###, can also be edited.",
+                    gettextRcmdr("Auto-generated section titles, typically preceded by ###, can also be edited."),
+                    template)
+    template <- sub("It's generally not a good idea to edit the R code that the R Commander writes, \nbut you can freely edit between (not within) R \"code blocks.\" Each R code\nblock starts with ```\\{r\\} and ends with ```.",
+                    gettextRcmdr("It's generally not a good idea to edit the R code that the R Commander writes, \nbut you can freely edit between (not within) R \"code blocks.\" Each R code\nblock starts with ```\\{r\\} and ends with ```."),
                     template)
     
     # if (getRcmdr("use.rgl")) template <- paste0(template, 
