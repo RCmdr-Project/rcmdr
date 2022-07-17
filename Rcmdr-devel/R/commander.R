@@ -1014,9 +1014,9 @@ setupGUI <- function(Menus){
     template <- sub("Auto-generated section titles, typically preceded by ###, can also be edited.",
                     gettextRcmdr("Auto-generated section titles, typically preceded by ###, can also be edited."),
                     template)
-    template <- sub("It's generally not a good idea to edit the R code that the R Commander writes, \nbut you can freely edit between (not within) R \"code blocks.\" Each R code\nblock starts with ```\\{r\\} and ends with ```.",
-                    gettextRcmdr("It's generally not a good idea to edit the R code that the R Commander writes, \nbut you can freely edit between (not within) R \"code blocks.\" Each R code\nblock starts with ```\\{r\\} and ends with ```."),
-                    template)
+    template <- sub("It's generally not a good idea to edit the R code that the R Commander writes, \nbut you can freely edit between (not within) R \"code blocks.\" Each R code\nblock starts with ```{r} and ends with ```.",
+                    gettextRcmdr("It's generally not a good idea to edit the R code that the R Commander writes, \nbut you can freely edit between (not within) R \"code blocks.\" Each R code\nblock starts with ```{r} and ends with ```."),
+                    template, fixed = TRUE)
     
     # if (getRcmdr("use.rgl")) template <- paste0(template, 
     #                                             "\n\n```{r echo=FALSE}\n# include this code chunk as-is to enable 3D graphs\nlibrary(rgl)\noptions(rgl.useNULL = TRUE)\n```\n\n")
