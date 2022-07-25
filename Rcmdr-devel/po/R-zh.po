@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2019-08-09 08:08+0800\n"
+"POT-Creation-Date: 2022-07-11 09:30:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Li Cheng Hsun <d966020003@student.nsysu.edu.tw>\n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 3.1\n"
 
 msgid "KMeans Clustering"
 msgstr "K 平均數集群"
@@ -3917,9 +3917,8 @@ msgstr "型2"
 msgid "Type 3"
 msgstr "型3"
 
-#, fuzzy
 msgid "Missing Data"
-msgstr "清除遺漏資料"
+msgstr "遺漏資料"
 
 msgid "Use complete cases"
 msgstr "使用完整觀察值"
@@ -3977,9 +3976,8 @@ msgstr "因子轉軸"
 msgid "There are too many factors."
 msgstr "可用的模型少於2個."
 
-#, fuzzy
 msgid "Identifying Constraints"
-msgstr "辨識點"
+msgstr "限制條件識別"
 
 msgid "Factor variances set to 1"
 msgstr "將因子變異數設為1"
@@ -4108,9 +4106,8 @@ msgid "Plot Type (one or both)"
 msgstr "圖形類別"
 
 # #待確認功能
-#, fuzzy
 msgid "Plot legend"
-msgstr "繪製平均數"
+msgstr "繪製說明"
 
 msgid "Conditions '|' (pick zero or more)"
 msgstr "因子變數〈不選或選多個〉"
@@ -4190,7 +4187,7 @@ msgid "Do not identify"
 msgstr "無法辨認"
 
 msgid "number of points to identify must be an integer"
-msgstr ""
+msgstr "欲識別的座標數必需為整數"
 
 msgid "Number of points to identify"
 msgstr "要辨識的座標數目："
@@ -4297,7 +4294,7 @@ msgid "R knitr template file"
 msgstr "R的 knitr 模版"
 
 msgid "Suppress icon images"
-msgstr ""
+msgstr "壓縮圖示"
 
 #      "Models -> Subset model selection" dialog and menu item
 msgid "Retain dialog selections"
@@ -4347,7 +4344,7 @@ msgid "Warning text color"
 msgstr "警示訊息顏色"
 
 msgid "Dialog subtitles text color"
-msgstr ""
+msgstr "Dialog subtitles text color"
 
 msgid "Script window width (characters)"
 msgstr "語法檔視窗寬度(字元數)"
@@ -4375,7 +4372,7 @@ msgid "R Profile saved to"
 msgstr "另存 R 工作空間"
 
 msgid "The following commands will be saved in the file .Rprofile."
-msgstr ""
+msgstr "以下語法將被存成.Rprofile檔"
 
 msgid "You may edit this file before saving it."
 msgstr "儲存前請編輯"
@@ -4387,13 +4384,13 @@ msgid "Nonparametric Density Estimate"
 msgstr "無母數密度估計法"
 
 msgid "Gaussian"
-msgstr ""
+msgstr "高斯式"
 
 msgid "Epanechnikov"
-msgstr ""
+msgstr "Epanechnikov"
 
 msgid "Tukey biweight"
-msgstr ""
+msgstr "Tukey 雙權重估計"
 
 msgid "Kernel Function"
 msgstr "Kernel 函數"
@@ -4402,7 +4399,7 @@ msgid "Bandwidth"
 msgstr "頻寬"
 
 msgid "Multiply bandwidth by"
-msgstr ""
+msgstr "頻寬乘上"
 
 msgid "Density estimate..."
 msgstr "密度估計"
@@ -4443,12 +4440,12 @@ msgid "polynomial requires a numeric variable"
 msgstr "多項式函數只能是數值變數"
 
 msgid "B-spline\n"
-msgstr ""
+msgstr "B-spline\n"
 
 msgid ""
 "natural\n"
 "spline"
-msgstr ""
+msgstr "natural spline"
 
 msgid ""
 "orthogonal\n"
@@ -4497,10 +4494,10 @@ msgid "Remove last Markdown command block"
 msgstr "移除最近 Markdown 命令區塊"
 
 msgid "Remove last knitr command block"
-msgstr ""
+msgstr "移除最後的knitr命令塊"
 
 msgid "Remove last command block"
-msgstr ""
+msgstr "移除最後的命令塊"
 
 msgid "Exit editor"
 msgstr "退出編輯器"
@@ -4520,10 +4517,10 @@ msgstr "忽視所做之編輯"
 
 # support for back-to-back stem-and-leaf displays
 msgid "Plot back-to-back by:"
-msgstr ""
+msgstr "Plot back-to-back by:"
 
 msgid "Plot back-to-back by"
-msgstr ""
+msgstr "Plot back-to-back by:"
 
 msgid "Standard Error of Mean"
 msgstr "平均數之標準誤"
@@ -4538,9 +4535,13 @@ msgstr "資料表中首列的變數名稱："
 msgid "Row names in first column of spreadsheet"
 msgstr "首欄為列名稱"
 
-#, fuzzy
 msgid "<no variable selected>"
-msgstr "沒有選擇任何變數."
+msgstr "沒有選擇任何變數"
+
+#, fuzzy
+#| msgid "Height"
+msgid "Weights"
+msgstr "高度"
 
 msgid "Model Effect Plots"
 msgstr "模型效應圖"
@@ -4561,7 +4562,7 @@ msgstr ""
 msgid ""
 "To plot partial residuals,\n"
 " there must be a least one numeric predictor."
-msgstr ""
+msgstr "繪部分殘查至少須要一個數值變數"
 
 # 3D scatterplots dialog
 msgid "Plot partial residuals"
@@ -4775,7 +4776,7 @@ msgid "Plot concentration ellipse(s)"
 msgstr ""
 
 msgid "Legend Position"
-msgstr ""
+msgstr "圖說位置"
 
 msgid "Above plot"
 msgstr "以上圖"
@@ -4806,10 +4807,10 @@ msgid "Position of Legend"
 msgstr ""
 
 msgid "Left"
-msgstr ""
+msgstr "左"
 
 msgid "Right"
-msgstr ""
+msgstr "右"
 
 msgid "plotting and grouping variables must be different"
 msgstr "繪製資料和分群變數不可相同"
@@ -4883,13 +4884,13 @@ msgid "Type of Confidence Intervals"
 msgstr "信賴區間類別"
 
 msgid "BCa (adjusted percentile)"
-msgstr ""
+msgstr "調整百分比的拔靴法"
 
 msgid "Normal theory"
 msgstr "常態理論"
 
 msgid "Basic bootstrap"
-msgstr ""
+msgstr "基礎拔靴法"
 
 #, fuzzy
 #| msgid "Percentages"
@@ -4900,7 +4901,7 @@ msgid "Resampling Method"
 msgstr "重複抽樣法"
 
 msgid "Case resampling"
-msgstr ""
+msgstr "觀察值重複抽樣"
 
 msgid "Residual resampling"
 msgstr "重複抽樣殘差"
@@ -5024,7 +5025,7 @@ msgstr ""
 
 # additional error check in load data set dialog
 msgid "There is more than one object in the file, with the following names:\n"
-msgstr ""
+msgstr "此檔超過一個物件\n"
 
 # new messages for distribution plot dialogs produced by distributionPlot()
 msgid "Optionally specify regions under the density function by"
@@ -5033,10 +5034,8 @@ msgstr ""
 msgid "x-values"
 msgstr "x值"
 
-#, fuzzy
-#| msgid "quantiles:"
 msgid "quantiles"
-msgstr "分位數："
+msgstr "分位數"
 
 msgid "is not a valid number."
 msgstr "非有效的數字."
@@ -5045,13 +5044,13 @@ msgid "You must specify 'from' and 'to' for at least one range."
 msgstr "至少一個間距必須指定 '從' 和 '到' "
 
 msgid "In specifying a range, 'to' must be greater than 'from'."
-msgstr ""
+msgstr "在設定範圍時, 'to' 必須大於 'from'"
 
 msgid "Quantiles must be between 0 and 1."
 msgstr "分位數必須位在 0 與 1 之間."
 
 msgid "Regions to Fill (specify one or two, or leave blank)"
-msgstr ""
+msgstr "欲填滿區域(請指定1,2或留空白)"
 
 msgid "Region 1: from"
 msgstr "區域1:從"
@@ -5227,10 +5226,10 @@ msgstr "標記源:"
 
 # new response transformation dialog
 msgid "Response Transformation"
-msgstr ""
+msgstr "轉換反應變數"
 
 msgid "Response transformation..."
-msgstr ""
+msgstr "轉換反應變數..."
 
 msgid "Box-Cox"
 msgstr ""
@@ -5243,7 +5242,7 @@ msgstr ""
 
 # new transform toward normality dialog
 msgid "Transform toward normality..."
-msgstr "朝常態轉換"
+msgstr "往常態分佈轉換"
 
 msgid "Transform Variables Toward Normality"
 msgstr "將變數依常態轉換"
@@ -5252,7 +5251,7 @@ msgid "Select variables to transform (one or more)"
 msgstr "選擇被轉換變數(一個或多個)"
 
 msgid "Transformation Family"
-msgstr ""
+msgstr "轉換家族"
 
 # new symmetry boxplot (symbox) dialog
 msgid "Symmetry boxplot..."
@@ -5327,11 +5326,772 @@ msgstr "廣義線性混和模式(多層次)"
 msgid "Generalized linear mixed model..."
 msgstr "廣義線性混和模式(多層次)..."
 
+# #待確認翻譯
+#, fuzzy
+msgid "Convert variable names to lower case"
+msgstr ""
+"轉換數值標記\n"
+"為因子變數之層次"
+
+# new messages about invalid variable classes
+msgid ""
+"The following variables are not valid for use in the R Commander and will be "
+"omitted:"
+msgstr "以下所有變數在R Commander內無效將被移除:"
+
+msgid ""
+"The following variable is not valid for use in the R Commander and will be "
+"omitted:"
+msgstr "以下之變數在R Commander內無效將被移除:"
+
+#, fuzzy
+#| msgid "Frequency counts"
+msgid "Frequency Counts"
+msgstr "次數統計"
+
+# For bar graph dialog
+msgid "Show counts or percentages in bars"
+msgstr "在條形呈現次數或百分比"
+
+msgid "Neither"
+msgstr "皆非"
+
+#, fuzzy
+#| msgid "<No groups selected>"
+msgid "<No response selected>"
+msgstr "<您沒有選擇任何群組>"
+
+#, fuzzy
+#| msgid "Proportions"
+msgid "Proportion"
+msgstr "比率資料分析"
+
+#, fuzzy
+#| msgid "Restart R Commander"
+msgid "Restart the Commander"
+msgstr "離開並重新啟動 R Commander"
+
+msgid "Restart the Commander?"
+msgstr "重新啟動 R Commander?"
+
+# for new repeated-measures ANOVA/ANCOVA dialogs
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "單因子重複量數(共)變異數分析..."
+
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr "單因子重複量數(共)變異數分析之單因子"
+
+msgid "no responses specified"
+msgstr "您沒有指定任何運算"
+
+msgid ""
+"the specified responses are not contiguous\n"
+" missing responses are removed"
+msgstr ""
+
+#, fuzzy
+#| msgid "Color Selection"
+msgid "<no selection>"
+msgstr "顏色選擇"
+
+msgid "there are duplicated level names"
+msgstr "重複的選單名稱"
+
+msgid "is not a valid name"
+msgstr "非有效的名稱"
+
+msgid "the following responses appear more than once:"
+msgstr "以下反應變數出現超過一次："
+
+msgid "at least 2 responses must be specified"
+msgstr "至少必須指定選擇兩個反應"
+
+msgid "Within-Subject Factor"
+msgstr ""
+
+#, fuzzy
+#| msgid "Name for factor:"
+msgid "Name for the within-subjects factor:"
+msgstr "新因子變數名稱："
+
+msgid ""
+"Specify up to 8 levels (responses) and level names for the within-subjects "
+"factor"
+msgstr ""
+
+msgid "Multivariate Test Statistic"
+msgstr "多變量檢定統計量"
+
+msgid "Multivariate"
+msgstr "多變量"
+
+msgid "Univariate"
+msgstr "單變量"
+
+msgid "Tests to Perform"
+msgstr "執行檢定"
+
+msgid "Repeated-Measures Means"
+msgstr "重複量數之平均數"
+
+#, fuzzy
+#| msgid "Factors (pick zero or more)"
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr "因子變數〈不選取或選取多個〉"
+
+msgid "Plot response means by factors"
+msgstr "由因子來繪製反應變數的平均"
+
+msgid "Print means and standard deviations by factors"
+msgstr "由因子列出反應變數的平均與標準差"
+
+msgid "X-axis factor:"
+msgstr "所有的因子變數:"
+
+msgid "Trace factor:"
+msgstr "新因子變數名稱:"
+
+msgid "Response name:"
+msgstr "反應的名稱"
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "雙因子重複量數(共)變異數分析"
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr "雙因子重複量數(共)變異數分析之雙因子"
+
+msgid "the specified responses are not rectangular"
+msgstr "指定之反應變數非矩行"
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr "至少必須選擇一個被解釋變數〈反應變數〉"
+
+msgid "there are duplicated row level names"
+msgstr "列名重複"
+
+msgid "there are duplicated column level names"
+msgstr "行名重複"
+
+msgid "Within-Subject Factors"
+msgstr ""
+
+msgid "Name for the within-subjects row factor:"
+msgstr "列因子名稱"
+
+msgid "Name for the within-subjects column factor:"
+msgstr "行因子名稱"
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr "請選出5個水準直"
+
+msgid "Reshape data set from long to wide format..."
+msgstr "資料轉形長變寬..."
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr "資料轉形長變寬"
+
+#, fuzzy
+#| msgid "Second variable (pick one)"
+msgid "Subject ID variable (pick one)"
+msgstr "第2個變數(選取一個)"
+
+#, fuzzy
+#| msgid "Factors (pick one or more)"
+msgid "Within-subjects factors (pick one or more)"
+msgstr "因子變數〈選取1個或多個〉"
+
+#, fuzzy
+#| msgid "Variables to recode (pick one or more)"
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr "選擇變數以重新編碼〈選取1個或多個〉"
+
+#, fuzzy
+#| msgid "Variables to recode (pick one or more)"
+msgid "Variables to ignore (pick zero or more)"
+msgstr "選擇變數以重新編碼〈選取1個或多個〉"
+
+msgid "You must select an ID variable."
+msgstr "您必須選擇1個ID變數."
+
+#, fuzzy
+#| msgid "You must select one or more variables."
+msgid "You must select one or more within-subjects factors."
+msgstr "您必須選擇1個或多個變數."
+
+#, fuzzy
+#| msgid "You must select one or more variables."
+msgid "You must select one or more occasion-varying variables."
+msgstr "您必須選擇1個或多個變數."
+
+#, fuzzy
+#| msgid "The following variable names are not valid:"
+msgid "the following variables appear more than once:"
+msgstr "以下的變數名稱無效："
+
+msgid "Save data set aborted"
+msgstr "資料集儲存失敗"
+
+msgid "Name for wide data set:"
+msgstr "新資料集名稱:"
+
+msgid "Make the wide data set active"
+msgstr "指定新資料集為使用中資料"
+
+msgid "Reshape data set from wide to long format..."
+msgstr "資料轉形寬變長..."
+
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr "資料轉形寬變長"
+
+msgid ""
+"both one and two repeated-measures factors were specified\n"
+"specify either a one-way or two-way design"
+msgstr ""
+
+msgid "the specified responses are not contiguous"
+msgstr "指定之反應變數值非相鄰"
+
+msgid "the following ignored variables are also responses:"
+msgstr "以下忽略的變數也是反應變數："
+
+msgid "Specify one within-subject factor"
+msgstr "指定一個因子"
+
+msgid "Specify two within-subject factors"
+msgstr "指定兩個因子"
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr ""
+
+msgid "Name for long data set:"
+msgstr "新資料集名稱:"
+
+#, fuzzy
+#| msgid "Response variable (pick one)"
+msgid "Response variable:"
+msgstr "依變數〈反應變數〉〈選取1個〉"
+
+msgid "Subject ID variable:"
+msgstr "新ID變數名稱："
+
+msgid "Make the long data set active"
+msgstr "指定新資料集為使用中資料"
+
+# for reading Excel files (new dialog)
+#, fuzzy
+#| msgid "Convert character variables to factors"
+msgid "Convert all character variables to factors"
+msgstr "將字串變數轉成因子"
+
+# for reading Excel files (new dialog)
+msgid "Convert character variables to factors..."
+msgstr "將字串變數轉成因子..."
+
+# for reading Excel files (new dialog)
+#, fuzzy
+#| msgid "Convert character variables to factors"
+msgid "Convert Character Variables to Factors"
+msgstr "將字串變數轉成因子"
+
+#, fuzzy
+#| msgid "Variables (pick one or more)"
+msgid "Variable (pick one or more)"
+msgstr "變數〈選取1個或多個〉"
+
+# additional messages omitted from version 2.7-0
+msgid "Include in Segment Labels"
+msgstr ""
+
+msgid "One Repeated-Measures Factor"
+msgstr "單個重複量數因子〈選取兩個或多個〉"
+
+msgid "Two Repeated-Measures Factors"
+msgstr "兩個重複量數因子〈選取兩個或多個〉"
+
+msgid "You cannot plot by groups with more than one variable selected"
+msgstr "您必須選擇1個或多個變數"
+
+msgid "Number of automatic rotations"
+msgstr "座標自動旋轉次數"
+
+msgid "3D Component+Residual Plot"
+msgstr "3D成份+殘差圖"
+
+msgid "3D Added-Variable Plot"
+msgstr "3D 附加變數解釋圖"
+
+msgid "Coefficients (pick two)"
+msgstr "係數數目〈選取2個〉"
+
+#, fuzzy
+#| msgid "You must select two models."
+msgid "You must select 2 coefficients."
+msgstr "您必須選擇兩個模型."
+
+msgid "3D Component+residual plot..."
+msgstr "3D成份+殘差圖."
+
+msgid "3D added-variable plot..."
+msgstr "3D附加變數解釋圖..."
+
+# for startup message
+msgid "Hello"
+msgstr "嗨"
+
+#, fuzzy
+#| msgid "Indices or quoted names of row(s) to remove"
+msgid "Indices or names of row(s) to remove"
+msgstr "請輸入欲刪除的列索引值〈數字〉或名稱〈字元(須在前後加上引號)〉"
+
+#, fuzzy
+#| msgid "<all valid cases>"
+msgid "<use all valid cases>"
+msgstr "<所有有效觀察值>"
+
+msgid "bad row numbers:"
+msgstr "列名稱不佳："
+
+msgid "bad row names:"
+msgstr "列名稱不佳："
+
+msgid "You cannot specify both case removal and subset cases"
+msgstr "不能一次執行您選取的兩個動作"
+
+msgid "Include case-deletion box in statistical model dialogs"
+msgstr ""
+
+#, fuzzy
+#| msgid "Indices or quoted names of row(s) to remove"
+msgid "Indices or names of row(s) to select"
+msgstr "請輸入欲刪除的列索引值〈數字〉或名稱〈字元(須在前後加上引號)〉"
+
+# #待確認功能
+#, fuzzy
+#| msgid "No Transformation"
+msgid "Information"
+msgstr "不進行轉換"
+
+#, fuzzy
+#| msgid "Resolution"
+msgid "Question"
+msgstr "解析度"
+
+msgid "Warning"
+msgstr "警示"
+
+#, fuzzy
+#| msgid "Error Bars"
+msgid "Error"
+msgstr "誤差長條圖"
+
+#, fuzzy
+#| msgid "Remove last Markdown command block"
+msgid "Remove last Markdown section title"
+msgstr "移除最近 Markdown 命令區塊"
+
+# new message for processing plug-ins
+msgid ""
+"The following Markdown section titles in %s\n"
+"  conflict with existing titles and were removed:\n"
+"  "
+msgstr ""
+
+msgid "Bootstrap Confidence Intervals"
+msgstr "拔靴法信賴區間"
+
+msgid "Delta Method Confidence Intervals"
+msgstr "Delta法信賴區間"
+
+#, fuzzy
+#| msgid "Density plots"
+msgid "Density Plot"
+msgstr "機率密度圖"
+
+#, fuzzy
+#| msgid "Durbin-Waton Test"
+msgid "Durbin-Watson Test"
+msgstr "Durbin-Waton 檢定"
+
+#, fuzzy
+#| msgid "Generalized Linear Mixed Model"
+msgid "Generalized Linear Mixed-Effects Model"
+msgstr "廣義線性混和模式(多層次)"
+
+# additional message in version 2.6-0
+# new mixed models dialogs
+#, fuzzy
+#| msgid "Linear Mixed Model"
+msgid "Linear Mixed-Effects Model"
+msgstr "線性混和模式(多層次)"
+
+#, fuzzy
+#| msgid "Multinomial Logit Model"
+msgid "Multinomial Logistic Regression"
+msgstr "Multinomial  Logit 模型"
+
+#, fuzzy
+#| msgid "Bonferroni outlier test"
+msgid "Bonferroni Outlier Test"
+msgstr "Bonferroni 離群值檢定"
+
+msgid "Partial Correlations"
+msgstr "部分相關"
+
+msgid "Repeated-Measures Plot"
+msgstr "重複量數繪圖"
+
+msgid "Transformation Boxplots for Symmetry"
+msgstr "將盒鬚圖依對稱轉換"
+
+msgid "Independent-Samples t-Test"
+msgstr "獨立樣本 t 檢定"
+
+#, fuzzy
+#| msgid "Variance-inflation factors"
+msgid "Variance-Inflation Factors"
+msgstr "變異數膨脹因素"
+
+#, fuzzy
+#| msgid "Paired Wilcoxon Test"
+msgid "Wilcoxon Test"
+msgstr "Wilcoxon 成對資料檢定"
+
+# Xyplot dialog
+#, fuzzy
+#| msgid "XY Conditioning Plot"
+msgid "Conditioning Plot"
+msgstr "XY 條件式關係圖"
+
+# 或翻譯為常態分佈機率
+msgid "Normal Cumulative Probabilities"
+msgstr "常態分佈累積機率"
+
+msgid "t Cumulative Probabilities"
+msgstr "t分佈累積機率"
+
+msgid "Chi-Squared Cumulative Probabilities"
+msgstr "卡方分佈累積機率"
+
+msgid "F Cumulative Probabilities"
+msgstr "F分佈累積機率"
+
+msgid "Exponential Cumulative Probabilities"
+msgstr "指數分佈累積機率"
+
+msgid "Uniform Cumulative Probabilities"
+msgstr "均勻分佈累積機率"
+
+msgid "Beta Cumulative Probabilities"
+msgstr "Beta分佈累積機率"
+
+msgid "Cauchy Cumulative Probabilities"
+msgstr "Cauchy 分佈累積機率"
+
+msgid "Logistic Cumulative Probabilities"
+msgstr "Logistic 分佈累積機率"
+
+msgid "Log-Normal Cumulative Probabilities"
+msgstr "對數常態分佈累積機率"
+
+msgid "Gamma Cumulative Probabilities"
+msgstr "Gamma 分佈累積機率"
+
+msgid "Weibull Cumulative Probabilities"
+msgstr "Weibull 分佈累積機率"
+
+msgid "Gumbel Cumulative Probabilities"
+msgstr "Gumbel 分佈累積機率"
+
+msgid "Binomial Cumulative Probabilities"
+msgstr "二項式分佈累積機率"
+
+msgid "Poisson Cumulative Probabilities"
+msgstr "Poisson 分佈累積機率"
+
+msgid "Geometric Cumulative Probabilities"
+msgstr "幾何分佈累積機率"
+
+msgid "Hypergeometric Cumulative Probabilities"
+msgstr "超幾何分佈累積機率"
+
+msgid "Negative Binomial Cumulative Probabilities"
+msgstr "負二項分佈累積機率"
+
+msgid "Bartlett's Test:"
+msgstr "Bartlett 檢定:"
+
+msgid "Basic Model Plots:"
+msgstr "模型效應圖:"
+
+msgid "Analysis of Variance:"
+msgstr "單因子變異數分析:"
+
+msgid "Linear Hypothesis Test:"
+msgstr "線性假設檢定:"
+
+msgid "Subset Model Selection:"
+msgstr "子集合模型選擇方法:"
+
+msgid "Effect Plots:"
+msgstr "效應圖:"
+
+# additional messages in version 2.5-0
+# new predictor effect plots dialog
+msgid "Predictor Effect Plots:"
+msgstr "預測變數效應圖:"
+
+msgid "Transform Response Toward Normality:"
+msgstr "將變數依常態轉換:"
+
+msgid "Table of Binomail Probabilities"
+msgstr "二項式機率表"
+
+msgid "Table of Poisson Probabilities"
+msgstr "Poisson 分佈機率表"
+
+msgid "Table of Geometric Probabilities"
+msgstr "幾何分佈機率表"
+
+msgid "Table of Hypergeomtric Probabilities"
+msgstr "超幾何分佈機率質量表"
+
+msgid "Table of NegativeBinomial Probabilities"
+msgstr "負二項分佈機率質量表"
+
+msgid "K-Means Clustering:"
+msgstr "K 平均數集群:"
+
+msgid "Hiearchical Cluster Analysis:"
+msgstr "階層式集群分析:"
+
+msgid "Paired Wilcoxon Test:"
+msgstr "Wilcoxon 成對資料檢定:"
+
+msgid "Friedman Rank Sum Test:"
+msgstr "Friedman 等級和檢定:"
+
+msgid "Single-Sample Wilcoxon Test:"
+msgstr "單一樣本 Wilcoxon 檢定:"
+
+msgid "Histogram:"
+msgstr "直方圖:"
+
+msgid "Stem-and-Leaf Display:"
+msgstr "莖葉圖:"
+
+# dot plot dialog
+msgid "Dot Plot:"
+msgstr "點陣圖:"
+
+msgid "Bar Plot:"
+msgstr "長條圖:"
+
+msgid "Pie Chart:"
+msgstr "圓餅圖:"
+
+msgid "Line Plot:"
+msgstr "線形圖:"
+
+msgid "Quantile-Comparison Plot:"
+msgstr "分位數比較(QQ)圖:"
+
+# #待確認功能
+msgid "Plot of Means:"
+msgstr "繪製平均數:"
+
+msgid "Discrete Distribution Plot:"
+msgstr "離散型分佈:"
+
+msgid "Two-Way Contingency Table:"
+msgstr "列聯表:"
+
+msgid "Multi-Way Contingency Table:"
+msgstr "多向關係表:"
+
+msgid "Single-Sample Proportion Test:"
+msgstr "單樣本比例檢定:"
+
+msgid "Two-Sample Proportions Test:"
+msgstr "雙樣本比例檢定:"
+
+msgid "Paired t-Test:"
+msgstr "成對樣本 t 檢定:"
+
+msgid "Single-Sample t-Test:"
+msgstr "單一樣本 t 檢定:"
+
+msgid "Repeated-Measures ANOVA: between ="
+msgstr "重複量數變異數分析: 之間="
+
+msgid ", within = "
+msgstr ", 之內="
+
+msgid "Summarize Data Set:"
+msgstr "資料集摘要:"
+
+msgid "Frequencies:"
+msgstr "次數統計:"
+
+msgid "Table of Summary Statistics:"
+msgstr "統計量資料表:"
+
+# Correlation test dialog
+msgid "Correlation Test:"
+msgstr "相關性檢定:"
+
+# count NAs (menu item)
+msgid "Count Missing Cases:"
+msgstr "計算遺漏的觀察值個數:"
+
+msgid "Transform Variables Toward Normality:"
+msgstr "將變數依常態轉換:"
+
+msgid "Scale Reliability:"
+msgstr "量表信度:"
+
+msgid "Principal-Components Analysis:"
+msgstr "主成份分析:"
+
+msgid "Factor Analysis:"
+msgstr "因子分析:"
+
+msgid "Confirmatory Factor Analysis:"
+msgstr "驗證性因子分析:"
+
+msgid "Plot Normal Density Function"
+msgstr "繪製常態分佈機率密度函數"
+
+msgid "Plot Chi-squared Density Function"
+msgstr "繪製卡方分佈機率密度函數"
+
+msgid "Plot F Density Function"
+msgstr "繪製F分佈機率密度函數"
+
+msgid "Plot t Density Function"
+msgstr "繪製 t 分佈機率密度函數"
+
+msgid "Plot Exponential Density Function"
+msgstr "繪製指數分佈機率密度函數"
+
+msgid "Plot Uniform Density Function"
+msgstr "繪製均勻分佈機率密度函數"
+
+msgid "Plot Beta Density Function"
+msgstr "繪製Beta分佈機率密度函數"
+
+msgid "Plot Cauchy Density Function"
+msgstr "繪製Cauchy分佈機率密度函數"
+
+msgid "Plot Logistic Density Function"
+msgstr "繪製logistic機率密度函數"
+
+msgid "Plot Lognormal Density Function"
+msgstr "繪製對數常態機率密度函數"
+
+msgid "Plot Gamma Density Function"
+msgstr "繪製Gamma分佈機率密度函數"
+
+msgid "Plot Weibull Density Function"
+msgstr "繪製Weibull分佈機率密度函數"
+
+msgid "Plot Gumbel Density Function"
+msgstr "繪製Gumbel 分佈機率密度函數"
+
+msgid "Plot Normal Cumulative Distribution Function"
+msgstr "繪製常態分佈累積密度函數"
+
+msgid "Plot Chi-squared Cumulative Distribution Function"
+msgstr "繪製卡方分佈累積密度函數"
+
+msgid "Plot F Cumulative Distribution Function"
+msgstr "繪製F分佈累積密度函數"
+
+msgid "Plot t Cumulative Distribution Function"
+msgstr "繪製t分佈累積密度函數"
+
+msgid "Plot Exponential Cumulative Distribution Function"
+msgstr "繪製指數分佈累積密度函數"
+
+msgid "Plot Uniform Cumulative Distribution Function"
+msgstr "繪製均勻分佈累積密度函數"
+
+msgid "Plot Beta Cumulative Distribution Function"
+msgstr "繪製Beta分佈累積密度函數"
+
+msgid "Plot Cauchy Cumulative Distribution Function"
+msgstr "繪製Cauchy分佈累積密度函數"
+
+msgid "Plot Logistic Cumulative Distribution Function"
+msgstr "繪製Logistic分佈累積密度函數"
+
+msgid "Plot Lognormal Cumulative Distribution Function"
+msgstr "繪製對數常態分佈累積密度函數"
+
+msgid "Plot Gamma Cumulative Distribution Function"
+msgstr "繪製Gamma分佈累積密度函數"
+
+msgid "Plot Weibull Cumulative Distribution Function"
+msgstr "繪製Weibull分佈累積密度函數"
+
+msgid "Plot Gumbel Cumulative Distribution Function"
+msgstr "繪製Gumbel分佈累積密度函數"
+
+msgid "Plot Binomial Probability Mass Function"
+msgstr "繪製二元分佈機率質量函數"
+
+msgid "Plot Poisson Probability Mass Function"
+msgstr "繪製Poisson 分佈機率質量函數"
+
+msgid "Plot Geometric Probability Mass Function"
+msgstr "繪製幾何分佈機率質量函數圖"
+
+msgid "Plot Hypergeometric Probability Mass Function"
+msgstr "繪製超幾何分佈機率質量函數圖"
+
+msgid "Plot NegativeBinomial Probability Mass Function"
+msgstr "繪製負二項分佈機率質量函數"
+
+msgid "Plot Binomial Cumulative Distribution Function"
+msgstr "繪製二項分佈累積函數"
+
+msgid "Plot Poisson Cumulative Distribution Function"
+msgstr "繪製Poisson 分佈累積函數"
+
+msgid "Plot Geometric Cumulative Distribution Function"
+msgstr "繪製幾何分佈累積函數"
+
+msgid "Plot Hypergeometric Cumulative Distribution Function"
+msgstr "繪製超幾何分佈累積函數"
+
+msgid "Plot NegativeBinomial Cumulative Distribution Function"
+msgstr "繪製負二項式分佈累積分佈"
+
+# the following is used for the template main title of R Markdown and knitr documents
+msgid "Replace with Main Title"
+msgstr ""
+
+# the following instructions to the user appear as comments in the body of the R Markdown document
+msgid "include this code chunk as-is to set options"
+msgstr ""
+
+msgid ""
+"You can edit this R Markdown document, for example to explain what you're\n"
+"doing and to draw conclusions from your data analysis."
+msgstr ""
+
+msgid ""
+"Auto-generated section titles, typically preceded by ###, can also be edited."
+msgstr ""
+
+msgid ""
+"It's generally not a good idea to edit the R code that the R Commander "
+"writes, \n"
+"but you can freely edit between (not within) R \"code blocks.\" Each R code\n"
+"block starts with ```{r} and ends with ```."
+msgstr ""
+
 #~ msgid "Dataset"
 #~ msgstr "Dataset"
-
-#~ msgid "variable"
-#~ msgstr "variable"
 
 #~ msgid "NormalSamples"
 #~ msgstr "NormalSamples"
