@@ -5092,7 +5092,7 @@ msgstr "по крайней мере два отклика должны быть выбраны"
 msgid "Within-Subject Factor"
 msgstr "Внутрисубъектный фактор"
 
-msgid "Name for the within-subjects factor:"
+msgid "Name for the within-subjects factor: "
 msgstr "Название внутрисубъектного фактора:"
 
 msgid "Specify up to 8 levels (responses) and level names for the within-subjects factor"
@@ -5122,13 +5122,13 @@ msgstr "График средних отклика по факторам"
 msgid "Print means and standard deviations by factors"
 msgstr "Вывести средние и стандартные отклонения по факторам"
 
-msgid "X-axis factor:"
+msgid "X-axis factor: "
 msgstr "Фактор оси X:"
 
-msgid "Trace factor:"
+msgid "Trace factor: "
 msgstr "Трассировочный фактор:"
 
-msgid "Response name:"
+msgid "Response name: "
 msgstr "Название отклика:"
 
 msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
@@ -5152,10 +5152,10 @@ msgstr "есть повторяющиеся названия уровней в колонках"
 msgid "Within-Subject Factors"
 msgstr "Внутрисубъектный фактор"
 
-msgid "Name for the within-subjects row factor:"
+msgid "Name for the within-subjects row factor: "
 msgstr "Названия внутрисубъектного фактора для строк:"
 
-msgid "Name for the within-subjects column factor:"
+msgid "Name for the within-subjects column factor: "
 msgstr "Названия внутрисубъектного фактора для колонок:"
 
 msgid "Select up to 5 levels and level-names for each within-subjects factor"
@@ -5195,7 +5195,7 @@ msgstr "эти переменные появляются больше одного раза:"
 msgid "Save data set aborted"
 msgstr "Сохранение данных прервано"
 
-msgid "Name for wide data set:"
+msgid "Name for wide data set: "
 msgstr "Название данных в широком формате:"
 
 msgid "Make the wide data set active"
@@ -5230,13 +5230,13 @@ msgstr "Задайте два внутрисубъектных фактора"
 msgid "Specify up to 5 levels and level names for each within-subjects factor"
 msgstr "Задайте до 5 уровней и имен уровней для каждого внутрисубъектного фактора"
 
-msgid "Name for long data set:"
+msgid "Name for long data set: "
 msgstr "Имя данных в длинном формате:"
 
-msgid "Response variable:"
+msgid "Response variable: "
 msgstr "Переменная отклика:"
 
-msgid "Subject ID variable:"
+msgid "Subject ID variable: "
 msgstr "ID переменная для субъектов"
 
 msgid "Make the long data set active"
@@ -5251,3 +5251,460 @@ msgstr "Конвертировать текстовые переменные в факторы..."
 
 msgid "Convert Character Variables to Factors"
 msgstr "Конвертировать текстовые переменные в факторы"
+
+# ###############################
+# new messages for version 2.8-0
+# ###############################
+# new error message for boxplot dialog
+msgid "You cannot plot by groups with more than one variable selected"
+msgstr "Нельзя строить графики по группам  если выбрано больше одной переменной"
+
+# additional message for the 3D scatterplot dialog
+msgid "Number of automatic rotations"
+msgstr "Количество автоматических поворотов"
+
+# messages for new 3D component+residual and added-variable plot dialogs
+msgid "3D Component+Residual Plot"
+msgstr "3D Component+Residual Plot"
+
+msgid "3D Added-Variable Plot"
+msgstr "3D Added-Variable Plot"
+
+msgid "Coefficients (pick two)"
+msgstr "Коэффициенты (выберите два)"
+
+msgid "You must select 2 coefficients."
+msgstr "Вы должны выбрать два коэффициента"
+
+# for Rcmdr menus
+msgid "3D Component+residual plot..."
+msgstr "3D Component+residual plot..."
+
+msgid "3D added-variable plot..."
+msgstr "3D added-variable plot..."
+
+# for startup message
+msgid "Hello"
+msgstr "Добрый день"
+
+# for new optional case-deletion box in statistical model dialogs
+msgid "Indices or names of row(s) to remove"
+msgstr "Номера или названия строчек для удаления"
+
+msgid "<use all valid cases>"
+msgstr "<use all valid cases>"
+
+msgid "bad row numbers:"
+msgstr "неправильные номера строк:"
+
+msgid "bad row names:"
+msgstr "неправильные названия строк:"
+
+msgid "You cannot specify both case removal and subset cases"
+msgstr "Нельзя указывать одновременно удаление и выборку случаев"
+
+msgid "Include case-deletion box in statistical model dialogs"
+msgstr "Вклчючить \"удаление случаев\" в диалоги о статистических моделях"
+
+# rephrased message for case-selecction dialog in data menu
+msgid "Indices or names of row(s) to select"
+msgstr "Номера или названия строк для выборки"
+
+# new default message box titles
+msgid "Information"
+msgstr "Информация"
+
+msgid "Question"
+msgstr "Вопрос"
+
+msgid "Warning"
+msgstr "Предупреждение"
+
+msgid "Error"
+msgstr "Ошибка"
+
+# new menu item
+msgid "Remove last Markdown section title"
+msgstr "Удалить последний заголовок markdown"
+
+# new message for processing plug-ins
+msgid ""
+"The following Markdown section titles in %s\n"
+"  conflict with existing titles and were removed:\n"
+"  "
+msgstr ""
+"Следующие заголовки разделов markdown %s\n"
+"  пересекаются с существующими и будут удалены:\n"
+"  "
+
+# additional messages for RMarkdown document section headings
+msgid "Bootstrap Confidence Intervals"
+msgstr "Доверительные интервалы бутсрепа"
+
+msgid "Delta Method Confidence Intervals"
+msgstr "Доверительные интервалы методом дельты"
+
+msgid "Density Plot"
+msgstr "График плотности"
+
+msgid "Durbin-Watson Test"
+msgstr "Тест Дурбина-Уотсона"
+
+msgid "Generalized Linear Mixed-Effects Model"
+msgstr "Обобщенные линейные смешанные модели"
+
+msgid "Linear Mixed-Effects Model"
+msgstr "Линейные смешанные модели"
+
+msgid "Multinomial Logistic Regression"
+msgstr "Множественная логическая регрессия"
+
+msgid "Bonferroni Outlier Test"
+msgstr "Тест выбросов Бонферрони"
+
+msgid "Partial Correlations"
+msgstr "Частичные корреляции"
+
+msgid "Repeated-Measures Plot"
+msgstr "График повторяющихся измерений"
+
+msgid "Transformation Boxplots for Symmetry"
+msgstr "Многоуровневый боксплот симметрии"
+
+msgid "Independent-Samples t-Test"
+msgstr "t-тест для независимых выборок"
+
+msgid "Variance-Inflation Factors"
+msgstr "Variance-Inflation Factors"
+
+msgid "Wilcoxon Test"
+msgstr "Тест Уилкоксона"
+
+msgid "Conditioning Plot"
+msgstr "График двух переменных по третьей"
+
+msgid "Normal Cumulative Probabilities"
+msgstr "Нормальные накопленные вероятности"
+
+msgid "t Cumulative Probabilities"
+msgstr "t-накопленные вероятности"
+
+msgid "Chi-Squared Cumulative Probabilities"
+msgstr "хи-квадрат-накопленные вероятности"
+
+msgid "F Cumulative Probabilities"
+msgstr "F-накопленные вероятности"
+
+msgid "Exponential Cumulative Probabilities"
+msgstr "Экспоненцияльные накопленные вероятности"
+
+msgid "Uniform Cumulative Probabilities"
+msgstr "Однородные накопленные вероятности"
+
+msgid "Beta Cumulative Probabilities"
+msgstr "Бета-накопленные вероятности"
+
+msgid "Cauchy Cumulative Probabilities"
+msgstr "Коши-накопленные вероятности"
+
+msgid "Logistic Cumulative Probabilities"
+msgstr "Логистические накопленные вероятности"
+
+msgid "Log-Normal Cumulative Probabilities"
+msgstr "Логнормальные накопленные вероятности"
+
+msgid "Gamma Cumulative Probabilities"
+msgstr "Гамма-накопленные вероятности"
+
+msgid "Weibull Cumulative Probabilities"
+msgstr "Вейбулл-накопленные вероятности"
+
+msgid "Gumbel Cumulative Probabilities"
+msgstr "Gumbel-накопленные вероятности"
+
+msgid "Binomial Cumulative Probabilities"
+msgstr "Биномиальные накопленные вероятности"
+
+msgid "Poisson Cumulative Probabilities"
+msgstr "Пуассоновские накопленные вероятности"
+
+msgid "Geometric Cumulative Probabilities"
+msgstr "Геометрические накопленные вероятности"
+
+msgid "Hypergeometric Cumulative Probabilities"
+msgstr "Гимергеометрические накопленные вероятности"
+
+msgid "Negative Binomial Cumulative Probabilities"
+msgstr "Отрицательные биномиальные накопленные вероятности"
+
+msgid "Bartlett's Test:"
+msgstr "Тест Бартлета"
+
+msgid "Basic Model Plots:"
+msgstr "Основные графики моделей:"
+
+msgid "Analysis of Variance:"
+msgstr "Анализ дисперсии:"
+
+msgid "Linear Hypothesis Test:"
+msgstr "Тест гипотезы линейности:"
+
+msgid "Subset Model Selection:"
+msgstr "Выбор подмножества модели:"
+
+msgid "Effect Plots:"
+msgstr "Графики эффектов:"
+
+msgid "Predictor Effect Plots:"
+msgstr "Графики предсказания эффектов:"
+
+msgid "Transform Response Toward Normality:"
+msgstr "Transform Response Toward Normality:"
+
+msgid "Table of Binomail Probabilities"
+msgstr "Таблица биномиальных вероятностей"
+
+msgid "Table of Poisson Probabilities"
+msgstr "Таблица Пуассоновских вероятностей"
+
+msgid "Table of Geometric Probabilities"
+msgstr "Таблица геометрических вероятностей"
+
+msgid "Table of Hypergeomtric Probabilities"
+msgstr "Таблица гипергеометрических вероятностей"
+
+msgid "Table of NegativeBinomial Probabilities"
+msgstr "Таблица отрицательных биномиальных вероятностей"
+
+msgid "K-Means Clustering:"
+msgstr "Кластерицация методом k-средних:"
+
+msgid "Hiearchical Cluster Analysis:"
+msgstr "Иерархический кластерный анализ:"
+
+msgid "Paired Wilcoxon Test:"
+msgstr "Парный тест Уилкоксона:"
+
+msgid "Friedman Rank Sum Test:"
+msgstr "Тест суммы рангов Фридмана:"
+
+msgid "Single-Sample Wilcoxon Test:"
+msgstr "Одновыборочный тест Уилкоксона:"
+
+msgid "Histogram:"
+msgstr "Гистограмма:"
+
+msgid "Stem-and-Leaf Display:"
+msgstr "Stem-and-Leaf Display:"
+
+msgid "Dot Plot:"
+msgstr "Точечный график:"
+
+msgid "Bar Plot:"
+msgstr "Столбчатая диаграмма:"
+
+msgid "Pie Chart:"
+msgstr "График-пирог:"
+
+msgid "Line Plot:"
+msgstr "График линий:"
+
+msgid "Quantile-Comparison Plot:"
+msgstr "График сравнения квантилей:"
+
+msgid "Plot of Means:"
+msgstr "График средних:"
+
+msgid "Discrete Distribution Plot:"
+msgstr "График дискретного распределения:"
+
+msgid "Two-Way Contingency Table:"
+msgstr "Двувходовая таблица сопряженности:"
+
+msgid "Multi-Way Contingency Table:"
+msgstr "Многовходовая таблица сопряженности:"
+
+msgid "Single-Sample Proportion Test:"
+msgstr "Одновыборочный тест пропорций:"
+
+msgid "Two-Sample Proportions Test:"
+msgstr "Двухвыборочный тест пропорций:"
+
+msgid "Paired t-Test:"
+msgstr "Парный t-тест:"
+
+msgid "Single-Sample t-Test:"
+msgstr "Одновыборочный t-тест:"
+
+# in the following two messages, the "between" part of the model
+# is inserted after the first = and the "within" part after the second =
+msgid "Repeated-Measures ANOVA: between ="
+msgstr "ANOVA для повторяющихся измерений: между ="
+
+msgid ", within = "
+msgstr ", внутри = "
+
+msgid "Summarize Data Set:"
+msgstr "Обзор данных:"
+
+msgid "Frequencies:"
+msgstr "Частоты:"
+
+msgid "Table of Summary Statistics:"
+msgstr "Таблица общих статистик:"
+
+msgid "Correlation Test:"
+msgstr "Тест корреляций:"
+
+msgid "Count Missing Cases:"
+msgstr "Посдсчет пропущенных значений:"
+
+msgid "Transform Variables Toward Normality:"
+msgstr "Приведение переменных к нормальным:"
+
+msgid "Scale Reliability:"
+msgstr "Оценка масштабирования:"
+
+msgid "Principal-Components Analysis:"
+msgstr "Анализ главных компонент:"
+
+msgid "Factor Analysis:"
+msgstr "Факторный анализ:"
+
+msgid "Confirmatory Factor Analysis:"
+msgstr "Факторный анализ с подтверждением:"
+
+msgid "Plot Normal Density Function"
+msgstr "График нормальной функции плотности"
+
+msgid "Plot Chi-squared Density Function"
+msgstr "Парный t-тест:"
+
+msgid "Plot F Density Function"
+msgstr "График F-функции плотности"
+
+msgid "Plot t Density Function"
+msgstr "График t-функции плотности"
+
+msgid "Plot Exponential Density Function"
+msgstr "График экспоненциальной функции плотности"
+
+msgid "Plot Uniform Density Function"
+msgstr "График однородной функции плотности"
+
+msgid "Plot Beta Density Function"
+msgstr "График бета-функции плотности"
+
+msgid "Plot Cauchy Density Function"
+msgstr "График функции плотности Коши"
+
+msgid "Plot Logistic Density Function"
+msgstr "График логистической функции плотности"
+
+msgid "Plot Lognormal Density Function"
+msgstr "График логнормальной функции плотности"
+
+msgid "Plot Gamma Density Function"
+msgstr "График гамма-функции плотности"
+
+msgid "Plot Weibull Density Function"
+msgstr "График функции плотности Вейбулла"
+
+msgid "Plot Gumbel Density Function"
+msgstr "График функции плотности Gumbel"
+
+msgid "Plot Normal Cumulative Distribution Function"
+msgstr "График нормальной функции распределения"
+
+msgid "Plot Chi-squared Cumulative Distribution Function"
+msgstr "График хи-квадрат-функции распределения"
+
+msgid "Plot F Cumulative Distribution Function"
+msgstr "График F-функции распределения"
+
+msgid "Plot t Cumulative Distribution Function"
+msgstr "График t-функции распределения"
+
+msgid "Plot Exponential Cumulative Distribution Function"
+msgstr "График экспоненциальной функции распределения"
+
+msgid "Plot Uniform Cumulative Distribution Function"
+msgstr "График однородной функции распределения"
+
+msgid "Plot Beta Cumulative Distribution Function"
+msgstr "График бета-функции распределения"
+
+msgid "Plot Cauchy Cumulative Distribution Function"
+msgstr "График функции распределения Коши"
+
+msgid "Plot Logistic Cumulative Distribution Function"
+msgstr "График логистической функции распределения"
+
+msgid "Plot Lognormal Cumulative Distribution Function"
+msgstr "График логнормальной функции распределения"
+
+msgid "Plot Gamma Cumulative Distribution Function"
+msgstr "График гамма-функции распределения"
+
+msgid "Plot Weibull Cumulative Distribution Function"
+msgstr "График функции распределения Вейбулла"
+
+msgid "Plot Gumbel Cumulative Distribution Function"
+msgstr "График функции распределения Gumbel"
+
+msgid "Plot Binomial Probability Mass Function"
+msgstr "График биномиальной функции вероятности"
+
+msgid "Plot Poisson Probability Mass Function"
+msgstr "График Пуассоновской функции вероятности"
+
+msgid "Plot Geometric Probability Mass Function"
+msgstr "График геометрической функции вероятности"
+
+msgid "Plot Hypergeometric Probability Mass Function"
+msgstr "График гипергеометрической функции вероятности"
+
+msgid "Plot NegativeBinomial Probability Mass Function"
+msgstr "График отрицательной биномиальной функции вероятности"
+
+msgid "Plot Binomial Cumulative Distribution Function"
+msgstr "График биномиальной функции распределения"
+
+msgid "Plot Poisson Cumulative Distribution Function"
+msgstr "График Пуассоновской функции распределения"
+
+msgid "Plot Geometric Cumulative Distribution Function"
+msgstr "График геометрической функции распределения"
+
+msgid "Plot Hypergeometric Cumulative Distribution Function"
+msgstr "График гипергеометрической функции распределения"
+
+msgid "Plot NegativeBinomial Cumulative Distribution Function"
+msgstr "График негативной биномиальной функции распределения"
+
+# the following is used for the template main title of R Markdown and knitr documents
+msgid "Replace with Main Title"
+msgstr "Заменить основной заголовок"
+
+# the following instructions to the user appear as comments in the body of the R Markdown document
+msgid "include this code chunk as-is to set options"
+msgstr "включить этот фрагмент кода как есть для установки параметров"
+
+msgid ""
+"You can edit this R Markdown document, for example to explain what you're\n"
+"doing and to draw conclusions from your data analysis."
+msgstr ""
+"Этот документ R Markdown можно редактировать, например, для того чтобы объяснить, что Вы делали\n"
+"и для того, чтобы сделать выводы из Вашего анализа данных."
+
+msgid "Auto-generated section titles, typically preceded by ###, can also be edited."
+msgstr "Автоматические заголовки разделов, обычно начинающиеся с ###, тоже можно редактировать."
+
+msgid ""
+"It's generally not a good idea to edit the R code that the R Commander writes, \n"
+"but you can freely edit between (not within) R \"code blocks.\" Each R code\n"
+"block starts with ```{r} and ends with ```."
+msgstr ""
+"It's generally not a good idea to edit the R code that the R Commander writes, \n"
+"but you can freely edit between (not within) R \"code blocks.\" Each R code\n"
+"block starts with ```{r} and ends with ```."
