@@ -5,10 +5,10 @@
 # Adrian Dusa <dusa.adrian@gmail.com>, 2019
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.6-0\n"
+"Project-Id-Version: Rcmdr 2.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2019-01-08 16:30:00\n"
-"PO-Revision-Date: 2019-08-18 00:30:00+0200\n"
+"POT-Creation-Date: 2022-07-11 09:30:00\n"
+"PO-Revision-Date: 2022-07-30 11:50:00+0200\n"
 "Last-Translator: Adrian Dusa <dusa.adrian@gmail.com>\n"
 "Language-Team: Romanian <dusa.adrian@gmail.com>\n"
 "Language: Romanian\n"
@@ -96,7 +96,7 @@ msgid "Clustering solution name:"
 msgstr "Nume pentru rezultatul clasificarii"
 
 msgid "Plot Dendrogram"
-msgstr "Deseneaza dendrograma"
+msgstr "Grafic dendrograma"
 
 msgid "Hierarchical Cluster Summary"
 msgstr "Rezumat al clasificarii ierarhice"
@@ -771,10 +771,10 @@ msgid "Normal Distribution"
 msgstr "Distributia normala"
 
 msgid "Plot density function"
-msgstr "Deseneaza distributia"
+msgstr "Grafic densitate"
 
 msgid "Plot distribution function"
-msgstr "Deseneaza functia cumulata"
+msgstr "Grafic distributie"
 
 msgid "t Distribution"
 msgstr "Distributia t"
@@ -795,7 +795,7 @@ msgid "Binomial Distribution"
 msgstr "Distributia binomiala"
 
 msgid "Plot probability mass function"
-msgstr "Deseneaza functia de probabilitate"
+msgstr "Grafic functie de probabilitate"
 
 msgid "Poisson Distribution"
 msgstr "Distributia Poisson"
@@ -5155,3 +5155,719 @@ msgstr "Model mixt liniar generalizat"
 
 msgid "Generalized linear mixed model..."
 msgstr "Model mixt liniar generalizat..."
+
+# corrected and messages for version 2.6-1
+
+  # correction: was "Convert variable names\nto lower case"
+
+msgid "Convert variable names to lower case"
+msgstr "Convertire nume variabile in litere mici"
+
+  # new messages about invalid variable classes
+  
+msgid "The following variables are not valid for use in the R Commander and will be omitted:"
+msgstr "Urmatoarele variabile nu sunt valide pentru utilizare in R commander si vor fi omise:"
+
+msgid "The following variable is not valid for use in the R Commander and will be omitted:"
+msgstr "Urmatoarea variabila nu este valida pentru utilizare in R commander si va fi omisa:"
+
+# new messages for version 2.7-0
+
+  # for Numerical Summaries dialog
+
+msgid "Frequency Counts"
+msgstr "Frecvente"
+
+  # For bar graph dialog
+  
+msgid "Show counts or percentages in bars"
+msgstr "Afiseaza frecventele sau procentele in bare"
+
+  # for piechart dialog
+
+msgid "Neither"
+msgstr "Niciuna"
+
+  # for proportion-test dialogs
+  
+msgid "<No response selected>"
+msgstr "Nicio variabila raspuns selectata"
+
+msgid "Proportion"
+msgstr "Proportie"
+
+  # for new restart Commander dialog
+  
+msgid "Restart the Commander"
+msgstr "Restart Commander"
+
+msgid "Restart the Commander?"
+msgstr "Restart Commander?"
+
+  # for new repeated-measures ANOVA/ANCOVA dialogs
+  
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "ANOVA/ANCOVA cu masuri repetate cu un factor..."
+  
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr "Factor ANOVA/ANCOVA cu masuri repetate"
+
+msgid "no responses specified"
+msgstr "niciun raspuns specificat"
+
+msgid "the specified responses are not contiguous\n missing responses are removed"
+msgstr "raspunsurile specificate nu sunt contigue\n valorile de missing sunt eliminate"
+
+msgid "<no selection>"
+msgstr "<nicio selectie>"
+
+msgid "there are duplicated level names"
+msgstr "nume de niveluri duplicate"
+
+msgid "is not a valid name"
+msgstr "nu este un nume valid"
+
+msgid "the following responses appear more than once:"
+msgstr "urmatoarele raspunsuri apar de mai multe ori"
+
+msgid "at least 2 responses must be specified"
+msgstr "cel putin 2 raspunsuri trebuie specificate"
+
+msgid "Within-Subject Factor"
+msgstr "Factor intra-subiecti"
+
+msgid "Name for the within-subjects factor:"
+msgstr "Numele factorului intra-subiecti"
+
+msgid "Specify up to 8 levels (responses) and level names for the within-subjects factor"
+msgstr "Specificare pana la 8 niveluri (raspunsuri) si numele nivelurilor pentru factorul intra-subiecti"
+
+msgid "Between-Subjects Model Formula"
+msgstr "Formula pentru modelul inter-subiecti"
+
+msgid "Multivariate Test Statistic"
+msgstr "Statistica de test multivariat"
+
+msgid "Multivariate"
+msgstr "Multivariat"
+
+msgid "Univariate"
+msgstr "Univariat"
+
+msgid "Tests to Perform"
+msgstr "Testul de realizat"
+
+msgid "Repeated-Measures Means"
+msgstr "Medii de masuri repetate"
+
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr "Factori inter-subiecti (unul sau mai multi)"
+
+msgid "Plot response means by factors"
+msgstr "Grafic medii raspunsuri per factori"
+
+msgid "Print means and standard deviations by factors"
+msgstr "Grafic medii si deviatii standard per factori"
+
+msgid "X-axis factor:"
+msgstr "Factor pe axa X:"
+
+msgid "Trace factor:"
+msgstr "Grafic factor:"
+
+msgid "Response name:"
+msgstr "Numele raspunsului:"
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "ANOVA/ANCOVA cu masuri repetate cu doi factori..."
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr "Factori ANOVA/ANCOVA cu masuri repetate..."
+
+msgid "the specified responses are not rectangular"
+msgstr "raspunsurile specificate nu sunt rectangulare"
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr "cel putin 2 randuri si 2 coloane de raspunsuri trebuie specificate"
+
+msgid "there are duplicated row level names"
+msgstr "exista nume de randuri duplicate"
+
+msgid "there are duplicated column level names"
+msgstr "exista nume de coloane duplicate"
+
+msgid "Within-Subject Factors"
+msgstr "Factori intra-subiecti"
+
+msgid "Name for the within-subjects row factor:"
+msgstr "Nume pentru factorul intra-subiecti pe linie:"
+
+msgid "Name for the within-subjects column factor:"
+msgstr "Nume pentru factorul intra-subiecti pe coloana:"
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr "Selectie pana la 5 niveluri si nume de niveluri pentru fiecare factor intra-subiecti"
+
+  # new reshape data set from long to wide format dialog
+  
+msgid "Reshape data set from long to wide format..."
+msgstr "Schimbare format set de date din lung in lat..."
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr "Schimbare format set de date din lung in lat"
+
+msgid "Subject ID variable (pick one)"
+msgstr "Variabila cu ID-ul subiectului (una)"
+
+msgid "Within-subjects factors (pick one or more)"
+msgstr "Factori intra-subiecti (una sau mai multe)"
+
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr "Variabile cu schimbari ocazionale (una sau mai multe)"
+
+msgid "Variables to ignore (pick zero or more)"
+msgstr "Variabile de ignorat (zero sau mai multe)"
+
+msgid "You must select an ID variable."
+msgstr "Trebuie selectata cel putin o variabila ID."
+
+msgid "You must select one or more within-subjects factors."
+msgstr "Trebuie selectati unul sau mai multi factori intra-subiecti."
+
+msgid "You must select one or more occasion-varying variables."
+msgstr "Trebuie selectata una sau mai multe variabile ocazionale"
+
+msgid "the following variables appear more than once:"
+msgstr "urmatoarele variabile apar de mai multe ori:"
+
+msgid "Save data set aborted"
+msgstr "Salvarea set de date a fost anulata"
+
+msgid "Name for wide data set:"
+msgstr "Nume set de date in formatul lat:"
+
+msgid "Make the wide data set active"
+msgstr "Activare set de date in formatul lat"
+
+  # new reshape data set from wide to long format dialog
+  
+msgid "Reshape data set from wide to long format..."
+msgstr "Schimbare format set de date din lat in lung..."
+  
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr "Schimbare format set de date din lat in lung"
+
+msgid "both one and two repeated-measures factors were specified\nspecify either a one-way or two-way design"
+msgstr "au fost specificati factori si cu una si cu doua masuri repetate\ntrebuie selectat fie cu unul fie cu doi factori"
+
+msgid "the specified responses are not contiguous"
+msgstr "raspunsurile specificate nu sunt contigue"
+
+msgid "the following ignored variables are also responses:"
+msgstr "urmatoarele variabile ignorate sunt deasemenea raspunsuri:"
+
+msgid "Specify one within-subject factor"
+msgstr "Specificare un factor intra-subiecti"
+
+msgid "Specify two within-subject factors"
+msgstr "Specificare doi factori intra-subiecti"
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr "Specificare pana la 5 niveluri si nume de niveluri pentru fiecare factor intra-subiecti"
+
+msgid "Name for long data set:"
+msgstr "Nume set de date in formatul lung:"
+
+msgid "Response variable:"
+msgstr "Variabila raspuns:"
+
+msgid "Subject ID variable:"
+msgstr "Variabila cu ID-ul subiectului:"
+
+msgid "Make the long data set active"
+msgstr "Activare set de date in formatul lung"
+
+  # additional messages for handling character data
+  
+msgid "Convert all character variables to factors"
+msgstr "Convertire toate variabilele caracter in factori"
+
+msgid "Convert character variables to factors..."
+msgstr "Convertire toate variabilele caracter in factori..."
+
+msgid "Convert Character Variables to Factors"
+msgstr "Convertire variabile caracter in factori"
+
+
+# new message for version 2.7-1
+
+  # previously omitted message (also included in 2.6-2 but omitted again from 2.7-0):
+  
+msgid "Variable (pick one or more)"
+msgstr "Variabila (una sau mai multe)"
+
+  # additional messages omitted from version 2.7-0
+  
+msgid "Include in Segment Labels"
+msgstr "Includere in etichetele segmentelor"
+
+msgid "One Repeated-Measures Factor"
+msgstr "Un factor cu masuri repetate"
+
+msgid "Two Repeated-Measures Factors"
+msgstr "Doi factori cu masuri repetate"
+
+
+# new messages for version 2.8-0
+
+  # new error message for boxplot dialog
+  
+msgid "You cannot plot by groups with more than one variable selected"
+msgstr "Nu se poate afisa pe grupuri cu mai mult de o variabila selectata"
+
+  # additional message for the 3D scatterplot dialog
+  
+msgid "Number of automatic rotations"
+msgstr "Numar de rotatii automate"
+
+  # messages for new 3D component+residual and added-variable plot dialogs
+  
+msgid "3D Component+Residual Plot"
+msgstr "Grafic 3D component+rezidual"
+
+msgid "3D Added-Variable Plot"
+msgstr "Grafic 3D cu variabila adaugata"
+
+msgid "Coefficients (pick two)"
+msgstr "Coeficienti (alege doi)"
+
+msgid "You must select 2 coefficients."
+msgstr "Trebuie selectati 2 coeficienti"
+
+    # for Rcmdr menus
+
+msgid "3D Component+residual plot..."
+msgstr "Grafic 3D component+rezidual..."
+
+msgid "3D added-variable plot..." 
+msgstr "Grafic 3D cu variabila adaugata..."
+
+  # for startup message
+  
+msgid "Hello"
+msgstr "Salutare"
+
+  # for new optional case-deletion box in statistical model dialogs
+  
+msgid "Indices or names of row(s) to remove"
+msgstr "Numere sau nume da randuri de eliminat"
+  
+msgid "<use all valid cases>"
+msgstr "<toate cazurile valide>"
+
+msgid "bad row numbers:"
+msgstr "numere de randuri incorecte:"
+
+msgid "bad row names:"
+msgstr "nume de randuri incorecte:"
+
+msgid "You cannot specify both case removal and subset cases"
+msgstr "Nu se poate specifica si eliminare si selectie de cazuri"
+
+msgid "Include case-deletion box in statistical model dialogs"
+msgstr "Includere cutie cu eliminare cazuri in dialogul modelului statistic"
+
+  # rephrased message for case-selecction dialog in data menu
+  
+msgid "Indices or names of row(s) to select"
+msgstr "Numere sau nume de randuri de selectat"
+
+  # new default message box titles
+  
+msgid "Information"
+msgstr "Informatie"
+
+msgid "Question"
+msgstr "Intrebare"
+
+msgid "Warning"
+msgstr "Avertizare"
+
+msgid "Error"
+msgstr "Eroare"
+
+  # new menu item
+  
+msgid "Remove last Markdown section title"
+msgstr "Eliminare titlu pentru ultima sectiune Markdown"
+
+  # new message for processing plug-ins
+
+msgid "The following Markdown section titles in %s\n  conflict with existing titles and were removed:\n  "
+msgstr "Urmatoarele titluri de sectiuni Markdown din %s\n  au conflicte cu titluri existente si au fost eliminate:\n  "
+
+  # additional messages for RMarkdown document section headings
+  
+msgid "Bootstrap Confidence Intervals"
+msgstr "Intervaluri de incredere bootstrap"
+
+msgid "Delta Method Confidence Intervals"
+msgstr "Intervaluri de incredere metoda Delta"
+
+msgid "Density Plot"
+msgstr "Grafic densitate"
+
+msgid "Durbin-Watson Test"
+msgstr "Test Durbin-Watson"
+
+msgid "Generalized Linear Mixed-Effects Model"
+msgstr "Model liniar mix generalizat"
+
+msgid "Linear Mixed-Effects Model"
+msgstr "Model liniar cu efecte mixte"
+
+msgid "Multinomial Logistic Regression"
+msgstr "Model liniar mix"
+
+msgid "Bonferroni Outlier Test"
+msgstr "Test Bonferroni pentru valori extreme"
+
+msgid "Partial Correlations"
+msgstr "Corelatii partiale"
+
+msgid "Repeated-Measures Plot"
+msgstr "Grafic masuri repetate"
+
+msgid "Transformation Boxplots for Symmetry"
+msgstr "Boxplot de transformare pentru simetrie"
+
+msgid "Independent-Samples t-Test"
+msgstr "Test t pentru esantioane independente"
+
+msgid "Variance-Inflation Factors"
+msgstr "Factori de inflatie a variatiei"
+
+msgid "Wilcoxon Test"
+msgstr "Test Wilcoxon"
+
+msgid "Conditioning Plot"
+msgstr "Grafic conditionat"
+
+msgid "Normal Cumulative Probabilities"
+msgstr "Probabilitati normale cumulative"
+
+msgid "t Cumulative Probabilities"
+msgstr "Probabilitati t cumulative"
+
+msgid "Chi-Squared Cumulative Probabilities"
+msgstr "Probabilitati hi-patrat cumulative"
+
+msgid "F Cumulative Probabilities"
+msgstr "Probabilitati F cumulative"
+
+msgid "Exponential Cumulative Probabilities"
+msgstr "Probabilitati exponentiale cumulative"
+
+msgid "Uniform Cumulative Probabilities"
+msgstr "Probabilitati uniforme cumulative"
+
+msgid "Beta Cumulative Probabilities"
+msgstr "Probabilitati beta cumulative"
+
+msgid "Cauchy Cumulative Probabilities"
+msgstr "Probabilitati Cauchy cumulative"
+
+msgid "Logistic Cumulative Probabilities"
+msgstr "Probabilitati logistice cumulative"
+
+msgid "Log-Normal Cumulative Probabilities"
+msgstr "Probabilitati log-normale cumulative"
+
+msgid "Gamma Cumulative Probabilities"
+msgstr "Probabilitati gama cumulative"
+
+msgid "Weibull Cumulative Probabilities"
+msgstr "Probabilitati Weibull cumulative"
+
+msgid "Gumbel Cumulative Probabilities" 
+msgstr "Probabilitati Gumbel cumulative"
+
+msgid "Binomial Cumulative Probabilities"
+msgstr "Probabilitati binomiale cumulative"
+
+msgid "Poisson Cumulative Probabilities"
+msgstr "Probabilitati Poisson cumulative"
+
+msgid "Geometric Cumulative Probabilities"
+msgstr "Probabilitati geometrice cumulative"
+
+msgid "Hypergeometric Cumulative Probabilities"
+msgstr "Probabilitati hipergeometrice cumulative"
+
+msgid "Negative Binomial Cumulative Probabilities"
+msgstr "Probabilitati binomiale negative cumulative"
+
+msgid "Bartlett's Test:"
+msgstr "Testul Bartlett"
+
+msgid "Basic Model Plots:"
+msgstr "Grafice modele de baza:"
+
+msgid "Analysis of Variance:"
+msgstr "Analiza de varianta:"
+
+msgid "Linear Hypothesis Test:"
+msgstr "Test ipoteza liniara:"
+
+msgid "Subset Model Selection:"
+msgstr "Selectie model subset:"
+
+msgid "Effect Plots:"
+msgstr "Grafice efecte:"
+
+msgid "Predictor Effect Plots:"
+msgstr "Grafice efecte de predictor:"
+
+msgid "Transform Response Toward Normality:"
+msgstr "Transformare raspuns pentru normalizare:"
+
+msgid "Table of Binomail Probabilities"
+msgstr "Tabel de probabilitati binomiale"
+
+msgid "Table of Poisson Probabilities"
+msgstr "Tabel de probabilitati Poisson"
+
+msgid "Table of Geometric Probabilities"
+msgstr "Tabel de probabilitati geometrice"
+
+msgid "Table of Hypergeomtric Probabilities"
+msgstr "Tabel de probabilitati hipergeometrice"
+
+msgid "Table of NegativeBinomial Probabilities"
+msgstr "Tabel de probabilitati negative binomiale"
+
+msgid "K-Means Clustering:"
+msgstr "Grupare K-Means"
+
+msgid "Hiearchical Cluster Analysis:"
+msgstr "Analiza de grupare ierarhica:"
+
+msgid "Paired Wilcoxon Test:"
+msgstr "Test Wilcoxon pe perechi:"
+
+msgid "Friedman Rank Sum Test:"
+msgstr "Test al sumei de randuri Friedman:"
+
+msgid "Single-Sample Wilcoxon Test:"
+msgstr "Test Wilcoxon pentru un singur esantion:"
+
+msgid "Histogram:"
+msgstr "Histograma:"
+
+msgid "Stem-and-Leaf Display:"
+msgstr "Diagrama ramura si frunze:"
+
+msgid "Dot Plot:"
+msgstr "Diagrama de puncte:"
+
+msgid "Bar Plot:"
+msgstr "Diagrama bara:"
+
+msgid "Pie Chart:"
+msgstr "Diagrama circulara"
+
+msgid "Line Plot:"
+msgstr "Grafic liniar:"
+
+msgid "Quantile-Comparison Plot:"
+msgstr "Grafic de comparatie a quantilelor"
+
+msgid "Plot of Means:"
+msgstr "Grafic de medii:"
+
+msgid "Discrete Distribution Plot:"
+msgstr "Grafic distributie discreta:"
+
+msgid "Two-Way Contingency Table:"
+msgstr "Tabel de contingenta bivariat"
+
+msgid "Multi-Way Contingency Table:"
+msgstr "Tabel de contingenta multivariat"
+
+msgid "Single-Sample Proportion Test:"
+msgstr "Test de proportii pentru un singur esantion"
+
+msgid "Two-Sample Proportions Test:"
+msgstr "Test de proportii pentru doua esantioane"
+
+msgid "Paired t-Test:"
+msgstr "Test t pentru esantioane pereche"
+
+msgid "Single-Sample t-Test:"
+msgstr "Test t pentru un singur esantion"
+
+      # in the following two messages, the "between" part of the model
+      # is inserted after the first = and the "within" part after the second =
+
+msgid "Repeated-Measures ANOVA: between ="
+msgstr "ANOVA cu masuri repetate: intre = "
+
+msgid ", within = "
+msgstr ", in interior = "
+
+msgid "Summarize Data Set:"
+msgstr "Sumarizare set de date:"
+
+msgid "Frequencies:"
+msgstr "Frecvente:"
+
+msgid "Table of Summary Statistics:"
+msgstr "Tabel de statitici sumative:"
+
+msgid "Correlation Test:"
+msgstr "Test de corelatie:"
+
+msgid "Count Missing Cases:"
+msgstr "Numar observatii lipsa:"
+
+msgid "Transform Variables Toward Normality:"
+msgstr "Transformare variabile pentru normalitate:"
+
+msgid "Scale Reliability:"
+msgstr "Scala de fidelitate:"
+
+msgid "Principal-Components Analysis:"
+msgstr "Analiza in componente principale:"
+
+msgid "Factor Analysis:"
+msgstr "Analiza factoriala:"
+
+msgid "Confirmatory Factor Analysis:"
+msgstr "Analiza factoriala confirmatorie:"
+
+msgid "Plot Normal Density Function"
+msgstr "Grafic functie de densitate normala"
+
+msgid "Plot Chi-squared Density Function"
+msgstr "Grafic functie de densitate hi-patrat"
+
+msgid "Plot F Density Function"
+msgstr "Grafic functie de densitate F"
+
+msgid "Plot t Density Function"
+msgstr "Grafic functie de densitate t"
+
+msgid "Plot Exponential Density Function"
+msgstr "Grafic functie de densitate exponentiala"
+
+msgid "Plot Uniform Density Function"
+msgstr "Grafic functie de densitate uniforma"
+
+msgid "Plot Beta Density Function"
+msgstr "Grafic functie de densitate beta"
+
+msgid "Plot Cauchy Density Function"
+msgstr "Grafic functie de densitate Cauchy"
+
+msgid "Plot Logistic Density Function"
+msgstr "Grafic functie de densitate logistica"
+
+msgid "Plot Lognormal Density Function"
+msgstr "Grafic functie de densitate lognormala"
+
+msgid "Plot Gamma Density Function"
+msgstr "Grafic functie de densitate gama"
+
+msgid "Plot Weibull Density Function"
+msgstr "Grafic functie de densitate Weibull"
+
+msgid "Plot Gumbel Density Function"
+msgstr "Grafic functie de densitate Gumbel"
+
+msgid "Plot Normal Cumulative Distribution Function"
+msgstr "Grafic functie de densitate normala cumulativa"
+
+msgid "Plot Chi-squared Cumulative Distribution Function"
+msgstr "Grafic functie de densitate hi-patrat cumulativa"
+
+msgid "Plot F Cumulative Distribution Function"
+msgstr "Grafic functie de densitate F cumulativa"
+
+msgid "Plot t Cumulative Distribution Function"
+msgstr "Grafic functie de densitate t cumulativa"
+
+msgid "Plot Exponential Cumulative Distribution Function"
+msgstr "Grafic functie de densitate exponentiala cumulativa"
+
+msgid "Plot Uniform Cumulative Distribution Function"
+msgstr "Grafic functie de densitate uniforma cumulativa"
+
+msgid "Plot Beta Cumulative Distribution Function"
+msgstr "Grafic functie de densitate beta cumulativa"
+
+msgid "Plot Cauchy Cumulative Distribution Function"
+msgstr "Grafic functie de densitate Cauchy cumulativa"
+
+msgid "Plot Logistic Cumulative Distribution Function"
+msgstr "Grafic functie de densitate logistica cumulativa"
+
+msgid "Plot Lognormal Cumulative Distribution Function"
+msgstr "Grafic functie de densitate lognormala cumulativa"
+
+msgid "Plot Gamma Cumulative Distribution Function"
+msgstr "Grafic functie de densitate gama cumulativa"
+
+msgid "Plot Weibull Cumulative Distribution Function"
+msgstr "Grafic functie de densitate Weibull cumulativa"
+
+msgid "Plot Gumbel Cumulative Distribution Function"
+msgstr "Grafic functie de densitate Gumbel cumulativa"
+
+msgid "Plot Binomial Probability Mass Function"
+msgstr "Grafic functie de densitate binomiala cumulativa"
+
+msgid "Plot Poisson Probability Mass Function"
+msgstr "Grafic functie de probabilitate Poisson"
+
+msgid "Plot Geometric Probability Mass Function"
+msgstr "Grafic functie de probabilitate geometrica"
+
+msgid "Plot Hypergeometric Probability Mass Function"
+msgstr "Grafic functie de probabilitate hipergeometrica"
+
+msgid "Plot NegativeBinomial Probability Mass Function"
+msgstr "Grafic functie de probabilitate negativ binomiala"
+
+msgid "Plot Binomial Cumulative Distribution Function"
+msgstr "Grafic functie de distributie binomiala cumulativa"
+
+msgid "Plot Poisson Cumulative Distribution Function"
+msgstr "Grafic functie de distributie Poisson cumulativa"
+
+msgid "Plot Geometric Cumulative Distribution Function"
+msgstr "Grafic functie de distributie geometrica cumulativa"
+
+msgid "Plot Hypergeometric Cumulative Distribution Function"
+msgstr "Grafic functie de distributie hipergeometrica cumulativa"
+
+msgid "Plot NegativeBinomial Cumulative Distribution Function"
+msgstr "Grafic functie de distributie negativ binomiala cumulativa"
+
+  # the following is used for the template main title of R Markdown and knitr documents
+  
+msgid "Replace with Main Title"
+msgstr "Inlocuire cu titlul principal"
+
+  # the following instructions to the user appear as comments in the body of the R Markdown document
+  
+msgid "include this code chunk as-is to set options"
+msgstr "includere aceasta bucata de cod pentru specificarea optiunilor"
+
+msgid "You can edit this R Markdown document, for example to explain what you're\ndoing and to draw conclusions from your data analysis."
+msgstr "Acest document R Markdown poate fi editat, spre examplu pentru a explica\nceea ce se face si pentru a trage concluzii din analiza datelor."
+
+msgid "Auto-generated section titles, typically preceded by ###, can also be edited."
+msgstr "Titluri de sectiuni auto-generate, tipic precedate cu ###, care pot fi si editate."
+
+msgid "It's generally not a good idea to edit the R code that the R Commander writes, \nbut you can freely edit between (not within) R \"code blocks.\" Each R code\nblock starts with ```{r} and ends with ```."
+msgstr "In general nu este o idee buna de a edita codul de R scris de R Commander,\n dar se poate edita intre (nu in interiorul) blocurilor de cod R.\nFiecare bloc de cod incepe cu ```{r} si se termina cu ```."
