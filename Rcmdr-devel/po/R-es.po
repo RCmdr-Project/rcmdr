@@ -5630,7 +5630,7 @@ msgstr "Gráfica de efectos del predictor:"
 msgid "Transform Response Toward Normality:"
 msgstr "Transformación de respuesta para normalizar"
 
-msgid "Table of Binomail Probabilities"
+msgid "Table of Binomial Probabilities"
 msgstr "Tabla de probabilidades binomiales"
 
 msgid "Table of Poisson Probabilities"

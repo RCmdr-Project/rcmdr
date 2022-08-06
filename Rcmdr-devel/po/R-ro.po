@@ -5631,7 +5631,7 @@ msgstr "Grafice efecte de predictor:"
 msgid "Transform Response Toward Normality:"
 msgstr "Transformare raspuns pentru normalizare:"
 
-msgid "Table of Binomail Probabilities"
+msgid "Table of Binomial Probabilities"
 msgstr "Tabel de probabilitati binomiale"
 
 msgid "Table of Poisson Probabilities"

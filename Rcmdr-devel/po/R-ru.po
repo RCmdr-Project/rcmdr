@@ -5461,7 +5461,7 @@ msgstr "Графики предсказания эффектов:"
 msgid "Transform Response Toward Normality:"
 msgstr "Transform Response Toward Normality:"
 
-msgid "Table of Binomail Probabilities"
+msgid "Table of Binomial Probabilities"
 msgstr "Таблица биномиальных вероятностей"
 
 msgid "Table of Poisson Probabilities"

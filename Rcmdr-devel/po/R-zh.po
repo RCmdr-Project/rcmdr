@@ -5843,7 +5843,7 @@ msgstr "預測變數效應圖:"
 msgid "Transform Response Toward Normality:"
 msgstr "將變數依常態轉換:"
 
-msgid "Table of Binomail Probabilities"
+msgid "Table of Binomial Probabilities"
 msgstr "二項式機率表"
 
 msgid "Table of Poisson Probabilities"
