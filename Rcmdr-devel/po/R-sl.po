@@ -5,17 +5,17 @@ msgstr ""
 "Project-Id-Version: Rcmdr 2.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: 2022-07-11 09:30:00\n"
-"PO-Revision-Date: 2022-08-09 08:32+0200\n"
+"PO-Revision-Date: 2022-08-12 17:06+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
-"n%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "Translator: Jaro Lajovic <jaro.lajovic@mf.uni-lj.si>\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Lokalize 22.04.1\n"
 
 msgid "KMeans Clustering"
 msgstr "Razvrščanje z voditelji"
@@ -317,7 +317,7 @@ msgid "Delete Variables"
 msgstr "Izbriši spremenljivke"
 
 msgid "Variable(s) to delete (pick one or more)"
-msgstr "Spremenljivka za izbrisanje (izberite eno ali več)"
+msgstr "Spremenljivka za izbris (izberite eno ali več)"
 
 msgid "You must select one or more variables."
 msgstr "Izbrati morate eno ali več spremenljivk."
@@ -1107,7 +1107,7 @@ msgid "Bar Graph"
 msgstr "Stolpični diagram"
 
 msgid "Pie Chart"
-msgstr "Krožni grafikon"
+msgstr "Krožni diagram"
 
 msgid "Line Plot"
 msgstr "Črtni diagram"
@@ -2386,7 +2386,7 @@ msgid "Bar graph..."
 msgstr "Stolpični diagram..."
 
 msgid "Pie chart..."
-msgstr "Krožni grafikon..."
+msgstr "Krožni diagram..."
 
 msgid "as bitmap..."
 msgstr "bitno sliko..."
@@ -5354,10 +5354,10 @@ msgstr "Naj ponovno zaženem Commanderja?"
 
 # for new repeated-measures ANOVA/ANCOVA dialogs
 msgid "One-factor repeated-measures ANOVA/ANCOVA..."
-msgstr ""
+msgstr "Enofaktorska zasnova s ponavljajočimi meritvami ANOVA/ANCOVA..."
 
 msgid "One Repeated Measures Factor ANOVA/ANCOVA"
-msgstr ""
+msgstr "Faktor enofaktorske zasnove s ponavljajočimi meritvami ANOVA/ANCOVA"
 
 msgid "no responses specified"
 msgstr "ni določenih odzivov"
@@ -5385,15 +5385,15 @@ msgid "at least 2 responses must be specified"
 msgstr "določiti morate vsaj dva odziva"
 
 msgid "Within-Subject Factor"
-msgstr ""
+msgstr "Gnezdeni faktor (Within-Subject Factor)"
 
 msgid "Name for the within-subjects factor:"
-msgstr ""
+msgstr "Ime gnezdenega faktorja:"
 
 msgid ""
 "Specify up to 8 levels (responses) and level names for the within-subjects "
 "factor"
-msgstr ""
+msgstr "Opredelite do 8 ravni gnezdenega faktorja in njihova imena"
 
 msgid "Multivariate Test Statistic"
 msgstr "Multivariatna testna statistika"
@@ -5408,7 +5408,7 @@ msgid "Tests to Perform"
 msgstr "Preizkusi za izvajanje"
 
 msgid "Repeated-Measures Means"
-msgstr ""
+msgstr "Povprečja ponavljajočih meritev"
 
 msgid "Between-Subjects Factors (pick zero or more)"
 msgstr ""
@@ -5420,7 +5420,7 @@ msgid "Print means and standard deviations by factors"
 msgstr "Natisni povprečja in standardne odklone po dejavnikih"
 
 msgid "X-axis factor:"
-msgstr "Dejavnik na osi X:"
+msgstr "Faktor na osi X:"
 
 msgid "Trace factor:"
 msgstr ""
@@ -5429,10 +5429,10 @@ msgid "Response name:"
 msgstr "Ime odziva:"
 
 msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
-msgstr ""
+msgstr "Dvofaktorska zasnova s ponavljajočimi meritvami ANOVA/ANCOVA..."
 
 msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
-msgstr ""
+msgstr "Faktorja dvofaktorske zasnove s ponavljajočimi meritvami ANOVA/ANCOVA"
 
 msgid "the specified responses are not rectangular"
 msgstr ""
@@ -5447,16 +5447,16 @@ msgid "there are duplicated column level names"
 msgstr "obstajajo podvojena imena ravni stolpcev"
 
 msgid "Within-Subject Factors"
-msgstr ""
+msgstr "Gnezdeni faktorji (Within-Subject Factors)"
 
 msgid "Name for the within-subjects row factor:"
-msgstr ""
+msgstr "Ime gnezdenega faktorja v vrstici:"
 
 msgid "Name for the within-subjects column factor:"
-msgstr ""
+msgstr "Ime gnezdenega faktorja v stolpcu:"
 
 msgid "Select up to 5 levels and level-names for each within-subjects factor"
-msgstr ""
+msgstr "Opredelite do 5 ravni vsakega gnezdenega faktorja in njihova imena"
 
 msgid "Reshape data set from long to wide format..."
 msgstr "Preoblikuj zbirko podatkov iz dolgega v široki format..."
@@ -5468,7 +5468,7 @@ msgid "Subject ID variable (pick one)"
 msgstr "Spremenljivka identifikacije subjekta (izberite eno)"
 
 msgid "Within-subjects factors (pick one or more)"
-msgstr ""
+msgstr "Gnezdeni faktorji (izberite enega ali več)"
 
 msgid "Variables that vary by occasion (pick one or more)"
 msgstr ""
@@ -5483,7 +5483,7 @@ msgid "You must select an ID variable."
 msgstr "Izbrati morate spremenljivko za identifikacijo."
 
 msgid "You must select one or more within-subjects factors."
-msgstr ""
+msgstr "Izbrati morate enega ali več gnezdenih faktorjev."
 
 msgid "You must select one or more occasion-varying variables."
 msgstr ""
@@ -5518,13 +5518,13 @@ msgid "the following ignored variables are also responses:"
 msgstr "naslednje prezrte spremenljivke so tudi odzivi:"
 
 msgid "Specify one within-subject factor"
-msgstr ""
+msgstr "Določite en gnezdeni faktor"
 
 msgid "Specify two within-subject factors"
-msgstr ""
+msgstr "Določite dva gnezdena faktorja"
 
 msgid "Specify up to 5 levels and level names for each within-subjects factor"
-msgstr ""
+msgstr "Opredelite do 5 ravni vsakega gnezdenega faktorja in njihova imena"
 
 msgid "Name for long data set:"
 msgstr "Ime zbirke podatkov v dolgem formatu:"
