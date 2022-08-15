@@ -1,4 +1,4 @@
-# last modified 2020-01-24 by J. Fox
+# last modified 2020-08-05 by J. Fox
 
 # utility functions
 
@@ -193,6 +193,17 @@ listNumeric <- function(dataSet=ActiveDataSet()) {
         variables[sapply(variables,function(.x)
             is.numeric(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))))]
     }
+}
+
+listCharacter <- function(dataSet=ActiveDataSet()) {
+  if(missing(dataSet)) {
+    Character()
+  }
+  else {
+    variables <- listVariables(dataSet)
+    variables[sapply(variables,function(.x)
+      is.character(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))))]
+  }
 }
 
 trim.blanks <- function(text){
@@ -408,11 +419,11 @@ manualTranslationP <- function(){
     gettextRcmdr("Getting-Started-with-the-Rcmdr") != "Getting-Started-with-the-Rcmdr"
 }
 
-browseRcmdrWebsite <- function() browseURL("http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/")
+browseRcmdrWebsite <- function() browseURL("https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/")
 
-browseRWebsite <- function() browseURL("http://www.r-project.org/")
+browseRWebsite <- function() browseURL("https://www.r-project.org/")
 
-browseRMarkdown <- function() browseURL("http://rmarkdown.rstudio.com/lesson-1.html")
+browseRMarkdown <- function() browseURL("https://rmarkdown.rstudio.com/lesson-1.html")
 
 browseRcmdrHexSticker <- function(){
   browseURL(paste0("file://", system.file("etc", "Rcmdr-hex.pdf", package="Rcmdr")))
@@ -906,14 +917,22 @@ getFrame.listbox <- function(object){
 
 variableComboBox <- function(parentWindow, variableList=Variables(),
                              export="FALSE", state="readonly",
-                             initialSelection=gettextRcmdr("<no variable selected>"),
-                             title=""){
-  variableList <- c(gettextRcmdr("<no variable selected>"), variableList)
+                             initialSelection=gettextRcmdr(nullSelection),
+                             title="",
+                             nullSelection="<no variable selected>",
+                             adjustWidth=FALSE){
+  variableList <- c(gettextRcmdr(nullSelection), variableList)
   frame <- tkframe(parentWindow)
   combovar <- tclVar()
   tclvalue(combovar) <- initialSelection
-  combobox <- ttkcombobox(frame, values=variableList, textvariable=combovar, 
+  combobox <- if (adjustWidth){
+    width <- max(nchar(variableList)) + 2
+    ttkcombobox(frame, values=variableList, textvariable=combovar, 
+                state=state, export=export, width=width)
+  } else {
+    ttkcombobox(frame, values=variableList, textvariable=combovar, 
                           state=state, export=export)
+  }
   firstChar <- tolower(substr(variableList, 1, 1))
   onLetter <- function(letter){
     letter <- tolower(letter)
@@ -953,7 +972,7 @@ variableComboBox <- function(parentWindow, variableList=Variables(),
     tkbind(combobox, paste("<", letter, ">", sep=""),
            get(paste("on", toupper(letter), sep="")))
   }
-  tkgrid(labelRcmdr(frame, text=title, fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w") # , columnspan=2
+  if (title != "") tkgrid(labelRcmdr(frame, text=title, fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w") # , columnspan=2
   tkgrid(combobox, sticky="nw")
   result <- list(frame=frame, combobox=combobox, varlist=variableList, combovar=combovar)
   class(result) <- "combobox"
@@ -1608,6 +1627,11 @@ Numeric <- function(names){
     else putRcmdr("numeric", names)
 }
 
+Character <- function(names){
+  if (missing(names)) getRcmdr("character")
+  else putRcmdr("character", names)
+}
+
 Factors <- function(names){
     if (missing(names)) getRcmdr("factors")
     else putRcmdr("factors", names)
@@ -1636,6 +1660,7 @@ ActiveDataSet <- function(name){
                 Numeric(NULL)
                 Factors(NULL)
                 TwoLevelFactors(NULL)
+                Character(NULL)
                 RcmdrTclSet("dataSetName", gettextRcmdr("<No active dataset>"))
                 putRcmdr(".activeModel", NULL)
                 putRcmdr("nrow", NULL)
@@ -1656,8 +1681,11 @@ ActiveDataSet <- function(name){
         Numeric(listNumeric(name))
         Factors(listFactors(name))
         TwoLevelFactors(listTwoLevelFactors(name))
+        DiscreteNumeric(listDiscreteNumeric(name))
+        Character(listCharacter(name))
         open.showData.windows <- getRcmdr("open.showData.windows")
-        if (!is.null(open.showData.windows) && name %in% names(open.showData.windows)){
+        if (!is.null(open.showData.windows) && name %in% names(open.showData.windows)
+            && open.showData.windows[[name]]$ID %in% as.character(tkwinfo("children", "."))){
           ID <- open.showData.windows[[name]]$ID
           posn <- as.numeric(c(tclvalue(.Tcl(paste("winfo x", ID))),
                        tclvalue(.Tcl(paste("winfo y", ID)))))
@@ -1679,6 +1707,8 @@ ActiveDataSet <- function(name){
             Numeric(NULL)
             Factors(NULL)
             TwoLevelFactors(NULL)
+            DiscreteNumeric(NULL)
+            Character(NULL)
             RcmdrTclSet("dataSetName", gettextRcmdr("<No active dataset>"))
             putRcmdr(".activeModel", NULL)
             putRcmdr("nrow", NULL)
@@ -1748,6 +1778,8 @@ dataSetsP <- function(n=1){
 numericP <- function(n=1) activeDataSetP() && length(listNumeric()) >= n
 
 factorsP <- function(n=1) activeDataSetP() && length(listFactors()) >= n
+
+characterP <- function(n=1) activeDataSetP() && length(listCharacter()) >= n
 
 twoLevelFactorsP <- function(n=1) activeDataSetP() && length(listTwoLevelFactors()) >= n
 
@@ -3759,11 +3791,15 @@ hasProgram <- function(program, version, prefix="--", line=1, compare=`>=`){
     compare(result, version)
 }
 
-RcmdrCapabilities <- function(check=list(c("pdflatex"), c("pandoc", version="1.12.3"))){
+RcmdrCapabilities <- function(check=list(c("pdflatex"), c("pandoc", version="1.12.3")),
+                              checkTkTable=TRUE){
     result <- vector(length(check), mode="list")
     names(result) <- sapply(check, function(x) x[1])
     for (i in 1:length(check)){
         result[[i]] <- do.call(hasProgram, as.list(check[[i]]))
+    }
+    if (checkTkTable){
+      result$tktable <- inherits(tclRequire("Tktable", warn = FALSE), "tclObj")
     }
     result
 }
@@ -3865,3 +3901,69 @@ validColumns <- function(dataset){
   valid
 }
 
+# add support for discrete numeric variables
+
+listDiscreteNumeric <- function(dataSet=ActiveDataSet()) {
+  if(missing(dataSet)) {
+    DiscreteNumeric()
+  }
+  else {
+    threshold <- getRcmdr("discreteness.threshold")
+    if (threshold <= 0){
+      n <- getRcmdr("nrow")
+      if (is.null(n)) n <- nrow(get(dataSet, envir=.GlobalEnv))
+      threshold <- min(round(2*sqrt(n)), round(10*log10(n)), 100)
+    }
+    variables <- listNumeric()
+    if (length(variables) == 0) return(NULL)
+    variables[sapply(variables, function(.x)
+      length(unique(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv)))) <= threshold)]
+  }
+}
+
+DiscreteNumeric <- function(names){
+  if (missing(names)) getRcmdr("discrete.numeric")
+  else putRcmdr("discrete.numeric", names)
+}
+
+discreteNumericP <- function(n=1) activeDataSetP() && length(listDiscreteNumeric()) >= n
+
+dichotomousResponseLabel <- defmacro(frame=top, responseBox=xBox, columnspan=1, initialText=NULL,
+                        expr={
+                          initial.label <- if (exists("dialog.values")) dialog.values$initial.responseLabel else NULL
+                          if  (is.null(initial.label)) {
+                            response <- getSelection(responseBox)
+                            initial.label <- if (length(response) == 0) NULL 
+                            else {
+                              levels <- eval(parse(text = paste("levels(", ActiveDataSet(), 
+                                                                "$", response, ")", sep = "")))
+                              levels[1]
+                            }
+                          }
+                          responseFrame <- tkframe(frame)
+                          .responseLabel <- if (!is.null(initialText)) initialText 
+                          else if (is.null(initial.label)) gettextRcmdr("<No response selected>") 
+                          else initial.label
+                          responseLabel <- labelRcmdr(responseFrame, text=.responseLabel)
+                          tkgrid(labelRcmdr(responseFrame, text=paste0(gettextRcmdr("Proportion"), " = "), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), responseLabel, sticky="w")
+                          tkgrid(responseFrame, sticky="w", columnspan=columnspan)
+                          onSelect <- function(){
+                            response <- getSelection(responseBox)
+                            if (length(response) == 0) {
+                              .responseLabel <<- gettextRcmdr("<No response selected>") 
+                            }
+                            else {
+                              levels <- eval(parse(text=paste("levels(", ActiveDataSet(), "$", response, ")", sep="")))
+                              .responseLabel <<- levels[1]
+                            }
+                            tkconfigure(responseLabel, text=.responseLabel)
+                          }
+                          tkbind(responseBox$listbox, "<ButtonRelease-1>", onSelect)
+                        })
+
+convertStrings2Factors <- function(){
+  .activeDataSet <- activeDataSet() 
+  command <- paste0(.activeDataSet, ' <- strings2factors(', .activeDataSet, ')')
+  doItAndPrint(command)
+  activeDataSet(.activeDataSet)
+}

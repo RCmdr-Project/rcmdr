@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.6-0\n"
+"Project-Id-Version: Rcmdr 2.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2019-01-08 16:30:00\n"
-"PO-Revision-Date: 2019-08-18 07:04+0200\n"
+"POT-Creation-Date: 2020-08-25 10:45:00\n"
+"PO-Revision-Date: 2020-08-26 08:14+0200\n"
 "Last-Translator: Manuel Munoz-Marquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <manuel.munoz@uca.es>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "KMeans Clustering"
@@ -35,7 +35,7 @@ msgid "Maximum iterations:"
 msgstr "Iteraciones máximas:"
 
 msgid "Print cluster summary"
-msgstr "Imprimir resumen del grupo:"
+msgstr "Imprimir resumen del grupo"
 
 msgid "Bi-plot of clusters"
 msgstr "Gráfica doble de grupos"
@@ -63,7 +63,7 @@ msgid "Complete Linkage"
 msgstr "Enlace completo"
 
 msgid "Average Linkage"
-msgstr "Enlace medio"
+msgstr "Enlace media"
 
 msgid "McQuitty's Method"
 msgstr "Método de McQuitty"
@@ -944,7 +944,7 @@ msgid "Packages (pick one or more)"
 msgstr "Paquetes (elegir uno o más)"
 
 msgid "You must select at least one package."
-msgstr "Debe seleccionar al menos un paquete"
+msgstr "Debe seleccionar al menos un paquete."
 
 msgid "Packages loaded:"
 msgstr "Paquetes cargados:"
@@ -1032,7 +1032,7 @@ msgid "Scatterplot"
 msgstr "Diagrama de dispersión"
 
 msgid "x-variable (pick one)"
-msgstr "variable x (elegir una) "
+msgstr "variable x (elegir una)"
 
 msgid "y-variable (pick one)"
 msgstr "variable y (elegir una)"
@@ -1550,7 +1550,7 @@ msgid ""
 "directory:"
 msgstr ""
 "Indicar el directorio  \n"
-"con los paquetes"
+"con los paquetes:"
 
 msgid ""
 "Local package directory\n"
@@ -1894,7 +1894,7 @@ msgid ""
 "for partial correlations."
 msgstr ""
 "Hay menos de tres variables seleccionadas\n"
-"para correlaciones parciales"
+"para correlaciones parciales."
 
 msgid "Two-Way Table"
 msgstr "Tabla de doble entrada"
@@ -1999,7 +1999,7 @@ msgstr ""
 "simétrica"
 
 msgid "there are fewer than 3 items in the scale"
-msgstr "Hay menos de tres números en la escala."
+msgstr "Hay menos de tres números en la escala"
 
 msgid "Argument response must be numeric."
 msgstr "El argumento respuesta ha de ser numérico."
@@ -2275,7 +2275,7 @@ msgid "Two-variances F-test..."
 msgstr "Test F para dos varianzas..."
 
 msgid "Bartlett's test..."
-msgstr "Test de Bartlett"
+msgstr "Test de Bartlett..."
 
 msgid "Levene's test..."
 msgstr "Test de Levene..."
@@ -2605,7 +2605,7 @@ msgid "from Excel, Access or dBase data set..."
 msgstr "desde conjunto de datos Excel, Access o dBase..."
 
 msgid "Standard deviation must be positive."
-msgstr "La desviación típica debe ser positiva. "
+msgstr "La desviación típica debe ser positiva."
 
 msgid "Degrees of freedom must be positive."
 msgstr "Los grados de libertad debe ser un número positivo."
@@ -3166,7 +3166,7 @@ msgid "Show squared residuals"
 msgstr "Mostrar residuos cuadráticos"
 
 msgid "Show axis scales"
-msgstr "Mostrar escala de los ejes "
+msgstr "Mostrar escala de los ejes"
 
 msgid "Plot 50% concentration ellipsoid"
 msgstr "Dibujar elipsoide que contiene el 50% de los datos"
@@ -3196,10 +3196,10 @@ msgid "Correlation > 0"
 msgstr "Correlación > 0"
 
 msgid "More than 2 variables selected."
-msgstr "Más de dos variables seleccionadas"
+msgstr "Más de dos variables seleccionadas."
 
 msgid "Correlation test..."
-msgstr "Test de correlación"
+msgstr "Test de correlación..."
 
 msgid "Recode Variables"
 msgstr "Recodificar Variables"
@@ -3255,7 +3255,7 @@ msgid "factor"
 msgstr "factor"
 
 msgid "You must select at least two variables."
-msgstr "Debe seleccionar al menos dos variables"
+msgstr "Debe seleccionar al menos dos variables."
 
 msgid "Name for stacked data set:"
 msgstr "Nombre del conjunto de datos apilados:"
@@ -3337,13 +3337,13 @@ msgid "Load Rcmdr plug-in(s)..."
 msgstr "Cargar plugin(s) de Rcmdr..."
 
 msgid "the plug-in package %s is missing"
-msgstr "El paquete plug-in %s no se encuentra"
+msgstr "el paquete plug-in %s no se encuentra"
 
 msgid "the package %s is not an Rcmdr plug-in"
-msgstr "El paquete %s no es un plug-in de Rcmdr"
+msgstr "el paquete %s no es un plug-in de Rcmdr"
 
 msgid "unrecognized operation, \"%s\", in plugin menu line %i"
-msgstr "Operación desconocida,\"%s\", en la linea del menú plugin %i"
+msgstr "operación desconocida,\"%s\", en la linea del menú plugin %i"
 
 msgid "unrecognized type, \"%s\", in plugin menu line %i"
 msgstr "tipo desconocido, \"%s\", en la linea del menú plugin %i"
@@ -3396,7 +3396,7 @@ msgid "y-axis label"
 msgstr "Etiqueta del eje y"
 
 msgid "No plotting characters."
-msgstr "No dibujar caracteres"
+msgstr "No dibujar caracteres."
 
 msgid "Plotting Parameters"
 msgstr "Dibujar parámetros"
@@ -3420,10 +3420,10 @@ msgid " has been coerced to a data frame"
 msgstr " se ha forzado a data frame"
 
 msgid "the dataset %s is no longer available"
-msgstr "El conjunto de datos %s no está disponible"
+msgstr "el conjunto de datos %s no está disponible"
 
 msgid "the model %s is no longer available"
-msgstr "El modelo %s no está disponible"
+msgstr "el modelo %s no está disponible"
 
 msgid "The Commander GUI is launched only in interactive sessions"
 msgstr "La interfaz R-Commander sólo funciona en sesiones interactivas"
@@ -3451,7 +3451,7 @@ msgstr ""
 
 msgid "Type III tests require careful attention to contrast coding."
 msgstr ""
-"El test tipo III requiere especial atención en la codificación del contraste"
+"el test tipo III requiere especial atención en la codificación del contraste"
 
 msgid "There is no appropriate anova method for a model of this class."
 msgstr "No hay un método ANOVA adecuado para un modelo de esta clase."
@@ -3561,10 +3561,10 @@ msgid "forward/backward"
 msgstr "adelante/atrás"
 
 msgid "backward"
-msgstr "Atrás"
+msgstr "atrás"
 
 msgid "forward"
-msgstr "Adelante"
+msgstr "adelante"
 
 msgid "Criterion"
 msgstr "Criterio"
@@ -3588,7 +3588,7 @@ msgid "Mallows Cp"
 msgstr "Cp de Mallows"
 
 msgid "Adjusted R-sq."
-msgstr "R cuadrado ajustado"
+msgstr "R cuadrado ajustado."
 
 msgid "R-squared"
 msgstr "R cuadrado"
@@ -3706,10 +3706,10 @@ msgid ""
 "with the single-document interface (SDI); see ?Commander."
 msgstr ""
 "La versión de Windows de R Commander funciona mejor bajo RGui\n"
-"con la interfaz de documento único (SDI); vea ?Commander"
+"con la interfaz de documento único (SDI); vea ?Commander."
 
 msgid "median"
-msgstr "Mediana"
+msgstr "mediana"
 
 msgid "Center"
 msgstr "Centro"
@@ -4029,7 +4029,7 @@ msgid "Layout"
 msgstr "Disposición"
 
 msgid "number of columns:"
-msgstr "Número de columnas:"
+msgstr "número de columnas:"
 
 msgid "number of rows:"
 msgstr "número de filas:"
@@ -4431,7 +4431,7 @@ msgid ""
 " or plot all high-order effects."
 msgstr ""
 "Debe seleccionar una o más predictores\n"
-" o dibujar todos los efectos de orden alto"
+" o dibujar todos los efectos de orden alto."
 
 msgid ""
 "To plot partial residuals,\n"
@@ -4689,7 +4689,7 @@ msgid "Right"
 msgstr "Derecha"
 
 msgid "plotting and grouping variables must be different"
-msgstr "Las variables a dibujar y las de grupo han de ser diferentes"
+msgstr "las variables a dibujar y las de grupo han de ser diferentes"
 
 # dot plot dialog
 msgid "Dot Plot"
@@ -5175,65 +5175,252 @@ msgstr "Modelo Lineal Mixto Generalizado"
 msgid "Generalized linear mixed model..."
 msgstr "Modelo lineal mixto generalizado..."
 
-#~ msgid "Dataset"
-#~ msgstr "Datos"
+msgid "Convert variable names to lower case"
+msgstr "Convertir nombres de variables a minúsculas"
 
-#~ msgid "variable"
-#~ msgstr "variable"
+# new messages about invalid variable classes
+msgid ""
+"The following variables are not valid for use in the R Commander and will be "
+"omitted:"
+msgstr ""
+"Las siguientes variables no son válidas para su uso en R Commander y serán "
+"omitidas:"
 
-#~ msgid "NormalSamples"
-#~ msgstr "MuestrasNormales"
+msgid ""
+"The following variable is not valid for use in the R Commander and will be "
+"omitted:"
+msgstr ""
+"La siguiente variable no es válida para su uso en R Commander y será omitida:"
 
-#~ msgid "tSamples"
-#~ msgstr "Muestras-t"
+msgid "Frequency Counts"
+msgstr "Recuentos de frecuencias"
 
-#~ msgid "ChisquareSamples"
-#~ msgstr "MuestrasChicuadrado"
+# For bar graph dialog
+msgid "Show counts or percentages in bars"
+msgstr "Mostrar el conteo o los porcentajes en barras"
 
-#~ msgid "FSamples"
-#~ msgstr "Muestras-F"
+msgid "Neither"
+msgstr "Ninguna"
 
-#~ msgid "ExponentialSamples"
-#~ msgstr "MuestrasExponenciales"
+msgid "<No response selected>"
+msgstr "<No hay respuestas selecionadas>"
 
-#~ msgid "UniformSamples"
-#~ msgstr "MuestrasUniformes"
+msgid "Proportion"
+msgstr "Proporción"
 
-#~ msgid "BetaSamples"
-#~ msgstr "MuestrasBeta"
+msgid "Restart the Commander"
+msgstr "Reiniciar R Commander"
 
-#~ msgid "CauchySamples"
-#~ msgstr "MuestrasCauchy"
+msgid "Restart the Commander?"
+msgstr "Reiniciar R Commander"
 
-#~ msgid "LogisticSamples"
-#~ msgstr "MuestrasLogisticas"
+# for new repeated-measures ANOVA/ANCOVA dialogs
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "ANOVA/ANCOVA de un factor con medidas repetidas..."
 
-#~ msgid "LogNormalSamples"
-#~ msgstr "MuestrasLognormales"
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr "ANOVA/ANCOVA de un factor con una medida repetidas"
 
-#~ msgid "GammaSamples"
-#~ msgstr "MuestrasGamma"
+msgid "no responses specified"
+msgstr "respuestas no especificadas"
 
-#~ msgid "WeibullSamples"
-#~ msgstr "MuestrasWeibull"
+msgid ""
+"the specified responses are not contiguous\n"
+" missing responses are removed"
+msgstr ""
+"las respuestas especificadas no son contiguas\n"
+"las respuestas faltantes son borradas"
 
-#~ msgid "GumbelSamples"
-#~ msgstr "MuestrasGumbel"
+msgid "<no selection>"
+msgstr "<sin selección>"
 
-#~ msgid "BinomialSamples"
-#~ msgstr "MuestrasBinomiales"
+msgid "there are duplicated level names"
+msgstr "hay nombres de nivel duplicados"
 
-#~ msgid "PoissonSamples"
-#~ msgstr "MuestrasPoisson"
+msgid "is not a valid name"
+msgstr "no es un nombre válido"
 
-#~ msgid "GeometricSamples"
-#~ msgstr "MuestrasGeometricas"
+msgid "the following responses appear more than once:"
+msgstr "las siguientes respuestas aparecen más de una vez:"
 
-#~ msgid "HypergeometricSamples"
-#~ msgstr "MuestrasHipergeometricas"
+msgid "at least 2 responses must be specified"
+msgstr "debe seleccionar al menos dos respuestas"
 
-#~ msgid "NegativeBinomialSamples"
-#~ msgstr "MuestrasBinomialNegativas"
+msgid "Within-Subject Factor"
+msgstr "Factor intra-sujetos"
 
-#~ msgid "StackedData"
-#~ msgstr "DatosApilados"
+msgid "Name for the within-subjects factor:"
+msgstr "Nombre del factor intra sujetos:"
+
+msgid ""
+"Specify up to 8 levels (responses) and level names for the within-subjects "
+"factor"
+msgstr ""
+"Especifique hasta 8 niveles (respuestas) y nombres de los niveles para el "
+"factor intra-sujetos"
+
+msgid "Multivariate Test Statistic"
+msgstr "Test estadístico multivariante"
+
+msgid "Multivariate"
+msgstr "Multivariante"
+
+msgid "Univariate"
+msgstr "Univariante"
+
+msgid "Tests to Perform"
+msgstr "Test a realizar"
+
+msgid "Repeated-Measures Means"
+msgstr "Medias de medidas repetidas"
+
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr "Factores inter-sujetos (elija cero o más)"
+
+msgid "Plot response means by factors"
+msgstr "Dibujar respuestas medias por factor"
+
+msgid "Print means and standard deviations by factors"
+msgstr "Imprimir medias y desviaciones típicas por factores"
+
+msgid "X-axis factor:"
+msgstr "Factor eje X:"
+
+msgid "Trace factor:"
+msgstr "Factor de seguimiento:"
+
+msgid "Response name:"
+msgstr "Nombre de la respuesta:"
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "ANOVA/ANCOVA de dos factores con medidas repetidas..."
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr "ANOVA/ANCOVA de factores con dos medidas repetidas"
+
+msgid "the specified responses are not rectangular"
+msgstr "las respuestas especificadas no son rectangulares"
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr "se deben especificar al menos 2 filas y 2 columnas de respuestas"
+
+msgid "there are duplicated row level names"
+msgstr "hay nombres de niveles de filas duplicados"
+
+msgid "there are duplicated column level names"
+msgstr "hay nombres de niveles de columnas duplicados"
+
+msgid "Within-Subject Factors"
+msgstr "Factores intra-sujetos"
+
+msgid "Name for the within-subjects row factor:"
+msgstr "Nombres para los factores fila intra-sujetos:"
+
+msgid "Name for the within-subjects column factor:"
+msgstr "Nombres para los factores columna intra-sujetos:"
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr ""
+"Seleccione hasta 5 niveles y nombres de nivel para cada factor intra-sujeto"
+
+msgid "Reshape data set from long to wide format..."
+msgstr "Reorganizar el conjunto de datos de formato largo a ancho ..."
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr "Reorganizar el conjunto de datos de formato largo a ancho"
+
+msgid "Subject ID variable (pick one)"
+msgstr "Variable de ID de sujeto (elija una)"
+
+msgid "Within-subjects factors (pick one or more)"
+msgstr "Factores intra-sujetos (elija uno o más)"
+
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr "Variables que varían según la ocasión (elija una o más)"
+
+msgid "Variables to ignore (pick zero or more)"
+msgstr "Variables para ignorar (elija cero o más)"
+
+msgid "You must select an ID variable."
+msgstr "Debe seleccionar una variable de ID."
+
+msgid "You must select one or more within-subjects factors."
+msgstr "Debe seleccionar uno o más factores intra-sujetos."
+
+msgid "You must select one or more occasion-varying variables."
+msgstr "Debe seleccionar una o más variables que varían según la ocasión."
+
+msgid "the following variables appear more than once:"
+msgstr "las siguientes variables aparecen más de una vez:"
+
+msgid "Save data set aborted"
+msgstr "Guardado del conjunto de datos cancelado"
+
+msgid "Name for wide data set:"
+msgstr "Nombre para un conjunto de datos ancho:"
+
+msgid "Make the wide data set active"
+msgstr "Activar el conjunto de datos ancho"
+
+msgid "Reshape data set from wide to long format..."
+msgstr "Reorganizar el conjunto de datos de formato ancho a largo ..."
+
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr "Reorganizar el conjunto de datos de formato ancho a largo"
+
+msgid ""
+"both one and two repeated-measures factors were specified\n"
+"specify either a one-way or two-way design"
+msgstr ""
+"se especificaron tanto uno como dos factores de medidas repetidas\n"
+"especificar un diseño de una o dos vías"
+
+msgid "the specified responses are not contiguous"
+msgstr "las respuestas especificadas no son contiguas"
+
+msgid "the following ignored variables are also responses:"
+msgstr "las siguientes variables ignoradas también son respuestas:"
+
+msgid "Specify one within-subject factor"
+msgstr "Especificar un factor intra-sujeto"
+
+msgid "Specify two within-subject factors"
+msgstr "Especifique dos factores intra-sujeto"
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr ""
+"Especifique hasta 5 niveles y nombres de nivel para cada factor intra-sujeto"
+
+msgid "Name for long data set:"
+msgstr "Nombre del conjunto de datos largo:"
+
+msgid "Response variable:"
+msgstr "Variable explicada:"
+
+msgid "Subject ID variable:"
+msgstr "Variable de ID del sujeto:"
+
+msgid "Make the long data set active"
+msgstr "Acivar el conjunto de datos largo"
+
+msgid "Convert all character variables to factors"
+msgstr "Convertir todas las variables de caracteres en factores"
+
+msgid "Convert character variables to factors..."
+msgstr "Convertir variables de caracteres en factores ..."
+
+msgid "Convert Character Variables to Factors"
+msgstr "Convertir variables de caracteres en factores"
+
+msgid "Variable (pick one or more)"
+msgstr "Variable (seleccione una o más)"
+
+# additional messages omitted from version 2.7-0
+msgid "Include in Segment Labels"
+msgstr "Incluir en etiquetas de segmento"
+
+msgid "One Repeated-Measures Factor"
+msgstr "Un factor con medidas repetidas"
+
+msgid "Two Repeated-Measures Factors"
+msgstr "Factores con dos medidas repetidas"

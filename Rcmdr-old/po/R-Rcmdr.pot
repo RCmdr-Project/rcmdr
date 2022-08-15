@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.6-2\n"
+"Project-Id-Version: Rcmdr 2.7-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2020-01-20 13:00:00\n"
+"POT-Creation-Date: 2020-08-25 10:45:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5073,7 +5073,7 @@ msgid "Transformation Family"
 msgstr ""
 
 msgid "Condition on:"
-msgstr ""
+msgstr
 
   # new symmetry boxplot (symbox) dialog
   
@@ -5156,7 +5156,7 @@ msgstr ""
 msgid "Generalized linear mixed model..."
 msgstr ""
 
-# corrected and new messages for version 2.6-1
+# corrected and messages for version 2.6-1
 
   # correction: was "Convert variable names\nto lower case"
 
@@ -5171,9 +5171,248 @@ msgstr ""
 msgid "The following variable is not valid for use in the R Commander and will be omitted:"
 msgstr ""
 
-# new message for version 2.6-2
+# new messages for version 2.7-0
 
-  # previously omitted message:
+  # for Numerical Summaries dialog
+
+msgid "Frequency Counts"
+msgstr ""
+
+  # For bar graph dialog
+  
+msgid "Show counts or percentages in bars"
+msgstr ""
+
+  # for piechart dialog
+
+msgid "Neither"
+msgstr ""
+
+  # for proportion-test dialogs
+  
+msgid "<No response selected>"
+msgstr ""
+
+msgid "Proportion"
+msgstr ""
+
+  # for new restart Commander dialog
+  
+msgid "Restart the Commander"
+msgstr ""
+
+msgid "Restart the Commander?"
+msgstr ""
+
+  # for new repeated-measures ANOVA/ANCOVA dialogs
+  
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr ""
+  
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr ""
+
+msgid "no responses specified"
+msgstr ""
+
+msgid "the specified responses are not contiguous\n missing responses are removed"
+msgstr ""
+
+msgid "<no selection>"
+msgstr ""
+
+msgid "there are duplicated level names"
+msgstr ""
+
+msgid "is not a valid name"
+msgstr ""
+
+msgid "the following responses appear more than once:"
+msgstr ""
+
+msgid "at least 2 responses must be specified"
+msgstr ""
+
+msgid "Within-Subject Factor"
+msgstr ""
+
+msgid "Name for the within-subjects factor:"
+msgstr ""
+
+msgid "Specify up to 8 levels (responses) and level names for the within-subjects factor"
+msgstr ""
+
+msgid "Between-Subjects Model Formula"
+mststr ""
+
+msgid "Multivariate Test Statistic"
+msgstr ""
+
+msgid "Multivariate"
+msgstr ""
+
+msgid "Univariate"
+msgstr ""
+
+msgid "Tests to Perform"
+msgstr ""
+
+msgid "Repeated-Measures Means"
+msgstr ""
+
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr ""
+
+msgid "Plot response means by factors"
+msgstr ""
+
+msgid "Print means and standard deviations by factors"
+msgstr ""
+
+msgid "X-axis factor:"
+msgstr ""
+
+msgid "Trace factor:"
+msgstr ""
+
+msgid "Response name:"
+msgstr ""
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr ""
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr ""
+
+msgid "the specified responses are not rectangular"
+msgstr ""
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr ""
+
+msgid "there are duplicated row level names"
+msgstr ""
+
+msgid "there are duplicated column level names"
+msgstr ""
+
+msgid "Within-Subject Factors"
+msgstr ""
+
+msgid "Name for the within-subjects row factor:"
+msgstr ""
+
+msgid "Name for the within-subjects column factor:"
+msgstr ""
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr ""
+
+  # new reshape data set from long to wide format dialog
+  
+msgid "Reshape data set from long to wide format..."
+msgstr ""
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr ""
+
+msgid "Subject ID variable (pick one)"
+msgstr ""
+
+msgid "Within-subjects factors (pick one or more)"
+msgstr ""
+
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr ""
+
+msgid "Variables to ignore (pick zero or more)"
+msgstr ""
+
+msgid "You must select an ID variable."
+msgstr ""
+
+msgid "You must select one or more within-subjects factors."
+msgstr ""
+
+msgid "You must select one or more occasion-varying variables."
+msgstr ""
+
+msgid "the following variables appear more than once:"
+msgstr ""
+
+msgid "Save data set aborted"
+msgstr ""
+
+msgid "Name for wide data set:"
+msgstr ""
+
+msgid "Make the wide data set active"
+msgstr ""
+
+  # new reshape data set from wide to long format dialog
+  
+msgid "Reshape data set from wide to long format..."
+msgstr ""
+  
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr ""
+
+msgid "both one and two repeated-measures factors were specified\nspecify either a one-way or two-way design"
+msgstr ""
+
+msgid "the specified responses are not contiguous"
+msgstr ""
+
+msgid "the following ignored variables are also responses:"
+msgstr ""
+
+msgid "Specify one within-subject factor"
+msgstr ""
+
+msgid "Specify two within-subject factors"
+msgstr ""
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr ""
+
+msgid "Name for long data set:"
+msgstr ""
+
+msgid "Response variable:"
+msgstr ""
+
+msgid "Subject ID variable:"
+msgstr ""
+
+msgid "Make the long data set active"
+msgstr ""
+
+  # additional messages for handling character data
+  
+msgid "Convert all character variables to factors"
+msgstr ""
+
+msgid "Convert character variables to factors..."
+msgstr ""
+
+msgid "Convert Character Variables to Factors"
+msgstr ""
+
+
+# new message for version 2.7-1
+
+  # previously omitted message (also included in 2.6-2 but omitted again from 2.7-0):
   
 msgid "Variable (pick one or more)"
+msgstr ""
+
+  # additional messages omitted from version 2.7-0
+  
+msgid "Include in Segment Labels"
+msgstr ""
+
+msgid "One Repeated-Measures Factor"
+msgstr ""
+
+msgid "Two Repeated-Measures Factors"
 msgstr ""

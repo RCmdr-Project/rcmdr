@@ -5017,3 +5017,237 @@ msgstr "Обобщенная линейная смешанная модель"
 
 msgid "Generalized linear mixed model..."
 msgstr "Обобщенная линейная смешанная модель..."
+
+# corrected and messages for version 2.6-1
+# correction: was "Convert variable names\nto lower case"
+msgid "Convert variable names to lower case"
+msgstr "Конвертировать названия переменных в нижний регистр"
+
+# new messages about invalid variable classes
+msgid "The following variables are not valid for use in the R Commander and will be omitted:"
+msgstr "Следующие переменные не подходят для использования в R Commander и будут пропущены:"
+
+msgid "The following variable is not valid for use in the R Commander and will be omitted:"
+msgstr "Следующая переменная не подходит для использования в R Commander и будет пропущена:"
+
+# new messages for version 2.7-0
+# for Numerical Summaries dialog
+msgid "Frequency Counts"
+msgstr "Частоты"
+
+# For bar graph dialog
+msgid "Show counts or percentages in bars"
+msgstr "Показать частоты (в процентах) в столбиках"
+
+# for piechart dialog
+msgid "Neither"
+msgstr "Ни одного"
+
+# for proportion-test dialogs
+msgid "<No response selected>"
+msgstr "<Отклик не выбран>"
+
+msgid "Proportion"
+msgstr "Пропорция"
+
+# for new restart Commander dialog
+msgid "Restart the Commander"
+msgstr "Перезагрузить Commander"
+
+msgid "Restart the Commander?"
+msgstr "Перезагрузить Commander?"
+
+# for new repeated-measures ANOVA/ANCOVA dialogs
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "Однофакторный с повторениями ANOVA/ANCOVA..."
+
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr "Один фактор из ANOVA/ANCOVA с повторениями"
+
+msgid "no responses specified"
+msgstr "не выбран отклик"
+
+msgid ""
+"the specified responses are not contiguous\n"
+" missing responses are removed"
+msgstr ""
+"выбранные отклики не непрерывные\n"
+" пропущенные отклики убраны"
+
+msgid "<no selection>"
+msgstr "<не выбрано>"
+
+msgid "there are duplicated level names"
+msgstr "есть повторяющиеся названия уровней"
+
+msgid "is not a valid name"
+msgstr "неправильное имя"
+
+msgid "the following responses appear more than once:"
+msgstr "следующие отклики выбраны больше одного раза:"
+
+msgid "at least 2 responses must be specified"
+msgstr "по крайней мере два отклика должны быть выбраны"
+
+msgid "Within-Subject Factor"
+msgstr "Внутрисубъектный фактор"
+
+msgid "Name for the within-subjects factor:"
+msgstr "Название внутрисубъектного фактора:"
+
+msgid "Specify up to 8 levels (responses) and level names for the within-subjects factor"
+msgstr "Задайте до 8 уровней (откликов) и имен уровней для внутрисубъектного фактора"
+
+msgid "Multivariate Test Statistic"
+msgstr "Многомерная тестовая статистика"
+
+msgid "Multivariate"
+msgstr "Многомерный"
+
+msgid "Univariate"
+msgstr "Одномерный"
+
+msgid "Tests to Perform"
+msgstr "Тест для выполнения"
+
+msgid "Repeated-Measures Means"
+msgstr "Средние повторяющихся измерений"
+
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr "Межсубъектные фаторы (выберите ноль или больше)"
+
+msgid "Plot response means by factors"
+msgstr "График средних отклика по факторам"
+
+msgid "Print means and standard deviations by factors"
+msgstr "Вывести средние и стандартные отклонения по факторам"
+
+msgid "X-axis factor:"
+msgstr "Фактор оси X:"
+
+msgid "Trace factor:"
+msgstr "Трассировочный фактор:"
+
+msgid "Response name:"
+msgstr "Название отклика:"
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "Двухфакторный с повторениями ANOVA/ANCOVA..."
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr "Два фактора из ANOVA/ANCOVA с повторениями"
+
+msgid "the specified responses are not rectangular"
+msgstr "заданные отклики не прямоугольны"
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr "по крайней мере 2 строки и две колонки должны быть определены"
+
+msgid "there are duplicated row level names"
+msgstr "есть повторяющиеся названия уровней в строках"
+
+msgid "there are duplicated column level names"
+msgstr "есть повторяющиеся названия уровней в колонках"
+
+msgid "Within-Subject Factors"
+msgstr "Внутрисубъектный фактор"
+
+msgid "Name for the within-subjects row factor:"
+msgstr "Названия внутрисубъектного фактора для строк:"
+
+msgid "Name for the within-subjects column factor:"
+msgstr "Названия внутрисубъектного фактора для колонок:"
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr "Выберите до 5 уровней и названий уровней для каждого внутрисубъектного фактора"
+
+# new reshape data set from long to wide format dialog
+msgid "Reshape data set from long to wide format..."
+msgstr "Перестроить данные из длинного в широкий формат..."
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr "Перестроить данные из длинного в широкий формат"
+
+msgid "Subject ID variable (pick one)"
+msgstr "Выбрать одну ID переменную для субъектов"
+
+msgid "Within-subjects factors (pick one or more)"
+msgstr "Внутрисубъектные факторы (выберите один или больше)"
+
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr "Переменные, которые варьируют случайно (выберите одну или больше)"
+
+msgid "Variables to ignore (pick zero or more)"
+msgstr "Игнорировать переменные (выберите одну или больше)"
+
+msgid "You must select an ID variable."
+msgstr "Надо выбрать ID переменную."
+
+msgid "You must select one or more within-subjects factors."
+msgstr "Надо выбрать один или больше внутрисубъектных факторов."
+
+msgid "You must select one or more occasion-varying variables."
+msgstr "Надо выбрать один или больше случайно варьирующих переменных."
+
+msgid "the following variables appear more than once:"
+msgstr "эти переменные появляются больше одного раза:"
+
+msgid "Save data set aborted"
+msgstr "Сохранение данных прервано"
+
+msgid "Name for wide data set:"
+msgstr "Название данных в широком формате:"
+
+msgid "Make the wide data set active"
+msgstr "Сделать данные в широком формате активными"
+
+# new reshape data set from wide to long format dialog
+msgid "Reshape data set from wide to long format..."
+msgstr "Перестроить данные из широкого в длинный формат..."
+
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr "Перестроить данные из широкого в длинный формат"
+
+msgid ""
+"both one and two repeated-measures factors were specified\n"
+"specify either a one-way or two-way design"
+msgstr ""
+"указаны и один, и два фактора для повторяющихся измерений\n"
+"нужно указать либо то, либо другое"
+
+msgid "the specified responses are not contiguous"
+msgstr "выбранные отклики не непрерывны"
+
+msgid "the following ignored variables are also responses:"
+msgstr "слеующие пропущенные переменные являются также откликами:"
+
+msgid "Specify one within-subject factor"
+msgstr "Задайте один внутрисубъектный фактор"
+
+msgid "Specify two within-subject factors"
+msgstr "Задайте два внутрисубъектных фактора"
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr "Задайте до 5 уровней и имен уровней для каждого внутрисубъектного фактора"
+
+msgid "Name for long data set:"
+msgstr "Имя данных в длинном формате:"
+
+msgid "Response variable:"
+msgstr "Переменная отклика:"
+
+msgid "Subject ID variable:"
+msgstr "ID переменная для субъектов"
+
+msgid "Make the long data set active"
+msgstr "Сделать данные в длинном формате активными"
+
+# additional messages for handling character data
+msgid "Convert all character variables to factors"
+msgstr "Конвертировать все текстовые переменные в факторы"
+
+msgid "Convert character variables to factors..."
+msgstr "Конвертировать текстовые переменные в факторы..."
+
+msgid "Convert Character Variables to Factors"
+msgstr "Конвертировать текстовые переменные в факторы"

@@ -23,7 +23,7 @@ into a report also saves the current edits.
 The editor is a \dQuote{non-modal} dialog, and so may remain open when you work.
 }
 
-\seealso{\href{http://rmarkdown.rstudio.com/lesson-1.html}{using R Markdown}; \href{https://yihui.name/knitr/}{using knitr}.}
+\seealso{\href{https://rmarkdown.rstudio.com/lesson-1.html}{using R Markdown}; \href{https://yihui.org/knitr/}{using knitr}.}
 
 \author{John Fox \email{jfox@mcmaster.ca}}
 

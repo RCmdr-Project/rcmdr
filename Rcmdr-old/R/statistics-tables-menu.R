@@ -344,7 +344,8 @@ enterTable <- function(){
     tkgrid(percentsFrame, sticky="nwe", padx = 6,  pady = 6)
     tkgrid(testsFrame, sticky="nwe", padx = 6, pady = 6)
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE, tabs=c("tableTab", "statisticsTab"), tab.names=c("Table", "Statistics"))
-    if (!WindowsP()) setUpTable()
+    #if (!WindowsP()) setUpTable()
+    setUpTable()
     }
 
 resetEnterTable <- function(){

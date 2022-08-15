@@ -4800,7 +4800,7 @@ msgstr ""
 msgid "Plot concentration ellipse(s)"
 msgstr "Gràfic el·lipse(s) concentració"
 
-msgid "Concentration levels: "
+msgid "Concentration levels:"
 msgstr "Nivells de concentració:"
 
 msgid "Legend Position"

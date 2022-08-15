@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-11-14 by J. Fox
+# last modified 2019-11-19 by J. Fox
 
 # Summaries menu
 
@@ -36,7 +36,7 @@ numericalSummaries <- function(){
                initialValues=c(dialog.values$initial.mean, dialog.values$initial.sd, dialog.values$initial.se.mean, 
                                dialog.values$initial.IQR, dialog.values$initial.cv, dialog.values$initial.counts), 
                labels=gettextRcmdr(c("Mean", "Standard Deviation", "Standard Error of Mean", "Interquartile Range", 
-                                     "Coefficient of Variation", "Binned Frequency Counts")), columns=2)
+                                     "Coefficient of Variation", "Frequency Counts")), columns=2)
     skFrame <- tkframe(statisticsTab)
     checkBoxes(window = skFrame, frame="skCheckBoxFrame", boxes=c("skewness", "kurtosis"), 
                initialValues=c(dialog.values$initial.skewness, dialog.values$initial.kurtosis), 
@@ -85,6 +85,18 @@ numericalSummaries <- function(){
         vars <- if (length(x) == 1) paste('"', x, '"', sep="") 
         else paste("c(", paste('"', x, '"', collapse=", ", sep=""), ")", sep="")
         ds.vars <- paste(.activeDataSet, "[,", vars, ", drop=FALSE]", sep="")
+        
+        discrete.x <- x[x %in% DiscreteNumeric()]
+        continuous.x <- setdiff(x, discrete.x)
+        discrete.vars <- if (length(discrete.x) == 0) NULL 
+        else if (length(discrete.x) == 1) paste('"', discrete.x, '"', sep="")
+        else paste("c(", paste('"', discrete.x, '"', collapse=", ", sep=""), ")", sep="")
+        ds.discrete.vars <- if(is.null(discrete.vars)) NULL else paste(.activeDataSet, "[,", discrete.vars, ", drop=FALSE]", sep="")
+        continuous.vars <- if (length(continuous.x) == 0) NULL 
+        else if (length(continuous.x) == 1) paste('"', continuous.x, '"', sep="")
+        else paste("c(", paste('"', continuous.x, '"', collapse=", ", sep=""), ")", sep="")
+        ds.continuous.vars <- if(is.null(continuous.vars)) NULL else paste(.activeDataSet, "[,", continuous.vars, ", drop=FALSE]", sep="")
+        
         stats <- paste("c(",
                        paste(c('"mean"', '"sd"', '"se(mean)"', '"IQR"', '"quantiles"', '"cv"', '"skewness"', '"kurtosis"')
                              [c(meanVar, sdVar, se.meanVar, IQRVar, quantsVar, cvVar, skewnessVar, kurtosisVar) == 1], 
@@ -108,14 +120,27 @@ numericalSummaries <- function(){
             if (.groups != FALSE){
                 levels <- eval(parse(text=paste0("levels(", grps, ")")), envir=.GlobalEnv)
                 for (level in levels){
+                  if (!is.null(continuous.vars)){
                     command <- paste0("binnedCounts(", .activeDataSet, "[", grps, " == ", "'", level, "', ", 
-                                      vars, ", drop=FALSE])\n  # ", .groups, " = ", level)
+                                      continuous.vars, ", drop=FALSE])\n  # ", .groups, " = ", level)
                     doItAndPrint(command)
+                  }
+                  if (!is.null(discrete.vars)){
+                    command <- paste0("discreteCounts(", .activeDataSet, "[", grps, " == ", "'", level, "', ", 
+                                      discrete.vars, ", drop=FALSE])\n  # ", .groups, " = ", level)
+                    doItAndPrint(command)
+                  }
                 }
             }
             else {
-                command <- paste0("binnedCounts(", ds.vars, ")")
+              if(!is.null(ds.continuous.vars)){
+                command <- paste0("binnedCounts(", ds.continuous.vars, ")")
                 doItAndPrint(command)
+              }
+              if(!is.null(ds.discrete.vars)){
+                command <- paste0("discreteCounts(", ds.discrete.vars, ")")
+                doItAndPrint(command)
+              }
             }
         }
         tkfocus(CommanderWindow())
@@ -285,18 +310,20 @@ statisticsTable <- function () {
                                        initial.statistic=stat, initial.other = if(stat == "other") statistic else ""))  
     closeDialog()
     .activeDataSet <- ActiveDataSet()
-    groups.list <- paste(paste(groups, sep = ""), collapse = ", ")
+    groups.list <- paste0(groups, collapse = " + ")
     for (response in responses) {
       if (length(responses) > 1) 
         doItAndPrint(paste("# Table for ", response, 
                            ":", sep = ""))
-      doItAndPrint(paste("with(", .activeDataSet, ", tapply(",  
-                         response, ", list(", groups.list, "), ", statistic, 
-                         ", na.rm=TRUE))", sep = ""))
+      # doItAndPrint(paste("with(", .activeDataSet, ", tapply(",  
+      #                    response, ", list(", groups.list, "), ", statistic, 
+      #                    ", na.rm=TRUE))", sep = ""))
+      doItAndPrint(paste0("Tapply(", response, " ~ ", groups.list, ", ", statistic, ", na.action=na.omit, data=", 
+                          .activeDataSet, ") # ", statistic, " by groups")) 
     }
     tkfocus(CommanderWindow())
   }
-  OKCancelHelp(helpSubject = "tapply", reset="statisticsTable", apply="statisticsTable")
+  OKCancelHelp(helpSubject = "Tapply", reset="statisticsTable", apply="statisticsTable")
   tkgrid(getFrame(groupBox), labelRcmdr(variablesFrame, text = "    "), 
          getFrame(responseBox), sticky = "nw")
   tkgrid(variablesFrame, sticky = "w")

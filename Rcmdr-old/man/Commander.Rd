@@ -177,6 +177,11 @@ set none, one, several, or all options. The available options are as follows:
     The \pkg{Rcmdr} \code{scale.factor} option may also be used to
     control font size.}
     
+    \item{\code{discreteness.theshold}}{should be a positive integer; if greater than \code{0} 
+    (which is the default), the  maximum number of distinct values 
+    for a numeric variable to be considered discrete; if \code{0} (or smaller), the threshold is taken as the smallest of 100,
+    twice the squareroot of the number of cases in the active data set (n), and 10 times log10(n).}
+    
     \item{\code{double.click}}{Set to \code{TRUE} if you want a double-click of the left mouse
     button to press the default button in all dialogs. The default is \code{FALSE}.}
     
@@ -418,7 +423,7 @@ For more information about R initialization, see \code{?Startup}.
   R Commander \emph{Tools} menu. The app nap setting is permanent until changed and so the current setting will apply whether or not the
   R Commander is used. When R is first installed, app nap will be on for \emph{R.app}. The \pkg{tcltk} package requires that X Windows is
   installed under Mac OS X, and as a consequence the \pkg{Rcmdr} package, which depends on \pkg{tcltk}, will not load if X Windows is
-  absent. X Windows for Mac OS X may be obtained from \url{http://xquartz.macosforge.org}.
+  absent. X Windows for Mac OS X may be obtained from \url{https://www.xquartz.org/}.
 }
 
 \references{

@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 
 # Indonesian translations for the Rcmdr package
 # Terjemahan Bahasa Indonesia Paket Rcmdr
@@ -17,7 +17,7 @@ msgstr ""
 # This file is distributed under the same license as the Rcmdr package
 # I Made Tirta <itirta.fmipa@unej.ac.id>, 2016, 2017,2018
 msgid "KMeans Clustering"
-msgstr "Pengugusan KMeans "
+msgstr "Pengugusan KMeans"
 
 msgid "Variables (pick one or more)"
 msgstr "Peubah (ambil satu atau lebih)"
@@ -364,10 +364,8 @@ msgstr "Karakter Titik-Desimal"
 msgid "You must enter a name for the data set."
 msgstr "Anda harus memasukkan nama untuk data set."
 
-msgid ""
-"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
-msgstr ""
-"{\"File Teks\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"Semua File\" {\"*\"}}"
+msgid "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
+msgstr "{\"File Teks\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"Semua File\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "Nama peubah dalam file:"
@@ -412,11 +410,11 @@ msgid "Import SPSS Data Set"
 msgstr "Impor Data Set SPSS"
 
 msgid ""
-"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All "
-"Files\" {\"*\"}}"
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*"
+"\"}}"
 msgstr ""
-"{\"simpan file SPSS\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
-"{\"Semua File\" {\"*\"}}"
+"{\"simpan file SPSS\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"Semua File"
+"\" {\"*\"}}"
 
 msgid ""
 "Convert value labels\n"
@@ -650,7 +648,7 @@ msgid "The following variable names are not valid:"
 msgstr "Nama peubah berikut tidak valid:"
 
 msgid "Variable names are not unique"
-msgstr "Nama variabel tidak unik"
+msgstr "Nama peubah tidak unik"
 
 msgid "Old Name"
 msgstr "Nama sebelumnya"
@@ -1060,7 +1058,7 @@ msgid "You must select two variables"
 msgstr "Anda harus pilih dua peubah"
 
 msgid "x and y variables must be different"
-msgstr "Peubah x dan y harus beda"
+msgstr "peubah x dan y harus beda"
 
 msgid "Span for smooth"
 msgstr "Span untuk kahaluasan"
@@ -1108,10 +1106,10 @@ msgid "Line Plot"
 msgstr "Grafik garis"
 
 msgid "x variable (pick one)"
-msgstr "Peubah-x (ambil satu)"
+msgstr "peubah-x (ambil satu)"
 
 msgid "y variables (pick one or more)"
-msgstr "Peubah-y (ambil satu atau lebih)"
+msgstr "peubah-y (ambil satu atau lebih)"
 
 msgid "<use y-variable names>"
 msgstr "<gunakan nama peubah-y>"
@@ -1123,13 +1121,13 @@ msgid "No y variables selected."
 msgstr "Tidak ada peubah y terpilih."
 
 msgid "x and y variables must be different."
-msgstr "Peubah x dan y harus beda."
+msgstr "peubah x dan y harus beda."
 
 msgid ""
 "x-values are not in order.\n"
 "Continue?"
 msgstr ""
-"Peubah x tidak terurut.\n"
+"peubah x tidak terurut.\n"
 "Lanjutkan?"
 
 msgid "Label for y-axis"
@@ -2464,10 +2462,10 @@ msgid "t distribution"
 msgstr "Distribusi t"
 
 msgid "t quantiles..."
-msgstr "Kuantil t..."
+msgstr "quantil t..."
 
 msgid "t probabilities..."
-msgstr "Peluang t..."
+msgstr "peluang t..."
 
 msgid "Plot t distribution..."
 msgstr "Plot distribusi t..."
@@ -2571,11 +2569,11 @@ msgid "Import from Excel, Access or dBase data set"
 msgstr "Impor dari data set Excel, Access atau dBase"
 
 msgid ""
-"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like "
-"file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like file\" {*.dbf "
+"\".DBF\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"File MS Excel\" {*.xls \".XLS\"}} {\"Database MS Access\" {*.mdb \".MDB\"}} {\"File jenis "
-"dBase \" {*.dbf \".DBF\"}} {\"Semua File\" {\"*\"}}"
+"{\"File MS Excel\" {*.xls \".XLS\"}} {\"Database MS Access\" {*.mdb \".MDB\"}} {\"File jenis dBase \" {*."
+"dbf \".DBF\"}} {\"Semua File\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "Pilih satu tabel"
@@ -3439,10 +3437,10 @@ msgid "Type of Model"
 msgstr "Jenis model"
 
 msgid "x-axis label"
-msgstr "Label sumbu-x"
+msgstr "label sumbu-x"
 
 msgid "y-axis label"
-msgstr "Label sumbu-y"
+msgstr "label sumbu-y"
 
 msgid "No plotting characters."
 msgstr "Tidak ada karakter ploting."
@@ -3812,17 +3810,15 @@ msgstr "{\"Semua File\" {\"*\"}} {\"File Skrip\" {\".R\"}}"
 msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
 msgstr "{\"Semua Files\" {\"*\"}} {\"Files Luaran\" {\".txt\"}}"
 
-msgid ""
-"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
-msgstr ""
-"{\"Semua File\" {\"*\"}} {\"File Teks\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+msgid "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+msgstr "{\"Semua File\" {\"*\"}} {\"File Teks\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\"."
-"sav\" \".SAV\"}}"
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV"
+"\"}}"
 msgstr ""
-"{\"Semua File\" {\"*\"}} {\"File portebel SPSS\" {\".por\" \".POR\"}} {\"File simpanan SPSS"
-"\" {\".sav\" \".SAV\"}}"
+"{\"Semua File\" {\"*\"}} {\"File portebel SPSS\" {\".por\" \".POR\"}} {\"File simpanan SPSS\" {\".sav\" \"."
+"SAV\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
 msgstr "{\"Semua File\" {\"*\"}} {\"File portebel Minitab\" {\".mtp\" \".MTP\"}}"
@@ -3831,13 +3827,13 @@ msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 msgstr "{\"Semua File\" {\"*\"}} {\"dataset STATA \" {\".dta\" \".DTA\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database"
-"\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file"
-"\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb"
+"\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} "
+"{\"MS Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"Semua File\" {\"*\"}} {\"Database MS Access\" {\".mdb\" \".MDB\"}} {\"Database MS Access "
-"2007\" {\".accdb\" \".ACCDB\"}} {\"File sejenis dBase\" {\".dbf\" \".DBF\"}} {\" File MS Excel "
-"2007\" {\".xlsx\" \".XLSX\"}} {\"File MS Excel\" {\".xls\" \".XLS\"}}"
+"{\"Semua File\" {\"*\"}} {\"Database MS Access\" {\".mdb\" \".MDB\"}} {\"Database MS Access 2007\" {\"."
+"accdb\" \".ACCDB\"}} {\"File sejenis dBase\" {\".dbf\" \".DBF\"}} {\" File MS Excel 2007\" {\".xlsx\" \"."
+"XLSX\"}} {\"File MS Excel\" {\".xls\" \".XLS\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
 msgstr "{\"Semua File\" {\"*\"}} {\"File R Data \" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
@@ -3900,7 +3896,7 @@ msgid "Confirmatory Factor Analysis"
 msgstr "Analisis Faktor Konfirmatori"
 
 msgid "Fewer than 2 variables selected to load on factor."
-msgstr "Kurang dari 2 variabel terpilih untuk memanggil faktor."
+msgstr "Kurang dari 2 peubah terpilih untuk memanggil faktor."
 
 msgid "Define factor"
 msgstr "Definisikan faktor"
@@ -3909,7 +3905,7 @@ msgid ""
 "Select variables\n"
 "loading on factor"
 msgstr ""
-"Pilih variabel\n"
+"Pilih peubah\n"
 "dipanggil pada faktor"
 
 msgid "Covariance"
@@ -4014,14 +4010,13 @@ msgid "Datasets in file (pick one)"
 msgstr "Dataset dalam file (ambil satu)"
 
 msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
-msgstr ""
-"{\"Semua File\" {\"*\"}} {\" Files ekspor SAS \" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgstr "{\"Semua File\" {\"*\"}} {\" Files ekspor SAS \" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
 
 msgid ""
 "Convert variable names\n"
 "to lower case"
 msgstr ""
-"Konversi nama variabel\n"
+"Konversi nama peubah\n"
 "ke lower case (huruf kecil)"
 
 msgid "from Excel file..."
@@ -4031,11 +4026,11 @@ msgid "Import Excel Data Set"
 msgstr "Impor Data Set Excel"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\"."
-"xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS"
+"\"}}"
 msgstr ""
-"{\"Semua Files\" {\"*\"}} {\"File MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\"."
-"xls\" \".XLS\"}}"
+"{\"Semua Files\" {\"*\"}} {\"File MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \"."
+"XLS\"}}"
 
 msgid "Interquartile Range"
 msgstr "Jarak Interkuartil"
@@ -4136,7 +4131,7 @@ msgid "Number of points to identify"
 msgstr "Banyaknya titik untuk diidentifikasi"
 
 msgid "Added-Variable Plots"
-msgstr "Plot Variabel-Tambahan"
+msgstr "Plot Peubah-Tambahan"
 
 msgid "Component+Residual Plots"
 msgstr "Komponen+Plot Sisa"
@@ -4155,7 +4150,7 @@ msgid "R Markdown"
 msgstr "Markdown R"
 
 msgid "knitr Document"
-msgstr "Dokumen knit"
+msgstr "Dokumen knitr"
 
 msgid "Open R Markdown file..."
 msgstr "Buka file R Markdown..."
@@ -4188,7 +4183,7 @@ msgid "R Markdown file saved to"
 msgstr "File R Markdown disimpan ke"
 
 msgid "knitr file saved to"
-msgstr "File knitr disimpan ke"
+msgstr "file knitr disimpan ke"
 
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
 msgstr "{\"Semua File\" {\"*\"}} {\" File R Markdown\" {\".Rmd\" \".rmd\"}}"
@@ -4340,7 +4335,7 @@ msgstr "Plot stile"
 
 # export data set dialog
 msgid "Write variable names"
-msgstr "Tulis nama variabel"
+msgstr "Tulis nama peubah"
 
 msgid "Write row names"
 msgstr "Tulis nama baris"
@@ -4357,10 +4352,10 @@ msgid "spline requires a numeric variable"
 msgstr "spline memerlukan nilai numerik"
 
 msgid "cannot select more than one variable"
-msgstr "tidak bisa memlih lebih dari satu variabel"
+msgstr "tidak bisa memlih lebih dari satu peubah"
 
 msgid "polynomial requires a numeric variable"
-msgstr "polinomial membutuhkan variabel numerik"
+msgstr "polinomial membutuhkan peubah numerik"
 
 msgid "B-spline\n"
 msgstr "B-spline\n"
@@ -4397,7 +4392,7 @@ msgid ""
 "(select variable and click)"
 msgstr ""
 "Spline/Polinomial:\n"
-"(pilih variabel dan klik)"
+"(pilih peubah dan klik)"
 
 msgid "df for splines:"
 msgstr "df untuk spline:"
@@ -4464,14 +4459,14 @@ msgstr "Indeks Kecocokan/Fit"
 
 # for read Excel file dialog
 msgid "Variable names in first row of spreadsheet"
-msgstr "Nama variabel pada baris pertama dari  spreadsheet"
+msgstr "Nama peubah pada baris pertama dari  spreadsheet"
 
 msgid "Row names in first column of spreadsheet"
 msgstr "Nama baris pada kolom pertama spreadsheet"
 
 # for selecting weights in LM and GLM dialogs
 msgid "<no variable selected>"
-msgstr "<tidak ada variabel terpilih>"
+msgstr "<tidak ada peubah terpilih>"
 
 # new effect-plots dialog
 msgid "Model Effect Plots"
@@ -4514,7 +4509,7 @@ msgid "Single-Sample Wilcoxon Test"
 msgstr "Uji  Wilcoxon Sampel Tunggal"
 
 msgid "Single-sample Wilcoxon test..."
-msgstr " Uji  Wilcoxon sampel tunggal... "
+msgstr " Uji  Wilcoxon sampel tunggal..."
 
 # new drop unused factor levels dialog
 msgid "Drop Unused Factor Levels"
@@ -4727,7 +4722,7 @@ msgstr ""
 msgid "Plot concentration ellipse(s)"
 msgstr "Plot ellip konsentrasi"
 
-msgid "Concentration levels: "
+msgid "Concentration levels:"
 msgstr "Level konsentrasi:"
 
 msgid "Legend Position"
@@ -4809,9 +4804,6 @@ msgid ""
 msgstr ""
 "Gunakan penduga sandwich dari \n"
 "matriks kovarian koefisien"
-
-msgid "Concentration levels:"
-msgstr "Level konsentrasi:"
 
 # additional messages in version 2.3-0
 # .rtf output from RMarkdown reports
@@ -4983,7 +4975,7 @@ msgid "Optionally specify regions under the density function by"
 msgstr "Secara opsional tentukan daerah dibawah fungsi kepadatan dengan"
 
 msgid "x-values"
-msgstr "Nilai-x"
+msgstr "nilai-x"
 
 msgid "quantiles"
 msgstr "kuantil"
@@ -5084,10 +5076,10 @@ msgstr "Rasio > 1"
 
 # For enter and analyze contingency table dialog
 msgid "Name for Row Variable (optional):"
-msgstr "Nama untuk Variabel Baris (opsional):"
+msgstr "Nama untuk Peubah Baris (opsional):"
 
 msgid "Name for Column Variable (optional):"
-msgstr "Nama untuk Variabel Kolom (opsional):"
+msgstr "Nama untuk Peubah Kolom (opsional):"
 
 # for import Stata and SAS b7dat data set dialogs
 msgid "Convert character variables to factors"
@@ -5113,10 +5105,10 @@ msgstr "Menekan notasi ilmiah \\ n (lebih tinggi = lebih banyak penekanan)"
 
 # new plot discrete numeric variable dialog
 msgid "Plot discrete numeric variable..."
-msgstr "Plot variabel numerk diskrit ..."
+msgstr "Plot peubah numerk diskrit ..."
 
 msgid "Plot Discrete Numeric Variable"
-msgstr "Plot Variabel Numerk Diskrit"
+msgstr "Plot Peubah Numerk Diskrit"
 
 msgid ""
 "%s has %d unique values\n"
@@ -5256,10 +5248,244 @@ msgid "Maximum likelihood (ML)"
 msgstr "Likelihood maksimum..."
 
 msgid "There are no random effects in the model."
-msgstr "Tidak ada efek random di dalam model"
+msgstr "Tidak ada efek random di dalam model."
 
 msgid "Generalized Linear Mixed Model"
 msgstr "Model Tercampur Linier Tergeneralisasi"
 
 msgid "Generalized linear mixed model..."
-msgstr "Model tercampur linier tergeneralisasi"
+msgstr "Model tercampur linier tergeneralisasi..."
+
+# corrected and messages for version 2.6-1
+# correction: was "Convert variable names\nto lower case"
+msgid "Convert variable names to lower case"
+msgstr "Konversi peubah/peubah ke huruf kecil"
+
+# new messages about invalid variable classes
+msgid "The following variables are not valid for use in the R Commander and will be omitted:"
+msgstr "Peubah/ peubah  berikut tidak valid dipergunakan pada R Commander dan akan dihapus:"
+
+msgid "The following variable is not valid for use in the R Commander and will be omitted:"
+msgstr "Peubah/ peubah  berikut tidak valid dipergunakan pada R Commander dan akan dihapus:"
+
+# new messages for version 2.7-0
+# for Numerical Summaries dialog
+msgid "Frequency Counts"
+msgstr "Cacahan frekuensi"
+
+# For bar graph dialog
+msgid "Show counts or percentages in bars"
+msgstr "Tunjukkan cacahan atau persentase pada batangan (bar)"
+
+# for piechart dialog
+msgid "Neither"
+msgstr "Bukan salah satu"
+
+# for proportion-test dialogs
+msgid "<No response selected>"
+msgstr "<Tidak ada respon terpilih>"
+
+msgid "Proportion"
+msgstr "Proporsi"
+
+# for new restart Commander dialog
+msgid "Restart the Commander"
+msgstr "Mulai ulang Commander"
+
+msgid "Restart the Commander?"
+msgstr "Mulai ulang Commander?"
+
+# for new repeated-measures ANOVA/ANCOVA dialogs
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "ANOVA/ANCOVA pengukuran-berulang satu faktor..."
+
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr "ANOVA/ANCOVA  satu faktor pengukuran-berulang"
+
+msgid "no responses specified"
+msgstr "tidak ada respon yang ditunjuk  khusus"
+
+msgid ""
+"the specified responses are not contiguous\n"
+" missing responses are removed"
+msgstr ""
+"respon yang ditunjuk, tidak tidak utuh\n"
+"respon yang hialng dihapus"
+
+msgid "<no selection>"
+msgstr "<tidak ada pilihan>"
+
+msgid "there are duplicated level names"
+msgstr "ada nama level yang diplikat (dobel)"
+
+msgid "is not a valid name"
+msgstr "bukan nama yang valid"
+
+msgid "the following responses appear more than once:"
+msgstr "respon berikut muncul lebih dari sekali:"
+
+msgid "at least 2 responses must be specified"
+msgstr "sedikitnya dua respon harus ditentukan"
+
+msgid "Within-Subject Factor"
+msgstr "Faktor Dalam-Subjek"
+
+msgid "Name for the within-subjects factor:"
+msgstr "Nama untuk faktor dalam-subjek:"
+
+msgid "Specify up to 8 levels (responses) and level names for the within-subjects factor"
+msgstr "Tentukan sampai 8 level (respon) dan nama level untuk faktor dalam-subjek"
+
+msgid "Multivariate Test Statistic"
+msgstr "Statistik Uji Multivariat"
+
+msgid "Multivariate"
+msgstr "Multivariat"
+
+msgid "Univariate"
+msgstr "Univariat"
+
+msgid "Tests to Perform"
+msgstr "Uji yang harus dilakukan"
+
+msgid "Repeated-Measures Means"
+msgstr "Rerata Pengukuran-Berulang"
+
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr "Faktor Antar-Subjek (ambil 0 atau lebih)"
+
+msgid "Plot response means by factors"
+msgstr "Grafik mean respon dengan faktor"
+
+msgid "Print means and standard deviations by factors"
+msgstr "Cetak rerata dan deviasi baku berdasar faktor"
+
+msgid "X-axis factor:"
+msgstr "Faktor  Sumbu-X:"
+
+msgid "Trace factor:"
+msgstr "Faktor Lacak:"
+
+msgid "Response name:"
+msgstr "Nama respon:"
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "ANOVA/ANCOVA pengukuran-berulang dua faktor..."
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr "ANOVA/ANCOVA Dua Faktor Pengukuran-Berulang"
+
+msgid "the specified responses are not rectangular"
+msgstr "respon yang ditentukan tidak membentuk segi empat (baris-kolom)"
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr "setidaknya 2 baris dan 2 kolom harus ditentukan"
+
+msgid "there are duplicated row level names"
+msgstr "ada nama level baris yang duplikat"
+
+msgid "there are duplicated column level names"
+msgstr "ada nama level kolom yang duplikat"
+
+msgid "Within-Subject Factors"
+msgstr "Faktor-Dalam Subjek"
+
+msgid "Name for the within-subjects row factor:"
+msgstr "Nama untuk dalam-subjek faktor baris "
+
+msgid "Name for the within-subjects column factor:"
+msgstr "Nama untuk dalam-subjek faktor kolom:"
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr "Pilih sampai 5 level dan nama level untuk setiap faktor dalam-subjek"
+
+# new reshape data set from long to wide format dialog
+msgid "Reshape data set from long to wide format..."
+msgstr "Bentuk ulang data dari format panjang ke lebar..."
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr "Bentuk Ulang Data dari Format Panjang ke Lebar"
+
+msgid "Subject ID variable (pick one)"
+msgstr "Peubah ID Subjek (pilih satu)"
+
+msgid "Within-subjects factors (pick one or more)"
+msgstr "Faktor dalam-subjek (ambil satu atau lebih)"
+
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr "Peubah yang berubah berdasar kesempatan (ambil satu atau lebih)"
+
+msgid "Variables to ignore (pick zero or more)"
+msgstr "Peubah yang diabaikan (ambil nol atau lebih)"
+
+msgid "You must select an ID variable."
+msgstr "Anda harus memilih peubah ID."
+
+msgid "You must select one or more within-subjects factors."
+msgstr "Anda harus memilih satu atau lebih faktor dalam-subjek."
+
+msgid "You must select one or more occasion-varying variables."
+msgstr "Anda harus memilih satu atau lebih peubah yang berubah berdasar kesempatan."
+
+msgid "the following variables appear more than once:"
+msgstr "peubah berikut muncul lebih dari sekali."
+
+msgid "Save data set aborted"
+msgstr "Penyimpanan data dibatalkan"
+
+msgid "Name for wide data set:"
+msgstr "Nama untuk data set lebar."
+
+msgid "Make the wide data set active"
+msgstr "Mengaktifkan data set lebar"
+
+# new reshape data set from wide to long format dialog
+msgid "Reshape data set from wide to long format..."
+msgstr "Mengatur data set dari format lebar ke  panjang..."
+
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr "Mengatur Data Set Dari Format lebar ke  Panjang"
+
+msgid ""
+"both one and two repeated-measures factors were specified\n"
+"specify either a one-way or two-way design"
+msgstr ""
+"baik satu maupun dua faktor sudah ditunjuk/n \n"
+"tentukan desain satu atau dua desain"
+
+msgid "the specified responses are not contiguous"
+msgstr "respon yang ditentukan tidak berdekatan"
+
+msgid "the following ignored variables are also responses:"
+msgstr "peubah yang diabaikan berikut juga merupakan respon:"
+
+msgid "Specify one within-subject factor"
+msgstr "Tentukan satu faktor dalam-subjek"
+
+msgid "Specify two within-subject factors"
+msgstr "Tentukan dua faktor dalam-subjek"
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr "Tentukan sampai 5 level dan nama level untuk setiap faktor dalam-subjek"
+
+msgid "Name for long data set:"
+msgstr "Nama untuk data set panjang: "
+
+msgid "Response variable:"
+msgstr "Peubah Respon:"
+
+msgid "Subject ID variable:"
+msgstr "Peubah subjek ID: "
+
+msgid "Make the long data set active"
+msgstr "Buat data set panjang aktif"
+
+# additional messages for handling character data
+msgid "Convert all character variables to factors"
+msgstr "Konversi semua peubah karakter menjadi faktor"
+
+msgid "Convert character variables to factors..."
+msgstr "Konversi  peubah karakter menjadi faktor..."
+
+msgid "Convert Character Variables to Factors"
+msgstr "Konversi  Peubah Karakter ke Faktor"

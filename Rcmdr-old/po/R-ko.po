@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2018-09-12 12:20+0900\n"
-"PO-Revision-Date: 2018-09-16 22:35+0900\n"
+"POT-Creation-Date: 2020-04-17 11:30:00\n"
+"PO-Revision-Date: 2020-08-21 16:25+0900\n"
 "Last-Translator: Jong-Hwa Shin <shin.jonghwa@modernity.or.kr>\n"
 "Language-Team: Korean R User Group <shin.jonghwa@modernity.or.kr>\n"
 "Language: ko\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 2.3\n"
 
 msgid "KMeans Clustering"
 msgstr "K평균 군집화"
@@ -357,11 +357,11 @@ msgid "You must enter a name for the data set."
 msgstr "데이터셋의 이름을 입력해야 합니다."
 
 msgid ""
-"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files"
-"\" {\"*\"}}"
+"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
+"{\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files"
-"\" {\"*\"}}"
+"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
+"{\"All Files\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "파일에 있는 변수 이름:"
@@ -406,11 +406,11 @@ msgid "Import SPSS Data Set"
 msgstr "SPSS 데이터셋 불러오기"
 
 msgid ""
-"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR"
-"\"}} {\"All Files\" {\"*\"}}"
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
+"\".POR\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR"
-"\"}} {\"All Files\" {\"*\"}}"
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
+"\".POR\"}} {\"All Files\" {\"*\"}}"
 
 msgid ""
 "Convert value labels\n"
@@ -430,8 +430,10 @@ msgstr ""
 msgid "Import Minitab Data Set"
 msgstr "Minitab 데이터셋 불러오기"
 
-msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
 
 msgid ""
 "Minitab data set contains elements of unequal length.\n"
@@ -1271,9 +1273,11 @@ msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 
 msgid ""
-"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
+"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*"
+"\"}}"
 msgstr ""
-"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
+"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*"
+"\"}}"
 
 msgid "Graph saved to file"
 msgstr "그래프를 파일로 저장하기"
@@ -1302,9 +1306,12 @@ msgstr "{\"PDF Files\" {\".pdf\" \".PDF\"}} {\"All Files\" {\"*\"}}"
 msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 
-msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*"
+"\"}}"
 msgstr ""
-"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
+"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*"
+"\"}}"
 
 msgid "Width (inches)"
 msgstr "넓이 (인치)"
@@ -1403,7 +1410,7 @@ msgid ""
 "is not equal to number of rows (%d)."
 msgstr ""
 "rhs 벡터의 유효한 입력들의 숫자가 (%d)\n"
-"행의 숫자와 동등하지 않습니다 (%d)."
+"행의 숫자와 동등하지 않습니다 (%d). "
 
 msgid "Number of Rows:"
 msgstr "행의 수:"
@@ -1505,7 +1512,7 @@ msgid "Rcmdr Version"
 msgstr "Rcmdr 버전"
 
 msgid "The tcltk package is absent. The R Commander cannot function."
-msgstr "tcltk 패키지가 없습니다. R Commander가 기능할 수 없습니다."
+msgstr "tcltk 패키지가 없습니다. R Commander가 기능할 수 없습니다. "
 
 msgid "R-Rcmdr"
 msgstr "R-Rcmdr"
@@ -1928,7 +1935,7 @@ msgid "Control variable(s) (pick one or more)"
 msgstr "통제 변수 (하나 이상 선택)"
 
 msgid "You must select row, column, and control variables"
-msgstr "행, 열, 그리고 통제변수를 선택해야 합니다."
+msgstr "행, 열, 그리고 통제변수를 선택해야 합니다. "
 
 msgid "Row, column, and control variables must be different."
 msgstr "행, 열, 그리고 통제변수는 차이가 있어야 합니다."
@@ -1991,8 +1998,10 @@ msgstr "인자 요인1은 요인이어야 합니다."
 msgid "Arguments factor1 and factor2 must be factors."
 msgstr "인자 요인1과 요인2은 요인이어야 합니다."
 
-msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
-msgstr "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgid ""
+"Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgstr ""
+"Number of groups for factor2, %d, exceeds number of distinct colours, %d."
 
 msgid "The number of bins exceeds the number of data values"
 msgstr "구간의 수가 데이터 값의 수를 초과합니다"
@@ -2129,13 +2138,13 @@ msgid "from text file..."
 msgstr "텍스트 파일에서..."
 
 msgid "from SPSS data set..."
-msgstr "SPSS 데이터셋에서..."
+msgstr "SPSS 데이터셋에서...  "
 
 msgid "from Minitab data set..."
-msgstr "Minitab 데이터셋에서..."
+msgstr "Minitab 데이터셋에서... "
 
 msgid "from STATA data set..."
-msgstr "STATA 데이터셋에서..."
+msgstr "STATA 데이터셋에서... "
 
 msgid "Import data"
 msgstr "데이터 불러오기"
@@ -2165,7 +2174,7 @@ msgid "Subset active data set..."
 msgstr "활성 데이터셋의 하위셋 만들기..."
 
 msgid "Remove cases with missing data..."
-msgstr "결측자료 사례 제거하기…"
+msgstr "결측자료 사례 제거하기… "
 
 msgid "Export active data set..."
 msgstr "활성 데이터셋 내보내기..."
@@ -2372,7 +2381,7 @@ msgid "as bitmap..."
 msgstr "bitmap(으)로..."
 
 msgid "as PDF/Postscript/EPS..."
-msgstr "PDF/Postscript/EPS(으)로..."
+msgstr "PDF/Postscript/EPS(으)로... "
 
 msgid "3D RGL graph..."
 msgstr "3차원 RGL 그래프..."
@@ -2432,16 +2441,16 @@ msgid "Residual quantile-comparison plot..."
 msgstr "잔차 분위수-비교 그림..."
 
 msgid "Component+residual plots..."
-msgstr "성분+잔차 그림…"
+msgstr "성분+잔차 그림… "
 
 msgid "Added-variable plots..."
-msgstr "추가-변수 그림…"
+msgstr "추가-변수 그림… "
 
 msgid "Influence plot..."
-msgstr "영향 그림…"
+msgstr "영향 그림… "
 
 msgid "Effect plots..."
-msgstr "효과 그림…"
+msgstr "효과 그림… "
 
 msgid "Models"
 msgstr "모델"
@@ -2468,7 +2477,7 @@ msgid "t probabilities..."
 msgstr "t 확률..."
 
 msgid "Plot t distribution..."
-msgstr "t 분포 그리기..."
+msgstr "t 분포 그리기... "
 
 msgid "Chi-squared distribution"
 msgstr "카이-제곱 분포"
@@ -2572,11 +2581,11 @@ msgid "Import from Excel, Access or dBase data set"
 msgstr "Excel, Access 또는 dBase 데이터셋에서 불러오기"
 
 msgid ""
-"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} "
-"{\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
+"\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} "
-"{\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
+"\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "표 선택하기"
@@ -2585,7 +2594,7 @@ msgid "No table selected"
 msgstr "표가 선택되지않음"
 
 msgid "from Excel, Access or dBase data set..."
-msgstr "Excel, Access 또는 dBase 데이터셋에서..."
+msgstr "Excel, Access 또는 dBase 데이터셋에서... "
 
 # probability distributions
 #
@@ -2830,7 +2839,7 @@ msgid "Add to Data Set:"
 msgstr "데이터셋에 더하기:"
 
 msgid "Sample from t Distribution"
-msgstr "t 분포의 표본"
+msgstr "t 분포의 표본 "
 
 msgid "Sample from Chi-squared Distribution"
 msgstr "카이-제곱 분포의 표본"
@@ -2887,13 +2896,13 @@ msgid "Sample from normal distribution..."
 msgstr "정규 분포의 표본..."
 
 msgid "Sample from t distribution..."
-msgstr "t 분포의 표본..."
+msgstr "t 분포의 표본... "
 
 msgid "Sample from chi-squared distribution..."
-msgstr "chi-제곱 분포의 표본…"
+msgstr "chi-제곱 분포의 표본… "
 
 msgid "Sample from F distribution..."
-msgstr "F 분포의 표본…"
+msgstr "F 분포의 표본… "
 
 msgid "Exponential distribution"
 msgstr "지수 분포"
@@ -2908,7 +2917,7 @@ msgid "Plot exponential distribution..."
 msgstr "지수 분포 그리기..."
 
 msgid "Sample from exponential distribution..."
-msgstr "지수 분포의 표본…"
+msgstr "지수 분포의 표본… "
 
 msgid "Uniform distribution"
 msgstr "균일 분포"
@@ -2923,7 +2932,7 @@ msgid "Plot uniform distribution..."
 msgstr "균일 분포 그리기..."
 
 msgid "Sample from uniform distribution..."
-msgstr "균일 분포의 표본…"
+msgstr "균일 분포의 표본… "
 
 msgid "Beta distribution"
 msgstr "베타 분포"
@@ -3223,7 +3232,8 @@ msgstr "빈도 분포"
 msgid "Chi-square goodness-of-fit test (for one variable only)"
 msgstr "카이-제곱 적합성 검정(오직 하나의 변수)"
 
-msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgid ""
+"Goodness-of-fit test not available when more than one variable is selected."
 msgstr "하나를 초과하는 변수가 선택되면 적합성 검정이 가능하지 않음."
 
 msgid "Frequency distributions..."
@@ -3298,7 +3308,7 @@ msgid "Read data from clipboard:"
 msgstr "클립보드에서 데이터 읽기:"
 
 msgid "from text file or clipboard..."
-msgstr "텍스트 파일 또는 클립보드에서…"
+msgstr "텍스트 파일 또는 클립보드에서… "
 
 msgid "Add observation numbers to data set"
 msgstr "관찰 수를 데이터셋에 더하기"
@@ -3344,7 +3354,7 @@ msgid "Load Rcmdr plug-in(s)..."
 msgstr "Rcmdr 플러그인 적재하기..."
 
 msgid "the plug-in package %s is missing"
-msgstr "plug-in 패키지 %s 이(가) 빠져 있습니다."
+msgstr "plug-in 패키지 %s 이(가) 빠져 있습니다. "
 
 msgid "the package %s is not an Rcmdr plug-in"
 msgstr "패키지 %s은(는) Rcmdr plug-in이 아닙니다"
@@ -3373,7 +3383,8 @@ msgid "Load data set..."
 msgstr "데이터셋 적재하기..."
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
-msgstr "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
+msgstr ""
+"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
 
 msgid "Shapiro-Wilk test of normality..."
 msgstr "Shapiro-Wilk 정규성 검정..."
@@ -3428,7 +3439,7 @@ msgstr "척도 (역 비율)"
 # messages added to version 1.3-5
 #
 msgid " has been coerced to a data frame"
-msgstr "은(는) 데이터프레임으로 강제되었습니다"
+msgstr "은(는) 데이터프레임으로 강제되었습니다 "
 
 msgid "the dataset %s is no longer available"
 msgstr "%s 데이터셋을 더이상 이용할 수 없습니다"
@@ -3511,10 +3522,10 @@ msgid "Change working directory..."
 msgstr "작업 디렉토리 바꾸기..."
 
 msgid "Log x-axis"
-msgstr "x-축 로그하기"
+msgstr "x-축 로그하기 "
 
 msgid "Log y-axis"
-msgstr "y-축 로그하기"
+msgstr "y-축 로그하기 "
 
 msgid "from text file, clipboard, or URL..."
 msgstr "텍스트 파일, 클립보드 또는 URL에서..."
@@ -3685,9 +3696,11 @@ msgid "Name for aggregated data set:"
 msgstr "합계 데이터셋 이름:"
 
 msgid ""
-"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files"
+"\" {\"*\"}}"
 msgstr ""
-"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files"
+"\" {\"*\"}}"
 
 msgid "No data set selected."
 msgstr "데이터셋(이)가 선택되지않음."
@@ -3757,48 +3770,54 @@ msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
 msgstr "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv"
-"\" \".CSV\"}}"
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
+"\".csv\" \".CSV\"}}"
 msgstr ""
-"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv"
-"\" \".CSV\"}}"
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
+"\".csv\" \".CSV\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save "
-"files\" {\".sav\" \".SAV\"}}"
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
+"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
 msgstr ""
-"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save "
-"files\" {\".sav\" \".SAV\"}}"
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
+"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
-msgstr "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgstr ""
+"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 msgstr "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access "
-"2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} "
-"{\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS"
-"\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
+"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
+"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
+"\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access "
-"2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} "
-"{\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS"
-"\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
+"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
+"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
+"\" {\".xls\" \".XLS\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
+"RDA\"}}"
 msgstr ""
-"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
+"RDA\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
+"\"}}"
 msgstr ""
-"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
+"\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
 msgstr "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
@@ -3806,9 +3825,12 @@ msgstr "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
 msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 msgstr "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
+"\"}}"
 msgstr ""
-"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
+"\"}}"
 
 # messages added to version 1.7-0
 msgid "Reset"
@@ -3951,7 +3973,7 @@ msgid "Resolution"
 msgstr "해상도"
 
 msgid "from SAS xport file..."
-msgstr "SAS xport 파일에서..."
+msgstr "SAS xport 파일에서... "
 
 msgid "Data Set Name"
 msgstr "데이터셋 이름"
@@ -3963,10 +3985,11 @@ msgid "Datasets in file (pick one)"
 msgstr "파일안의 데이터셋들 (하나 선택)"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT"
-"\"}}"
+"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
+"\".XPORT\"}}"
 msgstr ""
-"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
+"\"}}"
 
 msgid ""
 "Convert variable names\n"
@@ -3976,17 +3999,17 @@ msgstr ""
 "변환하기"
 
 msgid "from Excel file..."
-msgstr "Excel 파일에서..."
+msgstr "Excel 파일에서... "
 
 msgid "Import Excel Data Set"
 msgstr "Excel 데이터셋 불러오기"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel "
-"file\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel "
-"file\" {\".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
 
 msgid "Interquartile Range"
 msgstr "사분위수 사이의 범위"
@@ -4107,16 +4130,16 @@ msgid "Open R Markdown file..."
 msgstr "R Markdown 파일 열기..."
 
 msgid "Open knitr file..."
-msgstr "knitr 파일 열기..."
+msgstr "knitr 파일 열기... "
 
 msgid "Save R Markdown file..."
 msgstr "R Markdown 저장하기..."
 
 msgid "Save knitr file..."
-msgstr "knitr 파일 저장하기..."
+msgstr "knitr 파일 저장하기... "
 
 msgid "Save knitr file?"
-msgstr "knitr 파일 저장할까요?"
+msgstr "knitr 파일 저장할까요? "
 
 msgid "Save current Rmd file?"
 msgstr "현재의 Rmd 파일을 저장할까요?"
@@ -4128,7 +4151,7 @@ msgid "Save R Markdown file as..."
 msgstr "R Markdown 파일을 다른 이름[형식]으로 저장하기..."
 
 msgid "Save knitr file as..."
-msgstr "knitr 파일을 다른 이름[형식]으로 저장하기..."
+msgstr "knitr 파일을 다른 이름[형식]으로 저장하기... "
 
 msgid "R Markdown file saved to"
 msgstr "R Markdown 파일을 ...로 저장하기"
@@ -4139,9 +4162,12 @@ msgstr "knitr 파일을 ...로 저장하기"
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
 msgstr "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
+"\"}}"
 msgstr ""
-"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
+"\"}}"
 
 msgid ""
 "Delete previously created knitr\n"
@@ -4169,7 +4195,7 @@ msgid "Use R Markown"
 msgstr "R Markdown 사용하기"
 
 msgid "Use knitr"
-msgstr "knitr 사용하기"
+msgstr "knitr 사용하기 "
 
 msgid "Select file"
 msgstr "파일 선택하기"
@@ -4187,7 +4213,7 @@ msgid "Retain dialog selections"
 msgstr "대화록 선택 간직하기"
 
 msgid "Use rgl package"
-msgstr "rgl 패키지 사용하기"
+msgstr "rgl 패키지 사용하기 "
 
 msgid "Dialog text font size (points)"
 msgstr "대화록 글 폰트 크기(점)"
@@ -4354,7 +4380,7 @@ msgid "Edit R Markdown document"
 msgstr "R Markdown 문서 편집하기"
 
 msgid "Edit knitr document"
-msgstr "knitr 문서 편집하기"
+msgstr "knitr 문서 편집하기 "
 
 msgid "Remove last Markdown command block"
 msgstr "마지막 Markdown 명령어 블록 제거하기"
@@ -4534,10 +4560,10 @@ msgstr "열(column) 추가하기"
 # messages added for version 2.1-3
 # to manage app nap under Mac OS X Mavericks
 msgid "Manage Mac OS X app nap for R.app..."
-msgstr "R.app을 위한 Mac OS X app nap 관리하기…"
+msgstr "R.app을 위한 Mac OS X app nap 관리하기… "
 
 msgid "Mac OS X app nap for R.app"
-msgstr "R.app을 위한 Mac OS X app nap "
+msgstr "R.app을 위한 Mac OS X app nap  "
 
 msgid "Set app nap"
 msgstr "앱냅(app nap) 설정하기"
@@ -4550,7 +4576,7 @@ msgstr "켜기"
 
 # set random seed dialog
 msgid "Set random number generator seed..."
-msgstr "난수생성기 시드(seed) 설정하기…"
+msgstr "난수생성기 시드(seed) 설정하기… "
 
 msgid "Set Random Number Generator Seed"
 msgstr "난수생성기 시드(seed) 설정하기"
@@ -4703,7 +4729,8 @@ msgid "<empty cell>"
 msgstr "<비어있는 셀(cell)>"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
 msgstr "{“All Files” {“*”}} {“MS Excel file” {“.xlsx” “.XLSX” “.xls” “.XLS”}}"
 
 # corrected messages in version 2.2-1
@@ -4739,7 +4766,7 @@ msgstr "Rich text file written to:"
 
 # bootstrapping dialog
 msgid "Bootstrap confidence intervals..."
-msgstr "부트스트랩 신뢰 구간…"
+msgstr "부트스트랩 신뢰 구간… "
 
 msgid "Bootstrap"
 msgstr "부트스트랩"
@@ -4779,7 +4806,7 @@ msgstr "잔차 재표본화"
 
 # delta method dialog
 msgid "Delta method confidence interval..."
-msgstr "델타 방법 신뢰 구간…"
+msgstr "델타 방법 신뢰 구간… "
 
 msgid "Delta Method"
 msgstr "델타 방법"
@@ -4955,7 +4982,8 @@ msgstr "최소한 두개의 모델을 선택해야합니다."
 
 # additional messages in version 2.4-0
 # enhancements to the Rcmdr script editor
-msgid "Only one instance of the R Commander script editor may be open at a time."
+msgid ""
+"Only one instance of the R Commander script editor may be open at a time."
 msgstr "하나의 R Commander 스크립트 편집기는 한번에 하나만 열립니다."
 
 msgid "Save current edits"
@@ -5026,7 +5054,8 @@ msgstr "SAS b7dat 데이터셋 불러오기"
 msgid "from SAS b7dat file..."
 msgstr "SAS b7dat 파일에서..."
 
-msgid "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
 msgstr "{“All Files” {“*”}} {“SAS b7dat dataset” {“.sas7bdat” “.SAS7BDAT”}}"
 
 # addition to the Commander Options dialog
@@ -5156,11 +5185,270 @@ msgstr "From"
 msgid "To"
 msgstr "To"
 
+msgid "Case statistics to plot"
+msgstr "시각화될 사례 통계치"
+
+msgid "Linear Mixed Model"
+msgstr "선형 혼합 모델"
+
+msgid "Linear mixed model..."
+msgstr "선형 혼합 모델..."
+
+msgid "Estimation Criterion"
+msgstr "Estimation Criterion"
+
+msgid "Restricted maximum likelihood (REML)"
+msgstr "제한적 최대우도 (REML)"
+
+msgid "Maximum likelihood (ML)"
+msgstr "최대우도 (ML)"
+
+msgid "There are no random effects in the model."
+msgstr "모델에는 무작위 효과들이 없습니다."
+
+msgid "Generalized Linear Mixed Model"
+msgstr "일반화 선형 혼합 모델"
+
+msgid "Generalized linear mixed model..."
+msgstr "일반화 선형 혼합 모델..."
+
+msgid "Convert variable names to lower case"
+msgstr "변수 이름을 소문자로 변환하기"
+
+# new messages about invalid variable classes
+msgid ""
+"The following variables are not valid for use in the R Commander and will be "
+"omitted:"
+msgstr ""
+"다음의 변수들은 R Commander에서 사용하는데 유효하지 않아서 생략될 것입니다:"
+
+msgid ""
+"The following variable is not valid for use in the R Commander and will be "
+"omitted:"
+msgstr ""
+"다음의 변수들은 R Commander에서 사용하는데 유효하지 않아서 생락될 것입니다:"
+
+msgid "Frequency Counts"
+msgstr "빈도수 세기"
+
+# For bar graph dialog
+msgid "Show counts or percentages in bars"
+msgstr "바형태로 셈과 백분율 보이기"
+
+msgid "Neither"
+msgstr "Neither"
+
+msgid "<No response selected>"
+msgstr "<반이 선택되지 않음>"
+
+msgid "Proportion"
+msgstr "비율응"
+
+msgid "Restart the Commander"
+msgstr "R Commander 다시 시작"
+
+msgid "Restart the Commander?"
+msgstr "R Commander 다시 시작?"
+
+# for new repeated-measures ANOVA/ANCOVA dialogs
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "일-요인 반복-측정 ANOVA/ANCOVA..."
+
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr "반복 측정 일 요인 ANOVA/ANCOVA"
+
+msgid "no responses specified"
+msgstr "반응이 지정되지않음"
+
+msgid ""
+"the specified responses are not contiguous\n"
+" missing responses are removed"
+msgstr ""
+"지정된 반응이 인접하지 않습니다\n"
+"누락 반응이 제거됩니다"
+
+msgid "<no selection>"
+msgstr "<선택 없음>"
+
+msgid "there are duplicated level names"
+msgstr "중복된 수준 이름이 잇습니다"
+
+msgid "is not a valid name"
+msgstr "은(는) 유효한 이름이 아닙니다"
+
+msgid "the following responses appear more than once:"
+msgstr "다음의 반응들은 두번 이상 나타납니다:"
+
+msgid "at least 2 responses must be specified"
+msgstr "적어도 두개의 반응이 지정되어야 합니다"
+
+msgid "Within-Subject Factor"
+msgstr "Within-Subject 요인"
+
+msgid "Name for the within-subjects factor:"
+msgstr "within-subjects 요인 이름: "
+
+msgid ""
+"Specify up to 8 levels (responses) and level names for the within-subjects "
+"factor"
+msgstr "최대 8수준까지 각 within-subjects 요인의 수준 이름 지정하기"
+
+msgid "Multivariate Test Statistic"
+msgstr "다변량 검정 통계치"
+
+msgid "Multivariate"
+msgstr "다변량"
+
+msgid "Univariate"
+msgstr "일변량"
+
+msgid "Tests to Perform"
+msgstr "실행할 검정들"
+
+msgid "Repeated-Measures Means"
+msgstr "반복-측정 평균들"
+
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr "개인간 요인 (없거나 하나 이상 선택)"
+
+msgid "Plot response means by factors"
+msgstr "요인 반응 평균 그리기"
+
+msgid "Print means and standard deviations by factors"
+msgstr "요인 평균과 표준 편차 인쇄하기"
+
+msgid "X-axis factor:"
+msgstr "X-축 요인: "
+
+msgid "Trace factor:"
+msgstr "요인 추적하기: "
+
+msgid "Response name:"
+msgstr "반응 이름: "
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr "이-요인 반복-측정 ANOVA/ANCOVA..."
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr "반복 측정 이 요인 ANOVA/ANCOVA"
+
+msgid "the specified responses are not rectangular"
+msgstr "지정된 반응들이 직사각형이 아닙니다"
+
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr "적어도 2행과 2열의 반응들이 지정되어야 합니다"
+
+msgid "there are duplicated row level names"
+msgstr "이중의 행(row) 수준 이름이 있습니다"
+
+msgid "there are duplicated column level names"
+msgstr "이중의 열(column) 수준 이름이 있습니다"
+
+msgid "Within-Subject Factors"
+msgstr "Within-Subject 요인들"
+
+msgid "Name for the within-subjects row factor:"
+msgstr "within-subjects 행(row) 요인 이름: "
+
+msgid "Name for the within-subjects column factor:"
+msgstr "within-subjects 열(column) 요인 이름: "
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr "최대 5수준까지 각 within-subjects 요인의 수준 이름을 선택하기"
+
+msgid "Reshape data set from long to wide format..."
+msgstr "긴 형식에서 넓은 형식으로 데이터셋 모양바꾸기..."
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr "긴 형식에서 넓은 형식으로 데이터셋 모양바꾸기"
+
+msgid "Subject ID variable (pick one)"
+msgstr "Subject ID 변수(하나 선택)"
+
+msgid "Within-subjects factors (pick one or more)"
+msgstr "Within-subjects 요인 (하나 또는 그 이상 선택)"
+
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr "상황에 의해 다양화되는 변수 (하나 또는 그 이상 선택)"
+
+msgid "Variables to ignore (pick zero or more)"
+msgstr "무시할 변수 (없거나  하나 이상 선택)"
+
+msgid "You must select an ID variable."
+msgstr "ID 변수 하나를 선택해야 합니다."
+
+msgid "You must select one or more within-subjects factors."
+msgstr "하나 또는 더 많은 수의 within-subjects 요인을 선택해야 합니다."
+
+msgid "You must select one or more occasion-varying variables."
+msgstr "하나 또는 더 많은 수의 상황 다양화 변수를 선택해야 합니다."
+
+msgid "the following variables appear more than once:"
+msgstr "다음의 변수들은 두번 이상 나타납니다:"
+
+msgid "Save data set aborted"
+msgstr "취소 데이터셋 저장하기"
+
+msgid "Name for wide data set:"
+msgstr "넓은 데이터셋 이름: "
+
+msgid "Make the wide data set active"
+msgstr "넓은 데이터셋 활성화시키기"
+
+msgid "Reshape data set from wide to long format..."
+msgstr "넓은 형식에서 긴 형식으로 데이터셋 모양바꾸기..."
+
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr "넓은 형식에서 긴 형식으로 데이터셋 모양바꾸기"
+
+msgid ""
+"both one and two repeated-measures factors were specified\n"
+"specify either a one-way or two-way design"
+msgstr ""
+"하나 또는 두개의 반복-측정 요인 양자 모두 지정되었습니다\n"
+"일원 또는 이원 설계 중 하나를 지정하기"
+
+msgid "the specified responses are not contiguous"
+msgstr "지정된 반응들은 인접하지 않습니다"
+
+msgid "the following ignored variables are also responses:"
+msgstr "다음의 무시된 변수들 역시 반응입니다: "
+
+msgid "Specify one within-subject factor"
+msgstr "within-subject 요인 하나 지정하기 "
+
+msgid "Specify two within-subject factors"
+msgstr "두개의 within-subject 요인 지정하기"
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr "최대 5수준까지 각 within-subjects 요인의 수준 이름을 지정하기"
+
+msgid "Name for long data set:"
+msgstr "긴 데이터셋 이름: "
+
+msgid "Response variable:"
+msgstr "반응 변수: "
+
+msgid "Subject ID variable:"
+msgstr "Subject ID 변수: "
+
+msgid "Make the long data set active"
+msgstr "긴 데이터셋 활성화시키기"
+
+# for reading Excel files (new dialog)
+msgid "Convert all character variables to factors"
+msgstr "모든 문자 변수를 요인으로 변환하기"
+
+# for reading Excel files (new dialog)
+msgid "Convert character variables to factors..."
+msgstr "문자 변수를 요인으로 변환하기..."
+
+# for reading Excel files (new dialog)
+msgid "Convert Character Variables to Factors"
+msgstr "문자 변수를 요인으로 변환하기"
+
 #~ msgid "Dataset"
 #~ msgstr "데이터셋"
-
-#~ msgid "variable"
-#~ msgstr "변수"
 
 #~ msgid "NormalSamples"
 #~ msgstr "정규표본"

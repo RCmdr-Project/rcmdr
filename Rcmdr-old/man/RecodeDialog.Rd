@@ -6,7 +6,7 @@
   The recode dialog is normally used to recode numeric variables and factors
   into factors, for example by combining values of numeric variables or levels
   of factors. It may also be used to produce new numeric variables. The Rcmdr
-  recode dialog is based on the \code{\link[car]{Recode}} function in the
+  recode dialog is based on the \code{\link[car:recode]{Recode}} function in the
   \code{car} package.
 }
 

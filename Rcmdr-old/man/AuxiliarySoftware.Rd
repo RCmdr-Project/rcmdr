@@ -23,7 +23,7 @@ Here are the details:
     interactive session. Pandoc is required by the \pkg{rmarkdown} package, which, along with the \pkg{knitr} package, performs these conversions.
     In the absence of Pandoc, R Markdown documents in the R Commander are processed by the older \pkg{markdown}
     package, which is capable only of producing HTML output. Pandoc is available from 
-    \url{http://johnmacfarlane.net/pandoc/installing.html}.
+    \url{https://pandoc.org/installing.html}.
     
     On Windows systems, Pandoc installs into a non-standard location in your user directory, 
     typically \code{C:\\Users\\<your user id>\\AppData\\Local\\Pandoc\\}, and then places this subdirectory
@@ -34,9 +34,9 @@ Here are the details:
     \item \emph{LaTeX}: The LaTeX technical-typesetting system is required by the R Commander for 
     PDF output from R Markdown or knitr documents produced during interactive R Commander sessions. In the
     absence of LaTeX, direct PDF output is unavailable. Complete LaTeX systems are available for the various
-    platforms that support R and the R Commander, including MikTeX from \url{http://miktex.org/download} for Windows systems; 
-    MacTeX from \url{http://www.tug.org/mactex/} for MacOSX;
-    and various sources (see \url{http://latex-project.org/ftp.html}) for Linux/Unix systems.
+    platforms that support R and the R Commander, including MikTeX from \url{https://miktex.org/download} for Windows systems; 
+    MacTeX from \url{https://www.tug.org/mactex/} for MacOSX;
+    and various sources (see \url{https://www.latex-project.org/get/}) for Linux/Unix systems.
     
     }
 }

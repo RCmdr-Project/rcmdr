@@ -294,7 +294,7 @@ closeCommander <- function(ask=TRUE, ask.save=ask){
 	open.showData.windows <- getRcmdr("open.showData.windows")
 	if (length(open.showData.windows) > 0){
 	  for (window in open.showData.windows){
-	    tkdestroy(window)
+	    if (window$ID %in% as.character(tkwinfo("children", "."))) tkdestroy(window)
 	  }
 	  putRcmdr("open.showData.windows", list())
 	}
@@ -1052,11 +1052,11 @@ installSoftware <- function(){
         title=gettextRcmdr("Software to Install"))
     onOK <- function(){
         if (tclvalue(latexVariable) == "1"){
-            if (WindowsP()) browseURL("http://miktex.org/download")
-            else if (MacOSXP()) browseURL("http://www.tug.org/mactex/")
-            else browseURL("http://latex-project.org/ftp.html")
+            if (WindowsP()) browseURL("https://miktex.org/download")
+            else if (MacOSXP()) browseURL("https://www.tug.org/mactex/")
+            else browseURL("https://www.latex-project.org/get/")
         }
-        if (tclvalue(pandocVariable) == "1") browseURL("http://johnmacfarlane.net/pandoc/installing.html")
+        if (tclvalue(pandocVariable) == "1") browseURL("https://pandoc.org/installing.html")
         closeDialog()
         tkfocus(CommanderWindow())
     }
@@ -1065,4 +1065,39 @@ installSoftware <- function(){
         gettextRcmdr("Please read the help for this dialog\nbefore installing auxiliary software."), "\n")))
     tkgrid(selectSoftwareFrame, sticky="w")
     dialogSuffix(grid.buttons=TRUE)
+}
+
+# the following function suggested by Vilmantas Gegzna
+
+# restartCommander <- function() {
+#   response <- tclvalue(RcmdrTkmessageBox(message=gettextRcmdr("Restart the Commander?"),
+#                                          icon="question", type="okcancel", default="cancel"))
+#   if (response == "cancel") return(invisible(response))
+#   else {
+#     response <- closeCommander(
+#       ask = getRcmdr("ask.to.exit"),
+#       ask.save = getRcmdr("ask.on.exit")
+#     )
+#     if (response == "cancel") return(invisible(response))
+#     else Commander()
+#   }
+# }
+
+restartCommander <- function(){
+  ask.save <- getRcmdr("ask.on.exit")
+  response <- tclvalue(RcmdrTkmessageBox(message=gettextRcmdr("Restart the Commander?"),
+                                         icon="question", type="okcancel", default="cancel"))
+  if (response == "cancel") return(invisible(response))
+  if (ask.save && getRcmdr("log.commands") && tclvalue(tkget(LogWindow(), "1.0", "end")) != "\n"){
+    response2 <- RcmdrTkmessageBox(message=gettextRcmdr("Save script file?"),
+                                   icon="question", type="yesno", default="yes")
+    if ("yes" == tclvalue(response2)) saveLog()
+  }
+  if (ask.save && getRcmdr("markdown.output") && getRcmdr("log.commands") && tclvalue(tkget(RmdWindow(), "1.0", "end")) != "\n"){
+    response2 <- RcmdrTkmessageBox(message=gettextRcmdr("Save R Markdown file?"),
+                                   icon="question", type="yesno", default="yes")
+    if ("yes" == tclvalue(response2)) saveRmd()
+  }
+  closeCommander(ask=FALSE)
+  Commander()
 }

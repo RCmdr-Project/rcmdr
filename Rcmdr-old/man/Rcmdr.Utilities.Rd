@@ -12,6 +12,8 @@
 \alias{anovaP}
 \alias{beginRmdBlock}
 \alias{beginRnwBlock}
+\alias{Character}
+\alias{characterP}
 \alias{checkActiveDataSet}
 \alias{checkActiveModel}
 \alias{checkBoxes}
@@ -30,6 +32,8 @@
 \alias{dataSetsP}
 \alias{defmacro}
 \alias{dialogSuffix}
+\alias{DiscreteNumeric}
+\alias{discreteNumericP}
 \alias{doItAndPrint}
 \alias{EffectP}
 \alias{endRmdBlock}
@@ -66,7 +70,9 @@
 \alias{Library}
 \alias{listAllModels}
 \alias{listAOVModels}
+\alias{listCharacter}
 \alias{listDataSets}
+\alias{listDiscreteNumeric}
 \alias{listGeneralizedLinearModels}
 \alias{listFactors}
 \alias{listLinearModels}
@@ -163,6 +169,8 @@ activeModelP()
 anovaP()
 beginRmdBlock()
 beginRnwBlock()
+Character(names)
+characterP(n=1)
 checkActiveDataSet()
 checkActiveModel()
 checkBoxes(window=top, frame=stop("frame not supplied"), 
@@ -189,6 +197,8 @@ dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows, columns,
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), 
     tab.names=c("Data", "Options"), grid.buttons=FALSE, resizable=FALSE,
     force.wait=FALSE)  # macro
+DiscreteNumeric(names)
+discreteNumericP(n=1)
 doItAndPrint(command, log=TRUE, rmd=log)
 EffectP()
 endRmdBlock()
@@ -233,7 +243,9 @@ knitrP()
 Library(package, pos=length(search()), rmd=TRUE)
 listAllModels(envir=.GlobalEnv, ...)
 listAOVModels(envir=.GlobalEnv, ...)
+listCharacter(dataSet=ActiveDataSet())
 listDataSets(envir=.GlobalEnv, ...)
+listDiscreteNumeric(dataSet=ActiveDataSet())
 listFactors(dataSet=ActiveDataSet())
 listGeneralizedLinearModels(envir=.GlobalEnv, ...)
 listLinearModels(envir=.GlobalEnv, ...)
@@ -308,8 +320,9 @@ twoLevelFactorsP(n=1)
 UpdateModelNumber(increment=1)
 variableComboBox(parentWindow, variableList=Variables(),
     export="FALSE", state="readonly",
-    initialSelection=gettextRcmdr("<no variable selected>"),
-    title="")
+    initialSelection=gettextRcmdr(nullSelection),
+    title="", nullSelection="<no variable selected>", 
+    adjustWidth = FALSE)
 variableListBox(parentWindow, variableList=Variables(), bg="white",
     selectmode="single", export="FALSE", initialSelection=NULL, 
     listHeight=getRcmdr("variable.list.height"), title)
@@ -327,6 +340,7 @@ commanderPosition()
 }
 
 \arguments{
+  \item{adjustWidth}{adjust width of combo box to accommodate widest entry (default \code{FALSE}).}
   \item{ask}{ask for confirmation.}
   \item{ask.save}{ask whether to save contents of script and output windows.}
   \item{apply}{if non-null (the default is \code{NULL}), an Apply button is included in the dialog's button bar. 
@@ -423,6 +437,7 @@ commanderPosition()
   \item{name}{quoted name.}
   \item{names}{optional names to be stored.}
   \item{notebook}{notebook windows for a tabbed dialog (default \code{notebook}).}
+  \item{nullSelection}{what user selects in combo box to indicate nothing selected (default \code{"<no variable selected>"}).}
   \item{object}{an object (depends on context).}
   \item{offset}{in pixels, from top-left of Commander window.}
   \item{ok}{a function called when the \emph{OK} button is pressed in a \code{RcmdrEditor} window
@@ -548,7 +563,7 @@ commanderPosition()
   \emph{Information: }
   
   Several functions return vectors of object names: \code{listAllModels}, \cr
-  \code{listAOVModels}, \code{listDataSets}, \code{listGeneralizedLinearModels},
+  \code{listAOVModels}, \code{listCharacter}, \code{listDataSets}, \code{listDiscreteNumeric}, \code{listGeneralizedLinearModels},
   \code{listFactors}, \code{listLinearModels}, \code{listMultinomialLogitModels},
   \code{listNumeric}, \code{listProportionalOddsModels},
   \code{listTwoLevelFactors},

@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-05-15 by J. Fox
+# last modified 2019-12-11 by J. Fox
 
 # Nonparametric tests menu
 
@@ -31,9 +31,11 @@ twoSampleWilcoxonTest <- function () {
     putDialog("twoSampleWilcoxonTest", list(initial.group = group, initial.response = response, 
                                             initial.test = test, initial.alternative = alternative, initial.label=.groupsLabel, initial.tab=tab))
     .activeDataSet <- ActiveDataSet()
-    doItAndPrint(paste("with(", .activeDataSet, ", tapply(", paste( 
-      response, sep = ""), ", ", paste( 
-        group, sep = ""), ", median, na.rm=TRUE))", sep = ""))
+    # doItAndPrint(paste("with(", .activeDataSet, ", tapply(", paste( 
+    #   response, sep = ""), ", ", paste( 
+    #     group, sep = ""), ", median, na.rm=TRUE))", sep = ""))
+    doItAndPrint(paste0("Tapply(", response, " ~ ", group, ", median, na.action=na.omit, data=", 
+                        .activeDataSet, ") # medians by group")) 
     if (test == "default") {
       doItAndPrint(paste("wilcox.test(", response, " ~ ", 
                          group, ", alternative=\"", alternative, "\", data=", 
@@ -151,9 +153,11 @@ KruskalWallisTest <- function () {
       return()
     }
     .activeDataSet <- ActiveDataSet()
-    doItAndPrint(paste("with(", .activeDataSet, ", tapply(", paste( 
-      response, sep = ""), ", ", paste( 
-        group, sep = ""), ", median, na.rm=TRUE))", sep = ""))
+    # doItAndPrint(paste("with(", .activeDataSet, ", tapply(", paste( 
+    #   response, sep = ""), ", ", paste( 
+    #     group, sep = ""), ", median, na.rm=TRUE))", sep = ""))
+    doItAndPrint(paste0("Tapply(", response, " ~ ", group, ", median, na.action=na.omit, data=", 
+                        .activeDataSet, ") # medians by group")) 
     doItAndPrint(paste("kruskal.test(", response, " ~ ", 
                        group, ", data=", .activeDataSet, ")", sep = ""))
     tkfocus(CommanderWindow())

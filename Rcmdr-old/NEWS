@@ -1,3 +1,45 @@
+Changes in version 2.7-2
+
+  o Use text help for non-Windows system with R 4.2.0 (due to bug in R).
+
+Changes in version 2.7-2
+
+  o Use DOI for JSS citations.
+
+Changes in version 2.7-1
+
+  o Updated Polish translation, thanks to Lukasz Daniel.
+  
+  o Fixed mixed-up .mo files for Spanish and Brazilian-Portuguese translations (problem reported by Jose Henrique Hildebrand Grisi Filho).
+  
+  o Small bug fixes to and improvements to repeated-measures dialogs.
+
+Changes in version 2.7-0
+
+  o New dialogs for repeated-measures ANOVA and ANCOVA and plots with one or two repeated-measures factors.
+  
+  o New dialogs to reshape data sets from wide to long and from long to wide.
+
+  o Better handling of discrete numeric variables (after suggestions by Ethan Harris).
+  
+  o Fix clipboard data set input to work on macOS.
+  
+  o Improved pie charts and bar graphs via the piechart() and Barplot() functions in RcmdrMisc.
+  
+  o New File > Exit > Restart Commander menu item (suggestion of Vilmantas Gegzna).
+  
+  o Fix Tk error produced by closing the dataset viewer and then repopening the same data set (reported by Jose G. Conde).
+  
+  o Fixes to handling panes with console.output and log.commands options set to various values  (thanks to Vilmantas Gegzna).
+  
+  o Better handling of character data following change to stringsAsFactor option in R 4.0.0+.
+  
+  o Check for presence of Tktable and adapt to its absence by suppressing the Rcmdr dataset editor and delta method menu item; Tktable eventually to be replaced with tablelist.
+  
+  o Small improvements and bug fixes.
+  
+  o Updated translations (with thanks to): Basque (Joserra Rueda), French (Milan Bouchet-Valat), Hungarian (thanks to Tamas Ferenci), Indonesian (I Made Tirta), Japanese (Takaharu Araki), Korean (Jong-Hwa Shin), Russian (Alexey Shipunov), Slovenian (Matjaz Jeran), Spanish (Manuel Munoz Marquez).
+  
 Changes in version 2.6-3
 
   o Fix bug in processing resubmitted multi-line commands (reported by Katarina Kosmelj).
