@@ -1,6 +1,6 @@
 # Distributions menu dialogs
 
-# last modified 2019-05-15 by J. Fox
+# last modified 2022-06-27 by J. Fox
 
 #   many distributions added (and some other changes) by Miroslav Ristic (20 July 06)
 # Modified by Miroslav Ristic (15 January 11)
@@ -549,6 +549,7 @@ distributionMass  <- function(nameVar) {
     }
     command <- paste(command, "\n  print(.Table)\n})")
     doItAndPrint(command)
+    insertRmdSection(gettextRmdHeader(paste0("Table of ",  fVar$titleName, " Probabilities")))
     tkfocus(CommanderWindow())
     putDialog(dialogName, list(initialValues=vars), resettable=FALSE)
   }

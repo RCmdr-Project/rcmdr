@@ -1,6 +1,6 @@
 # Model menu dialogs
 
-# last modified 2020-06-08 by J. Fox
+# last modified 2022-06-30 by J. Fox
 
 selectActiveModel <- function(){
 	models <- listAllModels()
@@ -115,6 +115,7 @@ plotModel <- function(){
   	justDoIt(command)
   	logger(command)
 	}
+	insertRmdSection(paste0(gettextRmdHeader("Basic Model Plots: "), .activeModel))
 }
 
 CRPlots <- function(){
@@ -311,6 +312,7 @@ anovaTable <- function () {
                 Message(message = gettextRcmdr("Type III tests require careful attention to contrast coding."), 
                     type = "warning")
         }
+        insertRmdSection(paste0(gettextRmdHeader("Analysis of Variance: "), .activeModel))
     }
     OKCancelHelp(helpSubject = "Anova", reset = "anovaTable")
     tkgrid(typeFrame, sticky = "w")
@@ -600,7 +602,8 @@ testLinearHypothesis <- function(){
         doItAndPrint(paste("local({\n", "  ", command.1, "\n",
                            "  ", command.2, "\n",
                            "  ", command.3, "\n",
-                           "})", sep=""))                   
+                           "})", sep="")) 
+        insertRmdSection(paste0(gettextRmdHeader("Linear Hypothesis Test: "), .activeModel))
         tkfocus(CommanderWindow())
         contrast.table <- matrix(values, nrows, ncols, byrow=TRUE)
         putDialog("testLinearHypothesis", list(previous.model=.activeModel, nrows=nrows, table.values=contrast.table,
@@ -971,6 +974,7 @@ subsetRegression <- function () {
         doItAndPrint(paste("plot(regsubsets(", formula, ", data=", 
                            ActiveDataSet(), ", nbest=", nbest, ", nvmax=", nvmax, 
                            "), scale='", criterion, "')", sep = ""))
+        insertRmdSection(paste0(gettextRmdHeader("Subset Model Selection: "), formula))
         tkdestroy(top)
         tkfocus(CommanderWindow())
     }
@@ -1059,6 +1063,7 @@ effectPlots <- function () {
                  else "))", sep = "")
       doItAndPrint(command)
     }
+    insertRmdSection(paste0(gettextRmdHeader("Effect Plots: "), activeModel()))
     putDialog ("effectPlots", list(initial.all.or.pick=as.character(allEffects), initial.predictors=predictors, 
                                    initial.partial.res=as.numeric(partial.residuals),
                                    initial.span=span, initial.style=style))
@@ -1337,6 +1342,7 @@ predictorEffectPlots <- function () {
                        else "))", sep = "")
             doItAndPrint(command)
         }
+        insertRmdSection(paste0(gettextRmdHeader("Predictor Effect Plots: "), activeModel()))
         putDialog ("predictorEffectPlots", list(initial.all.or.pick=as.character(allPredictorEffects), initial.predictors=predictors, 
                                                 initial.partial.res=as.numeric(partial.residuals),
                                                 initial.span=span, initial.style=style))
@@ -1381,6 +1387,7 @@ transformResponse <- function (){
     putDialog ("transformResponse", list(initial.family=family))
     .activeModel <- ActiveModel()
     doItAndPrint(paste0("summary(powerTransform(", .activeModel, ', family="', family, '"))'))
+    insertRmdSection(paste0(gettextRmdHeader("Transform Response Toward Normality: "), .activeModel))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "powerTransform", reset="transformResponse")

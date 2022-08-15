@@ -27,6 +27,8 @@
 \alias{closeCommander}
 \alias{closeDialog}
 \alias{Coef}
+\alias{Coefficients}
+\alias{CoefficientsP}
 \alias{commanderPosition}
 \alias{CommanderWindow}
 \alias{dataSetsP}
@@ -47,6 +49,7 @@
 \alias{formulaFields}
 \alias{flushDialogMemory}
 \alias{gassign}
+\alias{getCases}
 \alias{getDialog}
 \alias{getFrame}
 \alias{getFrame.combobox}
@@ -62,6 +65,7 @@
 \alias{groupsLabel}
 \alias{hclustSolutionsP}
 \alias{initializeDialog}
+\alias{insertRmdSection}
 \alias{is.SciViews}
 \alias{is.valid.name}
 \alias{is.valid.number}
@@ -104,6 +108,8 @@
 \alias{polrP}
 \alias{popCommand}
 \alias{popOutput}
+\alias{Predictors}
+\alias{PredictorsP}
 \alias{putDialog}
 \alias{putRcmdr}
 \alias{radioButtons}
@@ -188,6 +194,8 @@ checkVariables(n=1)
 closeCommander(ask=TRUE, ask.save=ask)
 closeDialog(window, release=TRUE)  # macro
 Coef(object, ...)
+Predictors(type=c("all", "numeric", "factor"))
+PredictorsP(n=1, type=c("all", "numeric", "factor"))
 CommanderWindow()
 dataSetsP(n=1)
 defmacro(..., expr)
@@ -212,6 +220,7 @@ factorsP(n=1)
 formulaFields(model, hasLhs=TRUE, glm=FALSE)
 flushDialogMemory(what)
 gassign(x, value)
+getCases(cases, remove=TRUE)
 getDialog(dialog, defaults=NULL)
 \method{getFrame}{combobox}(object)
 \method{getFrame}{listbox}(object)
@@ -235,6 +244,7 @@ initializeDialog(window=top, title="", offset=10, preventCrisp,
     use.tabs=FALSE, notebook=notebook, 
     tabs=c("dataTab", "optionsTab"),
     suppress.window.resize.buttons=TRUE)  # macro
+insertRmdSection(text)
 is.valid.name(x)
 is.valid.number(string)
 is.SciViews()
@@ -357,6 +367,7 @@ commanderPosition()
     including the name of a column added by a plug-in; see \code{model-capabilities.txt} in the \pkg{Rcmdr}
     sources for the standard table; e.g., \code{"sum"} indicates the availability of an applicable \code{summary()}
     method for the current model.}
+  \item{cases}{a character string of case number or names to be removed or retained, separated by blanks.}
   \item{class}{quoted name of class.}
   \item{columns}{number of columns into which to arrange check boxes or radio buttons; boxes and buttons are
     filled by rows; the default is 1 and the allowed values are 1, 2, 3, and 4.}
@@ -455,10 +466,11 @@ commanderPosition()
     double.click option is set; necessary for statistical modelling dialogs, which use double-clicking
     to build the model formula.}
   \item{preventCrisp}{this argument is ignored, and is present only for backwards compatibility.}
+  \item{ratio}{If \code{FALSE}, the default, the test will be expressed as a test for a difference (e.g., a difference in means); if \code{TRUE}, as a test for a ratio (e.g., a ratio of variances).}
   \item{recall}{function to call after error --- usually the function that initiates the dialog.}
   \item{release}{release the focus if the grab.focus option has been set. In
   \code{MacOSXP}, the minimum release (version) required.}
-  \item{ratio}{If \code{FALSE}, the default, the test will be expressed as a test for a difference (e.g., a difference in means); if \code{TRUE}, as a test for a ratio (e.g., a ratio of variances).}
+  \item{remove}{If \code{TRUE}, the default, return a character string that evaluates to an expression of case numbers or names to remove from the data set; if \code{FALSE}, return a character string that evaluates for an expression of case numbers or names to retain.}
   \item{reportError}{if \code{TRUE}, report an error message.}
   \item{reset}{quoted name of dialog function, to be invoked with all defaults by Reset button.}
   \item{resettable}{should dialog state be reset when the data set changes? The default is 
@@ -494,7 +506,7 @@ commanderPosition()
     If \code{NULL} (the default), no buttons will be added to the toolbar.}
   \item{ttk}{use ttk themed widget for check boxes.}
   \item{type}{quoted type of object to check; used to generate check-replace dialog box;
-    or type of message to print in Message window. For \code{varPosn}, type of variable list.}
+    or type of message to print in Message window. For \code{varPosn}, type of variable list. For \code{Predictor} and \code{nPredictor}, type of explanatory variable in the active model.}
   \item{use.tabs}{(default \code{FALSE}) construct a tabbed dialog.}
   \item{value}{an object to be stored or assigned.}
   \item{values}{vector of quoted values associated with radio buttons or check boxes; for \code{putDialog},
@@ -543,7 +555,9 @@ commanderPosition()
   \code{removeLastRmdBlock}, and \code{removeStrayRmdBlocks} should normally not be called directly. 
   The functions \code{enterKnitr},
   \code{beginRnwBlock}, \code{endRnwBlock}, \code{removeNullRnwBlocks}, \code{removeLastRnwBlock},
-  and \code{removeStrayRnwBlocks} perform similar functions for Knitr documents.
+  and \code{removeStrayRnwBlocks} perform similar functions for Knitr documents. 
+  
+  \code{insertRmdSection} Inserts a Markdown section title immediately above the last R command block, with the specified text as the title. In most instances it's unnecessary to do this directly because most commands automatically generate a Markdown section title.
   
   \emph{Checking for errors: }
   
@@ -567,7 +581,7 @@ commanderPosition()
   \code{listFactors}, \code{listLinearModels}, \code{listMultinomialLogitModels},
   \code{listNumeric}, \code{listProportionalOddsModels},
   \code{listTwoLevelFactors},
-  \code{listVariables}. The functions \code{activeDataSet} and \code{activeModel} respectively report or set the active
+  \code{listVariables}. The functions \code{Predictors} and \code{Coefficients} return information about the active model, or \code{NULL} if there is no active model. The functions \code{activeDataSet} and \code{activeModel} respectively report or set the active
   data set and model.
   The function \code{packageAvailable} reports whether the named package is 
   available to be loaded (or has possibly already been loaded).
@@ -641,6 +655,8 @@ commanderPosition()
   as a vector; the default method just calls \code{coef}.
   
   The function \code{RExcelSupported} is used for the RExcel interface.
+  
+  The function \code{getCases} takes a character string of case names or numbers as an argument and returns a character string that evaluates to an expression either to delete or retain these cases.
   
   Some of these functions, marked \code{# macro} under \emph{Usage}, are "macro-like" in their behaviour, in that they 
   execute in the environment from which they are called. These were defined with an adaptation (used with permission) of

@@ -44,6 +44,15 @@ directives. In this case, the name entered in the box labelled
 "New variable name or prefix for multiple recodes" will be prefixed to the name of each
 variable being recoded. Setting an empty prefix (i.e., "") will cause the recoded variables
 to replace the original variables. 
+
+As explained, \code{=} is used to separate old from new values, and \code{:} is used to
+specify an interval (or range) of numeric values. It is possible to change these operators
+to other character strings, such as \code{->} and \code{~} (tilde). This may be necessary, for example, if a factor to be
+recoded has \code{=}s or \code{:}s in its level (category) names. 
+
+Similarly, the dialog generates a call to the \code{\link[car]{Recode}} function in the \pkg{car} package, which by
+default uses \code{;} to separate recode specifications. The recode separator can also 
+be changed, for example, to \code{/}.
 }
 
 \author{John Fox \email{jfox@mcmaster.ca}}

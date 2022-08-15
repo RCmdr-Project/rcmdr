@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2019-12-19 by J. Fox
+# last modified 2022-06-30 by J. Fox
 
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
@@ -179,6 +179,7 @@ Histogram <- function () {
                 scale, '", breaks=', binstext, ', col="darkgray"', xlab, ylab, main, "))", sep="")
         }
         doItAndPrint(command)
+        insertRmdSection(paste0(gettextRmdHeader("Histogram: "), x))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -326,8 +327,7 @@ stemAndLeaf <- function () {
             paste("with(", ActiveDataSet(), ", stem.leaf(",  
                 x, style, unit, m, trim, depths, reverse, ", na.rm=TRUE))", 
                 sep = "")
-        }
-        else {
+        } else {
             levels <- levels(eval(parse(text=paste(ActiveDataSet(), "$", .groups, sep="")), 
                 envir=.GlobalEnv))
             paste("with(", ActiveDataSet(),
@@ -337,6 +337,7 @@ stemAndLeaf <- function () {
                 sep = "")
         }
         doItAndPrint(command)
+        insertRmdSection(paste0(gettextRmdHeader("Stem-and-Leaf Display: "), x))
         tkfocus(CommanderWindow())
     }
     groupsBox(stemAndLeaf, variables=TwoLevelFactors(), initialGroup=initial.group,
@@ -365,7 +366,8 @@ boxPlot <- function () {
                    initial.main=gettextRcmdr("<auto>"), initial.tab=0)
   dialog.values <- getDialog("boxPlot", defaults)
   initializeDialog(title = gettextRcmdr("Boxplot"), use.tabs=TRUE)
-  xBox <- variableListBox(dataTab, Numeric(), title = gettextRcmdr("Variable (pick one)"),
+  xBox <- variableListBox(dataTab, Numeric(), selectmode = "multiple",
+                          title = gettextRcmdr("Variable (pick one or more)"),
                           initialSelection = varPosn (dialog.values$initial.x, "numeric"))
   optionsFrame <- tkframe(optionsTab)
   optFrame <- ttklabelframe(optionsFrame, labelwidget=tklabel(optionsFrame, text = gettextRcmdr("Identify Outliers"),
@@ -428,7 +430,7 @@ boxPlot <- function () {
       return()
     }
     .activeDataSet <- ActiveDataSet()
-    var <- paste(.activeDataSet, "$", x, sep = "")
+#    var <- paste(.activeDataSet, "$", x, sep = "")
     if (identifyPoints == "identify")
       RcmdrTkmessageBox(title = "Identify Points",
                         message = paste(gettextRcmdr("Use left mouse button to identify points,\n"),
@@ -436,14 +438,19 @@ boxPlot <- function () {
                                                      else "right button to exit."), sep = ""),
                         icon = "info", type = "ok")
     if (is.null(.groups) || .groups == FALSE) {
-      command <- paste("Boxplot( ~ ", x, ", data=", .activeDataSet, ', id=list(method="',
+      command <- paste("Boxplot( ~ ", paste(x, collapse=" + "), ", data=", .activeDataSet, ', id=list(method="',
                        identifyPoints, '")', ylab, main, ')', sep="")
       if (identifyPoints == "identify") command <- suppressMarkdown(command)
       
       doItAndPrint(command)
     }
     else {
-      command <- paste("Boxplot(", x, "~", .groups, ", data=", .activeDataSet,
+      if (length(x) > 1) {
+        errorCondition(recall = boxPlot, 
+                       message = gettextRcmdr("You cannot plot by groups with more than one variable selected"))
+        return()
+      }
+      command <- paste("Boxplot(", x, " ~ ", .groups, ", data=", .activeDataSet,
                        ', id=list(method="', identifyPoints, '")', xlab, ylab, main, ')', sep = "")
       if (identifyPoints == "identify") command <- suppressMarkdown(command)
       doItAndPrint(command)
@@ -507,6 +514,7 @@ DotPlot <- function () {
                              use.bins, binstext, xlab, "))", sep="")
         }
         doItAndPrint(command)
+        insertRmdSection(paste0(gettextRmdHeader("Dot Plot: "), x))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1068,6 +1076,7 @@ barGraph <- function () {
                    sep = "")
         }
         doItAndPrint(command)
+        insertRmdSection(paste0(gettextRmdHeader("Bar Plot: "), variable))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1191,6 +1200,7 @@ pieChart <- function () {
             "))", sep = "")
         logger(command)
         justDoIt(command)
+        insertRmdSection(paste0(gettextRmdHeader("Pie Chart: "), variable))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1243,6 +1253,7 @@ linePlot <- function () {
         putDialog ("linePlot", list(initial.x = x, initial.y = y))
         command <- paste("with(", .activeDataSet, ", lineplot(", x, ", ", paste(y, collapse=", "), "))", sep="")
         doItAndPrint(command)
+        insertRmdSection(paste0(gettextRmdHeader("Line Plot: "), paste(y, collapse=", "), " by ",  x))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1405,6 +1416,7 @@ QQPlot <- function () {
         }
         if (identify == "mouse") command <- suppressMarkdown(command)
         doItAndPrint(command)
+        insertRmdSection(paste0(gettextRmdHeader("Quantile-Comparison Plot: "), x))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1581,6 +1593,7 @@ PlotMeans <- function () {
                 ", connect=", if (connect == "1") "TRUE" else "FALSE",
                 ", legend.pos=\"", legend.pos, "\"))", sep = ""))
         }
+        insertRmdSection(paste0(gettextRmdHeader("Plot of Means: "), response, " by ", paste(groups, collapse=", ")))
         activateMenus()
         tkfocus(CommanderWindow())
     }
@@ -1623,11 +1636,11 @@ Scatter3D <- function () {
   }
   putRcmdr("rgl.command", TRUE)
   defaults <- list (initial.x = NULL, initial.y = NULL, initial.scales = 1, initial.grid = 1, 
-                    initial.resids = 0, initial.lin = 0, initial.quad = 0, initial.nonpar = 0, 
+                    initial.resids = 0, initial.lin = 0, initial.robust=0, initial.quad = 0, initial.nonpar = 0, 
                     initial.additive = 0, initial.ellips = 0, initial.dfNonpar = gettextRcmdr("<auto>"), 
                     initial.dfAdd = gettextRcmdr("<auto>"), initial.bg = "white",
                     initialGroup=NULL, initial.lines.by.group=0, initial.identify="not", initial.id.n="2",
-                    initial.tab=0)
+                    initial.rotations=0, initial.tab=0)
   dialog.values <- getDialog ("Scatter3D", defaults)
   initial.group <- dialog.values$initial.group
   .linesByGroup <- if (dialog.values$initial.lines.by.group == 1) TRUE else FALSE
@@ -1649,6 +1662,8 @@ Scatter3D <- function () {
                                              variable = squaredResiduals)
   linearLSSurface <- tclVar(dialog.values$initial.lin)
   linearLSCheckBox <- ttkcheckbutton(surfacesFrame, variable = linearLSSurface)
+  robustSurface <- tclVar(dialog.values$initial.robust)
+  robustCheckBox <- ttkcheckbutton(surfacesFrame, variable = robustSurface)
   quadLSSurface <- tclVar(dialog.values$initial.quad)
   quadLSCheckBox <- ttkcheckbutton(surfacesFrame, variable = quadLSSurface)
   nonparSurface <- tclVar(dialog.values$initial.nonpar)
@@ -1673,7 +1688,9 @@ Scatter3D <- function () {
                                                                                               "Interactively with mouse", "Do not identify")), title = gettextRcmdr("Identify Points"), 
                initialValue = dialog.values$initial.identify)
   id.n.Var <- tclVar(dialog.values$initial.id.n) 
-  npointsSpinner <- tkspinbox(idFrame, from=1, to=10, width=2, textvariable=id.n.Var)    
+  npointsSpinner <- tkspinbox(idFrame, from=1, to=10, width=2, textvariable=id.n.Var) 
+  rotationsVar <- tclVar(dialog.values$initial.rotations)
+  rotationsSpinner <- tkspinbox(surfacesFrame, from=0, to=10, width=2, textvariable=rotationsVar) 
   onOK <- function() {
     tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
     x <- getSelection(xBox)
@@ -1682,6 +1699,7 @@ Scatter3D <- function () {
     grid <- tclvalue(gridLines)
     resids <- tclvalue(squaredResiduals)
     lin <- tclvalue(linearLSSurface)
+    robust <- tclvalue(robustSurface)
     quad <- tclvalue(quadLSSurface)
     nonpar <- tclvalue(nonparSurface)
     additive <- tclvalue(additiveSurface)
@@ -1695,6 +1713,7 @@ Scatter3D <- function () {
                             auto = paste0(", id=list(method='mahal', n =", id.n, ")"),
                             mouse = ", id=list(method='identify')",
                             not = "")
+    rotations <- tclvalue(rotationsVar)
     closeDialog()
     if (is.na(suppressWarnings(as.numeric(id.n))) || round(as.numeric(id.n)) != as.numeric(id.n)){
       errorCondition(recall = scatterPlot, message = gettextRcmdr("number of points to identify must be an integer"))
@@ -1713,12 +1732,14 @@ Scatter3D <- function () {
       return()
     }
     putDialog ("Scatter3D", list(initial.x = x, initial.y = y, initial.scales = scales, initial.grid = grid, 
-                                 initial.resids = resids, initial.lin = lin, initial.quad = quad, initial.nonpar = nonpar, 
+                                 initial.resids = resids, initial.lin = lin, initial.robust=robust,
+                                 initial.quad = quad, initial.nonpar = nonpar, 
                                  initial.additive = additive, initial.ellips = ellips, initial.dfNonpar = dfNonpar, 
                                  initial.dfAdd = dfAdd, initial.bg = bg, 
                                  initial.group=if (.groups == FALSE) NULL else .groups,
                                  initial.lines.by.group=if (.linesByGroup) 1 else 0,
-                                 initial.identify=identify, initial.id.n=id.n, initial.tab=tab))
+                                 initial.identify=identify, initial.id.n=id.n,
+                                 initial.rotations=rotations, initial.tab=tab))
     scales <- if (tclvalue(axisScales) == 1) 
       "TRUE"
     else "FALSE"
@@ -1730,13 +1751,15 @@ Scatter3D <- function () {
     else ", residuals=TRUE"
     lin <- if (tclvalue(linearLSSurface) == 1) 
       "\"linear\""
+    robust <- if (tclvalue(robustSurface) == 1) 
+      "\"robust\""
     quad <- if (tclvalue(quadLSSurface) == 1) 
       "\"quadratic\""
     nonpar <- if (tclvalue(nonparSurface) == 1) 
       "\"smooth\""
     additive <- if (tclvalue(additiveSurface) == 1) 
       "\"additive\""
-    surfaces <- c(lin, quad, nonpar, additive)
+    surfaces <- c(lin, quad, robust, nonpar, additive)
     nsurfaces <- length(surfaces)
     if (nsurfaces > 1) 
       resids <- ""
@@ -1764,6 +1787,7 @@ Scatter3D <- function () {
       parallel <- paste(", parallel=", .linesByGroup, sep = "")
     }
     else parallel <- groups <- ""
+    revolutions <- if (rotations != "0") paste(", revolutions =", rotations) else ""
     if (identify == "mouse"){
       RcmdrTkmessageBox(title="Identify Points",
                         message=gettextRcmdr("Drag right mouse button to identify points,\nclick right button to exit."),
@@ -1773,7 +1797,7 @@ Scatter3D <- function () {
       command <- paste("scatter3d(", y, "~", x[1], "+", x[2], ", data=", .activeDataSet, 
                        fit, resids, dfNonpar, dfAdd, 
                        parallel, ", bg=\"", bg, "\", axis.scales=", scales, 
-                       ", grid=", grid, ", ellipsoid=", ellips, identify.text,
+                       ", grid=", grid, ", ellipsoid=", ellips, identify.text, revolutions,
                        ")", sep = "")
       if (identify == "mouse") command <- suppressMarkdown(command)
       doItAndPrint(command)
@@ -1782,7 +1806,7 @@ Scatter3D <- function () {
       command <- paste("scatter3d(", y, "~", x[1], "+", x[2], "|", .groups, ", data=", .activeDataSet, 
                        fit, resids, dfNonpar, dfAdd, 
                        parallel, ", bg=\"", bg, "\", axis.scales=", scales, 
-                       ", grid=", grid, ", ellipsoid=", ellips, identify.text,
+                       ", grid=", grid, ", ellipsoid=", ellips, identify.text, revolutions,
                        ")", sep = "")
       if (identify == "mouse") command <- suppressMarkdown(command)
       doItAndPrint(command)
@@ -1806,6 +1830,8 @@ Scatter3D <- function () {
   tkgrid(getFrame(xBox), labelRcmdr(variablesFrame, text = "  "), 
          getFrame(yBox), sticky = "nw")
   tkgrid(variablesFrame, sticky = "nw")
+  tkgrid(labelRcmdr(surfacesFrame, text=gettextRcmdr("Number of automatic rotations  ")), 
+         rotationsSpinner, sticky="w")
   tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Show axis scales")), 
          axisScalesCheckBox, sticky = "w")
   tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Show surface grid lines")), 
@@ -1818,6 +1844,8 @@ Scatter3D <- function () {
          linearLSCheckBox, sticky = "w")
   tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Quadratic least-squares")), 
          quadLSCheckBox, sticky = "w")
+  tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Robust linear regression")), 
+         robustCheckBox, sticky = "w")
   dfLabel <- labelRcmdr(surfacesFrame, text = gettextRcmdr("df = "))
   tkgrid(labelRcmdr(surfacesFrame, text = gettextRcmdr("Smooth regression")), 
          nonparCheckBox, dfLabel, dfNonparField, sticky = "w")
@@ -2910,6 +2938,7 @@ DiscretePlot <- function () {
                              scale, '"', xlab, ylab, main, "))", sep="")
         }
         doItAndPrint(command)
+        insertRmdSection(paste0(gettextRmdHeader("Discrete Distribution Plot: "), x))
         activateMenus()
         tkfocus(CommanderWindow())
     }

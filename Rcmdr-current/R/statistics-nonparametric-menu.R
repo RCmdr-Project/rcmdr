@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-12-11 by J. Fox
+# last modified 2022-06-30 by J. Fox
 
 # Nonparametric tests menu
 
@@ -112,6 +112,7 @@ pairedWilcoxonTest <- function () {
                          alternative, "', correct=", test == "correct", 
                          ", exact=FALSE, paired=TRUE))", sep = ""))
     }
+    insertRmdSection(paste0(gettextRmdHeader("Paired Wilcoxon Test: "), x, ", ", y))
     tkfocus(CommanderWindow())
   }
   OKCancelHelp(helpSubject = "wilcox.test", reset = "pairedWilcoxonTest",
@@ -192,6 +193,8 @@ FriedmanTest <- function () {
 	  command <- paste(command, "\n  print(apply(.Responses, 2, median))")
 		command <- paste(command, "\n  friedman.test(.Responses)\n})")
     doItAndPrint(command)
+    insertRmdSection(paste0(gettextRmdHeader("Friedman Rank Sum Test: "), 
+                            paste(responses, collapse=", ")))
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject = "friedman.test", reset = "FriedmanTest",
@@ -244,6 +247,7 @@ onesampleWilcoxonTest <- function () {
                 alternative, null, ", correct=", test == "correct", 
                 ", exact=FALSE))", sep = ""))
         }
+        insertRmdSection(paste0(gettextRmdHeader("Single-Sample Wilcoxon Test: "), x))
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject = "wilcox.test", reset = "onesampleWilcoxonTest",

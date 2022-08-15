@@ -232,7 +232,13 @@ set none, one, several, or all options. The available options are as follows:
         
     \item{\code{log.width}}{The width of the script and output windows, in characters. The default is 80.}
     
-    \item{\code{messages.height}}{The height of the messages window, in lines. The default is 3.} 
+    \item{\code{messages.height}}{The height of the messages window, in lines. The default is 4.} 
+    
+    \item{\code{model.case.deletion}}{if \code{TRUE} (the default is \code{FALSE}), include a text box for case deletion in statistical-model dialog boxes (e.g., for linear models).}
+    
+    \item{\code{minimum.width}}{The minimum width, in pixels, for the main R Commander windows; the default is \code{1000}.}
+    
+      \item{\code{minimum.height}}{The minimum height, in pixels, for the main R Commander windows; the default is \code{400}.}
     
     \item{\code{multiple.select.mode}}{Affects the way multiple variables are selected in variable-list boxes.
     If set to \code{"extended"} (the default), left-clicking on a variable selects it and deselects any other
@@ -243,6 +249,10 @@ set none, one, several, or all options. The available options are as follows:
     variable. This is the behaviour in the \pkg{Rcmdr} prior to version 1.9-10.}
     
     \item{\code{number.messages}}{If \code{TRUE}, the default, messages in the messages window are numbered.}
+    
+    \item{\code{open.graphics.devices}}{If \code{TRUE} (the default is \code{FALSE}), open the system graphics device and (if 3D RGL graphics are used) the RGL graphics device when the R Commander starts.}
+    
+    \item{\code{open.markdown.editor}}{If \code{TRUE} (the default is \code{FALSE}), open the R Markdown editor when the R Commander starts.}
     
     \item{\code{output.height}}{The height of the output window, in lines. The default is twice the height
     of the script window, or 20 if the script window is suppressed. Setting \code{output.height}
@@ -278,6 +288,8 @@ set none, one, several, or all options. The available options are as follows:
      as long as the data set isn't changed; some dialogs, e.g., for probabilities, retain selections even when the data set chanages.}
     
     \item{\code{RExcelSupport}}{If \code{TRUE} (the default is \code{FALSE}), menus and output are handled by Excel.}
+    
+    \item{\code{rmarkdown.output}}{Values of several options for converting R Markdown to a document file. The default for this option is \code{TRUE}, which corresponds to \code{markdown.output=list(command.sections=TRUE, section.level=3, toc=TRUE, toc_float=TRUE, toc_depth=3, number_sections=FALSE, translate.rmd.headers=TRUE)}. The sub-option \code{command.sections} controls whether most R commands produce sections in the R Markdown document; the sub-option \code{section.level} controls the level of the sections that are created; the sub-option \code{translate.rmd.headers} controls whether the headers are translated from English into another language, if a translation is available; and the other sub-options are standard for \code{\link[rmarkdown]{rmarkdown}}. The \code{toc_float}, \code{toc_depth}, and \code{number_sections} sub-options are only effective if Pandoc is installed.}
     
     \item{\code{rmd.output.format}}{The output file type for R Markdown documents if pandoc is installed; one of \code{"html"}
     (the default), \code{"pdf"} (requires LaTeX), \code{"docx"} (Word), or \code{"rtf"} (rich text file).}

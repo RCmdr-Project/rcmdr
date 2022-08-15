@@ -1,4 +1,4 @@
-# last modified 2020-08-05 by J. Fox
+# last modified 2022-07-05 by J. Fox
 
 # utility functions
 
@@ -257,101 +257,6 @@ Coef.multinom <- function (object, ...) {
 
 Coef.merMod <- function(object, ...) fixef(object, ...)
 
-#$ Confint methods no longer needed, now in car package:
-# Confint <- function(object, parm, level=0.95, ...) UseMethod("Confint")
-# 
-# Confint.default <- function(object, parm, level = 0.95, ...) {
-#     ci <- confint(object, parm, level, ...)
-#     ci <- cbind(Coef(object)[parm], ci)
-#     colnames(ci)[1] <- "Estimate"
-#     ci
-# }
-# 
-# Confint.glm <- function (object, parm, level=0.95, type=c("LR", "Wald"), ...){
-#     # adapted from stats:::confint.lm
-#     type <- match.arg(type)
-#     cf <- coef(object)
-#     pnames <- names(cf)
-#     if (type == "LR") 
-#         ci <- confint(object, parm, level, ...)
-#     else {
-#         if (missing(parm))
-#             parm <- seq(along = pnames)
-#         else if (is.character(parm))
-#             parm <- match(parm, pnames, nomatch = 0)
-#         a <- (1 - level)/2
-#         a <- c(a, 1 - a)
-#         pct <- paste(round(100 * a, 1), "%")
-#         ci <- array(NA, dim = c(length(parm), 2), dimnames = list(pnames[parm],
-#                                                                   pct))
-#         ses <- sqrt(diag(vcov(object)))[parm]
-#         fac <- qnorm(a)
-#         ci[] <- cf[parm] + ses %o% fac
-#     }
-#     ci <- cbind(cf[parm], ci)
-#     colnames(ci)[1] <- "Estimate"
-#     fam <- family(object)
-#     if (((fam$family == "binomial" || fam$family == "quasibinomial")  && fam$link == "logit")
-#       || ((fam$family == "poisson" || fam$family == "quasipoisson")  && fam$link == "log"))
-#       {
-#         expci <- exp(ci)
-#         colnames(expci)[1] <- "exp(Estimate)"
-#         ci <- cbind(ci, expci)
-#     }
-#     ci
-# }
-# 
-# Confint.polr <- function (object, parm, level=0.95, ...){
-#     # adapted from stats:::confint.lm
-#     cf <- coef(object)
-#     pnames <- names(cf)
-#     if (missing(parm))
-#         parm <- seq(along = pnames)
-#     else if (is.character(parm))
-#         parm <- match(parm, pnames, nomatch = 0)
-#     a <- (1 - level)/2
-#     a <- c(a, 1 - a)
-#     pct <- paste(round(100 * a, 1), "%")
-#     ci <- array(NA, dim = c(length(parm), 2), dimnames = list(pnames[parm],
-#                                                               pct))
-#     ses <- sqrt(diag(vcov(object)))[parm]
-#     fac <- qnorm(a)
-#     ci[] <- cf[parm] + ses %o% fac
-#     ci <- cbind(cf[parm], ci)
-#     colnames(ci)[1] <- "Estimate"
-#     ci
-# }
-# 
-# Confint.multinom <- function(object, parm, level = 0.95, ...) {
-#     # adapted from stats:::confint.lm
-#     cf <- Coef(object)
-#     if (is.vector(cf)) cf <- matrix(cf, nrow=1,
-#                                     dimnames=list(object$lev[2], names(cf)))
-#     pnames <- colnames(cf)
-#     if (missing(parm))
-#         parm <- seq(along = pnames)
-#     else if (is.character(parm))
-#         parm <- match(parm, pnames, nomatch = 0)
-#     a <- (1 - level)/2
-#     a <- c(a, 1 - a)
-#     ses <- matrix(sqrt(diag(vcov(object))),
-#                   ncol=ncol(cf), byrow=TRUE)[,parm, drop=FALSE]
-#     cf <- cf[,parm, drop=FALSE]
-#     fac <- qnorm(a)
-#     ci <- abind::abind(cf + fac[1]*ses, cf + fac[2]*ses, along=3)
-#     dimnames(ci)[[3]] <- paste(round(100 * a, 1), "%")
-#     ci <- aperm(ci, c(2,3,1))[,,1]
-#     ci <- cbind(cf[parm], ci)
-#     colnames(ci)[1] <- "Estimate"
-#     ci
-# }
-# 
-# Confint.merMod <- function(object, parm=names(fixef(object)), level=0.95, ...) {
-#   ci <- confint(object, parm=parm, level=level, ...)
-#   ci <- cbind(Coef(object)[parm], ci)
-#   colnames(ci)[1] <- "Estimate"
-#   ci
-# }
 
 # Pager
 
@@ -830,6 +735,7 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
         tkfocus(focus)
         if (getRcmdr("tkwait.dialog") || force.wait) tkwait.window(window)
         if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
+#        tkwm.geometry(window, "")
     }
 )
 
@@ -1496,10 +1402,10 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
     tkicursor(rhsEntry, "end")
     tkxview.moveto(rhsEntry, "1")
   }
-  bsplineButton <- buttonRcmdr(splinePolyFrame, text=gettextRcmdr("B-spline\n"), width="10", command=onBSpline)
-  nsplineButton <- buttonRcmdr(splinePolyFrame, text=gettextRcmdr("natural\nspline"), width="10", command=onNatSline)
-  polyButton <- buttonRcmdr(splinePolyFrame, text=gettextRcmdr("orthogonal\npolynomial"), width="10", command=onPoly)
-  RawPolyButton <- buttonRcmdr(splinePolyFrame, text=gettextRcmdr("raw\npolynomial"), width="10", command=onRawPoly)
+  bsplineButton <- tkbutton(splinePolyFrame, text=gettextRcmdr("B-spline\n"), width="10", relief="groove", command=onBSpline)
+  nsplineButton <- tkbutton(splinePolyFrame, text=gettextRcmdr("natural\nspline"), width="10", relief="groove", command=onNatSline)
+  polyButton <- tkbutton(splinePolyFrame, text=gettextRcmdr("orthogonal\npolynomial"), width="10", relief="groove", command=onPoly)
+  RawPolyButton <- tkbutton(splinePolyFrame, text=gettextRcmdr("raw\npolynomial"), width="10", relief="groove", command=onRawPoly)
   dfSplineVar <- tclVar("5")
   degPolyVar <- tclVar("2")
   dfDegFrame <- tkframe(outerOperatorsFrame)
@@ -1849,19 +1755,41 @@ English <- function() {
 # to replace tkmessageBox on non-English Windows systems,
 #  to allow for translation of button text
 
+# nMacOSDisplays <- function(){
+#   if (!MacOSXP()) return(0)
+#   sum(grepl("^ *Display Type:", system("system_profiler SPDisplaysDataType", 
+#                                        intern=TRUE)))
+# }
+
+# cross-platform message box with custom icons
+
 RcmdrTkmessageBox <- function(message, icon=c("info", "question", "warning",
-    "error"), type=c("okcancel", "yesno", "ok"), default, title="") {
-    if ( (English()) || (!WindowsP()) ){
-        if (missing(default)){
-            default <- switch(type,
-                okcancel="ok",
-                yesno="yes",
-                ok="ok")}
-        return(tkmessageBox(message=message, icon=icon, type=type,
-            default=default, title=title))
-    }
-    icon <- match.arg(icon)
-    type <- match.arg(type)
+    "error"), type=c("okcancel", "yesno", "ok"), default, title) {
+  icon <- match.arg(icon)
+  type <- match.arg(type)
+  if (missing(title)){
+    title <- switch(icon,
+                    info=gettextRcmdr("Information"),
+                    question=gettextRcmdr("Question"),
+                    warning=gettextRcmdr("Warning"),
+                    error=gettextRcmdr("Error")
+                    )
+  }
+  icon.image <- switch(icon,
+                       info="::image::infoIcon",
+                       question="::image::questionIcon",
+                       warning="::image::warningIcon",
+                       error="::image::errorIcon"
+  )
+    # if ((nMacOSDisplays() < 2) && ((English()) || (!WindowsP()))){
+    #     if (missing(default)){
+    #         default <- switch(type,
+    #             okcancel="ok",
+    #             yesno="yes",
+    #             ok="ok")}
+    #     return(tkmessageBox(message=message, icon=icon, type=type,
+    #         default=default, title=title))
+    # }
     initializeDialog(messageBox, title=title)
     messageFrame <- tkframe(messageBox, borderwidth=5)
     buttonFrame <- tkframe(messageBox,  borderwidth=5)
@@ -1909,10 +1837,13 @@ RcmdrTkmessageBox <- function(message, icon=c("info", "question", "warning",
         foreground="red", width="12", command=onNo, borderwidth=3,
         default=if (missing(default)) "normal"
         else if (default == "no") "active" else "normal")
-    ## FIXME -- left in old style
-    tkgrid(tklabel(messageFrame, bitmap=icon, fg=iconColor),
-        tklabel(messageFrame, text="    "),
-        tklabel(messageFrame, text=message))
+    ## FIXME -- left in old style -- FIXED
+#    tkgrid(tklabel(messageFrame, bitmap=icon, fg=iconColor),
+    tkgrid(tklabel(messageFrame, image=icon.image, fg=iconColor, 
+                   text=paste0("    ", message),
+                   compound="left"))
+        # tklabel(messageFrame, text="    "),
+        # tklabel(messageFrame, text=message))
     tkgrid(messageFrame)
     switch(type,
         okcancel = {
@@ -2314,22 +2245,28 @@ beginRmdBlock <- function(){
     last2 <- tclvalue(tkget(.rmd, "end -2 chars", "end"))
     if (last2 != "\n\n") tkinsert(.rmd, "end", "\n")
     tkinsert(.rmd, "end", "\n")
-    if (getRcmdr("rgl.command") && getRcmdr("use.rgl")) tkinsert(.rmd, "end", "```{r, webgl=TRUE}\n")
-      else tkinsert(.rmd, "end", "```{r}\n")
+    # if (getRcmdr("rgl.command") && getRcmdr("use.rgl")) tkinsert(.rmd, "end", "```{r, webgl=TRUE}\n")
+    #   else tkinsert(.rmd, "end", "```{r}\n")
+    tkinsert(.rmd, "end", "```{r}\n")
     if (getRcmdr("Markdown.editor.open")){
         .markdown.editor <- MarkdownEditorWindow()
         last2 <- tclvalue(tkget(.markdown.editor, "end -2 chars", "end"))
         if (last2 != "\n\n") tkinsert(.markdown.editor, "end", "\n")
         tkinsert(.markdown.editor, "end", "\n")
-        if (getRcmdr("rgl.command") && getRcmdr("use.rgl")) tkinsert(.markdown.editor, "end", "```{r, webgl=TRUE}\n")
-        else tkinsert(.markdown.editor, "end", "```{r}\n")
+        # if (getRcmdr("rgl.command") && getRcmdr("use.rgl")) tkinsert(.markdown.editor, "end", "```{r, webgl=TRUE}\n")
+        # else tkinsert(.markdown.editor, "end", "```{r}\n")
+        tkinsert(.markdown.editor, "end", "```{r}\n")
     }
 }
 
 endRmdBlock <- function(){
     .rmd <- RmdWindow()
     rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
-    rmd <- paste(substring(rmd, 1, nchar(rmd) - 1), "```\n", sep="")
+    rmd <- if (getRcmdr("rgl.command") && getRcmdr("use.rgl")){
+      paste(substring(rmd, 1, nchar(rmd) - 1), "rglwidget()\n```\n", sep="")
+    } else {
+      paste(substring(rmd, 1, nchar(rmd) - 1), "```\n", sep="")
+    }
     rmd <- trimHangingEndRmdBlock(rmd)
     rmd <- trimTrailingNewLines(rmd)
     tkdelete(.rmd, "1.0", "end")
@@ -2338,7 +2275,11 @@ endRmdBlock <- function(){
     if (getRcmdr("Markdown.editor.open")){
         .markdown.editor<- MarkdownEditorWindow()
         rmd <- tclvalue(tkget(.markdown.editor, "1.0", "end"))
-        rmd <- paste(substring(rmd, 1, nchar(rmd) - 1), "```\n", sep="")
+        rmd <- if (getRcmdr("rgl.command") && getRcmdr("use.rgl")){
+          paste(substring(rmd, 1, nchar(rmd) - 1), "rglwidget()\n```\n", sep="")
+        } else {
+          paste(substring(rmd, 1, nchar(rmd) - 1), "```\n", sep="")
+        }
         rmd <- trimHangingEndRmdBlock(rmd)
         rmd <- trimTrailingNewLines(rmd)
         tkdelete(.markdown.editor, "1.0", "end")
@@ -2419,6 +2360,57 @@ removeStrayRmdBlocks <- function(){
     }
 }
 
+cleanUpArg <- function(arg){
+  arg <- gsub("cbind\\(", "", arg)
+  arg <- gsub("\\[", "", arg)
+  arg <- gsub("\\]", "", arg)
+  if (grepl("~", arg)) return(trim.blanks(arg))
+  arg <- gsub("\\(", "", arg)
+  arg <- gsub("\\)", "", arg)
+  arg <- gsub("\\$", "\\: ", arg)
+  trim.blanks(arg)
+}
+
+findCommandName <- function(command){
+  assigned <- NA
+  command <- trim.blanks(command)
+  command <- gsub("\n", " ", command)
+  where <- regexpr("\\(", command)
+  if (where < 0) return(NA)
+  args <- trim.blanks(strsplit(
+    substring(command, where + 1, nchar(command)), ",")[[1]])
+  command <- substring(command, 1, where - 1)
+#  args <- gsub("[()]", "", args)
+  for (i in 1:length(args)){
+    arg <- args[i]
+    where <- regexpr("=", arg)
+    args[i] <- if (where < 0) cleanUpArg(arg)
+    else cleanUpArg(substring(arg, where + 1, nchar(arg)))
+  }
+  where <- regexpr("<-", command)
+  if (where > 0) {
+    assigned <- trim.blanks(substring(command, 1, where - 1))
+    command <- trim.blanks(substring(command, where + 2, nchar(command)))
+  }
+  if (command == "") return(NA)
+  operation <-  getRcmdr("Operations")[command, , drop=FALSE]
+  commandName <- operation[, "section.title"]
+  if (is.na(commandName)) {
+    return(command)
+  } else if (commandName == ""){
+    return(NA)
+  } else {
+    if (!is.na(operation[, "assign"]) && operation[, "assign"])
+      commandName <- paste0(gettextRmdHeader(commandName), ": ", assigned)
+    if (!is.na(arg <- operation[, "argument"]))
+      arg <- as.numeric(strsplit(arg, " ")[[1]])
+    arg <- arg[arg <= length(args)]
+    if (!is.na(arg[1])) commandName <- paste0(gettextRmdHeader(commandName), ": ", paste(args[arg], collapse=", "))
+    return(commandName)
+  }
+}
+
+
 enterMarkdown <- function(command){
     if (!getRcmdr("use.markdown")) return()
     .rmd <- RmdWindow()
@@ -2483,15 +2475,51 @@ removeLastRmdBlock <- function(){
     }
 }
 
-removeRglRmdBlocks <- function(string){
-  repeat{
-    match <- regexpr("```\\{r, webgl=TRUE\\}\n", string)
-    if (match == -1) return(trimTrailingNewLines(string))
-    substring <- cutstring(string, end=match)
-    match.end <- regexpr("```\n", substring)
-    string <- cutstring(string, match, match + match.end + 3)
+# removeRglRmdBlocks <- function(string){
+#   repeat{
+#     match <- regexpr("```\\{r, webgl=TRUE\\}\n", string)
+#     if (match == -1) return(trimTrailingNewLines(string))
+#     substring <- cutstring(string, end=match)
+#     match.end <- regexpr("```\n", substring)
+#     string <- cutstring(string, match, match + match.end + 3)
+#   }
+# }
+
+removeLastRmdSection <- function(){
+  .rmd <- RmdWindow()    
+  rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
+  start <- gregexpr("\n#[^\n]*", rmd)
+  if (start[[1]][1] > 0){
+    start <- start[[1]]
+    start <- start[length(start)] + 1
+    tail <- substring(rmd, start, nchar(rmd))
+    end <- gregexpr("\n", tail)
+    end <- if (end[[1]][1] > 0) end[[1]][1] else nchar(tail)
+    rmd <- cutstring(rmd, start, start + end - 1)
+    rmd <- trimTrailingNewLines(rmd)
+    tkdelete(.rmd, "1.0", "end")
+    tkinsert(.rmd, "end", rmd)
+    tkyview.moveto(.rmd, 1)
+  }
+  if (getRcmdr("Markdown.editor.open")){
+    .markdown.editor <- MarkdownEditorWindow()
+    rmd <- tclvalue(tkget(.markdown.editor, "1.0", "end"))
+    start <- gregexpr("\n#[^\n]*", rmd)
+    if (start[[1]][1] > 0){
+      start <- start[[1]] + 1
+      start <- start[length(start)]
+      tail <- substring(rmd, start, nchar(rmd))
+      end <- gregexpr("\n", tail)
+      end <- if (end[[1]][1] > 0) end[[1]][1] else nchar(tail)
+      rmd <- cutstring(rmd, start, start + end - 1)
+      rmd <- trimTrailingNewLines(rmd)
+      tkdelete(.markdown.editor, "1.0", "end")
+      tkinsert(.markdown.editor, "end", rmd)
+      tkyview.moveto(.markdown.editor, 1)
+    }
   }
 }
+
 
 cutstring <- function(x, start=1, end=nchar(x)){
     one <- if (start > 1) substr(x, 1, start - 1) else ""
@@ -2504,6 +2532,8 @@ MarkdownP <- function(){
 }
 
 compileRmd <- function() {
+    save.rglopt <- options(rgl.useNULL=TRUE)
+    on.exit(options(save.rglopt))
     ChooseOutputFormat <- function(){
         initializeDialog(title=gettextRcmdr("Select Output Format"))
         format <- getRcmdr("rmd.output.format")
@@ -2527,7 +2557,7 @@ compileRmd <- function() {
     .RmdFile <- getRcmdr("RmdFileName")
     rmdDir <- dirname(.RmdFile)
     saveDir <- setwd(rmdDir)
-    on.exit(setwd(saveDir))
+    on.exit(setwd(saveDir), add=TRUE)
     fig.files <- list.files("./figure")
     fig.files <- fig.files[grep("^unnamed-chunk-[0-9]*\\..*$", fig.files)]
     if (length(fig.files) != 0) {
@@ -2540,6 +2570,10 @@ compileRmd <- function() {
     lines <- sub("date: \"AUTOMATIC\"", paste("date: \"", as.character(Sys.time()), "\"", sep=""), lines)
     .filename <- sub("\\.Rmd$", "", trim.blanks(.RmdFile))
     writeLines(lines, .RmdFile)
+    defaults <- list(
+      command.sections = TRUE, section.level=3, toc=TRUE, toc_float=TRUE, toc_depth=3, number_sections=FALSE
+    )
+    options <- applyDefaultValues(getRcmdr("rmarkdown.output"), defaults)
     if (getRcmdr("capabilities")$pandoc){
         ChooseOutputFormat()
         if (getRcmdr("abort.compile.rmd")){
@@ -2550,38 +2584,51 @@ compileRmd <- function() {
         format <- getRcmdr("rmd.output.format")
         switch(format,
             html = {
-                rmarkdown::render(.RmdFile, rmarkdown::html_document())
+                rmarkdown::render(.RmdFile, rmarkdown::html_document(toc=options$toc, 
+                                                                     toc_float=options$toc_float,
+                                                                     toc_depth=options$toc_depth,
+                                                                     number_sections=options$number_sections))
                 .html.file <- paste(.filename, ".html", sep="")
                 .html.file.location <- paste("file:///", normalizePath(.html.file), sep="")
                 Message(paste(gettextRcmdr("HTML file written to:"), normalizePath(.html.file)), type="note")
                 browseURL(.html.file.location)
             },
             pdf = {
-                lines <- removeRglRmdBlocks(lines)
+                # lines <- removeRglRmdBlocks(lines)
                 writeLines(lines, .RmdFile)
-                rmarkdown::render(.RmdFile, rmarkdown::pdf_document())
+                rmarkdown::render(.RmdFile, rmarkdown::pdf_document(toc=options$toc,
+                                                                    toc_depth=options$toc_depth,
+                                                                    number_sections=options$number_sections))
                 .pdf.file <- paste(.filename, ".pdf", sep="")
                 .pdf.file.location <- paste("file:///", normalizePath(.pdf.file), sep="")
                 Message(paste(gettextRcmdr("PDF file written to:"), normalizePath(.pdf.file)), type="note")
                 browseURL(.pdf.file.location)
             },
             docx = {
-              lines <- removeRglRmdBlocks(lines)
+              # lines <- removeRglRmdBlocks(lines)
               writeLines(lines, .RmdFile)
-                rmarkdown::render(.RmdFile, rmarkdown::word_document())
+                rmarkdown::render(.RmdFile, rmarkdown::word_document(toc=options$toc,
+                                                                     toc_depth=options$toc_depth,
+                                                                     number_sections=options$number_sections))
                 .docx.file <- paste(.filename, ".docx", sep="")
                 Message(paste(gettextRcmdr("Word file written to:"), normalizePath(.docx.file)), type="note")
             },
             rtf = {
-              lines <- removeRglRmdBlocks(lines)
+              # lines <- removeRglRmdBlocks(lines)
               writeLines(lines, .RmdFile)
-              rmarkdown::render(.RmdFile, rmarkdown::rtf_document())
+              rmarkdown::render(.RmdFile, rmarkdown::rtf_document(toc=options$toc,
+                                                                  toc_depth=options$toc_depth,
+                                                                  number_sections=options$number_sections))
               .rtf.file <- paste(.filename, ".rtf", sep="")
               Message(paste(gettextRcmdr("Rich text file written to:"), normalizePath(.rtf.file)), type="note")
             }
         )
     }
     else{
+        if (options$toc) {
+          save.opt <- options(markdown.HTML.options= "toc")
+          on.exit(options(save.opt, add=TRUE))
+        }
         knitr::knit(.RmdFile, paste(.filename, ".md", sep=""), quiet=TRUE)
         .html.file <- paste(.filename, ".html", sep="")
         markdown::markdownToHTML(paste(.filename, ".md", sep=""), .html.file)
@@ -3966,4 +4013,137 @@ convertStrings2Factors <- function(){
   command <- paste0(.activeDataSet, ' <- strings2factors(', .activeDataSet, ')')
   doItAndPrint(command)
   activeDataSet(.activeDataSet)
+}
+
+# functions for predictors and coefficients
+
+Predictors <- function(type=c("all", "numeric", "factor")){
+  if (is.null(ActiveModel())) return(NULL)
+  type <- match.arg(type)
+  predictors <- all.vars(formula(get(activeModel(), envir=.GlobalEnv))[[3]])
+  if (type == "all") return(predictors)
+  else if (type == "numeric") return(intersect(Numeric(), predictors))
+  else if (type == "factor") return(intersect(Factors(), predictors))
+}
+
+
+PredictorsP <- function(n=1, type=c("all", "numeric", "factor")){
+  type <- match.arg(type)
+  length(Predictors(type=type)) >= n
+}
+
+Coefficients <- function(includeIntercept=FALSE){
+  if (is.null(ActiveModel())) return(NULL)
+  coefs <- names(coef(get(activeModel(), envir=.GlobalEnv)))
+  coefs[coefs != "(Intercept)"]
+}
+
+CoefficientsP <- function(n=1, includeIntercept=FALSE){
+  length(Coefficients(includeIntercept)) >= n
+}
+
+# the following function isn't exported
+
+getUserName <- function(){
+  if (MacOSXP()) {
+    name <- try(system("id -F", intern=TRUE, ignore.stderr=TRUE),
+                silent=TRUE)
+    if (inherits(name, "try-error")) name <- Sys.info()["user"]
+    if (name == "unknown") name <- "Your Name"
+    return(name)
+  } else if (WindowsP()){
+    name <- Sys.info()["user"]
+    if (name == "unknown") name <- "Your Name"
+    return(name)
+  } else {
+    name <- try(system("finger $(whoami)", intern=TRUE, ignore.stderr=TRUE),
+                silent=TRUE)
+    if (!inherits(name, "try-error")){
+      name <- name[grepl("^Login:", name)]
+      return(sub("^.*Name: ", "", name))
+    } else {
+      name <- Sys.info()["user"]
+      if (name == "unknown") name <- "Your Name"
+      return(name)
+    }
+  }
+}
+
+# to assist implementation of case deletion/retention
+
+getCases <- function(cases, remove=TRUE){
+  rows <- Rows <- paste("c(", gsub(" +", ", ", cases), ")", sep="")
+  cases.rows <- try(eval(parse(text=Rows)), silent=TRUE)
+  if (inherits(cases.rows, "try-error")){
+    rows <- Rows <- paste("c('", gsub(" +", "', '", cases), "')", sep="")
+    cases.rows <- try(eval(parse(text=Rows)), silent=TRUE)
+    if (inherits(cases.rows, "try-error")){
+      error <- cases.rows
+      class(error) <- c(class(error), "cases-error")
+      return(error)
+    }
+  }
+  if (remove) {
+    Rows <- if (is.numeric(cases.rows)) paste("-", Rows, sep="") 
+    else paste("!(rownames(", ActiveDataSet(), ") %in% ", Rows, ")", sep="")
+  }
+  else if (is.character(cases.rows)) Rows <- paste("rownames(", ActiveDataSet(), ") %in% ", Rows, sep="")
+  if (is.numeric(cases.rows)){
+    n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
+    if (any(which.bad <- !cases.rows %in% 1:n)){
+      error <- paste(gettextRcmdr("bad row numbers:"), 
+                     paste(as.character(cases.rows[which.bad]), collapse=", "))
+      class(error) <- c(class(error), "cases-error")
+      return(error)
+    }
+  } else {
+    if (any(which.bad <- eval(parse(text=paste("!", rows, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
+      error <- paste(gettextRcmdr("bad row names:"), 
+                     paste(cases.rows[which.bad], collapse=", "))
+      class(error) <- c(class(error), "cases-error")
+      return(error)          
+    }
+  }
+  Rows
+}
+
+insertRmdSection <- function(text){
+  if (!(getRcmdr("use.markdown") && getRcmdr("command.sections"))) return()
+#  if (getRcmdr("translate.rmd.headers")) text <- gettextRcmdr(text)
+  .rmd <- RmdWindow()
+  rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
+  rmd <- strsplit(rmd, "\n")
+  where <- grep("...\\{r", rmd[[1]])
+  where <- rev(where)[1]
+  where <- paste0(where, ".0")
+  tkinsert(.rmd, where, paste0("\n", getRcmdr("section.level"), " ", text, "\n"))
+  if (getRcmdr("Markdown.editor.open")){
+    .markdown.editor <- MarkdownEditorWindow()
+    rmd <- tclvalue(tkget(.markdown.editor, "1.0", "end"))
+    rmd <- strsplit(rmd, "\n")
+    where <- grep("...\\{r", rmd[[1]])
+    where <- rev(where)[1]
+    where <- paste0(where, ".0")
+    tkinsert(.markdown.editor, where, paste0("\n", getRcmdr("section.level"), " ", text, "\n"))
+    }
+}
+
+# the following function isn't exported and is currently
+# only used for managing RMarkdown output
+
+applyDefaultValues <- function(given, defaults){
+  if (isTRUE(given)) return(defaults)
+  names <- names(given)
+  if (any(which <- !names %in% names(defaults))) {
+    stop("bad names: ", names[which])
+  }
+  for (name in names){
+    defaults[[name]] <- given[[name]]
+  }
+  defaults
+}
+
+gettextRmdHeader <- function(text){
+  if (getRcmdr("translate.rmd.headers")) text <- gettextRcmdr(text)
+  text
 }

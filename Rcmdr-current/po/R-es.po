@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.7-0\n"
+"Project-Id-Version: Rcmdr 2.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2020-08-25 10:45:00\n"
-"PO-Revision-Date: 2020-08-26 08:14+0200\n"
+"POT-Creation-Date: 2022-07-11 09:30:00\n"
+"PO-Revision-Date: 2022-07-17 22:44+0200\n"
 "Last-Translator: Manuel Munoz-Marquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <manuel.munoz@uca.es>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "KMeans Clustering"
@@ -739,7 +739,7 @@ msgid "Degrees of freedom"
 msgstr "Grados de libertad"
 
 msgid "t Probabilities"
-msgstr "Probabilidades t"
+msgstr "Probabilidades t acumuladas"
 
 msgid "Chi-Squared Quantiles"
 msgstr "Cuantiles Chi-cuadrado"
@@ -2572,14 +2572,14 @@ msgid "3D graph"
 msgstr "Gráficos 3D"
 
 msgid " contains non-standard variable names:\n"
-msgstr " contiene nombres de variables atípicos:\n"
+msgstr " contiene nombres de variables no estándares:\n"
 
 msgid ""
 "\n"
 "These have been changed to:\n"
 msgstr ""
 "\n"
-"Esto debe ser cambiado por:\n"
+"Estos han sido cambiados por:\n"
 
 msgid "This function requires the RODBC package.\n"
 msgstr "Esta función requiere el paquete RODBC.\n"
@@ -3417,7 +3417,7 @@ msgid "Scale (inverse rate)"
 msgstr "Parámetro de escala (tasa inversa)"
 
 msgid " has been coerced to a data frame"
-msgstr " se ha forzado a data frame"
+msgstr " se ha convertido a data frame"
 
 msgid "the dataset %s is no longer available"
 msgstr "el conjunto de datos %s no está disponible"
@@ -3451,7 +3451,7 @@ msgstr ""
 
 msgid "Type III tests require careful attention to contrast coding."
 msgstr ""
-"el test tipo III requiere especial atención en la codificación del contraste"
+"El test tipo III requiere especial atención en la codificación del contraste"
 
 msgid "There is no appropriate anova method for a model of this class."
 msgstr "No hay un método ANOVA adecuado para un modelo de esta clase."
@@ -3576,10 +3576,10 @@ msgid "AIC"
 msgstr "AIC"
 
 msgid "Subset model selection..."
-msgstr "Filtrar el conjunto de datos activo..."
+msgstr "Selección de modelo..."
 
 msgid "Subset Model Selection"
-msgstr "Expresión de selección"
+msgstr "Selección de modelo"
 
 msgid "Criterion for Model Plot"
 msgstr "Criterio para la gráfica del modelo"
@@ -3588,7 +3588,7 @@ msgid "Mallows Cp"
 msgstr "Cp de Mallows"
 
 msgid "Adjusted R-sq."
-msgstr "R cuadrado ajustado."
+msgstr "R cuadrado ajustado"
 
 msgid "R-squared"
 msgstr "R cuadrado"
@@ -4417,6 +4417,9 @@ msgstr "Nombre de las variables en la primera columna de la hoja de cálculo"
 msgid "<no variable selected>"
 msgstr "<ninguna variable seleccionada>"
 
+msgid "Weights"
+msgstr "Pesos"
+
 msgid "Model Effect Plots"
 msgstr "Gráfica de los efectos"
 
@@ -5094,7 +5097,7 @@ msgid "Box-Cox with negatives"
 msgstr "Box-Cox con negativos"
 
 msgid "Yeo-Johnson"
-msgstr "Yeo-John son"
+msgstr "Yeo-Johnson"
 
 # the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
 msgid "Transform toward normality..."
@@ -5212,7 +5215,7 @@ msgid "Restart the Commander"
 msgstr "Reiniciar R Commander"
 
 msgid "Restart the Commander?"
-msgstr "Reiniciar R Commander"
+msgstr "Reiniciar R Commander?"
 
 # for new repeated-measures ANOVA/ANCOVA dialogs
 msgid "One-factor repeated-measures ANOVA/ANCOVA..."
@@ -5424,3 +5427,461 @@ msgstr "Un factor con medidas repetidas"
 
 msgid "Two Repeated-Measures Factors"
 msgstr "Factores con dos medidas repetidas"
+
+msgid "You cannot plot by groups with more than one variable selected"
+msgstr ""
+"No puede hacer un gráfico por grupos con más de una variable seleccionada"
+
+msgid "Number of automatic rotations"
+msgstr "Número de rotaciones automáticas"
+
+msgid "3D Component+Residual Plot"
+msgstr "Gráfica 3D de componentes+residuos"
+
+msgid "3D Added-Variable Plot"
+msgstr "Gráfica 3D de variable agregada"
+
+msgid "Coefficients (pick two)"
+msgstr "Coeficientes (selecciona dos)"
+
+msgid "You must select 2 coefficients."
+msgstr "Debe seleccionar dos coeficientes."
+
+msgid "3D Component+residual plot..."
+msgstr "Gráfica 3D de componentes+residuos..."
+
+msgid "3D added-variable plot..."
+msgstr "Gráfica 3D de variable agregada"
+
+# for startup message
+msgid "Hello"
+msgstr "Hola"
+
+msgid "Indices or names of row(s) to remove"
+msgstr "Índices o nombres de la(s) fila(s) a borrar"
+
+msgid "<use all valid cases>"
+msgstr "<todos los casos válidos>"
+
+msgid "bad row numbers:"
+msgstr "números de fila incorrectos:"
+
+msgid "bad row names:"
+msgstr "nombres de fila incorrectos:"
+
+msgid "You cannot specify both case removal and subset cases"
+msgstr ""
+"No puede especificar eliminar casos y seleccionar casos simultáneamente"
+
+msgid "Include case-deletion box in statistical model dialogs"
+msgstr ""
+"Incluir el cuadro de eliminación de casos en los cuadros de diálogo del "
+"modelo estadístico"
+
+msgid "Indices or names of row(s) to select"
+msgstr "Índices o nombres de la(s) fila(s) a seleccionar"
+
+msgid "Information"
+msgstr "Información"
+
+msgid "Question"
+msgstr "Pregunta"
+
+msgid "Warning"
+msgstr "Aviso"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Remove last Markdown section title"
+msgstr "Borrar el título del último bloque de instrucciones Markdonw"
+
+# new message for processing plug-ins
+msgid ""
+"The following Markdown section titles in %s\n"
+"  conflict with existing titles and were removed:\n"
+"  "
+msgstr ""
+"Los siguientes títulos de la sección Markdown en %s\n"
+"entran en conflicto con títulos existentes y fueron eliminados:"
+
+# bootstrapping dialog
+msgid "Bootstrap Confidence Intervals"
+msgstr "Intervalos de confianza bootstrap..."
+
+# delta method dialog
+msgid "Delta Method Confidence Intervals"
+msgstr "Intervalos de confianza método delta"
+
+msgid "Density Plot"
+msgstr "Gráfica de densidad"
+
+msgid "Durbin-Watson Test"
+msgstr "Test de Durbin-Watson"
+
+msgid "Generalized Linear Mixed-Effects Model"
+msgstr "Modelo lineal mixto generalizado"
+
+msgid "Linear Mixed-Effects Model"
+msgstr "Modelo lineal mixto"
+
+msgid "Multinomial Logistic Regression"
+msgstr "Modelo logistico multinomial"
+
+msgid "Bonferroni Outlier Test"
+msgstr "Test de valores atípicos de Bonferroni"
+
+msgid "Partial Correlations"
+msgstr "Correlaciones parciales"
+
+msgid "Repeated-Measures Plot"
+msgstr "Gráfico de medidas repetidas"
+
+msgid "Transformation Boxplots for Symmetry"
+msgstr "Diagramas de caja de transformación para simetría"
+
+msgid "Independent-Samples t-Test"
+msgstr "Test t para muestras independientes"
+
+msgid "Variance-Inflation Factors"
+msgstr "Factores de inflación de varianza"
+
+msgid "Wilcoxon Test"
+msgstr "Test de Wilcoxon"
+
+msgid "Conditioning Plot"
+msgstr "Gráfica condicionada"
+
+msgid "Normal Cumulative Probabilities"
+msgstr "Probabilidades normales acumuladas"
+
+msgid "t Cumulative Probabilities"
+msgstr "Probabilidades t acumuladas"
+
+msgid "Chi-Squared Cumulative Probabilities"
+msgstr "Probabilidades Chi-cuadrado acumuladas"
+
+msgid "F Cumulative Probabilities"
+msgstr "Probabilidades F acumuladas"
+
+msgid "Exponential Cumulative Probabilities"
+msgstr "Probabilidades exponenciales acumuladas"
+
+msgid "Uniform Cumulative Probabilities"
+msgstr "Probabilidades uniformes acumuladas"
+
+msgid "Beta Cumulative Probabilities"
+msgstr "Probabilidades beta acumuladas"
+
+msgid "Cauchy Cumulative Probabilities"
+msgstr "Probabilidades de Cauchy acumuladas"
+
+msgid "Logistic Cumulative Probabilities"
+msgstr "Probabilidades logísticas acumuladas"
+
+msgid "Log-Normal Cumulative Probabilities"
+msgstr "Probabilidades log-normales acumuladas"
+
+msgid "Gamma Cumulative Probabilities"
+msgstr "Probabilidades Gamma acumuladas"
+
+msgid "Weibull Cumulative Probabilities"
+msgstr "Probabilidades Weibull acumuladas"
+
+msgid "Gumbel Cumulative Probabilities"
+msgstr "Probabilidades Gumbel acumuladas"
+
+msgid "Binomial Cumulative Probabilities"
+msgstr "Probabilidades binomiales acumuladas"
+
+msgid "Poisson Cumulative Probabilities"
+msgstr "Probabilidades acumuladas Poisson"
+
+msgid "Geometric Cumulative Probabilities"
+msgstr "Probabilidades geométricas acumuladas"
+
+msgid "Hypergeometric Cumulative Probabilities"
+msgstr "Probabilidades hipergeométricas acumuladas"
+
+msgid "Negative Binomial Cumulative Probabilities"
+msgstr "Probabilidades binomiales negativas acumuladas"
+
+msgid "Bartlett's Test:"
+msgstr "Test de Bartlett"
+
+msgid "Basic Model Plots:"
+msgstr "Gráfica básicos de modelos:"
+
+msgid "Analysis of Variance:"
+msgstr "Análisis de varianza:"
+
+msgid "Linear Hypothesis Test:"
+msgstr "Test de hipótesis lineal:"
+
+msgid "Subset Model Selection:"
+msgstr "Selección de subconjunto del modelo:"
+
+msgid "Effect Plots:"
+msgstr "Gráficas de los efectos..."
+
+msgid "Predictor Effect Plots:"
+msgstr "Gráfica de efectos del predictor:"
+
+msgid "Transform Response Toward Normality:"
+msgstr "Transformación de respuesta para normalizar"
+
+msgid "Table of Binomial Probabilities"
+msgstr "Tabla de probabilidades binomiales"
+
+msgid "Table of Poisson Probabilities"
+msgstr "Tabla de probabilidades de Poisson"
+
+msgid "Table of Geometric Probabilities"
+msgstr "Tabla de probabilidades geométricas"
+
+msgid "Table of Hypergeomtric Probabilities"
+msgstr "Tabla de probabilidades hipergeométricas"
+
+msgid "Table of NegativeBinomial Probabilities"
+msgstr "Tabla de probabilidades binomiales negativas"
+
+msgid "K-Means Clustering:"
+msgstr "Agrupación por k-medias:"
+
+msgid "Hiearchical Cluster Analysis:"
+msgstr "Agrupación jerárquica:"
+
+msgid "Paired Wilcoxon Test:"
+msgstr "Test de Wilcoxon para datos pareados"
+
+msgid "Friedman Rank Sum Test:"
+msgstr "Test de suma de rangos de Friedman"
+
+msgid "Single-Sample Wilcoxon Test:"
+msgstr "Test de Wilcoxon para una muestra:"
+
+msgid "Histogram:"
+msgstr "Histograma:"
+
+msgid "Stem-and-Leaf Display:"
+msgstr "Gráfica de tallos y hojas:"
+
+# dot plot dialog
+msgid "Dot Plot:"
+msgstr "Gráfico de puntos"
+
+msgid "Bar Plot:"
+msgstr "Diagrama de barras:"
+
+msgid "Pie Chart:"
+msgstr "Gráfica de sectores:"
+
+msgid "Line Plot:"
+msgstr "Gráfica lineal:"
+
+msgid "Quantile-Comparison Plot:"
+msgstr "Gráfica de comparación de cuantiles:"
+
+msgid "Plot of Means:"
+msgstr "Gráfica de las medias:"
+
+msgid "Discrete Distribution Plot:"
+msgstr "Gráfica de distribución discreta"
+
+msgid "Two-Way Contingency Table:"
+msgstr "Tablas de contingencia de dos vías"
+
+msgid "Multi-Way Contingency Table:"
+msgstr "Tabla de contingencia múltiple"
+
+msgid "Single-Sample Proportion Test:"
+msgstr "Test de proporciones para una muestra:"
+
+msgid "Two-Sample Proportions Test:"
+msgstr "Test de proporciones para dos muestras:"
+
+msgid "Paired t-Test:"
+msgstr "Test t para datos emparejados"
+
+msgid "Single-Sample t-Test:"
+msgstr "Test t para una muestra:"
+
+msgid "Repeated-Measures ANOVA: between ="
+msgstr "ANOVA para medidas repetidas: entre ="
+
+msgid ", within = "
+msgstr ", dentro ="
+
+msgid "Summarize Data Set:"
+msgstr "Resumir el conjunto de datos:"
+
+msgid "Frequencies:"
+msgstr "Frecuencias:"
+
+msgid "Table of Summary Statistics:"
+msgstr "Tabla de estadísticas:"
+
+msgid "Correlation Test:"
+msgstr "Test de correlación:"
+
+msgid "Count Missing Cases:"
+msgstr "Número de observaciones ausentes:"
+
+msgid "Transform Variables Toward Normality:"
+msgstr "Transformación de variable para normalizar"
+
+msgid "Scale Reliability:"
+msgstr "Escala de fiabilidad:"
+
+msgid "Principal-Components Analysis:"
+msgstr "Análisis de componentes principales:"
+
+msgid "Factor Analysis:"
+msgstr "Análisis factorial:"
+
+# messages added to version 1.8-0
+msgid "Confirmatory Factor Analysis:"
+msgstr "Análisis confirmatorio factorial:"
+
+msgid "Plot Normal Density Function"
+msgstr "Gráfica de la función de densidad normal"
+
+msgid "Plot Chi-squared Density Function"
+msgstr "Gráfica de la función de densidad Chi-cuadrado"
+
+msgid "Plot F Density Function"
+msgstr "Gráfica de la función de densidad F"
+
+msgid "Plot t Density Function"
+msgstr "Gráfica de la función de densidad t"
+
+msgid "Plot Exponential Density Function"
+msgstr "Gráfica de la densidad exponencial"
+
+msgid "Plot Uniform Density Function"
+msgstr "Gráfica de la función de densidad uniforme"
+
+msgid "Plot Beta Density Function"
+msgstr "Gráfica de la función de densidad beta"
+
+msgid "Plot Cauchy Density Function"
+msgstr "Gráfica de la función de densidad Cauchy"
+
+msgid "Plot Logistic Density Function"
+msgstr "Gráfica de la función de densidad logistica"
+
+msgid "Plot Lognormal Density Function"
+msgstr "Gráfica de la función de densidad log-normal"
+
+msgid "Plot Gamma Density Function"
+msgstr "Gráfica de la función de densidad gamma"
+
+msgid "Plot Weibull Density Function"
+msgstr "Gráfica de la función de densidad Weibull"
+
+msgid "Plot Gumbel Density Function"
+msgstr "Gráfica de la función de densidad Gumbel"
+
+msgid "Plot Normal Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución normal"
+
+msgid "Plot Chi-squared Cumulative Distribution Function"
+msgstr "Gráfica de la distribución Chi-cuadrado"
+
+msgid "Plot F Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución F"
+
+msgid "Plot t Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución t"
+
+msgid "Plot Exponential Cumulative Distribution Function"
+msgstr "Gráfica de la distribución exponencial"
+
+msgid "Plot Uniform Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución uniforme"
+
+msgid "Plot Beta Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución beta"
+
+msgid "Plot Cauchy Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución Cauchy"
+
+msgid "Plot Logistic Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución logistica"
+
+msgid "Plot Lognormal Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución log-normal"
+
+msgid "Plot Gamma Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución gamma"
+
+msgid "Plot Weibull Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución Weibull"
+
+msgid "Plot Gumbel Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución Gumbel"
+
+msgid "Plot Binomial Probability Mass Function"
+msgstr "Gráfica de la función de probabilidad binomial"
+
+msgid "Plot Poisson Probability Mass Function"
+msgstr "Gráfica de la función de probabilidad Poisson"
+
+msgid "Plot Geometric Probability Mass Function"
+msgstr "Gráfica de la función de probabilidad geométrica"
+
+msgid "Plot Hypergeometric Probability Mass Function"
+msgstr "Gráfica de la función de probabilidad hypergeométrica"
+
+msgid "Plot NegativeBinomial Probability Mass Function"
+msgstr "Gráfica de la función de probabilidad binomial negativa"
+
+msgid "Plot Binomial Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución binomial"
+
+msgid "Plot Poisson Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución Poisson"
+
+msgid "Plot Geometric Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución geométrica"
+
+msgid "Plot Hypergeometric Cumulative Distribution Function"
+msgstr "Gráfica de la función de distribución hipergeométrica"
+
+msgid "Plot NegativeBinomial Cumulative Distribution Function"
+msgstr "Gráfica de función de distribución binomial negativa"
+
+# the following is used for the template main title of R Markdown and knitr documents
+msgid "Replace with Main Title"
+msgstr "Reemplazar con el título principal"
+
+# the following instructions to the user appear as comments in the body of the R Markdown document
+msgid "include this code chunk as-is to set options"
+msgstr ""
+"incluya este fragmento de código literalmente para especificar las opciones"
+
+msgid ""
+"You can edit this R Markdown document, for example to explain what you're\n"
+"doing and to draw conclusions from your data analysis."
+msgstr ""
+"Puede editar este documento R Markdown, por ejemplo, para explicar lo que "
+"está\n"
+"haciendo y sacar conclusiones de su análisis de datos."
+
+msgid ""
+"Auto-generated section titles, typically preceded by ###, can also be edited."
+msgstr ""
+"Los títulos de sección generados automáticamente, normalmente precedidos por "
+"###, también se pueden editar."
+
+msgid ""
+"It's generally not a good idea to edit the R code that the R Commander "
+"writes, \n"
+"but you can freely edit between (not within) R \"code blocks.\" Each R code\n"
+"block starts with ```{r} and ends with ```."
+msgstr ""
+"Por lo general, no es una buena idea editar el código R que genera R "
+"Commander, \n"
+"pero puede editar libremente fuera de los bloques de código de R. Cada "
+"bloque de código R\n"
+"comienza con ```{r} y termina con ```."

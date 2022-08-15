@@ -23,7 +23,7 @@
 and updated from Fox (2005). Please address correspondence to
 \texttt{jfox@mcmaster.ca}. }}
 \author{John Fox}
-\date{Version 2.7-0 (last modified: 2020-08-10)}
+\date{Version 2.8-0 (last modified: 2022-07-10)}
 \maketitle
 
 \section{Introduction}
@@ -52,17 +52,17 @@ packages, and many such plug-ins are now available on CRAN (see Section
 
 This document directly describes the use of the \textbf{R Commander} under the
 \textbf{Windows} version of \textbf{R}. There are small differences in the
-appearance and use of the \textbf{R Commander} under \textbf{Mac OS X} and on
+appearance and use of the \textbf{R Commander} under \textbf{macOS} and on
 \textbf{Linux} and \textbf{Unix} systems. Information about installing the
 \textbf{R Commander} on these platforms is available by following the link to
 the installation notes at the \textbf{R Commander} web page
 <\href{https://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/index.html}{socserv.socsci.mcmaster.ca/jfox/Misc /Rcmdr/index.html}> or at
 <\href{https://tinyurl.com/Rcmdr}{tinyurl.com/Rcmdr}>.
 
-We use the following typographical conventions in this document: Names of
+I use the following typographical conventions in this document: Names of
 software, such as \textbf{Windows}, \textbf{R}, the \textbf{Rcmdr} package,
 and the \textbf{R Commander}, are set in \textbf{boldface} type. The names of
-GUI elements such as menus, menu \ items, windows, and dialog boxes, are set
+GUI elements such as menus, menu items, windows, and dialog boxes, are set
 in \emph{italic} type. Variable names, names of data sets, and \textbf{R}
 commands are set in a \texttt{typewriter font}.
 
@@ -103,7 +103,7 @@ the Comprehensive R Archive Network (CRAN) at
 <\href{https://cran.r-project.org/}{https://cran.r-project.org/}>.
 \par
 If these packages are not installed, the \textbf{R Commander} will offer to
-install them from the Internet or from local files (e.g., on a CD/ROM or USB flash drive). If you
+install them from the internet or from local files (e.g., on a CD/ROM or USB flash drive). If you
 install the \textbf{Rcmdr} package via the \textbf{Windows} \textquotedblleft
 R GUI,\textquotedblright\ not all of the packages on which the \textbf{Rcmdr}
 package depends will be installed. You can install the \textbf{Rcmdr} package
@@ -117,7 +117,7 @@ command \texttt{\$ apt-get install r-cran-rcmdr} to install the \textbf{Rcmdr}
 package along with all of the packages that it requires. In any event,
 building and installing the \textbf{Rcmdr} package on \textbf{Linux} systems
 is typically straightforward. The task is a little more complicated under
-\textbf{Mac OS X}, since the \textbf{tcltk} package on which the
+\textbf{macOS}, since the \textbf{tcltk} package on which the
 \textbf{Rcmdr} depends requires that \textbf{X-Windows }be installed --- see
 the \textbf{R Commander} installation notes.}%
 
@@ -215,7 +215,7 @@ Commander} dialog box has a \emph{Help} button (see below).
 \end{description}
 
 The complete menu \textquotedblleft tree\textquotedblright\ for the \textbf{R
-Commander} (version 2.7-0) is shown below. Most menu items lead to dialog
+Commander} (version 2.8-0) is shown below. Most menu items lead to dialog
 boxes, as illustrated later in this manual, and, as is conventional, such menu items are followed by \texttt{...}. 
 Menu items are inactive
 (\textquotedblleft grayed out\textquotedblright) if they are inapplicable to
@@ -253,10 +253,12 @@ gt <- function(x) {
  |- \Sexpr{gt('Exit')} 
  | |- \Sexpr{gt('From Commander')}
  | |- \Sexpr{gt('From Commander and R')}
+ | |- \Sexpr{gt('Restart the Commander')}
 \Sexpr{gt('Edit')} 
  |- \Sexpr{gt('Edit R Markdown document')}
  |- \Sexpr{gt('Edit knitr document')}
  |- \Sexpr{gt('Remove last Markdown command block')}
+ |- \Sexpr{gt('Remove last Markdown section title')}
  |- \Sexpr{gt('Remove last knitr command block')}
  |- \Sexpr{gt('Cut')}
  |- \Sexpr{gt('Copy')}
@@ -292,6 +294,7 @@ gt <- function(x) {
  | |- \Sexpr{gm('Subset active data set')}
  | |- \Sexpr{gm('Sort active data set')}
  | |- \Sexpr{gm('Aggregate variables in active data set')}
+ | |- \Sexpr{gm('Select row(s) from active data set')}
  | |- \Sexpr{gm('Remove row(s) from active data set')}
  | |- \Sexpr{gm('Stack variables in active data set')}
  | |- \Sexpr{gm('Remove cases with missing data')}
@@ -323,6 +326,7 @@ gt <- function(x) {
  | |- \Sexpr{gm('Correlation matrix')}
  | |- \Sexpr{gm('Correlation test')}
  | |- \Sexpr{gm('Test of normality')}
+ | |- \Sexpr{gm('Transform toward normality')}
  |-\Sexpr{gt('Contingency tables')} 
  | |- \Sexpr{gm('Two-way table')}
  | |- \Sexpr{gm('Multi-way table')}
@@ -420,7 +424,9 @@ gt <- function(x) {
  | |- \Sexpr{gt('Basic diagnostic plots')}
  | |- \Sexpr{gm('Residual quantile-comparison plot')}
  | |- \Sexpr{gm('Component+residual plots')}
+ | |- \Sexpr{gm('3D component+residual plot')}
  | |- \Sexpr{gm('Added-variable plots')}
+ | |- \Sexpr{gm('3D added-variable plot')}
  | |- \Sexpr{gm('Influence plot')}
  | |- \Sexpr{gm('Influence index plot')} 
  | |- \Sexpr{gm('Effect plots')}
@@ -575,7 +581,7 @@ details.}
 
 \item A flat button indicates the name of the active statistical model --- a
 linear model (such as a linear-regression model), a generalized linear model,
-a multinomial logit model, or an ordinal regression model.\footnote{\textbf{R
+a multinomial logit model,  an ordinal regression model, or a linear or generalized linear mixed-effects model.\footnote{\textbf{R
 Commander} plug-in packages (\citealp{Fox17}; \citealp{Fox07}; \citealp{FoxCarvalho12}) may provide
 additional classes of models.} Initially there is no active model. If there is
 more than one model in memory associated with the active data set, you can
@@ -590,7 +596,7 @@ tab, a large scrollable text window. As mentioned, commands generated by the
 Pressing the \emph{Submit} button, which is at the right below the
 \emph{Script} tab (or, alternatively, the key combination \emph{Ctrl-r}%
 ,\footnote{That is, hold down the \emph{Ctrl} (or \emph{Control}) key and
-simultaneously press the \emph{r} key. On \textbf{Mac OS X} you can usually substitute
+simultaneously press the \emph{r} key. On \textbf{macOS} you can usually substitute
 the \emph{Command} key for the \emph{Control} key, both here and more generally,
 but \emph{Control} key combinations can be used as well.} for \textquotedblleft
 run,\textquotedblright\ or\emph{\ Ctrl-Tab}), causes the line containing the
@@ -619,7 +625,7 @@ resized or maximized in the normal manner. If you resize the \textbf{R
 Commander}, the width of subsequent \textbf{R} output is automatically
 adjusted to fit the \emph{Output} pane.
 
-The \textbf{R Commander} is highly configurable: We have described the default
+The \textbf{R Commander} is highly configurable: I have described the default
 configuration here. Changes to the configuration can be made via the
 \emph{Tools }$\longrightarrow$\emph{\ Options\ldots}\ menu, or --- more
 extensively --- by setting \textbf{R Commander }options in \textbf{R}%
@@ -646,7 +652,7 @@ via \emph{Data }$\longrightarrow$\emph{\ New data set...}. This is a
 reasonable choice only for a very small data set.
 
 \item You can import data from a plain-text (\textquotedblleft
-ascii\textquotedblright) file or the clipboard, over the Internet from a URL,
+ascii\textquotedblright) file or the clipboard, over the internet from a URL,
 from another statistical package (\textbf{Minitab}, \textbf{SPSS},
 \textbf{SAS}, or \textbf{Stata}), or from an \textbf{Excel} spreadsheet.
 
@@ -689,7 +695,7 @@ and \texttt{region}.
 country. The data values are separated by \textquotedblleft white
 space\textquotedblright\ --- one or more blanks or tabs. Although it is
 helpful to make the data values line up vertically, it is not necessary to do
-so. Notice that the data lines begin with the country names. Because we want
+so. Notice that the data lines begin with the country names. Because I want
 these to be the \textquotedblleft row names\textquotedblright\ for the data
 set, there is no corresponding variable name: That is, there are five variable
 names but six data values on each line, the first of which is alphabetic. When
@@ -698,7 +704,7 @@ first value on each line as the row name.
 
 \item Some of the data values are missing. In \textbf{R}, it is most
 convenient to use \texttt{NA} (representing \textquotedblleft not
-available\textquotedblright) to encode missing data, as we have done here.
+available\textquotedblright) to encode missing data, as I have done here.
 
 \item The variables \texttt{TFR}, \texttt{contraception},
 \texttt{infant.mortality}, and \texttt{GDP} are numeric (quantitative)
@@ -707,14 +713,14 @@ are read, \textbf{R} will treat \texttt{region} as a \textquotedblleft
 factor\textquotedblright\ --- that is, as a categorical variable. In most
 contexts, the \textbf{R Commander} distinguishes between numerical variables
 and factors, and will try to prevent you from doing unreasonable things, such
-as computing the mean of a factor.
+as computing the mean of a factor.\footnote{Character varaibles, whose values are character strings, and logical variables, whose values are \texttt{TRUE} or \texttt{FALSE} are treated as factors by the \textbf{R Commander}.}
 \end{itemize}
 
 To read the \texttt{Nations.txt} data file into \textbf{R}, select \emph{Data
 }$\longrightarrow$\emph{\ Import data }$\longrightarrow$\emph{\ from text
 file, clipboard, or URL...} from the \emph{R Commander} menus. This operation
 brings up a \emph{Read Text Data} dialog, as shown in Figure \ref{fig-2}. The
-default name of the data set is \texttt{Dataset}. We have changed the name to
+default name of the data set is \texttt{Dataset}. I have changed the name to
 \texttt{Nations}.
 
 \begin{figure}[ptb]%
@@ -749,7 +755,7 @@ case-sensitive, and so, for example, \texttt{nations}, \texttt{Nations}, and
 data sets.
 
 Clicking the \emph{OK} button in the \emph{Read Text Data} dialog brings up an
-\emph{Open }file dialog, shown in Figure \ref{fig-2b}. Here we navigated to
+\emph{Open }file dialog, shown in Figure \ref{fig-2b}. Here I navigated to
 and selected the file \texttt{Nations.txt}. Clicking the \emph{Open} button in
 the dialog causes the data file to be read. Once the data file is read, it
 becomes the active data set in the \textbf{R Commander}. As a consequence, in
@@ -759,7 +765,7 @@ near the top left of the \emph{R Commander} window. The command to read the
 \emph{Output} pane. As well, when the data set is read and becomes the active
 data set, a note appears in the \emph{Messages} pane.
 
-We next clicked the \emph{View data set} button to bring up the data viewer
+I next clicked the \emph{View data set} button to bring up the data viewer
 window, also shown in Figure \ref{fig-3}. 
 
 \begin{figure}[ptb]%
@@ -782,7 +788,7 @@ Commander} are \textbf{R} data frames.
 
 You can enter data directly into the
 \textbf{R Commander} basic spreadsheet-like data editor. A simple
-alternative, which we in fact prefer, is to save the data in a plain-text file
+alternative, which I in fact prefer, is to save the data in a plain-text file
 (be careful, if you create the data file with a word processor, to save it as
 a plain-text or \textquotedblleft ascii\textquotedblright\ file), typically
 with file type \texttt{.txt}, and then to read the file as in the preceding
@@ -794,7 +800,7 @@ and read the file into the R Commander, being careful to specify the
 field separator as a comma. Recall that you can also
 read an \textbf{Excel} spreadsheet directly.
 
-As an example of direct data input, we use a very small data set from Problem
+As an example of direct data input, I use a very small data set from Problem
 2.44 in \citet{Moore00}:
 
 \begin{itemize}
@@ -852,7 +858,7 @@ package}.\footnote{Not all data in packages are data frames but only data
 frames are suitable for use in the \textbf{R Commander}. If you attempt to read
 data that are not in a data frame, the \textbf{R Commander} will try to change them
 into a data frame, printing a warning message if it's successful and an error message if it's not.} 
-The resulting dialog box is shown in Figure \ref{fig-6-5}. If you
+The resulting dialog box is shown in Figure \ref{fig-6-5}.\footnote{The example shows data sets, including \texttt{Prestige}, residing in the \textbf{car} package; these data sets currently reside in the \textbf{carData} package, which is loaded along with the \textbf{car} package when the \textbf{R Commander} starts up.} If you
 know the name of a data set in a package then you can enter its name directly;
 otherwise double-clicking on the name of a package displays its data sets in
 the right list box; and double-clicking on a data set name copies the name to
@@ -881,12 +887,12 @@ width=2.6833in
 \section{Creating Numerical Summaries and Graphs}
 
 Once there is an active data set, you can use the \textbf{R Commander} menus
-to produce a variety of numerical summaries and graphs. We will describe just
+to produce a variety of numerical summaries and graphs. I will describe just
 a few basic examples here. A good GUI should be largely self-explanatory. If
 you prefer a more extensive introduction to the \textbf{R Commander}, see
 \citet{Fox17}.
 
-In the initial examples below, we assume that the active data set is the
+In the initial examples below, I assume that the active data set is the
 \texttt{Nations} data set, read from a text file in the previous section. If
 you typed in the five-observation data set from Moore (2000), or read in the
 \texttt{Prestige}\ data set from the \textbf{car} package --- operations that
@@ -902,11 +908,11 @@ $\longrightarrow$\emph{\ Active data set} produces the results shown in Figure
 \texttt{contraception}, \texttt{infant.mortality}, and \texttt{GDP}),
 \textbf{R} reports the minimum and maximum values, the first and third
 quartiles, the median, and the mean, along with the number of missing values.
-For the categorical variable \texttt{region}, we get the number of
+For the categorical variable \texttt{region}, I get the number of
 observations at each \textquotedblleft level\textquotedblright\ of the factor.
 Had the data set included more than ten variables, the \textbf{R Commander}
-would have asked us whether we really want to proceed --- potentially
-protecting us from producing unwanted voluminous output. This menu item is
+would have asked me whether I really want to proceed --- potentially
+protecting me from producing unwanted voluminous output. This menu item is
 unusual in that it directly invokes an \textbf{R} command rather than leading
 to a dialog box, as is more typical of \textbf{R Commander} menus.%
 
@@ -937,7 +943,7 @@ For example, selecting \emph{Statistics }$\longrightarrow$\emph{\ Summaries
 Figure \ref{fig-8}. Only numerical variables appear in the variable list in
 this dialog; the factor \texttt{region} is excluded because it is not sensible
 to compute numerical summaries like the mean and standard deviation for a
-factor. We selected the variable \texttt{infant.mortality} by left-clicking on
+factor. I selected the variable \texttt{infant.mortality} by left-clicking on
 it.\footnote{To select a single variable in a variable-list box, simply
 left-click on its name. In some contexts, you will have to (or want to) select
 more than one variable. In these cases, the usual \textbf{Windows} conventions
@@ -946,7 +952,7 @@ that have previously been selected; \emph{Shift-left-click} extends the
 selection; and \emph{Ctrl-left-click} toggles the selection for an individual
 variable.} The \emph{Numerical Summaries} dialog box has two tabs: \emph{Data}
 and \emph{Statistics}. Click on the \emph{Statistics} tab to select it, as
-shown in Figure \ref{fig-8a}. In this case, We'll take all of the default
+shown in Figure \ref{fig-8a}. In this case, I'll take all of the default
 statistics selections. Clicking \emph{OK}, produces the following output (in
 the \emph{Output} pane):
 \begin{verbatim}
@@ -979,7 +985,7 @@ As is typical of \textbf{R Commander} dialogs, the \emph{Numerical Summaries}
 dialog box in Figure \ref{fig-8} includes \emph{Help}, \emph{Reset},
 \emph{OK}, \emph{Cancel}, and \emph{Apply} buttons.\footnote{The order of the
 buttons varies according to the operating system, and is different, for
-example, in \textbf{Mac OS X} than in \textbf{Windows}.} The \emph{Help}
+example, in \textbf{macOS} than in \textbf{Windows}.} The \emph{Help}
 button leads to a help page (which appears in your web browser) either for the
 dialog itself or (as here) for an \textbf{R} function that the dialog invokes.
 The \emph{Reset} button, which is present in most \textbf{R Commander}
@@ -1023,7 +1029,7 @@ summaries within groups defined by the levels of a factor. Clicking on the
 one factor in the \texttt{Nations} data set, only the variable \texttt{region}
 appears in the variable list, and it is pre-selected; clicking \emph{OK}
 changes the \emph{Summarize by groups...} button to \emph{Summarize by region}
-(see Figure \ref{fig-8-2}). In this case, we have selected two numerical
+(see Figure \ref{fig-8-2}). In this case, I have selected two numerical
 variables to summarize, \texttt{GDP} and \texttt{infant.mortality}. Clicking
 \emph{OK} produces the following results in the \emph{Output} pane:
 \begin{verbatim}
@@ -1054,7 +1060,7 @@ Making graphs with the \textbf{R Commander} is also straightforward. For
 example, selecting \emph{Graphs }$\longrightarrow$\emph{\ Histogram... }from
 the \textbf{R Commander} menus produces the \emph{Histogram} dialog box in
 Figure \ref{fig-9}. There are \emph{Data} and \emph{Options} tabs in this
-dialog. We'll take all the default options (the \emph{Options} tab isn't
+dialog. I'll take all the default options (the \emph{Options} tab isn't
 shown), and clicking on \texttt{infant.mortality} followed by \emph{OK}, opens
 a \emph{Graphics Device} window with the histogram shown in Figure
 \ref{fig-10}. If you make several graphs in a session, then only the most
@@ -1062,8 +1068,8 @@ recent normally appears in the \emph{Graphics Device} window.\footnote{On
 \textbf{Windows}, you can recall previous graphs using the \emph{Page Up} and
 \emph{Page Down} keys on your keyboard if you first turn on the graph history
 feature of the \textbf{Windows R} graphics device, via History
-$\longrightarrow$ Recording. This feature is available only on
-\textbf{Windows} systems. Dynamic three-dimensional scatterplots created by
+$\longrightarrow$ Recording. In
+\textbf{macOS}, the left and right arrows may be used to scroll through graphs. Dynamic three-dimensional graphs, created, for example, by
 \emph{Graphs }$\longrightarrow$\emph{\ 3D graph }$\longrightarrow$\ \emph{3D
 scatterplot...} appear in a special \emph{RGL device} window.}%
 
@@ -1095,10 +1101,10 @@ the \texttt{Nations} data set.}%
 Several kinds of statistical models can be fit\ in the \textbf{R Commander}
 using menu items under \emph{Statistics }$\longrightarrow$\emph{\ Fit models}:
 linear models (by both \emph{Linear regression} and \emph{Linear model}),
-generalized linear models, multinomial logit models, and ordinal regression
+generalized linear models, multinomial logit models, ordinal regression
 models such as the proportional-odds model [the latter two from Venables and
 Ripley's \textbf{nnet} and \textbf{MASS} packages,
-respectively \citep{VenablesRipley02}]. Although the resulting dialog boxes
+respectively \citep{VenablesRipley02}], and linear and generalized linear models [using the \textbf{lme4} package \citep{BatesMachlerBolker15}]. Although the resulting dialog boxes
 differ in certain details (for example, the generalized linear model dialog
 makes provision for selecting a distributional family and corresponding link
 function), they share a common general structure, as illustrated in the
@@ -1107,7 +1113,7 @@ the \emph{Linear Regression} dialog in which the response variable and
 explanatory variables are simply selected by name from list boxes containing
 the numeric variables in the current data set.} Before selecting
 \emph{Statistics} $\longrightarrow$\ \emph{Fit models} $\longrightarrow$
-\emph{Linear Model}, we made \texttt{Prestige} the active data set by clicking
+\emph{Linear Model}, I made \texttt{Prestige} the active data set by clicking
 on the active data set button and selecting \texttt{Prestige} from the
 resulting list. Recall that the \texttt{Prestige} data were read from the
 \textbf{car} package in Section \ref{sec-data-in-packages}.%
@@ -1148,7 +1154,7 @@ spin-boxes to the right of the buttons (defaulting to 5 df and degree 2, respect
 
 \item You can also type directly into the formula fields, and indeed may have
 to do so, for example, to put a term such as \texttt{log(income)} into the
-formula, as we've done here. Some information on \textbf{R} model formulas may
+formula, as I've done here. Some information on \textbf{R} model formulas may
 be obtained by pressing the \emph{Model formula help} button in the
 linear-model dialog.
 
@@ -1162,6 +1168,8 @@ observations in the data set. One form of subset expression is a logical
 expression that evaluates to \texttt{TRUE} or \texttt{FALSE} for each
 observation, such as \texttt{type != "prof"} (which would select all
 non-professional occupations from the \texttt{Prestige} data set).
+
+\item In version 2.8-0 of the \textbf{R Commander} (or later), there's also a text box into which you can type the names or numbers of cases (rows) to be omitted from the fitted model. (This box isn't shown in Figure~\ref{fig-10-5}.)
 
 \item Optionally selecting a weight variable in the \emph{Weights} drop-down
 list produces a weighted-least-squares (WLS) regression.
@@ -1236,13 +1244,13 @@ it into a PDF file. This option requires a \textbf{LaTeX} installation, and is
 activated by setting the \textbf{Rcmdr} option \texttt{use.knitr} to
 \texttt{TRUE}. see \emph{Help} $\longrightarrow$ \emph{Commander help} and
 \emph{Tools} $\longrightarrow$ \emph{Options}.} Figure \ref{fig-11} shows
-the\emph{\ R Markdown} tab for the current session, which we've scrolled to
+the\emph{\ R Markdown} tab for the current session, which I've scrolled to
 the top of the generated document. As its name implies, \textbf{R Markdown} is
 a simple markup language, which includes blocks of \textbf{R} commands, and
 can be used to generate HTML (i.e., web) pages or other types of documents. For more information about
 \textbf{R Markdown}, select \emph{Help} $\longrightarrow$\ \emph{Using R
 Markdown} from the \textbf{R Commander} menus.\footnote{This and some other
-items in the \emph{Help} menu require an active Internet connection.}%
+items in the \emph{Help} menu require an active internet connection.}%
 
 \begin{figure}[ptb]%
 \centering
@@ -1287,7 +1295,7 @@ Markdown} document produced for the current session:
 \begin{verbatim}
 ---
 title: "Replace with Main Title"
-author: "Your Name"
+author: "John Fox"
 date: "`r Sys.Date()`"  # Uses current date
 ---
 
@@ -1325,12 +1333,14 @@ data(Prestige, package="car")
 Let us regress occupational prestige on the education and income levels of the occupations,
 transforming income to linearize its relationship to prestige:
 
+### Linear Model: LinearModel.1: prestige ~ (education + log(income))*type
 ```{r}
 LinearModel.1 <- lm(prestige ~ (education + log(income))*type,
   data=Prestige)
 summary(LinearModel.1)
 ```
 
+### Analysis of Variance: LinearModel.1
 ```{r}
 Anova(LinearModel.1, type="II")
 ```
@@ -1338,8 +1348,7 @@ Anova(LinearModel.1, type="II")
 \end{verbatim}
 
 \noindent It is probably unnecessary to explain that you would normally
-replace \textquotedblleft\texttt{Your\ Name}\textquotedblright\ with your
-name, and replace \textquotedblleft\texttt{Replace\ with\ Main\ Title}%
+replace \textquotedblleft\texttt{Replace\ with\ Main\ Title}%
 \textquotedblright\ with the title of the report that you want to create.
 Perhaps less obviously, you can type arbitrary explanatory text before the
 first command block, \emph{in between} \textbf{R} code blocks --- that is,
@@ -1347,9 +1356,11 @@ between the terminating \verb|```| of one block and starting \verb|```{r}|
 of the next --- and after the last command block. You can take advantage of
 the simple markup provided by \textbf{R Markdown}; for example, text enclosed
 in asterisks (e.g., \texttt{*this is important*}) will be set in
-\textit{italic} type. To illustrate, we added the text \textquotedblleft%
+\textit{italic} type. To illustrate, I added the text \textquotedblleft%
 \texttt{Let us regress occupational prestige ...} \textquotedblright%
 \ immediately before the \textbf{R} command block performing the regression.
+
+The \textbf{R Markdown} document also includes automatically generated section headings for some \textbf{R} command blocks. These are preceded by three hashmarks (\texttt{\#\#\#}), which indicate a level-3 heading. When the \textbf{R Markdown} documented is converted into a report (see immediately below), the headers appear not only in the text but in an automatically generated index. You can edit these headings to customize them, and you can also add your own headings, using, for example, \texttt{\#} for a level-1 heading and \texttt{\#\#} for a level-2 heading.
 
 Once you have finished editing the \textbf{R Markdown} document, you can
 generate a report from it in the form of an HTML document (web page), \textbf{Word} document,
@@ -1387,7 +1398,7 @@ height=5.3873in,
 width=5.1374in
 ]%
 {fig-12.jpg}%
-\caption{The \textbf{R Markdown} document editor.}%
+\caption{The \textbf{R Markdown} document editor. (Note: This image of the editor was created in an earlier version of the \textbf{R Commander}, which didn't automatically generate level-3 section headings for commands.)}%
 \label{fig-12}%
 \end{figure}
 
@@ -1446,7 +1457,7 @@ less as in any editor. The \textbf{R Commander} does not provide a true
 \emph{Script} tab has some limitations. For example, all lines of a multiline
 command must be submitted simultaneously for execution. For serious \textbf{R}
 programming, it is preferable to use the script editors provided by the
-\textbf{Windows} and \textbf{Mac OS X} versions of \textbf{R}, or --- even
+\textbf{Windows} and \textbf{macOS} versions of \textbf{R}, or --- even
 better --- a programming editor or interactive development environment, such
 as \textbf{RStudio} <\href{https://www.rstudio.com/}{www.rstudio.com}>.\footnote{
 The \textbf{R Commander} will run under \textbf{RStudio}, in which
@@ -1479,7 +1490,7 @@ Script}, \emph{Output}, and \emph{R Markdow}n windows. Likewise, you can
 select \emph{File }$\longrightarrow$\emph{\ Exit} from the \emph{R Console};
 in this case, you will be asked whether you want to save the \textbf{R}
 workspace (i.e., the data that \textbf{R} keeps in memory); you would normally
-answer \emph{No}.
+answer \emph{No}: Saving the \textbf{R} workspace will likely create problems in subsequent sessions.
 
 \bibliography{Rcmdr-Manual}
 

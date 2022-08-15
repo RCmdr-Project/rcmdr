@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2022-06-08 by John Fox
+# last modified 2022-07-13 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -31,9 +31,19 @@ Commander <- function(){
     
     processModelCapabilities(Plugins)
     
+    processOperations(Plugins)
+    
     Menus <- processMenus(Plugins)
     
     setupGUI(Menus)
+    
+    openGraphicsDevices()
+    
+    # optionally open Markdown editor
+    
+    if (getRcmdr("open.markdown.editor") && getRcmdr("use.markdown")){
+      editMarkdown()
+    }
     
     # keep start-up warnings out of Rcmdr log
     messages.connection <- file(open="w+")
@@ -95,7 +105,10 @@ setupRcmdrOptions <- function(DESCRIPTION){
                                     grep("^Version:", DESCRIPTION, value=TRUE)))
     putRcmdr("RcmdrVersion", RcmdrVersion)
     RVersion <- paste(R.Version()[c("major", "minor")], collapse=".")
+    RVersionStatus <- R.Version()$status
     putRcmdr("RVersion", RVersion)
+    putRcmdr("RVersionStatus", RVersionStatus)
+    putRcmdr("UserName", getUserName())
     putRcmdr(".activeDataSet", NULL)
     putRcmdr(".activeModel", NULL)
     putRcmdr("nrow", NULL)
@@ -128,6 +141,16 @@ setupRcmdrOptions <- function(DESCRIPTION){
     setOption("log.commands", TRUE)
     setOption("use.knitr", FALSE)
     setOption("use.markdown", !getRcmdr("use.knitr"))
+    setOption("open.markdown.editor", FALSE)
+    setOption("rmarkdown.output", TRUE)
+    rmo.defaults <- list(
+      command.sections = TRUE, section.level=3, toc=TRUE, toc_float=TRUE, toc_depth=3, 
+      number_sections=FALSE, translate.rmd.headers=TRUE
+    )
+    rmo.options <- applyDefaultValues(getRcmdr("rmarkdown.output"), rmo.defaults)
+    putRcmdr("command.sections", rmo.options$command.sections)
+    putRcmdr("section.level", paste(rep("#", rmo.options$section.level), collapse=""))
+    putRcmdr("translate.rmd.headers", rmo.options$translate.rmd.headers)
     if ((!packageAvailable("markdown") && !packageAvailable("rmarkdown")) || (!packageAvailable("knitr"))) 
         putRcmdr("use.markdown", FALSE)
     if (!packageAvailable("knitr") || !getRcmdr("capabilities")$pdflatex) putRcmdr("use.knitr", FALSE)
@@ -139,6 +162,9 @@ setupRcmdrOptions <- function(DESCRIPTION){
     setOption("RStudio", RStudioP())
     setOption("console.output", getRcmdr("RStudio"))
     setOption("retain.selections", TRUE)
+    
+    setOption("open.graphics.devices", FALSE)
+    
     putRcmdr("dialog.values", list())
     putRcmdr("dialog.values.noreset", list())
     putRcmdr("savedTable", NULL)
@@ -148,7 +174,9 @@ setupRcmdrOptions <- function(DESCRIPTION){
                                             if (getRcmdr("console.output")) 0
                                             else if ((as.numeric(log.height) != 0) || (!getRcmdr("log.commands"))) 2*as.numeric(log.height)
                                             else 20))
-    messages.height <- as.character(setOption("messages.height", 3))
+    messages.height <- as.character(setOption("messages.height", 4))
+    setOption("minimum.width", 1000)
+    setOption("minimum.height", 400)
     putRcmdr("saveOptions", options(warn=1, contrasts=getRcmdr("default.contrasts"), width=as.numeric(log.width),
                                     na.action="na.exclude", graphics.record=TRUE))
     setOption("ask.to.exit", TRUE)
@@ -183,6 +211,8 @@ setupRcmdrOptions <- function(DESCRIPTION){
                                  "Period", "hms", "difftime"))
     setOption("discreteness.threshold", 0)
     
+    setOption("model.case.deletion", TRUE)
+    
     putRcmdr("open.showData.windows", list())
 }
 
@@ -213,6 +243,12 @@ createIcons <- function(){
     tkimage.create("photo", "::image::redoIcon", file = system.file("etc", "redo.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::undoIcon", file = system.file("etc", "undo.gif", package="Rcmdr"))
     tkimage.create("photo", "::image::saveEditsIcon", file = system.file("etc", "save-edits.gif", package="Rcmdr"))
+    
+    tkimage.create("photo", "::image::infoIcon", file = system.file("etc", "info.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::warningIcon", file = system.file("etc", "warning.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::errorIcon", file = system.file("etc", "error.gif", package="Rcmdr"))
+    tkimage.create("photo", "::image::questionIcon", file = system.file("etc", "question.gif", package="Rcmdr"))
+
 }
 
 setupFonts <- function(){
@@ -291,10 +327,12 @@ platformIssues <- function(){
         putRcmdr("oldPager", options(pager=RcmdrPager))
     }
     putRcmdr("restore.help_type", getOption("help_type"))
-    # setOption("help_type", "html")
-    if ((!WindowsP()) && getRcmdr("RVersion") == "4.2.0") setOption("help_type", "text") else setOption("help_type", "html")
+    if ((!WindowsP()) && getRcmdr("RVersion") == "4.2.0" && (getRcmdr("RVersionStatus") != "Patched")) {
+      setOption("help_type", "text")
+      } else {
+        setOption("help_type", "html")
+      }
     options(help_type=getRcmdr("help_type"))
-    #    putRcmdr("restore.use.external.help", FALSE)
     putRcmdr("restore.device", getOption("device"))
     if (RStudioP()){
         if (WindowsP()) options(device="windows")
@@ -356,7 +394,7 @@ processPlugins <- function(modelClasses){
         addRcmdrModels <- unlist(strsplit(addRcmdrModels, ","))
         if (length(addModels) > 0) modelClasses <- c(modelClasses, addModels)
         if (length(addRcmdrModels) > 0) modelClasses <- c(modelClasses, addRcmdrModels)
-    }
+        }
     putRcmdr("modelClasses", modelClasses)
     Plugins
 }
@@ -381,6 +419,24 @@ processModelCapabilities <- function(Plugins){
     modelCapabilitiesClasses <- rownames(modelCapabilities)
     modelClasses <- union(modelClasses, modelCapabilitiesClasses)
     putRcmdr("modelClasses", modelClasses)
+}
+
+processOperations <- function(Plugins){
+  Operations <- read.table(file.path(getRcmdr("etc"), "Rcmdr-operations.txt"),
+                           header=TRUE, stringsAsFactors=FALSE)
+  for (plugin in Plugins){
+    operations.file <- file.path(path.package(package=plugin)[1], "etc", "operations.txt")
+    if (file.exists(operations.file)){
+      operations <- read.table(operations.file, header=TRUE, stringsAsFactors=FALSE)
+      if (any(conflicts <- rownames(operations) %in% rownames(Operations))){
+        message(sprintf("The following Markdown section titles in %s\n  conflict with existing titles and were removed:\n  ",
+                        plugin), paste(rownames(operations)[conflicts], collapse=", "))
+        operations <- operations[!conflicts, ]
+      }
+      Operations <- rbind(Operations, operations)
+    }
+  }
+  putRcmdr("Operations", Operations)
 }
 
 
@@ -857,6 +913,7 @@ setupGUI <- function(Menus){
     if (getRcmdr("crisp.dialogs")) tclServiceMode(on=FALSE)
     putRcmdr("commanderWindow", tktoplevel(class="Rcommander"))
     .commander <- CommanderWindow()
+    tkwm.minsize(.commander, getRcmdr("minimum.width"), getRcmdr("minimum.height"))
     tcl("wm", "iconphoto", .commander, "-default", "::image::RlogoIcon")
     placement <- setOption("placement", "", global=FALSE)
     tkwm.geometry(.commander, placement)
@@ -943,8 +1000,26 @@ setupGUI <- function(Menus){
                               system.file("etc", if (getRcmdr("capabilities")$pandoc) "Rcmdr-RMarkdown-Template.Rmd"
                                           else "Rcmdr-Markdown-Template.Rmd", package="Rcmdr"))
     template <- paste(readLines(rmd.template), collapse="\n")
-    if (getRcmdr("use.rgl")) template <- paste0(template, 
-                                                "\n\n```{r echo=FALSE}\n# include this code chunk as-is to enable 3D graphs\nlibrary(rgl)\nknitr::knit_hooks$set(webgl = hook_webgl)\n```\n\n")
+    
+        # template customization and translation:
+    template <- sub("Your Name", getRcmdr("UserName"), template)
+    template <- sub("Replace with Main Title", 
+                    gettextRcmdr("Replace with Main Title"), template)
+    template <- sub("include this code chunk as-is to set options",
+                    gettextRcmdr("include this code chunk as-is to set options"),
+                    template)
+    template <- sub("You can edit this R Markdown document, for example to explain what you're\ndoing and to draw conclusions from your data analysis.",
+                    gettextRcmdr("You can edit this R Markdown document, for example to explain what you're\ndoing and to draw conclusions from your data analysis."),
+                    template)
+    template <- sub("Auto-generated section titles, typically preceded by ###, can also be edited.",
+                    gettextRcmdr("Auto-generated section titles, typically preceded by ###, can also be edited."),
+                    template)
+    template <- sub("It's generally not a good idea to edit the R code that the R Commander writes, \nbut you can freely edit between (not within) R \"code blocks.\" Each R code\nblock starts with ```{r} and ends with ```.",
+                    gettextRcmdr("It's generally not a good idea to edit the R code that the R Commander writes, \nbut you can freely edit between (not within) R \"code blocks.\" Each R code\nblock starts with ```{r} and ends with ```."),
+                    template, fixed = TRUE)
+    
+    # if (getRcmdr("use.rgl")) template <- paste0(template, 
+    #                                             "\n\n```{r echo=FALSE}\n# include this code chunk as-is to enable 3D graphs\nlibrary(rgl)\noptions(rgl.useNULL = TRUE)\n```\n\n")
     tkinsert(.rmd, "end", template)
     putRcmdr("markdown.output", FALSE)
     RmdXscroll <- ttkscrollbar(RmdFrame, orient="horizontal",
@@ -962,6 +1037,9 @@ setupGUI <- function(Menus){
     rnw.template <- setOption("rnw.template", 
                               system.file("etc", "Rcmdr-knitr-Template.Rnw", package="Rcmdr"))
     template <- paste(readLines(rnw.template), collapse="\n")
+    template <- sub("Your Name", getRcmdr("UserName"), template)
+    template <- sub("Replace with Main Title", 
+                    gettextRcmdr("Replace with Main Title"), template)
     tkinsert(.rnw, "end", template)
     putRcmdr("knitr.output", FALSE)
     RnwXscroll <- ttkscrollbar(RnwFrame, orient="horizontal",
@@ -1178,6 +1256,8 @@ setupGUI <- function(Menus){
         tkwait.variable(getRcmdr(".commander.done"))
     }
     Message(paste(gettextRcmdr("R Commander Version "), " ", getRcmdr("RcmdrVersion"), ": ", date(), sep=""))
+    Message(paste(gettextRcmdr("R Version"),  getRcmdr("RVersion"), getRcmdr("RVersionStatus")))
+    Message(paste(gettextRcmdr("Hello "), getRcmdr("UserName"), sep=""))
     if (.Platform$GUI == "Rgui"  && ismdi()) Message(gettextRcmdr(
         "The Windows version of the R Commander works best under\nRGui with the single-document interface (SDI); see ?Commander."),
         type="warning")
@@ -1229,6 +1309,12 @@ logger <- function(command, rmd=TRUE){
                         tkyview.moveto(.markdown.editor, 1)
                     }
                 }
+              if (getRcmdr("command.sections")){
+                command.name <- findCommandName(command)
+                if(!is.na(command.name)){
+                  insertRmdSection(command.name)
+                }
+              }
             }
             if (getRcmdr("use.knitr")){
                 if (getRcmdr("startNewKnitrCommandBlock")){
@@ -1550,5 +1636,16 @@ mergeCapabilities <- function(allCapabilities){
     all <- unique(unlist(capabilities))
     for (i in 1:length(allCapabilities)) allCapabilities[[i]][, setdiff(all, capabilities[[i]])] <- FALSE
     do.call(rbind, allCapabilities)
+}
+
+# optionally open graphics device(s)
+
+openGraphicsDevices <- function(){
+  if (!getRcmdr("open.graphics.devices")) return()
+  dev.new()
+  if (getRcmdr("use.rgl")) {
+    Library("rgl")
+    if (requireNamespace("rgl")) rgl::open3d()
+  }
 }
 

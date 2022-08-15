@@ -1,5 +1,5 @@
 %% the original of this file provided by Manuel Munoz Marquez
-%% last update: 2019-08-15 by J. Fox
+%% last update: 2022-07-10 for version 2.8-0 by J. Fox
 
 <<echo=F>>=
 library('Rcmdr')
@@ -26,10 +26,12 @@ gt <- function(x) {
  |- \Sexpr{gt('Exit')} 
  | |- \Sexpr{gt('From Commander')}
  | |- \Sexpr{gt('From Commander and R')}
+ | |- \Sexpr{gt('Restart the Commander')}
 \Sexpr{gt('Edit')} 
  |- \Sexpr{gt('Edit R Markdown document')}
  |- \Sexpr{gt('Edit knitr document')}
  |- \Sexpr{gt('Remove last Markdown command block')}
+ |- \Sexpr{gt('Remove last Markdown section title')}
  |- \Sexpr{gt('Remove last knitr command block')}
  |- \Sexpr{gt('Cut')}
  |- \Sexpr{gt('Copy')}
@@ -65,9 +67,13 @@ gt <- function(x) {
  | |- \Sexpr{gm('Subset active data set')}
  | |- \Sexpr{gm('Sort active data set')}
  | |- \Sexpr{gm('Aggregate variables in active data set')}
+ | |- \Sexpr{gm('Select row(s) from active data set')}
  | |- \Sexpr{gm('Remove row(s) from active data set')}
  | |- \Sexpr{gm('Stack variables in active data set')}
  | |- \Sexpr{gm('Remove cases with missing data')}
+ | |- \Sexpr{gm('Reshape data set from long to wide format')}
+ | |- \Sexpr{gm('Reshape data set from wide to long format')}
+ | |- \Sexpr{gm('Convert all character variables to factors')}
  | |- \Sexpr{gm('Save active data set')}
  | |- \Sexpr{gm('Export active data set')}
  |- \Sexpr{gt('Manage variables in active data set')} 
@@ -76,6 +82,7 @@ gt <- function(x) {
  | |- \Sexpr{gt('Add observation numbers to data set')}
  | |- \Sexpr{gm('Standardize variables')}
  | |- \Sexpr{gm('Convert numeric variables to factors')}
+ | |- \Sexpr{gm('Convert character variables to factors')}
  | |- \Sexpr{gm('Bin numeric variable')}
  | |- \Sexpr{gm('Reorder factor levels')}
  | |- \Sexpr{gm('Drop unused factor levels')}
@@ -103,6 +110,8 @@ gt <- function(x) {
  | |- \Sexpr{gm('Paired t-test')}
  | |- \Sexpr{gm('One-way ANOVA')}
  | |- \Sexpr{gm('Multi-way ANOVA')}
+ | |- \Sexpr{gm('One-factor repeated-measures ANOVA/ANCOVA')}
+ | |- \Sexpr{gm('Two-factor repeated-measures ANOVA/ANCOVA')}
  |- \Sexpr{gt('Proportions')} 
  | |- \Sexpr{gm('Single-sample proportion test')}
  | |- \Sexpr{gm('Two-sample proportions test')}
@@ -188,7 +197,9 @@ gt <- function(x) {
  | |- \Sexpr{gt('Basic diagnostic plots')}
  | |- \Sexpr{gm('Residual quantile-comparison plot')}
  | |- \Sexpr{gm('Component+residual plots')}
+ | |- \Sexpr{gm('3D component+residual plot')}
  | |- \Sexpr{gm('Added-variable plots')}
+ | |- \Sexpr{gm('3D added-variable plot')}
  | |- \Sexpr{gm('Influence plot')}
  | |- \Sexpr{gm('Influence index plot')} 
  | |- \Sexpr{gm('Effect plots')}

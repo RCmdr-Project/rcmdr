@@ -1,6 +1,6 @@
 # this code originally by Dan Putler, used with permission 
 
-# last modified 2019-05-15 by J. Fox
+# last modified 2022-06-30 by J. Fox
 
 
 listKmeansSolutions <- function(envir=.GlobalEnv, ...) {
@@ -98,6 +98,8 @@ kmeansClustering <- function () {
                          ", iter.max = ", iters, ", num.seeds = ", seeds, 
                          ")", sep = "")
         doItAndPrint(paste(".cluster <- ", command))
+        insertRmdSection(paste0(gettextRmdHeader("K-Means Clustering: "),
+                                paste(x, collapse = ", ")))
         if (clusterSummary == "1") {
             doItAndPrint(paste(".cluster$size # Cluster Sizes"))
             doItAndPrint(paste(".cluster$centers # Cluster Centroids"))
@@ -204,7 +206,7 @@ hierarchicalCluster <- function () {
 						initial.dendro = dendro, initial.tab = tab))
 		closeDialog()
 		varFormula <- paste(x, collapse = "+")
-		vars <- paste(x, collapse = ",", sep = "")
+		vars <- paste(x, collapse = ", ", sep = "")
 		.activeDataSet <- ActiveDataSet()
 		dset <- if (subset == gettextRcmdr("<all valid cases>")) 
 					.activeDataSet
@@ -246,6 +248,8 @@ hierarchicalCluster <- function () {
 							dset, "\"", ", sub=", "\"", "Method=", clusMethod, 
 							"; Distance=", distlab, "\"", ")", sep = ""))
 		}
+        insertRmdSection(paste0(gettextRmdHeader("Hiearchical Cluster Analysis: "),
+                                paste(vars, collapse = ", ")))
 		activateMenus()
 		tkfocus(CommanderWindow())
 	}

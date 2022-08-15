@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.7-0\n"
+"Project-Id-Version: Rcmdr 2.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2020-08-25 10:45:00\n"
+"POT-Creation-Date: 2022-08-11 09:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4344,7 +4344,7 @@ msgid "<no variable selected>"
 msgstr ""
 
 msgid "Weights"
-msgstr""
+msgstr ""
 
   # new effect-plots dialog
 
@@ -5415,4 +5415,459 @@ msgid "One Repeated-Measures Factor"
 msgstr ""
 
 msgid "Two Repeated-Measures Factors"
+msgstr ""
+
+
+# new messages for version 2.8-0
+
+  # new error message for boxplot dialog
+  
+msgid "You cannot plot by groups with more than one variable selected"
+msgstr ""
+
+  # additional message for the 3D scatterplot dialog
+  
+msgid "Number of automatic rotations"
+msgstr ""
+
+  # messages for new 3D component+residual and added-variable plot dialogs
+  
+msgid "3D Component+Residual Plot"
+msgstr ""
+
+msgid "3D Added-Variable Plot"
+msgstr ""
+
+msgid "Coefficients (pick two)"
+msgstr ""
+
+msgid "You must select 2 coefficients."
+msgstr ""
+
+    # for Rcmdr menus
+
+msgid "3D Component+residual plot..."
+msgstr ""
+
+msgid "3D added-variable plot..." 
+msgstr ""
+
+  # for startup message
+  
+msgid "Hello"
+msgstr ""
+
+  # for new optional case-deletion box in statistical model dialogs
+  
+msgid "Indices or names of row(s) to remove"
+msgstr ""
+  
+msgid "<use all valid cases>"
+msgstr ""
+
+msgid "bad row numbers:"
+msgstr ""
+
+msgid "bad row names:"
+msgstr ""
+
+msgid "You cannot specify both case removal and subset cases"
+msgstr ""
+
+msgid "Include case-deletion box in statistical model dialogs"
+msgstr ""
+
+  # rephrased message for case-selecction dialog in data menu
+  
+msgid "Indices or names of row(s) to select"
+msgstr ""
+
+  # new default message box titles
+  
+msgid "Information"
+msgstr ""
+
+msgid "Question"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+  # new menu item
+  
+msgid "Remove last Markdown section title"
+msgstr ""
+
+  # new message for processing plug-ins
+
+msgid "The following Markdown section titles in %s\n  conflict with existing titles and were removed:\n  "
+msgstr ""
+
+  # additional messages for RMarkdown document section headings
+  
+msgid "Bootstrap Confidence Intervals"
+msgstr ""
+
+msgid "Delta Method Confidence Intervals"
+msgstr ""
+
+msgid "Density Plot"
+msgstr ""
+
+msgid "Durbin-Watson Test"
+msgstr ""
+
+msgid "Generalized Linear Mixed-Effects Model"
+msgstr ""
+
+msgid "Linear Mixed-Effects Model"
+msgstr ""
+
+msgid "Multinomial Logistic Regression"
+msgstr ""
+
+msgid "Bonferroni Outlier Test"
+msgstr ""
+
+msgid "Partial Correlations"
+msgstr ""
+
+msgid "Repeated-Measures Plot"
+msgstr ""
+
+msgid "Transformation Boxplots for Symmetry"
+msgstr ""
+
+msgid "Independent-Samples t-Test"
+msgstr ""
+
+msgid "Variance-Inflation Factors"
+msgstr ""
+
+msgid "Wilcoxon Test"
+msgstr ""
+
+msgid "Conditioning Plot"
+msgstr ""
+
+msgid "Normal Cumulative Probabilities"
+msgstr ""
+
+msgid "t Cumulative Probabilities"
+msgstr ""
+
+msgid "Chi-Squared Cumulative Probabilities"
+msgstr ""
+
+msgid "F Cumulative Probabilities"
+msgstr ""
+
+msgid "Exponential Cumulative Probabilities"
+msgstr ""
+
+msgid "Uniform Cumulative Probabilities"
+msgstr ""
+
+msgid "Beta Cumulative Probabilities"
+msgstr ""
+
+msgid "Cauchy Cumulative Probabilities"
+msgstr ""
+
+msgid "Logistic Cumulative Probabilities"
+msgstr ""
+
+msgid "Log-Normal Cumulative Probabilities"
+msgstr ""
+
+msgid "Gamma Cumulative Probabilities"
+msgstr ""
+
+msgid "Weibull Cumulative Probabilities"
+msgstr ""
+
+msgid "Gumbel Cumulative Probabilities" 
+msgstr ""
+
+msgid "Binomial Cumulative Probabilities"
+msgstr ""
+
+msgid "Poisson Cumulative Probabilities"
+msgstr ""
+
+msgid "Geometric Cumulative Probabilities"
+msgstr ""
+
+msgid "Hypergeometric Cumulative Probabilities"
+msgstr ""
+
+msgid "Negative Binomial Cumulative Probabilities"
+msgstr ""
+
+msgid "Bartlett's Test:"
+msgstr ""
+
+msgid "Basic Model Plots:"
+msgstr ""
+
+msgid "Analysis of Variance:"
+msgstr ""
+
+msgid "Linear Hypothesis Test:"
+msgstr ""
+
+msgid "Subset Model Selection:"
+msgstr ""
+
+msgid "Effect Plots:"
+msgstr ""
+
+msgid "Predictor Effect Plots:"
+msgstr ""
+
+msgid "Transform Response Toward Normality:"
+msgstr ""
+
+msgid "Table of Binomial Probabilities"
+msgstr ""
+
+msgid "Table of Poisson Probabilities"
+msgstr ""
+
+msgid "Table of Geometric Probabilities"
+msgstr ""
+
+msgid "Table of Hypergeomtric Probabilities"
+msgstr ""
+
+msgid "Table of NegativeBinomial Probabilities"
+msgstr ""
+
+msgid "K-Means Clustering:"
+msgstr ""
+
+msgid "Hiearchical Cluster Analysis:"
+msgstr ""
+
+msgid "Paired Wilcoxon Test:"
+msgstr ""
+
+msgid "Friedman Rank Sum Test:"
+msgstr ""
+
+msgid "Single-Sample Wilcoxon Test:"
+msgstr ""
+
+msgid "Histogram:"
+msgstr ""
+
+msgid "Stem-and-Leaf Display:"
+msgstr ""
+
+msgid "Dot Plot:"
+msgstr ""
+
+msgid "Bar Plot:"
+msgstr ""
+
+msgid "Pie Chart:"
+msgstr ""
+
+msgid "Line Plot:"
+msgstr ""
+
+msgid "Quantile-Comparison Plot:"
+msgstr ""
+
+msgid "Plot of Means:"
+msgstr ""
+
+msgid "Discrete Distribution Plot:"
+msgstr ""
+
+msgid "Two-Way Contingency Table:"
+msgstr ""
+
+msgid "Multi-Way Contingency Table:"
+msgstr ""
+
+msgid "Single-Sample Proportion Test:"
+msgstr ""
+
+msgid "Two-Sample Proportions Test:"
+msgstr ""
+
+msgid "Paired t-Test:"
+msgstr ""
+
+msgid "Single-Sample t-Test:"
+msgstr ""
+
+      # in the following two messages, the "between" part of the model
+      # is inserted after the first = and the "within" part after the second =
+
+msgid "Repeated-Measures ANOVA: between ="
+msgstr ""
+
+msgid ", within = "
+msgstr ""
+
+msgid "Summarize Data Set:"
+msgstr ""
+
+msgid "Frequencies:"
+msgstr ""
+
+msgid "Table of Summary Statistics:"
+msgstr ""
+
+msgid "Correlation Test:"
+msgstr ""
+
+msgid "Count Missing Cases:"
+msgstr ""
+
+msgid "Transform Variables Toward Normality:"
+msgstr ""
+
+msgid "Scale Reliability:"
+msgstr ""
+
+msgid "Principal-Components Analysis:"
+msgstr ""
+
+msgid "Factor Analysis:"
+msgstr ""
+
+msgid "Confirmatory Factor Analysis:"
+msgstr ""
+
+msgid "Plot Normal Density Function"
+msgstr ""
+
+msgid "Plot Chi-squared Density Function"
+msgstr ""
+
+msgid "Plot F Density Function"
+msgstr ""
+
+msgid "Plot t Density Function"
+msgstr ""
+
+msgid "Plot Exponential Density Function"
+msgstr ""
+
+msgid "Plot Uniform Density Function"
+msgstr ""
+
+msgid "Plot Beta Density Function"
+msgstr ""
+
+msgid "Plot Cauchy Density Function"
+msgstr ""
+
+msgid "Plot Logistic Density Function"
+msgstr ""
+
+msgid "Plot Lognormal Density Function"
+msgstr ""
+
+msgid "Plot Gamma Density Function"
+msgstr ""
+
+msgid "Plot Weibull Density Function"
+msgstr ""
+
+msgid "Plot Gumbel Density Function"
+msgstr ""
+
+msgid "Plot Normal Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Chi-squared Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot F Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot t Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Exponential Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Uniform Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Beta Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Cauchy Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Logistic Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Lognormal Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Gamma Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Weibull Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Gumbel Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Binomial Probability Mass Function"
+msgstr ""
+
+msgid "Plot Poisson Probability Mass Function"
+msgstr ""
+
+msgid "Plot Geometric Probability Mass Function"
+msgstr ""
+
+msgid "Plot Hypergeometric Probability Mass Function"
+msgstr ""
+
+msgid "Plot NegativeBinomial Probability Mass Function"
+msgstr ""
+
+msgid "Plot Binomial Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Poisson Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Geometric Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot Hypergeometric Cumulative Distribution Function"
+msgstr ""
+
+msgid "Plot NegativeBinomial Cumulative Distribution Function"
+msgstr ""
+
+  # the following is used for the template main title of R Markdown and knitr documents
+  
+msgid "Replace with Main Title"
+msgstr ""
+
+  # the following instructions to the user appear as comments in the body of the R Markdown document
+  
+msgid "include this code chunk as-is to set options"
+msgstr ""
+
+msgid "You can edit this R Markdown document, for example to explain what you're\ndoing and to draw conclusions from your data analysis."
+msgstr ""
+
+msgid "Auto-generated section titles, typically preceded by ###, can also be edited."
+msgstr ""
+
+msgid "It's generally not a good idea to edit the R code that the R Commander writes, \nbut you can freely edit between (not within) R "code blocks." Each R code\nblock starts with ```{r} and ends with ```."
 msgstr ""

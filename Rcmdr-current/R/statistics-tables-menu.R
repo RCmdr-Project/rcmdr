@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2019-05-15 by J. Fox
+# last modified 2022-06-27 by J. Fox
 
 # Tables menu
 
@@ -83,6 +83,7 @@ twoWayTable <- function(){
           if (!is.null(warnText)) Message(message=warnText,
                                           type="warning")
         }
+        insertRmdSection(paste0(gettextRmdHeader("Two-Way Contingency Table: "), row, ", ", column))
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject="xtabs", reset="twoWayTable", apply="twoWayTable")
@@ -153,6 +154,8 @@ multiWayTable <- function (){
 		  command <- paste(command, '\n  cat("\\nColumn percentages:\\n")\n  print(colPercents(.Table))', sep="")
 	  command <- paste(command, "\n})")
     doItAndPrint(command)
+    insertRmdSection(paste0(gettextRmdHeader("Multi-Way Contingency Table: "), row, ", ", column,
+                            ", ", paste(controls, collapse=", ")))
 		tkfocus(CommanderWindow())
 	}
 	OKCancelHelp(helpSubject = "xtabs", reset = "multiWayTable", apply = "multiWayTable")
@@ -322,6 +325,7 @@ enterTable <- function(){
             putRcmdr("savedTable", .Table)
         }
         logger("remove(.Table)")
+        insertRmdSection(paste0(gettextRmdHeader("Two-Way Contingency Table: "), rowvar, ", ", colvar))
         remove(.Table, envir=.GlobalEnv)
         tkfocus(CommanderWindow())
     }
