@@ -1,9 +1,10 @@
 Package: Rcmdr
-Version: 2.8-0
-Date: 2022-08-12
+Version: 2.8-1
+Date: 2022-08-17
 Title: R Commander
 Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaster.ca"),
     person("Milan", "Bouchet-Valat", role = "aut"),
+    person("Manuel", "Munoz Marquez", role = "aut"),
     person("Liviu", "Andronic", role = "ctb"),
     person("Michael", "Ash", role = "ctb"),
     person("Theophilius", "Boye", role = "ctb"),

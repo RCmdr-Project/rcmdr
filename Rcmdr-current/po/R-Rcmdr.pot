@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.8-0\n"
+"Project-Id-Version: Rcmdr 2.8-1\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2022-08-11 09:30:00\n"
+"POT-Creation-Date: 2022-08-15 12:30:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5870,4 +5870,10 @@ msgid "Auto-generated section titles, typically preceded by ###, can also be edi
 msgstr ""
 
 msgid "It's generally not a good idea to edit the R code that the R Commander writes, \nbut you can freely edit between (not within) R "code blocks." Each R code\nblock starts with ```{r} and ends with ```."
+msgstr ""
+
+
+# additional message for version 2.8-1, omitted from 2.8-0
+
+msgid "Select row(s) from active data set..."
 msgstr ""
