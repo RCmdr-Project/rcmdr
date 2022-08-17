@@ -13,7 +13,7 @@ user interface) for R, based on the tcltk package.
 \tabular{ll}{
 Package: \tab Rcmdr\cr
 Version: \tab 2.9-0\cr
-Date: \tab 2022-08-15\cr
+Date: \tab 2022-08-17\cr
 Depends: \tab R (>= 3.5.0), grDevices, graphics, methods, stats, utils, splines, 
   RcmdrMisc (>= 2.7-1), car (>= 3.0-8), effects (>= 4.0-3)\cr
 Imports: \tab tcltk, tcltk2 (>= 1.2-6), abind, relimp (>= 1.0-5), lme4\cr
@@ -61,7 +61,7 @@ Spanish, Spanish R-UCA Project, http://knuth.uca.es/R.
 }
 
 \author{
-John Fox <jfox@mcmaster.ca> and Milan Bouchet-Valat, with contributions from Liviu Andronic, Michael Ash, Theophilius Boye, Stefano Calza, Andy Chang, Vilmantas Gegzna,
+John Fox <jfox@mcmaster.ca>, Manuel Munoz Marquez, and Milan Bouchet-Valat, with contributions from Liviu Andronic, Michael Ash, Theophilius Boye, Stefano Calza, Andy Chang, Vilmantas Gegzna,
 Philippe Grosjean, Richard Heiberger, G. Jay Kerns, Renaud Lancelot, Matthieu Lesnoff, Uwe Ligges, Samir Messad, Martin Maechler, Robert Muenchen, Duncan Murdoch, Erich Neuwirth, Dan Putler, Brian Ripley, Miroslav Ristic,  Peter Wolf, and Kevin Wright.
 
 Maintainer: John Fox <jfox@mcmaster.ca>

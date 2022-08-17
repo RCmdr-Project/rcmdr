@@ -6,7 +6,7 @@ note <- sprintf("R package version %s", meta$Version)
  citEntry(
     entry = "Manual",
     title = "{Rcmdr: R Commander}",
-    author = "John Fox and Milan Bouchet-Valat",
+    author = "John Fox, Manuel Munoz Marquez, and Milan Bouchet-Valat",
     year = year,
     note = note,
     url = "https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/",
