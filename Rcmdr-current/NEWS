@@ -3,6 +3,8 @@ Changes in version 2.8-1
   o Addition to translation (R-Rcmdr.pot) file.
   
   o Corrected omision of Manuel Munoz Marquez as new package coauthor.
+  
+  o Now require rgl version 0.110.2 to fix problem with earlier version.
 
 Changes in version 2.8-0
 
