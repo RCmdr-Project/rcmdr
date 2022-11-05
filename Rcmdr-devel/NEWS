@@ -1,6 +1,6 @@
 Changes in version 2.9-0
 
-  o Nothing yet!
+  o R Commander script tab now tolerates blank lines in muiltiline commands (contribution of Yoshinobu Kanda).
   
 Changes in version 2.8-1
 

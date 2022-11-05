@@ -1,6 +1,6 @@
 Package: Rcmdr
 Version: 2.9-0
-Date: 2022-09-26
+Date: 2022-11-05
 Title: R Commander
 Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaster.ca"),
     person("Milan", "Bouchet-Valat", role = "aut"),
@@ -13,6 +13,7 @@ Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaste
     person("Vilmantas", "Gegzna", role = "ctb"),
     person("Philippe", "Grosjean", role = "ctb"),
     person("Richard", "Heiberger", role = "ctb"),
+    person("Yoshinobu",  "Kanda", role = "ctb"),
     person("Kosar", "Karimi Pour", role = "ctb"),
     person("G. Jay", "Kerns", role = "ctb"),
     person("Renaud", "Lancelot", role = "ctb"),
