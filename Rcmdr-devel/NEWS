@@ -2,6 +2,8 @@ Changes in version 2.9-0
 
   o R Commander script tab now tolerates blank lines in muiltiline commands (contribution of Yoshinobu Kanda).
   
+  o Small changes.
+  
 Changes in version 2.8-1
 
   o Addition to translation (R-Rcmdr.pot) file.

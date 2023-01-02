@@ -1,6 +1,6 @@
 # Graphs menu dialogs
 
-# last modified 2022-06-30 by J. Fox
+# last modified 2023-01-01 by J. Fox
 
 #  applied patch to improve window behaviour supplied by Milan Bouchet-Valat 2011-09-22
 
@@ -1871,7 +1871,7 @@ Scatter3D <- function () {
 }
 
 Identify3D <- function(){
-    if (0 == rgl.cur()) {
+    if (0 == cur3d()) {
         Message(message=gettextRcmdr("There is no current RGL graphics device."),
             type="error")
         return()
@@ -2203,7 +2203,7 @@ savePDF <- function () {
 }
 
 saveRglGraph <- function(){
-    if (0 == rgl.cur()) {
+    if (0 == cur3d()) {
         Message(message=gettextRcmdr("There is no current RGL graphics device to save."),
             type="error")
         return()
