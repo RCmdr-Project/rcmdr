@@ -5878,3 +5878,7 @@ msgstr ""
 msgid "Select row(s) from active data set..."
 msgstr ""
 
+# new messages for version 2.9
+
+msgid "Variance"
+msgstr ""
