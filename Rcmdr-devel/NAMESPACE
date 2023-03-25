@@ -1,4 +1,4 @@
-# last modified 2022-06-27 by J. Fox
+# last modified 2023-03-25 by J. Fox
 
 import(splines, tcltk, RcmdrMisc, car, effects)
 importFrom(utils, available.packages, install.packages, assignInMyNamespace, 
@@ -24,7 +24,7 @@ checkActiveDataSet,
 checkActiveModel, checkBoxes, checkClass, checkFactors, checkMethod, 
 checkNumeric, checkReplace,
 checkTwoLevelFactors, checkVariables, closeCommander,
-closeDialog, Commander,
+closeDialog, Command, Commander,
 commanderPosition, CommanderWindow, # Confint, 
 dataSetsP, defmacro,
 dialogSuffix, DiscreteNumeric, discreteNumericP, doItAndPrint, exists.method, errorCondition, 
@@ -38,7 +38,7 @@ listProportionalOddsModels, listTwoLevelFactors, listVariables,
 lmP, logger, LogWindow, MacOSXP, manualTranslationP, MarkdownP, mavericksP,
 Message, MessagesWindow, modelFormula, modelsP, multinomP, Numeric,
 numericP, OKCancelHelp, OutputWindow, packageAvailable,
-polrP, popCommand, popOutput, putDialog, putRcmdr, 
+polrP, popCommand, popOutput, putDialog, putRcmdr, Q,
 radioButtons, RappP, rglLoaded, RcmdrPager, RcmdrTclSet, 
 RcmdrTkmessageBox,
 RExcelSupported, RmdWindow, RnwWindow, sortVarNames, subOKCancelHelp,

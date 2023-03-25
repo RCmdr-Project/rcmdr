@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2022-07-11 by J. Fox
+# last modified 2023-01-16 by J. Fox
 
 # Means menu
 
@@ -38,9 +38,12 @@ independentSamplesTTest <- function () {
                                                     initial.confidenceLevel = level, initial.variances = variances, 
                                                     initial.label=.groupsLabel, initial.tab=tab))        
         closeDialog()
-        doItAndPrint(paste("t.test(", response, "~", group, ", alternative='", 
-                           alternative, "', conf.level=", level, ", var.equal=", 
-                           variances, ", data=", ActiveDataSet(), ")", sep = ""))
+        # doItAndPrint(paste("t.test(", response, "~", group, ", alternative='", 
+        #                    alternative, "', conf.level=", level, ", var.equal=", 
+        #                    variances, ", data=", ActiveDataSet(), ")", sep = ""))
+        command <- Command("t.test", paste(response, "~", group), alternative=Q(alternative),
+                           var.equal=variances, data=ActiveDataSet())
+        doItAndPrint(command)
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject = "t.test", reset = "independentSamplesTTest", apply = "independentSamplesTTest")
@@ -101,10 +104,13 @@ pairedTTest <- function () {
                                     initial.confidenceLevel = level, initial.tab=tab))
     closeDialog()
     .activeDataSet <- ActiveDataSet()
-    doItAndPrint(paste("with(", ActiveDataSet (), ", (t.test(", x, 
-                       ", ", y, ", alternative='", 
-                       alternative, "', conf.level=", level, ", paired=TRUE)))", 
-                       sep = ""))
+#    doItAndPrint(paste("with(", ActiveDataSet (), ", (t.test(", x, 
+#                       ", ", y, ", alternative='", 
+#                       alternative, "', conf.level=", level, ", paired=TRUE)))", 
+#                       sep = ""))
+    command <- Command("with", ActiveDataSet(), paste0("(t.test(", x,", ", y), alternative=Q(alternative),
+                       conf.level=level, "paired=TRUE))")
+    doItAndPrint(command)
     insertRmdSection(paste0(gettextRmdHeader("Paired t-Test: "), x, ", ", y))
     tkfocus(CommanderWindow())
   }
@@ -148,9 +154,13 @@ singleSampleTTest <- function () {
     putDialog ("singleSampleTTest", list (initial.x = x, initial.alternative = alternative, 
                                           initial.level = level, initial.mu = mu))
     closeDialog()
-    doItAndPrint(paste("with(", ActiveDataSet (), ", (t.test(", x, 
-                       ", alternative='", alternative, "', mu=", mu, ", conf.level=", 
-                       level, ")))", sep = ""))
+#    doItAndPrint(paste("with(", ActiveDataSet (), ", (t.test(", x, 
+#                       ", alternative='", alternative, "', mu=", mu, ", conf.level=", 
+#                       level, ")))", sep = ""))
+    command <- Command("with",ActiveDataSet(), 
+                       paste0("(t.test(", x), 
+                       alternative=Q(alternative), mu=mu, conf.level=paste0(level, "))"))
+    doItAndPrint(command)
     insertRmdSection(paste0(gettextRmdHeader("Single-Sample t-Test: "), x))
     tkdestroy(top)
     tkfocus(CommanderWindow())
@@ -243,14 +253,24 @@ oneWayAnova <- function () {
       return()
     }
     .activeDataSet <- ActiveDataSet()
-    command <- paste(modelValue, " <- aov(", response, " ~ ", 
-                     group, ", data=", .activeDataSet, ")", sep = "")
-    justDoIt(command)
-    logger(command)
-    doItAndPrint(paste("summary(", modelValue, ")", sep = ""))
-    doItAndPrint(paste("with(", .activeDataSet, ", numSummary(",
-                       response, ", groups=", group, 
-                       ", statistics=c(\"mean\", \"sd\")))", sep = ""))
+#    command <- paste(modelValue, " <- aov(", response, " ~ ", 
+#                     group, ", data=", .activeDataSet, ")", sep = "")
+#    command <- Command("lm", formula, data=ActiveDataSet(), subset=subset, weights=weights,
+#                       subset=remove.cases, to=modelValue)
+#    doItAndPrint(command)
+#    doItAndPrint(paste("summary(", modelValue, ")", sep=""))
+#   logger(command)
+    command <- Command ("aov", paste(response,"~", group), data=ActiveDataSet(), to=modelValue)
+    doItAndPrint(command)
+    command <- Command ("summary", modelValue)
+    #doItAndPrint(paste("summary(", modelValue, ")", sep = ""))
+    doItAndPrint(command)
+    # doItAndPrint(paste("with(", .activeDataSet, ", numSummary(",
+    #                    response, ", groups=", group, 
+    #                    ", statistics=c(\"mean\", \"sd\")))", sep = ""))
+    command <- Command ("with", .activeDataSet, paste0("numSummary(", response), groups=group,
+                        "statistics=c('mean', 'sd'))")
+    doItAndPrint(command)
     activeModel(modelValue)
     putRcmdr("modelWithSubset", FALSE)
     pairwise <- tclvalue(pairwiseVariable)
@@ -269,6 +289,7 @@ oneWayAnova <- function () {
                              sep = "")
         commands[2] <- "  print(summary(.Pairs)) # pairwise tests"
         commands[3] <- paste0("  print(confint(.Pairs, level=", level, ")) # confidence intervals")
+        commands[3] <- Command("") 
         commands[4] <- paste0("  print(cld(.Pairs, level=", alpha, ")) # compact letter display")
         commands[5] <- "  old.oma <- par(oma=c(0, 5, 0, 0))"
         commands[6] <- "  plot(confint(.Pairs))"
@@ -277,9 +298,10 @@ oneWayAnova <- function () {
       }
     }
     if (welch == 1){
-        command <- paste("oneway.test(", response, " ~ ", 
-                         group, ", data=", .activeDataSet, ") # Welch test", sep = "")
-        doItAndPrint(command)
+#        command <- paste("oneway.test(", response, " ~ ", 
+#                         group, ", data=", .activeDataSet, ") # Welch test", sep = "")
+        command <- Command("oneway.test", paste(response, "~", group), data=.activeDataSet)
+        doItAndPrint(paste(command, " # Welch test", sep = ""))
     }
     tkfocus(CommanderWindow())
   }
@@ -346,15 +368,28 @@ multiWayAnova <- function () {
     }
     .activeDataSet <- ActiveDataSet()
     groups.list <- paste0(groups, collapse = " + ")
-    doItAndPrint(paste(modelValue, " <- lm(", response, 
-                       " ~ ", paste(groups, collapse = "*"), ", data=", 
-                       .activeDataSet, ", contrasts=list(", paste(paste(groups, '="contr.Sum"'), collapse=", "), "))", sep = ""))
+#    doItAndPrint(paste(modelValue, " <- lm(", response, 
+#                       " ~ ", paste(groups, collapse = "*"), ", data=", 
+#                       .activeDataSet, ", contrasts=list(", paste(paste(groups, '="contr.Sum"'), 
+#                       collapse=", "), "))", sep = ""))
+    command <- Command ("lm", paste(response, "~", paste(groups, collapse = "*")), 
+                       data=.activeDataSet, to=modelValue,
+                       paste0("contrasts=list(", groups, "=", "contr.Sum", ")"))
+    doItAndPrint(command)
     doItAndPrint(paste("Anova(", modelValue, ")", sep = ""))
-    doItAndPrint(paste0("Tapply(", response, " ~ ", groups.list, ", mean, na.action=na.omit, data=", 
-                        .activeDataSet, ") # means")) 
-    doItAndPrint(paste0("Tapply(", response, " ~ ", groups.list, ", sd, na.action=na.omit, data=", 
-                        .activeDataSet, ") # std. deviations")) 
-    doItAndPrint(paste("xtabs(~ ",groups.list, ", data=", .activeDataSet, ") # counts", sep=""))
+    command <- Command ("Tapply", paste0(response, " ~ ", groups.list), "mean, na.action = na.omit",
+                        data=.activeDataSet)
+    doItAndPrint(paste(command, " # means", sep = ""))
+#    doItAndPrint(paste0("Tapply(", response, " ~ ", groups.list, ", mean, na.action=na.omit, data=", 
+#                        .activeDataSet, ") # means")) 
+#    doItAndPrint(paste0("Tapply(", response, " ~ ", groups.list, ", sd, na.action=na.omit, data=", 
+#                        .activeDataSet, ") # std. deviations"))
+    command <- Command ("Tapply", paste0(response, " ~ ", groups.list), "sd, na.action = na.omit",
+                        data=.activeDataSet)
+    doItAndPrint(paste(command, " # std. deviations", sep = ""))
+#   doItAndPrint(paste("xtabs(~ ",groups.list, ", data=", .activeDataSet, ") # counts", sep=""))
+    command <- Command ("xtabs", paste0("~", groups), data=.activeDataSet)
+    doItAndPrint(paste(command, " # counts", sep = ""))
     activeModel(modelValue)
     putRcmdr("modelWithSubset", FALSE)
     tkfocus(CommanderWindow())
@@ -470,20 +505,30 @@ oneWayRepeatedMeasures <- function () {
       return()
     }
     idata = paste0("data.frame(", wsfactorName, "=factor(c(", paste(paste0("'", levels[1:m], "'"), collapse=", "), ")))")
+    # command <- if (test == "multivariate"){
+    #   paste0("Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
+    #          ", idata=", idata, ", idesign = ~", wsfactorName,
+    #          ', test.statistic="', testStatistic, '")', sep = "")
+    # } else {
+    #   paste0("summary(Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
+    #          ", idata=", idata, ", idesign = ~", wsfactorName,
+    #          '), univariate=TRUE, multivariate=FALSE)', sep = "")
+    # }
     command <- if (test == "multivariate"){
-      paste0("Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
-             ", idata=", idata, ", idesign = ~", wsfactorName,
-             ', test.statistic="', testStatistic, '")', sep = "")
+      Command("Anova(lm", formula, paste0("data=", ActiveDataSet(), ")"), idata=idata, 
+              paste0("idesign = ~", wsfactorName),  
+              paste0('test.statistic="',testStatistic,'"'))
     } else {
-      paste0("summary(Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
-             ", idata=", idata, ", idesign = ~", wsfactorName,
-             '), univariate=TRUE, multivariate=FALSE)', sep = "")
+      Command("summary(Anova(lm", formula, paste0("data=", ActiveDataSet(), ")"), 
+              idata=idata, paste0("idesign = ~", wsfactorName),
+              "univariate=TRUE, multivariate=FALSE)")
     }
     doItAndPrint(command)
     insertRmdSection(paste0(gettextRmdHeader("Repeated-Measures ANOVA: between = "),
                             rhs, gettextRmdHeader(", within = "), wsfactorName))
     if (plot == "1" || print == "1"){
       within <- paste0("c(", paste(paste0('"', responses, '"'), collapse=", "), ")")
+      #within <- paste0("c(", paste(paste0(responses), collapse=", "), ")")
       between <- if (length (bsfactors > 0)){
         paste0(", between.names=c(", paste(paste0('"', bsfactors, '"'), collapse=", "), ")")
       } else {
@@ -492,13 +537,19 @@ oneWayRepeatedMeasures <- function () {
       tracefactor <- if (trace == gettextRcmdr("<auto>")) "" else paste0(', trace="', trace, '"')
       xvarfactor <- if (xvar == gettextRcmdr("<auto>")) "" else paste0(', xvar="', xvar, '"')
       
-      command <- paste0("repeatedMeasuresPlot(", ActiveDataSet(), ", within=", within,
-                        ', within.names="', wsfactorName, 
-                        '", within.levels=list(', wsfactorName, '=c(', paste(paste0('"', levels[1:m], '"'), collapse=", "),
-                        ')), print.tables=', if (print == "1") "TRUE" else "FALSE",
-                        ', plot.means=', if (plot == "1") "TRUE" else "FALSE",
-                        between, tracefactor, xvarfactor, ', response.name="', response, '")')
-      doItAndPrint(command)
+       command <- Command("repeatedMeasuresPlot", ActiveDataSet(), within= within,
+                           within.names=Q(wsfactorName), 
+                           paste("within.levels=list(", wsfactorName, '=c(', paste(Q(levels)[1:m], collapse=", "),"))"), 
+                           print.tables=if (print == "1") TRUE else FALSE,
+                           plot.means= if (plot == "1") TRUE else FALSE,
+                           between, tracefactor, xvarfactor, paste("response.name=", Q(response), ")"))
+       # command <- paste0("repeatedMeasuresPlot(", ActiveDataSet(), ", within=", within,
+       #                   ', within.names="', wsfactorName, 
+       #                   '", within.levels=list(', wsfactorName, '=c(', paste(paste0('"', levels[1:m], '"'), collapse=", "),
+       #                   ')), print.tables=', if (print == "1") "TRUE" else "FALSE",
+       #                   ', plot.means=', if (plot == "1") "TRUE" else "FALSE",
+       #                   between, tracefactor, xvarfactor, ', response.name="', response, '")')
+            doItAndPrint(command)
     }
     tkfocus(CommanderWindow())
   }
@@ -583,7 +634,6 @@ oneWayRepeatedMeasures <- function () {
   plotCheckBox <- ttkcheckbutton(plotCheckBoxFrame, variable = plotVariable)
   printVariable <- tclVar(dialog.values$initial.print)
   printCheckBox <- ttkcheckbutton(plotCheckBoxFrame, variable = printVariable)
-  
   betweenSubjectsFactors <- variableListBox(plotFrame, Factors(), selectmode="multiple",
                                             title = gettextRcmdr("Between-Subjects Factors (pick zero or more)"), 
                                             initialSelection = varPosn(dialog.values$initial.bsfactors, "factor"))
@@ -785,14 +835,25 @@ twoWayRepeatedMeasures <- function () {
     m <- length(unlist(responses))
     idata = paste0("data.frame(", wsrowfactorName, " = factor(rep(c(", paste(paste0("'", rowLevels[1:nrow], "'"), collapse=", "), "),", ncol, ")), ",
                    wscolfactorName, " = factor(rep(c(", paste(paste0("'", colLevels[1:ncol], "'"), collapse=", "), "), each=", nrow, ")))")
+    # command <- if (test == "multivariate"){
+    #   paste0("Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
+    #          ", idata=", idata, ", idesign = ~", wsrowfactorName, "*", wscolfactorName,
+    #          ', test.statistic="', testStatistic, '")', sep = "")
+    # } else {
+    #   paste0("summary(Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
+    #          ", idata=", idata, ", idesign = ~", wsrowfactorName, "*", wscolfactorName,
+    #          '), univariate=TRUE, multivariate=FALSE)', sep = "")
+    # }
     command <- if (test == "multivariate"){
-      paste0("Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
-             ", idata=", idata, ", idesign = ~", wsrowfactorName, "*", wscolfactorName,
-             ', test.statistic="', testStatistic, '")', sep = "")
+      Command("Anova(lm", formula, paste0("data =", ActiveDataSet(), ")"), idata=idata, 
+                paste("idesign = ~", wsrowfactorName, "*", wscolfactorName),
+                test.statistic=Q(testStatistic))
     } else {
-      paste0("summary(Anova(lm(", formula, ", data=", ActiveDataSet(), ")",
-             ", idata=", idata, ", idesign = ~", wsrowfactorName, "*", wscolfactorName,
-             '), univariate=TRUE, multivariate=FALSE)', sep = "")
+      Command("summary(Anova(lm", formula, 
+              paste0(data=ActiveDataSet(), ")"),
+              idata= idata, 
+              paste0("idesign = ~", wsrowfactorName, "*", wscolfactorName, ")"),
+              univariate=TRUE, multivariate=FALSE)
     }
     doItAndPrint(command)
     insertRmdSection(paste0(gettextRmdHeader("Repeated-Measures ANOVA: between = "),
@@ -972,4 +1033,3 @@ twoWayRepeatedMeasures <- function () {
   dialogSuffix(use.tabs=TRUE, tabs=c("designTab", "optionsTab"),
                tab.names=c("Design", "Options"), grid.buttons=TRUE)
 }
-

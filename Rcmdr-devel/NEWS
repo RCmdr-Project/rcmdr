@@ -2,6 +2,10 @@ Changes in version 2.9-0
 
   o R Commander script tab now tolerates blank lines in muiltiline commands (contribution of Yoshinobu Kanda).
   
+  o Added coefficient of variation to tables of statistics.
+  
+  o New Command() and Q() functions for constructing command character strings.
+  
   o Small changes.
   
 Changes in version 2.8-1

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.8-0\n"
+"Project-Id-Version: Rcmdr 2.9-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2022-08-15 12:30:00\n"
+"POT-Creation-Date: 2023-03-25 14:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5878,7 +5878,7 @@ msgstr ""
 msgid "Select row(s) from active data set..."
 msgstr ""
 
-# new messages for version 2.9
+# new messages for version 2.9-0
 
 msgid "Variance"
 msgstr ""
