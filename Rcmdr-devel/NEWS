@@ -1,3 +1,9 @@
+Changes in version 2.10-0
+
+  o Vignette "Empezando-con-Rcmdr-es" added to the project. This vignette is the Spanish version of "Getting-Started-with-the-Rcmdr".
+
+  o Addition to translation (R-Rcmdr.pot) file.
+ 
 Changes in version 2.9-0
 
   o R Commander script tab now tolerates blank lines in muiltiline commands (contribution of Yoshinobu Kanda).

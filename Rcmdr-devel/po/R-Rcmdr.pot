@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.9-0\n"
+"Project-Id-Version: Rcmdr 2.10-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2023-03-25 14:00:00\n"
+"POT-Creation-Date: 2023-04-28 14:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5853,12 +5853,12 @@ msgstr ""
 msgid "Plot NegativeBinomial Cumulative Distribution Function"
 msgstr ""
 
-  # the following is used for the template main title of R Markdown and knitr documents
+# the following is used for the template main title of R Markdown and knitr documents
   
 msgid "Replace with Main Title"
 msgstr ""
 
-  # the following instructions to the user appear as comments in the body of the R Markdown document
+# the following instructions to the user appear as comments in the body of the R Markdown document
   
 msgid "include this code chunk as-is to set options"
 msgstr ""
@@ -5881,4 +5881,7 @@ msgstr ""
 # new messages for version 2.9-0
 
 msgid "Variance"
+msgstr ""
+
+msgid "R Commander hex sticker"
 msgstr ""
