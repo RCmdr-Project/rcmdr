@@ -33,7 +33,7 @@ Por favor, dirija la correspondencia a \href{mailto:jfox@mcmaster.ca}{\texttt{jf
 
 \author{John Fox\\ Traductor: Manuel Munoz-Marquez\thanks{N.T.: Para la traducción al español diríjase a \href{mailto:manuel.munoz@uca.es}{\texttt{manuel.munoz@uca.es}}}}
 
-\date{Versión 2.6-1 (última modificación: 2023-04-26)}
+\date{Versión 2.6-2 (última modificación: 2023-04-28)}
 
 \maketitle
 
@@ -48,11 +48,11 @@ Mediante la provisión de un interfaz gráfico para \textbf{R}, \textbf{R Comman
 Además, al construir las instrucciones de forma visible a los usuarios, \textbf{R Commander} permite una fácil transición a la escritura de instrucciones para \textbf{R}, al menos para algunos usuarios. 
 Sin embargo, \textbf{R Commander} proporciona acceso sólo a una pequeña parte de las prestaciones de \textbf{R} y de los miles de paquetes para \textbf{R} proporcionados por los usuarios existentes en ``Comprehensive R Archive
 Network (CRAN)". 
-\textbf{R Commander} es extensible mediante la creación de paquetes de añadidos y muchos de dichos paquetes de extensiones están disponibles en CRAN (véase la sección \ref{sec-plugins} de este documento).
+\textbf{R Commander} es extensible mediante la creación de paquetes de añadidos y muchos de dichos paquetes de extensiones están disponibles en CRAN (véase la sección~\ref{sec-plugins} de este documento).
 
-Este documento describe el uso de \textbf{R Commander} bajo de \textbf{R} para \textbf{Microsoft Windows}. 
+Este documento describe el uso de \textbf{R Commander} bajo \textbf{R} para \textbf{Microsoft Windows}. 
 Hay algunas pequeñas diferencias en la apariencia y el uso de \textbf{R Commander} bajo \textbf{Mac OS X} y en sistemas \textbf{Linux} y \textbf{Unix}. 
-Información sobre la instalación de \textbf{R Commander} en estas plataformas está disponible en el enlace a las notas de instalación en la página de \textbf{R Commander} \href{http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/index.html}{socserv.socsci.mcmaster.ca/jfox/Misc /Rcmdr/index.html} o en \href{http://tinyurl.com/Rcmdr}{tinyurl.com/Rcmdr}.
+En el enlace a las notas de instalación en la página de \textbf{R Commander} \href{http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/index.html}{socserv.socsci.mcmaster.ca/jfox/Misc /Rcmdr/index.html} o en \href{http://tinyurl.com/Rcmdr}{tinyurl.com/Rcmdr} hay información disponible sobre la instalación de \textbf{R Commander} en estas plataformas 
 
 Usaremos las siguientes convenciones tipográficas en este documento: los nombres de software, como \textbf{Windows}, \textbf{R}, el paquete \textbf{Rcmdr} y \textbf{R Commander}, se escriben en \textbf{negrita}. 
 Los nombre de elementos de la interfaz gráfica como menús, elementos de menú, ventanas y cuadros de diálogo, se escriben en \emph{itálica}. 
@@ -60,16 +60,16 @@ Los nombres de variables, nombres de conjuntos de datos e instrucciones de \text
 
 \section{Comenzando con R Commander}
 
-Con \textbf{R} corriendo, cárguese el paquete \textbf{Rcmdr} tecleando la instrucción \texttt{library(Rcmdr)} en la consola de R \emph{R Console} para iniciar la interfaz gráfica \textbf{R Commander}. 
-El funcionamiento óptimo bajo \textbf{Windows}, de \textbf{R Commander} es bajo la interfaz de documento único (\textquotedblleft SDI\textquotedblright) para \textbf{R}\footnote{La versión de \textbf{R} para \textbf{Windows} corre normalmente en la interfaz de documento múltiple (\textquotedblleft MDI\textquotedblright), el cuál contiene la ventana de la consola \emph{R Console}, la ventana de gráficos \emph{Graphical Device} creada durante la sesión y otras ventanas relacionadas con el proceso de \textbf{R}. 
+Con \textbf{R} ejecutándose, cargando el paquete \textbf{Rcmdr} tecleando la instrucción \texttt{library(Rcmdr)} en la consola \emph{R Console} se inicia la interfaz gráfica \textbf{R Commander}. 
+El funcionamiento óptimo bajo \textbf{Windows}, de \textbf{R Commander} es usando la interfaz de documento único (\textquotedblleft SDI\textquotedblright) para \textbf{R}\footnote{La versión de \textbf{R} para \textbf{Windows} corre normalmente en la interfaz de documento múltiple (\textquotedblleft MDI\textquotedblright), el cual contiene la ventana de la consola \emph{R Console}, la ventana de gráficos \emph{Graphical Device} creada durante la sesión y otras ventanas relacionadas con el proceso de \textbf{R}. 
 En contraposición, baja la interfaz de documento único (\textquotedblleft
 SDI\textquotedblright), la consola \emph{R Console} y la ventana gráfica \emph{Graphical Device} no están contenidas en la ventana principal. 
 Hay muchas formas de ejecutar \textbf{R} en modo SDI --- por ejemplo, seleccionando SDI cuando se instala \textbf{R}, o editando el fichero \texttt{Rconsole} en el subdirectorio \texttt{etc} de \textbf{R}, o añadiendo \texttt{-{}-sdi} al campo \emph{Destino} en las propiedades del icono de \textbf{R} en el escritorio. 
 Debería de ser capaz de usar \textbf{R Commander} bajo MDI, pero no aparecerá dentro de la ventana principal de \textbf{R} y la distribución de las ventanas no será la apropiada.}. 
 Depués de cargar el paquete, las ventanas \emph{R Console} y \emph{R Commander} deberían aparecer más o menos como en las figuras \ref{fig-1} y \ref{fig-1-b}\footnote{Muchas de las capturas de pantalla de este documento se realizaron con versiones anteriores de \textbf{R} y de \textbf{R Commander}. 
 Las imágenes de las pantallas son actualizadas únicamente cuando cambia su apariencia o su contenido.}. 
-Estas y otras imágenes de pantallas en este documento se han realizado bajo \textbf{Windows 7}; si usa otra versión de \textbf{Windows} (o, por supuesto, otro sistema operativo), entonces la apariencia de las pantallas puede cambiar\footnote{Observe que \textbf{R Commander} necesita algunos paquetes además de los muchos paquetes \textquotedblleft recomendados \textquotedblright\ que son normalmente distribuidos con \textbf{R}. 
-El paquete \textbf{Rcmdr}, los paquetes requeridos y muchos otros paquetes de contribuciones están disponibles para descarga en ``Comprehensive R Archive Network" (CRAN) en \href{http://cran.r-project.org/}{http://cran.r-project.org/}. 
+Estas y otras imágenes de pantallas en este documento se han realizado bajo \textbf{Windows 10}; si usa otra versión de \textbf{Windows} (o, por supuesto, otro sistema operativo), entonces la apariencia de las pantallas puede cambiar\footnote{Observe que \textbf{R Commander} necesita algunos paquetes además de los muchos paquetes \textquotedblleft recomendados \textquotedblright\ que son normalmente distribuidos con \textbf{R}. 
+El paquete \textbf{Rcmdr}, sus paquetes requeridos y muchos otros paquetes de contribuciones están disponibles para descarga en ``Comprehensive R Archive Network" (CRAN) en \href{http://cran.r-project.org/}{http://cran.r-project.org/}. 
 
 Si estos paquetes no se instalan, \textbf{R Commander} pedirá su instalación desde internet o desde ficheros locales (por ejemplo, desde un CD-ROM desde una memoria USB). 
 Si instala el paquete \textbf{Rcmdr} en \textbf{Windows} mediante \textquotedblleft
@@ -110,12 +110,11 @@ scale=.4
 \end{figure}
 
 Las ventanas \emph{R Commander} y \emph{R Console} se mueven libremente en el escritorio. 
-Normalmente usará los menús y las cajas de diálogo de \textbf{R Commander} para leer, manipular y analizar datos. 
-Se puede minimizar sin riesgo la ventana \emph{R Console}.
+Normalmente usará los menús y las cajas de diálogo de \textbf{R Commander} para leer, manipular y analizar datos y puede minimizar sin riesgo la ventana \emph{R Console}.
 
 \begin{itemize}
 \item Las instrucciones de \textbf{R} generadas por \textbf{R Commander} aparecerán en el cuadro \emph{R Script} en la parte superior de la ventana principal de \emph{R Commander}. 
-También puede teclear instrucciones de \textbf{R} directamente en el cuadro \emph{R Script}\footnote{También puede teclear instrucciones en el símbolo \texttt{$>$} (mayor que) de \emph{R Console}, pero la salida generada por estas instrucciones no aparecerán en el cuadro \emph{Salida} de \textbf{R Commander} y los errores y avisos no serán normalmente visibles.}; 
+También puede teclear instrucciones de \textbf{R} directamente en el cuadro \emph{R Script}\footnote{También puede teclear instrucciones en el símbolo \texttt{$>$} (mayor que) de \emph{R Console}, pero la salida generada por estas instrucciones no aparecerá en el cuadro \emph{Salida} de \textbf{R Commander} y los errores y avisos no serán normalmente visibles.}; 
 el objetivo principal de \textbf{R Commander}, no obstante, es evitar la necesidad de teclear instrucciones. 
 La segunda pestaña en la parte superior (etiquetada \emph{R Markdown}) también va conteniendo las instrucciones producidas por \textbf{R Commander} y puede ser usada para generar informes para imprimir; la pestaña \emph{R Markdown} se describe en la sección~\ref{sec-markdown}.
 
@@ -144,19 +143,19 @@ Pulsando el botón derecho sobre uno de estos cuadros o pestañas también se de
 
 \item[Distribuciones] Submenús para obtener las probabilidades acumuladas, densidades o masas de probabilidad, cuantiles y gráficos de distribuciones estándares (para ser usadas, por ejemplo, como un sustituto de tablas estadísticas y para generar muestras de esas distribuciones.
 
-\item[Herramientas] Entradas de menú para la carga de paquetes de \textbf{R} relacionados con el paquete \textbf{Rcmdr} (por ejemplo, para acceder a datos guardados en otro paquete); para cargar paquetes de extensiones de \textbf{Rcmdr} (véase~\citealp{Fox07},~\citealp{FoxCarvalho12} y la sección~\ref{sec-plugins} más adelante);
+\item[Herramientas] Entradas de menú para la carga de paquetes de \textbf{R} no relacionados con el paquete \textbf{Rcmdr} (por ejemplo, para acceder a datos guardados en otro paquete); para cargar paquetes de extensiones de \textbf{Rcmdr} (véase~\citealp{Fox07},~\citealp{FoxCarvalho12} y la sección~\ref{sec-plugins} más adelante);
 para establecer la mayoría de las opciones de \textbf{\ R Commander} y para guardarlas de manera que se apliquen en las siguientes sesiones y para la instalación de software auxiliar opcional (véase la sección~\ref{sec-markdown}).
 
 \item[Ayuda] Entradas de menú para obtener información sobre \textbf{R Commander} (incluyendo este manual\footnote{N.T.: Están disponibles en este menú tanto la versión traducida al español como la versión inglesa. Habitualmente la versión inglesa es más reciente.}) y el software asociado. 
 Además, cada cuadro de diálogo de \textbf{R Commander} tiene un botón de \emph{Ayuda} (véase más adelante).
 \end{description}
 
-El \textquotedblleft árbol\textquotedblright\ completo del menú de \textbf{R Commander} (versión 2.3-0) se muestra abajo. 
-La mayoría de las entradas de menú llevan a un cuadro de diálogo, como se ilustra más tarde en este manual. 
+El \textquotedblleft árbol\textquotedblright\ completo del menú de \textbf{R Commander} (versión 2.8-0) se muestra abajo. 
+La mayoría de las entradas de menú llevan a un cuadro de diálogo, como se ilustra más tarde en este manual y, como es convencional, dichas entradas de menú van seguidas de \texttt{...}. 
 Las entradas de menú están inactivas (\textquotedblleft sombreadas \textquotedblright) si no son aplicables en el contexto actual. 
-Por ejemplo, si el conjunto de datos no contiene factores (variables categóricas), la entrada de menú para las tablas de contingencia estará inactiva\footnote{Algunos opciones de menú no son mostradas en algunas circunstancias.
-Por ejemplo, las entradas de menú de \textbf{R Markdown} en el menú \emph{Fichero} se mostrarán únicamente si la pestaña \emph{R Markdown} es activada. 
-Los menús también incluyen divisores, que no son mostrados aquí y las entradas de menú que conducen a cuadros de diálogo, como convención, son seguidos de \texttt{...}, que tampoco se muestran.} .
+Por ejemplo, si el conjunto de datos no contiene factores (variables categóricas), la entrada de menú para las tablas de contingencia estará inactiva\footnote{Algunas opciones de menú no son mostradas en algunas circunstancias.
+Por ejemplo, las entradas de menú de \textbf{knitr} en el menú \emph{Fichero} se mostrarán únicamente si la pestaña \emph{knitr} es activada y el elemento \emph{Instalar software auxiliar} en el menú \emph{Herramientas} se activa solo si el software opcional \LaTeX{} o \textbf{Pandoc} no están instalados.
+Los menús también incluyen divisores, que no son mostrados aquí.} .
 \input{Rcmdr-menus-es}
 
 La interfaz \textbf{R Commander} incluye algunos elementos añadidos a los menús y diálogos:
@@ -171,13 +170,14 @@ Si presiona el botón, podrá seleccionar entre los conjuntos de datos en memori
 La mayoría de los menús y diálogos de \textbf{R Commander} usan el conjunto de datos activo. 
 (Los menús \emph{Fichero}, \emph{Edición} y \emph{Distribuciones} son excepciones.)
 
-\item Dos botones permiten abrir el editor de datos de \textbf{R Commander} para modificar los datos del conjunto de datos activo o un visor para examinarlos\footnote{Por defecto, el editor de datos de  \textbf{R Commander} se usa si el número de valores (celdas) en el conjunto de datos es 10,000 o inferior; para grandes conjuntos de datos se usa el editor estándar de \textbf{R}.}. 
-El visor de datos puede permanecer abierto mientras se realizan otras operaciones\footnote{El visor de datos, proporcionado por la función \texttt{showData} de David Firth del paquete \textbf{relimp}~\citep{Firth16}, puede ser lento para conjuntos de datos con muchas variables. 
-Cuando el número de variables excede el límite fijado (inicialmente puesto a 100), el visor de la instrucción \texttt{View} de \textbf{R}, estéticamente menos agradable, es usado en su lugar para mostrar el conjunto de datos. 
-Para usar \texttt{View} independientemente del número de variables, ponga el límite en 0. 
+\item Dos botones permiten abrir el editor de datos de \textbf{R Commander} para modificar los datos del conjunto de datos activo o un visor para examinarlos\footnote{Por defecto, el editor de datos de  \textbf{R Commander} se usa si el número de valores (celdas) en el conjunto de datos es 10,000 o inferior; para grandes conjuntos de datos se usa el editor estándar de \textbf{R}. 
+ Véase la ayuda de \textbf{R Commander} para cambiar este límite.}. 
+El visor de datos puede permanecer abierto mientras se realizan otras operaciones y la vista se refresca si el conjunto de datos se modifica, por ejemplo añadiendo una variable\footnote{El visor de datos, proporcionado por la función \texttt{showData} de David Firth del paquete \textbf{relimp}~\citep{Firth16}, puede ser lento para conjuntos de datos con muchas variables. 
+Cuando el número de variables excede a 100 o el número de casos excede de 20 000, el visor de la instrucción \texttt{View} de \textbf{R}, estéticamente menos agradable, se usa en su lugar para mostrar el conjunto de datos. 
+Para usar \texttt{View} independientemente del número de variables o casos, ponga el límite en 0. 
 Véase la ayuda de \textbf{R Commander} para más detalles.}.
 
-\item Un botón plano indica el nombre del modelo estadístico activo --- un modelo lineal (como un modelo de regresión lineal), un modelo lineal generalizado, un modelo logit multinomial o un modelo de regresión ordinal\footnote{Los paquetes con extensiones de \textbf{R Commander} (Fox, 2007; Fox and Carvalho, 2012) pueden proporcionar clases de modelos adicionales.}. 
+\item Un botón plano indica el nombre del modelo estadístico activo --- un modelo lineal (como un modelo de regresión lineal), un modelo lineal generalizado, un modelo logit multinomial o un modelo de regresión ordinal o un modelo lineal generalizado de efectos fijos\footnote{Los paquetes con extensiones de \textbf{R Commander} (\citealp{Fox17}; \citealp{Fox07}; \citealp{FoxCarvalho12}) pueden proporcionar clases de modelos adicionales.}. 
 Inicialmente no hay ningún modelo activo. 
 Si hay en memoria más de un modelo asociado al conjunto de datos activo, puede elegir entre los modelos pulsando el botón. 
 \textbf{R Commander} sincroniza los modelos y los conjuntos de datos con los que se corresponden.
@@ -186,7 +186,7 @@ Si hay en memoria más de un modelo asociado al conjunto de datos activo, puede 
 \item Inmediatamente debajo de la barra de herramientas hay un panel que contiene la pestaña \emph{R Script}, una gran ventana de texto desplazable. 
 Como se mencionó, las instrucciones generadas por \textbf{R Commander} se copian en esta ventana. 
 Puede editar el texto en la pestaña \emph{Script} o incluso teclear sus propias instrucciones de \textbf{R} en la ventana.
-Pulsando el botón \emph{Ejecutar}, que está en la parte derecha debajo de la pestaña \emph{R Script} (o, alternativamente, la combinación de teclas \emph{Ctrl-r}\footnote{Esto es, mantener pulsada la tecla \emph{Ctrl} (o \emph{Control}) y simultáneamente pulsar la tecla \emph{r}.}, para \textquotedblleft
+Pulsando el botón \emph{Ejecutar}, que está en la parte derecha debajo de la pestaña \emph{R Script} (o, alternativamente, la combinación de teclas \emph{Ctrl-r}\footnote{Esto es, mantener pulsada la tecla \emph{Ctrl} (o \emph{Control}) y simultáneamente pulsar la tecla \emph{r}. En \textbf{macOS} usualmente se puede sustituir la tecla \emph{Instrucción} por la tecla \emph{Control}, pero tanto aquí como de manera general se pueden usar combinaciones con la tecla \emph{Control.}}, para \textquotedblleft
 ejecutar,\textquotedblright\ o\emph{\ Ctrl-Tab}, causa que la línea que tiene el cursor sea enviada (o reenviada) para su ejecución. 
 Si hay varias lineas seleccionadas (por ejemplo, pulsando el botón izquierdo y arrastrando el ratón sobre ellas), entonces presionando \emph{Ejecutar} todas ellas serán ejecutadas. 
 Las instrucciones introducidas en la pestaña \emph{R Script} pueden ocupar más de una línea, pero todas las líneas deben enviarse simultáneamente. 
@@ -202,12 +202,13 @@ Los errores y avisos también pueden ir acompañados de un aviso acústico.
 \end{itemize}
 
 Como se ha mencionado, una vez cargado el paquete \textbf{Rcmdr}, puede minimizar la consola \emph{R Console}. La ventana \textbf{R Commander} puede ser redimensionada o mazimizada de la forma usual. 
-Si redimendiona \textbf{R Commander}, el ancho de las siguientes salidas de \textbf{R} será automáticamente ajustado al panel \emph{Salida}.
+Si redimendiona \textbf{R Commander}, el ancho de las sucesivas salidas de \textbf{R} será automáticamente ajustado al panel \emph{Salida}.
 
 \textbf{R Commander} es altamente configurable: Aquí se ha descrito la configuración estándar. 
-Se pueden hacer cambios en la configuración usando el menú \emph{Herramientas}$\longrightarrow$\emph{\ Opciones\ldots}\ o, más extensamente, ajustando las opciones de \textbf{R Commander} en \textbf{R}\footnote{Una entrada de menú que termina en puntos suspensivos lleva a un cuadro de diálogo, éste es el convenio para las interfaces gráficas. 
+Se pueden hacer cambios en la configuración usando el menú \emph{Herramientas}$\longrightarrow$\emph{\ Opciones\ldots}\ o, más extensamente, ajustando las opciones de \textbf{R Commander} en \textbf{R}\footnote{Una entrada de menú que termina en puntos suspensivos (i.e., tres puntos, ...) lleva a un cuadro de diálogo, este es el convenio para las interfaces gráficas. 
 En este documento, $\longrightarrow$ representa seleccionar una entrada de menú o un submenú de un menú.}.
 Véase \emph{Ayuda}$\longrightarrow$\emph{Ayuda de R Commander} para más detalles.
+
 
 \section{Entrada de datos}
 
@@ -221,8 +222,7 @@ Cuando \textbf{R Commander} se inicia, no hay conjunto de datos activo.
 \item Usando el editor de datos de \textbf{R Commander}, puede introducir datos directamente vía \emph{Datos}$\longrightarrow$\emph{Nuevo conjunto de datos...}. 
 Está es una elección razonable para un conjunto de datos muy pequeño.
 
-\item Puede importar datos de un archivo de texto plano (\textquotedblleft ascii\textquotedblright) o del portapapeles, o desde Internet desde una URL, de otro paquete estadístico (\textbf{Minitab}, \textbf{SPSS},
-\textbf{SAS}, o \textbf{Stata}) o desde una hoja de cálculo \textbf{Excel}.
+\item Puede importar datos de un archivo de texto plano (\textquotedblleft ascii\textquotedblright) o del portapapeles, o desde Internet desde una URL, de otro paquete estadístico (\textbf{Minitab}, \textbf{SPSS}, \textbf{SAS}, o \textbf{Stata}) o desde una hoja de cálculo \textbf{Excel}.
 
 \item Puede leer conjuntos de datos que estén incluidos en un paquete de \textbf{R}, tecleando el nombre del conjunto de datos (si lo conoce) o seleccionando el conjunto de datos en un cuadro de diálogo.
 \end{itemize}
@@ -249,7 +249,7 @@ Australia                   1.89    76    6 20046   Oceania
 \end{verbatim}
 
 \begin{itemize}
-\item La primera línea del fichero contiene los nombres de las variables: \texttt{TFR} (la tasa de fertilidad total\footnote{N.T.: Del inglés ``total fertility rate"}, expresada como número de niños por mujer), \texttt{contraception} (la tasa de contraceptivos usados entre las mujeres casadas, en porcentaje), \texttt{infant.mortality} (tasa de mortalidad infantil por cada 1000 nacimientos vivos), \texttt{GDP} (renta percápita bruta\footnote{N.T.: Del inglés ``gross domestic product".}, en dólares estadounidenses) y \texttt{region}.
+\item La primera línea del fichero contiene los nombres de las variables: \texttt{TFR} (la tasa de fertilidad total\footnote{N.T.: Del inglés ``total fertility rate"}, expresada como número de niños por mujer), \texttt{contraception} (la tasa de anticonceptivos usados entre las mujeres casadas, en porcentaje), \texttt{infant.mortality} (tasa de mortalidad infantil por cada 1000 nacimientos vivos), \texttt{GDP} (renta percápita bruta\footnote{N.T.: Del inglés ``gross domestic product".}, en dólares estadounidenses) y \texttt{region}.
 
 \item Las líneas siguiente contienen los datos, una línea por país.
 Los valores de los datos están separados por \textquotedblleft espacios en blanco\textquotedblright\ --- uno o más espacios o tabuladores. 
@@ -257,19 +257,20 @@ Aunque es útil hacer que los datos se alinéen verticalmente, no es necesario h
 Observe que las líneas de datos empiezan con el nombre del país. 
 Porque queremos que éstos sean los \textquotedblleft nombres de las filas\textquotedblright\ para el conjunto de datos, no hay nombre de variable correspondiente:
 Esto es, hay cinco variables pero seis valores en cada línea, el primero de los cuales es alfabético. 
-Cuando esto ocurre la instrucción \texttt{read.table} de \textbf{R} interpreta el primer valor de cada línea como el nombre de la línea.
+Cuando esto ocurre la instrucción \texttt{read.table} de \textbf{R} interpreta el primer valor de cada línea como el nombre de la fila.
 
 \item Algunos valores están perdidos. 
 En \textbf{R}, es más conveniente usar \texttt{NA} (representando \textquotedblleft no disponible\textquotedblright\footnote{N.T.: NA del inglés ``Not available".}) para representar los valores perdidos, como hemos hecho aquí.
 
 \item Las variables \texttt{TFR}, \texttt{contraception}, \texttt{infant.mortality} y \texttt{GDP} son variables numéricas (cuantitativas); en contraste, \texttt{region} contiene los nombres de las regiones. 
 Cuando los datos son leídos, \textbf{R} tratará \texttt{region} como un \textquotedblleft factor\textquotedblright\ --- esto es, como una variable categórica. 
-En la mayoría de los contextos, \textbf{R Commander} distingue entre variables numéricas y factores, e intentará evitar que haga cosas no razonables, como calcular la media de un factor.
+En la mayoría de los contextos, \textbf{R Commander} distingue entre variables numéricas y factores, e intentará evitar que haga cosas no razonables, como calcular la media de un factor\footnote{Las variables de caracteres, cuyos valores son cadenas de caracteres, y las variables lógicas, cuyos valores son \texttt{VERDADERO} o \texttt{FALSO} son tratadas como factores por \textbf{R Commander}.}.
 \end{itemize}
 
-Para leer el fichero \texttt{Nations.txt} en \textbf{R}, seleccione \emph{Datos}$\longrightarrow$\emph{Importar datos}$\longrightarrow$\emph{desde un fichero de texto, portapapeles o URL...} del menú de \emph{R Commander}.  Esta operación mostrará un cuadro de diálogo \emph{Leer archivo de texto, portapapeles o URL}, como se muestra en la figura~\ref{fig-2}.
+Para leer el fichero \texttt{Nations.txt} en \textbf{R}, seleccione \emph{Datos}$\longrightarrow$\emph{Importar datos}$\longrightarrow$\emph{desde un fichero de texto, portapapeles o URL...} del menú de \emph{R Commander}. 
+Esta operación mostrará un cuadro de diálogo \emph{Leer archivo de texto, portapapeles o URL}, como se muestra en la figura~\ref{fig-2}.
 El nombre por defecto del conjunto de datos es \texttt{Dataset}. 
-Podemos cambiar el nombre a \texttt{Nations}.
+Hemos cambiado el nombre a \texttt{Nations}.
 
 \begin{figure}[htb]%
 \centering
@@ -310,9 +311,6 @@ Una vez leído el fichero de datos, se convierte en el conjunto de datos activo 
 Consecuentemente, en la figura~\ref{fig-3}, el nombre del conjunto de datos aparece en el botón del conjunto de datos activo cerca de la parte superior izquierda de la ventana de \emph{R Commander}.
 
 A continuación pulsamos el botón \emph{Visualiza conjunto de datos} para mostrar la ventana del visor de datos, como se muestra en la figura~\ref{fig-3}. 
-La instrucción para leer y visualizar el conjunto de datos \texttt{Nations} (las instrucciones de \textbf{R} \texttt{read.table} y \texttt{showData}) aparecen en la pestaña \emph{R Script} y en el panel \emph{Salida}. 
-También, cuando el conjunto de datos se lee y se convierte en el conjunto de datos activo, una nota aparece en el panel \emph{Mensajes}. 
-\textbf{R Commander} también usa una instrucción \texttt{library} para cargar el paquete \textbf{relimp}, que fue usado para mostrar el conjunto de datos; aquí, y en general, los paquetes de \textbf{R} son cargados automáticamente por \textbf{R Commander} cuando son necesarios.
 
 \begin{figure}[htb]%
 \centering
@@ -332,6 +330,7 @@ La instrucción \texttt{read.table} de \textbf{R} crea un \textquotedblleft data
 frame,\textquotedblright\ que es un objeto que contiene un rectángulo de datos de casos por variables: Las filas del conjunto de datos representan los casos u observaciones y las columnas representan las variables. 
 Los conjuntos de datos en \textbf{R Commander} son objetos data.frame de \textbf{R}.
 
+
 \subsection{Introduciendo datos directamente}
 
 Puede introducir datos directamente en el editor de datos tipo hoja de cálculo de \textbf{R Commander}. 
@@ -339,26 +338,27 @@ Una alternativa, que en realidad es preferible, es guardar los datos en un fiche
 Si sus datos ya están en un programa tipo hoja de cálculo, como \textbf{Excel}, simplemente puede exportar los datos a un fichero de texto de valores separados por comas (\texttt{.csv}) y leer el fichero en \textbf{R Commander}, teniendo cuidado de especificar como separador la coma. 
 Recuerde que también puede leer una hoja de cálculo \textbf{Excel} directamente.
 
-Como ejemplo de introducción directa de datos, usamos un conjunto de datos muy pequeño del problema~2.44 en~\citet{Moore00}:
+Como ejemplo de introducción directa de datos, usemos un conjunto de datos muy pequeño del problema~2.44 en~\citet{Moore00}:
 
 \begin{itemize}
-\item Seleccione \emph{Datos}$\longrightarrow$\emph{Nuevo conjunto de datos...} del menú de \emph{R Commander}.  Opcionalmente introduzca el nombre para el conjunto de datos, como \texttt{Problema2.44}, en el cuadro de diálogo resultante y pulse en el botón \emph{Aceptar}. 
+\item Seleccione \emph{Datos}$\longrightarrow$\emph{Nuevo conjunto de datos...} del menú de \emph{R Commander}. 
+ Opcionalmente introduzca el nombre para el conjunto de datos, como \texttt{Problema2.44}, en el cuadro de diálogo resultante y pulse en el botón \emph{Aceptar}. 
 (Recuerde que los nombres en \textbf{R} no pueden incluir blancos.) 
 Esto mostrará la ventana del \emph{Editor de datos} con un conjunto de datos vacío.
 
 \item Introduzca los datos del problema en las dos primeras columnas del editor. 
 Añada una columna pulsando en el botón \emph{Añadir columna} de la barra del editor o seleccionando \emph{Añadir columna} desde el menú \emph{Editar}. 
 Similarmente añada filas a los datos pulsando sobre el botón \emph{Añadir fila} repetidamente o vía el menú \emph{Editar}.
+También puede aádir una file pulsando la telca \emph{Enter}  o añadir una columna pulsando la tecla \emph{Tab} cuando el cursor está en una celda de la tabla de datos.
 
 \item Puede moverse de una celda a otra usando las teclas de cursor o pulsando el botón izquierdo del ratón en la celda a la que se quiere desplazar. 
-Originalmente, los nombres de las variables son \texttt{var1} y \texttt{var2}, y los valores de los datos son todos \texttt{NA} (es decir, omitidos). 
+Inicialmente, los nombres de las variables son \texttt{var1} y \texttt{var2}, y los valores de los datos son todos \texttt{NA} (es decir, omitidos). 
 Cuando introduzca un nuevo nombre de variable, nombre de fila o un valor de un dato en una celda del editor de datos, el valor nuevo reemplaza al antiguo. 
 Si hace una pulsación doble en una celda, entonces la celda pasa a valer \texttt{NA}. 
 Cuando termine de introducir los datos, la ventana del editor de datos debería parecerse a la de la figura \ref{fig-4}. 
 
 \item En este ejemplo, ambas variables son numéricas. 
 Si introduce una variable no numérica en una columna del editor de datos (que no sea el valor \texttt{NA}), entonces la columna se considerará un factor (variable categórica) en el nuevo conjunto de datos. 
-Los valores que contengan blancos deben encerrarse en comillas simples o dobles (por ejemplo, ``\texttt{alguna postsecundaria}", ``\texttt{menos que secundaria}").
 
 \begin{figure}[htb]%
 \centering
@@ -366,7 +366,7 @@ Los valores que contengan blancos deben encerrarse en comillas simples o dobles 
 height=2.5in,
 ]%
 {fig-4-es}%
-\caption{Editor de datos después de la introducción}%
+\caption{Editor de datos después de la edición}%
 \label{fig-4}%
 \end{figure}
 
@@ -379,8 +379,9 @@ El conjunto de datos introducido es ahora el conjunto de datos activo en \textbf
 
 Muchos paquetes de \textbf{R} incluyen datos. 
 Los conjuntos de datos en paquetes pueden ser listados en una ventana emergente vía \emph{Datos}$\longrightarrow$\emph{Datos en paquetes}$\longrightarrow$\emph{Lista de datos en paquetes} y pueden ser leídos en \textbf{R Commander} vía \emph{Datos}$\longrightarrow$\emph{Datos en paquetes}$\longrightarrow$\emph{Leer datos desde paquete adjunto}\footnote{No todos los datos en paquetes son conjuntos de datos (data.frame) pero sólo los conjuntos de datos son apropiados para su uso en \textbf{R Commander}. 
-Si intenta leer datos que no sean un conjunto de datos (data.frame), se mostrará un error en la ventana de mensajes.}. 
-La caja de diálogo resultante se muestra en la figura~\ref{fig-6-5}. 
+Si intenta leer datos que no sean un conjunto de datos (data.frame), \textbf{R Commander} intentará convertirlo en data.frae, mostrando un aviso si la conversión fue exitosa o un error si no.}. 
+La caja de diálogo resultante se muestra en la figura~\ref{fig-6-5}
+\footnote{El ejemplo muestra conjuntos de datos, incluido \texttt{Prestige}, que están en el paquete \textbf{car}; estos conjuntos de datos están actualmente en el paquete \textbf{carData}, que se carga junto con el paquete \textbf{car} cuando se inicia \textbf{R Commander}.}. 
 Si se conoce el nombre del conjunto de datos en un paquete entonces se puede introducir directamente su nombre; en otro caso se hace una pulsación doble sobre el nombre del paquete para el que quiere mostrar los conjuntos de datos en la lista de la derecha y haciendo una pulsación doble en el nombre del conjunto de datos se copia el nombre en el campo de entrada del diálogo\footnote{En general en \textbf{R Commander}, cuando es necesario copiar un elemento de una lista a otra posición en el diálogo se realiza mediante una doble pulsación.}. 
 Pulsando una letra en la lista \emph{Conjunto de datos} la lista se desplaza hasta el próximo conjunto de datos cuyo nombre empieza por esa letra. 
 Puede acceder a paquetes adicionales de \textbf{R} que estén instalados en su biblioteca mediante \emph{Herramientas}$\longrightarrow$\emph{Cargar paquetes}.%
@@ -404,7 +405,8 @@ width=2.6833in
 
 Una vez que hay un conjunto de datos activo, puede usar los menús de \textbf{R Commander} para obtener una gran variedad de resúmenes numéricos y gráficos. 
 Vamos a describir simplemente algunos ejemplos básicos aquí. 
-Una buena interfaz gráfica debe ser ampliamente autoexplicativa: esperamos que una vez vea como trabaja \textbf{R Commander}, tenga pocos problemas usándola, asistido tal vez por los ficheros de ayuda en línea. 
+Una buena interfaz gráfica debe ser ampliamente autoexplicativa.
+Si prefiere una introducción más extensa al \textbf{R Commander}, vea~\citet{Fox17}.
 
 En el ejemplo a continuación, suponemos que el conjunto de datos activo es \texttt{Nations}, leído de un fichero de texto en la sección anterior. 
 Si ha introducido el conjunto de datos de cinco observaciones de Moore (2000), o leído el conjunto de datos \texttt{Prestige} del paquete \textbf{car} --- las operaciones también descritas en la sección anterior --- entonces uno de esos es el conjunto de datos activo. 
@@ -414,7 +416,7 @@ Seleccionando \emph{Estadísticos}$\longrightarrow$\emph{Resúmenes}$\longrighta
 Para cada variable numérica en el conjunto de datos (\texttt{TFR}, \texttt{contraception}, \texttt{infant.mortality} y \texttt{GDP}), \textbf{R} muestra los valores mínimo y máximo, el primer y tercer cuartil, la mediana y la media, junto con el número de datos omitidos. 
 Para la variable categórica \texttt{region}, se obtiene el número de observaciones en cada \textquotedblleft nivel\textquotedblright\ del factor. 
 Cuando el conjunto de datos tiene más de diez variables, \textbf{R Commander} preguntará si realmente quiere proceder --- protegiéndonos de una indeseada y voluminosa salida ---. 
-Este ítem de menú es inusual en el sentido de que directamente llama a una instrucción de \textbf{R} en vez de producir un cuadro de diálogo, como es más habitual en los menús de \textbf{R Commander}.%
+Este ítem de menú es inusual en el sentido de que directamente llama a una instrucción de \textbf{R} en vez de producir un cuadro de diálogo, como es más habitual en los menús de \textbf{R Commander}.
 
 \begin{figure}[htb]%
 \centering
@@ -471,13 +473,13 @@ width=3.4255in
 \label{fig-8a}%
 \end{figure}
 
-\noindent Por defecto, las instrucciones de \textbf{R} que son ejecutadas muestran la media, la desviación típica (\texttt{sd}) y el rango intercuartílico\footnote{NT: interquartile range} (\texttt{IQR}) de la variable, junto con los cuantiles (percentiles) correspondientes al mínimo, el primer cuarto, la mediana, el tercer cuarto y el máximo, \texttt{n} es el número de observaciones válidas y \texttt{NA} el número de valores omitidos.
+\noindent Por defecto, la instrucción de \textbf{R} que ejecutada muestra la media, la desviación típica (\texttt{sd}) y el rango intercuartílico\footnote{NT: interquartile range} (\texttt{IQR}) de la variable, junto con los cuantiles (percentiles) correspondientes al mínimo, el primer cuarto, la mediana, el tercer cuarto y el máximo, \texttt{n} es el número de observaciones válidas y \texttt{NA} el número de valores omitidos.
 
 Como es habitual en los diálogos de \textbf{R Commander}, el diálogo \emph{Resúmenes numéricos} en la figura~\ref{fig-8} incluye los botones \emph{Ayuda}, \emph{Reiniciar}, \emph{Aceptar}, \emph{Cancelar} y \emph{Aplicar}\footnote{El orden de los botones cambia según el sistema operativo y es diferente, por ejemplo, en \textbf{Mac OS X} y en \textbf{Windows}.}. 
 El botón \emph{Help} conduce a una página de ayuda (que aparece en el navegador) sobre el diálogo en sí mismo (como aquí) o sobre la función a la que llama el diálogo. 
 El botón \emph{Reiniciar}, que está presente en la mayoría de los diálogos de \textbf{R Commander}, reinicia el diálogo a su estado original; en caso contrario, el diálogo mantiene la selección hecha en la última ocasión. 
 El estado del diálogo también se reinicia cuando el conjunto de datos activo cambia. 
-Como demostración, el botón \emph{Aceptar} cierra el diálogo y genera una instrucción de \textbf{R}. 
+Como se mostró, el botón \emph{Aceptar} cierra el diálogo y genera una instrucción de \textbf{R}. 
 El botón \emph{Aplicar} también genera una instrucción, pero reabre el diálogo en su último estado, facilitando la aplicación de varias operaciones similares. 
 Si comete un error en el diálogo, --- por ejemplo, pulsando \emph{Aceptar} sin seleccionar una variable en el diálogo \emph{Resúmenes numéricos} --- un mensaje de error aparecerá y el diálogo se volverá a abrir. 
 
@@ -511,7 +513,8 @@ width=3.4255in
 El diálogo \emph{Resúmenes numéricos} también proporciona los resúmenes en los grupos definidos por los niveles de un factor. 
 Pulsando en el botón \emph{Resumir por grupos...} en la pestaña \emph{Datos} se obtiene el diálogo \emph{Grupos} como se muestra en la figura~\ref{fig-8-1}. 
 Debido a que hay un único factor en el conjunto de datos \texttt{Nations}, sólo la variable \texttt{region} aparece en la lista y es preseleccionada; pulsando en \emph{Aceptar} el botón \emph{Resumir por grupos...} cambia a \emph{Resumir por region} (véase la figura~\ref{fig-8-2}). 
-En este caso, hemos seleccionado dos variables numéricas para resumir, \texttt{GDP} e \texttt{infant.mortality}.  Pulsando \emph{Aceptar} se obtienen los resultados a continuación en el panel \emph{Salida}:
+En este caso, hemos seleccionado dos variables numéricas para resumir, \texttt{GDP} e \texttt{infant.mortality}.
+Pulsando \emph{Aceptar} se obtienen los resultados a continuación en el panel \emph{Salida}:
 \begin{verbatim}
 > numSummary(Nations[,c("GDP", "infant.mortality")], groups=Nations$region,
 +   statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
@@ -540,9 +543,8 @@ Por ejemplo, seleccionando \emph{Gráficos}$\longrightarrow$\emph{Histograma...}
 Están las pestañas \emph{Datos} y \emph{Opciones} en este diálogo. 
 Tomamos las opciones por defecto (la pestaña \emph{Opciones} no se muestra) y pulsando en \texttt{infant.mortality} y a continuación en \emph{Aceptar}, se abre la ventana \emph{Graphics Device} con el histograma mostrado en la figura~\ref{fig-10}. 
 Si hace varios gráficos en una sesión, únicamente el más reciente aparecerá en la ventana \emph{Graphics Device} window\footnote{En \textbf{Windows}, puede recuperar los gráficos anteriores usando la tecla \emph{Re Pág} y \emph{Av Pág} del teclado si previamente se ha activado la opción de histórico de gráficos en la ventana de gráficos, vía Histórico $\longrightarrow$ Grabación. 
-Esta prestación está disponible únicamente en los sistemas \textbf{Windows}.
-Los gráficos tridimensionales de puntos creados con \emph{Gráficos}$\longrightarrow$\emph{Gráfico 3D}$\longrightarrow$\emph{Nube de puntos 3D...} aparece en una ventana especial \emph{RGL device}; así como como los gráficos creados por los modelos estadísticos \citep{Fox03, FoxHong09} vía \emph{Modelos}$\longrightarrow
-$\emph{Gráficos}$\longrightarrow$\emph{Gráficos de efecto} aparecen en una ventana gráfica individual.}.
+En \textbf{macOS}, las flechas izquierda y derecha se pueden usar para moverse por los gráficos.
+Los gráficos tridimensionales de puntos creados con \emph{Gráficos}$\longrightarrow$\emph{Gráfico 3D}$\longrightarrow$\emph{Nube de puntos 3D...} aparece en una ventana especial \emph{RGL device}.}.
 
 \begin{figure}[htb]%
 \centering
@@ -572,7 +574,7 @@ width=4.1569in
 
 \section{Modelos estadísticos}
 
-Varios tipos de modelos estadísticos pueden ser ajustados en \textbf{R Commander} usando los opciones del menú \emph{Estadísticos}$\longrightarrow$\emph{Ajustar modelos}: modelos lineales (con \emph{Regresión lineal} y \emph{Modelo lineal}), modelos lineales generalizados, modelos logit multinomial y modelos de regresión ordinal como el modelo odds-proporcional [los dos últimos de los paquetes \textbf{nnet} y \textbf{MASS} de Venables y Ripley, respectivamente \citep{VenablesRipley02}]. 
+Varios tipos de modelos estadísticos pueden ser ajustados en \textbf{R Commander} usando los opciones del menú \emph{Estadísticos}$\longrightarrow$\emph{Ajustar modelos}: modelos lineales (con \emph{Regresión lineal} y \emph{Modelo lineal}), modelos lineales generalizados, modelos logit multinomial y modelos de regresión ordinal como el modelo odds-proporcional [los dos últimos de los paquetes \textbf{nnet} y \textbf{MASS} de Venables y Ripley, respectivamente \citep{VenablesRipley02}], y modelos lineales y lineales generalizados [usando el paquete \textbf{lme4} de \citep{BatesMachlerBolker15}]. 
 Aunque los diálogos resultantes tienen diferencias en algunos detalles (por ejemplo, el diálogo del modelo lineal generalizado permite seleccionar una familia de distribuciones y su correspondiente función de enlace), comparten una estructura general, como se ilustra en el diálogo \emph{Modelo lineal} de la figura~\ref{fig-10-5}\footnote{Una excepción es el diálogo \emph{Regresión lineal} en el que la variable respuesta y las variables explicativas son simplemente seleccionadas por el nombre de la lista conteniendo las variables numéricas en el conjunto de datos actual.}. 
 Antes de seleccionar \emph{Estadísticos}$\longrightarrow$\emph{Ajustar modelos}$\longrightarrow$\emph{Modelo lineal}, hacemos \texttt{Prestige} el conjunto de datos activo pulsando en el botón conjunto de datos activo y seleccionando \texttt{Prestige} de la lista resultante. 
 Recuerde que los datos \texttt{Prestige} se leyeron del paquete \textbf{car} en la sección~\ref{sec-data-in-packages}. 
@@ -610,10 +612,12 @@ Alguna información sobre las fórmulas en los modelos de \textbf{R} puede ser o
 \item Puede introducir una expresión de \textbf{R} en el campo etiquetado \emph{Expresión de selección}; si se suministra, se pasa al argumento \texttt{subset} de la función \texttt{lm} y es usado para ajustar el modelo a un subconjunto del conjunto de observaciones. 
 Una forma de expresión de selección son las expresiones lógicas que se evalúan a \texttt{TRUE} o \texttt{FALSE} para cada observación, como \texttt{type != "prof"} (que seleccionará todas las ocupaciones no profesionales del conjunto de datos \texttt{Prestige}).
 
+\item En la versión 2.8-0 de \textbf{R Commander} (o posterior), también hay un cuadro de texto en el que puede escribir los nombres o números de casos (filas) que se omitirán del modelo ajustado. (Este cuadro no se muestra en la figura~\ref{fig-10-5}).
+  
 \item Opcionalmente seleccionando una variable peso en el desplegable \emph{Pesos} se obtiene una regresión mínimo cuadrática ponderada. 
 \end{itemize}
 
-Pulsando el botón \emph{Aceptar} se genera la siguiente instrucción, la salida y establece \texttt{LinearModel.1} como el modelo activo, con su nombre mostrado en el botón \emph{Modelo}: 
+Pulsando el botón \emph{Aceptar} se genera la siguiente instrucción y la salida, y se establece \texttt{LinearModel.1} como el modelo activo, con su nombre mostrado en el botón \emph{Modelo}: 
 \begin{verbatim}
 > LinearModel.1 <- lm(prestige ~ (education + log(income))*type,
 +   data=Prestige)
@@ -674,7 +678,7 @@ Estas opciones requieren una instalación de \textbf{LaTeX} y son activadas poni
 Véase, \emph{Ayuda}$\longrightarrow$\emph{Ayuda de R-Commander} y \emph{Herramientas}$\longrightarrow$\emph{Opciones}.}. 
 La figura~\ref{fig-11} muestra la pestaña \emph{R Markdown} de la sesión actual, que ha sido desplazada hasta la parte superior del documento generado. 
 Como su nombre indica, \textbf{R Markdown} es un lenguaje simple de marcado, que incluye bloques de instrucciones de \textbf{R} y puede ser usado para generar páginas HTML (web) u otro tipo de documento. 
-Para más información sobre \textbf{R Markdown}, seleccione \emph{Ayuda}$\longrightarrow$\emph{Usando R Markdown} del menú de \textbf{R Commander}\footnote{Éste y otros entradas del menú \emph{Ayuda} pueden necesitar una conexión activa a internet.}.
+Para más información sobre \textbf{R Markdown}, seleccione \emph{Ayuda}$\longrightarrow$\emph{Usando R Markdown} del menú de \textbf{R Commander}\footnote{Éste y otras entradas del menú \emph{Ayuda} pueden necesitar una conexión activa a internet.}.
 
 \begin{figure}[htb]%
 \centering
@@ -698,10 +702,11 @@ Incluso si no está familiarizado con las instrucciones de \textbf{R}, podrá ve
 La pestaña \emph{R Markdown} es editable y puede modificar y añadir texto en la pestaña. 
 En general es seguro escribir el texto explicatorio que quiera \emph{entre} bloques de código de \textbf{R} (véase arriba). 
 En general, no obstante, a menos que sepa que está haciendo, no debería modificar los bloques de código de \textbf{R} en el documento \textbf{R Markdown} o añadir sus propios bloques de código. 
-No obstante, puede borrar bloques enteros de código, siempre que los bloques siguientes no dependan de ello. Querrá eliminar bloques de código que produzcan salidas no deseadas. 
+No obstante, puede borrar bloques enteros de código, siempre que los bloques siguientes no dependan de ello. 
+Querrá eliminar bloques de código que produzcan salidas no deseadas. 
 Los bloques de instrucciones que producen errores son automáticamente eliminados. 
 Puede eliminar el bloque más reciente seleccionando \emph{Borrar el último bloque de instrucciones Markdown} del menú \emph{Editar} o pulsando el botón derecho en la pestaña \emph{R Markdown} y seleccionando \emph{Borrar el último bloque Markdown} del menú contextual. 
-El primer bloque de código que empieza \texttt{```\{r echo=FALSE\}}) establece algunas opciones del software del paquete \textbf{knitr} (Xie, 2013) que son usadas para procesar el texto \textbf{R Markdown} y esto y este bloque no debería ser normalmente modificados.
+El primer bloque de código que empieza \texttt{```\{r echo=FALSE\}}) establece algunas opciones del software del paquete \textbf{knitr} (Xie, 2013) que son usadas para procesar el texto \textbf{R Markdown} y este texto y este bloque no debería ser normalmente modificados.
 
 Algunas líneas han sido omitidas (indicadas con \ldots), aquí está el documento \textbf{R Markdown} producido por la sesión actual:
 \begin{verbatim}
@@ -752,8 +757,11 @@ Anova(LinearModel.1, type="II")
 \noindent Es probablemente innecesario explicar que normalmente debería reemplazar \textquotedblleft\texttt{Your\ Name}\textquotedblright\ con su nombre y reemplazar \textquotedblleft\texttt{Replace\ with\ Main\ Title} 
 \textquotedblright\ con el título del informe que quiera crear. 
 Tal vez, menos obviamente, puede introduccir texto explicativo arbitrario antes del primer bloque de instrucciones, \emph{entre} los bloques de código \textbf{R} --- esto es, entre la terminación de un bloque \texttt{```} y el incio del siguiente \texttt{```\{r\}} --- y después del último bloque de instrucciones. 
-Puede aprovechar la ventaja del marcado simple proporcionado por \textbf{R Markdown}; por ejemplo, texto encerrado entre asteriscos (por ejemplo, \texttt{*esto es importante*}) será puesto en \textit{itálica}. 
+Puede aprovechar la ventaja del marcado simple proporcionado por \textbf{R Markdown}; por ejemplo, el texto encerrado entre asteriscos (por ejemplo, \texttt{*esto es importante*}) será puesto en \textit{itálica}. 
 Para ilustrar, añadimos el texto \textquotedblleft\texttt{Let us regress occupational prestige ...} \textquotedblright\ inmediatamente antes del bloque de instrucciones de \textbf{R} que hace la regresión.
+
+El documento \textbf{R Markdown} también incluye encabezados de sección generados automáticamente para algunos bloques de instrucciones de  \textbf{R}. 
+Estos están precedidos por tres marcas de almohadilla (\texttt{\#\#\#}), que indican un encabezado de nivel 3. Cuando el \textbf{R Markdown} documentado se convierte en un informe (ver inmediatamente a continuación), los encabezados aparecen no solo en el texto sino también en un índice generado automáticamente. Puede editar estos encabezados para personalizarlos y también puede agregar sus propios encabezados, usando, por ejemplo, \texttt{\#} para un encabezado de nivel 1 y \texttt{\#\#} para un encabezado de nivel 2 .
 
 Cuando acabe de editar el documento \textbf{R Markdown}, puede generar un informe a partir de él en forma de documento HTML (página web), documento \textbf{Word}, fichero de texto enriquecido o PDF pulsando el botón \emph{Generar informe} debajo de la pestaña \emph{R Markdown}\footnote{Para generar un documento \textbf{Word} o fichero de texto enriquecido debe instalar \textbf{Pandoc}; para generar fichero PDF, necesitará adicionalmente \LaTeX. 
 Para instalar este software auxiliar adicional, use el menú \emph{Herramientas}.}.
@@ -766,6 +774,11 @@ Seleccione \emph{Editor R Markdown} del menú \emph{Editar} de \textbf{R Command
 El editor soporta el menú usual \emph{Editar} y las instrucciones del menú contextual usando el botón derecho y también permite compilar el documento \emph{R Markdown} en un informe HTML. 
 Pulsando en el botón \emph{Aceptar} en el editor se guardan sus cambios en la pestaña \emph{R Markdown} y pulsando \emph{Cancelar} descarta los cambios. 
 Debajo del menú en el editor, hay una gran barra de herramientas autoexplicativa con varios botones; si posa el ratón sobre un botón se muestra una \textquotedblleft ayuda\textquotedblright.
+
+
+Puede abrir la ventana del editor \textbf{R Markdown} al comienzo de una sesión y dejarla abierta mientras trabaja.
+Las instrucciones generadas por el \textbf{R Commander} se introducirán tanto en la pestaña \emph{R Markdown} como en el editor, y podrá escribir texto en el editor sobre la marcha. Consulte la ayuda del editor para obtener más información.
+
 
 \begin{figure}[htb]%
 \centering
@@ -789,7 +802,8 @@ De esta forma, puede intercalar la salida de \textbf{R} con sus notas y explicac
 Este procedimiento, no obstante, tiene el inconveniente de que no es directamente reproducible, mientras que un documento \textbf{R Markdown} puede ser posteriormente ejecutado para reproducir el análisis, posiblemente con modificaciones. 
 
 Abra un procesador de texto como \textbf{Word}, \textbf{OpenOffice Writer} o incluso \textbf{WordPad} de \textbf{Windows}. 
-Para copiar texto del panel \emph{Salida}, marque el bloque de texto con el ratón, seleccione \emph{Copiar} del menú \emph{Editar} (o presione la combinación de teclas \emph{Ctrl-c} o el botón derecho en el panel y seleccione \emph{Copiar} del menú contextual), y pegue el texto en el documento mediante \emph{Editar}$\longrightarrow$\emph{Pegar} (o \emph{Ctrl-v } o botón derecho \emph{Pegar}), puede usar cualquier fuente monoespacio (\textquotedblleft\texttt{tipográfica}\textquotedblright), como \emph{Courier New}, para la salida de texto \textbf{R}; de lo contrario el texto no se alineará correctamente.
+Para copiar texto del panel \emph{Salida}, marque el bloque de texto con el ratón, seleccione \emph{Copiar} del menú \emph{Editar} (o presione la combinación de teclas \emph{Ctrl-c} o el botón derecho en el panel y seleccione \emph{Copiar} del menú contextual), y pegue el texto en el documento mediante \emph{Editar}$\longrightarrow$\emph{Pegar} (o \emph{Ctrl-v } o botón derecho \emph{Pegar}), como haría en cualquier aplicación \textbf{Windows}.
+Un punto a mencionar es que debería usar una fuente monoespacio (\textquotedblleft\texttt{tipográfica}\textquotedblright), como \emph{Courier New}, para la salida de texto \textbf{R}; de lo contrario el texto no se alineará correctamente.
 
 Igualmente, para copiar un gráfico, seleccione \emph{Fichero}$\longrightarrow$\emph{Copiar al portapapeles}$\longrightarrow$\emph{como Metafichero} desde el menú \emph{Graphics Device} de \textbf{R}; entonces pegue el gráfico en el documento usando \emph{Editar}$\longrightarrow$\emph{Pegar} (o \emph{Ctrl-v} o botón derecho \emph{Pegar}). 
 Alternativamente, puede usar \emph{Ctrl-w} para copiar el gráfico en \emph{Graphics Device} de \textbf{R} o pulsar el botón derecho en el gráfico para obtener el menú contextual, desde el que puede seleccionar \emph{Copiar como metafichero}\footnote{Como verá cuando examine estos menús, puede guardar el gráfico en una gran variedad de formatos en ficheros y en el portapapeles. 
@@ -802,14 +816,16 @@ Guardar la pestaña \emph{Script} mediante el menú \emph{Fichero}$\longrightarr
 
 \subsection{Introduciendo instrucciones en la pestaña Script}
 
-La pestaña \emph{R Script} proporciona una forma sencilla de edición, introducción y ejecución de instrucciones.  Las instrucciones generadas por \textbf{R Commander} aparecen en la pestaña \emph{Script} y puede introducir y editar las instrucciones en la pestaña más o menos como en un editor. 
+La pestaña \emph{R Script} proporciona una forma sencilla de editar, introducir y ejecutat instrucciones.
+Las instrucciones generadas por \textbf{R Commander} aparecen en la pestaña \emph{Script} y puede introducir y editar las instrucciones en la pestaña más o menos como en un editor. 
 \textbf{R Commander} no proporciona una auténtica \textquotedblleft consola\textquotedblright\ de \textbf{R}, no obstante, y la pestaña \emph{Script} tiene algunas limitaciones. 
-Por ejemplo, todas las líneas de una instrucción multilínea deben ser enviadas simultáneamente para ejecución.  Para programación seria con \textbf{R}, es preferible utilizar un editor de instrucciones como el proporcionado para \textbf{R} en las versiones de \textbf{Windows} y \textbf{Mac OS X} , o --- incluso mejor --- un editor de programas o un entorno integrado de desarrollo, como por ejemplo, \textbf{RStudio} \href{https://www.rstudio.com/}{www.rstudio.com}\footnote{\textbf{R Commander} corre bajo \textbf{RStudio}, en ese caso la salida y los mensajes de \textbf{R Commander} se dirigen por defecto a la consola de \textbf{R} en \textbf{RStudio}.}.
+Por ejemplo, todas las líneas de una instrucción multilínea deben ser enviadas simultáneamente para ejecución.
+Para programación seria con \textbf{R}, es preferible utilizar un editor de instrucciones como el proporcionado para \textbf{R} en las versiones de \textbf{Windows} y \textbf{maxOS} , o --- incluso mejor --- un editor de programas o un entorno integrado de desarrollo, como por ejemplo, \textbf{RStudio} \href{https://www.rstudio.com/}{www.rstudio.com}\footnote{\textbf{R Commander} corre bajo \textbf{RStudio}, en ese caso la salida y los mensajes de \textbf{R Commander} se dirigen por defecto a la consola de \textbf{R} en \textbf{RStudio}.}.
 
 \subsection{Usando extensiones de R Commander\label{sec-plugins}}
 
 Las extensiones de \textbf{R Commander} son paquetes que añaden capacidades a \textbf{R Commander}. 
-Muchas de esas extensiones están actualmente disponibles en CRAN y pueden ser descargados e instalados de la manera habitual. 
+Muchas de esas extensiones están actualmente disponibles en CRAN y pueden ser descargadas e instaladas de la manera habitual. 
 Las extensiones normalmente añaden menús o entradas de menú y cajas de diálogos asociadas a \textbf{R Commander}. 
 También pueden modificar o incluso suprimir menús existentes o diálogos. 
 Una extensión de \textbf{R Commander} programada adecuadamente puede ser cargada directamente, en cuyo caso \textbf{R Commander} se carga con ella o desde \textbf{R Commander} usando \emph{Herramientas}$\longrightarrow$\emph{Cargar plugin(s) de Rcmdr}. 
@@ -823,6 +839,7 @@ Hay muchas formas de terminar su sesión.
 Por ejemplo, puede seleccionar del menú de \textbf{R Commander} \emph{Fichero}$\longrightarrow$\emph{Salir}$\longrightarrow$\emph{De Commander y R}. 
 Se le solicitará confirmación y entonces si quiere guardar el contenido de las ventanas \emph{R Script}, \emph{Salida} y \emph{R Markdown}. 
 También, puede seleccionar \emph{Fichero}$\longrightarrow$\emph{Salir} desde la consola \emph{R Console}; en este caso, se le preguntará si quiere guardar el espacio de trabajo de \textbf{R}, (por ejemplo, los datos que \textbf{R} mantiene en memoria); normalmente contestará \emph{No}.
+Guardar el espacio de trabajo de \textbf{R} podría crear problemas en sucesivas sesiones.
 
 %\bibliographystyle{apa}
 \bibliography{Rcmdr-Manual}
