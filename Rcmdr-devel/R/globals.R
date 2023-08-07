@@ -59,4 +59,4 @@ globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                   'countsVariable', 'allPredictorEffectsFrame', 'allPredictorEffectsVariable', 'familyFrame', 'familyVariable',
                   'bonfVariable', 'cookVariable', 'hatVariable', 'studentVariable', 'varsFrame', 'estimTypeFrame', 'estimTypeVariable',
                   '.responseLabel', 'testStatisticVariable', 'designTab', 'testStatisticFrame', 'oneFactorTab', 'twoFactorsTab',
-                  'modelCaseDeletionVariable', 'CVVariable'))
+                  'modelCaseDeletionVariable', 'CVVariable', 'removeRows'))

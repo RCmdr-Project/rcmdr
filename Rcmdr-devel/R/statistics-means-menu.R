@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2022-09-03 by J. Fox
+# last modified 2023-08-07 by J. Fox
 
 # Means menu
 
@@ -235,6 +235,10 @@ oneWayAnova <- function () {
       if ("no" == tclvalue(checkReplace(modelValue, type = gettextRcmdr("Model")))) {
         UpdateModelNumber(-1)
         tkdestroy(top)
+        if (getRcmdr("onApplyCalled")){
+            putRcmdr("onApplyCalled", FALSE)
+            return()
+        }
         oneWayAnova()
         return()
       }
@@ -350,6 +354,10 @@ multiWayAnova <- function () {
       if ("no" == tclvalue(checkReplace(modelValue, type = gettextRcmdr("Model")))) {
         UpdateModelNumber(-1)
         tkdestroy(top)
+        if (getRcmdr("onApplyCalled")){
+            putRcmdr("onApplyCalled", FALSE)
+            return()
+        }
         multiWayAnova()
         return()
       }

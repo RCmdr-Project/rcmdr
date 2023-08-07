@@ -1,6 +1,6 @@
 # this code originally by Dan Putler, used with permission 
 
-# last modified 2022-06-30 by J. Fox
+# last modified 2023-08-07 by J. Fox
 
 
 listKmeansSolutions <- function(envir=.GlobalEnv, ...) {
@@ -74,6 +74,10 @@ kmeansClustering <- function () {
         if (clusterAssign == "1") {
             if (is.element(clusterVariable, Variables())) {
                 if ("no" == tclvalue(checkReplace(clusterVariable))) {
+                    if (getRcmdr("onApplyCalled")){
+                        putRcmdr("onApplyCalled", FALSE)
+                        return()
+                    }
                     kmeansClustering()
                     return()
                 }
@@ -420,6 +424,10 @@ appendHclustGroup <- function () {
 		closeDialog()
 		if (is.element(label, Variables())) {
 			if ("no" == tclvalue(checkReplace(label))) {
+			    if (getRcmdr("onApplyCalled")){
+			        putRcmdr("onApplyCalled", FALSE)
+			        return()
+			    }
 				appendHclustGroup()
 				return()
 			}

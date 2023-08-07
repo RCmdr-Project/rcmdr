@@ -1,4 +1,4 @@
-# last modified 2022-06-15 by J. Fox
+# last modified 2023-08-07 by J. Fox
 
 # Data menu dialogs
 
@@ -180,6 +180,10 @@ RecodeDialog <- function () {
       }
       if (is.element(newVar, Variables())) {
         if ("no" == tclvalue(checkReplace(newVar))) {
+            if (getRcmdr("onApplyCalled")){
+                putRcmdr("onApplyCalled", FALSE)
+                return()
+            }
           RecodeDialog()
           return()
         }
@@ -271,6 +275,10 @@ Compute <- function(){
         putDialog("Compute", list(initial.name=newVar, initial.expression=express))
         if (is.element(newVar, Variables())) {
             if ("no" == tclvalue(checkReplace(newVar, gettextRcmdr("Variable")))){
+                if (getRcmdr("onApplyCalled")){
+                    putRcmdr("onApplyCalled", FALSE)
+                    return()
+                }
                 Compute()
                 return()
             }

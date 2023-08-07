@@ -1,4 +1,4 @@
-# last modified 2022-07-05 by J. Fox
+# last modified 2023-08-07 by J. Fox
 
 # utility functions
 
@@ -473,6 +473,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             onApply <- function(){
                 putRcmdr("restoreTab", TRUE)
                 putRcmdr("cancelDialogReopen", FALSE)
+                putRcmdr("onApplyCalled", TRUE)
                 ID <- window$ID
                 putRcmdr("open.dialog.here", as.character(.Tcl(paste("winfo geometry", ID))))
                 if (getRcmdr("use.markdown")) {

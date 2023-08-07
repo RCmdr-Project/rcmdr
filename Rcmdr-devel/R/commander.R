@@ -1,7 +1,7 @@
 
 # The R Commander and command logger
 
-# last modified 2022-11-05 by John Fox
+# last modified 2023-08-07 by John Fox
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
@@ -168,6 +168,7 @@ setupRcmdrOptions <- function(DESCRIPTION){
     putRcmdr("dialog.values", list())
     putRcmdr("dialog.values.noreset", list())
     putRcmdr("savedTable", NULL)
+    putRcmdr("onApplyCalled", FALSE)
     log.height <- as.character(setOption("log.height", if (!getRcmdr("log.commands")) 0 else 10))
     log.width <- as.character(setOption("log.width", 80))
     output.height <- as.character(setOption("output.height",

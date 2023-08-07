@@ -27,7 +27,7 @@ Q(string)
 \author{John Fox}
 
 \seealso{
-\code{\link{doItAndPrint}}, \code{\link{justDoIt}, \code{\link{logger}}.}
+\code{\link{doItAndPrint}}, \code{\link{justDoIt}}, \code{\link{logger}}.
 }
 
 \examples{

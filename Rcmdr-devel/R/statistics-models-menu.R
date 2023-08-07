@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2022-09-03 by J. Fox
+# last modified 2023-08-07 by J. Fox
 
     # Models menu
 
@@ -85,6 +85,10 @@ linearRegressionModel <- function () {
     if (is.element(modelValue, listLinearModels())) {
       if ("no" == tclvalue(checkReplace(modelValue, type = gettextRcmdr("Model")))) {
         UpdateModelNumber(-1)
+          if (getRcmdr("onApplyCalled")){
+              putRcmdr("onApplyCalled", FALSE)
+              return()
+          }
         linearRegressionModel()
         return()
       }
@@ -178,6 +182,10 @@ linearModel <- function(){
     if (is.element(modelValue, listLinearModels())) {
       if ("no" == tclvalue(checkReplace(modelValue, type=gettextRcmdr("Model")))){
         UpdateModelNumber(-1)
+          if (getRcmdr("onApplyCalled")){
+              putRcmdr("onApplyCalled", FALSE)
+              return()
+          }
         linearModel()
         return()
       }
@@ -342,6 +350,10 @@ generalizedLinearModel <- function(){
       if ("no" == tclvalue(checkReplace(modelValue, type=gettextRcmdr("Model")))){
         UpdateModelNumber(-1)
         closeDialog()
+        if (getRcmdr("onApplyCalled")){
+            putRcmdr("onApplyCalled", FALSE)
+            return()
+        }
         generalizedLinearModel()
         return()
       }
@@ -507,6 +519,10 @@ ordinalRegressionModel <- function(){
     if (is.element(modelValue, listProportionalOddsModels())) {
       if ("no" == tclvalue(checkReplace(modelValue, type=gettextRcmdr("Model")))){
         UpdateModelNumber(-1)
+          if (getRcmdr("onApplyCalled")){
+              putRcmdr("onApplyCalled", FALSE)
+              return()
+          }
         proportionalOddsModel()
         return()
       }
@@ -627,6 +643,10 @@ multinomialLogitModel <- function(){
     if (is.element(modelValue, listMultinomialLogitModels())) {
       if ("no" == tclvalue(checkReplace(modelValue, type=gettextRcmdr("Model")))){
         UpdateModelNumber(-1)
+          if (getRcmdr("onApplyCalled")){
+              putRcmdr("onApplyCalled", FALSE)
+              return()
+          }
         multinomialLogitModel()
         return()
       }
@@ -777,6 +797,10 @@ linearMixedModel <- function(){
     if (is.element(modelValue, listLMMs())) {
       if ("no" == tclvalue(checkReplace(modelValue, type=gettextRcmdr("Model")))){
         UpdateModelNumber(-1)
+          if (getRcmdr("onApplyCalled")){
+              putRcmdr("onApplyCalled", FALSE)
+              return()
+          }
         linearMixedModel()
         return()
       }
@@ -939,6 +963,10 @@ generalizedLinearMixedModel <- function(){
     if (is.element(modelValue, listGLMMs())) {
       if ("no" == tclvalue(checkReplace(modelValue, type=gettextRcmdr("Model")))){
         UpdateModelNumber(-1)
+          if (getRcmdr("onApplyCalled")){
+              putRcmdr("onApplyCalled", FALSE)
+              return()
+          }
         closeDialog()
         generalizedLinearMixedModel()
         return()
