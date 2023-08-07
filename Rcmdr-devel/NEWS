@@ -4,7 +4,7 @@ Changes in version 2.10-0
 
   o Addition to translation (R-Rcmdr.pot) file.
   
-  o Add Command() utilility; now used in a few dialogs.
+  o Add Command() utility; now used in a few dialogs.
   
   o Prevent the following dialog functions from opening two copies of the dialog after aborting an Apply: appendHclustGroup, Compute(), distributionSamples(), generalizedLinearMixedModel, generalizedLinearModel(), kmeansClustering(), linearMixedModel(), linearModel(), linearRegressionModel(), multinomialLogitModel(), multiWayAnova(), oneWayAnova(), proportionalOddsModel, RecodeDialog(), 
  
