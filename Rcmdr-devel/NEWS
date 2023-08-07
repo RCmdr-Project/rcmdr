@@ -3,6 +3,8 @@ Changes in version 2.10-0
   o Vignette "Empezando-con-Rcmdr-es" added to the project. This vignette is the Spanish version of "Getting-Started-with-the-Rcmdr".
 
   o Addition to translation (R-Rcmdr.pot) file.
+  
+  o Add Command() utilility; now used in a few dialogs.
  
 Changes in version 2.9-0
 

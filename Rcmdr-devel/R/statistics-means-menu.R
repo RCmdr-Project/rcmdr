@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2023-01-16 by J. Fox
+# last modified 2022-09-03 by J. Fox
 
 # Means menu
 

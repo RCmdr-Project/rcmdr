@@ -1,3 +1,4 @@
+# last modified 2022-09-03 by J. Fox
 
 CRPlot3D <- function () {
   use.rgl <- getOption("Rcmdr")$use.rgl
@@ -50,14 +51,18 @@ CRPlot3D <- function () {
     grid <- tclvalue(gridLines)
     dfNonpar <- tclvalue(dfNonparVariable)
     df <- if (dfNonpar == gettextRcmdr("<auto>")) "NULL" else dfNonpar
-    dfText <- paste0(", df.mgcv = ", df) 
+#    dfText <- paste0(", df.mgcv = ", df) 
     ellips <- tclvalue(ellipsoid) 
     bg <- tclvalue(bgVariable)
     identify <- tclvalue(identifyVariable)
     id.n <- tclvalue(id.n.Var)
+    # identify.text <- switch(identify,
+    #                         auto = paste0(", id=list(method='mahal', n =", id.n, ")"),
+    #                         mouse = ", id=list(method='identify')",
+    #                         not = "")
     identify.text <- switch(identify,
-                            auto = paste0(", id=list(method='mahal', n =", id.n, ")"),
-                            mouse = ", id=list(method='identify')",
+                            auto = paste0("list(method='mahal', n =", id.n, ")"),
+                            mouse = "list(method='identify')",
                             not = "")
     rotations <- tclvalue(rotationsVar)
     closeDialog()
@@ -77,16 +82,19 @@ CRPlot3D <- function () {
     scales <- if (tclvalue(axisScales) == 1)  "TRUE" else "FALSE"
     grid <- if (tclvalue(gridLines) == 1) "TRUE" else "FALSE"
     ellips <- if (tclvalue(ellipsoid) == 1) "TRUE"else "FALSE"
-    revolutions <- if (rotations != "0") paste(", revolutions =", rotations) else ""
+#    revolutions <- if (rotations != "0") paste(", revolutions =", rotations) else ""
+    revolutions <- if (rotations != "0") rotations else ""
     if (identify == "mouse"){
       RcmdrTkmessageBox(title="Identify Points",
                         message=gettextRcmdr("Drag right mouse button to identify points,\nclick right button to exit."),
                         icon="info", type="ok")
     }
-    command <- paste("crPlot3d(", activeModel(), ", \"", x[1], "\", \"", x[2], 
-                     "\", bg=\"", bg, "\", axis.scales=", scales, 
-                     ", grid=", grid, ", ellipsoid=", ellips, dfText, identify.text, revolutions,
-                     ")", sep = "")
+    # command <- paste("crPlot3d(", activeModel(), ", \"", x[1], "\", \"", x[2], 
+    #                  "\", bg=\"", bg, "\", axis.scales=", scales, 
+    #                  ", grid=", grid, ", ellipsoid=", ellips, dfText, identify.text, revolutions,
+    #                  ")", sep = "")
+    command <- Command("crPlot3d", activeModel(), Q(x[1]), Q(x[2]), bg=Q(bg), axis.scales=scales,
+                       grid=grid, ellipsoid=ellips, df.mgcv=df, id=identify.text, revolutions=revolutions)
     if (identify == "mouse") command <- suppressMarkdown(command)
     doItAndPrint(command)
     putRcmdr("rgl", TRUE)

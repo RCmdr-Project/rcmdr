@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2022-06-15 by J. Fox
+# last modified 2022-09-03 by J. Fox
 
     # Models menu
 
@@ -158,12 +158,13 @@ linearModel <- function(){
     if (trim.blanks(subset) == gettextRcmdr("<all valid cases>") || trim.blanks(subset) == ""){
       subset <- ""
     }
-    else{
-      subset <- paste(", subset=", subset, sep="")
-    }
+    # else{
+    #   subset <- paste(", subset=", subset, sep="")
+    # }
     weight.var <- getSelection(weightComboBox)
     weights <- if (weight.var == gettextRcmdr("<no variable selected>")) ""
-    else paste(", weights=", weight.var, sep="")
+#    else paste(", weights=", weight.var, sep="")
+    else weight.var
     check.empty <- gsub(" ", "", tclvalue(lhsVariable))
     if ("" == check.empty) {
       errorCondition(recall=linearModel, message=gettextRcmdr("Left-hand side of model empty."), model=TRUE)
@@ -185,10 +186,12 @@ linearModel <- function(){
     remove.cases <- if (remove == gettextRcmdr("<use all valid cases>") || remove == ""){
       "" 
     } else {
-      removeRows <- getCases(remove, remove=TRUE)
-      paste(", subset =", removeRows)
+#      removeRows <- getCases(remove, remove=TRUE)
+#      paste(", subset =", removeRows)
+        getCases(remove, remove=TRUE)
     }
-    if (remove.cases != "" && inherits(removeRows, "cases-error")){
+#    if (remove.cases != "" && inherits(removeRows, "cases-error")){
+    if (remove.cases != "" && inherits(remove.cases, "cases-error")){
       errorCondition(recall = linearModel,
                      message = removeRows,
                      model=TRUE)
@@ -201,9 +204,12 @@ linearModel <- function(){
       return()
     }
     formula <- paste(tclvalue(lhsVariable), tclvalue(rhsVariable), sep=" ~ ")
-    command <- paste("lm(", formula,
-                     ", data=", ActiveDataSet(), subset, weights, remove.cases, ")", sep="")
-    doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
+    # command <- paste("lm(", formula,
+    #                  ", data=", ActiveDataSet(), subset, weights, remove.cases, ")", sep="")
+    # doItAndPrint(paste(modelValue, " <- ", command, sep = ""))
+    command <- Command("lm", formula, data=ActiveDataSet(), subset=subset, weights=weights,
+                       subset=remove.cases, to=modelValue)
+    doItAndPrint(command)
     doItAndPrint(paste("summary(", modelValue, ")", sep=""))
     activeModel(modelValue)
     if (subset != "" || remove.cases != "") putRcmdr("modelWithSubset", TRUE) else putRcmdr("modelWithSubset", FALSE)

@@ -1,7 +1,11 @@
 Command <- function(fun, ..., to){
   args <- list(...)
   arg.names <- names(args)
-  used <- !(is.na(args) | args == "" | sapply(args, is.null))
+  used <- !(is.na(args) | 
+                trim.blanks(args) == "" | 
+                trim.blanks(args) == "NA" | 
+                trim.blanks(args) == "NULL" | 
+                sapply(args, is.null))
   arg.names <- arg.names[used]
   args <- args[used]
   arg.names <- ifelse(arg.names == "", "", paste(arg.names, "= "))

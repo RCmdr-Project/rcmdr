@@ -78,7 +78,9 @@ Coef,
 
 listCharacter, characterP, Character,
 
-Coefficients, CoefficientsP, Predictors, PredictorsP
+Coefficients, CoefficientsP, Predictors, PredictorsP,
+
+Command, Q
 )
 
 S3method(Coef, multinom)
