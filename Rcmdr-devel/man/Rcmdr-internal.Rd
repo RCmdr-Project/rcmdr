@@ -60,6 +60,7 @@
 \alias{ttklabelframe}
 \alias{ttkcheckbutton}
 \alias{showData}
+\alias{.Tcl}
 
 \title{
 \pkg{tcltk} Functions Re-exported by the \pkg{Rcmdr} Package.

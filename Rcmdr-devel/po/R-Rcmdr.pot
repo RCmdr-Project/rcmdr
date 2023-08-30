@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.10-0\n"
+"Project-Id-Version: Rcmdr 2.9-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
 "POT-Creation-Date: 2023-04-28 14:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"

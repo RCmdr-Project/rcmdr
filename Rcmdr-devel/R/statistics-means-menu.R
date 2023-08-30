@@ -293,7 +293,7 @@ oneWayAnova <- function () {
                              sep = "")
         commands[2] <- "  print(summary(.Pairs)) # pairwise tests"
         commands[3] <- paste0("  print(confint(.Pairs, level=", level, ")) # confidence intervals")
-        commands[3] <- Command("") 
+      #  commands[3] <- Command("") 
         commands[4] <- paste0("  print(cld(.Pairs, level=", alpha, ")) # compact letter display")
         commands[5] <- "  old.oma <- par(oma=c(0, 5, 0, 0))"
         commands[6] <- "  plot(confint(.Pairs))"
