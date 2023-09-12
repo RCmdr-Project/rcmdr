@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.8-0\n"
 "Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2023-03-25 14:00:00\n"
-"PO-Revision-Date: 2023-04-27 15:25+0200\n"
+"POT-Creation-Date: 2023-04-28 14:00:00\n"
+"PO-Revision-Date: 2023-09-12 08:10+0200\n"
 "Last-Translator: Manuel Munoz-Marquez <manuel.munoz@uca.es>\n"
 "Language-Team: Spanish R UCA Project <manuel.munoz@uca.es>\n"
 "Language: es\n"
@@ -1999,7 +1999,7 @@ msgstr ""
 "simétrica"
 
 msgid "there are fewer than 3 items in the scale"
-msgstr "Hay menos de tres números en la escala"
+msgstr "hay menos de tres números en la escala"
 
 msgid "Argument response must be numeric."
 msgstr "El argumento respuesta ha de ser numérico."
@@ -3451,7 +3451,7 @@ msgstr ""
 
 msgid "Type III tests require careful attention to contrast coding."
 msgstr ""
-"El test tipo III requiere especial atención en la codificación del contraste"
+"El test tipo III requiere especial atención en la codificación del contraste."
 
 msgid "There is no appropriate anova method for a model of this class."
 msgstr "No hay un método ANOVA adecuado para un modelo de esta clase."
@@ -5451,7 +5451,7 @@ msgid "3D Component+residual plot..."
 msgstr "Gráfica 3D de componentes+residuos..."
 
 msgid "3D added-variable plot..."
-msgstr "Gráfica 3D de variable agregada"
+msgstr "Gráfica 3D de variable agregada..."
 
 # for startup message
 msgid "Hello"
@@ -5507,7 +5507,7 @@ msgstr ""
 
 # bootstrapping dialog
 msgid "Bootstrap Confidence Intervals"
-msgstr "Intervalos de confianza bootstrap..."
+msgstr "Intervalos de confianza bootstrap"
 
 # delta method dialog
 msgid "Delta Method Confidence Intervals"
@@ -5607,7 +5607,7 @@ msgid "Negative Binomial Cumulative Probabilities"
 msgstr "Probabilidades binomiales negativas acumuladas"
 
 msgid "Bartlett's Test:"
-msgstr "Test de Bartlett"
+msgstr "Test de Bartlett:"
 
 msgid "Basic Model Plots:"
 msgstr "Gráfica básicos de modelos:"
@@ -5622,13 +5622,13 @@ msgid "Subset Model Selection:"
 msgstr "Selección de subconjunto del modelo:"
 
 msgid "Effect Plots:"
-msgstr "Gráficas de los efectos..."
+msgstr "Gráficas de los efectos:"
 
 msgid "Predictor Effect Plots:"
 msgstr "Gráfica de efectos del predictor:"
 
 msgid "Transform Response Toward Normality:"
-msgstr "Transformación de respuesta para normalizar"
+msgstr "Transformación de respuesta para normalizar:"
 
 msgid "Table of Binomial Probabilities"
 msgstr "Tabla de probabilidades binomiales"
@@ -5652,10 +5652,10 @@ msgid "Hiearchical Cluster Analysis:"
 msgstr "Agrupación jerárquica:"
 
 msgid "Paired Wilcoxon Test:"
-msgstr "Test de Wilcoxon para datos pareados"
+msgstr "Test de Wilcoxon para datos pareados:"
 
 msgid "Friedman Rank Sum Test:"
-msgstr "Test de suma de rangos de Friedman"
+msgstr "Test de suma de rangos de Friedman:"
 
 msgid "Single-Sample Wilcoxon Test:"
 msgstr "Test de Wilcoxon para una muestra:"
@@ -5668,7 +5668,7 @@ msgstr "Gráfica de tallos y hojas:"
 
 # dot plot dialog
 msgid "Dot Plot:"
-msgstr "Gráfico de puntos"
+msgstr "Gráfico de puntos:"
 
 msgid "Bar Plot:"
 msgstr "Diagrama de barras:"
@@ -5686,13 +5686,13 @@ msgid "Plot of Means:"
 msgstr "Gráfica de las medias:"
 
 msgid "Discrete Distribution Plot:"
-msgstr "Gráfica de distribución discreta"
+msgstr "Gráfica de distribución discreta:"
 
 msgid "Two-Way Contingency Table:"
-msgstr "Tablas de contingencia de dos vías"
+msgstr "Tablas de contingencia de dos vías:"
 
 msgid "Multi-Way Contingency Table:"
-msgstr "Tabla de contingencia múltiple"
+msgstr "Tabla de contingencia múltiple:"
 
 msgid "Single-Sample Proportion Test:"
 msgstr "Test de proporciones para una muestra:"
@@ -5701,7 +5701,7 @@ msgid "Two-Sample Proportions Test:"
 msgstr "Test de proporciones para dos muestras:"
 
 msgid "Paired t-Test:"
-msgstr "Test t para datos emparejados"
+msgstr "Test t para datos emparejados:"
 
 msgid "Single-Sample t-Test:"
 msgstr "Test t para una muestra:"
@@ -5710,7 +5710,7 @@ msgid "Repeated-Measures ANOVA: between ="
 msgstr "ANOVA para medidas repetidas: entre ="
 
 msgid ", within = "
-msgstr ", dentro ="
+msgstr ", dentro = "
 
 msgid "Summarize Data Set:"
 msgstr "Resumir el conjunto de datos:"
@@ -5728,7 +5728,7 @@ msgid "Count Missing Cases:"
 msgstr "Número de observaciones ausentes:"
 
 msgid "Transform Variables Toward Normality:"
-msgstr "Transformación de variable para normalizar"
+msgstr "Transformación de variable para normalizar:"
 
 msgid "Scale Reliability:"
 msgstr "Escala de fiabilidad:"
