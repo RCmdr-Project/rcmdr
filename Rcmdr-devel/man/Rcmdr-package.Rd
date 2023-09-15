@@ -40,6 +40,9 @@ Romanian, Adrian Dusa;
 Russian, Alexey Shipunov;
 Slovenian, Jaro Lajovic and Matjaz Jeran;
 Spanish, Spanish R-UCA Project, http://knuth.uca.es/R.
+
+Note: Many of these translations are not up-to-date. If you encounter an out-of-date translation and wish to take over updating and maintaining it, please contract the R Commander developers.
+
 }
 
 \author{
