@@ -1,6 +1,6 @@
 # Statistics Menu dialogs
 
-# last modified 2023-08-29 by J. Fox
+# last modified 2023-09-25 by J. Fox
 
 # Means menu
 
@@ -42,6 +42,7 @@ independentSamplesTTest <- function () {
         #                    alternative, "', conf.level=", level, ", var.equal=", 
         #                    variances, ", data=", ActiveDataSet(), ")", sep = ""))
         command <- Command("t.test", paste(response, "~", group), alternative=Q(alternative),
+                           conf.level=level,
                            var.equal=variances, data=ActiveDataSet())
         doItAndPrint(command)
         tkfocus(CommanderWindow())

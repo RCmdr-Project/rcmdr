@@ -2,6 +2,8 @@ Changes in version 2.9-1
 
   o Fix bug introduced into one-way ANOVA dialog when pairwise comparisons are selected (reported by Christopher Wike).
   
+  o Fix bugs introduced into independent-samples t-test dialog ignoring confidence level, and numerical-summaries dialog reporting statistics not requested (reported by Kenneth Knoblauch).
+  
   o Updated translations: Japanese (thanks to Takaharu Araki),  Spanish (Manuel Munoz Marquez), Slovenian (Matjaz Jeran).
 
 Changes in version 2.9-0

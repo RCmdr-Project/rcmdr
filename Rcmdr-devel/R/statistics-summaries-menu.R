@@ -102,7 +102,7 @@ numericalSummaries <- function(){
         
         stats <- paste("c(",
                        paste(c('"mean"', '"sd"', '"se(mean)"', '"var"', '"IQR"', '"quantiles"', '"CV"', '"skewness"', '"kurtosis"')
-                             [c(meanVar, sdVar, se.meanVar, varVar, CVVar, IQRVar, quantsVar, skewnessVar, kurtosisVar) == 1], 
+                             [c(meanVar, sdVar, se.meanVar, varVar, IQRVar, quantsVar, CVVar, skewnessVar, kurtosisVar) == 1], 
                              collapse=", "), ")", sep="")
         if (stats == "c()" && countsVar != 1){
             errorCondition(recall=numericalSummaries, message=gettextRcmdr("No statistics selected."))
