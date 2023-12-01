@@ -1,9 +1,13 @@
+Changes in version 2.9-2
+
+  o Fix incorrect check-box label in wide-to-long dialog (reported by Sophie Dubois).
+
 Changes in version 2.9-1
 
   o Fix bug introduced into one-way ANOVA dialog when pairwise comparisons are selected (reported by Christopher Wike).
-  
+
   o Fix bugs introduced into independent-samples t-test dialog ignoring confidence level, and numerical-summaries dialog reporting statistics not requested (reported by Kenneth Knoblauch).
-  
+
   o Updated translations: Japanese (thanks to Takaharu Araki),  Spanish (Manuel Munoz Marquez), Slovenian (Matjaz Jeran).
 
 Changes in version 2.9-0
@@ -11,125 +15,125 @@ Changes in version 2.9-0
   o Vignette "Empezando-con-Rcmdr-es" added to the project. This vignette is the Spanish version of "Getting-Started-with-the-Rcmdr".
 
   o Addition to translation (R-Rcmdr.pot) file.
-  
+
   o Add Command() utility; now used in a few dialogs.
-  
-  o Prevent the following dialog functions from opening two copies of the dialog after aborting an Apply: appendHclustGroup, Compute(), distributionSamples(), generalizedLinearMixedModel, generalizedLinearModel(), kmeansClustering(), linearMixedModel(), linearModel(), linearRegressionModel(), multinomialLogitModel(), multiWayAnova(), oneWayAnova(), proportionalOddsModel, RecodeDialog(), 
- 
+
+  o Prevent the following dialog functions from opening two copies of the dialog after aborting an Apply: appendHclustGroup, Compute(), distributionSamples(), generalizedLinearMixedModel, generalizedLinearModel(), kmeansClustering(), linearMixedModel(), linearModel(), linearRegressionModel(), multinomialLogitModel(), multiWayAnova(), oneWayAnova(), proportionalOddsModel, RecodeDialog(),
+
   o R Commander script tab now tolerates blank lines in muiltiline commands (contribution of Yoshinobu Kanda).
-  
+
   o Added coefficient of variation to tables of statistics.
-  
+
   o New Command() and Q() functions for constructing command character strings.
-  
+
   o Small changes.
-  
+
 Changes in version 2.8-1
 
   o Addition to translation (R-Rcmdr.pot) file.
-  
+
   o Corrected omision of Manuel Munoz Marquez as new package coauthor.
-  
+
   o Now require rgl version 0.110.2 to fix problem with earlier version.
 
 Changes in version 2.8-0
 
   o Small improvements to 3D scatterplot and recode dialogs.
-  
+
   o User name inferred and used in startup message and documents.
-  
+
   o New dialogs for 3D component+residual and added-variable plots.
-  
+
   o Use text help for non-Windows system with R 4.2.0 (due to bug in R).
-  
+
   o Statistical modeling dialogs gain an optional case-deletion text box.
-  
+
   o New minimum.width and minimum.height Rcmdr options, defaulting to 1000 and 400, respectively.
-  
+
   o Commands now can create sections (by default at level 3) and a table of contents in the R Markdown document produced by the R Commander (suggestion of Bob Muenchen).
-  
+
   o RGL in RMarkdown now works with pdf, rtf, and word file formats as well as html, still requires Pandoc (suggestion of Georges Monette).
-  
+
   o Boxplot dialog now permits selection of more than one variable for parallel boxplots (suggestion of Ivan Krylov).
-  
+
   o Small improvements.
-  
+
   o Updated translations (with thanks to): Chinese (Tsung-wu Ho),Japanese (Takaharu Araki), Korean (Jong-Hwa Shin), Romanian (Adrian Dusa), Russian (Alexey Shipunov), Slovenian (Matjaz Jeran), Spanish (Manuel Munoz Marquez).
 
 Changes in version 2.7-1
 
   o Updated Polish translation, thanks to Lukasz Daniel.
-  
+
   o Fixed mixed-up .mo files for Spanish and Brazilian-Portuguese translations (problem reported by Jose Henrique Hildebrand Grisi Filho).
-  
+
   o Small bug fixes to and improvements to repeated-measures dialogs.
 
 Changes in version 2.7-0
 
   o New dialogs for repeated-measures ANOVA and ANCOVA and plots with one or two repeated-measures factors.
-  
+
   o New dialogs to reshape data sets from wide to long and from long to wide.
 
   o Better handling of discrete numeric variables (after suggestions by Ethan Harris).
-  
+
   o Fix clipboard data set input to work on macOS.
-  
+
   o Improved pie charts and bar graphs via the piechart() and Barplot() functions in RcmdrMisc.
-  
+
   o New File > Exit > Restart Commander menu item (suggestion of Vilmantas Gegzna).
-  
+
   o Fix Tk error produced by closing the dataset viewer and then repopening the same data set (reported by Jose G. Conde).
-  
+
   o Fixes to handling panes with console.output and log.commands options set to various values  (thanks to Vilmantas Gegzna).
-  
+
   o Better handling of character data following change to stringsAsFactor option in R 4.0.0+.
-  
+
   o Check for presence of Tktable and adapt to its absence by suppressing the Rcmdr dataset editor and delta method menu item; Tktable eventually to be replaced with tablelist.
-  
+
   o Small improvements and bug fixes.
-  
+
   o Updated translations (with thanks to): Basque (Joserra Rueda), French (Milan Bouchet-Valat), Hungarian (thanks to Tamas Ferenci), Indonesian (I Made Tirta), Japanese (Takaharu Araki), Korean (Jong-Hwa Shin), Russian (Alexey Shipunov), Slovenian (Matjaz Jeran), Spanish (Manuel Munoz Marquez).
-  
+
 Changes in version 2.6-3
 
   o Fix bug in processing resubmitted multi-line commands (reported by Katarina Kosmelj).
-  
+
   o Fix bug in processing multiline comments in onSubmit() in Commander.
-  
+
   o Updated Slovenian translation (thanks to Matjaz Jeran).
 
 Changes in version 2.6-2
 
   o New Hungarian translation (thanks to Tamas Ferenci and Andrea Harnos).
-  
+
   o Fixed bug in Ctrl-S for script window (reported by Mayeul Kauffmann).
 
 Changes in version 2.6-1
 
   o Restore older version of splitCmd().
-  
+
   o For GLMs and GLMMs, provide confidence intervals for exponentiated coefficients for models using log or logit link (suggestion of Tan Chuen Seng).
-  
+
   o Make listTwoLevelFactors() work properly for logical and character variables  (treated as factors) with NAs (problem pointed out by Vilmantas Gegzna).
-  
+
   o Insure that data set columns are usable in the Rcmdr, e.g., excluding list columns (problem pointed out by Vilmantas Gegzna).
-  
+
   o Change instances of class(x) == "y" to inherits(x, "y").
-  
+
   o Use apalike rather than apa BiBTeX package in Getting Started vignette (latter has been removed from TeXLive, reported by Brian Ripley).
 
 Changes in version 2.6-0
 
   o Linear and generalized linear mixed models dialogs added.
-  
+
   o Made editDataset() with data.frame method (suggestion of Ulrike Gromping).
-  
+
   o New R Commander hex sticker.
-  
+
   o Small fixes and improvements.
-  
+
   o Updated translations (with thanks to): Chinese (Tsung-wu Ho), Indonesian (I Made Tirta), Japanese (Takaharu Araki), Polish (Lukasz Daniel), Romanian (Adrian Dusa),  Russian (Alexey Shipunov), Slovenian (Matjaz Jeran), Spanish (Manuel Munoz Marquez).
-  
+
 Changes in version 2.5-3
 
   o Updated Slovenian translation (thanks to Matjaz Jeran).
@@ -139,43 +143,43 @@ Changes in version 2.5-3
 Changes in version 2.5-2
 
   o Updated Korean translation (thanks to Jong-Hwa Shin).
-  
+
   o Fixes to Chinese translation (thanks to Tsung-wu Ho).
-  
+
   o No longer re-export utils::data() (suggestion of Brian Ripley).
-  
+
   o Small fixes.
-  
+
 Changes in version 2.5-1
 
   o Updated translations (with thanks): Basque (Jose Ramon Rueda), French (Milan Bouchet-Valat), Indonesian (I Made Tirta), Japanese (Takaharu Araki).
-  
+
   o Depend on R >= version 3.5.0.
 
 Changes in version 2.5-0
 
   o Added Predictor Effect Plots and Response Transformation dialogs to Models menu.
-  
+
   o New Transform Variables Toward Normality dialog in Statistics > Summaries menu.
-  
+
   o New Symmetry Boxplot dialog in Graphs menu.
-  
+
   o New Influence Index Plot dialog in Models > Graphs menu.
-  
+
   o QQ plots may be drawn by groups.
-  
+
   o Index plots may be marked by groups.
-  
+
   o Enhancements to Density Plot dialog.
-  
+
   o Interface improvements.
-  
+
   o Updated translations (with thanks): Chinese (Tsung-wu Ho), Indonesian (I Made Tirta), Polish (Lukasz Daniel), Russian (Alexey Shipunov), Spanish (Manuel Munoz Marquez).
 
 Changes in version 2.4-4
 
   o Fixed bug in recode dialog due to inconsistency with Recode() in car 3.0-0 (reported by Stylianos Serghiou).
-  
+
   o Removed natwidth, natheight parameters from \includegraphics{} in Getting Started manual to avoid omission of figures from CRAN build of manual.
 
 Changes to version 2.4-3
@@ -191,7 +195,7 @@ Changes to version 2.4-2
 Changes to version 2.4-1
 
   o Work around for Tk getSaveFile bug affecting Windows, causing doubled-up file extensions, e.g., .txt.txt (reported by Manuel Munoz Marquez).
-  
+
   o Updated translations (with thanks to): Basque (Jose Ramon Rueda), Chinese (Tsung-wu Ho), German (Friedrich Leisch), Korean (Jong-Hwa Shin), Romanian (Adrian Dusa).
 
   o Small fixes.
@@ -199,94 +203,94 @@ Changes to version 2.4-1
 Changes to version 2.4-0
 
   o The R Commander editor for Markdown and knitr documents is now a non-modal dialog, so may remain open while you work.
-  
+
   o Improvement to the barplot dialog (suggestions of Beatriz Lacruz).
-  
+
   o Added dialog for plotting the distribution of a discrete numeric variable (suggestion of Beatriz Lacruz).
-  
+
   o Allow color selection in pie charts.
-  
+
   o Small improvements to activation of menu items.
-  
+
   o Rcmdr showData.threshold option now tests number of rows as well as number of columns.
-  
+
   o Introduced Rcmdr scientific.notation option to suppress scientific notation; corresponds to R scipen option, and default is 5 (as opposed to 0 in R).
-  
+
   o Improved labeling of two-variances test dialog (suggestion of Beatriz Lacruz).
-  
+
   o Improvements to Rcmdr data editor in handling blanks and quotes.
-  
+
   o Moved the following standard packages from Imports: to Depends: graphics, methods, stats.
-  
+
   o Allow entry of variable names in enter table dialog (suggestion of Beatriz Lacruz).
-  
+
   o Improved import of Stata and SPSS data files and provision to import SAS b7dat files.
-  
+
   o Added right-click context menus to text entry boxes.
-  
+
   o Getting Started manual is now supplied as a vignette (with help from Manuel Munoz Marquez).
-  
+
   o Refactored Commander() code.
-  
+
   o Separators in plug-in menus can now be placed more precisely, if necessary (following a problem reported by Manuel Munoz Marquez).
-  
+
   o Reworked handling of statistical models in plug-ins.
-  
+
   o Boostrap dialog will now plot bootstrap samples.
-  
+
   o Parameter estimate correlations are now reported with VIFs.
-  
+
   o Index plot dialog will now plot more than one variable (suggestion of Manuel Munoz Marquez).
-  
+
   o Numerical summaries dialog has new option to show binned distribution of frequency counts (suggestion of Manuel Munoz Marquez).
-  
+
   o Small interface improvements.
-  
+
   o Updated translations (with thanks): simplified Chinese (Shulin Yang), French (Milan Bouchet-Valat), Indonesian (I Made Tirta), Japanese (Takaharu Araki), Polish (Lukasz Daniel), Russian (Alexey Shipunov), Spanish (Manual Munoz Marquez).
-  
+
 Changes to Version 2.3-2
 
   o Fixes to Spanish translation (from Manual Munoz Marquez).
-  
+
   o Updated Spanish translation of Getting Started manual (thanks to Manual Munoz Marquez).
-  
+
   o Updated Slovenian translation (thanks to Matjaz Jeran).
 
 Changes to Version 2.3-1
 
   o Removed dependency of rglwidgets, no longer necessary.
-  
+
   o Fixes to Catalan translation (from Manel Salamero).
-  
+
   o Updated Basque and German translations (thanks to Joserra Rueda and Fritz Leisch).
-  
+
 Changes to Version 2.3-0
 
   o Added .rtf output to options for RMarkdown reports.
-  
+
   o Added bootstrap dialog for "lm"s and "glm"s.
-  
+
   o Added delta-method dialog.
-  
+
   o Added view data dialog, supporting viewing a subset of the active data set, and sort data set dialog (suggestions of Sung-il Cho).
-  
+
   o Added connect option to plot means dialog (suggestion of Graham Smith).
-  
+
   o Added Welch F-test option to one-way ANOVA dialog.
-  
+
   o Added compare coefficients dialog.
-  
+
   o The Shapiro-Wilk test for normality dialog is replaced by a more general normality-tests dialog.
-  
+
   o Dialogs for plotting continuous distributions now allow the user to specify regions to fill.
-  
+
   o Various small improvements/bug fixes.
-  
+
   o Updated translations (with thanks): Catalan (Manel Salamero), French (Milan Bouchet-Valat), Indonesian (I Made Tirta), Japanese(Takaharu Araki), Polish (Lukasz Daniel), Romanian (Adrian Dusa), Russian (Alexey Shipunov), Spanish (Manuel Munoz Marquez).
-  
+
   o Updated Japanese getting-started manual (courtesy of Takaharu Araki).
-  
-  
+
+
 Changes to Version 2.2-5
 
   o Fixed data editor to work properly with NAs in existing data sets.
@@ -295,52 +299,52 @@ Changes to Version 2.2-5
 Changes to Version 2.2-4
 
   o Corrected Slovenian translation (by Matjaz Jeran).
-  
+
   o Embeds 3D rgl graphs in HTML output from R Markdown.
-  
+
   o Improvements to the Rcmdr data editor.
-  
+
   o New version of ismdi() doesn't need compiled code (thanks to Duncan Murdoch), eliminating all compiled code from the Rcmdr package.
-  
+
   o showData() data set displays now updated automatically.
-  
+
   o Small improvements and bug fixes.
-  
+
 
 Changes to Version 2.2-3
 
   o Updated Slovenian translation (thanks to Matjaz Jeran).
-  
+
   o Fixes to French translation (by Milan Bouchet-Valat).
 
 
 Changes to Version 2.2-2
 
   o Updated Galician translation (thanks to Rafael Rodriguez Gayoso).
-  
+
   o Fixes to French translation (by Milan Bouchet-Valat) and Chinese translation (by Tsung-wu Ho).
-  
+
   o Added keep argument to popOutput() (suggestion of Liviu Andronic); similar argument added to popCommand().
-  
+
   o Use new-style R icon.
-  
+
   o Binomial and quasibinomial GLMs with logit link now print exponentiated coefficients ("odds" ratios), as do poisson and quasipoisson GLMs with log link (generalizing a suggestion of Jose Ramon Rueda).
-  
+
   o Names of R objects to be created are no longer translated (e.g., "Dataset", "NormalSamples") into other languages to avoid potential problems (issue reported by Tsung-wu Ho).
-  
+
   o Recognize new location for LaTeX in Mac OS X El Capitan.
-  
+
 
 Changes to Version 2.2-1
 
   o New Greek translation (contributed by Vasileios Dimitropoulos, Anastasios Vikatos, and Andreas Vikatos, with help from Chel Hee Lee).
 
   o Updated translations (with thanks to): Basque (Jose Ramon Rueda), Brazilian Portuguese (Marilia Sa Carvalho, with assistance of Chel Hee Lee), Catalan (Manel Salamero), Chinese (Tsung-wu Ho), simplified Chinese (Shulin Yang), French (Philippe Grosjean), Galician (for Rcmdr 2.1-x, Rafael Rodriguez Gayoso), German (Fritz Leisch), Indonesian (I Made Tirta), Italian (Stefano Calza), Japanese (Takaharu Araki), Korean (Jong-Hwa Shin), Polish (Lukasz Daniel), Romanian (Adrian Dusa), Slovenian (Matjaz Jeran), Spanish (Manuel Munoz Marquez).
-  
+
   o Modified modelFormula() utility to permit polynomial and splines in one-sided formulas. Used this in Breusch-Pagan test dialog.
-  
+
   O Tweaks.
-  
+
 
 Changes to Version 2.2-0
 
@@ -355,27 +359,27 @@ Changes to Version 2.2-0
   o Bar plots can now be done by groups.
 
   o Added dot plot dialog.
-  
+
   o Excel files now read on all platforms with readxl package (via RcmdrMisc).
-  
+
   o Package imports conform to new CRAN requirements.
-  
+
   o Updated translations (with thanks to): French (Philippe Grosjean); Russian (Alexey Shipunov).
-  
+
   o Small fixes/improvements.
-  
+
 
 Changes to Version 2.1-7
 
   o New simplified Chinese translation (contributed by Shulin Yang).
 
   o Corrections to Catalan translation (courtesy of Manel Salamero).
-  
+
 
 Changes to Version 2.1-6
 
   o Prevent overriding S3 methods in standard packages (request of Brian Ripley).
-  
+
 
 Changes to Version 2.1-5
 
@@ -384,7 +388,7 @@ Changes to Version 2.1-5
   o Export RappP() and mavericksP() (request of Erich Neuwirth).
 
   o Fixed bug in labeling values of discrete probability mass functions (reported by Vasileios Giagos).
-  
+
 
 Changes to Version 2.1-4
 
@@ -395,7 +399,7 @@ Changes to Version 2.1-4
   o Updated  translations (with thanks): Brazilian Portuguese (Marilia Sa Carvalho and Adriano Azevedo-Filho); Catalan (Manel Salamero); Indonesian (I Made Tirta); Japanese (Takaharu Araki).
 
   o Small interface improvements.
-  
+
 
 Changes to Version 2.1-3
 
@@ -408,14 +412,14 @@ Changes to Version 2.1-3
   o Fixed conversion of multiple numeric variables to factors (bug reported by Pedro Barbetta).
 
   o Added dialog to control R.app app nap under OS X Mavericks.
-  
+
 
 Changes to Version 2.1-2
 
   o Fixed ignoring of Rcmdr option "ask.on.exit" and "ask.to.exit", causing exiting without asking in non-English locales (bug report by Yoshinobu Kanda).
 
   o Small bug fixes/improvements.
-  
+
 
 Changes to Version 2.1-1
 
@@ -424,7 +428,7 @@ Changes to Version 2.1-1
   o New cross-platform Rcmdr data editor.
 
   o Fixed inadvertently reverted histogram dialog (following report by Mark Dunning).
-  
+
 
 Changes to Version 2.1-0
 
@@ -463,12 +467,12 @@ Changes to Version 2.1-0
   o Small changes/improvements.
 
   o Updated translations (with thanks to the translators): German (Friedrich Leisch); Italian (Stefano Calza); Romanian (Adrian Dusa); Spanish (Manuel Munoz Marquez).
-  
+
 
 Changes to Version 2.0-5
 
   o New Basque translation (courtesy of Jose Ramon Rueda).
-  
+
 
 Changes to Version 2.0-4
 
@@ -477,7 +481,7 @@ Changes to Version 2.0-4
   o Fixed numSummary() so that it doesn't fail when there's an empty factor level (problem reported by Alan Mainwaring).
 
   o ActiveDataSet(NULL) now removes the active data set.
-  
+
 
 Changes to Version 2.0-3
 
@@ -490,7 +494,7 @@ Changes to Version 2.0-3
   o Small interface improvements.
 
   o Fixed bug in French translation preventing loading R Markdown files (reported by J. Mazet).
-  
+
 
 Changes to Version 2.0-2
 
@@ -505,7 +509,7 @@ Changes to Version 2.0-2
   o Tweaks to ttk theme and font handling (with help of Philippe Grosjean and the tcltk2 package).
 
   o Small bug fixes.
-  
+
 
 Changes to Version 2.0-1
 
@@ -522,11 +526,11 @@ Changes to Version 2.0-1
   o Small corrections to the R-Rcmdr.pot file.
 
   o Small bug fixes.
-  
+
 
 Changes to Version 2.0-0
 
-  o New package co-author: Milan Bouchet-Valat. 
+  o New package co-author: Milan Bouchet-Valat.
 
   o Many changes to style of dialogs: tabs, Reset button, Apply button, small interface improvements.
 
@@ -536,7 +540,7 @@ Changes to Version 2.0-0
 
   o Better handling of default fonts.
 
-  o Improved probability plots. 
+  o Improved probability plots.
 
   o Introduced plotDistr(), lineplot(), indexplot() convenience functions.
 
@@ -555,7 +559,7 @@ Changes to Version 2.0-0
   o Updated translations (with thanks to the translators): Italian (Stefano Calza), Korean (Jong-Hwa Shin), Romanian (Adrian Dusa), Russian (Alexey Shipunov), Spanish (Manuel Munoz-Marquez).
 
   o Show menu item for English introductory manual even if a "translation" is available (suggestion of Manuel Munoz-Marquez).
-  
+
 
 Changes to Version 1.9-5
 
@@ -564,14 +568,14 @@ Changes to Version 1.9-5
   o Faster opening of dialog windows under Windows (consequence of above).
 
   o Fix for Mac OS X bug in auto-load of missing dependencies on initial start-up (reported by Pablo Serrano).
-  
+
 
 Changes to Version 1.9-4
 
   o Introduced RcmdrEnv.on.path option for plug-in packages that don't conform to the new rules.
 
   o Bug fixes to some dialogs that didn't work properly when RcmdrEnv not on path (reported by Kristian Hovde Liland).
-  
+
 
 Changes to Version 1.9-3
 
@@ -590,7 +594,7 @@ Changes to Version 1.9-3
   o Plug-in packages now can specify models via the RcmdrModels: field in the DESCRIPTION file in preference to the Models: field (request of Brian Ripley).
 
   o Small interface and documentation tweaks and bug fixes.
-  
+
 
 Changes to Version 1.9-2
 
@@ -601,7 +605,7 @@ Changes to Version 1.9-2
   o Better icons for dialog buttons, new option to suppress these icons, other interface tweaks (after suggestions of Milan Bouchet-Valat).
 
   o Small fixes.
-  
+
 
 Changes to Version 1.9-1
 
@@ -612,7 +616,7 @@ Changes to Version 1.9-1
   o Updated Japanese translation (thanks to Takaharu Araki).
 
   o Updated Korean translation and new Korean getting-started document (thanks to Shin Jong-Hwa).
- 
+
   o Updated Polish translation (thanks to Lukasz Daniel)
 
   o Updated Romanian translation (thanks to Adrian Dusa).
@@ -626,7 +630,7 @@ Changes to Version 1.9-1
   o Fixed omissions to R-Rcmdr.pot file (reported by Jaro Lajovic).
 
   o Small fixes.
-  
+
 
 Changes to Version 1.9-0
 
@@ -651,75 +655,75 @@ Changes to Version 1.9-0
   o Updated Xyplot dialog (courtesy of Richard Heiberger).
 
   o Small fixes and improvements.
-  
+
 
 Changes to Version 1.8-5
 
   o New Polish translation (courtesy of Lukasz Daniel).
-  
+
   o Small GUI improvements (suggestions/code of Milan Bouchet-Valat).
-  
+
   o globalVariables() invoked for R 2.15.1 and above.
-  
+
   o Added standard button icons.
-  
-   
+
+
 Changes to Version 1.8-4
 
   o Fixes to Italian translation (from Stefano Calza).
-  
+
   o Updated Korean translation (courtesy of Shin Jong-Hwa).
-  
+
   o Fixed bug in numSummary() that surfaced when only one quantile was specified (reported by Peter B. Mandeville).
-  
+
   o Titles for sets of check boxes now left-aligned (suggestion of Milan Bouchet-Valat).
-  
+
   o Fix to Spanish translation (courtesy of Manuel Munoz Marquez).
-  
+
   o Fix to data set edit button, which was removing case names (reported by Gilles Le Pape).
-  
+
   o Updated Slovenian translations (courtesy of Jaro Lajovic and Matjaz Jeran).
-  
+
   o Updated Korean translation (courtesy of Shin Jong-Hwa).
-  
+
   o Rcmdr now detects when it is running under RStudio and arranges to display graphs properly. There is still an open bug causing a freeze in the RStudio graphics device when points are identified in a graph.
-  
+
 
 Changes to Version 1.8-3
 
    o Small fixes to pass CRAN checks (reported by Kurt Hornik).
-   
+
 
 Changes to Version 1.8-2
 
    o Fixes to font selection, especially for non-Windows systems.
-   
+
    o Fix to groupsBox() utility function (to fix bug reported by Richard Heiberger).
-   
+
    o PDF files for "Getting Started" manual in English, Japanese, and Spanish compacted (suggestion of Brian Ripley).
-   
+
    o Retain dialog selections optionally non-resettable, used for probability dialogs.
-   
+
    o Bartlett's test and Levene's test now allow more than one factor.
-   
+
    o Updated Slovenian translation (thanks to Jaro Lajovic and Matjaz Jeran).
-   
+
    o Updated Korean translation (courtesy of Shin Jong-Hwa and the Korean translation team).
-   
+
    o Fixed bug in scatterplot dialog that prevented log axes from being used with groups defined (reported by Kent Johnson).
-   
-   
+
+
 Changes to Version 1.8-1
 
    o Updated DESCRIPTION file; version synchronization for CRAN.
-   
+
 
 Changes to Version 1.8-0
 
     o See CHANGES file for changes to older versions.
-    
+
     o Concluded dialog-memory updates (with help of Kosar Karimi Pour). Rcmdr option retain.selections now set to TRUE by default.
-   
+
     o Added confirmatory factor analysis.
-   
-    o Updated Italian, Japanese, Romanian, Russian, and Spanish translations (thanks respectively to Stefano Calza, Takaharu Araki, Adrian Dusa, Alexey Shipunov, and Manuel Munoz Marquez).    
+
+    o Updated Italian, Japanese, Romanian, Russian, and Spanish translations (thanks respectively to Stefano Calza, Takaharu Araki, Adrian Dusa, Alexey Shipunov, and Manuel Munoz Marquez).
