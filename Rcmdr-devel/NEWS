@@ -2,11 +2,11 @@ Changes in version 2.9-2
 
   o Fix incorrect check-box label in wide-to-long dialog (reported by Sophie Dubois).
 
+    o Fix bug introduced into two-way ANOVA dialog (reported by Amin Mousavi).
+
 Changes in version 2.9-1
 
   o Fix bug introduced into one-way ANOVA dialog when pairwise comparisons are selected (reported by Christopher Wike).
-
-  o Fix bug introduced into two-way ANOVA dialog (reported by Amin Mousavi).
 
   o Fix bugs introduced into independent-samples t-test dialog ignoring confidence level, and numerical-summaries dialog reporting statistics not requested (reported by Kenneth Knoblauch).
 

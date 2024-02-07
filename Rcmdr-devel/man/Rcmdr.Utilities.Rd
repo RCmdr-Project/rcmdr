@@ -179,13 +179,13 @@ Character(names)
 characterP(n=1)
 checkActiveDataSet()
 checkActiveModel()
-checkBoxes(window=top, frame=stop("frame not supplied"), 
-    boxes=stop("boxes not supplied"), 
-    initialValues=NULL, labels=stop("labels not supplied"), 
+checkBoxes(window=top, frame=stop("frame not supplied"),
+    boxes=stop("boxes not supplied"),
+    initialValues=NULL, labels=stop("labels not supplied"),
     title=NULL, ttk=FALSE, columns=1)  # macro
 checkClass(object, class, message=NULL)  # macro
 checkFactors(n=1)
-checkMethod(generic, object, message=NULL, default=FALSE, strict=FALSE, 
+checkMethod(generic, object, message=NULL, default=FALSE, strict=FALSE,
     reportError=TRUE)  # macro
 checkNumeric(n=1)
 checkReplace(name, type=gettextRcmdr("Variable"))
@@ -199,10 +199,10 @@ PredictorsP(n=1, type=c("all", "numeric", "factor"))
 CommanderWindow()
 dataSetsP(n=1)
 defmacro(..., expr)
-dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows, columns, 
-	focus=top, bindReturn=TRUE, 
+dialogSuffix(window=top, onOK=onOK, onCancel=onCancel, rows, columns,
+	focus=top, bindReturn=TRUE,
     preventGrabFocus=FALSE, preventDoubleClick=FALSE, preventCrisp,
-    use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), 
+    use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"),
     tab.names=c("Data", "Options"), grid.buttons=FALSE, resizable=FALSE,
     force.wait=FALSE)  # macro
 DiscreteNumeric(names)
@@ -230,18 +230,18 @@ getRcmdr(x, mode="any", fail=TRUE)
 gettextRcmdr(...)
 glmP()
 GrabFocus(value)
-groupsBox(recall=NULL, label=gettextRcmdr("Plot by:"), 
+groupsBox(recall=NULL, label=gettextRcmdr("Plot by:"),
     initialLabel=gettextRcmdr("Plot by groups"),
     errorText=gettextRcmdr("There are no factors in the active data set."),
     variables=Factors(),
-    plotLinesByGroup=FALSE, positionLegend=FALSE, 
-    plotLinesByGroupsText=gettextRcmdr("Plot lines by group"), 
+    plotLinesByGroup=FALSE, positionLegend=FALSE,
+    plotLinesByGroupsText=gettextRcmdr("Plot lines by group"),
     initialGroup=NULL, initialLinesByGroup=1, window=top)  # macro
-groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1, 
+groupsLabel(frame=top, groupsBox=groupsBox, columnspan=1,
     initialText=NULL, ratio=FALSE)  # macro
 hclustSolutionsP()
 initializeDialog(window=top, title="", offset=10, preventCrisp,
-    use.tabs=FALSE, notebook=notebook, 
+    use.tabs=FALSE, notebook=notebook,
     tabs=c("dataTab", "optionsTab"),
     suppress.window.resize.buttons=TRUE)  # macro
 insertRmdSection(text)
@@ -282,7 +282,7 @@ modelsP(n=1)
 multinomP()
 Numeric(names)
 numericP(n=1)
-OKCancelHelp(window=top, helpSubject=NULL, model=FALSE, 
+OKCancelHelp(window=top, helpSubject=NULL, model=FALSE,
     reset=NULL, apply=NULL, helpPackage=NULL)  # macro
 OutputWindow()
 packageAvailable(name)
@@ -291,15 +291,15 @@ popCommand(keep=FALSE)
 popOutput(keep=FALSE)
 putDialog(dialog, values=NULL, resettable=TRUE)
 putRcmdr(x, value)
-radioButtons(window=top, name=stop("name not supplied"), 
-    buttons=stop("buttons not supplied"), 
-    values=NULL, initialValue=..values[1], 
-    labels=stop("labels not supplied"), 
-    title="", title.color=getRcmdr("title.color"), 
+radioButtons(window=top, name=stop("name not supplied"),
+    buttons=stop("buttons not supplied"),
+    values=NULL, initialValue=..values[1],
+    labels=stop("labels not supplied"),
+    title="", title.color=getRcmdr("title.color"),
     right.buttons=FALSE, command=function(){}, columns=1)   # macro
 RappP()
 RcmdrEditor(buffer, title="R Commander Editor", ok,
-    help=NULL, file.menu=NULL, edit.menu=NULL, context.menu=NULL, 
+    help=NULL, file.menu=NULL, edit.menu=NULL, context.menu=NULL,
     toolbar.buttons=NULL)
 RcmdrTclSet(name, value)
 RcmdrTkmessageBox(message, icon=c("info", "question", "warning",
@@ -331,14 +331,14 @@ UpdateModelNumber(increment=1)
 variableComboBox(parentWindow, variableList=Variables(),
     export="FALSE", state="readonly",
     initialSelection=gettextRcmdr(nullSelection),
-    title="", nullSelection="<no variable selected>", 
+    title="", nullSelection="<no variable selected>",
     adjustWidth = FALSE)
 variableListBox(parentWindow, variableList=Variables(), bg="white",
-    selectmode="single", export="FALSE", initialSelection=NULL, 
+    selectmode="single", export="FALSE", initialSelection=NULL,
     listHeight=getRcmdr("variable.list.height"), title)
 Variables(names)
 varPosn(variables,
-    type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor"), 
+    type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor"),
     vars=NULL)
 WindowsP()
 X11P()
@@ -353,8 +353,8 @@ commanderPosition()
   \item{adjustWidth}{adjust width of combo box to accommodate widest entry (default \code{FALSE}).}
   \item{ask}{ask for confirmation.}
   \item{ask.save}{ask whether to save contents of script and output windows.}
-  \item{apply}{if non-null (the default is \code{NULL}), an Apply button is included in the dialog's button bar. 
-    This argument should be set to the quoted name of the function that initiates the dialog; 
+  \item{apply}{if non-null (the default is \code{NULL}), an Apply button is included in the dialog's button bar.
+    This argument should be set to the quoted name of the function that initiates the dialog;
     when the button is pressed, the \code{onOK} function for the dialog is executed, and then the function named
     in \code{apply} is (re)called.}
   \item{bg}{background color.}
@@ -374,7 +374,7 @@ commanderPosition()
   \item{columnspan}{number of dialog-box columns to be spanned by frame.}
   \item{command}{a character string that evaluates to an R command or (in the case of \code{radioButton}) a
     function to be called when a button is pressed.}
-  \item{context.menu}{\code{NULL} or a list containing one or more two-element lists: 
+  \item{context.menu}{\code{NULL} or a list containing one or more two-element lists:
     the first element, \code{label}, supplies the text label for a menu item
     in the \code{RcmdrEditor} right-click context menu; the second element, \code{command}, is a call-back function to be evaluated
     when the menu item is selected. If \code{NULL} (the default), no item will be added to the file menu.}
@@ -384,7 +384,7 @@ commanderPosition()
     stored previous values.}
   \item{defaults}{a list of named default values for options in a dialog if no previous selections are stored.}
   \item{dialog}{the quoted name of a dialog box under which previous selections are stored.}
-  \item{edit.menu}{\code{NULL} or a list containing one or more two-element lists: 
+  \item{edit.menu}{\code{NULL} or a list containing one or more two-element lists:
     the first element, \code{label}, supplies the text label for a menu item
     in the \code{RcmdrEditor} Edit menu; the second element, \code{command}, is a call-back function to be evaluated
     when the menu item is selected. If \code{NULL} (the default), no item will be added to the file menu.}
@@ -392,15 +392,15 @@ commanderPosition()
   \item{errorText}{error message to print if a suitable factor isn't available.}
   \item{export}{export selection?}
   \item{expr}{expression constituting the body of the macro; typically a compound expression.}
-  \item{fail}{if \code{TRUE}, the default, \code{getRcmdr} will generate an error if the object sought doesn't exist; 
+  \item{fail}{if \code{TRUE}, the default, \code{getRcmdr} will generate an error if the object sought doesn't exist;
     if \code{FALSE} and the object doesn't exist, \code{NULL} is returned.}
-  \item{file.menu}{\code{NULL} or a list containing one or more two-element lists: 
+  \item{file.menu}{\code{NULL} or a list containing one or more two-element lists:
     the first element, \code{label}, supplies the text label for a menu item
     in the \code{RcmdrEditor} File menu; the second element, \code{command}, is a call-back function to be evaluated
     when the menu item is selected. If \code{NULL} (the default), no item will be added to the file menu.}
   \item{flushDialogMemory}{remove saved values of dialog options so that \code{getDialog} returns \code{NULL} for all dialogs.}
-  \item{flushModel}{set (or reset) the active model to NULL? Should normally be \code{TRUE} when the active 
-    data set is changed; an exception is when variables are simply added to, deleted from, or modified in 
+  \item{flushModel}{set (or reset) the active model to NULL? Should normally be \code{TRUE} when the active
+    data set is changed; an exception is when variables are simply added to, deleted from, or modified in
     the data set set.}
   \item{focus}{Tk window to get the focus.}
   \item{force.wait}{call \code{tkwait.window} so that processing is suspended until the dialog
@@ -411,7 +411,7 @@ commanderPosition()
   \item{frame}{frame or quoted name for frame depending upon the function.}
   \item{generic}{quoted name of generic function.}
   \item{glm}{\code{TRUE} if the model is a \code{glm} object, \code{FALSE} otherwise.}
-  \item{grid.buttons}{insert call to \code{tkgrid} for the buttons frame (default \code{FALSE}); 
+  \item{grid.buttons}{insert call to \code{tkgrid} for the buttons frame (default \code{FALSE});
     use \code{TRUE} for tabbed dialogs and optionally for other dialogs.}
   \item{groupsBox}{listbox object for selecting groups variable.}
   \item{initialText}{initial text to display in the groups label; if \code{NULL}, \code{"<No groups selected>"}
@@ -426,7 +426,7 @@ commanderPosition()
     in all loaded packages --- see \code{\link{help}}.}
   \item{icon}{Message-box icon.}
   \item{increment}{increment to model number; -1 to set back after error.}
-  \item{initialGroup}{quoted name of variable to define groups, set as initial selection in Groups variable list; 
+  \item{initialGroup}{quoted name of variable to define groups, set as initial selection in Groups variable list;
   	\code{NULL} (the default) for no initial selection.}
   \item{initialLinesByGroup}{if 1, the lines-by-groups check box is initially checked; 0 to uncheck.}
   \item{initialLabel}{label for groups button before a selection is made.}
@@ -442,7 +442,7 @@ commanderPosition()
   \item{log}{echo command to the script window, as well as executing it and printing its output.}
   \item{message}{error (or other) message.}
   \item{mode}{mode of object to retrieve.}
-  \item{model}{the name of a model, as a character string, or a model object, 
+  \item{model}{the name of a model, as a character string, or a model object,
   	or \code{TRUE} or \code{FALSE}, depending upon the function.}
   \item{n}{number of items to check for.}
   \item{name}{quoted name.}
@@ -473,8 +473,8 @@ commanderPosition()
   \item{remove}{If \code{TRUE}, the default, return a character string that evaluates to an expression of case numbers or names to remove from the data set; if \code{FALSE}, return a character string that evaluates for an expression of case numbers or names to retain.}
   \item{reportError}{if \code{TRUE}, report an error message.}
   \item{reset}{quoted name of dialog function, to be invoked with all defaults by Reset button.}
-  \item{resettable}{should dialog state be reset when the data set changes? The default is 
-  code{TRUE}.}
+  \item{resettable}{should dialog state be reset when the data set changes? The default is
+  \code{TRUE}.}
   \item{resizable}{should the dialog be resizable by the user? The default is \code{FALSE}.}
   \item{rhsExtras}{show controls for splines and polynomials for a model formula; for backwards
     compatibility, defaults to \code{TRUE} for a two-sided formula and \code{FALSE} for a
@@ -492,14 +492,14 @@ commanderPosition()
   \item{string}{a character string, or vector of strings, to be tested whether it can be coerced to a number or numbers;
     returns either \code{TRUE} or \code{FALSE}.}
   \item{subset.expression}{a quoted expression to subset the data set.}
-  \item{suppress.window.resize.buttons}{if \code{TRUE}, the default, the window maximize/minimize 
+  \item{suppress.window.resize.buttons}{if \code{TRUE}, the default, the window maximize/minimize
     buttons will not be displayed.}
   \item{tab.names}{text to print as tab labels (default \code{c("Data", "Options")}).}
   \item{tabs}{quoted names of tabs for a tabbed dialog (default \code{c("dataTab", "optionsTab")}).}
   \item{text}{a text string.}
   \item{title}{Window or dialog-box-element title.}
-  \item{title.color}{color for title above radio buttons; defaults to \code{"blue"}.} 
-  \item{toolbar.buttons}{\code{NULL} or a list containing one or more three-element lists: 
+  \item{title.color}{color for title above radio buttons; defaults to \code{"blue"}.}
+  \item{toolbar.buttons}{\code{NULL} or a list containing one or more three-element lists:
     the first element, \code{label}, supplies the text label for a button
     in the \code{RcmdrEditor} toolbar; the second element, \code{command}, is a call-back function to be evaluated
     when the button is pressed; the third element is the name of a tk image to display as an icon in the button.
@@ -514,14 +514,14 @@ commanderPosition()
   \item{variableList}{a vector of variable names.}
   \item{variables}{a vector of one or more variable names.}
   \item{vars}{a vector of one or more variable names; if given \code{type} argument is ignored.}
-  \item{what}{optional character vector of one or more dialog names for which the memory is to be flushed; if not 
+  \item{what}{optional character vector of one or more dialog names for which the memory is to be flushed; if not
     specified, all dialog memory will be flushed.}
   \item{window, parentWindow}{a Tk window.}
   \item{x}{an R object name, as a character string, or a tcl variable or object, or a vector of
     variable names to be sorted.}
-  \item{\dots}{For \code{gettextRcmdr}, text string or vector of text strings to translate; 
+  \item{\dots}{For \code{gettextRcmdr}, text string or vector of text strings to translate;
     for \code{titleLabel}, arguments to be passed to \code{labelRcmdr} and from there to \code{ttklabel};
-    for \code{defmacro}, arguments for the macro; 
+    for \code{defmacro}, arguments for the macro;
     otherwise you should disregard this argument.}
 }
 
@@ -532,12 +532,12 @@ commanderPosition()
   Also see the \pkg{RcmdrPlugin.survival} package for examples.
 
   \emph{Executing and logging commands: }
-  
+
   For conveniently constructing character strings representing commands, see \code{\link{Command}}.
-  
-  The functions \code{doItAndPrint}, \code{justDoIt}, and \code{logger} control the 
-  execution, logging, and printing of commands generated by menus and dialogs. 
-  \code{logger(command)} adds \code{command} to the log/script window and to the output window. 
+
+  The functions \code{doItAndPrint}, \code{justDoIt}, and \code{logger} control the
+  execution, logging, and printing of commands generated by menus and dialogs.
+  \code{logger(command)} adds \code{command} to the log/script window and to the output window.
   \code{justDoIt(command)} causes \code{command}
   to be executed. \code{doItAndPrint(command)} does both of these operations, and also prints the
   output produced by the command.
@@ -546,38 +546,38 @@ commanderPosition()
   of the output stack. Note that, as a stack, the queue is LIFO (``last in, first out''). Use \code{popOutput(keep=TRUE)} to access the last output but keep it in the stack.
   There is also a stack of commands, which is accessed similarly by \code{popCommand()}.
   Ocassionally, it's necessary to assign an object directly in the global environment, and
-  this can be done with the \code{gassign} function. 
-  
+  this can be done with the \code{gassign} function.
+
   Normally commands also generate an R Markdown block.
-  \code{suppressMarkdown} takes a command in character-string form and adds an attribute to it 
+  \code{suppressMarkdown} takes a command in character-string form and adds an attribute to it
   that will cause the command \emph{not} to be entered in the R Markdown tab. This is useful when a
   command, such as \code{identify}, requires direct user interaction and won't generate useful Markdown.
   \code{enterMarkdown} can be used to enter command blocks directly in the R Markdown tab; this should
   rarely be required. The functions \code{beginRmdBlock}, \code{endRmdBlock}, \code{removeNullRmdBlocks},
-  \code{removeLastRmdBlock}, and \code{removeStrayRmdBlocks} should normally not be called directly. 
+  \code{removeLastRmdBlock}, and \code{removeStrayRmdBlocks} should normally not be called directly.
   The functions \code{enterKnitr},
   \code{beginRnwBlock}, \code{endRnwBlock}, \code{removeNullRnwBlocks}, \code{removeLastRnwBlock},
-  and \code{removeStrayRnwBlocks} perform similar functions for Knitr documents. 
-  
+  and \code{removeStrayRnwBlocks} perform similar functions for Knitr documents.
+
   \code{insertRmdSection} Inserts a Markdown section title immediately above the last R command block, with the specified text as the title. In most instances it's unnecessary to do this directly because most commands automatically generate a Markdown section title.
-  
+
   \emph{Checking for errors: }
-  
+
   The function \code{is.valid.name} checks whether a character string specifies a valid name
   for an R object. The function \code{is.valid.number} checks whether a character string  (or vector) can be coerced to a
   number (or numbers). The functions \code{checkActiveDataSet}, \code{checkActiveModel},
   \code{checkFactors}, \code{checkNumeric}, \code{checkTwoLevelFactors}, and \code{checkVariables}
   check for the existence of objects and write an error message to the log if they are absent
-  (or insufficiently numerous, in the case of different kinds of variables). The function 
+  (or insufficiently numerous, in the case of different kinds of variables). The function
   \code{checkReplace} opens a dialog to query whether an existing object should be replaced.
   The function \code{checkMethod}, checks whether a method exists for a particular generic that is
   appropriate for a particular object. The function \code{checkClass} checks whether an object is of
   a specific class. Both of these functions write error messages to the log if the condition fails.
   The function \code{errorCondition} reports an error to the user and (optionally) re-starts
-  a dialog. 
-  
+  a dialog.
+
   \emph{Information: }
-  
+
   Several functions return vectors of object names: \code{listAllModels}, \cr
   \code{listAOVModels}, \code{listCharacter}, \code{listDataSets}, \code{listDiscreteNumeric}, \code{listGeneralizedLinearModels},
   \code{listFactors}, \code{listLinearModels}, \code{listMultinomialLogitModels},
@@ -585,28 +585,28 @@ commanderPosition()
   \code{listTwoLevelFactors},
   \code{listVariables}. The functions \code{Predictors} and \code{Coefficients} return information about the active model, or \code{NULL} if there is no active model. The functions \code{activeDataSet} and \code{activeModel} respectively report or set the active
   data set and model.
-  The function \code{packageAvailable} reports whether the named package is 
+  The function \code{packageAvailable} reports whether the named package is
   available to be loaded (or has possibly already been loaded).
   The function \code{exists.method} checks whether a method exists for a particular generic that is
   appropriate for a particular object, and returns \code{TRUE} or \code{FALSE}. The function \code{is.SciViews} always returns \code{FALSE}
   since the SciViews GUI is no longer supported.
-  
+
   The function \code{modelCapability()} returns \code{TRUE} if there is an active statistical model and if it has the specified capability.
   For example, \code{modelCapability("sum")} returns \code{TRUE} if the model-capabilities table indicates that there's an applicable
   \code{summary()} method for the active model. Otherwise, \code{FALSE} is returned. If the specified capability doesn't exist, a warning is printed.
-  
+
   \emph{Building dialog boxes: }
-  
-  Several functions simplify the process of constructing Tk dialogs: 
+
+  Several functions simplify the process of constructing Tk dialogs:
   initializing a dialog box, \code{initializeDialog}, and completing the definition of a dialog box, \code{dialogSuffix};
   a set of check boxes, \code{checkBoxes};
   a set of radio buttons, \code{radioButtons};
   a list box with associated scrollbars and state variable, \code{variableListBox}
-  (and associated methods for the generic functions 
+  (and associated methods for the generic functions
   \code{getFrame} and \code{getSelection});
-  a drop-down "combo" box, \code{variablecomboBox} 
+  a drop-down "combo" box, \code{variablecomboBox}
   (with \code{getFrame} and \code{getSelection} methods);
-  a button and subdialog for selecting a "grouping" variable, \code{groupsBox}; 
+  a button and subdialog for selecting a "grouping" variable, \code{groupsBox};
   displaying the currently defined groups in a dialog, \code{groupsLabel};
   a dialog-box structure for entering a model formula, \code{modelFormula};
   a text box for entering a subsetting expression, \code{subsetBox};
@@ -615,39 +615,39 @@ commanderPosition()
   selections across invocations of a dialog. The \code{tkspinbox} function is omitted from the tcltk package and
   may be used to create a spinbox widget. The \code{titleLabel} function may be used to format a title label to use
   the standard title label font and color.
-  
+
   \emph{``Themed'' Tk widgets:}
-  
-  Tk 8.5 introduced so-called ``themed'' widgets, which look better than the traditional Tk widgets. 
-  Several functions, contributed by Brian Ripley, are written to access the new widgets by switching automatically 
-  between the new and old widget sets depending upon the availability of the former: \code{buttonRcmdr}, 
-  to access either \code{\link{ttkbutton}} or \code{\link{tkbutton}}; \code{labelRcmdr}, 
-  to access either \code{\link{ttklabel}} or \code{\link{tklabel}}; \code{ttkentry}, 
-  to access either \code{\link{ttkentry}} or \code{\link{tkentry}}; \code{ttkframe}, 
-  to access either \code{\link{ttkframe}} or \code{\link{tkframe}}; \code{ttkradiobutton}, 
-  to access either \code{\link{ttkradiobutton}} or \code{\link{tkradiobutton}}; and \code{ttkscrollbar}, 
-  to access either \code{\link{ttkscrollbar}} or \code{\link{tkscrollbar}}. 
+
+  Tk 8.5 introduced so-called ``themed'' widgets, which look better than the traditional Tk widgets.
+  Several functions, contributed by Brian Ripley, are written to access the new widgets by switching automatically
+  between the new and old widget sets depending upon the availability of the former: \code{buttonRcmdr},
+  to access either \code{\link{ttkbutton}} or \code{\link{tkbutton}}; \code{labelRcmdr},
+  to access either \code{\link{ttklabel}} or \code{\link{tklabel}}; \code{ttkentry},
+  to access either \code{\link{ttkentry}} or \code{\link{tkentry}}; \code{ttkframe},
+  to access either \code{\link{ttkframe}} or \code{\link{tkframe}}; \code{ttkradiobutton},
+  to access either \code{\link{ttkradiobutton}} or \code{\link{tkradiobutton}}; and \code{ttkscrollbar},
+  to access either \code{\link{ttkscrollbar}} or \code{\link{tkscrollbar}}.
   Note that the last four functions mask functions of the same names in the \pkg{tcltk} package.
-  
+
   \emph{`Predicate' functions:}
-  
+
   A number of functions of the form \emph{name}\code{P} are `predicate' functions, which return
-  \code{TRUE} or \code{FALSE} depending upon whether some condition obtains. For example, \code{lmP()} 
+  \code{TRUE} or \code{FALSE} depending upon whether some condition obtains. For example, \code{lmP()}
   returns \code{TRUE} if there is an active model that is a linear model; and \code{factorsP(2)}
-  returns \code{TRUE} if there are at least two factors in the active data set. 
+  returns \code{TRUE} if there are at least two factors in the active data set.
   \code{WindowsP()}, \code{MacOSXP()}, and \code{X11P()} return \code{TRUE} if the R Commander is running under Windows, Mac OS X, or
   X-Windows, consecutively.
-  
+
   \emph{Translating text:}
-  
+
   The \code{gettextRcmdr} function simply passes its argument(s) to
    \code{\link[base]{gettext}}, adding the argument \code{domain="R-Rcmdr"} It is not meant to be used in plug-in packages.
-   
+
   \emph{Miscellaneous:}
-  
+
   The function \code{trim.blanks} removes spaces from the beginning and end of a character string. The function
   \code{installPlugin} installs an Rcmdr plug-in from a ZIP file or directory; this function may be used to
-  create self-installing plug-ins in the form of packages. The function \code{nobs} returns the number of 
+  create self-installing plug-ins in the form of packages. The function \code{nobs} returns the number of
   observations on which a statistical model is based. The function \code{formulaFields} returns information
   about the left-hand side, right-hand side, data, subset, and (for GLMs) family and link, of a model object.
   The function \code{sortVarNames} sorts variable names, including those containing numerals, into a more
@@ -655,18 +655,18 @@ commanderPosition()
   load packages; it checks whether a package is already loaded, and if not by default puts it in position
   4 on the search path. The function \code{Coef}, with several methods, returns the coefficients of a model
   as a vector; the default method just calls \code{coef}.
-  
+
   The function \code{RExcelSupported} is used for the RExcel interface.
-  
+
   The function \code{getCases} takes a character string of case names or numbers as an argument and returns a character string that evaluates to an expression either to delete or retain these cases.
-  
-  Some of these functions, marked \code{# macro} under \emph{Usage}, are "macro-like" in their behaviour, in that they 
+
+  Some of these functions, marked \code{# macro} under \emph{Usage}, are "macro-like" in their behaviour, in that they
   execute in the environment from which they are called. These were defined with an adaptation (used with permission) of
   Thomas Lumley's \code{defmacro} function, described in Lumley (2001), and are used in the R Commander to deal with
   scoping issues related to Tcl/Tk.
-  
+
   The \code{tkfocus} function is exported for historical reasons.
-  
+
 }
 
 \seealso{\code{\link{Command}}.}
