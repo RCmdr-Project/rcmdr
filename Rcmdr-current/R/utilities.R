@@ -1,4 +1,4 @@
-# last modified 2022-07-05 by J. Fox
+# last modified 2023-08-07 by J. Fox
 
 # utility functions
 
@@ -7,7 +7,7 @@
 listDataSets <- function(envir=.GlobalEnv, ...) {
     Vars <- ls(envir = envir, all.names = TRUE) # + PhG
     if (length(Vars) == 0) return(Vars) # + PhG
-    
+
     names(which(sapply(Vars, function(.x) is.data.frame(get(.x, envir=envir)))))
 }
 
@@ -229,7 +229,7 @@ Coef.default <- function(object, ...) coef(object, ...)
 
 Coef.multinom <- function (object, ...) {
     # the following adapted from nnet:
-    cf <- function (object, ...) 
+    cf <- function (object, ...)
     {
         r <- length(object$vcoefnames)
         if (length(object$lev) == 2L) {
@@ -237,11 +237,11 @@ Coef.multinom <- function (object, ...) {
             names(coef) <- object$vcoefnames
         }
         else {
-            coef <- matrix(object$wts, nrow = object$n[3L], byrow = TRUE)[, 
+            coef <- matrix(object$wts, nrow = object$n[3L], byrow = TRUE)[,
                                                                           1L + (1L:r), drop = FALSE]
-            if (length(object$lev)) 
+            if (length(object$lev))
                 dimnames(coef) <- list(object$lev, object$vcoefnames)
-            if (length(object$lab)) 
+            if (length(object$lab))
                 dimnames(coef) <- list(object$lab, object$vcoefnames)
             coef <- coef[-1L, , drop = FALSE]
         }
@@ -295,12 +295,12 @@ RcmdrPager <- function (file, header, title, delete.file)
 # help functions
 
 helpCommander <- function() {
-    PDF <- file.access(paste(file.path(path.package(package="Rcmdr")[1], "doc"), 
+    PDF <- file.access(paste(file.path(path.package(package="Rcmdr")[1], "doc"),
         "/", gettextRcmdr("Commander"), ".pdf", sep=""), mode=4)
     if (PDF == 0){
         browseURL(paste(file.path(path.package(package="Rcmdr")[1], "doc"),
             "/", gettextRcmdr("Commander"), ".pdf", sep=""))
-    } 
+    }
     else if (as.numeric(R.Version()$major) >= 2) print(help(gettextRcmdr("Commander")))
     else help(gettextRcmdr("Commander"))
 }
@@ -324,7 +324,7 @@ manualTranslationP <- function(){
     gettextRcmdr("Getting-Started-with-the-Rcmdr") != "Getting-Started-with-the-Rcmdr"
 }
 
-browseRcmdrWebsite <- function() browseURL("https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/")
+browseRcmdrWebsite <- function() browseURL("https://www.john-fox.ca/RCommander/index.html")
 
 browseRWebsite <- function() browseURL("https://www.r-project.org/")
 
@@ -336,7 +336,7 @@ browseRcmdrHexSticker <- function(){
 
 # functions for building dialog boxes
 
-# the following function is slightly modified, with permission, from Thomas Lumley, 
+# the following function is slightly modified, with permission, from Thomas Lumley,
 #   "Programmer's Niche: Macros in R," R-News, Sept. 2001, Vol. 1, No. 3, pp.11-13.
 defmacro <- function(..., expr){
     expr <- substitute(expr)
@@ -378,16 +378,16 @@ defmacro <- function(..., expr){
 OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL, apply=NULL, helpPackage=NULL,
     expr={
         memory <- getRcmdr("retain.selections")
-        button.strings <- c("OK", "Cancel", 
-                            if (!is.null(helpSubject)) "Help", 
-                            if (!is.null(reset) && memory) "Reset", 
+        button.strings <- c("OK", "Cancel",
+                            if (!is.null(helpSubject)) "Help",
+                            if (!is.null(reset) && memory) "Reset",
                             if (!is.null(apply)) "Apply")
         width <- max(nchar(gettextRcmdr(button.strings)))
         if (WindowsP()) width <- width + 2
         buttonsFrame <- tkframe(window)
         leftButtonsBox <- tkframe(buttonsFrame)
         rightButtonsBox <- tkframe(buttonsFrame)
-        
+
         OnOK <- function(){
             putRcmdr("restoreTab", FALSE)
             if (getRcmdr("use.markdown")) {
@@ -422,10 +422,10 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             }
             putRcmdr("rgl.command", FALSE)
         }
-        
+
         OKbutton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("OK"), foreground="darkgreen", width=width, command=OnOK, default="active",
             image="::image::okIcon", compound="left")
-        
+
         onCancel <- function() {
             if (exists(".exit")){
                 result <- .exit()
@@ -438,10 +438,10 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             putRcmdr("rgl.command", FALSE)
             tkfocus(CommanderWindow())
         }
-        
+
         cancelButton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("Cancel"), foreground="red", width=width, command=onCancel, # borderwidth=3,
             image="::image::cancelIcon", compound="left")
-        
+
         if (!is.null(helpSubject)){
             onHelp <- function() {
                 if (GrabFocus() && (!WindowsP())) tkgrab.release(window)
@@ -451,7 +451,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             helpButton <- buttonRcmdr(leftButtonsBox, text=gettextRcmdr("Help"), width=width, command=onHelp, # borderwidth=3,
                 image="::image::helpIcon", compound="left")
         }
-        
+
         if (!is.null(reset) && memory){
             onReset <- function(){
                 ID <- window$ID
@@ -468,11 +468,12 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             resetButton <- buttonRcmdr(leftButtonsBox, text=gettextRcmdr("Reset"), width=width, command=onReset,
                 image="::image::resetIcon", compound="left")
         }
-        
+
         if (!is.null(apply)){
             onApply <- function(){
                 putRcmdr("restoreTab", TRUE)
                 putRcmdr("cancelDialogReopen", FALSE)
+                putRcmdr("onApplyCalled", TRUE)
                 ID <- window$ID
                 putRcmdr("open.dialog.here", as.character(.Tcl(paste("winfo geometry", ID))))
                 if (getRcmdr("use.markdown")) {
@@ -516,7 +517,7 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
             applyButton <- buttonRcmdr(rightButtonsBox, text=gettextRcmdr("Apply"), foreground="yellow", width=width, command=onApply,
                 image="::image::applyIcon", compound="left")
         }
-        
+
         if(!WindowsP()) {
             if (!is.null(apply)){
                 tkgrid(applyButton, cancelButton, OKbutton, sticky="w")
@@ -558,8 +559,8 @@ OKCancelHelp <- defmacro(window=top, helpSubject=NULL,  model=FALSE, reset=NULL,
 
 subOKCancelHelp <- defmacro(window=subdialog, helpSubject=NULL,
     expr={
-        
-        button.strings <- c("OK", "Cancel", 
+
+        button.strings <- c("OK", "Cancel",
                             if (!is.null(helpSubject)) "Help")
         width <- max(nchar(gettextRcmdr(button.strings)))
         if (WindowsP()) width <- width + 2
@@ -577,14 +578,14 @@ subOKCancelHelp <- defmacro(window=subdialog, helpSubject=NULL,
           tkfocus(CommanderWindow())
         }
         subCancelButton <- buttonRcmdr(subRightButtonsBox, text=gettextRcmdr("Cancel"), foreground="red", width=width, command=onCancelSub,
-            image="::image::cancelIcon", compound="left") # borderwidth=3, 
+            image="::image::cancelIcon", compound="left") # borderwidth=3,
         if (!is.null(helpSubject)){
             onHelpSub <- function(){
                 if (GrabFocus() && (!WindowsP())) tkgrab.release(window)
                 if (as.numeric(R.Version()$major) >= 2) print(help(helpSubject))
                 else help(helpSubject)
             }
-            subHelpButton <- buttonRcmdr(subLeftButtonsBox, text=gettextRcmdr("Help"), width=width, command=onHelpSub, 
+            subHelpButton <- buttonRcmdr(subLeftButtonsBox, text=gettextRcmdr("Help"), width=width, command=onHelpSub,
                 image="::image::helpIcon", compound="left")
         }
         if(!WindowsP()) {
@@ -679,7 +680,7 @@ commanderPosition <- function (){
         tclvalue(.Tcl(paste("winfo rooty", ID)))))
 }
 
-initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp, 
+initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp,
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"),
     suppress.window.resize.buttons=TRUE,
     expr={
@@ -693,7 +694,7 @@ initializeDialog <- defmacro(window=top, title="", offset=10, preventCrisp,
         location <- getRcmdr("open.dialog.here")
         position <- if (!is.null(location)) location
         else {
-            pos <- offset + commanderPosition() 
+            pos <- offset + commanderPosition()
             if (any(pos < 0)) "-50+50"
             else paste("+", paste(pos, collapse="+"), sep="")
         }
@@ -711,7 +712,7 @@ closeDialog <- defmacro(window=top, release=TRUE,
 
 dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns, focus=top,
     bindReturn=TRUE, preventGrabFocus=FALSE, preventDoubleClick=FALSE,
-    preventCrisp, 
+    preventCrisp,
     use.tabs=FALSE, notebook=notebook, tabs=c("dataTab", "optionsTab"), tab.names=c("Data", "Options"),
     grid.buttons=FALSE, resizable=FALSE, force.wait=FALSE,
     expr={
@@ -722,7 +723,7 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
             tkgrid(notebook, sticky="nsew")
         }
         if (grid.buttons) tkgrid(buttonsFrame, sticky = "ew")
-        if (use.tabs && exists("dialog.values") && !is.null(dialog.values$initial.tab) && getRcmdr("restoreTab")) 
+        if (use.tabs && exists("dialog.values") && !is.null(dialog.values$initial.tab) && getRcmdr("restoreTab"))
             tkselect(notebook, dialog.values$initial.tab)
         .Tcl("update idletasks")
         tkwm.resizable(window, as.numeric(resizable), as.numeric(resizable))
@@ -746,7 +747,7 @@ variableListBox <- function(parentWindow, variableList=Variables(), bg="white",
     frame <- tkframe(parentWindow)
     minmax <- getRcmdr("variable.list.width")
     listbox <- tklistbox(frame, height=min(listHeight, length(variableList)),
-        selectmode=selectmode, background=bg, exportselection=export, 
+        selectmode=selectmode, background=bg, exportselection=export,
         width=min(max(minmax[1], 2 + nchar(variableList)), minmax[2]))
     scrollbar <- ttkscrollbar(frame, command=function(...) tkyview(listbox, ...))
     tkconfigure(listbox, yscrollcommand=function(...) tkset(scrollbar, ...))
@@ -833,10 +834,10 @@ variableComboBox <- function(parentWindow, variableList=Variables(),
   tclvalue(combovar) <- initialSelection
   combobox <- if (adjustWidth){
     width <- max(nchar(variableList)) + 2
-    ttkcombobox(frame, values=variableList, textvariable=combovar, 
+    ttkcombobox(frame, values=variableList, textvariable=combovar,
                 state=state, export=export, width=width)
   } else {
-    ttkcombobox(frame, values=variableList, textvariable=combovar, 
+    ttkcombobox(frame, values=variableList, textvariable=combovar,
                           state=state, export=export)
   }
   firstChar <- tolower(substr(variableList, 1, 1))
@@ -894,7 +895,7 @@ getFrame.combobox <- function(object){
 }
 
 # This function modified based on code by Liviu Andronic (13 Dec 09) and on code by Milan Bouchet-Valat (29 Jun 12):
-radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..values[1], labels, 
+radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..values[1], labels,
     title="", title.color=getRcmdr("title.color"), right.buttons=FALSE,  command=function(){}, columns=1,
     expr={
         ..values <- if (is.null(values)) buttons else values
@@ -920,19 +921,19 @@ radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..
               paste0(..frame, ".", (i - 1) %% columns + 1)
             }  else ..frame
             if (right.buttons) {
-                assign(..button, ttkradiobutton(eval(parse(text=..use.frame)), variable=eval(parse(text=..variable)), 
+                assign(..button, ttkradiobutton(eval(parse(text=..use.frame)), variable=eval(parse(text=..variable)),
                     value=..values[i], command=command))
                 tkgrid(labelRcmdr(eval(parse(text=..use.frame)), text=labels[i], justify="left"), eval(parse(text=..button)), sticky="nw")
             }
             else{
-                assign(..button, ttkradiobutton(eval(parse(text=..use.frame)), variable=eval(parse(text=..variable)), 
+                assign(..button, ttkradiobutton(eval(parse(text=..use.frame)), variable=eval(parse(text=..variable)),
                     value=..values[i], text=labels[i], command=command))
                 tkgrid(eval(parse(text=..button)), sticky="nw")
             }
         }
         if (columns > 1){
           tkgrid(eval(parse(text=paste(name, "Frame.1", sep=""))),
-                 eval(parse(text=paste(name, "Frame.2", sep=""))), 
+                 eval(parse(text=paste(name, "Frame.2", sep=""))),
                  if (columns > 2) eval(parse(text=paste(name, "Frame.3", sep=""))),
                  if (columns > 3) eval(parse(text=paste(name, "Frame.4", sep=""))),
                  sticky="nw", padx= if (columns > 1) "3" else "0")
@@ -957,7 +958,7 @@ radioButtons <- defmacro(window=top, name, buttons, values=NULL, initialValue=..
 checkBoxes <- defmacro(window=top, frame, boxes, initialValues=NULL, labels, title=NULL, ttk=FALSE, columns=1,
     expr={
         ..initialValues <- if (is.null(initialValues)) rep("1", length(boxes)) else initialValues
-        assign(frame, if (ttk) ttklabelframe(window, labelwidget=tklabel(window, text=title, 
+        assign(frame, if (ttk) ttklabelframe(window, labelwidget=tklabel(window, text=title,
                                           font="RcmdrTitleFont", foreground=getRcmdr("title.color"))) else tkframe(window))
         ..frame.1 <- paste(frame, "Frame.1", sep="")
         ..frame.2 <- paste(frame, "Frame.2", sep="")
@@ -982,7 +983,7 @@ checkBoxes <- defmacro(window=top, frame, boxes, initialValues=NULL, labels, tit
         }
         if (columns > 1){
           tkgrid(eval(parse(text=paste(frame, "Frame.1", sep=""))),
-                 eval(parse(text=paste(frame, "Frame.2", sep=""))), 
+                 eval(parse(text=paste(frame, "Frame.2", sep=""))),
                  if (columns > 2) eval(parse(text=paste(frame, "Frame.3", sep=""))),
                  if (columns > 3) eval(parse(text=paste(frame, "Frame.4", sep=""))),
                  sticky="nw", padx= if (columns > 1) "3" else "0")
@@ -1114,16 +1115,16 @@ groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialTex
         initial.label <- if (exists("dialog.values")) dialog.values$initial.label else NULL
         if  (is.null(initial.label)) {
             group <- getSelection(groupsBox)
-            initial.label <- if (length(group) == 0) NULL 
+            initial.label <- if (length(group) == 0) NULL
             else {
-                levels <- eval(parse(text = paste("levels(", ActiveDataSet(), 
+                levels <- eval(parse(text = paste("levels(", ActiveDataSet(),
                     "$", group, ")", sep = "")))
                 paste(levels[1], if (ratio) "/" else "-", levels[2])
             }
         }
         groupsFrame <- tkframe(frame)
-        .groupsLabel <- if (!is.null(initialText)) initialText 
-        else if (is.null(initial.label)) gettextRcmdr("<No groups selected>") 
+        .groupsLabel <- if (!is.null(initialText)) initialText
+        else if (is.null(initial.label)) gettextRcmdr("<No groups selected>")
         else initial.label
         groupsLabel <- labelRcmdr(groupsFrame, text=.groupsLabel)
         tkgrid(labelRcmdr(groupsFrame, text=if (ratio) gettextRcmdr("Ratio: ") else gettextRcmdr("Difference: "), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), groupsLabel, sticky="w")
@@ -1131,7 +1132,7 @@ groupsLabel <- defmacro(frame=top, groupsBox=groupsBox, columnspan=1, initialTex
         onSelect <- function(){
             group <- getSelection(groupsBox)
             if (length(group) == 0) {
-                .groupsLabel <<- gettextRcmdr("<No groups selected>") 
+                .groupsLabel <<- gettextRcmdr("<No groups selected>")
             }
             else {
                 levels <- eval(parse(text=paste("levels(", ActiveDataSet(), "$", group, ")", sep="")))
@@ -1160,7 +1161,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   onDoubleClick <- if (!hasLhs){
     function(){
       var <- getSelection(xBox)
-      tkselection.clear(xBox$listbox, "0", "end")            		
+      tkselection.clear(xBox$listbox, "0", "end")
       if (length(grep(word, var)) == 1) var <- sub(word, "",  var)
       tkfocus(rhsEntry)
       rhs <- tclvalue(rhsVariable)
@@ -1214,7 +1215,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   onPlus <- function(){
     rhs <- tclvalue(rhsVariable)
     var <- getSelection(xBox)
-    tkselection.clear(xBox$listbox, "0", "end")										
+    tkselection.clear(xBox$listbox, "0", "end")
     if ((check <- !checkAddOperator(rhs)) && length(var) == 0) return()
     if (length(var) > 1){
       if (length(grep(word, var)) > 0) var <- sub(word, "",  var)
@@ -1227,7 +1228,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   onTimes <- function(){
     rhs <- tclvalue(rhsVariable)
     var <- getSelection(xBox)
-    tkselection.clear(xBox$listbox, "0", "end")						
+    tkselection.clear(xBox$listbox, "0", "end")
     if ((check <- !checkAddOperator(rhs)) && length(var) == 0) return()
     if (length(var) > 1){
       if (length(grep(word, var)) > 0) var <- sub(word, "",  var)
@@ -1242,7 +1243,7 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   onColon <- function(){
     rhs <- tclvalue(rhsVariable)
     var <- getSelection(xBox)
-    tkselection.clear(xBox$listbox, "0", "end")						
+    tkselection.clear(xBox$listbox, "0", "end")
     if ((check <- !checkAddOperator(rhs)) && length(var) == 0) return()
     if (length(var) > 1){
       if (length(grep(word, var)) > 0) var <- sub(word, "",  var)
@@ -1332,8 +1333,8 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
       return()
     }
     check <- !checkAddOperator(rhs)
-    tclvalue(rhsVariable) <- paste(rhs, 
-                                   if (!check) paste(" + bs(", var, ", df=", tclvalue(dfSplineVar), ")", sep="") 
+    tclvalue(rhsVariable) <- paste(rhs,
+                                   if (!check) paste(" + bs(", var, ", df=", tclvalue(dfSplineVar), ")", sep="")
                                    else paste(" bs(", var, ", df=", tclvalue(dfSplineVar), ")", sep=""),
                                    sep="")
     tkicursor(rhsEntry, "end")
@@ -1353,8 +1354,8 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
       return()
     }
     check <- !checkAddOperator(rhs)
-    tclvalue(rhsVariable) <- paste(rhs, 
-                                   if (!check) paste(" + ns(", var, ", df=", tclvalue(dfSplineVar), ")", sep="") 
+    tclvalue(rhsVariable) <- paste(rhs,
+                                   if (!check) paste(" + ns(", var, ", df=", tclvalue(dfSplineVar), ")", sep="")
                                    else paste(" ns(", var, ", df=", tclvalue(dfSplineVar), ")", sep=""),
                                    sep="")
     tkicursor(rhsEntry, "end")
@@ -1374,8 +1375,8 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
       return()
     }
     check <- !checkAddOperator(rhs)
-    tclvalue(rhsVariable) <- paste(rhs, 
-                                   if (!check) paste(" + poly(", var, ", degree=", tclvalue(degPolyVar), ")", sep="") 
+    tclvalue(rhsVariable) <- paste(rhs,
+                                   if (!check) paste(" + poly(", var, ", degree=", tclvalue(degPolyVar), ")", sep="")
                                    else paste(" poly(", var, ", degree=", tclvalue(degPolyVar), ")", sep=""),
                                    sep="")
     tkicursor(rhsEntry, "end")
@@ -1395,8 +1396,8 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
       return()
     }
     check <- !checkAddOperator(rhs)
-    tclvalue(rhsVariable) <- paste(rhs, 
-                                   if (!check) paste(" + poly(", var, ", degree=", tclvalue(degPolyVar), ", raw=TRUE)", sep="") 
+    tclvalue(rhsVariable) <- paste(rhs,
+                                   if (!check) paste(" + poly(", var, ", degree=", tclvalue(degPolyVar), ", raw=TRUE)", sep="")
                                    else paste(" poly(", var, ", degree=", tclvalue(degPolyVar), ", raw=TRUE)", sep=""),
                                    sep="")
     tkicursor(rhsEntry, "end")
@@ -1421,12 +1422,12 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   formulaHelpButton <- buttonRcmdr(formulaFrame, text=gettextRcmdr("Model formula\nhelp"), command=onFormulaHelp,
                                    image="::image::helpIcon", compound="left")
   if (hasLhs){
-    tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Model Formula"), 
+    tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Model Formula"),
                       fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
     tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Operators (click to formula):  ")), operatorsFrame, sticky="nw")
     if (.rhsExtras){
       tkgrid(bsplineButton, nsplineButton, polyButton, RawPolyButton, sticky="nw")
-      tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Splines/Polynomials:\n(select variable and click)")), 
+      tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Splines/Polynomials:\n(select variable and click)")),
              splinePolyFrame, dfDegFrame, sticky="nw")
     }
     lhsVariable <- if (currentModel) tclVar(currentFields$lhs) else tclVar("")
@@ -1446,11 +1447,11 @@ modelFormula <- defmacro(frame=top, hasLhs=TRUE, rhsExtras=NULL, formulaLabel=ge
   }
   else{
     if (.rhsExtras){
-      tkgrid(labelRcmdr(outerOperatorsFrame, text=formulaLabel, 
+      tkgrid(labelRcmdr(outerOperatorsFrame, text=formulaLabel,
                         fg=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
       tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Operators (click to formula):  ")), operatorsFrame, sticky="nw")
       tkgrid(bsplineButton, nsplineButton, polyButton, RawPolyButton, sticky="nw")
-      tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Splines/Polynomials:\n(select variable and click)")), 
+      tkgrid(labelRcmdr(outerOperatorsFrame, text=gettextRcmdr("Splines/Polynomials:\n(select variable and click)")),
              splinePolyFrame, dfDegFrame, sticky="nw")
     }
     rhsVariable <- if (currentModel) tclVar(currentFields$rhs) else tclVar("")
@@ -1572,8 +1573,8 @@ ActiveDataSet <- function(name){
                 putRcmdr("nrow", NULL)
                 putRcmdr("ncol", NULL)
                 RcmdrTclSet("modelName", gettextRcmdr("<No active model>"))
-                tkconfigure(getRcmdr("dataSetLabel"), foreground="red") 
-                tkconfigure(getRcmdr("modelLabel"), foreground="red") 
+                tkconfigure(getRcmdr("dataSetLabel"), foreground="red")
+                tkconfigure(getRcmdr("modelLabel"), foreground="red")
                 activateMenus()
                 if (getRcmdr("suppress.menus") && RExcelSupported()) return(NULL)
             }
@@ -1599,14 +1600,14 @@ ActiveDataSet <- function(name){
           tkdestroy(open.showData.windows[[name]])
           suppress <- if(getRcmdr("suppress.X11.warnings")) ", suppress.X11.warnings=FALSE" else ""
           view.height <- max(as.numeric(getRcmdr("output.height")) + as.numeric(getRcmdr("log.height")), 10)
-          command <- paste("showData(as.data.frame(", name, "), title='", name, 
+          command <- paste("showData(as.data.frame(", name, "), title='", name,
                            "', placement='", posn, "', font=getRcmdr('logFont'), maxwidth=",
                            getRcmdr("log.width"), ", maxheight=", view.height, suppress, ")", sep="")
           window <- justDoIt(command)
           open.showData.windows[[ActiveDataSet()]] <- window
           putRcmdr("open.showData.windows", open.showData.windows)
         }
-        
+
       }
         else {
             Variables(NULL)
@@ -1620,8 +1621,8 @@ ActiveDataSet <- function(name){
             putRcmdr("nrow", NULL)
             putRcmdr("ncol", NULL)
             RcmdrTclSet("modelName", gettextRcmdr("<No active model>"))
-            tkconfigure(getRcmdr("dataSetLabel"), foreground="red") 
-            tkconfigure(getRcmdr("modelLabel"), foreground="red") 
+            tkconfigure(getRcmdr("dataSetLabel"), foreground="red")
+            tkconfigure(getRcmdr("modelLabel"), foreground="red")
             activateMenus()
             if (getRcmdr("suppress.menus") && RExcelSupported()) return(NULL)
         }
@@ -1757,7 +1758,7 @@ English <- function() {
 
 # nMacOSDisplays <- function(){
 #   if (!MacOSXP()) return(0)
-#   sum(grepl("^ *Display Type:", system("system_profiler SPDisplaysDataType", 
+#   sum(grepl("^ *Display Type:", system("system_profiler SPDisplaysDataType",
 #                                        intern=TRUE)))
 # }
 
@@ -1839,7 +1840,7 @@ RcmdrTkmessageBox <- function(message, icon=c("info", "question", "warning",
         else if (default == "no") "active" else "normal")
     ## FIXME -- left in old style -- FIXED
 #    tkgrid(tklabel(messageFrame, bitmap=icon, fg=iconColor),
-    tkgrid(tklabel(messageFrame, image=icon.image, fg=iconColor, 
+    tkgrid(tklabel(messageFrame, image=icon.image, fg=iconColor,
                    text=paste0("    ", message),
                    compound="left"))
         # tklabel(messageFrame, text="    "),
@@ -2160,7 +2161,7 @@ getDialog <- function(dialog, defaults=NULL){
     else return (values)
 }
 
-varPosn <- function(variables, 
+varPosn <- function(variables,
     type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor"), vars=NULL){
     if (is.null(variables)) return(NULL)
     type <- match.arg(type)
@@ -2441,7 +2442,7 @@ trimHangingEndRmdBlock <- function(string){
 }
 
 removeLastRmdBlock <- function(){
-    .rmd <- RmdWindow()    
+    .rmd <- RmdWindow()
     rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
     start <- gregexpr("```\\{r\\}\n|```\\{r, webgl=TRUE\\}\n", rmd)
     if (start[[1]][1] > 0){
@@ -2486,7 +2487,7 @@ removeLastRmdBlock <- function(){
 # }
 
 removeLastRmdSection <- function(){
-  .rmd <- RmdWindow()    
+  .rmd <- RmdWindow()
   rmd <- tclvalue(tkget(.rmd, "1.0", "end"))
   start <- gregexpr("\n#[^\n]*", rmd)
   if (start[[1]][1] > 0){
@@ -2539,10 +2540,10 @@ compileRmd <- function() {
         format <- getRcmdr("rmd.output.format")
         putRcmdr("abort.compile.rmd", TRUE)
         hasLatex <- getRcmdr("capabilities")$pdflatex
-        radioButtons(name="formatButtons", 
-            buttons=c("html", if (hasLatex) "pdf", "docx", "rtf"), 
+        radioButtons(name="formatButtons",
+            buttons=c("html", if (hasLatex) "pdf", "docx", "rtf"),
             initialValue=format,
-            labels=c(gettextRcmdr(".html (web page)"), 
+            labels=c(gettextRcmdr(".html (web page)"),
                 if (hasLatex) gettextRcmdr(".pdf (PDF file)"), gettextRcmdr(".docx (Word file)"), gettextRcmdr(".rtf (rich text file)")))
         onOK <- function(){
             putRcmdr("abort.compile.rmd", FALSE)
@@ -2584,7 +2585,7 @@ compileRmd <- function() {
         format <- getRcmdr("rmd.output.format")
         switch(format,
             html = {
-                rmarkdown::render(.RmdFile, rmarkdown::html_document(toc=options$toc, 
+                rmarkdown::render(.RmdFile, rmarkdown::html_document(toc=options$toc,
                                                                      toc_float=options$toc_float,
                                                                      toc_depth=options$toc_depth,
                                                                      number_sections=options$number_sections))
@@ -2850,12 +2851,12 @@ knitrP <- function(){
 
 RcmdrEditor <- function(buffer, title="R Commander Editor", ok,
                         help=NULL, file.menu=NULL, edit.menu=NULL, context.menu=NULL, toolbar.buttons=NULL){
-    
+
     if (getRcmdr("Markdown.editor.open") || getRcmdr("knitr.editor.open")){
         Message(gettextRcmdr("Only one instance of the R Commander script editor may be open at a time."), type="error")
         return(invisible(NULL))
     }
-        
+
   contextMenu <- function(){
     contextMenu <- tkmenu(tkmenu(editor), tearoff=FALSE)
     if (!is.null(context.menu)){
@@ -2965,7 +2966,7 @@ RcmdrEditor <- function(buffer, title="R Commander Editor", ok,
     tcl(editor, "edit", "redo")
   }
   initializeDialog(title = gettextRcmdr(title), suppress.window.resize.buttons=FALSE)
-  toolbarFrame <- tkframe(top) 
+  toolbarFrame <- tkframe(top)
   cutButton <- buttonRcmdr(toolbarFrame, image="::image::cutIcon", command=onCut)
   copyButton <- buttonRcmdr(toolbarFrame, image="::image::copyIcon", command=onCopy)
   pasteButton <- buttonRcmdr(toolbarFrame, image="::image::pasteIcon", command=onPaste)
@@ -2977,7 +2978,7 @@ RcmdrEditor <- function(buffer, title="R Commander Editor", ok,
     for (i in 1:length(toolbar.buttons)){
       tool <- toolbar.buttons[[i]]
       assign(paste("var", i, sep=""), tclVar(gettextRcmdr(tool$label)))
-      assign(paste("button", i, sep=""), buttonRcmdr(toolbarFrame, textvariable=eval(parse(text=paste("var", i, sep=""))), 
+      assign(paste("button", i, sep=""), buttonRcmdr(toolbarFrame, textvariable=eval(parse(text=paste("var", i, sep=""))),
                                                      borderwidth="2", command=tool$command, image=tool$image, compound="left"))
     }
   }
@@ -2985,8 +2986,8 @@ RcmdrEditor <- function(buffer, title="R Commander Editor", ok,
   screenheight <- as.numeric(.Tcl(paste("winfo screenheight", top$ID)))
   char.size <- as.numeric(.Tcl(paste("font metrics", getRcmdr('logFont'))))[6]
   width <- as.numeric(tkcget(LogWindow(), "-width")) + 5
-  height <- max(floor(screenheight/(2.5*char.size)), 25)   
-  editor <- tktext(editorFrame, bg = "white", font = getRcmdr("logFont"), 
+  height <- max(floor(screenheight/(2.5*char.size)), 25)
+  editor <- tktext(editorFrame, bg = "white", font = getRcmdr("logFont"),
                    height = height, width = width, wrap = "none", undo=TRUE)
   if (title == "Edit R Markdown document") {
       putRcmdr("Markdown.editor.open", TRUE)
@@ -2997,13 +2998,13 @@ RcmdrEditor <- function(buffer, title="R Commander Editor", ok,
       putRcmdr("knitr.editor.toplevel.window", top)
   }
   putRcmdr("editor.text", editor)
-  editorXscroll <- ttkscrollbar(editorFrame, orient = "horizontal", 
+  editorXscroll <- ttkscrollbar(editorFrame, orient = "horizontal",
                                 command = function(...) tkxview(editor, ...))
-  editorYscroll <- ttkscrollbar(editorFrame, command = function(...) tkyview(editor, 
+  editorYscroll <- ttkscrollbar(editorFrame, command = function(...) tkyview(editor,
                                                                              ...))
-  tkconfigure(editor, xscrollcommand = function(...) tkset(editorXscroll, 
+  tkconfigure(editor, xscrollcommand = function(...) tkset(editorXscroll,
                                                            ...))
-  tkconfigure(editor, yscrollcommand = function(...) tkset(editorYscroll, 
+  tkconfigure(editor, yscrollcommand = function(...) tkset(editorYscroll,
                                                            ...))
   tkinsert(editor, "1.0", buffer)
   onOK <- function(){
@@ -3020,7 +3021,7 @@ RcmdrEditor <- function(buffer, title="R Commander Editor", ok,
         if (title == "Edit knitr document") putRcmdr("knitr.editor.open", FALSE)
         return("")
     }
-    
+
   }
   OKCancelHelp(helpSubject = "ScriptEditor")
   editorMenu <- tkmenu(top)
@@ -3140,14 +3141,14 @@ RcmdrEditor <- function(buffer, title="R Commander Editor", ok,
 
 rgb2col <- local({
     all.names <- colors(distinct=TRUE)
-    all.lab <- t(convertColor(t(col2rgb(all.names)), from = "sRGB", 
+    all.lab <- t(convertColor(t(col2rgb(all.names)), from = "sRGB",
         to = "Lab", scale.in = 255))
     findNear <- function(x.lab) {
         sq.dist <- colSums((all.lab - x.lab)^2)
         rbind(all.names[which.min(sq.dist)], min(sq.dist))
     }
     function(cols.hex, near = 15) { # near = 2.3 is nominally the JND
-        cols.lab <- t(convertColor(t(col2rgb(cols.hex)), from = "sRGB", 
+        cols.lab <- t(convertColor(t(col2rgb(cols.hex)), from = "sRGB",
             to = "Lab", scale.in = 255))
         cols.near <- apply(cols.lab, 2, findNear)
         ifelse(as.numeric(cols.near[2, ]) < near^2, cols.near[1, ], toupper(cols.hex))
@@ -3166,7 +3167,7 @@ setBusyCursor <- function() {
     .log <- LogWindow()
     .output <- OutputWindow()
     .messages <- MessagesWindow()
-    
+
     tkconfigure(.commander, cursor="watch")
     tkconfigure(.menu, cursor="watch")
     tkconfigure(.log, cursor="watch")
@@ -3180,7 +3181,7 @@ setIdleCursor <- function() {
     .log <- LogWindow()
     .output <- OutputWindow()
     .messages <- MessagesWindow()
-    
+
     tkconfigure(.commander, cursor="")
     tkconfigure(.menu, cursor="")
     tkconfigure(.log, cursor="xterm")
@@ -3221,7 +3222,7 @@ editDataset.data.frame <- function(data, dsname, ...){
     tkwm.title(top, paste(gettextRcmdr("Data Editor"), ": ", dsname, sep=""))
     location <- getRcmdr("open.dialog.here")
     pos <- 10 + commanderPosition()
-    position <- if (any(pos < 0)) "-50+50" 
+    position <- if (any(pos < 0)) "-50+50"
     else paste("+", paste(pos, collapse = "+"), sep = "")
     tkwm.geometry(top, position)
     tcl.array <- tclArray()
@@ -3239,7 +3240,7 @@ editDataset.data.frame <- function(data, dsname, ...){
     if (is.null(rownames)) rownames <- seq(length=nr)
     putRcmdr("data.dim", list(nr=nr, nc=nc, NR=nr, NC=nc))
     # NR, NC not decremented on row/column deletion
-    #   to avoid possibly duplicate 
+    #   to avoid possibly duplicate
     #   auto-generated row/column names
     for (i in 1:nr) {
         tcl.array[[i + 1, 0]] <- i
@@ -3256,22 +3257,22 @@ editDataset.data.frame <- function(data, dsname, ...){
         }
     }
     tableFrame <- tkframe(top)
-    data.table <- tk2table(tableFrame, rows=nr + 2, cols=nc + 2, 
+    data.table <- tk2table(tableFrame, rows=nr + 2, cols=nc + 2,
                            titlerows=1, titlecols=1,
                            width=nc + 2, height=nr + 2, sparsearray=0,
-                           cache=1, flashmode=1, autoclear=1, wrap=1, 
+                           cache=1, flashmode=1, autoclear=1, wrap=1,
                            colstretchmode="all", rowstretchmode="all",
-                           font=getRcmdr('logFont'), anchor="e", padx=6, 
+                           font=getRcmdr('logFont'), anchor="e", padx=6,
                            resizeborders="both", drawmode="slow",
                            xscrollcommand=function(...) tkset(xscroll,...),
                            yscrollcommand=function(...) tkset(yscroll,...))
     tcl(data.table, "width", 0, max(max(nchar(as.character(nr))), 3))
     tcl(data.table, "width", 1, max(max(nchar(c(rownames, "rowname"))), 3))
     for (j in 1:nc){
-        tcl(data.table, "width", j + 1, 
+        tcl(data.table, "width", j + 1,
             max(max(nchar(c(colnames[j], data[, j]))), 8))
     }
-    xscroll <- ttkscrollbar(tableFrame, orient="horizontal", 
+    xscroll <- ttkscrollbar(tableFrame, orient="horizontal",
                             command=function(...) tkxview(data.table,...))
     yscroll <- ttkscrollbar(tableFrame,
                             command=function(...) tkyview(data.table,...))
@@ -3355,19 +3356,19 @@ editDataset.data.frame <- function(data, dsname, ...){
     }
     onContextMenu <- function(){
         contextMenu <- tkmenu(tkmenu(data.table), tearoff=FALSE)
-        tkadd(contextMenu, "command", label=gettextRcmdr("Delete current row"), 
+        tkadd(contextMenu, "command", label=gettextRcmdr("Delete current row"),
               command=deleteRow)
         tkadd(contextMenu, "command", label=gettextRcmdr("Delete current column"),
               command=deleteCol)
-        tkadd(contextMenu, "command", label=gettextRcmdr("Delete cell"), 
+        tkadd(contextMenu, "command", label=gettextRcmdr("Delete cell"),
               command=deleteCell)
-        tkadd(contextMenu, "command", label=gettextRcmdr("Cut cell"), 
+        tkadd(contextMenu, "command", label=gettextRcmdr("Cut cell"),
               command=cutCell)
-        tkadd(contextMenu, "command", label=gettextRcmdr("Copy cell"), 
+        tkadd(contextMenu, "command", label=gettextRcmdr("Copy cell"),
               command=copyCell)
-        tkadd(contextMenu, "command", label=gettextRcmdr("Paste cell"), 
+        tkadd(contextMenu, "command", label=gettextRcmdr("Paste cell"),
               command=pasteCell)
-        tkpopup(contextMenu, tkwinfo("pointerx", data.table), 
+        tkpopup(contextMenu, tkwinfo("pointerx", data.table),
                 tkwinfo("pointery", data.table))
     }
     onOK <- function(){
@@ -3393,7 +3394,7 @@ editDataset.data.frame <- function(data, dsname, ...){
         putRcmdr("dataset.modified", TRUE)
     }
     onReturn <- function(){
-        location <- try(as.numeric(unlist(strsplit(tclvalue(tkindex(data.table, "active")), ","))), 
+        location <- try(as.numeric(unlist(strsplit(tclvalue(tkindex(data.table, "active")), ","))),
                         silent=TRUE)
         if (inherits(location, "try-error")) return()
         text <- tclvalue(tcl.array[[location[1], location[2]]])
@@ -3410,30 +3411,30 @@ editDataset.data.frame <- function(data, dsname, ...){
     fileMenu <- tkmenu(editorMenu, tearoff=FALSE)
     tkadd(fileMenu, "command", label=gettextRcmdr("Exit and save"), command=onOK)
     tkadd(fileMenu, "command", label=gettextRcmdr("Cancel"), command=onCancel)
-    tkadd(editorMenu, "cascade", label=gettextRcmdr("File"), menu=fileMenu)   
+    tkadd(editorMenu, "cascade", label=gettextRcmdr("File"), menu=fileMenu)
     editMenu <- tkmenu(editorMenu, tearoff=FALSE)
-    tkadd(editMenu, "command", label=gettextRcmdr("Delete current row"), 
+    tkadd(editMenu, "command", label=gettextRcmdr("Delete current row"),
           command=deleteRow)
-    tkadd(editMenu, "command", label=gettextRcmdr("Delete current column"), 
+    tkadd(editMenu, "command", label=gettextRcmdr("Delete current column"),
           command=deleteCol)
     tkadd(editMenu, "command", label=gettextRcmdr("Add row"), command=addRow)
     tkadd(editMenu, "command", label=gettextRcmdr("Add column"), command=addCol)
     tkadd(editMenu, "command", label=gettextRcmdr("Cut cell"), command=cutCell)
     tkadd(editMenu, "command", label=gettextRcmdr("Copy cell"), command=copyCell)
-    tkadd(editMenu, "command", label=gettextRcmdr("Paste cell"), 
+    tkadd(editMenu, "command", label=gettextRcmdr("Paste cell"),
           command=pasteCell)
-    tkadd(editorMenu, "cascade", label=gettextRcmdr("Edit"), menu=editMenu)   
+    tkadd(editorMenu, "cascade", label=gettextRcmdr("Edit"), menu=editMenu)
     helpMenu <- tkmenu(editorMenu, tearoff=FALSE)
     onEditorHelp <- function() print(help("editDataset"))
-    tkadd(helpMenu, "command", label=gettextRcmdr("Editor help"), 
+    tkadd(helpMenu, "command", label=gettextRcmdr("Editor help"),
           command=onEditorHelp)
-    tkadd(editorMenu, "cascade", label=gettextRcmdr("Help"), menu=helpMenu)    
+    tkadd(editorMenu, "cascade", label=gettextRcmdr("Help"), menu=helpMenu)
     tkbind(data.table, "<Control-x>", cutCell) # FIXME!
     tkbind(data.table, "<Control-X>", cutCell) #  doesn't work -- source of error unclear
     tkbind(data.table, "<Control-c>", copyCell)
     tkbind(data.table, "<Control-C>", copyCell)
     tkbind(data.table, "<Control-v>", pasteCell)
-    tkbind(data.table, "<Control-V>", pasteCell) 
+    tkbind(data.table, "<Control-V>", pasteCell)
     tkbind(data.table, "<ButtonPress-3>", onContextMenu)
     tkbind(data.table, "<Control-ButtonPress-1>", onContextMenu)
     tkbind(data.table, "<Double-Button-1>", deleteCell)
@@ -3443,33 +3444,33 @@ editDataset.data.frame <- function(data, dsname, ...){
         tkbind(data.table, "<Meta-c>", copyCell)
         tkbind(data.table, "<Meta-C>", copyCell)
         tkbind(data.table, "<Meta-v>", pasteCell)
-        tkbind(data.table, "<Meta-V>", pasteCell) 
+        tkbind(data.table, "<Meta-V>", pasteCell)
         tkbind(data.table, "<Meta-ButtonPress-1>", onContextMenu)
     }
     buttonsAddFrame <- tkframe(top)
-    addRowButton <- ttkbutton(buttonsAddFrame, command=addRow, 
+    addRowButton <- ttkbutton(buttonsAddFrame, command=addRow,
                               text=gettextRcmdr("Add row"))
-    addColButton <- ttkbutton(buttonsAddFrame, command=addCol, 
+    addColButton <- ttkbutton(buttonsAddFrame, command=addCol,
                               text=gettextRcmdr("Add column"))
     tkgrid(addRowButton, addColButton, sticky="w")
     tkgrid(buttonsAddFrame, sticky="w")
     tkgrid(data.table, yscroll, sticky="news")
     tkgrid.configure(yscroll, sticky="ns")
     tkgrid(xscroll, sticky="ew")
-    tkconfigure(data.table, variable=tcl.array, background="lightgray", 
+    tkconfigure(data.table, variable=tcl.array, background="lightgray",
                 selectmode="extended")
     tktag.configure(data.table, "active", fg="black", bg="white")
     tktag.configure(data.table, "flash", fg="white", bg="gray")
     tcl(data.table, "tag", "col", "rownos", 0)
-    tktag.configure(data.table, "rownos", anchor="e")  
+    tktag.configure(data.table, "rownos", anchor="e")
     warn <- options(warn=-1)
     on.exit(warn)
     row.numbers <- !any(is.na(as.numeric(rownames)))
     tcl(data.table, "tag", "col", "rownames", 1)
-    tktag.configure(data.table, "rownames", 
-                    anchor=if (row.numbers) "e" else "w", bg="darkgray")  
+    tktag.configure(data.table, "rownames",
+                    anchor=if (row.numbers) "e" else "w", bg="darkgray")
     tcl(data.table, "tag", "row", "colnames", 1)
-    tktag.configure(data.table, "colnames", bg="darkgray")  
+    tktag.configure(data.table, "colnames", bg="darkgray")
     tkgrid(tableFrame, sticky="news")
     tkgrid(buttonsFrame, sticky="w")
     tkwm.protocol(top, "WM_DELETE_WINDOW", onCancel)
@@ -3505,7 +3506,7 @@ editDataset.data.frame <- function(data, dsname, ...){
 #   tkwm.title(top, paste(gettextRcmdr("Data Editor"), ": ", dsname, sep=""))
 #   location <- getRcmdr("open.dialog.here")
 #   pos <- 10 + commanderPosition()
-#   position <- if (any(pos < 0)) "-50+50" 
+#   position <- if (any(pos < 0)) "-50+50"
 #   else paste("+", paste(pos, collapse = "+"), sep = "")
 #   tkwm.geometry(top, position)
 #   #  tkwm.geometry(top, '-20+200')
@@ -3521,7 +3522,7 @@ editDataset.data.frame <- function(data, dsname, ...){
 #   rownames <- rownames(data)
 #   putRcmdr("data.dim", list(nr=nr, nc=nc, NR=nr, NC=nc))
 #   # NR, NC not decremented on row/column deletion
-#   #   to avoid possibly duplicate 
+#   #   to avoid possibly duplicate
 #   #   auto-generated row/column names
 #   for (i in 1:nr) {
 #     tcl.array[[i + 1, 0]] <- i
@@ -3538,22 +3539,22 @@ editDataset.data.frame <- function(data, dsname, ...){
 #     }
 #   }
 #   tableFrame <- tkframe(top)
-#   data.table <- tk2table(tableFrame, rows=nr + 2, cols=nc + 2, 
+#   data.table <- tk2table(tableFrame, rows=nr + 2, cols=nc + 2,
 #                          titlerows=1, titlecols=1,
 #                          width=nc + 2, height=nr + 2, sparsearray=0,
-#                          cache=1, flashmode=1, autoclear=1, wrap=1, 
+#                          cache=1, flashmode=1, autoclear=1, wrap=1,
 #                          colstretchmode="all", rowstretchmode="all",
-#                          font=getRcmdr('logFont'), anchor="e", padx=6, 
+#                          font=getRcmdr('logFont'), anchor="e", padx=6,
 #                          resizeborders="both", drawmode="slow",
 #                          xscrollcommand=function(...) tkset(xscroll,...),
 #                          yscrollcommand=function(...) tkset(yscroll,...))
 #   tcl(data.table, "width", 0, max(max(nchar(as.character(nr))), 3))
 #   tcl(data.table, "width", 1, max(max(nchar(c(rownames, "rowname"))), 3))
 #   for (j in 1:nc){
-#     tcl(data.table, "width", j + 1, 
+#     tcl(data.table, "width", j + 1,
 #         max(max(nchar(c(colnames[j], data[, j]))), 8))
 #   }
-#   xscroll <- ttkscrollbar(tableFrame, orient="horizontal", 
+#   xscroll <- ttkscrollbar(tableFrame, orient="horizontal",
 #                           command=function(...) tkxview(data.table,...))
 #   yscroll <- ttkscrollbar(tableFrame,
 #                           command=function(...) tkyview(data.table,...))
@@ -3637,19 +3638,19 @@ editDataset.data.frame <- function(data, dsname, ...){
 #   }
 #   onContextMenu <- function(){
 #     contextMenu <- tkmenu(tkmenu(data.table), tearoff=FALSE)
-#     tkadd(contextMenu, "command", label=gettextRcmdr("Delete current row"), 
+#     tkadd(contextMenu, "command", label=gettextRcmdr("Delete current row"),
 #           command=deleteRow)
 #     tkadd(contextMenu, "command", label=gettextRcmdr("Delete current column"),
 #           command=deleteCol)
-#     tkadd(contextMenu, "command", label=gettextRcmdr("Delete cell"), 
+#     tkadd(contextMenu, "command", label=gettextRcmdr("Delete cell"),
 #           command=deleteCell)
-#     tkadd(contextMenu, "command", label=gettextRcmdr("Cut cell"), 
+#     tkadd(contextMenu, "command", label=gettextRcmdr("Cut cell"),
 #           command=cutCell)
-#     tkadd(contextMenu, "command", label=gettextRcmdr("Copy cell"), 
+#     tkadd(contextMenu, "command", label=gettextRcmdr("Copy cell"),
 #           command=copyCell)
-#     tkadd(contextMenu, "command", label=gettextRcmdr("Paste cell"), 
+#     tkadd(contextMenu, "command", label=gettextRcmdr("Paste cell"),
 #           command=pasteCell)
-#     tkpopup(contextMenu, tkwinfo("pointerx", data.table), 
+#     tkpopup(contextMenu, tkwinfo("pointerx", data.table),
 #             tkwinfo("pointery", data.table))
 #   }
 #   onOK <- function(){
@@ -3672,7 +3673,7 @@ editDataset.data.frame <- function(data, dsname, ...){
 #     putRcmdr("dataset.modified", TRUE)
 #   }
 #   onReturn <- function(){
-#     location <- try(as.numeric(unlist(strsplit(tclvalue(tkindex(data.table, "active")), ","))), 
+#     location <- try(as.numeric(unlist(strsplit(tclvalue(tkindex(data.table, "active")), ","))),
 #                     silent=TRUE)
 #     if (inherits(location, "try-error")) return()
 #     text <- tclvalue(tcl.array[[location[1], location[2]]])
@@ -3689,30 +3690,30 @@ editDataset.data.frame <- function(data, dsname, ...){
 #   fileMenu <- tkmenu(editorMenu, tearoff=FALSE)
 #   tkadd(fileMenu, "command", label=gettextRcmdr("Exit and save"), command=onOK)
 #   tkadd(fileMenu, "command", label=gettextRcmdr("Cancel"), command=onCancel)
-#   tkadd(editorMenu, "cascade", label=gettextRcmdr("File"), menu=fileMenu)   
+#   tkadd(editorMenu, "cascade", label=gettextRcmdr("File"), menu=fileMenu)
 #   editMenu <- tkmenu(editorMenu, tearoff=FALSE)
-#   tkadd(editMenu, "command", label=gettextRcmdr("Delete current row"), 
+#   tkadd(editMenu, "command", label=gettextRcmdr("Delete current row"),
 #         command=deleteRow)
-#   tkadd(editMenu, "command", label=gettextRcmdr("Delete current column"), 
+#   tkadd(editMenu, "command", label=gettextRcmdr("Delete current column"),
 #         command=deleteCol)
 #   tkadd(editMenu, "command", label=gettextRcmdr("Add row"), command=addRow)
 #   tkadd(editMenu, "command", label=gettextRcmdr("Add column"), command=addCol)
 #   tkadd(editMenu, "command", label=gettextRcmdr("Cut cell"), command=cutCell)
 #   tkadd(editMenu, "command", label=gettextRcmdr("Copy cell"), command=copyCell)
-#   tkadd(editMenu, "command", label=gettextRcmdr("Paste cell"), 
+#   tkadd(editMenu, "command", label=gettextRcmdr("Paste cell"),
 #         command=pasteCell)
-#   tkadd(editorMenu, "cascade", label=gettextRcmdr("Edit"), menu=editMenu)   
+#   tkadd(editorMenu, "cascade", label=gettextRcmdr("Edit"), menu=editMenu)
 #   helpMenu <- tkmenu(editorMenu, tearoff=FALSE)
 #   onEditorHelp <- function() print(help("editDataset"))
-#   tkadd(helpMenu, "command", label=gettextRcmdr("Editor help"), 
+#   tkadd(helpMenu, "command", label=gettextRcmdr("Editor help"),
 #         command=onEditorHelp)
-#   tkadd(editorMenu, "cascade", label=gettextRcmdr("Help"), menu=helpMenu)    
+#   tkadd(editorMenu, "cascade", label=gettextRcmdr("Help"), menu=helpMenu)
 #   tkbind(data.table, "<Control-x>", cutCell) # FIXME!
 #   tkbind(data.table, "<Control-X>", cutCell) #  doesn't work -- source of error unclear
 #   tkbind(data.table, "<Control-c>", copyCell)
 #   tkbind(data.table, "<Control-C>", copyCell)
 #   tkbind(data.table, "<Control-v>", pasteCell)
-#   tkbind(data.table, "<Control-V>", pasteCell) 
+#   tkbind(data.table, "<Control-V>", pasteCell)
 #   tkbind(data.table, "<ButtonPress-3>", onContextMenu)
 #   tkbind(data.table, "<Control-ButtonPress-1>", onContextMenu)
 #   tkbind(data.table, "<Double-Button-1>", deleteCell)
@@ -3722,33 +3723,33 @@ editDataset.data.frame <- function(data, dsname, ...){
 #     tkbind(data.table, "<Meta-c>", copyCell)
 #     tkbind(data.table, "<Meta-C>", copyCell)
 #     tkbind(data.table, "<Meta-v>", pasteCell)
-#     tkbind(data.table, "<Meta-V>", pasteCell) 
+#     tkbind(data.table, "<Meta-V>", pasteCell)
 #     tkbind(data.table, "<Meta-ButtonPress-1>", onContextMenu)
 #   }
 #   buttonsAddFrame <- tkframe(top)
-#   addRowButton <- ttkbutton(buttonsAddFrame, command=addRow, 
+#   addRowButton <- ttkbutton(buttonsAddFrame, command=addRow,
 #                             text=gettextRcmdr("Add row"))
-#   addColButton <- ttkbutton(buttonsAddFrame, command=addCol, 
+#   addColButton <- ttkbutton(buttonsAddFrame, command=addCol,
 #                             text=gettextRcmdr("Add column"))
 #   tkgrid(addRowButton, addColButton, sticky="w")
 #   tkgrid(buttonsAddFrame, sticky="w")
 #   tkgrid(data.table, yscroll, sticky="news")
 #   tkgrid.configure(yscroll, sticky="ns")
 #   tkgrid(xscroll, sticky="ew")
-#   tkconfigure(data.table, variable=tcl.array, background="lightgray", 
+#   tkconfigure(data.table, variable=tcl.array, background="lightgray",
 #               selectmode="extended")
 #   tktag.configure(data.table, "active", fg="black", bg="white")
 #   tktag.configure(data.table, "flash", fg="white", bg="gray")
 #   tcl(data.table, "tag", "col", "rownos", 0)
-#   tktag.configure(data.table, "rownos", anchor="e")  
+#   tktag.configure(data.table, "rownos", anchor="e")
 #   warn <- options(warn=-1)
 #   on.exit(warn)
 #   row.numbers <- !any(is.na(as.numeric(rownames)))
 #   tcl(data.table, "tag", "col", "rownames", 1)
-#   tktag.configure(data.table, "rownames", 
-#                   anchor=if (row.numbers) "e" else "w", bg="darkgray")  
+#   tktag.configure(data.table, "rownames",
+#                   anchor=if (row.numbers) "e" else "w", bg="darkgray")
 #   tcl(data.table, "tag", "row", "colnames", 1)
-#   tktag.configure(data.table, "colnames", bg="darkgray")  
+#   tktag.configure(data.table, "colnames", bg="darkgray")
 #   tkgrid(tableFrame, sticky="news")
 #   tkgrid(buttonsFrame, sticky="w")
 #   tkwm.protocol(top, "WM_DELETE_WINDOW", onCancel)
@@ -3782,7 +3783,7 @@ appnap <- function(state=c("on", "off", "delete")){
   save <- options(warn = -1)
   on.exit(options(save))
   if (missing(state)){
-    res <- system("defaults read org.R-project.R NSAppSleepDisabled", 
+    res <- system("defaults read org.R-project.R NSAppSleepDisabled",
                   intern=TRUE, ignore.stderr=TRUE)
     return(c("on", "off")[1 + (length(res) > 0 && res == "1")])
   }
@@ -3799,7 +3800,7 @@ appnap <- function(state=c("on", "off", "delete")){
 #  courtesy of Philippe Grosjean
 
 tkmenu <- function (parent, activebackground, activeforeground, ...) {
-  if (!is.ttk()) 
+  if (!is.ttk())
     stop("Tcl/Tk >= 8.5 is required")
   w <- tkwidget(parent, "menu", ...)
   if (missing(activebackground)) activebackground <- tk2style("tk2button", "selectbackground")
@@ -3872,7 +3873,7 @@ setOption <- defmacro(option, default, global=TRUE, expr= {
 
 # the following function determines capabilities for Models menu items
 
-modelCapability <- function(capability){  
+modelCapability <- function(capability){
   modelCapabilities <- getRcmdr("modelCapabilities")
   model <- ActiveModel()
   if (is.null(model)) return(FALSE)
@@ -3929,7 +3930,7 @@ plot.lmerMod <- function(x, ...) NextMethod()
 plot.glmerMod <- function(x, ...) NextMethod()
 
 validColumns <- function(dataset){
-  valid.classes <- getRcmdr("valid.classes") 
+  valid.classes <- getRcmdr("valid.classes")
   nc <- ncol(dataset)
   valid <- logical(nc)
   for (i in 1:nc){
@@ -3980,16 +3981,16 @@ dichotomousResponseLabel <- defmacro(frame=top, responseBox=xBox, columnspan=1, 
                           initial.label <- if (exists("dialog.values")) dialog.values$initial.responseLabel else NULL
                           if  (is.null(initial.label)) {
                             response <- getSelection(responseBox)
-                            initial.label <- if (length(response) == 0) NULL 
+                            initial.label <- if (length(response) == 0) NULL
                             else {
-                              levels <- eval(parse(text = paste("levels(", ActiveDataSet(), 
+                              levels <- eval(parse(text = paste("levels(", ActiveDataSet(),
                                                                 "$", response, ")", sep = "")))
                               levels[1]
                             }
                           }
                           responseFrame <- tkframe(frame)
-                          .responseLabel <- if (!is.null(initialText)) initialText 
-                          else if (is.null(initial.label)) gettextRcmdr("<No response selected>") 
+                          .responseLabel <- if (!is.null(initialText)) initialText
+                          else if (is.null(initial.label)) gettextRcmdr("<No response selected>")
                           else initial.label
                           responseLabel <- labelRcmdr(responseFrame, text=.responseLabel)
                           tkgrid(labelRcmdr(responseFrame, text=paste0(gettextRcmdr("Proportion"), " = "), fg=getRcmdr("title.color"), font="RcmdrTitleFont"), responseLabel, sticky="w")
@@ -3997,7 +3998,7 @@ dichotomousResponseLabel <- defmacro(frame=top, responseBox=xBox, columnspan=1, 
                           onSelect <- function(){
                             response <- getSelection(responseBox)
                             if (length(response) == 0) {
-                              .responseLabel <<- gettextRcmdr("<No response selected>") 
+                              .responseLabel <<- gettextRcmdr("<No response selected>")
                             }
                             else {
                               levels <- eval(parse(text=paste("levels(", ActiveDataSet(), "$", response, ")", sep="")))
@@ -4009,7 +4010,7 @@ dichotomousResponseLabel <- defmacro(frame=top, responseBox=xBox, columnspan=1, 
                         })
 
 convertStrings2Factors <- function(){
-  .activeDataSet <- activeDataSet() 
+  .activeDataSet <- activeDataSet()
   command <- paste0(.activeDataSet, ' <- strings2factors(', .activeDataSet, ')')
   doItAndPrint(command)
   activeDataSet(.activeDataSet)
@@ -4084,24 +4085,24 @@ getCases <- function(cases, remove=TRUE){
     }
   }
   if (remove) {
-    Rows <- if (is.numeric(cases.rows)) paste("-", Rows, sep="") 
+    Rows <- if (is.numeric(cases.rows)) paste("-", Rows, sep="")
     else paste("!(rownames(", ActiveDataSet(), ") %in% ", Rows, ")", sep="")
   }
   else if (is.character(cases.rows)) Rows <- paste("rownames(", ActiveDataSet(), ") %in% ", Rows, sep="")
   if (is.numeric(cases.rows)){
     n <- eval(parse(text=paste0("nrow(", ActiveDataSet(), ")")))
     if (any(which.bad <- !cases.rows %in% 1:n)){
-      error <- paste(gettextRcmdr("bad row numbers:"), 
+      error <- paste(gettextRcmdr("bad row numbers:"),
                      paste(as.character(cases.rows[which.bad]), collapse=", "))
       class(error) <- c(class(error), "cases-error")
       return(error)
     }
   } else {
     if (any(which.bad <- eval(parse(text=paste("!", rows, "%in% rownames(", ActiveDataSet(), ")", sep=""))))){
-      error <- paste(gettextRcmdr("bad row names:"), 
+      error <- paste(gettextRcmdr("bad row names:"),
                      paste(cases.rows[which.bad], collapse=", "))
       class(error) <- c(class(error), "cases-error")
-      return(error)          
+      return(error)
     }
   }
   Rows

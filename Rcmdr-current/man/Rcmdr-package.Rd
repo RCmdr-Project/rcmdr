@@ -12,19 +12,20 @@ user interface) for R, based on the tcltk package.
 \details{
 \tabular{ll}{
 Package: \tab Rcmdr\cr
-Version: \tab 2.8-0\cr
-Date: \tab 2022-08-17\cr
-Depends: \tab R (>= 3.5.0), grDevices, graphics, methods, stats, utils, splines, 
-  RcmdrMisc (>= 2.7-1), car (>= 3.0-8), effects (>= 4.0-3)\cr
-Imports: \tab tcltk, tcltk2 (>= 1.2-6), abind, relimp (>= 1.0-5), lme4\cr
-Suggests: \tab aplpack, boot, colorspace, e1071, foreign, grid, Hmisc, knitr, lattice, 
-  leaps, lmtest, markdown, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, nortest, 
-  readxl, rgl (>= 0.96.0), rmarkdown (>= 0.9.5), sem (>= 2.1-1) \cr
+Version: \tab 2.9-3\cr
+Date: \tab 2024-09-30\cr
+Depends: \tab R (>= 3.5.0), grDevices, graphics, methods, stats, utils,
+  splines, RcmdrMisc (>= 2.9-1), car (>= 3.1-0), effects (>= 4.0-3)\cr
+Imports: \tab tcltk, tcltk2 (>= 1.2-6), abind, relimp (>= 1.0-5), lme4, tools\cr
+Suggests: \tab aplpack, boot, colorspace, e1071, foreign, grid, Hmisc,
+  knitr, lattice, leaps, lmtest, markdown, MASS, mgcv, multcomp (>= 0.991-2),
+  nlme, nnet, nortest, readxl, rgl (>= 0.110.2), rmarkdown (>= 0.9.5),
+  sem (>= 2.1-1)  \cr
 ByteCompile: \tab yes\cr
 License: \tab GPL (>= 2)\cr
-URL: \tab https://www.r-project.org,
-https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/index.html, 
-https://socialsciences.mcmaster.ca/jfox/Books/RCommander/ \cr
+URL: \tab https://github.com/RCmdr-Project/rcmdr,
+  https://www.r-project.org,
+  https://www.john-fox.ca/RCommander/index.html \cr
 }
 }
 
@@ -33,8 +34,8 @@ Fox, J. (2017)
 \emph{Using the R Commander: A Point-and-Click Interface for R}.
 Chapman and Hall/CRC Press.
 
-Fox, J. (2005) 
-The R Commander: A Basic Statistics Graphical User Interface to R. 
+Fox, J. (2005)
+The R Commander: A Basic Statistics Graphical User Interface to R.
 \emph{Journal of Statistical Software}, \bold{14(9)}: 1--42.
 }
 
