@@ -2,11 +2,13 @@ Changes in version 2.9-3
 
   o Update URL references.
 
+  o Fix menus in English version of Getting Started manual (problem reported by Kuan Xu).
+
 Changes in version 2.9-2
 
   o Fix incorrect check-box label in wide-to-long dialog (reported by Sophie Dubois).
 
-    o Fix bug introduced into two-way ANOVA dialog (reported by Amin Mousavi).
+  o Fix bug introduced into two-way ANOVA dialog (reported by Amin Mousavi).
 
 Changes in version 2.9-1
 
