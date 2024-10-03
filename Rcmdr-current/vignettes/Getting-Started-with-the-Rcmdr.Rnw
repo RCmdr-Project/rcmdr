@@ -227,6 +227,8 @@ menu is activated only if the optional \LaTeX{} or \textbf{Pandoc} software
 are missing. The menus also include dividers, which are not shown here.}
 
 <<echo=F>>=
+Sys.setenv(LANGUAGE='en')
+Sys.setLanguage("en")
 library('Rcmdr')
 gm <- function(x) {
   gettext(paste0(x, '...'), domain='R-Rcmdr')
