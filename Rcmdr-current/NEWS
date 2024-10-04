@@ -1,3 +1,7 @@
+Changes in version 2.9-4
+
+ o Document re-export of .Tcl().
+
 Changes in version 2.9-3
 
   o Update URL references.
