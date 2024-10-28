@@ -37,4 +37,4 @@ ByteCompile: yes
 Description:
   A platform-independent basic-statistics GUI (graphical user interface) for R, based on the tcltk package.
 License: GPL (>= 2)
-URL: https://github.com/RCmdr-Project/rcmdr, https://www.r-project.org, https://www.john-fox.ca/RCommander/index.html
+URL: https://github.com/RCmdr-Project/rcmdr, https://www.r-project.org
