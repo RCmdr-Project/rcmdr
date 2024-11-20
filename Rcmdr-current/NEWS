@@ -1,3 +1,7 @@
+Changes in version 2.9-5
+
+ o Modfy Commander-es.Rd (to conform to new CRAN requirements).
+
 Changes in version 2.9-4
 
  o Document re-export of .Tcl().

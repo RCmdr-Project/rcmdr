@@ -6,9 +6,10 @@
 \description{
   Inicia la GUI (Interfaz \enc{Gráfica}{Grafica} de Usuario) de R Commander
 }
+
 \usage{
-Commander()
-}
+\special{Commander()}
+} 
 
 \details{
 
