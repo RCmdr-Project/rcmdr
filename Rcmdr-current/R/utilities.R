@@ -1,4 +1,4 @@
-# last modified 2023-08-07 by J. Fox
+# last modified 2024-11-20 by J. Fox
 
 # utility functions
 
@@ -4073,17 +4073,9 @@ getUserName <- function(){
 # to assist implementation of case deletion/retention
 
 getCases <- function(cases, remove=TRUE){
-  rows <- Rows <- paste("c(", gsub(" +", ", ", cases), ")", sep="")
-  cases.rows <- try(eval(parse(text=Rows)), silent=TRUE)
-  if (inherits(cases.rows, "try-error")){
-    rows <- Rows <- paste("c('", gsub(" +", "', '", cases), "')", sep="")
-    cases.rows <- try(eval(parse(text=Rows)), silent=TRUE)
-    if (inherits(cases.rows, "try-error")){
-      error <- cases.rows
-      class(error) <- c(class(error), "cases-error")
-      return(error)
-    }
-  }
+  cases.rows <- scan(text=cases, what="", quiet=TRUE)
+  rows <- Rows <- paste0("c(", paste(paste0("'", cases.rows, "'"), 
+                                     collapse=", "), ")")
   if (remove) {
     Rows <- if (is.numeric(cases.rows)) paste("-", Rows, sep="")
     else paste("!(rownames(", ActiveDataSet(), ") %in% ", Rows, ")", sep="")
