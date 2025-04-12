@@ -118,6 +118,7 @@
 
     menu    tablesMenu      statisticsMenu  ""                                              ""                          ""          ""
     item    tablesMenu      command         "Two-way table..."                              twoWayTable                 "factorsP(2)" "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
+    item    tablesMenu      command         "Two-way table from counts..."                  twoWayTableFromCounts       "factorsP(2) && numericP()" "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
     item    tablesMenu      command         "Multi-way table..."                            multiWayTable               "factorsP(3)" "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
     item    tablesMenu      command         "Enter and analyze two-way table..."            enterTable                  ""            "packageAvailable('RcmdrMisc') && packageAvailable('abind')"
     menu    meansMenu       statisticsMenu  ""                                              ""                          ""          ""
