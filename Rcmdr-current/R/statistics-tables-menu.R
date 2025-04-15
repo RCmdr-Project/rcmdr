@@ -153,23 +153,33 @@ twoWayTableFromCounts <- function() {
         closeDialog()
 
         ## Prepare command
-        command <- paste("local({\n  .Table <- xtabs(", count, "~", row, "+", column, ", data=", ActiveDataSet(), ')\n  cat("\\nFrequency table:\\n")\n  print(addmargins(.Table))\n', sep = "")
+        command <- paste0("local({\n  .Table <- xtabs(", count, "~", row, "+", column, ", data=", ActiveDataSet(), ')\n  cat("\\nFrequency table:\\n")\n  print(addmargins(.Table))\n')
+        ## Prepare internal command
+        command.2 <- paste0("local({\n  .Table <- xtabs(", count, "~", row, "+", column, ", data=", ActiveDataSet(), ")\n  putRcmdr('.Test', chisq.test(.Table, correct=FALSE))\n})\n")
         if (percents == "row") 
-            command <- paste(command, '  cat("Row percentages:\\n")\n  print(rowPercents(.Table))\n', sep="")
+            command <- paste0(command, '  cat("Row percentages:\\n")\n  print(rowPercents(.Table))\n')
         else if (percents == "column") 
-            command <- paste(command, '  cat("Column percentages:\\n")\n  print(colPercents(.Table))\n', sep="")
+            command <- paste0(command, '  cat("Column percentages:\\n")\n  print(colPercents(.Table))\n')
         else if (percents == "total")
-            command <- paste(command, '  cat("Total percentages:\\n")\n  print(totPercents(.Table))\n', sep="")
-        if (chisq == 1 || expected == 1 || chisqComp == 1)
-            command <- paste(command, "  .Test <- chisq.test(.Table, correct=FALSE)\n", sep="")
+            command <- paste0(command, '  cat("Total percentages:\\n")\n  print(totPercents(.Table))\n')
+        if (chisq == 1 || expected == 1 || chisqComp == 1) {
+            justDoIt(command.2)
+            command <- paste0(command, "  .Test <- chisq.test(.Table, correct=FALSE)\n")
+            warnText <- NULL
+            .expected <- getRcmdr(".Test")$expected
+            warnText <- NULL
+            if (0 < (nlt1 <- sum(.expected < 1))) warnText <- paste(nlt1, gettextRcmdr("expected frequencies are less than 1"), sep="")
+            if (0 < (nlt5 <- sum(.expected < 5))) warnText <- paste(warnText, "\n", nlt5, gettextRcmdr(" expected frequencies are less than 5"), sep="")
+            if (!is.null(warnText)) Message(message=warnText, type="warning")
+        }
         if (chisq == 1)
-            command <- paste(command, "  print(.Test)\n", sep="")
+            command <- paste0(command, "  print(.Test)\n")
         if (expected == 1)
-            command <- paste(command, '  cat("\\nExpected counts:\\n")\n  print(.Test$expected)\n', sep="")
+            command <- paste0(command, '  cat("\\nExpected counts:\\n")\n  print(.Test$expected)\n')
         if (chisqComp == 1) 
-            command <- paste(command, '  cat("\\nChi-square components:\\n")\n  print(round(.Test$residuals^2, 2))\n', sep="")
-        if (fisher == 1) command <- paste(command, "  print(fisher.test(.Table))\n")
-        command <- paste(command, "})\n")
+            command <- paste0(command, '  cat("\\nChi-square components:\\n")\n  print(round(.Test$residuals^2, 2))\n')
+        if (fisher == 1) command <- paste0(command, "  print(fisher.test(.Table))\n")
+        command <- paste0(command, "})\n")
         insertRmdSection(paste0(gettextRmdHeader("Two-Way Contingency Table from counts: ("), row, ", ", column, ") x ", count))
         doItAndPrint(command)
         tkfocus(CommanderWindow())
