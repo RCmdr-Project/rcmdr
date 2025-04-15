@@ -1,30 +1,23 @@
-## Statistics Menu dialogs
+# Statistics Menu dialogs
 
-## last modified 2022-06-27 by J. Fox
+# last modified 2022-06-27 by J. Fox
+# last modified 2025-04-15 by M. Munoz-Marquez
 
-## Tables menu
-contingencyTableOptions <- function() {
-    radioButtons(optionsTab, name="percents",
-                 buttons=c("rowPercents", "columnPercents", "totalPercents", "nonePercents"),
-                 values=c("row", "column", "total", "none"), initialValue=dialog.values$initial.percents,
-                 labels=gettextRcmdr(c("Row percentages", "Column percentages", "Percentages of total", "No percentages")),
-                 title=gettextRcmdr("Compute Percentages"),
-                 columns=2)
-}
+# Tables menu
 
 twoWayTable <- function(){
     Library("abind")
     defaults <- list(initial.row=NULL, initial.column=NULL, 
-                     initial.percents="none", initial.chisq=1, initial.chisqComp=0, initial.expected=0, 
-                     initial.fisher=0, initial.subset=gettextRcmdr("<all valid cases>"), initial.tab=0)
+        initial.percents="none", initial.chisq=1, initial.chisqComp=0, initial.expected=0, 
+        initial.fisher=0, initial.subset=gettextRcmdr("<all valid cases>"), initial.tab=0)
     dialog.values <- getDialog("twoWayTable", defaults)
     initializeDialog(title=gettextRcmdr("Two-Way Table"), use.tabs=TRUE)
     variablesFrame <- tkframe(dataTab)
     .factors <- Factors()
     rowBox <- variableListBox(variablesFrame, .factors, title=gettextRcmdr("Row variable (pick one)"),
-                              initialSelection=varPosn(dialog.values$initial.row, "factor"))
+        initialSelection=varPosn(dialog.values$initial.row, "factor"))
     columnBox <- variableListBox(variablesFrame, .factors, title=gettextRcmdr("Column variable (pick one)"),
-                                 initialSelection=varPosn(dialog.values$initial.column, "factor"))
+        initialSelection=varPosn(dialog.values$initial.column, "factor"))
     subsetBox(dataTab, subset.expression=dialog.values$initial.subset)
     onOK <- function(){
         tab <- if (as.character(tkselect(notebook)) == dataTab$ID) 0 else 1
@@ -37,13 +30,13 @@ twoWayTable <- function(){
         fisher <- tclvalue(fisherTestVariable)
         initial.subset <- subset <- tclvalue(subsetVariable)
         subset <- if (trim.blanks(subset) == gettextRcmdr("<all valid cases>")) ""
-                  else paste(", subset=", subset, sep="")
+        else paste(", subset=", subset, sep="")
         putDialog("twoWayTable", list(
-                                     initial.row=row,
-                                     initial.column=column, 
-                                     initial.percents=percents, initial.chisq=chisq, initial.chisqComp=chisqComp, 
-                                     initial.expected=expected, initial.fisher=fisher, initial.subset=initial.subset,
-                                     initial.tab=tab))
+            initial.row=row, 
+            initial.column=column, 
+            initial.percents=percents, initial.chisq=chisq, initial.chisqComp=chisqComp, 
+            initial.expected=expected, initial.fisher=fisher, initial.subset=initial.subset,
+            initial.tab=tab))
         if (length(row) == 0 || length(column) == 0){
             errorCondition(recall=twoWayTable, message=gettextRcmdr("You must select two variables."))
             return()
@@ -54,18 +47,18 @@ twoWayTable <- function(){
         }
         closeDialog()
         command <- paste("local({\n  .Table <- xtabs(~", row, "+", column, ", data=", ActiveDataSet(),
-                         subset, ')\n  cat("\\nFrequency table:\\n")\n  print(.Table)', sep="")
+            subset, ')\n  cat("\\nFrequency table:\\n")\n  print(.Table)', sep="")
         command.2 <- paste("local({\n  .warn <- options(warn=-1)\n  .Table <- xtabs(~", row, "+", column, ", data=", ActiveDataSet(),
                            subset, ")", sep="")
         if (percents == "row") 
-            command <- paste(command, '\n  cat("\\nRow percentages:\\n")\n  print(rowPercents(.Table))',
-                             sep="")
+          command <- paste(command, '\n  cat("\\nRow percentages:\\n")\n  print(rowPercents(.Table))',
+                           sep="")
         else if (percents == "column") 
-            command <-  paste(command, '\n  cat("\\nColumn percentages:\\n")\n  print(colPercents(.Table))',
-                              sep="")
+          command <-  paste(command, '\n  cat("\\nColumn percentages:\\n")\n  print(colPercents(.Table))',
+                            sep="")
         else if (percents == "total") 
-            command <- paste(command, '\n  cat("\\nTotal percentages:\\n")\n  print(totPercents(.Table))',
-                             sep="")
+          command <- paste(command, '\n  cat("\\nTotal percentages:\\n")\n  print(totPercents(.Table))',
+                sep="")
         if (chisq == 1) {
             command <- paste(command, "\n  .Test <- chisq.test(.Table, correct=FALSE)", sep="")
             command.2 <- paste(command.2, "\n  .Test <- chisq.test(.Table, correct=FALSE)", sep="")
@@ -80,33 +73,33 @@ twoWayTable <- function(){
         command <- paste(command, "\n})", sep="")
         doItAndPrint(command)
         if (chisq == 1){
-            command.2 <- paste(command.2, "\nputRcmdr('.expected.counts', .Test$expected)\n  options(.warn)\n})")
-            justDoIt(command.2)
-            warnText <- NULL
-            expected <- getRcmdr(".expected.counts")
-            if (0 < (nlt1 <- sum(expected < 1))) warnText <- paste(nlt1,
-                                                                   gettextRcmdr("expected frequencies are less than 1"))
-            if (0 < (nlt5 <- sum(expected < 5))) warnText <- paste(warnText, "\n", nlt5,
-                                                                   gettextRcmdr(" expected frequencies are less than 5"), sep="")
-            if (!is.null(warnText)) Message(message=warnText,
-                                            type="warning")
+          command.2 <- paste(command.2, "\nputRcmdr('.expected.counts', .Test$expected)\n  options(.warn)\n})")
+          justDoIt(command.2)
+          warnText <- NULL
+          expected <- getRcmdr(".expected.counts")
+          if (0 < (nlt1 <- sum(expected < 1))) warnText <- paste(nlt1,
+                                                                       gettextRcmdr("expected frequencies are less than 1"))
+          if (0 < (nlt5 <- sum(expected < 5))) warnText <- paste(warnText, "\n", nlt5,
+                                                                       gettextRcmdr(" expected frequencies are less than 5"), sep="")
+          if (!is.null(warnText)) Message(message=warnText,
+                                          type="warning")
         }
         insertRmdSection(paste0(gettextRmdHeader("Two-Way Contingency Table: "), row, ", ", column))
         tkfocus(CommanderWindow())
     }
     OKCancelHelp(helpSubject="xtabs", reset="twoWayTable", apply="twoWayTable")
     radioButtons(optionsTab, name="percents",
-                 buttons=c("rowPercents", "columnPercents", "totalPercents", "nonePercents"),
-                 values=c("row", "column", "total", "none"), initialValue=dialog.values$initial.percents,
-                 labels=gettextRcmdr(c("Row percentages", "Column percentages", "Percentages of total", "No percentages")), 
-                 title=gettextRcmdr("Compute Percentages"), 
-                 columns=2)
+        buttons=c("rowPercents", "columnPercents", "totalPercents", "nonePercents"),
+        values=c("row", "column", "total", "none"), initialValue=dialog.values$initial.percents,
+        labels=gettextRcmdr(c("Row percentages", "Column percentages", "Percentages of total", "No percentages")), 
+        title=gettextRcmdr("Compute Percentages"), 
+        columns=2)
     checkBoxes(optionsTab, frame="testsFrame", boxes=c("chisqTest", "chisqComponents", "expFreq", "fisherTest"), 
-               initialValues=c(dialog.values$initial.chisq, dialog.values$initial.chisqComp, 
-                               dialog.values$initial.expected, dialog.values$initial.fisher),
-               labels=gettextRcmdr(c("Chi-square test of independence", "Components of chi-square statistic",
-                                     "Print expected frequencies", "Fisher's exact test")),
-               columns=2)
+        initialValues=c(dialog.values$initial.chisq, dialog.values$initial.chisqComp, 
+            dialog.values$initial.expected, dialog.values$initial.fisher),
+        labels=gettextRcmdr(c("Chi-square test of independence", "Components of chi-square statistic",
+            "Print expected frequencies", "Fisher's exact test")),
+        columns=2)
     tkgrid(getFrame(rowBox), labelRcmdr(variablesFrame, text="    "), getFrame(columnBox), sticky="nw")
     tkgrid(variablesFrame, sticky="w")
     tkgrid(percentsFrame, sticky="nw")
@@ -120,7 +113,7 @@ twoWayTableFromCounts <- function() {
     Library("abind")
     defaults <- list(initial.row = NULL, initial.column = NULL, initial.count = NULL, initial.percents = "none", initial.chisq = 1, initial.chisqComp = 0, initial.expected = 0, initial.fisher = 0)
     dialog.values <- getDialog("twoWayTableFromCounts", defaults)
-    initializeDialog(title = gettextRcmdr("Two-Way Table from counts"), use.tabs=TRUE)
+    initializeDialog(title = gettextRcmdr("Two-way Table from counts"), use.tabs=TRUE)
     variablesFrame <- tkframe(dataTab)
     .factors <- Factors()
     .numerics <- Numeric()
@@ -144,7 +137,7 @@ twoWayTableFromCounts <- function() {
             return()
         }
         if (row == column) {
-            errorCondition(recall = twoWayTableFromCounts, message = gettextRcmdr("Row, and column must be different."))
+            errorCondition(recall = twoWayTableFromCounts, message = gettextRcmdr("Row, and column variables must be differents"))
             return()
         }
 
@@ -180,7 +173,7 @@ twoWayTableFromCounts <- function() {
             command <- paste0(command, '  cat("\\nChi-square components:\\n")\n  print(round(.Test$residuals^2, 2))\n')
         if (fisher == 1) command <- paste0(command, "  print(fisher.test(.Table))\n")
         command <- paste0(command, "})\n")
-        insertRmdSection(paste0(gettextRmdHeader("Two-Way Contingency Table from counts: ("), row, ", ", column, ") x ", count))
+        insertRmdSection(paste0(gettextRmdHeader("Two-way Table from counts"), ": (", row, ", ", column, ") x ", count))
         doItAndPrint(command)
         tkfocus(CommanderWindow())
     }
@@ -197,69 +190,69 @@ twoWayTableFromCounts <- function() {
 
 
 multiWayTable <- function (){
-    Library("abind")
-    defaults <- list (initial.row = NULL, initial.column = NULL, initial.control = NULL, 
-                      initial.percents = "none", initial.subset=gettextRcmdr("<all valid cases>"))
-    dialog.values <- getDialog ("multiWayTable", defaults)
-    initializeDialog(title = gettextRcmdr("Multi-Way Table"))
-    variablesFrame <- tkframe(top)
-    .factors <- Factors()
-    rowBox <- variableListBox(variablesFrame, .factors, title = gettextRcmdr("Row variable (pick one)"),
-                              initialSelection = varPosn (dialog.values$initial.row, "factor"))
-    columnBox <- variableListBox(variablesFrame, .factors, title = gettextRcmdr("Column variable (pick one)"),
-                                 initialSelection = varPosn (dialog.values$initial.column, "factor"))
-    controlBox <- variableListBox(variablesFrame, .factors, selectmode = "multiple", 
-                                  title = gettextRcmdr("Control variable(s) (pick one or more)"), 
-                                  initialSelection = varPosn (dialog.values$initial.control, "factor"))
-    subsetBox(subset.expression = dialog.values$initial.subset)
-    onOK <- function() {
-        row <- getSelection(rowBox)
-        column <- getSelection(columnBox)
-        controls <- getSelection(controlBox)
-        if (length(row) == 0 || length(column) == 0 || length(controls) == 
-            0) {
-            errorCondition(recall = multiWayTable, message = gettextRcmdr("You must select row, column, and control variables"))
-            return()
-        }
-        if ((row == column) || is.element(row, controls) || is.element(column, 
-                                                                       controls)) {
-            errorCondition(recall = multiWayTable, message = gettextRcmdr("Row, column, and control variables must be different."))
-            return()
-        }
-        percents <- as.character(tclvalue(percentsVariable))
-        initial.subset <- subset <- tclvalue(subsetVariable)
-        subset <- if (trim.blanks(subset) == gettextRcmdr("<all valid cases>")) 
-                      ""
-                  else paste(", subset=", subset, sep = "")
-        putDialog ("multiWayTable", list (initial.row = row, initial.column = column, initial.control = controls, initial.percents = percents, initial.subset=initial.subset))
-        closeDialog()
-        command <- paste("local({\n  .Table <- xtabs(~", row, "+", column, "+", paste(controls, 
-                                                                                      collapse = "+"), ", data=", ActiveDataSet(), subset, 
-                         ')\n  cat("\\nFrequency table:\\n")\n  print(.Table)', sep = "")
-        if (percents == "row") 
-            command <- paste(command, '\n  cat("\\nRow percentages:\\n")\n  print(rowPercents(.Table))', sep="")
-        if (percents == "column") 
-            command <- paste(command, '\n  cat("\\nColumn percentages:\\n")\n  print(colPercents(.Table))', sep="")
-        command <- paste(command, "\n})")
-        doItAndPrint(command)
-        insertRmdSection(paste0(gettextRmdHeader("Multi-Way Contingency Table: "), row, ", ", column,
-                                ", ", paste(controls, collapse=", ")))
-        tkfocus(CommanderWindow())
-    }
-    OKCancelHelp(helpSubject = "xtabs", reset = "multiWayTable", apply = "multiWayTable")
-    radioButtons(name = "percents", buttons = c("rowPercents", 
-                                                "columnPercents", "nonePercents"), values = c("row", 
-                                                                                              "column", "none"),  labels = gettextRcmdr(c("Row percentages", 
-                                                                                                                                          "Column percentages", "No percentages")), title = gettextRcmdr("Compute Percentages"),
-                 initialValue = dialog.values$initial.percents)
-    tkgrid(getFrame(rowBox), labelRcmdr(variablesFrame, text = "    "), 
-           getFrame(columnBox), labelRcmdr(variablesFrame, text = "    "), 
-           getFrame(controlBox), sticky = "nw")
-    tkgrid(variablesFrame, sticky = "w")
-    tkgrid(percentsFrame, sticky = "w")
-    tkgrid(subsetFrame, sticky = "w")
-    tkgrid(buttonsFrame, sticky = "ew")
-    dialogSuffix()
+	Library("abind")
+	defaults <- list (initial.row = NULL, initial.column = NULL, initial.control = NULL, 
+			initial.percents = "none", initial.subset=gettextRcmdr("<all valid cases>"))
+	dialog.values <- getDialog ("multiWayTable", defaults)
+	initializeDialog(title = gettextRcmdr("Multi-Way Table"))
+	variablesFrame <- tkframe(top)
+	.factors <- Factors()
+	rowBox <- variableListBox(variablesFrame, .factors, title = gettextRcmdr("Row variable (pick one)"),
+			initialSelection = varPosn (dialog.values$initial.row, "factor"))
+	columnBox <- variableListBox(variablesFrame, .factors, title = gettextRcmdr("Column variable (pick one)"),
+			initialSelection = varPosn (dialog.values$initial.column, "factor"))
+	controlBox <- variableListBox(variablesFrame, .factors, selectmode = "multiple", 
+			title = gettextRcmdr("Control variable(s) (pick one or more)"), 
+			initialSelection = varPosn (dialog.values$initial.control, "factor"))
+	subsetBox(subset.expression = dialog.values$initial.subset)
+	onOK <- function() {
+		row <- getSelection(rowBox)
+		column <- getSelection(columnBox)
+		controls <- getSelection(controlBox)
+		if (length(row) == 0 || length(column) == 0 || length(controls) == 
+				0) {
+			errorCondition(recall = multiWayTable, message = gettextRcmdr("You must select row, column, and control variables"))
+			return()
+		}
+		if ((row == column) || is.element(row, controls) || is.element(column, 
+				controls)) {
+			errorCondition(recall = multiWayTable, message = gettextRcmdr("Row, column, and control variables must be different."))
+			return()
+		}
+		percents <- as.character(tclvalue(percentsVariable))
+		initial.subset <- subset <- tclvalue(subsetVariable)
+		subset <- if (trim.blanks(subset) == gettextRcmdr("<all valid cases>")) 
+					""
+				else paste(", subset=", subset, sep = "")
+		putDialog ("multiWayTable", list (initial.row = row, initial.column = column, initial.control = controls, initial.percents = percents, initial.subset=initial.subset))
+		closeDialog()
+		command <- paste("local({\n  .Table <- xtabs(~", row, "+", column, "+", paste(controls, 
+						collapse = "+"), ", data=", ActiveDataSet(), subset, 
+				')\n  cat("\\nFrequency table:\\n")\n  print(.Table)', sep = "")
+		if (percents == "row") 
+			command <- paste(command, '\n  cat("\\nRow percentages:\\n")\n  print(rowPercents(.Table))', sep="")
+		if (percents == "column") 
+		  command <- paste(command, '\n  cat("\\nColumn percentages:\\n")\n  print(colPercents(.Table))', sep="")
+	  command <- paste(command, "\n})")
+    doItAndPrint(command)
+    insertRmdSection(paste0(gettextRmdHeader("Multi-Way Contingency Table: "), row, ", ", column,
+                            ", ", paste(controls, collapse=", ")))
+		tkfocus(CommanderWindow())
+	}
+	OKCancelHelp(helpSubject = "xtabs", reset = "multiWayTable", apply = "multiWayTable")
+	radioButtons(name = "percents", buttons = c("rowPercents", 
+					"columnPercents", "nonePercents"), values = c("row", 
+					"column", "none"),  labels = gettextRcmdr(c("Row percentages", 
+							"Column percentages", "No percentages")), title = gettextRcmdr("Compute Percentages"),
+			initialValue = dialog.values$initial.percents)
+	tkgrid(getFrame(rowBox), labelRcmdr(variablesFrame, text = "    "), 
+			getFrame(columnBox), labelRcmdr(variablesFrame, text = "    "), 
+			getFrame(controlBox), sticky = "nw")
+	tkgrid(variablesFrame, sticky = "w")
+	tkgrid(percentsFrame, sticky = "w")
+	tkgrid(subsetFrame, sticky = "w")
+	tkgrid(buttonsFrame, sticky = "ew")
+	dialogSuffix()
 }
 
 enterTable <- function(){
@@ -294,7 +287,7 @@ enterTable <- function(){
             for (j in 2:ncols){
                 varname <- paste(".tab.", i, ".", j, sep="")
                 assign(varname, if (is.null(initial.table) || i > length(rownames) || j > length(colnames)) 
-                                    tclVar("") else tclVar(initial.table[i, j]), envir=env)
+                    tclVar("") else tclVar(initial.table[i, j]), envir=env)
                 make.row <- paste(make.row, ", ", "ttkentry(.tableFrame, width='5', textvariable=",
                                   varname, ")", sep="")
             }
@@ -342,9 +335,9 @@ enterTable <- function(){
         row.names <- rep("", nrows)
         col.names <- rep("", ncols)
         for (i in 1:nrows) row.names[i] <-
-                               eval(parse(text=paste("tclvalue(", paste(".rowname.", i, sep=""),")", sep="")))
+            eval(parse(text=paste("tclvalue(", paste(".rowname.", i, sep=""),")", sep="")))
         for (j in 1:ncols) col.names[j] <-
-                               eval(parse(text=paste("tclvalue(", paste(".colname.", j, sep=""),")", sep="")))
+            eval(parse(text=paste("tclvalue(", paste(".colname.", j, sep=""),")", sep="")))
         for (i in 1:nrows){
             for (j in 1:ncols){
                 cell <- cell+1
@@ -374,12 +367,12 @@ enterTable <- function(){
         command <- paste("matrix(c(", paste(counts, collapse=","), "), ", nrows, ", ", ncols,
                          ", byrow=TRUE)", sep="")
         doItAndPrint(paste(".Table <- ", command, sep=""))
-        ## command <- paste("c(",paste(paste("'", row.names, "'", sep=""), collapse=", "), ")", sep="")
-        ## justDoIt(paste("rownames(.Table) <- ", command, sep=""))
-        ## logger(paste("rownames(.Table) <- ", command, sep=""))
-        ## command <- paste("c(",paste(paste("'", col.names, "'", sep=""), collapse=", "), ")", sep="")
-        ## justDoIt(paste("colnames(.Table) <- ", command, sep=""))
-        ## logger(paste("colnames(.Table) <- ", command, sep=""))
+        # command <- paste("c(",paste(paste("'", row.names, "'", sep=""), collapse=", "), ")", sep="")
+        # justDoIt(paste("rownames(.Table) <- ", command, sep=""))
+        # logger(paste("rownames(.Table) <- ", command, sep=""))
+        # command <- paste("c(",paste(paste("'", col.names, "'", sep=""), collapse=", "), ")", sep="")
+        # justDoIt(paste("colnames(.Table) <- ", command, sep=""))
+        # logger(paste("colnames(.Table) <- ", command, sep=""))
         command <- paste0('dimnames(.Table) <- list("', rowvar, '"=c(', paste(paste0('"', row.names, '"'), collapse=", "), 
                           '), "', colvar, '"=c(', paste(paste0('"', col.names, '"'), collapse=", "), '))')
         doItAndPrint(command)
@@ -436,9 +429,9 @@ enterTable <- function(){
     tkgrid(percentsFrame, sticky="nwe", padx = 6,  pady = 6)
     tkgrid(testsFrame, sticky="nwe", padx = 6, pady = 6)
     dialogSuffix(use.tabs=TRUE, grid.buttons=TRUE, tabs=c("tableTab", "statisticsTab"), tab.names=c("Table", "Statistics"))
-    ## if (!WindowsP()) setUpTable()
+    #if (!WindowsP()) setUpTable()
     setUpTable()
-}
+    }
 
 resetEnterTable <- function(){
     putRcmdr("savedTable", NULL)

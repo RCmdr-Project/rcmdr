@@ -5877,3 +5877,28 @@ msgstr ""
 
 msgid "Select row(s) from active data set..."
 msgstr ""
+
+# new messages for statistics table menu
+msgid "Column variable"
+msgstr ""
+
+msgid "Count variable"
+msgstr ""
+
+msgid "Row variable"
+msgstr ""
+
+msgid "Row, and column variables must be differents"
+msgstr ""
+
+msgid "Two-way Table from counts"
+msgstr ""
+
+msgid "Two-way table from counts"
+msgstr ""
+
+msgid "Two-way table from counts..."
+msgstr ""
+
+msgid "You must select row, column, and count variables"
+msgstr ""

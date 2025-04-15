@@ -1,6 +1,7 @@
 # R Commander Menu Definitions
 
 # last modified 2022-06-30 by J. Fox
+# last modified 2025-04-25 by M. Munoz-Marquez
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
