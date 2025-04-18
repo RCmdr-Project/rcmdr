@@ -150,11 +150,11 @@ twoWayTableFromCounts <- function() {
         ## Prepare internal command
         command.2 <- paste0("local({\n  .Table <- xtabs(", count, "~", row, "+", column, ", data=", ActiveDataSet(), ")\n  putRcmdr('.Test', chisq.test(.Table, correct=FALSE))\n})\n")
         if (percents == "row") 
-            command <- paste0(command, '  cat("Row percentages:\\n")\n  print(rowPercents(.Table))\n')
+            command <- paste0(command, '  cat("\\nRow percentages:\\n")\n  print(rowPercents(.Table))\n')
         else if (percents == "column") 
-            command <- paste0(command, '  cat("Column percentages:\\n")\n  print(colPercents(.Table))\n')
+            command <- paste0(command, '  cat("\\nColumn percentages:\\n")\n  print(colPercents(.Table))\n')
         else if (percents == "total")
-            command <- paste0(command, '  cat("Total percentages:\\n")\n  print(totPercents(.Table))\n')
+            command <- paste0(command, '  cat("\\nTotal percentages:\\n")\n  print(totPercents(.Table))\n')
         if (chisq == 1 || expected == 1 || chisqComp == 1) {
             justDoIt(command.2)
             command <- paste0(command, "  .Test <- chisq.test(.Table, correct=FALSE)\n")
@@ -168,7 +168,7 @@ twoWayTableFromCounts <- function() {
         if (chisq == 1)
             command <- paste0(command, "  print(.Test)\n")
         if (expected == 1)
-            command <- paste0(command, '  cat("\\nExpected counts:\\n")\n  print(.Test$expected)\n')
+            command <- paste0(command, '  cat("', ifelse(chisq == 1, '', '\\n'), 'Expected counts:\\n")\n  print(.Test$expected)\n')
         if (chisqComp == 1) 
             command <- paste0(command, '  cat("\\nChi-square components:\\n")\n  print(round(.Test$residuals^2, 2))\n')
         if (fisher == 1) command <- paste0(command, "  print(fisher.test(.Table))\n")
