@@ -1,4 +1,5 @@
 # last modified 2024-11-20 by J. Fox
+# last modified 2025-04-25 by M. Munoz-Marquez
 
 # utility functions
 
@@ -192,6 +193,20 @@ listNumeric <- function(dataSet=ActiveDataSet()) {
         variables <- listVariables(dataSet)
         variables[sapply(variables,function(.x)
             is.numeric(eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))))]
+    }
+}
+
+listNumericPositive <- function(dataSet=ActiveDataSet()) {
+    if(missing(dataSet)) {
+        NumericPositive()
+    }
+    else {
+        variables <- listVariables(dataSet)
+        variables[sapply(variables, function(.x) {
+            .x <- eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))
+            is.numeric(.x) && all(.x >= 0, na.rm = TRUE)
+           }
+        )]
     }
 }
 
@@ -654,6 +669,19 @@ checkNumeric <- function(n=1){
             Message(message=sprintf(gettextRcmdr("There fewer than %d numeric variables in the active data set."), n),
                 type="error")
         else Message(message=gettextRcmdr("There are no numeric variables in the active data set."),
+            type="error")
+        tkfocus(CommanderWindow())
+        FALSE
+    }
+    else TRUE
+}
+
+checkNumericPositive <- function(n=1){
+    if (length(NumericPositive()) < n){
+        if (n > 1)
+            Message(message=sprintf(gettextRcmdr("There fewer than %d numeric non-negative variables in the active data set."), n),
+                type="error")
+        else Message(message=gettextRcmdr("There are no numeric non-negative variables in the active data set."),
             type="error")
         tkfocus(CommanderWindow())
         FALSE
@@ -1534,6 +1562,11 @@ Numeric <- function(names){
     else putRcmdr("numeric", names)
 }
 
+NumericPositive <- function(names){
+    if (missing(names)) getRcmdr("numericPositive")
+    else putRcmdr("numericPositive", names)
+}
+
 Character <- function(names){
   if (missing(names)) getRcmdr("character")
   else putRcmdr("character", names)
@@ -1565,6 +1598,7 @@ ActiveDataSet <- function(name){
                 putRcmdr(".activeDataSet", NULL)
                 Variables(NULL)
                 Numeric(NULL)
+                NumericPositive(NULL)
                 Factors(NULL)
                 TwoLevelFactors(NULL)
                 Character(NULL)
@@ -1586,6 +1620,7 @@ ActiveDataSet <- function(name){
       if(!is.null(name)) {
         Variables(listVariables(name))
         Numeric(listNumeric(name))
+        NumericPositive(listNumericPositive(name))
         Factors(listFactors(name))
         TwoLevelFactors(listTwoLevelFactors(name))
         DiscreteNumeric(listDiscreteNumeric(name))
@@ -1612,6 +1647,7 @@ ActiveDataSet <- function(name){
         else {
             Variables(NULL)
             Numeric(NULL)
+            NumericPositive(NULL)
             Factors(NULL)
             TwoLevelFactors(NULL)
             DiscreteNumeric(NULL)
@@ -1683,6 +1719,8 @@ dataSetsP <- function(n=1){
 }
 
 numericP <- function(n=1) activeDataSetP() && length(listNumeric()) >= n
+
+numericPositiveP <- function(n=1) activeDataSetP() && length(listNumericPositive()) >= n
 
 factorsP <- function(n=1) activeDataSetP() && length(listFactors()) >= n
 
@@ -2162,13 +2200,14 @@ getDialog <- function(dialog, defaults=NULL){
 }
 
 varPosn <- function(variables,
-    type=c("all", "factor", "numeric", "nonfactor", "twoLevelFactor"), vars=NULL){
+    type=c("all", "factor", "numeric", "numericpositive", "nonfactor", "twoLevelFactor"), vars=NULL){
     if (is.null(variables)) return(NULL)
     type <- match.arg(type)
     if (is.null(vars)) vars <- switch(type,
         all = Variables(),
         factor = Factors(),
         numeric = Numeric(),
+        numericpositive = NumericPositive(),
         nonfactor = setdiff(Variables(), Factors()),
         twoLevelFactor = TwoLevelFactors()
     )

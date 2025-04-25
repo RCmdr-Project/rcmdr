@@ -1,7 +1,7 @@
 # Statistics Menu dialogs
 
 # last modified 2022-06-27 by J. Fox
-# last modified 2025-04-15 by M. Munoz-Marquez
+# last modified 2025-04-25 by M. Munoz-Marquez
 
 # Tables menu
 
@@ -116,10 +116,10 @@ twoWayTableFromCounts <- function() {
     initializeDialog(title = gettextRcmdr("Two-way Table from counts"), use.tabs=TRUE)
     variablesFrame <- tkframe(dataTab)
     .factors <- Factors()
-    .numerics <- Numeric()
+    .counts <- NumericPositive()
     rowBox <- variableListBox(variablesFrame, .factors, title = gettextRcmdr("Row variable"), initialSelection = varPosn (dialog.values$initial.row, "factor"))
     columnBox <- variableListBox(variablesFrame, .factors, title = gettextRcmdr("Column variable"), initialSelection = varPosn (dialog.values$initial.column, "factor"))
-    countBox <- variableListBox(variablesFrame, .numerics, title = gettextRcmdr("Count variable"), initialSelection = varPosn (dialog.values$initial.count, "numeric"))
+    countBox <- variableListBox(variablesFrame, .counts, title = gettextRcmdr("Count variable"), initialSelection = varPosn (dialog.values$initial.count, "numericpositive"))
     onOK <- function() {
         ## Read dialog values
         chisq <- tclvalue(chisqTestVariable)
