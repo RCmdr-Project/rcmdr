@@ -1,3 +1,7 @@
+Changes in version 2.10-0
+
+ o New menu option: Contingency table from counts.
+
 Changes in version 2.9-6
 
  o Small fix to getCases() utility, affects several dialogs.
