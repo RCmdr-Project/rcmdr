@@ -33,7 +33,7 @@ numericalSummaries <- function(){
     initializeDialog(title=gettextRcmdr("Numerical Summaries"), use.tabs=TRUE, tabs=c("dataTab", "statisticsTab"))
     xBox <- variableListBox(dataTab, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick one or more)"),
                             initialSelection=varPosn(dialog.values$initial.x, "numeric"))
-    checkBoxes(window = statisticsTab, frame="checkBoxFrame", boxes=c("mean", "sd", "se.mean", "IQR", "cv", "counts"), 
+    checkBoxes(window = statisticsTab, frame="checkBoxFrame", boxes=c("mean", "sd", "se.mean", "IQR", "CV", "counts"), 
                initialValues=c(dialog.values$initial.mean, dialog.values$initial.sd, dialog.values$initial.se.mean, 
                                dialog.values$initial.IQR, dialog.values$initial.cv, dialog.values$initial.counts), 
                labels=gettextRcmdr(c("Mean", "Standard Deviation", "Standard Error of Mean", "Interquartile Range", 
@@ -99,7 +99,7 @@ numericalSummaries <- function(){
         ds.continuous.vars <- if(is.null(continuous.vars)) NULL else paste(.activeDataSet, "[,", continuous.vars, ", drop=FALSE]", sep="")
         
         stats <- paste("c(",
-                       paste(c('"mean"', '"sd"', '"se(mean)"', '"IQR"', '"quantiles"', '"cv"', '"skewness"', '"kurtosis"')
+                       paste(c('"mean"', '"sd"', '"se(mean)"', '"IQR"', '"quantiles"', '"CV"', '"skewness"', '"kurtosis"')
                              [c(meanVar, sdVar, se.meanVar, IQRVar, quantsVar, cvVar, skewnessVar, kurtosisVar) == 1], 
                              collapse=", "), ")", sep="")
         if (stats == "c()" && countsVar != 1){
