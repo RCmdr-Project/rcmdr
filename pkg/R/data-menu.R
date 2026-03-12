@@ -90,6 +90,60 @@ selectActiveDataSet <- function(){
 
 listDataSetsInPackages <- function() doItAndPrint("data()")
 
+#' @name RecodeDialog
+#'
+#' @title Rcmdr Recode Dialog
+#'
+#' @keywords manip
+#' 
+#' @details
+#' Recode numeric variables and factors into factors.
+#' 
+#' The recode dialog is normally used to recode numeric variables and factors into factors, for example by combining values of numeric variables or levels of factors.
+#' It may also be used to produce new numeric variables.
+#' The Rcmdr recode dialog is based on the \code{\link[car:recode]{Recode}} function in the \code{car} package.
+#'
+#' The name of each new variable must be a valid R object name (consisting only of upper and lower-case letters, numerals, and periods, and not starting with a numeral).
+#'
+#' Enter recode directives in the box near the bottom of the dialog.
+#' Directives are normally entered one per line, but may also be separated by semicolons.
+#' Each directive is of the form \code{input = output} (see the examples below).
+#' If an input value satisfies more than one specification, then the first (from top to bottom, and left to right) applies.
+#' If no specification is satisfied, then the input value is carried over to the result.
+#' \code{NA} is allowed on input and output.
+#' Factor levels are enclosed in double-quotes on both input and output.
+#'
+#' Several recode specifications are supported:
+#' \describe{
+#'    \item{a single value}{For example, \code{"missing" = NA}.}
+#'    \item{several values separated by commas}{For example, \code{7,8,9 = "high"}.}
+#'    \item{a range of values indicated by a colon}{For example, \code{7:9 = "high"}.
+#'       The special values \code{lo} and \code{hi} may appear in a range.
+#'       For example, \code{lo:10=1}.
+#'       Note that these values are unquoted.}
+#'    \item{the special value \code{else}}{everything that does not fit a previous specification.
+#'       For example, \code{else=NA}.
+#'       Note that \code{else} matches \emph{all} otherwise unspecified values on input, including \code{NA}.}
+#' }
+#'
+#' If all of the output values are numeric, and the "Make new variable a factor" check box is unchecked, then a numeric result is returned.
+#'
+#' If several variables are selected for recoding, then each is recoded using the same recode directives.
+#' In this case, the name entered in the box labelled "New variable name or prefix for multiple recodes" will be prefixed to the name of each variable being recoded.
+#' Setting an empty prefix (i.e., "") will cause the recoded variables to replace the original variables.
+#'
+#' As explained, \code{=} is used to separate old from new values, and \code{:} is used to specify an interval (or range) of numeric values.
+#' It is possible to change these operators to other character strings, such as \code{->} and \code{~} (tilde).
+#' This may be necessary, for example, if a factor to be recoded has \code{=}s or \code{:}s in its level (category) names.
+#'
+#' Similarly, the dialog generates a call to the \code{\link[car]{Recode}} function in the \pkg{car} package, which by default uses \code{;} to separate recode specifications.
+#' The recode separator can also be changed, for example, to \code{/}.
+#'
+#' @author John Fox
+#'
+#' @seealso \code{\link[car]{Recode}}
+#'
+#' @export
 RecodeDialog <- function () {
   processRecode <- function(recode) {
     parts <- strsplit(recode, "=")[[1]]
@@ -223,6 +277,25 @@ RecodeDialog <- function () {
   dialogSuffix(bindReturn = FALSE)
 }
 
+#' @name Compute
+#'
+#' @title Rcmdr Compute Dialog
+#'
+#' @keywords manip
+#' 
+#' @details
+#' The compute dialog is used to compute new variables.
+#'
+#' The name of the new variable must be a valid R object name (consisting only of upper and lower-case letters, numerals, and periods, and not starting with a numeral).
+#'
+#' Enter an R expression in the box at the right.
+#' The expression is evaluated using the active data set.
+#' You can double-click in the variable-list box to enter variable names in the expression.
+#' The expression must evaluate to a valid variable, which is added to the active data set.
+#'
+#' @author John Fox
+#'
+#' @seealso \code{\link[base]{Arithmetic}}
 Compute <- function(){
     onDoubleClick <-function(){
         var <- trim.blanks(getSelection(variablesBox))
@@ -2772,6 +2845,39 @@ sortDataSet <- function(){
     dialogSuffix()
     }
 
+#' @name ReshapeDatasetDialogs
+#'
+#' @aliases ReshapeDatasetDialogs reshapeLong2Wide reshapeWide2Long
+#'
+#' @title R Commander Reshape Data Set Dialogs
+#'
+#' @keywords manip
+#' 
+#' @author John Fox
+#' 
+#' @details
+#' Reshape data sets between long and wide formats.
+#' 
+#' There are two dialogs for "reshaping" the active data set: (1) from "long" to "wide" format (using the \code{\link[RcmdrMisc]{reshapeL2W}} in the \pkg{RcmdrMisc} package); and (2) from "wide" to "long" format (using the \code{\link[RcmdrMisc]{reshapeW2L}} in the \pkg{RcmdrMisc} package).
+#'
+#' These dialogs are designed for handling regularly structured repeated-measures data, where each subject (independent unit of observation) is measured on several occasions or under several different conditions.
+#' The occasions may have either a one-dimensional structure (corresponding to the levels of one repeated-measures or within-subjects factor) or a two-dimensional structure (corresponding to two crossed repeated-measures factors).
+#'
+#' Data in "wide" format have one row for each subject, with the repeated measures in different columns (variables).
+#' Data in "long" format have several rows for each subject, with one column (variable) for the response; the levels of the repeated-measures factor (or combinations of levels for two repeated-measures factors) correspond to distinct rows.
+#' The within-subjects factor or factors appear as different columns in the long data, as do the between-subjects factors; the former vary within subjects, while the latter are invariant within subjects; and an ID variable identifies the rows of the data set belonging to each subject.
+#'
+#' Data in wide format are suitable for analysis by the R Commander repeated-measures ANOVA/ANCOVA dialogs (see \code{\link{RepeatedMeasuresDialogs}}), while data in long format are suitable for analysis by the R Commander mixed-models dialogs.
+#'
+#' The \emph{Reshape Data Set from Long to Wide Format} dialog is largely self-explanatory: The user  selects the variable that identifies subjects (i.e., the ID variable); one or two within-subjects factors; the variable or variables that vary by occasion (there is typically just one, the response variable); and any variables in the long data set that are to be excluded from the wide data set.
+#'
+#' The \emph{Reshape Data Set from Wide to Long Format} dialog is more complex.
+#' There are three tabs: A tab to specify one repeated-measures factor; a tab to specify two crossed repeated-measures factors; and an options tab.
+#' The user specifies \emph{either} one \emph{or} two repeated-measures factors, not \emph{both}.
+#' The within-subjects factor or factors are defined by using drop-down lists to select the variables that correspond to the levels of the within-subjects factor (in the case of one repeated-measures factor) or the combinations of levels of the within-subjects factors (in the case of two repeated-measures factors, organized as a two-way table).
+#' The user can also name the levels of the within-subjects factor(s) and the factor or factors themselves.
+#'
+#' @seealso \code{\link[RcmdrMisc]{reshapeL2W}}, \code{\link[RcmdrMisc]{reshapeW2L}}, \code{\link{RepeatedMeasuresDialogs}}.
 reshapeLong2Wide <- function () {
   defaults <- list(initial.id = NULL, initial.within=NULL, initial.varying=NULL, initial.ignore=NULL, initial.makeactive="1")
   dialog.values <- getDialog("reshapeLong2Wide", defaults)

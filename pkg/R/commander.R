@@ -5,7 +5,7 @@
 
 # contributions by Milan Bouchet-Valat, Richard Heiberger, Duncan Murdoch, Erich Neuwirth, Brian Ripley, Vilmantas Gegzna
 
-
+#' @export
 Commander <- function(){
 
     # set global options (to be restored on exit from Rcmdr GUI)
@@ -19,6 +19,10 @@ Commander <- function(){
     DESCRIPTION <- readLines(file.path(find.package("Rcmdr"), "DESCRIPTION")[1])
     setupRcmdrOptions(DESCRIPTION)
     
+     ## setup language
+    language.code <- getRcmdr("language.code")
+    if (!is.null(language.code) && language.code != "") Sys.setLanguage(lang = language.code)
+
     createIcons()
     
     setupFonts()
@@ -138,6 +142,7 @@ setupRcmdrOptions <- function(DESCRIPTION){
     setOption("default.contrasts", c("contr.Treatment", "contr.poly"))
     
     setOption("number.messages", TRUE)
+    setOption("language.code", "")
     setOption("log.commands", TRUE)
     setOption("use.knitr", FALSE)
     setOption("use.markdown", !getRcmdr("use.knitr"))
@@ -1269,6 +1274,7 @@ setupGUI <- function(Menus){
 
 
 # put commands in script, markdown, and knitr tabs
+#' @export
 logger <- function(command, rmd=TRUE){
     pushCommand(command)
     .log <- LogWindow()
@@ -1363,6 +1369,7 @@ logger <- function(command, rmd=TRUE){
     command
 }
 
+#' @export
 justDoIt <- function(command) {
     command <- enc2native(command)
     Message()
@@ -1387,6 +1394,7 @@ justDoIt <- function(command) {
 }
 
 # execute commands, save commands and output
+#' @export
 doItAndPrint <- function(command, log=TRUE, rmd=log) {
     command <- enc2native(command)
     Message()
@@ -1531,6 +1539,7 @@ pause <- function(seconds = 1){
     elapsed
 }
 
+#' @export
 Message <- function(message, type=c("note", "error", "warning")){
     tcl("update") 
     .message <- MessagesWindow()
@@ -1605,6 +1614,7 @@ pushOutput <- function(element) {
     putRcmdr("outputStack", stack)
 }
 
+#' @export
 popOutput <- function(keep=FALSE){
     stack <- getRcmdr("outputStack")
     lastOutput <- stack[[1]]
@@ -1618,6 +1628,7 @@ pushCommand <- function(element) {
     putRcmdr("commandStack", stack)
 }
 
+#' @export
 popCommand <- function(keep=FALSE){
     stack <- getRcmdr("commandStack")
     lastCommand <- stack[[1]]

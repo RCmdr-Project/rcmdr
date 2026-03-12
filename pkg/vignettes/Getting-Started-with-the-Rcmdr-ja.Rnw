@@ -1,0 +1,9 @@
+\documentclass{article}
+
+\usepackage{pdfpages}
+
+%\VignetteIndexEntry{R コマンダー入門}
+
+\begin{document}
+\includepdf[pages=-]{../inst/doc/Getting-Started-with-the-Rcmdr-ja.pdf}
+\end{document}

@@ -234,6 +234,7 @@ saveWorkspace <- function() {
 
 CloseCommander <- function() closeCommander(ask=getRcmdr("ask.to.exit"), ask.save=getRcmdr("ask.on.exit"))
 
+#' @export
 closeCommander <- function(ask=TRUE, ask.save=ask){
 	if (ask){
 		response <- tclvalue(RcmdrTkmessageBox(message=gettextRcmdr("Exit?"),
@@ -327,15 +328,23 @@ Options <- function(){
   }
   asLogical <- function(x) as.logical(as.numeric(x))
   initializeDialog(title=gettextRcmdr("Commander Options"))
+  
+  ## Create tabs
   notebook <- ttknotebook(top)
+  languageTab <- tkframe(top)
   closeTab <- tkframe(top)
   fontTab <- tkframe(top)
   outputTab <- tkframe(top)
   otherTab <- tkframe(top)
+
+  ## Get current values for options
   current <- getOption("Rcmdr")
   console.output <- getRcmdr("console.output")
+  ##
+  language.code <- getRcmdr("language.code")
   default.font.size <- getRcmdr("default.font.size")
   default.font.family <- getRcmdr("default.font.family")
+  language.code <- getRcmdr("language.code")
   log.commands <- getRcmdr("log.commands")
   log.font.size <- getRcmdr("log.font.size")
   log.font.family <- getRcmdr("log.font.family")
@@ -395,7 +404,16 @@ Options <- function(){
   rnw.standard <- system.file("etc", "Rcmdr-knitr-Template.Rnw", package="Rcmdr")
   use.rgl <- setOption("use.rgl", TRUE)
   model.case.deletion <- setOption("model.case.deletion", FALSE)
-  checkBoxes(closeTab, frame="closeOptionsFrame", boxes=c("askToExit", "askOnExit", "quitR"),
+
+  ## Setup internal variables
+  language.code.list <- c("id", "ca", "de", "el", "en", "es", "eu", "fr", "gl", "ko", "it", "zh_CN", "hu", "ja", "pl", "pt_BR", "ro", "ru", "sl", "zh")
+  language.name.list <- c("Bahasa Indonesia", "Catal\u00e0; Valenci\u00e0", "Deutsch", "\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Ellinik\u00e1)", "English", "Espa\u00f1ol; Castellano", "Euskara", "Fran\u00e7ais", "Galego", "\ud55c\uad6d\uc5b4 (Hangugeo)", "Italiano", "\u7b80\u4f53\u4e2d\u6587 (Ji\u0103nt\u01d0 Zh\u014dngw\u00e9n)", "Magyar", "\u65e5\u672c\u8a9e (Nihongo)", "Polski", "Portugu\u00eas do Brasil", "Rom\u00e2n\u0103", "\u0420\u0443\u0441\u0441\u043a\u0438\u0439 (Russkiy)", "Sloven\u0161\u010dina", "\u4e2d\u6587 (Zh\u014dngw\u00e9n)")
+  
+  ## Create widgets
+  languageFrame <- tkframe(languageTab)
+  radioButtons(window = languageTab, name = "language",  buttons = language.code.list, labels = language.name.list, values = language.code.list, title=gettextRcmdr("Select a language"), initialValue = language.code)
+  
+   checkBoxes(closeTab, frame="closeOptionsFrame", boxes=c("askToExit", "askOnExit", "quitR"),
              initialValues=c(ask.to.exit, ask.on.exit, quit.R.on.close),
              labels=gettextRcmdr("Ask to exit Commander", "Ask to save documents on exit", "Quit R on exit"))
   checkBoxes(outputTab, frame="outputOptionsFrame", 
@@ -553,6 +571,8 @@ Options <- function(){
   onOK <- function(){
     theme <- getSelection(themesBox)
     closeDialog(top)
+    ## Read language.code selection
+    language.code <- tclvalue(languageVariable)
     ask.to.exit <- asLogical(tclvalue(askToExitVariable))
     ask.on.exit <- asLogical(tclvalue(askOnExitVariable))
     quit.R.on.close <- asLogical(tclvalue(quitRVariable))
@@ -607,6 +627,8 @@ Options <- function(){
     options$output.height <- output.height
     options$scientific.notation <- scientific.notation
     options$console.output <- console.output
+    ## Create new option
+    options$language.code <- language.code
     options$default.contrasts <- contrasts
     options$grab.focus <- grab.focus
     options$double.click <- double.click
@@ -630,6 +652,7 @@ Options <- function(){
     Commander()
   }
   OKCancelHelp(helpSubject="Commander")
+  tkgrid(languageFrame, sticky="nw")
   tkgrid(closeOptionsFrame, sticky="nw")
   tkgrid(labelRcmdr(fontFrame, text=gettextRcmdr("Dialog text font size (points)")), defaultFontSizeSlider, sticky="sw", padx=6)
   tkgrid(labelRcmdr(fontFrame, text=gettextRcmdr("Script and output font size (points)")), logFontSizeSlider, sticky="sw", padx=6)
@@ -670,6 +693,7 @@ Options <- function(){
   tkgrid(labelRcmdr(otherTab, text=""))
   tkgrid(getFrame(themesBox), sticky="w")
   tkgrid(labelRcmdr(otherTab, text=""))
+  tkadd(notebook, languageTab, text=gettextRcmdr("Language"), padding=6)
   tkadd(notebook, closeTab, text=gettextRcmdr("Exit"), padding=6)
   tkadd(notebook, fontTab, text=gettextRcmdr("Fonts"), padding=6)
   tkadd(notebook, outputTab, text=gettextRcmdr("Output"), padding=6)
@@ -680,6 +704,37 @@ Options <- function(){
   dialogSuffix()
 }
 
+#' @name saveOptions
+#'
+#' @title Save R Commander Options in an R Profile File
+#'
+#' @keywords misc
+#' 
+#' @author John Fox
+#' 
+#' @details
+#' This dialog creates a \file{.Rprofile} file, by default in the current directory, adding to it the current R Commander options, set, e.g., in the Options dialog.
+#' If R is subsequently restarted in this directory, and the \pkg{Rcmdr} package loaded, then the current R Commander options will be applied.
+#' The current directory will typically, though not necessarily, be your home directory --- for example, for Windows users, your Documents directory.
+#'
+#' If a \file{.Rprofile} file already exists in the current directory, then the R Commander options are added to it at the end of the file, after removing R Commander options previously generated by an earlier invocation of this dialog.
+#'
+#' The contents of the \file{.Rprofile} file may be edited before you save the file.
+#' If you want to start the R Commander automatically when R starts, uncomment (remove the \code{#}s from) the four lines
+#' \preformatted{
+#' # local({
+#' #    old <- getOption('defaultPackages')
+#' #    options(defaultPackages = c(old, 'Rcmdr'))
+#' # })
+#' }
+#' 
+#' See \code{\link{Startup}} for a description of the \file{.Rprofile} file and the R startup process in general.
+#'
+#' See \code{\link{Commander}} for a description of the various R Commander options.
+#'
+#' @seealso \code{\link{Commander}}, \code{\link{Startup}}.
+#' 
+#' @export
 saveOptions <- function(){
     initializeDialog(title=gettextRcmdr("Save Commander Options"))
     onCopy <- function(){
@@ -886,8 +941,8 @@ saveOptions <- function(){
                        options,
                        ")",
                        "",
-                       "# Uncomment the following 4 lines (remove the #s)",
-                       "#  to start the R Commander automatically when R starts:",
+                       paste0("# ", gettextRcmdr("Uncomment the following 4 lines (remove the #s)")),
+                       paste0("# ", gettextRcmdr("to start the R Commander automatically when R starts:")),
                        "",
                        "# local({",
                        "#    old <- getOption('defaultPackages')",
@@ -1049,6 +1104,38 @@ appNap <- function(){
   dialogSuffix()
 }
 
+#' @name AuxiliarySoftware
+#'
+#' @title Install R Commander Auxiliary Software
+#' 
+#' @keywords misc
+#' 
+#' @details
+#'
+#' Install Pandoc and LaTeX to increase the capabilities of the R Commander.
+#'
+#' The capabilities of the R Commander can be enhanced by installing additional software.
+#' The R Commander \emph{will work} without this software but some features will not be activated.
+#' The following addiitional software can conveniently be installed via the R Commander \emph{Tools > Install auxiliary software} menu.
+#' The resulting dialog box will take you to websites where the software can be downloaded.
+#' This menu item will only be displayed if one or more of these software packages are missing.
+#'
+#' Here are the details:
+#' \itemize{
+#'    \item \emph{Pandoc}: The Pandoc documentation-conversion software is used by the R Commander to generate HTML (web), PDF, and Word files from the editable R Markdown document that is created by default during an R Commander interactive session.
+#' Pandoc is required by the \pkg{rmarkdown} package, which, along with the \pkg{knitr} package, performs these conversions.
+#' In the absence of Pandoc, R Markdown documents in the R Commander are processed by the older \pkg{markdown} package, which is capable only of producing HTML output.
+#' Pandoc is available from \url{https://pandoc.org/installing.html}.
+#'
+#' On Windows systems, Pandoc installs into a non-standard location in your user directory, typically \code{C:\\Users\\<your user id>\\AppData\\Local\\Pandoc\\}, and then places this subdirectory on your system path.
+#' You may have to reboot for the change to your path to take effect, and I have found it necessary on two Windows 10 systems to re-run the Pandoc installer, first to uninstall Pandoc, and then to re-install it before it would be work.
+#'    \item \emph{LaTeX}: The LaTeX technical-typesetting system is required by the R Commander for PDF output from R Markdown or knitr documents produced during interactive R Commander sessions.
+#' In the absence of LaTeX, direct PDF output is unavailable.
+#' Complete LaTeX systems are available for the various platforms that support R and the R Commander, including MikTeX from \url{https://miktex.org/download} for Windows systems; MacTeX from \url{https://www.tug.org/mactex/} for MacOSX; and various sources (see \url{https://www.latex-project.org/get/}) for Linux/Unix systems.
+#' }
+#'
+#' @seealso \code{\link{Commander}}
+#'
 installSoftware <- function(){
     initializeDialog(title=gettextRcmdr("Install Auxiliary Software"))
     has <- unlist(getRcmdr("capabilities"))
@@ -1108,3 +1195,25 @@ restartCommander <- function(){
   closeCommander(ask=FALSE)
   Commander()
 }
+
+#' @name ScriptEditor
+#'
+#' @title R Commander Script Editor
+#'
+#' @keywords misc
+#'
+#' @author John Fox
+#' 
+#' @details
+#' The R Commander script editor is meant to edit scripts in text widgets, such as the R Commander R Markdown and knitr document tabs.
+#'
+#' Saving the document, either via the File menu or pressing the OK button closes the editor and modifies the content of the corresponding R Markdown or knitr tab.
+#' Closing the editor without saving, by selecting Cancel from the file menu, pressing the Cancel button or destroying the window discards changes to the document.
+#' You may also save your edits to the R Markdown or knitr tab without closing the editor.
+#' Compiling the document into a report also saves the current edits.
+#'
+#' The editor is a \dQuote{non-modal} dialog, and so may remain open when you work.
+#'
+#' @seealso \href{https://rmarkdown.rstudio.com/lesson-1.html}{using R Markdown}; \href{https://yihui.org/knitr/}{using knitr}.
+#' 
+NULL

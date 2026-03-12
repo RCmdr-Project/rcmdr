@@ -7,15 +7,28 @@ An [R](https://www.r-project.org/) package that provides a platform-independent 
 
 ## Installation
 
-You can install the released version of **Rcmdr** from CRAN:
+Install the released version of **Rcmdr** from CRAN using:
 
 ``` r
 install.packages("Rcmdr")
 ```
 
-or the development version from GitHub:
+or from GitHub using:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("RCmdr-Project/rcmdr/Rcmdr-current")
+devtools::install_github("RCmdr-Project/rcmdr/pkg")
+```
 
+or the development version from GitHub using:
+
+``` r
+devtools::install_github("RCmdr-Project/rcmdr/pkg@devel")
+```
+
+Install the `devtools` package using 
+
+``` r
+install.packages("devtools")
+```
+
+if necessary, before installing from GitHub.

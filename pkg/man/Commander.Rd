@@ -452,7 +452,7 @@ Extending the R Commander by "plug in" packages.
 \emph{R News}, \bold{7(3)}: 46--52.
 }
 
-\author{John Fox \email{jfox@mcmaster.ca}}
+\author{John Fox}
 
 \seealso{\link{Plugins}, \link{Rcmdr.Utilities}, \code{\link[knitr]{knit}}, \code{\link[knitr]{knit2pdf}}}
 

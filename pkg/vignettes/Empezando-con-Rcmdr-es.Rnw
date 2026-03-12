@@ -18,7 +18,7 @@
 \setlength{\textwidth}{6.5in}
 \setlength{\textheight}{9in}
 
-%\VignetteIndexEntry{Iniciación a R Commander (es)}
+%\VignetteIndexEntry{Iniciación a R Commander}
 
 \begin{document}
 
@@ -30,7 +30,7 @@ Sweave('Rcmdr-menus-es')
 @ 
 
 \title{Iniciación a R Commander\thanks{Parte de este manual ha sido adaptado y actualizado de Fox (2005). 
-Por favor, dirija la correspondencia a \href{mailto:jfox@mcmaster.ca}{\texttt{jfox@mcmaster.ca}}}\\ (Getting Started With the R Commander)}
+Por favor, dirija la correspondencia al mantendor actual Manuel Munoz-Marquez \href{mailto:manuel.munoz@uca.es}{\texttt{manuel.munoz@uca.es}}}\\ (Getting Started With the R Commander)}
 
 \author{John Fox\\ Traductor: Manuel Munoz-Marquez\thanks{N.T.: Para la traducción al español diríjase a \href{mailto:manuel.munoz@uca.es}{\texttt{manuel.munoz@uca.es}}}}
 

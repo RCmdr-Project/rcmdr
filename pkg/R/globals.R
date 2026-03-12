@@ -1,6 +1,4 @@
-# last modified 2022-06-13 by J. Fox
-
-globalVariables(c('top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
+globalVariables(c('languageVariable', 'top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                   '.activeModel', 'varVariable', 'rhsVariable', 'varFrame', 'formulaFrame',
                   'outerOperatorsFrame', 'xBox', 'matrixVariable', 'factorCorVariable',
                   'identifyVariable', 'robustVariable', 'matrixFrame', 'factorCorFrame',

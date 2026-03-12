@@ -1,0 +1,15 @@
+#' @export
+readxl::excel_sheets
+
+export(# Confint, ,
+
+ 
+#S3method(Confint, glm)
+#S3method(Confint, default)
+#S3method(Confint, multinom)
+#S3method(Confint, polr)
+#S3method(Confint, merMod)
+
+
+
+S3method(editDataset,NULL)

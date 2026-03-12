@@ -1,0 +1,9 @@
+\documentclass{article}
+
+\usepackage{pdfpages}
+
+%\VignetteIndexEntry{R Commander GUI (графический интерфейс пользователя)}
+
+\begin{document}
+\includepdf[pages=-]{../inst/doc/Commander-ru.pdf}
+\end{document}

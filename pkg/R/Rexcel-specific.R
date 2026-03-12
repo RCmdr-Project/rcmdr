@@ -1,6 +1,7 @@
 # These functions for Excel supportwritten by Erich Neuwirth
 #  last modified: 2019-11-15 by J. Fox  (following instructions from Erich Neuwirth)
 
+#' @export
     RExcelSupported <- function(){
     	RExcelSupport <- getOption("Rcmdr")$RExcelSupport
         !is.null(RExcelSupport) && RExcelSupport && exists("RExcelEnv") &&

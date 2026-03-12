@@ -1,0 +1,9 @@
+\documentclass{article}
+
+\usepackage{pdfpages}
+
+%\VignetteIndexEntry{R Commander 사용하기}
+
+\begin{document}
+\includepdf[pages=-]{../inst/doc/Getting-Started-with-the-Rcmdr-ko.pdf}
+\end{document}

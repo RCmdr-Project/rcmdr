@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.8-1\n"
-"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2022-08-15 12:30:00\n"
+"Project-Id-Version: Rcmdr 2.11.0\n"
+"Report-Msgid-Bugs-To: manuel.munoz@uca.es\n"
+"POT-Creation-Date: 2026-03-12 00:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,6 +10,22 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+msgid "Language"
+msgstr ""
+
+msgid "Select a language"
+msgstr ""
+
+msgid "to start the R Commander automatically when R starts:"
+msgstr ""
+
+msgid "Uncomment the following 4 lines (remove the #s)"
+msgstr ""
+
+
+
+
 
 msgid "KMeans Clustering"
 msgstr ""

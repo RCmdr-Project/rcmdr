@@ -19,9 +19,8 @@
 \begin{document}
 \SweaveOpts{concordance=TRUE}
 
-\title{Getting Started With the R Commander\thanks{Parts of this manual are adapted
-and updated from Fox (2005). Please address correspondence to
-\texttt{jfox@mcmaster.ca}. }}
+\title{Getting Started With the R Commander\thanks{Parts of this manual are adapted and updated from Fox (2005).
+Please address correspondence to current mantainer Manuel Munoz-Marquez \texttt{manuel.munoz@uca.es}. }}
 \author{John Fox}
 \date{Version 2.8-0 (last modified: 2024-09-30)}
 \maketitle

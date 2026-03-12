@@ -197,13 +197,11 @@ Por ejemplo, para declaraciones de composiciones de R incluidas entre llaves \co
 \note{Bajo Windows, el paquete \code{Rcmdr} puede \enc{también}{tambien} funcionar bajo de Rgui en modo SDI (interfaz de único documento) o bajo \code{rterm.exe}; puede ser que experimente problemas ejecutando \code{Rcmdr} bajo \code{ESS} con NTEmacs o XEmacs. 
 }
 
-\author{John Fox \email{jfox@mcmaster.ca} (de la \enc{versión}{version} inglesa) 
+\author{John Fox (de la \enc{versión}{version} inglesa) 
 
-Manuel \enc{González}{Gonzalez} (traductor) \email{gonzalezperezmanuel@gmail.com}
+Manuel \enc{Muñoz}{Munoz} \enc{Márquez}{Marquez} (traductor--mantenedor) \email{manuel.munoz@uca.es}
 
-Manuel \enc{Muñoz}{Munoz} \enc{Márquez}{Marquez} (traductor--revisor) \email{manuel.munoz@uca.es}
-
-Véase \url{http://knuth.uca.es/R/doku.php?id=equipotraduccion}
+Véase \url{https://knuth.uca.es/R/doku.php?id=equipotraduccion}
 
 %% La \enc{última}{ultima} \enc{versión}{version} de este fichero la puede encontrar en \url{http://knuth.uca.es/repos/R-contribuciones}
 }

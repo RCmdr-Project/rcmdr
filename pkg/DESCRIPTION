@@ -1,10 +1,11 @@
 Package: Rcmdr
-Version: 2.10-0
-Date: 2025-04-25
+Version: 2.11.0
+Date: 2026-03-12
 Title: R Commander
-Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaster.ca"),
+Encoding: UTF-8
+Authors@R: c(person("John", "Fox", role = "aut"),
     person("Milan", "Bouchet-Valat", role = "aut"),
-    person("Manuel", "Munoz Marquez", role = "aut"),
+    person("Manuel", "Munoz-Marquez", role = c("aut", "cre"), email = "manuel.munoz@uca.es"),
     person("Liviu", "Andronic", role = "ctb"),
     person("Michael", "Ash", role = "ctb"),
     person("Theophilius", "Boye", role = "ctb"),
@@ -38,3 +39,4 @@ Description:
   A platform-independent basic-statistics GUI (graphical user interface) for R, based on the tcltk package.
 License: GPL (>= 2)
 URL: https://github.com/RCmdr-Project/rcmdr, https://www.r-project.org, https://www.john-fox.ca/RCommander/index.html
+RoxygenNote: 7.3.2
