@@ -22,7 +22,7 @@ summarizeDataSet <- function(){
 numericalSummaries <- function(){
     Library("abind")
     Library("e1071")
-    defaults <- list(initial.x=NULL, initial.mean="1", initial.sd="1", initial.se.mean="0", initial.IQR="1", initial.cv="0",
+    defaults <- list(initial.x=NULL, initial.mean="1", initial.sd="1", initial.se.mean="0", initial.var="0", initial.IQR="1", initial.cv="0",
                      initial.quantiles.variable="1", 
                      initial.quantiles="0, .25, .5, .75, 1", 
                      initial.skewness="0", initial.kurtosis="0", initial.type="2",
@@ -33,10 +33,10 @@ numericalSummaries <- function(){
     initializeDialog(title=gettextRcmdr("Numerical Summaries"), use.tabs=TRUE, tabs=c("dataTab", "statisticsTab"))
     xBox <- variableListBox(dataTab, Numeric(), selectmode="multiple", title=gettextRcmdr("Variables (pick one or more)"),
                             initialSelection=varPosn(dialog.values$initial.x, "numeric"))
-    checkBoxes(window = statisticsTab, frame="checkBoxFrame", boxes=c("mean", "sd", "se.mean", "IQR", "cv", "counts"), 
-               initialValues=c(dialog.values$initial.mean, dialog.values$initial.sd, dialog.values$initial.se.mean, 
+    checkBoxes(window = statisticsTab, frame="checkBoxFrame", boxes=c("mean", "sd", "se.mean", "var", "IQR", "cv", "counts"), 
+               initialValues=c(dialog.values$initial.mean, dialog.values$initial.sd, dialog.values$initial.se.mean, dialog.values$initial.var, 
                                dialog.values$initial.IQR, dialog.values$initial.cv, dialog.values$initial.counts), 
-               labels=gettextRcmdr(c("Mean", "Standard Deviation", "Standard Error of Mean", "Interquartile Range", 
+               labels=gettextRcmdr(c("Mean", "Standard Deviation", "Standard Error of Mean", "Variance", "Interquartile Range", 
                                      "Coefficient of Variation", "Frequency Counts")), columns=2)
     skFrame <- tkframe(statisticsTab)
     checkBoxes(window = skFrame, frame="skCheckBoxFrame", boxes=c("skewness", "kurtosis"), 
@@ -61,6 +61,7 @@ numericalSummaries <- function(){
         quants <- tclvalue(quantiles)
         meanVar <- tclvalue(meanVariable)
         sdVar <- tclvalue(sdVariable)
+        varVar <- tclvalue(varVariable)
         se.meanVar <- tclvalue(se.meanVariable)
         IQRVar <- tclvalue(IQRVariable)
         cvVar <- tclvalue(cvVariable)
@@ -70,7 +71,7 @@ numericalSummaries <- function(){
         kurtosisVar <- tclvalue(kurtosisVariable)
         typeVar <- tclvalue(typeButtonsVariable)
         putDialog("numericalSummaries", list(
-            initial.x=x, initial.mean=meanVar, initial.sd=sdVar, initial.se.mean=se.meanVar, initial.IQR=IQRVar, 
+            initial.x=x, initial.mean=meanVar, initial.sd=sdVar, initial.se.mean=se.meanVar, initial.var=varVar, initial.IQR=IQRVar, 
             initial.cv=cvVar, initial.counts=countsVar,
             initial.quantiles.variable=quantsVar, initial.quantiles=quants,
             initial.skewness=skewnessVar, initial.kurtosis=kurtosisVar, initial.type=typeVar,
@@ -99,8 +100,8 @@ numericalSummaries <- function(){
         ds.continuous.vars <- if(is.null(continuous.vars)) NULL else paste(.activeDataSet, "[,", continuous.vars, ", drop=FALSE]", sep="")
         
         stats <- paste("c(",
-                       paste(c('"mean"', '"sd"', '"se(mean)"', '"IQR"', '"quantiles"', '"cv"', '"skewness"', '"kurtosis"')
-                             [c(meanVar, sdVar, se.meanVar, IQRVar, quantsVar, cvVar, skewnessVar, kurtosisVar) == 1], 
+                       paste(c('"mean"', '"sd"', '"se(mean)"', '"var"', '"IQR"', '"quantiles"', '"cv"', '"skewness"', '"kurtosis"')
+                             [c(meanVar, sdVar, se.meanVar, varVar, IQRVar, quantsVar, cvVar, skewnessVar, kurtosisVar) == 1], 
                              collapse=", "), ")", sep="")
         if (stats == "c()" && countsVar != 1){
             errorCondition(recall=numericalSummaries, message=gettextRcmdr("No statistics selected."))
