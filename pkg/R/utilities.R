@@ -4450,16 +4450,9 @@ getUserName <- function(){
     if (name == "unknown") name <- "Your Name"
     return(name)
   } else {
-    name <- try(system("finger $(whoami)", intern=TRUE, ignore.stderr=TRUE),
-                silent=TRUE)
-    if (!inherits(name, "try-error")){
-      name <- name[grepl("^Login:", name)]
-      return(sub("^.*Name: ", "", name))
-    } else {
-      name <- Sys.info()["user"]
-      if (name == "unknown") name <- "Your Name"
-      return(name)
-    }
+        name <- Sys.info()["user"]
+        if (length(name) == 0 || is.na(name) || name == "unknown") name <- "Your Name"
+        return(name)
   }
 }
 
