@@ -32,3 +32,12 @@ install.packages("devtools")
 ```
 
 if necessary, before installing from GitHub.
+
+## Release plan
+
+The next version of R Commander will be 2.10, and its release is scheduled for approximately April 14th.
+
+This version is already available in the devel branch for testing purposes.
+
+New versions are expected to be released at least every six months. 
+A development version will be made available for testing one month prior to each official release.
