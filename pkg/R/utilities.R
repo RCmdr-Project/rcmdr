@@ -1,5 +1,4 @@
-# last modified 2024-11-20 by J. Fox
-# last modified 2025-04-25 by M. Munoz-Marquez
+# by John Fox until 2024-11-20 
 
 # utility functions
 
@@ -2141,10 +2140,20 @@ insertRows <- function(object1, object2, where=NULL, ...){
     if (!(TRUE == all.equal(colnames(object1), colnames(object2))))
         stop(gettextRcmdr("objects have different column names"))
     n <- nrow(object1)
-    if (is.null(where) || where >= n) rbind(object1, object2)
-    else if (where < 1) rbind(object2, object1)
-    else rbind(object1[1:floor(where),], object2,
-        object1[(floor(where) + 1):n,])
+    if (is.null(where) || where >= n) object <- rbind(object1, object2)
+    else if (where < 1) object <- rbind(object2, object1)
+    else object <- rbind(object1[1:floor(where),], object2, object1[(floor(where) + 1):n,])
+    
+    ## Restore original types of columns because rbind convert character columns into factor ones
+    if (isa(object, "data.frame")) {
+       types <- sapply(object1, typeof)
+       for(i in 1:ncol(object)) {
+          if (typeof(object[, i]) != types[[i]]) {
+	     object[, i] <- as(object[, i], types[[i]])
+          }
+      }
+   }
+   object
 }
 
 # functions for handling Rcmdr plug-in packages

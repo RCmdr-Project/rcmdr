@@ -1,9 +1,10 @@
 \documentclass{article}
 
+%\VignetteEncoding{UTF-8}
 \usepackage{pdfpages}
 
 %\VignetteIndexEntry{R コマンダー入門}
 
 \begin{document}
-\includepdf[pages=-]{../inst/doc/Getting-Started-with-the-Rcmdr-ja.pdf}
+\includepdf[pages=-]{Getting-Started-with-the-Rcmdr-ja.asis.pdf}
 \end{document}

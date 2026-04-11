@@ -3,7 +3,8 @@
 \usepackage{pdfpages}
 
 %\VignetteIndexEntry{R Commander GUI (графический интерфейс пользователя)}
+%\VignetteEncoding{UTF-8}
 
 \begin{document}
-\includepdf[pages=-]{../inst/doc/Commander-ru.pdf}
+\includepdf[pages=-]{Commander-ru.asis.pdf}
 \end{document}

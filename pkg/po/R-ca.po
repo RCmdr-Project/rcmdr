@@ -2,20 +2,40 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Manel Salamero <manelsalamero@gmail.com>, 2016.
+# Syntactical errors fixed by Manuel Munoz-Marquez <manuel.munoz@uca.es>, 2026
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.2-0\n"
-"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2016-08-11 18:25+0100\n"
-"PO-Revision-Date: 2016-08-11 19:38+0100\n"
-"Last-Translator: Manel Salamero <manelsalamero@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: LL\n"
+"Project-Id-Version: Rcmdr 2.12.2\n"
+"Report-Msgid-Bugs-To: manuel.munoz@uca.es\n"
+"POT-Creation-Date: 2026-04-10 00:00:00\n"
+"PO-Revision-Date: 2026-04-10 18:54+0100\n"
+"Last-Translator: Manuel Munoz-Marquez <manuel.munoz.marquez@gmail.com>\n"
+"Language-Team: \n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Eazy Po 0.9.5.3\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "Language"
+msgstr ""
+
+#, fuzzy
+#| msgid "Select package:"
+msgid "Select a language"
+msgstr "Selecciona un paquet:"
+
+msgid "to start the R Commander automatically when R starts:"
+msgstr ""
+
+msgid "Uncomment the following 4 lines (remove the #s)"
+msgstr ""
+
+#, fuzzy
+#| msgid "Variances"
+msgid "Variance"
+msgstr "Variàncies"
 
 msgid "KMeans Clustering"
 msgstr "Clusters k-mitjanes"
@@ -44,8 +64,9 @@ msgstr "Imprimeix el resum del cluster"
 msgid "Bi-plot of clusters"
 msgstr "Biplot dels clústers"
 
-#| msgid ""
-msgid "Assign clusters to\nthe data set"
+msgid ""
+"Assign clusters to\n"
+"the data set"
 msgstr ""
 "Afegeix els clústers\n"
 "a les dades"
@@ -241,9 +262,6 @@ msgstr "NOTA"
 msgid "New Data Set"
 msgstr "Nova taula de dades"
 
-msgid "Dataset"
-msgstr "taula.de.dades"
-
 msgid "You must enter the name of a data set."
 msgstr "Ha d'introduir el nom d'una taula de dades."
 
@@ -277,10 +295,6 @@ msgstr "Recodifica una variable"
 msgid "Variable to recode (pick one)"
 msgstr "Variable a recodificar (triï'n una)"
 
-#| msgid "Variable"
-msgid "variable"
-msgstr "variable"
-
 msgid "You must select a variable."
 msgstr "Cal triar una variable."
 
@@ -311,7 +325,6 @@ msgstr "Variables actuals (faci un clic doble per enviar a l'expressió)"
 msgid "No expression specified."
 msgstr "No s'ha especificat cap expressió."
 
-#| msgid "variable"
 msgid "Variable"
 msgstr "Variable"
 
@@ -327,14 +340,16 @@ msgstr "Variable(s) a esborrar (triï'n una o més)"
 msgid "You must select one or more variables."
 msgstr "Cal seleccionar una o més variables."
 
-#| msgid ""
-msgid "Delete %s?\nPlease confirm."
+msgid ""
+"Delete %s?\n"
+"Please confirm."
 msgstr ""
 "Elimina %s ?\n"
 "Confirmi-ho si us plau."
 
-#| msgid ""
-msgid "Delete %d variables?\nPlease confirm."
+msgid ""
+"Delete %d variables?\n"
+"Please confirm."
 msgstr ""
 "Elimina %d variables ?\n"
 "Confirmi-ho si us plau."
@@ -366,12 +381,12 @@ msgstr "Caràcter decimal"
 msgid "You must enter a name for the data set."
 msgstr "Ha d'entrar un nom per la taula de dades."
 
-#, fuzzy
-#| msgid ""
-msgid "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
+"{\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Fitxers de text\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV"
-"\"}} {\"Tots els fitxers\" {\"*\"}}"
+"{\"Fitxers de text\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \"."
+"CSV\"}} {\"Tots els fitxers\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "Noms de les variables en el fitxer:"
@@ -415,23 +430,24 @@ msgstr "Entri el nom d'una taula de dades:"
 msgid "Import SPSS Data Set"
 msgstr "Importa la taula de dades del SPSS"
 
-#, fuzzy
-#| msgid ""
-msgid "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
+"\".POR\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Fitxers SPSS tipus save\" {\".sav\" \".SAV\"}} {\"Fitxers SPSS portable"
-"\" {\".por\" \".POR\"}} {\"Tots els fitxers\" {\"*\"}}"
+"{\"Fitxers SPSS tipus save\" {\".sav\" \".SAV\"}} {\"Fitxers SPSS "
+"portable\" {\".por\" \".POR\"}} {\"Tots els fitxers\" {\"*\"}}"
 
-#, fuzzy
-#| msgid ""
-msgid "Convert value labels\nto factor levels"
+msgid ""
+"Convert value labels\n"
+"to factor levels"
 msgstr ""
 "Converteix les etiquetes dels valors\n"
 "a nivells de factor"
 
-#, fuzzy
-#| msgid ""
-msgid "Maximum number\nof value labels\nfor factor conversion"
+msgid ""
+"Maximum number\n"
+"of value labels\n"
+"for factor conversion"
 msgstr ""
 "Nombre màxim\n"
 "de valors d'etiquetes\n"
@@ -440,14 +456,15 @@ msgstr ""
 msgid "Import Minitab Data Set"
 msgstr "Importa la taula de dades de Minitab"
 
-msgid "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Fitxers Minitab portables\" {\".mtp\" \".MTP\"}} {\"Tots els fitxers"
-"\" {\"*\"}}"
+"{\"Fitxers Minitab portables\" {\".mtp\" \".MTP\"}} {\"Tots els "
+"fitxers\" {\"*\"}}"
 
-#, fuzzy
-#| msgid ""
-msgid "Minitab data set contains elements of unequal length.\nData set cannot be converted."
+msgid ""
+"Minitab data set contains elements of unequal length.\n"
+"Data set cannot be converted."
 msgstr ""
 "La taula de dades de Minitab conté elements de longitud desigual.\n"
 "Impossible de convertir."
@@ -531,9 +548,9 @@ msgstr "Segments equidistants"
 msgid "Equal-count bins"
 msgstr "Segments amb igual nombre"
 
-#, fuzzy
-#| msgid ""
-msgid "Natural breaks\n(from K-means clustering)"
+msgid ""
+"Natural breaks\n"
+"(from K-means clustering)"
 msgstr ""
 "Segments naturals\n"
 "(determinació de clústers per k mitjanes)"
@@ -694,9 +711,9 @@ msgstr "Entrar els coeficients del contrast"
 msgid "Contrast Name:"
 msgstr "Nom del contrast:"
 
-#, fuzzy
-#| msgid ""
-msgid "Number of valid entries in contrast matrix(%d)\nnot equal to number of levels (%d) * number of contrasts (%d)."
+msgid ""
+"Number of valid entries in contrast matrix(%d)\n"
+"not equal to number of levels (%d) * number of contrasts (%d)."
 msgstr ""
 "El nombre d'entrades vàlides a la matriu de contrasts (%d)\n"
 "no és igual al nombre de nivells (%d) * nombre de contrasts (%d)."
@@ -794,7 +811,9 @@ msgstr "Probabilitat del succés"
 msgid "Cumulative Binomial Probabilities"
 msgstr "Probabilitats binomials acumulades"
 
-msgid "Number of trials, %d, is large.\nCreate long output?"
+msgid ""
+"Number of trials, %d, is large.\n"
+"Create long output?"
 msgstr ""
 "El nombre d-assaigs, %d, és gran.\n"
 "Crear una sortida gran?"
@@ -802,7 +821,9 @@ msgstr ""
 msgid "Binomial Probabilities"
 msgstr "Probabilitats binomials"
 
-msgid "Range of values over which to plot, %d, is large.\nCreate long output?"
+msgid ""
+"Range of values over which to plot, %d, is large.\n"
+"Create long output?"
 msgstr ""
 "El rang de valors sobre els quals graficar, %d, és gran.\n"
 "Crear una sortida gran?"
@@ -924,7 +945,9 @@ msgstr "Ordena les variables alfabèticament"
 msgid "Show edit button"
 msgstr "Mostra el botó d'edició'"
 
-msgid "Exit and Restart\nR Commander"
+msgid ""
+"Exit and Restart\n"
+"R Commander"
 msgstr ""
 "Surt i reinicialitza\n"
 "R Commander"
@@ -956,7 +979,9 @@ msgstr "Gràfic segons índex"
 msgid "You must select a variable"
 msgstr "Cal triar una variable"
 
-msgid "Identify observations\nwith mouse"
+msgid ""
+"Identify observations\n"
+"with mouse"
 msgstr ""
 "Identifica observacions\n"
 "amb el ratolí"
@@ -1036,8 +1061,6 @@ msgstr "variable x (triï'n una) "
 msgid "y-variable (pick one)"
 msgstr "variable y (triï'n una)"
 
-#, fuzzy
-#| msgid "Identify Points"
 msgid "Identify points"
 msgstr "Identifica punts"
 
@@ -1125,11 +1148,12 @@ msgstr "No s'ha seleccionat la variable y."
 msgid "x and y variables must be different."
 msgstr "Les variables x i y han de ser diferents."
 
-#| msgid ""
-msgid "x-values are not in order.\nContinue?"
+msgid ""
+"x-values are not in order.\n"
+"Continue?"
 msgstr ""
 "Els valors x no estan ordenats.\n"
-" Continuar?"
+"Continuar?"
 
 msgid "Label for y-axis"
 msgstr "Etiqueta de l'eix y"
@@ -1146,8 +1170,9 @@ msgstr "Els gl han de ser un número positiu."
 msgid "df for chi-square must be a positive number."
 msgstr "els gl pel Khi-quadrat han de ser un número positiu."
 
-#| msgid ""
-msgid "numerator and denominator \ndf for F must be positive numbers."
+msgid ""
+"numerator and denominator \n"
+"df for F must be positive numbers."
 msgstr ""
 "els gl del numerador i del denominador de F\n"
 "han de ser números positius."
@@ -1203,8 +1228,6 @@ msgstr "Errors estàndard"
 msgid "Standard deviations"
 msgstr "Desviacions estàndard"
 
-#, fuzzy
-#| msgid "Confidence Intervals"
 msgid "Confidence intervals"
 msgstr "Intervals de confiança"
 
@@ -1277,9 +1300,9 @@ msgstr "Tipus de fitxer gràfic"
 msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Fitxers PNG\" {\".png\" \".PNG\"}} {\"Tots els fitxers\" {\"*\"}}"
 
-#, fuzzy
-#| msgid ""
-msgid "{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All "
+"Files\" {\"*\"}}"
 msgstr ""
 "{\"Fitxers JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Tots els "
 "fitxers\" {\"*\"}}"
@@ -1312,12 +1335,12 @@ msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
 "{\"Fitxers Postscript\" {\".ps\" \".PS\"}} {\"Tots els fitxers\" {\"*\"}}"
 
-#, fuzzy
-#| msgid ""
-msgid "{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All "
+"Files\" {\"*\"}}"
 msgstr ""
-"{\"Fitxers Postscript encapsulats\" {\".eps\" \".EPS\"}} {\"Tots els fitxers"
-"\" {\"*\"}}"
+"{\"Fitxers Postscript encapsulats\" {\".eps\" \".EPS\"}} {\"Tots els "
+"fitxers\" {\"*\"}}"
 
 msgid "Width (inches)"
 msgstr "Amplada (polsades)"
@@ -1361,9 +1384,9 @@ msgstr "Vol identificar punts amb el ratolí?"
 msgid "There is no appropriate Anova method for a model of this class."
 msgstr "No hi ha cap mètode ANOVA apropiat per aquest tipus de model."
 
-#, fuzzy
-#| msgid ""
-msgid "Observation statistics not available\nfor a model fit to a subset of the data."
+msgid ""
+"Observation statistics not available\n"
+"for a model fit to a subset of the data."
 msgstr ""
 "No estan disponibles estadístics de les observacions\n"
 "per un model ajustat a un subconjunt de les dades."
@@ -1401,8 +1424,9 @@ msgstr "Identifica els punts amb el ratolí"
 msgid "Test Linear Hypothesis"
 msgstr "Contrasta hipòtesis lineals"
 
-#| msgid ""
-msgid "Number of valid entries in hypothesis matrix(%d)\nnot equal to number of rows (%d) * number of columns (%d)."
+msgid ""
+"Number of valid entries in hypothesis matrix(%d)\n"
+"not equal to number of rows (%d) * number of columns (%d)."
 msgstr ""
 "El nombre d'entrades vàlides en la matriu d'hipòtesis (%d)\n"
 "no és igual al nombre de fileres (%d) * nombre de columnes (%d)."
@@ -1410,8 +1434,9 @@ msgstr ""
 msgid "Hypothesis matrix is not of full row rank."
 msgstr "La matriu d'hipòtesis no és de rang complert."
 
-#| msgid ""
-msgid "Number of valid entries in rhs vector (%d)\nis not equal to number of rows (%d)."
+msgid ""
+"Number of valid entries in rhs vector (%d)\n"
+"is not equal to number of rows (%d)."
 msgstr ""
 "El nombre d'entrades correctes en el vector rhs (%d)\n"
 "no és igual al nombre de files (%d)."
@@ -1492,8 +1517,6 @@ msgid "There is no appropriate outlier.test method for a model of this class."
 msgstr ""
 "No hi ha cap mètode per comprovar obs. atípiques per aquest tipus de model."
 
-#, fuzzy
-#| msgid "Confidence intervals"
 msgid "Confidence Intervals"
 msgstr "Intervals de confiança"
 
@@ -1542,16 +1565,16 @@ msgstr "Navega..."
 msgid "Install Packages From:"
 msgstr "Instal·la els paquets des de:"
 
-#, fuzzy
-#| msgid ""
-msgid "Specify package  \ndirectory:"
+msgid ""
+"Specify package  \n"
+"directory:"
 msgstr ""
 "Cal espeficicar el directori\n"
 "on són els paquets:"
 
-#, fuzzy
-#| msgid ""
-msgid "Local package directory\n(must include PACKAGES index file)"
+msgid ""
+"Local package directory\n"
+"(must include PACKAGES index file)"
 msgstr ""
 "Directori local de paquets\n"
 "(ha d'incloure el fitxer índex PACKAGES)"
@@ -1767,7 +1790,9 @@ msgstr "Exacte"
 msgid "Normal approximation"
 msgstr "Aproximació normal"
 
-msgid "Normal approximation with\ncontinuity correction"
+msgid ""
+"Normal approximation with\n"
+"continuity correction"
 msgstr ""
 "Aproximació normal amb\n"
 "correcció per continuïtat"
@@ -1805,9 +1830,9 @@ msgstr "Test de proporcions per dues mostres"
 msgid "Groups and response variables must be different."
 msgstr "Les variables de grup i de resposta han de ser diferents."
 
-#, fuzzy
-#| msgid ""
-msgid "There are %d variables in the data set %s.\nDo you want to proceed?"
+msgid ""
+"There are %d variables in the data set %s.\n"
+"Do you want to proceed?"
 msgstr ""
 "Hi ha %d variables a la taula de dades %s.\n"
 "Voleu continuar?"
@@ -1827,8 +1852,6 @@ msgstr "Resums per grups"
 msgid "Quantiles"
 msgstr "Quantils"
 
-#, fuzzy
-#| msgid "Quantiles:"
 msgid "quantiles:"
 msgstr "Quantils:"
 
@@ -1844,7 +1867,9 @@ msgstr "Entrada incorrecta."
 msgid "Missing entry."
 msgstr "Falta entrar valor."
 
-msgid "Number of valid entries (%d)\nnot equal to number levels (%d)."
+msgid ""
+"Number of valid entries (%d)\n"
+"not equal to number levels (%d)."
 msgstr ""
 "El nombre d'entrades vàlides (%d)\n"
 "no es igual al nombre de nivells (%d)."
@@ -1885,9 +1910,9 @@ msgstr "parcials"
 msgid "Type of Correlations"
 msgstr "Tipus de correlacions"
 
-#, fuzzy
-#| msgid ""
-msgid "Fewer than 3 variables selected\nfor partial correlations."
+msgid ""
+"Fewer than 3 variables selected\n"
+"for partial correlations."
 msgstr ""
 "Hi ha menys de 3 variables seleccionades\n"
 "per fer correlacions parcials."
@@ -1949,9 +1974,9 @@ msgstr "Les variables de filera, columna i control han de ser diferents."
 msgid "Enter Two-Way Table"
 msgstr "Introduïu una taula de doble entrada"
 
-#, fuzzy
-#| msgid ""
-msgid "Number of valid entries (%d)\nnot equal to number of rows (%d) * number of columns (%d)."
+msgid ""
+"Number of valid entries (%d)\n"
+"not equal to number of rows (%d) * number of columns (%d)."
 msgstr ""
 "El nombre d'entrades vàlides (%d)\n"
 "no és igual al nombre de fileres (%d) * nombre de columnes (%d)."
@@ -2005,7 +2030,8 @@ msgstr "L'argument del 'factor1' ha de ser un factor."
 msgid "Arguments factor1 and factor2 must be factors."
 msgstr "Els arguments dels 'factor1' i 'factor2' han de ser del tipus factor."
 
-msgid "Number of groups for factor2, %d, exceeds number of distinct colours, %d."
+msgid ""
+"Number of groups for factor2, %d, exceeds number of distinct colours, %d."
 msgstr ""
 "El nombre de grups del 'factor2', %d, és superior al nombre de colors "
 "diferents, %d."
@@ -2052,9 +2078,9 @@ msgstr "Hi ha menys de %d variables a la taula de dades activa."
 msgid "There are no variables in the active data set."
 msgstr "No hi ha variables a la taula de dades activa."
 
-#, fuzzy
-#| msgid ""
-msgid "%s %s already exists.\nOverwrite %s?"
+msgid ""
+"%s %s already exists.\n"
+"Overwrite %s?"
 msgstr ""
 "%s %s ja existeix.\n"
 "Reemplaçar %s ?"
@@ -2092,9 +2118,9 @@ msgstr "Variables (fer un doble clic per enviar a la fórmula)"
 msgid "Model Formula:"
 msgstr "Fórmula del model:"
 
-#, fuzzy
-#| msgid ""
-msgid "No appropriate %s method exists\nfor a model of this class."
+msgid ""
+"No appropriate %s method exists\n"
+"for a model of this class."
 msgstr ""
 "No existeix un mètode %s apropiat\n"
 "per un model d'aquest tipus."
@@ -2448,21 +2474,23 @@ msgid "Residual quantile-comparison plot..."
 msgstr "Gràfic quantil-quantil dels residus..."
 
 #, fuzzy
-#| msgid "Component+Residual Plots"
-msgid "Component+residual plots"
+#| msgid "Component+residual plots"
+msgid "Component+residual plots..."
 msgstr "Gràfics components+residus"
 
 #, fuzzy
-#| msgid "Added-Variable Plots"
-msgid "Added-variable plots"
+#| msgid "Added-variable plots"
+msgid "Added-variable plots..."
 msgstr "Gràfics variables-afegides"
 
 #, fuzzy
-#| msgid "Influence Plot"
-msgid "Influence plot"
+#| msgid "Influence plot"
+msgid "Influence plot..."
 msgstr "Gràfics d'influència"
 
-msgid "Effect plots"
+#, fuzzy
+#| msgid "Effect plots"
+msgid "Effect plots..."
 msgstr "Gràfic dels efectes"
 
 msgid "Models"
@@ -2564,36 +2592,36 @@ msgstr "Quant a l'Rcmdr"
 msgid "df ="
 msgstr "gl ="
 
-## messages added to Rcmdr version 1.1-1
+# # messages added to Rcmdr version 1.1-1
 msgid "There is no current RGL graphics device."
 msgstr "Actualment no hi ha cap dispositiu gràfic RGL."
 
 msgid "3D graph"
 msgstr "Gràfic 3D"
 
-## messages added to Rcmdr version 1.1-6
+# # messages added to Rcmdr version 1.1-6
 msgid " contains non-standard variable names:\n"
 msgstr "conté noms de variables no estàndards:\n"
 
-msgid "\nThese have been changed to:\n"
+msgid ""
+"\n"
+"These have been changed to:\n"
 msgstr ""
 "\n"
 "Han estat canviats a:\n"
 
-# importRODBCtable dialog
-## messages added to Rcmdr version 1.2-0
 msgid "This function requires the RODBC package.\n"
 msgstr "Aquesta funció necessita el paquet RODBC.\n"
 
 msgid "Import from Excel, Access or dBase data set"
 msgstr "Importa des d'un fitxer Excell, Access o dBase"
 
-#, fuzzy
-#| msgid ""
-msgid "{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \"."
+"MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Fitxers MS Excel\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
-"\"}} {\"fitxers tipus dBase\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"Fitxers MS Excel\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \"."
+"MDB\"}} {\"fitxers tipus dBase\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 
 msgid "Select one table"
 msgstr "Seleccioneu una taula"
@@ -2821,9 +2849,6 @@ msgstr "Distribució binomial negativa"
 msgid "Sample from Normal Distribution"
 msgstr "Mostra d'una distribució normal"
 
-msgid "NormalSamples"
-msgstr "Mostres normals"
-
 msgid "Sample means"
 msgstr "Mitjanes mostral"
 
@@ -2851,80 +2876,41 @@ msgstr "Afegeix a la taula de dades:"
 msgid "Sample from t Distribution"
 msgstr "Mostra d'una distribució t"
 
-msgid "tSamples"
-msgstr "Mostres t"
-
 msgid "Sample from Chi-squared Distribution"
 msgstr "Mostra d'una distribució Khi-quadrat"
-
-msgid "ChisquareSamples"
-msgstr "Mostres khi quadrat"
 
 msgid "Sample from F Distribution"
 msgstr "Mostra d'una distribució F"
 
-msgid "FSamples"
-msgstr "Mostres F"
-
 msgid "Sample from Exponential Distribution"
 msgstr "Mostra d'una distribució binomial"
-
-msgid "ExponentialSamples"
-msgstr "Mostres exponencials"
 
 msgid "Sample from Uniform Distribution"
 msgstr "Mostra d'una distribució uniforme"
 
-msgid "UniformSamples"
-msgstr "Mostres uniformes"
-
 msgid "Sample from Beta Distribution"
 msgstr "Mostra d'una distribució beta"
-
-msgid "BetaSamples"
-msgstr "Mostres beta"
 
 msgid "Sample from Cauchy Distribution"
 msgstr "Mostra d'una distribució de Cauchys"
 
-msgid "CauchySamples"
-msgstr "Mostres de Cauchy"
-
 msgid "Sample from Logistic Distribution"
 msgstr "Mostra d'una distribució logística"
-
-msgid "LogisticSamples"
-msgstr "Mostres logístiques"
 
 msgid "Sample from Log-Normal Distribution"
 msgstr "Mostra d'una distribució lognormal"
 
-msgid "LogNormalSamples"
-msgstr "Mostres lognormal"
-
 msgid "Sample from Gamma Distribution"
 msgstr "Mostra d'una distribució gamma"
-
-msgid "GammaSamples"
-msgstr "Mostres Gamma"
 
 msgid "Sample from Weibull Distribution"
 msgstr "Mostra d'una distribució de Weibull"
 
-msgid "WeibullSamples"
-msgstr "Mostres Weibull"
-
 msgid "Sample from Gumbel Distribution"
 msgstr "Mostra d'una distribució de Gumbel"
 
-msgid "GumbelSamples"
-msgstr "Mostres Gumbel"
-
 msgid "Sample from Binomial Distribution"
 msgstr "Mostra d'una distribució binomial"
-
-msgid "BinomialSamples"
-msgstr "Mostres binomials"
 
 msgid "Poisson mean cannot be negative."
 msgstr "La mitjana de Poisson no pot ser negativa."
@@ -2932,26 +2918,14 @@ msgstr "La mitjana de Poisson no pot ser negativa."
 msgid "Sample from Poisson Distribution"
 msgstr "Mostra d'una distribució de Poisson"
 
-msgid "PoissonSamples"
-msgstr "Mostres de Poisson"
-
 msgid "Sample from Geometric Distribution"
 msgstr "Mostra d'una distribució geomètrica"
-
-msgid "GeometricSamples"
-msgstr "Mostres geomètriques"
 
 msgid "Sample from Hypergeometric Distribution"
 msgstr "Mostra d'una distribució hipergeomètrica"
 
-msgid "HypergeometricSamples"
-msgstr "Mostres hipergeomètriques"
-
 msgid "Sample from Negative Binomial Distribution"
 msgstr "Mostra d'una distribució binomial negativa"
-
-msgid "NegativeBinomialSamples"
-msgstr "Mostres binomials negatives"
 
 msgid "Sample from normal distribution..."
 msgstr "Mostra d'una distribució normal..."
@@ -3285,7 +3259,8 @@ msgstr "Distribucions de freqüències"
 msgid "Chi-square goodness-of-fit test (for one variable only)"
 msgstr "Test Khi-quadrat de bondat d'ajustament (només per una variable)"
 
-msgid "Goodness-of-fit test not available when more than one variable is selected."
+msgid ""
+"Goodness-of-fit test not available when more than one variable is selected."
 msgstr ""
 "El test de bondad de l'ajustament no està disponible quan es selecciona més "
 "d'una variable."
@@ -3319,9 +3294,6 @@ msgstr "Apila variables"
 msgid "factor"
 msgstr "factor"
 
-msgid "StackedData"
-msgstr "StackedData"
-
 msgid "You must select at least two variables."
 msgstr "Cal triar com a mínim dues variables."
 
@@ -3337,18 +3309,19 @@ msgstr "Nom pel factor:"
 msgid "Stack variables in active data set..."
 msgstr "Apila variables en la taula de dades activa..."
 
-# miscelaneous
-#, fuzzy
-#| msgid "Identify points"
 msgid "Identify Points"
 msgstr "Identifica els punts"
 
-msgid "Use left mouse button to identify points,\nright button to exit."
+msgid ""
+"Use left mouse button to identify points,\n"
+"right button to exit."
 msgstr ""
 "Empri el botó esquerra del ratolí per identificar punts,\n"
 "el dret per sortir."
 
-msgid "Drag right mouse button to identify points,\nclick right button to exit."
+msgid ""
+"Drag right mouse button to identify points,\n"
+"click right button to exit."
 msgstr ""
 "Arrossegui amb el botó dret del ratolí per\n"
 "identificar punts, premi el buto dret per sortir"
@@ -3375,7 +3348,7 @@ msgid "Right-hand side"
 msgstr "Terme de la dreta"
 
 # handling plug-ins
-## messages added to Rcmdr version 1.3-0
+# # messages added to Rcmdr version 1.3-0
 msgid "Load Plugins"
 msgstr "Carrega plugins"
 
@@ -3388,8 +3361,9 @@ msgstr "Cal triar com a mínim un plugin."
 msgid "Plug-ins loaded:"
 msgstr "Plugins carregats:"
 
-#| msgid ""
-msgid "The plug-in(s) will not be available until the Commander is restarted.\nRestart now?"
+msgid ""
+"The plug-in(s) will not be available until the Commander is restarted.\n"
+"Restart now?"
 msgstr ""
 "El(s) plugin(s) no estaran disponibles fins reiniciar el Commander.\n"
 "Reiniciar ara?"
@@ -3433,8 +3407,8 @@ msgstr "Carrega taula de dades..."
 
 msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Fitxers de dades R\" {\".rda\" \".Rda\" \".RDA\"}} {\"Tots els fitxers"
-"\" {\"*\"}}"
+"{\"Fitxers de dades R\" {\".rda\" \".Rda\" \".RDA\"}} {\"Tots els "
+"fitxers\" {\"*\"}}"
 
 msgid "Shapiro-Wilk test of normality..."
 msgstr "Test de normalitat de Shapiro-Wilk..."
@@ -3680,9 +3654,9 @@ msgstr "R quadrat ajustat."
 msgid "R-squared"
 msgstr "R quadrat"
 
-#, fuzzy
-#| msgid ""
-msgid "Number of best models\nof each size:"
+msgid ""
+"Number of best models\n"
+"of each size:"
 msgstr ""
 "Nombre de millors models\n"
 "de cada grandària:"
@@ -3718,8 +3692,9 @@ msgstr "No pot fusionar una taula de dades amb si mateixa."
 msgid "Name for merged data set:"
 msgstr "Nom per la taula de dades fusionada:"
 
-#| msgid ""
-msgid "Merge only common\nrows or columns"
+msgid ""
+"Merge only common\n"
+"rows or columns"
 msgstr ""
 "Fusiona només fileres\n"
 "o columnes comunes"
@@ -3731,16 +3706,16 @@ msgstr "Agrega variables a la taula de dades activa..."
 msgid "Aggregate Observations"
 msgstr "Agrega observacions"
 
-#, fuzzy
-#| msgid ""
-msgid "Variables to aggregate\n(pick one or more)"
+msgid ""
+"Variables to aggregate\n"
+"(pick one or more)"
 msgstr ""
 "Variables a agregar\n"
 "(triïn una o més)"
 
-#, fuzzy
-#| msgid ""
-msgid "Aggregate by\n(pick one or more)"
+msgid ""
+"Aggregate by\n"
+"(pick one or more)"
 msgstr ""
 "Agregar segons\n"
 "(triïn una o més)"
@@ -3760,10 +3735,9 @@ msgstr "Las variables a agregar i les que les reben han de ser diferents."
 msgid "Name for aggregated data set:"
 msgstr "Nom per la taula de dades agregada:"
 
-# miscellaneous
-#, fuzzy
-#| msgid ""
-msgid "{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" {\"*\"}}"
+msgid ""
+"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All "
+"Files\" {\"*\"}}"
 msgstr ""
 "{\"Fitxers R Data\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Tots els "
 "fitxers\" {\"*\"}}"
@@ -3783,22 +3757,20 @@ msgstr "Proporció poblacional != p0"
 msgid "Models do not have the same family."
 msgstr "Els models no comparteixen la mateixa família."
 
-#, fuzzy
-#| msgid ""
-msgid "Pairwise p-values\nfor Pearson or Spearman correlations"
+msgid ""
+"Pairwise p-values\n"
+"for Pearson or Spearman correlations"
 msgstr ""
 "Valors p aparellats\n"
-" per les correlacions de Pearson o Spearman"
+"per les correlacions de Pearson o Spearman"
 
-#, fuzzy
-#| msgid ""
-msgid "The Windows version of the R Commander works best under RGui\nwith the single-document interface (SDI); see ?Commander."
+msgid ""
+"The Windows version of the R Commander works best under RGui\n"
+"with the single-document interface (SDI); see ?Commander."
 msgstr ""
 "La versió de Windows de l'R Commander funciona millor sota l'RGui\n"
 "amb la interfície de document únic (SDI); vegeiu ?Commander."
 
-# messages added to version 1.6-0
-# for Levene test
 msgid "median"
 msgstr "mediana"
 
@@ -3812,10 +3784,9 @@ msgstr "Línia suavitzada"
 msgid "Show spread"
 msgstr "Mostra la dispersió"
 
-# for AV plots
-#, fuzzy
-#| msgid ""
-msgid "Identify points with mouse?\nRight-click to exit."
+msgid ""
+"Identify points with mouse?\n"
+"Right-click to exit."
 msgstr ""
 "Voleu identificar punts amb el ratolí?\n"
 "Fes clic al botó dret per sortir."
@@ -3842,40 +3813,44 @@ msgstr "{\"tots els fitxers\" {\"*\"}} {\"Fitxers d'instruccions\" {\".R\"}}"
 msgid "{\"All Files\" {\"*\"}} {\"Output Files\" {\".txt\"}}"
 msgstr "{\"Tots els fitxers\" {\"*\"}} {\"Fitxers de resultats\" {\".txt\"}}"
 
-#, fuzzy
-#| msgid ""
-msgid "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
+"\".csv\" \".CSV\"}}"
 msgstr ""
 "{\"Tots els fitxers\" {\"*\"}} {\"Fitxers de text\" {\".txt\" \".TXT\" \"."
 "dat\" \".DAT\" \".csv\" \".CSV\"}}"
 
-#, fuzzy
-#| msgid ""
-msgid "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} {\"SPSS save files\" {\".sav\" \".SAV\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
+"{\"SPSS save files\" {\".sav\" \".SAV\"}}"
 msgstr ""
-"{\"Tots els fitxers\" {\"*\"}} {\"Fitxers SPSS portable\" {\".por\" \".POR\"}"
-"} {\"Fitxers SPSS save\" {\".sav\" \".SAV\"}}"
+"{\"Tots els fitxers\" {\"*\"}} {\"Fitxers SPSS portable\" {\".por\" \"."
+"POR\"}} {\"Fitxers SPSS save\" {\".sav\" \".SAV\"}}"
 
-msgid "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
 msgstr ""
 "{\"Tots els fitxers\" {\"*\"}} {\"Fitxers Minitab portable\" {\".mtp\" \"."
 "MTP\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
-msgstr "{\"Tots els fitxers\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
-
-#, fuzzy
-#| msgid ""
-msgid "{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"Tots els fitxers\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {"
-"\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"Fitxers tipus dBase\""
-" {\".dbf\" \".DBF\"}} {\"Fitxers MS Excel 2007\" {\".xlsx\" \".XLSX\"}} {\""
-"Fitxers MS Excel\" {\".xls\" \".XLS\"}}"
+"{\"Tots els fitxers\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 
-#, fuzzy
-#| msgid ""
-msgid "{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \".RDA\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
+"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\"."
+"dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel "
+"file\" {\".xls\" \".XLS\"}}"
+msgstr ""
+"{\"Tots els fitxers\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} "
+"{\"MS Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"Fitxers tipus "
+"dBase\" {\".dbf\" \".DBF\"}} {\"Fitxers MS Excel 2007\" {\".xlsx\" \"."
+"XLSX\"}} {\"Fitxers MS Excel\" {\".xls\" \".XLS\"}}"
+
+msgid ""
+"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
+"RDA\"}}"
 msgstr ""
 "{\"Tots els fitxers\" {\"*\"}} {\"Fitxers R Data\" {\".RData\" \".rda\" \"."
 "Rda\" \".RDA\"}}"
@@ -3883,27 +3858,27 @@ msgstr ""
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"Tots els fitxers\" {\"*\"}} {\"Fitxers PNG\" {\".png\" \".PNG\"}}"
 
-#, fuzzy
-#| msgid ""
-msgid "{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \"."
+"JPEG\"}}"
 msgstr ""
-"{\"Tots els fitxers\" {\"*\"}} {\"Fitxers JPEG\" {\".jpg\" \".JPG\" \".jpeg\""
-" \".JPEG\"}}"
+"{\"Tots els fitxers\" {\"*\"}} {\"Fitxers JPEG\" {\".jpg\" \".JPG\" \"."
+"jpeg\" \".JPEG\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PDF Files\" {\".pdf\" \".PDF\"}}"
 msgstr "{\"Tots els fitxers\" {\"*\"}} {\"Fitxers PDF\" {\".pdf\" \".PDF\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
-msgstr "{\"Tots els fitxers\" {\"*\"}} {\"Fitxers Postscript\" {\".ps\" \".PS\"}}"
+msgstr ""
+"{\"Tots els fitxers\" {\"*\"}} {\"Fitxers Postscript\" {\".ps\" \".PS\"}}"
 
-#, fuzzy
-#| msgid ""
-msgid "{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \"."
+"EPS\"}}"
 msgstr ""
 "{\"Tots els fitxers\" {\"*\"}} {\"Fitxers Postscript encapsulats\" {\".eps\" "
 "\".EPS\"}}"
 
-# messages added to version 1.7-0
 msgid "Reset"
 msgstr "Inicialitza"
 
@@ -3944,7 +3919,6 @@ msgid "Factor scores are not available when subset is specified."
 msgstr ""
 "Els valors dels factors no estan disponibles quan s'especifica un subconjunt."
 
-# messages added to version 1.8-0
 msgid "Confirmatory Factor Analysis"
 msgstr "Anàlisi factorial confirmatòria"
 
@@ -3954,9 +3928,9 @@ msgstr "s'han triat menys de 2 variable per carregar en el factor."
 msgid "Define factor"
 msgstr "Defineixi el factor"
 
-#, fuzzy
-#| msgid ""
-msgid "Select variables\nloading on factor"
+msgid ""
+"Select variables\n"
+"loading on factor"
 msgstr ""
 "Seleccioni les variables\n"
 "que carregin en el factor"
@@ -3994,8 +3968,6 @@ msgstr "La primera càrrega de cada factor establerta a 1"
 msgid "Confirmatory factor analysis..."
 msgstr "Anàlisi fctorial confirmatòria..."
 
-# messages added to version 1.8-1
-# the following messages were omitted from version 1.8-0
 msgid "Robust standard errors"
 msgstr "Errors estàndards robusts"
 
@@ -4062,15 +4034,16 @@ msgstr "Selecciona la taula de dades"
 msgid "Datasets in file (pick one)"
 msgstr "Taules de dades del fitxer (triïn una)"
 
-#, fuzzy
-#| msgid ""
-msgid "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" \".XPORT\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
+"\".XPORT\"}}"
 msgstr ""
 "{\"Tots els fitxers\" {\"*\"}} {\"Fitxers SAS xport\" {\".xpt\" \".XPT\" \"."
 "xport\" \".XPORT\"}}"
 
-#| msgid ""
-msgid "Convert variable names\nto lower case"
+msgid ""
+"Convert variable names\n"
+"to lower case"
 msgstr ""
 "converteix el nom de la variables\n"
 "a minúscules"
@@ -4081,9 +4054,9 @@ msgstr "d'un fitxer Excel..."
 msgid "Import Excel Data Set"
 msgstr "Importa una taula de dades Excel"
 
-#, fuzzy
-#| msgid ""
-msgid "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
 "{\"Tots els fitxers\" {\"*\"}} {\"Fitxers MS Excel 2007\" {\".xlsx\" \"."
 "XLSX\"}} {\"MS Excel file\" {\".xls\" \".XLS\"}}"
@@ -4185,35 +4158,15 @@ msgstr "el nombre de punts a identificar ha de ser un sencer"
 msgid "Number of points to identify"
 msgstr "Nombre de punts a identificar"
 
-# corrected messages in version 2.2-1
-# The following messages had trailing blanks. These messages were deleted from
-# their previous locations in this .pot file and transferred here in corrected form,
-# with the trailing blanks removed.
-# I suggest that you likewise delete the earlier versions of these messages from
-# your .po file and provide corrected translations here, without trailing blanks.
-#, fuzzy
-#| msgid ""
-msgid "Number of points to identify  \nin each panel and group "
-msgstr ""
-"Nombre de punts a identificar\n"
-"a cada panell i grup"
-
-#, fuzzy
-#| msgid "Added-variable plots"
 msgid "Added-Variable Plots"
 msgstr "Gràfic d'additivitat de les variables"
 
-#, fuzzy
-#| msgid "Component+residual plots"
 msgid "Component+Residual Plots"
 msgstr "Gràfic components+residus"
 
-#, fuzzy
-#| msgid "Influence plot"
 msgid "Influence Plot"
 msgstr "Gràfic d'influència"
 
-# support for R Markdown and knitr
 msgid "Generate HTML report"
 msgstr "Genera un report HTML"
 
@@ -4260,23 +4213,23 @@ msgid "knitr file saved to"
 msgstr "Fitxer knitr salvat a"
 
 msgid "{\"All Files\" {\"*\"}} {\"R Markdown Files\" {\".Rmd\" \".rmd\"}}"
-msgstr "{\"tots els fitxers\" {\"*\"}} {\"Fitxers R Markdown\" {\".Rmd\" \".rmd\"}}"
-
-#, fuzzy
-#| msgid ""
-msgid "{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw\"}}"
 msgstr ""
-"{\"tots els fitxers\" {\"*\"}} {\"Fitxers knitr\" {\".Rmd\" \".rmd\" \".Snw\""
-" \".snw\"}}"
+"{\"tots els fitxers\" {\"*\"}} {\"Fitxers R Markdown\" {\".Rmd\" \".rmd\"}}"
 
-#, fuzzy
-#| msgid ""
-msgid "Delete previously created knitr\ngraphics files (recommended)?"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \"."
+"snw\"}}"
+msgstr ""
+"{\"tots els fitxers\" {\"*\"}} {\"Fitxers knitr\" {\".Rmd\" \".rmd\" \"."
+"Snw\" \".snw\"}}"
+
+msgid ""
+"Delete previously created knitr\n"
+"graphics files (recommended)?"
 msgstr ""
 "Elimina les fitxers gràfics\n"
 "knitr creats prèviament(recomanat)?"
 
-# setting and saving options
 msgid "Ask to exit Commander"
 msgstr "Pregunta al sortir del Commander"
 
@@ -4422,7 +4375,6 @@ msgid "Quotes around character values"
 msgstr "Pose cometes al voltant dels valors no numèrics"
 
 # numerical summaries dialog
-#| msgid "quantiles:"
 msgid "Quantiles:"
 msgstr "Quantils:"
 
@@ -4439,23 +4391,23 @@ msgstr "polinomial requereix una variable numèrica"
 msgid "B-spline\n"
 msgstr "B-spline\n"
 
-#, fuzzy
-#| msgid ""
-msgid "natural\nspline"
+msgid ""
+"natural\n"
+"spline"
 msgstr ""
 "natural\n"
 "spline"
 
-#, fuzzy
-#| msgid ""
-msgid "orthogonal\npolynomial"
+msgid ""
+"orthogonal\n"
+"polynomial"
 msgstr ""
 "ortogonal\n"
 "polinomial"
 
-#, fuzzy
-#| msgid ""
-msgid "raw\npolynomial"
+msgid ""
+"raw\n"
+"polynomial"
 msgstr ""
 "directe\n"
 "polinomial"
@@ -4466,9 +4418,9 @@ msgstr "fòrmula del model"
 msgid "Operators (click to formula):"
 msgstr "Operadors (faci clic per passar-lo a la fòrmula):"
 
-#, fuzzy
-#| msgid ""
-msgid "Splines/Polynomials:\n(select variable and click)"
+msgid ""
+"Splines/Polynomials:\n"
+"(select variable and click)"
 msgstr ""
 "Splines/Polinomials:\n"
 "(seleccioni la variable i faci clic)"
@@ -4479,8 +4431,6 @@ msgstr "gl per splines:"
 msgid "deg. for polynomials:"
 msgstr "grau per polinomials:"
 
-# messages added to version 2.0-1
-# messages related to editing/processing R Markdown and knitr documents
 msgid "R Commander Editor"
 msgstr "Editor de l'R Commander"
 
@@ -4505,9 +4455,9 @@ msgstr "Surt de l'editor"
 msgid "Editor help"
 msgstr "Ajuda de l'editor"
 
-#, fuzzy
-#| msgid ""
-msgid "Delete previously created R Markdown\ngraphics files (recommended)?"
+msgid ""
+"Delete previously created R Markdown\n"
+"graphics files (recommended)?"
 msgstr ""
 "Eliminar els fitxers gràfics creats\n"
 "prèviament per R Markdown (recomanat)?"
@@ -4522,13 +4472,6 @@ msgstr "Disposar els gràfics un al costat d'altre segons:"
 msgid "Plot back-to-back by"
 msgstr "Disposar els gràfics un al costat d'altre segons"
 
-# messages added for version 2.1-0
-# the next two messages no longer needed and can be disregarded if not already translated
-# for numerical summaries dialog
-#m sgid  "the RcmdrMisc package is missing and should be installed\n  many features will not work"
-#m sgstr ""
-#m sgid "the car package is missing and should be installed\n  many features will not work"
-#m sgstr ""
 msgid "Standard Error of Mean"
 msgstr "Error estàandard de la mitjana"
 
@@ -4560,16 +4503,16 @@ msgstr "Fer gràfic de tots els efectes d'ordre superior?"
 msgid "Predictors (pick one or more)"
 msgstr "Predictors (triïn un o més)"
 
-#, fuzzy
-#| msgid ""
-msgid "You must select one or more predictors\n or plot all high-order effects."
+msgid ""
+"You must select one or more predictors\n"
+" or plot all high-order effects."
 msgstr ""
 "Ha de triar un o més predictors\n"
 "o graficar tots els efectes d'ordre superior."
 
-#, fuzzy
-#| msgid ""
-msgid "To plot partial residuals,\n there must be a least one numeric predictor."
+msgid ""
+"To plot partial residuals,\n"
+" there must be a least one numeric predictor."
 msgstr ""
 "Per representar els residus parcials,\n"
 "hi ha d'haver com a mínim un predictor."
@@ -4600,9 +4543,9 @@ msgstr "Elimina els nivells no emprats de factors"
 msgid "Factors(s) to drop levels (pick one or more)"
 msgstr "Factor(s) per elinar nivells (triïn un o més)"
 
-#, fuzzy
-#| msgid ""
-msgid "Drop unused factor levels\nPlease confirm."
+msgid ""
+"Drop unused factor levels\n"
+"Please confirm."
 msgstr ""
 "Eliminar nivells del factor\n"
 "Si us plau confirmeu-ho."
@@ -4620,17 +4563,12 @@ msgstr "Resum del model lineal"
 msgid "Sandwich estimator"
 msgstr "Estimador de sandvitx"
 
-#, fuzzy
-#| msgid ""
-msgid "Use sandwich estimator of    \ncoefficient standard errors"
+msgid ""
+"Use sandwich estimator of    \n"
+"coefficient standard errors"
 msgstr ""
 "Empra un estimador de sandvitx dels\n"
 "errors estàndard dels coeficients"
-
-#, fuzzy
-#| msgid ""
-msgid "Use sandwich estimator of\ncoefficient covariance matrix   "
-msgstr "Empra estimador de sandvitx de\nla matriu de coeficients de varincia"
 
 msgid "sandwich covariance matrix unavailable with type I tests"
 msgstr "la matriu sandvitx de covariància no està disponible pel test tipus I"
@@ -4647,15 +4585,13 @@ msgid "Restart R Commander"
 msgstr "Reinicia R Commander"
 
 # formula-help button
-#, fuzzy
-#| msgid ""
-msgid "Model formula\nhelp"
+msgid ""
+"Model formula\n"
+"help"
 msgstr ""
 "Formula del model\n"
 "ajuda"
 
-# messages added for version 2.1-1
-# messages for the new dataset editor
 msgid "Data Editor"
 msgstr "Editor de dades"
 
@@ -4730,7 +4666,9 @@ msgid "ANOVA Table"
 msgstr "Taula ANOVA"
 
 msgid "There is no appropriate outlierTest method for a model of this class."
-msgstr "No existeix un mètode apropiat per comprovar valors atípics per un model d'aquesta classe."
+msgstr ""
+"No existeix un mètode apropiat per comprovar valors atípics per un model "
+"d'aquesta classe."
 
 msgid "Shapiro-Wilk Test for Normality"
 msgstr "Test de normalitat de Shapiro-Wilks"
@@ -4764,7 +4702,9 @@ msgstr "Pandoc"
 msgid "Software to Install"
 msgstr "Programari a instal·lar"
 
-msgid "Please read the help for this dialog\nbefore installing auxiliary software."
+msgid ""
+"Please read the help for this dialog\n"
+"before installing auxiliary software."
 msgstr ""
 "Si us plau, llegiu l'ajuda per aquest diàleg\n"
 "abans d'instal·lar programari auxiliar."
@@ -4792,16 +4732,15 @@ msgstr "Fitfer Word escrit a:"
 
 # additions to scatterplot and scatterplot-matrix dialogs
 # additions to scatterplot and scatterplot-matrix dialogs
-msgid "Levels for ellipses must be numeric values\n  separated by spaces or commas."
+msgid ""
+"Levels for ellipses must be numeric values\n"
+"  separated by spaces or commas."
 msgstr ""
 "Els nivells de les el·lipses han de ser valors\n"
 "numèrics separats per espais o comes."
 
 msgid "Plot concentration ellipse(s)"
 msgstr "Gràfic el·lipse(s) concentració"
-
-msgid "Concentration levels:"
-msgstr "Nivells de concentració:"
 
 msgid "Legend Position"
 msgstr "Posició de la llegenda"
@@ -4844,8 +4783,6 @@ msgstr "Dreta"
 msgid "plotting and grouping variables must be different"
 msgstr "les variables a graficar i a agrupar han de ser diferents"
 
-# dot plot dialog
-# dot plot dialog
 msgid "Dot Plot"
 msgstr "Gràfic de punts"
 
@@ -4855,224 +4792,1719 @@ msgstr "Empaqueta variables"
 msgid "Dot plot..."
 msgstr "Gràfic de punts..."
 
-# for reading Excel files (new dialog)
-# for reading Excel files (new dialog)
 msgid "Convert character data to factors"
 msgstr "Converteix caràcters a factors"
 
 msgid "<empty cell>"
 msgstr "<cel·la buida>"
 
-msgid "{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
-msgstr "{\"Tots els fitxers\" {\"*\"}} {\"Fitxer MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \".XLS\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
+"XLS\"}}"
+msgstr ""
+"{\"Tots els fitxers\" {\"*\"}} {\"Fitxer MS Excel\" {\".xlsx\" \".XLSX\" \"."
+"xls\" \".XLS\"}}"
 
-# additional messages in version 2.3-0
-# .rtf output from RMarkdown reports
-#~ msgid ".rtf (rich text file)"
-#~ msgstr ""
+#, fuzzy
+#| msgid ""
+#| "Number of points to identify  \n"
+#| "in each panel and group "
+msgid ""
+"Number of points to identify  \n"
+"in each panel and group"
+msgstr ""
+"Nombre de punts a identificar\n"
+"a cada panell i grup"
 
-#~ msgid "Rich text file written to:"
-#~ msgstr ""
+#, fuzzy
+#| msgid ""
+#| "Use sandwich estimator of\n"
+#| "coefficient covariance matrix   "
+msgid ""
+"Use sandwich estimator of\n"
+"coefficient covariance matrix"
+msgstr ""
+"Empra estimador de sandvitx de\n"
+"la matriu de coeficients de varincia"
 
-# bootstrapping dialog
-#~ msgid "Bootstrap confidence intervals..."
-#~ msgstr ""
+msgid "Concentration levels:"
+msgstr "Nivells de concentració:"
 
-#~ msgid "Bootstrap"
-#~ msgstr ""
+#, fuzzy
+#| msgid "from text file..."
+msgid ".rtf (rich text file)"
+msgstr "des d'un fitxer de text..."
 
-#~ msgid "Bootstrap Confidence Intervals for Coefficients"
-#~ msgstr ""
+#, fuzzy
+#| msgid "PDF file written to:"
+msgid "Rich text file written to:"
+msgstr "Fitxer PDF escrit a:"
 
-#~ msgid "Number of bootstrap samples:"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Confidence intervals..."
+msgid "Bootstrap confidence intervals..."
+msgstr "Intervals de confiança..."
 
-#~ msgid "Number of samples must be a positive integer."
-#~ msgstr ""
+msgid "Bootstrap"
+msgstr ""
 
-#~ msgid "Type of Confidence Intervals"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Confidence Intervals for Individual Coefficients"
+msgid "Bootstrap Confidence Intervals for Coefficients"
+msgstr "Intervals de confiança per cada coeficient"
 
-#~ msgid "BCa (adjusted percentile)"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Number of starting seeds:"
+msgid "Number of bootstrap samples:"
+msgstr "Nombre d'inici de l'al·leatorització:"
 
-#~ msgid "Normal theory"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Number of samples must be positive."
+msgid "Number of samples must be a positive integer."
+msgstr "El nombre de mostres ha de ser positiu."
 
-#~ msgid "Basic bootstrap"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Confidence Intervals"
+msgid "Type of Confidence Intervals"
+msgstr "Intervals de confiança"
 
-#~ msgid "Percentile"
-#~ msgstr ""
+msgid "BCa (adjusted percentile)"
+msgstr ""
 
-#~ msgid "Resampling Method"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Normal"
+msgid "Normal theory"
+msgstr "Normal"
 
-#~ msgid "Case resampling"
-#~ msgstr ""
+msgid "Basic bootstrap"
+msgstr ""
 
-#~ msgid "Residual resampling"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Percentages"
+msgid "Percentile"
+msgstr "Percentatges"
 
-# delta method dialog
-#~ msgid "Delta method confidence interval..."
-#~ msgstr ""
+#, fuzzy
+#| msgid "Clustering Method"
+msgid "Resampling Method"
+msgstr "Mètode de classificació"
 
-#~ msgid "Delta Method"
-#~ msgstr ""
+msgid "Case resampling"
+msgstr ""
 
-#~ msgid "Confidence Interval by the Delta Method"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Residuals"
+msgid "Residual resampling"
+msgstr "Residus"
 
-#~ msgid "Expression to evaluate; use parameter names:"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Confidence intervals..."
+msgid "Delta method confidence interval..."
+msgstr "Intervals de confiança..."
 
-# view data dialog
-#~ msgid "View data..."
-#~ msgstr ""
+#, fuzzy
+#| msgid "Ward's Method"
+msgid "Delta Method"
+msgstr "Mètode de Ward"
 
-#~ msgid "View Data"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Confidence Intervals"
+msgid "Confidence Interval by the Delta Method"
+msgstr "Intervals de confiança"
 
-#~ msgid "Bad subset expression."
-#~ msgstr ""
+msgid "Expression to evaluate; use parameter names:"
+msgstr ""
 
-#~ msgid "No data to show."
-#~ msgstr ""
+#, fuzzy
+#| msgid "New data set..."
+msgid "View data..."
+msgstr "Nova taula de dades..."
 
-#~ msgid "View data error."
-#~ msgstr ""
+#, fuzzy
+#| msgid "View data set"
+msgid "View Data"
+msgstr "Visualitza la taula de dades"
 
-# sort active data set dialog
-#~ msgid "Sort active data set..."
-#~ msgstr ""
+#, fuzzy
+#| msgid "Subset expression"
+msgid "Bad subset expression."
+msgstr "Expressió de selecció"
 
-#~ msgid "Sort Active Data Set"
-#~ msgstr ""
+#, fuzzy
+#| msgid "No data set selected."
+msgid "No data to show."
+msgstr "No hi ha cap taula de dades seleccionada."
 
-#~ msgid "Sort Keys (select one or more)"
-#~ msgstr ""
+#, fuzzy
+#| msgid "View data set"
+msgid "View data error."
+msgstr "Visualitza la taula de dades"
 
-#~ msgid "Sort Direction"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Export active data set..."
+msgid "Sort active data set..."
+msgstr "Exporta la taula de dades activa..."
 
-#~ msgid "Increasing"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Export Active Data Set"
+msgid "Sort Active Data Set"
+msgstr "Exporta la taula de dades activa"
 
-#~ msgid "Decreasing"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Variables (select one or more)"
+msgid "Sort Keys (select one or more)"
+msgstr "Variables (triï'n una o més)"
 
-#~ msgid "Reorder Sort Keys"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Search Direction"
+msgid "Sort Direction"
+msgstr "Direcció de la cerca"
 
-#~ msgid "Order of keys must include all integers from 1 to"
-#~ msgstr ""
+msgid "Increasing"
+msgstr ""
 
-#~ msgid "Sort Keys"
-#~ msgstr ""
+msgid "Decreasing"
+msgstr ""
 
-#~ msgid "Order"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Reorder Factor Levels"
+msgid "Reorder Sort Keys"
+msgstr "Reordena els nivells del factor"
+
+#, fuzzy
+#| msgid "Order of levels must include all integers from 1 to"
+msgid "Order of keys must include all integers from 1 to"
+msgstr "L'ordre dels nivells ha d'incloure tots els sencers des de 1 fins a"
+
+msgid "Sort Keys"
+msgstr ""
+
+msgid "Order"
+msgstr ""
 
 # added to plot means dialog
-#~ msgid "Connect profiles of means"
-#~ msgstr ""
+msgid "Connect profiles of means"
+msgstr ""
 
-# adding to one-way ANOVA dialog
-#~ msgid "Welch F-test not assuming equal variances"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Assume equal variances?"
+msgid "Welch F-test not assuming equal variances"
+msgstr "Assumir variàncies iguals?"
 
-# the new normality-tests dialog, which replaces the Shapiro-Wilk normality-test dialog
-#~ msgid "Test of normality..."
-#~ msgstr ""
+#, fuzzy
+#| msgid "Shapiro-Wilk test of normality..."
+msgid "Test of normality..."
+msgstr "Test de normalitat de Shapiro-Wilk..."
 
-#~ msgid "Test of Normality"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Shapiro-Wilk Test of Normality"
+msgid "Test of Normality"
+msgstr "Test de normalitat de Shapiro-Wilk"
 
-#~ msgid "Shapiro-Wilk"
-#~ msgstr ""
+msgid "Shapiro-Wilk"
+msgstr ""
 
-#~ msgid "Anderson-Darling"
-#~ msgstr ""
+msgid "Anderson-Darling"
+msgstr ""
 
-#~ msgid "Cramer-von Mises"
-#~ msgstr ""
+msgid "Cramer-von Mises"
+msgstr ""
 
-#~ msgid "Lilliefors (Kolmogorov-Smirnov)"
-#~ msgstr ""
+msgid "Lilliefors (Kolmogorov-Smirnov)"
+msgstr ""
 
-#~ msgid "Shapiro-Francia"
-#~ msgstr ""
+msgid "Shapiro-Francia"
+msgstr ""
 
-#~ msgid "Pearson chi-square"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Chi-square"
+msgid "Pearson chi-square"
+msgstr "Khi-quadrat"
 
-#~ msgid "Normality Test"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Normal Quantiles"
+msgid "Normality Test"
+msgstr "Quantils normals"
 
-#~ msgid "Number of bins must be a number >= 4"
-#~ msgstr ""
+#, fuzzy
+#| msgid "number of points to identify must be an integer"
+msgid "Number of bins must be a number >= 4"
+msgstr "el nombre de punts a identificar ha de ser un sencer"
 
-#~ msgid "Number of bins\nfor Pearson chi-square"
-#~ msgstr ""
+msgid ""
+"Number of bins\n"
+"for Pearson chi-square"
+msgstr ""
 
-# small changes to the read text data dialog
-#~ msgid "Commas [,]"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Plot by groups"
+msgid "Test by groups"
+msgstr "Gràfic segons grups"
 
-#~ msgid "Semicolons [;]"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Plot by:"
+msgid "Test by:"
+msgstr "Gràfic segons:"
+
+#, fuzzy
+#| msgid "Comma [,]"
+msgid "Commas [,]"
+msgstr "Coma [,]"
+
+msgid "Semicolons [;]"
+msgstr ""
 
 # additional error check in load data set dialog
-#~ msgid "There is more than one object in the file, with the following names:\n"
-#~ msgstr ""
+msgid "There is more than one object in the file, with the following names:\n"
+msgstr ""
 
 # new messages for distribution plot dialogs produced by distributionPlot()
-#~ msgid "Optionally specify regions under the density function by"
-#~ msgstr ""
+msgid "Optionally specify regions under the density function by"
+msgstr ""
 
-#~ msgid "x-values"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Hat-values"
+msgid "x-values"
+msgstr "Valors estimats"
 
-#~ msgid "quantiles"
-#~ msgstr ""
+#, fuzzy
+#| msgid "quantiles:"
+msgid "quantiles"
+msgstr "Quantils:"
 
-#~ msgid "is not a valid number."
-#~ msgstr ""
+#, fuzzy
+#| msgid "is not a valid name."
+msgid "is not a valid number."
+msgstr "no és un nom vàlid."
 
-#~ msgid "You must specify 'from' and 'to' for at least one range."
-#~ msgstr ""
+#, fuzzy
+#| msgid "You must select at least one package."
+msgid "You must specify 'from' and 'to' for at least one range."
+msgstr "Cal triar com a mínim un paquet."
 
-#~ msgid "In specifying a range, 'to' must be greater than 'from'."
-#~ msgstr ""
+msgid "In specifying a range, 'to' must be greater than 'from'."
+msgstr ""
 
-#~ msgid "Quantiles must be between 0 and 1."
-#~ msgstr ""
+#, fuzzy
+#| msgid "Probability of success must be between 0 and 1."
+msgid "Quantiles must be between 0 and 1."
+msgstr "La probabilitat del succés ha d'estar entre 0 i 1."
 
-#~ msgid "Regions to Fill (specify one or two, or leave blank)"
-#~ msgstr ""
+msgid "Regions to Fill (specify one or two, or leave blank)"
+msgstr ""
 
-#~ msgid "Region 1: from"
-#~ msgstr ""
+msgid "Region 1: from"
+msgstr ""
 
-#~ msgid "Region 2: from"
-#~ msgstr ""
+msgid "Region 2: from"
+msgstr ""
 
-#~ msgid "to"
-#~ msgstr ""
+msgid "to"
+msgstr ""
 
-#~ msgid "color"
-#~ msgstr ""
+msgid "color"
+msgstr ""
 
-#~ msgid "Top center"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Top left"
+msgid "Top center"
+msgstr "Amunt i esquerra"
 
-# new compare model coefficients dialog
-#~ msgid "Compare model coefficients..."
-#~ msgstr ""
+#, fuzzy
+#| msgid "Compare two models..."
+msgid "Compare model coefficients..."
+msgstr "Compara dos models..."
 
-#~ msgid "Compare Model Coefficients"
-#~ msgstr ""
+#, fuzzy
+#| msgid "Compare Models"
+msgid "Compare Model Coefficients"
+msgstr "Compara models"
 
-#~ msgid "You must select at least two models."
-#~ msgstr ""
+#, fuzzy
+#| msgid "Variables (pick two or more)"
+msgid "Select models (pick two or more)"
+msgstr "Variables (triï'n dues o més)"
+
+#, fuzzy
+#| msgid "You must select two models."
+msgid "You must select at least two models."
+msgstr "Cal seleccionar dos models."
+
+# additional messages in version 2.4-0
+# enhancements to the Rcmdr script editor
+msgid ""
+"Only one instance of the R Commander script editor may be open at a time."
+msgstr ""
+
+#, fuzzy
+#| msgid "Save current Rmd file?"
+msgid "Save current edits"
+msgstr "Desa el fitxer Rmd actual?"
+
+msgid "Save edits"
+msgstr ""
+
+#, fuzzy
+#| msgid "Exit editor"
+msgid "Exit editor saving edits"
+msgstr "Surt de l'editor"
+
+#, fuzzy
+#| msgid "Discard edits?"
+msgid "Cancel discarding edits"
+msgstr "Descartar el que s-ha editat?"
+
+# contingency tables dialog
+#, fuzzy
+#| msgid "Percentages of total"
+msgid "Percentages for Group Bars"
+msgstr "Percentatges del total"
+
+# Xyplot dialog
+#, fuzzy
+#| msgid "XY Conditioning Plot"
+msgid "Conditional"
+msgstr "Gràfic de relació XY"
+
+msgid "Total"
+msgstr ""
+
+#, fuzzy
+#| msgid "Correlation"
+msgid "Color Selection"
+msgstr "Correlació"
+
+# miscelaneous additions
+#, fuzzy
+#| msgid "Color palette..."
+msgid "From color palette"
+msgstr "Paleta de colors..."
+
+#, fuzzy
+#| msgid "Data set %s does not exit"
+msgid "Data set %s does not exist"
+msgstr "La taula de dades %s no existeix"
+
+#, fuzzy
+#| msgid "Top right"
+msgid "To right of graph"
+msgstr "Amunt i dreta"
+
+# For two-variances F-test dialog
+msgid "Ratio:"
+msgstr ""
+
+msgid "Ratio < 1"
+msgstr ""
+
+msgid "Ratio > 1"
+msgstr ""
+
+#, fuzzy
+#| msgid "Name for variable:"
+msgid "Name for Row Variable (optional):"
+msgstr "Nom per la variable:"
+
+#, fuzzy
+#| msgid "Column variable (pick one)"
+msgid "Name for Column Variable (optional):"
+msgstr "Variable de columna (triï'n una)"
+
+#, fuzzy
+#| msgid "Convert character data to factors"
+msgid "Convert character variables to factors"
+msgstr "Converteix caràcters a factors"
+
+#, fuzzy
+#| msgid "Select variable containing row names"
+msgid "First column contains row names"
+msgstr "Selecciona la variable amb el noms de les files"
+
+#, fuzzy
+#| msgid "Import SPSS Data Set"
+msgid "Import SAS b7dat Data Set"
+msgstr "Importa la taula de dades del SPSS"
+
+#, fuzzy
+#| msgid "from SAS xport file..."
+msgid "from SAS b7dat file..."
+msgstr "d'un fitxer SAS xport..."
+
+#, fuzzy
+#| msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+msgid ""
+"{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
+msgstr ""
+"{\"Tots els fitxers\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
+
+# addition to the Commander Options dialog
+msgid ""
+"Suppress scientific notation\n"
+"(higher = more suppression)"
+msgstr ""
+
+#, fuzzy
+#| msgid "Bin numeric variable..."
+msgid "Plot discrete numeric variable..."
+msgstr "Segmenta una variable numèrica..."
+
+#, fuzzy
+#| msgid "Bin a Numeric Variable"
+msgid "Plot Discrete Numeric Variable"
+msgstr "Segmenta una variable numèrica"
+
+#, fuzzy
+#| msgid ""
+#| "There are %d variables in the data set %s.\n"
+#| "Do you want to proceed?"
+msgid ""
+"%s has %d unique values\n"
+"Do you want to proceed?"
+msgstr ""
+"Hi ha %d variables a la taula de dades %s.\n"
+"Voleu continuar?"
+
+# for boostrapping dialog
+msgid "Plot bootstrap samples"
+msgstr ""
+
+#, fuzzy
+#| msgid "Frequency counts"
+msgid "Binned Frequency Counts"
+msgstr "Comptatge de freqüències"
+
+#, fuzzy
+#| msgid "Sample from Chi-squared Distribution"
+msgid "Sample from ChiSquared Distribution"
+msgstr "Mostra d'una distribució Khi-quadrat"
+
+#, fuzzy
+#| msgid "Sample from Log-Normal Distribution"
+msgid "Sample from Lognormal Distribution"
+msgstr "Mostra d'una distribució lognormal"
+
+#, fuzzy
+#| msgid "Sample from Negative Binomial Distribution"
+msgid "Sample from NegativeBinomial Distribution"
+msgstr "Mostra d'una distribució binomial negativa"
+
+# new effect-plots dialog
+#, fuzzy
+#| msgid "Model Effect Plots"
+msgid "Predictor Effect Plots"
+msgstr "Gràfic dels efectes del model"
+
+msgid "Predictor effect plots..."
+msgstr ""
+
+#, fuzzy
+#| msgid "Plot All High-Order Effects?"
+msgid "Plot all predictor effects?"
+msgstr "Fer gràfic de tots els efectes d'ordre superior?"
+
+#, fuzzy
+#| msgid "Summarize by groups"
+msgid "Mark by groups"
+msgstr "Resums per grups"
+
+msgid "Mark by:"
+msgstr ""
+
+#, fuzzy
+#| msgid "No Transformation"
+msgid "Response Transformation"
+msgstr "Sense transformació"
+
+#, fuzzy
+#| msgid "No Transformation"
+msgid "Response transformation..."
+msgstr "Sense transformació"
+
+msgid "Box-Cox"
+msgstr ""
+
+msgid "Box-Cox with negatives"
+msgstr ""
+
+msgid "Yeo-Johnson"
+msgstr ""
+
+# new transform toward normality dialog
+msgid "Transform toward normality..."
+msgstr ""
+
+msgid "Transform Variables Toward Normality"
+msgstr ""
+
+#, fuzzy
+#| msgid "Select variables (three or more)"
+msgid "Select variables to transform (one or more)"
+msgstr "Seleccioni variables (tres o més)"
+
+#, fuzzy
+#| msgid "No Transformation"
+msgid "Transformation Family"
+msgstr "Sense transformació"
+
+#, fuzzy
+#| msgid "Boxplot..."
+msgid "Symmetry boxplot..."
+msgstr "Caixa de dispersió..."
+
+# index plot dialog
+#, fuzzy
+#| msgid "Style of plot"
+msgid "Symmetry Boxplot"
+msgstr "Estil del gràfic"
+
+msgid "Start (optional)"
+msgstr ""
+
+msgid "Powers"
+msgstr ""
+
+#, fuzzy
+#| msgid "Influence plot"
+msgid "Influence index plot..."
+msgstr "Gràfics d'influència"
+
+#, fuzzy
+#| msgid "Influence Plot"
+msgid "Influence Index Plot"
+msgstr "Gràfic d'influència"
+
+#, fuzzy
+#| msgid "Bonferroni outlier test"
+msgid "Bonferroni p-values"
+msgstr "Test de valors extrems de Bonferroni"
+
+msgid "Diagnostics case statistics to plot"
+msgstr ""
+
+#, fuzzy
+#| msgid "Ward's Method"
+msgid "Method"
+msgstr "Mètode de Ward"
+
+msgid "adaptive kernel"
+msgstr ""
+
+msgid "kernel"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+#, fuzzy
+#| msgid "No statistics selected."
+msgid "Case statistics to plot"
+msgstr "No hi ha cap estadística seleccionada."
+
+#, fuzzy
+#| msgid "Linear Model"
+msgid "Linear Mixed Model"
+msgstr "Model lineal"
+
+#, fuzzy
+#| msgid "Linear model..."
+msgid "Linear mixed model..."
+msgstr "Model lineal..."
+
+#, fuzzy
+#| msgid "Bayesian Information Criterion (BIC)"
+msgid "Estimation Criterion"
+msgstr "Criteri d'Informació Bayesià (BIC)"
+
+msgid "Restricted maximum likelihood (REML)"
+msgstr ""
+
+msgid "Maximum likelihood (ML)"
+msgstr ""
+
+#, fuzzy
+#| msgid "There is no active model."
+msgid "There are no random effects in the model."
+msgstr "No hi ha cap model actiu."
+
+#, fuzzy
+#| msgid "Generalized Linear Model"
+msgid "Generalized Linear Mixed Model"
+msgstr "Model lineal generalitzat"
+
+#, fuzzy
+#| msgid "Generalized linear model..."
+msgid "Generalized linear mixed model..."
+msgstr "Model lineal generalitzat..."
+
+#, fuzzy
+#| msgid ""
+#| "Convert variable names\n"
+#| "to lower case"
+msgid "Convert variable names to lower case"
+msgstr ""
+"converteix el nom de la variables\n"
+"a minúscules"
+
+# new messages about invalid variable classes
+msgid ""
+"The following variables are not valid for use in the R Commander and will be "
+"omitted:"
+msgstr ""
+
+msgid ""
+"The following variable is not valid for use in the R Commander and will be "
+"omitted:"
+msgstr ""
+
+#, fuzzy
+#| msgid "Frequency counts"
+msgid "Frequency Counts"
+msgstr "Comptatge de freqüències"
+
+# For bar graph dialog
+msgid "Show counts or percentages in bars"
+msgstr ""
+
+#, fuzzy
+#| msgid "Other"
+msgid "Neither"
+msgstr "Altre"
+
+#, fuzzy
+#| msgid "<No groups selected>"
+msgid "<No response selected>"
+msgstr "<No hi ha cap grup seleccionat>"
+
+#, fuzzy
+#| msgid "Proportions"
+msgid "Proportion"
+msgstr "Proporcions"
+
+# modified message
+#, fuzzy
+#| msgid "Restart R Commander"
+msgid "Restart the Commander"
+msgstr "Reinicia R Commander"
+
+# modified message
+#, fuzzy
+#| msgid "Restart R Commander"
+msgid "Restart the Commander?"
+msgstr "Reinicia R Commander"
+
+# for new repeated-measures ANOVA/ANCOVA dialogs
+msgid "One-factor repeated-measures ANOVA/ANCOVA..."
+msgstr ""
+
+msgid "One Repeated Measures Factor ANOVA/ANCOVA"
+msgstr ""
+
+#, fuzzy
+#| msgid "No expression specified."
+msgid "no responses specified"
+msgstr "No s'ha especificat cap expressió."
+
+msgid ""
+"the specified responses are not contiguous\n"
+" missing responses are removed"
+msgstr ""
+
+#, fuzzy
+#| msgid "Retain dialog selections"
+msgid "<no selection>"
+msgstr "Conserva les seleccions als diàlegs"
+
+#, fuzzy
+#| msgid "Duplicate menu names:"
+msgid "there are duplicated level names"
+msgstr "Noms de menus duplicats:"
+
+#, fuzzy
+#| msgid "is not a valid name."
+msgid "is not a valid name"
+msgstr "no és un nom vàlid."
+
+msgid "the following responses appear more than once:"
+msgstr ""
+
+#, fuzzy
+#| msgid "At least one response variable must be selected."
+msgid "at least 2 responses must be specified"
+msgstr "Com a mínim cal seleccionar una variable de resposta."
+
+msgid "Within-Subject Factor"
+msgstr ""
+
+#, fuzzy
+#| msgid "Name for factor:"
+msgid "Name for the within-subjects factor:"
+msgstr "Nom pel factor:"
+
+msgid ""
+"Specify up to 8 levels (responses) and level names for the within-subjects "
+"factor"
+msgstr ""
+
+#, fuzzy
+#| msgid "Studentized test statistic"
+msgid "Multivariate Test Statistic"
+msgstr "Estadístic del test estudentitzat"
+
+#, fuzzy
+#| msgid "variable"
+msgid "Multivariate"
+msgstr "variable"
+
+#, fuzzy
+#| msgid "variable"
+msgid "Univariate"
+msgstr "variable"
+
+msgid "Tests to Perform"
+msgstr ""
+
+msgid "Repeated-Measures Means"
+msgstr ""
+
+#, fuzzy
+#| msgid "Factors (pick zero or more)"
+msgid "Between-Subjects Factors (pick zero or more)"
+msgstr "Factors (triï'n cap o més)"
+
+msgid "Plot response means by factors"
+msgstr ""
+
+#, fuzzy
+#| msgid "Sample standard deviations"
+msgid "Print means and standard deviations by factors"
+msgstr "Desviació estàndard de la mostra"
+
+#, fuzzy
+#| msgid "all factors"
+msgid "X-axis factor:"
+msgstr "tots els factors"
+
+#, fuzzy
+#| msgid "Name for factor:"
+msgid "Trace factor:"
+msgstr "Nom pel factor:"
+
+msgid "Response name:"
+msgstr ""
+
+msgid "Two-factor repeated-measures ANOVA/ANCOVA..."
+msgstr ""
+
+msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
+msgstr ""
+
+msgid "the specified responses are not rectangular"
+msgstr ""
+
+#, fuzzy
+#| msgid "At least one response variable must be selected."
+msgid "at least 2 rows and 2 columns of responses must be specified"
+msgstr "Com a mínim cal seleccionar una variable de resposta."
+
+msgid "there are duplicated row level names"
+msgstr ""
+
+msgid "there are duplicated column level names"
+msgstr ""
+
+msgid "Within-Subject Factors"
+msgstr ""
+
+msgid "Name for the within-subjects row factor:"
+msgstr ""
+
+msgid "Name for the within-subjects column factor:"
+msgstr ""
+
+msgid "Select up to 5 levels and level-names for each within-subjects factor"
+msgstr ""
+
+#, fuzzy
+#| msgid "Read data set from an attached package..."
+msgid "Reshape data set from long to wide format..."
+msgstr "Llegeix una taula de dades d'un paquet ja carregat..."
+
+msgid "Reshape Data Set from Long to Wide Format"
+msgstr ""
+
+#, fuzzy
+#| msgid "Second variable (pick one)"
+msgid "Subject ID variable (pick one)"
+msgstr "Segona variable (triï'n una)"
+
+#, fuzzy
+#| msgid "Factors (pick one or more)"
+msgid "Within-subjects factors (pick one or more)"
+msgstr "Factors (triï'n un o més)"
+
+#, fuzzy
+#| msgid "Variables to recode (pick one or more)"
+msgid "Variables that vary by occasion (pick one or more)"
+msgstr "Variables a recodificar (triï'n una o més)"
+
+#, fuzzy
+#| msgid "Variables to recode (pick one or more)"
+msgid "Variables to ignore (pick zero or more)"
+msgstr "Variables a recodificar (triï'n una o més)"
+
+#, fuzzy
+#| msgid "You must select a variable."
+msgid "You must select an ID variable."
+msgstr "Cal triar una variable."
+
+#, fuzzy
+#| msgid "You must select one or more variables."
+msgid "You must select one or more within-subjects factors."
+msgstr "Cal seleccionar una o més variables."
+
+#, fuzzy
+#| msgid "You must select one or more variables."
+msgid "You must select one or more occasion-varying variables."
+msgstr "Cal seleccionar una o més variables."
+
+#, fuzzy
+#| msgid "The following variable names are not valid:"
+msgid "the following variables appear more than once:"
+msgstr "Els següents noms de variables no són vàlids:"
+
+#, fuzzy
+#| msgid "No data set selected."
+msgid "Save data set aborted"
+msgstr "No hi ha cap taula de dades seleccionada."
+
+#, fuzzy
+#| msgid "Name for new data set"
+msgid "Name for wide data set:"
+msgstr "Nom de la nova taula de dades"
+
+msgid "Make the wide data set active"
+msgstr ""
+
+#, fuzzy
+#| msgid "There are no data sets from which to choose."
+msgid "Reshape data set from wide to long format..."
+msgstr "No hi ha cap taula de dades a triar."
+
+msgid "Reshape Data Set from Wide to Long Format"
+msgstr ""
+
+msgid ""
+"both one and two repeated-measures factors were specified\n"
+"specify either a one-way or two-way design"
+msgstr ""
+
+msgid "the specified responses are not contiguous"
+msgstr ""
+
+#, fuzzy
+#| msgid "The following variable names are not valid:"
+msgid "the following ignored variables are also responses:"
+msgstr "Els següents noms de variables no són vàlids:"
+
+msgid "Specify one within-subject factor"
+msgstr ""
+
+msgid "Specify two within-subject factors"
+msgstr ""
+
+msgid "Specify up to 5 levels and level names for each within-subjects factor"
+msgstr ""
+
+#, fuzzy
+#| msgid "Name for new data set"
+msgid "Name for long data set:"
+msgstr "Nom de la nova taula de dades"
+
+#, fuzzy
+#| msgid "Response variable (pick one)"
+msgid "Response variable:"
+msgstr "Variable resposta (triï'n una)"
+
+#, fuzzy
+#| msgid "Name for variable:"
+msgid "Subject ID variable:"
+msgstr "Nom per la variable:"
+
+msgid "Make the long data set active"
+msgstr ""
+
+#, fuzzy
+#| msgid "Convert character data to factors"
+msgid "Convert all character variables to factors"
+msgstr "Converteix caràcters a factors"
+
+#, fuzzy
+#| msgid "Convert numeric variables to factors..."
+msgid "Convert character variables to factors..."
+msgstr "Converteix variables numèriques en factors..."
+
+# Numeric to factor dialog
+#, fuzzy
+#| msgid "Convert Numeric Variables to Factors"
+msgid "Convert Character Variables to Factors"
+msgstr "Converteix variables numériques en factors"
+
+#, fuzzy
+#| msgid "Variables (pick one or more)"
+msgid "Variable (pick one or more)"
+msgstr "Variables (triï'n una o més)"
+
+# additional messages omitted from version 2.7-0
+msgid "Include in Segment Labels"
+msgstr ""
+
+#, fuzzy
+#| msgid "Repeated-Measures Variables (pick two or more)"
+msgid "One Repeated-Measures Factor"
+msgstr "Variables amb mesures repetides (triï'n dues o més)"
+
+#, fuzzy
+#| msgid "Repeated-Measures Variables (pick two or more)"
+msgid "Two Repeated-Measures Factors"
+msgstr "Variables amb mesures repetides (triï'n dues o més)"
+
+#, fuzzy
+#| msgid "cannot select more than one variable"
+msgid "You cannot plot by groups with more than one variable selected"
+msgstr "no es pot seleccionar més d'una variable"
+
+#, fuzzy
+#| msgid "Number of Factors"
+msgid "Number of automatic rotations"
+msgstr "Nombre de factors"
+
+#, fuzzy
+#| msgid "Component+Residual Plots"
+msgid "3D Component+Residual Plot"
+msgstr "Gràfic components+residus"
+
+#, fuzzy
+#| msgid "Added-Variable Plots"
+msgid "3D Added-Variable Plot"
+msgstr "Gràfic d'additivitat de les variables"
+
+#, fuzzy
+#| msgid "Variables (pick two)"
+msgid "Coefficients (pick two)"
+msgstr "Variable (triï'n dues)"
+
+#, fuzzy
+#| msgid "You must select two models."
+msgid "You must select 2 coefficients."
+msgstr "Cal seleccionar dos models."
+
+#, fuzzy
+#| msgid "Component+residual plots"
+msgid "3D Component+residual plot..."
+msgstr "Gràfics components+residus"
+
+#, fuzzy
+#| msgid "Added-variable plots"
+msgid "3D added-variable plot..."
+msgstr "Gràfics variables-afegides"
+
+# for startup message
+msgid "Hello"
+msgstr ""
+
+#, fuzzy
+#| msgid "Indices or quoted names of row(s) to remove"
+msgid "Indices or names of row(s) to remove"
+msgstr "Indexs o noms entrecomillats de la(es) columna(es) a eliminar"
+
+#, fuzzy
+#| msgid "<all valid cases>"
+msgid "<use all valid cases>"
+msgstr "<tots els casos vàlids>"
+
+#, fuzzy
+#| msgid "Write row names:"
+msgid "bad row numbers:"
+msgstr "Escriu el nom de les files:"
+
+#, fuzzy
+#| msgid "Write row names:"
+msgid "bad row names:"
+msgstr "Escriu el nom de les files:"
+
+msgid "You cannot specify both case removal and subset cases"
+msgstr ""
+
+msgid "Include case-deletion box in statistical model dialogs"
+msgstr ""
+
+#, fuzzy
+#| msgid "Indices or quoted names of row(s) to remove"
+msgid "Indices or names of row(s) to select"
+msgstr "Indexs o noms entrecomillats de la(es) columna(es) a eliminar"
+
+#, fuzzy
+#| msgid "No Transformation"
+msgid "Information"
+msgstr "Sense transformació"
+
+#, fuzzy
+#| msgid "Resolution"
+msgid "Question"
+msgstr "Resolució"
+
+msgid "Warning"
+msgstr ""
+
+#, fuzzy
+#| msgid "Error Bars"
+msgid "Error"
+msgstr "Barres d'error"
+
+#, fuzzy
+#| msgid "Remove last Markdown command block"
+msgid "Remove last Markdown section title"
+msgstr "Elimina el darrer bloc d'instruccions de Markdown"
+
+# new message for processing plug-ins
+msgid ""
+"The following Markdown section titles in %s\n"
+"  conflict with existing titles and were removed:\n"
+"  "
+msgstr ""
+
+#, fuzzy
+#| msgid "Confidence Intervals"
+msgid "Bootstrap Confidence Intervals"
+msgstr "Intervals de confiança"
+
+#, fuzzy
+#| msgid "Confidence Intervals"
+msgid "Delta Method Confidence Intervals"
+msgstr "Intervals de confiança"
+
+#, fuzzy
+#| msgid "Density plots"
+msgid "Density Plot"
+msgstr "Gràfics de densitat"
+
+#, fuzzy
+#| msgid "Durbin-Waton Test"
+msgid "Durbin-Watson Test"
+msgstr "Test de Durbin-Watson"
+
+#, fuzzy
+#| msgid "Generalized Linear Model"
+msgid "Generalized Linear Mixed-Effects Model"
+msgstr "Model lineal generalitzat"
+
+#, fuzzy
+#| msgid "Linear Model"
+msgid "Linear Mixed-Effects Model"
+msgstr "Model lineal"
+
+#, fuzzy
+#| msgid "Multinomial Logit Model"
+msgid "Multinomial Logistic Regression"
+msgstr "Model logit multinomial"
+
+#, fuzzy
+#| msgid "Bonferroni outlier test"
+msgid "Bonferroni Outlier Test"
+msgstr "Test de valors extrems de Bonferroni"
+
+#, fuzzy
+#| msgid "Factor Correlations"
+msgid "Partial Correlations"
+msgstr "Correlacions dels factors"
+
+msgid "Repeated-Measures Plot"
+msgstr ""
+
+msgid "Transformation Boxplots for Symmetry"
+msgstr ""
+
+#, fuzzy
+#| msgid "Independent Samples t-Test"
+msgid "Independent-Samples t-Test"
+msgstr "t-test per mostres independents"
+
+#, fuzzy
+#| msgid "Variance-inflation factors"
+msgid "Variance-Inflation Factors"
+msgstr "Inflació de variància dels factors"
+
+#, fuzzy
+#| msgid "Paired Wilcoxon Test"
+msgid "Wilcoxon Test"
+msgstr "Test de Wilcoxon per dades aparellades"
+
+# Xyplot dialog
+#, fuzzy
+#| msgid "XY Conditioning Plot"
+msgid "Conditioning Plot"
+msgstr "Gràfic de relació XY"
+
+#, fuzzy
+#| msgid "Normal Probabilities"
+msgid "Normal Cumulative Probabilities"
+msgstr "Probabilitats normals"
+
+#, fuzzy
+#| msgid "Cumulative Binomial Probabilities"
+msgid "t Cumulative Probabilities"
+msgstr "Probabilitats binomials acumulades"
+
+#, fuzzy
+#| msgid "Chi-Squared Probabilities"
+msgid "Chi-Squared Cumulative Probabilities"
+msgstr "Probabilitats Khi-quadrat"
+
+#, fuzzy
+#| msgid "Cumulative Binomial Probabilities"
+msgid "F Cumulative Probabilities"
+msgstr "Probabilitats binomials acumulades"
+
+#, fuzzy
+#| msgid "Exponential Probabilities"
+msgid "Exponential Cumulative Probabilities"
+msgstr "Probabilitats exponencials"
+
+#, fuzzy
+#| msgid "Uniform Probabilities"
+msgid "Uniform Cumulative Probabilities"
+msgstr "Probabilitats uniformes"
+
+#, fuzzy
+#| msgid "Cumulative Binomial Probabilities"
+msgid "Beta Cumulative Probabilities"
+msgstr "Probabilitats binomials acumulades"
+
+#, fuzzy
+#| msgid "Cauchy Probabilities"
+msgid "Cauchy Cumulative Probabilities"
+msgstr "Probabilitats de Cauchy"
+
+#, fuzzy
+#| msgid "Logistic Probabilities"
+msgid "Logistic Cumulative Probabilities"
+msgstr "Probabilitats logístiques"
+
+#, fuzzy
+#| msgid "Lognormal Probabilities"
+msgid "Log-Normal Cumulative Probabilities"
+msgstr "Probabilitats lognormals"
+
+#, fuzzy
+#| msgid "Gamma Probabilities"
+msgid "Gamma Cumulative Probabilities"
+msgstr "Probabilitats gamma"
+
+#, fuzzy
+#| msgid "Weibull Probabilities"
+msgid "Weibull Cumulative Probabilities"
+msgstr "Probabilitats de Weibull"
+
+#, fuzzy
+#| msgid "Gumbel Probabilities"
+msgid "Gumbel Cumulative Probabilities"
+msgstr "Probabilitats de Gumbell"
+
+#, fuzzy
+#| msgid "Binomial Probabilities"
+msgid "Binomial Cumulative Probabilities"
+msgstr "Probabilitats binomials"
+
+#, fuzzy
+#| msgid "Poisson Probabilities"
+msgid "Poisson Cumulative Probabilities"
+msgstr "Probabilitats de Poisson"
+
+#, fuzzy
+#| msgid "Geometric Probabilities"
+msgid "Geometric Cumulative Probabilities"
+msgstr "Probabilitats geomètriques"
+
+#, fuzzy
+#| msgid "Hypergeometric Probabilities"
+msgid "Hypergeometric Cumulative Probabilities"
+msgstr "Probabilitats hipergeomètriques"
+
+#, fuzzy
+#| msgid "Negative Binomial Probabilities"
+msgid "Negative Binomial Cumulative Probabilities"
+msgstr "Probabilitats binomials negatives"
+
+#, fuzzy
+#| msgid "Bartlett's Test"
+msgid "Bartlett's Test:"
+msgstr "Test de Bartlett"
+
+# new effect-plots dialog
+#, fuzzy
+#| msgid "Model Effect Plots"
+msgid "Basic Model Plots:"
+msgstr "Gràfic dels efectes del model"
+
+#, fuzzy
+#| msgid "One-Way Analysis of Variance"
+msgid "Analysis of Variance:"
+msgstr "Anàlisi de variància d'un factor"
+
+#, fuzzy
+#| msgid "Hypothesis Test"
+msgid "Linear Hypothesis Test:"
+msgstr "Test d'hipòtesi"
+
+#, fuzzy
+#| msgid "Subset Model Selection"
+msgid "Subset Model Selection:"
+msgstr "Selecció del model de subconjunts"
+
+#, fuzzy
+#| msgid "Effect plots"
+msgid "Effect Plots:"
+msgstr "Gràfic dels efectes"
+
+# new effect-plots dialog
+#, fuzzy
+#| msgid "Model Effect Plots"
+msgid "Predictor Effect Plots:"
+msgstr "Gràfic dels efectes del model"
+
+msgid "Transform Response Toward Normality:"
+msgstr ""
+
+#, fuzzy
+#| msgid "Binomial Probabilities"
+msgid "Table of Binomial Probabilities"
+msgstr "Probabilitats binomials"
+
+#, fuzzy
+#| msgid "Poisson Probabilities"
+msgid "Table of Poisson Probabilities"
+msgstr "Probabilitats de Poisson"
+
+#, fuzzy
+#| msgid "Geometric Probabilities"
+msgid "Table of Geometric Probabilities"
+msgstr "Probabilitats geomètriques"
+
+#, fuzzy
+#| msgid "Hypergeometric Probabilities"
+msgid "Table of Hypergeomtric Probabilities"
+msgstr "Probabilitats hipergeomètriques"
+
+#, fuzzy
+#| msgid "Negative Binomial Probabilities"
+msgid "Table of NegativeBinomial Probabilities"
+msgstr "Probabilitats binomials negatives"
+
+#, fuzzy
+#| msgid "KMeans Clustering"
+msgid "K-Means Clustering:"
+msgstr "Clusters k-mitjanes"
+
+#, fuzzy
+#| msgid "Hierarchical cluster analysis..."
+msgid "Hiearchical Cluster Analysis:"
+msgstr "Classificació jeràrquica..."
+
+#, fuzzy
+#| msgid "Paired Wilcoxon Test"
+msgid "Paired Wilcoxon Test:"
+msgstr "Test de Wilcoxon per dades aparellades"
+
+#, fuzzy
+#| msgid "Friedman Rank Sum Test"
+msgid "Friedman Rank Sum Test:"
+msgstr "Test de la suma de rangs de Friedman"
+
+# new one-sample Wilcoxon test dialog
+#, fuzzy
+#| msgid "Single-Sample Wilcoxon Test"
+msgid "Single-Sample Wilcoxon Test:"
+msgstr "Test de Wilcoxon per una mostra"
+
+#, fuzzy
+#| msgid "Histogram"
+msgid "Histogram:"
+msgstr "Histograma"
+
+#, fuzzy
+#| msgid "Stem and Leaf Display"
+msgid "Stem-and-Leaf Display:"
+msgstr "Gràfic de tiges i fulles"
+
+#, fuzzy
+#| msgid "Dot Plot"
+msgid "Dot Plot:"
+msgstr "Gràfic de punts"
+
+msgid "Bar Plot:"
+msgstr ""
+
+#, fuzzy
+#| msgid "Pie Chart"
+msgid "Pie Chart:"
+msgstr "Gràfic de sectors"
+
+#, fuzzy
+#| msgid "Line Plot"
+msgid "Line Plot:"
+msgstr "Gràfic de línies"
+
+#, fuzzy
+#| msgid "Quantile-Comparison (QQ) Plot"
+msgid "Quantile-Comparison Plot:"
+msgstr "Gràfic quantil-quantil (QQ)"
+
+#, fuzzy
+#| msgid "Plot Means"
+msgid "Plot of Means:"
+msgstr "Gràfic de les mitjanes"
+
+#, fuzzy
+#| msgid "Discrete distributions"
+msgid "Discrete Distribution Plot:"
+msgstr "Distribucions discretes"
+
+#, fuzzy
+#| msgid "Contingency tables"
+msgid "Two-Way Contingency Table:"
+msgstr "Taula de contingències"
+
+#, fuzzy
+#| msgid "Multi-Way Table"
+msgid "Multi-Way Contingency Table:"
+msgstr "Taula de contingencia d'entrades múltiples"
+
+#, fuzzy
+#| msgid "Single-Sample Proportion Test"
+msgid "Single-Sample Proportion Test:"
+msgstr "Test de proporcions per una mostra"
+
+#, fuzzy
+#| msgid "Two-Sample Proportions Test"
+msgid "Two-Sample Proportions Test:"
+msgstr "Test de proporcions per dues mostres"
+
+#, fuzzy
+#| msgid "Paired t-Test"
+msgid "Paired t-Test:"
+msgstr "t-test per dades aparellades"
+
+#, fuzzy
+#| msgid "Single-Sample t-Test"
+msgid "Single-Sample t-Test:"
+msgstr "t-test per una mostra"
+
+#, fuzzy
+#| msgid "Repeated-Measures Variables (pick two or more)"
+msgid "Repeated-Measures ANOVA: between ="
+msgstr "Variables amb mesures repetides (triï'n dues o més)"
+
+msgid ", within = "
+msgstr ""
+
+#, fuzzy
+#| msgid "Subset Data Set"
+msgid "Summarize Data Set:"
+msgstr "Subdivideix la taula de dades"
+
+#, fuzzy
+#| msgid "Frequency counts"
+msgid "Frequencies:"
+msgstr "Comptatge de freqüències"
+
+#, fuzzy
+#| msgid "Table of Statistics"
+msgid "Table of Summary Statistics:"
+msgstr "Taula d'estadístics"
+
+# Correlation test dialog
+#, fuzzy
+#| msgid "Correlation Test"
+msgid "Correlation Test:"
+msgstr "Test de correlació"
+
+# count NAs (menu item)
+#, fuzzy
+#| msgid "Count missing observations"
+msgid "Count Missing Cases:"
+msgstr "Compte les observacions que falten"
+
+msgid "Transform Variables Toward Normality:"
+msgstr ""
+
+#, fuzzy
+#| msgid "Scale Reliability"
+msgid "Scale Reliability:"
+msgstr "Fiabilitat de l'escala"
+
+#, fuzzy
+#| msgid "Principal Components Analysis"
+msgid "Principal-Components Analysis:"
+msgstr "Anàlisi de components principals"
+
+#, fuzzy
+#| msgid "Factor Analysis"
+msgid "Factor Analysis:"
+msgstr "Anàlisi factorial"
+
+#, fuzzy
+#| msgid "Confirmatory Factor Analysis"
+msgid "Confirmatory Factor Analysis:"
+msgstr "Anàlisi factorial confirmatòria"
+
+#, fuzzy
+#| msgid "Plot density function"
+msgid "Plot Normal Density Function"
+msgstr "Gràfic de la funció de densitat"
+
+#, fuzzy
+#| msgid "Plot density function"
+msgid "Plot Chi-squared Density Function"
+msgstr "Gràfic de la funció de densitat"
+
+#, fuzzy
+#| msgid "Plot density function"
+msgid "Plot F Density Function"
+msgstr "Gràfic de la funció de densitat"
+
+#, fuzzy
+#| msgid "Plot density function"
+msgid "Plot t Density Function"
+msgstr "Gràfic de la funció de densitat"
+
+#, fuzzy
+#| msgid "Plot exponential distribution..."
+msgid "Plot Exponential Density Function"
+msgstr "Traça una distribució exponencial..."
+
+#, fuzzy
+#| msgid "Plot density function"
+msgid "Plot Uniform Density Function"
+msgstr "Gràfic de la funció de densitat"
+
+#, fuzzy
+#| msgid "Plot density function"
+msgid "Plot Beta Density Function"
+msgstr "Gràfic de la funció de densitat"
+
+#, fuzzy
+#| msgid "Plot density function"
+msgid "Plot Cauchy Density Function"
+msgstr "Gràfic de la funció de densitat"
+
+#, fuzzy
+#| msgid "Plot density function"
+msgid "Plot Logistic Density Function"
+msgstr "Gràfic de la funció de densitat"
+
+#, fuzzy
+#| msgid "Plot density function"
+msgid "Plot Lognormal Density Function"
+msgstr "Gràfic de la funció de densitat"
+
+#, fuzzy
+#| msgid "Plot density function"
+msgid "Plot Gamma Density Function"
+msgstr "Gràfic de la funció de densitat"
+
+#, fuzzy
+#| msgid "Plot density function"
+msgid "Plot Weibull Density Function"
+msgstr "Gràfic de la funció de densitat"
+
+#, fuzzy
+#| msgid "Plot density function"
+msgid "Plot Gumbel Density Function"
+msgstr "Gràfic de la funció de densitat"
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot Normal Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot chi-squared distribution..."
+msgid "Plot Chi-squared Cumulative Distribution Function"
+msgstr "Traça una distribució Khi quadrat..."
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot F Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot t Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot exponential distribution..."
+msgid "Plot Exponential Cumulative Distribution Function"
+msgstr "Traça una distribució exponencial..."
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot Uniform Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot Beta Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot Cauchy Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot Logistic Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot Lognormal Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot Gamma Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot Weibull Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot Gumbel Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot probability mass function"
+msgid "Plot Binomial Probability Mass Function"
+msgstr "Gràfic de la funció de probabilitat"
+
+#, fuzzy
+#| msgid "Plot probability mass function"
+msgid "Plot Poisson Probability Mass Function"
+msgstr "Gràfic de la funció de probabilitat"
+
+#, fuzzy
+#| msgid "Plot probability mass function"
+msgid "Plot Geometric Probability Mass Function"
+msgstr "Gràfic de la funció de probabilitat"
+
+#, fuzzy
+#| msgid "Plot probability mass function"
+msgid "Plot Hypergeometric Probability Mass Function"
+msgstr "Gràfic de la funció de probabilitat"
+
+#, fuzzy
+#| msgid "Negative Binomial Probabilities"
+msgid "Plot NegativeBinomial Probability Mass Function"
+msgstr "Probabilitats binomials negatives"
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot Binomial Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot Poisson Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot distribution function"
+msgid "Plot Geometric Cumulative Distribution Function"
+msgstr "Gràfic de la funció de distribució"
+
+#, fuzzy
+#| msgid "Plot hypergeometric distribution..."
+msgid "Plot Hypergeometric Cumulative Distribution Function"
+msgstr "Traça una distribució hipergeomètrica..."
+
+#, fuzzy
+#| msgid "Negative Binomial Distribution"
+msgid "Plot NegativeBinomial Cumulative Distribution Function"
+msgstr "Distribució binomial negativa"
+
+# the following is used for the template main title of R Markdown and knitr documents
+msgid "Replace with Main Title"
+msgstr ""
+
+# the following instructions to the user appear as comments in the body of the R Markdown document
+msgid "include this code chunk as-is to set options"
+msgstr ""
+
+msgid ""
+"You can edit this R Markdown document, for example to explain what you're\n"
+"doing and to draw conclusions from your data analysis."
+msgstr ""
+
+msgid ""
+"Auto-generated section titles, typically preceded by ###, can also be edited."
+msgstr ""
+
+msgid ""
+"It's generally not a good idea to edit the R code that the R Commander "
+"writes, \n"
+"but you can freely edit between (not within) R \"code blocks.\" Each R code\n"
+"block starts with ```{r} and ends with ```."
+msgstr ""
+
+#, fuzzy
+#| msgid "Remove row(s) from active data set..."
+msgid "Select row(s) from active data set..."
+msgstr "Elimina filera(es) de la taula de dades activa..."
+
+#, fuzzy
+#| msgid "Bin variable"
+msgid "Column variable"
+msgstr "Empaqueta variables"
+
+#, fuzzy
+#| msgid "Bin variable"
+msgid "Count variable"
+msgstr "Empaqueta variables"
+
+#, fuzzy
+#| msgid "variable"
+msgid "Row variable"
+msgstr "variable"
+
+#, fuzzy
+#| msgid "x and y variables must be different"
+msgid "Row, and column variables must be differents"
+msgstr "Les variables x i y han de ser diferents"
+
+#, fuzzy
+#| msgid "Two-Way Table"
+msgid "Two-way Table from counts"
+msgstr "Taula de doble entrada"
+
+#, fuzzy
+#| msgid "Two-way table..."
+msgid "Two-way table from counts"
+msgstr "Taula de doble entrada..."
+
+#, fuzzy
+#| msgid "Two-way table..."
+msgid "Two-way table from counts..."
+msgstr "Taula de doble entrada..."
+
+#, fuzzy
+#| msgid "You must select row, column, and control variables"
+msgid "You must select row, column, and count variables"
+msgstr "Cal triar variables de filera, columna i control"

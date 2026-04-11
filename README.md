@@ -33,11 +33,15 @@ install.packages("devtools")
 
 if necessary, before installing from GitHub.
 
+## History
+
+From its initial release (version 0.8-2) on 2003-05-26, through version 2.9-5 on 2024-10-25, John Fox was the lead developer of the Rcmdr package. Following his passing in November 2025, version 2.12.2 (released on 2026-04-11) marks the transition to a new maintainer and development team.
+
+For a complete list of previous released versions, see [https://cran.r-project.org/src/contrib/Archive/Rcmdr/](https://cran.r-project.org/src/contrib/Archive/Rcmdr/).
+
 ## Release plan
 
-The next version of R Commander will be 2.10, and its release is scheduled for approximately April 14th.
-
-This version is already available in the devel branch for testing purposes.
+The current devel version is available in the devel branch for testing purposes.
 
 New versions are expected to be released at least every six months. 
 A development version will be made available for testing one month prior to each official release.

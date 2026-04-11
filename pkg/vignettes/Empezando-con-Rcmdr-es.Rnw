@@ -19,6 +19,7 @@
 \setlength{\textheight}{9in}
 
 %\VignetteIndexEntry{Iniciación a R Commander}
+%\VignetteEncoding{UTF-8}
 
 \begin{document}
 
@@ -41,7 +42,7 @@ Por favor, dirija la correspondencia al mantendor actual Manuel Munoz-Marquez \h
 \section{Introducción}
 
 \textbf{R Commander} \citep{Fox05, Fox17} proporciona una interfaz gráfica de usuario o \textquotedblleft GUI\textquotedblright\footnote{N.T.: Del inglés Graphical User Interface} al entorno estadístico abierto \textbf{R} \citep{RCore20}. 
-Este manual es una introducción breve y básica a \textbf{R Commander}, para una documentación más extensa véase~\citet{Fox17}, que tiene un sitio web en \linebreak <\href{http://socserv.mcmaster.ca/jfox/Books/RCommander/}{socserv.mcmaster.ca/jfox/Books/RCommander/} o \href{http://tinyurl.com/RcmdrBook}{tinyurl.com/RcmdrBook}.
+Este manual es una introducción breve y básica a \textbf{R Commander}, para una documentación más extensa véase~\citet{Fox17}, que tiene un sitio web en \linebreak <\href{https://www.john-fox.ca/RCommander/index.html}{www.john-fox.ca/RCommander/index.html}.
 
 \textbf{R} es un sistema orientado a instrucciones y los nuevos usuarios a menudo encuentran el aprendizaje de \textbf{R} difícil. 
 Esto es particularmente cierto para aquellos que son nuevos en métodos estadísticos, como los estudiantes en los cursos de estadística básica. 
@@ -53,7 +54,7 @@ Network (CRAN)".
 
 Este documento describe el uso de \textbf{R Commander} bajo \textbf{R} para \textbf{Microsoft Windows}. 
 Hay algunas pequeñas diferencias en la apariencia y el uso de \textbf{R Commander} bajo \textbf{Mac OS X} y en sistemas \textbf{Linux} y \textbf{Unix}. 
-En el enlace a las notas de instalación en la página de \textbf{R Commander} \href{http://socserv.socsci.mcmaster.ca/jfox/Misc/Rcmdr/index.html}{socserv.socsci.mcmaster.ca/jfox/Misc /Rcmdr/index.html} o en \href{http://tinyurl.com/Rcmdr}{tinyurl.com/Rcmdr} hay información disponible sobre la instalación de \textbf{R Commander} en estas plataformas 
+En el enlace a las notas de instalación en la página de \textbf{R Commander} \href{https://www.john-fox.ca/RCommander/installation-notes.html}{www.john-fox.ca/RCommander/installation-notes.html} hay información disponible sobre la instalación de \textbf{R Commander} en estas plataformas 
 
 Usaremos las siguientes convenciones tipográficas en este documento: los nombres de software, como \textbf{Windows}, \textbf{R}, el paquete \textbf{Rcmdr} y \textbf{R Commander}, se escriben en \textbf{negrita}. 
 Los nombre de elementos de la interfaz gráfica como menús, elementos de menú, ventanas y cuadros de diálogo, se escriben en \emph{itálica}. 
@@ -70,7 +71,7 @@ Debería de ser capaz de usar \textbf{R Commander} bajo MDI, pero no aparecerá 
 Depués de cargar el paquete, las ventanas \emph{R Console} y \emph{R Commander} deberían aparecer más o menos como en las figuras \ref{fig-1} y \ref{fig-1-b}\footnote{Muchas de las capturas de pantalla de este documento se realizaron con versiones anteriores de \textbf{R} y de \textbf{R Commander}. 
 Las imágenes de las pantallas son actualizadas únicamente cuando cambia su apariencia o su contenido.}. 
 Estas y otras imágenes de pantallas en este documento se han realizado bajo \textbf{Windows 10}; si usa otra versión de \textbf{Windows} (o, por supuesto, otro sistema operativo), entonces la apariencia de las pantallas puede cambiar\footnote{Observe que \textbf{R Commander} necesita algunos paquetes además de los muchos paquetes \textquotedblleft recomendados \textquotedblright\ que son normalmente distribuidos con \textbf{R}. 
-El paquete \textbf{Rcmdr}, sus paquetes requeridos y muchos otros paquetes de contribuciones están disponibles para descarga en ``Comprehensive R Archive Network" (CRAN) en \href{http://cran.r-project.org/}{http://cran.r-project.org/}. 
+El paquete \textbf{Rcmdr}, sus paquetes requeridos y muchos otros paquetes de contribuciones están disponibles para descarga en ``Comprehensive R Archive Network" (CRAN) en \href{https://cran.r-project.org/}{https://cran.r-project.org/}. 
 
 Si estos paquetes no se instalan, \textbf{R Commander} pedirá su instalación desde internet o desde ficheros locales (por ejemplo, desde un CD-ROM desde una memoria USB). 
 Si instala el paquete \textbf{Rcmdr} en \textbf{Windows} mediante \textquotedblleft
@@ -821,7 +822,7 @@ La pestaña \emph{R Script} proporciona una forma sencilla de editar, introducir
 Las instrucciones generadas por \textbf{R Commander} aparecen en la pestaña \emph{Script} y puede introducir y editar las instrucciones en la pestaña más o menos como en un editor. 
 \textbf{R Commander} no proporciona una auténtica \textquotedblleft consola\textquotedblright\ de \textbf{R}, no obstante, y la pestaña \emph{Script} tiene algunas limitaciones. 
 Por ejemplo, todas las líneas de una instrucción multilínea deben ser enviadas simultáneamente para ejecución.
-Para programación seria con \textbf{R}, es preferible utilizar un editor de instrucciones como el proporcionado para \textbf{R} en las versiones de \textbf{Windows} y \textbf{maxOS} , o --- incluso mejor --- un editor de programas o un entorno integrado de desarrollo, como por ejemplo, \textbf{RStudio} \href{https://www.rstudio.com/}{www.rstudio.com}\footnote{\textbf{R Commander} corre bajo \textbf{RStudio}, en ese caso la salida y los mensajes de \textbf{R Commander} se dirigen por defecto a la consola de \textbf{R} en \textbf{RStudio}.}.
+Para programación seria con \textbf{R}, es preferible utilizar un editor de instrucciones como el proporcionado para \textbf{R} en las versiones de \textbf{Windows} y \textbf{maxOS} , o --- incluso mejor --- un editor de programas o un entorno integrado de desarrollo, como por ejemplo, \textbf{RStudio} \href{https://posit.co/}{posit.co}\footnote{\textbf{R Commander} corre bajo \textbf{RStudio}, en ese caso la salida y los mensajes de \textbf{R Commander} se dirigen por defecto a la consola de \textbf{R} en \textbf{RStudio}.}.
 
 \subsection{Usando extensiones de R Commander\label{sec-plugins}}
 

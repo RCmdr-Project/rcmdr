@@ -2,14 +2,16 @@
 #'
 #' @title R Commander
 #'
+#' @aliases Rcmdr Rcmdr-package
+#' 
 #' @details
 #' A platform-independent basic-statistics GUI (graphical user interface) for R, based on the tcltk package.
 #'
 #' \tabular{ll}{
 #' Package: \tab Rcmdr\cr
-#' Version: \tab 2.12.0\cr
-#' Date: \tab 2026-03-16\cr
-#' Depends: \tab R (>= 3.5.0), grDevices, graphics, methods, stats, utils, splines, RcmdrMisc (>= 2.9-1), car (>= 3.1-0), effects (>= 4.0-3)\cr
+#' Version: \tab 2.12.2\cr
+#' Date: \tab 2026-04-12\cr
+#' Depends: \tab R (>= 3.5.0), grDevices, graphics, methods, stats, utils, splines, RcmdrMisc (>= 2.10.1), car (>= 3.1-0), effects (>= 4.0-3)\cr
 #' Imports: \tab tcltk, tcltk2 (>= 1.2-6), abind, relimp (>= 1.0-5), lme4, tools\cr
 #' Suggests: \tab aplpack, boot, colorspace, e1071, foreign, grid, Hmisc, knitr, lattice, leaps, lmtest, markdown, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, nortest, readxl, rgl (>= 0.110.2), rmarkdown (>= 0.9.5), sem (>= 2.1-1)  \cr
 #' ByteCompile: \tab yes\cr
@@ -60,7 +62,7 @@
 #' @importFrom graphics text
 #' @importFrom grDevices col2rgb colorConverter colorspaces convertColor dev.cur dev.size palette rgb dev.new
 #' @importFrom lme4 fixef
-#' @importFrom methods getClass isVirtualClass show
+#' @importFrom methods as getClass isVirtualClass show
 #' @importFrom relimp showData
 #' @importFrom stats coef confint family formula getCall model.matrix na.omit optim optimize qnorm var vcov
 #' @importFrom tcltk2 tk2tip tk2theme tk2theme.list tk2table is.ttk tk2style

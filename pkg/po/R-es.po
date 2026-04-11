@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.12-0\n"
+"Project-Id-Version: Rcmdr 2.12.2\n"
 "Report-Msgid-Bugs-To: manuel.munoz@uca.es\n"
-"POT-Creation-Date: 2026-03-16 00:00:00\n"
-"PO-Revision-Date: 2026-03-16 23:18+0100\n"
+"POT-Creation-Date: 2026-04-12 00:00:00\n"
+"PO-Revision-Date: 2026-04-12 20:42+0200\n"
 "Last-Translator: Manuel Munoz-Marquez <manuel.munoz.marquez@gmail.com>\n"
 "Language-Team: Spanish R UCA Project <manuel.munoz@uca.es>\n"
 "Language: es\n"
@@ -137,7 +137,7 @@ msgid "Assigned cluster label:"
 msgstr "Etiqueta de grupo asignada:"
 
 msgid "Find"
-msgstr "Encontrar"
+msgstr "Buscar"
 
 msgid "Regular-expression search"
 msgstr "Buscar expresión regular"
@@ -1534,7 +1534,7 @@ msgid "Confidence Level:"
 msgstr "Nivel de confianza:"
 
 msgid "Rcmdr Version"
-msgstr "Versión del Rcmdr"
+msgstr "Versión de Rcmdr"
 
 msgid "The tcltk package is absent. The R Commander cannot function."
 msgstr "El paquete tcltk no existe. R Commander no puede funcionar."
@@ -4385,8 +4385,11 @@ msgstr "Editar el documento R Markdown"
 msgid "Edit knitr document"
 msgstr "Editar documento knitr"
 
+msgid "Remove last Markdown block"
+msgstr "Borrar el último bloque Markdown"
+
 msgid "Remove last Markdown command block"
-msgstr "Borrar el último bloque de instrucciones Markdonw"
+msgstr "Borrar el último bloque de instrucciones Markdown"
 
 msgid "Remove last knitr command block"
 msgstr "Borrar el último bloque de instrucciones knitr"
@@ -5509,7 +5512,7 @@ msgid "Error"
 msgstr "Error"
 
 msgid "Remove last Markdown section title"
-msgstr "Borrar el título del último bloque de instrucciones Markdonw"
+msgstr "Borrar el título del último bloque de instrucciones Markdown"
 
 # new message for processing plug-ins
 msgid ""
