@@ -836,6 +836,8 @@ dialogSuffix <- defmacro(window=top, onOK=onOK, onCancel=onCancel, rows, columns
         tkwm.deiconify(window)
         # focus grabs appear to cause problems for some dialogs
         if (GrabFocus() && (!preventGrabFocus)) tkgrab.set(window)
+        # The following line has been added to prevent the new window from being hidden behind the old one.
+        tkraise(focus)
         tkfocus(focus)
         if (getRcmdr("tkwait.dialog") || force.wait) tkwait.window(window)
         if (getRcmdr("crisp.dialogs")) tclServiceMode(on=TRUE)
