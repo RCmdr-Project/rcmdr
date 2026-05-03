@@ -1,3 +1,9 @@
+Changes in version 2.12.3
+
+ o New help for linearRegressionModel, readDataFromPackage, RemoveRows and SelectRows dialogs.
+ o Bug in spanish translation fixed.
+ o Autoraise data frame name confirmation dialog.
+
 Changes in version 2.12.2
 
  o Readded variance as statistic in numerical summary options.

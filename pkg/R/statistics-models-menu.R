@@ -1,9 +1,31 @@
 # Statistics Menu dialogs
 
-# last modified 2022-06-15 by J. Fox
+## Models menu
 
-    # Models menu
-
+#' @name linearRegressionModel
+#'
+#' @title Rcmdr Linear Regression Model
+#'
+#' @keywords models
+#'
+#' @details
+#' 
+#' This menu option can be used to build a linear regression model. This is a linear model in which the response and all explanatory variables are numeric.
+#' 
+#' After selecting this option, in the new dialog, optionally, change the model name in the first field.
+#'
+#' Select a response variable from the left list box, followed by one or more variables as explanatory variables from the right list box.
+#'
+#' You may also specify a list of indices/row names to exclude in the third field.
+#'
+#' Or a subset of the data by providing a subset expression, in fourth field.
+#'
+#' Clicking the OK button produces a call to the \code{\link[stats]{lm}} function in the \pkg{stats} package to build the regression model, followed by a call to summarize and print the results.
+#' 
+#' @seealso See \code{\link{linearModel}} for a more detailed description of this menu option.
+#' 
+#' @usage NULL
+#' 
 linearRegressionModel <- function () {
   defaults <- list(initial.x = NULL, initial.y = NULL, 
                    initial.subset = gettextRcmdr("<all valid cases>"),
@@ -101,7 +123,7 @@ linearRegressionModel <- function () {
                                               initial.delete.cases = initial.delete.cases))
     tkfocus(CommanderWindow())
   }
-  OKCancelHelp(helpSubject = "lm", model = TRUE, reset = "linearRegressionModel", apply = "linearRegressionModel")
+  OKCancelHelp(helpSubject = "linearRegressionModel", model = TRUE, reset = "linearRegressionModel", apply = "linearRegressionModel")
   tkgrid(labelRcmdr(modelFrame, text = gettextRcmdr("Enter name for model:")), 
          model, sticky = "w")
   tkgrid(modelFrame, sticky = "w")

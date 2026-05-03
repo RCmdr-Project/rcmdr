@@ -1,5 +1,3 @@
-# last modified 2022-06-15 by J. Fox
-
 # Data menu dialogs
 
 newDataSet <- function() {
@@ -527,6 +525,30 @@ readDataSet <- function() {
     dialogSuffix()
 }
 
+#' @title Read data from package
+#'
+#' @name readDataFromPackage
+#'
+#' @usage NULL
+#' 
+#' @details
+#'
+#' This menu option can be used to load data sets provided by currently attached packages.
+#' 
+#' Selecting the menu items \code{Data} -> \code{Data in packages} -> \code{Read data set from an attached package...} opens a new dialog window.
+#'
+#' Double-clicking an item in the left list box displays the available data sets for the selected package in the right list box.
+#' Once a data set is selected, clicking \code{OK} loads and activates it.
+#'
+#' Additionally, documentation for a selected data set can be accessed by clicking the \code{Help on selected data set} button.
+#'
+#' If the name of the data set is already known, it can be entered directly into the "Enter name of data set:" field.
+#' Note that this field is only available before a package has been selected from the list.
+#'
+#' For example, double-clicking \code{carData} in the left list, selecting \code{Chile} in the right list, and clicking \code{OK} will load and activate the \code{Chile} data set from the \pkg{carData} package.
+#' 
+#' This menu option calls the \code{\link[utils]{data}} function from the \code{\link[utils]{utils-package}} package.
+#' 
 readDataFromPackage <- function() {
 	env <- environment()
 	datasets <- NULL
@@ -714,7 +736,7 @@ readDataFromPackage <- function() {
 		else if (is.null(package)) doItAndPrint(paste('help("', dsnameValue, '")', sep=""))
 		else doItAndPrint(paste('help("', dsnameValue, '", package="', package, '")', sep=""))
 	}
-	OKCancelHelp(helpSubject="data")
+	OKCancelHelp(helpSubject="readDataFromPackage")
 	dataHelpButton <- buttonRcmdr(top, text=gettextRcmdr("Help on selected data set"), command=onDataHelp)
 	tkgrid(labelRcmdr(packageDatasetFrame, text=gettextRcmdr("Package (Double-click to select)"), fg=getRcmdr("title.color"), font="RcmdrTitleFont"),
 			labelRcmdr(packageDatasetFrame, text="   "), labelRcmdr(packageDatasetFrame, text=gettextRcmdr("Data set (Double-click to select)"),
@@ -2343,6 +2365,33 @@ saveDataSet <- function() {
 	logger(command)
 }
 
+
+#' @name RemoveRows
+#'
+###
+##  Copy this help to SelectRows when editing
+###
+#' @title Remove Rows from Active Data Set
+#'
+#' @keywords manip
+#'
+#' @usage NULL
+#' 
+#' @details
+#' This menu option can be used to build a new data set by removing rows by name.
+#'
+#' In the "Indices or names of row(s) to select" field, enter the names of the rows you wish to keep, separated by spaces.
+#' If a row name contains a space, it must be enclosed in single or double quotes.
+#' In all other cases, quotes are not required.
+#' You can also specify a name for the resulting data set in the "Name for new data set" field.
+#' The new data set will automatically become the active data set.
+#' 
+#' If the data set has no associated row names, the original row indices are used as names.
+#' Keep in mind that subsequent operations do not alter these row names; therefore, the numbers will always refer to the original row positions.
+#'
+#' This menu option produces a call to the \code{\link[base]{[.data.frame}} method from the \pkg{base} package.
+#'
+#' @seealso See also \code{\link{SelectRows}}.
 RemoveRows <- function(){
   dataSet <- activeDataSet()
   initializeDialog(title=gettextRcmdr("Remove Rows from Active Data Set"))
@@ -2391,7 +2440,7 @@ RemoveRows <- function(){
     if (class(result)[1] !=  "try-error") activeDataSet(newName)
     tkfocus(CommanderWindow())
   }
-  OKCancelHelp(helpSubject="[.data.frame")
+  OKCancelHelp(helpSubject="RemoveRows")
   tkgrid(labelRcmdr(removeFrame, text=gettextRcmdr("Indices or names of row(s) to remove"),
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(removeEntry, sticky="w")
@@ -2404,6 +2453,32 @@ RemoveRows <- function(){
   dialogSuffix()
 }
 
+#' @name SelectRows
+#'
+#' @title Select Rows from Active Data Set
+#'
+###
+##  Copy this help from RemoveRows when editing
+###
+#' @keywords manip
+#'
+#' @usage NULL
+#' 
+#' @details
+#' This menu option can be used to build a new data set by selecting rows by name.
+#'
+#' In the "Indices or names of row(s) to select" field, enter the names of the rows you wish to keep, separated by spaces.
+#' If a row name contains a space, it must be enclosed in single or double quotes.
+#' In all other cases, quotes are not required.
+#' You can also specify a name for the resulting data set in the "Name for new data set" field.
+#' The new data set will automatically become the active data set.
+#' 
+#' If the data set has no associated row names, the original row indices are used as names.
+#' Keep in mind that subsequent operations do not alter these row names; therefore, the numbers will always refer to the original row positions.
+#'
+#' This menu option produces a call to the \code{\link[base]{[.data.frame}} method from the \pkg{base} package.
+#'
+#' @seealso See also \code{\link{RemoveRows}}.
 SelectRows <- function(){
   dataSet <- activeDataSet()
   initializeDialog(title=gettextRcmdr("Select Rows from Active Data Set"))
@@ -2453,7 +2528,7 @@ SelectRows <- function(){
     if (class(result)[1] !=  "try-error") activeDataSet(newName)
     tkfocus(CommanderWindow())
   }
-  OKCancelHelp(helpSubject="[.data.frame")
+  OKCancelHelp(helpSubject="SelectRows")
   tkgrid(labelRcmdr(selectFrame, text=gettextRcmdr("Indices or names of row(s) to select"),
                     foreground=getRcmdr("title.color"), font="RcmdrTitleFont"), sticky="w")
   tkgrid(selectEntry, sticky="w")
