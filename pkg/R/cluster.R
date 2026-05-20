@@ -155,8 +155,6 @@ listHclustSolutions <- function(envir=.GlobalEnv, ...) {
 						function(.x) "hclust" == class(get(.x, envir=envir))[1]) ]
 }
 
-#' @name hierarchicalCluster
-#'
 #' @title Rcmdr Hierarchical Clustering Dialog
 #'
 #' @keywords misc

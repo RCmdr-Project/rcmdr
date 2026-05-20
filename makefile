@@ -1,5 +1,5 @@
 package := Rcmdr
-version := 2.12.2
+version := 2.12.4
 
 R := $(wildcard pkg/R/*.R)
 Rnw := $(wildcard pkg/vignettes/*.Rnw)
@@ -14,7 +14,7 @@ default: $(package)_$(version).tar.gz
 check: Rcmdr.Rcheck/00check.log
 	@echo Checking $(package)_$(version).tar.gz
 
-install: ~/R_LIBS/Rcmdr/NAMESPACE
+install: ~/R_LIBS/${package}/NAMESPACE 
 	@echo $(package)_$(version).tar.gz installed
 
 vignettes: $(Vignettes)
@@ -46,5 +46,5 @@ pkg/NAMESPACE: $(R)
 	# Temporary patch until all Rd were migrated
 	touch pkg/DESCRIPTION
 
-~/R_LIBS/Rcmdr/NAMESPACE: $(package)_$(version).tar.gz
+~/R_LIBS/${package}/NAMESPACE: $(package)_$(version).tar.gz
 	@R CMD INSTALL $<

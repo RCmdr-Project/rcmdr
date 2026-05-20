@@ -1,3 +1,8 @@
+Changes in version 2.12.4
+
+ o Added new helps for some dialogs.
+ o Remove levels.character export.
+
 Changes in version 2.12.3
 
  o New help for linearRegressionModel, readDataFromPackage, RemoveRows and SelectRows dialogs.

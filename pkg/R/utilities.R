@@ -205,7 +205,7 @@ listTwoLevelFactors <- function(dataSet=ActiveDataSet()){
     if(length(factors) == 0) return(NULL)
     factors[sapply(factors, function(.x){
       .v <- eval(parse(text=.x), envir=get(dataSet, envir=.GlobalEnv))
-      2 == length(levels(.v)) || length(na.omit(unique(.v))) == 2
+      2 == length(levels(.v))
     })]
   }
 }
@@ -4245,11 +4245,6 @@ browsePDF <- function(file) {
     else if (MacOSXP()) system(paste("open -a Preview", shQuote(file)))
     else system(paste(shQuote(getOption("pdfviewer")), shQuote(file)), wait=FALSE)
 }
-
-# function to insure that "levels" of character variables are returned
-
-#' @export
-levels.character <- function(x) sort(unique(x))
 
 # the following macro is used to apply Rcmdr options with specified defaults
 #   if global == TRUE, store option

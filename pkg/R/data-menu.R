@@ -88,8 +88,6 @@ selectActiveDataSet <- function(){
 
 listDataSetsInPackages <- function() doItAndPrint("data()")
 
-#' @name RecodeDialog
-#'
 #' @title Rcmdr Recode Dialog
 #'
 #' @keywords manip
@@ -99,7 +97,7 @@ listDataSetsInPackages <- function() doItAndPrint("data()")
 #' 
 #' The recode dialog is normally used to recode numeric variables and factors into factors, for example by combining values of numeric variables or levels of factors.
 #' It may also be used to produce new numeric variables.
-#' The Rcmdr recode dialog is based on the \code{\link[car:recode]{Recode}} function in the \code{car} package.
+#' The Rcmdr recode dialog is based on the \code{\link[car:recode]{Recode}} function in the \pkg{car} package.
 #'
 #' The name of each new variable must be a valid R object name (consisting only of upper and lower-case letters, numerals, and periods, and not starting with a numeral).
 #'
@@ -275,8 +273,6 @@ RecodeDialog <- function () {
   dialogSuffix(bindReturn = FALSE)
 }
 
-#' @name Compute
-#'
 #' @title Rcmdr Compute Dialog
 #'
 #' @keywords manip
@@ -292,6 +288,8 @@ RecodeDialog <- function () {
 #' The expression must evaluate to a valid variable, which is added to the active data set.
 #'
 #' @author John Fox
+#' 
+#' @usage NULL
 #'
 #' @seealso \code{\link[base]{Arithmetic}}
 Compute <- function(){
@@ -526,8 +524,6 @@ readDataSet <- function() {
 }
 
 #' @title Read data from package
-#'
-#' @name readDataFromPackage
 #'
 #' @usage NULL
 #' 
@@ -2366,8 +2362,6 @@ saveDataSet <- function() {
 }
 
 
-#' @name RemoveRows
-#'
 ###
 ##  Copy this help to SelectRows when editing
 ###
@@ -2453,8 +2447,7 @@ RemoveRows <- function(){
   dialogSuffix()
 }
 
-#' @name SelectRows
-#'
+
 #' @title Select Rows from Active Data Set
 #'
 ###
@@ -2701,6 +2694,17 @@ tkfocus(CommanderWindow())
   dialogSuffix()
 }
 
+#' @title Drop Unused Factor Levels
+#'
+#' @keywords manip
+#'
+#' @details
+#' Following filtering or recoding procedures, certain factor levels may exhibit zero frequencies. This menu option allows users to remove such unobserved levels from the factor variable.
+#'
+#' This menu option calls the \code{\link[base:droplevels]{droplevles}} function from the \pkg{base} package.
+#'
+#' @usage NULL
+#' 
 dropUnusedFactorLevels <- function(){
     dataSet <- activeDataSet()
     initializeDialog(title=gettextRcmdr("Drop Unused Factor Levels"))
@@ -2736,7 +2740,7 @@ dropUnusedFactorLevels <- function(){
         activeDataSet(dataSet, flushModel=FALSE, flushDialogMemory=FALSE)
         tkfocus(CommanderWindow())
     }
-    OKCancelHelp(helpSubject="droplevels")
+    OKCancelHelp(helpSubject="dropUnusedFactorLevels")
     tkgrid(allfactorsCheckBox, labelRcmdr(allFrame, text=gettextRcmdr("all factors")), sticky="w")
     tkgrid(allFrame, sticky="w")
     tkgrid(labelRcmdr(top, text=gettextRcmdr("OR"), fg="red"), sticky="w")
