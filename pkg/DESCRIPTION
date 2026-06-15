@@ -1,6 +1,6 @@
 Package: Rcmdr
-Version: 2.12.3
-Date: 2026-05-04
+Version: 2.12.5
+Date: 2026-06-15
 Title: R Commander
 Encoding: UTF-8
 Authors@R: c(person("John", "Fox", role = "aut"),

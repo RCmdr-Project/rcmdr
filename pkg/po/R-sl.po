@@ -1,21 +1,36 @@
+# SPDX-FileCopyrightText: 2019-2020, 2022, 2026 Matjaž Jeran <matjaz.jeran@amis.net>
 # Jaro Lajovic <jaro.lajovic@mf.uni-lj.si>
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2019, 2020, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: Rcmdr 2.8-0\n"
-"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2022-07-11 09:30:00\n"
-"PO-Revision-Date: 2022-08-12 17:06+0200\n"
+"Report-Msgid-Bugs-To: manuel.munoz@uca.es\n"
+"POT-Creation-Date: 2026-05-04 00:00:00\n"
+"PO-Revision-Date: 2026-06-14 14:04+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%"
+"100==4 ? 3 : 0);\n"
 "Translator: Jaro Lajovic <jaro.lajovic@mf.uni-lj.si>\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 26.04.2\n"
+
+msgid "Language"
+msgstr "Jezik"
+
+msgid "Select a language"
+msgstr "Izberite jezik"
+
+msgid "to start the R Commander automatically when R starts:"
+msgstr "Za samodejni zagon R Commanderja ob zagonu Ra:"
+
+msgid "Uncomment the following 4 lines (remove the #s)"
+msgstr "Odkomentirajte naslednje 4 vrstice (odstranite #)"
+
+msgid "Variance"
+msgstr "Varianca"
 
 msgid "KMeans Clustering"
 msgstr "Razvrščanje z voditelji"
@@ -367,8 +382,8 @@ msgid ""
 "{\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \".CSV\"}} "
 "{\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Besedilne datoteke\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" \"."
-"CSV\"}} {\"Vse datoteke\" {\"*\"}}"
+"{\"Besedilne datoteke\" {\".txt\" \".TXT\" \".dat\" \".DAT\" \".csv\" "
+"\".CSV\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid "Variable names in file:"
 msgstr "Imena spremenljivk so v datoteki:"
@@ -416,8 +431,8 @@ msgid ""
 "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
 "\".POR\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Datoteke SPSS\" {\".sav\" \".SAV\"}} {\"Prenosne datoteke SPSS\" {\"."
-"por\" \".POR\"}} {\"Vse datoteke\" {\"*\"}}"
+"{\"Datoteke SPSS\" {\".sav\" \".SAV\"}} {\"Prenosne datoteke SPSS\" "
+"{\".por\" \".POR\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid ""
 "Convert value labels\n"
@@ -441,8 +456,8 @@ msgstr "Uvoz podatkov v zapisu Minitab"
 msgid ""
 "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Prenosne datoteke Minitab\" {\".mtp\" \".MTP\"}} {\"Vse "
-"datoteke\" {\"*\"}}"
+"{\"Prenosne datoteke Minitab\" {\".mtp\" \".MTP\"}} {\"Vse datoteke\" "
+"{\"*\"}}"
 
 msgid ""
 "Minitab data set contains elements of unequal length.\n"
@@ -1283,8 +1298,8 @@ msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Datoteke PNG\" {\".png\" \".PNG\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid ""
-"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All "
-"Files\" {\"*\"}}"
+"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" "
+"{\"*\"}}"
 msgstr ""
 "{\"Datoteke JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Vse "
 "datoteke\" \"\" {\"*\"}}"
@@ -1317,8 +1332,8 @@ msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Datoteke postscript\" {\".ps\" \".PS\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid ""
-"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All "
-"Files\" {\"*\"}}"
+"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" "
+"{\"*\"}}"
 msgstr "{\"Oviti postscript\" {\".eps\" \".EPS\"}} {\"Vse datoteke\" {\"*\"}}"
 
 msgid "Width (inches)"
@@ -2589,11 +2604,12 @@ msgid "Import from Excel, Access or dBase data set"
 msgstr "Uvozi iz nabora podatkov v Excelu, Accessu ali dBase"
 
 msgid ""
-"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \"."
-"MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb "
+"\".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Datoteka MS Excel\" {*.xls \".XLS\"}} {\"Datoteka MS Access\" {*.mdb \"."
-"MDB\"}} {\"Datoteka kot dBase\" {*.dbf \".DBF\"}} {\"Vse datoteke\" {\"*\"}}"
+"{\"Datoteka MS Excel\" {*.xls \".XLS\"}} {\"Datoteka MS Access\" {*.mdb "
+"\".MDB\"}} {\"Datoteka kot dBase\" {*.dbf \".DBF\"}} {\"Vse datoteke\" "
+"{\"*\"}}"
 
 msgid "Select one table"
 msgstr "Izberite eno tabelo"
@@ -3747,8 +3763,8 @@ msgstr "Ime za agregirani nabor podatkov:"
 
 #     miscellaneous
 msgid ""
-"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All "
-"Files\" {\"*\"}}"
+"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" "
+"{\"*\"}}"
 msgstr ""
 "{\"R-ove datoteke\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Vse "
 "datoteke\" {\"*\"}}"
@@ -3831,21 +3847,21 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
 "\".csv\" \".CSV\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Besedilne datoteke\" {\".txt\" \".TXT\" \"."
-"dat\" \".DAT\" \".csv\" \".CSV\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"Besedilne datoteke\" {\".txt\" \".TXT\" "
+"\".dat\" \".DAT\" \".csv\" \".CSV\"}}"
 
 msgid ""
 "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
 "{\"SPSS save files\" {\".sav\" \".SAV\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"SPSS-ove datoteke za prenos\" {\".por\" \"."
-"POR\"}} {\"Datoteke SPSS save\" {\".sav\" \".SAV\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"SPSS-ove datoteke za prenos\" {\".por\" "
+"\".POR\"}} {\"Datoteke SPSS save\" {\".sav\" \".SAV\"}}"
 
 msgid ""
 "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Minitabove datoteke za prenos\" {\".mtp\" \"."
-"MTP\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"Minitabove datoteke za prenos\" {\".mtp\" "
+"\".MTP\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 msgstr ""
@@ -3853,28 +3869,28 @@ msgstr ""
 
 msgid ""
 "{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
-"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\"."
-"dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel "
-"file\" {\".xls\" \".XLS\"}}"
+"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" "
+"{\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Podatkovna baza MS Access\" {\".mdb\" \"."
-"MDB\"}} {\"Podatkovna baza MS Access\" {\".accdb\" \".ACCDB\"}} {\"dBase-"
-"podobna datoteka\" {\".dbf\" \".DBF\"}} {\"Datoteka MS Excel 2007\" {\"."
-"xlsx\" \".XLSX\"}} {\"Datoteka MS Excel\" {\".xls\" \".XLS\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"Podatkovna baza MS Access\" {\".mdb\" "
+"\".MDB\"}} {\"Podatkovna baza MS Access\" {\".accdb\" \".ACCDB\"}} {\"dBase-"
+"podobna datoteka\" {\".dbf\" \".DBF\"}} {\"Datoteka MS Excel 2007\" "
+"{\".xlsx\" \".XLSX\"}} {\"Datoteka MS Excel\" {\".xls\" \".XLS\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
-"RDA\"}}"
+"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" "
+"\".RDA\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"R-ove datoteke s podatki\" {\".RData\" \"."
-"rda\" \".Rda\" \".RDA\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"R-ove datoteke s podatki\" {\".RData\" "
+"\".rda\" \".Rda\" \".RDA\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"Vse datoteke\" {\"*\"}} {\"Datoteke PNG\" {\".png\" \".PNG\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \"."
-"JPEG\"}}"
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" "
+"\".JPEG\"}}"
 msgstr ""
 "{\"Vse datoteke\" {\"*\"}} {\"Datoteke JPEG\" {\".jpg\" \".JPG\" \".jpeg\" "
 "\".JPEG\"}}"
@@ -3886,11 +3902,11 @@ msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 msgstr "{\"Vse datoteke\" {\"*\"}} {\"Postscript-datoteke\" {\".ps\" \".PS\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \"."
-"EPS\"}}"
+"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" "
+"\".EPS\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Datoteke oviti Postscript\" {\".eps\" \"."
-"EPS\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"Datoteke oviti Postscript\" {\".eps\" "
+"\".EPS\"}}"
 
 # messages added to version 1.7-0
 msgid "Reset"
@@ -4052,8 +4068,8 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
 "\".XPORT\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"datoteke SAS xport\" {\".xpt\" \".XPT\" \"."
-"xport\" \".XPORT\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"datoteke SAS xport\" {\".xpt\" \".XPT\" "
+"\".xport\" \".XPORT\"}}"
 
 msgid ""
 "Convert variable names\n"
@@ -4072,8 +4088,8 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
 "Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"Datoteka MS Excel 2007\" {\".xlsx\" \"."
-"XLSX\"}} {\"Datoteka MS Excel\" {\".xls\" \".XLS\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"Datoteka MS Excel 2007\" {\".xlsx\" "
+"\".XLSX\"}} {\"Datoteka MS Excel\" {\".xls\" \".XLS\"}}"
 
 msgid "Interquartile Range"
 msgstr "Interkvartilni razpon"
@@ -4232,11 +4248,11 @@ msgstr ""
 "{\"Vse datoteke\" {\"*\"}} {\"datoteke R Markdown\" {\".Rmd\" \".rmd\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \"."
-"snw\"}}"
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" "
+"\".snw\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"datoteke za knitr\" {\".Rmd\" \".rmd\" \"."
-"Snw\" \".snw\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"datoteke za knitr\" {\".Rmd\" \".rmd\" "
+"\".Snw\" \".snw\"}}"
 
 msgid ""
 "Delete previously created knitr\n"
@@ -4457,6 +4473,9 @@ msgstr "Uredi dokument R markdown"
 
 msgid "Edit knitr document"
 msgstr "Uredi dokument knitr"
+
+msgid "Remove last Markdown block"
+msgstr "Odstrani zadnji blok Markdowna"
 
 msgid "Remove last Markdown command block"
 msgstr "Odstrani zadnji blok Markdown ukazov"
@@ -4821,11 +4840,11 @@ msgid "<empty cell>"
 msgstr "<prazna celica>"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
-"XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" "
+"\".XLS\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" \"."
-"XLS\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"MS Excel\" {\".xlsx\" \".XLSX\" \".xls\" "
+"\".XLS\"}}"
 
 # corrected messages in version 2.2-1
 # The following messages had trailing blanks. These messages were deleted from
@@ -5149,8 +5168,8 @@ msgstr "iz datoteke SAS b7dat..."
 msgid ""
 "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
 msgstr ""
-"{\"Vse datoteke\" {\"*\"}} {\"datoteka SAS b7dat\" {\".sas7bdat\" \"."
-"SAS7BDAT\"}}"
+"{\"Vse datoteke\" {\"*\"}} {\"datoteka SAS b7dat\" {\".sas7bdat\" "
+"\".SAS7BDAT\"}}"
 
 # addition to the Commander Options dialog
 msgid ""
@@ -5411,19 +5430,19 @@ msgid "Repeated-Measures Means"
 msgstr "Povprečja ponavljajočih meritev"
 
 msgid "Between-Subjects Factors (pick zero or more)"
-msgstr ""
+msgstr "Med-subjektni faktorji (izberite nič ali več)"
 
 msgid "Plot response means by factors"
-msgstr "Nariši povprečja odzivov po dejavnikih"
+msgstr "Nariši povprečja odzivov po faktorjih"
 
 msgid "Print means and standard deviations by factors"
-msgstr "Natisni povprečja in standardne odklone po dejavnikih"
+msgstr "Natisni povprečja in standardne odklone po faktorjih"
 
 msgid "X-axis factor:"
 msgstr "Faktor na osi X:"
 
 msgid "Trace factor:"
-msgstr ""
+msgstr "Faktor sledi:"
 
 msgid "Response name:"
 msgstr "Ime odziva:"
@@ -5435,7 +5454,7 @@ msgid "Two Repeated Measures Factors ANOVA/ANCOVA"
 msgstr "Faktorja dvofaktorske zasnove s ponavljajočimi meritvami ANOVA/ANCOVA"
 
 msgid "the specified responses are not rectangular"
-msgstr ""
+msgstr "navedeni odzivi niso pravokotni"
 
 msgid "at least 2 rows and 2 columns of responses must be specified"
 msgstr "izbrati morate vsaj 2 vrstici in 2 stolpca odzivov"
@@ -5487,6 +5506,8 @@ msgstr "Izbrati morate enega ali več gnezdenih faktorjev."
 
 msgid "You must select one or more occasion-varying variables."
 msgstr ""
+"Izbrati morate eno ali več spremenljivk, ki se spreminjajo glede na "
+"priložnost."
 
 msgid "the following variables appear more than once:"
 msgstr "naslednje spremenljive se pojavljajo več kot enkrat:"
@@ -5510,6 +5531,8 @@ msgid ""
 "both one and two repeated-measures factors were specified\n"
 "specify either a one-way or two-way design"
 msgstr ""
+"tako eno kot dvo faktorske ponavljajoče se meritve so bile določene\n"
+"določite enosmerno ali dvosmerno zasnovo"
 
 msgid "the specified responses are not contiguous"
 msgstr "določeni odzivi niso strnjeni"
@@ -5555,43 +5578,35 @@ msgstr "Spremenljivka (izberite eno ali več)"
 
 # additional messages omitted from version 2.7-0
 msgid "Include in Segment Labels"
-msgstr ""
+msgstr "Vključi v oznake segmentov"
 
 msgid "One Repeated-Measures Factor"
-msgstr ""
+msgstr "En faktor ponavljajočih se meritev"
 
 msgid "Two Repeated-Measures Factors"
-msgstr ""
+msgstr "Dva faktorja ponavljajočih se meritev"
 
-#| msgid "cannot select more than one variable"
 msgid "You cannot plot by groups with more than one variable selected"
 msgstr "Ne morete risati po skupinah z več kot eno izbrano spremenljivko"
 
-#| msgid "Number of Factors"
 msgid "Number of automatic rotations"
 msgstr "Število samodejnih rotacij"
 
-#| msgid "Component+Residual Plots"
 msgid "3D Component+Residual Plot"
 msgstr "3D komponenta in grafikon ostankov"
 
-#| msgid "Added-Variable Plots"
 msgid "3D Added-Variable Plot"
 msgstr "3D dodani grafikoni spremenljivk"
 
-#| msgid "Variables (pick two)"
 msgid "Coefficients (pick two)"
 msgstr "Koeficienti (izberite dva)"
 
-#| msgid "You must select two models."
 msgid "You must select 2 coefficients."
 msgstr "Izbrati morate 2 koeficienta."
 
-#| msgid "Component+residual plots..."
 msgid "3D Component+residual plot..."
 msgstr "3D komponenta in grafikon ostankov..."
 
-#| msgid "Added-variable plots..."
 msgid "3D added-variable plot..."
 msgstr "3D grafikon dodanih spremenljivk..."
 
@@ -5599,48 +5614,41 @@ msgstr "3D grafikon dodanih spremenljivk..."
 msgid "Hello"
 msgstr "Pozdravljeni"
 
-#| msgid "Indices or quoted names of row(s) to remove"
 msgid "Indices or names of row(s) to remove"
 msgstr "Indeksi ali imena vrstic(e) za odstranitev"
 
-#| msgid "<all valid cases>"
 msgid "<use all valid cases>"
 msgstr "<vsi veljavni primeri>"
 
-#| msgid "Write row names:"
 msgid "bad row numbers:"
 msgstr "slabe številke vrstic:"
 
-#| msgid "Write row names:"
 msgid "bad row names:"
 msgstr "slaba imena vrstic:"
 
 msgid "You cannot specify both case removal and subset cases"
 msgstr ""
+"Ne morete določiti hkrati primerov odstranitve primera in primerov podmnožice"
 
 msgid "Include case-deletion box in statistical model dialogs"
 msgstr ""
+"Vključi polje za brisanje primerov statističnega modela v pogovorna okna"
 
-#| msgid "Indices or quoted names of row(s) to remove"
 msgid "Indices or names of row(s) to select"
 msgstr "Indeksi ali imena vrstic(e) za izbiro"
 
-#| msgid "No Transformation"
 msgid "Information"
 msgstr "Informacije"
 
-#| msgid "Resolution"
 msgid "Question"
 msgstr "Vprašanje"
 
 msgid "Warning"
 msgstr "Opozorilo"
 
-#| msgid "Error Bars"
 msgid "Error"
 msgstr "Napaka"
 
-#| msgid "Remove last Markdown command block"
 msgid "Remove last Markdown section title"
 msgstr "Odstrani naslov zadnje sekcije Markdown"
 
@@ -5655,42 +5663,33 @@ msgstr ""
 "  "
 
 # bootstrapping dialog
-#| msgid "Bootstrap confidence intervals..."
 msgid "Bootstrap Confidence Intervals"
 msgstr "Intervali zaupanja za zankanje"
 
 # delta method dialog
-#| msgid "Delta method confidence interval..."
 msgid "Delta Method Confidence Intervals"
 msgstr "Interval zaupanja metode Delta"
 
-#| msgid "Density plots"
 msgid "Density Plot"
 msgstr "Diagrami gostote"
 
-#| msgid "Durbin-Waton Test"
 msgid "Durbin-Watson Test"
 msgstr "Durbin-Watsonov test"
 
-#| msgid "Generalized Linear Mixed Model"
 msgid "Generalized Linear Mixed-Effects Model"
 msgstr "Posplošeni Linearni Model Mešanih učinkov"
 
 # additional message in version 2.6-0
 # new mixed models dialogs
-#| msgid "Linear Mixed Model"
 msgid "Linear Mixed-Effects Model"
 msgstr "Linearni Model Mešanih Učinkov"
 
-#| msgid "Multinomial Logit Model"
 msgid "Multinomial Logistic Regression"
 msgstr "Multinomska logistična regresija"
 
-#| msgid "Bonferroni outlier test"
 msgid "Bonferroni Outlier Test"
 msgstr "Bonferronijev test osamelcev"
 
-#| msgid "Factor Correlations"
 msgid "Partial Correlations"
 msgstr "Delne korelacije"
 
@@ -5700,423 +5699,322 @@ msgstr "Diagram ponovljenih meritev"
 msgid "Transformation Boxplots for Symmetry"
 msgstr "Transformacija okvirjev z ročaji za simetrijo"
 
-#| msgid "Independent Samples t-Test"
 msgid "Independent-Samples t-Test"
 msgstr "t-test neodvisni vzorcev"
 
-#| msgid "Variance-inflation factors"
 msgid "Variance-Inflation Factors"
 msgstr "Faktorji povečanja variance"
 
-#| msgid "Paired Wilcoxon Test"
 msgid "Wilcoxon Test"
 msgstr "Wilcoxonov test"
 
 # Xyplot dialog
-#| msgid "XY Conditioning Plot"
 msgid "Conditioning Plot"
 msgstr "Pogojni diagram"
 
-#| msgid "Normal Probabilities"
 msgid "Normal Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti normalne porazdelitve"
 
-#| msgid "Cumulative Binomial Probabilities"
 msgid "t Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti porazdelitve t"
 
-#| msgid "Chi-Squared Probabilities"
 msgid "Chi-Squared Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti porazdelitve hi-kvadrat"
 
-#| msgid "Cumulative Binomial Probabilities"
 msgid "F Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti porazdelitve F"
 
-#| msgid "Exponential Probabilities"
 msgid "Exponential Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti eksponentne porazdelitve"
 
-#| msgid "Uniform Probabilities"
 msgid "Uniform Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti enakomerne porazdelitve"
 
-#| msgid "Cumulative Binomial Probabilities"
 msgid "Beta Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti porazdelitve beta"
 
-#| msgid "Cauchy Probabilities"
 msgid "Cauchy Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti Cauchyjeve porazdelitve"
 
-#| msgid "Logistic Probabilities"
 msgid "Logistic Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti logistične porazdelitve"
 
-#| msgid "Lognormal Probabilities"
 msgid "Log-Normal Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti lognormalne porazdelitve"
 
-#| msgid "Gamma Probabilities"
 msgid "Gamma Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti porazdelitve gama"
 
-#| msgid "Weibull Probabilities"
 msgid "Weibull Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti Weibullov porazdelitve"
 
-#| msgid "Gumbel Probabilities"
 msgid "Gumbel Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti Gumbelove porazdelitve"
 
-#| msgid "Binomial Probabilities"
 msgid "Binomial Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti binomske porazdelitve"
 
-#| msgid "Poisson Probabilities"
 msgid "Poisson Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti Poissonove porazdelitve"
 
-#| msgid "Geometric Probabilities"
 msgid "Geometric Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti geometrične porazdelitve"
 
-#| msgid "Hypergeometric Probabilities"
 msgid "Hypergeometric Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti hipergeometrične porazdelitve"
 
-#| msgid "Negative Binomial Probabilities"
 msgid "Negative Binomial Cumulative Probabilities"
 msgstr "Kumulativne verjetnosti negativne binomske porazdelitve"
 
-#| msgid "Bartlett's Test"
 msgid "Bartlett's Test:"
 msgstr "Bartlettov test:"
 
 # new effect-plots dialog
-#| msgid "Model Effect Plots"
 msgid "Basic Model Plots:"
 msgstr "Osnovni diagrami modela:"
 
-#| msgid "One-Way Analysis of Variance"
 msgid "Analysis of Variance:"
 msgstr "Analiza variance:"
 
-#| msgid "Hypothesis Test"
 msgid "Linear Hypothesis Test:"
 msgstr "Test linearne hipoteze:"
 
-#| msgid "Subset Model Selection"
 msgid "Subset Model Selection:"
 msgstr "Izbira modela podmnožice:"
 
-#| msgid "Effect plots..."
 msgid "Effect Plots:"
 msgstr "Diagrami učinkov:"
 
 # additional messages in version 2.5-0
 # new predictor effect plots dialog
-#| msgid "Predictor Effect Plots"
 msgid "Predictor Effect Plots:"
 msgstr "Diagrami učinka prediktorja:"
 
-#| msgid "Transform Variables Toward Normality"
 msgid "Transform Response Toward Normality:"
 msgstr "Transformiraj odziv proti normalnosti:"
 
-#| msgid "Binomial Probabilities"
 msgid "Table of Binomial Probabilities"
 msgstr "Tabela binomske porazdelitve"
 
-#| msgid "Poisson Probabilities"
 msgid "Table of Poisson Probabilities"
 msgstr "Tabela verjetnosti Poissonove porazdelitve"
 
-#| msgid "Geometric Probabilities"
 msgid "Table of Geometric Probabilities"
 msgstr "Tabela verjetnosti geometrične porazdelitve"
 
-#| msgid "Hypergeometric Probabilities"
 msgid "Table of Hypergeomtric Probabilities"
 msgstr "Tabela verjetnosti hipergeometrične porazdelitve"
 
-#| msgid "Negative Binomial Probabilities"
 msgid "Table of NegativeBinomial Probabilities"
 msgstr "Tabela verjetnosti negativne binomske porazdelitve"
 
-#| msgid "KMeans Clustering"
 msgid "K-Means Clustering:"
 msgstr "Razvrščanje K-Means:"
 
-#| msgid "Hierarchical cluster analysis..."
 msgid "Hiearchical Cluster Analysis:"
 msgstr "Hierarhično razvrščanje:"
 
-#| msgid "Paired Wilcoxon Test"
 msgid "Paired Wilcoxon Test:"
 msgstr "Parni Wilcoxonov test:"
 
-#| msgid "Friedman Rank Sum Test"
 msgid "Friedman Rank Sum Test:"
 msgstr "Friedmanov test vsote rangov:"
 
 # new one-sample Wilcoxon test dialog
-#| msgid "Single-Sample Wilcoxon Test"
 msgid "Single-Sample Wilcoxon Test:"
 msgstr "Wilcoxonov test enega vzorca:"
 
-#| msgid "Histogram"
 msgid "Histogram:"
 msgstr "Histogram:"
 
-#| msgid "Stem and Leaf Display"
 msgid "Stem-and-Leaf Display:"
 msgstr "Steblo z listi:"
 
 # dot plot dialog
-#| msgid "Dot Plot"
 msgid "Dot Plot:"
 msgstr "Točkovni diagram:"
 
 msgid "Bar Plot:"
 msgstr "Stolpični diagram:"
 
-#| msgid "Pie Chart"
 msgid "Pie Chart:"
 msgstr "Krožni diagram:"
 
-#| msgid "Line Plot"
 msgid "Line Plot:"
 msgstr "Črtni diagram:"
 
-#| msgid "Quantile-Comparison (QQ) Plot"
 msgid "Quantile-Comparison Plot:"
 msgstr "Diagram primerjave kvantilov (QQ):"
 
-#| msgid "Plot Means"
 msgid "Plot of Means:"
 msgstr "Diagrami povprečij:"
 
-#| msgid "Discrete distributions"
 msgid "Discrete Distribution Plot:"
 msgstr "Diagram diskretne porazdelitve:"
 
-#| msgid "Contingency tables"
 msgid "Two-Way Contingency Table:"
 msgstr "Dvo-razsežna kontingenčna tabela:"
 
-#| msgid "Multi-Way Table"
 msgid "Multi-Way Contingency Table:"
 msgstr "Večrazsežna kontingenčna tabela:"
 
-#| msgid "Single-Sample Proportion Test"
 msgid "Single-Sample Proportion Test:"
 msgstr "Test deležev enega vzorca:"
 
-#| msgid "Two-Sample Proportions Test"
 msgid "Two-Sample Proportions Test:"
 msgstr "Test deležev dveh vzorcev:"
 
-#| msgid "Paired t-Test"
 msgid "Paired t-Test:"
 msgstr "t-test parov:"
 
-#| msgid "Single-Sample t-Test"
 msgid "Single-Sample t-Test:"
 msgstr "t-test enega vzorca:"
 
-#| msgid "Repeated-Measures Variables (pick two or more)"
 msgid "Repeated-Measures ANOVA: between ="
 msgstr "ANOVA s ponovljenimi meritvami: med ="
 
 msgid ", within = "
 msgstr ", znotraj = "
 
-#| msgid "Subset Data Set"
 msgid "Summarize Data Set:"
 msgstr "Povzemi zbirko podatkov:"
 
-#| msgid "Frequency counts"
 msgid "Frequencies:"
 msgstr "Frekvence:"
 
-#| msgid "Table of Statistics"
 msgid "Table of Summary Statistics:"
 msgstr "Tabela statistik povzetkov:"
 
 # Correlation test dialog
-#| msgid "Correlation Test"
 msgid "Correlation Test:"
 msgstr "Test korelacije:"
 
 # count NAs (menu item)
-#| msgid "Count missing observations"
 msgid "Count Missing Cases:"
 msgstr "Preštej manjkajoča opazovanja:"
 
-#| msgid "Transform Variables Toward Normality"
 msgid "Transform Variables Toward Normality:"
 msgstr "Transformiraj Spremenljivke Proti Normalnosti:"
 
-#| msgid "Scale Reliability"
 msgid "Scale Reliability:"
 msgstr "Zanesljivost lestvice:"
 
-#| msgid "Principal Components Analysis"
 msgid "Principal-Components Analysis:"
 msgstr "Analiza glavnih komponent:"
 
-#| msgid "Factor Analysis"
 msgid "Factor Analysis:"
 msgstr "Faktorska analiza:"
 
 # messages added to version 1.8-0
-#| msgid "Confirmatory Factor Analysis"
 msgid "Confirmatory Factor Analysis:"
 msgstr "Potrjevalna faktorska analiza:"
 
-#| msgid "Plot density function"
 msgid "Plot Normal Density Function"
 msgstr "Nariši funkcijo gostote normale porazdelitve"
 
-#| msgid "Plot density function"
 msgid "Plot Chi-squared Density Function"
 msgstr "Nariši funkcijo gostote porazdelitve hi-kvadrat"
 
-#| msgid "Plot density function"
 msgid "Plot F Density Function"
 msgstr "Nariši funkcijo gostote porazdelitve F"
 
-#| msgid "Plot density function"
 msgid "Plot t Density Function"
 msgstr "Nariši funkcijo gostote porazdelitve t"
 
-#| msgid "Plot exponential distribution..."
 msgid "Plot Exponential Density Function"
 msgstr "Nariši funkcijo gostote eksponentne porazdelitve"
 
-#| msgid "Plot density function"
 msgid "Plot Uniform Density Function"
 msgstr "Nariši funkcijo gostote enakomerne porazdelitve"
 
-#| msgid "Plot density function"
 msgid "Plot Beta Density Function"
 msgstr "Nariši funkcijo gostote porazdelitve beta"
 
-#| msgid "Plot density function"
 msgid "Plot Cauchy Density Function"
 msgstr "Nariši funkcijo gostote Cauchyjeve porazdelitve"
 
-#| msgid "Plot density function"
 msgid "Plot Logistic Density Function"
 msgstr "Nariši funkcijo gostote logistične porazdelitve"
 
-#| msgid "Plot density function"
 msgid "Plot Lognormal Density Function"
 msgstr "Nariši funkcijo gostote lognormalne porazdelitve"
 
-#| msgid "Plot density function"
 msgid "Plot Gamma Density Function"
 msgstr "Nariši funkcijo gostote porazdelitve gama"
 
-#| msgid "Plot density function"
 msgid "Plot Weibull Density Function"
 msgstr "Nariši funkcijo gostote Weibullove porazdelitve"
 
-#| msgid "Plot density function"
 msgid "Plot Gumbel Density Function"
 msgstr "Nariši funkcijo gostote Gumbelove porazdelitve"
 
-#| msgid "Plot distribution function"
 msgid "Plot Normal Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo normalne porazdelitve"
 
-#| msgid "Plot chi-squared distribution..."
 msgid "Plot Chi-squared Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitve no funkcijo porazdelitve hi-kvadrat"
 
-#| msgid "Plot distribution function"
 msgid "Plot F Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo porazdelitve F"
 
-#| msgid "Plot distribution function"
 msgid "Plot t Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo porazdelitve t"
 
-#| msgid "Plot exponential distribution..."
 msgid "Plot Exponential Cumulative Distribution Function"
 msgstr "Prikaz kumulativno porazdelitveno funkcijo eksponentne porazdelitve"
 
-#| msgid "Plot distribution function"
 msgid "Plot Uniform Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo enakomerne porazdelitve"
 
-#| msgid "Plot distribution function"
 msgid "Plot Beta Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo porazdelitve beta"
 
-#| msgid "Plot distribution function"
 msgid "Plot Cauchy Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo Cauchyjeve porazdelitve"
 
-#| msgid "Plot distribution function"
 msgid "Plot Logistic Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo logistične porazdelitve"
 
-#| msgid "Plot distribution function"
 msgid "Plot Lognormal Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo lognormalne porazdelitve"
 
-#| msgid "Plot distribution function"
 msgid "Plot Gamma Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo porazdelitve gama"
 
-#| msgid "Plot distribution function"
 msgid "Plot Weibull Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo Weibullove porazdelitve"
 
-#| msgid "Plot distribution function"
 msgid "Plot Gumbel Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo Gumbelove porazdelitve"
 
-#| msgid "Plot probability mass function"
 msgid "Plot Binomial Probability Mass Function"
 msgstr "Nariši funkcijo mase verjetnosti binomske porazdelitve"
 
-#| msgid "Plot probability mass function"
 msgid "Plot Poisson Probability Mass Function"
 msgstr "Nariši funkcijo mase verjetnosti Poissonove porazdelitve"
 
-#| msgid "Plot probability mass function"
 msgid "Plot Geometric Probability Mass Function"
 msgstr "Nariši funkcijo mase verjetnosti geometrične porazdelitve"
 
-#| msgid "Plot probability mass function"
 msgid "Plot Hypergeometric Probability Mass Function"
 msgstr "Nariši funkcijo mase verjetnosti hipergeometrične porazdelitve"
 
-#| msgid "Negative Binomial Probabilities"
 msgid "Plot NegativeBinomial Probability Mass Function"
 msgstr "Nariši funkcijo mase verjetnosti negativne binomske porazdelitve"
 
-#| msgid "Plot distribution function"
 msgid "Plot Binomial Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo binomske porazdelitve"
 
-#| msgid "Plot distribution function"
 msgid "Plot Poisson Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo Poissovoe porazdelitve"
 
-#| msgid "Plot distribution function"
 msgid "Plot Geometric Cumulative Distribution Function"
 msgstr "Nariši kumulativno porazdelitveno funkcijo geometrične porazdelitve"
 
-#| msgid "Plot hypergeometric distribution..."
 msgid "Plot Hypergeometric Cumulative Distribution Function"
 msgstr ""
 "Nariši kumulativno porazdelitveno funkcijo hipergeometrične porazdelitve"
 
-#| msgid "Negative Binomial Distribution"
 msgid "Plot NegativeBinomial Cumulative Distribution Function"
 msgstr ""
 "Nariši kumulativno porazdelitveno funkcijo negativne binomske porazdelitve"
@@ -6151,6 +6049,33 @@ msgstr ""
 "V splošnem ni dobra ideja urejanja kode R, ki ga je napisal R Commander,\n"
 "a lahko prosto urejate med (ne pa v) \"blokih kode R\". Vsak blok kode R se\n"
 "začne s ```{r} in konča s ```."
+
+msgid "Select row(s) from active data set..."
+msgstr "Izberi vrstico/vrstice iz aktivnega nabora podatkov..."
+
+msgid "Column variable"
+msgstr "Stolpična spremenljivka"
+
+msgid "Count variable"
+msgstr "Števčna spremenljivka"
+
+msgid "Row variable"
+msgstr "Vrstična spremenljivka"
+
+msgid "Row, and column variables must be differents"
+msgstr "Vrstična in stolpična spremenljivka morata biti različni"
+
+msgid "Two-way Table from counts"
+msgstr "Dvorazsežna tabela števcev"
+
+msgid "Two-way table from counts"
+msgstr "Dvorazsežna tabela iz števcev"
+
+msgid "Two-way table from counts..."
+msgstr "Dvorazsežna tabela iz števcev..."
+
+msgid "You must select row, column, and count variables"
+msgstr "Izbrati morate spremenljivke v vrsticah, stolpcih in števcih"
 
 #~ msgid "Condition on:"
 #~ msgstr "Pogojno na:"
