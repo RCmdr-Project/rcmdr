@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr-pl 2.7-0\n"
-"Report-Msgid-Bugs-To: jfox@mcmaster.ca\n"
-"POT-Creation-Date: 2020-08-25 10:45:00\n"
+"Project-Id-Version: Rcmdr-pl 2.12-4\n"
+"Report-Msgid-Bugs-To: manuel.munoz@uca.es\n"
+"POT-Creation-Date: 2026-05-04 00:00:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
 "Language-Team: Łukasz Daniel <lukasz.daniel@gmail.com>\n"
@@ -10,10 +10,26 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 3.9\n"
+
+msgid "Language"
+msgstr "Język"
+
+msgid "Select a language"
+msgstr "Wybierz język"
+
+# Uncomment the following 4 lines (remove the #s) to start the R Commander automatically when R starts:
+msgid "to start the R Commander automatically when R starts:"
+msgstr "aby uruchomić R Commander automatycznie podczas startu R:"
+
+msgid "Uncomment the following 4 lines (remove the #s)"
+msgstr "Odkomentuj poniższe 4 linie (usuń znaki #)"
+
+msgid "Variance"
+msgstr "Wariancja"
 
 msgid "KMeans Clustering"
 msgstr "Grupowanie metodą k-średnich"
@@ -412,8 +428,8 @@ msgid ""
 "{\"SPSS save files\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
 "\".POR\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Pliki SPSS\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" \"."
-"POR\"}} {\"Wszystkie pliki\" {\"*\"}}"
+"{\"Pliki SPSS\" {\".sav\" \".SAV\"}} {\"SPSS portable files\" {\".por\" "
+"\".POR\"}} {\"Wszystkie pliki\" {\"*\"}}"
 
 msgid ""
 "Convert value labels\n"
@@ -437,8 +453,8 @@ msgstr "Importuj zbiór danych Minitab"
 msgid ""
 "{\"Minitab portable files\" {\".mtp\" \".MTP\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Pliki przenośne Minitab\" {\".mtp\" \".MTP\"}} {\"Wszystkie pliki\" {\"*"
-"\"}}"
+"{\"Pliki przenośne Minitab\" {\".mtp\" \".MTP\"}} {\"Wszystkie pliki\" "
+"{\"*\"}}"
 
 msgid ""
 "Minitab data set contains elements of unequal length.\n"
@@ -687,7 +703,7 @@ msgid "Enter Contrast Coefficients"
 msgstr "Podaj współczynniki kontrastu"
 
 msgid "Contrast Name:"
-msgstr "Nazwa kontrastu"
+msgstr "Nazwa Kontrastu:"
 
 msgid ""
 "Number of valid entries in contrast matrix(%d)\n"
@@ -1279,11 +1295,11 @@ msgid "{\"PNG Files\" {\".png\" \".PNG\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Pliki PNG\" {\".png\" \".PNG\"}} {\"Wszystkie pliki\" {\"*\"}}"
 
 msgid ""
-"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" {\"*"
-"\"}}"
+"{\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"All Files\" "
+"{\"*\"}}"
 msgstr ""
-"{\"Pliki JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Wszystkie pliki"
-"\" {\"*\"}}"
+"{\"Pliki JPEG\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG\"}} {\"Wszystkie "
+"pliki\" {\"*\"}}"
 
 msgid "Graph saved to file"
 msgstr "Wykres zapisany do pliku"
@@ -1313,11 +1329,11 @@ msgid "{\"Postscript Files\" {\".ps\" \".PS\"}} {\"All Files\" {\"*\"}}"
 msgstr "{\"Pliki Postscript\" {\".ps\" \".PS\"}} {\"Wszystkie pliki\" {\"*\"}}"
 
 msgid ""
-"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" {\"*"
-"\"}}"
+"{\"Encapsulated Postscript Files\" {\".eps\" \".EPS\"}} {\"All Files\" "
+"{\"*\"}}"
 msgstr ""
-"{\"Pliki Encapsulated Postscript\" {\".eps\" \".EPS\"}} {\"wszystkie pliki"
-"\" {\"*\"}}"
+"{\"Pliki Encapsulated Postscript\" {\".eps\" \".EPS\"}} {\"wszystkie pliki\" "
+"{\"*\"}}"
 
 msgid "Width (inches)"
 msgstr "Szerokość (cale)"
@@ -2588,11 +2604,12 @@ msgid "Import from Excel, Access or dBase data set"
 msgstr "Importu z pliku Excel, Acces lub zbioru danych dBase"
 
 msgid ""
-"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb \".MDB"
-"\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
+"{\"MS Excel file\" {*.xls \".XLS\"}} {\"MS Access database\" {*.mdb "
+"\".MDB\"}} {\"dBase-like file\" {*.dbf \".DBF\"}} {\"All Files\" {\"*\"}}"
 msgstr ""
-"{\"Plik MS Excel\" {*.xls \".XLS\"}} {\"Baza danych MS Access\" {*.mdb \".MDB"
-"\"}} {\"Pliki typu dBase\" {*.dbf \".DBF\"}} {\"Wszystkie pliki\" {\"*\"}}"
+"{\"Plik MS Excel\" {*.xls \".XLS\"}} {\"Baza danych MS Access\" {*.mdb "
+"\".MDB\"}} {\"Pliki typu dBase\" {*.dbf \".DBF\"}} {\"Wszystkie pliki\" "
+"{\"*\"}}"
 
 msgid "Select one table"
 msgstr "Wybierz jedną tabelę"
@@ -3431,9 +3448,9 @@ msgstr "Rozmiar czcionki etykiety osi"
 msgid "Scale (inverse rate)"
 msgstr "Skala (odwrotny wskaźnik)"
 
-# messages added to version 1.3-5
+# {dataset} has been coerced to a data frame
 msgid " has been coerced to a data frame"
-msgstr "została dołączona do ramki"
+msgstr "został przekształcony w ramkę danych"
 
 msgid "the dataset %s is no longer available"
 msgstr "zbiór danych %s nie jest już dostępny"
@@ -3711,11 +3728,11 @@ msgstr "Nazwa dla zagregowanego zbioru danych:"
 
 #     miscellaneous
 msgid ""
-"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files"
-"\" {\"*\"}}"
+"{\"R Data Files\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"All Files\" "
+"{\"*\"}}"
 msgstr ""
-"{\"Pliki R Data\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Wszystkie pliki"
-"\" {\"*\"}}"
+"{\"Pliki R Data\" {\".rda\" \".Rda\" \".RDA\" \".RData\"}} {\"Wszystkie "
+"pliki\" {\"*\"}}"
 
 msgid "No data set selected."
 msgstr "Nie wybrano zbioru danych."
@@ -3795,8 +3812,8 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"Text Files\" {\".txt\" \".TXT\" \".dat\" \".DAT\" "
 "\".csv\" \".CSV\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"Pliki tekstowe\" {\".txt\" \".TXT\" \".dat"
-"\" \".DAT\" \".csv\" \".CSV\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"Pliki tekstowe\" {\".txt\" \".TXT\" "
+"\".dat\" \".DAT\" \".csv\" \".CSV\"}}"
 
 msgid ""
 "{\"All Files\" {\"*\"}} {\"SPSS portable files\" {\".por\" \".POR\"}} "
@@ -3808,36 +3825,36 @@ msgstr ""
 msgid ""
 "{\"All Files\" {\"*\"}} {\"Minitab portable files\" {\".mtp\" \".MTP\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"przenośne pliki Minitab\" {\".mtp\" \".MTP"
-"\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"przenośne pliki Minitab\" {\".mtp\" "
+"\".MTP\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 msgstr "{\"Wszystkie pliki\" {\"*\"}} {\"STATA datasets\" {\".dta\" \".DTA\"}}"
 
 msgid ""
 "{\"All Files\" {\"*\"}} {\"MS Access database\" {\".mdb\" \".MDB\"}} {\"MS "
-"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" {\".dbf"
-"\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS Excel file"
-"\" {\".xls\" \".XLS\"}}"
+"Access 2007 database\" {\".accdb\" \".ACCDB\"}} {\"dBase-like file\" "
+"{\".dbf\" \".DBF\"}} {\"MS Excel 2007 file\" {\".xlsx\" \".XLSX\"}} {\"MS "
+"Excel file\" {\".xls\" \".XLS\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"baza danych MS Access\" {\".mdb\" \".MDB"
-"\"}} {\"baza danych MS Access 2007\" {\".accdb\" \".ACCDB\"}} {\"plik typu "
-"dBase\" {\".dbf\" \".DBF\"}} {\"plik MS Excel 2007\" {\".xlsx\" \".XLSX\"}} "
-"{\"plik MS Excel\" {\".xls\" \".XLS\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"baza danych MS Access\" {\".mdb\" "
+"\".MDB\"}} {\"baza danych MS Access 2007\" {\".accdb\" \".ACCDB\"}} {\"plik "
+"typu dBase\" {\".dbf\" \".DBF\"}} {\"plik MS Excel 2007\" {\".xlsx\" "
+"\".XLSX\"}} {\"plik MS Excel\" {\".xls\" \".XLS\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" \"."
-"RDA\"}}"
+"{\"All Files\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda\" "
+"\".RDA\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" \".Rda"
-"\" \".RDA\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"R Data Files\" {\".RData\" \".rda\" "
+"\".Rda\" \".RDA\"}}"
 
 msgid "{\"All Files\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 msgstr "{\"Wszystkie pliki\" {\"*\"}} {\"PNG Files\" {\".png\" \".PNG\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" \".JPEG"
-"\"}}"
+"{\"All Files\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" "
+"\".JPEG\"}}"
 msgstr ""
 "{\"Wszystkie pliki\" {\"*\"}} {\"JPEG Files\" {\".jpg\" \".JPG\" \".jpeg\" "
 "\".JPEG\"}}"
@@ -3849,8 +3866,8 @@ msgid "{\"All Files\" {\"*\"}} {\"Postscript Files\" {\".ps\" \".PS\"}}"
 msgstr "{\"Wszystkie pliki\" {\"*\"}} {\"Pliki Postscript\" {\".ps\" \".PS\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" \".EPS"
-"\"}}"
+"{\"All Files\" {\"*\"}} {\"Encapsulated Postscript Files\" {\".eps\" "
+"\".EPS\"}}"
 msgstr ""
 "{\"Wszystkie pliki\" {\"*\"}} {\"Pliki Encapsulated Postscript\" {\".eps\" "
 "\".EPS\"}}"
@@ -4015,8 +4032,8 @@ msgid ""
 "{\"All Files\" {\"*\"}} {\"SAS xport files\" {\".xpt\" \".XPT\" \".xport\" "
 "\".XPORT\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"pliki SAS xport\" {\".xpt\" \".XPT\" \"."
-"xport\" \".XPORT\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"pliki SAS xport\" {\".xpt\" \".XPT\" "
+"\".xport\" \".XPORT\"}}"
 
 msgid ""
 "Convert variable names\n"
@@ -4191,8 +4208,8 @@ msgstr ""
 "{\"Wszystkie pliki\" {\"*\"}} {\"Pliki R Markdown\" {\".Rmd\" \".rmd\"}}"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" \".snw"
-"\"}}"
+"{\"All Files\" {\"*\"}} {\"knitr Files\" {\".Rmd\" \".rmd\" \".Snw\" "
+"\".snw\"}}"
 msgstr ""
 "{\"Wszystkie pliki\" {\"*\"}} {\"Pliki knitr\" {\".Rmd\" \".rmd\" \".Snw\" "
 "\".snw\"}}"
@@ -4427,6 +4444,9 @@ msgstr "Edytuj dokument R Markdown"
 msgid "Edit knitr document"
 msgstr "Edytuj dokument knitr"
 
+msgid "Remove last Markdown block"
+msgstr "Usuń ostatni blok Markdown"
+
 msgid "Remove last Markdown command block"
 msgstr "Usuń ostatni blok polecenia Markdown"
 
@@ -4473,6 +4493,9 @@ msgstr "Nazwy zmiennych w pierwszej kolumnie arkusza"
 
 msgid "<no variable selected>"
 msgstr "<nie wybrano zmiennych>"
+
+msgid "Weights"
+msgstr "Wagi"
 
 msgid "Model Effect Plots"
 msgstr "Wykresy modelu efektu"
@@ -4770,11 +4793,11 @@ msgid "<empty cell>"
 msgstr "<pusta komórka>"
 
 msgid ""
-"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" \"."
-"XLS\"}}"
+"{\"All Files\" {\"*\"}} {\"MS Excel file\" {\".xlsx\" \".XLSX\" \".xls\" "
+"\".XLS\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"plik MS Excel\" {\".xlsx\" \".XLSX\" \".xls"
-"\" \".XLS\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"plik MS Excel\" {\".xlsx\" \".XLSX\" "
+"\".xls\" \".XLS\"}}"
 
 # corrected messages in version 2.2-1
 # The following messages had trailing blanks. These messages were deleted from
@@ -5099,8 +5122,8 @@ msgstr "z pliku SAS b7dat..."
 msgid ""
 "{\"All Files\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \".SAS7BDAT\"}}"
 msgstr ""
-"{\"Wszystkie pliki\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" \"."
-"SAS7BDAT\"}}"
+"{\"Wszystkie pliki\" {\"*\"}} {\"SAS b7dat dataset\" {\".sas7bdat\" "
+"\".SAS7BDAT\"}}"
 
 # addition to the Commander Options dialog
 msgid ""
@@ -5286,7 +5309,7 @@ msgid "Restart the Commander"
 msgstr "Zrestartuj Commander'a"
 
 msgid "Restart the Commander?"
-msgstr "Zrestartować Commander'a"
+msgstr "Zrestartować Commander'a?"
 
 # for new repeated-measures ANOVA/ANCOVA dialogs
 msgid "One-factor repeated-measures ANOVA/ANCOVA..."
@@ -5433,7 +5456,7 @@ msgid "Save data set aborted"
 msgstr "Przerwano zapisywanie zbioru danych"
 
 msgid "Name for wide data set:"
-msgstr "Nazwa dla szerokiego zbioru danych"
+msgstr "Nazwa dla szerokiego zbioru danych:"
 
 msgid "Make the wide data set active"
 msgstr "Uaktywnij szeroki zbiór danych"
@@ -5501,6 +5524,552 @@ msgstr "Jeden czynnik powtarzanych pomiarów"
 
 msgid "Two Repeated-Measures Factors"
 msgstr "Dwa czynniki powtórzonych pomiarów"
+
+#, fuzzy
+#| msgid "cannot select more than one variable"
+msgid "You cannot plot by groups with more than one variable selected"
+msgstr "nie można wybrać więcej niż jedną zmienną"
+
+msgid "Number of automatic rotations"
+msgstr "Liczba automatycznych rotacji"
+
+#, fuzzy
+#| msgid "Component+Residual Plots"
+msgid "3D Component+Residual Plot"
+msgstr "Wykresy komponentu+reszty"
+
+#, fuzzy
+#| msgid "Added-Variable Plots"
+msgid "3D Added-Variable Plot"
+msgstr "Wykresy dodanych zmiennych"
+
+msgid "Coefficients (pick two)"
+msgstr "Współczynniki (wybierz dwa)"
+
+msgid "You must select 2 coefficients."
+msgstr "Musisz wybrać dwa współczynniki."
+
+#, fuzzy
+#| msgid "Component+residual plots..."
+msgid "3D Component+residual plot..."
+msgstr "Wykresy komponentu+reszty..."
+
+#, fuzzy
+#| msgid "Added-variable plots..."
+msgid "3D added-variable plot..."
+msgstr "Wykresy dodanych zmiennych..."
+
+# for startup message
+msgid "Hello"
+msgstr "Witaj"
+
+#, fuzzy
+#| msgid "Indices or quoted names of row(s) to remove"
+msgid "Indices or names of row(s) to remove"
+msgstr "Indeksy lub cytowane nazwy wiersza(y) do usunięcia"
+
+msgid "<use all valid cases>"
+msgstr "<użyj wszystkie poprawne przypadki>"
+
+#, fuzzy
+#| msgid "Write row names:"
+msgid "bad row numbers:"
+msgstr "Zapisz nazwy wierszy:"
+
+#, fuzzy
+#| msgid "Write row names:"
+msgid "bad row names:"
+msgstr "Zapisz nazwy wierszy:"
+
+msgid "You cannot specify both case removal and subset cases"
+msgstr ""
+"Nie możesz określić jednocześnie usuwania przypadków i podzbioru przypadków"
+
+msgid "Include case-deletion box in statistical model dialogs"
+msgstr ""
+"Uwzględnij okienko usuwania przypadków z oknach dialogowych modeli "
+"statystycznych"
+
+msgid "Indices or names of row(s) to select"
+msgstr "Indeksy lub nazwy wiersza(y) do wybrania"
+
+msgid "Information"
+msgstr "Informacja"
+
+msgid "Question"
+msgstr "Pytanie"
+
+msgid "Warning"
+msgstr "Ostrzeżenie"
+
+msgid "Error"
+msgstr "Błąd"
+
+msgid "Remove last Markdown section title"
+msgstr "Usuń ostatni tytuł sekcji Markdown"
+
+# new message for processing plug-ins
+msgid ""
+"The following Markdown section titles in %s\n"
+"  conflict with existing titles and were removed:\n"
+"  "
+msgstr ""
+"Poniższe sekcje tytułów Markdown w %s\n"
+"  kolidowały z istniejącymi tytułami i zostały usunięte:\n"
+"  "
+
+# bootstrapping dialog
+msgid "Bootstrap Confidence Intervals"
+msgstr "Przedziały Ufności Bootstrap"
+
+# delta method dialog
+#, fuzzy
+#| msgid "Delta method confidence interval..."
+msgid "Delta Method Confidence Intervals"
+msgstr "Przedział ufności metody delta..."
+
+msgid "Density Plot"
+msgstr "Wykres Gęstości"
+
+msgid "Durbin-Watson Test"
+msgstr "Test Durbina-Watona"
+
+#, fuzzy
+#| msgid "Generalized Linear Mixed Model"
+msgid "Generalized Linear Mixed-Effects Model"
+msgstr "Uogólniony mieszany model liniowy"
+
+#, fuzzy
+#| msgid "Linear Mixed Model"
+msgid "Linear Mixed-Effects Model"
+msgstr "Mieszany model liniowy"
+
+msgid "Multinomial Logistic Regression"
+msgstr "Wielomianowa Regresja Logistyczna"
+
+msgid "Bonferroni Outlier Test"
+msgstr "Test Bonferroniego wartości oddalonych"
+
+msgid "Partial Correlations"
+msgstr "Częściowe Korelacje"
+
+#, fuzzy
+#| msgid "Repeated-Measures Means"
+msgid "Repeated-Measures Plot"
+msgstr "Średnie powtórzonych pomiarów"
+
+msgid "Transformation Boxplots for Symmetry"
+msgstr "Transformacje Wykresów Pudełkowych dla Symetrii"
+
+#, fuzzy
+#| msgid "Independent Samples t-Test"
+msgid "Independent-Samples t-Test"
+msgstr "Test t-Studenta niezależnych prób"
+
+#, fuzzy
+#| msgid "Variance-inflation factors"
+msgid "Variance-Inflation Factors"
+msgstr "Czynniki inflacyjne wariancji"
+
+msgid "Wilcoxon Test"
+msgstr "Test Wilcoxona"
+
+# Xyplot dialog
+msgid "Conditioning Plot"
+msgstr "Wykres Warunkowy"
+
+msgid "Normal Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Normalnego"
+
+msgid "t Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu t-Studenta"
+
+msgid "Chi-Squared Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Chi-kwadrat"
+
+msgid "F Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu F"
+
+msgid "Exponential Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Eksponencjalnego"
+
+msgid "Uniform Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Jednorodnego"
+
+msgid "Beta Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Beta"
+
+msgid "Cauchy Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Cauchy'ego"
+
+msgid "Logistic Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Logistycznego"
+
+msgid "Log-Normal Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Logarytmicznie Normalnego"
+
+msgid "Gamma Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Gamma"
+
+msgid "Weibull Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Weibulla"
+
+msgid "Gumbel Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Gumbela"
+
+msgid "Binomial Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Bernoulliego"
+
+msgid "Poisson Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Poissona"
+
+msgid "Geometric Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Geometrycznego"
+
+msgid "Hypergeometric Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Hipergeometrycznego"
+
+msgid "Negative Binomial Cumulative Probabilities"
+msgstr "Skumulowane Prawdopodobieństwa Rozkładu Pascala"
+
+msgid "Bartlett's Test:"
+msgstr "Test Bartletta:"
+
+#, fuzzy
+#| msgid "Model Effect Plots"
+msgid "Basic Model Plots:"
+msgstr "Wykresy modelu efektu"
+
+msgid "Analysis of Variance:"
+msgstr "Analiza Wariancji:"
+
+#, fuzzy
+#| msgid "Hypothesis Test"
+msgid "Linear Hypothesis Test:"
+msgstr "Test hipotezy"
+
+#, fuzzy
+#| msgid "Subset Model Selection"
+msgid "Subset Model Selection:"
+msgstr "Wybór modelu podzbioru"
+
+msgid "Effect Plots:"
+msgstr "Wykresy efektu:"
+
+#, fuzzy
+#| msgid "Predictor Effect Plots"
+msgid "Predictor Effect Plots:"
+msgstr "Wykresy efektów predyktorów"
+
+#, fuzzy
+#| msgid "Transform Variables Toward Normality"
+msgid "Transform Response Toward Normality:"
+msgstr "Transformuj zmienne w kierunku normalności"
+
+msgid "Table of Binomial Probabilities"
+msgstr "Tablica Prawdopodobieństw Rozkładu Bernoulliego"
+
+msgid "Table of Poisson Probabilities"
+msgstr "Tablica Prawdopodobieństw Rozkładu Poissona"
+
+msgid "Table of Geometric Probabilities"
+msgstr "Tablica Prawdopodobieństw Rozkładu Geometrycznego"
+
+msgid "Table of Hypergeomtric Probabilities"
+msgstr "Tablica Prawdopodobieństw Rozkładu Hipergeometrycznego"
+
+msgid "Table of NegativeBinomial Probabilities"
+msgstr "Tablica Prawdopodobieństw Rozkładu Pascala"
+
+msgid "K-Means Clustering:"
+msgstr "Grupowanie metodą K-średnich:"
+
+#, fuzzy
+#| msgid "Hierarchical cluster analysis..."
+msgid "Hiearchical Cluster Analysis:"
+msgstr "Analiza hierarchicznego grupowania..."
+
+msgid "Paired Wilcoxon Test:"
+msgstr "Sparowany test Wilcoxona:"
+
+#, fuzzy
+#| msgid "Friedman Rank Sum Test"
+msgid "Friedman Rank Sum Test:"
+msgstr "Test Friedmana sum szeregowych"
+
+#, fuzzy
+#| msgid "Single-Sample Wilcoxon Test"
+msgid "Single-Sample Wilcoxon Test:"
+msgstr "Test Wilcoxona pojedynczej próby"
+
+msgid "Histogram:"
+msgstr "Histogram:"
+
+#, fuzzy
+#| msgid "Stem and Leaf Display"
+msgid "Stem-and-Leaf Display:"
+msgstr "Wykres łodygowo-liściowy"
+
+# dot plot dialog
+msgid "Dot Plot:"
+msgstr "Wykres Punktowy:"
+
+msgid "Bar Plot:"
+msgstr "Wykres Słupkowy:"
+
+msgid "Pie Chart:"
+msgstr "Wykres Kołowy:"
+
+msgid "Line Plot:"
+msgstr "Wykres Liniowy:"
+
+#, fuzzy
+#| msgid "Quantile-Comparison (QQ) Plot"
+msgid "Quantile-Comparison Plot:"
+msgstr "Wykres porównawczy kwantyli (QQ)"
+
+msgid "Plot of Means:"
+msgstr "Wykres Średnich:"
+
+msgid "Discrete Distribution Plot:"
+msgstr "Wykres Rozkładu Dyskretnego:"
+
+msgid "Two-Way Contingency Table:"
+msgstr "Dwukierunkowa Tabela Kontyngencji"
+
+msgid "Multi-Way Contingency Table:"
+msgstr "Wielokierunkowa Tabela Kontyngencji"
+
+#, fuzzy
+#| msgid "Single-Sample Proportion Test"
+msgid "Single-Sample Proportion Test:"
+msgstr "Test proporcjonalności pojedynczej próby"
+
+#, fuzzy
+#| msgid "Two-Sample Proportions Test"
+msgid "Two-Sample Proportions Test:"
+msgstr "Test proporcjonalności dwu prób"
+
+msgid "Paired t-Test:"
+msgstr "Sparowany Test t-Studenta:"
+
+msgid "Single-Sample t-Test:"
+msgstr "Test t-Studenta Pojedynczej Próby:"
+
+# Repeated-Measures ANOVA: between = %s, within = %s
+msgid "Repeated-Measures ANOVA: between ="
+msgstr "ANOVA Powtórzonych Pomiarów: pomiędzy = "
+
+# Repeated-Measures ANOVA: between = %s, within = %s
+msgid ", within = "
+msgstr ", w zakresie = "
+
+msgid "Summarize Data Set:"
+msgstr "Podsumuj Zbiór Danych:"
+
+msgid "Frequencies:"
+msgstr "Częstości:"
+
+#, fuzzy
+#| msgid "Table of Statistics"
+msgid "Table of Summary Statistics:"
+msgstr "Tabela statystyk"
+
+# Correlation test dialog
+msgid "Correlation Test:"
+msgstr "Test Korelacji:"
+
+# count NAs (menu item)
+msgid "Count Missing Cases:"
+msgstr "Zlicz Brakujące Obserwacje:"
+
+#, fuzzy
+#| msgid "Transform Variables Toward Normality"
+msgid "Transform Variables Toward Normality:"
+msgstr "Transformuj zmienne w kierunku normalności"
+
+msgid "Scale Reliability:"
+msgstr "Rzetelność Skali:"
+
+msgid "Principal-Components Analysis:"
+msgstr "Analiza Głównych Składowych:"
+
+msgid "Factor Analysis:"
+msgstr "Analiza Czynnikowa:"
+
+# messages added to version 1.8-0
+#, fuzzy
+#| msgid "Confirmatory Factor Analysis"
+msgid "Confirmatory Factor Analysis:"
+msgstr "Potwierdzająca analiza czynnikowa"
+
+msgid "Plot Normal Density Function"
+msgstr "Wykres Funkcji Gęstości Rozkładu Normalnego"
+
+msgid "Plot Chi-squared Density Function"
+msgstr "Wykres Funkcji Gęstości Rozkładu Chi-kwadrat"
+
+msgid "Plot F Density Function"
+msgstr "Wykres Funkcji Gęstości Rozkładu F"
+
+msgid "Plot t Density Function"
+msgstr "Wykres Funkcji Gęstości Rozkładu t"
+
+msgid "Plot Exponential Density Function"
+msgstr "Wykres Funkcji Gęstości Rozkładu Eksponencjalnego"
+
+msgid "Plot Uniform Density Function"
+msgstr "Wykres Funkcji Gęstości Rozkładu Jednorodnego"
+
+msgid "Plot Beta Density Function"
+msgstr "Wykres Funkcji Gęstości Rozkładu Beta"
+
+msgid "Plot Cauchy Density Function"
+msgstr "Wykres Funkcji Gęstości Rozkładu Cauchy'ego"
+
+msgid "Plot Logistic Density Function"
+msgstr "Wykres Funkcji Gęstości Rozkładu Logistycznego"
+
+msgid "Plot Lognormal Density Function"
+msgstr "Wykres Funkcji Gęstości Rozkładu Lognormalnego"
+
+msgid "Plot Gamma Density Function"
+msgstr "Wykres Funkcji Gęstości Rozkładu Gamma"
+
+msgid "Plot Weibull Density Function"
+msgstr "Wykres Funkcji Gęstości Rozkładu Weibulla"
+
+msgid "Plot Gumbel Density Function"
+msgstr "Wykres Funkcji Gęstości Rozkładu Gumbela"
+
+msgid "Plot Normal Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Normalnego"
+
+msgid "Plot Chi-squared Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Chi-kwadrat"
+
+msgid "Plot F Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu F"
+
+msgid "Plot t Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu t-Studenta"
+
+msgid "Plot Exponential Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Eksponencjalnego"
+
+msgid "Plot Uniform Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Jednorodnego"
+
+msgid "Plot Beta Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Beta"
+
+msgid "Plot Cauchy Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Cauchy'ego"
+
+msgid "Plot Logistic Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Logistycznego"
+
+msgid "Plot Lognormal Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Lognormalnego"
+
+msgid "Plot Gamma Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Gamma"
+
+msgid "Plot Weibull Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Weibulla"
+
+msgid "Plot Gumbel Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Gumbela"
+
+msgid "Plot Binomial Probability Mass Function"
+msgstr "Wykres Masy Prawdopodobieństwa Rozkładu Bernoulliego"
+
+msgid "Plot Poisson Probability Mass Function"
+msgstr "Wykres Masy Prawdopodobieństwa Rozkładu Poissona"
+
+msgid "Plot Geometric Probability Mass Function"
+msgstr "Wykres Masy Prawdopodobieństwa Rozkładu Geometrycznego"
+
+msgid "Plot Hypergeometric Probability Mass Function"
+msgstr "Wykres Masy Prawdopodobieństwa Rozkładu Hipergeometrycznego"
+
+msgid "Plot NegativeBinomial Probability Mass Function"
+msgstr "Wykres Masy Prawdopodobieństwa Rozkładu Pascala"
+
+msgid "Plot Binomial Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Dwumianowego"
+
+msgid "Plot Poisson Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Poissona"
+
+msgid "Plot Geometric Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Geometrycznego"
+
+msgid "Plot Hypergeometric Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Hipergeometrycznego"
+
+msgid "Plot NegativeBinomial Cumulative Distribution Function"
+msgstr "Wykres Skumulowanego Prawdopodobieństwa Rozkładu Pascala"
+
+# the following is used for the template main title of R Markdown and knitr documents
+msgid "Replace with Main Title"
+msgstr "Zastąp Głównym Tytułem"
+
+# the following instructions to the user appear as comments in the body of the R Markdown document
+msgid "include this code chunk as-is to set options"
+msgstr "dołącz ten fragment kodu as-is aby ustawić opcje"
+
+msgid ""
+"You can edit this R Markdown document, for example to explain what you're\n"
+"doing and to draw conclusions from your data analysis."
+msgstr ""
+"Możesz edytować ten dokument R Markdown, na przykład aby wyjaśnić\n"
+"co zrobiłeś i aby wyciągnąć wnioski z twojej analizy danych."
+
+msgid ""
+"Auto-generated section titles, typically preceded by ###, can also be edited."
+msgstr ""
+"Automatycznie wygenerowane tytuły sekcji, zazwyczaj poprzedzone znakami ###, "
+"również mogą być edytowane."
+
+msgid ""
+"It's generally not a good idea to edit the R code that the R Commander "
+"writes, \n"
+"but you can freely edit between (not within) R \"code blocks.\" Each R code\n"
+"block starts with ```{r} and ends with ```."
+msgstr ""
+"Generalnie nie jest dobrym pomysłem edytowanie kodu R który utworzył R "
+"Commander, \n"
+"ale możesz to zrobić pomiędzy \"blokami kodu\" R (nie wewnątrz). Każdy blok "
+"kodu R\n"
+"zaczyna się od  ```{r} a kończy na ```."
+
+msgid "Select row(s) from active data set..."
+msgstr "Wybierz wiersz(e) z aktywnego zbioru danych..."
+
+msgid "Column variable"
+msgstr "Zmienna kolumn"
+
+msgid "Count variable"
+msgstr "Zmienna zliczeń"
+
+msgid "Row variable"
+msgstr "Zmienna wierszy"
+
+msgid "Row, and column variables must be differents"
+msgstr "Zmienne wiersza oraz kolumny muszą być różne"
+
+msgid "Two-way Table from counts"
+msgstr "Tablica Dwukryteriowa ze zliczeń"
+
+msgid "Two-way table from counts"
+msgstr "Tablica Dwukryteriowa ze zliczeń"
+
+msgid "Two-way table from counts..."
+msgstr "Tablica Dwukryteriowa ze zliczeń..."
+
+msgid "You must select row, column, and count variables"
+msgstr "Musisz wybrać wiersz, kolumnę oraz zmienne zliczające"
 
 #~ msgid "Dataset"
 #~ msgstr "Zbiór danych"
