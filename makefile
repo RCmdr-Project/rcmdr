@@ -1,5 +1,5 @@
 package := Rcmdr
-version := 2.12.6
+version := 2.13.0
 
 R := $(wildcard pkg/R/*.R)
 Rnw := $(wildcard pkg/vignettes/*.Rnw)
@@ -27,6 +27,7 @@ Rcmdr.Rcheck/00check.log: $(package)_$(version).tar.gz
 	R CMD check --as-cran $(package)_$(version).tar.gz
 
 $(package)_$(version).tar.gz: $(R) $(Rd) $(Rnw) $(Vignettes) pkg/DESCRIPTION pkg/NAMESPACE pkg/.Rbuildignore
+	# R CMD build --no-build-vignettes pkg
 	R CMD build --compact-vignettes=both pkg
 
 $(package)_$(version).zip: Rcmdr.Rcheck/00check.log

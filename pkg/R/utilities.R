@@ -2203,6 +2203,9 @@ loadPlugins <- function(){
     packagesBox <- variableListBox(top, plugins, title=gettextRcmdr("Plug-ins (pick one or more)"),
         selectmode="multiple", listHeight=10)
     onOK <- function(){
+        ## Save active data set to restore later
+        putRcmdr('ActiveDataSet', ActiveDataSet())
+        putRcmdr('ActiveModel', activeModel())
         plugins <- getSelection(packagesBox)
         closeDialog(top)
         if (length(plugins) == 0){

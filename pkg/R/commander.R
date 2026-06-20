@@ -38,7 +38,7 @@ Commander <- function(){
     processOperations(Plugins)
     
     Menus <- processMenus(Plugins)
-    
+
     setupGUI(Menus)
     
     openGraphicsDevices()
@@ -54,9 +54,16 @@ Commander <- function(){
     sink(messages.connection, type="message")
     
     library(Rcmdr, quietly=TRUE)
-    
     sink(type="message")
     close(messages.connection)
+
+    ## Restore last active data set (if any)
+    .activeDataSet <- getRcmdr('ActiveDataSet', fail = FALSE)
+    if (!is.null(.activeDataSet) && .activeDataSet != "") activeDataSet(.activeDataSet)
+
+    ## Restore last active model (if any)
+    .activeModel <- getRcmdr('ActiveModel', fail = FALSE)
+    if (!is.null(.activeModel) && .activeModel != FALSE) activeModel(.activeModel)
 
 }
 

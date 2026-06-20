@@ -1,16 +1,12 @@
-Changes in version 2.12.6
-
- o Polish translation files updated by Lukasz Daniel
-
-Changes in version 2.12.5
-
- o Slovenian translation files updated by Matjaž Jeran 
-
-Changes in version 2.12.4
+Changes in version 2.13.0
 
  o Added new helps for some dialogs.
+ o After loading a plugin active data set and active model are restored
+ o Polish translation files updated by Lukasz Daniel
  o Remove levels.character export.
-
+ o Slovenian translation files updated by Matjaž Jeran 
+ o Update of dependencies to version 2.10.2 of RcmdrMisc
+ 
 Changes in version 2.12.3
 
  o New help for linearRegressionModel, readDataFromPackage, RemoveRows and SelectRows dialogs.
