@@ -51,7 +51,19 @@
         "effects", "e1071", "foreign", "Hmisc", "knitr", "lattice", "leaps", "lmtest",
         "markdown", "MASS", "mgcv", "multcomp", "nlme", "nnet", "nortest", "RcmdrMisc", 
         "readxl", "relimp", "rgl", "rmarkdown", "sandwich", "sem"))
-#    if (WindowsP()) required.packages <- c(required.packages, "RODBC")
+    
+    ## if (WindowsP()) required.packages <- c(required.packages, "RODBC")
+
+    ## Workaround to prevent tcltk2 from failing to load
+    if (WindowsP()) {
+        
+        ## Test if R_USER environment variable is set
+        if (Sys.getenv("R_USER") == "" && Sys.getenv("USERPROFILE") != "") {
+            userdocdir <- paste0(Sys.getenv('USERPROFILE'), "\\Documents")
+            Sys.setenv(R_USER = userdocdir)
+        }
+    }
+    
     check <- options("Rcmdr")[[1]]$check.packages
     if (length(check) > 0 && !check) return()
     packages.to.check <- required.packages

@@ -48,7 +48,7 @@ Salir de R Commander se realiza mediante \code{Fichero -> Salir} o cerrando la v
 
 \bold{\enc{Personalización}{Personalizacion} y \enc{configuración}{configuracion}} 
 
-Los archivos de \enc{configuración}{configuracion} \enc{están}{estan} en el subdirectorio \code{etc} de cada paquete o en la \enc{localización}{localizacion} dada por \code{etc} y en las opciones de \code{etcMenus} (mirar abajo). 
+Los archivos de \enc{configuración}{configuracion} \enc{están}{estan} en el subdirectorio \code{etc} de cada paquete o en la \enc{localización}{localizacion} dada por \code{etc} y en las opciones de \code{etcMenus} (\enc{véase}{vease} abajo). 
 
 Los \enc{menús}{menus} de \code{Rcmdr} pueden ser personalizados editando el archivo \code{Rcmdr-menus.txt}. 
 
@@ -56,7 +56,7 @@ Algunas funciones (ej. \code{histograma}) que normalmente no crean salida visibl
 
 Puede \enc{añadir}{anadir} \enc{código}{codigo} R al paquete, ej., para crear \enc{diálogo}{dialogo}s adicionales, colocando archivos con \enc{extensión}{extension} \code{.R} en el directorio \code{etc}, \enc{además}{ademas} puede editar \code{Rcmdr-menus.txt} para proporcionar \enc{menús}{menus} adicionales, sub\enc{menús}{menus} o items. Una \enc{demostración}{demostracion} de esto se proporciona mediante el archivo \code{BoxCox.demo}. Para activar la demo, renombre el archivo a \code{BoxCox.R} y descomente la correspondiente \enc{línea}{linea} del \enc{menú}{menu} en \code{Rcmdr-menus.txt}. De forma alternativa, puede editar el \enc{código}{codigo} del paquete y recompilarlo. 
 
-Algunas funciones son proporcionadas para ayudar a escribir \enc{diálogo}{dialogo}s y la \enc{información}{informacion} del estado de \code{Rcmdr} en un emplazamiento separado. Mirar \code{help("Rcmdr.Utilities")} y el manual suministrado en el directorio \code{doc} del paquete de \code{Rcmdr} para mayor \enc{información}{informacion}. 
+Algunas funciones son proporcionadas para ayudar a escribir \enc{diálogo}{dialogo}s y la \enc{información}{informacion} del estado de \code{Rcmdr} en un emplazamiento separado. \enc{Véase}{Vease} \code{help("\link{Rcmdr.Utilities}")} y el manual suministrado en el directorio \code{doc} del paquete de \code{Rcmdr} para mayor \enc{información}{informacion}. 
 
 \enc{Además}{Ademas}, varias \enc{características}{caracteristicas} son controladas mediante opciones, en tiempos de \enc{ejecución}{ejecucion}, establecidas por la orden \code{options("Rcmdr")}. Estas opciones deben ser establecidas antes de cargar el paquete. Si las opciones no \enc{están}{estan} establecidas, que es la \enc{situación}{situacion} normal, \enc{serán}{seran} usados los \enc{parámetros}{parametros} por defecto. Las opciones se especifican como una lista de pares \code{name$=$values}. Puede no establecer, establecer una, varias, o todas las opciones. Las opciones disponibles son las dadas a \enc{continuación}{continuacion}: 
 
@@ -97,7 +97,7 @@ Algunas funciones son proporcionadas para ayudar a escribir \enc{diálogo}{dialo
 
 \item{\code{default.font.size}}{\enc{Tamaño}{Tamano}, en puntos, por defecto de la
   fuente. Por defecto es 10 para sistemas Windows y 12 para otro
-  sistemas, salvo \enc{especificación}{especificacion} de lo contrario (mirar el item
+  sistemas, salvo \enc{especificación}{especificacion} de lo contrario (\enc{véase}{vease} el item
   anterior). La fuente por defecto es
   \code{"*helvetica-medium-r-normal-*-xx*"}, donde \code{xx} es por
   defecto el \enc{tamaño}{tamano} de la fuente. Esta \enc{opción}{opcion} es \enc{sólo}{solo} para sistemas no-Windows.} 
@@ -201,13 +201,10 @@ Por ejemplo, para declaraciones de composiciones de R incluidas entre llaves \co
 
 Manuel \enc{Muñoz}{Munoz} \enc{Márquez}{Marquez} (traductor--mantenedor) \email{manuel.munoz@uca.es}
 
-Véase \url{https://knuth.uca.es/R/doku.php?id=equipotraduccion}
+\enc{Véase}{Vease} \url{https://knuth.uca.es/R/doku.php?id=equipotraduccion}
 
-%% La \enc{última}{ultima} \enc{versión}{version} de este fichero la puede encontrar en \url{http://knuth.uca.es/repos/R-contribuciones}
 }
 
 \seealso{\link{Plugins}} 
-
-\examples{options(Rcmdr=list(log.font.size=12, contrasts=c("contr.Sum", "contr.poly")))} 
 
 \keyword{misc}

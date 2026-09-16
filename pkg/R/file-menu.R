@@ -1,5 +1,3 @@
-# last modified 2022-06-13 by J. Fox
-
 # File (and Edit) menu dialogs
 
 loadLog <- function(){
@@ -320,6 +318,24 @@ closeCommanderAndR <- function(){
 	quit(save="no")
 }
 
+#' @name Options
+#'
+#' @title R Commander Options
+#'
+#' @keywords misc
+#'
+#' @author Manuel Munoz-Marquez
+#'
+#' @details
+#' This dialog allows you to change the options of the running instance of R Commander.
+#'
+#' The current Rcmdr options can be saved via \emph{Tools -> Save Rcmdr options...} menu.
+#' Changes can be made to the \code{.Rprofile} file before saving the options.
+#' 
+#' See \code{\link{Startup}} for a description of the \file{.Rprofile} file and the R startup process in general.
+#'
+#' See \code{\link{Commander}} for a description of the various R Commander options.
+#'
 Options <- function(){
   setOption <- function(option, default) {
     if (!is.null(current[[option]])) return(current[[option]])
@@ -331,8 +347,9 @@ Options <- function(){
   
   ## Create tabs
   notebook <- ttknotebook(top)
-  languageTab <- tkframe(top)
+  startTab <- tkframe(top)
   closeTab <- tkframe(top)
+  languageTab <- tkframe(top)
   fontTab <- tkframe(top)
   outputTab <- tkframe(top)
   otherTab <- tkframe(top)
@@ -394,6 +411,7 @@ Options <- function(){
   length.output.stack <- getRcmdr("length.output.stack")
   length.command.stack <- getRcmdr("length.command.stack")
   quit.R.on.close <- getRcmdr("quit.R.on.close")
+  start.rcmdr.with.R <- getRcmdr("start.rcmdr.with.R")
   variable.list.height <- getRcmdr("variable.list.height")
   variable.list.width <- getRcmdr("variable.list.width")
   placement <- setOption("placement", "")
@@ -413,6 +431,9 @@ Options <- function(){
   languageFrame <- tkframe(languageTab)
   radioButtons(window = languageTab, name = "language",  buttons = language.code.list, labels = language.name.list, values = language.code.list, title=gettextRcmdr("Select a language"), initialValue = language.code)
   
+   checkBoxes(startTab, frame="startOptionsFrame", boxes=c("startRcmdrWithR"),
+             initialValues=c(start.rcmdr.with.R),
+             labels=gettextRcmdr("Start the R Commander automatically when R starts"))
    checkBoxes(closeTab, frame="closeOptionsFrame", boxes=c("askToExit", "askOnExit", "quitR"),
              initialValues=c(ask.to.exit, ask.on.exit, quit.R.on.close),
              labels=gettextRcmdr("Ask to exit Commander", "Ask to save documents on exit", "Quit R on exit"))
@@ -576,6 +597,7 @@ Options <- function(){
     ask.to.exit <- asLogical(tclvalue(askToExitVariable))
     ask.on.exit <- asLogical(tclvalue(askOnExitVariable))
     quit.R.on.close <- asLogical(tclvalue(quitRVariable))
+    start.rcmdr.with.R <- asLogical(tclvalue(startRcmdrWithRVariable))
     console.output <- asLogical(tclvalue(consoleOutputVariable))
     number.messages <- asLogical(tclvalue(numberMessagesVariable))
     retain.messages <- asLogical(tclvalue(retainMessagesVariable))
@@ -610,6 +632,7 @@ Options <- function(){
     options$ask.to.exit <- ask.to.exit
     options$ask.on.exit <- ask.on.exit
     options$quit.R.on.close <- quit.R.on.close
+    options$start.rcmdr.with.R <- start.rcmdr.with.R
     options$number.messages <- number.messages
     options$retain.messages <- retain.messages
     options$use.markdown <- use.markdown
@@ -651,9 +674,10 @@ Options <- function(){
     closeCommander()
     Commander()
   }
-  OKCancelHelp(helpSubject="Commander")
-  tkgrid(languageFrame, sticky="nw")
+  OKCancelHelp(helpSubject="Options")
+  tkgrid(startOptionsFrame, sticky="nw")
   tkgrid(closeOptionsFrame, sticky="nw")
+  tkgrid(languageFrame, sticky="nw")
   tkgrid(labelRcmdr(fontFrame, text=gettextRcmdr("Dialog text font size (points)")), defaultFontSizeSlider, sticky="sw", padx=6)
   tkgrid(labelRcmdr(fontFrame, text=gettextRcmdr("Script and output font size (points)")), logFontSizeSlider, sticky="sw", padx=6)
   tkgrid(labelRcmdr(fontFrame, text=gettextRcmdr("Dialog font")), defaultFontEntry, sticky="w", padx=6)
@@ -693,8 +717,9 @@ Options <- function(){
   tkgrid(labelRcmdr(otherTab, text=""))
   tkgrid(getFrame(themesBox), sticky="w")
   tkgrid(labelRcmdr(otherTab, text=""))
-  tkadd(notebook, languageTab, text=gettextRcmdr("Language"), padding=6)
+  tkadd(notebook, startTab, text=gettextRcmdr("Start"), padding=6)
   tkadd(notebook, closeTab, text=gettextRcmdr("Exit"), padding=6)
+  tkadd(notebook, languageTab, text=gettextRcmdr("Language"), padding=6)
   tkadd(notebook, fontTab, text=gettextRcmdr("Fonts"), padding=6)
   tkadd(notebook, outputTab, text=gettextRcmdr("Output"), padding=6)
   tkadd(notebook, otherTab, text=gettextRcmdr("Other Options"), padding=6)
@@ -935,19 +960,22 @@ saveOptions <- function(){
     dput(options, con)
     options <- readLines(con)
     close(con)
+    startoption <- c("local({",
+                       "   old <- getOption('defaultPackages')",
+                       "   options(defaultPackages = c(old, 'Rcmdr'))",
+                       "})",
+                       "")
+    if (!isTRUE(getRcmdr("start.rcmdr.with.R"))) startoption <- paste("#", startoption)
     options <- paste(c("", "",
                        "###! Rcmdr Options Begin !###",
                        "options(Rcmdr=",
                        options,
                        ")",
                        "",
-                       paste0("# ", gettextRcmdr("Uncomment the following 4 lines (remove the #s)")),
-                       paste0("# ", gettextRcmdr("to start the R Commander automatically when R starts:")),
+                       paste0("# ", gettextRcmdr("Comment out (or uncomment) the following 4 lines (add (or remove) the #s)")),
+                       paste0("# ", gettextRcmdr("to enable (or disable) the automatic startup of the R Commander when R starts:")),
                        "",
-                       "# local({",
-                       "#    old <- getOption('defaultPackages')",
-                       "#    options(defaultPackages = c(old, 'Rcmdr'))",
-                       "# })",
+                       startoption,
                        "",
                        "###! Rcmdr Options End !###"),
                      collapse="\n"

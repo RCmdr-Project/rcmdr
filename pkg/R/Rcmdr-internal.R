@@ -1,5 +1,5 @@
 #' @name reexports
-#' 
+#'
 #' @title \pkg{tcltk} Functions Re-exported by the \pkg{Rcmdr} Package.
 #' 
 #' @keywords misc

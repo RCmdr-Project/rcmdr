@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Rcmdr 2.13.0\n"
+"Project-Id-Version: Rcmdr 2.14.1\n"
 "Report-Msgid-Bugs-To: manuel.munoz@uca.es\n"
-"POT-Creation-Date: 2026-05-04 00:00:00\n"
+"POT-Creation-Date: 2026-09-17 00:00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,16 +11,22 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Start"
+msgstr ""
+
+msgid "Start the R Commander automatically when R starts"
+msgstr ""
+
 msgid "Language"
 msgstr ""
 
 msgid "Select a language"
 msgstr ""
 
-msgid "to start the R Commander automatically when R starts:"
+msgid "to enable (or disable) the automatic startup of the R Commander when R starts:"
 msgstr ""
 
-msgid "Uncomment the following 4 lines (remove the #s)"
+msgid "Comment out (or uncomment) the following 4 lines (add (or remove) the #s)"
 msgstr ""
 
 msgid "Variance"

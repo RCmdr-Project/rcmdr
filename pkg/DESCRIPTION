@@ -1,6 +1,6 @@
 Package: Rcmdr
-Version: 2.13.0
-Date: 2026-06-19
+Version: 2.14.1
+Date: 2026-09-17
 Title: R Commander
 Encoding: UTF-8
 Authors@R: c(person("John", "Fox", role = "aut"),
@@ -38,6 +38,6 @@ ByteCompile: yes
 Description:
   A platform-independent basic-statistics GUI (graphical user interface) for R, based on the tcltk package.
 License: GPL (>= 2)
-URL: https://github.com/RCmdr-Project/rcmdr, https://www.r-project.org, https://www.john-fox.ca/RCommander/index.html
+URL: https://www.r-commander.com, https://github.com/RCmdr-Project/rcmdr, https://www.r-project.org, https://www.john-fox.ca/RCommander/index.html
 Config/roxygen2/version: 8.0.0
 RoxygenNote: 7.3.3

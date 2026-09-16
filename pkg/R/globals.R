@@ -1,4 +1,4 @@
-globalVariables(c('languageVariable', 'top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
+globalVariables(c('startRcmdrWithRVariable', 'startOptionsFrame', 'startRcmdrWithRVariable', 'languageVariable', 'top', 'statisticFrame', 'statisticVariable', 'buttonsFrame',
                   '.activeModel', 'varVariable', 'rhsVariable', 'varFrame', 'formulaFrame',
                   'outerOperatorsFrame', 'xBox', 'matrixVariable', 'factorCorVariable',
                   'identifyVariable', 'robustVariable', 'matrixFrame', 'factorCorFrame',

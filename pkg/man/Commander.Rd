@@ -456,8 +456,4 @@ Extending the R Commander by "plug in" packages.
 
 \seealso{\link{Plugins}, \link{Rcmdr.Utilities}, \code{\link[knitr]{knit}}, \code{\link[knitr]{knit2pdf}}}
 
-\examples{
-    options(Rcmdr=list(log.font.size=12, default.contrasts=c("contr.Sum", "contr.poly")))
-    }
-
 \keyword{misc}

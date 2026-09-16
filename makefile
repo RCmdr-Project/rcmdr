@@ -1,5 +1,5 @@
 package := Rcmdr
-version := 2.13.0
+version := 2.14.1
 
 R := $(wildcard pkg/R/*.R)
 Rnw := $(wildcard pkg/vignettes/*.Rnw)
@@ -16,6 +16,9 @@ check: Rcmdr.Rcheck/00check.log
 
 install: ~/R_LIBS/${package}/NAMESPACE 
 	@echo $(package)_$(version).tar.gz installed
+
+run: ~/R_LIBS/${package}/NAMESPACE
+	export R_PROFILE_USER=.Rprofile.user; R --no-save
 
 vignettes: $(Vignettes)
 
@@ -42,7 +45,7 @@ pkg/vignettes/%.tex: pkg/vignettes/%.Rnw
 pkg/vignettes/%.pdf: pkg/vignettes/%.tex
 	cd pkg/vignettes; latexmk $(subst pkg/vignettes/,,$<)
 
-pkg/NAMESPACE: $(R)
+pkg/NAMESPACE: $(R) $(Rd)
 	R -e "library('tcltk2'); roxygen2::roxygenize('pkg')"
 	# Temporary patch until all Rd were migrated
 	touch pkg/DESCRIPTION

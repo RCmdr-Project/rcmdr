@@ -213,6 +213,7 @@ setupRcmdrOptions <- function(DESCRIPTION){
     setOption("length.output.stack", 10)
     setOption("length.command.stack", 10)
     setOption("quit.R.on.close", FALSE)
+    setOption("start.rcmdr.with.R", FALSE)
     putRcmdr("outputStack", as.list(rep(NA, getRcmdr("length.output.stack"))))
     putRcmdr("commandStack", as.list(rep(NA, getRcmdr("length.command.stack"))))
     setOption("variable.list.height", 6)

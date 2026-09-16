@@ -1,3 +1,8 @@
+Changes in version 2.14.1
+
+ o Added a workaround was added to prevent tcltk2 from failing
+ o New tab "Start" in "Tools -> Options" dialog
+ 
 Changes in version 2.13.0
 
  o Added new helps for some dialogs.
