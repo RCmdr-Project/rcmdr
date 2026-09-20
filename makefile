@@ -1,5 +1,5 @@
 package := Rcmdr
-version := 2.14.1
+version := 2.14.2
 
 R := $(wildcard pkg/R/*.R)
 Rnw := $(wildcard pkg/vignettes/*.Rnw)
@@ -10,6 +10,9 @@ Vignettes := $(patsubst pkg/vignettes/%.Rnw,pkg/inst/doc/%.pdf,$(Rnw))
 # User targets
 default: $(package)_$(version).tar.gz
 	@echo $(package)_$(version).tar.gz ready
+
+change.version:
+	emacs pkg/DESCRIPTION pkg/NEWS pkg/R/Rcmdr-package.R pkg/po/R-Rcmdr.pot
 
 check: Rcmdr.Rcheck/00check.log
 	@echo Checking $(package)_$(version).tar.gz
