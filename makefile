@@ -1,5 +1,5 @@
 package := Rcmdr
-version := 2.14.2
+version := 2.15.0
 
 R := $(wildcard pkg/R/*.R)
 Rnw := $(wildcard pkg/vignettes/*.Rnw)

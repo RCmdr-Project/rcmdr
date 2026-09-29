@@ -1,8 +1,5 @@
 # R Commander Menu Definitions
 
-# last modified 2022-06-30 by J. Fox
-# last modified 2025-04-25 by M. Munoz-Marquez
-
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
     menu    fileMenu        topMenu         ""                                              ""                          ""          ""
@@ -133,7 +130,8 @@
     menu    proportionsMenu statisticsMenu  ""                                              ""                          ""          ""
     item    proportionsMenu command         "Single-sample proportion test..."              singleProportionTest        "twoLevelFactorsP()"                ""
     item    proportionsMenu command         "Two-sample proportions test..."                twoSampleProportionsTest    "twoLevelFactorsP(2)" "packageAvailable('abind')"
-    menu    variancesMenu   statisticsMenu  ""                                              ""                          ""          ""
+    menu    variancesMenu   statisticsMenu  ""                                              ""                          ""                    ""
+    item    variancesMenu   command         "Single-Sample Variance Test..."                sigmaTestMenu               "numericP()"	      ""
     item    variancesMenu   command         "Two-variances F-test..."                       twoVariancesFTest           "numericP() && twoLevelFactorsP()"          ""
     item    variancesMenu   command         "Bartlett's test..."                            BartlettTest                "numericP() && factorsP()"                  ""
     item    variancesMenu   command         "Levene's test..."                              LeveneTest                  "numericP() && factorsP()" "packageAvailable('car')"
