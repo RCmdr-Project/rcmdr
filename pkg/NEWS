@@ -1,7 +1,12 @@
+Changes in version 2.16.0
+
+ o Bug fixed in sigma.test
+ o Randomness test for two level factor
+ o Randomness test for numeric variable
+
 Changes in version 2.15.0
 
  o New menu option "Statistics" -> "Variance" -> "Single-Sample Variance Test"
-
 
 Changes in version 2.14.2
 

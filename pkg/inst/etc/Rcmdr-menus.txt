@@ -141,6 +141,8 @@
     item    nonparametricMenu command       "Paired-samples Wilcoxon test..."               pairedWilcoxonTest          "numericP(2)"          ""
     item    nonparametricMenu command       "Kruskal-Wallis test..."                        KruskalWallisTest           "numericP() && factorsP()"          ""
 	item	nonparametricMenu command		"Friedman rank-sum test..."						FriedmanTest				"numericP(2)"		   ""
+    item    nonparametricMenu command       "Randomness test for two level factor..."       randomnessFTestMenu          "twoLevelFactorsP()" ""
+    item    nonparametricMenu command       "Randomness test for numeric variable..."       randomnessNTestMenu          "numericP()"         ""
     menu    dimensionalMenu statisticsMenu  ""                                              ""                          ""          ""
     item    dimensionalMenu command         "Scale reliability..."                          Reliability                 "numericP(3)"          "packageAvailable('RcmdrMisc')"
     item    dimensionalMenu command         "Principal-components analysis..."              principalComponents         "numericP(2)"          ""

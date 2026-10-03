@@ -4,19 +4,19 @@
 #'
 #' @author Manuel Munoz-Marquez <manuel.munoz@uca.es>
 #'
-#' @keywords package
+#' @keywords htest
 #'
 #### Para ayuda en español, véase \code{\link{sigmaTestMenu.es}}. (For Spanish help see \code{\link{sigmaTestMenu.es}}.) 
 #'
 #' @description
 #' Within the "Statistics" -> "Variances" menu, a entry is provided for calculate confidence intervals and make contrasts on variance in a normal population.
-#' This option uses the function \code{sigma.test} of the package \code{TeachingDemos}.
+#' This menu option produce a call to \code{sigma.test} function which calls \code{sigma.test} function of the package \code{TeachingDemos} after removing NA's.
 #' For more information see \code{\link[TeachingDemos]{sigma.test}}.
 #'
 #' @details
-#' Here is an example of "Single-Sample Variance Test..." menu entry.
+#' This is an example of how to use option "Single-Sample Variance Test..." of the menu.
 #'
-#' Load data "BJsales" selecting from Rcmdr menu: "Data" -> "Data in packages" -> "Read data set from an attached package..." then double-click on "datasets", click on "BJsales" and on "OK".
+#' Load "BJsales" data set selecting from Rcmdr menu: "Data" -> "Data in packages" -> "Read data set from an attached package..." then double-click on "datasets", click on "BJsales" and on "OK".
 #' 
 #' Rcmdr reply with the following command in source pane (R Script)
 #'
@@ -28,7 +28,7 @@
 #' Enter 500 in the "Null hypothesis sigma0^2" field to test the hypothesis that the population variance is 500, and click OK.
 #' Rcmdr reply with the following command in source pane (R Script)
 #' 
-#' \code{with(na.omit(BJsales), sigma.test(x, alternative='two.sided', sigmasq=500, conf.level=0.95))}
+#' \code{with(BJsales, sigma.test(x, alternative='two.sided', sigmasq=500, conf.level=0.95))}
 #'
 #' And the result shown in the Output panel is
 #'
@@ -66,7 +66,7 @@ sigmaTestMenu <- function() {
         sigma <- tclvalue(sigmaVariable)
         putDialog("sigmaTestMenu", list (initial.x = x, initial.alternative = alternative, initial.level = level, initial.sigma = sigma))
         closeDialog()
-        doItAndPrint(paste("with(na.omit(", ActiveDataSet (), "), sigma.test(", x, ", alternative='", alternative, "', sigmasq=", sigma, ", conf.level=", level, "))", sep = ""))
+        doItAndPrint(paste("with(", ActiveDataSet(), ", sigma.test(", x, ", alternative='", alternative, "', sigmasq=", sigma, ", conf.level=", level, "))", sep = ""))
         tkdestroy(top)
         tkfocus(CommanderWindow())
     }
@@ -95,12 +95,17 @@ sigmaTestMenu <- function() {
 
 #' @title sigma.test
 #' 
-#' @importFrom TeachingDemos sigma.test
-#' 
 #' @keywords internal
 #' 
 #' @export sigma.test
-sigma.test <- TeachingDemos::sigma.test
+sigma.test <- function(x, ...) {
+    .x <- x[!is.na(x)]
+    out <- TeachingDemos::sigma.test(.x, ...)
+    out$data.name <- deparse(substitute(x))
+    names(out$estimate) <- paste("var of", out$data.name)
+    return(out)
+}
+
 
 ## @name sigmaTestMenu.es
 ##
