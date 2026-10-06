@@ -8,7 +8,7 @@
 #'
 #' @description
 #' 
-#' This menu option performs a randomness test for two level factor calling \link[tseries]{run.test} function.
+#' This menu option performs a randomness test for two level factor calling \link[tseries]{runs.test} function.
 #'
 #' @details
 #' This is an example of how to use option "Randomness test for two level factor..." of the menu.
@@ -64,6 +64,8 @@ randomnessFTestMenu <- function() {
 #' @title Randomness test for two level factor
 #'
 #' @keywords internal
+#'
+#' @import tseries
 #'
 #' @export twolevelfactor.runs.test
 twolevelfactor.runs.test <- tseries::runs.test

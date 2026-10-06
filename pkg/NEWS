@@ -1,3 +1,8 @@
+Changes in version 2.17.0
+
+ o New menu entry  -> "Predict using active model" -> "Input data and predict..." to input new values for predictor variables and compute the prediction
+ o New menu entry  -> "Predict using active model" -> "Predict values for existing dataset..." to predict for the values for predictor variables in the given data.frame
+
 Changes in version 2.16.0
 
  o Bug fixed in sigma.test

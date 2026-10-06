@@ -8,7 +8,7 @@
 #'
 #' @description
 #'
-#' This menu option performs a randomness test for numeric variable calling \link[randtest]{run.test} function.
+#' This menu option performs a randomness test for numeric variable calling \link[randtests]{runs.test} function.
 #' 
 #' @details
 #' This is an example of how to use option "Randomness test for numeric variable..." of the menu.
@@ -65,5 +65,7 @@ randomnessNTestMenu <- function() {
 #'
 #' @keywords internal
 #'
+#' @import randtests
+#' 
 #' @export numeric.runs.test
 numeric.runs.test <- randtests::runs.test

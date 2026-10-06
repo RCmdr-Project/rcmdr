@@ -8,8 +8,6 @@
 #'
 #' @author Manuel Muñoz-Márquez (traductor--mantenedor) \email{manuel.munoz@uca.es}
 #' 
-#' Véase \url{https://knuth.uca.es/R/doku.php?id=equipotraduccion}
-#' 
 #' @keywords package
 #' 
 #' @seealso \link{Commander}, \link{Plugins}, \link{Rcmdr.Utilities}, \link[knitr]{knit}, \link[knitr]{knit2pdf}
