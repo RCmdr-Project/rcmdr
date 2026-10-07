@@ -77,7 +77,7 @@ Currently, translations are available in the following languages:
 : Ελληνικά (Elliniká) (Greek, Modern by Anastasios Vikatos, Andreas Vikatos and Vasileios Dimitropoulos 2015-09-06)
 
 **[es]**
-: Espa&ntilde;ol (Spanish by M. Munoz-Marquez 2026-05-04)
+: Espa&ntilde;ol (Spanish by M. Munoz-Marquez always synchronized)
 
 **[eu]**
 : Euskara (Basque by José Ramón Rueda 2020-08-27)
@@ -104,7 +104,7 @@ Currently, translations are available in the following languages:
 : &#54620;&#44397;&#50612; (Korean by Jong-Hwa Shin 2022-08-07)
 
 **[pl]**
-: Polski (Polish by Łukasz Daniel 2026-05-04)
+: Polski (Polish by Łukasz Daniel 2026-06-20)
 
 **[pt_BR]**
 : Portugu&ecirc;s do Brasil(Portuguese by Marilia Sá Carvalho 2015-09-25)
@@ -116,7 +116,7 @@ Currently, translations are available in the following languages:
 : &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081; (Russian by Alexey Shipunov 2018-08-20)
 
 **[sl]**
-: Slovenščina (Slovenian by Jaro Lajovic 2026-06-14)
+: Slovenščina (Slovenian by Jaro Lajovic 2026-09-20)
 
 **[zh]**
 : &#32321;&#39636;&#20013;&#25991; (Traditional Chinese by Li Cheng Hsun 2022-07-11)
